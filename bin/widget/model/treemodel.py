@@ -55,6 +55,14 @@ class TreeModel(QAbstractItemModel):
 		self.fields = fields
 		self.updateVisibleFields()
 
+	## @brief Sets the order in which fields should be put in the model.
+	#
+	# If this function is never called fields are put in alphabetical
+	# order.
+	def setFieldsOrder(self, fields):
+		self.visibleFields = fields
+		self.updateVisibleFields()
+
 	## @brief Sets the dictionary of colors
 	#
 	# The dictionary is of the form 'color' : 'expression', where 
@@ -63,7 +71,12 @@ class TreeModel(QAbstractItemModel):
 	def setColors(self, colors):
 		self.colors = colors
 
-	## @brief
+	## @brief Sets whether the background color should be returned in 
+	# data() or not.
+	#
+	# Setting this to True (default) will make the call to data() with 
+	# Qt.BackgroundRole to return the appropiate background color 
+	# if fields are read only or required.
 	def setShowBackgroundColor(self, showBackgroundColor):
 		self.showBackgroundColor = showBackgroundColor
 
@@ -87,12 +100,14 @@ class TreeModel(QAbstractItemModel):
 	# Updates the list of visible fields. The list is kept sorted and icon
 	# and child fields are excluded if they have been specified.
 	def updateVisibleFields(self):
-		self.visibleFields = self.fields.keys()[:]
+		if not self.visibleFields:
+			self.visibleFields = self.fields.keys()[:]
+		#self.visibleFields = self.fields.keys()[:]
 		if self.icon in self.visibleFields:
 			del self.visibleFields[self.visibleFields.index(self.icon)]
 		if self.child in self.visibleFields:
 			del self.visibleFields[self.visibleFields.index(self.child)]
-		self.visibleFields.sort()
+		#self.visibleFields.sort()
 
 	## @brief Set the model to the specified mode
 	#
@@ -131,6 +146,9 @@ class TreeModel(QAbstractItemModel):
 				if fieldType == 'one2many':
 					value = self.valueByName(parent.row(), self.child, parent.internalPointer())
 					return len(value.models)
+				elif fieldType == 'many2many':
+					value = self.valueByName(parent.row(), self.child, parent.internalPointer())
+					return len(value)
 				else:
 					return 0
 
@@ -139,6 +157,9 @@ class TreeModel(QAbstractItemModel):
 			if fieldType == 'one2many':
 				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
 				return len(value.models)
+			elif fieldType == 'many2many': 
+				value = self.valueByName(parent.row(), self.child, parent.internalPointer())
+				return len(value)
 			else:
 				return 0
 		else:
@@ -161,6 +182,8 @@ class TreeModel(QAbstractItemModel):
 				# Note that trying to browse and search the number of fields of 
 				# the model group wouldn't work we'd have to addFields() as fields
 				# wouldn't be loaded. That would make the function slower.
+				return len(self.visibleFields)
+			elif fieldType == 'many2many':
 				return len(self.visibleFields)
 			else:
 				return 0
@@ -254,6 +277,7 @@ class TreeModel(QAbstractItemModel):
 		# The 'parent' of the child ModelRecordGroup is a Model. The
 		# model has a pointer to the ModelRecordGroup it belongs and
 		# it's called 'mgroup'
+		print "GROUP: ", group
 		model = group.parent
 		parent = group.parent.mgroup
 
@@ -323,7 +347,6 @@ class TreeModel(QAbstractItemModel):
 		if not field or not model:
 			return None
 		else:
-			#return model.values[ field ]
 			return model.value( field )
 
 	def valueByName(self, row, field, group):
@@ -336,6 +359,5 @@ class TreeModel(QAbstractItemModel):
 		if not model:
 			return None
 		else:
-			#return model.values[ field ]
 			return model.value( field )
 

@@ -77,14 +77,16 @@ class tree( QWidget ):
 
 		self.treeModel = TreeModel( self )
 		self.treeModel.setFields( self.fields )
+		self.treeModel.setFieldsOrder( p.fieldsOrder )
 		self.treeModel.setIconForField( 'icon', 'name')
-		self.treeModel.setChildrenForField( 'child_id', 'name' )
+		self.treeModel.setChildrenForField( self.childrenField, 'name' )
 		self.treeModel.setShowBackgroundColor( False )
 
 		self.listModel = TreeModel( self )
 		self.listModel.setFields( self.fields )
+		self.listModel.setFieldsOrder( p.fieldsOrder )
 		self.listModel.setIconForField( 'icon', 'name' )
-		self.listModel.setChildrenForField( 'child_id', 'name' )
+		self.listModel.setChildrenForField( self.childrenField, 'name' )
 		self.listModel.setShowBackgroundColor( False )
 
 		self.group = widget.model.group.ModelRecordGroup( self.model, self.fields, context = self.context )

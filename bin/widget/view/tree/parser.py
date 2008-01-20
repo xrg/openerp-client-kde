@@ -107,6 +107,7 @@ class TreeParser(AbstractParser):
 		model = treemodel.TreeModel( view )
 		model.setModelGroup( self.screen.models )
 		model.setFields( fields )
+		model.setFieldsOrder( [x['name'] for x in header] )
 		model.setColors( colors )
 		if view.readOnly:
 			model.setShowBackgroundColor( False )
@@ -114,19 +115,6 @@ class TreeParser(AbstractParser):
 			model.setShowBackgroundColor( True )
 		view.setModel( model )
 
-		# Sort headers appropiately
-		self.sortHeader( view.widget.header(), header, model )
-		#headerView = view.widget.header()
-		#j = 0
-		#for y in header:
-			#i = 0	
-			#for i in range(headerView.count()):
-				#logic = headerView.logicalIndex(i)
-				#if y['name'] == model.visibleFields[logic]:
-					#headerView.moveSection(i, j)	
-					#break
-			#j = j + 1
-		
 		for column in range( len(columns)):
 			view.widget.setColumnWidth( column, columns[column]['width'] )
 		 	if columns[column]['type'] == 'selection':
@@ -149,27 +137,10 @@ class TreeParser(AbstractParser):
 				view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
 
-	## @brief Sorts a QHeaderView given the headerOrder and a TreeModel
-	#
-	# headerView should be a QHeaderView, headerOrder the dictionary as returned
-	# by the server and model a TreeModel.
-	def sortHeader(self, headerView, headerOrder, model):
-		# Sort headers appropiately
-		#headerView = view.widget.header()
-		j = 0
-		for y in headerOrder:
-			i = 0	
-			for i in range(headerView.count()):
-				logic = headerView.logicalIndex(i)
-				if y['name'] == model.visibleFields[logic]:
-					headerView.moveSection(i, j)	
-					break
-			j = j + 1
-
 class ComboBoxDelegate( QItemDelegate ):
 	def __init__( self, attributes, parent=None):
 		QItemDelegate.__init__( self, parent )
-		self.list = attributes.get('selection', [])	
+		self.list = attributes.get('selection', [])
 
 	def createEditor( self, parent, option, index ):
 		widget =  QComboBox( parent )
