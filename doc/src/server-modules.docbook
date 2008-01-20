@@ -1,0 +1,96 @@
+ <chapter>
+ <title>Server modules</title>
+ <para>
+  In the &ktiny; repository, apart from the client itself you'll find several server modules. We'd like, of course, them to be added to the official TinyERP server distribution, but even if that happens someday, their everyday development needs to be somewhere and we want the process to remain public.
+ </para>
+ <para>
+  In this chapter you'll find an in-depth explanation of each module. What offers to the user and how it's done for developers to improve it. However, before explaining each module, we will explain how to make it available to TinyERP for install.
+ </para>
+ <para>
+  Server modules can be found in the <literal>server-modules</literal> directory in the &ktiny; source distribution. There, each directory is a different module that can be independently installed, except otherwise stated in the specific module documentation. In this directory you can also find a shell script named <literal>create-symlinks.sh</literal> which can be used in &unix; machines to make all the modules available to the TinyERP server.
+ </para>
+ <para>
+  Suppose you have your server at <literal>/usr/local/tinyerp</literal>, then use <literal>./create-symlinks.sh /usr/local/tinyerp/bin/addons</literal>, restart the server and the modules should be available at <emphasis>Administration -> Modules Management -> Modules -> Uninstalled Modules</emphasis>
+ </para>
+ <sect1 id="smart-attach">
+  <title>Smart attach</title>
+  <para>
+   When installed, this module automatically extracts information from attached files and stores it in a new field in the database. Extracted information means that it can read text from PDF, ODF, DOC or TXT files (among others) and if the file is an image it is scanned using an Optical Character Recognition (OCR) program.
+  </para>
+  <sect2>
+   <title>Installation</title>
+   <para>
+    For the module to work properly you'll need to satisfy some dependencies on external programs (server side):
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <emphasis>Strigi</emphasis>. The module uses <literal>xmlindexer</literal> which comes with <emphasis>strigi</emphasis>'s distribution to extract the text of different files, such as text files, PDF, ODF, etc. Probably newer versions will recognize more file formats, so the newer the better. (<ulink url="http://strigi.sf.net"/>)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <emphasis>Gamera</emphasis>. Optional: You will need this program if you want text extraction from images to work. Currently it's only used for threasholding the image but it'll be much more used in the future. Note that you will probably need to set PATH and PYTHONPATH appropiately before launching the server! (<ulink url="http://ldp.library.jhu.edu/projects/gamera/"/>)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <emphasis>tesseract-ocr</emphasis>. Optional: You will need this program if you want text extraction from images to work. Currently version 1.44 is used but code for version 2 is already in SVN ready to be tested, and will become a requirement in the near future for a couple of reasons: It's faster and supports languages other than English. (<ulink url="http://code.google.com/p/tesseract-ocr/"/>)
+     </para>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+ </sect1>
+
+ <sect1 id="full-text-search">
+  <title>Full text search</title>
+  <para>
+   The full text search module offers the possibility of searching anything in the database like the user is used in web searchers. As the module uses the full text searching capabilities of PostgreSQL, the administrator can tune the system to provide great results, by setting different priorities to different fields or by using dictionaries and stemmers. For example, one can make the search for the word 'using', return any document that contains the words 'use', 'using' and 'used'.
+  </para>
+  <mediaobject>
+   <imageobject>
+    <imagedata fileref="fts.png"/>
+   </imageobject>
+  </mediaobject>
+  <para>
+   Full text search works very well with the Smart Attach module, meaning that you can index meta information automatically extracted from attached documents.
+  </para>
+  
+  <sect2>
+   <title>Installation</title>
+   <para>
+    Before you can use this module you'll need to satisfy two dependencies:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <emphasis>TSearch2.</emphasis> TSearch2 adds full text search capabilities to PostgreSQL. Note that since version 8.3 PostgreSQL has TSearch2 included into core, so you don't need to do anything. Otherwise, you'll need to install it which usually means compiling (if your distribution didn't do it for you, and add the support to the database with <literal>psql database < tsearch2.sql</literal>. (<ulink url="http://www.sai.msu.su/~megera/postgres/gist/tsearch/V2/"/>)
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <emphasis>PL/PythonU.</emphasis> As <emphasis>Full text search</emphasis> trigger mechanism uses Python on the database you'll need to install Python on the database. Note the <literal>U</literal> stands for Untrusted, as Python is classified as an untrusted language in PostgreSQL. In the future we'll probably offer the chance of choosing between PL/PythonU or PL/SQL triggers.
+     </para>
+    </listitem>
+   </itemizedlist>
+   <note>
+    <para>
+     In both cases it's possible to add support to a single database or to all newly created databases by adding TSearch2 or Python support to database <literal>template1</literal>, which is used to create new databases in PostgreSQL (unless another template is specified).
+    </para>
+    <para>
+     This module also uses Psycopg2 in the trigger and thus such a package needs to be installed in the server where PostgreSQL resides. Psycopg2 is used to quote field values and avoid SQL injection.
+    </para>
+   </note>
+  </sect2>
+
+  <sect2>
+   <title>Configuration</title>
+   <para>
+    Once you've installed the dependencies and the module via <emphasis>Administration - Module Administration - Modules</emphasis>, you need to configure which fields you want to be indexed. The module will add a new section in <emphasis>Administration - Configuration - Full Text Search</emphasis>. 
+   </para>
+
+  </sect2>
+
+ </sect1>
+</chapter>
+

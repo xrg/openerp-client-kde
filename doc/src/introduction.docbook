@@ -1,0 +1,103 @@
+<chapter>
+ <title>Introduction</title>
+ <para>
+  &ktiny; is a Qt/KDE based client for TinyERP. Main goals for the project are outstanding integration with the KDE Desktop using the KDE Development Platform, which means it should be available to Linux, Mac and Windows users as well as other operating systems. It's in no way supported by the TinyERP project at the moment, though we intend to work in the same directoion of TinyERP, and give back to the whole community any features that could be useful to other clients.
+ </para>
+ <para>
+  Main development is currently supported by <ulink url="http://www.NaN-tic.com">NaN</ulink> but the whole open source community is invited and encouraged to participate. All project information can be found at <ulink url="http://sf.net/projects/ktiny">sourceforge</ulink>. That includes users and hackers mailing lists as well as bug tracker and subversion repository. New releases will also be available there.
+ </para>
+
+ <sect1 id="advantages">
+  <title>Advantages</title>
+  <para>
+ We think &ktiny; has some advantages over the default GTK client. Some of these advantages for users are:
+ </para>
+ <itemizedlist>
+  <listitem>
+   <para>
+   The user can write formulas in numeric fields including: +, -, *, / and parenthesis. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Integrated and configurable full text search. Select all fields you need and their importance. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Customizable and smarter attachments dialog. Added fields in server modules are shown like in any other view, without loosing the hability of viewing images. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Smart attach module allows the user to view meta information extracted from files, and index it if full text search module is used. Meta information is recognized from a number of file types such as PDF, ODF, DOC and TXT. Images are scanned with an optical character recognition program. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Possibility of seeing images if attached as binary or images by right clicking in the widget. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Possibility of adding and removing predefined exports. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Possibility of exporting to HTML format. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Popup menu options in date widgets allow inserting current date and time. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Styleable user interface without the need of a server module. Simply add a new stylesheet attribute to any widget. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   DBUS interface allows external interaction, such as opening a new partner tab when the partner connects some instant messaging service. 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   PDF files directed to printer, binary data and images will be opened with the user's desktop default application for the given file type. Simply attach a file, right click on the text box and select "Open...". 
+   </para>
+  </listitem>
+ </itemizedlist>
+ <para>
+  Some advantages for developers are:
+ </para>
+ <itemizedlist>
+  <listitem>
+   <para>
+   It's easier to create and deploy new views as it requires no modifications on bin/widget/view. Simply copy the directory and that's it! 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   It's easier to create and deploy new plugins. Just copy the directory and that's it! 
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Well defined interfaces to ease development of new widgets and views. Including a Qt model which let's create new views easily.
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Less lines of code, more comments, more features!
+   </para>
+  </listitem>
+  <listitem>
+   <para>
+   Public subversion repository and core developers mailing list.
+   </para>
+  </listitem>
+ </itemizedlist>
+ </sect1>
+</chapter>

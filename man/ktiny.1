@@ -1,0 +1,59 @@
+.TH tinyerp 1
+
+.SH NAME
+ktiny \- Qt/KDE Client for Tiny ERP 
+
+.SH SYNOPSIS
+
+.B ktiny.py [options]
+
+.SH DESCRIPTION
+KTiny is a Qt/KDE based client for Tiny ERP, a complete ERP and CRM. KTiny
+aims for great flexibility allowing easy creation of plugins and views, high
+integration with the KDE4 under Unix, Windows and Mac, as well as providing
+a development platform for new applications using the Tiny ERP server.
+
+A set of server side modules is also provided among the KTiny distribution
+which provide better attachments handling and full text search.
+
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Print this help message and exit.
+
+.TP
+.B \-\-version
+Print the program's version number and exit.
+.TP
+.B \-c \fIfile\fR, \-\-config=\fIfile\fR
+Specify alternate config file. By default, tinyerp uses ~/.terprc
+
+.TP
+.B \-v, \-\-verbose
+Enable verbose mode. This is equivalent to: \fB\-\-log\-level\fR=INFO
+
+.TP
+.B \-l \fIlevel\fR, \-\-log-level=\fIlevel\fR
+Specify the log level. By default, tinyerp only logs ERROR messages.
+\fIlevel\fR can be any of the following: DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+.TP
+.B \-d \fIchannels\fR, \-\-log=\fIchannels\fR
+Specify which channels to log. Available channels are: view, view.form,
+common.options, common.message, rpc.exception, rpc.request, rpc.result
+
+.SH FILES
+~/.terprc
+
+.SH AUTHORS
+
+KTiny is a community effort mainly developed by NaN (\fBhttp://www.nan-tic.com\fR)
+at SourceForge (\fBhttp://sf.net/projects/ktiny\fR)
+
+.SH SEE ALSO
+tinyerp_server(1) tinyerp_client(1)
+.br
+\fIhttp://ktiny.sf.net\fR : Tiny ERP developer zone
+.br
+\fIhttp://www.tinyerp.org\fR : Tiny ERP developer zone
+

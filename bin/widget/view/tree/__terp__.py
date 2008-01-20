@@ -1,0 +1,4 @@
+{
+	'tree' : 'tree.TreeParser'
+}
+

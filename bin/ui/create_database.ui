@@ -1,0 +1,359 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>515</width>
+    <height>403</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Create a new database</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <property name="leftMargin" >
+    <number>9</number>
+   </property>
+   <property name="topMargin" >
+    <number>9</number>
+   </property>
+   <property name="rightMargin" >
+    <number>9</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>9</number>
+   </property>
+   <item>
+    <layout class="QGridLayout" >
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <property name="horizontalSpacing" >
+      <number>6</number>
+     </property>
+     <property name="verticalSpacing" >
+      <number>6</number>
+     </property>
+     <item row="4" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="text" >
+        <string>&amp;New database name:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>database</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="2" colspan="2" >
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="tinyServer" >
+         <property name="enabled" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushChange" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text" >
+          <string>C&amp;hange</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/configure.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="7" column="2" colspan="2" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="5" column="2" colspan="2" >
+      <widget class="QLabel" name="label_5" >
+       <property name="text" >
+        <string>(must not contain any special character)</string>
+       </property>
+       <property name="buddy" >
+        <cstring>database</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="2" colspan="2" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
+        <string>(use 'admin', if you did not change it)</string>
+       </property>
+       <property name="buddy" >
+        <cstring>password</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0" colspan="2" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>&amp;Super admin password:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>password</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="10" column="0" >
+      <widget class="QLabel" name="label_6" >
+       <property name="text" >
+        <string>&amp;Default language:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>language</cstring>
+       </property>
+      </widget>
+     </item>
+     <item rowspan="2" row="7" column="0" colspan="2" >
+      <widget class="QCheckBox" name="demoData" >
+       <property name="text" >
+        <string>&amp;Load demonstration data</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="10" column="1" colspan="3" >
+      <widget class="QComboBox" name="language" />
+     </item>
+     <item row="0" column="0" colspan="2" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>&amp;TinyERP server:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>pushChange</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2" colspan="2" >
+      <widget class="QLineEdit" name="password" />
+     </item>
+     <item rowspan="2" row="8" column="2" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="4" column="2" colspan="2" >
+      <widget class="QLineEdit" name="database" />
+     </item>
+     <item row="6" column="0" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
+         <height>21</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0" colspan="2" >
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+       <property name="default" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel" >
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>tinyServer</tabstop>
+  <tabstop>pushChange</tabstop>
+  <tabstop>password</tabstop>
+  <tabstop>database</tabstop>
+  <tabstop>demoData</tabstop>
+  <tabstop>language</tabstop>
+  <tabstop>pushAccept</tabstop>
+  <tabstop>pushCancel</tabstop>
+ </tabstops>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

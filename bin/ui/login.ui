@@ -1,0 +1,311 @@
+<ui version="4.0" >
+ <class>Login</class>
+ <widget class="QDialog" name="Login" >
+  <property name="windowModality" >
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>583</width>
+    <height>314</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle" >
+   <string>Login</string>
+  </property>
+  <property name="windowIcon" >
+   <iconset/>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <property name="leftMargin" >
+    <number>9</number>
+   </property>
+   <property name="topMargin" >
+    <number>9</number>
+   </property>
+   <property name="rightMargin" >
+    <number>9</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>9</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label_5" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="pixmap" >
+      <pixmap resource="common.qrc" >:/images/images/tinyerp.png</pixmap>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QGridLayout" >
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <property name="horizontalSpacing" >
+      <number>6</number>
+     </property>
+     <property name="verticalSpacing" >
+      <number>6</number>
+     </property>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="uiServer" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+       <property name="focusPolicy" >
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="readOnly" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" colspan="2" >
+      <widget class="QComboBox" name="uiDatabase" />
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>&amp;Database:</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy" >
+        <cstring>uiDatabase</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" >
+      <widget class="QPushButton" name="pushChange" >
+       <property name="text" >
+        <string>C&amp;hange</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/configure.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>&amp;Server:</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy" >
+        <cstring>pushChange</cstring>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="uiNoConnection" >
+     <property name="text" >
+      <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Could not connect to server !&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Minimum</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>382</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QGridLayout" >
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <property name="horizontalSpacing" >
+      <number>6</number>
+     </property>
+     <property name="verticalSpacing" >
+      <number>6</number>
+     </property>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="uiUserName" />
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text" >
+        <string>&amp;Password:</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy" >
+        <cstring>uiPassword</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" >
+      <widget class="QLineEdit" name="uiPassword" >
+       <property name="echoMode" >
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text" >
+        <string>&amp;User:</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy" >
+        <cstring>uiUserName</cstring>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+       <property name="default" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel" >
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>uiPassword</tabstop>
+  <tabstop>pushAccept</tabstop>
+  <tabstop>pushCancel</tabstop>
+  <tabstop>pushChange</tabstop>
+  <tabstop>uiDatabase</tabstop>
+  <tabstop>uiUserName</tabstop>
+ </tabstops>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

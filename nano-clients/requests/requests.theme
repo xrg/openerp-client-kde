@@ -1,0 +1,3 @@
+karamba x=100 y=100 w=240 h=170 interval=30000
+image x=0 y=0 path="imgs/background.png"
+

@@ -1,0 +1,179 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <layout class="QGridLayout" >
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>Field &amp;Name</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiFieldName</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="uiFieldName" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>&amp;Domain</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiDomain</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" >
+      <widget class="QLineEdit" name="uiDomain" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
+        <string>Default &amp;value</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiDefaultValue</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" >
+      <widget class="QLineEdit" name="uiDefaultValue" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4" >
+     <property name="text" >
+      <string>&lt;b>Value applicable for:&lt;/b></string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <widget class="QRadioButton" name="uiOnlyForYou" >
+       <property name="text" >
+        <string>&amp;only for you</string>
+       </property>
+       <property name="checked" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="uiForAllUsers" >
+       <property name="text" >
+        <string>for all &amp;users</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_5" >
+     <property name="text" >
+      <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Value applicable if:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="uiFrame" >
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel" >
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>359</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>383</x>
+     <y>297</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

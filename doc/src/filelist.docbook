@@ -1,0 +1,6 @@
+<!ENTITY introduction SYSTEM "introduction.docbook">
+<!ENTITY installation SYSTEM "installation.docbook">
+<!ENTITY ui SYSTEM "ui.docbook">
+<!ENTITY development SYSTEM "development.docbook">
+<!ENTITY server-modules SYSTEM "server-modules.docbook">
+

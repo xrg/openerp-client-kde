@@ -1,0 +1,197 @@
+<chapter>
+ <title>Installation</title>
+  
+ <sect1 id="common">
+  <title>Common configuration for all platforms</title>
+  <para>
+   Note that &ktiny; is intended to work with TinyERP 4.2 server or newer.
+  </para>
+  <para>
+   Although &ktiny; tries to work without any server modification, at least, one is necessary at the moment. We'll try to provide a patch in the future but, please follow these simple instructions:
+   <orderedlist>
+    <listitem>
+     <para>
+      Edit the <literal>bin/addons/base/ir/ir_attachment.py</literal> file of the server and remove <literal>readonly=True</literal> from <literal>res_model</literal> and <literal>res_id</literal>. Then reestart the server and now you can fully work with attachments within &ktiny;. Note that this doesn't affect other attachments you may have in the database, and all of them should be available in &ktiny;. This change is needed for &ktiny; to create new attachments.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      Also, once you've created a new database (or in the original XML file) you should modify the <literal>ir.attachment.view</literal> of type <literal>form</literal>. You'll need <literal>res_model</literal> and <literal>res_id</literal> to have <literal>invisible="1" nolabel="1"</literal> as attributes. Also add <literal>fname_widget="datas_fname"</literal> as attribute to the <literal>datas</literal> field. The resulting XML should look like this:
+     </para>
+     <programlisting>
+&lt;form string="Attachments">
+	&lt;field colspan="4" name="name" select="1"/>
+	&lt;field colspan="4" name="datas" fname_widget="datas_fname" />
+	&lt;field name="datas_fname"/>
+	&lt;newline/>
+	&lt;field name="res_model" select="1" invisible="1" nolabel="1"/>
+	&lt;field name="res_id" invisible="1" nolabel="1"/>
+	&lt;separator colspan="4" string="Description"/>
+	&lt;field colspan="4" name="description" nolabel="1"/>
+&lt;form>
+     </programlisting>
+    </listitem>
+   </orderedlist>
+  </para>
+ </sect1>
+
+ <sect1 id="linux-and-unixes">
+  <title>Linux and other Unixes</title>
+
+  <para>
+   &ktiny; has some dependencies, some of them in the server side, that is, they can be in another computer in the network and some of them need to be in the client side. In the server you'll need PostgreSQL and TinyERP Server 4.2. On the client side you'll need a python distribution and PyQt 4.3, at least. You can also benefit from having dbus python bindings but they're not required. Indeed, &ktiny; will automatically use them if it finds them.
+  </para>
+  <para>
+   First of all you'll need a running PostgreSQL available, though there's no need for it to be in the same machine as &ktiny; nor TinyERP server. 
+  </para>
+  <para>
+   To test &ktiny; you need TinyERP server 4.2 or newer. As TinyERP is a very popular and easy to install, many distributions already provide it as a package. If your distribution doesn't offer the package or the version is too old you should download it from <ulink url="http://www.tinyerp.org"/> and then unpack it into any directory. Note that the tiny server can be run in a different server from PostgreSQL and the client.
+  </para>
+  <para>
+   Next step is starting the server. If you use your distribution's package most probably it's automatically started each time the computer starts. Otherwise, go to the directory you unpacked it and run <literal>bin/tinyerp-server.py</literal>. 
+  </para>
+  <para>
+   Given that &ktiny; is programmed in python you don't need to compile it. You will see some Makefiles in the source distribution, however, but they are provided for other tasks, such as compiling the documentation or language files.
+  </para>
+ </sect1>
+ <sect1 id="windows">
+  <title>Windows</title>
+  <para>
+   Here you can find the necessary steps to have KTiny up and running on 
+   Windows.
+  </para>
+  <sect2>
+   <title>Building binary package</title>
+   <para>
+    You'll need <literal>matplotlib</literal> 
+    (<ulink url="http://sf.net/projects/matplotlib"/>), 
+    <literal>numpy</literal> (required by matplotlib) 
+    (<ulink url="http://numpy.scipy.org"/>).
+   </para>
+  </sect2>
+  <sect2>
+   <title>Install dependencies</title>
+   <para>
+    As any other application, KTiny has dependencies on third party software. This software packages are also open source and are freely downloadable from the Internet, and they should be installed before KTiny itself.
+   </para>
+   <para>
+    First you should start by downloading the Python installer package that can be downloaded from <ulink url="http://www.python.org/download/"/>. The installer is a wizard which you probably only need to click on next in every page.
+   </para>
+   <para>
+    The other package you need is PyQt4 available at <ulink url="http://www.riverbankcomputing.co.uk/pyqt/download.php"/>, remember you need to download the binary installer for windows (the .exe file).
+   </para>
+   <para>
+   </para>
+  </sect2>
+ </sect1>
+ 
+ <sect1 id="mac">
+  <title>Mac OS</title>
+  <para>
+   In this section we're aggregating information on how to make &ktiny; work on the Mac platform.
+  </para>
+  <para>
+   Needed software:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Qt4 for Mac (<ulink url="http://trolltech.com/developer/downloads/qt/mac"/>)
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     From pythonmac.org: python 2.5 dmg
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>python 2.5 dmg</para>
+     </listitem>
+     <listitem>
+      <para>matplotlib dmg</para>
+     </listitem>
+     <listitem>
+      <para>numpy dmg</para>
+     </listitem>
+     <listitem>
+      <para>pytz dmg</para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+   <listitem>
+    <para>
+     From <ulink url="http://www.riverbankcomputing.com"/> (download + compile): sip and pyqt4
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     From <ulink url="http://www.koders.com"/> copy <literal>dextras.py</literal> into 
+     <literal>ktiny/</literal>
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     From <ulink url="http://www.freedesktop.org"/>:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>pkg-config compile</para>
+     </listitem>
+     <listitem>
+      <para>export PATH=/usr/local/bin:$PATH</para>
+     </listitem>
+     <listitem>
+      <para>libxml (does not find Python.h)</para>
+     </listitem>
+     <listitem>
+      <para>dbus</para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+
+   <listitem>
+    <para>
+     agg2.5 - configure errors
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para>sdl: configure --prefix=/usr</para>
+     </listitem>
+     <listitem>
+      <para>libtoolize</para>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+
+   <listitem>
+    <para>
+     port (problems building)
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para><literal>sudo /opt/local/bin/port upgrade all</literal></para>
+     </listitem>
+     <listitem>
+      <para><literal>sudo /opt/local/bin/port install</literal></para>
+      <itemizedlist>
+       <listitem>
+        <para>autoconf</para>
+       </listitem>
+       <listitem>
+        <para>automake</para>
+       </listitem>
+       <listitem>
+        <para>libtool</para>
+       </listitem>
+       <listitem>
+        <para>autoconf</para>
+       </listitem>
+      </itemizedlist>
+     </listitem>
+    </itemizedlist>
+   </listitem>
+  </itemizedlist>
+ </sect1>
+</chapter>
+

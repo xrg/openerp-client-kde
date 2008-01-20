@@ -1,0 +1,197 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>501</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Full text search</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <property name="leftMargin" >
+    <number>9</number>
+   </property>
+   <property name="topMargin" >
+    <number>9</number>
+   </property>
+   <property name="rightMargin" >
+    <number>9</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>9</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLineEdit" name="uiText" />
+     </item>
+     <item>
+      <widget class="QComboBox" name="uiModel" />
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushFind" >
+       <property name="text" >
+        <string>&amp;Find</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="SearchView" native="1" name="uiItems" />
+   </item>
+   <item>
+    <widget class="QLabel" name="uiErrorMessage" >
+     <property name="text" >
+      <string>TextLabel</string>
+     </property>
+     <property name="wordWrap" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushPrevious" >
+       <property name="text" >
+        <string>&amp;Previous</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushNext" >
+       <property name="text" >
+        <string>&amp;Next</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushAccept" >
+         <property name="text" >
+          <string>&amp;Accept</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushCancel" >
+         <property name="text" >
+          <string>&amp;Cancel</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SearchView</class>
+   <extends>QWidget</extends>
+   <header>modules.gui.window.win_full_text_search</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

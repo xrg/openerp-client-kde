@@ -1,0 +1,378 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>489</width>
+    <height>670</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Error</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string>Application Error !</string>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="tabWidget" >
+     <property name="currentIndex" >
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab" >
+      <attribute name="title" >
+       <string>&amp;Description</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QLabel" name="uiErrorTitle" >
+         <property name="text" >
+          <string>Application Error</string>
+         </property>
+         <property name="alignment" >
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" >
+         <item>
+          <widget class="QLabel" name="label_2" >
+           <property name="text" >
+            <string/>
+           </property>
+           <property name="pixmap" >
+            <pixmap resource="common.qrc" >:/images/images/warning.png</pixmap>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" >
+           <item>
+            <widget class="QLabel" name="label_3" >
+             <property name="text" >
+              <string>&lt;b>Error code:&lt;/b></string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="uiErrorInfo" >
+             <property name="text" >
+              <string>View details</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6" >
+         <property name="text" >
+          <string>Click on the Support Request tab if you need more help!</string>
+         </property>
+         <property name="alignment" >
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3" >
+      <attribute name="title" >
+       <string>De&amp;tails</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QTextBrowser" name="uiDetails" />
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2" >
+      <attribute name="title" >
+       <string>S&amp;upport Request</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <item>
+        <layout class="QVBoxLayout" >
+         <item>
+          <widget class="QLabel" name="label_7" >
+           <property name="text" >
+            <string>&lt;b>Complete this form to submit your bug and/or request support.&lt;/b></string>
+           </property>
+           <property name="wordWrap" >
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_8" >
+           <property name="text" >
+            <string>Your request will be sent to Tiny ERP and we will replay you shortly.
+Note that we may not reply you if your Service Company is not a Tiny ERP partner.</string>
+           </property>
+           <property name="wordWrap" >
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QGridLayout" >
+         <item row="0" column="0" >
+          <widget class="QLabel" name="label_9" >
+           <property name="text" >
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Support contract &amp;amp;id&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiSupportContract</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QLineEdit" name="uiSupportContract" />
+         </item>
+         <item row="1" column="0" >
+          <widget class="QLabel" name="label_10" >
+           <property name="text" >
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Your &amp;amp;name:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiName</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" >
+          <widget class="QLineEdit" name="uiName" />
+         </item>
+         <item row="2" column="0" >
+          <widget class="QLabel" name="label_11" >
+           <property name="text" >
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Your &amp;amp;company:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiCompany</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" >
+          <widget class="QLineEdit" name="uiCompany" />
+         </item>
+         <item row="3" column="0" >
+          <widget class="QLabel" name="label_12" >
+           <property name="text" >
+            <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Your &amp;amp;e-mail:&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiEMail</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" >
+          <widget class="QLineEdit" name="uiEMail" />
+         </item>
+         <item row="4" column="0" >
+          <widget class="QLabel" name="label_13" >
+           <property name="text" >
+            <string>&amp;Phone Number:</string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiPhoneNumber</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" >
+          <widget class="QLineEdit" name="uiPhoneNumber" />
+         </item>
+         <item row="5" column="0" >
+          <widget class="QLabel" name="label_16" >
+           <property name="text" >
+            <string>E&amp;mergency:</string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiEmergency</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" >
+          <widget class="QLabel" name="label_14" >
+           <property name="text" >
+            <string>E&amp;xplain what you did:</string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiExplanation</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1" >
+          <widget class="QTextEdit" name="uiExplanation" />
+         </item>
+         <item row="7" column="0" >
+          <widget class="QLabel" name="label_15" >
+           <property name="text" >
+            <string>&amp;Other comments:</string>
+           </property>
+           <property name="buddy" >
+            <cstring>uiComments</cstring>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1" >
+          <widget class="QTextEdit" name="uiComments" />
+         </item>
+         <item row="5" column="1" >
+          <widget class="QComboBox" name="uiEmergency" >
+           <item>
+            <property name="text" >
+             <string>Not Urgent</string>
+            </property>
+           </item>
+           <item>
+            <property name="text" >
+             <string>Medium</string>
+            </property>
+           </item>
+           <item>
+            <property name="text" >
+             <string>Urgent</string>
+            </property>
+           </item>
+           <item>
+            <property name="text" >
+             <string>Very Urgent</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" >
+         <item>
+          <spacer>
+           <property name="orientation" >
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" >
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushSend" >
+           <property name="text" >
+            <string>&amp;Send support request</string>
+           </property>
+           <property name="icon" >
+            <iconset resource="common.qrc" >:/images/images/send-request.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushAccept</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>410</x>
+     <y>645</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>392</x>
+     <y>665</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

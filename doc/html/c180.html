@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Development</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="KTiny documentation"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="User interface"
+HREF="c174.html"><LINK
+REL="NEXT"
+TITLE="Architecture"
+HREF="x252.html"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>KTiny documentation</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c174.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x252.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="AEN180"
+></A
+>Chapter 4. Development</H1
+><P
+>&#13;  In this chapter we'll take a look at <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> architecture show the developer how to add plugins, views, widgets in forms and lists and how to develop new applications using the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> components. So yes, we want <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> to become, more than an application, an extensible development platform.
+ </P
+><P
+>&#13;  We're trying to add more comments to the source code, mainly in widgets and view interfaces and abstract classes, but also in other places. As always the source code is the most up to date documentation, and if you have any doubts you're encouraged to subscribe to the hackets mailing list at <A
+HREF="http://sf.net/projects/ktiny"
+TARGET="_top"
+>http://sf.net/projects/ktiny</A
+>
+ </P
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="directory-tree"
+>4.1. Directory tree</A
+></H1
+><P
+>&#13;   First of all we'll introduce you the directory tree so you know where to look for things in the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> distribution.
+  </P
+><P
+></P
+><UL
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>doc</TT
+>. This directory contains the documentation in docbook format and the corresponding compiled html files.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>man</TT
+>. Contains the man pages source files for <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+>
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin</TT
+>. Here is where the application code resides. Look a the next subsection for an in-depth explanation.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/options.py</TT
+>. Handles command line parameters and informationstored on user <TT
+CLASS="literal"
+>.terprc</TT
+> file.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/rpc.py</TT
+>. Responsible for rpc communication.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/service.py</TT
+>. Base class and functions for providing local services.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/tinyerp-client.py</TT
+>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/common</TT
+>. Contains utility classes and functions used in many places in the application.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/plugins</TT
+>. Contains the plugin mechanism and plugins are stored in subdirectories.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/po</TT
+>. Translation files.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/printer</TT
+>. Handles all printing related code, including opening the appropiate PDF viewers for each platform, etc.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/ui</TT
+>. Contains all (<TT
+CLASS="literal"
+>.ui</TT
+> files) used in the application and the common resource (<TT
+CLASS="literal"
+>common.rcc</TT
+>) file.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/ui/images</TT
+>. Contains all images that are included in the resource file.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/modules</TT
+>. Each subdirectory handles a different local service: <TT
+CLASS="literal"
+>action</TT
+>, <TT
+CLASS="literal"
+>gui</TT
+> and <TT
+CLASS="literal"
+>spool</TT
+>.
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/modules/action</TT
+>. Handles the <TT
+CLASS="literal"
+>action</TT
+> local service. An action can be show a report, wizard or opening a new model screen (tab).
+    </P
+></LI
+><LI
+><P
+>&#13;     <TT
+CLASS="literal"
+>bin/modules</TT
+>. Each subdirectory handles a different local service: <TT
+CLASS="literal"
+>action</TT
+>, <TT
+CLASS="literal"
+>gui</TT
+> and <TT
+CLASS="literal"
+>spool</TT
+>.
+    </P
+></LI
+></UL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c174.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x252.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>User interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Architecture</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

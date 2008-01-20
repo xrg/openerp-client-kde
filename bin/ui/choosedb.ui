@@ -1,0 +1,178 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>233</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Choose database...</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QLabel" name="uiTitle" >
+     <property name="font" >
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text" >
+      <string>Action here...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>382</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QGridLayout" >
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>&amp;Server:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>pushChange</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="uiServer" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" >
+      <widget class="QPushButton" name="pushChange" >
+       <property name="text" >
+        <string>&amp;Change</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/configure.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>&amp;Password:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiPassword</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" >
+      <widget class="QLineEdit" name="uiPassword" />
+     </item>
+     <item row="2" column="0" >
+      <widget class="QLabel" name="uiDatabaseLabel" >
+       <property name="text" >
+        <string>&amp;Database:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiDatabaseSelector</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" >
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QComboBox" name="uiDatabaseSelector" />
+       </item>
+       <item>
+        <widget class="QLineEdit" name="uiDatabaseEditor" />
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="uiInformation" >
+     <property name="font" >
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text" >
+      <string>TextLabel</string>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>382</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel" >
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

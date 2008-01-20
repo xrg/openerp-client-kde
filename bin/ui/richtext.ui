@@ -1,0 +1,366 @@
+<ui version="4.0" >
+ <class>Form</class>
+ <widget class="QWidget" name="Form" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>585</width>
+    <height>430</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>-1</number>
+   </property>
+   <property name="leftMargin" >
+    <number>0</number>
+   </property>
+   <property name="topMargin" >
+    <number>0</number>
+   </property>
+   <property name="rightMargin" >
+    <number>0</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushBold" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Bold</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/text_bold.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="flat" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushItalic" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Italics</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/text_italic.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="flat" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushUnderline" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Underline</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/text_under.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="flat" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushStrike" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Strikethrough</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/text_strike.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="flat" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushLeftJustify" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Left Justify</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/leftjust.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushCenter" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Center</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/text_center.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushRightJustify" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Right Justify</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/rightjust.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushJustify" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>Justify</string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/text_block.png</iconset>
+         </property>
+         <property name="checkable" >
+          <bool>true</bool>
+         </property>
+         <property name="autoExclusive" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushForegroundColor" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Foreground Color&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushBackgroundColor" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="focusPolicy" >
+          <enum>Qt::NoFocus</enum>
+         </property>
+         <property name="toolTip" >
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Background color&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="text" >
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QFontComboBox" name="uiFont" >
+         <property name="toolTip" >
+          <string>Select font</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="uiFontSize" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="toolTip" >
+          <string>Select font size</string>
+         </property>
+         <property name="minimum" >
+          <number>4</number>
+         </property>
+         <property name="value" >
+          <number>12</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="uiText" />
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

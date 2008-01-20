@@ -1,0 +1,170 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>430</width>
+    <height>202</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QLabel" name="label_5" >
+     <property name="text" >
+      <string>&lt;b>Change your database adniminstration password&lt;/b></string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QGridLayout" >
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label" >
+       <property name="text" >
+        <string>&amp;Server:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>pushChange</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="uiServer" >
+       <property name="enabled" >
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" >
+      <widget class="QPushButton" name="pushChange" >
+       <property name="text" >
+        <string>C&amp;hange</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/configure.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_2" >
+       <property name="text" >
+        <string>&amp;Old password:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiOldPassword</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" >
+      <widget class="QLineEdit" name="uiOldPassword" >
+       <property name="echoMode" >
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" >
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
+        <string>&amp;New password:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiNewPassword</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" >
+      <widget class="QLineEdit" name="uiNewPassword" >
+       <property name="echoMode" >
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="text" >
+        <string>New password &amp;confirmation:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiConfirmationPassword</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" >
+      <widget class="QLineEdit" name="uiConfirmationPassword" >
+       <property name="echoMode" >
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer>
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" >
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel" >
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>uiOldPassword</tabstop>
+  <tabstop>uiNewPassword</tabstop>
+  <tabstop>uiConfirmationPassword</tabstop>
+  <tabstop>pushAccept</tabstop>
+  <tabstop>pushCancel</tabstop>
+  <tabstop>uiServer</tabstop>
+  <tabstop>pushChange</tabstop>
+ </tabstops>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

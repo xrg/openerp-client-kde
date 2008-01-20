@@ -1,0 +1,512 @@
+<chapter>
+ <title>Development</title>
+ <para>
+  In this chapter we'll take a look at &ktiny; architecture show the developer how to add plugins, views, widgets in forms and lists and how to develop new applications using the &ktiny; components. So yes, we want &ktiny; to become, more than an application, an extensible development platform.
+ </para>
+ <para>
+  We're trying to add more comments to the source code, mainly in widgets and view interfaces and abstract classes, but also in other places. As always the source code is the most up to date documentation, and if you have any doubts you're encouraged to subscribe to the hackets mailing list at <ulink url="http://sf.net/projects/ktiny"></ulink>
+ </para>
+ <sect1 id="directory-tree">
+  <title>Directory tree</title>
+  <para>
+   First of all we'll introduce you the directory tree so you know where to look for things in the &ktiny; distribution.
+  </para>
+ 
+  <itemizedlist>
+
+   <listitem>
+    <para>
+     <literal>doc</literal>. This directory contains the documentation in docbook format and the corresponding compiled html files.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>man</literal>. Contains the man pages source files for &ktiny;
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin</literal>. Here is where the application code resides. Look a the next subsection for an in-depth explanation.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/options.py</literal>. Handles command line parameters and informationstored on user <literal>.terprc</literal> file.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/rpc.py</literal>. Responsible for rpc communication.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/service.py</literal>. Base class and functions for providing local services.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/tinyerp-client.py</literal>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/common</literal>. Contains utility classes and functions used in many places in the application.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/plugins</literal>. Contains the plugin mechanism and plugins are stored in subdirectories.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/po</literal>. Translation files.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/printer</literal>. Handles all printing related code, including opening the appropiate PDF viewers for each platform, etc.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/ui</literal>. Contains all (<literal>.ui</literal> files) used in the application and the common resource (<literal>common.rcc</literal>) file.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/ui/images</literal>. Contains all images that are included in the resource file.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/modules</literal>. Each subdirectory handles a different local service: <literal>action</literal>, <literal>gui</literal> and <literal>spool</literal>.
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/modules/action</literal>. Handles the <literal>action</literal> local service. An action can be show a report, wizard or opening a new model screen (tab).
+    </para>
+   </listitem>
+
+   <listitem>
+    <para>
+     <literal>bin/modules</literal>. Each subdirectory handles a different local service: <literal>action</literal>, <literal>gui</literal> and <literal>spool</literal>.
+    </para>
+   </listitem>
+
+  </itemizedlist>
+ </sect1>
+
+ <sect1 id="architecture">
+  <title>Architecture</title>
+  <para>
+   This section explains some components available and used everywhere in the application. These include <literal>services</literal> and <literal>common</literal> modules.
+  </para>
+
+  <sect2>
+   <title>Encoding</title>
+   <para>
+    Unlike the GTK client, &ktiny; doesn't convert all incoming server strings into UTF-8 using the <literal>encode('utf-8')</literal>. This makes it possible to use the automatic conversions between QString and python unicode strings.
+   </para>
+   <para>
+    You'll likely only need to care about string encodings when passing a string received from the server into a XML parser. There you should use the <literal>encode('utf-8')</literal> function.
+   </para>
+   <para>
+    Example extracted from  <literal>bin/model/screen/screen.py</literal>:
+   </para>
+   <programlisting>
+dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
+   </programlisting>
+  </sect2>
+
+  <sect2>
+   <title>XML-RPC</title>
+   <para>
+    As you already learned &ktiny; uses the XML-RPC protocol to communicate with the server. The lower level API to access the server can be found at <literal>bin/rpc.py</literal>. This file contains a clear set of classes and functions that allow you to easily acces the most common server functionalities.
+   </para>
+   <para>
+    There are mainly three classes that help you with server interaction:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>Session</literal>: This class is already instantiated in the <literal>session</literal> object which is always used. Provides the means to login, logout and execute a function with the logged user.
+     </para>
+     <para>
+      Example opening the session and querying the full text search module for all the models which contain the word <literal>program</literal> with a maximum of <literal>20</literal> elements:
+     </para>
+     <programlisting>
+import rpc
+
+rpc.session.login('admin', 'admin', 'localhost', 8069)
+rpc.session.execute('/fulltextsearch', 'search', 'program', 20, 0, '')
+rpc.session.logout()
+     </programlisting>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>Database</literal>: This class is also instantiated in the <literal>database</literal> object which is always used. Provides a function to obtain a list of available databases and a function to execute remote methods without being logged in.
+     </para>
+     <para>
+      The following example prints a list with the available databases in localhost server and drops <literal>olddb</literal> database:
+     </para>
+     <programlisting>
+import rpc
+url = 'http://localhost:8069'
+print rpc.database.list(url)
+rpc.database.execute(url, 'drop', 'password', 'olddb' )
+     </programlisting>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>RPCProxy</literal>: This class provides an easy way to access server objects and functions. You need to provide a single argument which must be a valid model (such as <literal>ir.attachment</literal>). Then you can query any of the functions the model provides. You need to be logged in for this to work.
+     </para>
+     <para>
+      The example removes the stored export with <literal>id = 1</literal>:
+     </para>
+     <programlisting>
+import rpc
+
+rpc.session.login('admin', 'admin', 'localhost', 8069)
+ir_export = rpc.RPCProxy('ir.exports')
+ir_export.unlink([1])
+     </programlisting>
+    </listitem>
+   </itemizedlist>
+  </sect2>
+
+  <sect2>
+   <title>Local services</title>
+   <para>
+    &ktiny; has inherited from the GTK client a simple mechanism for calling local or internal services. Though we call them <emphasis>services</emphasis> they're not any kind of server waiting for requests. They're simply objects for which we create an alias. There are four such services with the current version (though plugins could create their own). These are: <literal>gui.main</literal>, <literal>gui.window</literal>, <literal>action.main</literal> and <literal>spool</literal>.
+   </para>
+   <para>
+    TinyERP uses this mechanism to allow certain actions to be specified from server modules. For example, menu entries use <literal>action.main</literal> services to specify what should happen when it's triggered.
+   </para>
+   <para>
+    In order to request one of these services you should import the <literal>service</literal> module and call the <literal>LocalService</literal> function with the appropiate service name. The function will simply return the object that has itself associated with the service name. Example:
+   </para>
+   <programlisting>
+import service
+
+obj = service.LocalService('action.main')
+obj._exec_action(res['action'],self.datas)
+   </programlisting>
+   <para>
+    If you want to create a new service then you need to create a new class that inherits from <literal>service.Service</literal>, and put the desired functions in it. See the example below:
+   </para>
+   <programlisting>
+import service
+
+class Spool(service.Service):
+	def __init__(self):
+		service.Service.__init__(self, 'newservice')
+		self.obj_sub = {}
+		self.report = {}
+
+	def sayHello(self):
+		QMessageBox.information( None, 'Say Hello', 'Hello!' )
+
+Spool()
+object = service.LocalService('newservice')
+object.sayHello()
+   </programlisting>
+
+   <para>
+    The following subsections document the various local services available.
+   </para>
+   <sect3>
+    <title>action.main</title>
+    <para>
+     This service has functions for executing several actions.
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para><literal>execute(self, act_id, datas, type=None)</literal></para>
+      <para>
+       Executes action with identifier <literal>act_id</literal> with <literal>datas</literal> as parameters. If given, <literal>type</literal> can be any of: 
+      </para>
+      <itemizedlist>
+       <listitem>
+        <para>
+	 <literal>ir.actions.act_window</literal> which will open a new tab.
+	</para>
+       </listitem>
+       <listitem>
+        <para>
+	 <literal>ir.actions.wizard</literal> which will execute a wizard.
+	</para>
+       </listitem>
+       <listitem>
+        <para>
+	 <literal>ir.actions.report.custom</literal> which will open a new custom report.
+	</para>
+       </listitem>
+       <listitem>
+        <para>
+	 <literal>ir.actions.report.xml</literal> which will open a new report.
+	</para>
+       </listitem>
+      </itemizedlist>
+
+     </listitem>
+     <listitem>
+      <para><literal>exec_report(self, name, data)</literal></para>
+      <para>
+       Opens the report <literal>name</literal>. <literal>name</literal> can be <literal>custom</literal> or the name of an existing report in <literal>ir_act_report_xml</literal>.
+      </para>
+     </listitem>
+
+     <listitem>
+      <para><literal>_exec_action(self, action, datas)</literal></para>
+      <para>
+      </para>
+     </listitem>
+
+     <listitem>
+      <para><literal>exec_keyword(self, keyword, data={}, adds={})</literal></para>
+      <para>
+      </para>
+     </listitem>
+
+    </itemizedlist>
+    
+   </sect3>
+
+   <sect3>
+    <title>spool</title>
+    <para>
+     This service provide a publisher/subscriber mechanism. The functions that can be used are:
+    </para>
+    <itemizedlist>
+     <listitem>
+      <para><literal>subscribe(self, name, method, datas={})</literal></para>
+      <para>
+       Which subscribes the function <literal>method</literal> to the <literal>name</literal> service. When the <literal>method</literal> function will be called <literal>datas</literal> (a dictionary) will be passed as parameters.
+      </para>
+     </listitem>
+     <listitem>
+      <para><literal>publish(self, name, obj, datas)</literal></para>
+      <para>
+       Which publishes the service <literal>name</literal>. <literal>obj</literal> should be an object that will be passed as first argument to all subscribed functions and <literal>datas</literal> (a dictionary) will be passed as parameters among with the <literal>datas</literal> specified in the subscription.
+      </para>
+     </listitem>
+    </itemizedlist>
+
+   </sect3>
+
+   <sect3>
+    <title>gui.window</title>
+    <para>
+     This service provides only a function which opens a new tab with the appropiate form or tree:
+    </para>
+    <programlisting>
+     create(self, view_id, model, res_id=False, domain=None, view_type='form', window=None, context={}, mode=None)
+    </programlisting>
+    <para>
+     Where <literal>view_id</literal> is the view identifier or if <literal>None</literal> then the default view is used.
+     <literal>model</literal> is a string with the model name of the model to show (e.g. <literal>ir.attachment</literal>).
+     <literal>res_id</literal> identifier list of all items to show. <literal>domain</literal> is the domain for the data to show. <literal>view_type</literal> can be one of <literal>form</literal> which will show a new Screen or <literal>tree</literal> which will show a tab like the menu with the appropiate data. <literal>window</literal> is unused in &ktiny; <literal>context</literal> let's you specify a context for the data to show. <literal>mode</literal> is used only when <literal>view_type='form'</literal> and is a string with a list of coma separated view types (the default is <literal>'form,tree'</literal>).
+    </para>
+   </sect3>
+
+  </sect2>
+
+  <sect2>
+   <title>common</title>
+   <para>
+    The <literal>common</literal> module contains some functions and classes that are used and shared through all the application.
+   </para>
+  </sect2>
+
+  <sect2>
+   <title>DBus</title>
+   <para>
+    &ktiny; currently provides a very simple DBus inteface. A smarter interface will be provided in the future but some things are already possible.
+   </para>
+   <para>
+    Current interface provides only two methods:
+   </para>
+   <itemizedlist>
+    <listitem>
+     <para>
+      <literal>services()</literal> function returns a list with all available local services. These typically are <literal>spool</literal>, <literal>action.main</literal>, <literal>gui.window</literal> and <literal>gui.main</literal>.
+     </para>
+    </listitem>
+    <listitem>
+     <para>
+      <literal>call(serviceName, function, parameters)</literal> function executes the function indicated by <literal>function</literal> in the <literal>serviceName</literal> service with the given <literal>parameters</literal>. Unfortunately, given the way the DBus Interface is implemented and DBus nature <literal>parameters</literal> needs to be a string in python. See the examples.
+     </para>
+    </listitem>
+   </itemizedlist>
+
+   <para>
+    Following a sample shell session using <literal>qdbus</literal> to query &ktiny; DBus interface:
+   </para>
+   <programlisting>
+$ qdbus org.ktiny.Interface /TinyERP services
+spool
+action.main
+gui.main
+gui.window
+$ qdbus org.ktiny.Interface /TinyERP call "gui.window" "create" "None, 'ir.attachment', False, [], 'form', mode='form,tree'"
+   </programlisting>
+   <para>
+    This example queries all available services in &ktiny; and then opens a new tab with the attachments form.
+   </para>
+  </sect2>
+
+ </sect1>
+
+ <sect1 id="plugins">
+  <title>Plugins</title>
+  <para>
+   The current plugin infrastructure is somewhat less powerful than what we desire but that should be addressed in the future. Right now, a plugin, simply consists in the possibility to add some functionality that is executed by browsing a plugin list. So no chance to modify/add menu entries, buttons in the toolbar or hooks triggered under given events. Plugins must be written in Python, a wrapper should be easily developed using QtScript to create JavaScript plugins.
+  </para>
+  <para>
+   Plugins need to be created/copied in a subdirectory inside <literal>bin/plugins/</literal> directory. Each directory can contain several plugins, but each directory needs one <literal>__terp__.py</literal> file with the following structure:
+  </para>
+  <programlisting>
+{
+	'plugin_name' : {
+		'model' : 'model where the plugin should be available',
+		'string' : 'Plugin Title',
+		'action' : 'plugin_directory.function_name'
+	}
+}
+  </programlisting>
+  <para>
+   Here follows an example of the <literal>workflow_print</literal> plugin:
+  </para>
+  <programlisting>
+{
+	'workflow_print_simple': {
+		'model':'.*',
+		'string':'Print Workflow',
+		'action': 'workflow_print.wkf_print_simple'
+	},
+	'workflow_print': {
+		'model':'.*',
+		'string':'Print Workflow (Complex)',
+		'action': 'workflow_print.wkf_print'
+	}
+}
+  </programlisting>
+  <para>
+   In this example, the <literal>wkf_print_simple</literal> and <literal>wkf_print</literal> functions are defined inside the <literal>workflow_print/__init__.py</literal> file as:
+  </para>
+  <programlisting>
+import service
+import common
+
+def wkf_print(datas):
+	datas['nested']=True
+	obj = service.LocalService('action.main')
+	obj.exec_report('workflow.instance.graph', datas)
+	return True
+
+def wkf_print_simple(datas):
+	datas['nested']=False
+	obj = service.LocalService('action.main')
+	obj.exec_report('workflow.instance.graph', datas)
+	return True
+  </programlisting>
+  <para>
+   Obviously all client modules are available. Here, the plugin uses the service facilities to show a report.
+  </para>
+ </sect1>
+ <sect1 id="views">
+  <title>Views</title>
+  <para>
+   A view in TinyERP is a graphical representation of a data set. Obvious views that come to mind are <emphasis>form</emphasis> and <emphasis>list</emphasis> plus currently &ktiny; also offers a <emphasis>chart</emphasis> view. All of them are available in the GTK and Web user interfaces. A calendar view is being worked on these two clients too, and &ktiny; we'll add it in the future. Here we want to explain how a developer can add another view to fit his/her needs.
+  </para>
+  <para>
+   The three views can be found in different subdirectories inside <literal>bin/widget/view</literal>. To summarize we'll say that in order to create a new view you need to create a new directory with a <literal>__terp__.py</literal> file and a couple of classes. One inheriting from AbstractView and another one inheriting from AbstractParser (whose interfaces can be found at <literal>bin/widget/view</literal>).
+  </para>
+ </sect1>
+ <sect1 id="widgets">
+  <title>Widgets</title>
+  <para>
+  </para>
+ </sect1>
+ <sect1 id="developing-new-applications">
+  <title>Developing new applications</title>
+  <para>
+  </para>
+ </sect1>
+
+ <sect1 id="documentation">
+  <title>Documentation</title>
+  <para>
+   Documentation in the source code follows doxygen style (http://www.stack.nl/~dimitri/doxygen/docblocks.html#pythonblocks). You can generate the doxygen docs by running <literal>make doxygen</literal> in the <literal>doc</literal> directory. The resulting HTML is stored in <literal>doc/doxygen/html</literal>.
+  </para>
+  <para>
+   This docbook documentation can be generated by running <literal>make docbook</literal> in the <literal>doc</literal> directory. The resulting HTML is stored in <literal>doc/html</literal>.
+  </para>
+  <para>
+   With plain <literal>make</literal> both documentation types will be generated.
+  </para>
+ </sect1>
+
+ <sect1 id="testing">
+  <title>Testing</title>
+  <para>
+   In this section we will cover all aspects regarding code testing. Currently there are still no unit tests but will probably be added in the future. By now we write down the steps that should be taken before a release:
+  </para>
+  <itemizedlist>
+   <listitem>
+    <para>
+     Check that all widgets store and load correctly. Including that browsing next and previous refreshes correctly. Check colors.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Check setting and loading widget default values on all widgets.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Check list/tree view with readonly and editing mode. Tab order and colors.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Check import and export functionalities with various models.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Check database creation, deletion, backup and restore.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Check plugin loading and execution.
+    </para>
+   </listitem>
+   <listitem>
+    <para>
+     Check DBus interface.
+    </para>
+   </listitem>
+   
+  </itemizedlist>
+ </sect1>
+</chapter>
+

@@ -1,0 +1,154 @@
+<ui version="4.0" >
+ <class>tip</class>
+ <widget class="QDialog" name="tip" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>518</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Tip of the Day</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <property name="leftMargin" >
+    <number>9</number>
+   </property>
+   <property name="topMargin" >
+    <number>9</number>
+   </property>
+   <property name="rightMargin" >
+    <number>9</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>9</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="pixmap" >
+      <pixmap resource="common.qrc" >:/images/images/tinyerp.png</pixmap>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="uiTip" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="uiShowNextTime" >
+     <property name="text" >
+      <string>&amp;Display a new tip next time ?</string>
+     </property>
+     <property name="checked" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>6</number>
+     </property>
+     <property name="leftMargin" >
+      <number>0</number>
+     </property>
+     <property name="topMargin" >
+      <number>0</number>
+     </property>
+     <property name="rightMargin" >
+      <number>0</number>
+     </property>
+     <property name="bottomMargin" >
+      <number>0</number>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <property name="leftMargin" >
+        <number>0</number>
+       </property>
+       <property name="topMargin" >
+        <number>0</number>
+       </property>
+       <property name="rightMargin" >
+        <number>0</number>
+       </property>
+       <property name="bottomMargin" >
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="pushPrevious" >
+         <property name="text" >
+          <string>&amp;Previous Tip</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushNext" >
+         <property name="text" >
+          <string>&amp;Next Tip</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushClose" >
+       <property name="text" >
+        <string>&amp;Close</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/close.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>

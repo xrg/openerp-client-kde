@@ -1,0 +1,132 @@
+<terp>
+	<data>
+		<!--
+		Redefine ir.model.fields tree view as the default one doesn't list the
+		model name and it's unusable.
+		-->
+		<record model="ir.ui.view" id="view_model_fields_tree">
+			<field name="name">ir.model.fields.tree.inherit</field>
+			<field name="model">ir.model.fields</field>
+			<field name="type">tree</field>
+			<field name="inherit_id" ref="base.view_model_fields_tree"/>
+			<field name="arch" type="xml">
+				<field name="field_description" position="after">
+					<field name="model"/>
+				</field>
+			</field>
+		</record>
+
+		<!-- 
+		================
+		Indexes
+		================
+		-->
+		<record model="ir.ui.view" id="fts_full_text_index_form">
+			<field name="name">fts.full_text_index.form</field>
+			<field name="model">fts.full_text_index</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Full Text Indexes">
+					<field name="field_id"/>
+					<newline/>
+					<field name="priority"/>
+					<newline/>
+					<field name="configuration"/>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="fts_full_text_index_tree">
+			<field name="name">fts.full_text_index.tree</field>
+			<field name="model">fts.full_text_index</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Full Text Indexes">
+					<field name="field_id"/>
+					<field name="priority"/>
+					<field name="configuration"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="fts_full_text_index_action">
+			<field name="name">Full Text Indexes</field>
+			<field name="res_model">fts.full_text_index</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Administration/Configuration/Full Text Search/Indexes" 
+			  action="fts_full_text_index_action"
+			  id="fts_full_text_index_menu"/>
+
+		<!-- 
+		===============
+		Priorities 
+		===============
+		-->
+		<record model="ir.ui.view" id="fts_priority_form">
+			<field name="name">fts.priority.form</field>
+			<field name="model">fts.priority</field>
+			<field name="type">form</field> 
+			<field name="arch" type="xml">
+				<form string="Full Text Indexes">
+					<field name="name"/>
+					<field name="value"/>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="fts_priority_tree">
+			<field name="name">fts.priority.tree</field>
+			<field name="model">fts.priority</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Full Text Indexes">
+					<field name="name"/>
+					<field name="value"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="fts_priorities_action">
+			<field name="name">Full Text Index Priorities</field>
+			<field name="res_model">fts.priority</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Administration/Configuration/Full Text Search/Priorities" 
+			  action="fts_priorities_action"
+			  id="fts_priorities_menu"/>
+
+		<!-- 
+		===============
+		Configuration	
+		===============
+		-->
+		<record model="ir.ui.view" id="fts_configuration_form">
+			<field name="name">fts.configuration.form</field>
+			<field name="model">fts.configuration</field>
+			<field name="type">form</field> 
+			<field name="arch" type="xml">
+				<form string="Full Text Index Configurations">
+					<field name="name"/>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="fts_configuration_tree">
+			<field name="name">fts.configuration.tree</field>
+			<field name="model">fts.configuration</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<tree string="Full Text Indexes">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="fts_configuration_action">
+			<field name="name">Full Text Index Configuration</field>
+			<field name="res_model">fts.configuration</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Administration/Configuration/Full Text Search/Configurations" 
+			  action="fts_configuration_action"
+			  id="fts_configuration_menu"/>
+	</data>
+</terp>

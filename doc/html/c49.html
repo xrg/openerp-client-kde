@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Installation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="KTiny documentation"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="c3.html"><LINK
+REL="NEXT"
+TITLE="Linux and other Unixes"
+HREF="x77.html"></HEAD
+><BODY
+CLASS="chapter"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>KTiny documentation</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c3.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x77.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="chapter"
+><H1
+><A
+NAME="AEN49"
+></A
+>Chapter 2. Installation</H1
+><DIV
+CLASS="sect1"
+><H1
+CLASS="sect1"
+><A
+NAME="common"
+>2.1. Common configuration for all platforms</A
+></H1
+><P
+>&#13;   Note that <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> is intended to work with TinyERP 4.2 server or newer.
+  </P
+><P
+>&#13;   Although <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> tries to work without any server modification, at least, one is necessary at the moment. We'll try to provide a patch in the future but, please follow these simple instructions:
+   <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>&#13;      Edit the <TT
+CLASS="literal"
+>bin/addons/base/ir/ir_attachment.py</TT
+> file of the server and remove <TT
+CLASS="literal"
+>readonly=True</TT
+> from <TT
+CLASS="literal"
+>res_model</TT
+> and <TT
+CLASS="literal"
+>res_id</TT
+>. Then reestart the server and now you can fully work with attachments within <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+>. Note that this doesn't affect other attachments you may have in the database, and all of them should be available in <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+>. This change is needed for <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>KTiny</I
+></SPAN
+> to create new attachments.
+     </P
+></LI
+><LI
+><P
+>&#13;      Also, once you've created a new database (or in the original XML file) you should modify the <TT
+CLASS="literal"
+>ir.attachment.view</TT
+> of type <TT
+CLASS="literal"
+>form</TT
+>. You'll need <TT
+CLASS="literal"
+>res_model</TT
+> and <TT
+CLASS="literal"
+>res_id</TT
+> to have <TT
+CLASS="literal"
+>invisible="1" nolabel="1"</TT
+> as attributes. Also add <TT
+CLASS="literal"
+>fname_widget="datas_fname"</TT
+> as attribute to the <TT
+CLASS="literal"
+>datas</TT
+> field. The resulting XML should look like this:
+     </P
+><PRE
+CLASS="programlisting"
+>&#13;&#60;form string="Attachments"&#62;
+	&#60;field colspan="4" name="name" select="1"/&#62;
+	&#60;field colspan="4" name="datas" fname_widget="datas_fname" /&#62;
+	&#60;field name="datas_fname"/&#62;
+	&#60;newline/&#62;
+	&#60;field name="res_model" select="1" invisible="1" nolabel="1"/&#62;
+	&#60;field name="res_id" invisible="1" nolabel="1"/&#62;
+	&#60;separator colspan="4" string="Description"/&#62;
+	&#60;field colspan="4" name="description" nolabel="1"/&#62;
+&#60;form&#62;
+     </PRE
+></LI
+></OL
+>
+  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c3.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x77.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Linux and other Unixes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

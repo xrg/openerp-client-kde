@@ -1,0 +1,291 @@
+<ui version="4.0" >
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog" >
+  <property name="windowModality" >
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>484</width>
+    <height>451</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Import</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QLabel" name="label" >
+         <property name="font" >
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text" >
+          <string>All fields</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTreeView" name="uiAllFields" />
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" >
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushAdd" >
+         <property name="text" >
+          <string>&amp;Add</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushRemove" >
+         <property name="text" >
+          <string>&amp;Remove</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushRemoveAll" >
+         <property name="text" >
+          <string>Remo&amp;ve All</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/trash.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushAutoDetect" >
+         <property name="text" >
+          <string>Auto-&amp;detect</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QLabel" name="label_2" >
+         <property name="font" >
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text" >
+          <string>Fields to import</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListView" name="uiSelectedFields" />
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <widget class="QLabel" name="label_3" >
+       <property name="text" >
+        <string>File to &amp;import:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiFileName</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="uiFileName" />
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushOpenFile" >
+       <property name="text" >
+        <string>...</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/open.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" >
+     <item row="0" column="0" >
+      <widget class="QLabel" name="label_4" >
+       <property name="text" >
+        <string>&amp;Field separator</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiFieldSeparator</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" >
+      <widget class="QLineEdit" name="uiFieldSeparator" >
+       <property name="text" >
+        <string>,</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" >
+      <widget class="QLabel" name="label_6" >
+       <property name="text" >
+        <string>&amp;Text delimiter:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiTextDelimiter</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3" colspan="2" >
+      <widget class="QLineEdit" name="uiTextDelimiter" >
+       <property name="text" >
+        <string>"</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" >
+      <widget class="QLabel" name="label_5" >
+       <property name="text" >
+        <string>&amp;Encoding</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2" colspan="2" >
+      <widget class="QLabel" name="label_7" >
+       <property name="text" >
+        <string>&amp;Lines to skip:</string>
+       </property>
+       <property name="buddy" >
+        <cstring>uiLinesToSkip</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4" >
+      <widget class="QSpinBox" name="uiLinesToSkip" />
+     </item>
+     <item row="1" column="1" >
+      <widget class="QComboBox" name="uiEncoding" >
+       <item>
+        <property name="text" >
+         <string>UTF-8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>Latin1</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" >
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushAccept" >
+       <property name="text" >
+        <string>&amp;Accept</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel" >
+       <property name="text" >
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>uiAllFields</tabstop>
+  <tabstop>pushAdd</tabstop>
+  <tabstop>pushRemove</tabstop>
+  <tabstop>pushRemoveAll</tabstop>
+  <tabstop>pushAutoDetect</tabstop>
+  <tabstop>uiSelectedFields</tabstop>
+  <tabstop>uiFileName</tabstop>
+  <tabstop>pushOpenFile</tabstop>
+  <tabstop>uiFieldSeparator</tabstop>
+  <tabstop>uiTextDelimiter</tabstop>
+  <tabstop>uiEncoding</tabstop>
+  <tabstop>uiLinesToSkip</tabstop>
+  <tabstop>pushAccept</tabstop>
+  <tabstop>pushCancel</tabstop>
+ </tabstops>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
+ <connections/>
+</ui>
