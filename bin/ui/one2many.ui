@@ -221,7 +221,7 @@ p, li { white-space: pre-wrap; }
           </size>
          </property>
          <property name="toolTip" >
-          <string>New Request</string>
+          <string>Previous</string>
          </property>
          <property name="text" >
           <string/>
@@ -286,7 +286,7 @@ p, li { white-space: pre-wrap; }
           </size>
          </property>
          <property name="toolTip" >
-          <string>New Request</string>
+          <string>Next</string>
          </property>
          <property name="text" >
           <string/>
@@ -326,7 +326,7 @@ p, li { white-space: pre-wrap; }
         </size>
        </property>
        <property name="toolTip" >
-        <string>New Request</string>
+        <string>Switch View</string>
        </property>
        <property name="text" >
         <string/>
