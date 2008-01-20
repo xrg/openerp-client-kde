@@ -207,6 +207,10 @@ class TreeModel(QAbstractItemModel):
 					if x[0] == value:
 						return QVariant( unicode(x[1]) )
 				return QVariant()
+			elif fieldType == 'float':
+				# If we use the default conversion big numbers are shown
+				# in scientific notation
+				return QVariant( QString( str(value) ) )	
 			else:
 				if value == False or value == None:
 					return QVariant()
