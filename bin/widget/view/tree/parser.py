@@ -45,6 +45,7 @@ from common.numeric import *
 from common.calendar import *
 
 
+
 class TreeParser(AbstractParser):
 	def create(self, parent, model, rootNode, fields, toolbar):
 		self.screen = parent
@@ -114,16 +115,17 @@ class TreeParser(AbstractParser):
 		view.setModel( model )
 
 		# Sort headers appropiately
-		headerView = view.widget.header()
-		j = 0
-		for y in header:
-			i = 0	
-			for i in range(headerView.count()):
-				logic = headerView.logicalIndex(i)
-				if y['name'] == model.visibleFields[logic]:
-					headerView.moveSection(i, j)	
-					break
-			j = j + 1
+		self.sortHeader( view.widget.header(), header, model )
+		#headerView = view.widget.header()
+		#j = 0
+		#for y in header:
+			#i = 0	
+			#for i in range(headerView.count()):
+				#logic = headerView.logicalIndex(i)
+				#if y['name'] == model.visibleFields[logic]:
+					#headerView.moveSection(i, j)	
+					#break
+			#j = j + 1
 		
 		for column in range( len(columns)):
 			view.widget.setColumnWidth( column, columns[column]['width'] )
@@ -146,6 +148,23 @@ class TreeParser(AbstractParser):
 				delegate = DateTimeDelegate( columns[column]['attributes'], view.widget )
 				view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
+
+	## @brief Sorts a QHeaderView given the headerOrder and a TreeModel
+	#
+	# headerView should be a QHeaderView, headerOrder the dictionary as returned
+	# by the server and model a TreeModel.
+	def sortHeader(self, headerView, headerOrder, model):
+		# Sort headers appropiately
+		#headerView = view.widget.header()
+		j = 0
+		for y in headerOrder:
+			i = 0	
+			for i in range(headerView.count()):
+				logic = headerView.logicalIndex(i)
+				if y['name'] == model.visibleFields[logic]:
+					headerView.moveSection(i, j)	
+					break
+			j = j + 1
 
 class ComboBoxDelegate( QItemDelegate ):
 	def __init__( self, attributes, parent=None):
