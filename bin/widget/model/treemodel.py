@@ -192,7 +192,11 @@ class TreeModel(QAbstractItemModel):
 		elif role == Qt.DecorationRole:
 			if self.field( index.column() ) == self.iconField:
 				model = self.model( index.row(), index.internalPointer() )
-				return QVariant( icons.kdeIcon( model.value( self.icon ) ) )
+				# Not all models necessarily have the icon so check that first
+				if self.icon in model.values:
+					return QVariant( icons.kdeIcon( model.value( self.icon ) ) )
+				else:
+					return QVariant()
 			else:
 				return QVariant()
 		elif role == Qt.BackgroundRole:
