@@ -432,7 +432,7 @@
     <iconset resource="common.qrc" >:/images/images/exit.png</iconset>
    </property>
    <property name="text" >
-    <string>&amp;Surt</string>
+    <string>&amp;Quit</string>
    </property>
   </action>
   <action name="actionNewDatabase" >
