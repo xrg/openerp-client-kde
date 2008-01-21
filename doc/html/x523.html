@@ -160,6 +160,9 @@ CLASS="literal"
 >template1</TT
 >, which is used to create new databases in PostgreSQL (unless another template is specified).
     </P
+><P
+>&#13;     This module also uses Psycopg2 in the trigger and thus such a package needs to be installed in the server where PostgreSQL resides. Psycopg2 is used to quote field values and avoid SQL injection.
+    </P
 ></TD
 ></TR
 ></TABLE
@@ -170,7 +173,7 @@ CLASS="sect2"
 ><H2
 CLASS="sect2"
 ><A
-NAME="AEN547"
+NAME="AEN548"
 >5.2.2. Configuration</A
 ></H2
 ><P
