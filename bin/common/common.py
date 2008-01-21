@@ -34,17 +34,11 @@ import sys
 import logging
 from options import options
 
-import threading
 import common
 
 from PyQt4.QtCore  import  *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-
-#
-# Upgrade this number to force the client to ask the survey
-#
-SURVEY_VERSION = '0'
 
 def _search_file(file, dir='path.share'):
 	tests = [
@@ -63,8 +57,8 @@ uiPath = lambda x: _search_file(x, 'path.ui')
 
 
 
-# node_attributes(): Returns a dictionary with all the attributes found in a XML 
-#  with their name as key and the corresponding value.
+## Returns a dictionary with all the attributes found in a XML with their 
+# name as key and the corresponding value.
 def node_attributes(node):
    result = {}
    attrs = node.attributes
@@ -74,8 +68,13 @@ def node_attributes(node):
 	result[attrs.item(i).localName] = attrs.item(i).nodeValue
    return result
 
+## @brief The SelectionDialog class shows a dialog prompting the user to choose
+# among a list of items.
+#
+# The selected value is stored in the 'result' property.
+# @see selection()
 class SelectionDialog(QDialog):	
-	def __init__(self, title, values, alwaysask=False, parent=None):
+	def __init__(self, title, values, parent=None):
 		QDialog.__init__(self, parent)
 		loadUi( uiPath( 'win_selection.ui' ), self )
 		if title:
@@ -90,9 +89,16 @@ class SelectionDialog(QDialog):
 	def selected(self):
 		self.result = ""
 		item = self.uiList.currentItem()
-		self.result = ( str(item.text()), str(item.data(Qt.UserRole).toString()) )
+		self.result = ( unicode(item.text()), unicode(item.data(Qt.UserRole).toString()) )
 		self.accept()
 
+## @brief Shows the SelectionDialog
+#
+# It returns the selected item or False if none was selected.
+#
+# No dialog will be shown if the dictionary of values is empty. If alwaysask 
+# is False (the default) no dialog is shown and the only element is returned
+# as selected.
 def selection(title, values, alwaysask=False):
 	if len(values) == 0:
 		return None
@@ -106,9 +112,9 @@ def selection(title, values, alwaysask=False):
 		return False
 	
 
-## The TipOfTheDayDialog class shows a dialog with a Tip of the day
+## @brief The TipOfTheDayDialog class shows a dialog with a Tip of the day
+# TODO: Use KTipDialog when we start using KDE libs
 class TipOfTheDayDialog( QDialog ):
-	# TODO: Use KTipDialog when we start using KDE libs
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
 		try:
@@ -146,97 +152,13 @@ class TipOfTheDayDialog( QDialog ):
 		options.save()
 		self.close()
 
-def upload_email(email):
-	try:
-		import urllib
-		args = urllib.urlencode([('mail_subscribe',email),('subscribe','Subscribe')])
-		fp = urllib.urlopen('http://tinyerp.com/index.html', args)
-		fp.read()
-		fp.close()
-	except:
-		pass
-	return True
 
-class upload_data_thread(threading.Thread):
-	def __init__(self, email, data, type, supportid):
-		self.args = [('email',email),('type',type),('supportid',supportid),('data',data)]
-		super(upload_data_thread,self).__init__()
-	def run(self):
-		try:
-			import urllib
-			args = urllib.urlencode(self.args)
-			fp = urllib.urlopen('http://tinyerp.com/scripts/survey.php', args)
-			fp.read()
-			fp.close()
-		except:
-			pass
-
-def upload_data(email, data, type='survey2', supportid=''):
-	a = upload_data_thread(email, data, type, supportid)
-	a.start()
-
-class terp_survey( QDialog ):
-	
-	def __init__( self ):	
-		QDialog.__init__( self )
-		win= loadUi( uiPath('survey.ui'), self )
-		
-		industry_list = QStringList()
-		industry_list << '(choose one)'<< 'Apparel' << 'Banking' << 'Biotechnology' << 'Chemicals'<<'Communications'<<'Construction'<<'Consulting'<<'Education'<<'Electronics'<<'Energy'<<'Engineering'<<'Entertainment'<<'Environmental'<<'Finance'<<'Government'<<'Healthcare'<<'Hospitality'<<'Insurance'<<'Machinery'<<'Manufacturing'<<'Media'<<'Not For Profit'<<'Recreation'<<'Retail'<<'Shipping'<<'Technology'<<'Telecommunications'<<'Transportation'<<'Utilities'<<'Other'
-		
-		employee_list= QStringList()
-		employee_list << '(choose one)'<< '0-5'<<'6-20'<<'21-50'<<'51-100'<<'101-250'<<'251-1000'<<'1001-2500'<<'2500+'
-		role_list=QStringList()
-		role_list << '(choose one)'<< 'Analyst'<<'Area Manager'<<'Chief Executive Off.'<<'Chief Financial Off.'<<'Chief HR Off.'<<'Chief Operating Off.' << 'Consultant'<<'Director'<<'Editor / Journalist'<<'Employee'<<'Executive Board' << 'Lecturer/University' << 'Manager'<< 'Project Manager'<<'Secretary'<<'Student'<<'System Admin.'<<'Other'
-		
-		country_list=QStringList()
-		country_list << '(choose one)' << 'AALAND ISLANDS' << 'AFGHANISTAN' << 'ALBANIA'<<'ALGERIA'<<'AMERICAN SAMOA'<<'ANDORRA'<<'ANGOLA'<<'ANGUILLA'<<'ANTARCTICA'<<'ANTIGUA AND BARBUDA'<<'ARGENTINA'<<'ARMENIA'<<'ARUBA'<<'AUSTRALIA'<<'AUSTRIA'<<'AZERBAIJAN'<<'BAHAMAS'<<'BAHRAIN'<<'BANGLADESH'<<'BARBADOS'<<'BELARUS'<<'BELGIUM'<<'BELIZE'<<'BENIN'<<'BERMUDA'<<'BHUTAN'<<'BOLIVIA'<<'BOSNIA AND HERZEGOWINA'<<'BOTSWANA'<<'BOUVET ISLAND'<<'BRAZIL'<<'BRITISH INDIAN OCEAN'<<'TERRITORY'<<'BRUNEI DARUSSALAM'<<'BULGARIA'<<'BURKINA FASO'<<'BURUNDI'<<'CAMBODIA'<<'CAMEROON'<<'CANADA'<<'CAPE VERDE'<<'CAYMAN ISLANDS'<< 'CENTRAL AFRICAN REPUBLIC' << 'CHAD'<<'CHILE'<<'CHINA'<<'CHRISTMAS ISLAND'<<'COCOS (KEELING) ISLANDS'<<'COLOMBIA'<<'COMOROS'<<'CONGO'<<'COOK ISLANDS'<<'COSTA RICA'<<"COTE D'IVOIRE"<<'CROATIA'<<'CUBA'<<'CYPRUS'<<'CZECH REPUBLIC'<<'DENMARK'<<'DJIBOUTI'<<'DOMINICA'<<'DOMINICAN REPUBLIC'<<'ECUADOR'<<'EGYPT'<<'EL SALVADOR'<<'EQUATORIAL GUINEA'<<'ERITREA'<< 'ESTONIA'<<'ETHIOPIA'<<'FALKLAND ISLANDS (MALVINAS)'<<'FAROE ISLANDS'<<'FIJI'<<'FINLAND'<<'FRANCE'<<'FRENCH GUIANA'<<' FRENCH POLYNESIA'<<'FRENCH SOUTHERN TERRITORIES'<<'GABON'<<'GAMBIA'<<'GEORGIA'<<'GERMANY'<<'GHANA'<<'GIBRALTAR'<<'GREECE'<<'GREENLAND'<<'GRENADA'<<'GUADELOUPE'<<'GUAM'<<'GUATEMALA'<<'GUINEA'<<'GUINEA-BISSAU'<<'GUYANA'<<'HAITI'<<'HEARD AND MC DONALD ISLANDS'<<'HONDURAS'<<'HONG KONG'<<'HUNGARY'<<'ICELAND'<<'INDIA'<<'INDONESIA'<<'IRAN'<<'IRAQ'<<'IRELAND'<<'ISRAEL'<<'ITALY'<<'JAMAICA'<<'JAPAN'<<'JORDAN'<<'KAZAKHSTAN'<<'KENYA'<<'KIRIBATI'<<'KOREA'<<'KUWAIT'<<'KYRGYZSTAN'<<'LAO'<<'LATVIA'<<'LEBANON'<<'LESOTHO'<<'LIBERIA'<<'LIBYAN ARAB JAMAHIRIYA'<<'LIECHTENSTEIN'<<'LITHUANIA'<<'LUXEMBOURG'<<'MACAU'<<'MACEDONIA'<<'MADAGASCAR'<<'MALAWI'<<'MALAYSIA'<<'MALDIVES'<<'MALI'<<'MALTA'<<'MARSHALLISLANDS'<<'MARTINIQUE'<<'MAURITANIA'<<'MAURITIUS'<<'MAYOTTE'<<'MEXICO'<<'MICRONESIA'<<'MOLDOVA'<<'MONACO'<<'MONGOLIA'<<'MONTSERRAT'<<'MOROCCO'<<'MOZAMBIQUE'<<'MYANMAR'<<'NAMIBIA'<<'NAURU'<<'NEPAL'<<'NETHERLANDS'<<'NETHERLANDS ANTILLES' <<'NEW CALEDONIA'<<'NEW ZEALAND'<<'NICARAGUA'<<'NIGER'<<'NIGERIA'<<'NIUE'<<'NORFOLK ISLAND'<<'NORTHERN MARIANA ISLANDS'<<'NORWAY'<<'OMAN'<<'PAKISTAN'<<'PALAU'<<'PANAMA'<<'PAPUA NEW GUINEA'<<'PARAGUAY'<<'PERU'<<'PHILIPPINES'<<'PITCAIRPITCAIRN'<<'POLAND'<<'PORTUGAL'<<'PUERTO RICO'<<'QATAR'<<'REUNION'<<'ROMANIA'<<'RUSSIAN FEDERATION'<<'RWANDA'<<'SAINT HELENA'<<'SAINT KITTS AND NEVIS'<<'SAINT LUCIA'<<'SAINT PIERRE AND MIQUELON'<<'SAINT VINCENT AND THE GRENADINES'<<'SAMOA'<<'SAN MARINO'<<'SAO TOME AND PRINCIPE'<<'SAUDI ARABIA'<<'SENEGAL'<<'SERBIA AND MONTENEGRO'<<'SEYCHELLES'<<'SIERRA LEONE'<<'SINGAPORE'<<'SLOVAKIA'<<'SLOVENIA'<<'SOLOMON ISLANDS'<<'SOMALIA'<<'SOUTH AFRICA'<<'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS'<<'SPAIN'<<'SRI LANKA'<<'SUDAN'<<'SURINAME'<<'SVALBARD AND JAN MAYEN ISLANDS'<<'SWAZILAND'<<'SWEDEN'<<'SWITZERLAND'<<'SYRIAN ARAB REPUBLIC'<<'TAIWAN'<<'TAJIKISTAN'<<'TANZANIA'<<'POLAND'<<'PORTUGAL'<<'PUERTO RICO'<<'QATAR'<<'REUNION'<<'ROMANIA'<<'RUSSIAN FEDERATION'<<'RWANDA'<<'SAINT HELENA'<<'SAINT KITTS AND NEVIS'<<'SAINT LUCIA'<<'SAINT PIERRE AND MIQUELON'<<'SAINT VINCENT AND THE GRENADINES'<<'SAMOA'<<'SAN MARINO'<<'SAO TOME AND PRINCIPE'<<'SAUDI ARABIA'<<'SENEGAL'<<'SERBIA AND MONTENEGRO'<<'SEYCHELLES'<<'SIERRA LEONE'<<'SINGAPORE'<<'SLOVAKIA'<<'SLOVENIA'<<'SOLOMON ISLANDS'<<'SOMALIA'<<'SOUTH AFRICA'<<'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS'<<'SPAIN'<<'SRI LANKA'<<'SUDAN'<<'SURINAME'<<'SVALBARD AND JAN MAYEN ISLANDS'<<'SWAZILAND'<<'SWEDEN'<<'SWITZERLAND'<<'SYRIAN ARAB REPUBLIC'<<'TAIWAN'<<'TAJIKISTAN'<<'TANZANIA'<<'THAILAND'<<'TIMOR-LESTE'<<'TOGO'<<'TOKELAU'<<'TONGA'<<'TRINIDAD AND TOBAGO'<<'TUNISIA'<<'TURKEY'<<'TURKMENISTAN'<<'TURKS AND CAICOS ISLANDS'<<'TUVALU'<<'UGANDA'<<'UKRAINE'<<'UNITED ARAB EMIRATES'<<'UNITEDKINGDOM'<<'UNITED STATES'<<'URUGUAY'<<'UZBEKISTAN'<<'VANUATU'<<'VATICAN CITY STATE'<<'VENEZUELA'<<'VIET NAM'<<'VIRGIN ISLANDS'<<'WALLIS AND FUTUNAISLANDS'<<'WESTERN SAHARA'<<'YEMEN'<<'ZAMBIA'<<'ZIMBABWE'		
-		
-	
-		hear_list=QStringList()
-		hear_list << '(choose one)' << 'Search Engine' << 'From a Tiny ERP Partner' << 'Conference or Trade show' << 'Link in another website' << 'Word of mouth' << 'In the press' << 'Other'
-		
-		system_list=QStringList()
-		system_list << '(choose one)' << 'Windows' << 'Linux' << "Other's"
-		
-		opensource_list=QStringList()
-		opensource_list << '(choose one)' << 'I only use open source softwares' << 'I use some open source softwares' << 'I never used open source software'
-		
-		
-		widnames = ('country','role','industry','employee','hear','system','opensource')
-		for widname in widnames:
-			param = eval( widname+'_list')
-			f=eval(' self.combo_'+widname+'.addItems' )
-			f(param)
-				
-
-	def isShown( self ):
-		if options.options['survey.position']==SURVEY_VERSION:
-			return False
-		else:
-			options.options['survey.position']=SURVEY_VERSION
-			options.save()
-			return True
-	
-	def slotSurveyOk( self ):
-		widnames = ('country','role','industry','employee','hear','system','opensource')
-		email = self.entry_email.displayText(  ) 
-		if '@' in email:
-				upload_email(email)
-		result = {}
-		
-		for widname in widnames:
-			result[widname] = eval( 'self.combo_'+widname+'.currentText()' ) 
-						
-		result['plan_use']=self.check_use.isChecked()
-		result['plan_sell']=self.check_sell.isChecked()
-		result['note']=self.text_comment.toPlainText()
-		import pickle
-		result_pick = pickle.dumps(str(result))	
-		upload_data(email, result_pick, type='SURVEY '+str(SURVEY_VERSION))
-		self.close()		
-
-
+## @brief The SupportDialog class shows the support dialog.
+#
+# Currently, doesn't allow to send support requests, so we should consider
+# implmenting this or simply removing it.
+# @see support()
+# TODO: Decide about the future of this class.
 class SupportDialog(QDialog):
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
@@ -247,10 +169,21 @@ class SupportDialog(QDialog):
 	def send(self):
 		QMessageBox.information(self, '', _('Sending support requests is not available with the TinyERP KDE client'))
 
+## @brief Shows the SupportDialog
 def support():
 	dialog = SupportDialog()
 	dialog.exec_()
 
+# Function used by the notifier in the KTiny application
+def warning(title, message):
+	QMessageBox(None, title, message)
+
+## @brief The ErrorDialog class shows the error dialog used everywhere in KTiny.
+#
+# The dialog shows two tabs. One with a short description of the problem and the
+# second one with the details, usually a backtrace.
+#
+# @see error()
 class ErrorDialog( QDialog ):
 	def __init__(self, title, message, details='', parent=None):
 		QDialog.__init__(self, parent)
@@ -264,18 +197,13 @@ class ErrorDialog( QDialog ):
 	def send(self):
 		QMessageBox.information(self, '', _('Sending support requests is not available with the TinyERP KDE client'))
 
-def warning(title, message):
-	QMessageBox(None, title, message)
-
+## @brief Shows the ErrorDialog 
 def error(title, message, details=''):
 	log = logging.getLogger('common.message')
 	log.error('MSG %s: %s' % (str(message),details))
 	dialog = ErrorDialog( str(title), str(message), str(details) )
 	dialog.exec_()
 		
-def to_xml(s):
-	return s.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;')
-
 ## @brief The ProgressDialog class shows a progress bar moving left and right until you stop it.
 #
 # To use it:

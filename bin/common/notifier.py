@@ -1,5 +1,5 @@
-## The Notifications class handles warning and error notifications that some
-#  components might need to throw. 
+## @brief The Notifications module handles warning and error notifications that 
+# some components might need to throw. 
 #  
 #  The mechanism allows KTiny components to be loosely coupled with whatever 
 #  the application programmer wants to do in these cases.
@@ -25,14 +25,13 @@
 errorHandler = None
 warningHandler = None
 
-## Calls the function that has been registered to handle errors.
+## @brief Calls the function that has been registered to handle errors.
 def notifyError(title, message, detail):
 	if errorHandler:
 		errorHandler(title, message, detail)
 
-## Calls the function that has been registered to handle warnings.
+## @brief Calls the function that has been registered to handle warnings.
 def notifyWarning(title, message):
 	if warningHandler:
 		warningHandler(title, message)
-
 

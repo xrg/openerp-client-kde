@@ -138,11 +138,6 @@ try:
 	win = modules.gui.main.MainWindow()
 	win.show()
 
-	survey=common.terp_survey()
-
-	if survey.isShown():
-		survey.exec_()
-
 	if options.options.rcexist:
 		if options.options['tip.autostart']:
 			dialog = common.TipOfTheDayDialog()

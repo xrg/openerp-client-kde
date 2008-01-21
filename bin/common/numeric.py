@@ -1,6 +1,6 @@
 # This module includes
 
-## This function converts a string into an integer allowing
+## @brief This function converts a string into an integer allowing
 #  operations (+, -, /, *).
 #  
 #  The formula is calculated and the output is returned by 
@@ -15,7 +15,7 @@ def textToInteger(text):
 	except:
 		return False
 
-## This function converts a string into a float allowing
+## @brief This function converts a string into a float allowing
 #  operations (+, -, /, *).
 #  
 #  The formula is calculated and the output is returned by 

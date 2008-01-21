@@ -48,7 +48,6 @@ class configmanager(object):
 			'path.ui': os.path.join(sys.prefix, 'share/ktiny/ui'), 
 			'tip.autostart': False,
 			'tip.position': 0,
-			'survey.position': 0,
 			'form.autosave': False,
 			'printer.preview': True,
 			'printer.softpath': 'none',
