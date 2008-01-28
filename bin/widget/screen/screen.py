@@ -107,6 +107,7 @@ class Screen(QScrollArea):
 		self.ensureWidgetVisible( widget )
 
 	def currentChanged(self, id):
+		self.current_model = None
 		for i in self.models.models:
 			if i.id == id:
 				self.current_model = i

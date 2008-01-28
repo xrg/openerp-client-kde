@@ -395,3 +395,16 @@ class TreeModel(QAbstractItemModel):
 		else:
 			return -1
 
+	## @brief Returns a QModelIndex pointing to the first field of a given 
+	# a model id
+	def indexFromId(self, id):
+		if not self.group:
+			return QModelIndex()
+
+		i = 0
+		for x in self.group.models:
+			if x.id == id:
+				return self.index( i, 0 )
+			i = i + 1
+		return QModelIndex()
+

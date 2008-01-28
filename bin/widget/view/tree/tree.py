@@ -174,15 +174,10 @@ class ViewTree( AbstractView ):
 		return None
 
 	def currentChanged(self, current):
-		return
 		if self.selecting:
 			return
 		self.currentIndex = current
-		item = self.treeModel.itemFromIndex( current )
-		if not item:
-			return
-		# Emit signal with the new selected ID
-		self.emit(SIGNAL("currentChanged(int)"), item.id)
+		self.emit( SIGNAL("currentChanged(int)"), self.treeModel.id(current) )
 
 	def store(self):
 		pass
@@ -212,8 +207,8 @@ class ViewTree( AbstractView ):
 				#self.widget.setModel(self.treeModel)
 		#self.setSelected( currentModel )
 
-		return
 		if not currentModel:
+			return
 			item = self.treeModel.item(0)
 			if not item:
 				return
