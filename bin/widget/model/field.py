@@ -202,7 +202,6 @@ class ManyToManyField(StringField):
 		return [(6, 0, model.values[self.name] or [])]
 
 	def get_client(self, model):
-		print "get_client: ", model.values[self.name] or []
 		return model.values[self.name] or []
 
 	def set(self, model, value, test_state=False, modified=False):

@@ -7,7 +7,9 @@ from common import icons
 # We store the pointer to the Tiny ModelGroup on QModelIndex.internalPointer
 # Fields order should be handled using QHeaderView
 #
-# Qt.UserRole returns the model id (database id) for the given field (QModelIndex).
+# Qt.UserRole returns the model id (database id) for the given field (QModelIndex),
+# though id() function is also provided for convenience.
+
 
 ## @brief The TreeModel class provides a QAbstractItemModel wrapper around 
 # ModelRecordGroup class.
@@ -44,12 +46,31 @@ class TreeModel(QAbstractItemModel):
 	# call
 	def setModelGroup(self, group):
 		self.emit( SIGNAL('modelAboutToBeReset()') )
+		if self.group:
+			self.disconnect( self.group, SIGNAL('recordCleared()'), self.modelGroupChanged )
+			self.disconnect( self.group, SIGNAL('modelChanged(PyQt_PyObject)'), self.modelChanged )
+			self.disconnect( self.group, SIGNAL('recordChanged(QString,int)'), self.recordChanged )
+			
 		self.group = group
+		if self.group:
+			self.connect( self.group, SIGNAL('recordCleared()'), self.modelGroupChanged )
+			self.connect( self.group, SIGNAL('modelChanged(PyQt_PyObject)'), self.modelChanged )
+			self.connect( self.group, SIGNAL('recordChanged(QString,int)'), self.recordChanged )
+			
 		# We emit modelReset() so widgets will be notified that 
 		# they need to be updated
 		self.emit( SIGNAL('modelReset()') )
 		self.updateVisibleFields()
 
+	def modelGroupChanged(self):
+		self.reset()
+		
+	def modelChanged(self,obj):
+		self.reset()
+
+	def recordChanged(self,when,pos):
+		self.reset()
+		
 	## @brief Sets the dictionary of fields that should be loaded
 	def setFields(self, fields):
 		self.fields = fields
@@ -158,7 +179,7 @@ class TreeModel(QAbstractItemModel):
 				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
 				return len(value.models)
 			elif fieldType == 'many2many': 
-				value = self.valueByName(parent.row(), self.child, parent.internalPointer())
+				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
 				return len(value)
 			else:
 				return 0
@@ -281,7 +302,6 @@ class TreeModel(QAbstractItemModel):
 		# The 'parent' of the child ModelRecordGroup is a Model. The
 		# model has a pointer to the ModelRecordGroup it belongs and
 		# it's called 'mgroup'
-		print "GROUP: ", group
 		model = group.parent
 		parent = group.parent.mgroup
 
@@ -364,4 +384,14 @@ class TreeModel(QAbstractItemModel):
 			return None
 		else:
 			return model.value( field )
+
+	## @brief Returns the id of the model pointed by index. 
+	#
+	# The index can point to any field of the model.
+	def id(self, index):
+		model = self.model( index.row(), index.internalPointer() )
+		if model:
+			return model.id
+		else:
+			return -1
 

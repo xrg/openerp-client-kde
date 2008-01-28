@@ -231,7 +231,7 @@ class ViewTree( AbstractView ):
 		ids = []
 		selectedIndexes = self.widget.selectionModel().selectedRows()
 		for i in selectedIndexes:
-			ids.append ( self.widget.model().itemFromIndex( i ).id )
+			ids.append( self.treeModel.id( i ) )
 		return ids
 
 	def setAllowMultipleSelection(self, value):

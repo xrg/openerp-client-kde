@@ -193,8 +193,6 @@ class ModelRecordGroup(QObject):
 			self.emit(SIGNAL('recordCleared()'))
 	
 	## @brief Loads the list of ids in this group.
-	#
-	# If 'display' is true, the appropiate 'modelChanged' signal is emited.
 	def load(self, ids, display=True):
 		if not ids:
 			return True
@@ -206,10 +204,7 @@ class ModelRecordGroup(QObject):
 		values = self.rpc.read(ids, self.fields.keys(), c)
 		if not values:
 			return False
-		newmod = False
 		self.load_for(values)
-		if newmod and display:
-			self.emit(SIGNAL('modelChanged( PyQt_PyObject )'), newmod)
 		return True
 
 	## @brief Clears the list of models. It doesn't remove them.
