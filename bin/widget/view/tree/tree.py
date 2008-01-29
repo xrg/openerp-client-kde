@@ -33,101 +33,6 @@ from widget.view.abstractview import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-class TreeModel( QStandardItemModel ):
-
-	def __init__(self, modelGroup, model, header, colors):
-		QStandardItemModel.__init__( self )
-
-		self.rootItem = self.invisibleRootItem()
-		self.colors = colors
-		self.models = modelGroup.models
-		self.last_sort = None
-		self.sort_asc = True
-		self.columns = {}
-		self.stateColors = {'invalid':QColor('#ffdddd'), 'readonly':QColor('grey'), 'required':QColor('#ddddff'), 'normal':QColor('white')}
-		self.header = header
-		self.setColumnCount( len(header) )
-
-		for x in range(len(header)):
-			self.setHeaderData( x, Qt.Horizontal, QVariant( header[x]['string'] ) ) 
-			self.columns[header[x]['name']] = x
-
-	def setData( self , index, value, role):
-		if not index.isValid():
-			return False
-		item = self.itemFromIndex( index )
-		item.setData( value, role )
-		model = None
-		for x in self.models:
-			if x.id == item.id:
-				model = x
-				break
-		if not model:
-			return False
-		model.setValue( item.fieldName, item.value() )
-		model.modified()
-		return True
-	
-	def data( self, index , role ):
-		if not index.isValid():
-			return QVariant()
-		if role == Qt.ForegroundRole:
-			fgcolor='black'
-			if len( self.colors ):
-				model = None
-				for i in self.models:
-					item = self.itemFromIndex( index )
-					if i.id == item.id:
-						model = i
-				color,expr = self.colors[0]
-				if model.expr_eval( expr, check_load=False ) :
-					fgcolor=color
-					
-			return QVariant( QColor( fgcolor ) )
-		else:	
-			return  self.itemFromIndex( index ).data(role)
-
-	def added(self, modellist, position):
-		row = {}
-		self.removeAll() # TODO: adapt function to only append new records, and add insert at position x..
-		                 # temporaly to make functionality.
-		self.models = modellist
-	        if not self.models:
-			return
-		for j in modellist:
-			model =  self.models[ self.models.index( j ) ] 
-			if not model:
-				continue
-			for i in  model.mgroup.fields: 
-				attrs= model.mgroup.fields[i]
-				item = ItemFactory.create( attrs['type'], name=i, attributes=attrs)
-				item.id = model.id
-				item.setValue( model.value(i) )
-				if attrs.get( 'readonly', False ):
-					item.setData( QVariant( self.stateColors['readonly'] ), Qt.BackgroundColorRole )
-				if attrs.get( 'required', False ):
-					item.setData( QVariant( self.stateColors['required'] ) , Qt.BackgroundColorRole )
-				if i in self.columns:
-					row[self.columns[i]] = item
-			r = row.keys()
-			r.sort()
-			l = map(lambda x: row[x], r)
-			self.rootItem.appendRow( l )
-
- 	def removeAll( self ):
- 		self.removeRows( 0, self.rowCount() )
-		
-	def removed(self, lst, position):
-		self.removeRow( position )
-		
- 	def remove(self, iter):
-		self.removeRow( iter.row() )
-
-	def indexFromId(self, id):
-		for i in range(0, self.rowCount()):
-			if self.item(i).id == id:
-				return self.indexFromItem( self.item(i) )
-		return None
 
 class ThisTreeView( QTreeView ):
 	def currentChanged( self, current, previous ):
@@ -193,20 +98,9 @@ class ViewTree( AbstractView ):
 			self.widget.selectionModel().setCurrentIndex( idx, QItemSelectionModel.ClearAndSelect | QItemSelectionModel.Rows)
 			self.selecting = False
 
-	#
-	# self.widget.set_model(self.treeModel) could be removed if the self.treeModel
-	# has not changed -> better ergonomy. To test
-	#
 	def display(self, currentModel, models):
-		#TODO: Repaint every time the tree. Control refresh data when implementing editable tree.
-		#print "DISPLAY (%s)" % len(models.models)
-		#self.treeModel.added( models.models, -1 )
-		#self.widget.setModel(self.treeModel)
-		#if not currentModel:
- 			#if self.treeModel:
-				#self.widget.setModel(self.treeModel)
-		#self.setSelected( currentModel )
-
+		# TODO: Avoid setting the model group each time...
+		self.treeModel.setModelGroup( models )
 		if not currentModel:
 			return
 			item = self.treeModel.item(0)

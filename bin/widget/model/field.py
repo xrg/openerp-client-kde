@@ -192,35 +192,7 @@ class ManyToOneField(StringField):
 		if internal != model.values[self.name]:
 			self.changed(model)
 
-class ManyToManyField(StringField):
-	# internal = [id]
-
-	def create(self, model):
-		return []
-
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		return [(6, 0, model.values[self.name] or [])]
-
-	def get_client(self, model):
-		return model.values[self.name] or []
-
-	def set(self, model, value, test_state=False, modified=False):
-		model.values[self.name] = value or []
-		if modified:
-			model.modified = True
-			model.modified_fields.setdefault(self.name)
-
-	def set_client(self, model, value, test_state=False):
-		internal = model.values[self.name]
-		self.set(model, value, test_state, modified=False)
-		if set(internal) != set(value):
-			self.changed(model)
-
-	def default(self, model):
-		return self.get_client(model)
-
-
-class OneToManyField(StringField):
+class ToManyField(StringField):
 	def create(self, model):
 		from widget.model.group import ModelRecordGroup
 		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
@@ -289,7 +261,7 @@ class OneToManyField(StringField):
 					model.values[self.name].models.remove(model2)
 				else:
 					ok = False
-		if not super(OneToManyField, self).validate(model):
+		if not super(ToManyField, self).validate(model):
 			ok = False
 		self.stateAttributes(model)['valid'] = ok
 		return ok
@@ -344,8 +316,8 @@ class FieldFactory:
 		'integer' : IntegerField,
 		'float' : FloatField,
 		'many2one' : ManyToOneField,
-		'many2many' : ManyToManyField,
-		'one2many' : OneToManyField,
+		'many2many' : ToManyField,
+		'one2many' : ToManyField,
 		'reference' : ReferenceField,
 		'selection': SelectionField,
 		'boolean': IntegerField,

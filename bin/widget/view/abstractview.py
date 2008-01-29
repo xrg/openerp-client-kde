@@ -71,10 +71,6 @@ class AbstractView(QWidget):
 	def recordChanged(self, signal, models, index):
 		pass
 
-	# TODO: Search what it does
-	def set_cursor(self):
-		pass
-	
 	# TODO: By now, needs the self.widget
 
 	# Needs the self.model_add_new set to True (like TreeView) or False (like the FormView)

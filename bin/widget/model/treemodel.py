@@ -164,23 +164,17 @@ class TreeModel(QAbstractItemModel):
 			field = self.field( parent.column() )
 			if field == self.childField:
 				fieldType = self.fieldTypeByName(self.child, parent.internalPointer())
-				if fieldType == 'one2many':
+				if fieldType in ['one2many', 'many2many']:
 					value = self.valueByName(parent.row(), self.child, parent.internalPointer())
 					return len(value.models)
-				elif fieldType == 'many2many':
-					value = self.valueByName(parent.row(), self.child, parent.internalPointer())
-					return len(value)
 				else:
 					return 0
 
 			# If we get here it means tha we return the _real_ children
 			fieldType = self.fieldType( parent.column(), parent.internalPointer() )
-			if fieldType == 'one2many':
+			if fieldType in ['one2many', 'many2many']:
 				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
 				return len(value.models)
-			elif fieldType == 'many2many': 
-				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
-				return len(value)
 			else:
 				return 0
 		else:
@@ -198,18 +192,15 @@ class TreeModel(QAbstractItemModel):
 			#return len(parent.internalPointer().mfields)
 			return len(self.visibleFields)
 			fieldType = self.fieldType( parent.column(), parent.internalPointer() )
-			if fieldType == 'one2many':
+			if fieldType in ['one2many', 'many2many']:
 				# We suppose all childs have the same number of columns.
 				# Note that trying to browse and search the number of fields of 
 				# the model group wouldn't work we'd have to addFields() as fields
 				# wouldn't be loaded. That would make the function slower.
 				return len(self.visibleFields)
-			elif fieldType == 'many2many':
-				return len(self.visibleFields)
 			else:
 				return 0
 		else:
-			#return len(self.group.mfields)
 			return len(self.visibleFields)
 
 	def data(self, index, role):
@@ -218,10 +209,8 @@ class TreeModel(QAbstractItemModel):
 		if role == Qt.DisplayRole:
 			value = self.value( index.row(), index.column(), index.internalPointer() )
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
-			if fieldType == 'one2many':
+			if fieldType in ['one2many', 'many2many']:
 				return QVariant( '(%d)' % len(value.models) )
-			elif fieldType == 'many2many':
-				return QVariant( '(%d)' % len(value) )
 			elif fieldType == 'selection':
 				field = self.fields[self.field( index.column() )]
 				for x in field['selection']:
@@ -267,6 +256,12 @@ class TreeModel(QAbstractItemModel):
 					break
 
 			return QVariant( QBrush( QColor( color ) ) )
+		elif role == Qt.TextAlignmentRole:
+			fieldType = self.fieldType( index.column(), index.internalPointer() )
+			if fieldType in ['integer', 'float']:
+				return QVariant( Qt.AlignRight )
+			else:
+				return QVariant( Qt.AlignLeft )
 		elif role == Qt.UserRole:
 			model = self.model( index.row(), index.internalPointer() )
 			return QVariant( model.id )
@@ -315,6 +310,8 @@ class TreeModel(QAbstractItemModel):
 		if field == self.child:
 			field = self.childField
 
+		print "FIELD: ", field
+		print "VISIBLE: ", self.visibleFields
 		column = self.visibleFields.index(field)
 		return self.createIndex( row, column, parent )	
 

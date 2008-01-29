@@ -32,7 +32,7 @@ import time
 import exceptions
 import rpc
 from rpc import RPCProxy
-from field import OneToManyField
+from field import ToManyField
 import gettext
 import traceback
 
@@ -130,7 +130,7 @@ class ModelRecord(QObject):
 		value = []
 		for name, field in self.mgroup.mfields.items():
 			if (get_readonly or not field.stateAttributes(self).get('readonly', False)) \
-				and (not get_modifiedonly or (field.name in self.modified_fields or isinstance(field, OneToManyField))):
+				and (not get_modifiedonly or (field.name in self.modified_fields or isinstance(field, ToManyField))):
 					value.append((name, field.get(self, readonly=get_readonly,
 						modified=get_modifiedonly)))
 		value = dict(value)
@@ -220,7 +220,6 @@ class ModelRecord(QObject):
 				continue
 			self.mgroup.mfields[fieldname].setDefault(self, value)
 		self._loaded = True
-		#self.signal('record-changed')
 		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
 
 	# This functions simply emits a signal indicating that
@@ -235,7 +234,7 @@ class ModelRecord(QObject):
 		for fieldname, value in val.items():
 			if fieldname not in self.mgroup.mfields:
 				continue
-			if isinstance(self.mgroup.mfields[fieldname], OneToManyField):
+			if isinstance(self.mgroup.mfields[fieldname], ToManyField):
 				later[fieldname]=value
 				continue
 			self.mgroup.mfields[fieldname].set(self, value, modified=modified)
@@ -246,7 +245,6 @@ class ModelRecord(QObject):
 		if not self.modified:
 			self.modified_fields = {}
 		if signal:
-			#self.signal('record-changed')
 			self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
 
 		
@@ -302,7 +300,6 @@ class ModelRecord(QObject):
 					if fieldname not in self.mgroup.mfields:
 						continue
 					self.mgroup.mfields[fieldname].attrs['domain'] = value
-		#self.signal('record-changed')
 		self.emit( SIGNAL('recordChanged( PyQt_PyObject '), self )
 	
 	# This functions is called whenever a field with 'change_default'

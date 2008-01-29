@@ -279,7 +279,6 @@ class Screen(QScrollArea):
 			id = self.current_model.save(reload=True)
 		else:
 			self.current_view.display(self.current_model, self.models)
-			self.current_view.set_cursor()
 			return False
 		
 		if self.current_view.view_type == 'tree':
@@ -290,10 +289,8 @@ class Screen(QScrollArea):
 					else:
 						self.current_model = model
 						self.display()
-						self.current_view.set_cursor()
 						return False
 			self.display()
-			self.current_view.set_cursor()
 
 		if self.current_model not in self.models:
 			self.models.addModel(self.current_model)

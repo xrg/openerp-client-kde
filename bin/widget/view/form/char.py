@@ -60,10 +60,7 @@ class CharFormWidget(AbstractFormWidget):
 		self.widget.installEventFilter( self )
 
 	#def eventFilter( self, target, event):
-	#	#TODO: Need to know activate signal is launched in gtk. to call self.sig_activate
-		#TODO: Need to know how unhide cursor.
 	#	if target == self.widget:
-	#		## TODO: return, makes the cursor change to next widget.
 	#		##  if  event.type() == QEvent.KeyPress :
 ## 	#			if event.key()
 ## 	#			self._menu_open( target, event )
