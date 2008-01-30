@@ -111,13 +111,6 @@ class many2many(AbstractFormWidget):
 		models = self.model.value(self.name)
 		self.screen.setModels(models)
 		self.screen.display()
-		#ids = []
-		#ids = self.model.value(self.name)
-		#if ids<>self.old:
-		#	self.screen.clear()
-		#	self.screen.load(ids)
-		#	self.old = ids
-		#self.screen.display()
 
 	def store(self):
 		#self.model.setValue( self.name, [ x.id for x in self.screen.models.models] )

@@ -97,18 +97,14 @@ class AbstractFormWidget(QWidget):
 
 	def slotSetDefault(self):
 		deps = []
-		wid = self._view.view_form.widgets
-		for wname, wview in self.view_form.widgets.items():
-			#if wview.modelField.attrs.get('change_default', False):
+		wid = self.view.widgets
+		for wname, wview in self.view.widgets.items():
 			if wview.attrs.get('change_default', False):
 				value = wview.model.value(wview.name)
-				#value = wview.modelField.get( self.model )
 				deps.append((wname, wname, value, value))
-		#value = self.modelField.get_default( self.model )
 		value = self.model.default( self.name )
-		#model = self.modelField.parent.resource
 		model = self.model.resource
-		dialog = FieldPreferencesDialog(self._view.widget_name, self.attrs.get('string', self._view.widget_name), model, value, deps)
+		dialog = FieldPreferencesDialog(self.attrs['name'], self.attrs.get('string', self.attrs['name']), model, value, deps)
 		dialog.exec_()
 
 	def refresh(self):
@@ -171,10 +167,6 @@ class AbstractFormWidget(QWidget):
 		else:
 			if 'readonly' not in state_changes:
 				self.attrs['readonly'] = self.defaultReadOnly
-		#ro = self.attrs['readonly']
-		#self.setReadOnly( ro )
-		#if ro:
-			#print "READ ONLY: %s!!!" % (self.name)
 
 	def eventFilter( self, target, event ):
 		if event.type() == QEvent.FocusIn:
@@ -250,7 +242,7 @@ class AbstractFormWidget(QWidget):
 	# Maybe, simply by testing if the server onchange option works.
 	def sig_changed(self):
 		if self.attrs.get('on_change',False):
-			self._view.view_form.screen.on_change(self.attrs['on_change'])
+			self.view.screen.on_change(self.attrs['on_change'])
 
 	def load(self, model, state = 'draft' ):
 		self.model = model
