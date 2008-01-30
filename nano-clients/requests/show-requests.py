@@ -14,7 +14,10 @@ class RequestsDialog(QDialog):
 		QDialog.__init__(self,parent)
 		layout = QVBoxLayout(self)
 		tree = QTreeView(self)
+		tree.setRootIsDecorated( False )
 		layout.addWidget(tree)
+		layout.setMargin( 0 )
+		self.resize(600, 300)
 
 		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'graficas' )
 		visible = ['create_date', 'name', 'act_from', 'act_to', 'body' ]
@@ -25,6 +28,7 @@ class RequestsDialog(QDialog):
 		treeModel.setModelGroup( self.group )
 		treeModel.setFields( self.fields )
 		treeModel.setShowBackgroundColor( False )
+
 		tree.setModel( treeModel )
 
 

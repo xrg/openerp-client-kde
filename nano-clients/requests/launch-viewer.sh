@@ -2,4 +2,4 @@
 
 export PYTHONPATH=../../bin
 
-python show-requests.py
+python show-requests.py -stylesheet show-requests.qss
