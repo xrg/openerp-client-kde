@@ -65,5 +65,7 @@
         <file>images/tinyerp.png</file>
         <file>images/trash.png</file>
         <file>images/warning.png</file>
+        <file>images/media_previous.png</file>
+        <file>images/media_next.png</file>
     </qresource>
 </RCC>

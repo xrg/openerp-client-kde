@@ -16,6 +16,8 @@ mapIcons = {
 	'gtk-info' : 'info.png',
 	'gtk-close' : 'close.png',
 	'gtk-dialog-info' : 'info.png',
+	'gtk-media-previous' : 'media_previous.png',
+	'gtk-media-next' : 'media_next.png',
 	'STOCK_JUSTIFY_FILL' : 'text_block.png',
 	'STOCK_INDENT' : 'rightjust.png',
 	'STOCK_OPEN' : 'folder.png',

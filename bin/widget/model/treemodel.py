@@ -249,7 +249,8 @@ class TreeModel(QAbstractItemModel):
 			return QVariant( QBrush( QColor( color ) ) )
 		elif role == Qt.ForegroundRole:
 			model = self.model( index.row(), index.internalPointer() )
-			color = 'black'
+			palette = QPalette()
+			color = palette.color( QPalette.WindowText )
 			for (c, expression) in self.colors:
 				if model.expr_eval( expression, check_load=False ):
 					color = c
