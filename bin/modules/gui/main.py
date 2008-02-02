@@ -34,7 +34,6 @@
 import time
 import os
 import gettext
-import urlparse
 
 import rpc
 
@@ -65,7 +64,7 @@ class MainWindow(QMainWindow):
 		loadUi( common.uiPath( "mainwindow.ui" ), self ) 
 		self.showMaximized()	
 
-		self.sb_server_db.setText( _('Press Ctrl+O to login') )
+		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 
 		self.tabWidget = QTabWidget ( self.centralWidget()  )
 		self.connect( self.tabWidget, SIGNAL("currentChanged(int)"), self.currentChanged )
@@ -139,6 +138,10 @@ class MainWindow(QMainWindow):
 
 		spool = service.LocalService('spool')
 		spool.subscribe('gui.window', self.win_add )
+
+		# Stores the id of the menu action. This is to avoid opening two menus
+		# when 'action_id' returns the same as 'menu_id'
+		self.menuId = False
 
 		# Every 5 minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
@@ -231,7 +234,7 @@ class MainWindow(QMainWindow):
 				message = _('No request')
 			if len(ids2):
 				message += _(' - %s pending request(s)') % len(ids2)
-			self.sb_requests.setText( message )
+			self.uiRequests.setText( message )
 			return (ids, ids2)
 		except:
 			return ([], [])
@@ -268,9 +271,9 @@ class MainWindow(QMainWindow):
 				options.options['login.protocol'] = unicode( url.scheme() ) + '://'
 				options.options['login.db'] = databaseName
 				options.options.save()
-			        id = self.openMenuTab()
-				if id:
-					self.openHomeTab()
+			        self.openMenuTab()
+				self.openHomeTab()
+
 				self.updateRequestsStatus()
 				return True
 			elif log_response==-1:
@@ -293,9 +296,9 @@ class MainWindow(QMainWindow):
 	def logout(self):
 		if not self.closeAllTabs():
 			return
-		self.sb_requests.setText('')
-		self.sb_username.setText( _('Not logged !'))
-		self.sb_server_db.setText( _('Press Ctrl+O to login'))
+		self.uiRequests.clear()
+		self.uiUserName.setText( _('Not logged !') )
+		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 		rpc.session.logout()
 		
 	def supportRequest(self):
@@ -304,7 +307,6 @@ class MainWindow(QMainWindow):
 	def kTinyManual(self):
 		dir = os.path.abspath(os.path.dirname(__file__))
 		index = dir + '/../../../doc/html/index.html'
-		print index
 		if os.path.exists( index ):
 			QDesktopServices.openUrl( QUrl( index ) )
 		else:
@@ -340,52 +342,51 @@ class MainWindow(QMainWindow):
 		dialog.exec_()
 
 
-	# New v 4.2 rc2
+	## @brief Opens the Menu Tab.
+	#
+	# If a tab menu already exists it's risen, otherwise a new one is created
+	# and rised.
 	def openMenuTab(self):
+		# Search if a menu tab already exists and rise it
 		for p in range(self.tabWidget.count()):
 			if self.tabWidget.widget(p).model=='ir.ui.menu':
 				self.tabWidget.setCurrentIndex(p)
-				return True
-		res = self.newTab('menu_id')
-		if not res:
-			return self.newTab('action_id')
-		return res
+				return 
 
-	## Opens a new tab of the given type.
-	#
-	# @param type Can be 'menu_id' or 'action_id'. The first one opens creates a menu tab,
-	# the second will typically open a dashboard.
-	def newTab(self, type, except_id=False ):
-		try:
-			act_id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ type,'name'], rpc.session.context)
-		except:
-			return False
-		
-		data = urlparse.urlsplit(rpc.session.url)
-		self.sb_username.setText( act_id[0]['name'] or '' )
-		self.sb_server_db.setText( data[0]+'//'+data[1]+' ['+options.options['login.db']+']' )
+		# If no menu tab exists query the server and open it
+		id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ 'menu_id','name'], rpc.session.context)
+		self.uiUserName.setText( id[0]['name'] or '' )
+		self.uiServerInformation.setText( "%s [%s]" % (rpc.session.url, rpc.session.databaseName) )
 
- 		if not act_id[0][type]:
+ 		if not id[0]['menu_id']:
+			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
  			rpc.session.logout()
-			return False
+			return 
 		
-		act_id = act_id[0][type][0]
-		if except_id and act_id == except_id:
-			return act_id
+		# Store the menuId so we ensure we don't open the menu twice when
+		# calling openHomeTab()
+		self.menuId = id[0]['menu_id'][0]
+
 
 		obj = service.LocalService('action.main')
-		win = obj.execute(act_id, {'window':self })
-		
- 		try:
- 			user = rpc.session.call('/object', 'execute', 'res.users','read', [rpc.session.uid], [type,'name'], rpc.session.context)
- 			if user[0][type]:
- 				act_id = user[0][type][0]
- 		except:
- 			pass
- 		return act_id
+		win = obj.execute(self.menuId, {'window':self })
 
+	## @brief Opens the Home Tab.
+	#
+	# The home tab is an action specified in the server which usually is a 
+	# dashboard, but could be anything.
 	def openHomeTab(self):
-		return self.newTab('action_id')
+		id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ 'action_id','name'], rpc.session.context)
+
+ 		if not id[0]['action_id']:
+			return 
+		id = id[0]['action_id'][0]
+
+		# Do not open the action if the id is the same as the menu id.
+		if id == self.menuId:
+			return
+		obj = service.LocalService('action.main')
+		obj.execute(id, {'window':self })
 
 	def closeEvent(self, event):
 		if QMessageBox.question(self, _("Quit"), _("Do you really want to quit ?"), _("Yes"), _("No")) == 1:

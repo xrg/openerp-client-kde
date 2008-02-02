@@ -120,7 +120,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="sb_server_db" >
+          <widget class="QLabel" name="uiServerInformation" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>0</horstretch>
@@ -139,7 +139,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="sb_username" >
+          <widget class="QLabel" name="uiUserName" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>0</horstretch>
@@ -171,7 +171,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="sb_requests" >
+          <widget class="QLabel" name="uiRequests" >
            <property name="sizePolicy" >
             <sizepolicy vsizetype="Preferred" hsizetype="Expanding" >
              <horstretch>0</horstretch>
