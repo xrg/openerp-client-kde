@@ -124,6 +124,7 @@ class many2one(AbstractFormWidget):
 		if self.model:
 			self.model.setValue( self.name, False )
 			self.uiText.clear()
+ 			self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
 			self.modified()
 
 	def eventFilter( self, target, event):
