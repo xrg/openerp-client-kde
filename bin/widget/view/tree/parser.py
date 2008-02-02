@@ -103,8 +103,8 @@ class TreeParser(AbstractParser):
 				header.append( { 'name': fname, 'type': fields[fname]['type'], 'string': fields[fname].get('string', '') })
 				columns.append( { 'width': width , 'type': fields[fname]['type'], 'attributes':node_attrs } )
 
-		#view.setModel( TreeModel( self.screen.models, model, header, colors ) )
 		model = treemodel.TreeModel( view )
+		model.setMode( treemodel.TreeModel.ListMode )
 		model.setModelGroup( self.screen.models )
 		model.setFields( fields )
 		model.setFieldsOrder( [x['name'] for x in header] )

@@ -132,7 +132,9 @@ class TreeModel(QAbstractItemModel):
 
 	## @brief Set the model to the specified mode
 	#
-	#  mode parameter can be TreeMode or ListMode
+	# mode parameter can be TreeMode or ListMode, this is not %100
+	# necessary in most cases, but it also avoids some checks in many cases
+	# so at least it can provide some speed improvements.
 	def setMode(self, mode):
 		self.mode = mode
 
@@ -156,7 +158,7 @@ class TreeModel(QAbstractItemModel):
 			return 0
 
 		# In list mode we will consider there are no children
-		if self.mode == self.ListMode and parent.internalPointer() != self.group:
+		if self.mode == self.ListMode and parent.isValid() and parent.internalPointer() != self.group:
 			return 0
 
 		if parent.isValid():
@@ -185,7 +187,7 @@ class TreeModel(QAbstractItemModel):
 			return 0
 
 		# In list mode we consider there are no children
-		if self.mode == self.ListMode and parent.internalPointer() != self.group:
+		if self.mode == self.ListMode and parent.isValid() and parent.internalPointer() != self.group:
 			return 0
 
 		if parent.isValid():
@@ -288,6 +290,9 @@ class TreeModel(QAbstractItemModel):
 			return QModelIndex()
 		if not index.isValid():
 			return QModelIndex()
+		if self.mode == self.ListMode:
+			return QModelIndex()
+
 		# Search where in the grandparent our parent is
 		group = index.internalPointer()
 
@@ -311,10 +316,16 @@ class TreeModel(QAbstractItemModel):
 		if field == self.child:
 			field = self.childField
 
-		print "FIELD: ", field
-		print "VISIBLE: ", self.visibleFields
-		column = self.visibleFields.index(field)
-		return self.createIndex( row, column, parent )	
+		# We check if the field is in the visibleFields. This can happen
+		# if the user forgot to set ListMode and there are children (or parents)
+		# of different types, so related models don't have the same
+		# fields. This crashed when browsing with the form view, but could
+		# happen in other places too.
+		if field in self.visibleFields:
+			column = self.visibleFields.index(field)
+			return self.createIndex( row, column, parent )	
+		else:
+			return QModelIndex()
 
 	# Plain virtual functions from QAbstractItemModel
 
