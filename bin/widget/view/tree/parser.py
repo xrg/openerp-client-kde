@@ -57,10 +57,6 @@ class TreeParser(AbstractParser):
 
 		attrs = common.node_attributes(rootNode)
  		on_write = attrs.get('on_write', '')
-		# TODO: Unforce setReadOnly(false), set for testing
-		# purposes
-		#view.setReadOnly( not attrs.get('editable', False) )
-		view.setReadOnly( False )
 
 		if not view.title:
  			view.title = attrs.get('string', 'Unknown')
@@ -108,6 +104,7 @@ class TreeParser(AbstractParser):
 		model.setFieldsOrder( [x['name'] for x in header] )
 		model.setColors( colors )
 		model.setReadOnly( not attrs.get('editable', False) )
+		view.setReadOnly( not attrs.get('editable', False) )
 		#model.setReadOnly( False )
 
 		if view.isReadOnly():
