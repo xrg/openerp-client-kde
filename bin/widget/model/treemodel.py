@@ -242,9 +242,9 @@ class TreeModel(QAbstractItemModel):
 			if not self.showBackgroundColor:
 				return QVariant()
 			field = self.fields[self.field( index.column() )]
-			if 'required' in field:
+			if 'required' in field and field['required']:
 				color = '#ddddff'	
-			elif 'readonly' in field:
+			elif 'readonly' in field and field['readonly']:
 				color = 'lightgrey'
 			else:
 				color = 'white'
