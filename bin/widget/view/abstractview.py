@@ -62,10 +62,11 @@ class AbstractView(QWidget):
 
 	# This function should return False if the view modifies data
 	# or True if it doesn't
-	def readOnly(self):
+	def isReadOnly(self):
 		return True
+
 	def setReadOnly(self, value):
-		return True
+		return 
 
 	# This function is called when the
 	def recordChanged(self, signal, models, index):

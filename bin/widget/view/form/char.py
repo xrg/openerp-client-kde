@@ -36,8 +36,8 @@ from PyQt4.QtGui import *
 
 
 class CharFormWidget(AbstractFormWidget):
-	def __init__(self, parent, model, attrs={}):
-		AbstractFormWidget.__init__(self, parent, model, attrs)
+	def __init__(self, parent, view, attrs={}):
+		AbstractFormWidget.__init__(self, parent, view, attrs)
 
 		self.widget = QLineEdit( self )
 		self.setMaximumHeight( 20 )

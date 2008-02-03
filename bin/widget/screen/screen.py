@@ -235,12 +235,12 @@ class Screen(QScrollArea):
 			self.setView(view)
 		return view
 
-	def readOnly(self):
-		return self.current_view.readOnly
+	def isReadOnly(self):
+		return self.current_view.isReadOnly()
 
 	def new(self, default=True):
 		if self.current_view and self.current_view.view_type == 'tree' \
-				and self.current_view.readOnly:
+				and self.current_view.isReadOnly():
 			self.switchView()
 		model = self.models.newModel(default, self.domain, self.context)
 
@@ -258,7 +258,7 @@ class Screen(QScrollArea):
 	def new_model_position(self):
 		position = -1
 		if self.current_view and self.current_view.view_type =='tree' \
-			    and self.current_view.readOnly():
+			    and self.current_view.isReadOnly():
 			#and self.current_view.editable == 'top':
 			position = 0
 		return position

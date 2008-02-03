@@ -18,6 +18,7 @@ from common import icons
 # instance to wrap, and setFields() with the fields to load.
 # Then it's ready to be used in any Qt model/view enabled widget such as 
 # QTreeView or QListView.
+# Note that by default TreeModel is read-only.
 class TreeModel(QAbstractItemModel):
 	
 	TreeMode = 1
@@ -34,6 +35,7 @@ class TreeModel(QAbstractItemModel):
 		self.mode = self.TreeMode
 		self.colors = {}
 		self.showBackgroundColor = True
+		self.readOnly = True
 		# visibleFields is an alphabetically sorted list of 
 		# all visible fields. This means it discards self.icon
 		# and self.child fields. The list is updated using
@@ -61,6 +63,9 @@ class TreeModel(QAbstractItemModel):
 		# they need to be updated
 		self.emit( SIGNAL('modelReset()') )
 		self.updateVisibleFields()
+
+	def setReadOnly(self, value):
+		self.readOnly = value
 
 	def modelGroupChanged(self):
 		self.reset()
@@ -204,6 +209,18 @@ class TreeModel(QAbstractItemModel):
 				return 0
 		else:
 			return len(self.visibleFields)
+
+	def flags(self, index):
+		f = QAbstractItemModel.flags(self, index)	
+
+		field = self.fields[self.field( index.column() )]
+		if self.readOnly or ( 'readonly' in field and field['readonly'] ):
+			return f
+		else:
+			return f | Qt.ItemIsEditable
+
+	def setData(self, index, value, role):
+		return True
 
 	def data(self, index, role):
 		if not self.group:
@@ -362,6 +379,8 @@ class TreeModel(QAbstractItemModel):
 
 	## @brief Returns a ModelRecord refered by row and group parameters
 	def model(self, row, group):
+		if not group:
+			return None
 		if row >= len(group.models):
 			return None
 		else:
@@ -381,6 +400,17 @@ class TreeModel(QAbstractItemModel):
 			return None
 		else:
 			return model.value( field )
+
+	def setValue(self, value, row, column, group):
+		# We ensure the group has been loaded by checking if there
+		# are any fields
+		if not group.mfields:
+			group.addFields( self.fields )
+		model = self.model(row, group)
+		field = self.field(column)
+		if field and model:
+			model.setValue( field, value )
+		
 
 	def valueByName(self, row, field, group):
 		# We ensure the group has been loaded by checking if there
@@ -417,3 +447,5 @@ class TreeModel(QAbstractItemModel):
 			i = i + 1
 		return QModelIndex()
 
+	def modelFromIndex(self, index):
+		return self.model( index.row(), index.internalPointer() )

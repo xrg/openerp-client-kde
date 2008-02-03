@@ -57,7 +57,10 @@ class TreeParser(AbstractParser):
 
 		attrs = common.node_attributes(rootNode)
  		on_write = attrs.get('on_write', '')
-		view.setReadOnly( not attrs.get('editable', False) )
+		# TODO: Unforce setReadOnly(false), set for testing
+		# purposes
+		#view.setReadOnly( not attrs.get('editable', False) )
+		view.setReadOnly( False )
 
 		if not view.title:
  			view.title = attrs.get('string', 'Unknown')
@@ -68,7 +71,6 @@ class TreeParser(AbstractParser):
 				colour, test = color_spec.split(':')
 				colors.append( ( colour, str(test) ) )
 
-		i=0
 		header = []
 		columns = []
 		for node in rootNode.childNodes:
@@ -92,14 +94,10 @@ class TreeParser(AbstractParser):
 
 				node_attrs.update(fields[fname])
 
-#				print "NODE_ATTRS: ", node_attrs
-#				print "FIELDS: ", fields[fname]
-
 				if 'width' in fields[fname]:
 					width = int(fields[fname]['width'])
 				else:
 					width = twidth.get(fields[fname]['type'], 200)
-				i = i +1
 				header.append( { 'name': fname, 'type': fields[fname]['type'], 'string': fields[fname].get('string', '') })
 				columns.append( { 'width': width , 'type': fields[fname]['type'], 'attributes':node_attrs } )
 
@@ -109,147 +107,86 @@ class TreeParser(AbstractParser):
 		model.setFields( fields )
 		model.setFieldsOrder( [x['name'] for x in header] )
 		model.setColors( colors )
-		if view.readOnly:
+		model.setReadOnly( not attrs.get('editable', False) )
+		#model.setReadOnly( False )
+
+		if view.isReadOnly():
 			model.setShowBackgroundColor( False )
 		else:
 			model.setShowBackgroundColor( True )
 		view.setModel( model )
 
 		for column in range( len(columns)):
-			view.widget.setColumnWidth( column, columns[column]['width'] )
-		 	if columns[column]['type'] == 'selection':
- 				delegate = ComboBoxDelegate( columns[column]['attributes'], view.widget )
- 				view.widget.setItemDelegateForColumn( column, delegate )
-			elif columns[column]['type'] == 'int':
-				delegate = IntegerDelegate( columns[column]['attributes'], view.widget )
-				view.widget.setItemDelegateForColumn( column, delegate )
-			elif columns[column]['type'] == 'float':
-				delegate = FloatDelegate( columns[column]['attributes'], view.widget )
-				view.widget.setItemDelegateForColumn( column, delegate )
-			elif columns[column]['type'] == 'date':
-				delegate = DateDelegate( columns[column]['attributes'], view.widget )
-				view.widget.setItemDelegateForColumn( column, delegate )
-			elif columns[column]['type'] == 'time':
-				delegate = TimeDelegate( columns[column]['attributes'], view.widget )
-				view.widget.setItemDelegateForColumn( column, delegate )
-			elif columns[column]['type'] == 'datetime':
-				delegate = DateTimeDelegate( columns[column]['attributes'], view.widget )
-				view.widget.setItemDelegateForColumn( column, delegate )
+			current = columns[column]
+			view.widget.setColumnWidth( column, current['width'] )
+			delegate = StandardDelegate( current['type'], current['attributes'], view.widget )
+			view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
 
-class ComboBoxDelegate( QItemDelegate ):
-	def __init__( self, attributes, parent=None):
-		QItemDelegate.__init__( self, parent )
-		self.list = attributes.get('selection', [])
+from widget.view.form import calendar
+from widget.view.form import float
+from widget.view.form import integer
+from widget.view.form import char
+from widget.view.form import checkbox
+from widget.view.form import reference
+from widget.view.form import binary
+from widget.view.form import textbox
+from widget.view.form import richtext
+from widget.view.form import many2many
+from widget.view.form import many2one
+from widget.view.form import selection
+from widget.view.form import one2many
+from widget.view.form import url
+from widget.view.form import image
 
-	def createEditor( self, parent, option, index ):
-		widget =  QComboBox( parent )
-		i = 0
-		current = -1
-		for x in self.list:
-			widget.addItem(x[1],QVariant(x[0]))
-			if str(index.data( Qt.DisplayRole ).toString()) == x[1]:
-				current = i
-			i += 1
-		return widget
 
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		idx = str(index.data(Qt.DisplayRole).toString())
-		current = -1
-		i = 0
-		for x in self.list:
-			if idx == x[1]:
-				current = i
-				break
-			i += 1
-		editor.setCurrentIndex( current )
-
-	def setModelData( self, editor, model, index ):
-		if editor:
-			model.setData( index, QVariant(editor.currentText()), Qt.DisplayRole )
-		
-	def updateEditorGeometry(self, editor, option,index ):
-		 editor.setGeometry(option.rect)
+widgets_type = {
+	'date': calendar.DateFormWidget,
+	'time': calendar.TimeFormWidget,
+	'datetime': calendar.DateTimeFormWidget,
+	'float': float.FloatFormWidget,
+	'integer': integer.IntegerFormWidget,
+	'selection': selection.SelectionFormWidget,
+	'char': char.CharFormWidget,
+	'boolean': checkbox.CheckBoxFormWidget,
+	'reference': reference.reference,
+	'binary': binary.BinaryFormWidget,
+	'text': textbox.TextBoxFormWidget,
+	'text_tag': richtext.RichTextFormWidget,
+	'one2many': one2many.OneToManyFormWidget,
+	'one2many_form': one2many.OneToManyFormWidget,
+	'one2many_list': one2many.OneToManyFormWidget,
+	'many2many': many2many.many2many,
+	'many2one': many2one.many2one,
+	'image' : image.ImageFormWidget,
+	'url' : url.UrlFormWidget,
+	'email' : url.EMailFormWidget,
+	'callto' : url.CallToFormWidget,
+	'sip' : url.SipFormWidget,
+}
 
 class StandardDelegate( QItemDelegate ):
-	def __init__( self, attributes, parent=None):
+	def __init__( self, type, attributes, parent=None):
 		QItemDelegate.__init__( self, parent )
+		self.attributes = attributes
+		self.type = type
 
 	def createEditor( self, parent, option, index ):
-		return QLineEdit( parent )
+		return widgets_type[self.type](parent, None, self.attributes)
 
-	def updateEditorGeometry(self, editor, option,index ):
+	def setEditorData( self, editor, index ):
+		if not editor:
+			return
+		# We suppose a TreeModel here
+		model = index.model().modelFromIndex( index )
+		editor.load( model )
+		return
+
+	def setModelData( self, editor, model, index ):
+		if editor:
+			editor.store()
+		
+	def updateEditorGeometry(self, editor, option, index ):
 		 editor.setGeometry(option.rect)
-
-class FloatDelegate( StandardDelegate ):
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		value, ok = index.data(Qt.DisplayRole).toDouble()
-		editor.setText( str(value) )
-
-	def setModelData( self, editor, model, index ):
-		if editor:
-			model.setData( index, QVariant(textToFloat(str(editor.text()))), Qt.DisplayRole )
-
-class IntegerDelegate( StandardDelegate ):
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		value, ok = index.data(Qt.DisplayRole).toInt()
-		editor.setText( str(value) )
-
-	def setModelData( self, editor, model, index ):
-		if editor:
-			model.setData( index, QVariant(textToInteger(str(editor.text()))), Qt.DisplayRole )
-
-
-class TimeDelegate( StandardDelegate ):
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		editor.setText( timeToText( index.data(Qt.DisplayRole).toTime() ) )
-
-	def setModelData( self, editor, model, index ):
-		if editor:
-			model.setData( index, QVariant(textToTime(editor.text())), Qt.DisplayRole )
-
-class CalendarWidget(QWidget):
-	def __init__(self, showTime, parent):
-		QWidget.__init__(self, parent)
-		loadUi( common.uiPath('calendar.ui'), self)
-		self.showTime = showTime
-		self.connect( self.pushCalendar, SIGNAL('clicked()'), self.showCalendar )
-		self.uiDate.setFocus()
-
-	def showCalendar(self):
-		PopupCalendar( self.uiDate, self.showTime)
-
-class DateDelegate( StandardDelegate ):
-	def createEditor( self, parent, option, index ):
-		return CalendarWidget( showTime = False, parent = parent )
-
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		editor.uiDate.setText( dateToText( index.data(Qt.DisplayRole).toDate() ) )
-
-	def setModelData( self, editor, model, index ):
-		if editor:
-			model.setData( index, QVariant(textToDate(editor.uiDate.text())), Qt.DisplayRole )
-
-class DateTimeDelegate( StandardDelegate ):
-	def createEditor( self, parent, option, index ):
-		return CalendarWidget( showTime = True, parent = parent )
-
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		editor.uiDate.setText( dateTimeToText( index.data(Qt.DisplayRole).toDateTime() ) )
-
-	def setModelData( self, editor, model, index ):
-		if editor:
-			model.setData( index, QVariant(textToDateTime(editor.uiDate.text())), Qt.DisplayRole )
+	
 # vim:noexpandtab:

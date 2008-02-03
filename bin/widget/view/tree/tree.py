@@ -57,6 +57,7 @@ class ViewTree( AbstractView ):
 		layout = QVBoxLayout()
 		layout.addWidget( self.widget )
 		self.setLayout( layout )
+		self.setReadOnly( True )
 
 	def setModel( self, model ):
 		self.treeModel = model	
@@ -64,11 +65,12 @@ class ViewTree( AbstractView ):
 		self.connect( self.widget.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.currentChanged)
 
 	# This signal is emited when a list item is double clicked
-	# or activated.
+	# or activated, only when it's read-only.
 	# Used by the search dialog to "accept" the choice or by
 	# Screen to switch view
 	def activated(self, index):
-		self.emit( SIGNAL('activated()') )
+		if self._readOnly:
+			self.emit( SIGNAL('activated()') )
 
 	def __getitem__(self, name):
 		return None
@@ -125,8 +127,8 @@ class ViewTree( AbstractView ):
 			self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
 
 	def setReadOnly(self, value):
-		self.readOnly = value
-		if self.readOnly:
+		self._readOnly = value
+		if self._readOnly:
 			self.widget.setEditTriggers( QAbstractItemView.NoEditTriggers ) 
 		else:
 			self.widget.setEditTriggers( QAbstractItemView.AllEditTriggers )

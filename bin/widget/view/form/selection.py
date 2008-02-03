@@ -33,8 +33,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 class SelectionFormWidget(AbstractFormWidget):
-	def __init__(self, parent, model, attrs={}):
-		AbstractFormWidget.__init__(self, parent, model, attrs)
+	def __init__(self, parent, view, attrs={}):
+		AbstractFormWidget.__init__(self, parent, view, attrs)
 
 		layout = QHBoxLayout( self )
 		layout.setMargin( 0 )

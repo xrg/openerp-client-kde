@@ -109,7 +109,8 @@ class BinaryFormWidget(AbstractFormWidget):
 			if 'fname_widget' in self.attrs:
 				w = self.attrs['fname_widget']
 				self.model.setValue( w, os.path.basename(filename) )
-				self.view.widgets[w].load(self.model)
+				if self.view:
+					self.view.widgets[w].load(self.model)
 		except:
 			QMessageBox.information(self, '', _('Error reading the file'))
 
@@ -129,7 +130,8 @@ class BinaryFormWidget(AbstractFormWidget):
 		if 'fname_widget' in self.attrs:
 			w = self.attrs['fname_widget']
 			self.model.setValue( w, False )
-			self.view.widgets[w].load(self.model)
+			if self.view:
+				self.view.widgets[w].load(self.model)
 
 	def showValue(self):
 		self.value = self.model.value( self.name )
@@ -146,10 +148,7 @@ class BinaryFormWidget(AbstractFormWidget):
 	# here. We do it in the slotNew, so we don't have two copies
 	# of the file (which can be pretty big) in memory.
 	def store(self):
-		print "Model:", self.model
-		print " Name:", self.name, "Value:", self.value
 		self.model.setValue( self.name, self.value )
-		return
 
 	def colorWidget(self):
 		return self.uiBinary

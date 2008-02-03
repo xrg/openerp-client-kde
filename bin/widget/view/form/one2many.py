@@ -118,7 +118,7 @@ class OneToManyFormWidget(AbstractFormWidget):
 		return self.screen
 
 	def _sig_new(self):
-                if (self.screen.current_view.view_type=='form') or not self.screen.readOnly():
+                if (self.screen.current_view.view_type=='form') or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
 			ok = 1

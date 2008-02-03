@@ -27,16 +27,14 @@
 ##############################################################################
 
 import rpc
+from fieldpreferences import *
+from PyQt4.QtGui import *
+from PyQt4.QtCore import *
 
 _attrs_boolean = {
 	'required': False,
 	'readonly': False
 }
-
-from fieldpreferences import *
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-
 
 # In order to create a new form widget, that is: a widget that appears in a 
 # auto-generated form you need to inherit from this class and implement some
@@ -82,14 +80,11 @@ class AbstractFormWidget(QWidget):
 
 	def slotGetDefault(self):
 		try:
-			#model = self.model.parent.resource
 			model = self.model.resource
-			#model = self.model.id
 			res = rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
-			#model = self.modelField.set(res.get(self.attrs['name'], False))
 			model = self.model.setValue(self.name, res.get(self.name, False))
-			# TODO: Why should we call the display function. Isn't it call simply by
-			# calling setValue through the appropiate singal?
+			# TODO: Why should we call the display function. Isn't it called simply by
+			# calling setValue through the appropiate signal?
 			self.display()
 		except:
 			QMessageBox.warning(None, _('Operation not permited'), _('You can not set to the default value here !') )
