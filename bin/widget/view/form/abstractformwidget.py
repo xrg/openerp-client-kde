@@ -60,8 +60,12 @@ class AbstractFormWidget(QWidget):
 		self.defaultReadOnly= self.attrs.get('readonly', False)
 		self.defaultMenuEntries = [
 			(_('Set to default value'), self.slotGetDefault, 1),
-			(_('Set default'), self.slotSetDefault, 1),
 		]
+
+		# As currently slotSetDefault needs view to be set we use it
+		# only in form views.
+		if self.view:
+			self.defaultMenuEntries.append( (_('Set default'), self.slotSetDefault, 1) )
 
 		if 'stylesheet' in self.attrs:
 			self.setStyleSheet( self.attrs['stylesheet'] )
@@ -91,6 +95,8 @@ class AbstractFormWidget(QWidget):
 			return False
 
 	def slotSetDefault(self):
+		if not self.view:
+			return
 		deps = []
 		wid = self.view.widgets
 		for wname, wview in self.view.widgets.items():
