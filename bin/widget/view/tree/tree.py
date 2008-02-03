@@ -34,10 +34,6 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 
-class ThisTreeView( QTreeView ):
-	def currentChanged( self, current, previous ):
-		self.emit(SIGNAL('currentChanged(QModelIndex)'), current)
-
 class ViewTree( AbstractView ):
 
 	def __init__(self, parent, fields):
@@ -49,14 +45,12 @@ class ViewTree( AbstractView ):
 		self.title=""
 		self.selecting = False
 
-		self.widget = ThisTreeView( self )
-		#self.widget = QTreeView( self )
+		self.widget = QTreeView( self )
 		self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
 		self.widget.setAlternatingRowColors( True )
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
 		self.connect( self.widget, SIGNAL('doubleClicked(QModelIndex)'), self.activated )
-		self.connect( self.widget, SIGNAL('currentChanged(QModelIndex)'), self.currentChanged )
 
 		self.currentIndex = self.widget.rootIndex()
 
@@ -67,6 +61,7 @@ class ViewTree( AbstractView ):
 	def setModel( self, model ):
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
+		self.connect( self.widget.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.currentChanged)
 
 	# This signal is emited when a list item is double clicked
 	# or activated.
