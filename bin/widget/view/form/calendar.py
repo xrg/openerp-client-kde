@@ -119,9 +119,9 @@ class TimeFormWidget(AbstractFormWidget):
 		self.uiTime.installEventFilter( self )
 
 	def menuEntries( self ):
-		return [ (_('Set current time'), self._setCurrentTime, True ) ]
+		return [ (_('Set current time'), self.setCurrentTime, True ) ]
 
-	def _setCurrentTime( self ):
+	def setCurrentTime( self ):
 		self.uiTime.setText( timeToText( QTime.currentTime() ) )
 
 	def setReadOnly(self, value):
@@ -140,7 +140,7 @@ class TimeFormWidget(AbstractFormWidget):
 		self.model.setValue(self.name, self.value())
 
 	def clear(self):
-		self.uiTime.setText('')
+		self.uiTime.clear()
 
 	def showValue(self):
 		value = self.model.value(self.name)
@@ -149,3 +149,46 @@ class TimeFormWidget(AbstractFormWidget):
 		else:
 			self.clear()
 
+
+class FloatTimeFormWidget(AbstractFormWidget):
+	def __init__(self, parent, model, attrs={}):
+		AbstractFormWidget.__init__(self, parent, model, attrs)
+		layout = QHBoxLayout( self )
+		layout.setMargin( 0 )
+		self.uiTime = QLineEdit( self )
+		self.uiTime.setMaxLength( 11 )
+		self.uiTime.setVisible(not attrs.get('invisible', False))
+		self.uiTime.installEventFilter( self )
+		layout.addWidget( self.uiTime )
+
+	def menuEntries( self ):
+		return [ (_('Set current time'), self.setCurrentTime, True ) ]
+
+	def setCurrentTime( self ):
+		self.uiTime.setText( timeToText( QTime.currentTime() ) )
+
+	def setReadOnly(self, value):
+		self.uiTime.setEnabled(not value)
+
+	def colorWidget(self):
+		return self.uiTime
+
+	def value(self):
+
+		time = textToFloatTime( self.uiTime.text() )
+		if not time.isValid():
+			return False
+		return timeToStorage( time )
+
+	def store(self):
+		self.model.setValue(self.name, textToFloatTime(unicode(self.uiTime.text())) )
+
+	def clear(self):
+		self.uiTime.setText('00:00')
+
+	def showValue(self):
+		value = self.model.value(self.name)
+		if value:
+			self.uiTime.setText( floatTimeToText( value ) )
+		else:
+			self.uiTime.setText( '00:00' )

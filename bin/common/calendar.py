@@ -11,6 +11,7 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import * 
 from PyQt4.uic import *
+import math
 
 ## @brief Converts a QDate object into a Python string
 def dateToText( date ):
@@ -23,6 +24,13 @@ def timeToText( time ):
 ## @brief Converts a QDateTime object into a Python string
 def dateTimeToText( dateTime ):
 	return str( dateTime.toString( 'dd/MM/yyyy hh:mm:ss' ) )
+
+## @brief Converts a float (type floatTime) into a Python string
+def floatTimeToText( value ):
+	t = '%02d:%02d' % (math.floor(abs(value)),round(abs(value)%1+0.01,2) * 60)
+	if value<0:
+		t = '-'+t
+	return t
 
 ## @brief Converts a QDate object into a Python string ready to be sent to the 
 # server.
@@ -66,6 +74,16 @@ def textToDateTime( text ):
 			break
 	return datetime
 
+## @brief Converts a Python string into a float (floatTime) 
+def textToFloatTime( text ):
+	try:
+		if text and ':' in text:
+			return round(int(text.split(':')[0]) + int(text.split(':')[1]) / 60.0,2)
+		else:
+			return locale.atof(text)
+	except:
+		return 0.0
+
 ## @brief Converts a Python string comming from the server into a QDate object
 def storageToDate( text ):
 	return QDate.fromString( text, 'yyyy-MM-dd' )
@@ -77,6 +95,7 @@ def storageToTime( text ):
 ## @brief Converts a Python string comming from the server into a QDateTime object
 def storageToDateTime( text ):
 	return QDateTime.fromString( text, 'yyyy-MM-dd h:m:s' )
+
 
 
 ## @brief The PopupCalendar class, provides a simple way to show a calendar 

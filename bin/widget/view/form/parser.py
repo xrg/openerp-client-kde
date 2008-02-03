@@ -301,6 +301,7 @@ widgets_type = {
 	'date': (calendar.DateFormWidget, 1, False),
 	'time': (calendar.TimeFormWidget, 1, False),
 	'datetime': (calendar.DateTimeFormWidget, 1, False),
+	'float_time': (calendar.FloatTimeFormWidget, 1, False),
 	'float': (float.FloatFormWidget, 1, False),
 	'integer': (integer.IntegerFormWidget, 1, False),
 	'selection': (selection.SelectionFormWidget, 1, False),
