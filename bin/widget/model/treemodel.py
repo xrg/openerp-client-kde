@@ -2,6 +2,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 from common import icons
+from common import calendar
 
 #
 # We store the pointer to the Tiny ModelGroup on QModelIndex.internalPointer
@@ -240,6 +241,8 @@ class TreeModel(QAbstractItemModel):
 				# If we use the default conversion big numbers are shown
 				# in scientific notation
 				return QVariant( QString( str(value) ) )	
+			elif fieldType == 'float_time':
+				return QVariant( calendar.floatTimeToText(value) )
 			else:
 				if value == False or value == None:
 					return QVariant()
