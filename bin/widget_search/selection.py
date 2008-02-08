@@ -36,10 +36,14 @@ from PyQt4.QtCore import *
 class selection(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		self.layout = QHBoxLayout( self )
 		self.uiCombo = QComboBox( self )
-		self.layout.addWidget( self.uiCombo )
 		self.uiCombo.setEditable( False )
+
+		self.layout = QHBoxLayout( self )
+		self.layout.addWidget( self.uiCombo )
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
+
 		self.fill( attrs.get('selection',[] ) )
 		self.focusWidget = self.uiCombo
 		

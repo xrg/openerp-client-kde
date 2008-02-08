@@ -78,11 +78,14 @@ class form( QWidget ):
 		self.context = context
 
 		self.screen = Screen(self.model, view_type=view_type, context=self.context, view_ids=view_ids, domain=domain, hastoolbar=options.options['form.toolbar'] , parent=self)
+		self.screen.setEmbedded( False )
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self._recordMessage)
 		if name:
 			self.name = name
 		else:
 			self.name = self.screen.current_view.title
+
+		# TODO: Use desinger's widget promotion
 		self.layout().insertWidget(0, self.screen )
 
 		self.has_backup = False

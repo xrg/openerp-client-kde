@@ -51,6 +51,7 @@ class many2many(AbstractFormWidget):
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.slotRemove )
 		
 		self.screen = Screen(attrs['relation'], view_type=['tree'],parent=self, views_preload=attrs.get('views', {}), tree_saves=False, create_new=True )
+		self.screen.setEmbedded( True )
 
 		layout = self.layout()
 		layout.insertWidget( 1, self.screen )

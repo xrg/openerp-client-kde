@@ -45,6 +45,7 @@ class ScreenDialog( QDialog ):
 			self.setWindowTitle( self.windowTitle() + " - " + attrs['string'])
 
 		self.screen = Screen(model_name, view_type=[], parent=self)
+		self.screen.setEmbedded( True )
 		if not model:
 			model = self.screen.new()
 		self.screen.models.addModel(model)
@@ -94,6 +95,7 @@ class OneToManyFormWidget(AbstractFormWidget):
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
  		self.screen = Screen(attrs['relation'], view_type=attrs.get('mode','tree,form').split(','), parent=self, views_preload=attrs.get('views', {}), tree_saves=False, create_new=True)
+		self.screen.setEmbedded( True )
  		
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 

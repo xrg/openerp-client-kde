@@ -26,5 +26,4 @@
 #
 ##############################################################################
 
-from form import form
-from form import parse
+from form import SearchFormWidget

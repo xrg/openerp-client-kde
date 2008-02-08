@@ -16,6 +16,7 @@
         <file>images/crm.png</file>
         <file>images/delete.png</file>
         <file>images/disconnect.png</file>
+        <file>images/down.png</file>
         <file>images/duplicate.png</file>
         <file>images/edit-user.png</file>
         <file>images/edit.png</file>
@@ -33,6 +34,8 @@
         <file>images/leftjust.png</file>
         <file>images/locale.png</file>
         <file>images/manual.png</file>
+        <file>images/media_next.png</file>
+        <file>images/media_previous.png</file>
         <file>images/mrp.png</file>
         <file>images/new.png</file>
         <file>images/next.png</file>
@@ -64,8 +67,7 @@
         <file>images/tinyerp-icon-32x32.png</file>
         <file>images/tinyerp.png</file>
         <file>images/trash.png</file>
+        <file>images/up.png</file>
         <file>images/warning.png</file>
-        <file>images/media_previous.png</file>
-        <file>images/media_next.png</file>
     </qresource>
 </RCC>

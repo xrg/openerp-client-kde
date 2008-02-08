@@ -5,15 +5,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>315</width>
-    <height>40</height>
+    <width>316</width>
+    <height>30</height>
    </rect>
-  </property>
-  <property name="minimumSize" >
-   <size>
-    <width>40</width>
-    <height>40</height>
-   </size>
   </property>
   <property name="maximumSize" >
    <size>
@@ -26,7 +20,7 @@
   </property>
   <layout class="QHBoxLayout" >
    <property name="spacing" >
-    <number>0</number>
+    <number>3</number>
    </property>
    <property name="leftMargin" >
     <number>0</number>
@@ -75,6 +69,12 @@
    </item>
    <item>
     <widget class="QLabel" name="label" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="text" >
       <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }

@@ -45,15 +45,12 @@ class Button( QPushButton ):
 
 		self.view = view
 		self.attrs = attrs
-		args = {
-			'label': attrs.get('string', 'unknown')
-		}
 
 		if 'stylesheet' in attrs:
 			self.setStyleSheet( attrs['stylesheet'] )
 
 		#self.widget = self
-		self.setText( args['label'] )
+		self.setText( attrs.get('string', 'unknown' ) )
 		if 'icon' in attrs:
 			self.setIcon( icons.kdeIcon( attrs['icon'] ))
 	
@@ -80,7 +77,6 @@ class Button( QPushButton ):
 					raise 'Unallowed button type'
 				self.view.screen.reload()
 		else:
-			#self.warn('misc-message', _('Invalid Form, correct red fields !'))
 			notify.notifyWarning(_('Invalid Form, correct red fields!'))
 			self.view.screen.display()
 

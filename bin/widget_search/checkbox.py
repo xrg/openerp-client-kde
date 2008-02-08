@@ -37,6 +37,10 @@ class checkbox(AbstractSearchWidget):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
 		self.uiCombo = QComboBox( self )
 		self.uiCombo.setEditable( False )
+		layout = QVBoxLayout( self )
+		layout.addWidget( self.uiCombo )
+		layout.setSpacing( 0 )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		self.focusWidget = self.uiCombo
 
 	def getValue(self):

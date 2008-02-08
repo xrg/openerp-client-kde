@@ -39,6 +39,8 @@ from common import common
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+import widget_search
+
 
 ## @brief The Screen class is a widget that provides an easy way of handling multiple views.
 #
@@ -60,6 +62,20 @@ class Screen(QScrollArea):
 
 		self.setFrameShape( QFrame.NoFrame )
 		self.setWidgetResizable( True )
+		self.container = QWidget( self )
+		self.layout = QVBoxLayout( self.container )
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
+		self.setWidget( self.container )
+		self.container.show()
+
+		self.searchForm = widget_search.SearchFormWidget(self.container)
+		self.connect( self.searchForm, SIGNAL('search()'), self.search )
+		self.layout.addWidget( self.searchForm )
+		self.searchForm.hide()
+		self.containerView = None
+
+		self._embedded = True
 
 		self.hastoolbar = hastoolbar
 		self.create_new = create_new
@@ -89,22 +105,54 @@ class Screen(QScrollArea):
 
 		self.display()
 
-	def setView(self, widget):
-		if self.widget():
-			wid = self.takeWidget()
-			# TODO: The widget isn't properly freed. Try for example to
-			# remove the 'disconnect' and use double click multiple times
-			# to switch from list to form. You'll see the frickerying due
-			# to all connected signals!
-			self.disconnect(wid, SIGNAL("activated()"), self.switchView)
-			self.disconnect(wid, SIGNAL("currentChanged(int)"), self.currentChanged)
-			wid.setParent( None )
-			del wid
+	## @brief Sets whether the screen is embedded.
+	#
+	# Embedded screens don't show the search or toolbar widgets.
+	# By default embedded is True so it doesn't load unnecessary forms.
+	def setEmbedded(self, value):
+		self._embedded = value
+		if value:
+			self.searchForm.hide()
+		elif self.current_view and self.current_view.view_type == 'tree':
+			self.loadSearchForm()
+			self.searchForm.show()
 
+	def embedded(self):
+		return self._embedded
+
+	def loadSearchForm(self):
+		if self.current_view.view_type == 'tree' and not self._embedded: 
+			form = rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
+			self.searchForm.setup( form['arch'], form['fields'], self.resource )
+			self.searchForm.show()
+		else:
+			self.searchForm.hide()
+		
+	def setView(self, widget):
+		#if self.widget():
+		# TODO: Remove this False
+		if self.containerView:
+			self.disconnect(self.containerView, SIGNAL("activated()"), self.switchView)
+			self.disconnect(self.containerView, SIGNAL("currentChanged(int)"), self.currentChanged)
+			#self.layout.removeWidget( self.containerView )
+			self.containerView.hide()
+
+		self.containerView = widget
+		widget.show()
 		self.connect(widget, SIGNAL("activated()"), self.switchView)
 		self.connect(widget, SIGNAL("currentChanged(int)"), self.currentChanged)
-		self.setWidget( widget )
+		
+		self.loadSearchForm()
+
+		self.layout.addWidget( widget )
 		self.ensureWidgetVisible( widget )
+
+	def search( self ):
+		value = self.searchForm.getValue( self.domain )
+		# TODO: Allow setting limit and offset??
+		ids = rpc.session.execute('/object', 'execute', self.resource, 'search', value)
+		self.clear()
+		self.load( ids )
 
 	def currentChanged(self, id):
 		self.current_model = None

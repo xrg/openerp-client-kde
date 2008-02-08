@@ -33,6 +33,8 @@ class char(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
 		self.layout = QHBoxLayout( self )
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
 		self.uiText = QLineEdit( self )
 		self.layout.addWidget( self.uiText )
 		self.focusWidget = self.uiText
@@ -45,8 +47,7 @@ class char(AbstractSearchWidget):
 			return []
 
 	def setValue(self, value):
-		if value:
-			self.uiText.setText(value)
+		self.uiText.setText(value)
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')

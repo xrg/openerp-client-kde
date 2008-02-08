@@ -32,81 +32,66 @@ import sys
 import gettext
 
 from abstractsearchwidget import *
+from common import common
+
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+from PyQt4.uic import *
 
-class _container( QWidget ):
-	def __init__(self, max_width):
-		QWidget.__init__( self, None )
-		self.cont = []
-		self.max_width = max_width	
-		self.width = {}
-		self.layout = QVBoxLayout(self)
+class SearchFormContainer( QWidget ):
+	def __init__(self, parent):
+		QWidget.__init__( self, parent )
+		layout = QGridLayout( self )
+		layout.setSpacing( 20 )
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		self.col = 8
+		self.cont = [ (0, 0) ]
 
-	def new(self, col=2, widget=None):
-		self.col = col
-		if not widget:
-			widget = QWidget(self)
-		layout = QGridLayout( widget )
-		layout.setSpacing( 1 )
-		self.layout.addWidget( widget )
-		self.cont.append(  ( widget, 0, 0 )  )
-
-	def get(self):
-		return self.cont[-1][0]
-
-	def pop(self):
-		(table, x, y) = self.cont.pop()
-		return table
-
-	def newline(self):
-		(table, x, y) = self.cont[-1]
+	def addNewLine(self):
+		(x, y) = self.cont[-1]
 		if x>0:
-			self.cont[-1] = (table, 0 ,y+1 )
+			self.cont[-1] = ( 0, y+1 )
 		else:
-			self.cont[-1] = ( table ,x+1, self.col )
+			self.cont[-1] = ( x+1, self.col )
 
-	def wid_add(self, widget, l=1, name=None, expand=False, ypadding=0):
-		(table, x, y) = self.cont[-1]
+	def addWidget(self, widget, l=1, name=None, expand=False, ypadding=0):
+		(x, y) = self.cont[-1]
 		if l>self.col:
 			l=self.col
 		if l+x>self.col:
-			self.newline()
-			(table, x, y) = self.cont[-1]
+			self.addNewLine()
+			(x, y) = self.cont[-1]
 
-                currentLayout = table.layout()
+		widget.gridLine = y
 		if name:
-			vbox = QVBoxLayout()
 			label = QLabel( name )
-			vbox.addWidget( label )
-			vbox.addWidget( widget )
+			label.gridLine = y
+			vbox = QVBoxLayout()
 			vbox.setSpacing( 0 )
-			currentLayout.addLayout( vbox, y, x )
+			vbox.setContentsMargins( 0, 0, 0, 0 )
+			vbox.addWidget( label, 0 )
+			vbox.addWidget( widget )
+			self.layout().addLayout( vbox, y, x )
 		else:
-                	currentLayout.addWidget( widget, y, x  )
-          	self.cont[-1] = (table, x+l, y)
-		width = widget.width()
-		height = widget.height()
-		self.width[('%d.%d') % (x,y)] = width
+                	self.layout().addWidget( widget, y, x  )
+          	self.cont[-1] = (x+l, y)
 
-class parse(object):
-	def __init__(self, parent, fields, model=''):
+class SearchFormParser(object):
+	def __init__(self, container, fields, model=''):
 		self.fields = fields
-		self.parent = parent
+		self.container = container
 		self.model = model
-		self.col = 8
 		self.focusable = None
 		
 	def _psr_start(self, name, attrs):
 		if name in ('form','tree'):
 			self.title = attrs.get('string','Form')
-			self.container.new(self.col)
 		elif name=='field':
 			if attrs.get('select', False) or self.fields[attrs['name']].get('select', False):
 				type = attrs.get('widget', self.fields[attrs['name']]['type'])
 				self.fields[attrs['name']].update(attrs)
 				self.fields[attrs['name']]['model']=self.model
-				widget_act = widgets_type[ type ][0](attrs['name'], self.parent, self.fields[attrs['name']])
+				widget_act = widgets_type[ type ][0](attrs['name'], self.container, self.fields[attrs['name']])
 				if 'string' in self.fields[attrs['name']]:
 					label = self.fields[attrs['name']]['string']+' :'
 				else:
@@ -115,40 +100,86 @@ class parse(object):
 				size = widgets_type[ type ][1]
 				if not self.focusable:
 					self.focusable = widget_act
-				self.container.wid_add(widget_act, size, label, int(self.fields[attrs['name']].get('expand',0)))
+				self.container.addWidget(widget_act, size, label, int(self.fields[attrs['name']].get('expand',0)))
 
 	def _psr_end(self, name):
 		pass
 	def _psr_char(self, char):
 		pass
-	def parse(self, xml_data, max_width):
+	def parse(self, xml_data):
 		psr = expat.ParserCreate()
 		psr.StartElementHandler = self._psr_start
 		psr.EndElementHandler = self._psr_end
 		psr.CharacterDataHandler = self._psr_char
-		self.notebooks=[]
-		self.container=_container(max_width)
 		self.dict_widget={}
 		psr.Parse(xml_data.encode('utf-8'))
-		self.widget = self.container
 		return self.dict_widget
 
-class form(AbstractSearchWidget):
-	def __init__(self, xml, fields, model=None, parent=None):
-		AbstractSearchWidget.__init__(self, 'Form', parent)
-		parser = parse(self, fields, model=model)
+## @brief This class provides a form with the fields to search given a model.
+class SearchFormWidget(AbstractSearchWidget):
+	def __init__(self, parent=None):
+		AbstractSearchWidget.__init__(self, '', parent)
+		loadUi( common.uiPath('searchform.ui'), self)
+		
+		self.model = None
+		self.widgets = {}
+		self.name = ''
+		self.focusable = True
+		self.expanded = True
+
+		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
+		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
+		self.connect( self.pushSearch, SIGNAL('clicked()'), self.search )
+
+		self.pushExpander.setEnabled( False )
+		self.pushClear.setEnabled( False )
+		self.pushSearch.setEnabled( False )
+
+	def setup(self, xml, fields, model):
+		# We admit one setup call only
+		if self.model:
+			return
+
+		self.pushExpander.setEnabled( True )
+		self.pushClear.setEnabled( True )
+		self.pushSearch.setEnabled( True )
+
+		parser = SearchFormParser(self.uiContainer, fields, model)
 		self.model = model
 
-		#get the size of the window and the limite / decalage Hbox element
-		ww = self.parent().width()
-
-		self.widgets = parser.parse(xml, ww)
-		self.widget = parser.widget
+		self.widgets = parser.parse(xml)
+		self.name = parser.title
 		self.focusable = parser.focusable
-		self.id=None
-		self.name=parser.title
-		self.value = ''
+		self.expanded = True
+		self.toggleExpansion()
 
+	def search(self):
+		self.emit( SIGNAL('search()') )
+
+	def showButtons(self):
+		self.pushClear.setVisible( True )
+		self.pushSearch.setVisible( True )
+
+	def hideButtons(self):
+		self.pushClear.setVisible( False )
+		self.pushSearch.setVisible( False )
+
+	def toggleExpansion(self):
+		layout = self.uiContainer.layout()
+		
+		childs = self.uiContainer.children()
+		for x in childs:
+			if x.isWidgetType() and x.gridLine > 0:
+				if self.expanded:
+					x.hide()
+				else:
+					x.show()
+		self.expanded = not self.expanded
+		if self.expanded:
+			self.pushExpander.setIcon( QIcon(':/images/images/up.png') )
+		else:
+			self.pushExpander.setIcon( QIcon(':/images/images/down.png') )
+		
 	def setFocus(self):
 		if self.focusable:
 			self.focusable.setFocus()
@@ -156,22 +187,24 @@ class form(AbstractSearchWidget):
 			QWidget.setFocus(self)
 
 	def clear(self):
-		self.id=None
+		print "Clear"
 		for x in self.widgets.values():
 			x.clear()
 
-	def getValue(self):
+	def getValue(self, domain=[]):
 		res = []
 		for x in self.widgets:
 			res+=self.widgets[x].value
+		v_keys = [x[0] for x in res]
+		for f in domain:
+			if f[0] not in v_keys:
+				res.append(f)
 		return res
 
 	def setValue(self, val):
 		for x in val:
 			if x in self.widgets:
 				self.widgets[x].value = val[x]
-	value = property(getValue, setValue, None,
-	  'The content of the form or excpetion if not valid')
 
 import calendar
 import floatsearchwidget
@@ -179,7 +212,6 @@ import integersearchwidget
 import selection
 import char
 import checkbox
-#import reference
 
 widgets_type = {
 	'date': (calendar.DateSearchWidget, 3),
@@ -191,7 +223,6 @@ widgets_type = {
 	'many2one_selection': (selection.selection, 2),
 	'char': (char.char, 2),
 	'boolean': (checkbox.checkbox, 2),
-	#'reference': (reference.reference, 2),
 	'text': (char.char, 2),
 	'email': (char.char, 2),
 	'url': (char.char, 2),

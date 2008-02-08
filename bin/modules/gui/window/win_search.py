@@ -62,7 +62,9 @@ class win_search( QDialog ):
 		self.model_name = model
 
 		view_form = rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
-		self.form = widget_search.form(view_form['arch'], view_form['fields'], model, parent=self)
+		self.form = widget_search.SearchFormWidget( self )
+		self.form.setup( view_form['arch'], view_form['fields'], model )
+		self.form.hideButtons()
 
 		self.title = _('Tiny ERP Search: %s') % self.form.name
 		self.title_results = _('Tiny ERP Search: %s (%%d result(s))') % self.form.name
@@ -84,7 +86,7 @@ class win_search( QDialog ):
 		# TODO: Use Designer Widget Promotion instead
 		layout = self.layout()
 		layout.insertWidget(0, self.screen )
-		layout.insertWidget(0, self.form.widget )
+		layout.insertWidget(0, self.form )
 
 		self.form.setFocus()
 
@@ -98,15 +100,9 @@ class win_search( QDialog ):
 		limit = self.limit.value()
 		offset = self.offset.value()
 		
-		if (self.old_search == self.form.value ) and (self.old_limit==limit) and (self.old_offset==offset):
-			return 
 		self.old_offset = offset
 		self.old_limit = limit
-		v = self.form.value
-		v_keys = map(lambda x: x[0], v)
-		for f in self.domain:
-			if f[0] not in v_keys:
-				v.append(f)
+		v = self.form.getValue( self.domain )
 		self.ids = rpc.session.execute('/object', 'execute', self.model_name, 'search', v, offset, limit)
 		self.reload()
 		self.old_search = self.form.value

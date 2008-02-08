@@ -72,6 +72,7 @@ class action(AbstractFormWidget):
 			if self.action['view_type']=='form':
 				mode = (self.action['view_mode'] or 'form,tree').split(',')
 				self.screen = Screen(self.action['res_model'], view_type=mode, context=self.context, view_ids = view_id, domain=self.domain, parent = self )
+				self.screen.setEmbedded( True )
 				loadUi( common.uiPath('paned.ui'), self  )
 				self.group.setTitle( QString( attrs['string'] or "" )) #ANGEL TODO:  or   self.screen.current_view.title
 				layout = QVBoxLayout( )

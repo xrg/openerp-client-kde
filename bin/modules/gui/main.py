@@ -69,8 +69,7 @@ class MainWindow(QMainWindow):
 		self.tabWidget = QTabWidget ( self.centralWidget()  )
 		self.connect( self.tabWidget, SIGNAL("currentChanged(int)"), self.currentChanged )
 		self.layout = self.centralWidget().layout()
-		
-		self.layoutTabWidget =  QVBoxLayout( self.tabWidget )
+		self.layout.setSpacing( 2 )
 		
 		self.layout.addWidget( self.tabWidget )
 		self.layout.addWidget( self.frame )	
