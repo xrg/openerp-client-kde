@@ -42,7 +42,7 @@ class FormContainer( QWidget ):
 		self.line = 0
 		self.column = 0
 		self.layout = QVBoxLayout( self )
-		self.layout.setMargin( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
 		self.layout.setSpacing( 10  )
 		self.layout.addStretch( 10 )
 		self.widgets = []
@@ -59,7 +59,6 @@ class FormContainer( QWidget ):
 		if not widget:
 			widget = QWidget( self )
 		layout = QGridLayout( widget )
-		layout.setMargin( 5 )
 		self.layout.insertWidget( self.layout.count()-1, widget , -1)
 		self.widgets.append( widget )
 		self.line=0
@@ -72,7 +71,6 @@ class FormContainer( QWidget ):
 			return self.widgets[ len( self.widgets ) -1 ]
 
 	def addWidget(self, widget, name=None, expand=False, ypadding=2, rowspan=1, colspan=1, translate=False, fname=None, help=False):
-
 		if colspan >= self.col -1 :
 			colspan = self.col 
 			
@@ -84,7 +82,6 @@ class FormContainer( QWidget ):
 		current_layout = current_wgt.layout()
 
 		if name:
-			#TODO: Test tooltip implementation
 			label  = QLabel( name, self )
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			if help:
