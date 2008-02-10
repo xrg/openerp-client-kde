@@ -96,12 +96,12 @@ class Button( QPushButton ):
 
 class FormParser(AbstractParser):
 
-	def create(self, parent, viewModel, node, fields, toolbar, filter=None):
+	def create(self, parent, viewModel, node, fields, filter=None):
 		self.viewModel = viewModel
 		self.filter = filter
 		self.widgetList = []
 		# Create the view
-		self.view = ViewForm( parent, toolbar )
+		self.view = ViewForm( parent )
 		# Initialize the main container 
 		attrs = common.node_attributes(node)
 		if 'stylesheet' in attrs:

@@ -40,6 +40,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 import widget_search
+from toolbar import ToolBar
+from action import *
 
 
 ## @brief The Screen class is a widget that provides an easy way of handling multiple views.
@@ -56,28 +58,39 @@ class Screen(QScrollArea):
 	# @param view_type 
 	# @param parent
 	# @param context 
-	def __init__(self, model_name, view_ids=[], view_type=['form','tree'], parent=None, context={}, views_preload={}, tree_saves=True, domain=[], create_new=False, hastoolbar=False):
+	def __init__(self, model_name, view_ids=[], view_type=['form','tree'], parent=None, context={}, views_preload={}, tree_saves=True, domain=[], create_new=False):
 
 		QScrollArea.__init__(self, parent)
 
 		self.setFrameShape( QFrame.NoFrame )
 		self.setWidgetResizable( True )
 		self.container = QWidget( self )
-		self.layout = QVBoxLayout( self.container )
-		self.layout.setSpacing( 0 )
-		self.layout.setContentsMargins( 0, 0, 0, 0 )
 		self.setWidget( self.container )
+
 		self.container.show()
 
 		self.searchForm = widget_search.SearchFormWidget(self.container)
 		self.connect( self.searchForm, SIGNAL('search()'), self.search )
-		self.layout.addWidget( self.searchForm )
 		self.searchForm.hide()
 		self.containerView = None
 
+		self.toolBar = ToolBar(self)
+		self.toolBar.hide()
+		self.actions = []
+
+		self.layout = QHBoxLayout()
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
+		self.layout.addWidget( self.toolBar )
+
+		vLay = QVBoxLayout( self.container )
+		vLay.setContentsMargins( 0, 0, 0, 0 )
+		vLay.addWidget( self.searchForm )
+		vLay.addLayout( self.layout )
+
+
 		self._embedded = True
 
-		self.hastoolbar = hastoolbar
 		self.create_new = create_new
 		self.name = model_name
 		self.domain = domain
@@ -113,9 +126,11 @@ class Screen(QScrollArea):
 		self._embedded = value
 		if value:
 			self.searchForm.hide()
+			self.toolBar.hide()
 		elif self.current_view and self.current_view.view_type == 'tree':
 			self.loadSearchForm()
 			self.searchForm.show()
+			self.toolBar.show()
 
 	def embedded(self):
 		return self._embedded
@@ -128,13 +143,28 @@ class Screen(QScrollArea):
 		else:
 			self.searchForm.hide()
 		
+	def triggerAction(self):
+		if not self.id_get():
+			return
+		# We expect a TinyAction here
+		action = self.sender()
+
+		id = self.id_get()
+		ids = self.selectedIds()
+
+		if action.type() != 'relate':
+			self.save_current()
+			self.display()
+
+		action.execute( id, ids )
+
+		if action.type() != 'relate':
+			self.reload()
+
 	def setView(self, widget):
-		#if self.widget():
-		# TODO: Remove this False
 		if self.containerView:
 			self.disconnect(self.containerView, SIGNAL("activated()"), self.switchView)
 			self.disconnect(self.containerView, SIGNAL("currentChanged(int)"), self.currentChanged)
-			#self.layout.removeWidget( self.containerView )
 			self.containerView.hide()
 
 		self.containerView = widget
@@ -144,7 +174,7 @@ class Screen(QScrollArea):
 		
 		self.loadSearchForm()
 
-		self.layout.addWidget( widget )
+		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
 
 	def search( self ):
@@ -232,7 +262,8 @@ class Screen(QScrollArea):
 		if view_type in self.views_preload:
 			return self.add_view(self.views_preload[view_type]['arch'], self.views_preload[view_type]['fields'], display, toolbar=self.views_preload[view_type].get('toolbar', False))
 		else:
-			view = self.rpc.fields_view_get(view_id, view_type, self.context, self.hastoolbar)
+			# TODO: By now we set toolbar to True always. Even when the Screen is embedded
+			view = self.rpc.fields_view_get(view_id, view_type, self.context, True)
 			return self.add_view(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
 	
 	## @brief Adds a view given it's XML description and fields
@@ -272,16 +303,24 @@ class Screen(QScrollArea):
 
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
 		from widget.view.viewfactory import ViewFactory
-		view, on_write = ViewFactory.create(self, self.resource, dom, self.fields, toolbar=toolbar)
+		view, on_write = ViewFactory.create(self, self.resource, dom, self.fields)
 		self.setOnWrite( on_write )
 
 		self.views.append(view)
+		self.loadActions( toolbar )
 
 		if display:
 			self.__current_view = len(self.views) - 1
 			self.current_view.display(self.current_model, self.models)
 			self.setView(view)
 		return view
+
+	def loadActions( self, actions ):
+		self.actions = ActionFactory.create( self, actions )
+		if self.actions:
+			for action in self.actions:
+				self.connect( action, SIGNAL('triggered()'), self.triggerAction )
+			self.toolBar.setup( self.actions )
 
 	def isReadOnly(self):
 		return self.current_view.isReadOnly()

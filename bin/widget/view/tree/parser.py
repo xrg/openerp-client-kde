@@ -47,7 +47,7 @@ from common.calendar import *
 
 
 class TreeParser(AbstractParser):
-	def create(self, parent, model, rootNode, fields, toolbar):
+	def create(self, parent, model, rootNode, fields):
 		self.screen = parent
 		view = ViewTree( parent, fields )
 		
@@ -106,6 +106,7 @@ class TreeParser(AbstractParser):
 		model.setReadOnly( not attrs.get('editable', False) )
 		view.setReadOnly( not attrs.get('editable', False) )
 		#model.setReadOnly( False )
+		#view.setReadOnly( False )
 
 		if view.isReadOnly():
 			model.setShowBackgroundColor( False )

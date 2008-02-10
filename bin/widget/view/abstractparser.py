@@ -39,7 +39,6 @@ class AbstractParser(object):
 	#    model:     This is the name of the model the view will handle  
 	#    node:      The node of the XML to process.
 	#    fields:    The fields that we want to be shown.
-	#    toolbar:   Whether the view should show a toolbar or not
 	#
 	#   RETURN
 	#      The function should return TWO parameters:
@@ -48,6 +47,6 @@ class AbstractParser(object):
 	#    widget:    Will hold the View which will inherit AbstractView
 	#    on_write:  Will contain the on_write attribute that comes from the server
 	#               TODO: This parameter should be a property of the View ??
-	def create(self, parent, model, node, fields, toolbar):
+	def create(self, parent, model, node, fields):
 		pass
 

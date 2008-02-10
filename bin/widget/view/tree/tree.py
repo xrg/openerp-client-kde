@@ -46,7 +46,8 @@ class ViewTree( AbstractView ):
 		self.selecting = False
 
 		self.widget = QTreeView( self )
-		self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
+		#self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
+		self.setAllowMultipleSelection(True)
 		self.widget.setAlternatingRowColors( True )
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
@@ -55,6 +56,7 @@ class ViewTree( AbstractView ):
 		self.currentIndex = self.widget.rootIndex()
 
 		layout = QVBoxLayout()
+		layout.setContentsMargins(0, 0, 0, 0)
 		layout.addWidget( self.widget )
 		self.setLayout( layout )
 		self.setReadOnly( True )
@@ -122,7 +124,7 @@ class ViewTree( AbstractView ):
 
 	def setAllowMultipleSelection(self, value):
 		if value:
-			self.widget.setSelectionMode( QAbstractItemView.MultiSelection )
+			self.widget.setSelectionMode( QAbstractItemView.ExtendedSelection )
 		else:
 			self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
 

@@ -97,10 +97,9 @@ class FormContainer( QWidget ):
 		self.column = 0
 
 class ViewForm( AbstractView ):
-	def __init__(self, screen, toolbar):
-		AbstractView.__init__( self, screen )
+	def __init__(self, parent=None):
+		AbstractView.__init__( self, parent )
 		self.view_type = 'form'
-		self.screen = screen
 		self.model_add_new = False
 		self.title = ""
 		self.model = None
@@ -109,7 +108,7 @@ class ViewForm( AbstractView ):
 		layout.setObjectName( 'HorizontalLayout' )
 
 		self.widget = FormContainer( self )
-		layout.setMargin( 0 )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget, 10  )
 
 
@@ -117,61 +116,7 @@ class ViewForm( AbstractView ):
 		self.buttons = []		
 		# The parser will include all the widgets here with {name: widget} structure
 		self.widgets = {}
-		
-		# Show the toolbar on the right
-		if toolbar:
-			toolWgt = QToolBar(self)
-			toolWgt.setOrientation( Qt.Vertical )
-			toolWgt.setToolButtonStyle( Qt.ToolButtonTextBesideIcon )
-			separator = False
-			self.actions = dict()
-			for icontype in ( 'print','action','relate' ):
-				for tool in toolbar[icontype]:
-					separator = True
-					action = toolWgt.addAction( QIcon( ":/images/images/"+icontype+".png"), tool['string'] )
-					self.actions[ action ] = tool
-					if icontype == 'relate':
-						QObject.connect( action, SIGNAL("triggered()"),self._relate )
-					elif icontype in ( 'action','print' ):
-						QObject.connect( action, SIGNAL("triggered()"),self._action )
-				if separator:
-					toolWgt.addSeparator()
-					separator=False
 
-			layout.addWidget( toolWgt )
-
-	def _relate( self ):
-		action = self.sender( )
-		tool = self.actions[ action ]				     
-		print tool
-	        #data = ( tool['model_id'][1], tool['name'] )
-		data = ( tool['id'], tool['name'] )
-		id = self.model and self.model.id
-		if not (id):
-			QMessageBox.information( self, '', _('You must select a record to use the relate button !'))
-		model,field = data
-		ids = rpc.session.execute('/object', 'execute', model, 'search',[(field,'=',id)])
-		obj = service.LocalService('gui.window')
-		return obj.create(False, model, ids, [(field,'=',id)], 'form', None, mode='tree,form')
-		
-	def _action( self ):
-		action = self.sender()
-		action = self.actions[ action ]
-		self.screen.save_current()
-		id = self.model and self.model.id
-		if not (id):
-			QMessageBox.information(self, '', _('You must save this record to use the relate button !'))
-			return False
-		data = {
-			'id': id,
-			'ids': [id]
-		}
-		self.screen.display()
-		obj = service.LocalService('action.main')
-		value = obj._exec_action(action, data)
-		self.screen.reload()
-		return value
-		
 	def __getitem__(self, name):
 		return self.widgets[name]
 	

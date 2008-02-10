@@ -60,7 +60,7 @@ class EmptyGraph(AbstractFormWidget):
 
 class ChartParser( AbstractParser ):
 
-	def create(self, parent, viewModel, node, fields, toolbar):
+	def create(self, parent, viewModel, node, fields):
 		self.viewModel = viewModel
 		self.parent = parent
 
@@ -68,7 +68,7 @@ class ChartParser( AbstractParser ):
 
 
 		# Create the view
-		self.view = ViewChart( parent,  toolbar )
+		self.view = ViewChart( parent )
 		self.view.title = attrs.get('string', _('Unknown') )
 		self.view.model = self.parent.current_model
 

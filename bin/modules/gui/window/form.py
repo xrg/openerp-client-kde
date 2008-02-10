@@ -77,7 +77,7 @@ class form( QWidget ):
 		self.domain = domain
 		self.context = context
 
-		self.screen = Screen(self.model, view_type=view_type, context=self.context, view_ids=view_ids, domain=domain, hastoolbar=options.options['form.toolbar'] , parent=self)
+		self.screen = Screen(self.model, view_type=view_type, context=self.context, view_ids=view_ids, domain=domain, parent=self)
 		self.screen.setEmbedded( False )
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self._recordMessage)
 		if name:
@@ -361,6 +361,9 @@ class form( QWidget ):
 
 	def canClose(self, urgent=False):
 		return self.modified_save()
+
+	def actions(self):
+		return self.screen.actions
 
 	def sig_plugins(self):
 		import plugins

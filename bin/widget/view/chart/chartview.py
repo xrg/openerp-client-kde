@@ -33,13 +33,12 @@ from PyQt4.QtCore import *
 from widget.view.abstractview import *
 
 class ViewChart( AbstractView ) :
-	def __init__(self, parent, toolbar=None ):
+	def __init__(self, parent=None ):
 		AbstractView.__init__( self, parent )
 		self.view_type = 'graph'
 		self.model_add_new = False
 		self.widget = None 
-		layout = QVBoxLayout( )
-		self.setLayout( layout )
+		layout = QVBoxLayout( self )
 		self.title= ''
 		self.model = None
 

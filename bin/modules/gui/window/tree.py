@@ -231,3 +231,5 @@ class tree( QWidget ):
 	def canClose(self):
 		return True
 	
+	def actions(self):
+		return []

@@ -412,6 +412,21 @@ class MainWindow(QMainWindow):
 				action = eval( 'self.action' + x )
 				action.setEnabled( False )
 
+		if view:
+			self.menuActions.clear()
+			last = None
+			if view.actions():
+				for x in view.actions():
+					if last and last != x.type():
+						self.menuActions.addSeparator()
+					last = x.type()
+					self.menuActions.addAction( x )	
+				self.menuActions.setEnabled( True )
+			else:
+				self.menuActions.setEnabled( False )
+		else:
+			self.menuActions.setEnabled( False )
+
 	def callChildView( self ):
 		o = self.sender()
 		action = str( o.objectName() ).replace('action','')

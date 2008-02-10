@@ -42,7 +42,7 @@ import os
 
 class ViewFactory:
 	@staticmethod
-	def create(parent, model, root_node, fields, toolbar={}):
+	def create(parent, model, root_node, fields):
 		# TODO: Check out if searching available views is very expensive
 		# if it is not, put the appropiate comments, or load only once
 		# otherwise.
@@ -69,7 +69,7 @@ class ViewFactory:
 			if node.localName in parsers:
 				exec( 'import %s' % imports[node.localName] )	
 				parser = eval('%s()' % parsers[node.localName])
-				view, on_write = parser.create(parent, model, node, fields, toolbar)
+				view, on_write = parser.create(parent, model, node, fields)
 				return view, on_write
 		return None
 

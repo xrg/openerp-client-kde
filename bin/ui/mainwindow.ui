@@ -253,7 +253,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar" >
+  <widget class="QMenuBar" name="menuBar" >
    <property name="geometry" >
     <rect>
      <x>0</x>
@@ -359,9 +359,15 @@
     <addaction name="separator" />
     <addaction name="actionWaitingRequests" />
    </widget>
+   <widget class="QMenu" name="menuActions" >
+    <property name="title" >
+     <string>&amp;Actions</string>
+    </property>
+   </widget>
    <addaction name="menuFile" />
    <addaction name="menuUser" />
    <addaction name="menuForm" />
+   <addaction name="menuActions" />
    <addaction name="menuPlugins" />
    <addaction name="menuHelp" />
   </widget>
