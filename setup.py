@@ -13,6 +13,7 @@ import glob
 from stat import ST_MODE
 
 from distutils.file_util import copy_file
+from distutils.sysconfig import get_python_lib
 from mydistutils import setup
 
 try:
@@ -104,10 +105,10 @@ Topic :: Office/Business
 check_modules()
 
 # create startup script
-start_script = \
-"#!/bin/sh\n\
-cd %s/lib/python%s/site-packages/ktiny\n\
-exec %s ./ktiny.py $@" % (sys.prefix, py_short_version, sys.executable)
+start_script = """
+cd %s/ktiny
+exec %s ./ktiny.py $@
+""" % ( get_python_lib(), sys.executable)
 # write script
 f = open('ktiny', 'w')
 f.write(start_script)
