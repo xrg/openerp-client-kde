@@ -46,17 +46,13 @@ class Button( QPushButton ):
 		self.view = view
 		self.attrs = attrs
 
-		if 'stylesheet' in attrs:
-			self.setStyleSheet( attrs['stylesheet'] )
-
-		#self.widget = self
 		self.setText( attrs.get('string', 'unknown' ) )
 		if 'icon' in attrs:
 			self.setIcon( icons.kdeIcon( attrs['icon'] ))
 	
-		self.connect( self ,SIGNAL('clicked()'), self.button_clicked)
+		self.connect( self ,SIGNAL('clicked()'), self.click)
 
-	def button_clicked( self ): 
+	def click( self ): 
 		model = self.view.screen.current_model
 		self.view.store()
 		if model.validate():
@@ -71,8 +67,7 @@ class Button( QPushButton ):
 				elif button_type == 'action':
 					obj = service.LocalService('action.main')
 					action_id = int(self.attrs['name'])
-					obj.execute(action_id, {'model':self.view.screen.name, 'id': id,
-									   'ids': [id]})
+					obj.execute(action_id, {'model':self.view.screen.name, 'id': id, 'ids': [id]})
 				else:
 					raise 'Unallowed button type'
 				self.view.screen.reload()
@@ -102,13 +97,10 @@ class FormParser(AbstractParser):
 		self.widgetList = []
 		# Create the view
 		self.view = ViewForm( parent )
-		# Initialize the main container 
-		attrs = common.node_attributes(node)
-		if 'stylesheet' in attrs:
-			self.view.setStyleSheet( attrs['stylesheet'] )
-		self.view.widget.new(col=int(attrs.get('col', 4)))
 		# Parse and fill in the view
-		container, on_write = self.parse( node, fields, container=self.view.widget )
+		container, on_write = self.parse( node, fields )
+		container.expand()
+		self.view.setWidget( container )
 		return self.view, on_write
 
 	def parse(self, root_node, fields, notebook=None, container=None):
@@ -116,11 +108,9 @@ class FormParser(AbstractParser):
 		on_write = attrs.get('on_write', '')
 
 		if container == None :
-			container = FormContainer(self.view.widget)
-			container.new(col=int(attrs.get('col', 4)))
+			container = FormContainer(self.view, int(attrs.get('col',4)) )
 		
 		if not self.view.title:
-			attrs = common.node_attributes(root_node)
 			self.view.title = attrs.get('string', 'Unknown')
 
 		for node in root_node.childNodes:
@@ -129,21 +119,17 @@ class FormParser(AbstractParser):
 			attrs = common.node_attributes(node)
 			if node.localName=='image':
 				icon = QLabel(container)
-				if 'stylesheet' in attrs:
-					icon.setStyleSheet(attrs['stylesheet'])
 				icon.setPixmap( icons.kdePixmap(attrs['name']) ) 
-				container.addWidget(icon,colspan=int(attrs.get('colspan',1)),expand=int(attrs.get('expand',0)), ypadding=10, help=attrs.get('help', False) )
+				container.addWidget(icon, attrs)
 
 			elif node.localName=='separator':
 			 	if 'string' in attrs:
- 					label = attrs.get( 'string','No String Attr.' )
+ 					label = attrs.get( 'string', '' )
  				else:
  					label = ""
  				groupBox=QGroupBox( label, container )
-				if 'stylesheet' in attrs:
-					groupBox.setStyleSheet( attrs['stylesheet'] )
-				container.new( groupBox )
 				groupBox.setFlat( True )
+				container.addWidget( groupBox, attrs )
 
 			elif node.localName=='label':
 				text = attrs.get('string', '')
@@ -155,33 +141,18 @@ class FormParser(AbstractParser):
 							text += node.toxml()
 				label = QLabel( text, container )
 				label.setWordWrap( True )
-				if 'stylesheet' in attrs:
-					label.setStyleSheet( attrs['stylesheet'] )
-				#label.set_use_markup(True)
-				#if 'align' in attrs:
-				#	try:
-				#		label.set_alignment(float(attrs['align'] or 0.0), 0.5)
-				#	except:
-				#		pass
-				#if 'angle' not in attrs:
-				#	label.set_line_wrap(True)
-				#label.set_angle(int(attrs.get('angle', 0)))
-				container.addWidget(label, colspan=int(attrs.get('colspan', 1)), expand=False, help=attrs.get('help', False))
+				container.addWidget(label, attrs)
 
 			elif node.localName=='newline':
-				container.newline()
+				container.newRow()
 
 			elif node.localName=='button':
 				button = Button(attrs, container, self.view )
-				#button_list.append(button)
 				self.view.buttons.append(button)
-				container.addWidget(button, colspan=int(attrs.get('colspan', 1)), help=attrs.get('help', False))
+				container.addWidget(button, attrs)
 
 			elif node.localName=='notebook':
 				tab = QTabWidget( container )
-				if 'stylesheet' in attrs:
-					tab.setStyleSheet(attrs['stylesheet'])
-
 				if attrs and 'tabpos' in attrs:
 					pos = { 
 						'up': QTabWidget.North,
@@ -194,33 +165,32 @@ class FormParser(AbstractParser):
 					
 			        tab.setTabPosition( pos )
 				
-				container.addWidget(tab, colspan=attrs.get('colspan', 3), expand=True )
+				container.addWidget(tab, attrs)
 				
 				_ , on_write = self.parse(node, fields, tab)
 
 			elif node.localName=='page':
 				widget, on_write = self.parse(node, fields, notebook )
-				widget.newline()
-
+				widget.expand()
 				notebook.addTab( widget, attrs.get('string','No String Attr.') )
 
 			elif node.localName =='hpaned':
 				widget = QSplitter( container )
 
-				container.addWidget(widget, colspan=int(attrs.get('colspan', 4)), expand=True)
+				container.addWidget(widget, attrs)
 				_, on_write = self.parse( node, fields, widget, container)
 
 			elif node.localName =='vpaned':
 				widget = QWidget( container )
 				layout = QVBoxLayout(  )
-				layout.setMargin( 0 )
+				layout.setContentsMargins( 0, 0, 0, 0 )
 				widget.setLayout( layout )
-				container.addWidget(widget, colspan=int(attrs.get('colspan', 4)), expand=True)
+				container.addWidget(widget, attrs)
 				_, on_write = self.parse( node, fields, layout, container)
 
 			elif node.localName == 'child1':
 				widget, on_write = self.parse( node, fields, None, None )
-				notebook.addWidget( widget  )
+				notebook.addWidget( widget )
 
 			elif node.localName == 'child2':
 				widget, on_write = self.parse( node, fields, None,None)
@@ -231,10 +201,8 @@ class FormParser(AbstractParser):
 				name = str(attrs['name'])
 				widget_act = action(  container , None, attrs)
 				self.view.widgets[name] = widget_act
+				container.addWidget(widget_act, attrs)
 
-				container.addWidget(widget_act, colspan=int(attrs.get('colspan', 3)), expand=True)
-
-																  
 			elif node.localName=='field':
 				name = attrs['name']
 				del attrs['name']
@@ -245,6 +213,7 @@ class FormParser(AbstractParser):
 					print "Data Type %s not implemented in the client" % (type)
 					continue
 
+				#print fields[name]['type']
 				fields[name]['name'] = name
 				# Create the appropiate widget for the given field type
 				widget_act = widgets_type[type][0](container, self.view, fields[name])
@@ -262,16 +231,13 @@ class FormParser(AbstractParser):
 				expand = widgets_type[ type ][2]
 				hlp = fields[name].get('help', attrs.get('help', False))
 
-				container.addWidget(widget_act, label, expand, translate=fields[name].get('translate',False), colspan=size, fname=name, help=hlp)
+				container.addWidget(widget_act, attrs, label)
 
 			elif node.localName=='group':
-				_ , on_write = self.parse(node, fields, notebook, container )
+				widget, on_write = self.parse( node, fields, notebook )
+ 				container.addWidget( widget, attrs )
 
-		#for (ebox,src,name,widget) in container.trans_box:
-			#ebox.connect('button_press_event',self.translate, model, name, src, widget)
-
-
-
+		#container.layout.setRowStretch( container.row, 10 )
 
 		return  container, on_write
 

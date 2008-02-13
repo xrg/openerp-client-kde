@@ -40,12 +40,9 @@ class CharFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, view, attrs)
 
 		self.widget = QLineEdit( self )
-		self.setMaximumHeight( 20 )
 
 		layout = QHBoxLayout( self )
-		layout.setMargin( 0 )
-		layout.setSpacing( 0 )
-
+		layout.setContentsMargins( 0, 0, 0, 0 )
 
 		layout.addWidget( self.widget )
 		if attrs.get('translate', False):

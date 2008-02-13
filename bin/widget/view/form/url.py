@@ -51,7 +51,7 @@ class UrlFormWidget(AbstractFormWidget):
 		return self.showPopupMenu( target, event )
 
 	def store(self):
-		return self.model.setValue(self.name, str( self.uiUrl.text() ) or False)
+		return self.model.setValue(self.name, unicode( self.uiUrl.text() ) or False)
 
 	def clear( self ):
 		self.uiUrl.setText('')
@@ -63,25 +63,25 @@ class UrlFormWidget(AbstractFormWidget):
 		self.uiUrl.setEnabled( not value )
 
 	def openUrl(self):
-		value =  str(self.uiUrl.text()).strip()
+		value =  unicode(self.uiUrl.text()).strip()
 		if value != '':
 			QDesktopServices.openUrl( QUrl(value) )
 
 class EMailFormWidget(UrlFormWidget):
 	def openUrl(self):
-		value =  str(self.uiUrl.text()).strip()
+		value =  unicode(self.uiUrl.text()).strip()
 		if value != '':
 			QDesktopServices.openUrl( QUrl('mailto:' + value) )
 
 class CallToFormWidget(UrlFormWidget):
 	def openUrl(self):
-		value = str(self.uiUrl.text()).strip()
+		value = unicode(self.uiUrl.text()).strip()
 		if value != '':
 			QDesktopServices.openUrl( QUrl('callto:%s' + value) )
 
 class SipFormWidget(UrlFormWidget):
 	def openUrl(self):
-		value = str(self.uiUrl.text()).strip()
+		value = unicode(self.uiUrl.text()).strip()
 		if value != '':
 			QDesktopServices.openUrl( QUrl('sip:%s' + value) )
 

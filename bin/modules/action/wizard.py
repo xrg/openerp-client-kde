@@ -42,18 +42,15 @@ from widget.screen import Screen
 class WizardPage(QDialog):
 	def __init__(self, arch, fields, state, name, datas, parent=None):
 		QDialog.__init__(self, parent)
-		self.setWindowTitle( 'Tiny ERP' )
 		self.setModal( True )
 		buttons = []
 		self.datas = datas
 		self.buttonsLayout = QHBoxLayout()
 		self.buttonsLayout.addStretch()
-		print "WizardPage 2"
 		for x in state:
 			but = QPushButton(x[1])
 			# We store the value to return into objectName property
 			but.setObjectName(x[0])
-			print "STATE: ", x[1]
 			# The third element is the gtk-icon
 			if len(x) >= 3:
 				but.setIcon( icons.kdeIcon( x[2] ) )
@@ -77,12 +74,13 @@ class WizardPage(QDialog):
 		self.screen.current_model.set(self.datas)
 
 		size = self.screen.size()
+		print "W: ", size.width()
+		print "H: ", size.height()
 		self.setMinimumSize( size.width()+20, min(750, size.height()+25) ) 
 		self.layout = QVBoxLayout( self )
 		self.layout.addWidget( self.screen )
 		self.layout.addLayout( self.buttonsLayout )
 		self.setWindowTitle(self.screen.current_view.title)
-		print "WizardPage 3"
 	
 	def slotPush( self ):
 		o = self.sender()

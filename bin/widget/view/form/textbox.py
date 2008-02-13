@@ -35,11 +35,12 @@ from PyQt4.QtGui import *
 class TextBoxFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		layout = QHBoxLayout( self )
-		layout.setMargin( 0 )
+		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.uiText = QTextEdit( self )
-		layout.addWidget( self.uiText )
 		self.uiText.installEventFilter( self )
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		layout.addWidget( self.uiText )
 
 	def setReadOnly(self, value):
 		#self.uiText.setEnabled( not value )
@@ -49,7 +50,7 @@ class TextBoxFormWidget(AbstractFormWidget):
 		return self.uiText
 
 	def store(self):
-		self.model.setValue(self.name, str( self.uiText.document().toPlainText() ) or False )
+		self.model.setValue(self.name, unicode( self.uiText.document().toPlainText() ) or False )
 
 	def clear(self):
 		self.uiText.clear()
@@ -57,6 +58,7 @@ class TextBoxFormWidget(AbstractFormWidget):
 	def showValue(self):
 		value = self.model.value(self.name)
 		if not value:
-			value=''
-		self.uiText.setText( value )
+			self.uiText.clear()
+		else:
+			self.uiText.setText( value )
 

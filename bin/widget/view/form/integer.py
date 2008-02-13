@@ -36,6 +36,9 @@ class IntegerFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		self.widget = QLineEdit( self )
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		layout.addWidget( self.widget )
 		self.connect( self.widget, SIGNAL('returnPressed()'), self.calculate )
  		self.setState('valid')
 		self.widget.installEventFilter( self )

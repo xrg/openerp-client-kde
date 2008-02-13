@@ -38,6 +38,7 @@ class RichTextFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('richtext.ui'), self )
+		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.uiText.installEventFilter( self )
 
 		self.connect( self.pushBold, SIGNAL('clicked()'), self.bold )
