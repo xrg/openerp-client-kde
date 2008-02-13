@@ -444,7 +444,7 @@ class MainWindow(QMainWindow):
 		dialog = CreateDatabaseDialog(self)
 		ret = dialog.exec_()
 		if ret == QDialog.Accepted:
-			self.login( dialog.url, dialog.database )
+			self.login( dialog.url, dialog.databaseName )
 
 	def dropDatabase(self):
 		dialog = ChooseDatabaseDialog( ChooseDatabaseDialog.TypeSelect, _('Delete a database'), self )
