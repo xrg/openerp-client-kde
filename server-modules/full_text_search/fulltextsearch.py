@@ -7,7 +7,7 @@ from psycopg2.extensions import adapt as sql_quote
 
 
 def quote(value):
-	return sql_quote(value).getquoted()
+	return sql_quote(value.encode('latin1')).getquoted()
 
 def isInteger(value):
 	try:
