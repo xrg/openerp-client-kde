@@ -60,7 +60,10 @@ class SelectionFormWidget(AbstractFormWidget):
 	def value(self):
 		value = self.widget.itemData( self.widget.currentIndex() )
 		if value.isValid():
-			return unicode( value.toString() )
+			if value.typeName() == 'QString':
+				return unicode( value.toString() )
+			else:
+				return value.toLongLong()[0]
 		else:
 			return False
 
