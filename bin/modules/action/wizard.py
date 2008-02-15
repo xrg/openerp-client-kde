@@ -72,10 +72,9 @@ class WizardPage(QDialog):
 		self.screen.current_model.set(val)
 		# Set already stored values
 		self.screen.current_model.set(self.datas)
+		self.screen.display()
 
 		size = self.screen.size()
-		print "W: ", size.width()
-		print "H: ", size.height()
 		self.setMinimumSize( size.width()+20, min(750, size.height()+25) ) 
 		self.layout = QVBoxLayout( self )
 		self.layout.addWidget( self.screen )
@@ -91,8 +90,6 @@ class WizardPage(QDialog):
 			self.screen.display()
 			return
 		self.datas.update(self.screen.get())
-		print "slotPush: ", button
-		print "slotPush: ", self.datas
 		self.result = (button, self.datas)
 		self.accept()
 
@@ -105,8 +102,6 @@ class WizardStep( QThread ):
 		self.run()
 
 	def run(self):
-		print "run 1"
-		print "run 2"
 		#import options 
 		#session = rpc.rpc_session()
 		#session.login( options.options['login.login'], 'admin', options.options['login.server'], options.options['login.port'], options.options['login.secure'], options.options['login.db'] )
@@ -121,7 +116,6 @@ class WizardStep( QThread ):
 
 
 		self.result = rpc.session.execute('/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context)
-		print "run 3"
 		#self.exit()
 
 class Wizard( QObject ):
@@ -132,64 +126,43 @@ class Wizard( QObject ):
 		self.action = action
 		self.datas = datas
 		self.state = state
-		print "BEFORE RPC"
 		self.wizardId = rpc.session.execute('/wizard', 'create', self.action)
-		print "AFTER RPC: ", self.wizardId
 		#self.semaphore = semaphore
 		self.finished = False
 		self.progress = common.ProgressDialog()
 		#self.step()
 
 	def step(self):
-		print "step 1"
 		if self.state == 'end':
 			self.finished = True
 			#self.emit( SIGNAL('finished()') )
 			#self.semaphore.release()
 			return
-		print "step 2"
 		self.progress.start()
-		print "step 3"
 		self.wizardStep = WizardStep(self.wizardId, self.datas, self.state, self) 
-		print "step 4"
 		#self.connect( self.wizardStep, SIGNAL('finished()'), self.finishedStep)
-		print "step 5"
 		#self.wizardStep.start()
 		self.finishedStep()
-		print "step 6"
 
 	def finishedStep(self):
-		print "finishedStep"
 		self.progress.stop()
-		print "finishedStep 2"
 		res = self.wizardStep.result
-		print "finishedStep 3"
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
-		print "finishedStep 4"
 		if res['type']=='form':
-			#print "finishedStep 5"
 			dialog = WizardPage(res['arch'], res['fields'], res['state'], self.action, self.datas['form'])
 
-			#print "finishedStep 6"
 			#dialog.screen.current_model.set( self.datas['form'] )
-			#print "finishedStep 7"
 			if dialog.exec_() == QDialog.Rejected:
-				print "finishedStep 8"
 				self.finished = True
 				return
-			print "finishedStep 9"
 			(self.state, new_data) = dialog.result
-			print "finishedStep 10"
 			for d in new_data:
 				if new_data[d]==None:
 					del new_data[d]
-			print "finishedStep 11"
 			self.datas['form'].update(new_data)
-			print "finishedStep 12"
 			del new_data
 			#del dialog
-			print "finishedStep 13"
 		elif res['type']=='action':
 			obj = service.LocalService('action.main')
 			obj._exec_action(res['action'],self.datas)
@@ -207,9 +180,7 @@ class Wizard( QObject ):
 			self.state = res['state']
 		elif res['type']=='state':
 			self.state = res['state']
-		print "finishedStep 14"
 		self.step()
-		print "finishedStep 15"
 
 def execute(action, datas, state='init', parent=None, context={}):
 	w = Wizard(action, datas, state, parent, context)
@@ -218,46 +189,3 @@ def execute(action, datas, state='init', parent=None, context={}):
 		QCoreApplication.processEvents()
 
 	
-#def execute(action, datas, state='init'):
-	#if not 'form' in datas:
-		#datas['form'] = {}
-	#wiz_id = rpc.session.execute('/wizard', 'create', action)
-	#while state!='end':
-		#progress=common.ProgressDialog()
-		#progress.start()
-		#try:
-			#res = rpc.session.execute('/wizard', 'execute', wiz_id, datas, state, rpc.session.context)
-		#finally:
-			#progress.stop()
-		##res = executeWizardStep( wiz_id, datas, state, rpc.session.context )
-		#if 'datas' in res:
-			#datas['form'].update( res['datas'] )
-		#if res['type']=='form':
-			#dialog = WizardPage(res['arch'], res['fields'], res['state'], action, datas['form'])
-			#dialog.screen.current_model.set( datas['form'] )
-			#if dialog.exec_() == QDialog.Rejected:
-				#break
-			#(state, new_data) = dialog.result
-			#for d in new_data:
-				#if new_data[d]==None:
-					#del new_data[d]
-			#datas['form'].update(new_data)
-			#del new_data
-		#elif res['type']=='action':
-			#obj = service.LocalService('action.main')
-			#obj._exec_action(res['action'],datas)
-			#state = res['state']
-		#elif res['type']=='print':
-			#obj = service.LocalService('action.main')
-			#datas['report_id'] = res.get('report_id', False)
-			#if res.get('get_id_from_action', False):
-				#backup_ids = datas['ids']
-				#datas['ids'] = datas['form']['ids']
-				#win = obj.exec_report(res['report'], datas)
-				#datas['ids'] = backup_ids
-			#else:
-				#win = obj.exec_report(res['report'], datas)
-			#state = res['state']
-		#elif res['type']=='state':
-			#state = res['state']
-
