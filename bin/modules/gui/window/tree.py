@@ -205,11 +205,11 @@ class tree( QWidget ):
 		self.uiShortcuts.load( self.model )
 
 	def addShortcut(self):
-		ids = self.uiTree.selectedIds()
-		if ids == None:
+		id = self.treeModel.id( self.uiTree.currentIndex() )
+		if id == None:
 			QMessageBox.information( self, _('No item selected'), _('Please select an element from the tree to add a shortcut to it.') )
 			return
-		res = rpc.session.execute('/object', 'execute', self.model, 'name_get', ids, rpc.session.context)
+		res = rpc.session.execute('/object', 'execute', self.model, 'name_get', [id], rpc.session.context)
 		for (id,name) in res:
 			uid = rpc.session.uid
 			rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name})

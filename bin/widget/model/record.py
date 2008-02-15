@@ -76,8 +76,6 @@ class ModelRecord(QObject):
 	def _getModified(self):
 		return self._modified
 	def _setModified(self,value):
-		#if value:
-			#traceback.print_stack()
 		self._modified = value
 	modified=property(_getModified,_setModified)
 
