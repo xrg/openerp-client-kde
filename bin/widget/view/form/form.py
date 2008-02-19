@@ -141,17 +141,10 @@ class ViewForm( AbstractView ):
 		else:
 			state = 'draft'
 		for name in self.widgets:
-			from action import action
- 			if isinstance(self.widgets[name], action):
- 	                        #self.widgets[name].display(model, False)
-				self.widgets[name].load( self.model, False )
- 			else:
-				if self.model:
-					#self.widgets[name].display( model[name], state)
-					self.widgets[name].load(self.model, state)
-				else:
-					#self.widgets[name].display( None, state)
-					self.widgets[name].load(None, state)
+			if self.model:
+				self.widgets[name].load(self.model, state)
+			else:
+				self.widgets[name].load(None, state)
 				
 		for button in self.buttons: 
 			button.setState(state)

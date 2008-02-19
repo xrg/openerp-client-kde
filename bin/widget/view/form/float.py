@@ -36,13 +36,16 @@ from PyQt4.QtCore import *
 class FloatFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
  		AbstractFormWidget.__init__(self, parent, model, attrs)
-		layout = QHBoxLayout( self )
-		layout.setMargin(0)
+
 		self.widget = QLineEdit(self)
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
+
+		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('returnPressed()'), self.calculate )
+		self.connect( self.widget, SIGNAL('editingFinished()'), self.modified )
 		self.setState('valid')
-		self.widget.installEventFilter( self )
 
 	def setReadOnly(self, value):
 		self.widget.setEnabled( not value )

@@ -60,38 +60,33 @@ class ScreenDialog( QDialog ):
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen )
 
-		self.connect( self.pushOk, SIGNAL("clicked()"), self.slotAccepted )
-		self.connect( self.pushCancel, SIGNAL("clicked()"), self.close )
+		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
+		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
 		
 		size = self.screen.size()
 		self.setMinimumSize( size.width(), size.height()+30)
 
+		self.result = None
 		self.show()
 
-##	def new(self):
-#		model = self.screen.new()
-#		self.screen.models.model_add(model)
-#		self.screen.current_model = model
-#		return True
-
-	def slotAccepted( self ):
+	def accepted( self ):
 		self.screen.current_view.store()
-		model = self.screen.current_model
-		self.result = ( True, model )
+		self.result = self.screen.current_model
 		self.accept()
 
 class OneToManyFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('one2many.ui'), self )
+		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )
 
-		self.connect( self.pushNew, SIGNAL( "clicked()"),self._sig_new )
-		self.connect( self.pushEdit,SIGNAL( "clicked()"),self._sig_edit)
-		self.connect( self.pushRemove, SIGNAL( "clicked()"),self._sig_remove)
-		self.connect( self.pushBack, SIGNAL( "clicked()"),self._sig_previous )
-		self.connect( self.pushForward, SIGNAL( "clicked()"),self._sig_next )
+		self.connect( self.pushNew, SIGNAL( "clicked()"),self.new )
+		self.connect( self.pushEdit,SIGNAL( "clicked()"),self.edit )
+		self.connect( self.pushRemove, SIGNAL( "clicked()"),self.remove )
+		self.connect( self.pushBack, SIGNAL( "clicked()"),self.previous )
+		self.connect( self.pushForward, SIGNAL( "clicked()"),self.next )
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
  		self.screen = Screen(attrs['relation'], view_type=attrs.get('mode','tree,form').split(','), parent=self, views_preload=attrs.get('views', {}), tree_saves=False, create_new=True)
@@ -100,9 +95,8 @@ class OneToManyFormWidget(AbstractFormWidget):
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 
 		self.layout().insertWidget( 1, self.screen )
-		self.uiTitle.insertItem( 0, self.screen.current_view.title )
-		self.uiTitle.setCurrentIndex( 0 )
-		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+		self.uiTitle.setText( self.screen.current_view.title )
+		self.installPopupMenu( self.uiTitle )
 
 	def sizeHint( self ):
 		return QSize( 200,800 )
@@ -119,32 +113,29 @@ class OneToManyFormWidget(AbstractFormWidget):
 	def colorWidget(self):
 		return self.screen
 
-	def _sig_new(self):
+	def new(self):
                 if (self.screen.current_view.view_type=='form') or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
-			ok = 1
-			dia = ScreenDialog(self.attrs['relation'], parent=self, attrs=self.attrs) 
-			dia.exec_()
-			ok, value = dia.result
-			if ok:
-				self.screen.models.addModel(value)
+			dialog = ScreenDialog(self.attrs['relation'], parent=self, attrs=self.attrs) 
+			if dialog.exec_() == QDialog.Accepted:
+				self.screen.models.addModel(dialog.result)
 				self.screen.display()
 
-	def _sig_edit(self):
+	def edit(self):
 		dia = ScreenDialog(self.attrs['relation'], parent=self, model=self.screen.current_model, attrs=self.attrs)
 		ok = dia.exec_()
 		if ok == 1:
 			ok,value = dia.result
 		self.screen.display()
 
-	def _sig_next(self ): 
+	def next(self ): 
 		self.screen.display_next()
 
-	def _sig_previous(self): 
+	def previous(self): 
 		self.screen.display_prev()
 
-	def _sig_remove(self): 
+	def remove(self): 
 		self.screen.remove()
 
 	def setLabel(self, position, count, value):

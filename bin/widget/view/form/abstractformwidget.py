@@ -59,13 +59,13 @@ class AbstractFormWidget(QWidget):
 			self.attrs[key] = self.attrs.get(key, False) not in ('False', '0', False)
 		self.defaultReadOnly= self.attrs.get('readonly', False)
 		self.defaultMenuEntries = [
-			(_('Set to default value'), self.slotGetDefault, 1),
+			(_('Set to default value'), self.setToDefault, 1),
 		]
 
 		# As currently slotSetDefault needs view to be set we use it
 		# only in form views.
 		if self.view:
-			self.defaultMenuEntries.append( (_('Set default'), self.slotSetDefault, 1) )
+			self.defaultMenuEntries.append( (_('Set as default value'), self.setAsDefault, 1) )
 
 		if 'stylesheet' in self.attrs:
 			self.setStyleSheet( self.attrs['stylesheet'] )
@@ -82,19 +82,17 @@ class AbstractFormWidget(QWidget):
 			'normal'   : 'white'
 		}
 
-	def slotGetDefault(self):
+	def setToDefault(self):
 		try:
 			model = self.model.resource
 			res = rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
 			model = self.model.setValue(self.name, res.get(self.name, False))
-			# TODO: Why should we call the display function. Isn't it called simply by
-			# calling setValue through the appropiate signal?
 			self.display()
 		except:
 			QMessageBox.warning(None, _('Operation not permited'), _('You can not set to the default value here !') )
 			return False
 
-	def slotSetDefault(self):
+	def setAsDefault(self):
 		if not self.view:
 			return
 		deps = []
@@ -169,36 +167,35 @@ class AbstractFormWidget(QWidget):
 			if 'readonly' not in state_changes:
 				self.attrs['readonly'] = self.defaultReadOnly
 
-	def eventFilter( self, target, event ):
-		if event.type() == QEvent.FocusIn:
-			#self._focusIn()
-			return False
-		elif event.type() == QEvent.FocusOut:
-			#self._focusOut()
-			return False
-		#elif event.type() == QEvent.MouseButtonPress:
-		return self.showPopupMenu( target, event )
-		#return False
+	## @brief Installs the eventFilter on the given widget so the popup
+	# menu will be shown on ContextMenu event.
+	def installPopupMenu( self, widget ):
+		widget.installEventFilter( self )
 
-	def showPopupMenu(self, obj, event):
+	def eventFilter( self, target, event ):
 		if ( event.type() == QEvent.ContextMenu ):
-			entries = self.defaultMenuEntries[:]
-			new = self.menuEntries()
-			if len(new) > 0:
-				entries = entries + [(None, None, None)] + new
-			menu = QMenu( obj )
-			for title, slot, enabled in entries:
-				if title:
-					item = QAction( title, menu )
-					if slot:
-						self.connect( item, SIGNAL("triggered()"), slot )
-					item.setEnabled( enabled )
-					menu.addAction( item )
-				else:
-					menu.addSeparator()
-			menu.popup( event.globalPos() )
+			self.showPopupMenu( target, event.globalPos() )
 			return True
 		return False
+
+	## @brief Shows a popup menu with default and widget specific
+	# entries.
+	def showPopupMenu(self, parent, position):
+		entries = self.defaultMenuEntries[:]
+		new = self.menuEntries()
+		if len(new) > 0:
+			entries = entries + [(None, None, None)] + new
+		menu = QMenu( parent )
+		for title, slot, enabled in entries:
+			if title:
+				item = QAction( title, menu )
+				if slot:
+					self.connect( item, SIGNAL("triggered()"), slot )
+				item.setEnabled( enabled )
+				menu.addAction( item )
+			else:
+				menu.addSeparator()
+		menu.popup( position )
 
 	# Call this function/slot when your widget changes the
 	# value. This is needed for the onchange option in the 

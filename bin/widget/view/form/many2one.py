@@ -34,7 +34,7 @@ from common import common
 import widget
 from widget.screen import Screen
 
-from modules.gui.window.win_search import win_search
+from modules.gui.window.win_search import SearchDialog
 import rpc
 
 import service
@@ -45,9 +45,9 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 
-class dialog( QDialog ):
-	def __init__(self, model, id=None, attrs={}):
-		QWidget.__init__( self )
+class ScreenDialog( QDialog ):
+	def __init__(self, model, parent, id=None, attrs={}):
+		QWidget.__init__( self, parent )
 		loadUi( common.uiPath('dia_form_win_many2one.ui'), self )
 
 		self.setMinimumWidth( 800 )
@@ -58,89 +58,73 @@ class dialog( QDialog ):
 			
 		self.screen = Screen(model, parent = self)
 
-		self.result = False
 		if id:
-			self.result = True
 			self.screen.load([id])
 		else:
 			self.screen.new()
 
 		self.model = None
-		
-
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen  )
-		self.connect( self.pushOk, SIGNAL("clicked()"), self.slotAccepted )
-		self.connect( self.pushCancel, SIGNAL("clicked()"), self.slotCancel )
+		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
+		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
 
-	def slotCancel( self ):
-		self.result = False
-		self.close()
-
-	def closeEvent( self, *args ):
-		self.slotCancel()
-
-	def slotAccepted( self ):
+	def accepted( self ):
 		self.screen.current_view.store()
 
 		if self.screen.current_model.validate():
-			self.result = True
+			self.accept()
 			self.screen.save_current()
 			self.model = self.screen.current_model.name()
 			self.close()
 		else:
-			self.result = False
+			self.reject()
 
-class many2one(AbstractFormWidget):
+class ManyToOneFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('many2one.ui'), self )
-		self.dia = None
 		
-		self.connect( self.pushNew, SIGNAL( "clicked()" ), self.slotNew )
-		self.connect( self.pushOpen, SIGNAL( "clicked()" ), self.sig_activate )
+		self.uiText.installEventFilter( self )
+		self.connect( self.uiText, SIGNAL( "editingFinished()" ), self.match )
+		self.connect( self.pushNew, SIGNAL( "clicked()" ), self.new )
+		self.connect( self.pushOpen, SIGNAL( "clicked()" ), self.open )
 		self.connect( self.pushClear, SIGNAL( "clicked()" ), self.clear )
 
- 		self.model_type = attrs['relation']	
+ 		self.modelType = attrs['relation']	
 		# To build the menu entries we need to query the server so we only make 
 		# the call if necessary and only once. Hence with self.menuLoaded we know
 		# if we've got it in the 'cache'
  		self.menuLoaded = False
 		self.newMenuEntries = []
- 		self.newMenuEntries.append((_('Action'), lambda: self.click_and_action('client_action_multi'),0))
- 		self.newMenuEntries.append((_('Report'), lambda: self.click_and_action('client_print_multi'),0))
+ 		self.newMenuEntries.append((_('Action'), lambda: self.executeAction('client_action_multi'), False))
+ 		self.newMenuEntries.append((_('Report'), lambda: self.executeAction('client_print_multi'), False))
  		self.newMenuEntries.append((None, None, None))
 
- 		self.parent = parent
- 		self.ok = True
-
-		self.uiText.installEventFilter( self )
  		if attrs.get('completion',False):
  			ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', {})
  			if ids:
-				self.load_completion(ids,attrs)
+				self.loadCompletion( ids, attrs )
 
 	def clear( self ):
 		if self.model:
 			self.model.setValue( self.name, False )
-			self.uiText.clear()
- 			self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
 			self.modified()
+		self.uiText.clear()
+		self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
 
 	def eventFilter( self, target, event):
 		if self.model and event.type() == QEvent.KeyPress :
-			if event.key()==Qt.Key_F1 or event.key()==Qt.Key_F2 or event.key() == Qt.Key_Tab:
-				self.sig_key_press( target, event )
+			if event.key()==Qt.Key_F1:
+				self.new()
 				return True
-			else:
-				self.sig_changed()
-				return False
-		return self.showPopupMenu( target, event )
+			return False
+		elif event.type() == QEvent.ContextMenu:
+			self.showPopupMenu( target, event.globalPos() )
+			return True
+		return False
 
-	def load_completion(self,ids,attrs):
-		## TODO:  Load Completion implemented. Need to find somewhere to test it.
-		## Need to implement on_completion_match.
-		##  liststore its the original gtk implemention. need to probe it.
+	def loadCompletion(self,ids,attrs):
 		self.completion = QCompleter()
 		self.completion.setCaseSensitivity( Qt.CaseInsensitive )
 		self.uiText.setCompleter( self.completion )
@@ -158,34 +142,8 @@ class many2one(AbstractFormWidget):
 				liststore2.append( [ word[1],word[1] ])
 				liststore.append( word[1])
 		self.liststore.setStringList( liststore )
-				
 		self.completion.setModel( self.liststore )
 		self.completion.setCompletionColumn( 0 )
-	       
-## 		self.completion.connect("match-selected", self.on_completion_match)
-
-	def match_func(self, completion, key_string, iter, data):
-		model = self.completion.get_model()
-		modelstr = model[iter][0].lower()
-		return modelstr.startswith(key_string)
-		 
-	def on_completion_match(self, completion, model, iter):
-		current_text = self.uiText.get_text()
-		current_text = model[iter][1]
-		name = model[iter][1]
-		domain = self.model.domain( self.name )
-		context = self.model.context(  )
-		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
-		if len(ids)==1:
-			self.model.setValue( self.name, ids[0] )
-			self.display()
-			self.ok = True
-		else:
-			win = win_search(self.attrs['relation'], sel_multi=False, ids=map(lambda x: x[0], ids), context=context, domain=domain)
-			ids = win.result
-			if ids:
-				name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [ids[0]], rpc.session.context)[0]
-				self.model.setValue(self.name, name)
 
 	def setReadOnly(self, value):
 		self.uiText.setEnabled( not value )
@@ -196,74 +154,45 @@ class many2one(AbstractFormWidget):
 	def colorWidget(self):
 		return self.uiText
 
-	def sig_activate(self, *args):
-		self.ok = False
-
-		if self.model.value(self.name):
-			if self.dia:
-				del self.dia
-
-			self.dia = dialog( self.attrs['relation'], self.model.get()[self.name], attrs=self.attrs)
-			self.dia.exec_()
-			if self.dia.result:
-				self.slotDialogAccepted( self.dia.model )
+	def match(self):
+		name = unicode( self.uiText.text() )
+		if name.strip() == '':
+			return
+		domain = self.model.domain( self.name )
+		context = self.model.context()
+		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
+		if len(ids)==1:
+			self.model.setValue( self.name, ids[0] )
+			self.display()
 		else:
-			if not self.isReadOnly():
-				domain = self.model.domain(self.name)
-				context = self.model.context()
-
-				ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', str(self.uiText.text()), domain, 'ilike', context)
-				if len(ids)==1:
-					self.model.setValue(self.name, ids[0])
-					self.display()
-					self.ok = True
-					return True
-
-				win = win_search(self.attrs['relation'], sel_multi=False, ids=map(lambda x: x[0], ids), context=context, domain=domain)
-				win.exec_()
-				ids = win.result
-				if ids:
-					name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [ids[0]], rpc.session.context)[0]
-					self.model.setValue(self.name, name)
-		self.display()
-		self.ok=True
-
-	def slotNew(self):
-		if self.dia:
-			del self.dia
-		self.dia = dialog(self.attrs['relation'], attrs=self.attrs)
-		self.dia.exec_()
-		self.slotDialogAccepted( self.dia.model )
-
-
-	def sig_key_press(self, widget, event, *args):
-		if event.key()==Qt.Key_F1:
-			self.slotNew()
-		elif event.key()==Qt.Key_F2 or event.key() == Qt.Key_Enter:
-			self.sig_activate()
-		elif event.key()==Qt.Key_Tab:
-			return 
-		return False
-
-
-	def sig_changed(self, *args):
-		if self.ok:
-			if self.model.value(self.name):
-				self.model.setValue(self.name, False)
+			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, ids=map(lambda x: x[0], ids), context=context, domain=domain)
+			if dialog.exec_() == QDialog.Accepted and dialog.result:
+				id = dialog.result[0]
+				name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], rpc.session.context)[0]
+				self.model.setValue(self.name, name)
 				self.display()
 
-	#
-	# No update of the model, the model is updated in real time !
-	#
+	def open(self):
+		if self.model.value(self.name):
+			dialog = ScreenDialog( self.attrs['relation'], self, self.model.get()[self.name], attrs=self.attrs)
+			if dialog.exec_() == QDialog.Accepted:
+				self.model.setValue(self.name, dialog.model)
+				self.display()
+
+	def new(self):
+		dialog = ScreenDialog(self.attrs['relation'], self, attrs=self.attrs)
+		if dialog.exec_() == QDialog.Accepted:
+			self.model.setValue(self.name, dialog.model)
+			self.display()
+
 	def store(self):
+		# No update of the model, the model is updated in real time !
 		pass
 
 	def reset(self):
-		self.ok = False
 		self.uiText.clear()
 		
 	def showValue(self):
-		self.ok=False
 		res = self.model.value(self.name)
  		if res:
 			self.uiText.setText( res )
@@ -271,12 +200,10 @@ class many2one(AbstractFormWidget):
  		else:
 			self.uiText.clear()
  			self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
-		self.ok=True
 
 	def menuEntries(self):
-		value = self.model.value(self.name)
 		if not self.menuLoaded:
-			fields_id = rpc.session.execute('/object', 'execute', 'ir.model.fields', 'search',[('relation','=',self.model_type),('ttype','=','many2one'),('relate','=',True)])
+			fields_id = rpc.session.execute('/object', 'execute', 'ir.model.fields', 'search',[('relation','=',self.modelType),('ttype','=','many2one'),('relate','=',True)])
 			fields = rpc.session.execute('/object', 'execute', 'ir.model.fields', 'read', fields_id, ['name','model_id'], rpc.session.context)
 			models_id = [x['model_id'][0] for x in fields if x['model_id']]
 			fields = dict(map(lambda x: (x['model_id'][0], x['name']), fields))
@@ -284,37 +211,32 @@ class many2one(AbstractFormWidget):
 			for model in models:
 				field = fields[model['id']]
 				model_name = model['model']
-#				print "field:", field, "model_name:",model_name
-				f = lambda model_name,field: lambda: self.click_and_relate(model_name,field)					
+				f = lambda model_name,field: lambda: self.executeRelation(model_name,field)					
 				self.newMenuEntries.append(('... '+model['name'], f(model_name,field), False))
 			self.menuLoaded = True
+
 		# Set enabled/disabled values
+		value = self.model.value(self.name)
+		if value:
+			value = True
+		else:
+			value = False
 		currentEntries = []
 		for x in self.newMenuEntries:
 			currentEntries.append( (x[0], x[1], value) )
 		return currentEntries
 
-	def slotDialogAccepted( self, value ):
-		self.model.setValue(self.name, value)
-		self.display()
-		self.dia.close()
-		if self.dia:
-			del self.dia
-			self.dia =None
-
-	#
-	# Open a view with ids: [(field,'=',value)]
-	#
-	def click_and_relate(self, model, field):
+	def executeRelation(self, model, field):
+		# Open a view with ids: [(field,'=',value)]
 		value = self.model.value(self.name)
 		ids = rpc.session.execute('/object', 'execute', model, 'search',[(field,'=',value)])
 		obj = service.LocalService('gui.window')
 		obj.create(False, model, ids, [(field,'=',value)], 'form', None, mode='tree,form')
 		return True
 
-	def click_and_action(self, type):
-		id = self.model.value(self.name)
+	def executeAction(self, type):
+		id = self.model.id
 		obj = service.LocalService('action.main')
-		res = obj.exec_keyword(type, {'model':self.model_type, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
+		res = obj.exec_keyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 		return True
 

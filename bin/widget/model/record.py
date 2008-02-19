@@ -99,7 +99,8 @@ class ModelRecord(QObject):
 
 	# Obtains the default value of a given field
 	def default(self, fieldName):
-		return self.mgroup.mfields[fieldName].get_client(self)
+		#return self.mgroup.mfields[fieldName].get_client(self)
+		return self.mgroup.mfields[fieldName].default(self)
 
 	# Obtains the domain of the given field
 	def domain(self, fieldName):

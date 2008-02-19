@@ -29,8 +29,8 @@
 
 import form
 from common import common
-from many2one import dialog
-from modules.gui.window.win_search import win_search
+from many2one import ScreenDialog
+from modules.gui.window.win_search import SearchDialog
 
 from abstractformwidget import *
 from PyQt4.QtCore import *
@@ -52,6 +52,7 @@ class reference(AbstractFormWidget):
 		self.uiModel.setEditable( False )
 		self.ok=True
 		self._value=None
+		self.installPopupMenu( self.uiText )
 
 	def modelChanged(self, idx):
 		if idx < 0:
@@ -75,29 +76,11 @@ class reference(AbstractFormWidget):
 		return self._selection.get(res, False)
 
 	def setPopdown(self, selection):
-##		model = gtk.ListStore(gobject.TYPE_STRING)
-		#model =[]
-		#self._selection={}
-		#self._selection2={}
-		#lst = []
 		self.invertedModels = {}
 
 		for (i,j) in selection:
 			self.uiModel.addItem( j, QVariant(i) )
 			self.invertedModels[i] = j
-			#name = str(j)
-			#lst.append(name)
-			#self._selection[name]=i
-			#self._selection2[i]=name
-		#for l in lst:
-			#model.append( QString( l ) )
-			#i = model.append()
-			#model.set(i, 0, l)
-			#self.widget_combo.child.set_text(l)
-#		self.widget_combo.set_model(model)
-#		self.widget_combo.set_text_column(0)
-		#self.uiModel.addItems( model )
-		#return lst
 
 	def setReadOnly(self, value):
 		self.uiModel.setEnabled( not value )
@@ -115,23 +98,19 @@ class reference(AbstractFormWidget):
 		self.model.setValue(self.name, self._value)
 
 	def sig_activate(self):
-		#domain = self.modelField.domain_get()
-		#context = self.modelField.context_get()
 		domain = self.model.domain(self.name)
 		context = self.model.fieldContext(self.name)
-		#resource = self.get_model()
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 		ids = rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
 		
 		if len(ids)==1:
 			id, name = ids[0]
-			#self.modelField.set_client((resource, (id, name)))
 			self.model.setValue(self.name, (id, name) ) 
 			self.display()
 			self.ok = True
 			return
 
-		win = win_search(resource, sel_multi=False, ids=map(lambda x: x[0], ids), context=context, domain=domain)
+		win = SearchDialog(resource, sel_multi=False, ids=map(lambda x: x[0], ids), context=context, domain=domain)
 		win.exec_()
 		ids = win.result
 		if ids:
@@ -141,18 +120,13 @@ class reference(AbstractFormWidget):
 
 	def new(self):
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-		dia = dialog(resource)
-		#ok, value = dia.run()
+		dia = ScreenDialog(resource)
 		dia.exec_()
-		#if ok:
-			#self.modelField.set_client((self.get_model(), value))
-		#	self.model.setValue(self.name, value)
-		#	self.display()
 
 	def open(self):
 		if self._value:
 			model, (id, name) = self._value
-			dia = dialog(model, id)
+			dia = ScreenDialog(model, id)
 			dia.exec_()
 		else:
 			self.sig_activate()
@@ -167,9 +141,7 @@ class reference(AbstractFormWidget):
 			AbstractFormWidget.sig_changed(self)
 		elif self.ok:
 			if self.model.value(self.name):
-			#if self.modelField.get():
 				self.model.setValue(self.name,False)
-				#self.modelField.set_client(False)
 				self.display()
 
 	def clear(self):

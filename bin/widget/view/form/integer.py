@@ -40,8 +40,9 @@ class IntegerFormWidget(AbstractFormWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
 		self.connect( self.widget, SIGNAL('returnPressed()'), self.calculate )
+		self.connect( self.widget, SIGNAL('editingFinished()'), self.modified )
  		self.setState('valid')
-		self.widget.installEventFilter( self )
+		self.installPopupMenu( self.widget )
 
 	def calculate(self):
 		val = textToInteger( str(self.widget.text() ) )

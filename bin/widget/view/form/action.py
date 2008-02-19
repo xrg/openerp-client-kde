@@ -36,13 +36,13 @@ from widget.screen import Screen
 
 import rpc
 import time
-from modules.gui.window.win_search import win_search
+from modules.gui.window.win_search import SearchDialog
 import service
 from abstractformwidget import *
 
-class action(AbstractFormWidget):
-	def __init__(self,  parent, model, attrs={}):
-		AbstractFormWidget.__init__( self, parent, model, attrs )
+class ActionFormWidget(AbstractFormWidget):
+	def __init__(self,  parent, view, attrs={}):
+		AbstractFormWidget.__init__( self, parent, view, attrs )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )	
 		self.act_id=attrs['name']
@@ -63,7 +63,6 @@ class action(AbstractFormWidget):
 			self.context.update(eval(self.action.get('context', '{}'), self.context.copy()))
 			a = self.context.copy()
 			a['time'] = time
-			#self.domain = common.expr_eval(self.action['domain'], a)
 			self.domain = rpc.session.evaluateExpression(self.action['domain'], a)
 
 			view_id = []
@@ -95,7 +94,7 @@ class action(AbstractFormWidget):
 		self.screen.switchView()
 
 	def slotSearch( self ):
-		win = win_search(self.action['res_model'], domain=self.domain, context=self.context)
+		win = SearchDialog(self.action['res_model'], domain=self.domain, context=self.context)
 		win.exec_()
  		if win.result:
  			self.screen.clear()

@@ -48,7 +48,7 @@ class BinaryFormWidget(AbstractFormWidget):
 		self.connect( self.pushSave, SIGNAL('clicked()'),self.slotSave )
 
 		self.value = False
-		self.uiBinary.installEventFilter( self )
+		self.installPopupMenu( self.uiBinary )
 		
 	def setReadOnly(self, value):
 		self.uiBinary.setEnabled( not value )
@@ -104,6 +104,8 @@ class BinaryFormWidget(AbstractFormWidget):
 			self.uiBinary.setText( _('%d bytes') % len(self.value) )
 			self.value = base64.encodestring(file(filename).read())
 
+			self.modified()
+
 			# The binary widget might have a 'fname_widget' attribute
 			# that stores the file name in the field indicated by 'fname_widget'
 			if 'fname_widget' in self.attrs:
@@ -127,6 +129,7 @@ class BinaryFormWidget(AbstractFormWidget):
 	def slotRemove(self):
 		self.value = False
 		self.clear()
+		self.modified()
 		if 'fname_widget' in self.attrs:
 			w = self.attrs['fname_widget']
 			self.model.setValue( w, False )

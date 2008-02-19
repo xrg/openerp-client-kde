@@ -64,6 +64,9 @@
        <height>20</height>
       </size>
      </property>
+     <property name="toolTip" >
+      <string>Open Calendar</string>
+     </property>
      <property name="text" >
       <string/>
      </property>

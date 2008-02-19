@@ -38,12 +38,13 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-from modules.gui.window.win_search import win_search
+from modules.gui.window.win_search import SearchDialog
 
-class many2many(AbstractFormWidget):
+class ManyToManyFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('many2many.ui'), self)
+		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )	
 		
@@ -55,26 +56,12 @@ class many2many(AbstractFormWidget):
 
 		layout = self.layout()
 		layout.insertWidget( 1, self.screen )
-		self.uiText.installEventFilter( self )
+		self.installPopupMenu( self.uiText )
 		self.old = None
-		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 
 	
-	#def eventFilter( self, target, event):
-	#	if event.type() == QEvent.MouseButtonPress:
-	#		return self.showPopupMenu( target, event )
-	#	return False
-
 	def sizeHint( self ):
 		return QSize( 200,800 )
-
-	#def _menu_sig_default_set(self):
-	#	self.set_value(self.modelfield)
-	#	return super(many2many, self)._menu_sig_default_set()
-
-	#def _menu_sig_default(self, obj):
-	#	res = rpc.session.execute('/object', 'execute', self.attrs['model'], 'default_get', [self.attrs['name']])
-	#	self.value = res.get(self.attrs['name'], False)
 
 	def slotAdd(self):
 		domain = self.model.domain( self.name )
@@ -83,11 +70,10 @@ class many2many(AbstractFormWidget):
 		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', str( self.uiText.text()), domain, 'ilike', context)
 		ids = map(lambda x: x[0], ids)
 		if len(ids)<>1:
-			win = win_search(self.attrs['relation'], sel_multi=True, ids=ids)
+			win = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids)
 			win.exec_()
 			ids = win.result
 
-		self.modified()
 		self.screen.load(ids)
 		self.screen.display()
 		self.uiText.clear()

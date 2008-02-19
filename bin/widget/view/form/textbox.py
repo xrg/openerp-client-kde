@@ -37,13 +37,12 @@ class TextBoxFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.uiText = QTextEdit( self )
-		self.uiText.installEventFilter( self )
+		self.installPopupMenu( self.uiText )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiText )
 
 	def setReadOnly(self, value):
-		#self.uiText.setEnabled( not value )
 		self.uiText.setReadOnly( value )
 
 	def colorWidget(self):

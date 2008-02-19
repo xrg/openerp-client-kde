@@ -32,7 +32,7 @@ import gettext
 
 import rpc
 import win_preference
-import win_search
+from win_search import SearchDialog
 import win_export
 import win_import
 
@@ -310,7 +310,7 @@ class form( QWidget ):
 		if not self.modified_save():
 			return
 		dom = self.domain
-		dialog = win_search.win_search(self.model, domain=self.domain, context=self.context, parent=self)
+		dialog = win_search.SearchDialog(self.model, domain=self.domain, context=self.context, parent=self)
 		if dialog.exec_() == QDialog.Rejected:
 			return
 		self.screen.clear()

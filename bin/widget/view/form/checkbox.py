@@ -33,16 +33,18 @@ from PyQt4.QtGui import *
 class CheckBoxFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		layout = QHBoxLayout( self )
-		layout.setMargin(0)
-		layout.setSpacing( 0 )
+		self.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 		self.widget = QCheckBox( self )
+		self.widget.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		layout.setSpacing( 0 )
 		layout.addWidget( self.widget )
-		self.setMaximumHeight( 20 )
-## TODO:
-##		self.widget.connect('focus-in-event', lambda x,y: self._focus_in())
-##	        self.widget.connect('focus-out-event', lambda x,y: self._focus_out())
-		self.widget.installEventFilter( self )
+		self.installPopupMenu( self.widget )
+		self.connect( self.widget, SIGNAL('stateChanged(int)'), self.callModified )
+
+	def callModified(self, value):
+		self.modified()
 
 	def setReadOnly(self, value):
 		self.widget.setEnabled( not value )

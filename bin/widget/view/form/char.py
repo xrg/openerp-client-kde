@@ -40,37 +40,22 @@ class CharFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, view, attrs)
 
 		self.widget = QLineEdit( self )
+		self.widget.setMaxLength( int( attrs.get( 'size',16 ) ) )
+		self.installPopupMenu( self.widget )
+		if attrs.get( 'invisible', False ):
+			self.widget.hide()
 
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
-
 		layout.addWidget( self.widget )
+
 		if attrs.get('translate', False):
 			pushTranslate = QPushButton( self )
 			pushTranslate.setIcon( QIcon( ':/images/images/locale.png' ) )
 			layout.addWidget( pushTranslate )
 			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
 
-		self.widget.setMaxLength( int( attrs.get( 'size',16 ) ) )
-		if attrs.get( 'invisible', False ):
-			self.widget.hide()
-		self.widget.installEventFilter( self )
-
-	#def eventFilter( self, target, event):
-	#	if target == self.widget:
-	#		##  if  event.type() == QEvent.KeyPress :
-## 	#			if event.key()
-## 	#			self._menu_open( target, event )
-	#		##	return True
-	#		if event.type() == QEvent.FocusIn:
-	#			self._focus_in()
-	#			return False
-	#		if event.type() == QEvent.FocusOut:
-	#			self._focus_out()
-	#			return False
-	#		if event.type() == QEvent.MouseButtonPress:
-	#			return self._menu_open( target, event )
-	#	return False
+		self.connect( self.widget, SIGNAL('editingFinished()'), self.modified )
 
 	def translate(self):
 		if not self.model.id:

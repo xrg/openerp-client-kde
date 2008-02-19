@@ -37,18 +37,13 @@ class UrlFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('url.ui'), self )
-
-		
 		self.uiUrl.setMaxLength( int( attrs.get('size',16)))
 		if attrs.get('invisible',False):
 			self.uiUrl.hide()
 		else:
 			self.uiUrl.show()
 		self.connect( self.pushOpenUrl, SIGNAL('clicked()'), self.openUrl )
-		self.uiUrl.installEventFilter( self )
-
-	def eventFilter( self, target, event ):
-		return self.showPopupMenu( target, event )
+		self.installPopupMenu( self.uiUrl )
 
 	def store(self):
 		return self.model.setValue(self.name, unicode( self.uiUrl.text() ) or False)

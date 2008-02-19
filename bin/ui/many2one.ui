@@ -106,8 +106,8 @@
          <height>20</height>
         </size>
        </property>
-       <property name="focusPolicy" >
-        <enum>Qt::NoFocus</enum>
+       <property name="toolTip" >
+        <string>New</string>
        </property>
        <property name="text" >
         <string/>
@@ -125,8 +125,8 @@
          <height>20</height>
         </size>
        </property>
-       <property name="focusPolicy" >
-        <enum>Qt::NoFocus</enum>
+       <property name="toolTip" >
+        <string>Search</string>
        </property>
        <property name="text" >
         <string/>
@@ -140,6 +140,10 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>uiText</tabstop>
+  <tabstop>pushClear</tabstop>
+ </tabstops>
  <resources>
   <include location="common.qrc" />
  </resources>

@@ -34,6 +34,7 @@ import rpc
 
 from form import ViewForm, FormContainer
 from widget.view.abstractparser import *
+from action import ActionFormWidget
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -197,9 +198,8 @@ class FormParser(AbstractParser):
  				notebook.addWidget( widget )
 
 			elif node.localName =='action':
-				from action import action
 				name = str(attrs['name'])
-				widget_act = action(  container , None, attrs)
+				widget_act = ActionFormWidget( container, self.view, attrs)
 				self.view.widgets[name] = widget_act
 				container.addWidget(widget_act, attrs)
 
@@ -213,7 +213,6 @@ class FormParser(AbstractParser):
 					print "Data Type %s not implemented in the client" % (type)
 					continue
 
-				#print fields[name]['type']
 				fields[name]['name'] = name
 				# Create the appropiate widget for the given field type
 				widget_act = widgets_type[type][0](container, self.view, fields[name])
@@ -236,8 +235,6 @@ class FormParser(AbstractParser):
 			elif node.localName=='group':
 				widget, on_write = self.parse( node, fields, notebook )
  				container.addWidget( widget, attrs )
-
-		#container.layout.setRowStretch( container.row, 10 )
 
 		return  container, on_write
 
@@ -276,8 +273,8 @@ widgets_type = {
 	'one2many': (one2many.OneToManyFormWidget, 1, True),
 	'one2many_form': (one2many.OneToManyFormWidget, 1, True),
 	'one2many_list': (one2many.OneToManyFormWidget, 1, True),
-	'many2many': (many2many.many2many, 1, True),
-	'many2one': (many2one.many2one, 1, False),
+	'many2many': (many2many.ManyToManyFormWidget, 1, True),
+	'many2one': (many2one.ManyToOneFormWidget, 1, False),
 	'image' : (image.ImageFormWidget, 1, False),
 	'url' : (url.UrlFormWidget, 1, False),
 	'email' : (url.EMailFormWidget, 1, False),

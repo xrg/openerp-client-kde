@@ -61,11 +61,10 @@ class ImageFormWidget(AbstractFormWidget):
 
 		self.width = attrs.get( 'img_width', 300 )
 		self.height = attrs.get( 'img_height', 100 )
+		self.installPopupMenu( self.uiImage )
 		self.connect( self.pushLoad, SIGNAL('clicked()'), self.loadImage )
 		self.connect( self.pushSave, SIGNAL('clicked()'), self.saveImage )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self.removeImage )
-
-		self.uiImage.installEventFilter( self )
 
 	def setReadOnly(self, ro):
 		self.pushLoad.setEnabled( not ro )
@@ -111,6 +110,7 @@ class ImageFormWidget(AbstractFormWidget):
 	def removeImage(self):
 		self.image = None
 		self.update()
+		self.modified()
 
 	def saveImage(self):
 		name = QFileDialog.getSaveFileName( self, _('Save image as...') )
@@ -126,7 +126,8 @@ class ImageFormWidget(AbstractFormWidget):
 		if not name.isNull():
 			self.image = file(name).read()
 			self.update()
-	
+			self.modified()
+
 	def update(self):
 		if self.image:
 			pix = QPixmap()

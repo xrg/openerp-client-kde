@@ -42,7 +42,8 @@ class DateFormWidget(AbstractFormWidget):
 		self.connect( self.pushCalendar, SIGNAL( "clicked()" ),self.showCalendar )
  		self.setState('valid')
 		self.dateTime = False
-		self.uiDate.installEventFilter( self )
+		self.connect( self.uiDate, SIGNAL('editingFinished()'), self.modified )
+		self.installPopupMenu( self.uiDate )
 
 	def menuEntries(self):
 		return [ (_('Set current date'), self._setCurrentDate, True ) ]	
@@ -72,7 +73,6 @@ class DateFormWidget(AbstractFormWidget):
 	def showValue(self):
 		value = self.model.value(self.name)
 		if value:
-			#self.uiDate.setText( dateToText( QDate.fromString( value, 'yyyy-MM-dd' ) ) )
 			self.uiDate.setText( dateToText( storageToDate( value ) ) )
 		else:
 			self.clear()
@@ -112,11 +112,12 @@ class DateTimeFormWidget( DateFormWidget ):
 class TimeFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		layout = QHBoxLayout( self )
-		layout.setMargin( 0 )
 		self.uiTime = QLineEdit( self )
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiTime )
-		self.uiTime.installEventFilter( self )
+		self.installPopupMenu( self.uiTime )
+		self.connect( self.uiTime, SIGNAL('editingFinished()'), self.modified )
 
 	def menuEntries( self ):
 		return [ (_('Set current time'), self.setCurrentTime, True ) ]
@@ -153,13 +154,14 @@ class TimeFormWidget(AbstractFormWidget):
 class FloatTimeFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		layout = QHBoxLayout( self )
-		layout.setMargin( 0 )
 		self.uiTime = QLineEdit( self )
 		self.uiTime.setMaxLength( 11 )
 		self.uiTime.setVisible(not attrs.get('invisible', False))
-		self.uiTime.installEventFilter( self )
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiTime )
+		self.installPopupMenu( self.uiTime )
+		self.connect( self.uiTime, SIGNAL('editingFinished()'), self.modified )
 
 	def menuEntries( self ):
 		return [ (_('Set current time'), self.setCurrentTime, True ) ]
@@ -174,7 +176,6 @@ class FloatTimeFormWidget(AbstractFormWidget):
 		return self.uiTime
 
 	def value(self):
-
 		time = textToFloatTime( self.uiTime.text() )
 		if not time.isValid():
 			return False

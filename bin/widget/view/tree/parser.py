@@ -31,8 +31,6 @@ from widget.view.abstractparser import *
 
 import time
 
-from widget.view.form.many2one import dialog as M2ODialog
-from modules.gui.window.win_search import win_search
 from widget.model import treemodel
 
 from tree import *
@@ -154,8 +152,8 @@ widgets_type = {
 	'one2many': one2many.OneToManyFormWidget,
 	'one2many_form': one2many.OneToManyFormWidget,
 	'one2many_list': one2many.OneToManyFormWidget,
-	'many2many': many2many.many2many,
-	'many2one': many2one.many2one,
+	'many2many': many2many.ManyToManyFormWidget,
+	'many2one': many2one.ManyToOneFormWidget,
 	'image' : image.ImageFormWidget,
 	'url' : url.UrlFormWidget,
 	'email' : url.EMailFormWidget,

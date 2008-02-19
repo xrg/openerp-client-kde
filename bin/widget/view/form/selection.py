@@ -36,17 +36,18 @@ class SelectionFormWidget(AbstractFormWidget):
 	def __init__(self, parent, view, attrs={}):
 		AbstractFormWidget.__init__(self, parent, view, attrs)
 
-		layout = QHBoxLayout( self )
-		layout.setMargin( 0 )
 		self.widget =  QComboBox( self )
-		layout.addWidget( self.widget )
 		self.widget.setEditable( False )
 		self.widget.setInsertPolicy( QComboBox.InsertAtTop )
 
-		self.ok = True
-		self._selection={}
+		layout = QHBoxLayout( self )
+		layout.setMargin( 0 )
+		layout.addWidget( self.widget )
+
+		self.installPopupMenu( self.widget )
+
+		self.connect( self.widget, SIGNAL('activated(int)'), self.callModified )
 		self.fill(attrs.get('selection',[]))
-		self.last_key = (None, 0)
 
 	def fill(self, selection):
 		# The first is a blank element
@@ -72,7 +73,6 @@ class SelectionFormWidget(AbstractFormWidget):
 
 	def clear(self):
 		self.widget.setCurrentIndex( self.widget.findText('') )
-		self.ok = True
 		
 	def showValue(self):
 		value = self.model.value(self.name)
@@ -80,24 +80,9 @@ class SelectionFormWidget(AbstractFormWidget):
 			self.widget.setCurrentIndex( self.widget.findText( '') )
 		else:
 			self.widget.setCurrentIndex( self.widget.findData( QVariant(value) ) )
-		self.ok = True
 
-	def sig_changed(self, *args):
-		if self.ok:
-			self._focus_out()
-		#if self.attrs.get('on_change',False) and self.value_get():
-		#	if self.ok:
-		#		self.attrson_change(self.attrs['on_change'])
-
-	def sig_key_pressed(self, *args):
-		key = args[1].string.lower()
-		if self.last_key[0] == key:
-			self.last_key[1] += 1
-		else:
-			self.last_key = [ key, 1 ]
-		if not self.key_catalog.has_key(key):
-			return
-		self.widget.set_active_iter(self.key_catalog[key][self.last_key[1] % len(self.key_catalog[key])])
+	def callModified(self, idx):
+		self.modified()
 
 	def colorWidget(self):
 		return self.widget

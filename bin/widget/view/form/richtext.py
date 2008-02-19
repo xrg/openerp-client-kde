@@ -39,7 +39,7 @@ class RichTextFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('richtext.ui'), self )
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
-		self.uiText.installEventFilter( self )
+		self.installPopupMenu( self.uiText )
 
 		self.connect( self.pushBold, SIGNAL('clicked()'), self.bold )
 		self.connect( self.pushItalic, SIGNAL('clicked()'), self.italic )
@@ -53,9 +53,7 @@ class RichTextFormWidget(AbstractFormWidget):
 		self.connect( self.pushBackgroundColor, SIGNAL('clicked()'), self.backgroundColor )
 		self.connect( self.uiFont, SIGNAL('currentFontChanged(QFont)'), self.font )
 		self.connect( self.uiFontSize, SIGNAL('valueChanged(int)'), self.fontSize )
-		#self.connect( self.uiText.document(), SIGNAL('cursorPositionChanged(QTextCursor)'), self.cursorPosition)
 		self.connect( self.uiText, SIGNAL('cursorPositionChanged()'), self.cursorPosition)
-		#self.connect( self.uiText, SIGNAL('currentCharFormatChanged(QTextCharFormat)'), self.charFormatChanged)
 
 		self.updateFont = True
 		font = self.uiText.document().defaultFont()
