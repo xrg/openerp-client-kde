@@ -267,7 +267,6 @@
      <string>&amp;Plugins</string>
     </property>
     <addaction name="actionPlugins" />
-    <addaction name="actionFormDesigner" />
    </widget>
    <widget class="QMenu" name="menuHelp" >
     <property name="title" >
