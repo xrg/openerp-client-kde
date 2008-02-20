@@ -43,6 +43,7 @@ class UrlFormWidget(AbstractFormWidget):
 		else:
 			self.uiUrl.show()
 		self.connect( self.pushOpenUrl, SIGNAL('clicked()'), self.openUrl )
+		self.connect( self.uiUrl, SIGNAL('editingFinished()'), self.modified )
 		self.installPopupMenu( self.uiUrl )
 
 	def store(self):

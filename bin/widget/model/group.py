@@ -83,8 +83,9 @@ class ModelList(list):
 class ModelRecordGroup(QObject):
 	# If fields is None, all fields are loaded. This means an extra query (fields_get) to the server. Use with care.
 	# If you don't know the numbers of fields you'll use, but want some ids to be loaded use fields={}
+	# parent is only used if this ModelRecordGroup serves as a relation to another model. Otherwise it's None.
 	def __init__(self, resource, fields = None, ids=[], parent=None, context={}):
-		super(ModelRecordGroup, self).__init__()
+		QObject.__init__(self)
 		self.parent = parent
 		self._context = context
 		self._context.update(rpc.session.context)
@@ -221,9 +222,6 @@ class ModelRecordGroup(QObject):
 
 	## @brief Adds a model to the list
 	def addModel(self, model, position=-1):
-		#
-		# To be checked
-		#
 		if not model.mgroup is self:
 			fields = {}
 			for mf in model.mgroup.fields:

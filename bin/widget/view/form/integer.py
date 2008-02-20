@@ -39,8 +39,7 @@ class IntegerFormWidget(AbstractFormWidget):
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
-		self.connect( self.widget, SIGNAL('returnPressed()'), self.calculate )
-		self.connect( self.widget, SIGNAL('editingFinished()'), self.modified )
+		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
  		self.setState('valid')
 		self.installPopupMenu( self.widget )
 
@@ -50,6 +49,7 @@ class IntegerFormWidget(AbstractFormWidget):
 			self.widget.setText( str(val) )
 		else:
 			self.widget.setText('')
+		self.modified()
 
 	def value(self):
 		return textToFloat( str(self.widget.text()) )

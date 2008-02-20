@@ -59,14 +59,14 @@ class StringField(QObject):
 
 	def domain(self, model):
 		dom = self.attrs.get('domain', '[]')
-		return model.expr_eval(dom)
+		return model.evaluateExpression(dom)
 
 	def context(self, model, check_load=True, eval=True):
 		context = {}
 		context.update(self.parent.context)
 		field_context_str = self.attrs.get('context', '{}') or '{}'
 		if eval:
-			field_context = model.expr_eval('dict(%s)' % field_context_str, check_load=check_load)
+			field_context = model.evaluateExpression('dict(%s)' % field_context_str, check_load=check_load)
 			context.update(field_context)
 		return context
 

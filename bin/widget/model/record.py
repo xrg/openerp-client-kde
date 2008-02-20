@@ -258,7 +258,7 @@ class ModelRecord(QObject):
 			self.read_time= time.time()
 			self.set(value)
 
-	def expr_eval(self, dom, check_load=True):
+	def evaluateExpression(self, dom, check_load=True):
 		if not isinstance(dom, basestring):
 			return dom
 		if check_load:
@@ -273,7 +273,6 @@ class ModelRecord(QObject):
 		d['active_id'] = self.id
 		if self.parent:
 			d['parent'] = EvalEnvironment(self.parent)
-		#val = common.expr_eval(dom, d)
 		val = rpc.session.evaluateExpression(dom, d)
 		return val
 
@@ -289,7 +288,7 @@ class ModelRecord(QObject):
 			raise Exception, 'ERROR: Wrong on_change trigger: %s' % callback
 		func_name = match.group(1)
 		arg_names = [n.strip() for n in match.group(2).split(',')]
-		args = [self.expr_eval(arg) for arg in arg_names]
+		args = [self.evaluateExpression(arg) for arg in arg_names]
 		ids = self.id and [self.id] or []
 		response = getattr(self.rpc, func_name)(ids, *args)
 		if response:

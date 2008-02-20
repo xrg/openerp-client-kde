@@ -274,7 +274,7 @@ class TreeModel(QAbstractItemModel):
 			palette = QPalette()
 			color = palette.color( QPalette.WindowText )
 			for (c, expression) in self.colors:
-				if model.expr_eval( expression, check_load=False ):
+				if model.evaluateExpression( expression, check_load=False ):
 					color = c
 					break
 

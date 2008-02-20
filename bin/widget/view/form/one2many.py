@@ -124,9 +124,7 @@ class OneToManyFormWidget(AbstractFormWidget):
 
 	def edit(self):
 		dia = ScreenDialog(self.attrs['relation'], parent=self, model=self.screen.current_model, attrs=self.attrs)
-		ok = dia.exec_()
-		if ok == 1:
-			ok,value = dia.result
+		dia.exec_()
 		self.screen.display()
 
 	def next(self ): 

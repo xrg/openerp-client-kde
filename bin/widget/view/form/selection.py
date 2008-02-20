@@ -41,7 +41,7 @@ class SelectionFormWidget(AbstractFormWidget):
 		self.widget.setInsertPolicy( QComboBox.InsertAtTop )
 
 		layout = QHBoxLayout( self )
-		layout.setMargin( 0 )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
 
 		self.installPopupMenu( self.widget )

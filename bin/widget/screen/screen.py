@@ -103,7 +103,7 @@ class Screen(QScrollArea):
 		self.fields = {}
 		self.view_ids = view_ids
 		self.models = None
-		self.setModels( ModelRecordGroup(model_name, self.fields, parent=self, context=self.context) )
+		self.setModels( ModelRecordGroup(model_name, self.fields, context=self.context) )
 		self.current_model = None
 
 		self.__current_view = 0
@@ -338,7 +338,6 @@ class Screen(QScrollArea):
 			self.current_view.reset()
 
 		self.current_model = model
-		#self.current_model.setValidate()
 		self.display()
 		return self.current_model
 
