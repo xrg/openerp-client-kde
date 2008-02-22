@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<terp>
+	<data>
+		<record model="ir.ui.view" id="view_parnter_address">
+			<field name="name">res.partner.address.map</field>
+			<field name="model">res.partner.address</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="base.view_partner_address_form1"/>
+			<field name="arch" type="xml">
+				<field name="email" position="after">
+					<field name="map" nolabel="1" colspan="4" readonly="1" widget="url"/>
+				</field>
+			</field>
+		</record>
+	</data>
+</terp>
