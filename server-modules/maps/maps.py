@@ -4,41 +4,30 @@ class res_partner_address(osv.osv):
 	_name = 'res.partner.address'
 	_inherit = 'res.partner.address'
 	_columns = {
-		'map': fields.char('Map', size=1024, readonly=True)
+		'map': fields.function(_partner_address_map, method=True, type='char', size=1024, string='Map'),
 	}
-
-	def read(self, cr, uid, ids, fields=None, context=None, load='_classic_read'):
-		if 'map' in fields:
-			if not 'city' in fields:
-				fields.append('city')
-			if not 'street' in fields:
-				fields.append('street')
-			if not 'zip' in fields:
-				fields.append('zip')
-			if not 'country_id' in fields:
-				fields.append('country_id')
-		res = super(res_partner_address, self).read(cr, uid, ids, fields, context, load)
-		
-		if 'map' in fields:
-			for x in res:
-				street=x['street'] or ''
-				zip=x['zip'] or ''
-				city=x['city'] or ''
-				if x['country_id']:
-					country=x['country_id'][1]
-				else:
-					country=''
-				x['map'] = self.url( street, zip, city, country )
-		return res
 
 	def url(self, street, zip, city, country):
 		return 'http://maps.google.com/maps?q=%s %s %s %s' % ( street, zip, city, country )
+
+	def _partner_address_map(self, cr, uid, ids, name, arg, context={}):
+		res = {}
+		for p in self.browse(cr, uid, ids, context):
+			street = p.street or ''
+			zip = p.zip or ''
+			city = p.city or ''
+			if p.country_id:
+				country = p.country_id.name
+			else:
+				country = ''
+			res[p.id] = self.url( street, zip, city, country )
+		return res
 
 	def onchange_map(self, cr, uid, ids, street, zip, city, country_id):
 		street=street or ''
 		zip=zip or ''
 		city=city or ''
-		print country_id
+		#print country_id
 		country = ''
 		if country_id:
 			c = self.pool.get('res.country').read(cr, uid, [country_id])
