@@ -113,6 +113,9 @@ class MainWindow(QMainWindow):
 		self.actionNextTab.setShortcut("Ctrl+PgDown")
 		self.actionFullTextSearch.setShortcut("Ctrl+T")
 		self.actionReload.setShortcut("F5")
+		self.actionDuplicate.setShortcut("Ctrl+Shift+D")
+		self.actionPrevious.setShortcut("Alt+PgUp")
+		self.actionNext.setShortcut("Alt+PgDown")
 
 		self.connect( self.actionClose, SIGNAL("triggered()"), self.closeCurrentTab )
 		self.connect( self.actionConnect ,SIGNAL("triggered()"), self.showLoginDialog )
