@@ -70,7 +70,7 @@ class win_attach(QMainWindow):
 		self.connect( self.actionClose, SIGNAL('triggered()'), self.slotClose )
 		self.updateEnabledActions()
 
-	def updateEnabledActions(self, view=None):
+	def updateEnabledActions(self):
 		for x in self.actions:
 			action = eval( 'self.action' + x )
 			action.setEnabled( x in self.form.handlers )

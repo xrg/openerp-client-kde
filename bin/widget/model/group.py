@@ -92,7 +92,7 @@ class ModelRecordGroup(QObject):
 		self.resource = resource
 		self.rpc = RPCProxy(resource)
 		if fields == None:
-			self.fields = self.rpc.fields_get()
+			self.fields = {}
 		else:
 			self.fields = fields
 		self.mfields = {}

@@ -37,6 +37,7 @@ from common import common
 import copy
 
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 
 class win_preference(QDialog):
 	def __init__(self, model, id, preferences, parent=None):
@@ -53,9 +54,11 @@ class win_preference(QDialog):
 			fields[p[1]] = p[3]
 		arch+= '</form>'
 
-		self.screen = Screen(model, view_type=[], parent=self )
+		#self.screen = Screen(model, view_type=[], parent=self )
+		self.screen = Screen( self )
+		self.screen.setModelGroup( ModelRecordGroup( model ) )
 		self.screen.new(default=False)
-		self.screen.add_view_custom(arch, fields, display=True)
+		self.screen.addCustomView(arch, fields, display=True)
 
 		default = rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,self.id)], False, rpc.session.context, True, True, False)
 		default2 = {}

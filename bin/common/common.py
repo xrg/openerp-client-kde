@@ -176,7 +176,7 @@ def support():
 
 # Function used by the notifier in the KTiny application
 def warning(title, message):
-	QMessageBox(None, title, message)
+	QMessageBox.warning(None, title, message)
 
 ## @brief The ErrorDialog class shows the error dialog used everywhere in KTiny.
 #

@@ -38,6 +38,7 @@ from common import common
 from common import icons
 
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 
 class WizardPage(QDialog):
 	def __init__(self, arch, fields, state, name, datas, parent=None):
@@ -65,9 +66,13 @@ class WizardPage(QDialog):
 			if 'value' in fields[f]:
 				val[f] = fields[f]['value']
 
-		self.screen = Screen('wizard.'+name, view_type=[], parent=self)
+		#self.screen = Screen('wizard.'+name, view_type=[], parent=self)
+		self.screen = Screen( self )
+		self.screen.setViewTypes( [] )
+		gr = ModelRecordGroup( 'wizard.'+name )
+		self.screen.setModelGroup( ModelRecordGroup( 'wizard.'+name ) )
 		self.screen.new(default=False)
-		self.screen.add_view_custom(arch, fields, display=True)
+		self.screen.addCustomView(arch, fields, display=True)
 		# Set default values
 		self.screen.current_model.set(val)
 		# Set already stored values
@@ -150,6 +155,7 @@ class Wizard( QObject ):
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
 		if res['type']=='form':
+			print "ACTION: ", self.action
 			dialog = WizardPage(res['arch'], res['fields'], res['state'], self.action, self.datas['form'])
 
 			#dialog.screen.current_model.set( self.datas['form'] )

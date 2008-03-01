@@ -29,3 +29,6 @@ def textToFloat(text):
 	except:
 		return False
 
+def floatToText(number):
+	return "%.2f" % number
+

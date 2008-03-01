@@ -105,7 +105,6 @@ class XmlRpcConnection(Connection):
 			result = function(self.databaseName, self.uid, self.password, *args)
 		else:
 			result = function( *args )
-		#print "XML-RPC Response: ", result
 		return result
 
 ## Creates an instance of the appropiate Connection class (whether 

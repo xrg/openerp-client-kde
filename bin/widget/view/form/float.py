@@ -68,7 +68,7 @@ class FloatFormWidget(AbstractFormWidget):
 		
 	def showValue(self):
 		if self.model.value(self.name):
-			self.widget.setText( str( self.model.value(self.name) ) )
+			self.widget.setText( floatToText( self.model.value(self.name) ) )
 		else:
 			self.clear()
 

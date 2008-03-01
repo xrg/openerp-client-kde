@@ -55,7 +55,7 @@ class EvalEnvironment(object):
 # We inherit QObject as we'll be using signals & slots
 class ModelRecord(QObject):
 	def __init__(self, resource, id, group=None, parent=None, new=False ):
-		super(ModelRecord, self).__init__()
+		QObject.__init__(self)
 		self.resource = resource
 		self.rpc = RPCProxy(self.resource)
 		self.id = id

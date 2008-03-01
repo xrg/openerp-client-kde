@@ -30,6 +30,7 @@
 from common import common
 
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 
 import rpc
 
@@ -48,10 +49,14 @@ class ManyToManyFormWidget(AbstractFormWidget):
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )	
 		
-		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.slotAdd )
-		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.slotRemove )
+		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
+		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		
-		self.screen = Screen(attrs['relation'], view_type=['tree'],parent=self, views_preload=attrs.get('views', {}), tree_saves=False, create_new=True )
+		#self.screen = Screen(attrs['relation'], view_type=['tree'], parent=self, views_preload=attrs.get('views', {}))
+		self.screen = Screen( self )
+		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
+		self.screen.setViewTypes( ['tree'] )
+		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
 
 		layout = self.layout()
@@ -63,22 +68,23 @@ class ManyToManyFormWidget(AbstractFormWidget):
 	def sizeHint( self ):
 		return QSize( 200,800 )
 
-	def slotAdd(self):
+	def add(self):
 		domain = self.model.domain( self.name )
 		context = self.model.fieldContext( self.name )
 
 		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', str( self.uiText.text()), domain, 'ilike', context)
 		ids = map(lambda x: x[0], ids)
 		if len(ids)<>1:
-			win = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids)
-			win.exec_()
-			ids = win.result
+			dialog = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids)
+			if dialog.exec_() == QDialog.Rejected:
+				return
+			ids = dialog.result
 
 		self.screen.load(ids)
 		self.screen.display()
 		self.uiText.clear()
 
-	def slotRemove(self):
+	def remove(self):
 		slcIndex =  self.screen.current_view.widget.selectedIndexes()
 		id = self.screen.remove()
 		self.screen.display()
@@ -96,7 +102,7 @@ class ManyToManyFormWidget(AbstractFormWidget):
 
 	def showValue(self):
 		models = self.model.value(self.name)
-		self.screen.setModels(models)
+		self.screen.setModelGroup(models)
 		self.screen.display()
 
 	def store(self):

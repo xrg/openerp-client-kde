@@ -103,6 +103,9 @@
          <property name="icon" >
           <iconset resource="common.qrc" >:/images/images/find.png</iconset>
          </property>
+         <property name="autoDefault" >
+          <bool>true</bool>
+         </property>
          <property name="default" >
           <bool>true</bool>
          </property>

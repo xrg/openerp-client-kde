@@ -33,6 +33,7 @@ from common import common
 
 import widget
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 
 from modules.gui.window.win_search import SearchDialog
 import rpc
@@ -46,28 +47,35 @@ from PyQt4.uic import *
 
 
 class ScreenDialog( QDialog ):
-	def __init__(self, model, parent, id=None, attrs={}):
+	def __init__(self, parent):
 		QWidget.__init__( self, parent )
 		loadUi( common.uiPath('dia_form_win_many2one.ui'), self )
 
 		self.setMinimumWidth( 800 )
 		self.setMinimumHeight( 600 )
 
-		if ('string' in attrs) and attrs['string']:
-			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
-			
-		self.screen = Screen(model, parent = self)
+		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
+		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
+		self.model = None
+		self.screen = None
 
+	def setup(self, model, id=None):
+		if self.screen:
+			return
+		self.screen = Screen(self)
+		self.screen.setModelGroup( ModelRecordGroup( model ) )
+		self.screen.setViewTypes( ['form'] )
 		if id:
 			self.screen.load([id])
 		else:
 			self.screen.new()
-
-		self.model = None
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen  )
-		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
-		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
+		self.screen.show()
+		
+	def setAttributes(self, attrs):
+		if ('string' in attrs) and attrs['string']:
+			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
 
 	def accepted( self ):
 		self.screen.current_view.store()
@@ -174,13 +182,27 @@ class ManyToOneFormWidget(AbstractFormWidget):
 
 	def open(self):
 		if self.model.value(self.name):
-			dialog = ScreenDialog( self.attrs['relation'], self, self.model.get()[self.name], attrs=self.attrs)
+			dialog = ScreenDialog( self )
+			dialog.setAttributes( self.attrs )
+			dialog.setup( self.attrs['relation'], self.model.get()[self.name] )
 			if dialog.exec_() == QDialog.Accepted:
 				self.model.setValue(self.name, dialog.model)
 				self.display()
+		else:
+			domain = self.model.domain( self.name )
+			context = self.model.context()
+			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, context=context, domain=domain)
+			if dialog.exec_() == QDialog.Accepted and dialog.result:
+				id = dialog.result[0]
+				name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], rpc.session.context)[0]
+				self.model.setValue(self.name, name)
+				self.display()
+
 
 	def new(self):
-		dialog = ScreenDialog(self.attrs['relation'], self, attrs=self.attrs)
+		dialog = ScreenDialog(self)
+		dialog.setAttributes( self.attrs )
+		dialog.setup( self.attrs['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
 			self.model.setValue(self.name, dialog.model)
 			self.display()

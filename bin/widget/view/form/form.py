@@ -70,8 +70,6 @@ class FormContainer( QWidget ):
 		self.layout.addWidget( widget, self.row, self.column, 1, colspan )
 		if widget.sizePolicy().verticalPolicy() == QSizePolicy.Expanding:
 			self.hasExpanding = True
-			#print "HAS EXPANDING!!!"
-			#print attributes
 
 		if stylesheet:
 			widget.setStyleSheet( stylesheet )
@@ -83,14 +81,14 @@ class FormContainer( QWidget ):
 
 	def expand(self):
 		if self.hasExpanding:
-			#print "ALREADY HAD EXPANDING!"
 			return
 		self.layout.addItem( QSpacerItem( 0, 1, QSizePolicy.Fixed, QSizePolicy.Expanding ), self.row+1, 0 )
-		#print "ADDED SPACER!"
 
 class ViewForm( AbstractView ):
 	def __init__(self, parent=None):
 		AbstractView.__init__( self, parent )
+		# We still depend on the parent being a screen because of ButtonFormWidget
+		self.screen = parent
 		self.view_type = 'form'
 		self.model_add_new = False
 		self.title = ""
@@ -99,15 +97,12 @@ class ViewForm( AbstractView ):
 		self.layout = QHBoxLayout( self )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
 
-		# The parser will append all the buttons here
-		self.buttons = []		
 		# The parser will include all the widgets here with {name: widget} structure
 		self.widgets = {}
 
 	def setWidget(self, widget):
 		self.widget = widget
 		self.layout.addWidget( self.widget, 10 )
-		
 
 	def __getitem__(self, name):
 		return self.widgets[name]
@@ -120,7 +115,7 @@ class ViewForm( AbstractView ):
 			if self.widgets[name].model:
 				self.widgets[name].store()
 			else:
-				# TODO: Why does this happen?
+				# TODO: Why should this happen?
 				print "NO MODEL SET FOR WIDGET: ", name
 
 	def selectedIds(self):
@@ -129,14 +124,19 @@ class ViewForm( AbstractView ):
 		return []
 
 	def reset(self):
-		for wid_name, widget in self.widgets.items():
+		for name, widget in self.widgets.items():
 			widget.reset()
 
 	def display(self, currentModel, models):
+		if self.model:
+			self.disconnect(self.model,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
 		self.model = currentModel
+		if self.model:
+			self.connect(self.model, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+		self.updateDisplay(self.model)
 
+	def updateDisplay(self,model):
 		if self.model and ('state' in self.model.mgroup.fields):
-			#state = self.model['state'].get(self.model)
 			state = self.model.value('state')
 		else:
 			state = 'draft'
@@ -145,7 +145,4 @@ class ViewForm( AbstractView ):
 				self.widgets[name].load(self.model, state)
 			else:
 				self.widgets[name].load(None, state)
-				
-		for button in self.buttons: 
-			button.setState(state)
-
+		 

@@ -31,6 +31,7 @@ from common import common
 from common import icons
 import service
 import rpc
+from button import *
 
 from form import ViewForm, FormContainer
 from widget.view.abstractparser import *
@@ -39,55 +40,6 @@ from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-
-class Button( QPushButton ):
-	def __init__(self, attrs={}, parent = None , view = None) :
-		QPushButton.__init__( self, parent )
-
-		self.view = view
-		self.attrs = attrs
-
-		self.setText( attrs.get('string', 'unknown' ) )
-		if 'icon' in attrs:
-			self.setIcon( icons.kdeIcon( attrs['icon'] ))
-	
-		self.connect( self ,SIGNAL('clicked()'), self.click)
-
-	def click( self ): 
-		model = self.view.screen.current_model
-		self.view.store()
-		if model.validate():
-			id = self.view.screen.save_current()
-			if not self.attrs.get('confirm',False) or \
-					QMessageBox.question(self,_('Question'),self.attrs['confirm'],QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
-				button_type = self.attrs.get('type', 'workflow')
-				if button_type == 'workflow':
-					rpc.session.execute('/object', 'exec_workflow', self.view.screen.name, self.attrs['name'], id)
-				elif button_type == 'object':
-					rpc.session.execute('/object', 'execute', self.view.screen.name, self.attrs['name'], [id], model.context())
-				elif button_type == 'action':
-					obj = service.LocalService('action.main')
-					action_id = int(self.attrs['name'])
-					obj.execute(action_id, {'model':self.view.screen.name, 'id': id, 'ids': [id]})
-				else:
-					raise 'Unallowed button type'
-				self.view.screen.reload()
-		else:
-			notify.notifyWarning(_('Invalid Form, correct red fields!'))
-			self.view.screen.display()
-
-	def setReadOnly(self, value):
-		self.setEnabled( not value )
-
-	def setState(self, state):
-		if self.attrs.get('states', False):
-			my_states = self.attrs.get('states', '').split(',')
-			if state not in my_states:
-				self.hide()
-			else:
-				self.show()
-		else:
-			self.hide()
 
 
 class FormParser(AbstractParser):
@@ -148,8 +100,10 @@ class FormParser(AbstractParser):
 				container.newRow()
 
 			elif node.localName=='button':
-				button = Button(attrs, container, self.view )
-				self.view.buttons.append(button)
+				button = ButtonFormWidget(container, self.view, attrs )
+				#self.view.buttons.append(button)
+				name = attrs['name']
+				self.view.widgets[name] = button
 				container.addWidget(button, attrs)
 
 			elif node.localName=='notebook':

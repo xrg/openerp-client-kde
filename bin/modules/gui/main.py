@@ -56,6 +56,23 @@ from login import *
 from adminpwd import *
 from common import common
 
+class MainTabWidget(QTabWidget):
+	def __init__(self, parent=None):
+		QTabWidget.__init__(self, parent)
+		self.pressedAt = -1
+
+	def mousePressEvent(self, event):
+		if event.button() == Qt.MidButton:
+			self.pressedAt = self.tabBar().tabAt( event.pos() )
+	
+	def mouseReleaseEvent(self, event):
+		if event.button() == Qt.MidButton:
+			tab = self.tabBar().tabAt( event.pos() )
+			if tab != self.pressedAt:
+				self.pressedAt = -1
+				return
+			self.emit(SIGNAL('middleClicked(int)'), tab)
+
 class MainWindow(QMainWindow):
 	
 	def __init__(self):	
@@ -66,11 +83,21 @@ class MainWindow(QMainWindow):
 
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 
-		self.tabWidget = QTabWidget ( self.centralWidget()  )
+		self.tabWidget = MainTabWidget( self. centralWidget() )
 		self.connect( self.tabWidget, SIGNAL("currentChanged(int)"), self.currentChanged )
+		self.connect( self.tabWidget, SIGNAL("middleClicked(int)"), self.closeTab )
+
+		self.pushClose = QToolButton( self.tabWidget )
+		self.pushClose.setIcon( QIcon( ':/images/images/close_tab.png' ) )
+		self.pushClose.setAutoRaise( True )
+		self.pushClose.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+		self.pushClose.setToolTip( _('Close tab') )
+		self.connect(self.pushClose, SIGNAL('clicked()'), self.closeCurrentTab )
+
+		self.tabWidget.setCornerWidget( self.pushClose, Qt.TopRightCorner )
+
 		self.layout = self.centralWidget().layout()
 		self.layout.setSpacing( 2 )
-		
 		self.layout.addWidget( self.tabWidget )
 		self.layout.addWidget( self.frame )	
 		
@@ -152,6 +179,17 @@ class MainWindow(QMainWindow):
 		dialog = FormDesigner(self)
 		dialog.show()
 
+	def closeTab(self, tab):
+		wid = self.tabWidget.widget(tab)
+		if wid:
+			# Ask the current tab if it can be closed
+			if not wid.canClose():
+				return False
+		self.tabWidget.removeTab( tab ) 
+		del wid
+		self.updateEnabledActions()
+		return True
+		
 	## Closes the current tab smartly. 
 	#
 	# First asks the widget in the tab if it can be closed and if so, it removes it.
@@ -160,14 +198,16 @@ class MainWindow(QMainWindow):
 	# It returns True if all tabs could be closed, False otherwise. If there are no 
 	# tabs always returns True.
 	def closeCurrentTab(self):
-		wid = self.tabWidget.currentWidget()
-		if wid:
-			# Ask the current tab if it can be closed
-			if not wid.canClose():
-				return False
-		self.tabWidget.removeTab( self.tabWidget.currentIndex() ) 
-		del wid
-		return True
+		return self.closeTab( self.tabWidget.currentIndex() )
+		#wid = self.tabWidget.currentWidget()
+		#if wid:
+			## Ask the current tab if it can be closed
+			#if not wid.canClose():
+				#return False
+		#self.tabWidget.removeTab( self.tabWidget.currentIndex() ) 
+		#del wid
+		#self.updateEnabledActions()
+		#return True
 
 	def fullTextSearch(self):
 		win = win_full_text_search.FullTextSearchDialog(self)
@@ -240,9 +280,10 @@ class MainWindow(QMainWindow):
 
 	def showLoginDialog(self):
 		dialog = LoginDialog( self )
-		if dialog.exec_() == QDialog.Rejected:
-			return
-		self.login( dialog.url, dialog.databaseName )
+		while dialog.exec_() == QDialog.Accepted:
+			self.login( dialog.url, dialog.databaseName )
+			if rpc.session.open:
+				return
 
 	## Logs into the specified database and server.
 	#
@@ -274,7 +315,6 @@ class MainWindow(QMainWindow):
 				self.openHomeTab()
 
 				self.updateRequestsStatus()
-				return True
 			elif log_response==-1:
 				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
 			elif log_response==-2:
@@ -298,6 +338,7 @@ class MainWindow(QMainWindow):
 		self.uiRequests.clear()
 		self.uiUserName.setText( _('Not logged !') )
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
+		self.updateEnabledActions()
 		rpc.session.logout()
 		
 	def supportRequest(self):
@@ -400,18 +441,26 @@ class MainWindow(QMainWindow):
 		self.tabWidget.addTab( win, win.name )
 		self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
 
-	def updateEnabledActions(self, view=None):
-		if view==None:
-			view = self.tabWidget.currentWidget()
-		try:
-			for x in self.actions:
-				action = eval( 'self.action' + x )
-				action.setEnabled( view and (x in view.handlers) )
-		except:
-			for x in self.actions:
-				action = eval( 'self.action' + x )
+	def updateEnabledActions(self):
+		view = self.tabWidget.currentWidget()
+		#try:
+		for x in self.actions:
+			action = eval( 'self.action' + x )
+			if view and x in view.handlers:
+				action.setEnabled( True )
+			else:
 				action.setEnabled( False )
+		#except:
+		#	for x in self.actions:
+		#		action = eval( 'self.action' + x )
+		#		action.setEnabled( False )
 
+		if rpc.session.open:
+			self.actionFullTextSearch.setEnabled( True )
+		else:
+			self.actionFullTextSearch.setEnabled( False )
+
+		# Update the 'Actions' Menu entry
 		if view:
 			self.menuActions.clear()
 			last = None

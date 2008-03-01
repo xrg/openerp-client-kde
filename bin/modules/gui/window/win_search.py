@@ -32,6 +32,7 @@ from common import common
 import rpc
 
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 import widget_search
 
 
@@ -51,7 +52,11 @@ class SearchDialog( QDialog ):
 		self.context.update(rpc.session.context)
 		self.allowMultipleSelection = sel_multi
 
-		self.screen = Screen(model, view_type=['tree'], context=context, parent=self)
+		#self.screen = Screen(model, view_type=['tree'], context=context, parent=self)
+		self.screen = Screen( self )
+		self.screen.setModelGroup( ModelRecordGroup( model ) )
+		self.screen.setViewTypes( ['tree'] )
+
 		self.view = self.screen.current_view
 		self.view.setAllowMultipleSelection( sel_multi )
 		self.view.setReadOnly( True )

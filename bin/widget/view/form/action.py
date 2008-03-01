@@ -33,6 +33,7 @@ from common import common
 
 
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 
 import rpc
 import time
@@ -70,8 +71,16 @@ class ActionFormWidget(AbstractFormWidget):
 				view_id = [self.action['view_id'][0]]
 			if self.action['view_type']=='form':
 				mode = (self.action['view_mode'] or 'form,tree').split(',')
-				self.screen = Screen(self.action['res_model'], view_type=mode, context=self.context, view_ids = view_id, domain=self.domain, parent = self )
+				#self.screen = Screen(self.action['res_model'], view_type=mode, context=self.context, view_ids = view_id, domain=self.domain, parent = self )
+				modelGroup = ModelRecordGroup( self.action['res_model'], context=self.context )
+				self.screen = Screen( self )
+				self.screen.setModelGroup( modelGroup )
+				self.screen.setDomain( self.domain )
 				self.screen.setEmbedded( True )
+				if view_id:
+					self.screen.setViewIds( view_id )
+				else:
+					self.screen.setViewTypes( mode )
 				loadUi( common.uiPath('paned.ui'), self  )
 				self.group.setTitle( QString( attrs['string'] or "" )) #ANGEL TODO:  or   self.screen.current_view.title
 				layout = QVBoxLayout( )

@@ -48,20 +48,20 @@ from action import *
 #
 # This class is capable of managing various views of the same model and provides
 # functions for moving to the next and previous record.
-
+#
+# If neither setViewTypes() nor setViewIds() are called, form and tree views (in this order)
+# will be used. If you use only a single 'id' and say it's a 'tree', one you try to switchView
+# the default 'form' view will be shown. If you only want to show the 'tree' view, use 
+# setViewTypes( [] ) or setViewTypes( ['tree'] )
+# When you add a new view by it's ID the type of the given view is removed from the list of
+# view types. (See: addViewById() )
+#
 class Screen(QScrollArea):
 
-	## @brief Constructor
-	#
-	# @param model_name Name of the model this widget will handle.
-	# @param view_ids View ids you want Screen to handle
-	# @param view_type 
-	# @param parent
-	# @param context 
-	def __init__(self, model_name, view_ids=[], view_type=['form','tree'], parent=None, context={}, views_preload={}, tree_saves=True, domain=[], create_new=False):
-
+	def __init__(self, parent=None):
 		QScrollArea.__init__(self, parent)
 
+		# GUI Stuff
 		self.setFrameShape( QFrame.NoFrame )
 		self.setWidgetResizable( True )
 		self.container = QWidget( self )
@@ -76,7 +76,6 @@ class Screen(QScrollArea):
 
 		self.toolBar = ToolBar(self)
 		self.toolBar.hide()
-		self.actions = []
 
 		self.layout = QHBoxLayout()
 		self.layout.setSpacing( 0 )
@@ -88,35 +87,89 @@ class Screen(QScrollArea):
 		vLay.addWidget( self.searchForm )
 		vLay.addLayout( self.layout )
 
+		# Non GUI Stuff
+		self.actions = []
 
 		self._embedded = True
 
-		self.create_new = create_new
-		self.name = model_name
-		self.domain = domain
-		self.views_preload = views_preload
-		self.resource = model_name
-		self.rpc = RPCProxy(model_name)
-		self.context = context
-		self.context.update(rpc.session.context)
+		#self.create_new = create_new
+		#self.name = model_name
+		#self.name = modelGroup.resource
+		#self.domain = domain
+		self.domain = []
+		#self.views_preload = views_preload
+		self.views_preload = {}
+		#self.resource = model_name
+		#self.resource = modelGroup.resource
+		#self.rpc = RPCProxy(model_name)
+		self.rpc = None
+		#self.context = context
+		#self.context.update(rpc.session.context)
+		#self.context = modelGroup.context
 		self.views = []
 		self.fields = {}
-		self.view_ids = view_ids
+		#self.view_ids = view_ids
+		self._viewIds = []
+		self._viewTypes = ['form','tree']
 		self.models = None
-		self.setModels( ModelRecordGroup(model_name, self.fields, context=self.context) )
-		self.current_model = None
+		#self.setModels( ModelRecordGroup(model_name, self.fields, context=self.context) )
+		#self.setModels( modelGroup )
+		#self.current_model = None
+		self.__current_model = None
 
 		self.__current_view = 0
 
-		if view_type:
-			self.view_to_load = view_type[1:]
-			view_id = False
-			if view_ids:
-				view_id = view_ids.pop(0)
-			view = self.add_view_id(view_id, view_type[0])
-			self.setView(view)
+		#if view_type:
+			#self.view_to_load = view_type[1:]
+			#view_id = False
+			#if view_ids:
+				#view_id = view_ids.pop(0)
+			#view = self.add_view_id(view_id, view_type[0])
+			#self.setView(view)
 
+		#self.display()
+
+		self._addAfterNew = False
+		self._domain = []
+
+	def setPreloadedViews(self, views):
+		self.views_preload = views
+
+	def preloadedViews(self, views):
+		return self.views_preload
+		
+	def setViewIds(self, ids):
+		self._viewIds = ids[1:]
+		view = self.addViewById( ids[0] )
+		self.setView( view )
 		self.display()
+
+	def viewIds(self):
+		return self._viewIds
+
+	def setViewTypes(self, types):
+		if not types:
+			self._viewTypes = []
+			return
+		self._viewTypes = types[1:]
+		view = self.addViewByType( types[0] )
+		self.setView(view)
+		self.display()
+
+	def viewTypes(self):
+		return self._viewTypes
+
+	def setAddAfterNew(self, value):
+		self._addAfterNew = value
+
+	def addAfterNew(self):
+		return self._addAfterNew
+
+	def setDomain(self, value):
+		self._domain = value
+		
+	def domain(self):
+		return self._domain
 
 	## @brief Sets whether the screen is embedded.
 	#
@@ -127,10 +180,11 @@ class Screen(QScrollArea):
 		if value:
 			self.searchForm.hide()
 			self.toolBar.hide()
-		elif self.current_view and self.current_view.view_type == 'tree':
-			self.loadSearchForm()
+		else:
 			self.searchForm.show()
-			self.toolBar.show()
+			self.toolBar.show() 
+			if self.current_view and self.current_view.view_type == 'tree':
+				self.loadSearchForm()
 
 	def embedded(self):
 		return self._embedded
@@ -161,6 +215,7 @@ class Screen(QScrollArea):
 		if action.type() != 'relate':
 			self.reload()
 
+	# Sets the current widget of the Screen
 	def setView(self, widget):
 		if self.containerView:
 			self.disconnect(self.containerView, SIGNAL("activated()"), self.switchView)
@@ -177,6 +232,8 @@ class Screen(QScrollArea):
 		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
 
+	# Searches with the current parameters of the search form and loads the
+	# models that fit the criteria.
 	def search( self ):
 		value = self.searchForm.getValue( self.domain )
 		# TODO: Allow setting limit and offset??
@@ -184,21 +241,29 @@ class Screen(QScrollArea):
 		self.clear()
 		self.load( ids )
 
+	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, id):
 		self.current_model = None
 		for i in self.models.models:
 			if i.id == id:
 				self.current_model = i
 
-	def setModels(self, models):
-		self.models = models
-		if len(models.models):
-			self.current_model = models.models[0]
+	## @brief Sets the RecordModelGroup this Screen should show.
+	# @param models ModelRecordGroup object.
+	def setModelGroup(self, modelGroup):
+		self.name = modelGroup.resource
+		self.resource = modelGroup.resource
+		self.context = modelGroup.context
+		self.rpc = RPCProxy(self.resource)
+
+		self.models = modelGroup
+		if len(modelGroup.models):
+			self.current_model = modelGroup.models[0]
 		else:
 			self.current_model = None
 
-		models.addFields(self.fields)
-		self.fields.update(models.fields)
+		modelGroup.addFields(self.fields)
+		self.fields.update(modelGroup.fields)
 
 	def _get_current_model(self):
 		return self.__current_model
@@ -230,8 +295,9 @@ class Screen(QScrollArea):
 		if self.current_model and ( self.current_model not in self.models.models ):
 			self.current_model = None
 
-		if len(self.view_to_load):
-			self.load_view_to_load()
+		#if len(self._viewTypes) or len(self._viewIds):
+		#self.loadNextView()
+		if self.loadNextView():
 			self.__current_view = len(self.views) - 1
 		else:
 			self.__current_view = (self.__current_view + 1) % len(self.views)
@@ -241,37 +307,66 @@ class Screen(QScrollArea):
 			self.current_model.setValidate()
 		self.display()
 
-	def load_view_to_load(self):
-		if len(self.view_to_load):
-			if self.view_ids:
-				view_id = self.view_ids.pop(0)
-				view_type = self.view_to_load.pop(0)
-			else:
-				view_id = False
-				view_type = self.view_to_load.pop(0)
-			self.add_view_id(view_id, view_type)
+	## @brief Loads the next view pending to be loaded.
+	# If there is no view pending it returns False, otherwise returns True.
+	def loadNextView(self):
+		if self._viewIds:
+			self.addViewById( self._viewIds.pop(0) )
+			return True
+		elif self._viewTypes:
+			self.addViewByType( self._viewTypes.pop(0) )
+			return True
+		else:
+			return False
 
-	def add_view_custom(self, arch, fields, display=False, toolbar={}):
-		return self.add_view(arch, fields, display, True, toolbar=toolbar)
+	#def add_view_custom(self, arch, fields, display=False, toolbar={}):
+	def addCustomView(self, arch, fields, display=False, toolbar={}):
+		return self.addView(arch, fields, display, True, toolbar=toolbar)
 
+	## @brief Adds a view given its id.
+	# @param id View id to load or False if you want to load given view_type.
+	# @param display Whether you want the added view to be shown (True) or only loaded (False).
+	# @return The view widget
+	def addViewById(self, id, display=False):
+		# TODO: By now we set toolbar to True always. Even when Screen is embedded
+		view = self.rpc.fields_view_get(id, False, self.context, True)
+		if 'type' in view:
+			if view['type'] in self._viewTypes:
+				self._viewTypes.remove( view['type'] )
+		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
+		
+	## @brief Adds a view given a view type.
+	# @param type View type ('form', 'tree', 'calendar', 'graph'...). 
+	# @param display Whether you want the added view to be shown (True) or only loaded (False).
+	# @return The view widget
+	def addViewByType(self, type, display=False):
+		if type in self.views_preload:
+			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False))
+		else:
+			# TODO: By now we set toolbar to True always. Even when the Screen is embedded
+			view = self.rpc.fields_view_get(False, type, self.context, True)
+			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
+		
 	## @brief Adds a view given its id or view_type
 	# @param view_id View id to load or False if you want to load given view_type
 	# @param view_type View type ('form', 'tree', 'calendar', 'graph'...). Only used if view_id = False.
 	# @param display Whether you want the added view to be shown (True) or only loaded (False)
-	def add_view_id(self, view_id, view_type, display=False):
-		if view_type in self.views_preload:
-			return self.add_view(self.views_preload[view_type]['arch'], self.views_preload[view_type]['fields'], display, toolbar=self.views_preload[view_type].get('toolbar', False))
-		else:
-			# TODO: By now we set toolbar to True always. Even when the Screen is embedded
-			view = self.rpc.fields_view_get(view_id, view_type, self.context, True)
-			return self.add_view(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
+	# @return The view widget
+	#def add_view_id(self, view_id, view_type, display=False):
+		#if view_type in self.views_preload:
+			#return self.addView(self.views_preload[view_type]['arch'], self.views_preload[view_type]['fields'], display, toolbar=self.views_preload[view_type].get('toolbar', False))
+		#else:
+			## TODO: By now we set toolbar to True always. Even when the Screen is embedded
+			#view = self.rpc.fields_view_get(view_id, view_type, self.context, True)
+			#return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
 	
 	## @brief Adds a view given it's XML description and fields
 	# @param arch XML string: typically 'arch' field returned by model fields_view_get() function.
 	# @param fields Fields dictionary containing each field (widget) properties.
 	# @param display Whether you want the added view to be shown (True) or only loaded (False)
 	# @param custom If True, fields are added to those existing in the model
-	def add_view(self, arch, fields, display=False, custom=False, toolbar={}):
+	# @return The view widget
+	def addView(self, arch, fields, display=False, custom=False, toolbar={}):
 		def _parse_fields(node, fields):
 			if node.nodeType == node.ELEMENT_NODE:
 				if node.localName=='field':
@@ -331,7 +426,7 @@ class Screen(QScrollArea):
 			self.switchView()
 		model = self.models.newModel(default, self.domain, self.context)
 
-		if (not self.current_view) or self.current_view.model_add_new or self.create_new:
+		if (not self.current_view) or self.current_view.model_add_new or self._addAfterNew:
 			self.models.addModel(model, self.new_model_position())
 
 		if self.current_view:

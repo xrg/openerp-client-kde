@@ -94,6 +94,7 @@ try:
 except:
 	imports['dbus'] = False
 	print _("Module 'dbus' not available. Consider installing it so other applications can easily interact with KTiny.")
+imports['dbus'] = False
 import service
 
 from common import notifier, common

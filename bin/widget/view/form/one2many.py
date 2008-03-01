@@ -35,27 +35,28 @@ from PyQt4.uic import *
 import gettext
 from common import common
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 
 class ScreenDialog( QDialog ):
-	def __init__(self, model_name, parent, model=None, attrs={}):
+	def __init__(self, modelGroup, parent, model=None, attrs={}):
 		QDialog.__init__( self, parent )
 		loadUi( common.uiPath('dia_form_win_many2one.ui'), self )
 		self.setModal(True)
 		if ('string' in attrs) and attrs['string']:
 			self.setWindowTitle( self.windowTitle() + " - " + attrs['string'])
 
-		self.screen = Screen(model_name, view_type=[], parent=self)
+		self.screen = Screen( self )
+		self.screen.setModelGroup( modelGroup )
 		self.screen.setEmbedded( True )
 		if not model:
 			model = self.screen.new()
-		self.screen.models.addModel(model)
 		self.screen.current_model = model
 		if ('views' in attrs) and ('form' in attrs['views']):
 			arch = attrs['views']['form']['arch']
 			fields = attrs['views']['form']['fields']
-			self.screen.add_view(arch, fields, display=True)
+			self.screen.addView(arch, fields, display=True)
 		else:
-			self.screen.add_view_id(False, 'form', display=True)
+			self.screen.addViewByType('form', display=True)
 
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen )
@@ -63,8 +64,8 @@ class ScreenDialog( QDialog ):
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
 		
-		size = self.screen.size()
-		self.setMinimumSize( size.width(), size.height()+30)
+		size = self.screen.sizeHint()
+		self.screen.setMinimumSize( size.width(), size.height()+80 )
 
 		self.result = None
 		self.show()
@@ -89,9 +90,13 @@ class OneToManyFormWidget(AbstractFormWidget):
 		self.connect( self.pushForward, SIGNAL( "clicked()"),self.next )
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
- 		self.screen = Screen(attrs['relation'], view_type=attrs.get('mode','tree,form').split(','), parent=self, views_preload=attrs.get('views', {}), tree_saves=False, create_new=True)
+		self.screen = Screen( self )
+		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
+		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
- 		
+		self.screen.setAddAfterNew( True )
+		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
+ 
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 
 		self.layout().insertWidget( 1, self.screen )
@@ -117,14 +122,16 @@ class OneToManyFormWidget(AbstractFormWidget):
                 if (self.screen.current_view.view_type=='form') or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
-			dialog = ScreenDialog(self.attrs['relation'], parent=self, attrs=self.attrs) 
+			#dialog = ScreenDialog(self.attrs['relation'], parent=self, attrs=self.attrs) 
+			dialog = ScreenDialog(self.screen.models, parent=self, attrs=self.attrs)
 			if dialog.exec_() == QDialog.Accepted:
-				self.screen.models.addModel(dialog.result)
+				#self.screen.models.addModel(dialog.result)
 				self.screen.display()
 
 	def edit(self):
-		dia = ScreenDialog(self.attrs['relation'], parent=self, model=self.screen.current_model, attrs=self.attrs)
-		dia.exec_()
+		#dia = ScreenDialog(self.attrs['relation'], parent=self, model=self.screen.current_model, attrs=self.attrs)
+		dialog = ScreenDialog( self.screen.models, parent=self, model=self.screen.current_model, attrs=self.attrs)
+		dialog.exec_()
 		self.screen.display()
 
 	def next(self ): 
@@ -150,7 +157,7 @@ class OneToManyFormWidget(AbstractFormWidget):
 		
 	def showValue(self):
 		models = self.model.value(self.name)
-		self.screen.setModels(models)
+		self.screen.setModelGroup(models)
 		self.screen.display()
 
 	def store(self):

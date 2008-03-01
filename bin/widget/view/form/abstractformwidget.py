@@ -153,9 +153,6 @@ class AbstractFormWidget(QWidget):
 		color = QColor( self.colors.get( name, 'white' ) )
 
 		palette = QPalette()
-		#role = widget.backgroundRole()
-		#role = widget.windowRole()
-		#palette.setColor(role, color);
 		palette.setColor(QPalette.Base, color)
 		widget.setPalette(palette);
 
@@ -219,8 +216,6 @@ class AbstractFormWidget(QWidget):
 	# Do not reimplement this function, override showValue() instead
 	def display(self, state='draft'):
 		if not self.model:
-			#self.setState('readonly')
-			#self.setReadOnly(True)
 			self.attrs['readonly'] = True
 			self.clear()
 			self.refresh()
@@ -229,7 +224,6 @@ class AbstractFormWidget(QWidget):
 		self.refresh()
 		self.showValue()
 	
-	# This function cames from the ViewWidget class
 	def reset(self):
 		if 'valid' in self.attrs:
 			self.attrs['valid'] = True

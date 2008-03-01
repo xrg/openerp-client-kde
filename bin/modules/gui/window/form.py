@@ -44,6 +44,7 @@ import copy
 import gc
 
 from widget.screen import Screen
+from widget.model.group import ModelRecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
@@ -77,8 +78,19 @@ class form( QWidget ):
 		self.domain = domain
 		self.context = context
 
-		self.screen = Screen(self.model, view_type=view_type, context=self.context, view_ids=view_ids, domain=domain, parent=self)
+		self.group = ModelRecordGroup( self.model, context=self.context )
+		#self.screen = Screen(self.model, view_type=view_type, context=self.context, view_ids=view_ids, domain=domain, parent=self)
+		self.screen = Screen(self)
+		self.screen.setModelGroup( self.group )
+		self.screen.setDomain( domain )
 		self.screen.setEmbedded( False )
+		# Remove ids with False value
+		view_ids = [x for x in view_ids if x]
+		if view_ids:
+			self.screen.setViewIds( view_ids )
+		else:
+			self.screen.setViewTypes( view_type )
+
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self._recordMessage)
 		if name:
 			self.name = name
@@ -336,6 +348,7 @@ class form( QWidget ):
 
 		self.statForm.setText( msg )
 
+	# TODO: Remove or make it work?
 	def sig_preference(self, widget=None):
 		actions = rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,False)], True, rpc.session.context, True)
 		id = self.screen.id_get()
