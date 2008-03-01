@@ -3,9 +3,6 @@ from osv import osv, fields
 class res_partner_address(osv.osv):
 	_name = 'res.partner.address'
 	_inherit = 'res.partner.address'
-	_columns = {
-		'map': fields.function(_partner_address_map, method=True, type='char', size=1024, string='Map'),
-	}
 
 	def url(self, street, zip, city, country):
 		return 'http://maps.google.com/maps?q=%s %s %s %s' % ( street, zip, city, country )
@@ -22,6 +19,10 @@ class res_partner_address(osv.osv):
 				country = ''
 			res[p.id] = self.url( street, zip, city, country )
 		return res
+
+	_columns = {
+		'map': fields.function(_partner_address_map, method=True, type='char', size=1024, string='Map'),
+	}
 
 	def onchange_map(self, cr, uid, ids, street, zip, city, country_id):
 		street=street or ''
