@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>360</width>
-    <height>497</height>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -214,6 +214,20 @@
            </property>
           </widget>
          </item>
+         <item row="13" column="0" >
+          <widget class="QLabel" name="label_45" >
+           <property name="text" >
+            <string>Middle mouse click on Tab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="1" >
+          <widget class="QLabel" name="label_47" >
+           <property name="text" >
+            <string>Close tab</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -367,8 +381,8 @@ p, li { white-space: pre-wrap; }
          </property>
          <property name="sizeHint" >
           <size>
-           <width>20</width>
-           <height>40</height>
+           <width>320</width>
+           <height>228</height>
           </size>
          </property>
         </spacer>
