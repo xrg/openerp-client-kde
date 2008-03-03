@@ -1,0 +1,1698 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-04 00:37+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bin/plugins/__init__.py:40
+msgid "No available plugin for this resource !"
+msgstr "不可用的插件！"
+
+#: bin/plugins/__init__.py:42
+msgid "Choose a Plugin"
+msgstr "选择一个插件"
+
+#: bin/widget/screen/action.py:34
+msgid "You must select a record to use the relate button !"
+msgstr ""
+
+#: bin/widget/screen/action.py:41
+msgid "You must save this record to use the relate button !"
+msgstr ""
+
+#: bin/widget/view/chart/parser.py:72
+#, fuzzy
+msgid "Unknown"
+msgstr "Unknown Window"
+
+#: bin/widget/view/chart/parser.py:78
+#, python-format
+msgid "<center><b>Could not load charts: %s</b></center>"
+msgstr ""
+
+#: bin/widget/view/chart/parser.py:106
+#, fuzzy
+msgid "Can not generate graph !"
+msgstr "不能写入文件！"
+
+#: bin/widget/view/form/many2one.py:108
+msgid "Action"
+msgstr "操作"
+
+#: bin/widget/view/form/many2one.py:109
+#, fuzzy
+msgid "Report"
+msgstr "报表/打印"
+
+#: bin/widget/view/form/abstractformwidget.py:62
+msgid "Set to default value"
+msgstr "设置为默认值"
+
+#: bin/widget/view/form/abstractformwidget.py:68
+#, fuzzy
+msgid "Set as default value"
+msgstr "设置为默认值"
+
+#: bin/widget/view/form/abstractformwidget.py:92
+#, fuzzy
+msgid "Operation not permited"
+msgstr ""
+"操作失败\n"
+"I/O出错"
+
+#: bin/widget/view/form/abstractformwidget.py:92
+#, fuzzy
+msgid "You can not set to the default value here !"
+msgstr "设置为默认值"
+
+#: bin/widget/view/form/fieldpreferences.py:56
+#, fuzzy
+msgid "<center>Always applicable!</center>"
+msgstr "永久可用！"
+
+#: bin/widget/view/form/calendar.py:49
+msgid "Set current date"
+msgstr ""
+
+#: bin/widget/view/form/calendar.py:89
+msgid "Set current date and time"
+msgstr ""
+
+#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
+msgid "Set current time"
+msgstr ""
+
+#: bin/widget/view/form/char.py:62
+msgid "You must save the resource before adding translations"
+msgstr ""
+
+#: bin/widget/view/form/image.py:45
+msgid "(choose an image)"
+msgstr ""
+
+#: bin/widget/view/form/image.py:54
+msgid "&Load image"
+msgstr ""
+
+#: bin/widget/view/form/image.py:56
+#, fuzzy
+msgid "&Save image"
+msgstr "保存选项"
+
+#: bin/widget/view/form/image.py:58
+#, fuzzy
+msgid "&Remove image"
+msgstr "删除这个条目"
+
+#: bin/widget/view/form/image.py:83 bin/widget/view/form/binary.py:70
+#, fuzzy
+msgid "Open..."
+msgstr "打开"
+
+#: bin/widget/view/form/image.py:116
+#, fuzzy
+msgid "Save image as..."
+msgstr "另存附件为..."
+
+#: bin/widget/view/form/image.py:122
+#, fuzzy
+msgid "Error saving file"
+msgstr "读取文件出错"
+
+#: bin/widget/view/form/image.py:122
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: bin/widget/view/form/image.py:125
+msgid "Open image file..."
+msgstr ""
+
+#: bin/widget/view/form/translationdialog.py:41
+msgid "Translation Dialog"
+msgstr ""
+
+#: bin/widget/view/form/binary.py:71
+msgid "Show &image..."
+msgstr ""
+
+#: bin/widget/view/form/binary.py:99
+msgid "Select the file to attach"
+msgstr "选择文件作为附件"
+
+#: bin/widget/view/form/binary.py:104 bin/widget/view/form/binary.py:143
+#, python-format
+msgid "%d bytes"
+msgstr ""
+
+#: bin/widget/view/form/binary.py:117
+msgid "Error reading the file"
+msgstr "读取文件出错"
+
+#: bin/widget/view/form/binary.py:121
+msgid "Save attachment as..."
+msgstr "另存附件为..."
+
+#: bin/widget/view/form/binary.py:127 bin/printer/printer.py:100
+msgid "Error writing the file!"
+msgstr "写入文件出错！"
+
+#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:215
+#: bin/modules/gui/window/form.py:365
+#, fuzzy
+msgid "Question"
+msgstr "版本"
+
+#: bin/widget/view/form/button.py:42
+#, fuzzy
+msgid "Invalid Form, correct red fields!"
+msgstr "验证出错，请纠正红色的字段！"
+
+#: bin/printer/printer.py:94
+msgid "Write Report to File"
+msgstr "将报表写入文件"
+
+#: bin/rpc/rpc.py:169
+msgid "Connection refused !"
+msgstr "连接被拒绝！"
+
+#: bin/rpc/rpc.py:176
+msgid "Application Error"
+msgstr "应用程序出错"
+
+#: bin/rpc/rpc.py:176
+msgid "View details"
+msgstr "显示明细"
+
+#: bin/rpc/rpc.py:271
+msgid "Could not contact server!"
+msgstr ""
+
+#: bin/common/common.py:170 bin/common/common.py:198
+msgid "Sending support requests is not available with the TinyERP KDE client"
+msgstr ""
+
+#: bin/modules/gui/window/view_tree/parser.py:51
+msgid "Tree"
+msgstr "树"
+
+#: bin/modules/gui/window/tree.py:165 bin/modules/gui/window/tree.py:191
+msgid "No resource selected!"
+msgstr "没有资源被选择！"
+
+#: bin/modules/gui/window/tree.py:183
+msgid "Unable to chroot: no tree resource selected"
+msgstr "不能到子项：没有树资源被选择"
+
+#: bin/modules/gui/window/tree.py:210
+#, fuzzy
+msgid "No item selected"
+msgstr "没有选择记录！"
+
+#: bin/modules/gui/window/tree.py:210
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:302
+msgid "(Everywhere)"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:306
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:308
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:310
+#, fuzzy
+msgid "Tiny ERP Full Text Search"
+msgstr "Tiny ERP - 查找"
+
+#: bin/modules/gui/window/win_full_text_search.py:311
+#, fuzzy, python-format
+msgid "Tiny ERP Full Text Search (%%d result(s))"
+msgstr "Tiny ERP - 查找部件"
+
+#: bin/modules/gui/window/win_full_text_search.py:391
+#: bin/modules/gui/window/form.py:199
+msgid "ID"
+msgstr "ID"
+
+#: bin/modules/gui/window/win_full_text_search.py:392
+msgid "Model ID"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:393
+#, fuzzy
+msgid "Model Name"
+msgstr "字段名称："
+
+#: bin/modules/gui/window/win_full_text_search.py:395
+msgid "Type"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:396
+msgid "Name"
+msgstr "名称"
+
+#: bin/modules/gui/window/win_full_text_search.py:397
+#, fuzzy
+msgid "Text"
+msgstr "下一条"
+
+#: bin/modules/gui/window/win_full_text_search.py:398
+msgid "Ranking"
+msgstr ""
+
+#: bin/modules/gui/window/win_preference.py:51
+msgid "Preferences"
+msgstr "参数选择"
+
+#: bin/modules/gui/window/win_preference.py:75
+#, fuzzy, python-format
+msgid "Preference %s"
+msgstr "参数选择"
+
+#: bin/modules/gui/window/win_export.py:49
+#, fuzzy
+msgid "TinyERP exported information"
+msgstr "Tiny ERP - 批准"
+
+#: bin/modules/gui/window/win_export.py:67
+#: bin/modules/gui/window/win_export.py:87
+#, fuzzy, python-format
+msgid "%s record(s) saved!"
+msgstr "记录保存了"
+
+#: bin/modules/gui/window/win_export.py:69
+#: bin/modules/gui/window/win_export.py:89
+#, fuzzy, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
+msgstr ""
+"操作失败\n"
+"I/O出错"
+
+#: bin/modules/gui/window/win_export.py:112
+#, fuzzy
+msgid "Error opening Excel !"
+msgstr "打开Excel出错"
+
+#: bin/modules/gui/window/win_export.py:114
+msgid ""
+"Function only available for MS Office !\n"
+"Sorry, OOo users :("
+msgstr ""
+"本功能只用于MS Office!\n"
+"对不起, OOo 用户 :("
+
+#: bin/modules/gui/window/win_export.py:193
+msgid "Export Data"
+msgstr "导出数据"
+
+#: bin/modules/gui/window/win_export.py:237
+msgid "What is the name of this export?"
+msgstr ""
+
+#: bin/modules/gui/window/win_export.py:258
+#, fuzzy
+msgid "Export name"
+msgstr "导出数据"
+
+#: bin/modules/gui/window/win_export.py:259
+#, fuzzy
+msgid "Exported fields"
+msgstr "清除字段"
+
+#: bin/modules/gui/window/form.py:180 bin/modules/gui/window/form.py:361
+msgid "No resource selected !"
+msgstr "没有选择资源"
+
+#: bin/modules/gui/window/form.py:193
+#, fuzzy
+msgid "You have to select one resource!"
+msgstr "选择一个资源！"
+
+#: bin/modules/gui/window/form.py:200
+msgid "Creation User"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:201
+msgid "Creation Date"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:202
+msgid "Latest Modification by"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:203
+msgid "Latest Modification Date"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:204
+msgid "Owner"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:205
+msgid "Group Owner"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:206
+msgid "Access Level"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:215
+#, fuzzy
+msgid "Are you sure you want to remove this record?"
+msgstr ""
+"你真的想要\n"
+"删除这条记录吗？"
+
+#: bin/modules/gui/window/form.py:219
+#, fuzzy
+msgid "Resource not removed !"
+msgstr "记录已经删除。"
+
+#: bin/modules/gui/window/form.py:221
+msgid "Resource removed."
+msgstr "记录已经删除。"
+
+#: bin/modules/gui/window/form.py:245
+msgid "Working now on the duplicated document !"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:254
+#, fuzzy
+msgid "Document saved !"
+msgstr "保存选项！"
+
+#: bin/modules/gui/window/form.py:258
+msgid "Invalid form !"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:310
+msgid "No record selected!"
+msgstr "没有选择记录！"
+
+#: bin/modules/gui/window/form.py:334
+#, fuzzy, python-format
+msgid "(%s attachments) "
+msgstr "附件："
+
+#: bin/modules/gui/window/form.py:339
+#, fuzzy
+msgid "No record selected"
+msgstr "没有选择记录！"
+
+#: bin/modules/gui/window/form.py:344
+msgid "New document"
+msgstr "新文档"
+
+#: bin/modules/gui/window/form.py:346
+#, fuzzy, python-format
+msgid "Editing document (id: %s)"
+msgstr "编辑文档"
+
+#: bin/modules/gui/window/form.py:347
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:359
+msgid "No preference available for this resource !"
+msgstr "这个资源没有可用的偏好设置！"
+
+#: bin/modules/gui/window/form.py:365
+msgid ""
+"This record has been modified\n"
+"do you want to save it?"
+msgstr ""
+
+#: bin/modules/gui/window/win_search.py:73
+#, fuzzy, python-format
+msgid "Tiny ERP Search: %s"
+msgstr "Tiny ERP - 查找"
+
+#: bin/modules/gui/window/win_search.py:74
+#, fuzzy, python-format
+msgid "Tiny ERP Search: %s (%%d result(s))"
+msgstr "Tiny ERP - 查找部件"
+
+#: bin/modules/gui/window/importexport_common.py:10
+#, fuzzy
+msgid "Fields"
+msgstr "字段名称"
+
+#: bin/modules/gui/window/win_import.py:54
+#, python-format
+msgid "Imported %d objects !"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:60
+#, fuzzy
+msgid "Error importing data"
+msgstr "写入文件出错！"
+
+#: bin/modules/gui/window/win_import.py:91
+#, fuzzy
+msgid "File to import"
+msgstr "<b>导入字段</b>"
+
+#: bin/modules/gui/window/win_import.py:105
+msgid "No file specified"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:167
+msgid "Error opening .CSV file: Input Error."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+msgid "You can now connect to the database as an administrator."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
+msgid "Could not create database."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:517
+msgid "Bad database administrator password !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
+msgid "Error during database creation !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:56
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:98
+msgid "Bad database name !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:98
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+
+#: bin/modules/gui/login.py:35 bin/modules/gui/choosedb.py:44
+#, fuzzy
+msgid "Could not connect to server !"
+msgstr ""
+"连接出错 !\n"
+"不能连接到服务器 !"
+
+#: bin/modules/gui/login.py:40 bin/modules/gui/choosedb.py:50
+msgid "No database found, you must create one !"
+msgstr ""
+
+#: bin/modules/gui/adminpwd.py:30
+#, fuzzy
+msgid "Validation Error"
+msgstr "应用程序出错"
+
+#: bin/modules/gui/adminpwd.py:30
+msgid "Confirmation password does not match new password."
+msgstr ""
+
+#: bin/modules/gui/adminpwd.py:37
+msgid "Password changed successfully"
+msgstr ""
+
+#: bin/modules/gui/adminpwd.py:40
+#, fuzzy
+msgid "Error"
+msgstr "出错"
+
+#: bin/modules/gui/adminpwd.py:40
+msgid ""
+"Could not change administrator password. Please, check the server and "
+"password are correct."
+msgstr ""
+
+#: bin/modules/gui/askserver.py:32
+msgid "NET-RPC (faster)"
+msgstr ""
+
+#: bin/modules/gui/askserver.py:33
+msgid "XML-RPC"
+msgstr ""
+
+#: bin/modules/gui/askserver.py:34
+msgid "Secure XML-RPC"
+msgstr ""
+
+#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:343
+msgid "Press Ctrl+O to login"
+msgstr ""
+
+#: bin/modules/gui/main.py:94
+#, fuzzy
+msgid "Close tab"
+msgstr "关闭"
+
+#: bin/modules/gui/main.py:274
+#, fuzzy, python-format
+msgid "%s request(s)"
+msgstr "请求"
+
+#: bin/modules/gui/main.py:276
+msgid "No request"
+msgstr "无请求"
+
+#: bin/modules/gui/main.py:278
+#, fuzzy, python-format
+msgid " - %s pending request(s)"
+msgstr "待处理请求"
+
+#: bin/modules/gui/main.py:322 bin/modules/gui/main.py:324
+#, fuzzy
+msgid "Connection error !"
+msgstr "连接出错！"
+
+#: bin/modules/gui/main.py:322
+#, fuzzy
+msgid "Unable to connect to the server !"
+msgstr ""
+"连接出错 !\n"
+"不能连接到服务器 !"
+
+#: bin/modules/gui/main.py:324
+#, fuzzy
+msgid "Bad username or password !"
+msgstr ""
+"连接出错 !\n"
+"用户名或密码错误 !"
+
+#: bin/modules/gui/main.py:328
+msgid "Connection Error !"
+msgstr "连接出错！"
+
+#: bin/modules/gui/main.py:342
+msgid "Not logged !"
+msgstr "没有登录！"
+
+#: bin/modules/gui/main.py:405
+msgid "Access denied"
+msgstr ""
+
+#: bin/modules/gui/main.py:405
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+
+#: bin/modules/gui/main.py:437
+msgid "Quit"
+msgstr ""
+
+#: bin/modules/gui/main.py:437
+msgid "Do you really want to quit ?"
+msgstr "你真的要退出吗？"
+
+#: bin/modules/gui/main.py:437
+msgid "Yes"
+msgstr "是"
+
+#: bin/modules/gui/main.py:437
+msgid "No"
+msgstr "否"
+
+#: bin/modules/gui/main.py:504 bin/modules/gui/main.py:525
+#, fuzzy
+msgid "Delete a database"
+msgstr "选择日期"
+
+#: bin/modules/gui/main.py:513 bin/modules/gui/main.py:519
+msgid "Database removal"
+msgstr ""
+
+#: bin/modules/gui/main.py:513
+msgid "Database dropped successfully!"
+msgstr ""
+
+#: bin/modules/gui/main.py:517
+msgid "Could not drop database."
+msgstr ""
+
+#: bin/modules/gui/main.py:519
+msgid "Couldn't drop database"
+msgstr ""
+
+#: bin/modules/gui/main.py:536
+msgid "Database restored successfully!"
+msgstr ""
+
+#: bin/modules/gui/main.py:540
+#, fuzzy
+msgid "Could not resotre database"
+msgstr "选择日期"
+
+#: bin/modules/gui/main.py:540
+msgid "Bad database administrator password!"
+msgstr ""
+
+#: bin/modules/gui/main.py:542
+#, fuzzy
+msgid "Could not restore database"
+msgstr "选择日期"
+
+#: bin/modules/gui/main.py:545
+msgid "Backup a database"
+msgstr ""
+
+#: bin/modules/gui/main.py:560
+msgid "Database backuped successfully!"
+msgstr ""
+
+#: bin/modules/gui/main.py:563
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+
+#: bin/modules/action/main.py:51
+msgid "Nothing to print!"
+msgstr ""
+
+#: bin/modules/action/main.py:67
+msgid "Printing aborted, too long delay !"
+msgstr "延期太长，打印中断！"
+
+#: bin/modules/action/main.py:71
+msgid "Error: "
+msgstr "出错"
+
+#: bin/modules/action/main.py:166
+msgid "Select your action"
+msgstr "选择你的活动"
+
+#: bin/modules/action/main.py:172
+msgid "No action defined!"
+msgstr "没有定义活动！"
+
+#: bin/options.py:66
+msgid "specify alternate config file"
+msgstr "指定交换配置文件"
+
+#: bin/options.py:67
+msgid "enable basic debugging"
+msgstr "打开基本调试"
+
+#: bin/options.py:68
+msgid "specify channels to log"
+msgstr "为日志制定通道"
+
+#: bin/options.py:69
+msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+msgstr "指定日志级别：信息、调试、警告、出错、危险"
+
+#: bin/options.py:70
+msgid "specify the user login"
+msgstr "指定用户注册"
+
+#: bin/options.py:71
+msgid "specify the server port"
+msgstr "指定服务器端口"
+
+#: bin/options.py:72
+msgid "specify the server ip/name"
+msgstr "指定服务器IP或名称"
+
+#: bin/ktiny.py:80
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with KTiny."
+msgstr ""
+
+#~ msgid "Tiny ERP Client %s"
+#~ msgstr "Tiny ERP 客户端 %s"
+
+#, fuzzy
+#~ msgid "Set default"
+#~ msgstr "设置为默认值(_D)"
+
+#~ msgid "Record: "
+#~ msgstr "记录："
+
+#~ msgid "Are you sure you want to remove this attachment ?"
+#~ msgstr "你真的要删除这个附件吗？"
+
+#~ msgid "Select the destination file"
+#~ msgstr "选择目标文件"
+
+#~ msgid "Can not open file !"
+#~ msgstr "不能打开文件！"
+
+#~ msgid "Can not write file !"
+#~ msgstr "不能写入文件！"
+
+#~ msgid ""
+#~ "Unable to preview image file !\n"
+#~ "Verify the format."
+#~ msgstr ""
+#~ "不能预览图片文件！\n"
+#~ "请校验文件格式。"
+
+#~ msgid "Connection refused!"
+#~ msgstr "连接被拒绝！"
+
+#~ msgid "This widget is readonly !"
+#~ msgstr "这个部件只读！"
+
+#, fuzzy
+#~ msgid "Select a file"
+#~ msgstr "选择日期"
+
+#, fuzzy
+#~ msgid "You have to select a resource !"
+#~ msgstr "选择一个资源！"
+
+#~ msgid "Unable to launch this file !"
+#~ msgstr "不能运行这个文件"
+
+#~ msgid "Unable to launch the application associated to this content !"
+#~ msgstr "Unable to launch the application associated to this content !"
+
+#, fuzzy
+#~ msgid "Support request sent !"
+#~ msgstr "发送支持请求"
+
+#~ msgid "Description"
+#~ msgstr "说明"
+
+#~ msgid "Preference"
+#~ msgstr "偏好"
+
+#~ msgid "Reload"
+#~ msgstr "重装"
+
+#, fuzzy
+#~ msgid "Switch View"
+#~ msgstr "其他视图"
+
+#~ msgid "Changt root"
+#~ msgstr "更改根"
+
+#~ msgid "Print"
+#~ msgstr "打印"
+
+#~ msgid "Close"
+#~ msgstr "关闭"
+
+#~ msgid "Error removing resource!"
+#~ msgstr "删除资源出错！"
+
+#~ msgid "Ressource Name"
+#~ msgstr "资源名称"
+
+#~ msgid "Names"
+#~ msgstr "名称"
+
+#, fuzzy
+#~ msgid "Are you sure to remove this record ?"
+#~ msgstr ""
+#~ "你真的想要\n"
+#~ "删除这条记录吗？"
+
+#, fuzzy
+#~ msgid "Default Theme"
+#~ msgstr "默认值："
+
+#~ msgid "Tiny ERP - Login"
+#~ msgstr "Tiny ERp - 登录"
+
+#~ msgid "User:"
+#~ msgstr "用户："
+
+#~ msgid "Password:"
+#~ msgstr "密码："
+
+#~ msgid "localhost"
+#~ msgstr "localhost"
+
+#~ msgid "Server:"
+#~ msgstr "服务器"
+
+#~ msgid "_File"
+#~ msgstr "文件(_F)"
+
+#, fuzzy
+#~ msgid "_Connect..."
+#~ msgstr "连接..."
+
+#, fuzzy
+#~ msgid "_Disconnect"
+#~ msgstr "取消连接"
+
+#~ msgid "_User"
+#~ msgstr "用户(_U)"
+
+#, fuzzy
+#~ msgid "_Preferences"
+#~ msgstr "参数选择"
+
+#, fuzzy
+#~ msgid "_Send a request"
+#~ msgstr "发送一个请求"
+
+#, fuzzy
+#~ msgid "_Read my requests"
+#~ msgstr "读取我的请求"
+
+#, fuzzy
+#~ msgid "_Waiting Requests"
+#~ msgstr "等待请求"
+
+#, fuzzy
+#~ msgid "For_m"
+#~ msgstr "窗体(_F)"
+
+#, fuzzy
+#~ msgid "_New"
+#~ msgstr "新建"
+
+#, fuzzy
+#~ msgid "_Save"
+#~ msgstr "保存"
+
+#, fuzzy
+#~ msgid "Copy this resource"
+#~ msgstr "复制这条资源"
+
+#, fuzzy
+#~ msgid "_Delete"
+#~ msgstr "删除"
+
+#, fuzzy
+#~ msgid "Ne_xt"
+#~ msgstr "下一条"
+
+#, fuzzy
+#~ msgid "Pre_vious"
+#~ msgstr "上一条"
+
+#, fuzzy
+#~ msgid "Previous Tab"
+#~ msgstr "上一提示"
+
+#, fuzzy
+#~ msgid "Next Tab"
+#~ msgstr "下一提示"
+
+#, fuzzy
+#~ msgid "View _logs"
+#~ msgstr "显示日志"
+
+#, fuzzy
+#~ msgid "_Go to resource ID..."
+#~ msgstr "跳转到资源ID..."
+
+#, fuzzy
+#~ msgid "_Open"
+#~ msgstr "打开"
+
+#, fuzzy
+#~ msgid "Reloa_d / Undo"
+#~ msgstr "重装"
+
+#, fuzzy
+#~ msgid "Repeat latest _action"
+#~ msgstr "重复最后一条操作"
+
+#~ msgid "_Preview in PDF"
+#~ msgstr "预览PDF(_P)"
+
+#, fuzzy
+#~ msgid "Previe_w in editor"
+#~ msgstr "预览Word(_w)"
+
+#, fuzzy
+#~ msgid "Expor_t data..."
+#~ msgstr "导出数据..."
+
+#, fuzzy
+#~ msgid "I_mport data..."
+#~ msgstr "导入数据..."
+
+#~ msgid "_Options"
+#~ msgstr "选项(_O)"
+
+#, fuzzy
+#~ msgid "_Menubar"
+#~ msgstr "菜单条"
+
+#, fuzzy
+#~ msgid "Text _and Icons"
+#~ msgstr "文本和图标"
+
+#, fuzzy
+#~ msgid "_Icons only"
+#~ msgstr "只有图标"
+
+#, fuzzy
+#~ msgid "_Text only"
+#~ msgstr "只有文本"
+
+#, fuzzy
+#~ msgid "_Theme"
+#~ msgstr "树"
+
+#, fuzzy
+#~ msgid "Tiny ERP Theme"
+#~ msgstr "Tiny ERP 许可证"
+
+#, fuzzy
+#~ msgid "_Forms"
+#~ msgstr "窗体(_F)"
+
+#, fuzzy
+#~ msgid "_Print"
+#~ msgstr "打印"
+
+#, fuzzy
+#~ msgid "Previe_w before print"
+#~ msgstr "打印之前预览"
+
+#, fuzzy
+#~ msgid "_Save options"
+#~ msgstr "保存选项"
+
+#, fuzzy
+#~ msgid "_Plugins"
+#~ msgstr "插件"
+
+#, fuzzy
+#~ msgid "_Execute a plugin"
+#~ msgstr "运行插件"
+
+#, fuzzy
+#~ msgid "_Help"
+#~ msgstr "帮助"
+
+#, fuzzy
+#~ msgid "Support Request"
+#~ msgstr "发送支持请求"
+
+#, fuzzy
+#~ msgid "User _Manual"
+#~ msgstr "用户手册"
+
+#, fuzzy
+#~ msgid "_Contextual Help"
+#~ msgstr "上下文帮助"
+
+#, fuzzy
+#~ msgid "_Tips"
+#~ msgstr "提示"
+
+#, fuzzy
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "快捷方式"
+
+#, fuzzy
+#~ msgid "_Licence"
+#~ msgstr "许可证"
+
+#, fuzzy
+#~ msgid "_About..."
+#~ msgstr "关于..."
+
+#~ msgid "Create a new resource"
+#~ msgstr "建立一个新的资源"
+
+#~ msgid "Edit / Save this resource"
+#~ msgstr "编辑/保存资源"
+
+#~ msgid "Delete this resource"
+#~ msgstr "删除资源"
+
+#, fuzzy
+#~ msgid "Find a resource"
+#~ msgstr "选择一个资源！"
+
+#~ msgid "Go to previous matched search"
+#~ msgstr "查找上一条"
+
+#~ msgid "Go to next matched resource"
+#~ msgstr "查找下一条"
+
+#~ msgid "Other View"
+#~ msgstr "其他视图"
+
+#~ msgid "Launch actions about this resource"
+#~ msgstr "运行这个资源相关的操作"
+
+#~ msgid "Print documents"
+#~ msgstr "打印文档"
+
+#, fuzzy
+#~ msgid "Add an attachment to this resource"
+#~ msgstr "运行这个资源相关的操作"
+
+#~ msgid "Attachement"
+#~ msgstr "附件"
+
+#~ msgid "Close this window"
+#~ msgstr "关闭窗口"
+
+#~ msgid "Requests:"
+#~ msgstr "请求："
+
+#~ msgid "Read my Requests"
+#~ msgstr "读取我得请求"
+
+#~ msgid "Send a new request"
+#~ msgstr "发送新的请求"
+
+#~ msgid "Tiny ERP - Tree Resources"
+#~ msgstr "Tiny ERP - 树资源"
+
+#~ msgid "Shortcuts"
+#~ msgstr "快捷方式"
+
+#~ msgid "Tiny ERP - Forms"
+#~ msgstr "Tiny ERP - 窗体"
+
+#~ msgid "State:"
+#~ msgstr "状态："
+
+#~ msgid "Tiny ERP - About"
+#~ msgstr "Tiny ERP - 关于"
+
+#, fuzzy
+#~ msgid "_Tiny ERP"
+#~ msgstr "关于Tiny ERP"
+
+#, fuzzy
+#~ msgid "_Contact"
+#~ msgstr "联系"
+
+#~ msgid "Open the calendar widget"
+#~ msgstr "打开日历部件"
+
+#, fuzzy
+#~ msgid "Search / Open a resource"
+#~ msgstr "查找资源"
+
+#, fuzzy
+#~ msgid "Set Default"
+#~ msgstr "设置为默认值(_D)"
+
+#~ msgid "Create a new entry"
+#~ msgstr "建立一个新的条目"
+
+#, fuzzy
+#~ msgid "Edit this entry"
+#~ msgstr "删除这个条目"
+
+#~ msgid "Previous"
+#~ msgstr "上一条"
+
+#~ msgid "Remove selected entry"
+#~ msgstr "删除选择的条目"
+
+#~ msgid "-"
+#~ msgstr "－"
+
+#~ msgid "Tiny ERP - Date selection"
+#~ msgstr "Tiny ERP - 日期选择"
+
+#~ msgid "Hello World!"
+#~ msgstr "你好"
+
+#~ msgid "Tiny ERP - selection"
+#~ msgstr "Tiny ERP - 选择"
+
+#~ msgid "Your selection:"
+#~ msgstr "你的选择："
+
+#~ msgid "Tiny ERP - Filter"
+#~ msgstr "Tiny ERP - 过滤器"
+
+#, fuzzy
+#~ msgid "S_earch:"
+#~ msgstr "查找："
+
+#, fuzzy
+#~ msgid "on _field:"
+#~ msgstr "在字段："
+
+#, fuzzy
+#~ msgid "_Select"
+#~ msgstr "选择"
+
+#, fuzzy
+#~ msgid "_Unselect"
+#~ msgstr "取消选择"
+
+#, fuzzy
+#~ msgid "Filter: "
+#~ msgstr "过滤器："
+
+#, fuzzy
+#~ msgid "AL_L"
+#~ msgstr "全部"
+
+#, fuzzy
+#~ msgid "N_ONE"
+#~ msgstr "没有"
+
+#~ msgid "<b><u>Actions</u></b>"
+#~ msgstr "<b><u>操作</u></b>"
+
+#~ msgid "Tiny ERP - Dialog"
+#~ msgstr "Tiny ERP - 对话框"
+
+#~ msgid "Set to _Default"
+#~ msgstr "设置为默认值(_D)"
+
+#~ msgid "Value _Preference"
+#~ msgstr "偏好值(_P)"
+
+#, fuzzy
+#~ msgid "Default _value:"
+#~ msgstr "默认值："
+
+#, fuzzy
+#~ msgid "_Domain:"
+#~ msgstr "域："
+
+#~ msgid "<b>Value applicable if:</b>"
+#~ msgstr "如果值可用："
+
+#, fuzzy
+#~ msgid "_only for you"
+#~ msgstr "只有你"
+
+#, fuzzy
+#~ msgid "for _all users"
+#~ msgstr "全部用户"
+
+#~ msgid "<b>Value applicable for:</b>"
+#~ msgstr "可用值给："
+
+#~ msgid "Tiny ERP - Export to CSV"
+#~ msgstr "Tiny ERP - 导出数据到CSV"
+
+#, fuzzy
+#~ msgid "<b>Predefined exports</b>"
+#~ msgstr "字段导出"
+
+#~ msgid "<b>All fields</b>"
+#~ msgstr "全部字段"
+
+#, fuzzy
+#~ msgid "_Add"
+#~ msgstr "添加"
+
+#, fuzzy
+#~ msgid "_Remove"
+#~ msgstr "删除"
+
+#, fuzzy
+#~ msgid "_Nothing"
+#~ msgstr "没有"
+
+#~ msgid "<b>Fields to export</b>"
+#~ msgstr "字段导出"
+
+#~ msgid ""
+#~ "Open in Excel\n"
+#~ "Save as CSV"
+#~ msgstr ""
+#~ "在Excel打开\n"
+#~ "另存为CSV"
+
+#, fuzzy
+#~ msgid "Add _field names"
+#~ msgstr "添加字段名称"
+
+#, fuzzy
+#~ msgid "<b>Opti_ons</b>"
+#~ msgstr "选项"
+
+#, fuzzy
+#~ msgid "_Limit:"
+#~ msgstr "限制："
+
+#~ msgid "Tiny ERP - Search Widgets"
+#~ msgstr "Tiny ERP - 查找部件"
+
+#~ msgid "Search with this name"
+#~ msgstr "用名称查找"
+
+#~ msgid ""
+#~ "\n"
+#~ "Yes\n"
+#~ "No"
+#~ msgstr ""
+#~ "\n"
+#~ "是\n"
+#~ "否"
+
+#~ msgid "Tiny ERP - Attachment"
+#~ msgstr "Tiny ERP - 附件"
+
+#~ msgid "Filename:"
+#~ msgstr "字段名称"
+
+#~ msgid "Description:"
+#~ msgstr "说明："
+
+#, fuzzy
+#~ msgid "Save text"
+#~ msgstr "保存"
+
+#~ msgid "Tiny ERP - Error"
+#~ msgstr "Tiny ERP - 出错"
+
+#~ msgid "Application Error !"
+#~ msgstr "应用程序出错！"
+
+#~ msgid "Error 404"
+#~ msgstr "错误404"
+
+#~ msgid "<b>Error code:</b>"
+#~ msgstr "出错代码："
+
+#~ msgid ""
+#~ "This Page does not exist !\n"
+#~ "Please retry"
+#~ msgstr ""
+#~ "这个页面不存在！\n"
+#~ "请重试"
+
+#~ msgid "<i>Click on the Support Request tab if you need more help !</i>"
+#~ msgstr "<i>如果你需要帮助，请单击支持请求标签！</i>"
+
+#, fuzzy
+#~ msgid "De_scription"
+#~ msgstr "说明"
+
+#~ msgid ""
+#~ "Error details\n"
+#~ "dqsdsqdqsdsd"
+#~ msgstr ""
+#~ "错误明细\n"
+#~ "dqsdsqdqsdsd"
+
+#, fuzzy
+#~ msgid "_Details"
+#~ msgstr "明细"
+
+#~ msgid "<b>Your name: </b>"
+#~ msgstr "你的姓名："
+
+#~ msgid "<b>Your Company: </b>"
+#~ msgstr "你的公司："
+
+#~ msgid "<b>Your Email: </b>"
+#~ msgstr "你的Email："
+
+#~ msgid "Explain what you did: "
+#~ msgstr "说明你的要求："
+
+#, fuzzy
+#~ msgid "Others Comments: "
+#~ msgstr "其他备注："
+
+#~ msgid "Send Support Request"
+#~ msgstr "发送支持请求"
+
+#, fuzzy
+#~ msgid "<b>support contract id  </b>"
+#~ msgstr "<b>支持请求</b>"
+
+#~ msgid ""
+#~ "Not Urgent\n"
+#~ "Medium\n"
+#~ "Urgent\n"
+#~ "Very Urgent"
+#~ msgstr ""
+#~ "不紧急\n"
+#~ "中\n"
+#~ "紧急\n"
+#~ "非常紧急"
+
+#, fuzzy
+#~ msgid "Emergency: "
+#~ msgstr "紧急："
+
+#~ msgid "Phone Number: "
+#~ msgstr "电话号码："
+
+#, fuzzy
+#~ msgid "<b>_Support Request</b>"
+#~ msgstr "<b>支持请求</b>"
+
+#~ msgid "Tiny ERP - Ressource Edit"
+#~ msgstr "Tiny ERP - 资源编辑"
+
+#~ msgid "Tiny ERP - Link"
+#~ msgstr "Tiny ERP - 连接"
+
+#~ msgid "Tiny ERP - List"
+#~ msgstr "Tiny ERP - 列表"
+
+#~ msgid "Tiny ERP - Preferences"
+#~ msgstr "Tiny ERP - 偏好"
+
+#~ msgid "Tip of the Day"
+#~ msgstr "每日提示"
+
+#, fuzzy
+#~ msgid "Pre_vious Tip"
+#~ msgstr "上一提示"
+
+#, fuzzy
+#~ msgid "Ne_xt Tip"
+#~ msgstr "下一提示"
+
+#, fuzzy
+#~ msgid "_Display a new tip next time ?"
+#~ msgstr "显示新的提示吗？"
+
+#~ msgid "Tiny ERP - Licence"
+#~ msgstr "Tiny ERP - 许可证"
+
+#~ msgid "Tiny ERP license"
+#~ msgstr "Tiny ERP 许可证"
+
+#~ msgid "Tiny ERP - Date & Time selection"
+#~ msgstr "Tiny ERP - 日期和时间选择"
+
+#~ msgid "Hour :"
+#~ msgstr "小时："
+
+#~ msgid "Minute :"
+#~ msgstr "分钟："
+
+#~ msgid "Search ID:"
+#~ msgstr "查找ID："
+
+#, fuzzy
+#~ msgid "Tiny ERP Survey"
+#~ msgstr "Tiny ERP - 查找"
+
+#, fuzzy
+#~ msgid "Your Role:"
+#~ msgstr "你的选择："
+
+#, fuzzy
+#~ msgid "System:"
+#~ msgstr "状态："
+
+#, fuzzy
+#~ msgid "<b>Your company</b>"
+#~ msgstr "你的公司："
+
+#, fuzzy
+#~ msgid "<b>Your interrest</b>"
+#~ msgstr "你的姓名："
+
+#, fuzzy
+#~ msgid "<b>Your name:</b>"
+#~ msgstr "你的姓名："
+
+#, fuzzy
+#~ msgid "<b>Your Company:</b>"
+#~ msgstr "你的公司："
+
+#, fuzzy
+#~ msgid "<b>Your email:</b>"
+#~ msgstr "你的Email："
+
+#, fuzzy
+#~ msgid "Explain your problem:"
+#~ msgstr "说明你的要求："
+
+#, fuzzy
+#~ msgid "<b>Support contract id:</b>"
+#~ msgstr "<b>支持请求</b>"
+
+#, fuzzy
+#~ msgid "Phone number:"
+#~ msgstr "电话号码："
+
+#, fuzzy
+#~ msgid "Connect"
+#~ msgstr "连接..."
+
+#, fuzzy
+#~ msgid "Find / Search"
+#~ msgstr "查找结束"
+
+#~ msgid "Delete"
+#~ msgstr "删除"
+
+#~ msgid "New"
+#~ msgstr "新建"
+
+#, fuzzy
+#~ msgid "Previous tab"
+#~ msgstr "上一条"
+
+#~ msgid "Save"
+#~ msgstr "保存"
+
+#, fuzzy
+#~ msgid "Previous record"
+#~ msgstr "上一条"
+
+#, fuzzy
+#~ msgid "Next record"
+#~ msgstr "下一步：没有选择记录！"
+
+#, fuzzy
+#~ msgid "Save and Close window"
+#~ msgstr "关闭窗口"
+
+#, fuzzy
+#~ msgid "Main Shortcuts"
+#~ msgstr "快捷方式"
+
+#, fuzzy
+#~ msgid "Cut selected text"
+#~ msgstr "删除选择的条目"
+
+#, fuzzy
+#~ msgid "Copy selected text"
+#~ msgstr "删除选择的条目"
+
+#, fuzzy
+#~ msgid "Paste selected text"
+#~ msgstr "删除选择的条目"
+
+#, fuzzy
+#~ msgid "Auto-Complete text field"
+#~ msgstr "清除字段"
+
+#, fuzzy
+#~ msgid "Edition Widgets"
+#~ msgstr "编辑文档"
+
+#, fuzzy
+#~ msgid "N_othing"
+#~ msgstr "没有"
+
+#~ msgid "<b>Fields to import</b>"
+#~ msgstr "<b>导入字段</b>"
+
+#, fuzzy
+#~ msgid "Server"
+#~ msgstr "服务器"
+
+#~ msgid "Port:"
+#~ msgstr "端口："
+
+#~ msgid "8069"
+#~ msgstr "8069"
+
+#, fuzzy
+#~ msgid "Secure connection:"
+#~ msgstr "选择你的活动"
+
+#, fuzzy
+#~ msgid "http://localhost:8069"
+#~ msgstr "localhost"
+
+#, fuzzy
+#~ msgid "Create a new database"
+#~ msgstr "建立一个新的条目"
+
+#, fuzzy
+#~ msgid "<b>Create a new database</b>"
+#~ msgstr "建立一个新的资源"
+
+#, fuzzy
+#~ msgid "Default language:"
+#~ msgstr "默认值："
+
+#, fuzzy
+#~ msgid "New password:"
+#~ msgstr "密码："
+
+#, fuzzy
+#~ msgid "Old password:"
+#~ msgstr "密码："
+
+#~ msgid "Welcome to Tiny Enterprise Resource Planing !"
+#~ msgstr "欢迎使用Tiny企业资源计划！"
+
+#~ msgid "You are already logged!"
+#~ msgstr "你已经登录了！"
+
+#~ msgid "you are logged out. ^l to login"
+#~ msgstr "你已经注销了。^l 重新连接"
+
+#~ msgid ""
+#~ "^N New   ^S Save   ^D Delete   ^F Search   ^X Next   ^W Previous   ^R "
+#~ "Repeat"
+#~ msgstr ""
+#~ "^N 新建   ^S 保存   ^D 删除   ^F 查找   ^X 下一条   ^W 上一条   ^R 重复"
+
+#~ msgid "^L to login"
+#~ msgstr "^l 重新连接"
+
+#~ msgid "select field value:"
+#~ msgstr "选择字段值"
+
+#~ msgid "Search error!"
+#~ msgstr "查找出错！"
+
+#~ msgid "Edit"
+#~ msgstr "编辑"
+
+#~ msgid "New root"
+#~ msgstr "新的根"
+
+#~ msgid ""
+#~ "Import Error !\n"
+#~ "Fields: \"%s\" does not exists !"
+#~ msgstr ""
+#~ "导入数据出错！\n"
+#~ "字段： \"%s\"不存在！"
+
+#~ msgid "Import Done"
+#~ msgstr "导入数据完成"
+
+#~ msgid "Import CSV File"
+#~ msgstr "导入CSV文件"
+
+#~ msgid "View Create Error:"
+#~ msgstr "视图创建错误："
+
+#~ msgid "Value preference"
+#~ msgstr "偏好值"
+
+#~ msgid "Action Wizard"
+#~ msgstr "动作向导"
+
+#~ msgid "Unable to read resource"
+#~ msgstr "不能读取资源"
+
+#~ msgid "This record did not exist !"
+#~ msgstr "这条记录不存在！"
+
+#~ msgid "unknown tag: "
+#~ msgstr "不明标签："
+
+#~ msgid "New Window"
+#~ msgstr "新窗口"
+
+#~ msgid "Copy"
+#~ msgstr "复制"
+
+#~ msgid "Search"
+#~ msgstr "查找"
+
+#~ msgid "Previous Window"
+#~ msgstr "上一窗口"
+
+#~ msgid "Next Window"
+#~ msgstr "下一窗口"
+
+#~ msgid "Filter"
+#~ msgstr "过滤器"
+
+#~ msgid "Plugin Manager"
+#~ msgstr "插件管理"
+
+#~ msgid "Processus Map"
+#~ msgstr "处理地图"
+
+#~ msgid "Remove this resource"
+#~ msgstr "删除这个资源"
+
+#~ msgid "Modify/Open this resource"
+#~ msgstr "修改/打开这个资源"
+
+#~ msgid "Set sequence"
+#~ msgstr "设置顺序"
+
+#~ msgid "All"
+#~ msgstr "全部"
+
+#~ msgid "Preferred Langage: "
+#~ msgstr "偏好的语言："
+
+#~ msgid "All Tiny ERP users"
+#~ msgstr "全部用户"
+
+#~ msgid "Only for you"
+#~ msgstr "只有你"
+
+#~ msgid "<b>Preference active for:</b>"
+#~ msgstr "偏好操作："
+
+#~ msgid "Tiny ERP - Import a CSV"
+#~ msgstr "Tiny ERP - 导入CSV文件"
+
+#~ msgid "The CSV file must be encoded in UTF-8 !"
+#~ msgstr "CSV文件必须采用UTF-8编码！"
+
+#~ msgid "<b>Notes</b>"
+#~ msgstr "<b>备注</b>"
+
+#~ msgid "Number: "
+#~ msgstr "编号："
+
+#~ msgid "Description : "
+#~ msgstr "说明："
+
+#~ msgid "Next: left click - Previous : right click on the image"
+#~ msgstr "下一：右键单击 － 上一：左键单击"

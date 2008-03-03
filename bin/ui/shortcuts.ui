@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog" >
+ <class>ShortcutsDialog</class>
+ <widget class="QDialog" name="ShortcutsDialog" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -441,7 +441,7 @@ p, li { white-space: pre-wrap; }
   <connection>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>ShortcutsDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel" >

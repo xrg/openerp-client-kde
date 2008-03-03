@@ -1,0 +1,1872 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Tiny ERP V2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-04 00:37+0100\n"
+"PO-Revision-Date: 2005-04-05 09:43+0200\n"
+"Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
+"Language-Team: FR <i18n-info@tinyerp.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bin/plugins/__init__.py:40
+#, fuzzy
+msgid "No available plugin for this resource !"
+msgstr "Plugin invalid pentru aceasta resursa!"
+
+#: bin/plugins/__init__.py:42
+msgid "Choose a Plugin"
+msgstr "Alege un plugin"
+
+#: bin/widget/screen/action.py:34
+msgid "You must select a record to use the relate button !"
+msgstr ""
+
+#: bin/widget/screen/action.py:41
+msgid "You must save this record to use the relate button !"
+msgstr ""
+
+#: bin/widget/view/chart/parser.py:72
+#, fuzzy
+msgid "Unknown"
+msgstr "Fereastra necunoscuta"
+
+#: bin/widget/view/chart/parser.py:78
+#, python-format
+msgid "<center><b>Could not load charts: %s</b></center>"
+msgstr ""
+
+#: bin/widget/view/chart/parser.py:106
+#, fuzzy
+msgid "Can not generate graph !"
+msgstr "Imposibil de a scrie fisierul !"
+
+#: bin/widget/view/form/many2one.py:108
+msgid "Action"
+msgstr "Actiune"
+
+#: bin/widget/view/form/many2one.py:109
+msgid "Report"
+msgstr ""
+
+#: bin/widget/view/form/abstractformwidget.py:62
+msgid "Set to default value"
+msgstr "Pune valoarea implicita"
+
+#: bin/widget/view/form/abstractformwidget.py:68
+#, fuzzy
+msgid "Set as default value"
+msgstr "Pune valoarea implicita"
+
+#: bin/widget/view/form/abstractformwidget.py:92
+#, fuzzy
+msgid "Operation not permited"
+msgstr ""
+"Operatiune esuata !\n"
+"I/O erreur"
+
+#: bin/widget/view/form/abstractformwidget.py:92
+#, fuzzy
+msgid "You can not set to the default value here !"
+msgstr "Pune valoarea implicita"
+
+#: bin/widget/view/form/fieldpreferences.py:56
+#, fuzzy
+msgid "<center>Always applicable!</center>"
+msgstr "Intotdeauna aplicabil(a)!"
+
+#: bin/widget/view/form/calendar.py:49
+msgid "Set current date"
+msgstr ""
+
+#: bin/widget/view/form/calendar.py:89
+msgid "Set current date and time"
+msgstr ""
+
+#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
+msgid "Set current time"
+msgstr ""
+
+#: bin/widget/view/form/char.py:62
+msgid "You must save the resource before adding translations"
+msgstr ""
+
+#: bin/widget/view/form/image.py:45
+msgid "(choose an image)"
+msgstr ""
+
+#: bin/widget/view/form/image.py:54
+msgid "&Load image"
+msgstr ""
+
+#: bin/widget/view/form/image.py:56
+#, fuzzy
+msgid "&Save image"
+msgstr "Salveaza optiuni"
+
+#: bin/widget/view/form/image.py:58
+#, fuzzy
+msgid "&Remove image"
+msgstr "Sterge aceasta intrare"
+
+#: bin/widget/view/form/image.py:83 bin/widget/view/form/binary.py:70
+#, fuzzy
+msgid "Open..."
+msgstr "Deschide"
+
+#: bin/widget/view/form/image.py:116
+#, fuzzy
+msgid "Save image as..."
+msgstr "Salavare atasare ..."
+
+#: bin/widget/view/form/image.py:122
+#, fuzzy
+msgid "Error saving file"
+msgstr "Eroare in citire fisier"
+
+#: bin/widget/view/form/image.py:122
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: bin/widget/view/form/image.py:125
+msgid "Open image file..."
+msgstr ""
+
+#: bin/widget/view/form/translationdialog.py:41
+msgid "Translation Dialog"
+msgstr ""
+
+#: bin/widget/view/form/binary.py:71
+msgid "Show &image..."
+msgstr ""
+
+#: bin/widget/view/form/binary.py:99
+msgid "Select the file to attach"
+msgstr "Selectionati le fisierul atasat"
+
+#: bin/widget/view/form/binary.py:104 bin/widget/view/form/binary.py:143
+#, python-format
+msgid "%d bytes"
+msgstr ""
+
+#: bin/widget/view/form/binary.py:117
+msgid "Error reading the file"
+msgstr "Eroare in citire fisier"
+
+#: bin/widget/view/form/binary.py:121
+msgid "Save attachment as..."
+msgstr "Salavare atasare ..."
+
+#: bin/widget/view/form/binary.py:127 bin/printer/printer.py:100
+msgid "Error writing the file!"
+msgstr "Erroare in scriere  fisier!"
+
+#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:215
+#: bin/modules/gui/window/form.py:365
+#, fuzzy
+msgid "Question"
+msgstr "Descriere"
+
+#: bin/widget/view/form/button.py:42
+#, fuzzy
+msgid "Invalid Form, correct red fields!"
+msgstr "Formular invalid, corectati cimpurile in rosu!"
+
+#: bin/printer/printer.py:94
+msgid "Write Report to File"
+msgstr "Scrie raportul in fisier"
+
+#: bin/rpc/rpc.py:169
+msgid "Connection refused !"
+msgstr "Conectare refuzata!"
+
+#: bin/rpc/rpc.py:176
+msgid "Application Error"
+msgstr "Eroare aplicatie"
+
+#: bin/rpc/rpc.py:176
+msgid "View details"
+msgstr "Verifica detalii"
+
+#: bin/rpc/rpc.py:271
+msgid "Could not contact server!"
+msgstr ""
+
+#: bin/common/common.py:170 bin/common/common.py:198
+msgid "Sending support requests is not available with the TinyERP KDE client"
+msgstr ""
+
+#: bin/modules/gui/window/view_tree/parser.py:51
+msgid "Tree"
+msgstr "Arbore"
+
+#: bin/modules/gui/window/tree.py:165 bin/modules/gui/window/tree.py:191
+msgid "No resource selected!"
+msgstr "Nici o resursa selectionata"
+
+#: bin/modules/gui/window/tree.py:183
+#, fuzzy
+msgid "Unable to chroot: no tree resource selected"
+msgstr ""
+"Imposibil de crea radacina arbore: nici o resursa in arbore selectionata"
+
+#: bin/modules/gui/window/tree.py:210
+#, fuzzy
+msgid "No item selected"
+msgstr "Nici o inregistrare selectionata!"
+
+#: bin/modules/gui/window/tree.py:210
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:302
+msgid "(Everywhere)"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:306
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:308
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:310
+#, fuzzy
+msgid "Tiny ERP Full Text Search"
+msgstr "Tiny ERP - Cauta"
+
+#: bin/modules/gui/window/win_full_text_search.py:311
+#, fuzzy, python-format
+msgid "Tiny ERP Full Text Search (%%d result(s))"
+msgstr "Tiny ERP - Cauta"
+
+#: bin/modules/gui/window/win_full_text_search.py:391
+#: bin/modules/gui/window/form.py:199
+msgid "ID"
+msgstr "ID"
+
+#: bin/modules/gui/window/win_full_text_search.py:392
+msgid "Model ID"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:393
+#, fuzzy
+msgid "Model Name"
+msgstr "Nume cimp:"
+
+#: bin/modules/gui/window/win_full_text_search.py:395
+msgid "Type"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:396
+msgid "Name"
+msgstr "Nume"
+
+#: bin/modules/gui/window/win_full_text_search.py:397
+#, fuzzy
+msgid "Text"
+msgstr "Urmator"
+
+#: bin/modules/gui/window/win_full_text_search.py:398
+msgid "Ranking"
+msgstr ""
+
+#: bin/modules/gui/window/win_preference.py:51
+msgid "Preferences"
+msgstr "Preferinte"
+
+#: bin/modules/gui/window/win_preference.py:75
+#, fuzzy, python-format
+msgid "Preference %s"
+msgstr "Preferinte"
+
+#: bin/modules/gui/window/win_export.py:49
+#, fuzzy
+msgid "TinyERP exported information"
+msgstr "Tiny ERP - Confirmare"
+
+#: bin/modules/gui/window/win_export.py:67
+#: bin/modules/gui/window/win_export.py:87
+#, fuzzy, python-format
+msgid "%s record(s) saved!"
+msgstr " inregistrare(i) salvata(e) !"
+
+#: bin/modules/gui/window/win_export.py:69
+#: bin/modules/gui/window/win_export.py:89
+#, fuzzy, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
+msgstr ""
+"Operatiune esuata !\n"
+"I/O erreur"
+
+#: bin/modules/gui/window/win_export.py:112
+#, fuzzy
+msgid "Error opening Excel !"
+msgstr "Eroare la deschidere Excell !"
+
+#: bin/modules/gui/window/win_export.py:114
+#, fuzzy
+msgid ""
+"Function only available for MS Office !\n"
+"Sorry, OOo users :("
+msgstr ""
+"Fonctie disponibila numai in MS Office!\n"
+"Cu parere de rau, OOo utilizatori :("
+
+#: bin/modules/gui/window/win_export.py:193
+#, fuzzy
+msgid "Export Data"
+msgstr "Date exportate"
+
+#: bin/modules/gui/window/win_export.py:237
+msgid "What is the name of this export?"
+msgstr ""
+
+#: bin/modules/gui/window/win_export.py:258
+#, fuzzy
+msgid "Export name"
+msgstr "Date exportate"
+
+#: bin/modules/gui/window/win_export.py:259
+#, fuzzy
+msgid "Exported fields"
+msgstr "Sterge cimp"
+
+#: bin/modules/gui/window/form.py:180 bin/modules/gui/window/form.py:361
+#, fuzzy
+msgid "No resource selected !"
+msgstr "Nici o resursa selectionata !"
+
+#: bin/modules/gui/window/form.py:193
+#, fuzzy
+msgid "You have to select one resource!"
+msgstr "Selectiati o resursa !"
+
+#: bin/modules/gui/window/form.py:200
+msgid "Creation User"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:201
+msgid "Creation Date"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:202
+msgid "Latest Modification by"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:203
+msgid "Latest Modification Date"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:204
+msgid "Owner"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:205
+msgid "Group Owner"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:206
+msgid "Access Level"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:215
+#, fuzzy
+msgid "Are you sure you want to remove this record?"
+msgstr ""
+"Sunteti sigur(a) ca vreti \n"
+"sa stergeti acest inregistrement?"
+
+#: bin/modules/gui/window/form.py:219
+#, fuzzy
+msgid "Resource not removed !"
+msgstr "Resursa stearsa"
+
+#: bin/modules/gui/window/form.py:221
+msgid "Resource removed."
+msgstr "Resursa stearsa"
+
+#: bin/modules/gui/window/form.py:245
+msgid "Working now on the duplicated document !"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:254
+#, fuzzy
+msgid "Document saved !"
+msgstr "Optiuni salvate!"
+
+#: bin/modules/gui/window/form.py:258
+msgid "Invalid form !"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:310
+msgid "No record selected!"
+msgstr "Nici o inregistrare selectionata!"
+
+#: bin/modules/gui/window/form.py:334
+#, fuzzy, python-format
+msgid "(%s attachments) "
+msgstr "Atasare: "
+
+#: bin/modules/gui/window/form.py:339
+#, fuzzy
+msgid "No record selected"
+msgstr "Nici o inregistrare selectionata!"
+
+#: bin/modules/gui/window/form.py:344
+msgid "New document"
+msgstr "Document nou"
+
+#: bin/modules/gui/window/form.py:346
+#, fuzzy, python-format
+msgid "Editing document (id: %s)"
+msgstr "Document in cours de editare: "
+
+#: bin/modules/gui/window/form.py:347
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:359
+#, fuzzy
+msgid "No preference available for this resource !"
+msgstr "Nici o preferinta disponibila pentru aceasta  resursa!"
+
+#: bin/modules/gui/window/form.py:365
+msgid ""
+"This record has been modified\n"
+"do you want to save it?"
+msgstr ""
+
+#: bin/modules/gui/window/win_search.py:73
+#, fuzzy, python-format
+msgid "Tiny ERP Search: %s"
+msgstr "Tiny ERP - Cauta"
+
+#: bin/modules/gui/window/win_search.py:74
+#, fuzzy, python-format
+msgid "Tiny ERP Search: %s (%%d result(s))"
+msgstr "Tiny ERP - Cauta"
+
+#: bin/modules/gui/window/importexport_common.py:10
+#, fuzzy
+msgid "Fields"
+msgstr "Nume cimp"
+
+#: bin/modules/gui/window/win_import.py:54
+#, python-format
+msgid "Imported %d objects !"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:60
+#, fuzzy
+msgid "Error importing data"
+msgstr "Erroare in scriere  fisier!"
+
+#: bin/modules/gui/window/win_import.py:91
+#, fuzzy
+msgid "File to import"
+msgstr "<b>Cimpuri pentru import</b>"
+
+#: bin/modules/gui/window/win_import.py:105
+msgid "No file specified"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:167
+msgid "Error opening .CSV file: Input Error."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+msgid "You can now connect to the database as an administrator."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
+msgid "Could not create database."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:517
+msgid "Bad database administrator password !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
+msgid "Error during database creation !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:56
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:98
+msgid "Bad database name !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:98
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+
+#: bin/modules/gui/login.py:35 bin/modules/gui/choosedb.py:44
+#, fuzzy
+msgid "Could not connect to server !"
+msgstr ""
+"Eroare de conectare !\n"
+"Nume gresit de utilisator sau parola gresita!"
+
+#: bin/modules/gui/login.py:40 bin/modules/gui/choosedb.py:50
+msgid "No database found, you must create one !"
+msgstr ""
+
+#: bin/modules/gui/adminpwd.py:30
+#, fuzzy
+msgid "Validation Error"
+msgstr "Eroare aplicatie"
+
+#: bin/modules/gui/adminpwd.py:30
+msgid "Confirmation password does not match new password."
+msgstr ""
+
+#: bin/modules/gui/adminpwd.py:37
+msgid "Password changed successfully"
+msgstr ""
+
+#: bin/modules/gui/adminpwd.py:40
+#, fuzzy
+msgid "Error"
+msgstr "Eroare: "
+
+#: bin/modules/gui/adminpwd.py:40
+msgid ""
+"Could not change administrator password. Please, check the server and "
+"password are correct."
+msgstr ""
+
+#: bin/modules/gui/askserver.py:32
+msgid "NET-RPC (faster)"
+msgstr ""
+
+#: bin/modules/gui/askserver.py:33
+msgid "XML-RPC"
+msgstr ""
+
+#: bin/modules/gui/askserver.py:34
+msgid "Secure XML-RPC"
+msgstr ""
+
+#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:343
+msgid "Press Ctrl+O to login"
+msgstr ""
+
+#: bin/modules/gui/main.py:94
+#, fuzzy
+msgid "Close tab"
+msgstr "Inchide"
+
+#: bin/modules/gui/main.py:274
+#, fuzzy, python-format
+msgid "%s request(s)"
+msgstr "Cereri"
+
+#: bin/modules/gui/main.py:276
+msgid "No request"
+msgstr "Nici o cerere"
+
+#: bin/modules/gui/main.py:278
+#, fuzzy, python-format
+msgid " - %s pending request(s)"
+msgstr "Cereri in asteptatre"
+
+#: bin/modules/gui/main.py:322 bin/modules/gui/main.py:324
+#, fuzzy
+msgid "Connection error !"
+msgstr "Eroare de conectare!"
+
+#: bin/modules/gui/main.py:322
+#, fuzzy
+msgid "Unable to connect to the server !"
+msgstr ""
+"Eroare de conectare !\n"
+"Nume gresit de utilisator sau parola gresita!"
+
+#: bin/modules/gui/main.py:324
+#, fuzzy
+msgid "Bad username or password !"
+msgstr ""
+"Eroare de conectare !\n"
+"Nume gresit de utilisator sau parola gresita!"
+
+#: bin/modules/gui/main.py:328
+msgid "Connection Error !"
+msgstr "Eroare de conectare!"
+
+#: bin/modules/gui/main.py:342
+msgid "Not logged !"
+msgstr ""
+
+#: bin/modules/gui/main.py:405
+msgid "Access denied"
+msgstr ""
+
+#: bin/modules/gui/main.py:405
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+
+#: bin/modules/gui/main.py:437
+msgid "Quit"
+msgstr ""
+
+#: bin/modules/gui/main.py:437
+msgid "Do you really want to quit ?"
+msgstr ""
+
+#: bin/modules/gui/main.py:437
+msgid "Yes"
+msgstr "Da"
+
+#: bin/modules/gui/main.py:437
+msgid "No"
+msgstr "Nu"
+
+#: bin/modules/gui/main.py:504 bin/modules/gui/main.py:525
+#, fuzzy
+msgid "Delete a database"
+msgstr "Alege o data"
+
+#: bin/modules/gui/main.py:513 bin/modules/gui/main.py:519
+msgid "Database removal"
+msgstr ""
+
+#: bin/modules/gui/main.py:513
+msgid "Database dropped successfully!"
+msgstr ""
+
+#: bin/modules/gui/main.py:517
+msgid "Could not drop database."
+msgstr ""
+
+#: bin/modules/gui/main.py:519
+msgid "Couldn't drop database"
+msgstr ""
+
+#: bin/modules/gui/main.py:536
+msgid "Database restored successfully!"
+msgstr ""
+
+#: bin/modules/gui/main.py:540
+#, fuzzy
+msgid "Could not resotre database"
+msgstr "Alege o data"
+
+#: bin/modules/gui/main.py:540
+msgid "Bad database administrator password!"
+msgstr ""
+
+#: bin/modules/gui/main.py:542
+#, fuzzy
+msgid "Could not restore database"
+msgstr "Alege o data"
+
+#: bin/modules/gui/main.py:545
+msgid "Backup a database"
+msgstr ""
+
+#: bin/modules/gui/main.py:560
+msgid "Database backuped successfully!"
+msgstr ""
+
+#: bin/modules/gui/main.py:563
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+
+#: bin/modules/action/main.py:51
+msgid "Nothing to print!"
+msgstr ""
+
+#: bin/modules/action/main.py:67
+msgid "Printing aborted, too long delay !"
+msgstr "Imprimare intrerupta, timp mare de asteptare!"
+
+#: bin/modules/action/main.py:71
+msgid "Error: "
+msgstr "Eroare: "
+
+#: bin/modules/action/main.py:166
+msgid "Select your action"
+msgstr "Selectioneaza actiune"
+
+#: bin/modules/action/main.py:172
+msgid "No action defined!"
+msgstr "Nici o actiune definita!"
+
+#: bin/options.py:66
+msgid "specify alternate config file"
+msgstr "specificati un fisier de configurare"
+
+#: bin/options.py:67
+msgid "enable basic debugging"
+msgstr "activare debbuger (depanator) implicit"
+
+#: bin/options.py:68
+msgid "specify channels to log"
+msgstr "specificati un canal pt. logger"
+
+#: bin/options.py:69
+msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+msgstr "specificati nivelul de log: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+
+#: bin/options.py:70
+#, fuzzy
+msgid "specify the user login"
+msgstr "specificati un canal pt. logger"
+
+#: bin/options.py:71
+msgid "specify the server port"
+msgstr ""
+
+#: bin/options.py:72
+msgid "specify the server ip/name"
+msgstr ""
+
+#: bin/ktiny.py:80
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with KTiny."
+msgstr ""
+
+#, fuzzy
+#~ msgid "Tiny ERP Client %s"
+#~ msgstr "Tiny ERP Client v2.0"
+
+#~ msgid "Closing Tiny ERP, KeyboardInterrupt"
+#~ msgstr "Fermeture de Tiny ERP, Interruption Clavier"
+
+#, fuzzy
+#~ msgid "Set default"
+#~ msgstr "pune la _Default (implicit)"
+
+#~ msgid "Record: "
+#~ msgstr "Inregistare: "
+
+#, fuzzy
+#~ msgid "Are you sure you want to remove this attachment ?"
+#~ msgstr ""
+#~ "Sunteti sigur(a) ca vreti \n"
+#~ "sa stergeti acest inregistrement?"
+
+#~ msgid "Select the destination file"
+#~ msgstr "Selectionati la fisa de destinatie"
+
+#~ msgid "Can not open file !"
+#~ msgstr "Imposibil de a deschide fisierul !"
+
+#~ msgid "Can not write file !"
+#~ msgstr "Imposibil de a scrie fisierul !"
+
+#~ msgid "Connection refused!"
+#~ msgstr "Conectare refuzata!"
+
+#, fuzzy
+#~ msgid "Select a file"
+#~ msgstr "Alege o data"
+
+#, fuzzy
+#~ msgid "You have to select a resource !"
+#~ msgstr "Selectiati o resursa !"
+
+#, fuzzy
+#~ msgid "Unable to launch this file !"
+#~ msgstr "Imposibil de a executa acest fisier !"
+
+#~ msgid "Unable to launch the application associated to this content !"
+#~ msgstr ""
+#~ "Impossible de a executa applicatia associta acestui content (continut)!"
+
+#, fuzzy
+#~ msgid "Support request sent !"
+#~ msgstr "Trimite cererea de suport"
+
+#~ msgid "Preference"
+#~ msgstr "Preferinte"
+
+#~ msgid "Reload"
+#~ msgstr "Reincarca"
+
+#, fuzzy
+#~ msgid "Changt root"
+#~ msgstr "Schimba radacina"
+
+#~ msgid "Print"
+#~ msgstr "Imprima"
+
+#~ msgid "Close"
+#~ msgstr "Inchide"
+
+#~ msgid "Error removing resource!"
+#~ msgstr "O eroare atunci cond ati sters resursele!"
+
+#~ msgid "Ressource Name"
+#~ msgstr "Nume resursa"
+
+#~ msgid "Names"
+#~ msgstr "Nume"
+
+#, fuzzy
+#~ msgid "Are you sure to remove this record ?"
+#~ msgstr ""
+#~ "Sunteti sigur(a) ca vreti \n"
+#~ "sa stergeti acest inregistrement?"
+
+#, fuzzy
+#~ msgid "Default Theme"
+#~ msgstr "Valoare implicita:"
+
+#~ msgid "Tiny ERP - Login"
+#~ msgstr "Tiny ERP - Login"
+
+#~ msgid "User:"
+#~ msgstr "Utilisator:"
+
+#~ msgid "Password:"
+#~ msgstr "Parola:"
+
+#, fuzzy
+#~ msgid "Change"
+#~ msgstr "Schimba radacina"
+
+#~ msgid "localhost"
+#~ msgstr "localhost"
+
+#~ msgid "Server:"
+#~ msgstr "Server:"
+
+#~ msgid "demo"
+#~ msgstr "demo"
+
+#~ msgid "Tiny ERP"
+#~ msgstr "Tiny ERP"
+
+#~ msgid "_File"
+#~ msgstr "_Fisier"
+
+#, fuzzy
+#~ msgid "_Connect..."
+#~ msgstr "Conectare..."
+
+#, fuzzy
+#~ msgid "_Disconnect"
+#~ msgstr "Deconectare"
+
+#~ msgid "_User"
+#~ msgstr "_Utilisator"
+
+#, fuzzy
+#~ msgid "_Preferences"
+#~ msgstr "Preferinte"
+
+#, fuzzy
+#~ msgid "_Send a request"
+#~ msgstr "Trimite o cerere"
+
+#, fuzzy
+#~ msgid "_Read my requests"
+#~ msgstr "Citeste cererile mele"
+
+#, fuzzy
+#~ msgid "_Waiting Requests"
+#~ msgstr "Cereri:"
+
+#, fuzzy
+#~ msgid "For_m"
+#~ msgstr "_Formular"
+
+#, fuzzy
+#~ msgid "_New"
+#~ msgstr "Nou"
+
+#, fuzzy
+#~ msgid "_Save"
+#~ msgstr "Salvare"
+
+#, fuzzy
+#~ msgid "Copy this resource"
+#~ msgstr "Sterge aceasta resursa"
+
+#, fuzzy
+#~ msgid "_Delete"
+#~ msgstr "Sterge"
+
+#, fuzzy
+#~ msgid "Find"
+#~ msgstr "Cimp:"
+
+#, fuzzy
+#~ msgid "Ne_xt"
+#~ msgstr "Urmator"
+
+#, fuzzy
+#~ msgid "Pre_vious"
+#~ msgstr "Precedent"
+
+#, fuzzy
+#~ msgid "Previous Tab"
+#~ msgstr "Notita precedenta"
+
+#, fuzzy
+#~ msgid "Next Tab"
+#~ msgstr "Notita urmatoare"
+
+#, fuzzy
+#~ msgid "View _logs"
+#~ msgstr "Verifica detalii"
+
+#, fuzzy
+#~ msgid "_Open"
+#~ msgstr "Deschide"
+
+#, fuzzy
+#~ msgid "Reloa_d / Undo"
+#~ msgstr "Reincarca"
+
+#, fuzzy
+#~ msgid "Repeat latest _action"
+#~ msgstr "Repeta ultima actiune"
+
+#, fuzzy
+#~ msgid "Expor_t data..."
+#~ msgstr "Exporta datele..."
+
+#, fuzzy
+#~ msgid "I_mport data..."
+#~ msgstr "Importa datele..."
+
+#~ msgid "_Options"
+#~ msgstr "_Optiuni"
+
+#, fuzzy
+#~ msgid "_Menubar"
+#~ msgstr "Bara meniu"
+
+#, fuzzy
+#~ msgid "Text _and Icons"
+#~ msgstr "Texte si Iconite"
+
+#, fuzzy
+#~ msgid "_Icons only"
+#~ msgstr "Numai iconite"
+
+#, fuzzy
+#~ msgid "_Text only"
+#~ msgstr "Numai texte"
+
+#, fuzzy
+#~ msgid "_Theme"
+#~ msgstr "Arbore"
+
+#, fuzzy
+#~ msgid "Tiny ERP Theme"
+#~ msgstr "Licenta de Tiny ERP"
+
+#, fuzzy
+#~ msgid "_Forms"
+#~ msgstr "_Formular"
+
+#, fuzzy
+#~ msgid "_Print"
+#~ msgstr "Imprima"
+
+#, fuzzy
+#~ msgid "Previe_w before print"
+#~ msgstr "Visualizare inainte imprimare"
+
+#, fuzzy
+#~ msgid "_Save options"
+#~ msgstr "Salveaza optiuni"
+
+#, fuzzy
+#~ msgid "_Plugins"
+#~ msgstr "Plugins"
+
+#, fuzzy
+#~ msgid "_Execute a plugin"
+#~ msgstr "Executa un plugin"
+
+#, fuzzy
+#~ msgid "_Help"
+#~ msgstr "Ajutor"
+
+#, fuzzy
+#~ msgid "Support Request"
+#~ msgstr "Trimite cererea de suport"
+
+#, fuzzy
+#~ msgid "_Tips"
+#~ msgstr "Note"
+
+#, fuzzy
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Scurtaturi"
+
+#, fuzzy
+#~ msgid "_Licence"
+#~ msgstr "Licenta"
+
+#, fuzzy
+#~ msgid "_About..."
+#~ msgstr "Despre ..."
+
+#~ msgid "Create a new resource"
+#~ msgstr "Creare resursa noua"
+
+#~ msgid "Edit / Save this resource"
+#~ msgstr "Editare / salvare acesta resursa"
+
+#~ msgid "Delete this resource"
+#~ msgstr "Sterge acesta resursa"
+
+#, fuzzy
+#~ msgid "Find a resource"
+#~ msgstr "Cauta o resursa"
+
+#~ msgid "Go to previous matched search"
+#~ msgstr "Mergi inapoi in cautari"
+
+#~ msgid "Go to next matched resource"
+#~ msgstr "Mergi inapoi in cautari"
+
+#, fuzzy
+#~ msgid "Other View"
+#~ msgstr "Alta vedere"
+
+#~ msgid "Launch actions about this resource"
+#~ msgstr "Executa actiunile legate de aceasta resursa"
+
+#~ msgid "Print documents"
+#~ msgstr "Imprima documentele"
+
+#, fuzzy
+#~ msgid "Add an attachment to this resource"
+#~ msgstr "Executa actiunile legate de aceasta resursa"
+
+#, fuzzy
+#~ msgid "Attachement"
+#~ msgstr "Atasament"
+
+#~ msgid "Close this window"
+#~ msgstr "Inchide fereastra"
+
+#~ msgid "Requests:"
+#~ msgstr "Cereri:"
+
+#~ msgid "Read my Requests"
+#~ msgstr "Citeste cererile"
+
+#~ msgid "Send a new request"
+#~ msgstr "Trimite o noua cerere"
+
+#~ msgid "Tiny ERP - Tree Resources"
+#~ msgstr "Tiny ERP - Arborele cu resurse"
+
+#~ msgid "Shortcuts"
+#~ msgstr "Scurtaturi"
+
+#~ msgid "Tiny ERP - Forms"
+#~ msgstr "Tiny ERP - Formulare"
+
+#~ msgid "State:"
+#~ msgstr "Stare:"
+
+#~ msgid "Tiny ERP - About"
+#~ msgstr "Tiny ERP - Despre"
+
+#, fuzzy
+#~ msgid ""
+#~ "\n"
+#~ "Tiny ERP - GTK Client - v%s\n"
+#~ "\n"
+#~ "Tiny ERP is an Open Source ERP+CRM\n"
+#~ "for small to medium businesses.\n"
+#~ "\n"
+#~ "The whole source code is distributed under\n"
+#~ "the terms of the GNU Public Licence.\n"
+#~ "\n"
+#~ "(c) 2003-TODAY, Tiny sprl\n"
+#~ "\n"
+#~ "More Info on www.TinyERP.com !"
+#~ msgstr ""
+#~ "\n"
+#~ "Tiny ERP - Client GTK - v2.0\n"
+#~ "\n"
+#~ "Tiny ERP este un ERP+CRM Open Source pentru\n"
+#~ "firme mici si medii.\n"
+#~ "\n"
+#~ "Codul sursa este distribuit in acord cu \n"
+#~ "textul dat de GNU Public Licence.\n"
+#~ "\n"
+#~ "(c) 2003-TODAY, Tiny sprl\n"
+#~ "\n"
+#~ "Mai multe informatii la www.TinyERP.com !"
+
+#, fuzzy
+#~ msgid "_Tiny ERP"
+#~ msgstr "Tiny ERP"
+
+#, fuzzy
+#~ msgid ""
+#~ "\n"
+#~ "(c) 2003-TODAY - Tiny sprl\n"
+#~ "Tiny ERP is a product of Tiny sprl:\n"
+#~ "\n"
+#~ "Tiny sprl\n"
+#~ "21 Rue du Vieux Chateau\n"
+#~ "BE-1457 Walhain\n"
+#~ "Belgium\n"
+#~ "\n"
+#~ "Tel/Fax: +32.10.68.94.39\n"
+#~ "Mail: sales@tiny.be\n"
+#~ "Web: http://tiny.be"
+#~ msgstr ""
+#~ "\n"
+#~ "(c) 2003- - Tiny sprl\n"
+#~ "Tiny ERP este un produs al firmei Tiny sprl:\n"
+#~ "\n"
+#~ "Tiny sprl\n"
+#~ "21 Rue du Vieux Chateau\n"
+#~ "BE-1457 Walhain\n"
+#~ "Belgique\n"
+#~ "\n"
+#~ "Tel/Fax: +32.10.68.94.39\n"
+#~ "Mail: fp@tiny.be\n"
+#~ "Web: http://tiny.be"
+
+#, fuzzy
+#~ msgid "_Contact"
+#~ msgstr "Contact"
+
+#~ msgid "Tiny ERP - forms widget"
+#~ msgstr "Tiny ERP - Formulare"
+
+#~ msgid "Open the calendar widget"
+#~ msgstr "Deschide calendar"
+
+#, fuzzy
+#~ msgid "Search / Open a resource"
+#~ msgstr "Cauta o resursa"
+
+#, fuzzy
+#~ msgid "Titre"
+#~ msgstr "Titlu"
+
+#, fuzzy
+#~ msgid "Set Default"
+#~ msgstr "pune la _Default (implicit)"
+
+#~ msgid "Create a new entry"
+#~ msgstr "Creare unei noi intrari"
+
+#, fuzzy
+#~ msgid "Edit this entry"
+#~ msgstr "Sterge aceasta intrare"
+
+#~ msgid "Previous"
+#~ msgstr "Precedent"
+
+#, fuzzy
+#~ msgid "(0/0)"
+#~ msgstr "(1/1)"
+
+#~ msgid "Remove selected entry"
+#~ msgstr "Sterge intrarea selectionata"
+
+#~ msgid "label74"
+#~ msgstr "label74"
+
+#~ msgid "-"
+#~ msgstr "-"
+
+#~ msgid "Tiny ERP - Date selection"
+#~ msgstr "Tiny ERP - Selectie data"
+
+#~ msgid "Hello World!"
+#~ msgstr "Salut lume!"
+
+#~ msgid "Tiny ERP - selection"
+#~ msgstr "Tiny ERP - selectie"
+
+#~ msgid "Your selection:"
+#~ msgstr "Selectie dvs"
+
+#~ msgid "Tiny ERP - Filter"
+#~ msgstr "Tiny ERP - Filtru"
+
+#, fuzzy
+#~ msgid "S_earch:"
+#~ msgstr "Recherche:"
+
+#, fuzzy
+#~ msgid "on _field:"
+#~ msgstr "in cimpul:"
+
+#, fuzzy
+#~ msgid "_Select"
+#~ msgstr "Selectioaza"
+
+#, fuzzy
+#~ msgid "_Unselect"
+#~ msgstr "Deselectionaza"
+
+#~ msgid "Filter: "
+#~ msgstr "Filtru"
+
+#, fuzzy
+#~ msgid "AL_L"
+#~ msgstr "Toate"
+
+#, fuzzy
+#~ msgid "N_ONE"
+#~ msgstr "Nimic"
+
+#~ msgid "<b><u>Actions</u></b>"
+#~ msgstr "<b><u>Actiuni</u></b>"
+
+#~ msgid "Tiny ERP - Dialog"
+#~ msgstr "Tiny ERP - Dialog"
+
+#~ msgid "Set to _Default"
+#~ msgstr "pune la _Default (implicit)"
+
+#~ msgid "Value _Preference"
+#~ msgstr "Valeur _Preference (preferinte)"
+
+#~ msgid "Tiny ERP, Field Preference target"
+#~ msgstr "Tiny ERP, Preferinte cimp destinatie"
+
+#, fuzzy
+#~ msgid "Default _value:"
+#~ msgstr "Valoare implicita:"
+
+#, fuzzy
+#~ msgid "_Domain:"
+#~ msgstr "Domeniu:"
+
+#~ msgid "<b>Value applicable if:</b>"
+#~ msgstr "<b>Valoare aplicabila daca:</b>"
+
+#, fuzzy
+#~ msgid "_only for you"
+#~ msgstr "numai pentru dvs"
+
+#, fuzzy
+#~ msgid "for _all users"
+#~ msgstr "pentru toti utilizatorii"
+
+#~ msgid "<b>Value applicable for:</b>"
+#~ msgstr "<b>Valoare aplicabila pentru:</b>"
+
+#~ msgid "Tiny ERP - Export to CSV"
+#~ msgstr "Tiny ERP - Exporta CSV"
+
+#, fuzzy
+#~ msgid "<b>Predefined exports</b>"
+#~ msgstr "<b>Cimpuri pentru a fi exportate</b>"
+
+#~ msgid "<b>All fields</b>"
+#~ msgstr "<b>Toate cimpurile</b>"
+
+#, fuzzy
+#~ msgid "_Add"
+#~ msgstr "Adauga"
+
+#, fuzzy
+#~ msgid "_Remove"
+#~ msgstr "Sterge"
+
+#, fuzzy
+#~ msgid "_Nothing"
+#~ msgstr "Nimic"
+
+#~ msgid "<b>Fields to export</b>"
+#~ msgstr "<b>Cimpuri pentru a fi exportate</b>"
+
+#, fuzzy
+#~ msgid ""
+#~ "Open in Excel\n"
+#~ "Save as CSV"
+#~ msgstr "Deschide in Excell"
+
+#, fuzzy
+#~ msgid "Add _field names"
+#~ msgstr "Adauaga un cimp nou"
+
+#, fuzzy
+#~ msgid "<b>Opti_ons</b>"
+#~ msgstr "<b>Optiuni</b>"
+
+#, fuzzy
+#~ msgid "_Limit:"
+#~ msgstr "Limite:"
+
+#, fuzzy
+#~ msgid "Off_set:"
+#~ msgstr "Decalaj (offset):"
+
+#~ msgid "Tiny ERP - Search Widgets"
+#~ msgstr "Tiny ERP - Cauta"
+
+#~ msgid "Search with this name"
+#~ msgstr "Cauta cu acest nume"
+
+#~ msgid ""
+#~ "\n"
+#~ "Yes\n"
+#~ "No"
+#~ msgstr ""
+#~ "\n"
+#~ "Da\n"
+#~ "Nu"
+
+#~ msgid "Tiny ERP - Attachment"
+#~ msgstr "Tiny ERP - Attachement"
+
+#~ msgid "Filename:"
+#~ msgstr "Nume fisier:"
+
+#~ msgid "Description:"
+#~ msgstr "Descriere:"
+
+#, fuzzy
+#~ msgid "Save text"
+#~ msgstr "Salvare"
+
+#~ msgid "Tiny ERP - Error"
+#~ msgstr "Tiny ERP - Eroare"
+
+#~ msgid "Application Error !"
+#~ msgstr "Eroare aplicatie!"
+
+#~ msgid "Error 404"
+#~ msgstr "Eroare 404"
+
+#~ msgid "<b>Error code:</b>"
+#~ msgstr "<b>Eroare de cod:</b>"
+
+#~ msgid ""
+#~ "This Page does not exist !\n"
+#~ "Please retry"
+#~ msgstr ""
+#~ "Acesta pagina nu exista!\n"
+#~ "Veuillez réessayer"
+
+#~ msgid "<i>Click on the Support Request tab if you need more help !</i>"
+#~ msgstr "<i>Clic pe tabul support daca aveti nevoi de ajutor!</i>"
+
+#, fuzzy
+#~ msgid "De_scription"
+#~ msgstr "Descriere"
+
+#, fuzzy
+#~ msgid ""
+#~ "Error details\n"
+#~ "dqsdsqdqsdsd"
+#~ msgstr "Detalii eroare\n"
+
+#, fuzzy
+#~ msgid "_Details"
+#~ msgstr "Detali"
+
+#, fuzzy
+#~ msgid ""
+#~ "<b>Complete this form to submit your bug and/or request a support.</b>\n"
+#~ "<i>\n"
+#~ "Your request will be send to Tiny ERP and we will reply you shortly.\n"
+#~ "Note that we may not reply you if your Service Company is not a Tiny ERP "
+#~ "partner.\n"
+#~ "</i>"
+#~ msgstr ""
+#~ "<b>Completeaza acest formular pentru a trimite un bug si/sau o cerere de "
+#~ "support.</b>\n"
+#~ "<i>\n"
+#~ "Cererea va fi trimisa dezvoltatorilor (programatorilor) si un raspuns va "
+#~ "fi trimis in scurt timp.\n"
+#~ "Notati ca e posibil sa nu primiti nici un raspuns de support daca nu "
+#~ "sunteti partener Tiny ERP.\n"
+#~ "</i>"
+
+#~ msgid "<b>Your Company: </b>"
+#~ msgstr "<b>Societatea : </b>"
+
+#~ msgid "<b>Your Email: </b>"
+#~ msgstr "<b>Email: </b>"
+
+#~ msgid "Explain what you did: "
+#~ msgstr "Explicati ce ati facut: "
+
+#, fuzzy
+#~ msgid "Others Comments: "
+#~ msgstr "Alte remarci: "
+
+#~ msgid "Send Support Request"
+#~ msgstr "Trimite cererea de suport"
+
+#, fuzzy
+#~ msgid "<b>support contract id  </b>"
+#~ msgstr "<b>Cerere de support</b>"
+
+#~ msgid ""
+#~ "Not Urgent\n"
+#~ "Medium\n"
+#~ "Urgent\n"
+#~ "Very Urgent"
+#~ msgstr ""
+#~ "Fara urgenta\n"
+#~ "Mediu\n"
+#~ "Urgent\n"
+#~ "Foarte urgent"
+
+#, fuzzy
+#~ msgid "Emergency: "
+#~ msgstr "Urgent: "
+
+#~ msgid "Phone Number: "
+#~ msgstr "Numar de telefon: "
+
+#, fuzzy
+#~ msgid "<b>_Support Request</b>"
+#~ msgstr "<b>Cerere de support</b>"
+
+#~ msgid "Tiny ERP - Ressource Edit"
+#~ msgstr "Tiny ERP - Editare unei resurse"
+
+#~ msgid "Tiny ERP - Link"
+#~ msgstr "Tiny ERP - Legaturi (link)"
+
+#~ msgid "Tiny ERP - List"
+#~ msgstr "Tiny ERP - Liste"
+
+#~ msgid "Tiny ERP - Preferences"
+#~ msgstr "Tiny ERP - Preferinte"
+
+#, fuzzy
+#~ msgid "<b>Edit resource preferences</b>"
+#~ msgstr "<b>Editarea de preferinte</b>"
+
+#~ msgid "Tip of the Day"
+#~ msgstr "Notita Zilei"
+
+#, fuzzy
+#~ msgid "Pre_vious Tip"
+#~ msgstr "Notita precedenta"
+
+#, fuzzy
+#~ msgid "Ne_xt Tip"
+#~ msgstr "Notita urmatoare"
+
+#, fuzzy
+#~ msgid "_Display a new tip next time ?"
+#~ msgstr "Affiseaz o noua notita data viitoare ?"
+
+#~ msgid "Tiny ERP - Licence"
+#~ msgstr "Tiny ERP - Licenta"
+
+#~ msgid "Tiny ERP license"
+#~ msgstr "Licenta de Tiny ERP"
+
+#, fuzzy
+#~ msgid "Tiny ERP - Date & Time selection"
+#~ msgstr "Tiny ERP - Selectie data"
+
+#~ msgid "dialog1"
+#~ msgstr "dialog1"
+
+#, fuzzy
+#~ msgid "Search ID:"
+#~ msgstr "Recherche:"
+
+#, fuzzy
+#~ msgid "Tiny ERP Survey"
+#~ msgstr "Tiny ERP"
+
+#, fuzzy
+#~ msgid "Your Role:"
+#~ msgstr "Selectie dvs"
+
+#, fuzzy
+#~ msgid "System:"
+#~ msgstr "Stare:"
+
+#, fuzzy
+#~ msgid "<b>Your company</b>"
+#~ msgstr "<b>Societatea : </b>"
+
+#, fuzzy
+#~ msgid "<b>Your interrest</b>"
+#~ msgstr "<b>Note</b>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<b>Complete this form to submit your bug and/or make a request for "
+#~ "support.</b>\n"
+#~ "<i>\n"
+#~ "Your request will be sent to the Tiny ERP team and we will reply "
+#~ "shortly.\n"
+#~ "Note that we may not reply if you do not have a support contract with "
+#~ "Tiny or an official partner.</i>"
+#~ msgstr ""
+#~ "<b>Completeaza acest formular pentru a trimite un bug si/sau o cerere de "
+#~ "support.</b>\n"
+#~ "<i>\n"
+#~ "Cererea va fi trimisa dezvoltatorilor (programatorilor) si un raspuns va "
+#~ "fi trimis in scurt timp.\n"
+#~ "Notati ca e posibil sa nu primiti nici un raspuns de support daca nu "
+#~ "sunteti partener Tiny ERP.\n"
+#~ "</i>"
+
+#, fuzzy
+#~ msgid "<b>Your name:</b>"
+#~ msgstr "<b>Email: </b>"
+
+#, fuzzy
+#~ msgid "<b>Your Company:</b>"
+#~ msgstr "<b>Societatea : </b>"
+
+#, fuzzy
+#~ msgid "<b>Your email:</b>"
+#~ msgstr "<b>Email: </b>"
+
+#, fuzzy
+#~ msgid "Explain your problem:"
+#~ msgstr "Explicati ce ati facut: "
+
+#, fuzzy
+#~ msgid "<b>Support contract id:</b>"
+#~ msgstr "<b>Cerere de support</b>"
+
+#, fuzzy
+#~ msgid "Phone number:"
+#~ msgstr "Numar de telefon: "
+
+#, fuzzy
+#~ msgid "Connect"
+#~ msgstr "Conectare..."
+
+#, fuzzy
+#~ msgid "Find / Search"
+#~ msgstr "Terminat cautare"
+
+#~ msgid "Delete"
+#~ msgstr "Sterge"
+
+#~ msgid "New"
+#~ msgstr "Nou"
+
+#, fuzzy
+#~ msgid "Previous tab"
+#~ msgstr "Precedent"
+
+#~ msgid "Save"
+#~ msgstr "Salvare"
+
+#, fuzzy
+#~ msgid "Previous record"
+#~ msgstr "Precedent"
+
+#, fuzzy
+#~ msgid "Next record"
+#~ msgstr "Urmator: Nici o inregistrare selectionata"
+
+#, fuzzy
+#~ msgid "Save and Close window"
+#~ msgstr "Inchde fereastra"
+
+#, fuzzy
+#~ msgid "Main Shortcuts"
+#~ msgstr "Scurtaturi"
+
+#, fuzzy
+#~ msgid "Cut selected text"
+#~ msgstr "Sterge intrarea selectionata"
+
+#, fuzzy
+#~ msgid "Copy selected text"
+#~ msgstr "Sterge intrarea selectionata"
+
+#, fuzzy
+#~ msgid "Paste selected text"
+#~ msgstr "Sterge intrarea selectionata"
+
+#, fuzzy
+#~ msgid "Auto-Complete text field"
+#~ msgstr "Sterge cimp"
+
+#, fuzzy
+#~ msgid "Edition Widgets"
+#~ msgstr "Document in cours de editare: "
+
+#, fuzzy
+#~ msgid "N_othing"
+#~ msgstr "Nimic"
+
+#~ msgid "<b>Fields to import</b>"
+#~ msgstr "<b>Cimpuri pentru import</b>"
+
+#, fuzzy
+#~ msgid "Server"
+#~ msgstr "Server:"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid "8069"
+#~ msgstr "8069"
+
+#, fuzzy
+#~ msgid "Secure connection:"
+#~ msgstr "Selectioneaza actiune"
+
+#, fuzzy
+#~ msgid "http://localhost:8069"
+#~ msgstr "localhost"
+
+#, fuzzy
+#~ msgid "Create a new database"
+#~ msgstr "Creare unei noi intrari"
+
+#, fuzzy
+#~ msgid "<b>Create a new database</b>"
+#~ msgstr "Creare resursa noua"
+
+#, fuzzy
+#~ msgid "Default language:"
+#~ msgstr "Valoare implicita:"
+
+#, fuzzy
+#~ msgid "Change password"
+#~ msgstr "Schimba radacina"
+
+#, fuzzy
+#~ msgid "New password:"
+#~ msgstr "Parola:"
+
+#, fuzzy
+#~ msgid "Old password:"
+#~ msgstr "Parola:"
+
+#~ msgid "Welcome to Tiny Entreprise Resource Planing !"
+#~ msgstr "Bine ati venit! - Tiny ERP "
+
+#~ msgid "You are already logged!"
+#~ msgstr "Sunteti deja conectact (logat)!"
+
+#~ msgid "you are logged out. ^l to login"
+#~ msgstr "Ati fost  deconectat. ^l pentru a se reconecta"
+
+#~ msgid ""
+#~ "^N New   ^S Save   ^D Delete   ^F Search   ^X Next   ^W Previous   ^R "
+#~ "Repeat"
+#~ msgstr ""
+#~ " N Nou   S Salveaza   D Sterge   F Cauta   X Urmator   W Precedent   R "
+#~ "Repeta"
+
+#~ msgid "^L to login"
+#~ msgstr "^L pentru a se conecta"
+
+#~ msgid "select field value:"
+#~ msgstr "sectioneaza valoare cimpului:"
+
+#~ msgid "No ressource selected!"
+#~ msgstr "Nici o resursa selectionata"
+
+#~ msgid "None resource selected"
+#~ msgstr "Nici o resursa selectionata"
+
+#~ msgid "Search error!"
+#~ msgstr "Erroare cautare!"
+
+#~ msgid "New root"
+#~ msgstr "Radacina noua"
+
+#~ msgid "Import Done"
+#~ msgstr "Importare facuta"
+
+#~ msgid "Import CSV File"
+#~ msgstr "Importation du fichier CSV"
+
+#~ msgid "View Create Error:"
+#~ msgstr "Eroare de creare view (visualizare):"
+
+#~ msgid "Value preference"
+#~ msgstr "Valoare preferata "
+
+#~ msgid "Unable to read ressource"
+#~ msgstr "Incapabil de a citi resursa"
+
+#~ msgid "This record did not exist !"
+#~ msgstr "Aceasta inregistrare nu exista!"
+
+#~ msgid "unknown tag: "
+#~ msgstr "Eticheta necunoscuta: "
+
+#~ msgid "New Window"
+#~ msgstr "Fereastra noua"
+
+#~ msgid "Search"
+#~ msgstr "Cauta"
+
+#~ msgid "Filter"
+#~ msgstr "Filtrare"
+
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid "Autosave"
+#~ msgstr "Salvare automata"
+
+#~ msgid "Plugin Manager"
+#~ msgstr "Gestionare plugin"
+
+#~ msgid "About Tiny ERP"
+#~ msgstr "Despre Tiny ERP"
+
+#~ msgid ""
+#~ "\n"
+#~ "Main Tiny ERP developers;\n"
+#~ "\n"
+#~ "Server Development:\n"
+#~ "Fabien Pinckaers\n"
+#~ "Gaetan de Menten\n"
+#~ "Antony Lesuisse\n"
+#~ "Jerome\n"
+#~ "\n"
+#~ "Client Development:\n"
+#~ "Fabien Pinckaers\n"
+#~ "\n"
+#~ "Web Client Development:\n"
+#~ "Nicolas Di Pietro\n"
+#~ "\n"
+#~ "...we still have to write the list of all others contributors..."
+#~ msgstr ""
+#~ "\n"
+#~ "Developeri aplicatiei Tiny ERP;\n"
+#~ "\n"
+#~ "Dezvolatare  server:\n"
+#~ "Fabien Pinckaers\n"
+#~ "Gaetan de Menten\n"
+#~ "Antony Lesuisse\n"
+#~ "Jerome\n"
+#~ "\n"
+#~ "Dezvoltare client:\n"
+#~ "Fabien Pinckaers\n"
+#~ "\n"
+#~ "Dezvoltare client web:\n"
+#~ "Nicolas Di Pietro\n"
+#~ "\n"
+#~ "...va trebui sa scriem o lista cu toti cei care au contribuit..."
+
+#~ msgid "Credits"
+#~ msgstr "Credite"
+
+#~ msgid "Create a new ressource"
+#~ msgstr "Crearea unei noi resurse"
+
+#~ msgid "Modify/Open this resource"
+#~ msgstr "Modifica/Deschide aceasta resursa"
+
+#~ msgid "All"
+#~ msgstr "Toate"
+
+#~ msgid "Order:"
+#~ msgstr "Sortare:"
+
+#~ msgid "ascendent"
+#~ msgstr "ascendenta"
+
+#~ msgid "descentdent"
+#~ msgstr "descendenta"
+
+#~ msgid "Action:"
+#~ msgstr "Actiune:"
+
+#~ msgid "Save to file (.CSV)"
+#~ msgstr "Sauveaza in fisierul (.CSV)"
+
+#~ msgid "Date of begining"
+#~ msgstr "Data de inceput"
+
+#~ msgid "Preferred Langage: "
+#~ msgstr "Limba: "
+
+#~ msgid ""
+#~ "English\n"
+#~ "French"
+#~ msgstr ""
+#~ "Engleza\n"
+#~ "Franceza"
+
+#~ msgid "All Tiny ERP users"
+#~ msgstr "Toti utilizatori Tiny ERP"
+
+#~ msgid "Only for you"
+#~ msgstr "Numai pentru dvs"
+
+#~ msgid "<b>Preference active for:</b>"
+#~ msgstr "<b>Preferinta activa pentru:</b>"
+
+#~ msgid ""
+#~ "\n"
+#~ "This is the tip of the day.\n"
+#~ "Put Important stuff in bold\n"
+#~ "We should start a database of tips (using fortune ?)"
+#~ msgstr ""
+#~ "\n"
+#~ "Aceasta este nota Zilei.\n"
+#~ "Pune cuvinte importante ingrosate\n"
+#~ "Trebuie sa creem o baza de date cu Notitele"
+
+#~ msgid "Tiny ERP - Import a CSV"
+#~ msgstr "Tiny ERP - Importa un CSV"
+
+#~ msgid "The CSV file must be encoded in UTF-8 !"
+#~ msgstr "Fisierul CSV trebuie codat UTF-8!"
+
+#~ msgid "Be carefull with the fields order."
+#~ msgstr "Atentie cum ordinea cimpurilor."
+
+#~ msgid "Number: "
+#~ msgstr "Numar: "
+
+#~ msgid "Description : "
+#~ msgstr "Descriere :"
+
+#~ msgid "Next: left click - Previous : right click on the image"
+#~ msgstr "Urmatort: buton sting - Precendent : buton drept pe imagine"

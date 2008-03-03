@@ -27,22 +27,6 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
 ##############################################################################
-"""
-Tiny ERP - Client
-Tiny ERP is an ERP+CRM program for small and medium businesses.
-
-The whole source code is distributed under the terms of the
-GNU Public Licence.
-
-(c) 2003-TODAY, Fabien Pinckaers - Tiny sprl
-"""
-__author__ = 'Fabien Pinckaers, <fp@tiny.be>'
-__version__ = "4.0.0"
-
-
-import __builtin__
-__builtin__.__dict__['tinyerp_version'] = __version__
-
 import sys, os
 import logging
 
@@ -58,8 +42,8 @@ sys.path.append(terp_path)
 import locale, gettext
 
 # end testing
-APP = 'terp'
-DIR = 'po'
+APP = 'ktiny'
+DIR = 'l10n'
 
 locale.setlocale(locale.LC_ALL, '')
 gettext.bindtextdomain(APP, DIR)
@@ -125,29 +109,27 @@ if imports['dbus']:
 			eval(f)
 
 ### Main application loop
-try:
-	app = QApplication( sys.argv )
+app = QApplication( sys.argv )
+translator = QTranslator()
+translator.load( 'l10n/' + QLocale.system().name() )
+app.installTranslator( translator )
 
-	# Create DBUS interface if dbus modules are available.
-	# Needs to go after creating QApplication
-	if imports['dbus']:
-		dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
-		sessionBus = dbus.SessionBus()
-		name = dbus.service.BusName("org.tinyerp.Interface", sessionBus )
-		example = TinyERPInterface('/TinyERP')
-	
-	win = modules.gui.main.MainWindow()
-	win.show()
+# Create DBUS interface if dbus modules are available.
+# Needs to go after creating QApplication
+if imports['dbus']:
+	dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+	sessionBus = dbus.SessionBus()
+	name = dbus.service.BusName("org.tinyerp.Interface", sessionBus )
+	example = TinyERPInterface('/TinyERP')
 
-	if options.options.rcexist:
-		if options.options['tip.autostart']:
-			dialog = common.TipOfTheDayDialog()
-			dialog.exec_()
-		else:
-			win.showLoginDialog()
-	app.exec_()
+win = modules.gui.main.MainWindow()
+win.show()
 
-except KeyboardInterrupt, e:
-	log = logging.getLogger('common')
-	log.info(_('Closing Tiny ERP, KeyboardInterrupt'))
+if options.options.rcexist:
+	if options.options['tip.autostart']:
+		dialog = common.TipOfTheDayDialog()
+		dialog.exec_()
+	else:
+		win.showLoginDialog()
+app.exec_()
 

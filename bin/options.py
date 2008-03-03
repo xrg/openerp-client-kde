@@ -62,7 +62,7 @@ class configmanager(object):
 			'support.support_id' : '',
 			'form.toolbar': True,
 		}
-		parser = optparse.OptionParser(version=_("Tiny ERP Client %s" % tinyerp_version))
+		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))
 		parser.add_option("-v", "--verbose", action="store_true", default=False, dest="verbose", help=_("enable basic debugging"))
 		parser.add_option("-d", "--log", dest="log_logger", default='', help=_("specify channels to log"))
