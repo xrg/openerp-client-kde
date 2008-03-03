@@ -424,6 +424,8 @@ class MainWindow(QMainWindow):
  		if not id[0]['action_id']:
 			return 
 		id = id[0]['action_id'][0]
+		if not id:
+			return
 
 		# Do not open the action if the id is the same as the menu id.
 		if id == self.menuId:
