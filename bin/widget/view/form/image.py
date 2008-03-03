@@ -59,8 +59,8 @@ class ImageFormWidget(AbstractFormWidget):
 		self.pushRemove.setIcon( QIcon( ':/images/images/trash.png' ) )
 		self.image = None
 
-		self.width = attrs.get( 'img_width', 300 )
-		self.height = attrs.get( 'img_height', 100 )
+		self.width = int( attrs.get( 'img_width', 300 ) )
+		self.height = int( attrs.get( 'img_height', 100 ) )
 		self.installPopupMenu( self.uiImage )
 		self.connect( self.pushLoad, SIGNAL('clicked()'), self.loadImage )
 		self.connect( self.pushSave, SIGNAL('clicked()'), self.saveImage )
