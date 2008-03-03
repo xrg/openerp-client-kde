@@ -52,7 +52,6 @@ class SearchDialog( QDialog ):
 		self.context.update(rpc.session.context)
 		self.allowMultipleSelection = sel_multi
 
-		#self.screen = Screen(model, view_type=['tree'], context=context, parent=self)
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( model ) )
 		self.screen.setViewTypes( ['tree'] )

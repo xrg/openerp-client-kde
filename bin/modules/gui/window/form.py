@@ -322,7 +322,7 @@ class form( QWidget ):
 		if not self.modified_save():
 			return
 		dom = self.domain
-		dialog = win_search.SearchDialog(self.model, domain=self.domain, context=self.context, parent=self)
+		dialog = SearchDialog(self.model, domain=self.domain, context=self.context, parent=self)
 		if dialog.exec_() == QDialog.Rejected:
 			return
 		self.screen.clear()
@@ -344,7 +344,7 @@ class form( QWidget ):
 			name2 = _('New document')
 			if value:
 				name2 = _('Editing document (id: %s)') % str(value)
-			msg = _('Record: %s / %s - %s') % ( name, str(count), name2 )
+			msg = _('Record: %(name)s / %(count)s - %(name2)s') % { 'name': name, 'count': str(count), 'name2': name2 }
 
 		self.statForm.setText( msg )
 
