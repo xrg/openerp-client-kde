@@ -40,7 +40,7 @@ class char(AbstractSearchWidget):
 		self.focusWidget = self.uiText
 
 	def getValue(self):
-		s = str(self.uiText.text())
+		s = unicode(self.uiText.text())
 		if s:
 			return [(self.name,self.attrs.get('comparator','ilike'),s)]
 		else:
