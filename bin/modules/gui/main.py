@@ -182,6 +182,13 @@ class MainWindow(QMainWindow):
 		dialog = FormDesigner(self)
 		dialog.show()
 
+	## @brief Closes the given tab smartly.
+	#
+	# First asks the widget in the tab if it can be closed and if so, it removes it.
+	# Note that the widget might ask the user some questions, for example when there's
+	# modified data in a form.
+	# It returns True if all tabs could be closed, False otherwise. If there are no 
+	# tabs always returns True.
 	def closeTab(self, tab):
 		wid = self.tabWidget.widget(tab)
 		if wid:
@@ -193,24 +200,9 @@ class MainWindow(QMainWindow):
 		self.updateEnabledActions()
 		return True
 		
-	## Closes the current tab smartly. 
-	#
-	# First asks the widget in the tab if it can be closed and if so, it removes it.
-	# Note that the widget might ask the user some questions, for example when there's
-	# modified data in a form.
-	# It returns True if all tabs could be closed, False otherwise. If there are no 
-	# tabs always returns True.
+	## @brief Closes the current tab smartly. 
 	def closeCurrentTab(self):
 		return self.closeTab( self.tabWidget.currentIndex() )
-		#wid = self.tabWidget.currentWidget()
-		#if wid:
-			## Ask the current tab if it can be closed
-			#if not wid.canClose():
-				#return False
-		#self.tabWidget.removeTab( self.tabWidget.currentIndex() ) 
-		#del wid
-		#self.updateEnabledActions()
-		#return True
 
 	def fullTextSearch(self):
 		win = win_full_text_search.FullTextSearchDialog(self)
@@ -429,6 +421,7 @@ class MainWindow(QMainWindow):
 		# Do not open the action if the id is the same as the menu id.
 		if id == self.menuId:
 			return
+		print "HOME ID: ", id
 		obj = service.LocalService('action.main')
 		obj.execute(id, {'window':self })
 
