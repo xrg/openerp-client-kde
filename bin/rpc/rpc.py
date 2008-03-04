@@ -70,6 +70,8 @@ class SocketConnection(Connection):
 			return unicode( result, 'utf-8' )
 		elif type(result)==type([]):
 			return map(self.convert, result)
+		elif type(result)==type(()):
+			return map(self.convert, result)
 		elif type(result)==type({}):
 			newres = {}
 			for i in result.keys():
