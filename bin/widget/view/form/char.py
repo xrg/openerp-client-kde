@@ -62,8 +62,8 @@ class CharFormWidget(AbstractFormWidget):
 			QMessageBox.information( self, '', _('You must save the resource before adding translations'))
 			return
 		dialog = TranslationDialog( self.model.id, self.model.resource, self.attrs['name'], unicode(self.widget.text()), self )
-		dialog.exec_()
-		self.widget.setText( dialog.result )
+		if dialog.exec_() == QDialog.Accepted:
+			self.widget.setText( dialog.result )
 
 	def store(self):
 		self.model.setValue( self.name, unicode(self.widget.text()) or False )

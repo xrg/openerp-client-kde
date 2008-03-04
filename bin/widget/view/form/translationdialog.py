@@ -74,6 +74,7 @@ class TranslationDialog( QDialog ):
 
 			if lang['code'] == self.currentCode:
 				uiText.setText( self.value )
+				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': unicode(uiText.text()) } )
 				continue
 
 			context = copy.copy(rpc.session.context)			
@@ -86,8 +87,12 @@ class TranslationDialog( QDialog ):
 	def slotAccept(self):
 		for lang in self.translations:
 			newValue = unicode(lang['widget'].text())
+			# Don't update on the server the current text. This would cause information
+			# on the server to be updated after the form has been read causing possible
+			# conflits.
 			if lang['code'] == self.currentCode:
 				self.result = newValue
+				continue
 			# Only update on the server if the value has changed
 			if newValue == lang['value']:
 				continue
