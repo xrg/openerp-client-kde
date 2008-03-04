@@ -401,15 +401,14 @@ class MainWindow(QMainWindow):
 		self.uiUserName.setText( id[0]['name'] or '' )
 		self.uiServerInformation.setText( "%s [%s]" % (rpc.session.url, rpc.session.databaseName) )
 
- 		if not id[0]['menu_id']:
-			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
- 			rpc.session.logout()
-			return 
-		
 		# Store the menuId so we ensure we don't open the menu twice when
 		# calling openHomeTab()
 		self.menuId = id[0]['menu_id'][0]
 
+ 		if not id[0]['menu_id']:
+			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
+ 			rpc.session.logout()
+			return 
 
 		obj = service.LocalService('action.main')
 		win = obj.execute(self.menuId, {'window':self })
