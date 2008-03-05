@@ -1,0 +1,164 @@
+<ui version="4.0" >
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>524</width>
+    <height>487</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QHBoxLayout" >
+    <item>
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QDockWidget" name="uiToolDock" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="windowTitle" >
+         <string/>
+        </property>
+        <widget class="QWidget" name="dockWidgetContents" />
+       </widget>
+      </item>
+      <item>
+       <widget class="QDockWidget" name="uiBrowserDock" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <widget class="QWidget" name="dockWidgetContents_2" />
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGraphicsView" name="uiView" />
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>524</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File" >
+    <property name="title" >
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpenImage" />
+    <addaction name="separator" />
+    <addaction name="actionLogin" />
+    <addaction name="actionOpenTemplate" />
+    <addaction name="actionSaveTemplate" />
+    <addaction name="separator" />
+    <addaction name="actionExit" />
+   </widget>
+   <widget class="QMenu" name="menu_Edit" >
+    <property name="title" >
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionToggleImageBoxes" />
+    <addaction name="actionToggleTemplateBoxes" />
+    <addaction name="actionToggleBinarized" />
+   </widget>
+   <addaction name="menu_File" />
+   <addaction name="menu_Edit" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" />
+  <widget class="QToolBar" name="toolBar" >
+   <property name="windowTitle" >
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea" >
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak" >
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionToggleImageBoxes" />
+   <addaction name="actionToggleTemplateBoxes" />
+   <addaction name="actionToggleBinarized" />
+  </widget>
+  <action name="actionOpenImage" >
+   <property name="text" >
+    <string>&amp;Open Image</string>
+   </property>
+  </action>
+  <action name="actionExit" >
+   <property name="text" >
+    <string>&amp;Exit</string>
+   </property>
+  </action>
+  <action name="actionToggleImageBoxes" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>&amp;Show Image Boxes</string>
+   </property>
+  </action>
+  <action name="actionLogin" >
+   <property name="text" >
+    <string>&amp;Login</string>
+   </property>
+  </action>
+  <action name="actionSaveTemplate" >
+   <property name="text" >
+    <string>&amp;Save Template</string>
+   </property>
+  </action>
+  <action name="actionOpenTemplate" >
+   <property name="text" >
+    <string>Open Template</string>
+   </property>
+  </action>
+  <action name="actionNewTemplate" >
+   <property name="text" >
+    <string>New Template</string>
+   </property>
+  </action>
+  <action name="actionToggleTemplateBoxes" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>true</bool>
+   </property>
+   <property name="text" >
+    <string>Show Template Boxes</string>
+   </property>
+  </action>
+  <action name="actionToggleBinarized" >
+   <property name="checkable" >
+    <bool>true</bool>
+   </property>
+   <property name="checked" >
+    <bool>false</bool>
+   </property>
+   <property name="text" >
+    <string>Show Binarized</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
