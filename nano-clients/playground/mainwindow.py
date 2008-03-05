@@ -4,6 +4,7 @@ from PyQt4.uic import *
 from ocr import *
 
 from template import *
+from opentemplatedialog import *
 
 #from modules.gui.login import *
 import rpc
@@ -248,7 +249,7 @@ class MainWindow(QMainWindow):
 
 	def setup(self):
 		initOcrSystem()	
-		self.scene.setDocument( 'c-0.tif' )
+		#self.scene.setDocument( 'c-0.tif' )
 
 		self.uiTool = ToolWidget( self.uiToolDock )
 		self.uiTool.show()
@@ -291,4 +292,6 @@ class MainWindow(QMainWindow):
 				rpc.session.call( '/object', 'execute', 'nan.template.box', 'create', values )
 
 	def openTemplate(self):
-		pass
+		dialog = OpenTemplateDialog(self)
+		if dialog.exec_() == QDialog.Rejected:
+			return
