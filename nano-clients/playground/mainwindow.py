@@ -100,7 +100,7 @@ class DocumentScene(QGraphicsScene):
 		self._selection = None
 		self._activeItem = None
 		self._imageBoxes = None
-		self._templateBoxes = None
+		self._templateBoxes = []
 		self._activeItemPen = QPen( QBrush( QColor('green') ), 1 )
 		self._activeItemBrush = QBrush( QColor( 0, 255, 0, 50 ) )
 		self._boxItemPen = QPen( QBrush( QColor( 'red' ) ), 1 )
@@ -109,14 +109,16 @@ class DocumentScene(QGraphicsScene):
 		self._selectionBrush = QBrush( QColor( 0, 0, 255, 50 ) )
 		self.state = None
 		self.ocr = None
+		self._image = None
+		self._oneBitImage = None
 
 	def setDocument(self, fileName):
-		self.clear()
+		self.clearImage()
 
 		self.ocr = Ocr()
 		self.ocr.scan( fileName )
 
-		self.image = self.addPixmap( QPixmap( fileName ) )
+		self._image = self.addPixmap( QPixmap( fileName ) )
 		self._imageBoxes = self.createItemGroup( [] )
 		for i in self.ocr.boxes:
 			rect = QGraphicsRectItem( i.box )
@@ -130,11 +132,13 @@ class DocumentScene(QGraphicsScene):
 		self._oneBitImage.setZValue( 1 )
 		self.setBinarizedVisible( self._binarizedVisible )
 
-		#self._templateBoxes = self.createItemGroup( [] )
 		self.setTemplateBoxesVisible( self._templateBoxesVisible )
 
 	def setTemplate(self, template):
+		self.clearTemplate()
 		self._template = template
+		for x in self._template.boxes:
+			self.addTemplateBox( x.rect )
 
 	def isEnabled(self):
 		if self._template and self.ocr:
@@ -147,6 +151,18 @@ class DocumentScene(QGraphicsScene):
 			self.destroyItemGroup( self._imageBoxes )
 		for x in self.items():
 			self.removeItem( x )
+
+	def clearTemplate(self):
+		for x in self._templateBoxes:
+			self.removeItem( x )
+
+	def clearImage(self):
+		if self._imageBoxes:
+			self.destroyItemGroup( self._imageBoxes )
+		if self._image:
+			self.removeItem( self._image )
+		if self._oneBitImage:
+			self.removeItem( self._oneBitImage )
 
 	def setImageBoxesVisible(self, value):
 		self._imageBoxesVisible = value
@@ -174,6 +190,16 @@ class DocumentScene(QGraphicsScene):
 		self._activeItem.setPen( self._activeItemPen )
 		self._activeItem.setBrush( self._activeItemBrush )
 		
+	def addTemplateBox(self, rect):
+		item = TemplateBoxItem( rect )
+		item.setPen( self._selectionPen )
+		item.setBrush( self._selectionBrush )
+		item.setZValue( 5 )
+		item.setData( 0, QVariant( 'TemplateBox' ) )
+		self._templateBoxes.append( item )
+		self.addItem( item )
+		return item
+
 	def mousePressEvent(self, event):
 		if not self.isEnabled():
 			return
@@ -185,14 +211,7 @@ class DocumentScene(QGraphicsScene):
 				return
 
 			rect = QRectF(event.scenePos().x(), event.scenePos().y(), 1, 1)
-			self._selection = TemplateBoxItem( rect )
-			self._selection.setPen( self._selectionPen )
-			self._selection.setBrush( self._selectionBrush )
-			#self._selection = self.addRect( rect, self._selectionPen, self._selectionBrush )
-			self._selection.setZValue( 5 )
-			self._selection.setData( 0, QVariant( 'TemplateBox' ) )
-			#self._templateBoxes.addToGroup( self._selection )
-			self.addItem( self._selection )
+			self._selection = self.addTemplateBox( rect )
 		elif self._mode == self.SelectionMode:
 			item = self.itemAt( event.scenePos() )
 			if item != self._activeItem:
@@ -295,3 +314,16 @@ class MainWindow(QMainWindow):
 		dialog = OpenTemplateDialog(self)
 		if dialog.exec_() == QDialog.Rejected:
 			return
+		#dialog.id = rpc.session.call( '/object', 'execute', 'nan.template', 'read', [dialog.id] )
+		model = dialog.group[dialog.id]
+		self._template = Template( model.value('name') )
+
+		fields = rpc.session.execute('/object', 'execute', 'nan.template.box', 'fields_get')
+		model.value('boxes').addFields( fields )
+		for x in model.value('boxes'):
+			box = TemplateBox()
+			box.rect = QRectF( x.value('x'), x.value('y'), x.value('width'), x.value('height') )
+			self._template.addBox( box )
+
+		self.scene.setTemplate(self._template)
+
