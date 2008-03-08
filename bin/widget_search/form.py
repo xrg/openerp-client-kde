@@ -187,7 +187,6 @@ class SearchFormWidget(AbstractSearchWidget):
 			QWidget.setFocus(self)
 
 	def clear(self):
-		print "Clear"
 		for x in self.widgets.values():
 			x.clear()
 
