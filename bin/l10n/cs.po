@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tinyerp-client\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-04 00:37+0100\n"
+"POT-Creation-Date: 2008-03-08 11:24+0100\n"
 "PO-Revision-Date: 2006-01-25 11:54+0100\n"
 "Last-Translator: Dan Horák <dan@danny.cz>\n"
 "Language-Team: Czech <dan@danny.cz>\n"
@@ -186,23 +186,23 @@ msgstr "Chyba formuláře, opravte červená pole!"
 msgid "Write Report to File"
 msgstr "Uložit sestavu do souboru"
 
-#: bin/rpc/rpc.py:169
+#: bin/rpc/rpc.py:171
 msgid "Connection refused !"
 msgstr "Spojení bylo odmítnuto."
 
-#: bin/rpc/rpc.py:176
+#: bin/rpc/rpc.py:178
 msgid "Application Error"
 msgstr "Chyba aplikace"
 
-#: bin/rpc/rpc.py:176
+#: bin/rpc/rpc.py:178
 msgid "View details"
 msgstr "Zobrazit detaily"
 
-#: bin/rpc/rpc.py:271
+#: bin/rpc/rpc.py:273
 msgid "Could not contact server!"
 msgstr ""
 
-#: bin/common/common.py:170 bin/common/common.py:198
+#: bin/common/common.py:169 bin/common/common.py:196
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr ""
 
@@ -218,12 +218,12 @@ msgstr "Žádný vybraný zdroj!"
 msgid "Unable to chroot: no tree resource selected"
 msgstr "Nelze změnit kořen: není vybrán stromový zdroj"
 
-#: bin/modules/gui/window/tree.py:210
+#: bin/modules/gui/window/tree.py:203
 #, fuzzy
 msgid "No item selected"
 msgstr "Žádný záznam není vybrán!"
 
-#: bin/modules/gui/window/tree.py:210
+#: bin/modules/gui/window/tree.py:203
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
@@ -444,9 +444,7 @@ msgid "No preference available for this resource !"
 msgstr "Pro tento zdroj není dostupné žádné nastavení!"
 
 #: bin/modules/gui/window/form.py:365
-msgid ""
-"This record has been modified\n"
-"do you want to save it?"
+msgid "This record has been modified do you want to save it?"
 msgstr ""
 
 #: bin/modules/gui/window/win_search.py:73
@@ -501,7 +499,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:517
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:509
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -572,7 +570,7 @@ msgstr ""
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:335
 msgid "Press Ctrl+O to login"
 msgstr "Stiskněte Ctrl+O pro přihlášení"
 
@@ -581,119 +579,119 @@ msgstr "Stiskněte Ctrl+O pro přihlášení"
 msgid "Close tab"
 msgstr "Zavřít"
 
-#: bin/modules/gui/main.py:274
+#: bin/modules/gui/main.py:266
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr " požadavek(-ky)"
 
-#: bin/modules/gui/main.py:276
+#: bin/modules/gui/main.py:268
 msgid "No request"
 msgstr "Žádný požadavek"
 
-#: bin/modules/gui/main.py:278
+#: bin/modules/gui/main.py:270
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr "Čekající požadavek(-ky)"
 
-#: bin/modules/gui/main.py:322 bin/modules/gui/main.py:324
+#: bin/modules/gui/main.py:314 bin/modules/gui/main.py:316
 #, fuzzy
 msgid "Connection error !"
 msgstr "Chyba ve spojení!"
 
-#: bin/modules/gui/main.py:322
+#: bin/modules/gui/main.py:314
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Chyba spojení!\n"
 "Nelze se připojit k serveru!"
 
-#: bin/modules/gui/main.py:324
+#: bin/modules/gui/main.py:316
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Chyba při spojení!\n"
 "Špatné uživatelské jméno nebo heslo!"
 
-#: bin/modules/gui/main.py:328
+#: bin/modules/gui/main.py:320
 msgid "Connection Error !"
 msgstr "Chyba ve spojení!"
 
-#: bin/modules/gui/main.py:342
+#: bin/modules/gui/main.py:334
 msgid "Not logged !"
 msgstr "Nepřihlášen!"
 
-#: bin/modules/gui/main.py:405
+#: bin/modules/gui/main.py:401
 msgid "Access denied"
 msgstr ""
 
-#: bin/modules/gui/main.py:405
+#: bin/modules/gui/main.py:401
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "Do you really want to quit ?"
 msgstr "Skutečně chcete program ukončit?"
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "Yes"
 msgstr "Ano"
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "No"
 msgstr "Ne"
 
-#: bin/modules/gui/main.py:504 bin/modules/gui/main.py:525
+#: bin/modules/gui/main.py:496 bin/modules/gui/main.py:517
 msgid "Delete a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:513 bin/modules/gui/main.py:519
+#: bin/modules/gui/main.py:505 bin/modules/gui/main.py:511
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:513
+#: bin/modules/gui/main.py:505
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:517
+#: bin/modules/gui/main.py:509
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:519
+#: bin/modules/gui/main.py:511
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:536
+#: bin/modules/gui/main.py:528
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:532
 msgid "Could not resotre database"
 msgstr ""
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:532
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:542
+#: bin/modules/gui/main.py:534
 msgid "Could not restore database"
 msgstr ""
 
-#: bin/modules/gui/main.py:545
+#: bin/modules/gui/main.py:537
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:560
+#: bin/modules/gui/main.py:552
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:563
+#: bin/modules/gui/main.py:555
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -720,31 +718,31 @@ msgstr "Vyberte akci"
 msgid "No action defined!"
 msgstr "Žádná akce není definována!"
 
-#: bin/options.py:66
+#: bin/options.py:59
 msgid "specify alternate config file"
 msgstr "zadejte alternativní konfigurační soubor"
 
-#: bin/options.py:67
+#: bin/options.py:60
 msgid "enable basic debugging"
 msgstr "povolit ladicí informace"
 
-#: bin/options.py:68
+#: bin/options.py:61
 msgid "specify channels to log"
 msgstr "zadejte kanály pro logování"
 
-#: bin/options.py:69
+#: bin/options.py:62
 msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 msgstr "určete logovací úroveň: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 
-#: bin/options.py:70
+#: bin/options.py:63
 msgid "specify the user login"
 msgstr "zadejte uživatelské jméno"
 
-#: bin/options.py:71
+#: bin/options.py:64
 msgid "specify the server port"
 msgstr "zadejte číslo portu síťového serveru"
 
-#: bin/options.py:72
+#: bin/options.py:65
 msgid "specify the server ip/name"
 msgstr "zadejte IP adresu serveru nebo DNS jméno"
 

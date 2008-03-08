@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-04 00:37+0100\n"
+"POT-Creation-Date: 2008-03-08 11:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,23 +185,23 @@ msgstr "Неверно заполнена форма, исправьте пол�
 msgid "Write Report to File"
 msgstr "Записать отчет в файл"
 
-#: bin/rpc/rpc.py:169
+#: bin/rpc/rpc.py:171
 msgid "Connection refused !"
 msgstr "Подключение завершено !"
 
-#: bin/rpc/rpc.py:176
+#: bin/rpc/rpc.py:178
 msgid "Application Error"
 msgstr "Ошибка приложения"
 
-#: bin/rpc/rpc.py:176
+#: bin/rpc/rpc.py:178
 msgid "View details"
 msgstr "Посмотреть подробности"
 
-#: bin/rpc/rpc.py:271
+#: bin/rpc/rpc.py:273
 msgid "Could not contact server!"
 msgstr ""
 
-#: bin/common/common.py:170 bin/common/common.py:198
+#: bin/common/common.py:169 bin/common/common.py:196
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr ""
 
@@ -217,12 +217,12 @@ msgstr "Объект не выбран!"
 msgid "Unable to chroot: no tree resource selected"
 msgstr "Невозможно изменить корневой элемент: не выбрано дерево"
 
-#: bin/modules/gui/window/tree.py:210
+#: bin/modules/gui/window/tree.py:203
 #, fuzzy
 msgid "No item selected"
 msgstr "Запись не выбрана!"
 
-#: bin/modules/gui/window/tree.py:210
+#: bin/modules/gui/window/tree.py:203
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
@@ -445,9 +445,7 @@ msgid "No preference available for this resource !"
 msgstr "Не доступно ни каких установок для этого объекта !"
 
 #: bin/modules/gui/window/form.py:365
-msgid ""
-"This record has been modified\n"
-"do you want to save it?"
+msgid "This record has been modified do you want to save it?"
 msgstr ""
 
 #: bin/modules/gui/window/win_search.py:73
@@ -502,7 +500,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:517
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:509
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -573,7 +571,7 @@ msgstr ""
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:335
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -582,122 +580,122 @@ msgstr ""
 msgid "Close tab"
 msgstr "Закрыть"
 
-#: bin/modules/gui/main.py:274
+#: bin/modules/gui/main.py:266
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr "запрос(ы)"
 
-#: bin/modules/gui/main.py:276
+#: bin/modules/gui/main.py:268
 msgid "No request"
 msgstr "Нет запроса"
 
-#: bin/modules/gui/main.py:278
+#: bin/modules/gui/main.py:270
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr "запрос(ы) в ожидании"
 
-#: bin/modules/gui/main.py:322 bin/modules/gui/main.py:324
+#: bin/modules/gui/main.py:314 bin/modules/gui/main.py:316
 #, fuzzy
 msgid "Connection error !"
 msgstr "Ошибка подключения!"
 
-#: bin/modules/gui/main.py:322
+#: bin/modules/gui/main.py:314
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Ошибка подключения !\n"
 "Невозможно подключиться к серверу !"
 
-#: bin/modules/gui/main.py:324
+#: bin/modules/gui/main.py:316
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Ошибка подключения !\n"
 "Неправильное имя пользователя или пароль !"
 
-#: bin/modules/gui/main.py:328
+#: bin/modules/gui/main.py:320
 msgid "Connection Error !"
 msgstr "Ошибка подключения!"
 
-#: bin/modules/gui/main.py:342
+#: bin/modules/gui/main.py:334
 msgid "Not logged !"
 msgstr "Не подключен."
 
-#: bin/modules/gui/main.py:405
+#: bin/modules/gui/main.py:401
 msgid "Access denied"
 msgstr ""
 
-#: bin/modules/gui/main.py:405
+#: bin/modules/gui/main.py:401
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "Do you really want to quit ?"
 msgstr "Вы действительно хотите выйти?"
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "Yes"
 msgstr "Да"
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:429
 msgid "No"
 msgstr "Нет"
 
-#: bin/modules/gui/main.py:504 bin/modules/gui/main.py:525
+#: bin/modules/gui/main.py:496 bin/modules/gui/main.py:517
 #, fuzzy
 msgid "Delete a database"
 msgstr "Выберете дату"
 
-#: bin/modules/gui/main.py:513 bin/modules/gui/main.py:519
+#: bin/modules/gui/main.py:505 bin/modules/gui/main.py:511
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:513
+#: bin/modules/gui/main.py:505
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:517
+#: bin/modules/gui/main.py:509
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:519
+#: bin/modules/gui/main.py:511
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:536
+#: bin/modules/gui/main.py:528
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:532
 #, fuzzy
 msgid "Could not resotre database"
 msgstr "Выберете дату"
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:532
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:542
+#: bin/modules/gui/main.py:534
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Выберете дату"
 
-#: bin/modules/gui/main.py:545
+#: bin/modules/gui/main.py:537
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:560
+#: bin/modules/gui/main.py:552
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:563
+#: bin/modules/gui/main.py:555
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -724,32 +722,32 @@ msgstr "Выберете действие"
 msgid "No action defined!"
 msgstr "Ни какого действия не определено!"
 
-#: bin/options.py:66
+#: bin/options.py:59
 msgid "specify alternate config file"
 msgstr "укажите другой конфигурационный файл"
 
-#: bin/options.py:67
+#: bin/options.py:60
 msgid "enable basic debugging"
 msgstr "включить отладку"
 
-#: bin/options.py:68
+#: bin/options.py:61
 msgid "specify channels to log"
 msgstr "определите что записывать в лог файл"
 
-#: bin/options.py:69
+#: bin/options.py:62
 msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 msgstr ""
 "определите тип регистрируемых событий: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 
-#: bin/options.py:70
+#: bin/options.py:63
 msgid "specify the user login"
 msgstr "укажите логин пользователя"
 
-#: bin/options.py:71
+#: bin/options.py:64
 msgid "specify the server port"
 msgstr "укажите порт для подключения к серверу"
 
-#: bin/options.py:72
+#: bin/options.py:65
 msgid "specify the server ip/name"
 msgstr "укажите имя сервера или ip адрес"
 
