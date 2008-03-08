@@ -66,10 +66,11 @@ class Chart( QWidget ):
 
 		color = str(self.palette().color( self.backgroundRole() ).name())
 		self._figure = Figure(figsize=(800,600), dpi=100, facecolor=color)
-		self._subplot = self._figure.add_subplot(111,axisbg='#eeeeee')
+		self._subplot = self._figure.add_subplot(111,axisbg='#eeeeee', alpha=0)
 		self._canvas = FigureCanvas(self._figure)
 
 		layout = QHBoxLayout( self  )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self._canvas )
 
 		if attrs.get('type', 'pie')=='bar':

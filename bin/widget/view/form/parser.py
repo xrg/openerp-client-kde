@@ -137,9 +137,8 @@ class FormParser(AbstractParser):
 
 			elif node.localName =='vpaned':
 				widget = QWidget( container )
-				layout = QVBoxLayout(  )
+				layout = QVBoxLayout( widget )
 				layout.setContentsMargins( 0, 0, 0, 0 )
-				widget.setLayout( layout )
 				container.addWidget(widget, attrs)
 				_, on_write = self.parse( node, fields, layout, container)
 
