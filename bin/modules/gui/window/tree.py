@@ -48,7 +48,6 @@ class tree( QWidget ):
 		
 		self.context=context
 		self.model = view['model']
-		self.domain2 = domain
 		if view.get('field_parent', False):
 			self.domain = []
 		else:
@@ -90,7 +89,8 @@ class tree( QWidget ):
 		self.listModel.setShowBackgroundColor( False )
 
 		self.group = widget.model.group.ModelRecordGroup( self.model, self.fields, context = self.context )
-		self.loadGroup()
+		self.group.setDomain( domain )
+		self.group.update()
 		if self.toolbar:
 			self.listModel.setModelGroup( self.group )
 		else:
@@ -122,10 +122,6 @@ class tree( QWidget ):
 			self.updateTree()
 
 
-	def loadGroup(self):
-		ids = rpc.session.execute('/object', 'execute', self.model, 'search', self.domain2)
-		self.group.load( ids )
-
 	def updateTree(self):
 		item = self.uiList.currentIndex()
 		if not item.isValid():
@@ -142,8 +138,7 @@ class tree( QWidget ):
 		self.updateTree()
 
 	def reload(self):
-		self.group.clear()
-		self.loadGroup()
+		self.group.update()
 		self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
 		self.updateTree()
 
@@ -169,19 +164,6 @@ class tree( QWidget ):
 		if id:
 			self.executeAction( 'tree_but_open', id )
 
-	# TODO: improve with domain expr
-	# TODO: Look at what it does, I don't find any action in the GTK client
-	# for this...
-	def sig_chroot(self):
-		ids = self.ids()
-		if len(ids) and self.domain:
-			id = ids[0]
-			datas = {'domain_field': self.domain[0][0], 'domain_value': id[0], 'res_id':id[0]}
-			obj = service.LocalService('gui.window')
-			obj.create(self.view, self.model, id[0], (self.domain[0],id[0]) )
-		else:
-			QMessageBox.information( self, '', _('Unable to chroot: no tree resource selected'))
-
 	def editCurrentItem(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
 		if id:
@@ -189,13 +171,6 @@ class tree( QWidget ):
 			obj.create(None, self.model, id, self.domain)
 		else:
 			QMessageBox.information(self, '', _('No resource selected!'))
-
-	def domain_id_get(self, tree=False):
-		filter = []
-		if self.domain and self.view.get('field_parent', False):
-			filter = self.domain
-		res = rpc.session.execute('/object', 'execute', self.model, 'search', filter)
-		return res
 
 	def removeShortcut(self):
 		id = self.uiShortcuts.currentShortcutId()
@@ -219,13 +194,6 @@ class tree( QWidget ):
 		id = self.uiShortcuts.currentMenuId()
 		if id!=None:
 			self.executeAction('tree_but_open', id)
-
-
-	def id(self):
-		try:
-			return self.search[self.search_pos]
-		except IndexError:
-			return None
 
 	# There's no reason why a menu can't be closed, is it?
 	def canClose(self):

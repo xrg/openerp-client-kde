@@ -130,12 +130,10 @@ class TreeModel(QAbstractItemModel):
 	def updateVisibleFields(self):
 		if not self.visibleFields:
 			self.visibleFields = self.fields.keys()[:]
-		#self.visibleFields = self.fields.keys()[:]
 		if self.icon in self.visibleFields:
 			del self.visibleFields[self.visibleFields.index(self.icon)]
 		if self.child in self.visibleFields:
 			del self.visibleFields[self.visibleFields.index(self.child)]
-		#self.visibleFields.sort()
 
 	## @brief Set the model to the specified mode
 	#
@@ -350,6 +348,9 @@ class TreeModel(QAbstractItemModel):
 
 	# Plain virtual functions from QAbstractItemModel
 
+	def sort(self, column, order):
+		self.group.sort( self.field( column ), order )
+
 	def headerData(self, section, orientation, role):
 		if orientation == Qt.Vertical:
 			return QVariant()
@@ -359,7 +360,7 @@ class TreeModel(QAbstractItemModel):
 		else:
 			return QVariant()
 
-	## @brief Returns the field name for the given column and group
+	## @brief Returns the field name for the given column 
 	def field(self, column):
 		if column >= len(self.visibleFields):
 			return None

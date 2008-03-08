@@ -31,6 +31,8 @@ import rpc
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+# TODO: Use TreeModel
+
 ## @brief The ShortcutsListWidget class handles a list of shortcuts, provided by 
 # 'ir.ui.view_sc' model.
 class ShortcutsListWidget(QTreeWidget):

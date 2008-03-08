@@ -72,10 +72,12 @@ class ActionFormWidget(AbstractFormWidget):
 			if self.action['view_type']=='form':
 				mode = (self.action['view_mode'] or 'form,tree').split(',')
 				#self.screen = Screen(self.action['res_model'], view_type=mode, context=self.context, view_ids = view_id, domain=self.domain, parent = self )
-				modelGroup = ModelRecordGroup( self.action['res_model'], context=self.context )
+				self.modelGroup = ModelRecordGroup( self.action['res_model'], context=self.context )
+				self.modelGroup.setDomain( self.domain )
+				self.modelGroup.update()
 				self.screen = Screen( self )
-				self.screen.setModelGroup( modelGroup )
-				self.screen.setDomain( self.domain )
+				self.screen.setModelGroup( self.modelGroup )
+				#self.screen.setDomain( self.domain )
 				self.screen.setEmbedded( True )
 				if view_id:
 					self.screen.setViewIds( view_id )
@@ -83,9 +85,9 @@ class ActionFormWidget(AbstractFormWidget):
 					self.screen.setViewTypes( mode )
 				loadUi( common.uiPath('paned.ui'), self  )
 				self.group.setTitle( QString( attrs['string'] or "" )) #ANGEL TODO:  or   self.screen.current_view.title
-				layout = QVBoxLayout( )
+				layout = QVBoxLayout( self.group )
+				layout.setContentsMargins( 0, 0, 0 , 0 )
 				layout.addWidget( self.screen )
-				self.group.setLayout( layout )
 
 				self.connect( self.pushSearch, SIGNAL( 'clicked()' ), self.slotSearch )
 				self.connect( self.pushSwitchView, SIGNAL( 'clicked()'), self.slotSwitch )
@@ -117,7 +119,5 @@ class ActionFormWidget(AbstractFormWidget):
 		self.screen.current_view.store()
 
 	def showValue(self):
-		res_id = rpc.session.execute('/object', 'execute', self.action['res_model'], 'search', self.domain)
-		self.screen.clear()
-		self.screen.load(res_id)
+		self.modelGroup.update()
 

@@ -47,6 +47,7 @@ class ViewTree( AbstractView ):
 
 		self.widget = QTreeView( self )
 		#self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
+		self.widget.setSortingEnabled(True)
 		self.setAllowMultipleSelection(True)
 		self.widget.setAlternatingRowColors( True )
 
@@ -130,147 +131,10 @@ class ViewTree( AbstractView ):
 
 	def setReadOnly(self, value):
 		self._readOnly = value
+		# We only allow changing sort order when the view is read only
+		self.widget.setSortingEnabled( value )
 		if self._readOnly:
 			self.widget.setEditTriggers( QAbstractItemView.NoEditTriggers ) 
 		else:
 			self.widget.setEditTriggers( QAbstractItemView.AllEditTriggers )
-
-class AbstractItem( QStandardItem ):
-	def __init__( self, fieldName, attrs ):
-		QStandardItem.__init__( self  )
-		self.fieldName = fieldName
-		self.attrs = attrs
-
-	# setValue, is similar to setData, but it's used when the model
-	# is filled from the server. That is, object are python types, not
-	# Qt type. This means that value, has to be converted to a QVariant
-	# so most other QStandardItems will reimplement this method but
-	# not setData. 
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole )
-		else:
-			self.setData( QVariant(value), Qt.DisplayRole )
-
-	# The value() function is very similar to the setValue one. It
-	# returns the value that we need to store in the RecordModel. 
-	# This means that it doesn't return a QVariant but a Python type
-	# Most subclasses will reimplement this method as the default one
-	# returns a Python String
-	def value(self):
-		return unicode(self.data(Qt.DisplayRole).toString())
-
-class StringItem(AbstractItem):
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		else:
-			self.setData( QVariant( value ), Qt.DisplayRole  )
-
-class BooleanItem(AbstractItem):
-	def setValue( self, value ):
-		self.setData( QVariant(value), Qt.DisplayRole )
-
-	def value(self):
-		return self.data( Qt.DisplayRole ).toBool()
-
-class IntegerItem(AbstractItem):
-	def __init__( self, fieldName, attrs ):
-		AbstractItem.__init__( self, fieldName, attrs )
-		self.setTextAlignment( Qt.AlignRight )
-
-	def value(self):
-		return self.data(Qt.DisplayRole).toInt()[0]
-
-class FloatItem(AbstractItem):
-	def __init__( self, fieldName, attrs ):
-		AbstractItem.__init__( self, fieldName, attrs )
-		self.setTextAlignment( Qt.AlignRight )
-
-	def value(self):
-		return self.data(Qt.DisplayRole).toDouble()[0]
-
-class DateItem(AbstractItem):
-	serverFormat = 'yyyy-MM-dd'
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		else:
-			self.setData( QVariant(QDate.fromString( str(value), self.serverFormat )), Qt.DisplayRole  )
-	
-
-class DateTimeItem(AbstractItem):
-	serverFormat = 'yyyy-MM-dd hh:mm:ss'
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		else:
-			self.setData( QVariant(QDateTime.fromString( str(value), self.serverFormat )), Qt.DisplayRole  )
-
-class TimeItem(AbstractItem):
-	serverFormat = 'hh:mm:ss'
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		else:
-			self.setData( QVariant(QTime.fromString( str(value), self.serverFormat )), Qt.DisplayRole  )
-
-class ManyToOneItem(AbstractItem):
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		else:
-			self.setData( QVariant(value), Qt.DisplayRole  )
-
-class OneToManyItem(AbstractItem):
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		self.setData( QVariant('( %s )' % len(value.models) ), Qt.DisplayRole )
-		#elif "O2MField" in str(type(value)):
-			#self.setData( QVariant('( %s )' % len(value.get())), Qt.DisplayRole  )
-		#else:
-			#self.setData( QVariant('( %s )' % len(value)), Qt.DisplayRole  )
-
-class ManyToManyItem(AbstractItem):
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole  )
-		else:
-			self.setData( QVariant('( %s )' % len(value)), Qt.DisplayRole  )
-	
-class SelectionItem( AbstractItem ):
-	def setValue( self, value ):
-		if value == False:
-			self.setData( QVariant(), Qt.DisplayRole )
-		else:
-			# selection contains the list of elements for the
-			# combo box
-			list = self.attrs.get('selection',[])
-			self.setData( QVariant(), Qt.DisplayRole )
-			for x in list:
-				if x[0] == value:
-					self.setData( QVariant(x[1]), Qt.DisplayRole )
-					break
-
-ItemTypes = { 	
-	'char' : StringItem,
-	'many2one' : ManyToOneItem,
-	'one2many' : OneToManyItem,
-	'many2many' : ManyToManyItem,
-	'selection' : SelectionItem,
-	'float' : FloatItem,
-	'int' : IntegerItem,
-	'date' : DateItem,
-	'datetime' : DateTimeItem,
-	'time' : TimeItem,
-	'boolean' : BooleanItem
-}	
-
-class ItemFactory(object):
-	@staticmethod
-	def create(type, name, attributes):
-		c = ItemTypes.get( type, ItemTypes['char'] )( name, attributes )
-		c.id = None
-		return c
 

@@ -92,45 +92,19 @@ class Screen(QScrollArea):
 
 		self._embedded = True
 
-		#self.create_new = create_new
-		#self.name = model_name
-		#self.name = modelGroup.resource
-		#self.domain = domain
-		self.domain = []
-		#self.views_preload = views_preload
+		#self._domain = []
 		self.views_preload = {}
-		#self.resource = model_name
-		#self.resource = modelGroup.resource
-		#self.rpc = RPCProxy(model_name)
 		self.rpc = None
-		#self.context = context
-		#self.context.update(rpc.session.context)
-		#self.context = modelGroup.context
 		self.views = []
 		self.fields = {}
-		#self.view_ids = view_ids
 		self._viewIds = []
 		self._viewTypes = ['form','tree']
 		self.models = None
-		#self.setModels( ModelRecordGroup(model_name, self.fields, context=self.context) )
-		#self.setModels( modelGroup )
-		#self.current_model = None
 		self.__current_model = None
 
 		self.__current_view = 0
 
-		#if view_type:
-			#self.view_to_load = view_type[1:]
-			#view_id = False
-			#if view_ids:
-				#view_id = view_ids.pop(0)
-			#view = self.add_view_id(view_id, view_type[0])
-			#self.setView(view)
-
-		#self.display()
-
 		self._addAfterNew = False
-		self._domain = []
 
 	def setPreloadedViews(self, views):
 		self.views_preload = views
@@ -165,11 +139,11 @@ class Screen(QScrollArea):
 	def addAfterNew(self):
 		return self._addAfterNew
 
-	def setDomain(self, value):
-		self._domain = value
-		
-	def domain(self):
-		return self._domain
+	#def setDomain(self, value):
+		#self._domain = value
+
+	#def domain(self):
+		#return self._domain
 
 	## @brief Sets whether the screen is embedded.
 	#
@@ -196,7 +170,7 @@ class Screen(QScrollArea):
 			self.searchForm.show()
 		else:
 			self.searchForm.hide()
-		
+
 	def triggerAction(self):
 		if not self.id_get():
 			return
@@ -235,11 +209,9 @@ class Screen(QScrollArea):
 	# Searches with the current parameters of the search form and loads the
 	# models that fit the criteria.
 	def search( self ):
-		value = self.searchForm.getValue( self.domain )
-		# TODO: Allow setting limit and offset??
-		ids = rpc.session.execute('/object', 'execute', self.resource, 'search', value)
-		self.clear()
-		self.load( ids )
+		value = self.searchForm.getValue()
+		self.models.setFilter( value )
+		self.models.update()
 
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, id):
@@ -424,7 +396,8 @@ class Screen(QScrollArea):
 		if self.current_view and self.current_view.view_type == 'tree' \
 				and self.current_view.isReadOnly():
 			self.switchView()
-		model = self.models.newModel(default, self.domain, self.context)
+		#model = self.models.newModel(default, self._domain, self.context)
+		model = self.models.newModel(default, self.models.domain(), self.context)
 
 		if (not self.current_view) or self.current_view.model_add_new or self._addAfterNew:
 			self.models.addModel(model, self.new_model_position())

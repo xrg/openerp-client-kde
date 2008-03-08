@@ -67,9 +67,9 @@ class form( QWidget ):
 
 		if not view_type:
 			view_type = ['form','tree']
-		else:
-			if view_type[0] in ['tree','graph'] and not res_id:
-				res_id = rpc.session.execute('/object', 'execute', model, 'search', domain)
+		#else:
+			#if view_type[0] in ['tree','graph'] and not res_id:
+				#res_id = rpc.session.execute('/object', 'execute', model, 'search', domain)
 
 		fields = {}
 		self.model = model
@@ -79,10 +79,11 @@ class form( QWidget ):
 		self.context = context
 
 		self.group = ModelRecordGroup( self.model, context=self.context )
-		#self.screen = Screen(self.model, view_type=view_type, context=self.context, view_ids=view_ids, domain=domain, parent=self)
+		self.group.setDomain( domain )
+
 		self.screen = Screen(self)
 		self.screen.setModelGroup( self.group )
-		self.screen.setDomain( domain )
+		#self.screen.setDomain( domain )
 		self.screen.setEmbedded( False )
 		# Remove ids with False value
 		view_ids = [x for x in view_ids if x]
@@ -127,7 +128,7 @@ class form( QWidget ):
 		if res_id:
 			if isinstance(res_id, int):
 				res_id = [res_id]
-			self.screen.load(res_id)
+			#self.screen.load(res_id)
 		else:
 			if len(view_type) and view_type[0]=='form':
 				self.sig_new(autosave=False)
@@ -362,7 +363,7 @@ class form( QWidget ):
 
 	def modified_save(self):
 		if self.screen.isModified():
-			value = QMessageBox.question(self, _('Question'), _('This record has been modified\ndo you want to save it?'),QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel)
+			value = QMessageBox.question(self, _('Question'), _('This record has been modified do you want to save it?'),QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel)
 			if value == QMessageBox.Save:
 				return self.sig_save()
 			elif value == QMessageBox.Discard:

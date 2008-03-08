@@ -33,6 +33,7 @@ from record import ModelRecord
 import field
 
 from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 
 try:
 	a = set()
@@ -99,6 +100,13 @@ class ModelRecordGroup(QObject):
 		self.mfields_load(self.fields.keys())
 
 		self.models = ModelList(self)
+		
+		self.sortedField = None
+		self.sortedRelatedIds = []
+		self.sortedOrder = None
+		self.updated = False
+		self._domain = []
+		self._filter = []
 
 		self.load(ids)
 		self.model_removed = []
@@ -205,7 +213,37 @@ class ModelRecordGroup(QObject):
 		values = self.rpc.read(ids, self.fields.keys(), c)
 		if not values:
 			return False
-		self.load_for(values)
+		if not self.models:
+			# If nothing else was loaded, we sort the fields in the order given
+			# by 'ids' or 'self.sortedRedlatedIds' when appropiate.
+			if self.sortedRelatedIds:
+				# This treats the case when the sorted field is a many2one
+				nulls = []
+				for y in values:
+					if type(y[self.sortedField]) != list:
+						nulls.append( y )
+				vals = []
+				for x in self.sortedRelatedIds:
+					for y in values:
+						value = y[self.sortedField]
+						if type(value) == list and y[self.sortedField][0] == x:
+							vals.append( y )
+							# Don't break, there can be duplicates
+				if self.sortedOrder == Qt.AscendingOrder:
+					vals = nulls + vals
+				else:
+					vals = vals + nulls
+			else:
+				# This treats the case when the sorted field is a non-relation field
+				vals = []
+				for x in ids:
+					for y in values:
+						if y['id'] == x:
+							vals.append( y )
+							break
+		else:
+			vals = values
+		self.load_for(vals)
 		return True
 
 	## @brief Clears the list of models. It doesn't remove them.
@@ -343,5 +381,85 @@ class ModelRecordGroup(QObject):
 				return model
 
 	__getitem__ = modelById
+
+	def setDomain(self, value):
+		self._domain = value
+	
+	def domain(self):
+		return self._domain
+
+	def setFilter(self, value):
+		self._filter = value
+	
+	def filter(self):
+		return self._filter
+
+	## @brief Reload the model group with current selected sort field, order, domain and filter
+	def update(self):
+		#f = self.sortedField
+		#self.sortedField = None
+		## Make it reload again
+		self.updated = False
+		self.sort( self.sortedField, self.sortedOrder )
+
+	## @brief Sorts the model by the given field name.
+	def sort(self, field, order):
+		if self.updated and field == self.sortedField and order == self.sortedOrder:
+			return
+		if not field in self.fields.keys():
+			# If the field doesn't exist use default sorting. Usually this will
+			# happen when we update and haven't selected a field to sort by.
+			ids = self.rpc.search( self._domain + self._filter )
+			self.sortedRelatedIds = []
+		else:
+			type = self.fields[field]['type']
+			if type == 'one2many' or type == 'many2many':
+				# We're not able to sort 2many fields
+				return
+
+			# A lot of the work done here should be done on the server by core TinyERP
+			# functions. This means this runs slower than it should due to network and
+			# serialization latency. Even more, we lack some information to make it 
+			# work well.
+
+			if type == 'many2one':
+				# In the many2one case, we sort all records in the related table 
+				# There's a bug here, as we consider 'name' the field that will be shown.
+				# in some cases this field doesn't exist.
+				orderby = 'name '
+				if order == Qt.AscendingOrder:
+					orderby += 'ASC'
+				else:
+					orderby += 'DESC'
+				try:
+					self.sortedRelatedIds = rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0, orderby )
+				except:
+					# Maybe name field doesn't exist :(
+					return
+					
+				ids = self.rpc.search( self._domain + self._filter )
+			else:
+				orderby = field + " "
+				if order == Qt.AscendingOrder:
+					orderby += "ASC"
+				else:
+					orderby += "DESC"
+				try:
+					ids = self.rpc.search( self._domain + self._filter, 0, 0, orderby )
+				except:
+					# In functional fields not stored in the database this will
+					# cause an exceptioin :(
+					return 
+				self.sortedRelatedIds = []
+
+		# We set this fields in the end in case some exceptions where fired 
+		# in previous steps.
+		self.sortedField = field
+		self.sortedOrder = order
+		self.updated = True
+
+		self.clear()
+		# The load function will be in charge of loading and sorting elements
+		self.load( ids )
 
 # vim:noexpandtab:

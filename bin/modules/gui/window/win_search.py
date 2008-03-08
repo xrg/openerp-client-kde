@@ -47,13 +47,15 @@ class SearchDialog( QDialog ):
 		self.setModal( True )
 
 		self.result=None
-		self.domain =domain
 		self.context = context
 		self.context.update(rpc.session.context)
 		self.allowMultipleSelection = sel_multi
 
+		self.modelGroup = ModelRecordGroup( model )
+		self.modelGroup.setDomain( domain )
+
 		self.screen = Screen( self )
-		self.screen.setModelGroup( ModelRecordGroup( model ) )
+		self.screen.setModelGroup( self.modelGroup )
 		self.screen.setViewTypes( ['tree'] )
 
 		self.view = self.screen.current_view
@@ -80,13 +82,6 @@ class SearchDialog( QDialog ):
 			self.reload()
 			model = self.view.widget.model()
 
-		self.old_search = None
-		self.old_offset = self.old_limit = None
-		if self.ids:
-			self.old_search = []
-			self.old_limit = self.limit.value()
-			self.old_offset = self.offset.value()
-
 		# TODO: Use Designer Widget Promotion instead
 		layout = self.layout()
 		layout.insertWidget(0, self.screen )
@@ -99,22 +94,22 @@ class SearchDialog( QDialog ):
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.advance, SIGNAL( "stateChanged(int)" ), self.slotAdvanceChecked )
 
-	
+
 	def find(self):
-		limit = self.limit.value()
-		offset = self.offset.value()
-		
-		self.old_offset = offset
-		self.old_limit = limit
-		v = self.form.getValue( self.domain )
-		self.ids = rpc.session.execute('/object', 'execute', self.model_name, 'search', v, offset, limit)
+		#limit = self.limit.value()
+		#offset = self.offset.value()
+
+		#v = self.form.getValue(  )
+		#self.ids = rpc.session.execute('/object', 'execute', self.model_name, 'search', v, offset, limit)
+		#self.reload()
+		self.modelGroup.setFilter( self.form.getValue() )
 		self.reload()
-		self.old_search = self.form.value
 		self.setWindowTitle( self.title_results % len( self.ids ))
 
 	def reload(self):
-		self.screen.clear()
-		self.screen.load(self.ids)
+		#self.screen.clear()
+		#self.screen.load(self.ids)
+		self.modelGroup.update()
 		if self.allowMultipleSelection:
 			self.view.widget.selectAll()
 

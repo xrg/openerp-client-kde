@@ -48,19 +48,12 @@ class configmanager(object):
 			'path.ui': os.path.join(sys.prefix, 'share/ktiny/ui'), 
 			'tip.autostart': False,
 			'tip.position': 0,
-			'form.autosave': False,
 			'printer.preview': True,
-			'printer.softpath': 'none',
-			'printer.softpath_html': 'none',
-			'printer.path': 'none',
 			'logging.logger': '',
 			'logging.level': 'DEBUG',
 			'logging.output': 'stdout',
 			'logging.verbose': False,
 			'client.default_path': os.path.expanduser('~'),
-			'support.recipient': 'support@tiny.be',
-			'support.support_id' : '',
-			'form.toolbar': True,
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))

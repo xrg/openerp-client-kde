@@ -164,7 +164,6 @@ class SupportDialog(QDialog):
 		QDialog.__init__(self, parent)
 		loadUi( uiPath('support.ui'), self )
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.send )
-		self.uiSupportContract.setText( options['support.support_id'] )
 
 	def send(self):
 		QMessageBox.information(self, '', _('Sending support requests is not available with the TinyERP KDE client'))
@@ -189,7 +188,6 @@ class ErrorDialog( QDialog ):
 		QDialog.__init__(self, parent)
 		loadUi( uiPath('error.ui'), self )
 		self.connect( self.pushSend, SIGNAL('clicked()'), self.send )
-		self.uiSupportContract.setText( options['support.support_id'] )
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
