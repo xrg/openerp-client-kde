@@ -34,13 +34,13 @@
 
    <listitem>
     <para>
-     <literal>bin/options.py</literal>. Handles command line parameters and informationstored on user <literal>.terprc</literal> file.
+     <literal>bin/options.py</literal>. Handles command line parameters and information stored on user <literal>.terprc</literal> file.
     </para>
    </listitem>
 
    <listitem>
     <para>
-     <literal>bin/rpc.py</literal>. Responsible for rpc communication.
+     <literal>bin/rpc/rpc.py</literal>. Responsible for rpc communication.
     </para>
    </listitem>
 
@@ -52,7 +52,7 @@
 
    <listitem>
     <para>
-     <literal>bin/tinyerp-client.py</literal>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
+     <literal>bin/ktiny.py</literal>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
     </para>
    </listitem>
 
@@ -70,7 +70,7 @@
 
    <listitem>
     <para>
-     <literal>bin/po</literal>. Translation files.
+     <literal>bin/l10n</literal>. Translation files.
     </para>
    </listitem>
 
@@ -104,12 +104,6 @@
     </para>
    </listitem>
 
-   <listitem>
-    <para>
-     <literal>bin/modules</literal>. Each subdirectory handles a different local service: <literal>action</literal>, <literal>gui</literal> and <literal>spool</literal>.
-    </para>
-   </listitem>
-
   </itemizedlist>
  </sect1>
 
@@ -128,7 +122,7 @@
     You'll likely only need to care about string encodings when passing a string received from the server into a XML parser. There you should use the <literal>encode('utf-8')</literal> function.
    </para>
    <para>
-    Example extracted from  <literal>bin/model/screen/screen.py</literal>:
+    Example extracted from  <literal>bin/widget/screen/screen.py</literal>:
    </para>
    <programlisting>
 dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
@@ -138,7 +132,7 @@ dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
   <sect2>
    <title>XML-RPC</title>
    <para>
-    As you already learned &ktiny; uses the XML-RPC protocol to communicate with the server. The lower level API to access the server can be found at <literal>bin/rpc.py</literal>. This file contains a clear set of classes and functions that allow you to easily acces the most common server functionalities.
+    As you already learned &ktiny; uses the XML-RPC protocol to communicate with the server. The lower level API to access the server can be found at <literal>bin/rpc/rpc.py</literal>. This file contains a clear set of classes and functions that allow you to easily acces the most common server functionalities.
    </para>
    <para>
     There are mainly three classes that help you with server interaction:
@@ -154,7 +148,7 @@ dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
      <programlisting>
 import rpc
 
-rpc.session.login('admin', 'admin', 'localhost', 8069)
+rpc.session.login('http://admin:admin@localhost:8069', 'db name')
 rpc.session.execute('/fulltextsearch', 'search', 'program', 20, 0, '')
 rpc.session.logout()
      </programlisting>
