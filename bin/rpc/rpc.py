@@ -170,11 +170,12 @@ class Session:
 		except socket.error, (e1,e2):
 			notifier.notifyError(_('Connection refused !'), e1, e2)
 			raise RpcException(69, 'Connection refused!')
-		except xmlrpclib.Fault, err:
+		except Exception, err:
 			a = RpcException(err.faultCode, err.faultString)
 			if a.type in ('warning','UserError'):
 				notifier.notifyWarning('', a.data + " - " + a.message )
 			else:
+				print "ERRRRROR"
 				notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
 
 	## @brief Logs in the given server with specified name and password.
