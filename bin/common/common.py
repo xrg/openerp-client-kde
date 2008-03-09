@@ -105,7 +105,7 @@ def selection(title, values, alwaysask=False):
 	elif len(values)==1 and (not alwaysask):
 		key = values.keys()[0]
 		return (key, values[key])
-	s = SelectionDialog(title, values, alwaysask)
+	s = SelectionDialog(title, values)
 	if s.exec_() == QDialog.Accepted:
 		return s.result
 	else:
