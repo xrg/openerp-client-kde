@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
 fi
 
 
-for i in 'full_text_search' 'smart_attach'; do
+for i in 'full_text_search' 'smart_attach' 'maps'; do
 	if [ -d "$i" ]; then
 		ln -s "$(pwd)/$i" "$1"
 	else
