@@ -103,8 +103,6 @@ class TreeParser(AbstractParser):
 		model.setColors( colors )
 		model.setReadOnly( not attrs.get('editable', False) )
 		view.setReadOnly( not attrs.get('editable', False) )
-		#model.setReadOnly( False )
-		#view.setReadOnly( False )
 
 		if view.isReadOnly():
 			model.setShowBackgroundColor( False )

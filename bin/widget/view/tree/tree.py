@@ -62,6 +62,7 @@ class ViewTree( AbstractView ):
 		self.setLayout( layout )
 		self.setReadOnly( True )
 
+
 	def setModel( self, model ):
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
@@ -101,6 +102,7 @@ class ViewTree( AbstractView ):
 	def display(self, currentModel, models):
 		# TODO: Avoid setting the model group each time...
 		self.treeModel.setModelGroup( models )
+		self.widget.header().resizeSections( QHeaderView.ResizeToContents )
 		if not currentModel:
 			return
 			item = self.treeModel.item(0)
