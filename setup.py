@@ -72,7 +72,7 @@ def find_plugins():
 def translations():
     trans = []
     dest = 'share/locale/%s/LC_MESSAGES/%s.mo'
-    for po in glob.glob('bin/po/*.po'):
+    for po in glob.glob('bin/l10n/*.po'):
         lang = os.path.splitext(os.path.basename(po))[0]
         trans.append((dest % (lang, name), po))
     return trans
@@ -128,7 +128,7 @@ setup(name             = name,
       license          = 'GPL',
       data_files       = data_files(),
       translations     = translations(),
-      pot_file         = 'bin/po/terp-msg.pot',
+      pot_file         = 'bin/l10n/ktiny.pot',
       scripts          = ['ktiny'],
       packages         = ['ktiny', 
                           'ktiny.common', 
