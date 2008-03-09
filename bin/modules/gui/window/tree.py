@@ -46,6 +46,9 @@ class tree( QWidget ):
 		QWidget.__init__(self,parent)
 		loadUi( common.uiPath('tree.ui'), self ) 
 		
+		self.uiSplitter.setStretchFactor( 0, 0 )
+		self.uiSplitter.setStretchFactor( 1, 2 )
+
 		self.context=context
 		self.model = view['model']
 		if view.get('field_parent', False):
