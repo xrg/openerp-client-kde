@@ -213,10 +213,9 @@ class form( QWidget ):
 		QMessageBox.information(self, '', message)
 
 	def sig_remove(self):
-		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove this record?'),QMessageBox.Yes|QMessageBox.No)
+		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'),QMessageBox.Yes|QMessageBox.No)
 		if value == QMessageBox.Yes:
-			id = self.screen.remove(unlink=True)
-			if not id:
+			if not self.screen.remove(unlink=True):
 				self.updateStatus(_('Resource not removed !'))
 			else:
 				self.updateStatus(_('Resource removed.'))

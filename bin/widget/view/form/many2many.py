@@ -86,7 +86,7 @@ class ManyToManyFormWidget(AbstractFormWidget):
 
 	def remove(self):
 		slcIndex =  self.screen.current_view.widget.selectedIndexes()
-		id = self.screen.remove()
+		self.screen.remove()
 		self.screen.display()
 
 	def setReadOnly(self, ro):

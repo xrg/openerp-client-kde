@@ -484,20 +484,23 @@ class Screen(QScrollArea):
 		self.display()
 
 	def remove(self, unlink = False):
-		id = False
-		if self.current_model:
-			id = self.current_model.id
-			idx = self.models.models.index(self.current_model)
-			self.models.remove(self.current_model)
+		ids = self.selectedIds()
+		for x in ids:
+			model = self.models[x]
+			idx = self.models.models.index(model)
+			self.models.remove( model )
 			if self.models.models:
 				idx = min(idx, len(self.models.models)-1)
 				self.current_model = self.models.models[idx]
 			else:
 				self.current_model = None
-			if unlink and id:
-				self.rpc.unlink([id])
-			self.display()
-		return id
+		if unlink and id:
+			self.rpc.unlink(ids)	
+		self.display()
+		if ids:
+			return True
+		else:
+			return False
 
 	def load(self, ids):
 		self.current_view.reset()
