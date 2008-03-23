@@ -52,6 +52,7 @@ class ViewTree( AbstractView ):
 		self.widget.setAlternatingRowColors( True )
 		#self.widget.verticalScrollBar().setTracking( False )
 		self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
+		self.widget.sortByColumn( 0, Qt.AscendingOrder )
 		# We set uniformRowHeights property to True because this allows some 
 		# optimizations. It makes a really big difference in models with thousands 
 		# of tuples because moving to the end of the list only requires to query
