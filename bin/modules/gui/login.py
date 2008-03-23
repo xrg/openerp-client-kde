@@ -1,13 +1,19 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-import options
+#import options
 from common import common
 import askserver
 
 class LoginDialog( QDialog ):
+	defaultHost = ''
+	defaultPort = 0
+	defaultProtocol = ''
+	defaultUserName = ''
+
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
+		print common.uiPath('login.ui')
 		loadUi( common.uiPath('login.ui'), self ) 
 		self.databaseName = ''
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
@@ -21,12 +27,16 @@ class LoginDialog( QDialog ):
 	def init(self):
 		uid = 0
 		self.uiNoConnection.hide()
-		host = options.options['login.server']
-		port = options.options['login.port']
-		protocol = options.options['login.protocol']
+		#host = options.options['login.server']
+		#port = options.options['login.port']
+		#protocol = options.options['login.protocol']
+		host = LoginDialog.defaultHost
+		port = LoginDialog.defaultPort
+		protocol = LoginDialog.defaultProtocol
 		url = '%s%s:%s' % (protocol, host, port)
 		self.uiServer.setText( url )
-		self.uiUserName.setText( options.options['login.login'] )
+		#self.uiUserName.setText( options.options['login.login'] )
+		self.uiUserName.setText( LoginDialog.defaultUserName )
 		res = self.refreshList()
 
 	def refreshList(self):

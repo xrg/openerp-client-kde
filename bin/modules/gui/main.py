@@ -77,7 +77,6 @@ class MainWindow(QMainWindow):
 	
 	def __init__(self):	
 		QMainWindow.__init__(self)
-		QResource.registerResource( common.uiPath( "common.rcc" ) )
 		loadUi( common.uiPath( "mainwindow.ui" ), self ) 
 		self.showMaximized()	
 
@@ -274,6 +273,10 @@ class MainWindow(QMainWindow):
 			return ([], [])
 
 	def showLoginDialog(self):
+		LoginDialog.defaultHost = options.options['login.server']
+		LoginDialog.defaultPort = options.options['login.port']
+		LoginDialog.defaultProtocol = options.options['login.protocol']
+		LoginDialog.defaultUserName = options.options['login.login']
 		dialog = LoginDialog( self )
 		while dialog.exec_() == QDialog.Accepted:
 			self.login( dialog.url, dialog.databaseName )

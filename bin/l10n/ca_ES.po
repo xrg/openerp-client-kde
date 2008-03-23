@@ -186,15 +186,15 @@ msgstr ""
 
 #: bin/common/common.py:169 bin/common/common.py:196
 msgid "Sending support requests is not available with the TinyERP KDE client"
-msgstr ""
+msgstr "L'enviament de peticions de suport no està disponible amb el client KDE del TinyERP."
 
 #: bin/modules/gui/window/view_tree/parser.py:51
 msgid "Tree"
-msgstr ""
+msgstr "Arbre"
 
 #: bin/modules/gui/window/tree.py:165 bin/modules/gui/window/tree.py:191
 msgid "No resource selected!"
-msgstr ""
+msgstr "No hi ha cap recurs seleccionat."
 
 #: bin/modules/gui/window/tree.py:183
 msgid "Unable to chroot: no tree resource selected"
@@ -202,15 +202,15 @@ msgstr ""
 
 #: bin/modules/gui/window/tree.py:203
 msgid "No item selected"
-msgstr ""
+msgstr "No hi ha cap element seleccionat"
 
 #: bin/modules/gui/window/tree.py:203
 msgid "Please select an element from the tree to add a shortcut to it."
-msgstr ""
+msgstr "Si us plau, seleccioneu un elment de l'arbre per crear-ne una drecera."
 
 #: bin/modules/gui/window/win_full_text_search.py:302
 msgid "(Everywhere)"
-msgstr ""
+msgstr "(Arreu)"
 
 #: bin/modules/gui/window/win_full_text_search.py:306
 msgid ""
@@ -281,7 +281,7 @@ msgstr ""
 #: bin/modules/gui/window/win_export.py:87
 #, python-format
 msgid "%s record(s) saved!"
-msgstr ""
+msgstr "%s registre(s) desat(s)!"
 
 #: bin/modules/gui/window/win_export.py:69
 #: bin/modules/gui/window/win_export.py:89
@@ -355,7 +355,7 @@ msgstr ""
 
 #: bin/modules/gui/window/form.py:215
 msgid "Are you sure you want to remove this record?"
-msgstr ""
+msgstr "Esteu segur que voleu eliminar aquest registre?"
 
 #: bin/modules/gui/window/form.py:219
 msgid "Resource not removed !"
@@ -379,16 +379,16 @@ msgstr ""
 
 #: bin/modules/gui/window/form.py:310
 msgid "No record selected!"
-msgstr ""
+msgstr "No hi ha cap registre seleccionat."
 
 #: bin/modules/gui/window/form.py:334
 #, python-format
 msgid "(%s attachments) "
-msgstr ""
+msgstr "(%s adjunts) "
 
 #: bin/modules/gui/window/form.py:339
 msgid "No record selected"
-msgstr ""
+msgstr "No hi ha cap registre seleccionat."
 
 #: bin/modules/gui/window/form.py:344
 msgid "New document"
@@ -397,12 +397,12 @@ msgstr ""
 #: bin/modules/gui/window/form.py:346
 #, python-format
 msgid "Editing document (id: %s)"
-msgstr ""
+msgstr "Editant el document amb id: %s"
 
 #: bin/modules/gui/window/form.py:347
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
+msgstr "Registre: %(name)s / %(count)s - %(name2)s"
 
 #: bin/modules/gui/window/form.py:359
 msgid "No preference available for this resource !"
@@ -538,16 +538,16 @@ msgstr ""
 #: bin/modules/gui/main.py:266
 #, python-format
 msgid "%s request(s)"
-msgstr ""
+msgstr "%s peticions"
 
 #: bin/modules/gui/main.py:268
 msgid "No request"
-msgstr ""
+msgstr "Cap petició"
 
 #: bin/modules/gui/main.py:270
 #, python-format
 msgid " - %s pending request(s)"
-msgstr ""
+msgstr "- %s peticions pendents"
 
 #: bin/modules/gui/main.py:314 bin/modules/gui/main.py:316
 msgid "Connection error !"
@@ -700,3 +700,4 @@ msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
 msgstr ""
+

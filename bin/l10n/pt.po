@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-08 11:24+0100\n"
+"POT-Creation-Date: 2008-03-18 01:12+0100\n"
 "PO-Revision-Date: 2005-07-08 13:08-0300\n"
 "Last-Translator: Cosme Correa <cosme@pcs.com.br>\n"
 "Language-Team:  <pt@li.org>\n"
@@ -171,7 +171,7 @@ msgstr "Salvar anexado como..."
 msgid "Error writing the file!"
 msgstr "Erro escrevendo arquivo!"
 
-#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:215
+#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:216
 #: bin/modules/gui/window/form.py:365
 #, fuzzy
 msgid "Question"
@@ -202,7 +202,7 @@ msgstr "Ver detalhes"
 msgid "Could not contact server!"
 msgstr ""
 
-#: bin/common/common.py:169 bin/common/common.py:196
+#: bin/common/common.py:159 bin/common/common.py:186
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr ""
 
@@ -210,20 +210,16 @@ msgstr ""
 msgid "Tree"
 msgstr "Árvore"
 
-#: bin/modules/gui/window/tree.py:165 bin/modules/gui/window/tree.py:191
+#: bin/modules/gui/window/tree.py:163 bin/modules/gui/window/tree.py:176
 msgid "No resource selected!"
 msgstr "Nenhum recurso selecionado !"
 
-#: bin/modules/gui/window/tree.py:183
-msgid "Unable to chroot: no tree resource selected"
-msgstr "Incapaz de chroot: Nenhuma estrutura de recurso selecionada"
-
-#: bin/modules/gui/window/tree.py:203
+#: bin/modules/gui/window/tree.py:188
 #, fuzzy
 msgid "No item selected"
 msgstr "Nenhuma gravação selecionada"
 
-#: bin/modules/gui/window/tree.py:203
+#: bin/modules/gui/window/tree.py:188
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
@@ -256,7 +252,7 @@ msgid "Tiny ERP Full Text Search (%%d result(s))"
 msgstr "Tiny ERP- Mecanismos de Procura"
 
 #: bin/modules/gui/window/win_full_text_search.py:391
-#: bin/modules/gui/window/form.py:199
+#: bin/modules/gui/window/form.py:200
 msgid "ID"
 msgstr "ID"
 
@@ -347,46 +343,46 @@ msgstr "Exportar dado"
 msgid "Exported fields"
 msgstr "Limpar o campo"
 
-#: bin/modules/gui/window/form.py:180 bin/modules/gui/window/form.py:361
+#: bin/modules/gui/window/form.py:181 bin/modules/gui/window/form.py:361
 msgid "No resource selected !"
 msgstr "Nenhum recurso selecionado"
 
-#: bin/modules/gui/window/form.py:193
+#: bin/modules/gui/window/form.py:194
 #, fuzzy
 msgid "You have to select one resource!"
 msgstr "Selecione um recurso !"
 
-#: bin/modules/gui/window/form.py:200
+#: bin/modules/gui/window/form.py:201
 msgid "Creation User"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:201
+#: bin/modules/gui/window/form.py:202
 msgid "Creation Date"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:202
+#: bin/modules/gui/window/form.py:203
 msgid "Latest Modification by"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:203
+#: bin/modules/gui/window/form.py:204
 msgid "Latest Modification Date"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:204
+#: bin/modules/gui/window/form.py:205
 msgid "Owner"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:205
+#: bin/modules/gui/window/form.py:206
 msgid "Group Owner"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:206
+#: bin/modules/gui/window/form.py:207
 msgid "Access Level"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:215
+#: bin/modules/gui/window/form.py:216
 #, fuzzy
-msgid "Are you sure you want to remove this record?"
+msgid "Are you sure you want to remove these records?"
 msgstr "Você tem certeza que quer remover esta gravação?"
 
 #: bin/modules/gui/window/form.py:219
@@ -447,12 +443,12 @@ msgstr "Sem preferência disponível para este recurso !"
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: bin/modules/gui/window/win_search.py:73
+#: bin/modules/gui/window/win_search.py:75
 #, fuzzy, python-format
 msgid "Tiny ERP Search: %s"
 msgstr "Tiny ERP - Procurar"
 
-#: bin/modules/gui/window/win_search.py:74
+#: bin/modules/gui/window/win_search.py:76
 #, fuzzy, python-format
 msgid "Tiny ERP Search: %s (%%d result(s))"
 msgstr "Tiny ERP- Mecanismos de Procura"
@@ -499,7 +495,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:509
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:512
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -523,14 +519,14 @@ msgid ""
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: bin/modules/gui/login.py:35 bin/modules/gui/choosedb.py:44
+#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
 #, fuzzy
 msgid "Could not connect to server !"
 msgstr ""
 "Erro de conexão !\n"
 "Incapaz de conectar ao servidor ! "
 
-#: bin/modules/gui/login.py:40 bin/modules/gui/choosedb.py:50
+#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
 msgid "No database found, you must create one !"
 msgstr ""
 
@@ -570,131 +566,131 @@ msgstr ""
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:335
+#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:338
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: bin/modules/gui/main.py:94
+#: bin/modules/gui/main.py:93
 #, fuzzy
 msgid "Close tab"
 msgstr "Fechar"
 
-#: bin/modules/gui/main.py:266
+#: bin/modules/gui/main.py:265
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr "Pedidos"
 
-#: bin/modules/gui/main.py:268
+#: bin/modules/gui/main.py:267
 msgid "No request"
 msgstr "Sem pedidos"
 
-#: bin/modules/gui/main.py:270
+#: bin/modules/gui/main.py:269
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr "Pedidos pendentes"
 
-#: bin/modules/gui/main.py:314 bin/modules/gui/main.py:316
+#: bin/modules/gui/main.py:317 bin/modules/gui/main.py:319
 #, fuzzy
 msgid "Connection error !"
 msgstr "Erro de conexão !"
 
-#: bin/modules/gui/main.py:314
+#: bin/modules/gui/main.py:317
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Erro de conexão !\n"
 "Incapaz de conectar ao servidor ! "
 
-#: bin/modules/gui/main.py:316
+#: bin/modules/gui/main.py:319
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Erro de conexão !\n"
 "Nome de usuário ou senha errado !"
 
-#: bin/modules/gui/main.py:320
+#: bin/modules/gui/main.py:323
 msgid "Connection Error !"
 msgstr "Erro de conexão !"
 
-#: bin/modules/gui/main.py:334
+#: bin/modules/gui/main.py:337
 msgid "Not logged !"
 msgstr "Não conectado"
 
-#: bin/modules/gui/main.py:401
+#: bin/modules/gui/main.py:404
 msgid "Access denied"
 msgstr ""
 
-#: bin/modules/gui/main.py:401
+#: bin/modules/gui/main.py:404
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:432
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:432
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:432
 msgid "Yes"
 msgstr "Sim"
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:432
 msgid "No"
 msgstr "Não"
 
-#: bin/modules/gui/main.py:496 bin/modules/gui/main.py:517
+#: bin/modules/gui/main.py:499 bin/modules/gui/main.py:520
 #, fuzzy
 msgid "Delete a database"
 msgstr "Selecione uma data"
 
-#: bin/modules/gui/main.py:505 bin/modules/gui/main.py:511
+#: bin/modules/gui/main.py:508 bin/modules/gui/main.py:514
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:505
+#: bin/modules/gui/main.py:508
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:509
+#: bin/modules/gui/main.py:512
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:511
+#: bin/modules/gui/main.py:514
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:528
+#: bin/modules/gui/main.py:531
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:532
+#: bin/modules/gui/main.py:535
 #, fuzzy
 msgid "Could not resotre database"
 msgstr "Selecione uma data"
 
-#: bin/modules/gui/main.py:532
+#: bin/modules/gui/main.py:535
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:534
+#: bin/modules/gui/main.py:537
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Selecione uma data"
 
-#: bin/modules/gui/main.py:537
+#: bin/modules/gui/main.py:540
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:552
+#: bin/modules/gui/main.py:555
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:555
+#: bin/modules/gui/main.py:558
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -750,11 +746,14 @@ msgstr ""
 msgid "specify the server ip/name"
 msgstr ""
 
-#: bin/ktiny.py:80
+#: bin/ktiny.py:74
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
 msgstr ""
+
+#~ msgid "Unable to chroot: no tree resource selected"
+#~ msgstr "Incapaz de chroot: Nenhuma estrutura de recurso selecionada"
 
 #, fuzzy
 #~ msgid "Tiny ERP Client %s"

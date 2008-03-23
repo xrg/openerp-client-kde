@@ -175,7 +175,6 @@ class Session:
 			if a.type in ('warning','UserError'):
 				notifier.notifyWarning('', a.data + " - " + a.message )
 			else:
-				print "ERRRRROR"
 				notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
 
 	## @brief Logs in the given server with specified name and password.

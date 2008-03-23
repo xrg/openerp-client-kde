@@ -39,16 +39,10 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'ktiny'])
 sys.path.append(terp_path)
 
-import locale, gettext
-
-# end testing
-APP = 'ktiny'
-DIR = 'l10n'
-
-locale.setlocale(locale.LC_ALL, '')
-gettext.bindtextdomain(APP, DIR)
-gettext.textdomain(APP)
-gettext.install(APP, DIR, unicode=1)
+#from common import locale
+#locale.initializeTranslations()
+from common import localization
+localization.initializeTranslations()
 
 import options
 
@@ -110,9 +104,8 @@ if imports['dbus']:
 
 ### Main application loop
 app = QApplication( sys.argv )
-translator = QTranslator()
-translator.load( 'l10n/' + QLocale.system().name() )
-app.installTranslator( translator )
+
+localization.initializeQtTranslations()
 
 # Create DBUS interface if dbus modules are available.
 # Needs to go after creating QApplication
@@ -121,6 +114,10 @@ if imports['dbus']:
 	sessionBus = dbus.SessionBus()
 	name = dbus.service.BusName("org.tinyerp.Interface", sessionBus )
 	example = TinyERPInterface('/TinyERP')
+
+import modules.gui.main
+import modules.action
+import modules.spool
 
 win = modules.gui.main.MainWindow()
 win.show()

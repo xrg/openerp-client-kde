@@ -773,12 +773,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="91"/>
+        <location filename="many2one.ui" line="72"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="110"/>
+        <location filename="many2one.ui" line="85"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1718,7 +1718,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="63"/>
+        <location filename="tree.ui" line="88"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -1726,22 +1726,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="85"/>
+        <location filename="tree.ui" line="116"/>
         <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="104"/>
+        <location filename="tree.ui" line="141"/>
         <source>Go</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="123"/>
+        <location filename="tree.ui" line="166"/>
         <source>Remove Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="139"/>
+        <location filename="tree.ui" line="188"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>

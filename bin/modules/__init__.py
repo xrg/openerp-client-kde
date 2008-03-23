@@ -26,8 +26,8 @@
 #
 ##############################################################################
 
-import spool
-import gui
-import action
+#import spool
+#import gui
+#import action
 
 

@@ -34,28 +34,18 @@ import sys
 import logging
 from options import options
 
-import common
+#import common
 
 from PyQt4.QtCore  import  *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-def _search_file(file, dir='path.share'):
-	tests = [
-		lambda x: os.path.join(options.options[dir],x),
-		lambda x: os.path.join(os.getcwd(), os.path.dirname(sys.argv[0]), x),
-		lambda x: os.path.join(os.getcwd(), os.path.dirname(sys.argv[0]), 'ui', x),
-	]
-	for func in tests:
-		x = func(file)
-		if os.path.exists(x):
-			return x
-	return False
-
-kPath = lambda x: _search_file(x, 'path.share')
-uiPath = lambda x: _search_file(x, 'path.ui')
+from paths import *
 
 
+
+# Load Resource
+QResource.registerResource( uiPath( "common.rcc" ) )
 
 ## Returns a dictionary with all the attributes found in a XML with their 
 # name as key and the corresponding value.

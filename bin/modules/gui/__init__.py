@@ -26,6 +26,6 @@
 #
 ##############################################################################
 
-import main
-import window
+#import main
+#import window
 
