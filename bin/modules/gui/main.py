@@ -176,6 +176,7 @@ class MainWindow(QMainWindow):
 		self.requestsTimer = QTimer()
 		self.connect( self.requestsTimer, SIGNAL('timeout()'), self.updateRequestsStatus )
 		self.requestsTimer.start( 5 * 60 * 1000 )
+		self.pendingRequests = -1 
 
 	def formDesigner(self):
 		dialog = FormDesigner(self)
@@ -268,6 +269,9 @@ class MainWindow(QMainWindow):
 			if len(ids2):
 				message += _(' - %s pending request(s)') % len(ids2)
 			self.uiRequests.setText( message )
+			if self.pendingRequests != -1 and self.pendingRequests < len(ids):
+				QApplication.alert( self )
+			self.pendingRequests = len(ids)
 			return (ids, ids2)
 		except:
 			return ([], [])
