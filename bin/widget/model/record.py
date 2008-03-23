@@ -246,7 +246,6 @@ class ModelRecord(QObject):
 		if signal:
 			self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
 
-		
 	def reload(self):
 		if not self.id:
 			return

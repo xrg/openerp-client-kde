@@ -49,10 +49,6 @@ class TreeParser(AbstractParser):
 		self.screen = parent
 		view = ViewTree( parent, fields )
 		
-		view.widget.setSortingEnabled(True)
-		view.widget.setAlternatingRowColors( True )
-		view.widget.setRootIsDecorated( False )
-
 		attrs = common.node_attributes(rootNode)
  		on_write = attrs.get('on_write', '')
 
@@ -164,14 +160,55 @@ class StandardDelegate( QItemDelegate ):
 		QItemDelegate.__init__( self, parent )
 		self.attributes = attributes
 		self.type = type
+		self.currentIndex = None
+		self.currentEditor = None
 
 	def createEditor( self, parent, option, index ):
-		return widgets_type[self.type](parent, None, self.attributes)
+		#return widgets_type[self.type](parent, None, self.attributes)
+		#self.currentIndex = index
+		self.currentIndex = index.model().createIndex( index.row(), index.column(), index.parent() )
+		widget = widgets_type[self.type](parent, None, self.attributes)
+		for x in widget.findChildren(QWidget):
+			w = x.nextInFocusChain()
+			inside = False
+			while w:
+				if w == widget:
+					inside = True
+					break
+				w = w.parent()
+			if not inside:
+				x.installEventFilter( self )
+				break
+		self.currentEditor = widget
+		return widget
+
+	def eventFilter( self, obj, event ):
+		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
+			self.emit(SIGNAL('commitData(QWidget*)'), self.currentEditor)
+			self.emit(SIGNAL('closeEditor(QWidget*, QAbstractItemDelegate::EndEditHint)'), self.currentEditor, QAbstractItemDelegate.NoHint)
+			parent = self.parent()
+			if parent.inherits( 'QAbstractItemView' ):
+				print "PRENENT EL MODEL"
+				model = self.currentIndex.model()
+				print "JA TENIM EL MODEL"
+				row = self.currentIndex.row()
+				column = self.currentIndex.column() + 1
+				if column >= model.columnCount( self.currentIndex.parent() ):
+					column = 0
+					row = self.currentIndex.row() + 1
+					if row >= model.rowCount( self.currentIndex.parent() ):
+						row = 0
+				index = model.createIndex( row, column, self.currentIndex.parent() )
+				print "JA TENIM L'INDEX"
+				parent.edit( index )
+				print "JA ESTEM EDITANT"
+			return True
+		return QItemDelegate.eventFilter( self, obj, event )
 
 	def setEditorData( self, editor, index ):
 		if not editor:
 			return
-		# We suppose a TreeModel here
+		# We assume a TreeModel here
 		model = index.model().modelFromIndex( index )
 		editor.load( model )
 		return

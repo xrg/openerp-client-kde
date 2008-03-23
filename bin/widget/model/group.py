@@ -81,7 +81,18 @@ class ModelList(list):
 # ('name') and other attributes. The 'mfields' property stores the classes responsible
 # for managing the values which are finally stored on the 'values' dictionary in the
 # Model
+#
+# The model can also be sorted by any of it's fields. Two sorting methods are provided:
+# SortVisibleItems and SortAllItems. SortVisibleItems is usually faster for a small
+# number of elements as sorting is handled on the client side, but only those loaded
+# are considered in the sorting. SortAllItems, sorts items in the server so all items
+# are considered. Although this would cost a lot when there are thousands of items, 
+# only some of them are loaded and the rest are loaded on demand.
 class ModelRecordGroup(QObject):
+
+	SortVisibleItems = 1
+	SortAllItems = 2
+
 	# If fields is None, all fields are loaded. This means an extra query (fields_get) to the server. Use with care.
 	# If you don't know the numbers of fields you'll use, but want some ids to be loaded use fields={}
 	# parent is only used if this ModelRecordGroup serves as a relation to another model. Otherwise it's None.
@@ -108,9 +119,14 @@ class ModelRecordGroup(QObject):
 		self._domain = []
 		self._filter = []
 
+		#self._sortMode = self.SortVisibleItems
+		self._sortMode = self.SortAllItems
+
 		self.load(ids)
 		self.model_removed = []
 		self.on_write = ''
+
+		self.limit = 80
 
 	## @brief Creates the entries in 'mfields' for each key of the 'fkeys' list.
 	def mfields_load(self, fkeys):
@@ -208,12 +224,20 @@ class ModelRecordGroup(QObject):
 		if not self.fields:
 			return self.pre_load(ids, display)
 
+		if self._sortMode == self.SortAllItems:
+			self.pre_load( ids, False )
+			queryIds = ids[0:self.limit]
+		else:
+			queryIds = ids
+
 		c = rpc.session.context.copy()
 		c.update(self.context)
-		values = self.rpc.read(ids, self.fields.keys(), c)
+		values = self.rpc.read(queryIds, self.fields.keys(), c)
 		if not values:
 			return False
-		if not self.models:
+
+		if self._sortMode == self.SortAllItems:
+			#if not self.models:
 			# If nothing else was loaded, we sort the fields in the order given
 			# by 'ids' or 'self.sortedRedlatedIds' when appropiate.
 			if self.sortedRelatedIds:
@@ -235,15 +259,15 @@ class ModelRecordGroup(QObject):
 					vals = vals + nulls
 			else:
 				# This treats the case when the sorted field is a non-relation field
-				vals = []
-				for x in ids:
-					for y in values:
-						if y['id'] == x:
-							vals.append( y )
-							break
+				#vals = sorted( values, key=lambda x: ids.index(x['id']) )
+				for v in values:
+					id = v['id']
+					self[id].set(v, signal=False)
+			#else:
+			#	vals = values
+			#self.load_for(vals)
 		else:
-			vals = values
-		self.load_for(vals)
+			self.load_for(values)
 		return True
 
 	## @brief Clears the list of models. It doesn't remove them.
@@ -379,8 +403,49 @@ class ModelRecordGroup(QObject):
 		for model in self.models:
 			if model.id == id:
 				return model
-
 	__getitem__ = modelById
+
+	def modelByRow(self, row):
+		model = self.models[row]
+		if model._loaded == False:
+			self.ensureModelLoaded(model)
+		return model
+
+	def loaded(self):
+		obj = self.sender()
+		for v in obj.values:
+			model = self.modelById( v['id'] )
+			model.set(v, signal=False)
+			model.loading = False
+
+	def ensureModelLoaded(self, model):
+		if model._loaded or model.loading:
+			return 
+
+		# Threaded version
+		#load = LoadModels(self)
+		#ids = [x.id for x in self.models]
+		#pos = ids.index(model.id) / self.limit
+		#ids = ids[pos * self.limit:pos * self.limit + self.limit]
+		#for x in ids:
+			#self.modelById(x).loading = True
+		#load.setup( ids, self.fields.keys(), self.rpc, self.context )
+		#self.connect( load, SIGNAL('finished()'), self.loaded )
+		#load.start()
+		#return 
+		c = rpc.session.context.copy()
+		c.update(self.context)
+		ids = [x.id for x in self.models]
+		pos = ids.index(model.id) / self.limit
+
+		values = self.rpc.read(ids[pos * self.limit: pos * self.limit + self.limit], self.fields.keys(), c)
+		if not values:
+			return False
+
+		# This treats the case when the sorted field is a non-relation field
+		for v in values:
+			id = v['id']
+			self[id].set(v, signal=False)
 
 	def setDomain(self, value):
 		self._domain = value
@@ -404,6 +469,12 @@ class ModelRecordGroup(QObject):
 
 	## @brief Sorts the model by the given field name.
 	def sort(self, field, order):
+		if self._sortMode == self.SortAllItems:
+			self.sortAll( field, order )
+		else:
+			self.sortVisible( field, order )
+
+	def sortAll(self, field, order):
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return
 		if not field in self.fields.keys():
@@ -463,5 +534,45 @@ class ModelRecordGroup(QObject):
 		self.clear()
 		# The load function will be in charge of loading and sorting elements
 		self.load( ids )
+
+	def sortVisible(self, field, order):
+		if self.updated and field == self.sortedField and order == self.sortedOrder:
+			return
+
+		if not self.updated:
+			ids = rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, self.limit )
+			self.clear()
+			self.load( ids )
+		
+		if not field in self.fields:
+			return
+
+		if field != self.sortedField:
+			# Sort only if last sorted field was different than current
+
+			# We need this function here as we use the 'field' variable
+			def ignoreCase(model):
+				v = model.value(field)
+				if isinstance(v, unicode) or isinstance(v, str):
+					return v.lower()
+				else:
+					return v
+
+			type = self.fields[field]['type']
+			if type == 'one2many' or type == 'many2many':
+				self.models.sort( key=lambda x: len(x.value(field).models) )
+			else:
+				self.models.sort( key=ignoreCase )
+			if order == Qt.DescendingOrder:
+				self.models.reverse()
+		else:
+			# If we're only reversing the order, then reverse simply reverse
+			if order != self.sortedOrder:
+				self.models.reverse()
+
+		self.sortedField = field
+		self.sortedOrder = order
+		self.updated = True
+		self.emit(SIGNAL('recordCleared()'))
 
 # vim:noexpandtab:

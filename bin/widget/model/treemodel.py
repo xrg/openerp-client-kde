@@ -389,7 +389,7 @@ class TreeModel(QAbstractItemModel):
 		if row >= len(group.models):
 			return None
 		else:
-			return group.models[row] 
+			return group.modelByRow( row )
 
 	## @brief Returns the value from the model from the given row, column and group
 	#

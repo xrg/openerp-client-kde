@@ -46,10 +46,22 @@ class ViewTree( AbstractView ):
 		self.selecting = False
 
 		self.widget = QTreeView( self )
-		#self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
+		self.widget.setAllColumnsShowFocus( False )
 		self.widget.setSortingEnabled(True)
-		self.setAllowMultipleSelection(True)
+		self.widget.setRootIsDecorated( False )
 		self.widget.setAlternatingRowColors( True )
+		#self.widget.verticalScrollBar().setTracking( False )
+		self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
+		# We set uniformRowHeights property to True because this allows some 
+		# optimizations. It makes a really big difference in models with thousands 
+		# of tuples because moving to the end of the list only requires to query
+		# for those items at the end (those that are shown) wheras if we don't
+		# guarantee that all items have the same height, all previous items
+		# need to be loaded too so the view can measure what height they are
+		# and in which position the scroll is.
+		self.widget.setUniformRowHeights( True )
+
+		self.setAllowMultipleSelection(True)
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
 		self.connect( self.widget, SIGNAL('doubleClicked(QModelIndex)'), self.activated )
@@ -102,7 +114,7 @@ class ViewTree( AbstractView ):
 	def display(self, currentModel, models):
 		# TODO: Avoid setting the model group each time...
 		self.treeModel.setModelGroup( models )
-		self.widget.header().resizeSections( QHeaderView.ResizeToContents )
+		#self.widget.header().resizeSections( QHeaderView.ResizeToContents )
 		if not currentModel:
 			return
 			item = self.treeModel.item(0)
@@ -134,7 +146,8 @@ class ViewTree( AbstractView ):
 	def setReadOnly(self, value):
 		self._readOnly = value
 		# We only allow changing sort order when the view is read only
-		self.widget.setSortingEnabled( value )
+		# TODO: Uncomment this
+		#self.widget.setSortingEnabled( value )
 		if self._readOnly:
 			self.widget.setEditTriggers( QAbstractItemView.NoEditTriggers ) 
 		else:
