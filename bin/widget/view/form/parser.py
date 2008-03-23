@@ -119,6 +119,8 @@ class FormParser(AbstractParser):
 					pos = QTabWidget.West
 					
 			        tab.setTabPosition( pos )
+
+				attrs['colspan'] = attrs.get('colspan', 3)
 				
 				container.addWidget(tab, attrs)
 				
