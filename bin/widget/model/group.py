@@ -411,28 +411,10 @@ class ModelRecordGroup(QObject):
 			self.ensureModelLoaded(model)
 		return model
 
-	def loaded(self):
-		obj = self.sender()
-		for v in obj.values:
-			model = self.modelById( v['id'] )
-			model.set(v, signal=False)
-			model.loading = False
-
 	def ensureModelLoaded(self, model):
-		if model._loaded or model.loading:
+		if model._loaded:
 			return 
 
-		# Threaded version
-		#load = LoadModels(self)
-		#ids = [x.id for x in self.models]
-		#pos = ids.index(model.id) / self.limit
-		#ids = ids[pos * self.limit:pos * self.limit + self.limit]
-		#for x in ids:
-			#self.modelById(x).loading = True
-		#load.setup( ids, self.fields.keys(), self.rpc, self.context )
-		#self.connect( load, SIGNAL('finished()'), self.loaded )
-		#load.start()
-		#return 
 		c = rpc.session.context.copy()
 		c.update(self.context)
 		ids = [x.id for x in self.models]
