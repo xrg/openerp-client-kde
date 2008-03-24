@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-08 11:24+0100\n"
+"POT-Creation-Date: 2008-03-24 20:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,12 +155,12 @@ msgstr ""
 msgid "Error writing the file!"
 msgstr ""
 
-#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:215
+#: bin/widget/view/form/button.py:29 bin/modules/gui/window/form.py:216
 #: bin/modules/gui/window/form.py:365
 msgid "Question"
 msgstr ""
 
-#: bin/widget/view/form/button.py:42
+#: bin/widget/view/form/button.py:43
 msgid "Invalid Form, correct red fields!"
 msgstr ""
 
@@ -184,27 +184,25 @@ msgstr ""
 msgid "Could not contact server!"
 msgstr ""
 
-#: bin/common/common.py:169 bin/common/common.py:196
+#: bin/common/common.py:159 bin/common/common.py:186
 msgid "Sending support requests is not available with the TinyERP KDE client"
-msgstr "L'enviament de peticions de suport no està disponible amb el client KDE del TinyERP."
+msgstr ""
+"L'enviament de peticions de suport no està disponible amb el client KDE del "
+"TinyERP."
 
 #: bin/modules/gui/window/view_tree/parser.py:51
 msgid "Tree"
 msgstr "Arbre"
 
-#: bin/modules/gui/window/tree.py:165 bin/modules/gui/window/tree.py:191
+#: bin/modules/gui/window/tree.py:163 bin/modules/gui/window/tree.py:176
 msgid "No resource selected!"
 msgstr "No hi ha cap recurs seleccionat."
 
-#: bin/modules/gui/window/tree.py:183
-msgid "Unable to chroot: no tree resource selected"
-msgstr ""
-
-#: bin/modules/gui/window/tree.py:203
+#: bin/modules/gui/window/tree.py:188
 msgid "No item selected"
 msgstr "No hi ha cap element seleccionat"
 
-#: bin/modules/gui/window/tree.py:203
+#: bin/modules/gui/window/tree.py:188
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "Si us plau, seleccioneu un elment de l'arbre per crear-ne una drecera."
 
@@ -236,7 +234,7 @@ msgid "Tiny ERP Full Text Search (%%d result(s))"
 msgstr ""
 
 #: bin/modules/gui/window/win_full_text_search.py:391
-#: bin/modules/gui/window/form.py:199
+#: bin/modules/gui/window/form.py:200
 msgid "ID"
 msgstr ""
 
@@ -317,44 +315,45 @@ msgstr ""
 msgid "Exported fields"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:180 bin/modules/gui/window/form.py:361
+#: bin/modules/gui/window/form.py:181 bin/modules/gui/window/form.py:361
 msgid "No resource selected !"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:193
+#: bin/modules/gui/window/form.py:194
 msgid "You have to select one resource!"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:200
+#: bin/modules/gui/window/form.py:201
 msgid "Creation User"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:201
+#: bin/modules/gui/window/form.py:202
 msgid "Creation Date"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:202
+#: bin/modules/gui/window/form.py:203
 msgid "Latest Modification by"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:203
+#: bin/modules/gui/window/form.py:204
 msgid "Latest Modification Date"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:204
+#: bin/modules/gui/window/form.py:205
 msgid "Owner"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:205
+#: bin/modules/gui/window/form.py:206
 msgid "Group Owner"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:206
+#: bin/modules/gui/window/form.py:207
 msgid "Access Level"
 msgstr ""
 
-#: bin/modules/gui/window/form.py:215
-msgid "Are you sure you want to remove this record?"
+#: bin/modules/gui/window/form.py:216
+#, fuzzy
+msgid "Are you sure you want to remove these records?"
 msgstr "Esteu segur que voleu eliminar aquest registre?"
 
 #: bin/modules/gui/window/form.py:219
@@ -412,12 +411,12 @@ msgstr ""
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: bin/modules/gui/window/win_search.py:73
+#: bin/modules/gui/window/win_search.py:75
 #, python-format
 msgid "Tiny ERP Search: %s"
 msgstr ""
 
-#: bin/modules/gui/window/win_search.py:74
+#: bin/modules/gui/window/win_search.py:76
 #, python-format
 msgid "Tiny ERP Search: %s (%%d result(s))"
 msgstr ""
@@ -461,7 +460,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:509
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:516
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -485,11 +484,11 @@ msgid ""
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: bin/modules/gui/login.py:35 bin/modules/gui/choosedb.py:44
+#: bin/modules/gui/login.py:46 bin/modules/gui/choosedb.py:44
 msgid "Could not connect to server !"
 msgstr ""
 
-#: bin/modules/gui/login.py:40 bin/modules/gui/choosedb.py:50
+#: bin/modules/gui/login.py:51 bin/modules/gui/choosedb.py:50
 msgid "No database found, you must create one !"
 msgstr ""
 
@@ -515,23 +514,23 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: bin/modules/gui/askserver.py:32
+#: bin/modules/gui/askserver.py:33
 msgid "NET-RPC (faster)"
 msgstr ""
 
-#: bin/modules/gui/askserver.py:33
+#: bin/modules/gui/askserver.py:34
 msgid "XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/askserver.py:34
+#: bin/modules/gui/askserver.py:35
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:84 bin/modules/gui/main.py:335
+#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:342
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: bin/modules/gui/main.py:94
+#: bin/modules/gui/main.py:93
 msgid "Close tab"
 msgstr ""
 
@@ -549,98 +548,98 @@ msgstr "Cap petició"
 msgid " - %s pending request(s)"
 msgstr "- %s peticions pendents"
 
-#: bin/modules/gui/main.py:314 bin/modules/gui/main.py:316
+#: bin/modules/gui/main.py:321 bin/modules/gui/main.py:323
 msgid "Connection error !"
 msgstr ""
 
-#: bin/modules/gui/main.py:314
+#: bin/modules/gui/main.py:321
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: bin/modules/gui/main.py:316
+#: bin/modules/gui/main.py:323
 msgid "Bad username or password !"
 msgstr ""
 
-#: bin/modules/gui/main.py:320
+#: bin/modules/gui/main.py:327
 msgid "Connection Error !"
 msgstr ""
 
-#: bin/modules/gui/main.py:334
+#: bin/modules/gui/main.py:341
 msgid "Not logged !"
 msgstr ""
 
-#: bin/modules/gui/main.py:401
+#: bin/modules/gui/main.py:408
 msgid "Access denied"
 msgstr ""
 
-#: bin/modules/gui/main.py:401
+#: bin/modules/gui/main.py:408
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:436
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:436
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:436
 msgid "Yes"
 msgstr ""
 
-#: bin/modules/gui/main.py:429
+#: bin/modules/gui/main.py:436
 msgid "No"
 msgstr ""
 
-#: bin/modules/gui/main.py:496 bin/modules/gui/main.py:517
+#: bin/modules/gui/main.py:503 bin/modules/gui/main.py:524
 msgid "Delete a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:505 bin/modules/gui/main.py:511
+#: bin/modules/gui/main.py:512 bin/modules/gui/main.py:518
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:505
+#: bin/modules/gui/main.py:512
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:509
+#: bin/modules/gui/main.py:516
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:511
+#: bin/modules/gui/main.py:518
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:528
+#: bin/modules/gui/main.py:535
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:532
+#: bin/modules/gui/main.py:539
 msgid "Could not resotre database"
 msgstr ""
 
-#: bin/modules/gui/main.py:532
+#: bin/modules/gui/main.py:539
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:534
+#: bin/modules/gui/main.py:541
 msgid "Could not restore database"
 msgstr ""
 
-#: bin/modules/gui/main.py:537
+#: bin/modules/gui/main.py:544
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:552
+#: bin/modules/gui/main.py:559
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:555
+#: bin/modules/gui/main.py:562
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -695,9 +694,8 @@ msgstr ""
 msgid "specify the server ip/name"
 msgstr ""
 
-#: bin/ktiny.py:80
+#: bin/ktiny.py:74
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
 msgstr ""
-

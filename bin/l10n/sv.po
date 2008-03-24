@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-18 01:12+0100\n"
+"POT-Creation-Date: 2008-03-24 20:35+0100\n"
 "PO-Revision-Date: 2005-04-08 19:55+0200\n"
 "Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -167,13 +167,13 @@ msgstr "Spara som.."
 msgid "Error writing the file!"
 msgstr "Fel vid skrivning till fil!"
 
-#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:216
+#: bin/widget/view/form/button.py:29 bin/modules/gui/window/form.py:216
 #: bin/modules/gui/window/form.py:365
 #, fuzzy
 msgid "Question"
 msgstr "Beskrivning"
 
-#: bin/widget/view/form/button.py:42
+#: bin/widget/view/form/button.py:43
 #, fuzzy
 msgid "Invalid Form, correct red fields!"
 msgstr "Ogiltligt formulär, korrigera röda fält!"
@@ -493,7 +493,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:512
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:516
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -517,14 +517,14 @@ msgid ""
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
+#: bin/modules/gui/login.py:46 bin/modules/gui/choosedb.py:44
 #, fuzzy
 msgid "Could not connect to server !"
 msgstr ""
 "Anslutning misslyckades!\n"
 "Felaktigt användarenamn eller lösenord!"
 
-#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
+#: bin/modules/gui/login.py:51 bin/modules/gui/choosedb.py:50
 msgid "No database found, you must create one !"
 msgstr ""
 
@@ -552,19 +552,19 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: bin/modules/gui/askserver.py:32
+#: bin/modules/gui/askserver.py:33
 msgid "NET-RPC (faster)"
 msgstr ""
 
-#: bin/modules/gui/askserver.py:33
+#: bin/modules/gui/askserver.py:34
 msgid "XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/askserver.py:34
+#: bin/modules/gui/askserver.py:35
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:338
+#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:342
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -573,119 +573,119 @@ msgstr ""
 msgid "Close tab"
 msgstr "Stäng"
 
-#: bin/modules/gui/main.py:265
+#: bin/modules/gui/main.py:266
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr "anrop"
 
-#: bin/modules/gui/main.py:267
+#: bin/modules/gui/main.py:268
 msgid "No request"
 msgstr "Inget anrop"
 
-#: bin/modules/gui/main.py:269
+#: bin/modules/gui/main.py:270
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr "köande anrop"
 
-#: bin/modules/gui/main.py:317 bin/modules/gui/main.py:319
+#: bin/modules/gui/main.py:321 bin/modules/gui/main.py:323
 #, fuzzy
 msgid "Connection error !"
 msgstr "Anslutning misslyckades"
 
-#: bin/modules/gui/main.py:317
+#: bin/modules/gui/main.py:321
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Anslutning misslyckades!\n"
 "Felaktigt användarenamn eller lösenord!"
 
-#: bin/modules/gui/main.py:319
+#: bin/modules/gui/main.py:323
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Anslutning misslyckades!\n"
 "Felaktigt användarenamn eller lösenord!"
 
-#: bin/modules/gui/main.py:323
+#: bin/modules/gui/main.py:327
 msgid "Connection Error !"
 msgstr "Anslutning misslyckades"
 
-#: bin/modules/gui/main.py:337
+#: bin/modules/gui/main.py:341
 msgid "Not logged !"
 msgstr ""
 
-#: bin/modules/gui/main.py:404
+#: bin/modules/gui/main.py:408
 msgid "Access denied"
 msgstr ""
 
-#: bin/modules/gui/main.py:404
+#: bin/modules/gui/main.py:408
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "Yes"
 msgstr ""
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "No"
 msgstr ""
 
-#: bin/modules/gui/main.py:499 bin/modules/gui/main.py:520
+#: bin/modules/gui/main.py:503 bin/modules/gui/main.py:524
 msgid "Delete a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:508 bin/modules/gui/main.py:514
+#: bin/modules/gui/main.py:512 bin/modules/gui/main.py:518
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:508
+#: bin/modules/gui/main.py:512
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:512
+#: bin/modules/gui/main.py:516
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:514
+#: bin/modules/gui/main.py:518
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:531
+#: bin/modules/gui/main.py:535
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:535
+#: bin/modules/gui/main.py:539
 msgid "Could not resotre database"
 msgstr ""
 
-#: bin/modules/gui/main.py:535
+#: bin/modules/gui/main.py:539
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:537
+#: bin/modules/gui/main.py:541
 msgid "Could not restore database"
 msgstr ""
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:544
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:555
+#: bin/modules/gui/main.py:559
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:558
+#: bin/modules/gui/main.py:562
 #, python-format
 msgid ""
 "Could not backup database.\n"

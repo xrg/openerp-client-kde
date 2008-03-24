@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-18 01:12+0100\n"
+"POT-Creation-Date: 2008-03-24 20:35+0100\n"
 "PO-Revision-Date: 2006-11-06 00:15+0100\n"
 "Last-Translator: Luc Maurer <luc.maurer@camptocamp.com>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -168,13 +168,13 @@ msgstr "Sauver l'attachement sous ..."
 msgid "Error writing the file!"
 msgstr "Erreur d'écriture du fichier"
 
-#: bin/widget/view/form/button.py:28 bin/modules/gui/window/form.py:216
+#: bin/widget/view/form/button.py:29 bin/modules/gui/window/form.py:216
 #: bin/modules/gui/window/form.py:365
 #, fuzzy
 msgid "Question"
 msgstr "version"
 
-#: bin/widget/view/form/button.py:42
+#: bin/widget/view/form/button.py:43
 #, fuzzy
 msgid "Invalid Form, correct red fields!"
 msgstr "Formulaire invalide, corrigez les champs en rouge!"
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr "Impossible de créer cette base de données."
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:512
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:516
 msgid "Bad database administrator password !"
 msgstr "Le mot de passe administrateur est incorrect !"
 
@@ -530,11 +530,11 @@ msgstr ""
 "Le nom de la base de donnée ne peut pas contenir de caractères spéciaux, "
 "accents, espaces ou \"_\""
 
-#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
+#: bin/modules/gui/login.py:46 bin/modules/gui/choosedb.py:44
 msgid "Could not connect to server !"
 msgstr "Impossible de se connecter au serveur."
 
-#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
+#: bin/modules/gui/login.py:51 bin/modules/gui/choosedb.py:50
 msgid "No database found, you must create one !"
 msgstr "Aucune base de données, veuillez en créer une !"
 
@@ -566,19 +566,19 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: bin/modules/gui/askserver.py:32
+#: bin/modules/gui/askserver.py:33
 msgid "NET-RPC (faster)"
 msgstr ""
 
-#: bin/modules/gui/askserver.py:33
+#: bin/modules/gui/askserver.py:34
 msgid "XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/askserver.py:34
+#: bin/modules/gui/askserver.py:35
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:338
+#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:342
 msgid "Press Ctrl+O to login"
 msgstr "Faire Ctrl+O pour se logger"
 
@@ -587,127 +587,127 @@ msgstr "Faire Ctrl+O pour se logger"
 msgid "Close tab"
 msgstr "Fermer onglet"
 
-#: bin/modules/gui/main.py:265
+#: bin/modules/gui/main.py:266
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr " requête(s)"
 
-#: bin/modules/gui/main.py:267
+#: bin/modules/gui/main.py:268
 msgid "No request"
 msgstr "Pas de requête"
 
-#: bin/modules/gui/main.py:269
+#: bin/modules/gui/main.py:270
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr "requête(s) en attente"
 
-#: bin/modules/gui/main.py:317 bin/modules/gui/main.py:319
+#: bin/modules/gui/main.py:321 bin/modules/gui/main.py:323
 #, fuzzy
 msgid "Connection error !"
 msgstr "Erreur de connexion !"
 
-#: bin/modules/gui/main.py:317
+#: bin/modules/gui/main.py:321
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Erreur de connection !\n"
 "Impossible de se connecter au serveur !"
 
-#: bin/modules/gui/main.py:319
+#: bin/modules/gui/main.py:323
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Erreur de connexion !\n"
 "Mauvais nom d'utilisateur ou mot de passe !"
 
-#: bin/modules/gui/main.py:323
+#: bin/modules/gui/main.py:327
 msgid "Connection Error !"
 msgstr "Erreur de connexion !"
 
-#: bin/modules/gui/main.py:337
+#: bin/modules/gui/main.py:341
 msgid "Not logged !"
 msgstr "Non connecté !"
 
-#: bin/modules/gui/main.py:404
+#: bin/modules/gui/main.py:408
 #, fuzzy
 msgid "Access denied"
 msgstr "Niveau d'accès"
 
-#: bin/modules/gui/main.py:404
+#: bin/modules/gui/main.py:408
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "Do you really want to quit ?"
 msgstr "Voulez-vous vraiment quitter ?"
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "Yes"
 msgstr "Oui"
 
-#: bin/modules/gui/main.py:432
+#: bin/modules/gui/main.py:436
 msgid "No"
 msgstr "Non"
 
-#: bin/modules/gui/main.py:499 bin/modules/gui/main.py:520
+#: bin/modules/gui/main.py:503 bin/modules/gui/main.py:524
 msgid "Delete a database"
 msgstr "Supprimer une base de données"
 
-#: bin/modules/gui/main.py:508 bin/modules/gui/main.py:514
+#: bin/modules/gui/main.py:512 bin/modules/gui/main.py:518
 #, fuzzy
 msgid "Database removal"
 msgstr "Creation de la base de données"
 
-#: bin/modules/gui/main.py:508
+#: bin/modules/gui/main.py:512
 #, fuzzy
 msgid "Database dropped successfully!"
 msgstr "La base de données a été supprimée avec succès !"
 
-#: bin/modules/gui/main.py:512
+#: bin/modules/gui/main.py:516
 msgid "Could not drop database."
 msgstr "Impossible de supprimer la base de données."
 
-#: bin/modules/gui/main.py:514
+#: bin/modules/gui/main.py:518
 msgid "Couldn't drop database"
 msgstr "Impossible de supprimer la base de données."
 
-#: bin/modules/gui/main.py:531
+#: bin/modules/gui/main.py:535
 #, fuzzy
 msgid "Database restored successfully!"
 msgstr "La base de données a été restaurée avec succès !"
 
-#: bin/modules/gui/main.py:535
+#: bin/modules/gui/main.py:539
 #, fuzzy
 msgid "Could not resotre database"
 msgstr "Impossible de restaurer la base de données."
 
-#: bin/modules/gui/main.py:535
+#: bin/modules/gui/main.py:539
 #, fuzzy
 msgid "Bad database administrator password!"
 msgstr "Le mot de passe administrateur est incorrect !"
 
-#: bin/modules/gui/main.py:537
+#: bin/modules/gui/main.py:541
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Impossible de restaurer la base de données."
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:544
 msgid "Backup a database"
 msgstr "Sauvegarder une base de données"
 
-#: bin/modules/gui/main.py:555
+#: bin/modules/gui/main.py:559
 #, fuzzy
 msgid "Database backuped successfully!"
 msgstr "La base de données a été sauvegardée avec succès !"
 
-#: bin/modules/gui/main.py:558
+#: bin/modules/gui/main.py:562
 #, fuzzy, python-format
 msgid ""
 "Could not backup database.\n"
