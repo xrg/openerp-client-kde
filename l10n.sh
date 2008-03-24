@@ -3,7 +3,7 @@
 UI_FILES=$(find bin/ui -name "*.ui")
 PYTHON_FILES=$(find bin -name "*py")
 PYTHONC_FILES=$(find -name "*pyc")
-LANGS="ca_ES de es fr hu it pt ro ru sv uk zh al cs"
+LANGS="ca_ES de_DE es fr hu it pt ro ru sv uk zh al cs"
 DIR="bin/l10n"
 
 # Extract strings with get text from python files
