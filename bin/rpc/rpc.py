@@ -254,7 +254,7 @@ class Database:
 		try:
 			return self.call( url, 'list' )
 		except:
-			return None
+			return -1
 
 	## @brief Calls the specified method
 	# on the given object on the server. If there is an error
