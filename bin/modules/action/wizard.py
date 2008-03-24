@@ -79,8 +79,8 @@ class WizardPage(QDialog):
 		self.screen.current_model.set(self.datas)
 		self.screen.display()
 
-		size = self.screen.size()
-		self.setMinimumSize( size.width()+20, min(750, size.height()+25) ) 
+		size = self.screen.sizeHint()
+		self.setMinimumSize( size.width()+60, min(750, size.height()+25) ) 
 		self.layout = QVBoxLayout( self )
 		self.layout.addWidget( self.screen )
 		self.layout.addLayout( self.buttonsLayout )
