@@ -16,10 +16,11 @@ def refreshDatabaseList(db_widget, url, dbtoload=None):
 	result = rpc.database.list(url)
 	if result == -1:
 		return -1
-	for db_num, db_name in enumerate(result):
-		db_widget.addItem( db_name )
-		if db_name == dbtoload:
-			index = db_num
+	if result:
+		for db_num, db_name in enumerate(result):
+			db_widget.addItem( db_name )
+			if db_name == dbtoload:
+				index = db_num
 	db_widget.setCurrentIndex(index)
 	return db_widget.count()
 
