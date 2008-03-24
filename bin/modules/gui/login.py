@@ -41,6 +41,7 @@ class LoginDialog( QDialog ):
 
 	def refreshList(self):
 		res = askserver.refreshDatabaseList(self.uiDatabase, str( self.uiServer.text() ), self.databaseName )
+		print res
 		if res == -1:
 			self.uiNoConnection.setText('<b>'+_('Could not connect to server !')+'</b>')
 			self.uiNoConnection.show()

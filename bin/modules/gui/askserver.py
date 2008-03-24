@@ -14,7 +14,7 @@ def refreshDatabaseList(db_widget, url, dbtoload=None):
 	db_widget.clear()
 		
 	result = rpc.database.list(url)
-	if not result:
+	if result == -1:
 		return -1
 	for db_num, db_name in enumerate(result):
 		db_widget.addItem( db_name )
