@@ -29,6 +29,15 @@ def textToFloat(text):
 	except:
 		return False
 
-def floatToText(number):
-	return "%.2f" % number
+def floatToText(number, digits=None):
+	if digits:
+		# Digits might come from the server as a tuple, list or a string
+		# So: (14,2), [14,2], '(14,2)' and '[14,2]' are all valid forms
+		if isinstance(digits,list) or isinstance(digits,tuple):
+			d=str(digits[1])
+		else:
+			d=digits.split(',')[1].strip(' )]')
+	else:
+		d='2'
+	return ('%.' + d + 'f') % number
 

@@ -72,8 +72,8 @@ class TreeParser(AbstractParser):
 					'float': 80,
 					'date': 70,
 					'datetime': 120,
-					'selection': 90,
-					'char': 100,
+					'selection': 130,
+					'char': 140,
 					'one2many': 50,
 				}
 

@@ -319,19 +319,6 @@ class Screen(QScrollArea):
 			view = self.rpc.fields_view_get(False, type, self.context, True)
 			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
 		
-	## @brief Adds a view given its id or view_type
-	# @param view_id View id to load or False if you want to load given view_type
-	# @param view_type View type ('form', 'tree', 'calendar', 'graph'...). Only used if view_id = False.
-	# @param display Whether you want the added view to be shown (True) or only loaded (False)
-	# @return The view widget
-	#def add_view_id(self, view_id, view_type, display=False):
-		#if view_type in self.views_preload:
-			#return self.addView(self.views_preload[view_type]['arch'], self.views_preload[view_type]['fields'], display, toolbar=self.views_preload[view_type].get('toolbar', False))
-		#else:
-			## TODO: By now we set toolbar to True always. Even when the Screen is embedded
-			#view = self.rpc.fields_view_get(view_id, view_type, self.context, True)
-			#return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
-	
 	## @brief Adds a view given it's XML description and fields
 	# @param arch XML string: typically 'arch' field returned by model fields_view_get() function.
 	# @param fields Fields dictionary containing each field (widget) properties.

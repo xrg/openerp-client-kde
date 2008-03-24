@@ -45,6 +45,7 @@ class FloatFormWidget(AbstractFormWidget):
 		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
 		self.setState('valid')
+		self.digits = attrs.get('digits', None)
 
 	def setReadOnly(self, value):
 		self.widget.setEnabled( not value )
@@ -68,7 +69,7 @@ class FloatFormWidget(AbstractFormWidget):
 		
 	def showValue(self):
 		if self.model.value(self.name):
-			self.widget.setText( floatToText( self.model.value(self.name) ) )
+			self.widget.setText( floatToText( self.model.value(self.name), self.digits ) )
 		else:
 			self.clear()
 

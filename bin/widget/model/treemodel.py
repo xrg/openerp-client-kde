@@ -238,8 +238,10 @@ class TreeModel(QAbstractItemModel):
 				return QVariant()
 			elif fieldType == 'float':
 				# If we use the default conversion big numbers are shown
-				# in scientific notation
-				return QVariant( numeric.floatToText(value) )	
+				# in scientific notation. Also we have to respect the number
+				# of decimal digits given by the server.
+				field = self.fields[self.field( index.column() )]
+				return QVariant( numeric.floatToText(value, field.get('digits',None) ) )	
 			elif fieldType == 'float_time':
 				return QVariant( calendar.floatTimeToText(value) )
 			else:
