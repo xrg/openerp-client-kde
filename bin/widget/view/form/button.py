@@ -54,6 +54,6 @@ class ButtonFormWidget( AbstractFormWidget ):
 			else:
 				self.show()
 		else:
-			self.hide()
+			self.show()
 
 
