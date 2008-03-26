@@ -189,6 +189,7 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='group':
 				widget, on_write = self.parse( node, fields, notebook )
+				widget.expand()
  				container.addWidget( widget, attrs )
 
 		return  container, on_write
