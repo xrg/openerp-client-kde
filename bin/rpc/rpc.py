@@ -36,16 +36,34 @@ from common import notifier
 import traceback
 
 class RpcException(Exception):
-	def __init__(self, code, msg):
-		#log = logging.getLogger('rpc.exception')
-		#log.warning('CODE %s: %s' % (str(code),msg))
+	def __init__(self, code, backtrace):
+
 		self.code = code
-		lines = msg.split('\n')
-		self.data = '\n'.join(lines[2:])
-		self.type = lines[0].split(' -- ')[0]
-		self.message = ''
-		if len(lines[0].split(' -- ')) > 1:
-			self.message = lines[0].split(' -- ')[1]
+		self.args = backtrace
+		if hasattr(code, 'split'):
+			lines = code.split('\n')
+	
+			self.type = lines[0].split(' -- ')[0]
+			self.message = ''
+			if len(lines[0].split(' -- ')) > 1:
+				self.message = lines[0].split(' -- ')[1]
+	
+			self.data = '\n'.join(lines[2:])
+		else:
+			self.type = 'error'
+			self.message = backtrace
+			self.data = backtrace
+
+		self.backtrace = backtrace
+
+	#def __init__(self, code, msg):
+		#self.code = code
+		#lines = msg.split('\n')
+		#self.data = '\n'.join(lines[2:])
+		#self.type = lines[0].split(' -- ')[0]
+		#self.message = ''
+		#if len(lines[0].split(' -- ')) > 1:
+			#self.message = lines[0].split(' -- ')[1]
 
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
@@ -167,13 +185,11 @@ class Session:
 			raise RpcException(1, 'not logged')
 		try:
 			return self.connection.call(obj, method, *args)
-		except socket.error, (e1,e2):
-			notifier.notifyError(_('Connection refused !'), e1, e2)
-			raise RpcException(69, 'Connection refused!')
 		except Exception, err:
 			a = RpcException(err.faultCode, err.faultString)
+			print a
 			if a.type in ('warning','UserError'):
-				notifier.notifyWarning('', a.data + " - " + a.message )
+				notifier.notifyWarning(a.message, a.data )
 			else:
 				notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
 
@@ -191,7 +207,7 @@ class Session:
 		password = unicode( url.password() )
 		try:
 			res = self.connection.call( '/common', 'login', db, user, password )
-		except socket.error,e:
+		except socket.error, e:
 			return -1
 		if not res:
 			self.open=False
