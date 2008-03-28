@@ -79,7 +79,7 @@
           <item>
            <widget class="QLabel" name="label" >
             <property name="sizePolicy" >
-             <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+             <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -100,18 +100,6 @@ p, li { white-space: pre-wrap; }
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="minimumSize" >
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
             <property name="toolTip" >
              <string>Add Shortcut</string>
             </property>
@@ -131,12 +119,6 @@ p, li { white-space: pre-wrap; }
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="maximumSize" >
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
             <property name="toolTip" >
              <string>Go</string>
             </property>
@@ -155,12 +137,6 @@ p, li { white-space: pre-wrap; }
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
-            </property>
-            <property name="maximumSize" >
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
             </property>
             <property name="toolTip" >
              <string>Remove Shortcut</string>

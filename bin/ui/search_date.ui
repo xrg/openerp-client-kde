@@ -6,8 +6,14 @@
     <x>0</x>
     <y>0</y>
     <width>316</width>
-    <height>30</height>
+    <height>29</height>
    </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="maximumSize" >
    <size>
@@ -37,12 +43,12 @@
    <item>
     <layout class="QHBoxLayout" >
      <property name="spacing" >
-      <number>0</number>
+      <number>5</number>
      </property>
      <item>
       <widget class="QLineEdit" name="uiStart" >
        <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -89,12 +95,12 @@ p, li { white-space: pre-wrap; }
    <item>
     <layout class="QHBoxLayout" >
      <property name="spacing" >
-      <number>0</number>
+      <number>5</number>
      </property>
      <item>
       <widget class="QLineEdit" name="uiEnd" >
        <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>

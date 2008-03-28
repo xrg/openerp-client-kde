@@ -1,29 +1,26 @@
 <ui version="4.0" >
- <class>Widget</class>
- <widget class="QWidget" name="Widget" >
+ <class>Form</class>
+ <widget class="QWidget" name="Form" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>466</width>
-    <height>20</height>
+    <width>400</width>
+    <height>28</height>
    </rect>
   </property>
-  <property name="minimumSize" >
-   <size>
-    <width>0</width>
-    <height>20</height>
-   </size>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
-  <property name="maximumSize" >
-   <size>
-    <width>16777215</width>
-    <height>20</height>
-   </size>
+  <property name="windowTitle" >
+   <string>Form</string>
   </property>
   <layout class="QHBoxLayout" >
    <property name="spacing" >
-    <number>6</number>
+    <number>5</number>
    </property>
    <property name="leftMargin" >
     <number>0</number>
@@ -38,70 +35,26 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QComboBox" name="uiModel" >
-     <property name="minimumSize" >
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize" >
-      <size>
-       <width>16777215</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
+    <widget class="QComboBox" name="uiModel" />
    </item>
    <item>
-    <widget class="QLineEdit" name="uiText" >
-     <property name="sizeIncrement" >
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="baseSize" >
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="text" >
-      <string/>
-     </property>
-    </widget>
+    <widget class="QLineEdit" name="uiText" />
    </item>
    <item>
     <layout class="QHBoxLayout" >
      <property name="spacing" >
       <number>1</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
-      <number>0</number>
-     </property>
      <item>
       <widget class="QPushButton" name="pushClear" >
-       <property name="maximumSize" >
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="toolTip" >
         <string>Clear</string>
-       </property>
-       <property name="text" >
-        <string/>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >:/images/images/trash.png</iconset>
@@ -109,21 +62,15 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pushNew" >
-       <property name="minimumSize" >
-        <size>
-         <width>0</width>
-         <height>20</height>
-        </size>
+      <widget class="QPushButton" name="pushNew" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="maximumSize" >
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>...</string>
+       <property name="toolTip" >
+        <string>New</string>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >:/images/images/new.png</iconset>
@@ -131,21 +78,15 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pushOpen" >
-       <property name="minimumSize" >
-        <size>
-         <width>0</width>
-         <height>20</height>
-        </size>
+      <widget class="QPushButton" name="pushOpen" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="maximumSize" >
-        <size>
-         <width>16777215</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="text" >
-        <string>...</string>
+       <property name="toolTip" >
+        <string>Open</string>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >:/images/images/find.png</iconset>

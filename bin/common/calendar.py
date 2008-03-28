@@ -12,6 +12,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import * 
 from PyQt4.uic import *
 import math
+import common
 
 ## @brief Converts a QDate object into a Python string
 def dateToText( date ):
@@ -111,19 +112,18 @@ def storageToDateTime( text ):
 #
 # Of course, PopupCalendar uses the other ToTime and ToText helper functions.
 #
-class PopupCalendar(QFrame):
+class PopupCalendar(QWidget):
 	def __init__(self, parent, showTime = False):
-		QFrame.__init__(self, parent)
-		layout = QVBoxLayout( self )
+		QWidget.__init__(self, parent)
+		loadUi( common.uiPath('datetime.ui'), self )
 		self.showTime = showTime
 		if self.showTime:
-			self.uiTime = QLineEdit( self )
-			layout.addWidget(self.uiTime)
 			self.uiTime.setText( textToDateTime( str(parent.text()) ).time().toString() )
 			self.connect( self.uiTime, SIGNAL('returnPressed()'), self.storeOnParent )
+		else:
+			self.uiTime.hide()
+			self.labelTime.hide()
 
-		self.uiCalendar = QCalendarWidget( self )
-		layout.addWidget( self.uiCalendar )
 		self.setWindowFlags( Qt.Popup )
 		self.setWindowModality( Qt.ApplicationModal )
 		pos = parent.mapToGlobal( parent.pos() )
@@ -134,7 +134,6 @@ class PopupCalendar(QFrame):
 		else:
 			self.uiCalendar.setSelectedDate( textToDate( parent.text() ) )
 		self.uiCalendar.setFirstDayOfWeek( Qt.Monday )
-		self.setObjectName( 'frame' )
 		self.show()
 		if self.showTime:
 			self.uiTime.setFocus()

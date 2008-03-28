@@ -5,22 +5,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>20</height>
+    <width>311</width>
+    <height>25</height>
    </rect>
   </property>
-  <property name="maximumSize" >
-   <size>
-    <width>16777215</width>
-    <height>20</height>
-   </size>
+  <property name="sizePolicy" >
+   <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle" >
    <string>Form</string>
   </property>
   <layout class="QHBoxLayout" >
    <property name="spacing" >
-    <number>6</number>
+    <number>5</number>
    </property>
    <property name="leftMargin" >
     <number>0</number>
@@ -35,29 +35,10 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QLineEdit" name="uiUrl" >
-     <property name="minimumSize" >
-      <size>
-       <width>0</width>
-       <height>20</height>
-      </size>
-     </property>
-     <property name="maximumSize" >
-      <size>
-       <width>16777215</width>
-       <height>20</height>
-      </size>
-     </property>
-    </widget>
+    <widget class="QLineEdit" name="uiUrl" />
    </item>
    <item>
     <widget class="QToolButton" name="pushOpenUrl" >
-     <property name="maximumSize" >
-      <size>
-       <width>16777215</width>
-       <height>20</height>
-      </size>
-     </property>
      <property name="toolTip" >
       <string>Open</string>
      </property>

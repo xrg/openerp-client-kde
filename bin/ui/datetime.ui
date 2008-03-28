@@ -15,26 +15,55 @@
     <height>250</height>
    </size>
   </property>
+  <property name="styleSheet" >
+   <string>#DateTime{
+border: 1px solid black;
+}</string>
+  </property>
   <layout class="QVBoxLayout" >
+   <property name="leftMargin" >
+    <number>0</number>
+   </property>
+   <property name="topMargin" >
+    <number>0</number>
+   </property>
+   <property name="rightMargin" >
+    <number>0</number>
+   </property>
+   <property name="bottomMargin" >
+    <number>0</number>
+   </property>
    <item>
-    <layout class="QHBoxLayout" >
-     <item>
-      <widget class="QLabel" name="timeLbl" >
-       <property name="text" >
-        <string>Time:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTimeEdit" name="timeEdit" />
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="QCalendarWidget" name="calendarWidget" >
-     <property name="gridVisible" >
-      <bool>true</bool>
+    <widget class="QFrame" name="frame" >
+     <property name="frameShape" >
+      <enum>QFrame::StyledPanel</enum>
      </property>
+     <property name="frameShadow" >
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" >
+      <item>
+       <layout class="QHBoxLayout" >
+        <item>
+         <widget class="QLabel" name="labelTime" >
+          <property name="text" >
+           <string>Time:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="uiTime" />
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCalendarWidget" name="uiCalendar" >
+        <property name="gridVisible" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>

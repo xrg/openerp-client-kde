@@ -80,12 +80,18 @@
          <property name="text" >
           <string>OK</string>
          </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushCancel" >
          <property name="text" >
           <string>Cancel</string>
+         </property>
+         <property name="icon" >
+          <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
          </property>
         </widget>
        </item>
@@ -95,6 +101,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
  <connections/>
 </ui>

@@ -51,20 +51,11 @@
      </item>
      <item>
       <layout class="QHBoxLayout" >
+       <property name="spacing" >
+        <number>1</number>
+       </property>
        <item>
         <widget class="QToolButton" name="pushSearch" >
-         <property name="minimumSize" >
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="maximumSize" >
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
          <property name="toolTip" >
           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
@@ -81,18 +72,6 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QToolButton" name="pushOpen" >
-         <property name="minimumSize" >
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="maximumSize" >
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
          <property name="toolTip" >
           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
@@ -109,18 +88,6 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <widget class="QToolButton" name="pushSwitchView" >
-         <property name="minimumSize" >
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="maximumSize" >
-          <size>
-           <width>16777215</width>
-           <height>20</height>
-          </size>
-         </property>
          <property name="toolTip" >
           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
