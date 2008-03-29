@@ -43,7 +43,7 @@ class CharFormWidget(AbstractFormWidget):
 		self.widget.setMaxLength( int( attrs.get( 'size',16 ) ) )
 		self.installPopupMenu( self.widget )
 		if attrs.get( 'invisible', False ):
-			self.widget.hide()
+			self.widget.setEchoMode( QLineEdit.Password )
 
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
