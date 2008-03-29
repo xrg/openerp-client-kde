@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>399</width>
-    <height>300</height>
+    <height>319</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -18,10 +18,10 @@
   <property name="windowTitle" >
    <string>Form</string>
   </property>
+  <property name="styleSheet" >
+   <string/>
+  </property>
   <layout class="QVBoxLayout" >
-   <property name="spacing" >
-    <number>0</number>
-   </property>
    <property name="leftMargin" >
     <number>0</number>
    </property>
@@ -36,6 +36,9 @@
    </property>
    <item>
     <layout class="QHBoxLayout" >
+     <property name="spacing" >
+      <number>5</number>
+     </property>
      <item>
       <spacer>
        <property name="orientation" >
@@ -44,6 +47,29 @@
        <property name="sizeHint" >
         <size>
          <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="uiTitle" >
+       <property name="text" >
+        <string>Title</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer>
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType" >
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" >
+        <size>
+         <width>20</width>
          <height>20</height>
         </size>
        </property>
@@ -111,19 +137,25 @@ p, li { white-space: pre-wrap; }
          </property>
         </widget>
        </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
     </layout>
    </item>
    <item>
-    <widget class="QGroupBox" name="group" >
-     <property name="title" >
-      <string/>
-     </property>
-     <property name="flat" >
-      <bool>true</bool>
-     </property>
-    </widget>
+    <widget class="QWidget" native="1" name="uiGroup" />
    </item>
   </layout>
  </widget>

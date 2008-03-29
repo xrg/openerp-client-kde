@@ -37,6 +37,7 @@ class TextBoxFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.uiText = QTextEdit( self )
+		self.uiText.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.installPopupMenu( self.uiText )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )

@@ -84,8 +84,8 @@ class ActionFormWidget(AbstractFormWidget):
 				else:
 					self.screen.setViewTypes( mode )
 				loadUi( common.uiPath('paned.ui'), self  )
-				self.group.setTitle( QString( attrs['string'] or "" )) #ANGEL TODO:  or   self.screen.current_view.title
-				layout = QVBoxLayout( self.group )
+				self.uiTitle.setText( QString( attrs['string'] or "" ))
+				layout = QVBoxLayout( self.uiGroup )
 				layout.setContentsMargins( 0, 0, 0 , 0 )
 				layout.addWidget( self.screen )
 
