@@ -1,5 +1,6 @@
 import matplotlib
-matplotlib.use('Qt4Agg')
+#matplotlib.use('Qt4Agg')
+matplotlib.use('Agg')
 
 from pylab import arange
 from matplotlib.font_manager import FontProperties
@@ -87,10 +88,13 @@ def tinygraph(subplot, type='pie', axis={}, axis_data={}, datas=[], axis_group_f
 					color = colors[y]
 				else:
 					color = colors[i]
+				def ecol(value):
+					return max(int(value,16)-45, 0)
+				edgecolor = '#%02x%02x%02x' % (ecol(color[1:3]), ecol(color[3:5]), ecol(color[5:7]))
 				if orientation=='horizontal':
-					aa = subplot.barh(ind, tuple(value), width, left=yoff, color=color, edgecolor="#333333")[0]
+					aa = subplot.barh(ind, tuple(value), width, left=yoff, color=color, edgecolor=edgecolor)[0]
 				else:
-					aa = subplot.bar(ind, tuple(value), width, bottom=yoff, color=color, edgecolor="#333333")[0]
+					aa = subplot.bar(ind, tuple(value), width, bottom=yoff, color=color, edgecolor=edgecolor)[0]
 				gvalue2.append(aa)
 				for j in range(len(yoff)):
 					yoff[j]+=value[j]
