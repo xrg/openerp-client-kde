@@ -13,7 +13,6 @@ class LoginDialog( QDialog ):
 
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
-		print common.uiPath('login.ui')
 		loadUi( common.uiPath('login.ui'), self ) 
 		self.databaseName = ''
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )

@@ -78,29 +78,45 @@ class CreateDatabaseDialog( QDialog ):
 		self.connect(self.pushChange,SIGNAL("clicked()"),self.slotChange )
 
 		url = '%s%s:%s' % (options.options['login.protocol'], options.options['login.server'], options.options['login.port'])
-		self.tinyServer.setText(url)
+		self.uiServer.setText(url)
 		self.refreshLangList(url) 
 	
 	def refreshLangList(self, url):
-		self.language.clear()
-		lang_list = rpc.database.call(url, 'list_lang')
+		self.uiLanguage.clear()
+		try:
+			lang_list = rpc.database.call(url, 'list_lang')
+		except:
+			self.setDialogEnabled( False )
+			return
 		lang_list.append( ('en_US','English') )
 		for key,val in lang_list:
-			self.language.addItem( val, QVariant( key ) )
-		self.language.setCurrentIndex( self.language.count() - 1 )
+			self.uiLanguage.addItem( val, QVariant( key ) )
+		self.uiLanguage.setCurrentIndex( self.uiLanguage.count() - 1 )
+		self.setDialogEnabled( True )
+
+	def setDialogEnabled(self, value):
+		if not value:
+			self.uiMessage.show()
+		else:
+			self.uiMessage.hide()
+		self.uiPassword.setEnabled( value )
+		self.uiDatabase.setEnabled( value )
+		self.uiDemoData.setEnabled( value )
+		self.uiLanguage.setEnabled( value )
+		self.pushAccept.setEnabled( value )
 
 	def slotCancel(self):
 		self.close()
 	
 	def slotAccept(self):
-		databaseName = str( self.database.text() )
+		databaseName = unicode( self.uiDatabase.text() )
 		if ((not databaseName) or (not re.match('^[a-zA-Z][a-zA-Z0-9_]+$', databaseName))):
 			QMessageBox.warning( self, _('Bad database name !'), _('The database name must contain only normal characters or "_".\nYou must avoid all accents, space or special characters.') )
-		demoData = self.demoData.isChecked()
+		demoData = self.uiDemoData.isChecked()
 
-		langreal = str( self.language.itemData( self.language.currentIndex() ).toString() )
-		passwd = str( self.password.text() )
-		url = str( self.tinyServer.text() )
+		langreal = unicode( self.uiLanguage.itemData( self.uiLanguage.currentIndex() ).toString() )
+		passwd = unicode( self.uiPassword.text() )
+		url = unicode( self.uiServer.text() )
 
 		progress = ProgressBar()
 		progress.url = url
@@ -121,15 +137,10 @@ class CreateDatabaseDialog( QDialog ):
 
 	def slotChange(self):
 		dialog = askserver.AskServer( self )
-		dialog.setDefault( str( self.tinyServer.text() ) )
+		dialog.setDefault( str( self.uiServer.text() ) )
 		ret = dialog.exec_()
 		if ret == QDialog.Accepted:
 			url = dialog.url
-			self.tinyServer.setText( url )
-			try:
-				if self.language:
-					self.refreshLangList(url)
-				self.pushAccept.setEnabled(True)
-			except:
-				self.pushAccept.setEnabled(False)
+			self.uiServer.setText( url )
+			self.refreshLangList(url)
 
