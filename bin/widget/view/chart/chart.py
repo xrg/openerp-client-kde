@@ -33,8 +33,6 @@ import rpc
 import tinygraph
 import matplotlib
 
-#matplotlib.use('Qt4Agg')
-
 matplotlib.rcParams['xtick.labelsize'] = 6 # 10
 matplotlib.rcParams['ytick.labelsize'] = 6 #10
 
@@ -65,7 +63,7 @@ class Chart( QWidget ):
 		QWidget.__init__( self , parent ) 
 
 		color = str(self.palette().color( self.backgroundRole() ).name())
-		self._figure = Figure(figsize=(800,600), dpi=100, facecolor=color)
+		self._figure = Figure(figsize=(50,50), dpi=100, facecolor=color)
 		self._subplot = self._figure.add_subplot(111,axisbg='#eeeeee', alpha=0)
 		self._canvas = FigureCanvas(self._figure)
 
@@ -124,14 +122,6 @@ class Chart( QWidget ):
 					res[x] = float(m.value(x))
 			datas.append(res)
 		tinygraph.tinygraph(self._subplot, self.attrs.get('type', 'pie'), self.axis, self.axis_data, datas, axis_group_field=self.axis_group, orientation=self.attrs.get('orientation', 'vertical'))
-		# the draw function may generate exception but it is not a problem as it will be redraw latter
-		try:
-			self._subplot.draw()
-			#XXX it must have some better way to force the redraw but this one works
-			self._canvas.setParent(None)
-			del self._canvas
-			self._canvas = FigureCanvas(self._figure)
-			self.layout().addWidget( self._canvas )
-		except:
-			pass
+
+        	self._canvas.draw()
 		
