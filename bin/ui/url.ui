@@ -38,7 +38,13 @@
     <widget class="QLineEdit" name="uiUrl" />
    </item>
    <item>
-    <widget class="QToolButton" name="pushOpenUrl" >
+    <widget class="QPushButton" name="pushOpenUrl" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="toolTip" >
       <string>Open</string>
      </property>
