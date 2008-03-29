@@ -244,6 +244,11 @@ class TreeModel(QAbstractItemModel):
 				return QVariant( numeric.floatToText(value, field.get('digits',None) ) )	
 			elif fieldType == 'float_time':
 				return QVariant( calendar.floatTimeToText(value) )
+			elif fieldType == 'boolean':
+				if bool(value):
+					return QVariant( _('True') )
+				else:
+					return QVariant( _('False') )
 			else:
 				if value == False or value == None:
 					return QVariant()
