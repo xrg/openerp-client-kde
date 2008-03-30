@@ -104,6 +104,10 @@ if imports['dbus']:
 
 ### Main application loop
 app = QApplication( sys.argv )
+try:
+	app.setStyleSheet( file(options.options['stylesheet']).read() )
+except:
+	pass
 
 localization.initializeQtTranslations()
 

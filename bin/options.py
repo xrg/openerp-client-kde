@@ -54,6 +54,7 @@ class configmanager(object):
 			'logging.output': 'stdout',
 			'logging.verbose': False,
 			'client.default_path': os.path.expanduser('~'),
+			'stylesheet' : ''
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))
@@ -63,6 +64,7 @@ class configmanager(object):
 		parser.add_option("-u", "--user", dest="login", help=_("specify the user login"))
 		parser.add_option("-p", "--port", dest="port", help=_("specify the server port"))
 		parser.add_option("-s", "--server", dest="server", help=_("specify the server ip/name"))
+		parser.add_option("", "--stylesheet", dest="stylesheet", help=_("specify stylesheet to apply"))
 		(opt, args) = parser.parse_args()
 
 
@@ -73,6 +75,7 @@ class configmanager(object):
 			self.options['logging.verbose']=True
 		self.options['logging.logger'] = opt.log_logger
 		self.options['logging.level'] = opt.log_level
+		self.options['stylesheet'] = opt.stylesheet
 	
 		for arg in ('login', 'port', 'server'):
 			if getattr(opt, arg):
