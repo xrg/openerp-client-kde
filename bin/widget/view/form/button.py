@@ -3,6 +3,7 @@ from PyQt4.QtGui import *
 from abstractformwidget import *
 from common import notifier
 from common import icons
+import service
 
 class ButtonFormWidget( AbstractFormWidget ):
 	def __init__(self, parent, view, attributes) :
