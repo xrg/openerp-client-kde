@@ -41,8 +41,6 @@ try:
 	modules['chart'] = True
 except Exception, e:
 	errors['chart'] = e
-	#print sys.exc_info()
-	#print "Can't load charts"
 
 from widget.view.abstractparser import *
 from widget.view.form.abstractformwidget import *

@@ -37,6 +37,9 @@ matplotlib.rcParams['xtick.labelsize'] = 6 # 10
 matplotlib.rcParams['ytick.labelsize'] = 6 #10
 
 from matplotlib.figure import Figure
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
 
@@ -54,9 +57,6 @@ if not hasattr(locale, 'nl_langinfo'):
 
 if not hasattr(locale, 'D_FMT'):
 	locale.D_FMT = None
-
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
 
 class Chart( QWidget ):
 	def __init__(self, model, axis, fields, axis_data={}, attrs={},parent=None):
