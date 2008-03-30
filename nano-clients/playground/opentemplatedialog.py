@@ -29,3 +29,4 @@ class OpenTemplateDialog(QDialog):
 		index = self.treeView.selectionModel().currentIndex()
 		self.id = self.treeModel.id(index)
 		self.accept()
+

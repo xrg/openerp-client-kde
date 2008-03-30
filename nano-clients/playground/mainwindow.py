@@ -6,7 +6,7 @@ from ocr import *
 from template import *
 from opentemplatedialog import *
 
-#from modules.gui.login import *
+from modules.gui.login import LoginDialog
 import rpc
 
 class MatcherToolWidget(QWidget):
@@ -261,7 +261,7 @@ class MainWindow(QMainWindow):
 		self.connect( self.actionToggleImageBoxes, SIGNAL('triggered()'), self.toggleImageBoxes )
 		self.connect( self.actionToggleTemplateBoxes, SIGNAL('triggered()'), self.toggleTemplateBoxes )
 		self.connect( self.actionToggleBinarized, SIGNAL('triggered()'), self.toggleBinarized )
-		#self.connect( self.actionLogin, SIGNAL('triggered()'), self.login )
+		self.connect( self.actionLogin, SIGNAL('triggered()'), self.login )
 		self.connect( self.actionSaveTemplate, SIGNAL('triggered()'), self.saveTemplate )
 		self.toggleImageBoxes()
 		QTimer.singleShot( 1000, self.setup )
@@ -274,7 +274,7 @@ class MainWindow(QMainWindow):
 		self.uiTool.show()
 		self.uiToolDock.setWidget( self.uiTool )
 
-		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'graficas' )
+		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'g1' )
 
 	def setCurrentTemplateBox(self, box):
 		self.uiTool.setBox( box )
@@ -294,10 +294,12 @@ class MainWindow(QMainWindow):
 
 	def toggleBinarized(self):
 		self.scene.setBinarizedVisible( self.actionToggleBinarized.isChecked() )
-	#def login(self):
-		#dialog = LoginDialog( self )
-		#if dialog.exec_() == QDialog.Reject:
-		#	return
+
+	def login(self):
+		dialog = LoginDialog( self )
+		if dialog.exec_() == QDialog.Rejected:
+			return
+		rpc.session.login( dialog.url, dialog.databaseName )
 
 	def saveTemplate(self):
 		(name, ok) = QInputDialog.getText( self, 'Save template', 'Template name:' )
@@ -314,7 +316,6 @@ class MainWindow(QMainWindow):
 		dialog = OpenTemplateDialog(self)
 		if dialog.exec_() == QDialog.Rejected:
 			return
-		#dialog.id = rpc.session.call( '/object', 'execute', 'nan.template', 'read', [dialog.id] )
 		model = dialog.group[dialog.id]
 		self._template = Template( model.value('name') )
 
