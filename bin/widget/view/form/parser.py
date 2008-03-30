@@ -189,7 +189,9 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='group':
 				widget, on_write = self.parse( node, fields, notebook )
-				widget.expand()
+				# We don't expand the widget in 'group' as it should be 
+				# automatically expanded when new rows are added to the grid.
+				# See FormContainer.newRow()
  				container.addWidget( widget, attrs )
 
 		return  container, on_write

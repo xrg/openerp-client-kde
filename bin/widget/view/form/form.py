@@ -76,6 +76,35 @@ class FormContainer( QWidget ):
 		self.column = self.column + colspan
 
 	def newRow(self):
+		# Here we try to find out if any of the widgets in the row
+		# we have just created is trying to expand. If so then any
+		# FormContainers in this new row (that don't have hasExpanding)
+		# need to be expanded.
+		#
+		# Supose you have in the same row a OneToMany widget (which expands) 
+		# and a Group (Which is a FormContainer) with two buttons. In this
+		# case you need to add a spacer at the end of the Group. However,
+		# if non of the widgets of the row is Expanding then you need NOT
+		# to add the spacer at the end of the group as this would make the
+		# whole row try to get more space.
+		#
+		# The following screens have served for testing: Invoices, Requests
+		# and timesheets. All have examples of groups in a row in which there
+		# are other widgets (expanding and non-expanding ones).
+		containers = []
+		expands = False
+		for x in range(self.layout.count()):
+			pos = self.layout.getItemPosition( x )
+			if pos[1] != self.row: 
+				continue
+			w = self.layout.itemAt( x ).widget()
+			if isinstance(w, FormContainer) and not w.hasExpanding:
+				containers.append( w )
+			elif w.sizePolicy().verticalPolicy() == QSizePolicy.Expanding:
+				expands = True
+		for x in containers:
+			x.expand()
+
 		self.row = self.row + 1
 		self.column = 0
 
