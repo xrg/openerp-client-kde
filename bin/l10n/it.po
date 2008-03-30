@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-24 20:35+0100\n"
+"POT-Creation-Date: 2008-03-30 01:57+0100\n"
 "PO-Revision-Date: 2005-04-05 09:43+0200\n"
 "Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -32,6 +32,16 @@ msgstr ""
 #: bin/widget/screen/action.py:41
 msgid "You must save this record to use the relate button !"
 msgstr ""
+
+#: bin/widget/model/treemodel.py:249
+#, fuzzy
+msgid "True"
+msgstr "Albero"
+
+#: bin/widget/model/treemodel.py:251
+#, fuzzy
+msgid "False"
+msgstr "Chiudi"
 
 #: bin/widget/view/chart/parser.py:72
 #, fuzzy
@@ -185,19 +195,15 @@ msgstr "Modulo Invalido, correggere i campi in rosso"
 msgid "Write Report to File"
 msgstr "Scrivi Report sul File"
 
-#: bin/rpc/rpc.py:171
-msgid "Connection refused !"
-msgstr "Connessione rifiutata"
-
-#: bin/rpc/rpc.py:178
+#: bin/rpc/rpc.py:194
 msgid "Application Error"
 msgstr "Errore Applicazione"
 
-#: bin/rpc/rpc.py:178
+#: bin/rpc/rpc.py:194
 msgid "View details"
 msgstr "Dettagli vista"
 
-#: bin/rpc/rpc.py:273
+#: bin/rpc/rpc.py:289
 msgid "Could not contact server!"
 msgstr ""
 
@@ -500,7 +506,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:516
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:515
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -514,24 +520,24 @@ msgid ""
 "We suggest you to drop this database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:98
+#: bin/modules/gui/createdb.py:114
 msgid "Bad database name !"
 msgstr ""
 
-#: bin/modules/gui/createdb.py:98
+#: bin/modules/gui/createdb.py:114
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: bin/modules/gui/login.py:46 bin/modules/gui/choosedb.py:44
+#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
 #, fuzzy
 msgid "Could not connect to server !"
 msgstr ""
 "Errore di cconnessione!\n"
 "Nome utente o password non validi"
 
-#: bin/modules/gui/login.py:51 bin/modules/gui/choosedb.py:50
+#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
 msgid "No database found, you must create one !"
 msgstr ""
 
@@ -632,70 +638,70 @@ msgid ""
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "Yes"
 msgstr "Si"
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "No"
 msgstr "No"
 
-#: bin/modules/gui/main.py:503 bin/modules/gui/main.py:524
+#: bin/modules/gui/main.py:502 bin/modules/gui/main.py:523
 #, fuzzy
 msgid "Delete a database"
 msgstr "Seleziona una data"
 
-#: bin/modules/gui/main.py:512 bin/modules/gui/main.py:518
+#: bin/modules/gui/main.py:511 bin/modules/gui/main.py:517
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:512
+#: bin/modules/gui/main.py:511
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:516
+#: bin/modules/gui/main.py:515
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:518
+#: bin/modules/gui/main.py:517
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:535
+#: bin/modules/gui/main.py:534
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:538
 #, fuzzy
 msgid "Could not resotre database"
 msgstr "Seleziona una data"
 
-#: bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:538
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:541
+#: bin/modules/gui/main.py:540
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Seleziona una data"
 
-#: bin/modules/gui/main.py:544
+#: bin/modules/gui/main.py:543
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:559
+#: bin/modules/gui/main.py:558
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:561
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -757,6 +763,9 @@ msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
 msgstr ""
+
+#~ msgid "Connection refused !"
+#~ msgstr "Connessione rifiutata"
 
 #~ msgid "Unable to chroot: no tree resource selected"
 #~ msgstr "Impossibile fare chroot: nessun albero di risorse selezionato"
@@ -823,9 +832,6 @@ msgstr ""
 
 #~ msgid "Print"
 #~ msgstr "Stampa"
-
-#~ msgid "Close"
-#~ msgstr "Chiudi"
 
 #~ msgid "Error removing resource!"
 #~ msgstr "Errore eliminando la risorsa"

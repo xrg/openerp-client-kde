@@ -3,17 +3,17 @@
 <context>
     <name>Binary</name>
     <message>
-        <location filename="binary.ui" line="55"/>
+        <location filename="binary.ui" line="41"/>
         <source>Select file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="74"/>
+        <location filename="binary.ui" line="54"/>
         <source>Save file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="93"/>
+        <location filename="binary.ui" line="67"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
@@ -21,8 +21,15 @@
 <context>
     <name>DateTime</name>
     <message>
-        <location filename="datetime.ui" line="24"/>
+        <location filename="datetime.ui" line="50"/>
         <source>Time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="datetime.ui" line="19"/>
+        <source>#DateTime{
+border: 1px solid black;
+}</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -233,7 +240,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="54"/>
+        <location filename="create_database.ui" line="70"/>
         <source>&amp;New database name:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -243,32 +250,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="132"/>
+        <location filename="create_database.ui" line="141"/>
         <source>(must not contain any special character)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="155"/>
+        <location filename="create_database.ui" line="151"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="178"/>
+        <location filename="create_database.ui" line="180"/>
         <source>&amp;Super admin password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="201"/>
+        <location filename="create_database.ui" line="209"/>
         <source>&amp;Default language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="211"/>
+        <location filename="create_database.ui" line="225"/>
         <source>&amp;Load demonstration data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="234"/>
+        <location filename="create_database.ui" line="261"/>
         <source>&amp;TinyERP server:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -520,13 +527,8 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="138"/>
+        <location filename="win_import.ui" line="141"/>
         <source>File to &amp;import:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="151"/>
-        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -702,21 +704,21 @@ p, li { white-space: pre-wrap; }
         <source>&amp;Send support request</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="create_database.ui" line="34"/>
+        <source>&lt;b&gt;Could not connect tot database&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Form</name>
     <message>
-        <location filename="screen.ui" line="13"/>
+        <location filename="reference.ui" line="19"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="search_int.ui" line="84"/>
-        <source>Any</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="79"/>
+        <location filename="search_date.ui" line="85"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
@@ -724,12 +726,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="64"/>
+        <location filename="one2many.ui" line="73"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="92"/>
+        <location filename="one2many.ui" line="89"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -737,7 +739,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="126"/>
+        <location filename="one2many.ui" line="111"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -745,7 +747,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="160"/>
+        <location filename="one2many.ui" line="133"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -753,32 +755,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="218"/>
+        <location filename="one2many.ui" line="179"/>
         <source>Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="255"/>
+        <location filename="one2many.ui" line="204"/>
         <source>(0/0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="283"/>
+        <location filename="one2many.ui" line="220"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="323"/>
+        <location filename="one2many.ui" line="248"/>
         <source>Switch View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="72"/>
+        <location filename="many2one.ui" line="66"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="85"/>
+        <location filename="reference.ui" line="73"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
@@ -854,17 +856,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="55"/>
+        <location filename="search_date.ui" line="61"/>
         <source>Choose a date from a calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="107"/>
+        <location filename="search_date.ui" line="113"/>
         <source>Choose the date from a calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="url.ui" line="62"/>
+        <location filename="reference.ui" line="89"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -874,17 +876,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calendar.ui" line="68"/>
+        <location filename="calendar.ui" line="41"/>
         <source>Open Calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="86"/>
+        <location filename="many2many.ui" line="60"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="108"/>
+        <location filename="many2many.ui" line="76"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -919,7 +921,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="paned.ui" line="69"/>
+        <location filename="paned.ui" line="92"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -927,12 +929,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="paned.ui" line="131"/>
-        <source>...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="paned.ui" line="97"/>
+        <location filename="paned.ui" line="111"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -940,7 +937,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="paned.ui" line="125"/>
+        <location filename="paned.ui" line="130"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -955,6 +952,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="searchform.ui" line="101"/>
         <source>&amp;Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="58"/>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="57"/>
+        <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1620,16 +1627,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>Widget</name>
-    <message>
-        <location filename="reference.ui" line="101"/>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reference.ui" line="148"/>
-        <source>...</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>change_server</name>
@@ -1677,7 +1674,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="88"/>
+        <location filename="dia_form_win_many2one.ui" line="91"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1726,22 +1723,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="116"/>
+        <location filename="tree.ui" line="104"/>
         <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="141"/>
+        <location filename="tree.ui" line="123"/>
         <source>Go</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="166"/>
+        <location filename="tree.ui" line="142"/>
         <source>Remove Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="188"/>
+        <location filename="tree.ui" line="164"/>
         <source>1</source>
         <translation type="unfinished"></translation>
     </message>

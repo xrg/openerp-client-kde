@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP Client 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-24 20:35+0100\n"
+"POT-Creation-Date: 2008-03-30 01:57+0100\n"
 "PO-Revision-Date: 2008-03-24 16:21+0100\n"
 "Last-Translator: Udo Spallek <udono@gmx.net>\n"
 "Language-Team: DE <i18n-info@tinyerp.org>\n"
@@ -30,6 +30,15 @@ msgstr "Es muss ein Datensatz ausgewählt sein, der verknüpft werden soll!"
 #: bin/widget/screen/action.py:41
 msgid "You must save this record to use the relate button !"
 msgstr "Der Datensatz muss gespeichert sein, um verknüpft werden zu können!"
+
+#: bin/widget/model/treemodel.py:249
+#, fuzzy
+msgid "True"
+msgstr "Baum"
+
+#: bin/widget/model/treemodel.py:251
+msgid "False"
+msgstr ""
 
 #: bin/widget/view/chart/parser.py:72
 #, fuzzy
@@ -176,19 +185,15 @@ msgstr "Ungültige Formulardaten! Rot markierte Felder korrigieren."
 msgid "Write Report to File"
 msgstr "Bericht in Datei schreiben"
 
-#: bin/rpc/rpc.py:171
-msgid "Connection refused !"
-msgstr "Verbindung abgelehnt!"
-
-#: bin/rpc/rpc.py:178
+#: bin/rpc/rpc.py:194
 msgid "Application Error"
 msgstr "Anwendungsfehler"
 
-#: bin/rpc/rpc.py:178
+#: bin/rpc/rpc.py:194
 msgid "View details"
 msgstr "Details anzeigen"
 
-#: bin/rpc/rpc.py:273
+#: bin/rpc/rpc.py:289
 msgid "Could not contact server!"
 msgstr "Kann nicht mit dem Server verbinden!"
 
@@ -481,7 +486,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr "Kann Datenbank nicht erstellen."
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:516
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:515
 msgid "Bad database administrator password !"
 msgstr "Falsches Passwort für den Datenbankadministrator!"
 
@@ -498,11 +503,11 @@ msgstr ""
 "Bitte löschen sie die Datenbank und legen sie eine neue an.\n"
 " (drop database)"
 
-#: bin/modules/gui/createdb.py:98
+#: bin/modules/gui/createdb.py:114
 msgid "Bad database name !"
 msgstr "Ungültiger Datenbankname!"
 
-#: bin/modules/gui/createdb.py:98
+#: bin/modules/gui/createdb.py:114
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -510,11 +515,11 @@ msgstr ""
 "Der Datenbankname darf nur alphanumerische Zeichen enthalten und \"_\".\n"
 "Akzente, Umlaute, Leer- oder Sonderzeichen sind zu Vermeiden."
 
-#: bin/modules/gui/login.py:46 bin/modules/gui/choosedb.py:44
+#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
 msgid "Could not connect to server !"
 msgstr "Kann nicht zum Server verbinden!"
 
-#: bin/modules/gui/login.py:51 bin/modules/gui/choosedb.py:50
+#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
 msgid "No database found, you must create one !"
 msgstr ""
 "Es wurde keine Tiny ERP Datenbank gefunden. Bitte eine neue Datenbank "
@@ -612,67 +617,67 @@ msgstr ""
 "Problem: Es wurde keine Aktion für den Benutzer definiertFragen Sie ihren "
 "Administrator."
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "Quit"
 msgstr "Beenden"
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "Do you really want to quit ?"
 msgstr "Möchten Sie Tiny ERP wirklich beenden?"
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "Yes"
 msgstr "Ja"
 
-#: bin/modules/gui/main.py:436
+#: bin/modules/gui/main.py:435
 msgid "No"
 msgstr "Nein"
 
-#: bin/modules/gui/main.py:503 bin/modules/gui/main.py:524
+#: bin/modules/gui/main.py:502 bin/modules/gui/main.py:523
 msgid "Delete a database"
 msgstr "Eine Datenbank löschen"
 
-#: bin/modules/gui/main.py:512 bin/modules/gui/main.py:518
+#: bin/modules/gui/main.py:511 bin/modules/gui/main.py:517
 msgid "Database removal"
 msgstr "Datenbank entfernen"
 
-#: bin/modules/gui/main.py:512
+#: bin/modules/gui/main.py:511
 msgid "Database dropped successfully!"
 msgstr "Datenbank wurde erfolgreich entfernt!"
 
-#: bin/modules/gui/main.py:516
+#: bin/modules/gui/main.py:515
 msgid "Could not drop database."
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: bin/modules/gui/main.py:518
+#: bin/modules/gui/main.py:517
 msgid "Couldn't drop database"
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: bin/modules/gui/main.py:535
+#: bin/modules/gui/main.py:534
 msgid "Database restored successfully!"
 msgstr "Datenbank wurde erfolgreich zurückgespeichert!"
 
-#: bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:538
 msgid "Could not resotre database"
 msgstr "Kann Datenbank nicht zurückspeichern!"
 
-#: bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:538
 msgid "Bad database administrator password!"
 msgstr "Falsches Administratorpasswort für die Datenbank!"
 
-#: bin/modules/gui/main.py:541
+#: bin/modules/gui/main.py:540
 msgid "Could not restore database"
 msgstr "Kann Datenbank nicht zurückspeichern!"
 
-#: bin/modules/gui/main.py:544
+#: bin/modules/gui/main.py:543
 msgid "Backup a database"
 msgstr "Datenbank sichern"
 
-#: bin/modules/gui/main.py:559
+#: bin/modules/gui/main.py:558
 msgid "Database backuped successfully!"
 msgstr "Datenbank erfolgreich gesichert!"
 
-#: bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:561
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -737,3 +742,5 @@ msgstr ""
 "Modul 'dbus' ist nicht installiert. Andere Applikationen können deshalb "
 "nicht mit KTiny interagieren."
 
+#~ msgid "Connection refused !"
+#~ msgstr "Verbindung abgelehnt!"
