@@ -428,7 +428,6 @@ class MainWindow(QMainWindow):
 		# Do not open the action if the id is the same as the menu id.
 		if id == self.menuId:
 			return
-		print "HOME ID: ", id
 		obj = service.LocalService('action.main')
 		obj.execute(id, {'window':self })
 
