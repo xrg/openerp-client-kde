@@ -370,7 +370,7 @@ class Screen(QScrollArea):
 		return view
 
 	def loadActions( self, actions ):
-		self.actions = ActionFactory.create( self, actions )
+		self.actions = ActionFactory.create( self, actions, self.resource )
 		if self.actions:
 			for action in self.actions:
 				self.connect( action, SIGNAL('triggered()'), self.triggerAction )
@@ -383,7 +383,6 @@ class Screen(QScrollArea):
 		if self.current_view and self.current_view.view_type == 'tree' \
 				and self.current_view.isReadOnly():
 			self.switchView()
-		#model = self.models.newModel(default, self._domain, self.context)
 		model = self.models.newModel(default, self.models.domain(), self.context)
 
 		if (not self.current_view) or self.current_view.model_add_new or self._addAfterNew:

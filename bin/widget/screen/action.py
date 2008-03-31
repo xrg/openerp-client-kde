@@ -8,6 +8,7 @@ class TinyAction(QAction):
 		QAction.__init__(self, parent)
 		self._data = None
 		self._type = None 
+		self._model = None
 
 	def setData(self, data):
 		self._data = data
@@ -20,6 +21,12 @@ class TinyAction(QAction):
 
 	def type(self):
 		return self._type
+
+	def setModel(self, model):
+		self._model = model
+
+	def model(self):
+		return self._model
 
 	def execute(self, currentId, selectedIds):
 		if self._type == 'relate':
@@ -46,13 +53,21 @@ class TinyAction(QAction):
 		elif not ids:
 			ids = [currentId]
 		obj = service.LocalService('action.main')
-		obj._exec_action(self._data, { 'id': currentId, 'ids': ids } )
+		obj._exec_action(self._data, { 'id': currentId, 'ids': ids, 'model': self._model } )
 
 class ActionFactory:
 	@staticmethod
-	def create(parent, definition):
+	def create(parent, definition, model):
 		if not definition:
 			return
+
+
+		# If there's at least one action we add the Print Screen action.
+		# By now it allows us not to add print screen in dashboards. Maybe a better
+		# criteria should go here, but seems to work ATM.
+		if definition.get('print', []) + definition.get('action', []) + definition.get('relate', []):
+			definition['print'].append( {'name': 'Print Screen', 'string': _('Print Screen'), 'report_name': 'printscreen.list', 'type': 'ir.actions.report.xml' } )
+
 		actions = []
 		for icontype in ( 'print','action','relate' ):
 			for tool in definition[icontype]:
@@ -61,6 +76,7 @@ class ActionFactory:
 				action.setText( tool['string'] )
 				action.setType( icontype )
 				action.setData( tool )
+				action.setModel( model )
 				actions.append( action )
 		return actions
 
