@@ -54,7 +54,6 @@ class win_preference(QDialog):
 			fields[p[1]] = p[3]
 		arch+= '</form>'
 
-		#self.screen = Screen(model, view_type=[], parent=self )
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( model ) )
 		self.screen.new(default=False)
@@ -68,8 +67,6 @@ class win_preference(QDialog):
 			self.default[d[1]] = d[0]
 		self.screen.current_model.set(default2)
 
-		#size = self.screen.size()
-		#self.screen.resize(size)(x,y)
 		self.layout().insertWidget( 0, self.screen )
 
 		self.setWindowTitle(_('Preference %s') % model )

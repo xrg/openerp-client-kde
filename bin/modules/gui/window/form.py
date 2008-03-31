@@ -31,7 +31,6 @@ import types
 import gettext
 
 import rpc
-import win_preference
 from win_search import SearchDialog
 import win_export
 import win_import
@@ -40,8 +39,6 @@ from common import common
 import service
 import options
 import copy
-
-import gc
 
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
@@ -109,20 +106,17 @@ class form( QWidget ):
 			'Save': self.sig_save,
 			'Export': self.sig_export,
 			'Import': self.sig_import,
-			'Repeat': self.sig_print_repeat,
+			'Repeat': self.repeatLastPrint,
 			'Delete': self.sig_remove,
 			'Find': self.sig_search,
-			'Previous': self.sig_previous,
-			'Next':  self.sig_next,
+			'Previous': self.previous,
+			'Next':  self.next,
 			'GoToResourceId':  self.sig_goto,
-			'AccessLog':  self.sig_logs,
-			'Print': self.sig_print,
-			'Reload': self.sig_reload,
-			'PrintHtml': self.sig_print_html,
-			'Print': self.sig_action,
-			'Switch': self.sig_switch,
-			'Attach': self.sig_attach,
-			'Plugins': self.sig_plugins,
+			'AccessLog':  self.showLogs,
+			'Reload': self.reload,
+			'Switch': self.switchView,
+			'Attach': self.showAttachments,
+			'Plugins': self.executePlugins,
 			'Duplicate': self.duplicate
 		}
 		if res_id:
@@ -148,29 +142,7 @@ class form( QWidget ):
 	def id_get(self):
 		return self.screen.id_get()
 
-	def _form_action_action(self, name, value):
-		id = self.sig_save(sig_new=False)
-		if id:
-			id2 = value[2] or id
-			obj = service.LocalService('action.main')
-			action_id = int(value[0])
-			obj.execute(action_id, {'model':value[1], 'id': id2, 'ids': [id2]})
-			self.sig_reload()
-
-	def _form_action_object(self, name, value):
-		id = self.sig_save(sig_new=False, auto_continue=False)
-		if id:
-			id2 = value[2] or id
-			rpc.session.execute('/object', 'execute', value[1], value[0], [id2], rpc.session.context)
-			self.sig_reload()
-
-	def _form_action_workflow(self, name, value):
-		id = self.sig_save(sig_new=False, auto_continue=False)
-		if id:
-			rpc.session.execute('/object', 'exec_workflow', value[1], value[0], id)
-			self.sig_reload()
-
-	def sig_attach(self, widget=None):
+	def showAttachments(self, widget=None):
 		id = self.screen.id_get()
 		if id:
 			import win_attach
@@ -180,7 +152,7 @@ class form( QWidget ):
 		else:
 			self.updateStatus(_('No resource selected !'))
 
-	def sig_switch(self, widget=None, mode=None):
+	def switchView(self, widget=None, mode=None):
 		if not self.modified_save():
 			return
 		self.screen.switchView()
@@ -188,7 +160,7 @@ class form( QWidget ):
 	def _id_get(self):
 		return self.screen.id_get()
 
-	def sig_logs(self, widget=None):
+	def showLogs(self, widget=None):
 		id = self._id_get()
 		if not id:
 			self.updateStatus(_('You have to select one resource!'))
@@ -258,19 +230,19 @@ class form( QWidget ):
 			self.updateStatus(_('Invalid form !'))
 		return bool(id)
 
-	def sig_previous(self, widget=None):
+	def previous(self, widget=None):
 		if not self.modified_save():
 			return
 		self.screen.display_prev()
 		self.updateStatus()
 
-	def sig_next(self, widget=None):
+	def next(self, widget=None):
 		if not self.modified_save():
 			return
 		self.screen.display_next()
 		self.updateStatus()
 
-	def sig_reload(self):
+	def reload(self):
 		if self.screen.current_view.view_type == 'form':
 			self.screen.cancel_current()
 			self.screen.display()
@@ -286,7 +258,7 @@ class form( QWidget ):
 					break
 		self.updateStatus()
 
-	def sig_action(self, keyword='client_action_multi', previous=False, report_type='pdf', adds={}):
+	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf', adds={}):
 		ids = self.screen.ids_get()
 		if self.screen.current_model:
 			id = self.screen.current_model.id
@@ -305,18 +277,12 @@ class form( QWidget ):
 				res = obj.exec_keyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type}, adds=adds)
 				if res:
 					self.previous_action = res
-			self.sig_reload()
+			self.reload()
 		else:
 			self.updateStatus(_('No record selected!'))
 
-	def sig_print_repeat(self):
-		self.sig_action('client_print_multi', True)
-
-	def sig_print_html(self):
-		self.sig_action('client_print_multi', report_type='html')
-
-	def sig_print(self):
-		self.sig_action('client_print_multi', adds={'Print Screen': {'report_name':'printscreen.list', 'name':'Print Screen', 'type':'ir.actions.report.xml'}})
+	def repeatLastPrint(self):
+		self.executeAction('client_print_multi', True)
 
 	def sig_search(self, widget=None):
 		if not self.modified_save():
@@ -348,25 +314,13 @@ class form( QWidget ):
 
 		self.statForm.setText( msg )
 
-	# TODO: Remove or make it work?
-	def sig_preference(self, widget=None):
-		actions = rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,False)], True, rpc.session.context, True)
-		id = self.screen.id_get()
-		if id and len(actions):
-			win = win_preference.win_preference(self.model, id, actions)
-			win.run()
-		elif id:
-			self.updateStatus(_('No preference available for this resource !'))
-		else:
-			self.updateStatus(_('No resource selected !'))
-
 	def modified_save(self):
 		if self.screen.isModified():
 			value = QMessageBox.question(self, _('Question'), _('This record has been modified do you want to save it?'),QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel)
 			if value == QMessageBox.Save:
 				return self.sig_save()
 			elif value == QMessageBox.Discard:
-				self.sig_reload()
+				self.reload()
 				return True
 			else:
 				return False
@@ -378,7 +332,7 @@ class form( QWidget ):
 	def actions(self):
 		return self.screen.actions
 
-	def sig_plugins(self):
+	def executePlugins(self):
 		import plugins
 		datas = {'model': self.model, 'ids':self.screen.ids_get(), 'id' : self.screen.id_get()}
 		plugins.execute(datas)
