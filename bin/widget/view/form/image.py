@@ -42,7 +42,7 @@ class ImageFormWidget(AbstractFormWidget):
 		buttonsLayout = QVBoxLayout()
 		self.uiImage = QLabel( self )
 		self.uiImage.setAlignment( Qt.AlignHCenter | Qt.AlignVCenter )
-		self.uiImage.setText( _('(choose an image)') )
+		self.uiImage.setText( _('(no image)') )
 		self.pushLoad = QPushButton( self )
 		self.pushSave = QPushButton( self )
 		self.pushRemove = QPushButton( self )
