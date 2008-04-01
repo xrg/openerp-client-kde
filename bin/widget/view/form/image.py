@@ -49,13 +49,14 @@ class ImageFormWidget(AbstractFormWidget):
 		buttonsLayout.addWidget( self.pushLoad )
 		buttonsLayout.addWidget( self.pushSave )
 		buttonsLayout.addWidget( self.pushRemove )
+		buttonsLayout.addStretch()
 		layout.addWidget( self.uiImage )
 		layout.addLayout( buttonsLayout )
-		self.pushLoad.setText( _('&Load image') )
+		#self.pushLoad.setText( _('&Load image') )
 		self.pushLoad.setIcon( QIcon( ':/images/images/open.png' ) )
-		self.pushSave.setText( _('&Save image') )
+		#self.pushSave.setText( _('&Save image') )
 		self.pushSave.setIcon( QIcon( ':/images/images/save.png' ) )
-		self.pushRemove.setText( _('&Remove image') )
+		#self.pushRemove.setText( _('&Remove image') )
 		self.pushRemove.setIcon( QIcon( ':/images/images/trash.png' ) )
 		self.image = None
 
