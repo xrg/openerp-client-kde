@@ -31,7 +31,10 @@ class Classifier:
 		if not modules['gamera.core']:
 			return { 'text': '', 'language': 'en' }
 		return self.tesseract1()
-		
+
+	# This function uses tesseract2 instead of tesseract1
+	# The idea is to find out using brute force in which language
+	# the image is and use the output of OCRing using the appropiate language.
 	def ocr2(self):
 		if not modules['pyaspell']:
 			return { 'text': '', 'language': 'en' }
@@ -56,6 +59,7 @@ class Classifier:
 				bestLang = i
 		return { 'text': bestText, 'language': bestLang }
 
+	# This function executes tesseract 1 and returns the output it returns.
 	def tesseract1(self):
 		try: 
 			dir=tempfile.mkdtemp()
@@ -69,6 +73,7 @@ class Classifier:
 		except:
 			return { 'text': '', 'language': 'en' }
 
+	# This function executes tesseract 2 with the given language and returns the output it returns.
 	def tesseract2(self, language):
 		# Match 2 letter to 3 letter standard used by tesseract-ocr
 		langs={ 'en': 'eng', 'es': 'spa', 'fr': 'fra', 'it': 'ita', 'de': 'deu', 'nl': 'nld', 'ca': 'cat' }
@@ -89,9 +94,9 @@ class Classifier:
 	def prepareImage( self, file ):
 		if not modules['gamera.core']:
 			return
-		self.image = load_image(file)
-		self.grey = self.image.to_greyscale()
-		self.onebit = self.grey.otsu_threshold()
+		image = load_image(file)
+		grey = image.to_greyscale()
+		self.onebit = grey.otsu_threshold()
 
 	def classify(self):
 		pass

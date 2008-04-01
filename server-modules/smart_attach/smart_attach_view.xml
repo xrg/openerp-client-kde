@@ -19,6 +19,7 @@
 					-->
 					<field name="metainfo" nolabel="1" colspan="4" readonly="1"/>
 					<separator string="Extracted data" colspan="4"/>
+					<field name="link"/>
 				</field>
 			</field>
 		</record>
