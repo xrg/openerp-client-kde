@@ -77,12 +77,12 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='separator':
 			 	if 'string' in attrs:
- 					label = attrs.get( 'string', '' )
+ 					caption = attrs.get( 'string', '' )
  				else:
- 					label = ""
- 				groupBox=QGroupBox( label, container )
-				groupBox.setFlat( True )
-				container.addWidget( groupBox, attrs )
+ 					caption = ""
+				label = QLabel( container )
+				label.setText( caption )
+				container.addWidget( label, attrs )
 
 			elif node.localName=='label':
 				text = attrs.get('string', '')
@@ -224,7 +224,7 @@ widgets_type = {
 	'selection': (selection.SelectionFormWidget, 1, False),
 	'char': (char.CharFormWidget, 1, False),
 	'boolean': (checkbox.CheckBoxFormWidget, 1, False),
-	'reference': (reference.reference, 1, False),
+	'reference': (reference.ReferenceFormWidget, 1, False),
 	'binary': (binary.BinaryFormWidget, 1, False),
 	'text': (textbox.TextBoxFormWidget, 1, True),
 	'text_tag': (richtext.RichTextFormWidget, 1, True),
