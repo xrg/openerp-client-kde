@@ -64,9 +64,9 @@ class form( QWidget ):
 
 		if not view_type:
 			view_type = ['form','tree']
-		#else:
-			#if view_type[0] in ['tree','graph'] and not res_id:
-				#res_id = rpc.session.execute('/object', 'execute', model, 'search', domain)
+		else:
+			if view_type[0] in ['graph'] and not res_id:
+				res_id = rpc.session.execute('/object', 'execute', model, 'search', domain)
 
 		fields = {}
 		self.model = model
@@ -122,7 +122,7 @@ class form( QWidget ):
 		if res_id:
 			if isinstance(res_id, int):
 				res_id = [res_id]
-			#self.screen.load(res_id)
+			self.screen.load(res_id)
 		else:
 			if len(view_type) and view_type[0]=='form':
 				self.sig_new(autosave=False)
