@@ -138,8 +138,9 @@ class ReferenceFormWidget(AbstractFormWidget):
 
 	def clear(self):
 		self.uiModel.setCurrentIndex(-1)
-		self.model.setValue( self.name, False )
-		self.display()
+		if self.model:
+			self.model.setValue( self.name, False )
+			self.display()
 		
 	def showValue(self):
 		value = self.model.value(self.name) 
