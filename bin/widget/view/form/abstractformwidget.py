@@ -173,12 +173,12 @@ class AbstractFormWidget(QWidget):
 		if event.type() == QEvent.ContextMenu:
 			self.showPopupMenu( target, event.globalPos() )
 			return True
-		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
+		#if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
 			#e = QKeyEvent( event.type(), event.key(), event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
 			##QCoreApplication.postEvent( self, e )
 			#self.event( e )
 			#event.ignore()
-			print "Sending events!!!"
+			#print "Sending events!!!"
 			#return True
 		return False
 
@@ -235,13 +235,6 @@ class AbstractFormWidget(QWidget):
 		if 'valid' in self.attrs:
 			self.attrs['valid'] = True
 		self.refresh()
-
-	# TODO: I don't see a reason for this function. It seems it should
-	# propagate the on_change signal... Will need a deeper look.
-	# Maybe, simply by testing if the server onchange option works.
-	def sig_changed(self):
-		if self.attrs.get('on_change',False):
-			self.view.screen.on_change(self.attrs['on_change'])
 
 	def load(self, model, state = 'draft' ):
 		self.model = model

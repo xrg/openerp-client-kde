@@ -122,14 +122,11 @@ class OneToManyFormWidget(AbstractFormWidget):
                 if (self.screen.current_view.view_type=='form') or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
-			#dialog = ScreenDialog(self.attrs['relation'], parent=self, attrs=self.attrs) 
 			dialog = ScreenDialog(self.screen.models, parent=self, attrs=self.attrs)
 			if dialog.exec_() == QDialog.Accepted:
-				#self.screen.models.addModel(dialog.result)
 				self.screen.display()
 
 	def edit(self):
-		#dia = ScreenDialog(self.attrs['relation'], parent=self, model=self.screen.current_model, attrs=self.attrs)
 		dialog = ScreenDialog( self.screen.models, parent=self, model=self.screen.current_model, attrs=self.attrs)
 		dialog.exec_()
 		self.screen.display()

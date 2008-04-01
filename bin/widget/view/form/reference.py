@@ -40,7 +40,7 @@ from PyQt4.uic import *
 import rpc
 from rpc import RPCProxy
 
-class reference(AbstractFormWidget):
+class ReferenceFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('reference.ui'), self )
@@ -49,9 +49,9 @@ class reference(AbstractFormWidget):
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
 		self.setPopdown( attrs.get('selection',[]) )
 		self.connect( self.uiModel, SIGNAL('currentIndexChanged(int)'), self.modelChanged )
+		self.connect( self.uiText, SIGNAL( "editingFinished()" ), self.match )
 		self.uiModel.setEditable( False )
 		self.ok=True
-		self._value=None
 		self.installPopupMenu( self.uiText )
 
 	def modelChanged(self, idx):
@@ -70,10 +70,6 @@ class reference(AbstractFormWidget):
 		# the uiModel combo and the uiText line edit
 		if self.model:
 			self.model.setValue(self.name, False)
-
-	def get_model(self):
-                res = self.uiModel.currentText()
-		return self._selection.get(res, False)
 
 	def setPopdown(self, selection):
 		self.invertedModels = {}
@@ -95,9 +91,10 @@ class reference(AbstractFormWidget):
 		return self.uiText
 
 	def store(self):
-		self.model.setValue(self.name, self._value)
+		# No update of the model, the model is updated in real time 
+		pass
 
-	def sig_activate(self):
+	def match(self):
 		domain = self.model.domain(self.name)
 		context = self.model.fieldContext(self.name)
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
@@ -120,32 +117,29 @@ class reference(AbstractFormWidget):
 
 	def new(self):
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-		dia = ScreenDialog(resource)
-		dia.exec_()
+		dialog = ScreenDialog( self )
+		dialog.setup( resource )
+		dialog.setAttributes( self.attrs )
+		if dialog.exec_() == QDialog.Accepted:
+			#self.model.setValue(self.name, dialog.model)
+			pass
 
 	def open(self):
-		if self._value:
-			model, (id, name) = self._value
-			dia = ScreenDialog(model, id)
-			dia.exec_()
+		value = self.model.value(self.name)
+		print "OPENING: ", value
+		if value:
+			model, (id, name) = value
+			dialog = ScreenDialog( self )
+			dialog.setup( model, id )
+			dialog.setAttributes( self.attrs )
+			dialog.exec_()
 		else:
-			self.sig_activate()
-
-	def sig_changed_combo(self):
-		self.uiText.setCurrentIndex(-1)
-		self._value = False
-
-	def sig_changed(self):
-		if self.attrs.get('on_change',False) and self._value and self.ok:
-			self.on_change(self.attrs['on_change'])
-			AbstractFormWidget.sig_changed(self)
-		elif self.ok:
-			if self.model.value(self.name):
-				self.model.setValue(self.name,False)
-				self.display()
+			self.match()
 
 	def clear(self):
 		self.uiModel.setCurrentIndex(-1)
+		self.model.setValue( self.name, False )
+		self.display()
 		
 	def showValue(self):
 		value = self.model.value(self.name) 
@@ -153,15 +147,16 @@ class reference(AbstractFormWidget):
 		if value:
 			model, (id, name) = value
 			self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
-			self.sig_changed()
 			if not name:
 				id, name = RPCProxy(model).name_get([id], rpc.session.context)[0]
-			self._value = model, (id, name)
+				#self.model.setValue(self.name, model, (id, name))
 			self.uiText.setText(name)
+			self.pushOpen.setIcon( QIcon(":/images/images/folder.png") )
 			self.setState('valid')
 		else:
-			self._value = False
 			self.uiText.clear()
+			self.uiModel.setCurrentIndex(-1)
+			self.pushOpen.setIcon( QIcon(":/images/images/find.png") )
 			self.setState('valid')
 		self.ok = True
 

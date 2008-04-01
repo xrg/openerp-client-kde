@@ -117,7 +117,6 @@ class ManyToOneFormWidget(AbstractFormWidget):
 	def clear( self ):
 		if self.model:
 			self.model.setValue( self.name, False )
-			self.modified()
 		self.uiText.clear()
 		self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
 
@@ -161,9 +160,11 @@ class ManyToOneFormWidget(AbstractFormWidget):
 		name = unicode( self.uiText.text() )
 		if name.strip() == '':
 			return
+		print "NAME:", name
 		domain = self.model.domain( self.name )
 		context = self.model.context()
 		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
+		print "IDS: ", ids
 		if len(ids)==1:
 			self.model.setValue( self.name, ids[0] )
 			self.display()
@@ -203,7 +204,7 @@ class ManyToOneFormWidget(AbstractFormWidget):
 			self.display()
 
 	def store(self):
-		# No update of the model, the model is updated in real time !
+		# No update of the model, the model is updated in real time 
 		pass
 
 	def reset(self):
