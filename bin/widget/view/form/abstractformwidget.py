@@ -55,6 +55,9 @@ class AbstractFormWidget(QWidget):
 		self.attrs = attributes
 		self.view = view
 
+		if 'visible' in self.attrs:
+			self.setVisible( bool(int(self.attrs['visible'])) )
+
 		for key,val in _attrs_boolean.items():
 			self.attrs[key] = self.attrs.get(key, False) not in ('False', '0', False)
 		self.defaultReadOnly= self.attrs.get('readonly', False)
