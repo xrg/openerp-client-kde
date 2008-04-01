@@ -1,5 +1,8 @@
 #!/usr/bin/python
 
+from common import localization
+localization.initializeTranslations()
+
 import rpc
 from widget.model.field import *
 from widget.model.record import *
@@ -19,7 +22,7 @@ class RequestsDialog(QDialog):
 		layout.setMargin( 0 )
 		self.resize(600, 300)
 
-		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'graficas' )
+		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'g1' )
 		visible = ['create_date', 'name', 'act_from', 'act_to', 'body' ]
 		self.fields = rpc.session.execute('/object', 'execute', 'res.request', 'fields_get', visible)
 		ids = rpc.session.execute('/object', 'execute', 'res.request', 'search', [])
@@ -33,6 +36,7 @@ class RequestsDialog(QDialog):
 
 
 app = QApplication(sys.argv)
+localization.initializeQtTranslations()
 
 r = RequestsDialog()
 
