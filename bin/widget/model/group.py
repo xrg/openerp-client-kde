@@ -489,7 +489,8 @@ class ModelRecordGroup(QObject):
 					self.sortedRelatedIds = rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0, orderby )
 				except:
 					# Maybe name field doesn't exist :(
-					return
+					# Use default order
+					self.sortedRelatedIds = rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0 )
 					
 				ids = self.rpc.search( self._domain + self._filter )
 			else:
@@ -504,7 +505,8 @@ class ModelRecordGroup(QObject):
 				except:
 					# In functional fields not stored in the database this will
 					# cause an exceptioin :(
-					return 
+					# Use default order
+					ids = rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0 )
 				self.sortedRelatedIds = []
 
 		# We set this fields in the end in case some exceptions where fired 
