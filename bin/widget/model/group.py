@@ -102,6 +102,7 @@ class ModelRecordGroup(QObject):
 		self._context = context
 		self._context.update(rpc.session.context)
 		self.resource = resource
+		self.limit = 80
 		self.rpc = RPCProxy(resource)
 		if fields == None:
 			self.fields = {}
@@ -126,7 +127,6 @@ class ModelRecordGroup(QObject):
 		self.model_removed = []
 		self.on_write = ''
 
-		self.limit = 80
 
 	## @brief Creates the entries in 'mfields' for each key of the 'fkeys' list.
 	def mfields_load(self, fkeys):
