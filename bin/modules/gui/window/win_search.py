@@ -63,8 +63,6 @@ class SearchDialog( QDialog ):
 		self.view.setReadOnly( True )
 		self.connect( self.view, SIGNAL('activated()'), self.accepted )
 
-		self.advFrame.hide()
-
 		self.model_name = model
 
 		view_form = rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
@@ -79,6 +77,7 @@ class SearchDialog( QDialog ):
 
 		self.ids = ids
 		if self.ids:
+			self.modelGroup.setFilter( [('id','in',ids)] )
 			self.reload()
 			model = self.view.widget.model()
 
@@ -92,35 +91,19 @@ class SearchDialog( QDialog ):
 		self.connect( self.pushAccept, SIGNAL( "clicked()"), self.accepted )
 		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
-		self.connect( self.advance, SIGNAL( "stateChanged(int)" ), self.slotAdvanceChecked )
-
 
 	def find(self):
-		#limit = self.limit.value()
-		#offset = self.offset.value()
-
-		#v = self.form.getValue(  )
-		#self.ids = rpc.session.execute('/object', 'execute', self.model_name, 'search', v, offset, limit)
-		#self.reload()
 		self.modelGroup.setFilter( self.form.getValue() )
 		self.reload()
-		self.setWindowTitle( self.title_results % len( self.ids ))
 
 	def reload(self):
-		#self.screen.clear()
-		#self.screen.load(self.ids)
 		self.modelGroup.update()
 		if self.allowMultipleSelection:
 			self.view.widget.selectAll()
+		self.setWindowTitle( self.title_results % self.modelGroup.count() )
 
 	def accepted( self ):
 		self.result = self.screen.selectedIds() or self.ids
 		self.accept()
 
-	def slotAdvanceChecked( self, state ):
-		if self.advance.isChecked():
-			self.advFrame.show()
-		else:
-			self.advFrame.hide()
-		
 # vim:noexpandtab:

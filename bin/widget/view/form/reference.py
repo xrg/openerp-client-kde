@@ -40,6 +40,9 @@ from PyQt4.uic import *
 import rpc
 from rpc import RPCProxy
 
+# This widget requires some ugly hacks. Mainly clearing the text fields once it's been
+# modified and searched afterwards. This is due to the fact that the 'name' the server
+# returns, if searched, it might not be found again :(
 class ReferenceFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
@@ -51,7 +54,6 @@ class ReferenceFormWidget(AbstractFormWidget):
 		self.connect( self.uiModel, SIGNAL('currentIndexChanged(int)'), self.modelChanged )
 		self.connect( self.uiText, SIGNAL( "editingFinished()" ), self.match )
 		self.uiModel.setEditable( False )
-		self.ok=True
 		self.installPopupMenu( self.uiText )
 
 	def modelChanged(self, idx):
@@ -95,25 +97,29 @@ class ReferenceFormWidget(AbstractFormWidget):
 		pass
 
 	def match(self):
+		name = unicode(self.uiText.text())
+		value = self.model.value(self.name)
+		if value and value[1][1] == name:
+			return
+
 		domain = self.model.domain(self.name)
 		context = self.model.fieldContext(self.name)
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 		ids = rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
+		print ids
 		
 		if len(ids)==1:
 			id, name = ids[0]
-			self.model.setValue(self.name, (id, name) ) 
+			self.model.setValue(self.name, (resource, (id, name)) ) 
 			self.display()
-			self.ok = True
 			return
 
-		win = SearchDialog(resource, sel_multi=False, ids=map(lambda x: x[0], ids), context=context, domain=domain)
-		win.exec_()
-		ids = win.result
-		if ids:
-			id, name = rpc.session.execute('/object', 'execute', resource, 'name_get', [ids[0]], rpc.session.context)[0]
+		dialog = SearchDialog(resource, sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
+		if dialog.exec_() == QDialog.Accepted and dialog.result:
+			id = dialog.result[0]
+			id, name = rpc.session.execute('/object', 'execute', resource, 'name_get', [id], rpc.session.context)[0]
 			self.model.setValue(self.name, (resource, (id, name)) )
-		self.display()
+			self.display()
 
 	def new(self):
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
@@ -126,7 +132,6 @@ class ReferenceFormWidget(AbstractFormWidget):
 
 	def open(self):
 		value = self.model.value(self.name)
-		print "OPENING: ", value
 		if value:
 			model, (id, name) = value
 			dialog = ScreenDialog( self )
@@ -144,7 +149,6 @@ class ReferenceFormWidget(AbstractFormWidget):
 		
 	def showValue(self):
 		value = self.model.value(self.name) 
-		self.ok = False
 		if value:
 			model, (id, name) = value
 			self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
@@ -159,5 +163,4 @@ class ReferenceFormWidget(AbstractFormWidget):
 			self.uiModel.setCurrentIndex(-1)
 			self.pushOpen.setIcon( QIcon(":/images/images/find.png") )
 			self.setState('valid')
-		self.ok = True
 
