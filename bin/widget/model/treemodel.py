@@ -246,9 +246,9 @@ class TreeModel(QAbstractItemModel):
 				return QVariant( calendar.floatTimeToText(value) )
 			elif fieldType == 'boolean':
 				if bool(value):
-					return QVariant( _('True') )
+					return QVariant( _('Yes') )
 				else:
-					return QVariant( _('False') )
+					return QVariant( _('No') )
 			else:
 				if value == False or value == None:
 					return QVariant()
