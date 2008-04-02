@@ -211,6 +211,7 @@ import integersearchwidget
 import selection
 import char
 import checkbox
+import reference
 
 widgets_type = {
 	'date': (calendar.DateSearchWidget, 3),
@@ -231,4 +232,5 @@ widgets_type = {
 	'one2many_list': (char.char, 2),
 	'many2many_edit': (char.char, 2),
 	'many2many': (char.char, 2),
+	'reference': (reference.ReferenceSearchWidget, 2)
 }
