@@ -96,7 +96,9 @@ class ViewTree( AbstractView ):
 		if self.selecting:
 			return
 		self.currentIndex = current
-		self.emit( SIGNAL("currentChanged(int)"), self.treeModel.id(current) )
+		# We send the current model. Previously we sended only the id of the model, but
+		# new models have id=None
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.modelFromIndex(current) )
 
 	def store(self):
 		pass

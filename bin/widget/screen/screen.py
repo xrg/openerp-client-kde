@@ -193,13 +193,13 @@ class Screen(QScrollArea):
 	def setView(self, widget):
 		if self.containerView:
 			self.disconnect(self.containerView, SIGNAL("activated()"), self.switchView)
-			self.disconnect(self.containerView, SIGNAL("currentChanged(int)"), self.currentChanged)
+			self.disconnect(self.containerView, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
 			self.containerView.hide()
 
 		self.containerView = widget
 		widget.show()
 		self.connect(widget, SIGNAL("activated()"), self.switchView)
-		self.connect(widget, SIGNAL("currentChanged(int)"), self.currentChanged)
+		self.connect(widget, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
 		
 		self.loadSearchForm()
 
@@ -214,11 +214,8 @@ class Screen(QScrollArea):
 		self.models.update()
 
 	# Slot to recieve the signal from a view when the current item changes
-	def currentChanged(self, id):
-		self.current_model = None
-		for i in self.models.models:
-			if i.id == id:
-				self.current_model = i
+	def currentChanged(self, model):
+		self.current_model = model
 
 	## @brief Sets the RecordModelGroup this Screen should show.
 	# @param models ModelRecordGroup object.
