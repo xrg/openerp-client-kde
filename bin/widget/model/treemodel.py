@@ -236,6 +236,10 @@ class TreeModel(QAbstractItemModel):
 					if x[0] == value:
 						return QVariant( unicode(x[1]) )
 				return QVariant()
+			elif fieldType == 'date' and value:
+				return QVariant( calendar.dateToText( calendar.storageToDate( value ) ) )
+			elif fieldType == 'datetime' and value:
+				return QVariant( calendar.dateTimeToText( calendar.storageToDateTime( value ) ) )
 			elif fieldType == 'float':
 				# If we use the default conversion big numbers are shown
 				# in scientific notation. Also we have to respect the number
