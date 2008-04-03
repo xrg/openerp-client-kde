@@ -42,39 +42,33 @@ class SearchFormContainer( QWidget ):
 	def __init__(self, parent):
 		QWidget.__init__( self, parent )
 		layout = QGridLayout( self )
-		layout.setSpacing( 20 )
+		layout.setSpacing( 10 )
 		layout.setContentsMargins( 0, 0, 0, 0 )
-		self.col = 8
-		self.cont = [ (0, 0) ]
+		# Maximum number of columns
+		self.col = 4
+		self.x = 0
+		self.y = 0
 
-	def addNewLine(self):
-		(x, y) = self.cont[-1]
-		if x>0:
-			self.cont[-1] = ( 0, y+1 )
-		else:
-			self.cont[-1] = ( x+1, self.col )
+	def addWidget(self, widget, name=None):
+		if self.x + 1 > self.col:
+			self.x = 0
+			self.y = self.y + 1
 
-	def addWidget(self, widget, l=1, name=None, expand=False, ypadding=0):
-		(x, y) = self.cont[-1]
-		if l>self.col:
-			l=self.col
-		if l+x>self.col:
-			self.addNewLine()
-			(x, y) = self.cont[-1]
-
-		widget.gridLine = y
+		# Add gridLine attribute to all widgets so we can easily discover
+		# in which line they are.
+		widget.gridLine = self.y
 		if name:
 			label = QLabel( name )
-			label.gridLine = y
+			label.gridLine = self.y
 			vbox = QVBoxLayout()
 			vbox.setSpacing( 0 )
 			vbox.setContentsMargins( 0, 0, 0, 0 )
 			vbox.addWidget( label, 0 )
 			vbox.addWidget( widget )
-			self.layout().addLayout( vbox, y, x )
+			self.layout().addLayout( vbox, self.y, self.x )
 		else:
-                	self.layout().addWidget( widget, y, x  )
-          	self.cont[-1] = (x+l, y)
+                	self.layout().addWidget( widget, self.y, self.x )
+		self.x = self.x + 1
 
 class SearchFormParser(object):
 	def __init__(self, container, fields, model=''):
@@ -91,16 +85,15 @@ class SearchFormParser(object):
 				type = attrs.get('widget', self.fields[attrs['name']]['type'])
 				self.fields[attrs['name']].update(attrs)
 				self.fields[attrs['name']]['model']=self.model
-				widget_act = widgets_type[ type ][0](attrs['name'], self.container, self.fields[attrs['name']])
+				widget_act = widgets_type[ type ](attrs['name'], self.container, self.fields[attrs['name']])
 				if 'string' in self.fields[attrs['name']]:
 					label = self.fields[attrs['name']]['string']+' :'
 				else:
 					label = None
 				self.dict_widget[str(attrs['name'])] = widget_act
-				size = widgets_type[ type ][1]
 				if not self.focusable:
 					self.focusable = widget_act
-				self.container.addWidget(widget_act, size, label, int(self.fields[attrs['name']].get('expand',0)))
+				self.container.addWidget(widget_act, label)
 
 	def _psr_end(self, name):
 		pass
@@ -136,7 +129,7 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.pushSearch.setEnabled( False )
 
 	def setup(self, xml, fields, model):
-		# We admit one setup call only
+		# We allow one setup call only
 		if self.model:
 			return
 
@@ -148,6 +141,15 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.model = model
 
 		self.widgets = parser.parse(xml)
+
+		# Don't show expander button unless there are widgets in the
+		# second row
+		self.pushExpander.hide()
+		for x in self.widgets.values():
+			if x.gridLine > 0:
+				self.pushExpander.show()
+				break
+
 		self.name = parser.title
 		self.focusable = parser.focusable
 		self.expanded = True
@@ -214,23 +216,24 @@ import checkbox
 import reference
 
 widgets_type = {
-	'date': (calendar.DateSearchWidget, 3),
-	'time': (calendar.TimeSearchWidget, 3),
-	'datetime': (calendar.DateSearchWidget, 3),
-	'float': (floatsearchwidget.FloatSearchWidget, 2),
-	'integer': (integersearchwidget.IntegerSearchWidget, 2),
-	'selection': (selection.selection, 2),
-	'many2one_selection': (selection.selection, 2),
-	'char': (char.char, 2),
-	'boolean': (checkbox.checkbox, 2),
-	'text': (char.char, 2),
-	'email': (char.char, 2),
-	'url': (char.char, 2),
-	'many2one': (char.char, 2),
-	'one2many': (char.char, 2),
-	'one2many_form': (char.char, 2),
-	'one2many_list': (char.char, 2),
-	'many2many_edit': (char.char, 2),
-	'many2many': (char.char, 2),
-	'reference': (reference.ReferenceSearchWidget, 2)
+	'date': calendar.DateSearchWidget,
+	'time': calendar.TimeSearchWidget,
+	'datetime': calendar.DateSearchWidget,
+	'float': floatsearchwidget.FloatSearchWidget,
+	'integer': integersearchwidget.IntegerSearchWidget,
+	'selection': selection.selection,
+	'many2one_selection': selection.selection,
+	'char': char.char,
+	'boolean': checkbox.checkbox,
+	'text': char.char,
+	'email': char.char,
+	'url': char.char,
+	'many2one': char.char,
+	'one2many': char.char,
+	'one2many_form': char.char,
+	'one2many_list': char.char,
+	'many2many_edit': char.char,
+	'many2many': char.char,
+	'reference': reference.ReferenceSearchWidget
 }
+
