@@ -80,6 +80,8 @@ class MainWindow(QMainWindow):
 		loadUi( common.uiPath( "mainwindow.ui" ), self ) 
 		self.showMaximized()	
 
+		self.fixedWindowTitle = self.windowTitle()
+
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 
 		self.tabWidget = MainTabWidget( self. centralWidget() )
@@ -342,6 +344,7 @@ class MainWindow(QMainWindow):
 		self.uiRequests.clear()
 		self.uiUserName.setText( _('Not logged !') )
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
+		self.setWindowTitle( self.fixedWindowTitle )
 		self.updateEnabledActions()
 		rpc.session.logout()
 		
@@ -401,6 +404,7 @@ class MainWindow(QMainWindow):
 		id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ 'menu_id','name'], rpc.session.context)
 		self.uiUserName.setText( id[0]['name'] or '' )
 		self.uiServerInformation.setText( "%s [%s]" % (rpc.session.url, rpc.session.databaseName) )
+		self.setWindowTitle( self.fixedWindowTitle + " - [%s]" % rpc.session.databaseName )
 
 		# Store the menuId so we ensure we don't open the menu twice when
 		# calling openHomeTab()
@@ -448,17 +452,12 @@ class MainWindow(QMainWindow):
 
 	def updateEnabledActions(self):
 		view = self.tabWidget.currentWidget()
-		#try:
 		for x in self.actions:
 			action = eval( 'self.action' + x )
 			if view and x in view.handlers:
 				action.setEnabled( True )
 			else:
 				action.setEnabled( False )
-		#except:
-		#	for x in self.actions:
-		#		action = eval( 'self.action' + x )
-		#		action.setEnabled( False )
 
 		if rpc.session.open:
 			self.actionFullTextSearch.setEnabled( True )
