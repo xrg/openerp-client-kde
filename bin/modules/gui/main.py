@@ -303,6 +303,7 @@ class MainWindow(QMainWindow):
 		if not self.closeAllTabs():
 			return
 
+		QApplication.setOverrideCursor(QCursor(Qt.WaitCursor));
 		try:
 			log_response = rpc.session.login(url, databaseName)
 			url = QUrl( url )
@@ -326,6 +327,7 @@ class MainWindow(QMainWindow):
 			(e1,e2) = e
 			common.error(_('Connection Error !'),e1,e2)
 			rpc.session.logout()
+		QApplication.restoreOverrideCursor();
 		
 	## Closes all tabs smartly, that is using closeCurrentTab()
 	def closeAllTabs(self):
