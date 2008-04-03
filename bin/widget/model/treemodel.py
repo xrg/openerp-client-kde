@@ -397,6 +397,13 @@ class TreeModel(QAbstractItemModel):
 	def model(self, row, group):
 		if not group:
 			return None
+		# We ensure the group has been loaded by checking if there
+		# are any fields. modelByRow loads on demand, but it means
+		# two reads to the server. So with these two lines (addFields)
+		# we only have performance gains they can be removed with 
+		# the only drawback that the server will be queried twice.
+		if not group.mfields:
+			group.addFields( self.fields )
 		if row >= len(group.models):
 			return None
 		else:
