@@ -89,7 +89,7 @@ class form( QWidget ):
 		else:
 			self.screen.setViewTypes( view_type )
 
-		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self._recordMessage)
+		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.updateRecordStatus)
 		if name:
 			self.name = name
 		else:
@@ -127,6 +127,7 @@ class form( QWidget ):
 			if len(view_type) and view_type[0]=='form':
 				self.sig_new(autosave=False)
 		self.updateStatus()
+		self.updateRecordStatus(-1,self.group.count(),None)
 
 	def sig_goto(self, *args):
 		if not self.modified_save():
@@ -300,17 +301,23 @@ class form( QWidget ):
 			message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 
-	def _recordMessage(self, position, count, value):
+	def updateRecordStatus(self, position, count, value):
 		if not count:
-			msg = _('No record selected')
+			msg = _('No records')
 		else:
-			name = '_'
+			pos = '_'
 			if position >= 0:
-				name = str(position+1)
-			name2 = _('New document')
-			if value:
-				name2 = _('Editing document (id: %s)') % str(value)
-			msg = _('Record: %(name)s / %(count)s - %(name2)s') % { 'name': name, 'count': str(count), 'name2': name2 }
+				pos = str(position+1)
+			if value == None:
+				# Value will be None only when it's called by the constructor
+				edit = _('No document selected')
+			else:
+				# Other times it'll either be 0 (new document) or the appropiate
+				# object i
+				edit = _('New document')
+				if value > 0:
+					edit = _('Editing document (id: %s)') % str(value)
+			msg = _('Record: %(name)s / %(count)s - %(name2)s') % { 'name': pos, 'count': str(count), 'name2': edit }
 
 		self.statForm.setText( msg )
 
