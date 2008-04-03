@@ -62,11 +62,8 @@ class ActionFactory:
 			return
 
 
-		# If there's at least one action we add the Print Screen action.
-		# By now it allows us not to add print screen in dashboards. Maybe a better
-		# criteria should go here, but seems to work ATM.
-		if definition.get('print', []) + definition.get('action', []) + definition.get('relate', []):
-			definition['print'].append( {'name': 'Print Screen', 'string': _('Print Screen'), 'report_name': 'printscreen.list', 'type': 'ir.actions.report.xml' } )
+		# We always add the 'Print Screen' action.
+		definition['print'].append( {'name': 'Print Screen', 'string': _('Print Screen'), 'report_name': 'printscreen.list', 'type': 'ir.actions.report.xml' } )
 
 		actions = []
 		for icontype in ( 'print','action','relate' ):

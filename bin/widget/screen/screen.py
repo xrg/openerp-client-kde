@@ -371,7 +371,14 @@ class Screen(QScrollArea):
 		if self.actions:
 			for action in self.actions:
 				self.connect( action, SIGNAL('triggered()'), self.triggerAction )
-			self.toolBar.setup( self.actions )
+			# If there's only one action it will be the 'Print Screen' action
+			# that is added "manually" by ActionFactory. In those cases in which
+			# Print Screen is the only action we won't show it in the toolbar. 
+			# This way dashboards won't show the toolbar, though the option will
+			# remain available in the menu for those screens that don't have any
+			# actions configured in the server, but Print Screen can be useful.
+			if len(self.actions) > 1:
+				self.toolBar.setup( self.actions )
 
 	def isReadOnly(self):
 		return self.current_view.isReadOnly()
