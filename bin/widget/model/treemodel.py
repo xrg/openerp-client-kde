@@ -37,7 +37,7 @@ class TreeModel(QAbstractItemModel):
 		self.mode = self.TreeMode
 		self.colors = {}
 		self.showBackgroundColor = True
-		self.readOnly = True
+		self._readOnly = True
 		# visibleFields is an alphabetically sorted list of 
 		# all visible fields. This means it discards self.icon
 		# and self.child fields. The list is updated using
@@ -67,7 +67,10 @@ class TreeModel(QAbstractItemModel):
 		self.updateVisibleFields()
 
 	def setReadOnly(self, value):
-		self.readOnly = value
+		self._readOnly = value
+
+	def readOnly(self):
+		return self._readOnly
 
 	def modelGroupChanged(self):
 		self.reset()
@@ -214,7 +217,7 @@ class TreeModel(QAbstractItemModel):
 		f = QAbstractItemModel.flags(self, index)	
 
 		field = self.fields[self.field( index.column() )]
-		if self.readOnly or ( 'readonly' in field and field['readonly'] ):
+		if self._readOnly or ( 'readonly' in field and field['readonly'] ):
 			return f
 		else:
 			return f | Qt.ItemIsEditable

@@ -109,8 +109,13 @@ class TreeParser(AbstractParser):
 		for column in range( len(columns)):
 			current = columns[column]
 			view.widget.setColumnWidth( column, current['width'] )
-			delegate = StandardDelegate( current['type'], current['attributes'], view.widget )
-			view.widget.setItemDelegateForColumn( column, delegate )
+
+			if not model.readOnly():
+				# Assign delegates to editable models only. Editable delegates need
+				# somewhat heigher rows (StandardDelegate.sizeHint()) which read only
+				# models don't need. This way we save some space in read only views.
+				delegate = StandardDelegate( current['type'], current['attributes'], view.widget )
+				view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
 
 from widget.view.form import calendar
@@ -141,8 +146,8 @@ widgets_type = {
 	'boolean': checkbox.CheckBoxFormWidget,
 	'reference': reference.ReferenceFormWidget,
 	'binary': binary.BinaryFormWidget,
-	'text': textbox.TextBoxFormWidget,
-	'text_tag': richtext.RichTextFormWidget,
+	'text': char.CharFormWidget,
+	'text_tag': char.CharFormWidget,
 	'one2many': one2many.OneToManyFormWidget,
 	'one2many_form': one2many.OneToManyFormWidget,
 	'one2many_list': one2many.OneToManyFormWidget,
@@ -162,6 +167,13 @@ class StandardDelegate( QItemDelegate ):
 		self.type = type
 		self.currentIndex = None
 		self.currentEditor = None
+
+		# We pick QComboBox sizeHint height as the minimum
+		# row height. This way editable views will have enough
+		# room so widgets won't be clipped.
+		combo = QComboBox()
+		self.minimumHeight = combo.sizeHint().height()
+		del combo
 
 	def createEditor( self, parent, option, index ):
 		#return widgets_type[self.type](parent, None, self.attributes)
@@ -220,4 +232,12 @@ class StandardDelegate( QItemDelegate ):
 	def updateEditorGeometry(self, editor, option, index ):
 		 editor.setGeometry(option.rect)
 	
+	# As noted height will be the maximum between standard Delegate
+	# and QComboBox sizeHint height. Which should usually result in
+	# QComboBox measure. This ensures widgets fit correctly.
+	def sizeHint(self, option, index ):
+		size = QItemDelegate.sizeHint( self, option, index )
+		size.setHeight( max(size.height(), self.minimumHeight ) )
+		return size
+
 # vim:noexpandtab:
