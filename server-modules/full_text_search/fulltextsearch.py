@@ -168,7 +168,7 @@ class fulltextsearch_services(netsvc.Service):
 		tsQuery = ' && '.join(tsQuery)
 
 		if model:
-			filterModel = ' AND m.id = %d ' % quote(model)
+			filterModel = ' AND m.id = %d ' % int(model)
 		else:
 			filterModel = ''
 
