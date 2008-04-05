@@ -464,21 +464,28 @@ class MainWindow(QMainWindow):
 		else:
 			self.actionFullTextSearch.setEnabled( False )
 
-		# Update the 'Actions' Menu entry
+		# Update the 'Reports', 'Actions' and 'Browse' Menu entries
+		self.menuReports.clear()
+		self.menuBrowse.clear()
+		self.menuActions.clear()
+		reports = False
+		browse = False
+		actions = False
 		if view:
-			self.menuActions.clear()
-			last = None
-			if view.actions():
-				for x in view.actions():
-					if last and last != x.type():
-						self.menuActions.addSeparator()
-					last = x.type()
+			for x in view.actions():
+				if x.type() == 'print':
+					self.menuReports.addAction( x )
+					reports = True
+				elif x.type() == 'relate':
+					self.menuBrowse.addAction( x )
+					browse = True
+				else:
 					self.menuActions.addAction( x )	
-				self.menuActions.setEnabled( True )
-			else:
-				self.menuActions.setEnabled( False )
-		else:
-			self.menuActions.setEnabled( False )
+					actions = True
+			
+		self.menuReports.setEnabled( reports )
+		self.menuBrowse.setEnabled( browse )
+		self.menuActions.setEnabled( actions )
 
 	def callChildView( self ):
 		o = self.sender()
