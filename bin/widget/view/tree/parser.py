@@ -176,9 +176,7 @@ class StandardDelegate( QItemDelegate ):
 		del combo
 
 	def createEditor( self, parent, option, index ):
-		#return widgets_type[self.type](parent, None, self.attributes)
-		#self.currentIndex = index
-		self.currentIndex = index.model().createIndex( index.row(), index.column(), index.parent() )
+		self.currentIndex = index.model().createIndex( index.row(), index.column(), index.internalPointer() )
 		widget = widgets_type[self.type](parent, None, self.attributes)
 		for x in widget.findChildren(QWidget):
 			w = x.nextInFocusChain()
@@ -200,9 +198,7 @@ class StandardDelegate( QItemDelegate ):
 			self.emit(SIGNAL('closeEditor(QWidget*, QAbstractItemDelegate::EndEditHint)'), self.currentEditor, QAbstractItemDelegate.NoHint)
 			parent = self.parent()
 			if parent.inherits( 'QAbstractItemView' ):
-				print "PRENENT EL MODEL"
 				model = self.currentIndex.model()
-				print "JA TENIM EL MODEL"
 				row = self.currentIndex.row()
 				column = self.currentIndex.column() + 1
 				if column >= model.columnCount( self.currentIndex.parent() ):
@@ -210,10 +206,8 @@ class StandardDelegate( QItemDelegate ):
 					row = self.currentIndex.row() + 1
 					if row >= model.rowCount( self.currentIndex.parent() ):
 						row = 0
-				index = model.createIndex( row, column, self.currentIndex.parent() )
-				print "JA TENIM L'INDEX"
+				index = model.createIndex( row, column, self.currentIndex.internalPointer() )
 				parent.edit( index )
-				print "JA ESTEM EDITANT"
 			return True
 		return QItemDelegate.eventFilter( self, obj, event )
 
@@ -232,7 +226,7 @@ class StandardDelegate( QItemDelegate ):
 	def updateEditorGeometry(self, editor, option, index ):
 		 editor.setGeometry(option.rect)
 	
-	# As noted height will be the maximum between standard Delegate
+	# As noted above height will be the maximum between standard Delegate
 	# and QComboBox sizeHint height. Which should usually result in
 	# QComboBox measure. This ensures widgets fit correctly.
 	def sizeHint(self, option, index ):
