@@ -363,10 +363,22 @@
      <string>&amp;Actions</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuReports" >
+    <property name="title" >
+     <string>&amp;Reports</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuBrowse" >
+    <property name="title" >
+     <string>&amp;Browse</string>
+    </property>
+   </widget>
    <addaction name="menuFile" />
    <addaction name="menuUser" />
    <addaction name="menuForm" />
+   <addaction name="menuReports" />
    <addaction name="menuActions" />
+   <addaction name="menuBrowse" />
    <addaction name="menuPlugins" />
    <addaction name="menuHelp" />
   </widget>
