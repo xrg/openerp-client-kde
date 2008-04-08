@@ -214,7 +214,7 @@ class MainWindow(QMainWindow):
 		res = win.result
 		obj = service.LocalService('gui.window')
 		obj.create(None, res[1], res[0], view_type='form', mode='form,tree')
-		self.setCursor( Qt.ArrowCursor )
+		self.unsetCursor()
 
 	def nextTab(self):
 		pn = self.tabWidget.currentIndex()
@@ -305,7 +305,6 @@ class MainWindow(QMainWindow):
 		if not self.closeAllTabs():
 			return
 
-		QApplication.setOverrideCursor(QCursor(Qt.WaitCursor));
 		try:
 			log_response = rpc.session.login(url, databaseName)
 			url = QUrl( url )
@@ -329,8 +328,7 @@ class MainWindow(QMainWindow):
 			(e1,e2) = e
 			common.error(_('Connection Error !'),e1,e2)
 			rpc.session.logout()
-		QApplication.restoreOverrideCursor();
-		
+
 	## Closes all tabs smartly, that is using closeCurrentTab()
 	def closeAllTabs(self):
 		while self.tabWidget.count() > 0:
@@ -515,10 +513,10 @@ class MainWindow(QMainWindow):
 		try:
 			self.setCursor( Qt.WaitCursor )
 			rpc.database.execute(dialog.url, 'drop', dialog.password, dialog.databaseName )
-			self.setCursor( Qt.ArrowCursor )
+			self.unsetCursor()
 			QMessageBox.information( self, _('Database removal'), _('Database dropped successfully!') )
 		except Exception, e:
-			self.setCursor( Qt.ArrowCursor )
+			self.unsetCursor()
 			if e.faultString=='AccessDenied:None':
 				QMessageBox.warning( self, _("Could not drop database."), _('Bad database administrator password !') )
 			else:
@@ -538,10 +536,10 @@ class MainWindow(QMainWindow):
 			data = base64.encodestring(f.read())
 			f.close()
 			rpc.database.execute(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
-			self.setCursor( Qt.ArrowCursor )
+			self.unsetCursor()
 			QMessageBox.information( self, '', _('Database restored successfully!') )
 		except Exception,e:
-			self.setCursor( Qt.ArrowCursor )
+			self.unsetCursor()
 			if e.faultString=='AccessDenied:None':
 				QMessageBox.warning(self, _('Could not resotre database'), _('Bad database administrator password!') )
 			else:
@@ -562,10 +560,10 @@ class MainWindow(QMainWindow):
 			f = file(fileName, 'wb')
 			f.write(dump)
 			f.close()
-			self.setCursor( Qt.ArrowCursor )
+			self.unsetCursor()
 			QMessageBox.information( self, '', _("Database backuped successfully!"))
 		except Exception, e:
-			self.setCursor( Qt.ArrowCursor )
+			self.unsetCursor()
 			QMessageBox.warning( self, '', _('Could not backup database.\n%s') % (str(e)) )
 
 	def changeAdministratorPassword(self):
