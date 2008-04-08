@@ -14,7 +14,7 @@ TITLE="Introduction"
 HREF="c3.html"><LINK
 REL="NEXT"
 TITLE="Linux and other Unixes"
-HREF="x77.html"></HEAD
+HREF="x61.html"></HEAD
 ><BODY
 CLASS="chapter"
 BGCOLOR="#FFFFFF"
@@ -56,7 +56,7 @@ WIDTH="10%"
 ALIGN="right"
 VALIGN="bottom"
 ><A
-HREF="x77.html"
+HREF="x61.html"
 ACCESSKEY="N"
 >Next</A
 ></TD
@@ -96,87 +96,22 @@ CLASS="emphasis"
 CLASS="emphasis"
 >KTiny</I
 ></SPAN
-> tries to work without any server modification, at least, one is necessary at the moment. We'll try to provide a patch in the future but, please follow these simple instructions:
-   <P
-></P
-><OL
-TYPE="1"
-><LI
+> tries to work without any server modification, the <TT
+CLASS="literal"
+>ktiny</TT
+> server module is necessary for proper use of attachments. Please, simply install this module that can ve found in <TT
+CLASS="literal"
+>server-modules</TT
+> directory, as you would with any other module, and attachments should work smoothly.
+  </P
 ><P
->&#13;      Edit the <TT
-CLASS="literal"
->bin/addons/base/ir/ir_attachment.py</TT
-> file of the server and remove <TT
-CLASS="literal"
->readonly=True</TT
-> from <TT
-CLASS="literal"
->res_model</TT
-> and <TT
-CLASS="literal"
->res_id</TT
->. Then reestart the server and now you can fully work with attachments within <SPAN
+>&#13;   This module also provides client side configuration options that can be found at <SPAN
 CLASS="emphasis"
 ><I
 CLASS="emphasis"
->KTiny</I
+>Administration -&#62; Configuration -&#62; KTiny -&#62; Settings</I
 ></SPAN
->. Note that this doesn't affect other attachments you may have in the database, and all of them should be available in <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->KTiny</I
-></SPAN
->. This change is needed for <SPAN
-CLASS="emphasis"
-><I
-CLASS="emphasis"
->KTiny</I
-></SPAN
-> to create new attachments.
-     </P
-></LI
-><LI
-><P
->&#13;      Also, once you've created a new database (or in the original XML file) you should modify the <TT
-CLASS="literal"
->ir.attachment.view</TT
-> of type <TT
-CLASS="literal"
->form</TT
->. You'll need <TT
-CLASS="literal"
->res_model</TT
-> and <TT
-CLASS="literal"
->res_id</TT
-> to have <TT
-CLASS="literal"
->visible="0" nolabel="1"</TT
-> as attributes. Also add <TT
-CLASS="literal"
->fname_widget="datas_fname"</TT
-> as attribute to the <TT
-CLASS="literal"
->datas</TT
-> field. The resulting XML should look like this:
-     </P
-><PRE
-CLASS="programlisting"
->&#13;&#60;form string="Attachments"&#62;
-	&#60;field colspan="4" name="name" select="1"/&#62;
-	&#60;field colspan="4" name="datas" fname_widget="datas_fname" /&#62;
-	&#60;field name="datas_fname"/&#62;
-	&#60;newline/&#62;
-	&#60;field name="res_model" select="1" visible="0" nolabel="1"/&#62;
-	&#60;field name="res_id" visible="0" nolabel="1"/&#62;
-	&#60;separator colspan="4" string="Description"/&#62;
-	&#60;field colspan="4" name="description" nolabel="1"/&#62;
-&#60;form&#62;
-     </PRE
-></LI
-></OL
->
+>.
   </P
 ></DIV
 ></DIV
@@ -214,7 +149,7 @@ WIDTH="33%"
 ALIGN="right"
 VALIGN="top"
 ><A
-HREF="x77.html"
+HREF="x61.html"
 ACCESSKEY="N"
 >Next</A
 ></TD

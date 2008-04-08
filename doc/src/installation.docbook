@@ -7,31 +7,10 @@
    Note that &ktiny; is intended to work with TinyERP 4.2 server or newer.
   </para>
   <para>
-   Although &ktiny; tries to work without any server modification, at least, one is necessary at the moment. We'll try to provide a patch in the future but, please follow these simple instructions:
-   <orderedlist>
-    <listitem>
-     <para>
-      Edit the <literal>bin/addons/base/ir/ir_attachment.py</literal> file of the server and remove <literal>readonly=True</literal> from <literal>res_model</literal> and <literal>res_id</literal>. Then reestart the server and now you can fully work with attachments within &ktiny;. Note that this doesn't affect other attachments you may have in the database, and all of them should be available in &ktiny;. This change is needed for &ktiny; to create new attachments.
-     </para>
-    </listitem>
-    <listitem>
-     <para>
-      Also, once you've created a new database (or in the original XML file) you should modify the <literal>ir.attachment.view</literal> of type <literal>form</literal>. You'll need <literal>res_model</literal> and <literal>res_id</literal> to have <literal>visible="0" nolabel="1"</literal> as attributes. Also add <literal>fname_widget="datas_fname"</literal> as attribute to the <literal>datas</literal> field. The resulting XML should look like this:
-     </para>
-     <programlisting>
-&lt;form string="Attachments">
-	&lt;field colspan="4" name="name" select="1"/>
-	&lt;field colspan="4" name="datas" fname_widget="datas_fname" />
-	&lt;field name="datas_fname"/>
-	&lt;newline/>
-	&lt;field name="res_model" select="1" visible="0" nolabel="1"/>
-	&lt;field name="res_id" visible="0" nolabel="1"/>
-	&lt;separator colspan="4" string="Description"/>
-	&lt;field colspan="4" name="description" nolabel="1"/>
-&lt;form>
-     </programlisting>
-    </listitem>
-   </orderedlist>
+   Although &ktiny; tries to work without any server modification, the <literal>ktiny</literal> server module is necessary for proper use of attachments. Please, simply install this module that can be found in <literal>server-modules</literal> directory, as you would with any other module, and attachments should work smoothly.
+  </para>
+  <para>
+   This module also provides client side configuration options that can be found at <emphasis>Administration -> Configuration -> KTiny -> Settings</emphasis>.
   </para>
  </sect1>
 
