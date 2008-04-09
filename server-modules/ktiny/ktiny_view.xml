@@ -13,6 +13,8 @@
 					<field name="tabs_position"/>
 					<newline/>
 					<field name="stylesheet" colspan="4"/>
+					<newline/>
+					<field name="roles_id" colspan="4"/>
 				</form>
 			</field>
 		</record>
