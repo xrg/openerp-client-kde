@@ -309,6 +309,7 @@ class MainWindow(QMainWindow):
 			log_response = rpc.session.login(url, databaseName)
 			url = QUrl( url )
 			if log_response==1:
+				options.options.loadSettings()
 				options.options['login.server'] = unicode( url.host() )
 				options.options['login.login'] = unicode( url.userName() )
 				options.options['login.port'] = url.port()

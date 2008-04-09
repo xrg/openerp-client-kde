@@ -30,6 +30,7 @@ import ConfigParser, optparse
 import os
 import sys
 import gettext
+import rpc
 from PyQt4.QtCore import QDir
 
 def get_home_dir():
@@ -54,7 +55,9 @@ class configmanager(object):
 			'logging.output': 'stdout',
 			'logging.verbose': False,
 			'client.default_path': os.path.expanduser('~'),
-			'stylesheet' : ''
+			'stylesheet' : '',
+			'tabs_position' : 'left',
+			'show_toolbar' : True
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))
@@ -127,6 +130,15 @@ class configmanager(object):
 
 	def __getitem__(self, key):
 		return self.options[key]
+
+	def loadSettings(self):
+		try:
+			settings = rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )[0]
+		except:
+			return
+		self.options['stylesheet'] = settings['stylesheet']
+		self.options['tabs_position'] = settings['tabs_position']
+		self.options['show_toolbar'] = settings['show_toolbar']
 
 options = configmanager()
 

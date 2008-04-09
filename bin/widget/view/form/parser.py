@@ -29,6 +29,7 @@
 
 from common import common
 from common import icons
+import options
 import service
 import rpc
 from button import *
@@ -116,7 +117,12 @@ class FormParser(AbstractParser):
 						'right':QTabWidget.East
 					} [attrs['tabpos']]
 				else:
-					pos = QTabWidget.West
+					pos = {
+						'left': QTabWidget.West,
+						'top': QTabWidget.North,
+						'right': QTabWidget.East,
+						'bottom': QTabWidget.South
+					} [options.options['tabs_position']]
 					
 			        tab.setTabPosition( pos )
 
@@ -212,6 +218,7 @@ import selection
 import one2many
 import url
 import image
+import link
 
 
 widgets_type = {
@@ -238,6 +245,7 @@ widgets_type = {
 	'email' : (url.EMailFormWidget, 1, False),
 	'callto' : (url.CallToFormWidget, 1, False),
 	'sip' : (url.SipFormWidget, 1, False),
+	'link' : (link.LinkFormWidget, 1, False)
 }
 
 # vim:noexpandtab:

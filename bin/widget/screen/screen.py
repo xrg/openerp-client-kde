@@ -35,6 +35,7 @@ from widget.model.group import ModelRecordGroup
 from widget.model.record import ModelRecord
 
 from common import common
+import options
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -377,7 +378,7 @@ class Screen(QScrollArea):
 			# This way dashboards won't show the toolbar, though the option will
 			# remain available in the menu for those screens that don't have any
 			# actions configured in the server, but Print Screen can be useful.
-			if len(self.actions) > 1:
+			if len(self.actions) > 1 and options.options['show_toolbar']:
 				self.toolBar.setup( self.actions )
 
 	def isReadOnly(self):
