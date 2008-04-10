@@ -120,7 +120,9 @@ class WizardStep( QThread ):
                 #options.options['login.db'] = res[5]
 
 
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.result = rpc.session.execute('/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context)
+		QApplication.restoreOverrideCursor()
 		#self.exit()
 
 class Wizard( QObject ):
