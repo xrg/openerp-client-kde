@@ -317,7 +317,8 @@ class FullTextSearchDialog( QDialog ):
 		self.pushNext.setEnabled( False )
 		self.pushPrevious.setEnabled( False )
 
-		self.connect( self.pushAccept, SIGNAL( "clicked( )"), self.slotAccept )
+		self.connect( self.pushAccept, SIGNAL( "clicked( )"), self.open )
+		self.connect( self.uiItems, SIGNAL( "doubleClicked(QModelIndex)"), self.open )
 		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
@@ -375,7 +376,7 @@ class FullTextSearchDialog( QDialog ):
 		selectionModel = QItemSelectionModel( model )
 		selectionModel.select( index1 , QItemSelectionModel.Rows )
 
-	def slotAccept( self ):
+	def open( self ):
 		idx = self.uiItems.selectionModel().currentIndex()
 		if idx.isValid():
 			id = self.model.item( idx.row(), 0 ).text()
