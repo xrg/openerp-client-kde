@@ -29,7 +29,7 @@
 
 from common import common
 from common import icons
-import options
+from common import options
 import service
 import rpc
 from button import *

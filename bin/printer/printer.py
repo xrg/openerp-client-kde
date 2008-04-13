@@ -35,7 +35,8 @@
 # Print or open a previewer
 #
 
-import os, base64, options
+from common import options
+import os, base64
 import gc
 
 class Printer(object):

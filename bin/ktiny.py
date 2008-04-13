@@ -44,7 +44,7 @@ sys.path.append(terp_path)
 from common import localization
 localization.initializeTranslations()
 
-import options
+from common import options
 
 
 for logger in options.options['logging.logger'].split(','):

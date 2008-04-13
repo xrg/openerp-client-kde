@@ -35,7 +35,7 @@ from widget.model.group import ModelRecordGroup
 from widget.model.record import ModelRecord
 
 from common import common
-import options
+from common import options
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

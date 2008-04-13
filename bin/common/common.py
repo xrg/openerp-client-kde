@@ -34,8 +34,6 @@ import sys
 import logging
 from options import options
 
-#import common
-
 from PyQt4.QtCore  import  *
 from PyQt4.QtGui import *
 from PyQt4.uic import *

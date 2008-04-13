@@ -3,7 +3,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 import askserver
 from common import common
-import options
+from common import options
 
 class ChooseDatabaseDialog( QDialog ):
 	# Database chooser type: 

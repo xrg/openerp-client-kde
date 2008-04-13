@@ -31,7 +31,7 @@ from rpc import RPCProxy
 import rpc
 from record import ModelRecord
 import field
-import options
+from common import options
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

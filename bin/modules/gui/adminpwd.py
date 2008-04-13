@@ -2,7 +2,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 from askserver import *
-import options
+from common import options
 import rpc
 
 class ChangeAdministratorPassword( QDialog ):

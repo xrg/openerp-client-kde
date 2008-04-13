@@ -3,7 +3,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 import re
 from common import common
-import options
+from common import options
 import rpc
 
 # Searches the list of available databases in the server

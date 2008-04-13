@@ -38,7 +38,7 @@ import gettext
 import rpc
 
 import service
-import options
+from common import options
 
 from window import windowservice, win_preference, win_full_text_search
 from createdb import CreateDatabaseDialog

@@ -29,10 +29,10 @@
 import gettext
 
 from common import common
+from common import options
 import service
 import view_tree
 import rpc
-import options
 import widget
 
 from widget.model.treemodel import TreeModel
