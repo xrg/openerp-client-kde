@@ -54,6 +54,7 @@ class win_attach(QMainWindow):
 		self.id = id
 
 		self.form = form.form( 'ir.attachment', view_type=['tree','form'], domain=[('res_model','=',self.model), ('res_id', '=', self.id)])
+		self.form.setAllowOpenInNewWindow( False )
 
 		self.layout = self.centralWidget().layout()
 		self.layout.addWidget( self.form )

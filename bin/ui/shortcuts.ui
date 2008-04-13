@@ -16,7 +16,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget" >
      <property name="currentIndex" >
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab" >
       <attribute name="title" >
@@ -214,20 +214,6 @@
            </property>
           </widget>
          </item>
-         <item row="14" column="0" >
-          <widget class="QLabel" name="label_45" >
-           <property name="text" >
-            <string>Middle mouse click on Tab</string>
-           </property>
-          </widget>
-         </item>
-         <item row="14" column="1" >
-          <widget class="QLabel" name="label_47" >
-           <property name="text" >
-            <string>Close tab</string>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="0" >
           <widget class="QLabel" name="label_48" >
            <property name="text" >
@@ -397,6 +383,68 @@ p, li { white-space: pre-wrap; }
           <size>
            <width>320</width>
            <height>228</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3" >
+      <attribute name="title" >
+       <string>&amp;Advanced</string>
+      </attribute>
+      <layout class="QVBoxLayout" >
+       <item>
+        <widget class="QLabel" name="label_50" >
+         <property name="text" >
+          <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Shortcuts in text entries&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" >
+         <item row="0" column="0" >
+          <widget class="QLabel" name="label_51" >
+           <property name="text" >
+            <string>Middle mouse click on Tab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QLabel" name="label_52" >
+           <property name="text" >
+            <string>Close tab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" >
+          <widget class="QLabel" name="label_53" >
+           <property name="text" >
+            <string>&lt;Ctrl> + Switch View</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" >
+          <widget class="QLabel" name="label_54" >
+           <property name="text" >
+            <string>Open Form View in new Tab</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" >
+          <size>
+           <width>20</width>
+           <height>40</height>
           </size>
          </property>
         </spacer>

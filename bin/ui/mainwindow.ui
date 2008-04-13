@@ -36,16 +36,16 @@
      <number>6</number>
     </property>
     <property name="leftMargin" >
-     <number>9</number>
+     <number>0</number>
     </property>
     <property name="topMargin" >
-     <number>9</number>
+     <number>0</number>
     </property>
     <property name="rightMargin" >
-     <number>9</number>
+     <number>0</number>
     </property>
     <property name="bottomMargin" >
-     <number>9</number>
+     <number>0</number>
     </property>
     <item>
      <spacer>
@@ -585,7 +585,7 @@
     <iconset resource="common.qrc" >:/images/images/switch_view.png</iconset>
    </property>
    <property name="text" >
-    <string>Switch to &amp;List/Form</string>
+    <string>Switch &amp;View</string>
    </property>
   </action>
   <action name="actionOpenMenuTab" >

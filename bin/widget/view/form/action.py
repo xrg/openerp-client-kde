@@ -41,6 +41,14 @@ from modules.gui.window.win_search import SearchDialog
 import service
 from abstractformwidget import *
 
+class LoadModelThread(QThread):
+	def run(self):
+		print "loading"
+		timer = QTime()
+		timer.start()
+		self.modelGroup.update()
+		print "loaded: ", unicode( timer.elapsed() )
+
 class ActionFormWidget(AbstractFormWidget):
 	def __init__(self,  parent, view, attrs={}):
 		AbstractFormWidget.__init__( self, parent, view, attrs )
@@ -66,42 +74,61 @@ class ActionFormWidget(AbstractFormWidget):
 			a['time'] = time
 			self.domain = rpc.session.evaluateExpression(self.action['domain'], a)
 
-			view_id = []
-			if self.action['view_id']:
-				view_id = [self.action['view_id'][0]]
 			if self.action['view_type']=='form':
-				mode = (self.action['view_mode'] or 'form,tree').split(',')
-				#self.screen = Screen(self.action['res_model'], view_type=mode, context=self.context, view_ids = view_id, domain=self.domain, parent = self )
+				self.view_id = []
+				if self.action['view_id']:
+					self.view_id = [self.action['view_id'][0]]
+
 				self.modelGroup = ModelRecordGroup( self.action['res_model'], context=self.context )
 				self.modelGroup.setDomain( self.domain )
-				self.modelGroup.update()
-				self.screen = Screen( self )
-				self.screen.setModelGroup( self.modelGroup )
-				#self.screen.setDomain( self.domain )
-				self.screen.setEmbedded( True )
-				if view_id:
-					self.screen.setViewIds( view_id )
-				else:
-					self.screen.setViewTypes( mode )
-				loadUi( common.uiPath('paned.ui'), self  )
-				self.uiTitle.setText( QString( attrs['string'] or "" ))
-				layout = QVBoxLayout( self.uiGroup )
-				layout.setContentsMargins( 0, 0, 0 , 0 )
-				layout.addWidget( self.screen )
 
-				self.connect( self.pushSearch, SIGNAL( 'clicked()' ), self.slotSearch )
-				self.connect( self.pushSwitchView, SIGNAL( 'clicked()'), self.slotSwitch )
-				self.connect( self.pushOpen, SIGNAL( 'clicked()' ), self.slotOpen )
-
-				self.setSizePolicy( QSizePolicy.Expanding , QSizePolicy.Expanding )
-
+				QTimer.singleShot( 0, self.deferredStart )
+				# Try to make the impression that it loads faster...
+				#QTimer.singleShot( 0, self.createScreen )
 			elif self.action['view_type']=='tree':
 				pass #TODO
+
+	def deferredStart(self):
+		loader = LoadModelThread(self)
+		loader.modelGroup = self.modelGroup
+		self.connect( loader, SIGNAL('finished()'), self.createScreen )
+		loader.start()
+
+	def createScreen(self):
+		print "printing"
+		timer = QTime()
+		timer.start()
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		#self.modelGroup.update()
+		self.screen = Screen( self )
+		self.screen.setModelGroup( self.modelGroup )
+		#self.screen.setDomain( self.domain )
+		self.screen.setEmbedded( True )
+		self.connect( self.screen, SIGNAL('activated()'), self.switch )
+		mode = (self.action['view_mode'] or 'form,tree').split(',')
+		if self.view_id:
+			self.screen.setViewIds( self.view_id )
+		else:
+			self.screen.setViewTypes( mode )
+		loadUi( common.uiPath('paned.ui'), self  )
+		self.uiTitle.setText( QString( self.attrs['string'] or "" ))
+		layout = QVBoxLayout( self.uiGroup )
+		layout.setContentsMargins( 0, 0, 0 , 0 )
+		layout.addWidget( self.screen )
+
+		self.connect( self.pushSearch, SIGNAL( 'clicked()' ), self.slotSearch )
+		self.connect( self.pushSwitchView, SIGNAL( 'clicked()'), self.switch )
+		self.connect( self.pushOpen, SIGNAL( 'clicked()' ), self.slotOpen )
+
+		self.setSizePolicy( QSizePolicy.Expanding , QSizePolicy.Expanding )
+		QApplication.restoreOverrideCursor()
+		print "printed: ", unicode( timer.elapsed() )
+
 
 	def sizeHint( self ):
 		return QSize( 200, 400 )
 
-	def slotSwitch( self ):
+	def switch( self ):
 		self.screen.switchView()
 
 	def slotSearch( self ):

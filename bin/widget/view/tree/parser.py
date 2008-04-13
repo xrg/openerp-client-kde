@@ -190,23 +190,41 @@ class StandardDelegate( QItemDelegate ):
 				x.installEventFilter( self )
 				break
 		self.currentEditor = widget
+		index.model()._updatesEnabled = False
 		return widget
 
 	def eventFilter( self, obj, event ):
 		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
+			print "in"
 			self.emit(SIGNAL('commitData(QWidget*)'), self.currentEditor)
 			self.emit(SIGNAL('closeEditor(QWidget*, QAbstractItemDelegate::EndEditHint)'), self.currentEditor, QAbstractItemDelegate.NoHint)
+
 			parent = self.parent()
 			if parent.inherits( 'QAbstractItemView' ):
 				model = self.currentIndex.model()
 				row = self.currentIndex.row()
-				column = self.currentIndex.column() + 1
-				if column >= model.columnCount( self.currentIndex.parent() ):
-					column = 0
-					row = self.currentIndex.row() + 1
-					if row >= model.rowCount( self.currentIndex.parent() ):
-						row = 0
+
+				# Check whether we have to move to the next item or the
+				# previous one
+				if event.modifiers() and Qt.ShiftModifier:
+					# Previous item
+					column = self.currentIndex.column() - 1
+					if column < 0:
+						column = model.columnCount( self.currentIndex.parent() ) - 1
+						row = self.currentIndex.row() - 1
+						if row < 0:
+							row = model.rowCount( self.currentIndex.parent() ) - 1
+				else:
+					# Next item
+					column = self.currentIndex.column() + 1
+					if column >= model.columnCount( self.currentIndex.parent() ):
+						column = 0
+						row = self.currentIndex.row() + 1
+						if row >= model.rowCount( self.currentIndex.parent() ):
+							row = 0
 				index = model.createIndex( row, column, self.currentIndex.internalPointer() )
+				# Set current index per Qt4 documentation before trying to edit
+				parent.setCurrentIndex( index )
 				parent.edit( index )
 			return True
 		return QItemDelegate.eventFilter( self, obj, event )
@@ -220,8 +238,9 @@ class StandardDelegate( QItemDelegate ):
 		return
 
 	def setModelData( self, editor, model, index ):
-		if editor:
-			editor.store()
+		model._updatesEnabled = True
+		#if editor:
+			#editor.store()
 		
 	def updateEditorGeometry(self, editor, option, index ):
 		 editor.setGeometry(option.rect)

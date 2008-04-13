@@ -67,7 +67,6 @@ class form( QWidget ):
 		else:
 			if view_type[0] in ['graph'] and not res_id:
 				res_id = rpc.session.execute('/object', 'execute', model, 'search', domain)
-
 		fields = {}
 		self.model = model
 		self.previous_action = None
@@ -82,6 +81,10 @@ class form( QWidget ):
 		self.screen.setModelGroup( self.group )
 		#self.screen.setDomain( domain )
 		self.screen.setEmbedded( False )
+		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
+
+		self._allowOpenInNewWindow = True
+
 		# Remove ids with False value
 		view_ids = [x for x in view_ids if x]
 		if view_ids:
@@ -129,6 +132,9 @@ class form( QWidget ):
 		self.updateStatus()
 		self.updateRecordStatus(-1,self.group.count(),None)
 
+	def setAllowOpenInNewWindow( self, value ):
+		self._allowOpenInNewWindow = value
+
 	def sig_goto(self, *args):
 		if not self.modified_save():
 			return
@@ -153,10 +159,14 @@ class form( QWidget ):
 		else:
 			self.updateStatus(_('No resource selected !'))
 
-	def switchView(self, widget=None, mode=None):
+	def switchView(self):
 		if not self.modified_save():
 			return
-		self.screen.switchView()
+		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
+			obj = service.LocalService('gui.window')
+			obj.create(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
+		else:
+			self.screen.switchView()
 
 	def _id_get(self):
 		return self.screen.id_get()

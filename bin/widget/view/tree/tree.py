@@ -34,6 +34,31 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 
+class TinyTreeView(QTreeView):
+	
+	def moveCursor(	self, action, modifiers ):
+		index = self.currentIndex()
+		row = index.row()
+		column = index.column()
+		if action == QAbstractItemView.MoveNext:
+			column += 1
+		elif action == QAbstractItemView.MovePrevious:
+			column -= 1
+
+		if column >= self.model().columnCount():
+			column = 0
+			row += 1
+		elif column < 0:
+			column = self.model().columnCount() - 1
+			row -= 1
+		if row < 0:
+			column = 0
+			row = 0
+		elif row >= self.model().rowCount():
+			row = self.model().rowCount() - 1
+			column = 0
+		return self.model().createIndex( row, column, index.internalPointer() ) 
+
 class ViewTree( AbstractView ):
 
 	def __init__(self, parent, fields):
@@ -45,7 +70,13 @@ class ViewTree( AbstractView ):
 		self.title=""
 		self.selecting = False
 
-		self.widget = QTreeView( self )
+		#self.widget = QTableView( self )
+		#self.widget.setSortingEnabled( True )
+		#self.widget.setShowGrid( False )
+
+
+		#self.widget = QTreeView( self )
+		self.widget = TinyTreeView( self )
 		self.widget.setAllColumnsShowFocus( False )
 		self.widget.setSortingEnabled(True)
 		self.widget.setRootIsDecorated( False )
@@ -66,7 +97,6 @@ class ViewTree( AbstractView ):
 		self.setAllowMultipleSelection(True)
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
-		self.connect( self.widget, SIGNAL('doubleClicked(QModelIndex)'), self.activated )
 
 		self.currentIndex = self.widget.rootIndex()
 
@@ -155,5 +185,8 @@ class ViewTree( AbstractView ):
 		if self._readOnly:
 			self.widget.setEditTriggers( QAbstractItemView.NoEditTriggers ) 
 		else:
-			self.widget.setEditTriggers( QAbstractItemView.AllEditTriggers )
-
+			#self.widget.setEditTriggers( QAbstractItemView.AllEditTriggers )
+			self.widget.setEditTriggers( QAbstractItemView.DoubleClicked | QAbstractItemView.EditKeyPressed | QAbstractItemView.AnyKeyPressed )
+	
+	def isReadOnly(self):
+		return self._readOnly

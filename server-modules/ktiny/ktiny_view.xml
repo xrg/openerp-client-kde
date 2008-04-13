@@ -8,13 +8,19 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="KTiny Settings">
-					<field name="name"/>
-					<field name="show_toolbar"/>
+					<field name="name" colspan="4"/>
+					<separator colspan="4" string="Appearance"/>
 					<field name="tabs_position"/>
+					<field name="show_toolbar"/>
 					<newline/>
-					<field name="stylesheet" colspan="4"/>
-					<newline/>
-					<field name="roles_id" colspan="4"/>
+					<separator colspan="4" string="Stylesheet"/>
+					<field name="stylesheet" colspan="4" nolabel="1"/>
+					<separator colspan="4" string="Behaviour"/>
+					<field name="sort_mode"/>
+					<field name="limit"/>
+					<field name="requests_refresh_interval"/>
+					<separator colspan="4" string="Roles"/>
+					<field name="roles_id" colspan="4" nolabel="1"/>
 				</form>
 			</field>
 		</record>
@@ -27,6 +33,10 @@
 					<field name="name"/>
 					<field name="show_toolbar"/>
 					<field name="tabs_position"/>
+					<field name="sort_mode"/>
+					<field name="limit"/>
+					<field name="requests_refresh_interval"/>
+					<field name="roles_id"/>
 				</tree>
 			</field>
 		</record>

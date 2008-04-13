@@ -193,19 +193,22 @@ class Screen(QScrollArea):
 	# Sets the current widget of the Screen
 	def setView(self, widget):
 		if self.containerView:
-			self.disconnect(self.containerView, SIGNAL("activated()"), self.switchView)
+			self.disconnect(self.containerView, SIGNAL("activated()"), self.activate )
 			self.disconnect(self.containerView, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
 			self.containerView.hide()
 
 		self.containerView = widget
 		widget.show()
-		self.connect(widget, SIGNAL("activated()"), self.switchView)
+		self.connect(widget, SIGNAL("activated()"), self.activate )
 		self.connect(widget, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
 		
 		self.loadSearchForm()
 
 		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
+
+	def activate( self ):
+		self.emit( SIGNAL('activated()') )
 
 	# Searches with the current parameters of the search form and loads the
 	# models that fit the criteria.

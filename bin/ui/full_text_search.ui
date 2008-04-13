@@ -59,6 +59,9 @@
        <property name="icon" >
         <iconset resource="common.qrc" >:/images/images/find.png</iconset>
        </property>
+       <property name="default" >
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
@@ -164,6 +167,9 @@
          <property name="icon" >
           <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
          </property>
+         <property name="default" >
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
@@ -193,5 +199,22 @@
  <resources>
   <include location="common.qrc" />
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>uiText</sender>
+   <signal>returnPressed()</signal>
+   <receiver>pushFind</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>295</x>
+     <y>23</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>453</x>
+     <y>29</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

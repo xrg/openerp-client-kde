@@ -57,7 +57,8 @@ class configmanager(object):
 			'client.default_path': os.path.expanduser('~'),
 			'stylesheet' : '',
 			'tabs_position' : 'left',
-			'show_toolbar' : True
+			'show_toolbar' : True,
+			'sort_mode' : 'all_items'
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))
@@ -131,14 +132,21 @@ class configmanager(object):
 	def __getitem__(self, key):
 		return self.options[key]
 
+	def get(self, key, defaultValue):
+		return self.options.get(key, defaultValue)
+
 	def loadSettings(self):
 		try:
 			settings = rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )[0]
 		except:
 			return
-		self.options['stylesheet'] = settings['stylesheet']
-		self.options['tabs_position'] = settings['tabs_position']
-		self.options['show_toolbar'] = settings['show_toolbar']
+		self.options.update( settings )
+		#self.options['stylesheet'] = settings['stylesheet']
+		#self.options['tabs_position'] = settings['tabs_position']
+		#self.options['show_toolbar'] = settings['show_toolbar']
+		#self.options['sort_mode'] = settings['sort_mode']
+		#self.options['limit'] = settings['limit']
+		#self.options['requests_refresh_interval'] = settings['requests_refresh_interval']
 
 options = configmanager()
 

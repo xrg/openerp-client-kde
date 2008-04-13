@@ -20,7 +20,7 @@ class ChangeAdministratorPassword( QDialog ):
 		self.uiServer.setText(url)
 
 	def slotChange(self):
-		dialog = askserver.AskServer( self )
+		dialog = AskServer( self )
 		dialog.setDefault( str( self.uiServer.text() ) )
 		dialog.exec_()
 		self.uiServer.setText( dialog.url )
@@ -33,7 +33,7 @@ class ChangeAdministratorPassword( QDialog ):
 			url = str(self.uiServer.text())
 			old = str(self.uiOldPassword.text())
 			new = str(self.uiNewPassword.text())
-			rpc.database.execute(url, 'change_admin_password', old, new)
+			rpc.database.call(url, 'change_admin_password', old, new)
 			QMessageBox.information(self, '', _('Password changed successfully') )
 			self.accept()
 		except Exception,e:

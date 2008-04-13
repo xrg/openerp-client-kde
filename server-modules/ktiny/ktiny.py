@@ -25,6 +25,9 @@ class nan_ktiny_settings(osv.osv):
 		'tabs_position': fields.selection( [('left', 'Left'), ('top', 'Top'), 
 			('right', 'Right'), ('bottom', 'Bottom')], 'Default tabs position' ),
 		'stylesheet': fields.text( 'Stylesheet' ),
+		'sort_mode': fields.selection( [('visible_items', 'Visible Items'), ('all_items', 'All Items')], 'Sorting Mode' ),
+		'limit': fields.integer('Limit'),
+		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)'),
 		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles')
 	}
 

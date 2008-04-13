@@ -31,6 +31,7 @@ from rpc import RPCProxy
 import rpc
 from record import ModelRecord
 import field
+import options
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -102,7 +103,8 @@ class ModelRecordGroup(QObject):
 		self._context = context
 		self._context.update(rpc.session.context)
 		self.resource = resource
-		self.limit = 80
+		#self.limit = 80
+		self.limit = options.options.get( 'limit', 80 )
 		self.rpc = RPCProxy(resource)
 		if fields == None:
 			self.fields = {}
@@ -121,7 +123,10 @@ class ModelRecordGroup(QObject):
 		self._filter = []
 
 		#self._sortMode = self.SortVisibleItems
-		self._sortMode = self.SortAllItems
+		if options.options['sort_mode'] == 'visible_items':
+			self._sortMode = self.SortVisibleItems
+		else:
+			self._sortMode = self.SortAllItems
 
 		self.load(ids)
 		self.model_removed = []
@@ -162,7 +167,7 @@ class ModelRecordGroup(QObject):
 		if not self.on_write:
 			return
 		new_ids = getattr(self.rpc, self.on_write)(edited_id, self.context)
-		model_idx = self.models.index(self[edited_id])
+		model_idx = self.models.index(self.recordById(edited_id))
 		result = False
 		for id in new_ids:
 			cont = False
@@ -230,6 +235,8 @@ class ModelRecordGroup(QObject):
 		else:
 			queryIds = ids
 
+		if None in queryIds:
+			queryIds.remove( None )
 		c = rpc.session.context.copy()
 		c.update(self.context)
 		values = self.rpc.read(queryIds, self.fields.keys(), c)
@@ -262,7 +269,7 @@ class ModelRecordGroup(QObject):
 				#vals = sorted( values, key=lambda x: ids.index(x['id']) )
 				for v in values:
 					id = v['id']
-					self[id].set(v, signal=False)
+					self.recordById(id).set(v, signal=False)
 			#else:
 			#	vals = values
 			#self.load_for(vals)
@@ -366,7 +373,8 @@ class ModelRecordGroup(QObject):
 		new = []
 		for model in self.models:
 			if model.id:
-				old.append(model.id)
+				if model._loaded:
+					old.append(model.id)
 			else:
 				new.append(model)
 
@@ -380,7 +388,8 @@ class ModelRecordGroup(QObject):
 					id = v['id']
 					if 'id' not in to_add:
 						del v['id']
-					self[id].set(v, signal=False)
+					#self[id].set(v, signal=False)
+					self.recordById(id).set(v, signal=False)
 
 		# Set defaults
 		if len(new) and len(to_add):
@@ -391,17 +400,29 @@ class ModelRecordGroup(QObject):
 			for mod in new:
 				mod.setDefaults(values)
 
+	def ensureAllLoaded(self):
+		ids = [x.id for x in self.models if not x._loaded]
+		c = rpc.session.context.copy()
+		c.update(self.context)
+		values = self.rpc.read( ids, self.fields.keys(), c )
+		if values:
+			for v in values:
+				self.recordById( v['id'] ).set(v, signal=False)
+
 	## @brief Returns the number of models in this group.
 	def count(self):
 		return len(self.models)
 
 	def __iter__(self):
+		self.ensureAllLoaded()
 		return iter(self.models)
 
 	## @brief Returns the model with id 'id'. You can use [] instead.
+	# Note that it will check if the model is loaded and load it if not.
 	def modelById(self, id):
 		for model in self.models:
 			if model.id == id:
+				self.ensureModelLoaded(model)
 				return model
 	__getitem__ = modelById
 
@@ -410,6 +431,13 @@ class ModelRecordGroup(QObject):
 		if model._loaded == False:
 			self.ensureModelLoaded(model)
 		return model
+
+	## @brief Returns the model with id 'id'. You can use [] instead.
+	# Note that it will return the record (model) but won't try to load it.
+	def recordById(self, id):
+		for model in self.models:
+			if model.id == id:
+				return model
 
 	def ensureModelLoaded(self, model):
 		if model._loaded:
@@ -420,14 +448,17 @@ class ModelRecordGroup(QObject):
 		ids = [x.id for x in self.models]
 		pos = ids.index(model.id) / self.limit
 
-		values = self.rpc.read(ids[pos * self.limit: pos * self.limit + self.limit], self.fields.keys(), c)
+		queryIds = ids[pos * self.limit: pos * self.limit + self.limit]
+		if None in queryIds:
+			queryIds.remove( None )
+		values = self.rpc.read(queryIds, self.fields.keys(), c)
 		if not values:
 			return False
 
 		# This treats the case when the sorted field is a non-relation field
 		for v in values:
 			id = v['id']
-			self[id].set(v, signal=False)
+			self.recordById(id).set(v, signal=False)
 
 	def setDomain(self, value):
 		self._domain = value

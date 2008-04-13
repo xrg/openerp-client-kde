@@ -40,6 +40,11 @@ class SelectionFormWidget(AbstractFormWidget):
 		self.widget.setEditable( False )
 		self.widget.setInsertPolicy( QComboBox.InsertAtTop )
 
+		# As there's no sense in this widget to handle focus
+		# we set QComboBox as the proxy widget. Without this
+		# editable lists don't work properly.
+		self.setFocusProxy( self.widget )
+
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )

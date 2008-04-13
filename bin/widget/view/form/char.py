@@ -45,6 +45,11 @@ class CharFormWidget(AbstractFormWidget):
 		if attrs.get( 'invisible', False ):
 			self.widget.setEchoMode( QLineEdit.Password )
 
+		# As there's no sense in this widget to handle focus
+		# we set QLineEdit as the proxy widget. Without this
+		# editable lists don't work properly.
+		self.setFocusProxy( self.widget )
+
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )

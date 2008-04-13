@@ -153,11 +153,11 @@ class fulltextsearch_services(netsvc.Service):
 		tsVector = []
 		for x in text.split(' '):
 			if isFloat(x):
-				tsVector.append( "to_tsvector( 'default', %s )" % quote(float(x)) )
-				tsQuery.append( "to_tsquery( 'default', %s )" % quote(float(x)) )
+				tsVector.append( "to_tsvector( 'default', %f )" % float(x) )
+				tsQuery.append( "to_tsquery( 'default', %f )" % float(x) )
 			elif isInteger(x):
-				tsVector.append( "to_tsvector( 'default', %s )" % quote(long(x)) )
-				tsQuery.append( "to_tsquery( 'default', %s )" % quote(long(x)) )
+				tsVector.append( "to_tsvector( 'default', %d )" % long(x) )
+				tsQuery.append( "to_tsquery( 'default', %d )" % long(x) )
 			#elif isDate(x):
 				#tsVector.append( "to_tsvector( 'default', %s::DATE )" % quote(date(x) )  
 				#tsQuery.append( "to_tsquery( 'default', %s::DATE )" % quote(date(x) )  

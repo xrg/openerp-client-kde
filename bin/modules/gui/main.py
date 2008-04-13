@@ -172,14 +172,15 @@ class MainWindow(QMainWindow):
 		# Stores the id of the menu action. This is to avoid opening two menus
 		# when 'action_id' returns the same as 'menu_id'
 		self.menuId = False
-
-		# Every 5 minutes check for new requests and put the number of open
-		# requests in the appropiate space in the status bar
 		self.requestsTimer = QTimer()
 		self.connect( self.requestsTimer, SIGNAL('timeout()'), self.updateRequestsStatus )
-		self.requestsTimer.start( 5 * 60 * 1000 )
 		self.pendingRequests = -1 
 
+	def startRequestsTimer(self):
+		# Every X minutes check for new requests and put the number of open
+		# requests in the appropiate space in the status bar
+		self.requestsTimer.start( options.options.get( 'requests_refresh_interval', 5 * 60 ) * 1000 )
+		
 	def formDesigner(self):
 		dialog = FormDesigner(self)
 		dialog.show()
@@ -261,6 +262,8 @@ class MainWindow(QMainWindow):
 	#  function is called every five minutes. We don't want any temporary disconnection of the
 	#  server to annoy the user unnecessarily.
 	def updateRequestsStatus(self):
+		# We use 'try' because we might not have logged in or the server might
+		# be down temporarily. This way the user isn't notified unnecessarily.
 		try:
 			uid = rpc.session.uid
 			ids,ids2 = rpc.session.call('/object', 'execute', 'res.request', 'request_get')
@@ -310,6 +313,8 @@ class MainWindow(QMainWindow):
 			url = QUrl( url )
 			if log_response==1:
 				options.options.loadSettings()
+				# Start timer once settings have been loaded
+				self.startRequestsTimer()
 				options.options['login.server'] = unicode( url.host() )
 				options.options['login.login'] = unicode( url.userName() )
 				options.options['login.port'] = url.port()

@@ -38,6 +38,7 @@ class TreeModel(QAbstractItemModel):
 		self.colors = {}
 		self.showBackgroundColor = True
 		self._readOnly = True
+		self._updatesEnabled = True
 		# visibleFields is an alphabetically sorted list of 
 		# all visible fields. This means it discards self.icon
 		# and self.child fields. The list is updated using
@@ -73,13 +74,16 @@ class TreeModel(QAbstractItemModel):
 		return self._readOnly
 
 	def modelGroupChanged(self):
-		self.reset()
+		if self._updatesEnabled:
+			self.reset()
 		
 	def modelChanged(self,obj):
-		self.reset()
+		if self._updatesEnabled:
+			self.reset()
 
 	def recordChanged(self,when,pos):
-		self.reset()
+		if self._updatesEnabled:
+			self.reset()
 		
 	## @brief Sets the dictionary of fields that should be loaded
 	def setFields(self, fields):
@@ -251,6 +255,11 @@ class TreeModel(QAbstractItemModel):
 				return QVariant( numeric.floatToText(value, field.get('digits',None) ) )	
 			elif fieldType == 'float_time':
 				return QVariant( calendar.floatTimeToText(value) )
+			elif fieldType == 'binary':
+				if value:
+					return QVariant( _('%d bytes') % len(value) )
+				else:
+					return QVariant()
 			elif fieldType == 'boolean':
 				if bool(value):
 					return QVariant( _('Yes') )
