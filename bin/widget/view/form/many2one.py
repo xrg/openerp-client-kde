@@ -29,6 +29,7 @@
 
 import gettext
 
+from common import api
 from common import common
 
 import widget
@@ -37,8 +38,6 @@ from widget.model.group import ModelRecordGroup
 
 from modules.gui.window.win_search import SearchDialog
 import rpc
-
-import service
 
 from abstractformwidget import *
 from PyQt4.QtCore import *
@@ -246,13 +245,11 @@ class ManyToOneFormWidget(AbstractFormWidget):
 		# Open a view with ids: [(field,'=',value)]
 		value = self.model.value(self.name)
 		ids = rpc.session.execute('/object', 'execute', model, 'search',[(field,'=',value)])
-		obj = service.LocalService('gui.window')
-		obj.create(False, model, ids, [(field,'=',value)], 'form', None, mode='tree,form')
+		api.instance.createWindow(False, model, ids, [(field,'=',value)], 'form', None, mode='tree,form')
 		return True
 
 	def executeAction(self, type):
 		id = self.model.id
-		obj = service.LocalService('action.main')
-		res = obj.exec_keyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
+		appi.instance.executeKeyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 		return True
 

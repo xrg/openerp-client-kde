@@ -29,6 +29,7 @@
 
 
 import gettext
+from common import api
 from common import common
 
 
@@ -38,7 +39,6 @@ from widget.model.group import ModelRecordGroup
 import rpc
 import time
 from modules.gui.window.win_search import SearchDialog
-import service
 from abstractformwidget import *
 
 class LoadModelThread(QThread):
@@ -139,8 +139,7 @@ class ActionFormWidget(AbstractFormWidget):
  			self.screen.load(win.result)
 
 	def slotOpen( self ):
-		obj = service.LocalService('action.main')
-		obj.execute(self.act_id , {})
+		api.instance.execute(self.act_id )
 
 	def store(self):
 		self.screen.current_view.store()

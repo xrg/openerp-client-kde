@@ -73,7 +73,6 @@ except:
 	imports['dbus'] = False
 	print _("Module 'dbus' not available. Consider installing it so other applications can easily interact with KTiny.")
 imports['dbus'] = False
-import service
 
 from common import notifier, common
 
@@ -81,7 +80,13 @@ from common import notifier, common
 notifier.errorHandler = common.error
 notifier.warningHandler = common.warning
 
-# The TinyERPInterface gives access from DBUS to the local services.
+
+	
+
+
+
+
+# The TinyERPInterface gives access from DBUS to local api.
 # To test it you may simply use the following command line: 
 # qdbus org.ktiny.Interface /TinyERP org.ktiny.Interface.call "gui.window" "create" "None, 'res.partner', False, [], 'form', mode='form,tree'"
 #
@@ -89,11 +94,6 @@ if imports['dbus']:
 	class TinyERPInterface(dbus.service.Object):
 		def __init__(self, path):
 			dbus.service.Object.__init__(self, dbus.SessionBus(), path)
-
-		# This functions returns a list of available local services
-		@dbus.service.method(dbus_interface='org.tinyerp.Interface', in_signature='', out_signature='as')
-		def services(self):
-			return service.AvailableServices()
 
 		# This function lets execute any given function of any local service. See example above.
 		@dbus.service.method(dbus_interface='org.tinyerp.Interface', in_signature='sss', out_signature='')
@@ -121,9 +121,34 @@ if imports['dbus']:
 
 import modules.gui.main
 import modules.action
-import modules.spool
 
 win = modules.gui.main.MainWindow()
+
+from common import api
+
+class KTinyApi(api.TinyApi):
+	def execute(self, actionId, data={}, type=None, context={}):
+		modules.action.main.execute( actionId, data, type, context )
+
+	def executeReport(self, name, data={}, context={}):
+		return modules.action.main.executeReport( name, data, context )
+
+	def executeAction(self, action, data={}, context={}):
+		modules.action.main.executeAction( action, data, context )
+		
+	def executeKeyword(self, keyword, data={}, context={}):
+		return modules.action.main.executeKeyword( keyword, data, context )
+
+	def createWindow(self, view_ids, model, res_id=False, domain=None, 
+			view_type='form', window=None, context=None, mode=None, name=False):
+		modules.gui.window.windowservice.createWindow( view_ids, model, res_id, domain, 
+			view_type, window, context, mode, name )
+
+	def windowCreated(self, window):
+		win.addWindow( window )
+
+api.instance = KTinyApi()
+
 win.show()
 
 if options.options.rcexist:

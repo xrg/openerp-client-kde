@@ -29,7 +29,6 @@
 
 from common import common
 import rpc
-import service
 
 from widget.view.abstractview import *
 from  abstractformwidget import *

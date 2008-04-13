@@ -1,9 +1,9 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from abstractformwidget import *
+from common import api
 from common import notifier
 from common import icons
-import service
 
 class ButtonFormWidget( AbstractFormWidget ):
 	def __init__(self, parent, view, attributes) :
@@ -34,9 +34,8 @@ class ButtonFormWidget( AbstractFormWidget ):
 				elif type == 'object':
 					rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.model.context())
 				elif type == 'action':
-					obj = service.LocalService('action.main')
 					action_id = int(self.attrs['name'])
-					obj.execute(action_id, {'model':screen.name, 'id': id, 'ids': [id]})
+					api.instance.execute(action_id, {'model':screen.name, 'id': id, 'ids': [id]})
 				else:
 					raise 'Button type not allowed'
 				screen.reload()

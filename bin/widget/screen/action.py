@@ -1,6 +1,6 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-import service
+from common import api
 import rpc
 
 class TinyAction(QAction):
@@ -40,8 +40,7 @@ class TinyAction(QAction):
 		if not currentId:
 			QMessageBox.information( self, '', _('You must select a record to use the relate button !'))
 
-		obj = service.LocalService('action.main')
-		obj._exec_action(self._data, {}, {})
+		api.instance.executeAction(self._data)
 
 	def executeAction(self, currentId, ids):
 		if not currentId and not ids:
@@ -52,8 +51,8 @@ class TinyAction(QAction):
 			currentId = ids[0]
 		elif not ids:
 			ids = [currentId]
-		obj = service.LocalService('action.main')
-		obj._exec_action(self._data, { 'id': currentId, 'ids': ids, 'model': self._model } )
+		api.instance.executeAction(self._data, { 'id': currentId, 'ids': ids, 'model': self._model } )
+		
 
 class ActionFactory:
 	@staticmethod

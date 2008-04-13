@@ -36,7 +36,6 @@ from common import common
 import rpc
 import sets
 
-import service
 import types
 import os
 

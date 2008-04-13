@@ -37,9 +37,6 @@ import gettext
 
 import rpc
 
-import service
-from common import options
-
 from window import windowservice, win_preference, win_full_text_search
 from createdb import CreateDatabaseDialog
 from choosedb import ChooseDatabaseDialog
@@ -54,7 +51,10 @@ from PyQt4.uic import *
 from askserver import *
 from login import * 
 from adminpwd import *
+
+from common import options
 from common import common
+from common import api
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
@@ -166,9 +166,6 @@ class MainWindow(QMainWindow):
 
 		self.updateEnabledActions()
 
-		spool = service.LocalService('spool')
-		spool.subscribe('gui.window', self.win_add )
-
 		# Stores the id of the menu action. This is to avoid opening two menus
 		# when 'action_id' returns the same as 'menu_id'
 		self.menuId = False
@@ -213,8 +210,7 @@ class MainWindow(QMainWindow):
 			return
 		self.setCursor( Qt.WaitCursor )
 		res = win.result
-		obj = service.LocalService('gui.window')
-		obj.create(None, res[1], res[0], view_type='form', mode='form,tree')
+		api.instance.createWindow(None, res[1], res[0], view_type='form', mode='form,tree')
 		self.unsetCursor()
 
 	def nextTab(self):
@@ -241,20 +237,18 @@ class MainWindow(QMainWindow):
 		rpc.session.reloadContext()
 
 	def newRequest(self):
-		obj = service.LocalService('gui.window')
-		obj.create(None, 'res.request', False, [('act_from','=',rpc.session.uid)], 'form', mode='form,tree')
+		api.instance.createWindow(None, 'res.request', False, 
+			[('act_from','=',rpc.session.uid)], 'form', mode='form,tree')
 
 	## Opens a new tab with requests pending for the user to resolve
 	def pendingRequests(self):
-		ids, ids2 = self.updateRequestsStatus()
-		obj = service.LocalService('gui.window')
-		obj.create(False, 'res.request', ids, [('act_to','=',rpc.session.uid)], 'form', mode='tree,form')
+		api.instance.createWindow(False, 'res.request', False, 
+			[('act_to','=',rpc.session.uid)], 'form', mode='tree,form')
 
 	## Opens a new tab with all unsolved requests posted by the user
 	def waitingRequests(self):
-		ids, ids2 = self.updateRequestsStatus()
-		obj = service.LocalService('gui.window')
-		obj.create(False, 'res.request', ids, [('act_from','=',rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
+		api.instance.createWindow(False, 'res.request', False, 
+			[('act_from','=',rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
 
 	## Updates the status bar with the number of pending requests.
 	#
@@ -419,8 +413,7 @@ class MainWindow(QMainWindow):
  			rpc.session.logout()
 			return 
 
-		obj = service.LocalService('action.main')
-		win = obj.execute(self.menuId, {'window':self })
+		api.instance.execute(self.menuId, {'window':self })
 
 	## @brief Opens the Home Tab.
 	#
@@ -438,8 +431,7 @@ class MainWindow(QMainWindow):
 		# Do not open the action if the id is the same as the menu id.
 		if id == self.menuId:
 			return
-		obj = service.LocalService('action.main')
-		obj.execute(id, {'window':self })
+		api.instance.execute(id, {'window':self })
 
 	def closeEvent(self, event):
 		if QMessageBox.question(self, _("Quit"), _("Do you really want to quit ?"), _("Yes"), _("No")) == 1:
@@ -450,7 +442,7 @@ class MainWindow(QMainWindow):
 			if not wid.canClose():
 				event.ignore()
 
-	def win_add(self, win, datas):
+	def addWindow(self, win):
 		self.tabWidget.addTab( win, win.name )
 		self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
 

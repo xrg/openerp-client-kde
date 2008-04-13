@@ -35,8 +35,8 @@ from win_search import SearchDialog
 import win_export
 import win_import
 
+from common import api
 from common import common
-import service
 from common import options
 import copy
 
@@ -163,8 +163,7 @@ class form( QWidget ):
 		if not self.modified_save():
 			return
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
-			obj = service.LocalService('gui.window')
-			obj.create(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
+			api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()
 
@@ -269,7 +268,7 @@ class form( QWidget ):
 					break
 		self.updateStatus()
 
-	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf', adds={}):
+	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
 		ids = self.screen.ids_get()
 		if self.screen.current_model:
 			id = self.screen.current_model.id
@@ -281,11 +280,10 @@ class form( QWidget ):
 				return False
 			ids = [id]
 		if len(ids):
-			obj = service.LocalService('action.main')
 			if previous and self.previous_action:
-				obj._exec_action(self.previous_action[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
+				api.instance.executeAction(self.previous_action[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
 			else:
-				res = obj.exec_keyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type}, adds=adds)
+				res = api.instance.executeKeyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
 				if res:
 					self.previous_action = res
 			self.reload()

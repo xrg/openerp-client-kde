@@ -32,8 +32,8 @@ from PyQt4.uic import *
 import gettext
 import copy
 
-import service
 import rpc
+from common import api
 from common import common
 from common import icons
 
@@ -157,7 +157,6 @@ class Wizard( QObject ):
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
 		if res['type']=='form':
-			print "ACTION: ", self.action
 			dialog = WizardPage(res['arch'], res['fields'], res['state'], self.action, self.datas['form'])
 
 			#dialog.screen.current_model.set( self.datas['form'] )
@@ -172,19 +171,17 @@ class Wizard( QObject ):
 			del new_data
 			#del dialog
 		elif res['type']=='action':
-			obj = service.LocalService('action.main')
-			obj._exec_action(res['action'],self.datas)
+			api.instance.executeAction(res['action'],self.datas)
 			self.state = res['state']
 		elif res['type']=='print':
-			obj = service.LocalService('action.main')
 			self.datas['report_id'] = res.get('report_id', False)
 			if res.get('get_id_from_action', False):
 				backup_ids = self.datas['ids']
 				self.datas['ids'] = self.datas['form']['ids']
-				win = obj.exec_report(res['report'], self.datas)
+				win = api.instance.executeReport(res['report'], self.datas)
 				self.datas['ids'] = backup_ids
 			else:
-				win = obj.exec_report(res['report'], self.datas)
+				win = api.instance.executeReport(res['report'], self.datas)
 			self.state = res['state']
 		elif res['type']=='state':
 			self.state = res['state']

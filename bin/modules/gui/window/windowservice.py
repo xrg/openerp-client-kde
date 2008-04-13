@@ -26,54 +26,45 @@
 #
 ##############################################################################
 
-import service
-import rpc
-
+from common import api
 from common import common
 import form
 import tree
 
+import rpc
 
-class WindowService(service.Service):
-	def __init__(self, name='gui.window'):
-		service.Service.__init__(self, name)
 
-	def create(self, view_ids, model, res_id=False, domain=None,
-			view_type='form', window=None, context=None, mode=None, name=False,
-			limit=80, auto_refresh=False):
-		if context is None:
-			context = {}
-		context.update(rpc.session.context)
+def createWindow(view_ids, model, res_id=False, domain=None,
+		view_type='form', window=None, context=None, mode=None, name=False):
 
-		if view_type=='form':
-			mode = (mode or 'form,tree').split(',')
-			win = form.form(model, res_id, domain, view_type=mode,
-					view_ids = (view_ids or []), 
-					context=context, name=name 
-					#, limit=limit, auto_refresh=auto_refresh
-					)
-			spool = service.LocalService('spool')
-			spool.publish('gui.window', win, {})
-		elif view_type=='tree':
-			if view_ids and view_ids[0]:
-				view_base =  rpc.session.execute('/object', 'execute',
-						'ir.ui.view', 'read', [view_ids[0]],
-						['model', 'type'], context)[0]
-				model = view_base['model']
-				view = rpc.session.execute('/object', 'execute',
-						view_base['model'], 'fields_view_get', view_ids[0],
-						view_base['type'],context)
-			else:
-				view = rpc.session.execute('/object', 'execute', model,
-						'fields_view_get', False, view_type, context)
+	if context is None:
+		context = {}
+	context.update(rpc.session.context)
 
-			win = tree.tree(view, model, res_id, domain, context, name=name)
-			spool = service.LocalService('spool')
-			spool.publish('gui.window', win, {})
+	if view_type=='form':
+		mode = (mode or 'form,tree').split(',')
+		win = form.form(model, res_id, domain, view_type=mode,
+				view_ids = (view_ids or []), 
+				context=context, name=name )
+		api.instance.windowCreated( win )
+	elif view_type=='tree':
+		if view_ids and view_ids[0]:
+			view_base =  rpc.session.execute('/object', 'execute',
+					'ir.ui.view', 'read', [view_ids[0]],
+					['model', 'type'], context)[0]
+			model = view_base['model']
+			view = rpc.session.execute('/object', 'execute',
+					view_base['model'], 'fields_view_get', view_ids[0],
+					view_base['type'],context)
 		else:
-			import logging
-			log = logging.getLogger('view')
-			log.error('unknown view type: '+view_type)
-			del log
+			view = rpc.session.execute('/object', 'execute', model,
+					'fields_view_get', False, view_type, context)
 
-WindowService()
+		win = tree.tree(view, model, res_id, domain, context, name=name)
+		api.instance.windowCreated( win )
+	else:
+		import logging
+		log = logging.getLogger('view')
+		log.error('unknown view type: '+view_type)
+		del log
+

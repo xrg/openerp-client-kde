@@ -103,7 +103,6 @@ class ModelRecordGroup(QObject):
 		self._context = context
 		self._context.update(rpc.session.context)
 		self.resource = resource
-		#self.limit = 80
 		self.limit = options.options.get( 'limit', 80 )
 		self.rpc = RPCProxy(resource)
 		if fields == None:
@@ -226,6 +225,9 @@ class ModelRecordGroup(QObject):
 	def load(self, ids, display=True):
 		if not ids:
 			return True
+		import traceback
+		print "loading ", ids
+		traceback.print_stack()
 		if not self.fields:
 			return self.pre_load(ids, display)
 
@@ -270,11 +272,9 @@ class ModelRecordGroup(QObject):
 				for v in values:
 					id = v['id']
 					self.recordById(id).set(v, signal=False)
-			#else:
-			#	vals = values
-			#self.load_for(vals)
 		else:
 			self.load_for(values)
+		print "models count: ", len(self.models)
 		return True
 
 	## @brief Clears the list of models. It doesn't remove them.
@@ -388,7 +388,6 @@ class ModelRecordGroup(QObject):
 					id = v['id']
 					if 'id' not in to_add:
 						del v['id']
-					#self[id].set(v, signal=False)
 					self.recordById(id).set(v, signal=False)
 
 		# Set defaults

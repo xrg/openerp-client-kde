@@ -28,9 +28,9 @@
 
 import gettext
 
+from common import api
 from common import common
 from common import options
-import service
 import view_tree
 import rpc
 import widget
@@ -156,9 +156,7 @@ class tree( QWidget ):
 
 	def executeAction(self, keyword='tree_but_action', id=None, report_type='pdf'):
 		if id:
-			obj = service.LocalService('action.main')
-			obj.exec_keyword(keyword, {'model':self.model, 'id':id,
-				'report_type':report_type})
+			api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type})
 		else:
 			QMessageBox.information( self, '', _('No resource selected!'))
 
@@ -170,8 +168,7 @@ class tree( QWidget ):
 	def editCurrentItem(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
 		if id:
-			obj = service.LocalService('gui.window')
-			obj.create(None, self.model, id, self.domain)
+			api.instance.createWindow(None, self.model, id, self.domain)
 		else:
 			QMessageBox.information(self, '', _('No resource selected!'))
 
