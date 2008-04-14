@@ -96,7 +96,7 @@ class OneToManyFormWidget(AbstractFormWidget):
 		self.screen.setEmbedded( True )
 		self.screen.setAddAfterNew( True )
 		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
- 
+
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 
 		self.layout().insertWidget( 1, self.screen )
@@ -155,6 +155,8 @@ class OneToManyFormWidget(AbstractFormWidget):
 	def showValue(self):
 		models = self.model.value(self.name)
 		self.screen.setModelGroup(models)
+		if models.count():
+			self.screen.current_model = models.modelByRow(0)
 		self.screen.display()
 
 	def store(self):
