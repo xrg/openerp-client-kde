@@ -224,9 +224,9 @@ class ToManyField(StringField):
 		from widget.model.group import ModelRecordGroup
 		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
 		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		mod.setDomain( [('id','in',value)] )
+		mod.pre_load(value, display=False)
 		model.values[self.name] = mod
-		model.values[self.name].setDomain( [('id','in',value)] )
-		model.values[self.name].pre_load(value, display=False)
 
 	def set_client(self, model, value, test_state=False):
 		self.set(model, value, test_state=test_state)
