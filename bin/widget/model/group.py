@@ -225,9 +225,7 @@ class ModelRecordGroup(QObject):
 	def load(self, ids, display=True):
 		if not ids:
 			return True
-		import traceback
-		print "loading ", ids
-		traceback.print_stack()
+
 		if not self.fields:
 			return self.pre_load(ids, display)
 
