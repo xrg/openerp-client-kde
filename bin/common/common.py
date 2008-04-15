@@ -179,6 +179,7 @@ class ErrorDialog( QDialog ):
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
+		QApplication.changeOverrideCursor( Qt.ArrowCursor )
 
 	def send(self):
 		QMessageBox.information(self, '', _('Sending support requests is not available with the TinyERP KDE client'))
