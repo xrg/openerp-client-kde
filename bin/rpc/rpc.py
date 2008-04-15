@@ -185,7 +185,9 @@ class Session:
 			raise RpcException(1, 'not logged')
 		try:
 			return self.connection.call(obj, method, *args)
-		except Exception, err:
+		except socket.error, err:
+			notifier.notifyError(_('Connection Refused'), unicode(err), unicode(err) )
+		except xmlrpclib.Fault, err:
 			a = RpcException(err.faultCode, err.faultString)
 			print a
 			if a.type in ('warning','UserError'):
