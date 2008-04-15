@@ -27,7 +27,9 @@
 #
 ##############################################################################
 
-from base64 import encodestring, decodestring
+import os
+import base64 
+import tempfile
 
 from common import common
 from abstractformwidget import *
@@ -72,7 +74,7 @@ class ImageFormWidget(AbstractFormWidget):
 		self.pushRemove.setEnabled( not ro )
 
 	def menuEntries(self):
-		if self.value:
+		if self.model.value(self.name):
 			enableApplication = True
 		else:
 			enableApplication = False
@@ -85,11 +87,11 @@ class ImageFormWidget(AbstractFormWidget):
 			 ('&Show image...', self.showImage, enableImage) ]
 
 	def openApplication(self):
-		if not self.images:
+		if not self.image:
 			return
 		fileName = tempfile.mktemp()
-		fp = file(fileName,'wb+')
-		fp.write(base64.decodestring(self.value))
+		fp = file(fileName,'wb')
+		fp.write(self.image)
 		fp.close()
 		if os.name == 'nt':
 			os.startfile(fileName)
@@ -118,7 +120,9 @@ class ImageFormWidget(AbstractFormWidget):
 		if name.isNull():
 			return
 		try:
-			file(name, 'w').write(self.image)
+			fp = file(name, 'wb')
+			fp.write(self.image)
+			fp.close()
 		except:
 			QMessageBox.warning( self, _('Error saving file'), _('Could not save the image with the given file name. Please check that you have permissions.') )
 
@@ -143,12 +147,12 @@ class ImageFormWidget(AbstractFormWidget):
 	def showValue(self):
 		self.image = self.model.value(self.name)
 		if self.image:
-			self.image = decodestring(self.image)
+			self.image = base64.decodestring(self.image)
 		self.update()
 
 	def store(self):
 		if self.image:
-			return self.model.setValue(self.name, encodestring(self.image))
+			return self.model.setValue(self.name, base64.encodestring(self.image))
 		else:
 			return self.model.setValue(self.name, False)
 
