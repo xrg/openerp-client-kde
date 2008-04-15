@@ -105,16 +105,16 @@ class form( QWidget ):
 		self.backup = {}
 
 		self.handlers = {
-			'New': self.sig_new,
-			'Save': self.sig_save,
-			'Export': self.sig_export,
-			'Import': self.sig_import,
+			'New': self.new,
+			'Save': self.save,
+			'Export': self.export,
+			'Import': self.import_,
 			'Repeat': self.repeatLastPrint,
-			'Delete': self.sig_remove,
-			'Find': self.sig_search,
+			'Delete': self.remove,
+			'Find': self.search,
 			'Previous': self.previous,
 			'Next':  self.next,
-			'GoToResourceId':  self.sig_goto,
+			'GoToResourceId':  self.goto,
 			'AccessLog':  self.showLogs,
 			'Reload': self.reload,
 			'Switch': self.switchView,
@@ -128,14 +128,14 @@ class form( QWidget ):
 			self.screen.load(res_id)
 		else:
 			if len(view_type) and view_type[0]=='form':
-				self.sig_new(autosave=False)
+				self.new(autosave=False)
 		self.updateStatus()
 		self.updateRecordStatus(-1,self.group.count(),None)
 
 	def setAllowOpenInNewWindow( self, value ):
 		self._allowOpenInNewWindow = value
 
-	def sig_goto(self, *args):
+	def goto(self, *args):
 		if not self.modified_save():
 			return
 		dialog = GoToIdDialog( self )
@@ -194,25 +194,27 @@ class form( QWidget ):
 				message+=val+': '+str(line[key] or '/')+'\n'
 		QMessageBox.information(self, '', message)
 
-	def sig_remove(self):
+	def remove(self):
 		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'),QMessageBox.Yes|QMessageBox.No)
 		if value == QMessageBox.Yes:
+			QApplication.setOverrideCursor( Qt.WaitCursor )
 			if not self.screen.remove(unlink=True):
 				self.updateStatus(_('Resource not removed !'))
 			else:
 				self.updateStatus(_('Resource removed.'))
+			QApplication.restoreOverrideCursor()
 
-	def sig_import(self):
+	def import_(self):
 		fields = []
 		dialog = win_import.win_import(self.model, self.screen.fields, fields)
 		dialog.exec_()
 
-	def sig_export(self):
+	def export(self):
 		fields = []
 		dialog = win_export.win_export(self.model, self.screen.ids_get(), self.screen.fields, fields)
 		dialog.exec_()
 
-	def sig_new(self, widget=None, autosave=True):
+	def new(self, widget=None, autosave=True):
 		if autosave:
 			if not self.modified_save():
 				return
@@ -229,7 +231,7 @@ class form( QWidget ):
 	def _form_save(self, auto_continue=True):
 		pass
 
-	def sig_save(self, widget=None, sig_new=True, auto_continue=True):
+	def save(self, widget=None, sig_new=True, auto_continue=True):
 		modification = self.screen.current_model.id
 		id = self.screen.save_current()
 		if id:
@@ -293,7 +295,7 @@ class form( QWidget ):
 	def repeatLastPrint(self):
 		self.executeAction('client_print_multi', True)
 
-	def sig_search(self, widget=None):
+	def search(self, widget=None):
 		if not self.modified_save():
 			return
 		dom = self.domain
@@ -333,7 +335,7 @@ class form( QWidget ):
 		if self.screen.isModified():
 			value = QMessageBox.question(self, _('Question'), _('This record has been modified do you want to save it?'),QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel)
 			if value == QMessageBox.Save:
-				return self.sig_save()
+				return self.save()
 			elif value == QMessageBox.Discard:
 				self.reload()
 				return True
