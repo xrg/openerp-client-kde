@@ -34,6 +34,7 @@ import rpc
 from win_search import SearchDialog
 import win_export
 import win_import
+import win_attach
 
 from common import api
 from common import common
@@ -152,8 +153,9 @@ class form( QWidget ):
 	def showAttachments(self, widget=None):
 		id = self.screen.id_get()
 		if id:
-			import win_attach
+			QApplication.setOverrideCursor( Qt.WaitCursor )
 			win = win_attach.win_attach(self.model, id, self)
+			QApplication.restoreOverrideCursor()
 			win.show()
 			self.updateStatus()
 		else:
@@ -162,10 +164,12 @@ class form( QWidget ):
 	def switchView(self):
 		if not self.modified_save():
 			return
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
 			api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()
+		QApplication.restoreOverrideCursor()
 
 	def _id_get(self):
 		return self.screen.id_get()
@@ -228,10 +232,8 @@ class form( QWidget ):
 		self.screen.load([new_id])
 		self.updateStatus(_('Working now on the duplicated document !'))
 
-	def _form_save(self, auto_continue=True):
-		pass
-
 	def save(self, widget=None, sig_new=True, auto_continue=True):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		modification = self.screen.current_model.id
 		id = self.screen.save_current()
 		if id:
@@ -240,19 +242,24 @@ class form( QWidget ):
 				self.screen.new()
 		else:
 			self.updateStatus(_('Invalid form !'))
+		QApplication.restoreOverrideCursor()
 		return bool(id)
 
 	def previous(self, widget=None):
 		if not self.modified_save():
 			return
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.display_prev()
 		self.updateStatus()
+		QApplication.restoreOverrideCursor()
 
 	def next(self, widget=None):
 		if not self.modified_save():
 			return
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.display_next()
 		self.updateStatus()
+		QApplication.restoreOverrideCursor()
 
 	def reload(self):
 		if self.screen.current_view.view_type == 'form':
