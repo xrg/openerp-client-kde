@@ -154,6 +154,7 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.focusable = parser.focusable
 		self.expanded = True
 		self.toggleExpansion()
+		return len(self.widgets)
 
 	def search(self):
 		self.emit( SIGNAL('search()') )

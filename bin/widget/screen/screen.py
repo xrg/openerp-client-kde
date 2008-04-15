@@ -167,8 +167,10 @@ class Screen(QScrollArea):
 	def loadSearchForm(self):
 		if self.current_view.view_type == 'tree' and not self._embedded: 
 			form = rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
-			self.searchForm.setup( form['arch'], form['fields'], self.resource )
-			self.searchForm.show()
+			if self.searchForm.setup( form['arch'], form['fields'], self.resource ):
+				self.searchForm.show()
+			else:
+				self.searchForm.hide()
 		else:
 			self.searchForm.hide()
 
