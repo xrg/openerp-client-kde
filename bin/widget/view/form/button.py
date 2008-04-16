@@ -28,6 +28,7 @@ class ButtonFormWidget( AbstractFormWidget ):
 			id = screen.save_current()
 			if not self.attrs.get('confirm',False) or \
 					QMessageBox.question(self,_('Question'),self.attrs['confirm'],QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+				QApplication.setOverrideCursor( Qt.WaitCursor )
 				type = self.attrs.get('type', 'workflow')
 				if type == 'workflow':
 					rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
@@ -37,8 +38,9 @@ class ButtonFormWidget( AbstractFormWidget ):
 					action_id = int(self.attrs['name'])
 					api.instance.execute(action_id, {'model':screen.name, 'id': id, 'ids': [id]})
 				else:
-					raise 'Button type not allowed'
+					notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
 				screen.reload()
+				QApplication.restoreOverrideCursor()
 		else:
 			notifier.notifyWarning('',_('Invalid Form, correct red fields!'))
 			screen.display()
