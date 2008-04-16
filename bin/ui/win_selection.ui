@@ -85,5 +85,21 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>uiList</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>pushAccept</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>153</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>259</x>
+     <y>457</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
 </ui>
