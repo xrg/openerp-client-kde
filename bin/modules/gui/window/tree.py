@@ -62,7 +62,6 @@ class tree( QWidget ):
 		# the ir.ui.menu for example
 		self.childrenField = self.view['field_parent']
 
-		# Implement Reload properly. Should update model, toolbar and TreeView
 		self.handlers = {
 			'Switch': self.editCurrentItem,
 			'Print': self.printCurrent,
@@ -141,9 +140,11 @@ class tree( QWidget ):
 		self.updateTree()
 
 	def reload(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.group.update()
 		self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
 		self.updateTree()
+		QApplication.restoreOverrideCursor()
 
 	# TODO: Look if for some menu entries this has any sense. Otherwise
 	# remove both functions. Of course we should connect the actions and
