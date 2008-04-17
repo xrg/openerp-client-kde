@@ -3,6 +3,7 @@ from PyQt4.QtCore import *
 
 class Template:
 	def __init__(self, name):
+		self.id = 0
 		self.name = name
 		self.boxes = []
 

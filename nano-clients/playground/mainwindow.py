@@ -33,6 +33,8 @@ class ToolWidget(QWidget):
 	box=property(getBox,setBox)
 
 	def store(self):
+		if not self._box:
+			return
 		self._box.rect = QRectF( self.uiX.value(), self.uiY.value(), self.uiWidth.value(), self.uiHeight.value() )
 		self._box.type = unicode( self.uiType.currentText() )
 		self._box.filter = unicode( self.uiFilter.currentText() )
@@ -98,6 +100,7 @@ class DocumentScene(QGraphicsScene):
 		self.ocr = None
 		self._image = None
 		self._oneBitImage = None
+		self._template = None
 
 	def setDocument(self, fileName):
 		self.clearImage()
@@ -125,7 +128,8 @@ class DocumentScene(QGraphicsScene):
 		self.clearTemplate()
 		self._template = template
 		for x in self._template.boxes:
-			self.addTemplateBox( x.rect )
+			item = self.addTemplateBox( x.rect )
+			item.templateBox = x
 
 	def isEnabled(self):
 		if self._template and self.ocr:
@@ -231,13 +235,15 @@ class DocumentScene(QGraphicsScene):
 			self._selection.setRect( rect )
 		
 class MainWindow(QMainWindow):
+	Unnamed = _('unnamed')
+
 	def __init__(self, parent=None):
 		QMainWindow.__init__(self, parent)
 		loadUi( 'mainwindow.ui', self )
 		self.scene = DocumentScene()
 		self.uiView.setScene( self.scene )
 
-		self._template = Template('rebut')
+		self._template = Template( self.Unnamed )
 		self.scene.setTemplate(self._template)
 
 		self.connect( self.scene, SIGNAL('newTemplateBox(PyQt_PyObject)'), self.setCurrentTemplateBox )
@@ -250,8 +256,11 @@ class MainWindow(QMainWindow):
 		self.connect( self.actionToggleBinarized, SIGNAL('triggered()'), self.toggleBinarized )
 		self.connect( self.actionLogin, SIGNAL('triggered()'), self.login )
 		self.connect( self.actionSaveTemplate, SIGNAL('triggered()'), self.saveTemplate )
+		self.connect( self.actionSaveTemplateAs, SIGNAL('triggered()'), self.saveTemplateAs )
+		self.connect( self.actionNewTemplate, SIGNAL('triggered()'), self.newTemplate )
 		self.toggleImageBoxes()
 		QTimer.singleShot( 1000, self.setup )
+		self.updateTitle()
 
 	def setup(self):
 		initOcrSystem()	
@@ -262,6 +271,7 @@ class MainWindow(QMainWindow):
 		self.uiToolDock.setWidget( self.uiTool )
 
 		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'g1' )
+
 
 	def setCurrentTemplateBox(self, box):
 		if self.uiTool.box:
@@ -290,17 +300,47 @@ class MainWindow(QMainWindow):
 			return
 		rpc.session.login( dialog.url, dialog.databaseName )
 
+	def newTemplate(self):
+		answer = QMessageBox.question(self, _('New Template'), _('Do you want to save changes to the current template?'), QMessageBox.Save | QMessageBox.No | QMessageBox.Cancel )
+		if answer == QMessageBox.Cancel:
+			return
+		elif answer == QMessageBox.Save:
+			if not self.saveTemplate():
+				return
+		self._template = Template( self.Unnamed )	
+		self.scene.setTemplate( self._template )
+		self.updateTitle()
+
 	def saveTemplate(self):
 		self.uiTool.store()
-		(name, ok) = QInputDialog.getText( self, 'Save template', 'Template name:' )
-		if ok:
-			templateId = rpc.session.call( '/object', 'execute', 'nan.template', 'create', {'name': unicode(name) } )
-			for x in self._template.boxes:
-				values = { 'x': x.rect.x(), 'y': x.rect.y(), 
-					'width': x.rect.width(), 'height': x.rect.height(), 'template_id': templateId, 
-					'name': x.name, 'text': x.text, 'type': x.type, 'filter': x.filter }
-				print values
-				rpc.session.call( '/object', 'execute', 'nan.template.box', 'create', values )
+		if not self._template.id:
+			(name, ok) = QInputDialog.getText( self, _('Save template'), _('Template name:') )
+			if not ok:
+				return False
+			self._template.name = unicode(name)
+				
+
+		if self._template.id:
+			rpc.session.call( '/object', 'execute', 'nan.template', 'write', [self._template.id], {'name': self._template.name } )
+			ids = rpc.session.call( '/object', 'execute', 'nan.template.box', 'search', [('template_id','=',self._template.id)] )
+			rpc.session.call( '/object', 'execute', 'nan.template.box', 'unlink', ids )
+		else:
+			self._template.id = rpc.session.call( '/object', 'execute', 'nan.template', 'create', {'name': self._template.name } )
+		for x in self._template.boxes:
+			values = { 'x': x.rect.x(), 'y': x.rect.y(), 
+				'width': x.rect.width(), 'height': x.rect.height(), 'template_id': self._template.id, 
+				'name': x.name, 'text': x.text, 'type': x.type, 'filter': x.filter }
+			print values
+			rpc.session.call( '/object', 'execute', 'nan.template.box', 'create', values )
+		self.updateTitle()
+		return True
+
+	def saveTemplateAs(self):
+		id = self._template.id
+		self._template.id = 0
+		if not self.saveTemplate():
+			self._template.id = id
+		self.updateTitle()
 
 	def openTemplate(self):
 		dialog = OpenTemplateDialog(self)
@@ -308,6 +348,7 @@ class MainWindow(QMainWindow):
 			return
 		model = dialog.group[dialog.id]
 		self._template = Template( model.value('name') )
+		self._template.id = model.id
 
 		fields = rpc.session.execute('/object', 'execute', 'nan.template.box', 'fields_get')
 		model.value('boxes').addFields( fields )
@@ -321,4 +362,8 @@ class MainWindow(QMainWindow):
 			self._template.addBox( box )
 
 		self.scene.setTemplate(self._template)
+		self.updateTitle()
+
+	def updateTitle(self):
+		self.setWindowTitle( "NaNnar - [%s]" % self._template.name )
 
