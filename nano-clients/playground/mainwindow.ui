@@ -30,17 +30,6 @@
         <widget class="QWidget" name="dockWidgetContents" />
        </widget>
       </item>
-      <item>
-       <widget class="QDockWidget" name="uiBrowserDock" >
-        <property name="sizePolicy" >
-         <sizepolicy vsizetype="Preferred" hsizetype="Fixed" >
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <widget class="QWidget" name="dockWidgetContents_2" />
-       </widget>
-      </item>
      </layout>
     </item>
     <item>

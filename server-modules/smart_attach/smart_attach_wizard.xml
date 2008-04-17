@@ -1,0 +1,13 @@
+<terp>
+	<data>
+		<record model="ir.actions.wizard" id="nan_document_queue_scan">
+			<field name="name">Scan documents queue</field>
+			<field name="wiz_name">nan_document_queue_scan</field>
+		</record>
+		<menuitem name="Administration/Smart Attach/Process Documents Queue" 
+			action="nan_document_queue_scan" id="nan_document_queue_scan_menu" type="wizard"/>
+
+		<wizard string="Scan Documents" model="nan.document.queue" name="nan_document_queue_scan" id="wizard_process_documents_queue"/>
+	</data>
+</terp>
+

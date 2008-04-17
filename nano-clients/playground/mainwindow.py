@@ -9,74 +9,61 @@ from opentemplatedialog import *
 from modules.gui.login import LoginDialog
 import rpc
 
-class MatcherToolWidget(QWidget):
-	Text = 0
-	NormalText = 1
-	Number = 2
-	Date = 3
-	
-	def __init__(self, parent=None):
-		QWidget.__init__(self, parent)
-		#self.uiType = QComboBox( self )
-		#self.uiType.insertItem( self.Text, 'Text' )
-		#self.uiType.insertItem( self.NormalText, 'Normal Text' )
-		#self.uiType.insertItem( self.Number, 'Number' )
-		#self.uiType.insertItem( self.Date, 'Date' )
-		self.uiValue = QLineEdit( self )
-
-		layout = QVBoxLayout( self )
-		layout.setContentsMargins( 0, 0, 0, 0 )
-		#layout.addWidget( self.uiType )
-		layout.addWidget( self.uiValue )
-
-	def setTemplateBox(self, box):
-		self.uiValue.setText( box.text )
-
-class InputToolWidget(QWidget):
-	def __init__(self, parent=None):
-		QWidget.__init__(self, parent)
-
-	def setTemplateBox(self, box):
-		self.uiValue.setText( box.text )
-
 class ToolWidget(QWidget):
-
-	Matcher = 0
-	Input = 1
 
 	def __init__(self, parent=None):
 		QWidget.__init__(self, parent)
 		loadUi( 'toolwidget.ui', self )
 
-		self.uiTool.insertItem( self.Matcher, 'Matcher' )
-		self.uiTool.insertItem( self.Input, 'Input' )
-		self.connect( self.uiTool, SIGNAL('activated(int)'), self.activate )
+		for x in TemplateBox.types:
+			self.uiType.addItem( x )
 
-		self.tool = None
+		for x in TemplateBox.filters:
+			self.uiFilter.addItem( x )
+
 		self._box = None
-		self.showTool()
+		self.load()
 
 	def setBox(self, box):
 		self._box = box
-		self.uiX.setValue( box.rect.x() )
-		self.uiY.setValue( box.rect.y() )
-		self.uiWidth.setValue( box.rect.width() )
-		self.uiHeight.setValue( box.rect.height() )
-		self.tool.setTemplateBox( box )
+		self.load()
+		#self.tool.setTemplateBox( box )
+	def getBox(self):
+		return self._box
+	box=property(getBox,setBox)
 
-	def activate(self, index):
-		self.showTool()
+	def store(self):
+		self._box.rect = QRectF( self.uiX.value(), self.uiY.value(), self.uiWidth.value(), self.uiHeight.value() )
+		self._box.type = unicode( self.uiType.currentText() )
+		self._box.filter = unicode( self.uiFilter.currentText() )
+		self._box.name = unicode( self.uiName.text() )
+		self._box.text = unicode( self.uiText.text() )
 
-	def showTool(self):
-		if self.tool:
-			self.tool.setParent( None )
-			del self.tool
+	def enable(self, value):
+		if not value:
+			self.uiX.setValue( -1 )
+			self.uiY.setValue( -1 )
+			self.uiWidth.setValue( -1 )
+			self.uiHeight.setValue( -1 )
+		self.uiName.setEnabled( value )
+		self.uiText.setEnabled( value )
+		self.uiType.setEnabled( value )
+		self.uiFilter.setEnabled( value )
 
-		if self.uiTool.currentIndex() == self.Matcher:
-			self.tool = MatcherToolWidget( self )
+	def load(self):
+		if self._box:
+			self.enable( True )
+			self.uiX.setValue( self._box.rect.x() )
+			self.uiY.setValue( self._box.rect.y() )
+			self.uiWidth.setValue( self._box.rect.width() )
+			self.uiHeight.setValue( self._box.rect.height() )
+			self.uiType.setCurrentIndex( self.uiType.findText( self._box.type ) )
+			self.uiFilter.setCurrentIndex( self.uiFilter.findText( self._box.filter ) )
+			self.uiText.setText( self._box.text )
+			self.uiName.setText( self._box.name )
 		else:
-			self.tool = InputToolWidget( self )
-		self.layout().addWidget( self.tool )
+			self.enable( False )
+
 
 class TemplateBoxItem(QGraphicsRectItem):
 	def __init__(self, rect):
@@ -228,7 +215,7 @@ class DocumentScene(QGraphicsScene):
 			self._selection.setVisible( self._templateBoxesVisible )
 			self.setActiveItem( self._selection )
 			self._selection = None
-			box = TemplateMatcherBox()
+			box = TemplateBox()
 			box.rect = self._activeItem.rect()
 			box.text = self.ocr.textInRegion( self._activeItem.rect() )
 			self._template.addBox( box )
@@ -277,7 +264,9 @@ class MainWindow(QMainWindow):
 		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'g1' )
 
 	def setCurrentTemplateBox(self, box):
-		self.uiTool.setBox( box )
+		if self.uiTool.box:
+			self.uiTool.store()
+		self.uiTool.box = box
 
 	def openImage(self):
 		fileName = QFileDialog.getOpenFileName( self )	
@@ -302,13 +291,14 @@ class MainWindow(QMainWindow):
 		rpc.session.login( dialog.url, dialog.databaseName )
 
 	def saveTemplate(self):
+		self.uiTool.store()
 		(name, ok) = QInputDialog.getText( self, 'Save template', 'Template name:' )
 		if ok:
 			templateId = rpc.session.call( '/object', 'execute', 'nan.template', 'create', {'name': unicode(name) } )
 			for x in self._template.boxes:
 				values = { 'x': x.rect.x(), 'y': x.rect.y(), 
-					'width': x.rect.width(), 'height': x.rect.height(), 'template_id': templateId } 
-					#, 'name': x.text }
+					'width': x.rect.width(), 'height': x.rect.height(), 'template_id': templateId, 
+					'name': x.name, 'text': x.text, 'type': x.type, 'filter': x.filter }
 				print values
 				rpc.session.call( '/object', 'execute', 'nan.template.box', 'create', values )
 
@@ -324,6 +314,10 @@ class MainWindow(QMainWindow):
 		for x in model.value('boxes'):
 			box = TemplateBox()
 			box.rect = QRectF( x.value('x'), x.value('y'), x.value('width'), x.value('height') )
+			box.name = x.value('name')
+			box.text = x.value('text')
+			box.type = x.value('type')
+			box.filter = x.value('filter')
 			self._template.addBox( box )
 
 		self.scene.setTemplate(self._template)

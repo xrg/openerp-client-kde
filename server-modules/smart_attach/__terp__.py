@@ -8,7 +8,7 @@
 	"category" : "Generic Modules/Attachments",
 	"init_xml" : [],
 	"demo_xml" : [],
-	"update_xml" : ["smart_attach_view.xml"],
+	"update_xml" : ["smart_attach_view.xml", "smart_attach_wizard.xml", "smart_attach_workflow.xml"],
 	"active": False,
 	"installable": True
 }

@@ -21,7 +21,9 @@ class Ocr:
 		#os.spawnlp(os.P_WAIT, '/usr/bin/tesseract', '/usr/bin/tesseract', self.file, '/tmp/tesseract', '-l', 'spa' )
 		os.spawnlp(os.P_WAIT, '/home/albert/prog/empresa/gamera/tesseract/tesseract/ccmain/tesseract', '/home/albert/prog/empresa/gamera/tesseract/tesseract/ccmain/tesseract', self.file, '/tmp/tesseract', '-l', 'spa' )
 		f=codecs.open('/tmp/tesseract.txt', 'r', 'utf-8')
-		return f.read()
+		content = f.read()
+		f.close()
+		return content
 
 	def processTesseractOutput(self, input):
 		output = []
@@ -50,7 +52,8 @@ class Ocr:
 			r = region.intersected(x.box)
 			if r.isValid():
 				output.append(x.character)
-		return ''.join(output)
+		# We always return unicode strings always
+		return u''.join(output)
 		
 	def scan(self, file):
 		# Loading
@@ -69,6 +72,8 @@ class Ocr:
 		onebit.save_tiff("/tmp/tmp.tif")
 		self.file = "/tmp/tmp.tif"
 		txt = lower( self.ocr() )
+		if isinstance(txt,str):
+			print "HEREKRJELRKJ"
 		
 		self.boxes = self.processTesseractOutput(txt)
 
