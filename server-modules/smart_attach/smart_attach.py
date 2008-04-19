@@ -184,7 +184,9 @@ class nan_document_queue(osv.osv):
 		'template_id': fields.many2one('nan.template', 'Template' ),
 		'document': fields.reference('Document', selection=attachableDocuments, size=128),
 		'task' : fields.text('Task', readonly=True),
-		'state': fields.selection( [('pending','Pending'),('scanned','Scanned'),('verified','Verified'),('processed','Processed')], 'State', required=True, readonly=True )
+		'state': fields.selection( [('pending','Pending'),('scanned','Scanned'),
+			('verified','Verified'),('processed','Processed')], 
+			'State', required=True, readonly=True )
 	}
 	_defaults = {
 		'state': lambda *a: 'pending'
@@ -217,33 +219,38 @@ class nan_document_queue(osv.osv):
 		scan.initOcrSystem()
 
 		# Iterate over all images and try to find the most similar template
-		for documentId in imageIds:
-			record = self.read(cr, uid, [documentId])[0]
-			image = record['datas']
+		for document in self.browse(cr, uid, imageIds):
+			#TODO: Enable workflow test 
+			#if document.state != 'pending':
+			#	continue
 			fp = file('/tmp/image.png','wb+')
-			fp.write( base64.decodestring(image) )
+			fp.write( base64.decodestring(document.datas) )
 			fp.close()
 			result = findBestTemplate( cr, '/tmp/image.png', templates)
 			template = result['template']
-			document = result['document']
+			doc = result['document']
 			if not template:
-				print "No template found for document %s." % record['name']
+				print "No template found for document %s." % document.name
 			else:
-				print "The best template found for document %s is %s." % (record['name'], template.name)
+				print "The best template found for document %s is %s." % (document.name, template.name)
 
 			if template:
 				template_id = template.id
 			else:
 				template_id = False
-			self.write(cr, uid, [documentId], {'template_id': template_id, 'state': 'scanned'})
-			if document:
+			self.write(cr, uid, [document.id], {'template_id': template_id, 'state': 'scanned'})
+			if doc:
 				obj = self.pool.get('nan.document.property')
-				for box in document.boxes:
-					obj.create(cr, uid, { 'name' : box.templateBox.name, 'value' : box.text, 'document_id': documentId } )
+				for box in doc.boxes:
+					obj.create(cr, uid, { 'name' : box.templateBox.name, 'value' : box.text, 'document_id': document.id } )
 
 			self.executeAttachs( cr, uid, imageIds )
 			self.executeActions( cr, uid, imageIds, True )
 			cr.commit()
+
+	def process_document(self, cr, uid, ids):
+		self.executeActions( cr, uid, ids, False )
+		cr.commit()
 
 	def _parseFunction(self, function, properties):
 		expression = re.match('(.*)\((.*)\)', function)
@@ -254,7 +261,7 @@ class nan_document_queue(osv.osv):
 			return False
 
 		parameters = parameters.split(',')
-		print "P: ", properties
+		#print "P: ", properties
 		newParameters = []
 		for p in parameters:
 			value = p.strip()
@@ -268,9 +275,11 @@ class nan_document_queue(osv.osv):
 		return (name, newParameters)
 
 	def executeActions( self, cr, uid, ids, explain ):
-		for x in ids:
-			pass
 		for document in self.browse( cr, uid, ids ):
+			#TODO: Enable workflow test 
+			#if not explain and document.state != 'verified':
+				#continue
+
 			if not document.template_id:
 				print "Document '%s' has no template associated" % document.name
 				continue
@@ -283,11 +292,24 @@ class nan_document_queue(osv.osv):
 			(name, parameters) = self._parseFunction(function, properties)
 
 			obj = self.pool.get('nan.document.queue')
-			print parameters 
 			result = eval('obj.%s(cr, uid, explain, %s)' % ( name, ','.join( parameters ) ) )
-			print "RESULT IS: ", result
 			if explain:
 				self.write( cr, uid, [document.id], {'task': result} )
+			elif document.document:
+				ref = document.document.split(',')
+				model = ref[0]
+				id = ref[1]
+				attach = { 
+					'res_id': id,
+					'res_model': model,
+					'name': document.name,
+					'datas': document.datas,
+					'datas_fname': document.name,
+					'description': 'Attached automatically'
+				}
+				self.pool.get( 'ir.attachment' ).create( cr, uid, attach )
+				self.write(cr, uid, [document.id], {'state': 'processed'})
+
 
 	def executeAttachs( self, cr, uid, ids ):
 		for document in self.browse( cr, uid, ids ):
@@ -305,9 +327,7 @@ class nan_document_queue(osv.osv):
 				print "Function '%s' not found" % (name)
 				continue
 			parameters = parameters.split(',')
-			print "DOC PROPS: ", document.properties
 			properties = dict( [(x.name, x.value) for x in document.properties] )
-			print "P: ", properties
 			newParameters = []
 			for p in parameters:
 				value = p.strip()
@@ -320,9 +340,7 @@ class nan_document_queue(osv.osv):
 				newParameters.append( value )
 
 			obj = self.pool.get('nan.document.queue')
-			print newParameters
 			reference = eval('obj.%s(cr, uid, %s)' % ( name, ','.join( newParameters ) ) )
-			print "REFERENCE WILL BE: ", reference
 			self.write( cr, uid, [document.id], {'document': '%s,%s' % (reference[0],reference[1]) } )
 
 
@@ -330,10 +348,8 @@ class nan_document_queue(osv.osv):
 		if explain:
 			return "A new partner with name '%s' will be created (if it doesn't exist already)." % name
 		else:
-			try:
+			if not self.pool.get( 'res.partner' ).search( cr, uid, [('name','=',name)]):
 				self.pool.get( 'res.partner' ).create( cr, uid, {'name': name} )
-			except:
-				pass
 			return True
 
 	def attachModelByField( self, cr, uid, model, field, name ):

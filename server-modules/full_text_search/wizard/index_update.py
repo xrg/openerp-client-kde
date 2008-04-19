@@ -145,6 +145,7 @@ class wizard_info_get(wizard.interface):
 			cr.execute("DROP TRIGGER IF EXISTS \"%s_fts_full_text_search\" ON \"%s\"" % (table_name, table_name ) )
 			cr.commit()
 			cr.execute("CREATE TRIGGER \"" + table_name + "_fts_full_text_search\" BEFORE INSERT OR UPDATE OR DELETE ON \"" + table_name + "\" FOR EACH ROW EXECUTE PROCEDURE fts_full_text_search_trigger(%d,%s)", (model_id, fields) )
+			cr.commit()
 	
 	states = {
 		'init': {

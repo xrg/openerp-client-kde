@@ -46,7 +46,7 @@
 							<separator string="Task"/>
 							<field name="task" nolabel="1" colspan="4"/>
 							<separator string="Image"/>
-							<field name="datas" widget="image" img_width="500" img_height="500" nolabel="1" colspan="4"/>
+							<field name="datas" widget="image" img_width="300" img_height="300" nolabel="1" colspan="4"/>
 							<group colspan="4">
 								<button name="scan_document" states="pending" string="Scan Document"/>
 								<button name="verify_document" states="scanned" string="Verify Document"/>

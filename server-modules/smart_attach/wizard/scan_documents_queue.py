@@ -22,7 +22,7 @@ view_fields_start = {
 	"documents": {'type':'text', 'string':'Documents', 'readonly':True}
 }
 
-class DocumentQueueWizard(wizard.interface):
+class ScanDocumentQueueWizard(wizard.interface):
 	def _before_scan(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		obj = pool.get('nan.document.queue')
@@ -54,4 +54,4 @@ class DocumentQueueWizard(wizard.interface):
 			'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
 		}
 	}
-DocumentQueueWizard('nan_document_queue_scan')
+ScanDocumentQueueWizard('nan_document_queue_scan')
