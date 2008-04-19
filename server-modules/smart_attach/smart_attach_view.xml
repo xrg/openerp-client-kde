@@ -43,6 +43,8 @@
 							<field name="state"/>
 							<field name="template_id"/> 
 							<field name="document"/>
+							<separator string="Task"/>
+							<field name="task" nolabel="1" colspan="4"/>
 							<separator string="Image"/>
 							<field name="datas" widget="image" img_width="500" img_height="500" nolabel="1" colspan="4"/>
 							<group colspan="4">
@@ -135,6 +137,8 @@
 			<field name="arch" type="xml">
 				<form string="Document Templates">
 					<field name="name" select="1"/>
+					<field name="attach_function"/>
+					<field name="action_function"/>
 					<newline/>
 					<field name="boxes" mode="tree,form" colspan="4" nolabel="1">
 						<form string="Boxes">

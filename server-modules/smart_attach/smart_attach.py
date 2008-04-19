@@ -5,6 +5,7 @@ import tempfile
 import os
 import shutil
 import codecs
+import re
 
 import ocr
 import scan
@@ -144,10 +145,13 @@ def findBestTemplate( cr, image, templates ):
 class nan_template(osv.osv):
 	_name = 'nan.template'
 	_columns = {
-		'name' : fields.char('Name', 64),
+		'name' : fields.char('Name', 64, required=True),
 		'boxes' : fields.one2many('nan.template.box', 'template_id', 'Boxes'),
+		'attach_function' : fields.char('Attachment Function', 256),
+		'action_function' : fields.char('Action Function', 256),
 		'documents' : fields.one2many('nan.document.queue', 'template_id', 'Documents')
 	}
+
 nan_template()
 
 class nan_template_box(osv.osv):
@@ -176,10 +180,10 @@ class nan_document_queue(osv.osv):
 	_columns = {
 		'name' : fields.char('Name', 64),
 		'datas': fields.binary('Data'),
-		'processed': fields.boolean('Processed'),
 		'properties': fields.one2many('nan.document.property', 'document_id', 'Properties'),
 		'template_id': fields.many2one('nan.template', 'Template' ),
 		'document': fields.reference('Document', selection=attachableDocuments, size=128),
+		'task' : fields.text('Task', readonly=True),
 		'state': fields.selection( [('pending','Pending'),('scanned','Scanned'),('verified','Verified'),('processed','Processed')], 'State', required=True, readonly=True )
 	}
 	_defaults = {
@@ -237,7 +241,110 @@ class nan_document_queue(osv.osv):
 				for box in document.boxes:
 					obj.create(cr, uid, { 'name' : box.templateBox.name, 'value' : box.text, 'document_id': documentId } )
 
+			self.executeAttachs( cr, uid, imageIds )
+			self.executeActions( cr, uid, imageIds, True )
 			cr.commit()
+
+	def _parseFunction(self, function, properties):
+		expression = re.match('(.*)\((.*)\)', function)
+		name = expression.group(1)
+		parameters = expression.group(2)
+		if name not in dir(self):
+			print "Function '%s' not found" % (name)
+			return False
+
+		parameters = parameters.split(',')
+		print "P: ", properties
+		newParameters = []
+		for p in parameters:
+			value = p.strip()
+			if value.startswith( '#' ):
+				print "We'll search '%s' in the properties" % value[1:]
+				if value[1:] not in properties:
+					continue
+				value = properties[ value[1:] ]
+			value = "'" + value.replace("'","\\\\'") + "'"
+			newParameters.append( value )
+		return (name, newParameters)
+
+	def executeActions( self, cr, uid, ids, explain ):
+		for x in ids:
+			pass
+		for document in self.browse( cr, uid, ids ):
+			if not document.template_id:
+				print "Document '%s' has no template associated" % document.name
+				continue
+			function = document.template_id.action_function
+			if not function:
+				print "Template '%s' has no attach function" % document.template_id.name
+				continue
+
+			properties = dict( [(x.name, x.value) for x in document.properties] )
+			(name, parameters) = self._parseFunction(function, properties)
+
+			obj = self.pool.get('nan.document.queue')
+			print parameters 
+			result = eval('obj.%s(cr, uid, explain, %s)' % ( name, ','.join( parameters ) ) )
+			print "RESULT IS: ", result
+			if explain:
+				self.write( cr, uid, [document.id], {'task': result} )
+
+	def executeAttachs( self, cr, uid, ids ):
+		for document in self.browse( cr, uid, ids ):
+			if not document.template_id:
+				print "Document '%s' has no template associated" % document.name
+				continue
+			function = document.template_id.attach_function
+			if not function:
+				print "Template '%s' has no attach function" % document.template_id.name
+				continue
+			expression = re.match('(.*)\((.*)\)', function)
+			name = expression.group(1)
+			parameters = expression.group(2)
+			if name not in dir(self):
+				print "Function '%s' not found" % (name)
+				continue
+			parameters = parameters.split(',')
+			print "DOC PROPS: ", document.properties
+			properties = dict( [(x.name, x.value) for x in document.properties] )
+			print "P: ", properties
+			newParameters = []
+			for p in parameters:
+				value = p.strip()
+				if value.startswith( '#' ):
+					print "We'll search '%s' in the properties" % value[1:]
+					if value[1:] not in properties:
+						continue
+					value = properties[ value[1:] ]
+				value = "'" + value.replace("'","\\\\'") + "'"
+				newParameters.append( value )
+
+			obj = self.pool.get('nan.document.queue')
+			print newParameters
+			reference = eval('obj.%s(cr, uid, %s)' % ( name, ','.join( newParameters ) ) )
+			print "REFERENCE WILL BE: ", reference
+			self.write( cr, uid, [document.id], {'document': '%s,%s' % (reference[0],reference[1]) } )
+
+
+	def actionAddPartner( self, cr, uid, explain, name ):
+		if explain:
+			return "A new partner with name '%s' will be created (if it doesn't exist already)." % name
+		else:
+			try:
+				self.pool.get( 'res.partner' ).create( cr, uid, {'name': name} )
+			except:
+				pass
+			return True
+
+	def attachModelByField( self, cr, uid, model, field, name ):
+		table = self.pool.get( model )._table
+		# TODO: Security issues
+		cr.execute( 'SELECT id FROM "' + table + '" ORDER BY similarity("' + field + '",\'%s\') DESC LIMIT 1' % name ) 
+		record = cr.fetchone()
+		if not record:
+			return False
+		return ( model, record[0] )
+
 		
 nan_document_queue()
 

@@ -47,7 +47,7 @@ class DocumentQueueWizard(wizard.interface):
 	states = {
 		'init': {
 			'actions': [_before_scan],
-			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Upgrade','gtk-ok')]}
+			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Scan','gtk-ok')]}
 		},
 		'start': {
 			'actions': [_scan],
