@@ -149,7 +149,7 @@ class wizard_info_get(wizard.interface):
 	states = {
 		'init': {
 			'actions': [_get_install],
-			'result': {'type':'form', 'arch':view_form, 'fields':{}, 'state':[('end','Cancel','gtk-cancel'),('start','Start Upgrade','gtk-ok')]}
+			'result': {'type':'form', 'arch':view_form, 'fields':{}, 'state':[('end','Cancel','gtk-cancel'),('start','Start Update','gtk-ok')]}
 		},
 		'start': {
 			'actions': [_update_index],
