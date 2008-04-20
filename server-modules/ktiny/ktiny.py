@@ -28,6 +28,7 @@ class nan_ktiny_settings(osv.osv):
 		'sort_mode': fields.selection( [('visible_items', 'Visible Items'), ('all_items', 'All Items')], 'Sorting Mode' ),
 		'limit': fields.integer('Limit'),
 		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)'),
+		'show_system_tray_icon': fields.boolean( 'Show Icon in System Tray' ),
 		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles')
 	}
 

@@ -172,6 +172,14 @@ class MainWindow(QMainWindow):
 		self.requestsTimer = QTimer()
 		self.connect( self.requestsTimer, SIGNAL('timeout()'), self.updateRequestsStatus )
 		self.pendingRequests = -1 
+		self.systemTrayIcon = QSystemTrayIcon( self )
+		self.systemTrayIcon.setIcon( QIcon(":/images/images/tinyerp-icon-32x32.png") )
+		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
+
+	def systemTrayIconActivated(self, reason):
+		if reason != QSystemTrayIcon.DoubleClick:
+			return
+		self.setVisible( not self.isVisible() )
 
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
@@ -268,8 +276,11 @@ class MainWindow(QMainWindow):
 			if len(ids2):
 				message += _(' - %s pending request(s)') % len(ids2)
 			self.uiRequests.setText( message )
+			self.systemTrayIcon.setToolTip( message )
 			if self.pendingRequests != -1 and self.pendingRequests < len(ids):
 				QApplication.alert( self )
+				if self.systemTrayIcon.isVisible() and not self.isVisible():
+					self.systemTrayIcon.showMessage( _("New Request"), _("You've received a new request") )
 			self.pendingRequests = len(ids)
 			return (ids, ids2)
 		except:
@@ -307,7 +318,12 @@ class MainWindow(QMainWindow):
 			url = QUrl( url )
 			if log_response==1:
 				options.options.loadSettings()
-				# Start timer once settings have been loaded
+
+				iconVisible = options.options.get( 'show_system_tray_icon', True )
+				self.systemTrayIcon.setVisible( iconVisible )
+
+				# Start timer once settings have been loaded because
+				# the request interval can be configured
 				self.startRequestsTimer()
 				options.options['login.server'] = unicode( url.host() )
 				options.options['login.login'] = unicode( url.userName() )

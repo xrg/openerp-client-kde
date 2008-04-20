@@ -19,6 +19,7 @@
 					<field name="sort_mode"/>
 					<field name="limit"/>
 					<field name="requests_refresh_interval"/>
+					<field name="show_system_tray_icon"/>
 					<separator colspan="4" string="Roles"/>
 					<field name="roles_id" colspan="4" nolabel="1"/>
 				</form>
