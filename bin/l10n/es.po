@@ -3,170 +3,661 @@
 # This file is distributed under the same license as the TINY package.
 # Fabien Pinckaers <fp@tiny.be>, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Tiny ERP V2.0\n"
+"Project-Id-Version: KTiny 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-30 01:57+0100\n"
+"POT-Creation-Date: 2008-04-20 12:22+0200\n"
 "PO-Revision-Date: 2005-22-05 09:43+0200\n"
-"Last-Translator: Moisés Quezada <el_moy@yahoo.com>\n"
-"Language-Team: ES <el_moy@yahoo.com>\n"
+"Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
+"Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: bin/common/common.py:157 bin/common/common.py:185
+msgid "Sending support requests is not available with the TinyERP KDE client"
+msgstr "El cliente KDE de TinyERP no permite mandar peticiones de soporte"
+
+#: bin/common/options.py:64
+msgid "specify alternate config file"
+msgstr "especifique un archivo alterno de configuración"
+
+#: bin/common/options.py:65
+msgid "enable basic debugging"
+msgstr "habilite depuración básica"
+
+#: bin/common/options.py:66
+msgid "specify channels to log"
+msgstr "especificar que canales registrar"
+
+#: bin/common/options.py:67
+msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+msgstr "especificar el nivel de registro: INFO, DEBUG, ALERTA; ERROR; CRITICO"
+
+#: bin/common/options.py:68
+msgid "specify the user login"
+msgstr "especifique el usuario"
+
+#: bin/common/options.py:69
+msgid "specify the server port"
+msgstr "especifique el puerto del servidor"
+
+#: bin/common/options.py:70
+msgid "specify the server ip/name"
+msgstr "especifique el servidor ip/nombre"
+
+#: bin/common/options.py:71
+msgid "specify stylesheet to apply"
+msgstr "especifique la hoja de estilo a aplicar"
+
+#: bin/ktiny.py:74
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with KTiny."
+msgstr ""
+"El módulo 'dbus' no está disponible. Considere instalarlo para que otras "
+"aplicaciones puedan interactuar fácilmente con KTiny."
+
+#: bin/modules/action/main.py:47
+msgid "Nothing to print!"
+msgstr "Nada a imprimir!"
+
+#: bin/modules/action/main.py:63
+msgid "Printing aborted, too long delay !"
+msgstr "Impresión abortada, espera demasiado larga!"
+
+#: bin/modules/action/main.py:67
+msgid "Error: "
+msgstr "Error"
+
+#: bin/modules/action/main.py:159
+msgid "Select your action"
+msgstr "Seleccionar su acción"
+
+#: bin/modules/action/main.py:165
+msgid "No action defined!"
+msgstr "No hay ninguna acción definida!"
+
+#: bin/modules/gui/adminpwd.py:30
+msgid "Validation Error"
+msgstr "Error de validación"
+
+#: bin/modules/gui/adminpwd.py:30
+msgid "Confirmation password does not match new password."
+msgstr "La contraseña de validación no concuerda con la nueva contraseña."
+
+#: bin/modules/gui/adminpwd.py:37
+msgid "Password changed successfully"
+msgstr "Contraseña cambiada correctamente"
+
+#: bin/modules/gui/adminpwd.py:40
+msgid "Error"
+msgstr "Error"
+
+#: bin/modules/gui/adminpwd.py:40
+msgid ""
+"Could not change administrator password. Please, check the server and "
+"password are correct."
+msgstr ""
+"No se pudo cambiar la contraseña de administrador. Por favor, compruebe que "
+"el servidor y la contraseña son correctos."
+
+#: bin/modules/gui/askserver.py:33
+msgid "NET-RPC (faster)"
+msgstr "NET-RPC (Más rápido)"
+
+#: bin/modules/gui/askserver.py:34
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: bin/modules/gui/askserver.py:35
+msgid "Secure XML-RPC"
+msgstr "XML-RPC Seguro"
+
+#: bin/modules/gui/choosedb.py:44 bin/modules/gui/login.py:45
+msgid "Could not connect to server !"
+msgstr "No se pudo conectar con el servidor!"
+
+#: bin/modules/gui/choosedb.py:50 bin/modules/gui/login.py:50
+msgid "No database found, you must create one !"
+msgstr "No se encontrón ninguna base de datos. Debe crear una."
+
+#: bin/modules/gui/createdb.py:18
+msgid "You can now connect to the database as an administrator."
+msgstr "Ahora se puede conectar a la base de datos como administrador."
+
+#: bin/modules/gui/createdb.py:18
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+"Los siguientes usuarios se han instalado en la base de datos:\n"
+"\n"
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
+msgid "Could not create database."
+msgstr "No se ha podido crear la base de datos."
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:519
+msgid "Bad database administrator password !"
+msgstr "Contraseña de administrador incorrecta!"
+
+#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
+msgid "Error during database creation !"
+msgstr "Error durante la creación de la base de datos!"
+
+#: bin/modules/gui/createdb.py:56
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+"El servidor petó durante la instalación.\n"
+"Se sugiere borrar esta base de datos."
+
+#: bin/modules/gui/createdb.py:114
+msgid "Bad database name !"
+msgstr "Nombre de base de datos incorrecto!"
+
+#: bin/modules/gui/createdb.py:114
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+"El nombre de la base de datos tiene que contener sólo carácteres normales o "
+"\"_\".\n"
+"Tiene que evitar todos las tildes, espacios y carácteres especiales."
+
+#: bin/modules/gui/main.py:85 bin/modules/gui/main.py:344
+msgid "Press Ctrl+O to login"
+msgstr "Pulse Ctrl+O para entrar"
+
+#: bin/modules/gui/main.py:95
+msgid "Close tab"
+msgstr "Cerrar la pestaña"
+
+#: bin/modules/gui/main.py:265
+#, python-format
+msgid "%s request(s)"
+msgstr "%s peticion(es)"
+
+#: bin/modules/gui/main.py:267
+msgid "No request"
+msgstr "No hay Solicitudes"
+
+#: bin/modules/gui/main.py:269
+#, python-format
+msgid " - %s pending request(s)"
+msgstr "- %s solicitudes pendientes"
+
+#: bin/modules/gui/main.py:323 bin/modules/gui/main.py:325
+msgid "Connection error !"
+msgstr "Error de Conexión"
+
+#: bin/modules/gui/main.py:323
+msgid "Unable to connect to the server !"
+msgstr "No ha sido posible connectar con el servidor."
+
+#: bin/modules/gui/main.py:325
+msgid "Bad username or password !"
+msgstr "Usuario o contraseña incorrecto."
+
+#: bin/modules/gui/main.py:329
+msgid "Connection Error !"
+msgstr "Error de Conexión"
+
+#: bin/modules/gui/main.py:343
+msgid "Not logged !"
+msgstr "No conectado!"
+
+#: bin/modules/gui/main.py:412
+msgid "Access denied"
+msgstr "Acceso denegado"
+
+#: bin/modules/gui/main.py:412
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+"No puede entrar en el sistema!\n"
+"Pregunte al administrador y verifique\n"
+"que tiene una acción definida para su usuario."
+
+#: bin/modules/gui/main.py:437
+msgid "Quit"
+msgstr "Salir"
+
+#: bin/modules/gui/main.py:437
+msgid "Do you really want to quit ?"
+msgstr "Está seguro que quiere salir?"
+
+#: bin/modules/gui/main.py:437 bin/widget/model/treemodel.py:265
+msgid "Yes"
+msgstr "Si"
+
+#: bin/modules/gui/main.py:437 bin/widget/model/treemodel.py:267
+msgid "No"
+msgstr "No"
+
+#: bin/modules/gui/main.py:506 bin/modules/gui/main.py:527
+msgid "Delete a database"
+msgstr "Borrar una base de datos"
+
+#: bin/modules/gui/main.py:515 bin/modules/gui/main.py:521
+msgid "Database removal"
+msgstr "Borrado de base de datos"
+
+#: bin/modules/gui/main.py:515
+msgid "Database dropped successfully!"
+msgstr "Base"
+
+#: bin/modules/gui/main.py:519
+msgid "Could not drop database."
+msgstr "No se ha podido borrar la base de datos"
+
+#: bin/modules/gui/main.py:521
+msgid "Couldn't drop database"
+msgstr "No se ha podido borrar la base de datos"
+
+#: bin/modules/gui/main.py:538
+msgid "Database restored successfully!"
+msgstr "Base de datos restaurada correctamente!"
+
+#: bin/modules/gui/main.py:542
+msgid "Could not resotre database"
+msgstr "No se ha podido restaurar la base de datos"
+
+#: bin/modules/gui/main.py:542
+msgid "Bad database administrator password!"
+msgstr "Contraseña de administrador incorrecto!"
+
+#: bin/modules/gui/main.py:544
+msgid "Could not restore database"
+msgstr "No se ha podido restaurar la base de datos"
+
+#: bin/modules/gui/main.py:547
+msgid "Backup a database"
+msgstr "Copia de seguridad de base de datos"
+
+#: bin/modules/gui/main.py:562
+msgid "Database backuped successfully!"
+msgstr ""
+"La copia de seguridad de la base de datos se ha realizado correctamente!"
+"hecho corre"
+
+#: bin/modules/gui/main.py:565
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+"No se ha podido hacer copia de seguridad de la base de datos.\n"
+"%s"
+
+#: bin/modules/gui/window/form.py:162
+msgid "No resource selected !"
+msgstr "No hay ningún recurso seleccionado."
+
+#: bin/modules/gui/window/form.py:180
+msgid "You have to select one resource!"
+msgstr "Debe seleccionar un recurso."
+
+#: bin/modules/gui/window/form.py:186
+#: bin/modules/gui/window/win_full_text_search.py:392
+msgid "ID"
+msgstr "ID"
+
+#: bin/modules/gui/window/form.py:187
+msgid "Creation User"
+msgstr "Usuario de Creación"
+
+#: bin/modules/gui/window/form.py:188
+msgid "Creation Date"
+msgstr "Fecha de Creación"
+
+#: bin/modules/gui/window/form.py:189
+msgid "Latest Modification by"
+msgstr "Última Modificación por"
+
+#: bin/modules/gui/window/form.py:190
+msgid "Latest Modification Date"
+msgstr "Fecha de Última Modificación"
+
+#: bin/modules/gui/window/form.py:191
+msgid "Owner"
+msgstr "Propietario"
+
+#: bin/modules/gui/window/form.py:192
+msgid "Group Owner"
+msgstr "Grupo Propietario"
+
+#: bin/modules/gui/window/form.py:193
+msgid "Access Level"
+msgstr "Nivel de Acceso"
+
+#: bin/modules/gui/window/form.py:202 bin/modules/gui/window/form.py:343
+#: bin/widget/view/form/button.py:30
+msgid "Question"
+msgstr "Pregunta"
+
+#: bin/modules/gui/window/form.py:202
+msgid "Are you sure you want to remove these records?"
+msgstr "Está seguro que desea borrar este registro?"
+
+#: bin/modules/gui/window/form.py:206
+msgid "Resource not removed !"
+msgstr "No se ha podido borrar el recurso."
+
+#: bin/modules/gui/window/form.py:208
+msgid "Resource removed."
+msgstr "Recurso eliminado"
+
+#: bin/modules/gui/window/form.py:233
+msgid "Working now on the duplicated document !"
+msgstr "Trabajando en el document duplicado!"
+
+#: bin/modules/gui/window/form.py:240
+msgid "Document saved !"
+msgstr "Documento guardado"
+
+#: bin/modules/gui/window/form.py:244
+msgid "Invalid form !"
+msgstr "Formulario no válido"
+
+#: bin/modules/gui/window/form.py:300
+msgid "No record selected!"
+msgstr "Ningún registro seleccionado"
+
+#: bin/modules/gui/window/form.py:318
+#, python-format
+msgid "(%s attachments) "
+msgstr "(%s adjuntos) "
+
+#: bin/modules/gui/window/form.py:323
+msgid "No records"
+msgstr "Sin registros"
+
+#: bin/modules/gui/window/form.py:330
+msgid "No document selected"
+msgstr "No hay ningún documento seleccionado"
+
+#: bin/modules/gui/window/form.py:334
+msgid "New document"
+msgstr "Nuevo documento"
+
+#: bin/modules/gui/window/form.py:336
+#, python-format
+msgid "Editing document (id: %s)"
+msgstr "Editando documento (id: %s)"
+
+#: bin/modules/gui/window/form.py:337
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr "Registro: %(name)s / %(count)s - %(name2)s"
+
+#: bin/modules/gui/window/form.py:343
+msgid "This record has been modified do you want to save it?"
+msgstr "El registro se ha modificado, desea guardarlo?"
+
+#: bin/modules/gui/window/importexport_common.py:10
+msgid "Fields"
+msgstr "Campos"
+
+#: bin/modules/gui/window/tree.py:162 bin/modules/gui/window/tree.py:174
+msgid "No resource selected!"
+msgstr "Ninguno recurso seleccionado"
+
+#: bin/modules/gui/window/tree.py:186
+msgid "No item selected"
+msgstr "No hay ningún elemento seleccionado"
+
+#: bin/modules/gui/window/tree.py:186
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+"Por favor, seleccione un elemento del árbol para añadir un acceso directo a "
+"él."
+
+#: bin/modules/gui/window/view_tree/parser.py:51
+msgid "Tree"
+msgstr "Árbol"
+
+#: bin/modules/gui/window/win_export.py:48
+msgid "TinyERP exported information"
+msgstr "Información exportada de Tiny ERP "
+
+#: bin/modules/gui/window/win_export.py:66
+#: bin/modules/gui/window/win_export.py:86
+#, python-format
+msgid "%s record(s) saved!"
+msgstr "%s registro(s) guardado(s)"
+
+#: bin/modules/gui/window/win_export.py:68
+#: bin/modules/gui/window/win_export.py:88
+#, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
+msgstr ""
+"Operación fallida!\n"
+"Error de E/S (%s)"
+
+#: bin/modules/gui/window/win_export.py:111
+msgid "Error opening Excel !"
+msgstr "Error abriendo Excel."
+
+#: bin/modules/gui/window/win_export.py:113
+msgid ""
+"Function only available for MS Office !\n"
+"Sorry, OOo users :("
+msgstr "Función disponible solo para MS Office."
+
+#: bin/modules/gui/window/win_export.py:192
+msgid "Export Data"
+msgstr "Exportar Datos"
+
+#: bin/modules/gui/window/win_export.py:236
+msgid "What is the name of this export?"
+msgstr "Cual es el nombre de esta exportación?"
+
+#: bin/modules/gui/window/win_export.py:257
+msgid "Export name"
+msgstr "Nombre de la exportación"
+
+#: bin/modules/gui/window/win_export.py:258
+msgid "Exported fields"
+msgstr "Campos a exportar"
+
+#: bin/modules/gui/window/win_full_text_search.py:302
+msgid "(Everywhere)"
+msgstr "(en todas partes)"
+
+#: bin/modules/gui/window/win_full_text_search.py:306
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+"<b>La búsqueda de texto no está configurada.</b><br/>Vaya a "
+"<i>Administración - Configuración - Búsqueda de Texto - Índices</i>. "
+"Entonces añada los campos que quiera que se indexen y finamente ejecute "
+"<i>Actualizar Índice de Texto</i>."
+
+#: bin/modules/gui/window/win_full_text_search.py:308
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+"<b>El módulo de búsqueda de texto no está instalado.</b><br/>Vaya a "
+"<i>Administración - Administración de Módulos - Módulos no instalados</i> y "
+"añada el módulo <i>full_text_search</i>."
+
+#: bin/modules/gui/window/win_full_text_search.py:310
+msgid "Tiny ERP Full Text Search"
+msgstr "Búsqueda de texto de Tiny ERP"
+
+#: bin/modules/gui/window/win_full_text_search.py:311
+#, python-format
+msgid "Tiny ERP Full Text Search (%%d result(s))"
+msgstr "Búsqueda de texto de Tiny ERP (%%d resultado(s))"
+
+#: bin/modules/gui/window/win_full_text_search.py:393
+msgid "Model ID"
+msgstr "ID del modelo"
+
+#: bin/modules/gui/window/win_full_text_search.py:394
+msgid "Model Name"
+msgstr "Nombre del modelo"
+
+#: bin/modules/gui/window/win_full_text_search.py:396
+msgid "Type"
+msgstr "Tipo"
+
+#: bin/modules/gui/window/win_full_text_search.py:397
+msgid "Name"
+msgstr "Nombre"
+
+#: bin/modules/gui/window/win_full_text_search.py:398
+msgid "Text"
+msgstr "Texto"
+
+#: bin/modules/gui/window/win_full_text_search.py:399
+msgid "Ranking"
+msgstr "Ránking"
+
+#: bin/modules/gui/window/win_import.py:54
+#, python-format
+msgid "Imported %d objects !"
+msgstr "Se han importado %d objetos!"
+
+#: bin/modules/gui/window/win_import.py:60
+msgid "Error importing data"
+msgstr "Error en la importación de los datos"
+
+#: bin/modules/gui/window/win_import.py:91
+msgid "File to import"
+msgstr "Fichero a importar"
+
+#: bin/modules/gui/window/win_import.py:105
+msgid "No file specified"
+msgstr "No se ha especificado ningún fichero"
+
+#: bin/modules/gui/window/win_import.py:167
+msgid "Error opening .CSV file: Input Error."
+msgstr "Error abriendo fichero .CSV: Error de entrada."
+
+#: bin/modules/gui/window/win_preference.py:51
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: bin/modules/gui/window/win_preference.py:72
+#, python-format
+msgid "Preference %s"
+msgstr "Preferencia %s"
+
+#: bin/modules/gui/window/win_search.py:73
+#, python-format
+msgid "Tiny ERP Search: %s"
+msgstr "Búsqueda Tiny ERP: %s"
+
+#: bin/modules/gui/window/win_search.py:74
+#, python-format
+msgid "Tiny ERP Search: %s (%%d result(s))"
+msgstr "Búsqueda de Tiny ERP: %s (%%d resultado(s))"
+
 #: bin/plugins/__init__.py:40
-#, fuzzy
 msgid "No available plugin for this resource !"
-msgstr "No hay plugin disponible para este recurso"
+msgstr "No hay ningún conector disponible para este recurso."
 
 #: bin/plugins/__init__.py:42
 msgid "Choose a Plugin"
-msgstr "Seleccione un Plugin"
+msgstr "Seleccione un conector"
 
-#: bin/widget/screen/action.py:34
-msgid "You must select a record to use the relate button !"
-msgstr ""
+#: bin/printer/printer.py:95
+msgid "Write Report to File"
+msgstr "Guardar informe a archivo"
+
+#: bin/printer/printer.py:101 bin/widget/view/form/binary.py:127
+msgid "Error writing the file!"
+msgstr "Error al guardar el archivo!"
+
+#: bin/rpc/rpc.py:189
+msgid "Connection Refused"
+msgstr "Conexión rechazada"
+
+#: bin/rpc/rpc.py:196
+msgid "Application Error"
+msgstr "Error de la Apliación"
+
+#: bin/rpc/rpc.py:196
+msgid "View details"
+msgstr "Ver detalles"
+
+#: bin/rpc/rpc.py:291
+msgid "Could not contact server!"
+msgstr "No se ha podido contactar con el servidor!"
+
+#: bin/widget/model/treemodel.py:260 bin/widget/view/form/binary.py:104
+#: bin/widget/view/form/binary.py:143
+#, python-format
+msgid "%d bytes"
+msgstr "%d bytes"
 
 #: bin/widget/screen/action.py:41
-msgid "You must save this record to use the relate button !"
+msgid "You must select a record to use the relate button !"
 msgstr ""
+"Tiene que seleccionar un registro para poder utilizar el botón de relación!"
 
-#: bin/widget/model/treemodel.py:249
-#, fuzzy
-msgid "True"
-msgstr "Árbol"
+#: bin/widget/screen/action.py:47
+msgid "You must save this record to use the relate button !"
+msgstr "Tiene que guardar este registro para utilizar el botón de relación!"
 
-#: bin/widget/model/treemodel.py:251
-#, fuzzy
-msgid "False"
-msgstr "Cerrar"
+#: bin/widget/screen/action.py:65
+msgid "Print Screen"
+msgstr "Imprimir la pantalla"
 
-#: bin/widget/view/chart/parser.py:72
-#, fuzzy
+#: bin/widget/view/chart/parser.py:70
 msgid "Unknown"
-msgstr "Ventanas Desconocida"
+msgstr "Desconocido"
 
-#: bin/widget/view/chart/parser.py:78
+#: bin/widget/view/chart/parser.py:76
 #, python-format
 msgid "<center><b>Could not load charts: %s</b></center>"
-msgstr ""
+msgstr "<center><b>No se han podido cargar las gráficas: %s</b></center>"
 
-#: bin/widget/view/chart/parser.py:106
-#, fuzzy
+#: bin/widget/view/chart/parser.py:104
 msgid "Can not generate graph !"
-msgstr "No se puede escirbir en el archivo!"
+msgstr "No se ha podido generar la gráfica."
 
-#: bin/widget/view/form/many2one.py:108
-msgid "Action"
-msgstr "Acción"
-
-#: bin/widget/view/form/many2one.py:109
-msgid "Report"
-msgstr ""
-
-#: bin/widget/view/form/abstractformwidget.py:62
+#: bin/widget/view/form/abstractformwidget.py:65
 msgid "Set to default value"
 msgstr "Ajustar el valor predeterminado"
 
-#: bin/widget/view/form/abstractformwidget.py:68
-#, fuzzy
+#: bin/widget/view/form/abstractformwidget.py:71
 msgid "Set as default value"
 msgstr "Ajustar el valor predeterminado"
 
-#: bin/widget/view/form/abstractformwidget.py:92
-#, fuzzy
+#: bin/widget/view/form/abstractformwidget.py:95
 msgid "Operation not permited"
-msgstr ""
-"Operación fallida!\n"
-"Error de I/O"
+msgstr "Operación no permitida"
 
-#: bin/widget/view/form/abstractformwidget.py:92
-#, fuzzy
+#: bin/widget/view/form/abstractformwidget.py:95
 msgid "You can not set to the default value here !"
-msgstr "Ajustar el valor predeterminado"
+msgstr "No se puede establecer el valor por defecto aquí."
 
-#: bin/widget/view/form/fieldpreferences.py:56
-#, fuzzy
-msgid "<center>Always applicable!</center>"
-msgstr "Aplicable Toujours"
-
-#: bin/widget/view/form/calendar.py:49
-msgid "Set current date"
-msgstr ""
-
-#: bin/widget/view/form/calendar.py:89
-msgid "Set current date and time"
-msgstr ""
-
-#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
-msgid "Set current time"
-msgstr ""
-
-#: bin/widget/view/form/char.py:62
-msgid "You must save the resource before adding translations"
-msgstr ""
-
-#: bin/widget/view/form/image.py:45
-msgid "(choose an image)"
-msgstr ""
-
-#: bin/widget/view/form/image.py:54
-msgid "&Load image"
-msgstr ""
-
-#: bin/widget/view/form/image.py:56
-#, fuzzy
-msgid "&Save image"
-msgstr "Guarda opciones"
-
-#: bin/widget/view/form/image.py:58
-#, fuzzy
-msgid "&Remove image"
-msgstr "Eliminar esta entrada"
-
-#: bin/widget/view/form/image.py:83 bin/widget/view/form/binary.py:70
-#, fuzzy
+#: bin/widget/view/form/binary.py:70 bin/widget/view/form/image.py:86
+#: bin/widget/view/form/link.py:59
 msgid "Open..."
-msgstr "Abrir"
-
-#: bin/widget/view/form/image.py:116
-#, fuzzy
-msgid "Save image as..."
-msgstr "Guardar anexo como..."
-
-#: bin/widget/view/form/image.py:122
-#, fuzzy
-msgid "Error saving file"
-msgstr "Error leyendo del archivo"
-
-#: bin/widget/view/form/image.py:122
-msgid ""
-"Could not save the image with the given file name. Please check that you "
-"have permissions."
-msgstr ""
-
-#: bin/widget/view/form/image.py:125
-msgid "Open image file..."
-msgstr ""
-
-#: bin/widget/view/form/translationdialog.py:41
-msgid "Translation Dialog"
-msgstr ""
+msgstr "Abrir..."
 
 #: bin/widget/view/form/binary.py:71
 msgid "Show &image..."
-msgstr ""
+msgstr "Mostrar la &imagen..."
 
 #: bin/widget/view/form/binary.py:99
 msgid "Select the file to attach"
 msgstr "Seleccione el archivo a anexar"
-
-#: bin/widget/view/form/binary.py:104 bin/widget/view/form/binary.py:143
-#, python-format
-msgid "%d bytes"
-msgstr ""
 
 #: bin/widget/view/form/binary.py:117
 msgid "Error reading the file"
@@ -176,1685 +667,74 @@ msgstr "Error leyendo del archivo"
 msgid "Save attachment as..."
 msgstr "Guardar anexo como..."
 
-#: bin/widget/view/form/binary.py:127 bin/printer/printer.py:100
-msgid "Error writing the file!"
-msgstr "Error al guardar el archivo!"
+#: bin/widget/view/form/button.py:41
+msgid "Error in Button"
+msgstr "Error en el botón"
 
-#: bin/widget/view/form/button.py:29 bin/modules/gui/window/form.py:216
-#: bin/modules/gui/window/form.py:365
-#, fuzzy
-msgid "Question"
-msgstr "Descripción"
+#: bin/widget/view/form/button.py:41
+msgid "Button type not allowed"
+msgstr "Tipo de botón no permitido"
 
-#: bin/widget/view/form/button.py:43
-#, fuzzy
+#: bin/widget/view/form/button.py:45
 msgid "Invalid Form, correct red fields!"
-msgstr "Forma Inválida, corriga los registros en rojo"
+msgstr "Formulario no válido corrija los campos en rojo"
 
-#: bin/printer/printer.py:94
-msgid "Write Report to File"
-msgstr "Guardar Reporte a Archvo"
+#: bin/widget/view/form/calendar.py:49
+msgid "Set current date"
+msgstr "Establecer la fecha actual"
 
-#: bin/rpc/rpc.py:194
-msgid "Application Error"
-msgstr "Error de la Apliación"
+#: bin/widget/view/form/calendar.py:89
+msgid "Set current date and time"
+msgstr "Establecer la fecha y hora actuales"
 
-#: bin/rpc/rpc.py:194
-msgid "View details"
-msgstr "Ver detalles"
+#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
+msgid "Set current time"
+msgstr "Establecer la hora actual"
 
-#: bin/rpc/rpc.py:289
-msgid "Could not contact server!"
-msgstr ""
+#: bin/widget/view/form/char.py:67
+msgid "You must save the resource before adding translations"
+msgstr "Tiene que guardar el recurso antes de añadir traducciones"
 
-#: bin/common/common.py:159 bin/common/common.py:186
-msgid "Sending support requests is not available with the TinyERP KDE client"
-msgstr ""
+#: bin/widget/view/form/fieldpreferences.py:56
+msgid "<center>Always applicable!</center>"
+msgstr "<center>Siempre aplicable!</center>"
 
-#: bin/modules/gui/window/view_tree/parser.py:51
-msgid "Tree"
-msgstr "Árbol"
+#: bin/widget/view/form/image.py:47
+msgid "(no image)"
+msgstr "(sin imagen)"
 
-#: bin/modules/gui/window/tree.py:163 bin/modules/gui/window/tree.py:176
-msgid "No resource selected!"
-msgstr "Ninguno recurso seleccionado"
+#: bin/widget/view/form/image.py:119
+msgid "Save image as..."
+msgstr "Guardar imagen como..."
 
-#: bin/modules/gui/window/tree.py:188
-#, fuzzy
-msgid "No item selected"
-msgstr "Ningún registro seleccionado"
+#: bin/widget/view/form/image.py:127
+msgid "Error saving file"
+msgstr "Error al guardar el archivo"
 
-#: bin/modules/gui/window/tree.py:188
-msgid "Please select an element from the tree to add a shortcut to it."
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:302
-msgid "(Everywhere)"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:306
+#: bin/widget/view/form/image.py:127
 msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
 msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:308
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:310
-#, fuzzy
-msgid "Tiny ERP Full Text Search"
-msgstr "Tiny ERP - Búsqueda"
-
-#: bin/modules/gui/window/win_full_text_search.py:311
-#, fuzzy, python-format
-msgid "Tiny ERP Full Text Search (%%d result(s))"
-msgstr "Tiny ERP - Widgets de Búsqueda"
-
-#: bin/modules/gui/window/win_full_text_search.py:391
-#: bin/modules/gui/window/form.py:200
-msgid "ID"
-msgstr "ID"
-
-#: bin/modules/gui/window/win_full_text_search.py:392
-msgid "Model ID"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:393
-#, fuzzy
-msgid "Model Name"
-msgstr "Nombre de Campo"
-
-#: bin/modules/gui/window/win_full_text_search.py:395
-msgid "Type"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:396
-msgid "Name"
-msgstr "Nombre"
-
-#: bin/modules/gui/window/win_full_text_search.py:397
-#, fuzzy
-msgid "Text"
-msgstr "Siguiente"
-
-#: bin/modules/gui/window/win_full_text_search.py:398
-msgid "Ranking"
-msgstr ""
-
-#: bin/modules/gui/window/win_preference.py:51
-msgid "Preferences"
-msgstr "Preferencias"
-
-#: bin/modules/gui/window/win_preference.py:75
-#, fuzzy, python-format
-msgid "Preference %s"
-msgstr "Preferencias"
-
-#: bin/modules/gui/window/win_export.py:49
-#, fuzzy
-msgid "TinyERP exported information"
-msgstr "Tiny ERP - Confirmación"
-
-#: bin/modules/gui/window/win_export.py:67
-#: bin/modules/gui/window/win_export.py:87
-#, fuzzy, python-format
-msgid "%s record(s) saved!"
-msgstr "registro(s) guardados"
-
-#: bin/modules/gui/window/win_export.py:69
-#: bin/modules/gui/window/win_export.py:89
-#, fuzzy, python-format
-msgid ""
-"Operation failed !\n"
-"I/O error (%s)"
-msgstr ""
-"Operación fallida!\n"
-"Error de I/O"
-
-#: bin/modules/gui/window/win_export.py:112
-#, fuzzy
-msgid "Error opening Excel !"
-msgstr "Error Abriendo Excel"
-
-#: bin/modules/gui/window/win_export.py:114
-#, fuzzy
-msgid ""
-"Function only available for MS Office !\n"
-"Sorry, OOo users :("
-msgstr ""
-"Función disponible solo para MS Office!\n"
-"Lo sentimos usuarios de OOo :("
-
-#: bin/modules/gui/window/win_export.py:193
-#, fuzzy
-msgid "Export Data"
-msgstr "Exportar Datos"
-
-#: bin/modules/gui/window/win_export.py:237
-msgid "What is the name of this export?"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:258
-#, fuzzy
-msgid "Export name"
-msgstr "Exportar Datos"
-
-#: bin/modules/gui/window/win_export.py:259
-#, fuzzy
-msgid "Exported fields"
-msgstr "Limpiar el campo"
-
-#: bin/modules/gui/window/form.py:181 bin/modules/gui/window/form.py:361
-#, fuzzy
-msgid "No resource selected !"
-msgstr "Ningún recurso seleccionado"
-
-#: bin/modules/gui/window/form.py:194
-#, fuzzy
-msgid "You have to select one resource!"
-msgstr "Seleccione un recurso"
-
-#: bin/modules/gui/window/form.py:201
-msgid "Creation User"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:202
-msgid "Creation Date"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:203
-msgid "Latest Modification by"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:204
-msgid "Latest Modification Date"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:205
-msgid "Owner"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:206
-msgid "Group Owner"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:207
-msgid "Access Level"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:216
-#, fuzzy
-msgid "Are you sure you want to remove these records?"
-msgstr ""
-"Está seguro que desea\n"
-"eliminar este registro?"
-
-#: bin/modules/gui/window/form.py:219
-#, fuzzy
-msgid "Resource not removed !"
-msgstr "Recurso eliminado"
-
-#: bin/modules/gui/window/form.py:221
-msgid "Resource removed."
-msgstr "Recurso eliminado"
-
-#: bin/modules/gui/window/form.py:245
-msgid "Working now on the duplicated document !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:254
-#, fuzzy
-msgid "Document saved !"
-msgstr "Opciones Guardadas"
-
-#: bin/modules/gui/window/form.py:258
-msgid "Invalid form !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:310
-msgid "No record selected!"
-msgstr "Ningún registro seleccionado"
-
-#: bin/modules/gui/window/form.py:334
-#, fuzzy, python-format
-msgid "(%s attachments) "
-msgstr "Anexo: "
-
-#: bin/modules/gui/window/form.py:339
-#, fuzzy
-msgid "No record selected"
-msgstr "Ningún registro seleccionado"
-
-#: bin/modules/gui/window/form.py:344
-msgid "New document"
-msgstr "Nuevo documento"
-
-#: bin/modules/gui/window/form.py:346
-#, fuzzy, python-format
-msgid "Editing document (id: %s)"
-msgstr "Editando documento: "
-
-#: bin/modules/gui/window/form.py:347
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:359
-#, fuzzy
-msgid "No preference available for this resource !"
-msgstr "No existe ninguna preferencia disponible para este recurso"
-
-#: bin/modules/gui/window/form.py:365
-msgid "This record has been modified do you want to save it?"
-msgstr ""
-
-#: bin/modules/gui/window/win_search.py:75
-#, fuzzy, python-format
-msgid "Tiny ERP Search: %s"
-msgstr "Tiny ERP - Búsqueda"
-
-#: bin/modules/gui/window/win_search.py:76
-#, fuzzy, python-format
-msgid "Tiny ERP Search: %s (%%d result(s))"
-msgstr "Tiny ERP - Widgets de Búsqueda"
-
-#: bin/modules/gui/window/importexport_common.py:10
-#, fuzzy
-msgid "Fields"
-msgstr "Nombre de Campo"
-
-#: bin/modules/gui/window/win_import.py:54
-#, python-format
-msgid "Imported %d objects !"
-msgstr ""
-
-#: bin/modules/gui/window/win_import.py:60
-#, fuzzy
-msgid "Error importing data"
-msgstr "Error al guardar el archivo!"
-
-#: bin/modules/gui/window/win_import.py:91
-#, fuzzy
-msgid "File to import"
-msgstr "<b>Campos a importar</b>"
-
-#: bin/modules/gui/window/win_import.py:105
-msgid "No file specified"
-msgstr ""
-
-#: bin/modules/gui/window/win_import.py:167
-msgid "Error opening .CSV file: Input Error."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:18
-msgid "You can now connect to the database as an administrator."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:18
-msgid ""
-"The following users have been installed on your database:\n"
-"\n"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
-msgid "Could not create database."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:515
-msgid "Bad database administrator password !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
-msgid "Error during database creation !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:56
-msgid ""
-"The server crashed during installation.\n"
-"We suggest you to drop this database."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:114
-msgid "Bad database name !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:114
-msgid ""
-"The database name must contain only normal characters or \"_\".\n"
-"You must avoid all accents, space or special characters."
-msgstr ""
-
-#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
-#, fuzzy
-msgid "Could not connect to server !"
-msgstr ""
-"Error de Conección! \n"
-" Clave o Nombre de Usuario Incorrecto"
-
-#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
-msgid "No database found, you must create one !"
-msgstr ""
-
-#: bin/modules/gui/adminpwd.py:30
-#, fuzzy
-msgid "Validation Error"
-msgstr "Error de la Apliación"
-
-#: bin/modules/gui/adminpwd.py:30
-msgid "Confirmation password does not match new password."
-msgstr ""
-
-#: bin/modules/gui/adminpwd.py:37
-msgid "Password changed successfully"
-msgstr ""
-
-#: bin/modules/gui/adminpwd.py:40
-#, fuzzy
-msgid "Error"
-msgstr "Error"
-
-#: bin/modules/gui/adminpwd.py:40
-msgid ""
-"Could not change administrator password. Please, check the server and "
-"password are correct."
-msgstr ""
-
-#: bin/modules/gui/askserver.py:33
-msgid "NET-RPC (faster)"
-msgstr ""
-
-#: bin/modules/gui/askserver.py:34
-msgid "XML-RPC"
-msgstr ""
-
-#: bin/modules/gui/askserver.py:35
-msgid "Secure XML-RPC"
-msgstr ""
-
-#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:342
-msgid "Press Ctrl+O to login"
-msgstr ""
-
-#: bin/modules/gui/main.py:93
-#, fuzzy
-msgid "Close tab"
-msgstr "Cerrar"
-
-#: bin/modules/gui/main.py:266
-#, fuzzy, python-format
-msgid "%s request(s)"
-msgstr "solicitud(es)"
-
-#: bin/modules/gui/main.py:268
-msgid "No request"
-msgstr "No hay Solicitudes"
-
-#: bin/modules/gui/main.py:270
-#, fuzzy, python-format
-msgid " - %s pending request(s)"
-msgstr "solicitud pendiente(s)"
-
-#: bin/modules/gui/main.py:321 bin/modules/gui/main.py:323
-#, fuzzy
-msgid "Connection error !"
-msgstr "Error de Conexión"
-
-#: bin/modules/gui/main.py:321
-#, fuzzy
-msgid "Unable to connect to the server !"
-msgstr ""
-"Error de Conección! \n"
-" Clave o Nombre de Usuario Incorrecto"
-
-#: bin/modules/gui/main.py:323
-#, fuzzy
-msgid "Bad username or password !"
-msgstr ""
-"Error de Conección! \n"
-" Clave o Nombre de Usuario Incorrecto"
-
-#: bin/modules/gui/main.py:327
-msgid "Connection Error !"
-msgstr "Error de Conexión"
-
-#: bin/modules/gui/main.py:341
-msgid "Not logged !"
-msgstr ""
-
-#: bin/modules/gui/main.py:408
-msgid "Access denied"
-msgstr ""
-
-#: bin/modules/gui/main.py:408
-msgid ""
-"You can not log into the system !\n"
-"Ask the administrator to verify\n"
-"you have an action defined for your user."
-msgstr ""
-
-#: bin/modules/gui/main.py:435
-msgid "Quit"
-msgstr ""
-
-#: bin/modules/gui/main.py:435
-msgid "Do you really want to quit ?"
-msgstr ""
-
-#: bin/modules/gui/main.py:435
-msgid "Yes"
-msgstr "Si"
-
-#: bin/modules/gui/main.py:435
-msgid "No"
-msgstr "No"
-
-#: bin/modules/gui/main.py:502 bin/modules/gui/main.py:523
-#, fuzzy
-msgid "Delete a database"
-msgstr "Selecciona una fecha"
-
-#: bin/modules/gui/main.py:511 bin/modules/gui/main.py:517
-msgid "Database removal"
-msgstr ""
-
-#: bin/modules/gui/main.py:511
-msgid "Database dropped successfully!"
-msgstr ""
-
-#: bin/modules/gui/main.py:515
-msgid "Could not drop database."
-msgstr ""
-
-#: bin/modules/gui/main.py:517
-msgid "Couldn't drop database"
-msgstr ""
-
-#: bin/modules/gui/main.py:534
-msgid "Database restored successfully!"
-msgstr ""
-
-#: bin/modules/gui/main.py:538
-#, fuzzy
-msgid "Could not resotre database"
-msgstr "Selecciona una fecha"
-
-#: bin/modules/gui/main.py:538
-msgid "Bad database administrator password!"
-msgstr ""
-
-#: bin/modules/gui/main.py:540
-#, fuzzy
-msgid "Could not restore database"
-msgstr "Selecciona una fecha"
-
-#: bin/modules/gui/main.py:543
-msgid "Backup a database"
-msgstr ""
-
-#: bin/modules/gui/main.py:558
-msgid "Database backuped successfully!"
-msgstr ""
-
-#: bin/modules/gui/main.py:561
-#, python-format
-msgid ""
-"Could not backup database.\n"
-"%s"
-msgstr ""
-
-#: bin/modules/action/main.py:51
-msgid "Nothing to print!"
-msgstr ""
-
-#: bin/modules/action/main.py:67
-msgid "Printing aborted, too long delay !"
-msgstr "Impresión Abortada, tiempo demasiado largo"
-
-#: bin/modules/action/main.py:71
-msgid "Error: "
-msgstr "Error"
-
-#: bin/modules/action/main.py:166
-msgid "Select your action"
-msgstr "Seleccionar su acción"
-
-#: bin/modules/action/main.py:172
-msgid "No action defined!"
-msgstr "No hay acción definida"
-
-#: bin/options.py:59
-msgid "specify alternate config file"
-msgstr "especifique un archivo alterno de configuración"
-
-#: bin/options.py:60
-msgid "enable basic debugging"
-msgstr "habilite depuración básica"
-
-#: bin/options.py:61
-msgid "specify channels to log"
-msgstr "especificar que canales registrar"
-
-#: bin/options.py:62
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr "especificar el nivel de registro: INFO, DEBUG, ALERTA; ERROR; CRITICO"
-
-#: bin/options.py:63
-#, fuzzy
-msgid "specify the user login"
-msgstr "especificar que canales registrar"
-
-#: bin/options.py:64
-msgid "specify the server port"
-msgstr ""
-
-#: bin/options.py:65
-msgid "specify the server ip/name"
-msgstr ""
-
-#: bin/ktiny.py:74
-msgid ""
-"Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with KTiny."
-msgstr ""
-
-#~ msgid "Connection refused !"
-#~ msgstr "Conexión rechazaa"
-
-#~ msgid "Unable to chroot: no tree resource selected"
-#~ msgstr "No fue posible cambiar: ningún árbol de recursos seleccionado"
-
-#, fuzzy
-#~ msgid "Tiny ERP Client %s"
-#~ msgstr "Tiny ERP Cliente v2.0"
-
-#~ msgid "Closing Tiny ERP, KeyboardInterrupt"
-#~ msgstr "Cerrando Tiny ERP, Interrupcion del Teclado"
-
-#, fuzzy
-#~ msgid "Set default"
-#~ msgstr "Ajustar a _Predeterminado"
-
-#~ msgid "Record: "
-#~ msgstr "Registro"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove this attachment ?"
-#~ msgstr ""
-#~ "Está seguro que desea\n"
-#~ "eliminar este registro?"
-
-#~ msgid "Select the destination file"
-#~ msgstr "Seleccionar el archivo destino"
-
-#~ msgid "Can not open file !"
-#~ msgstr "No se puede abrir el archivo!"
-
-#~ msgid "Can not write file !"
-#~ msgstr "No se puede escirbir en el archivo!"
-
-#, fuzzy
-#~ msgid "Select a file"
-#~ msgstr "Selecciona una fecha"
-
-#, fuzzy
-#~ msgid "You have to select a resource !"
-#~ msgstr "Seleccione un recurso"
-
-#, fuzzy
-#~ msgid "Unable to launch this file !"
-#~ msgstr "No fue posible abrir este archivo!"
-
-#~ msgid "Unable to launch the application associated to this content !"
-#~ msgstr "No fue posible ejecutar la aplicación asociada a este contenido!"
-
-#, fuzzy
-#~ msgid "Support request sent !"
-#~ msgstr "Enviar Solicitud de Soporte"
-
-#~ msgid "Preference"
-#~ msgstr "Preferencia"
-
-#~ msgid "Reload"
-#~ msgstr "Refrescar"
-
-#~ msgid "Changt root"
-#~ msgstr "Cambiar raíz"
-
-#~ msgid "Print"
-#~ msgstr "Imprimir"
-
-#~ msgid "Error removing resource!"
-#~ msgstr "Error al elminar recurso"
-
-#~ msgid "Ressource Name"
-#~ msgstr "Nombre de Recurso"
-
-#~ msgid "Names"
-#~ msgstr "Nombres"
-
-#, fuzzy
-#~ msgid "Are you sure to remove this record ?"
-#~ msgstr ""
-#~ "Está seguro que desea\n"
-#~ "eliminar este registro?"
-
-#, fuzzy
-#~ msgid "Default Theme"
-#~ msgstr "Valor Predeterminado"
-
-#~ msgid "Tiny ERP - Login"
-#~ msgstr "Tiny ERP - Entrada"
-
-#~ msgid "User:"
-#~ msgstr "Usuario:"
-
-#~ msgid "Password:"
-#~ msgstr "Contraseña:"
-
-#~ msgid "localhost"
-#~ msgstr "localhost"
-
-#~ msgid "Server:"
-#~ msgstr "Servidor:"
-
-#~ msgid "demo"
-#~ msgstr "demo"
-
-#~ msgid "Tiny ERP"
-#~ msgstr "Tiny ERP"
-
-#~ msgid "_File"
-#~ msgstr "_Archivo"
-
-#, fuzzy
-#~ msgid "_Connect..."
-#~ msgstr "Conectar..."
-
-#, fuzzy
-#~ msgid "_Disconnect"
-#~ msgstr "Desconectar"
-
-#~ msgid "_User"
-#~ msgstr "_Usuario"
-
-#, fuzzy
-#~ msgid "_Preferences"
-#~ msgstr "Preferencias"
-
-#, fuzzy
-#~ msgid "_Send a request"
-#~ msgstr "Enviar una solicitud"
-
-#, fuzzy
-#~ msgid "_Read my requests"
-#~ msgstr "Leer mis solicitudes"
-
-#, fuzzy
-#~ msgid "_Waiting Requests"
-#~ msgstr "Solicitudes"
-
-#, fuzzy
-#~ msgid "For_m"
-#~ msgstr "_Forma"
-
-#, fuzzy
-#~ msgid "_New"
-#~ msgstr "Nuevo"
-
-#, fuzzy
-#~ msgid "_Save"
-#~ msgstr "Guardar"
-
-#, fuzzy
-#~ msgid "Copy this resource"
-#~ msgstr "Eliminar este recurso"
-
-#, fuzzy
-#~ msgid "_Delete"
-#~ msgstr "Eliminar"
-
-#, fuzzy
-#~ msgid "Find"
-#~ msgstr "Campo:"
-
-#, fuzzy
-#~ msgid "Ne_xt"
-#~ msgstr "Siguiente"
-
-#, fuzzy
-#~ msgid "Pre_vious"
-#~ msgstr "Previo"
-
-#, fuzzy
-#~ msgid "Previous Tab"
-#~ msgstr "Tip Previo"
-
-#, fuzzy
-#~ msgid "Next Tab"
-#~ msgstr "Siguiente Tip"
-
-#, fuzzy
-#~ msgid "View _logs"
-#~ msgstr "Ver detalles"
-
-#, fuzzy
-#~ msgid "_Open"
-#~ msgstr "Abrir"
-
-#, fuzzy
-#~ msgid "Reloa_d / Undo"
-#~ msgstr "Refrescar"
-
-#, fuzzy
-#~ msgid "Repeat latest _action"
-#~ msgstr "Repetir última acción"
-
-#, fuzzy
-#~ msgid "Expor_t data..."
-#~ msgstr "Exportar datos..."
-
-#, fuzzy
-#~ msgid "I_mport data..."
-#~ msgstr "Importar datos"
-
-#~ msgid "_Options"
-#~ msgstr "Opciones"
-
-#, fuzzy
-#~ msgid "_Menubar"
-#~ msgstr "Barra de Menú"
-
-#, fuzzy
-#~ msgid "Text _and Icons"
-#~ msgstr "Texto e ïconos"
-
-#, fuzzy
-#~ msgid "_Icons only"
-#~ msgstr "Íconos solamente"
-
-#, fuzzy
-#~ msgid "_Text only"
-#~ msgstr "Texto solamente"
-
-#, fuzzy
-#~ msgid "_Theme"
-#~ msgstr "Árbol"
-
-#, fuzzy
-#~ msgid "Tiny ERP Theme"
-#~ msgstr "Tiny ERP licencia"
-
-#, fuzzy
-#~ msgid "_Forms"
-#~ msgstr "_Forma"
-
-#, fuzzy
-#~ msgid "_Print"
-#~ msgstr "Imprimir"
-
-#, fuzzy
-#~ msgid "Previe_w before print"
-#~ msgstr "Vista previa antes de imprimir"
-
-#, fuzzy
-#~ msgid "_Save options"
-#~ msgstr "Guarda opciones"
-
-#, fuzzy
-#~ msgid "_Plugins"
-#~ msgstr "Plugins"
-
-#, fuzzy
-#~ msgid "_Execute a plugin"
-#~ msgstr "Ejecutar un plugin"
-
-#, fuzzy
-#~ msgid "_Help"
-#~ msgstr "Ayuda"
-
-#, fuzzy
-#~ msgid "Support Request"
-#~ msgstr "Enviar Solicitud de Soporte"
-
-#, fuzzy
-#~ msgid "_Tips"
-#~ msgstr "Tips"
-
-#, fuzzy
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Atajos"
-
-#, fuzzy
-#~ msgid "_Licence"
-#~ msgstr "Licencia"
-
-#, fuzzy
-#~ msgid "_About..."
-#~ msgstr "Acerca de ..."
-
-#~ msgid "Create a new resource"
-#~ msgstr "Crear un nuevo recurso"
-
-#~ msgid "Edit / Save this resource"
-#~ msgstr "Editar / Guardar este recurso"
-
-#~ msgid "Delete this resource"
-#~ msgstr "Eliminar este recurso"
-
-#, fuzzy
-#~ msgid "Find a resource"
-#~ msgstr "Buscar recursos"
-
-#~ msgid "Go to previous matched search"
-#~ msgstr "Ir a la búsqueda previa"
-
-#~ msgid "Go to next matched resource"
-#~ msgstr "Ir al siguiente recurso coincidente"
-
-#~ msgid "Launch actions about this resource"
-#~ msgstr "Ejecutar acciones sobre este recurso"
-
-#~ msgid "Print documents"
-#~ msgstr "Imprimir documentos"
-
-#, fuzzy
-#~ msgid "Add an attachment to this resource"
-#~ msgstr "Ejecutar acciones sobre este recurso"
-
-#~ msgid "Attachement"
-#~ msgstr "Anexo"
-
-#~ msgid "Close this window"
-#~ msgstr "Cerrar esta ventana"
-
-#~ msgid "Requests:"
-#~ msgstr "Solicitudes"
-
-#~ msgid "Read my Requests"
-#~ msgstr "Leer mis Solicitudes"
-
-#~ msgid "Send a new request"
-#~ msgstr "Enviar una nueva solicitud"
-
-#~ msgid "Tiny ERP - Tree Resources"
-#~ msgstr "Tiny ERP - Árbol de Recursos"
-
-#~ msgid "Shortcuts"
-#~ msgstr "Atajos"
-
-#~ msgid "Tiny ERP - Forms"
-#~ msgstr "Tiny ERP - Formas"
-
-#~ msgid "State:"
-#~ msgstr "Estado:"
-
-#~ msgid "Tiny ERP - About"
-#~ msgstr "Tiny ERP - Acerca"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "Tiny ERP - GTK Client - v%s\n"
-#~ "\n"
-#~ "Tiny ERP is an Open Source ERP+CRM\n"
-#~ "for small to medium businesses.\n"
-#~ "\n"
-#~ "The whole source code is distributed under\n"
-#~ "the terms of the GNU Public Licence.\n"
-#~ "\n"
-#~ "(c) 2003-TODAY, Tiny sprl\n"
-#~ "\n"
-#~ "More Info on www.TinyERP.com !"
-#~ msgstr ""
-#~ "\n"
-#~ "Tiny ERP - Cliente GTK - v2.0\n"
-#~ "\n"
-#~ "Tiny ERP es un ERP+CRM de Código Libre para\n"
-#~ "la pequeña y mediana empresa.\n"
-#~ "\n"
-#~ "El código en su totalidad se distribuye bajo los términos\n"
-#~ "de la licencia pública GNU.\n"
-#~ "\n"
-#~ "(c) 2003-HOY, Tiny sprl\n"
-#~ "\n"
-#~ "Mayor Información en www.TinyERP.com !"
-
-#, fuzzy
-#~ msgid "_Tiny ERP"
-#~ msgstr "Tiny ERP"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "(c) 2003-TODAY - Tiny sprl\n"
-#~ "Tiny ERP is a product of Tiny sprl:\n"
-#~ "\n"
-#~ "Tiny sprl\n"
-#~ "21 Rue du Vieux Chateau\n"
-#~ "BE-1457 Walhain\n"
-#~ "Belgium\n"
-#~ "\n"
-#~ "Tel/Fax: +32.10.68.94.39\n"
-#~ "Mail: sales@tiny.be\n"
-#~ "Web: http://tiny.be"
-#~ msgstr ""
-#~ "\n"
-#~ "(c) 2003-HOY - Tiny sprl\n"
-#~ "Tiny ERP es un producto de Tiny sprl:\n"
-#~ "\n"
-#~ "Tiny sprl\n"
-#~ "21 Rue du Vieux Chateau\n"
-#~ "BE-1457 Walhain\n"
-#~ "Bélgica\n"
-#~ "\n"
-#~ "Tel/Fax: +32.10.68.94.39\n"
-#~ "Correo: fp@tiny.be\n"
-#~ "Web: http://tiny.be"
-
-#, fuzzy
-#~ msgid "_Contact"
-#~ msgstr "Contacto"
-
-#~ msgid "Tiny ERP - forms widget"
-#~ msgstr "Tiny ERP - widgets de formas"
-
-#~ msgid "Open the calendar widget"
-#~ msgstr "Abrir el widget de calendario"
-
-#, fuzzy
-#~ msgid "Search / Open a resource"
-#~ msgstr "Buscar recursos"
-
-#, fuzzy
-#~ msgid "Set Default"
-#~ msgstr "Ajustar a _Predeterminado"
-
-#~ msgid "Create a new entry"
-#~ msgstr "Crear una nueva entrada"
-
-#, fuzzy
-#~ msgid "Edit this entry"
-#~ msgstr "Eliminar esta entrada"
-
-#~ msgid "Previous"
-#~ msgstr "Previo"
-
-#~ msgid "Remove selected entry"
-#~ msgstr "Eliminar la entrada seleccionada"
-
-#~ msgid "label74"
-#~ msgstr "etiqueta72"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Tiny ERP - Date selection"
-#~ msgstr "Tiny ERP - Selección de Fecha"
-
-#~ msgid "Hello World!"
-#~ msgstr "Hola Mundo!"
-
-#~ msgid "Tiny ERP - selection"
-#~ msgstr "Tiny ERP - Selección"
-
-#~ msgid "Your selection:"
-#~ msgstr "Su selección"
-
-#~ msgid "Tiny ERP - Filter"
-#~ msgstr "Tiny ERP - Filtro"
-
-#, fuzzy
-#~ msgid "S_earch:"
-#~ msgstr "Búsqueda"
-
-#, fuzzy
-#~ msgid "on _field:"
-#~ msgstr "sobre el campo"
-
-#, fuzzy
-#~ msgid "_Select"
-#~ msgstr "Seleccionar"
-
-#, fuzzy
-#~ msgid "_Unselect"
-#~ msgstr "Deseleccionar"
-
-#, fuzzy
-#~ msgid "Filter: "
-#~ msgstr "Filtro"
-
-#, fuzzy
-#~ msgid "AL_L"
-#~ msgstr "TODOS"
-
-#, fuzzy
-#~ msgid "N_ONE"
-#~ msgstr "NINGUNO"
-
-#~ msgid "<b><u>Actions</u></b>"
-#~ msgstr "<b><u>Acciones</u></b> "
-
-#~ msgid "Tiny ERP - Dialog"
-#~ msgstr "Tiny ERP - Diálogo"
-
-#~ msgid "Set to _Default"
-#~ msgstr "Ajustar a _Predeterminado"
-
-#~ msgid "Value _Preference"
-#~ msgstr "Valor _Preferencia"
-
-#~ msgid "Tiny ERP, Field Preference target"
-#~ msgstr "Tiny ERP, "
-
-#, fuzzy
-#~ msgid "Default _value:"
-#~ msgstr "Valor Predeterminado"
-
-#, fuzzy
-#~ msgid "_Domain:"
-#~ msgstr "Dominio"
-
-#~ msgid "<b>Value applicable if:</b>"
-#~ msgstr "<b>Valor aplicable si:</b>"
-
-#, fuzzy
-#~ msgid "_only for you"
-#~ msgstr "solamente para usted"
-
-#, fuzzy
-#~ msgid "for _all users"
-#~ msgstr "para todos los usuarios"
-
-#~ msgid "<b>Value applicable for:</b>"
-#~ msgstr "<b>Valor aplicable para:</b>"
-
-#~ msgid "Tiny ERP - Export to CSV"
-#~ msgstr "Tiny ERP - Exportar a CSV"
-
-#, fuzzy
-#~ msgid "<b>Predefined exports</b>"
-#~ msgstr "<b>Campos a exportar</b>"
-
-#~ msgid "<b>All fields</b>"
-#~ msgstr "<b>Todos los campos</b>"
-
-#, fuzzy
-#~ msgid "_Add"
-#~ msgstr "Agregar"
-
-#, fuzzy
-#~ msgid "_Remove"
-#~ msgstr "Eliminar"
-
-#, fuzzy
-#~ msgid "_Nothing"
-#~ msgstr "Nada"
-
-#~ msgid "<b>Fields to export</b>"
-#~ msgstr "<b>Campos a exportar</b>"
-
-#, fuzzy
-#~ msgid ""
-#~ "Open in Excel\n"
-#~ "Save as CSV"
-#~ msgstr "Abrir en Excel"
-
-#, fuzzy
-#~ msgid "Add _field names"
-#~ msgstr "Agregar nombre de campo"
-
-#, fuzzy
-#~ msgid "<b>Opti_ons</b>"
-#~ msgstr "<b>Opciones</b>"
-
-#, fuzzy
-#~ msgid "_Limit:"
-#~ msgstr "Límite"
-
-#~ msgid "Tiny ERP - Search Widgets"
-#~ msgstr "Tiny ERP - Widgets de Búsqueda"
-
-#, fuzzy
-#~ msgid "Date de début"
-#~ msgstr "Fecha de "
-
-#~ msgid "Search with this name"
-#~ msgstr "Buscar con este nombre"
-
-#~ msgid ""
-#~ "\n"
-#~ "Yes\n"
-#~ "No"
-#~ msgstr ""
-#~ "\n"
-#~ "Si\n"
-#~ "No"
-
-#~ msgid "Tiny ERP - Attachment"
-#~ msgstr "Tiny ERP - Anexo"
-
-#~ msgid "Filename:"
-#~ msgstr "Archivo:"
-
-#~ msgid "Description:"
-#~ msgstr "Descripción"
-
-#, fuzzy
-#~ msgid "Save text"
-#~ msgstr "Guardar"
-
-#~ msgid "Tiny ERP - Error"
-#~ msgstr "Tiny ERP - Error"
-
-#~ msgid "Application Error !"
-#~ msgstr "Error de Aplicación!"
-
-#~ msgid "Error 404"
-#~ msgstr "Error 404"
-
-#~ msgid "<b>Error code:</b>"
-#~ msgstr "<b>Código de Error:</b>"
-
-#~ msgid ""
-#~ "This Page does not exist !\n"
-#~ "Please retry"
-#~ msgstr ""
-#~ "Esta página no existe !\n"
-#~ "Por favor introduzca"
-
-#~ msgid "<i>Click on the Support Request tab if you need more help !</i>"
-#~ msgstr ""
-#~ "<i>Click en la pestaña de Solicitud de soporte si requiere de más ayuda!</"
-#~ "i>"
-
-#, fuzzy
-#~ msgid "De_scription"
-#~ msgstr "Descripción"
-
-#~ msgid ""
-#~ "Error details\n"
-#~ "dqsdsqdqsdsd"
-#~ msgstr ""
-#~ "Detalles de error\n"
-#~ "dqsdsqdqsdsd"
-
-#, fuzzy
-#~ msgid "_Details"
-#~ msgstr "Detalles"
-
-#~ msgid ""
-#~ "<b>Complete this form to submit your bug and/or request a support.</b>\n"
-#~ "<i>\n"
-#~ "Your request will be send to Tiny ERP and we will reply you shortly.\n"
-#~ "Note that we may not reply you if your Service Company is not a Tiny ERP "
-#~ "partner.\n"
-#~ "</i>"
-#~ msgstr ""
-#~ "<b>Complete esta forma para enviar un bug y/o una solicitud de soporte.</"
-#~ "b>\n"
-#~ "<i>\n"
-#~ "Su solicitud será enviada a Tiny ERP y será contestada a la brevedad.\n"
-#~ "Nota, es posible que no obtenga respuesta si su empresa no es un socio de "
-#~ "Tiny ERP.\n"
-#~ "</i>"
-
-#~ msgid "<b>Your name: </b>"
-#~ msgstr "<b>Su nombre: </b>"
-
-#~ msgid "<b>Your Company: </b>"
-#~ msgstr "<b>Su Empresa: </b>"
-
-#~ msgid "<b>Your Email: </b>"
-#~ msgstr "<b>Su Email: </b>"
-
-#~ msgid "Explain what you did: "
-#~ msgstr "Explique lo que hizo"
-
-#, fuzzy
-#~ msgid "Others Comments: "
-#~ msgstr "Otras Consideraciones"
-
-#~ msgid "Send Support Request"
-#~ msgstr "Enviar Solicitud de Soporte"
-
-#, fuzzy
-#~ msgid "<b>support contract id  </b>"
-#~ msgstr "<b>Solicitud de Soporte</b>"
-
-#~ msgid ""
-#~ "Not Urgent\n"
-#~ "Medium\n"
-#~ "Urgent\n"
-#~ "Very Urgent"
-#~ msgstr ""
-#~ "No urgente\n"
-#~ "Media\n"
-#~ "Urgente\n"
-#~ "Muy Urgente"
-
-#, fuzzy
-#~ msgid "Emergency: "
-#~ msgstr "Urgencia"
-
-#~ msgid "Phone Number: "
-#~ msgstr "Teléfono"
-
-#, fuzzy
-#~ msgid "<b>_Support Request</b>"
-#~ msgstr "<b>Solicitud de Soporte</b>"
-
-#~ msgid "Tiny ERP - Ressource Edit"
-#~ msgstr "Tiny ERP - Edición de Recurso"
-
-#~ msgid "Tiny ERP - Link"
-#~ msgstr "Tiny EPR - Liga"
-
-#~ msgid "Tiny ERP - List"
-#~ msgstr "Tiny ERP - Lista"
-
-#~ msgid "Tiny ERP - Preferences"
-#~ msgstr "Tiny ERP - Preferencias"
-
-#, fuzzy
-#~ msgid "<b>Edit resource preferences</b>"
-#~ msgstr "<b>Editar preferencia de recursos</b>"
-
-#~ msgid "Tip of the Day"
-#~ msgstr "Tip del día"
-
-#, fuzzy
-#~ msgid "Pre_vious Tip"
-#~ msgstr "Tip Previo"
-
-#, fuzzy
-#~ msgid "Ne_xt Tip"
-#~ msgstr "Siguiente Tip"
-
-#, fuzzy
-#~ msgid "_Display a new tip next time ?"
-#~ msgstr "Despliegue un nuevo tip la siguiente ocasión"
-
-#~ msgid "Tiny ERP - Licence"
-#~ msgstr "Tiny ERP - Licencia"
-
-#~ msgid "Tiny ERP license"
-#~ msgstr "Tiny ERP licencia"
-
-#, fuzzy
-#~ msgid "Tiny ERP - Date & Time selection"
-#~ msgstr "Tiny ERP - Selección de Fecha"
-
-#~ msgid "dialog1"
-#~ msgstr "dialogo1"
-
-#, fuzzy
-#~ msgid "Search ID:"
-#~ msgstr "Búsqueda"
-
-#, fuzzy
-#~ msgid "Tiny ERP Survey"
-#~ msgstr "Tiny ERP"
-
-#, fuzzy
-#~ msgid "Your Role:"
-#~ msgstr "Su selección"
-
-#, fuzzy
-#~ msgid "System:"
-#~ msgstr "Estado:"
-
-#, fuzzy
-#~ msgid "<b>Your company</b>"
-#~ msgstr "<b>Su Empresa: </b>"
-
-#, fuzzy
-#~ msgid "<b>Your interrest</b>"
-#~ msgstr "<b>Su nombre: </b>"
-
-#, fuzzy
-#~ msgid ""
-#~ "<b>Complete this form to submit your bug and/or make a request for "
-#~ "support.</b>\n"
-#~ "<i>\n"
-#~ "Your request will be sent to the Tiny ERP team and we will reply "
-#~ "shortly.\n"
-#~ "Note that we may not reply if you do not have a support contract with "
-#~ "Tiny or an official partner.</i>"
-#~ msgstr ""
-#~ "<b>Complete esta forma para enviar un bug y/o una solicitud de soporte.</"
-#~ "b>\n"
-#~ "<i>\n"
-#~ "Su solicitud será enviada a Tiny ERP y será contestada a la brevedad.\n"
-#~ "Nota, es posible que no obtenga respuesta si su empresa no es un socio de "
-#~ "Tiny ERP.\n"
-#~ "</i>"
-
-#, fuzzy
-#~ msgid "<b>Your name:</b>"
-#~ msgstr "<b>Su nombre: </b>"
-
-#, fuzzy
-#~ msgid "<b>Your Company:</b>"
-#~ msgstr "<b>Su Empresa: </b>"
-
-#, fuzzy
-#~ msgid "<b>Your email:</b>"
-#~ msgstr "<b>Su Email: </b>"
-
-#, fuzzy
-#~ msgid "Explain your problem:"
-#~ msgstr "Explique lo que hizo"
-
-#, fuzzy
-#~ msgid "<b>Support contract id:</b>"
-#~ msgstr "<b>Solicitud de Soporte</b>"
-
-#, fuzzy
-#~ msgid "Phone number:"
-#~ msgstr "Teléfono"
-
-#, fuzzy
-#~ msgid "Connect"
-#~ msgstr "Conectar..."
-
-#, fuzzy
-#~ msgid "Find / Search"
-#~ msgstr "Fin de búsqueda"
-
-#~ msgid "Delete"
-#~ msgstr "Eliminar"
-
-#~ msgid "New"
-#~ msgstr "Nuevo"
-
-#, fuzzy
-#~ msgid "Previous tab"
-#~ msgstr "Previo"
-
-#~ msgid "Save"
-#~ msgstr "Guardar"
-
-#, fuzzy
-#~ msgid "Previous record"
-#~ msgstr "Previo"
-
-#, fuzzy
-#~ msgid "Next record"
-#~ msgstr "Siguiente: Ningún recurso seleccionado"
-
-#, fuzzy
-#~ msgid "Save and Close window"
-#~ msgstr "Cerrar Ventana"
-
-#, fuzzy
-#~ msgid "Main Shortcuts"
-#~ msgstr "Atajos"
-
-#, fuzzy
-#~ msgid "Cut selected text"
-#~ msgstr "Eliminar la entrada seleccionada"
-
-#, fuzzy
-#~ msgid "Copy selected text"
-#~ msgstr "Eliminar la entrada seleccionada"
-
-#, fuzzy
-#~ msgid "Paste selected text"
-#~ msgstr "Eliminar la entrada seleccionada"
-
-#, fuzzy
-#~ msgid "Auto-Complete text field"
-#~ msgstr "Limpiar el campo"
-
-#, fuzzy
-#~ msgid "Edition Widgets"
-#~ msgstr "Editando documento: "
-
-#, fuzzy
-#~ msgid "N_othing"
-#~ msgstr "Nada"
-
-#~ msgid "<b>Fields to import</b>"
-#~ msgstr "<b>Campos a importar</b>"
-
-#, fuzzy
-#~ msgid "Server"
-#~ msgstr "Servidor:"
-
-#~ msgid "Port:"
-#~ msgstr "Puerto:"
-
-#~ msgid "8069"
-#~ msgstr "8069"
-
-#, fuzzy
-#~ msgid "Secure connection:"
-#~ msgstr "Seleccionar su acción"
-
-#, fuzzy
-#~ msgid "http://localhost:8069"
-#~ msgstr "localhost"
-
-#, fuzzy
-#~ msgid "Create a new database"
-#~ msgstr "Crear una nueva entrada"
-
-#, fuzzy
-#~ msgid "<b>Create a new database</b>"
-#~ msgstr "Crear un nuevo recurso"
-
-#, fuzzy
-#~ msgid "Default language:"
-#~ msgstr "Valor Predeterminado"
-
-#, fuzzy
-#~ msgid "New password:"
-#~ msgstr "Contraseña:"
-
-#, fuzzy
-#~ msgid "Old password:"
-#~ msgstr "Contraseña:"
-
-#~ msgid "Welcome to Tiny Entreprise Resource Planing !"
-#~ msgstr "Bienvenido a Tiny Planeador de Recursos Empresariales!"
-
-#~ msgid "You are already logged!"
-#~ msgstr "Ya está usted conectado"
-
-#~ msgid "you are logged out. ^l to login"
-#~ msgstr "está usted desconectado ^l para ingresar"
-
-#~ msgid ""
-#~ "^N New   ^S Save   ^D Delete   ^F Search   ^X Next   ^W Previous   ^R "
-#~ "Repeat"
-#~ msgstr ""
-#~ "^N Nuevo   ^S Guardar   ^D Eliminar   ^F Buscar   ^X Siguiente   ^W "
-#~ "Previo   ^R Repetir"
-
-#~ msgid "^L to login"
-#~ msgstr "^L para ingresar"
-
-#~ msgid "select field value:"
-#~ msgstr "seleccionar valor de campo"
-
-#~ msgid "No ressource selected!"
-#~ msgstr "Ningún recurso seleccionado"
-
-#~ msgid "None resource selected"
-#~ msgstr "Ningún recurso seleccionado"
-
-#~ msgid "Search error!"
-#~ msgstr "Error de búsqueda"
-
-#~ msgid "New root"
-#~ msgstr "Nueva raíz"
-
-#~ msgid "Import Done"
-#~ msgstr "Importación Terminada"
-
-#~ msgid "Import CSV File"
-#~ msgstr "Importar Archivo CSV"
-
-#~ msgid "View Create Error:"
-#~ msgstr "Vew Error de Creación"
-
-#~ msgid "Value preference"
-#~ msgstr "Valor de Preferencia"
-
-#~ msgid "Unable to read ressource"
-#~ msgstr "No fue posible leer el recurso"
-
-#~ msgid "This record did not exist !"
-#~ msgstr "Este registro no existe ! "
-
-#~ msgid "unknown tag: "
-#~ msgstr "Etiqueta desconocida: "
-
-#~ msgid "New Window"
-#~ msgstr "Nueva Ventana"
-
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgid "Filter"
-#~ msgstr "Filtro"
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid "Autosave"
-#~ msgstr "AutoGuardar"
-
-#~ msgid "Plugin Manager"
-#~ msgstr "Administrador de Pugin"
-
-#~ msgid "Nouveau"
-#~ msgstr "Nuevo"
-
-#~ msgid "Supprimer"
-#~ msgstr "Eliminar"
-
-#~ msgid "Imprimer"
-#~ msgstr "Imprimir"
-
-#~ msgid "About Tiny ERP"
-#~ msgstr "Acerca de Tiny ERP"
-
-#~ msgid ""
-#~ "\n"
-#~ "Main Tiny ERP developers;\n"
-#~ "\n"
-#~ "Server Development:\n"
-#~ "Fabien Pinckaers\n"
-#~ "Gaetan de Menten\n"
-#~ "Antony Lesuisse\n"
-#~ "Jerome\n"
-#~ "\n"
-#~ "Client Development:\n"
-#~ "Fabien Pinckaers\n"
-#~ "\n"
-#~ "Web Client Development:\n"
-#~ "Nicolas Di Pietro\n"
-#~ "\n"
-#~ "...we still have to write the list of all others contributors..."
-#~ msgstr ""
-#~ "\n"
-#~ "Principales Desarrolladores de Tiny ERP;\n"
-#~ "\n"
-#~ "Desarrollo del Servidor:\n"
-#~ "Fabien Pinckaers\n"
-#~ "Gaetan de Menten\n"
-#~ "Antony Lesuisse\n"
-#~ "Jerome\n"
-#~ "\n"
-#~ "Desarrollo del Cliente:\n"
-#~ "Fabien Pinckaers\n"
-#~ "\n"
-#~ "Desarrollo del Cliente Web:\n"
-#~ "Nicolas Di Pietro\n"
-#~ "\n"
-#~ "...aún se tiene que escribir la lista de todos los contribuyen..."
-
-#~ msgid "Credits"
-#~ msgstr "Créditos"
-
-#~ msgid "Create a new ressource"
-#~ msgstr "Crear un nuevo recurso"
-
-#~ msgid "Modify/Open this resource"
-#~ msgstr "Modificar/Abrir este recurso"
-
-#~ msgid "All"
-#~ msgstr "Todo"
-
-#~ msgid "Order:"
-#~ msgstr "Orden:"
-
-#~ msgid "ascendent"
-#~ msgstr "ascendente"
-
-#~ msgid "descentdent"
-#~ msgstr "descendente"
-
-#~ msgid "Action:"
-#~ msgstr "Acción:"
-
-#~ msgid "Save to file (.CSV)"
-#~ msgstr "Guardar a archivo (.CSV)"
-
-#~ msgid "Preferred Langage: "
-#~ msgstr "Lenguaje de Preferencia"
-
-#~ msgid ""
-#~ "English\n"
-#~ "French"
-#~ msgstr ""
-#~ "Inglés\n"
-#~ "FrancésEspañol"
-
-#~ msgid "All Tiny ERP users"
-#~ msgstr "Todos los usuarios de Tiny ERP"
-
-#~ msgid "Only for you"
-#~ msgstr "Solamente para usted"
-
-#~ msgid "<b>Preference active for:</b>"
-#~ msgstr "<b>Preferencia activa para:</b>"
-
-#~ msgid ""
-#~ "\n"
-#~ "This is the tip of the day.\n"
-#~ "Put Important stuff in bold\n"
-#~ "We should start a database of tips (using fortune ?)"
-#~ msgstr ""
-#~ "\n"
-#~ "Este es el tip del día.\n"
-#~ "Ponga el contenido importante en negritas\n"
-#~ "Debemos iniciar una base de dats para tips (usando fortune ?)"
-
-#~ msgid "Tiny ERP - Import a CSV"
-#~ msgstr "Tiny ERP - Importar un CSV"
-
-#~ msgid "The CSV file must be encoded in UTF-8 !"
-#~ msgstr "El archivo CVS debe estar codificado en UTF-8 !"
-
-#~ msgid "Be carefull with the fields order."
-#~ msgstr "Sea cuidadoso con el orden de los campos"
-
-#~ msgid "<b>Notes</b>"
-#~ msgstr "<b>Notas</b>"
-
-#~ msgid "Number: "
-#~ msgstr "Número"
-
-#~ msgid "Description : "
-#~ msgstr "Descripción: "
-
-#~ msgid "Next: left click - Previous : right click on the image"
-#~ msgstr "Siguiente: click izquierdo - Previo : click derecho sobre la imagen"
+"No se ha podido guardar la imagen con el nombre de fichero especificado. Por "
+"favor, compruebe que tiene permisos."
+
+#: bin/widget/view/form/image.py:130
+msgid "Open image file..."
+msgstr "Abrir fichero de imagen..."
+
+#: bin/widget/view/form/link.py:71
+msgid "Select the file to link to"
+msgstr "Seleccione el fichero a enlazar"
+
+#: bin/widget/view/form/many2one.py:107
+msgid "Action"
+msgstr "Acción"
+
+#: bin/widget/view/form/many2one.py:108
+msgid "Report"
+msgstr "Informe"
+
+#: bin/widget/view/form/translationdialog.py:41
+msgid "Translation Dialog"
+msgstr "Diálogo de traducción"

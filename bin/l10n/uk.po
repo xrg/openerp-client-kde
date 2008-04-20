@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-30 01:57+0100\n"
+"POT-Creation-Date: 2008-04-20 12:22+0200\n"
 "PO-Revision-Date: 2005-04-05 09:43+0200\n"
 "Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -16,524 +16,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bin/plugins/__init__.py:40
-msgid "No available plugin for this resource !"
-msgstr "Немає доступного плагіну для ціого ресурсу !"
-
-#: bin/plugins/__init__.py:42
-msgid "Choose a Plugin"
-msgstr "Виберіть плагін"
-
-#: bin/widget/screen/action.py:34
-msgid "You must select a record to use the relate button !"
-msgstr ""
-
-#: bin/widget/screen/action.py:41
-msgid "You must save this record to use the relate button !"
-msgstr ""
-
-#: bin/widget/model/treemodel.py:249
-#, fuzzy
-msgid "True"
-msgstr "Дерево"
-
-#: bin/widget/model/treemodel.py:251
-#, fuzzy
-msgid "False"
-msgstr "Закрити"
-
-#: bin/widget/view/chart/parser.py:72
-#, fuzzy
-msgid "Unknown"
-msgstr "Невідоме вікно"
-
-#: bin/widget/view/chart/parser.py:78
-#, python-format
-msgid "<center><b>Could not load charts: %s</b></center>"
-msgstr ""
-
-#: bin/widget/view/chart/parser.py:106
-#, fuzzy
-msgid "Can not generate graph !"
-msgstr "Не можу записати у файл !"
-
-#: bin/widget/view/form/many2one.py:108
-msgid "Action"
-msgstr "Дія"
-
-#: bin/widget/view/form/many2one.py:109
-msgid "Report"
-msgstr ""
-
-#: bin/widget/view/form/abstractformwidget.py:62
-msgid "Set to default value"
-msgstr "Встановити значення за змовчуванням"
-
-#: bin/widget/view/form/abstractformwidget.py:68
-#, fuzzy
-msgid "Set as default value"
-msgstr "Встановити значення за змовчуванням"
-
-#: bin/widget/view/form/abstractformwidget.py:92
-#, fuzzy
-msgid "Operation not permited"
-msgstr ""
-"Operation failed !\n"
-"I/O error"
-
-#: bin/widget/view/form/abstractformwidget.py:92
-#, fuzzy
-msgid "You can not set to the default value here !"
-msgstr "Встановити значення за змовчуванням"
-
-#: bin/widget/view/form/fieldpreferences.py:56
-msgid "<center>Always applicable!</center>"
-msgstr ""
-
-#: bin/widget/view/form/calendar.py:49
-msgid "Set current date"
-msgstr ""
-
-#: bin/widget/view/form/calendar.py:89
-msgid "Set current date and time"
-msgstr ""
-
-#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
-msgid "Set current time"
-msgstr ""
-
-#: bin/widget/view/form/char.py:62
-msgid "You must save the resource before adding translations"
-msgstr ""
-
-#: bin/widget/view/form/image.py:45
-msgid "(choose an image)"
-msgstr ""
-
-#: bin/widget/view/form/image.py:54
-msgid "&Load image"
-msgstr ""
-
-#: bin/widget/view/form/image.py:56
-#, fuzzy
-msgid "&Save image"
-msgstr "Зберегти опції"
-
-#: bin/widget/view/form/image.py:58
-#, fuzzy
-msgid "&Remove image"
-msgstr "Видалити запис"
-
-#: bin/widget/view/form/image.py:83 bin/widget/view/form/binary.py:70
-#, fuzzy
-msgid "Open..."
-msgstr "Відкрити"
-
-#: bin/widget/view/form/image.py:116
-#, fuzzy
-msgid "Save image as..."
-msgstr "Зберегти додаток як..."
-
-#: bin/widget/view/form/image.py:122
-#, fuzzy
-msgid "Error saving file"
-msgstr "Помилка при читанні з файлу"
-
-#: bin/widget/view/form/image.py:122
-msgid ""
-"Could not save the image with the given file name. Please check that you "
-"have permissions."
-msgstr ""
-
-#: bin/widget/view/form/image.py:125
-msgid "Open image file..."
-msgstr ""
-
-#: bin/widget/view/form/translationdialog.py:41
-msgid "Translation Dialog"
-msgstr ""
-
-#: bin/widget/view/form/binary.py:71
-msgid "Show &image..."
-msgstr ""
-
-#: bin/widget/view/form/binary.py:99
-msgid "Select the file to attach"
-msgstr "Виберіть файл додатку"
-
-#: bin/widget/view/form/binary.py:104 bin/widget/view/form/binary.py:143
-#, python-format
-msgid "%d bytes"
-msgstr ""
-
-#: bin/widget/view/form/binary.py:117
-msgid "Error reading the file"
-msgstr "Помилка при читанні з файлу"
-
-#: bin/widget/view/form/binary.py:121
-msgid "Save attachment as..."
-msgstr "Зберегти додаток як..."
-
-#: bin/widget/view/form/binary.py:127 bin/printer/printer.py:100
-msgid "Error writing the file!"
-msgstr "Помилка запису у файл!"
-
-#: bin/widget/view/form/button.py:29 bin/modules/gui/window/form.py:216
-#: bin/modules/gui/window/form.py:365
-#, fuzzy
-msgid "Question"
-msgstr "Опис"
-
-#: bin/widget/view/form/button.py:43
-#, fuzzy
-msgid "Invalid Form, correct red fields!"
-msgstr "Не правільно заповнена форма, виправте червоні поля!"
-
-#: bin/printer/printer.py:94
-msgid "Write Report to File"
-msgstr "Писати звіт у файл"
-
-#: bin/rpc/rpc.py:194
-msgid "Application Error"
-msgstr "Помилка программи"
-
-#: bin/rpc/rpc.py:194
-msgid "View details"
-msgstr "Показати деталі"
-
-#: bin/rpc/rpc.py:289
-msgid "Could not contact server!"
-msgstr ""
-
-#: bin/common/common.py:159 bin/common/common.py:186
+#: bin/common/common.py:157 bin/common/common.py:185
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr ""
 
-#: bin/modules/gui/window/view_tree/parser.py:51
-msgid "Tree"
-msgstr "Дерево"
+#: bin/common/options.py:64
+msgid "specify alternate config file"
+msgstr "Вкажіть альтернативний файл конфігурації"
 
-#: bin/modules/gui/window/tree.py:163 bin/modules/gui/window/tree.py:176
-msgid "No resource selected!"
-msgstr "Не вибрано жодного ресурсу!"
+#: bin/common/options.py:65
+msgid "enable basic debugging"
+msgstr "стандартну відладку ввімкнено"
 
-#: bin/modules/gui/window/tree.py:188
+#: bin/common/options.py:66
+msgid "specify channels to log"
+msgstr "вкажіть канал для журналу"
+
+#: bin/common/options.py:67
+msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+msgstr "вкажіть рівень журналу: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+
+#: bin/common/options.py:68
 #, fuzzy
-msgid "No item selected"
-msgstr "Не вибрано записів!"
+msgid "specify the user login"
+msgstr "вкажіть канал для журналу"
 
-#: bin/modules/gui/window/tree.py:188
-msgid "Please select an element from the tree to add a shortcut to it."
+#: bin/common/options.py:69
+msgid "specify the server port"
 msgstr ""
 
-#: bin/modules/gui/window/win_full_text_search.py:302
-msgid "(Everywhere)"
+#: bin/common/options.py:70
+msgid "specify the server ip/name"
 msgstr ""
 
-#: bin/modules/gui/window/win_full_text_search.py:306
+#: bin/common/options.py:71
+#, fuzzy
+msgid "specify stylesheet to apply"
+msgstr "вкажіть канал для журналу"
+
+#: bin/ktiny.py:74
 msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with KTiny."
 msgstr ""
 
-#: bin/modules/gui/window/win_full_text_search.py:308
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
+#: bin/modules/action/main.py:47
+msgid "Nothing to print!"
 msgstr ""
 
-#: bin/modules/gui/window/win_full_text_search.py:310
-#, fuzzy
-msgid "Tiny ERP Full Text Search"
-msgstr "Tiny ERP - Пошук"
+#: bin/modules/action/main.py:63
+msgid "Printing aborted, too long delay !"
+msgstr "Друк скасовано, дуже велика затримка !"
 
-#: bin/modules/gui/window/win_full_text_search.py:311
-#, fuzzy, python-format
-msgid "Tiny ERP Full Text Search (%%d result(s))"
-msgstr "Tiny ERP - Вікно пошуку"
+#: bin/modules/action/main.py:67
+msgid "Error: "
+msgstr "Помилка:"
 
-#: bin/modules/gui/window/win_full_text_search.py:391
-#: bin/modules/gui/window/form.py:200
-msgid "ID"
-msgstr "ID"
+#: bin/modules/action/main.py:159
+msgid "Select your action"
+msgstr "Оберіть Вашу дію"
 
-#: bin/modules/gui/window/win_full_text_search.py:392
-msgid "Model ID"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:393
-#, fuzzy
-msgid "Model Name"
-msgstr "Назва поля:"
-
-#: bin/modules/gui/window/win_full_text_search.py:395
-msgid "Type"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:396
-msgid "Name"
-msgstr "Ім'я"
-
-#: bin/modules/gui/window/win_full_text_search.py:397
-#, fuzzy
-msgid "Text"
-msgstr "Наступний"
-
-#: bin/modules/gui/window/win_full_text_search.py:398
-msgid "Ranking"
-msgstr ""
-
-#: bin/modules/gui/window/win_preference.py:51
-msgid "Preferences"
-msgstr "Налаштування"
-
-#: bin/modules/gui/window/win_preference.py:75
-#, fuzzy, python-format
-msgid "Preference %s"
-msgstr "Налаштування"
-
-#: bin/modules/gui/window/win_export.py:49
-#, fuzzy
-msgid "TinyERP exported information"
-msgstr "Tiny ERP - Підтвердження"
-
-#: bin/modules/gui/window/win_export.py:67
-#: bin/modules/gui/window/win_export.py:87
-#, fuzzy, python-format
-msgid "%s record(s) saved!"
-msgstr " запис(и) збережено!"
-
-#: bin/modules/gui/window/win_export.py:69
-#: bin/modules/gui/window/win_export.py:89
-#, fuzzy, python-format
-msgid ""
-"Operation failed !\n"
-"I/O error (%s)"
-msgstr ""
-"Operation failed !\n"
-"I/O error"
-
-#: bin/modules/gui/window/win_export.py:112
-#, fuzzy
-msgid "Error opening Excel !"
-msgstr "Помилка при відкритті Excel !"
-
-#: bin/modules/gui/window/win_export.py:114
-msgid ""
-"Function only available for MS Office !\n"
-"Sorry, OOo users :("
-msgstr ""
-"Function only available for MS Office !\n"
-"Sorry, OOo users :("
-
-#: bin/modules/gui/window/win_export.py:193
-msgid "Export Data"
-msgstr "Експорт данних"
-
-#: bin/modules/gui/window/win_export.py:237
-msgid "What is the name of this export?"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:258
-#, fuzzy
-msgid "Export name"
-msgstr "Експорт данних"
-
-#: bin/modules/gui/window/win_export.py:259
-#, fuzzy
-msgid "Exported fields"
-msgstr "Очистити поле"
-
-#: bin/modules/gui/window/form.py:181 bin/modules/gui/window/form.py:361
-msgid "No resource selected !"
-msgstr "Не вирбрано ресурс !"
-
-#: bin/modules/gui/window/form.py:194
-#, fuzzy
-msgid "You have to select one resource!"
-msgstr "Виберіть ресурс !"
-
-#: bin/modules/gui/window/form.py:201
-msgid "Creation User"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:202
-msgid "Creation Date"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:203
-msgid "Latest Modification by"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:204
-msgid "Latest Modification Date"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:205
-msgid "Owner"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:206
-msgid "Group Owner"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:207
-msgid "Access Level"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:216
-#, fuzzy
-msgid "Are you sure you want to remove these records?"
-msgstr ""
-"Ви впевнені що хочете\n"
-"видалити цей запис?"
-
-#: bin/modules/gui/window/form.py:219
-#, fuzzy
-msgid "Resource not removed !"
-msgstr "Ресурс видалено."
-
-#: bin/modules/gui/window/form.py:221
-msgid "Resource removed."
-msgstr "Ресурс видалено."
-
-#: bin/modules/gui/window/form.py:245
-msgid "Working now on the duplicated document !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:254
-#, fuzzy
-msgid "Document saved !"
-msgstr "Налаштування збережено!"
-
-#: bin/modules/gui/window/form.py:258
-msgid "Invalid form !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:310
-msgid "No record selected!"
-msgstr "Не вибрано записів!"
-
-#: bin/modules/gui/window/form.py:334
-#, fuzzy, python-format
-msgid "(%s attachments) "
-msgstr "Додатки:"
-
-#: bin/modules/gui/window/form.py:339
-#, fuzzy
-msgid "No record selected"
-msgstr "Не вибрано записів!"
-
-#: bin/modules/gui/window/form.py:344
-msgid "New document"
-msgstr "Новий документ"
-
-#: bin/modules/gui/window/form.py:346
-#, fuzzy, python-format
-msgid "Editing document (id: %s)"
-msgstr "Редагується документ:"
-
-#: bin/modules/gui/window/form.py:347
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:359
-msgid "No preference available for this resource !"
-msgstr "Немає налаштувань для цього ресурсу !"
-
-#: bin/modules/gui/window/form.py:365
-msgid "This record has been modified do you want to save it?"
-msgstr ""
-
-#: bin/modules/gui/window/win_search.py:75
-#, fuzzy, python-format
-msgid "Tiny ERP Search: %s"
-msgstr "Tiny ERP - Пошук"
-
-#: bin/modules/gui/window/win_search.py:76
-#, fuzzy, python-format
-msgid "Tiny ERP Search: %s (%%d result(s))"
-msgstr "Tiny ERP - Вікно пошуку"
-
-#: bin/modules/gui/window/importexport_common.py:10
-#, fuzzy
-msgid "Fields"
-msgstr "Назва поля"
-
-#: bin/modules/gui/window/win_import.py:54
-#, python-format
-msgid "Imported %d objects !"
-msgstr ""
-
-#: bin/modules/gui/window/win_import.py:60
-#, fuzzy
-msgid "Error importing data"
-msgstr "Помилка запису у файл!"
-
-#: bin/modules/gui/window/win_import.py:91
-#, fuzzy
-msgid "File to import"
-msgstr "<b>Поля для імпорту</b>"
-
-#: bin/modules/gui/window/win_import.py:105
-msgid "No file specified"
-msgstr ""
-
-#: bin/modules/gui/window/win_import.py:167
-msgid "Error opening .CSV file: Input Error."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:18
-msgid "You can now connect to the database as an administrator."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:18
-msgid ""
-"The following users have been installed on your database:\n"
-"\n"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
-msgid "Could not create database."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:515
-msgid "Bad database administrator password !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
-msgid "Error during database creation !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:56
-msgid ""
-"The server crashed during installation.\n"
-"We suggest you to drop this database."
-msgstr ""
-
-#: bin/modules/gui/createdb.py:114
-msgid "Bad database name !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:114
-msgid ""
-"The database name must contain only normal characters or \"_\".\n"
-"You must avoid all accents, space or special characters."
-msgstr ""
-
-#: bin/modules/gui/login.py:45 bin/modules/gui/choosedb.py:44
-#, fuzzy
-msgid "Could not connect to server !"
-msgstr ""
-"Помилка при з'єднанні!\n"
-"Не можу з'єднатись з сервером!"
-
-#: bin/modules/gui/login.py:50 bin/modules/gui/choosedb.py:50
-msgid "No database found, you must create one !"
-msgstr ""
+#: bin/modules/action/main.py:165
+msgid "No action defined!"
+msgstr "Не предписано жодних дій!"
 
 #: bin/modules/gui/adminpwd.py:30
 #, fuzzy
@@ -571,191 +116,673 @@ msgstr ""
 msgid "Secure XML-RPC"
 msgstr ""
 
-#: bin/modules/gui/main.py:83 bin/modules/gui/main.py:342
+#: bin/modules/gui/choosedb.py:44 bin/modules/gui/login.py:45
+#, fuzzy
+msgid "Could not connect to server !"
+msgstr ""
+"Помилка при з'єднанні!\n"
+"Не можу з'єднатись з сервером!"
+
+#: bin/modules/gui/choosedb.py:50 bin/modules/gui/login.py:50
+msgid "No database found, you must create one !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+msgid "You can now connect to the database as an administrator."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
+msgid "Could not create database."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:519
+msgid "Bad database administrator password !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
+msgid "Error during database creation !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:56
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+
+#: bin/modules/gui/createdb.py:114
+msgid "Bad database name !"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:114
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+
+#: bin/modules/gui/main.py:85 bin/modules/gui/main.py:344
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: bin/modules/gui/main.py:93
+#: bin/modules/gui/main.py:95
 #, fuzzy
 msgid "Close tab"
 msgstr "Закрити"
 
-#: bin/modules/gui/main.py:266
+#: bin/modules/gui/main.py:265
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr " запит(и)"
 
-#: bin/modules/gui/main.py:268
+#: bin/modules/gui/main.py:267
 msgid "No request"
 msgstr "Нема запитів"
 
-#: bin/modules/gui/main.py:270
+#: bin/modules/gui/main.py:269
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr " запити що очікують"
 
-#: bin/modules/gui/main.py:321 bin/modules/gui/main.py:323
+#: bin/modules/gui/main.py:323 bin/modules/gui/main.py:325
 #, fuzzy
 msgid "Connection error !"
 msgstr "Помилка при з'єднанні!"
 
-#: bin/modules/gui/main.py:321
+#: bin/modules/gui/main.py:323
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Помилка при з'єднанні!\n"
 "Не можу з'єднатись з сервером!"
 
-#: bin/modules/gui/main.py:323
+#: bin/modules/gui/main.py:325
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Помилка при з'єднанні!\n"
 "Не правільне ім'я користувача або пароль!"
 
-#: bin/modules/gui/main.py:327
+#: bin/modules/gui/main.py:329
 msgid "Connection Error !"
 msgstr "Помилка при з'єднанні!"
 
-#: bin/modules/gui/main.py:341
+#: bin/modules/gui/main.py:343
 msgid "Not logged !"
 msgstr "Не в системі!"
 
-#: bin/modules/gui/main.py:408
+#: bin/modules/gui/main.py:412
 msgid "Access denied"
 msgstr ""
 
-#: bin/modules/gui/main.py:408
+#: bin/modules/gui/main.py:412
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: bin/modules/gui/main.py:435
+#: bin/modules/gui/main.py:437
 msgid "Quit"
 msgstr ""
 
-#: bin/modules/gui/main.py:435
+#: bin/modules/gui/main.py:437
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: bin/modules/gui/main.py:435
+#: bin/modules/gui/main.py:437 bin/widget/model/treemodel.py:265
 msgid "Yes"
 msgstr "Так!"
 
-#: bin/modules/gui/main.py:435
+#: bin/modules/gui/main.py:437 bin/widget/model/treemodel.py:267
 msgid "No"
 msgstr "Ні"
 
-#: bin/modules/gui/main.py:502 bin/modules/gui/main.py:523
+#: bin/modules/gui/main.py:506 bin/modules/gui/main.py:527
 #, fuzzy
 msgid "Delete a database"
 msgstr "Виберіть дату"
 
-#: bin/modules/gui/main.py:511 bin/modules/gui/main.py:517
+#: bin/modules/gui/main.py:515 bin/modules/gui/main.py:521
 msgid "Database removal"
 msgstr ""
 
-#: bin/modules/gui/main.py:511
+#: bin/modules/gui/main.py:515
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:515
+#: bin/modules/gui/main.py:519
 msgid "Could not drop database."
 msgstr ""
 
-#: bin/modules/gui/main.py:517
+#: bin/modules/gui/main.py:521
 msgid "Couldn't drop database"
 msgstr ""
 
-#: bin/modules/gui/main.py:534
+#: bin/modules/gui/main.py:538
 msgid "Database restored successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:538
+#: bin/modules/gui/main.py:542
 #, fuzzy
 msgid "Could not resotre database"
 msgstr "Виберіть дату"
 
-#: bin/modules/gui/main.py:538
+#: bin/modules/gui/main.py:542
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: bin/modules/gui/main.py:540
+#: bin/modules/gui/main.py:544
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Виберіть дату"
 
-#: bin/modules/gui/main.py:543
+#: bin/modules/gui/main.py:547
 msgid "Backup a database"
 msgstr ""
 
-#: bin/modules/gui/main.py:558
+#: bin/modules/gui/main.py:562
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: bin/modules/gui/main.py:561
+#: bin/modules/gui/main.py:565
 #, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr ""
 
-#: bin/modules/action/main.py:51
-msgid "Nothing to print!"
-msgstr ""
+#: bin/modules/gui/window/form.py:162
+msgid "No resource selected !"
+msgstr "Не вирбрано ресурс !"
 
-#: bin/modules/action/main.py:67
-msgid "Printing aborted, too long delay !"
-msgstr "Друк скасовано, дуже велика затримка !"
-
-#: bin/modules/action/main.py:71
-msgid "Error: "
-msgstr "Помилка:"
-
-#: bin/modules/action/main.py:166
-msgid "Select your action"
-msgstr "Оберіть Вашу дію"
-
-#: bin/modules/action/main.py:172
-msgid "No action defined!"
-msgstr "Не предписано жодних дій!"
-
-#: bin/options.py:59
-msgid "specify alternate config file"
-msgstr "Вкажіть альтернативний файл конфігурації"
-
-#: bin/options.py:60
-msgid "enable basic debugging"
-msgstr "стандартну відладку ввімкнено"
-
-#: bin/options.py:61
-msgid "specify channels to log"
-msgstr "вкажіть канал для журналу"
-
-#: bin/options.py:62
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr "вкажіть рівень журналу: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#: bin/options.py:63
+#: bin/modules/gui/window/form.py:180
 #, fuzzy
-msgid "specify the user login"
-msgstr "вкажіть канал для журналу"
+msgid "You have to select one resource!"
+msgstr "Виберіть ресурс !"
 
-#: bin/options.py:64
-msgid "specify the server port"
+#: bin/modules/gui/window/form.py:186
+#: bin/modules/gui/window/win_full_text_search.py:392
+msgid "ID"
+msgstr "ID"
+
+#: bin/modules/gui/window/form.py:187
+msgid "Creation User"
 msgstr ""
 
-#: bin/options.py:65
-msgid "specify the server ip/name"
+#: bin/modules/gui/window/form.py:188
+msgid "Creation Date"
 msgstr ""
 
-#: bin/ktiny.py:74
+#: bin/modules/gui/window/form.py:189
+msgid "Latest Modification by"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:190
+msgid "Latest Modification Date"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:191
+msgid "Owner"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:192
+msgid "Group Owner"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:193
+msgid "Access Level"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:202 bin/modules/gui/window/form.py:343
+#: bin/widget/view/form/button.py:30
+#, fuzzy
+msgid "Question"
+msgstr "Опис"
+
+#: bin/modules/gui/window/form.py:202
+#, fuzzy
+msgid "Are you sure you want to remove these records?"
+msgstr ""
+"Ви впевнені що хочете\n"
+"видалити цей запис?"
+
+#: bin/modules/gui/window/form.py:206
+#, fuzzy
+msgid "Resource not removed !"
+msgstr "Ресурс видалено."
+
+#: bin/modules/gui/window/form.py:208
+msgid "Resource removed."
+msgstr "Ресурс видалено."
+
+#: bin/modules/gui/window/form.py:233
+msgid "Working now on the duplicated document !"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:240
+#, fuzzy
+msgid "Document saved !"
+msgstr "Налаштування збережено!"
+
+#: bin/modules/gui/window/form.py:244
+msgid "Invalid form !"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:300
+msgid "No record selected!"
+msgstr "Не вибрано записів!"
+
+#: bin/modules/gui/window/form.py:318
+#, fuzzy, python-format
+msgid "(%s attachments) "
+msgstr "Додатки:"
+
+#: bin/modules/gui/window/form.py:323
+#, fuzzy
+msgid "No records"
+msgstr "Наступний: Не вибрано жодного запису!"
+
+#: bin/modules/gui/window/form.py:330
+#, fuzzy
+msgid "No document selected"
+msgstr "Не вибрано жодного ресурсу!"
+
+#: bin/modules/gui/window/form.py:334
+msgid "New document"
+msgstr "Новий документ"
+
+#: bin/modules/gui/window/form.py:336
+#, fuzzy, python-format
+msgid "Editing document (id: %s)"
+msgstr "Редагується документ:"
+
+#: bin/modules/gui/window/form.py:337
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr ""
+
+#: bin/modules/gui/window/form.py:343
+msgid "This record has been modified do you want to save it?"
+msgstr ""
+
+#: bin/modules/gui/window/importexport_common.py:10
+#, fuzzy
+msgid "Fields"
+msgstr "Назва поля"
+
+#: bin/modules/gui/window/tree.py:162 bin/modules/gui/window/tree.py:174
+msgid "No resource selected!"
+msgstr "Не вибрано жодного ресурсу!"
+
+#: bin/modules/gui/window/tree.py:186
+#, fuzzy
+msgid "No item selected"
+msgstr "Не вибрано записів!"
+
+#: bin/modules/gui/window/tree.py:186
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+
+#: bin/modules/gui/window/view_tree/parser.py:51
+msgid "Tree"
+msgstr "Дерево"
+
+#: bin/modules/gui/window/win_export.py:48
+#, fuzzy
+msgid "TinyERP exported information"
+msgstr "Tiny ERP - Підтвердження"
+
+#: bin/modules/gui/window/win_export.py:66
+#: bin/modules/gui/window/win_export.py:86
+#, fuzzy, python-format
+msgid "%s record(s) saved!"
+msgstr " запис(и) збережено!"
+
+#: bin/modules/gui/window/win_export.py:68
+#: bin/modules/gui/window/win_export.py:88
+#, fuzzy, python-format
 msgid ""
-"Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with KTiny."
+"Operation failed !\n"
+"I/O error (%s)"
 msgstr ""
+"Operation failed !\n"
+"I/O error"
+
+#: bin/modules/gui/window/win_export.py:111
+#, fuzzy
+msgid "Error opening Excel !"
+msgstr "Помилка при відкритті Excel !"
+
+#: bin/modules/gui/window/win_export.py:113
+msgid ""
+"Function only available for MS Office !\n"
+"Sorry, OOo users :("
+msgstr ""
+"Function only available for MS Office !\n"
+"Sorry, OOo users :("
+
+#: bin/modules/gui/window/win_export.py:192
+msgid "Export Data"
+msgstr "Експорт данних"
+
+#: bin/modules/gui/window/win_export.py:236
+msgid "What is the name of this export?"
+msgstr ""
+
+#: bin/modules/gui/window/win_export.py:257
+#, fuzzy
+msgid "Export name"
+msgstr "Експорт данних"
+
+#: bin/modules/gui/window/win_export.py:258
+#, fuzzy
+msgid "Exported fields"
+msgstr "Очистити поле"
+
+#: bin/modules/gui/window/win_full_text_search.py:302
+msgid "(Everywhere)"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:306
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:308
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:310
+#, fuzzy
+msgid "Tiny ERP Full Text Search"
+msgstr "Tiny ERP - Пошук"
+
+#: bin/modules/gui/window/win_full_text_search.py:311
+#, fuzzy, python-format
+msgid "Tiny ERP Full Text Search (%%d result(s))"
+msgstr "Tiny ERP - Вікно пошуку"
+
+#: bin/modules/gui/window/win_full_text_search.py:393
+msgid "Model ID"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:394
+#, fuzzy
+msgid "Model Name"
+msgstr "Назва поля:"
+
+#: bin/modules/gui/window/win_full_text_search.py:396
+msgid "Type"
+msgstr ""
+
+#: bin/modules/gui/window/win_full_text_search.py:397
+msgid "Name"
+msgstr "Ім'я"
+
+#: bin/modules/gui/window/win_full_text_search.py:398
+#, fuzzy
+msgid "Text"
+msgstr "Наступний"
+
+#: bin/modules/gui/window/win_full_text_search.py:399
+msgid "Ranking"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:54
+#, python-format
+msgid "Imported %d objects !"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:60
+#, fuzzy
+msgid "Error importing data"
+msgstr "Помилка запису у файл!"
+
+#: bin/modules/gui/window/win_import.py:91
+#, fuzzy
+msgid "File to import"
+msgstr "<b>Поля для імпорту</b>"
+
+#: bin/modules/gui/window/win_import.py:105
+msgid "No file specified"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:167
+msgid "Error opening .CSV file: Input Error."
+msgstr ""
+
+#: bin/modules/gui/window/win_preference.py:51
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: bin/modules/gui/window/win_preference.py:72
+#, fuzzy, python-format
+msgid "Preference %s"
+msgstr "Налаштування"
+
+#: bin/modules/gui/window/win_search.py:73
+#, fuzzy, python-format
+msgid "Tiny ERP Search: %s"
+msgstr "Tiny ERP - Пошук"
+
+#: bin/modules/gui/window/win_search.py:74
+#, fuzzy, python-format
+msgid "Tiny ERP Search: %s (%%d result(s))"
+msgstr "Tiny ERP - Вікно пошуку"
+
+#: bin/plugins/__init__.py:40
+msgid "No available plugin for this resource !"
+msgstr "Немає доступного плагіну для ціого ресурсу !"
+
+#: bin/plugins/__init__.py:42
+msgid "Choose a Plugin"
+msgstr "Виберіть плагін"
+
+#: bin/printer/printer.py:95
+msgid "Write Report to File"
+msgstr "Писати звіт у файл"
+
+#: bin/printer/printer.py:101 bin/widget/view/form/binary.py:127
+msgid "Error writing the file!"
+msgstr "Помилка запису у файл!"
+
+#: bin/rpc/rpc.py:189
+#, fuzzy
+msgid "Connection Refused"
+msgstr "У підключенні відмовлено !"
+
+#: bin/rpc/rpc.py:196
+msgid "Application Error"
+msgstr "Помилка программи"
+
+#: bin/rpc/rpc.py:196
+msgid "View details"
+msgstr "Показати деталі"
+
+#: bin/rpc/rpc.py:291
+msgid "Could not contact server!"
+msgstr ""
+
+#: bin/widget/model/treemodel.py:260 bin/widget/view/form/binary.py:104
+#: bin/widget/view/form/binary.py:143
+#, python-format
+msgid "%d bytes"
+msgstr ""
+
+#: bin/widget/screen/action.py:41
+msgid "You must select a record to use the relate button !"
+msgstr ""
+
+#: bin/widget/screen/action.py:47
+msgid "You must save this record to use the relate button !"
+msgstr ""
+
+#: bin/widget/screen/action.py:65
+#, fuzzy
+msgid "Print Screen"
+msgstr "Друкувати документ"
+
+#: bin/widget/view/chart/parser.py:70
+#, fuzzy
+msgid "Unknown"
+msgstr "Невідоме вікно"
+
+#: bin/widget/view/chart/parser.py:76
+#, python-format
+msgid "<center><b>Could not load charts: %s</b></center>"
+msgstr ""
+
+#: bin/widget/view/chart/parser.py:104
+#, fuzzy
+msgid "Can not generate graph !"
+msgstr "Не можу записати у файл !"
+
+#: bin/widget/view/form/abstractformwidget.py:65
+msgid "Set to default value"
+msgstr "Встановити значення за змовчуванням"
+
+#: bin/widget/view/form/abstractformwidget.py:71
+#, fuzzy
+msgid "Set as default value"
+msgstr "Встановити значення за змовчуванням"
+
+#: bin/widget/view/form/abstractformwidget.py:95
+#, fuzzy
+msgid "Operation not permited"
+msgstr ""
+"Operation failed !\n"
+"I/O error"
+
+#: bin/widget/view/form/abstractformwidget.py:95
+#, fuzzy
+msgid "You can not set to the default value here !"
+msgstr "Встановити значення за змовчуванням"
+
+#: bin/widget/view/form/binary.py:70 bin/widget/view/form/image.py:86
+#: bin/widget/view/form/link.py:59
+#, fuzzy
+msgid "Open..."
+msgstr "Відкрити"
+
+#: bin/widget/view/form/binary.py:71
+msgid "Show &image..."
+msgstr ""
+
+#: bin/widget/view/form/binary.py:99
+msgid "Select the file to attach"
+msgstr "Виберіть файл додатку"
+
+#: bin/widget/view/form/binary.py:117
+msgid "Error reading the file"
+msgstr "Помилка при читанні з файлу"
+
+#: bin/widget/view/form/binary.py:121
+msgid "Save attachment as..."
+msgstr "Зберегти додаток як..."
+
+#: bin/widget/view/form/button.py:41
+msgid "Error in Button"
+msgstr ""
+
+#: bin/widget/view/form/button.py:41
+msgid "Button type not allowed"
+msgstr ""
+
+#: bin/widget/view/form/button.py:45
+#, fuzzy
+msgid "Invalid Form, correct red fields!"
+msgstr "Не правільно заповнена форма, виправте червоні поля!"
+
+#: bin/widget/view/form/calendar.py:49
+msgid "Set current date"
+msgstr ""
+
+#: bin/widget/view/form/calendar.py:89
+msgid "Set current date and time"
+msgstr ""
+
+#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
+msgid "Set current time"
+msgstr ""
+
+#: bin/widget/view/form/char.py:67
+msgid "You must save the resource before adding translations"
+msgstr ""
+
+#: bin/widget/view/form/fieldpreferences.py:56
+msgid "<center>Always applicable!</center>"
+msgstr ""
+
+#: bin/widget/view/form/image.py:47
+#, fuzzy
+msgid "(no image)"
+msgstr "Видалити запис"
+
+#: bin/widget/view/form/image.py:119
+#, fuzzy
+msgid "Save image as..."
+msgstr "Зберегти додаток як..."
+
+#: bin/widget/view/form/image.py:127
+#, fuzzy
+msgid "Error saving file"
+msgstr "Помилка при читанні з файлу"
+
+#: bin/widget/view/form/image.py:127
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: bin/widget/view/form/image.py:130
+msgid "Open image file..."
+msgstr ""
+
+#: bin/widget/view/form/link.py:71
+#, fuzzy
+msgid "Select the file to link to"
+msgstr "Виберіть файл додатку"
+
+#: bin/widget/view/form/many2one.py:107
+msgid "Action"
+msgstr "Дія"
+
+#: bin/widget/view/form/many2one.py:108
+msgid "Report"
+msgstr ""
+
+#: bin/widget/view/form/translationdialog.py:41
+msgid "Translation Dialog"
+msgstr ""
+
+#, fuzzy
+#~ msgid "True"
+#~ msgstr "Дерево"
+
+#, fuzzy
+#~ msgid "False"
+#~ msgstr "Закрити"
+
+#, fuzzy
+#~ msgid "&Save image"
+#~ msgstr "Зберегти опції"
+
+#, fuzzy
+#~ msgid "No record selected"
+#~ msgstr "Не вибрано записів!"
+
+#~ msgid "No preference available for this resource !"
+#~ msgstr "Немає налаштувань для цього ресурсу !"
 
 #~ msgid "Connection refused !"
 #~ msgstr "У підключенні відмовлено !"
@@ -792,9 +819,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Не можу відкрити малюнок !\n"
 #~ "Перевірте формат."
-
-#~ msgid "Connection refused!"
-#~ msgstr "У підключенні відмовлено !"
 
 #~ msgid "This widget is readonly !"
 #~ msgstr "Цей елемент тільки для читання !"
@@ -1062,9 +1086,6 @@ msgstr ""
 
 #~ msgid "Launch actions about this resource"
 #~ msgstr "Виконати дію для цього ресурсу"
-
-#~ msgid "Print documents"
-#~ msgstr "Друкувати документ"
 
 #, fuzzy
 #~ msgid "Add an attachment to this resource"
@@ -1464,10 +1485,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Previous record"
 #~ msgstr "Попередній"
-
-#, fuzzy
-#~ msgid "Next record"
-#~ msgstr "Наступний: Не вибрано жодного запису!"
 
 #, fuzzy
 #~ msgid "Save and Close window"
