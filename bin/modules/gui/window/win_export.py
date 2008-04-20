@@ -38,6 +38,7 @@ import sets
 
 import types
 import os
+import codecs
 
 from importexport_common import *
 
@@ -68,49 +69,46 @@ def exportHtml(fname, fields, result, write_title=False):
 		QMessageBox.warning( None, '', _("Operation failed !\nI/O error (%s)") % (errno))
 
 def exportCsv(fname, fields, result, write_title=False):
-	import csv
 	try:
-		fp = file(fname, 'wb+')
-		writer = csv.writer(fp)
+		fp = codecs.open( fname, 'wb+', 'utf8' )
 		if write_title:
-			writer.writerow(fields)
+			fp.write( ','.join( fields ) + '\n' )
 		for data in result:
 			row = []
 			for d in data:
 				if type(d)==types.StringType:
-					row.append(d.replace('\n',' ').replace('\t',' '))
+					row.append('"' + d.replace('\n',' ').replace('\t',' ').replace('"',"\\\"") + '"')
 				else:
 					row.append(d)
-			writer.writerow(row)
+			fp.write( ','.join( row ) + '\n' )
 		fp.close()
-		QMessageBox.information( None, '', _('%s record(s) saved!') % (str(len(result))) )
+		QMessageBox.information( None, _('Data Export'), _('%s record(s) saved!') % (str(len(result))) )
 	except IOError, (errno, strerror):
-		QMessageBox.warning( None, '', _("Operation failed !\nI/O error (%s)") % (errno))
+		QMessageBox.warning( None, _('Data Export'), _("Operation failed !\nI/O error (%s)") % (errno))
+	except Except:
+		QMessageBox.warning( None, _('Data Export'), _("Error exporting data.") )
 
 def openExcel(fields, result):
-	if os.name == 'nt':
-		try:
-			from win32com.client import Dispatch
-			xlApp = Dispatch("Excel.Application")
-			xlApp.Workbooks.Add()
-			for col in range(len(fields)):
-				xlApp.ActiveSheet.Cells(1,col+1).Value = fields[col]
-			sht = xlApp.ActiveSheet
-			for a in result:
-				for b in range(len(a)):
-					if type(a[b]) == type(''):
-						a[b]=a[b].decode('utf-8','replace')
-					elif type(a[b]) == type([]):
-						if len(a[b])==2:
-							a[b] = a[b][1].decode('utf-8','replace')
-						else:
-							a[b] = ''
-			sht.Range(sht.Cells(2, 1), sht.Cells(len(result)+1, len(fields))).Value = result
-			xlApp.Visible = 1
-		except:
-			QMessageBox.warning(None, '', _('Error opening Excel !'))
-	else:
-		QMessageBox.information( None, '', _('Function only available for MS Office !\nSorry, OOo users :(') )
+	try:
+		from win32com.client import Dispatch
+		xlApp = Dispatch("Excel.Application")
+		xlApp.Workbooks.Add()
+		for col in range(len(fields)):
+			xlApp.ActiveSheet.Cells(1,col+1).Value = fields[col]
+		sht = xlApp.ActiveSheet
+		for a in result:
+			for b in range(len(a)):
+				if type(a[b]) == type(''):
+					a[b]=a[b].decode('utf-8','replace')
+				elif type(a[b]) == type([]):
+					if len(a[b])==2:
+						a[b] = a[b][1].decode('utf-8','replace')
+					else:
+						a[b] = ''
+		sht.Range(sht.Cells(2, 1), sht.Cells(len(result)+1, len(fields))).Value = result
+		xlApp.Visible = 1
+	except:
+		QMessageBox.warning(None, '', _('Error opening Excel !'))
 
 def exportData(ids, model, fields, prefix=''):
 	data = rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
@@ -131,9 +129,11 @@ class win_export( QDialog ):
 		self.connect( self.pushRemoveExport, SIGNAL('clicked()'), self.slotRemoveExport )
 		self.connect( self.uiPredefined, SIGNAL('activated(const QModelIndex&)'), self.loadCurrentStored )
 
-		self.uiFormat.addItem( "Open with Excel" )
-		self.uiFormat.addItem( "Save as CSV" )
-		self.uiFormat.addItem( "Save as HTML" )
+		if os.name == 'nt':
+			self.uiFormat.addItem( _("Open with Excel"), QVariant('excel') )
+
+		self.uiFormat.addItem( _("Save as CSV"), QVariant('csv') )
+		self.uiFormat.addItem( _("Save as HTML"), QVariant('html') )
 
 		self.fieldsInfo = {}
 		self.allModel = FieldsModel()
@@ -184,14 +184,14 @@ class win_export( QDialog ):
 		for x in range(0, self.selectedModel.rowCount() ):
 			fields.append( str( self.selectedModel.item( x ).data().toString() ) )
 			fields2.append( str( self.selectedModel.item( x ).text() ) )
-		action = self.uiFormat.currentIndex()
+		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
 		result = exportData(self.ids, self.model, fields)
-		if action == 0:
+		if action == 'excel':
 			openExcel(fields2, result)
 		else:
 			fname = QFileDialog.getSaveFileName( self, _('Export Data') )
 			if not fname.isNull():
-				if action == 1:
+				if action == 'csv':
 					exportCsv(fname, fields2, result, self.uiAddFieldNames.isChecked() )
 				else:
 					exportHtml(fname, fields2, result, self.uiAddFieldNames.isChecked() )

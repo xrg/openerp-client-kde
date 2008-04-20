@@ -539,9 +539,9 @@ class MainWindow(QMainWindow):
 		except Exception,e:
 			self.unsetCursor()
 			if e.faultString=='AccessDenied:None':
-				QMessageBox.warning(self, _('Could not resotre database'), _('Bad database administrator password!') )
+				QMessageBox.warning(self, _('Could not restore database'), _('Bad database administrator password!') )
 			else:
-				QMessageBox.warning(self, _('Could not restore database'))
+				QMessageBox.warning(self, _('Could not restore database'), _('There was an error restoring the database!') )
 
 	def backupDatabase(self):
 		dialog = ChooseDatabaseDialog( ChooseDatabaseDialog.TypeSelect, _('Backup a database'), self )
