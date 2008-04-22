@@ -119,6 +119,7 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.name = ''
 		self.focusable = True
 		self.expanded = True
+		self._loaded = False
 
 		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
@@ -128,10 +129,22 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.pushClear.setEnabled( False )
 		self.pushSearch.setEnabled( False )
 
+	# @brief Returns if it's been already loaded that is
+	# setup has been called.
+	def isLoaded(self):
+		return self._loaded
+
+	# @brief Returns True if it has no widgets.
+	def isEmpty(self):
+		if len(self.widgets):
+			return False
+		else:
+			return True
+
 	def setup(self, xml, fields, model):
 		# We allow one setup call only
-		if self.model:
-			return
+		if self._loaded:
+			return 
 
 		self.pushExpander.setEnabled( True )
 		self.pushClear.setEnabled( True )
@@ -154,7 +167,7 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.focusable = parser.focusable
 		self.expanded = True
 		self.toggleExpansion()
-		return len(self.widgets)
+		return 
 
 	def search(self):
 		self.emit( SIGNAL('search()') )
