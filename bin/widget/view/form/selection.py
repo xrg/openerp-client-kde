@@ -87,7 +87,7 @@ class SelectionFormWidget(AbstractFormWidget):
 			self.widget.setCurrentIndex( self.widget.findData( QVariant(value) ) )
 
 	def callModified(self, idx):
-		self.modified()
+		self.store()
 
 	def colorWidget(self):
 		return self.widget
