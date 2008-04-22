@@ -32,6 +32,7 @@ from widget.model import treemodel
 from widget.view.abstractview import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+from common import numeric
 
 
 class TinyTreeView(QTreeView):
@@ -85,6 +86,12 @@ class ViewTree( AbstractView ):
 		self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
 		self.widget.sortByColumn( 0, Qt.AscendingOrder )
 
+		# Contains list of aggregated fields
+		self.aggregates = []
+		self.aggregatesContainer = QWidget( self )
+		self.aggregatesLayout = QHBoxLayout( self.aggregatesContainer )
+		self.aggregatesLayout.setContentsMargins( 0, 0, 0, 0 )
+
 		# We set uniformRowHeights property to True because this allows some 
 		# optimizations. It makes a really big difference in models with thousands 
 		# of tuples because moving to the end of the list only requires to query
@@ -103,6 +110,7 @@ class ViewTree( AbstractView ):
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
 		layout.addWidget( self.widget )
+		layout.addWidget( self.aggregatesContainer )
 		self.setLayout( layout )
 		self.setReadOnly( True )
 
@@ -111,6 +119,24 @@ class ViewTree( AbstractView ):
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
 		self.connect( self.widget.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.currentChanged)
+
+	def addAggregate( self, name, label, bold, digits ):
+		aggLabel = QLabel( label + ':', self.aggregatesContainer )
+		aggLabel.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+		aggValue = QLabel( self.aggregatesContainer )
+		aggValue.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+		if bold:
+			font = QFont()
+			font.setBold( True )
+			aggLabel.setFont( font )
+			aggValue.setFont( font )
+		self.aggregatesLayout.addWidget( aggLabel )
+		self.aggregatesLayout.addWidget( aggValue )
+		self.aggregatesLayout.addSpacing( 10 )
+		self.aggregates.append( { 'name': name, 'widget': aggValue, 'digits': digits } )
+
+	def finishAggregates(self):
+		self.aggregatesLayout.addStretch( 0 )
 
 	# This signal is emited when a list item is double clicked
 	# or activated, only when it's read-only.
@@ -130,6 +156,7 @@ class ViewTree( AbstractView ):
 		# We send the current model. Previously we sended only the id of the model, but
 		# new models have id=None
 		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.modelFromIndex(current) )
+		self.updateAggregates()
 
 	def store(self):
 		pass
@@ -149,6 +176,7 @@ class ViewTree( AbstractView ):
 		# TODO: Avoid setting the model group each time...
 		self.treeModel.setModelGroup( models )
 		#self.widget.header().resizeSections( QHeaderView.ResizeToContents )
+		self.updateAggregates()
 		if not currentModel:
 			return
 			item = self.treeModel.item(0)
@@ -190,3 +218,11 @@ class ViewTree( AbstractView ):
 	
 	def isReadOnly(self):
 		return self._readOnly
+
+	def updateAggregates(self):
+		for agg in self.aggregates:
+			value = 0.0
+			for model in self.treeModel.group:
+				value += model.value(agg['name'])
+			agg['widget'].setText( numeric.floatToText( value, agg['digits'] ) )
+

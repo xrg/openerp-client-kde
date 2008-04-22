@@ -82,6 +82,12 @@ class TreeParser(AbstractParser):
 				if 'required' in node_attrs:
 					fields[fname]['required'] = bool(int(node_attrs['required']))
 
+				if 'sum' in node_attrs and fields[fname]['type'] in ('integer', 'float', 'float_time'):
+					bold = bool(int(node_attrs.get('sum_bold', 0)))
+					label = node_attrs['sum']
+					digits = fields.get('digits', (16,2))
+					view.addAggregate( fname, label, bold, digits ) 
+
 				node_attrs.update(fields[fname])
 
 				if 'width' in fields[fname]:
@@ -90,6 +96,8 @@ class TreeParser(AbstractParser):
 					width = twidth.get(fields[fname]['type'], 200)
 				header.append( { 'name': fname, 'type': fields[fname]['type'], 'string': fields[fname].get('string', '') })
 				columns.append( { 'width': width , 'type': fields[fname]['type'], 'attributes':node_attrs } )
+
+		view.finishAggregates()
 
 		model = treemodel.TreeModel( view )
 		model.setMode( treemodel.TreeModel.ListMode )
