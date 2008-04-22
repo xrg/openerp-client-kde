@@ -180,6 +180,8 @@ class MainWindow(QMainWindow):
 		if reason != QSystemTrayIcon.DoubleClick:
 			return
 		self.setVisible( not self.isVisible() )
+		if self.isMinimized():
+			self.showNormal()
 
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
@@ -483,7 +485,7 @@ class MainWindow(QMainWindow):
 		reports = False
 		browse = False
 		actions = False
-		if view:
+		if view and view.actions():
 			for x in view.actions():
 				if x.type() == 'print':
 					self.menuReports.addAction( x )
