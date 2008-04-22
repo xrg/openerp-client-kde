@@ -166,11 +166,14 @@ class Screen(QScrollArea):
 
 	def loadSearchForm(self):
 		if self.current_view.view_type == 'tree' and not self._embedded: 
-			form = rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
-			if self.searchForm.setup( form['arch'], form['fields'], self.resource ):
-				self.searchForm.show()
-			else:
+			if not self.searchForm.isLoaded():
+				form = rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
+				self.searchForm.setup( form['arch'], form['fields'], self.resource )
+
+			if self.searchForm.isEmpty():
 				self.searchForm.hide()
+			else:
+				self.searchForm.show()
 		else:
 			self.searchForm.hide()
 
@@ -270,8 +273,6 @@ class Screen(QScrollArea):
 		if self.current_model and ( self.current_model not in self.models.models ):
 			self.current_model = None
 
-		#if len(self._viewTypes) or len(self._viewIds):
-		#self.loadNextView()
 		if self.loadNextView():
 			self.__current_view = len(self.views) - 1
 		else:
