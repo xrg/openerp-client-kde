@@ -394,6 +394,8 @@ class TreeModel(QAbstractItemModel):
 	def fieldType(self, column, group):
 		field = self.field(column)
 		if field:
+			if not group.mfields:
+				group.addFields( self.fields )
 			return group.fields[ field ]['type']
 		else:
 			return None
