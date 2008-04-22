@@ -154,9 +154,10 @@ class OneToManyFormWidget(AbstractFormWidget):
 		
 	def showValue(self):
 		models = self.model.value(self.name)
-		self.screen.setModelGroup(models)
-		if models.count():
-			self.screen.current_model = models.modelByRow(0)
+		if self.screen.models != models:
+			self.screen.setModelGroup(models)
+			if models.count():
+				self.screen.current_model = models.modelByRow(0)
 		self.screen.display()
 
 	def store(self):
