@@ -20,8 +20,8 @@
 
 		<!-- Documents views -->
 		<record model="ir.ui.view" id="view_document_tree">
-			<field name="name">nan.document.queue.tree</field>
-			<field name="model">nan.document.queue</field>
+			<field name="name">nan.document.tree</field>
+			<field name="model">nan.document</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="Documents in queue">
@@ -32,8 +32,8 @@
 			</field>
 		</record>
 		<record model="ir.ui.view" id="view_document_form">
-			<field name="name">nan.document.queue.form</field>
-			<field name="model">nan.document.queue</field>
+			<field name="name">nan.document.form</field>
+			<field name="model">nan.document</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Documents in queue">
@@ -73,7 +73,7 @@
 
 		<record model="ir.actions.act_window" id="all_document_tree">
 			<field name="name">Documents</field>
-			<field name="res_model">nan.document.queue</field>
+			<field name="res_model">nan.document</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="domain"></field>
@@ -82,7 +82,7 @@
 
 		<record model="ir.actions.act_window" id="pending_document_tree">
 			<field name="name">Pending Documents</field>
-			<field name="res_model">nan.document.queue</field>
+			<field name="res_model">nan.document</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','pending')]</field>
@@ -91,7 +91,7 @@
 
 		<record model="ir.actions.act_window" id="scanned_document_tree">
 			<field name="name">Scanned Documents</field>
-			<field name="res_model">nan.document.queue</field>
+			<field name="res_model">nan.document</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','scanned')]</field>
@@ -100,7 +100,7 @@
 
 		<record model="ir.actions.act_window" id="verified_document_tree">
 			<field name="name">Verified Documents</field>
-			<field name="res_model">nan.document.queue</field>
+			<field name="res_model">nan.document</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','verified')]</field>
@@ -109,7 +109,7 @@
 
 		<record model="ir.actions.act_window" id="processed_document_tree">
 			<field name="name">Processed Documents</field>
-			<field name="res_model">nan.document.queue</field>
+			<field name="res_model">nan.document</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','processed')]</field>
@@ -144,6 +144,7 @@
 						<form string="Boxes">
 							<field name="name"/>
 							<field name="text"/>
+							<field name="recognizer"/>
 							<field name="type"/>
 							<field name="filter"/>
 							<separator string="Dimensions" colspan="4"/>
@@ -155,6 +156,7 @@
 						<tree string="Boxes">
 							<field name="name"/>
 							<field name="text"/>
+							<field name="recognizer"/>
 							<field name="type"/>
 							<field name="filter"/>
 							<field name="x"/>

@@ -8,8 +8,8 @@ import codecs
 import re
 
 import ocr
-import scan
-from template import *
+import nanscan 
+from PyQt4.QtCore import *
 
 # This class overrides the default ir_attachment class and adds the ability to
 # obtain text from the file. Text is extracted using strigi and if it fails
@@ -86,62 +86,6 @@ class ir_attachment(osv.osv):
 ir_attachment()
 
 
-# Smarter processing models and functions
-
-def translate(text):
-	txt = text
-	f=codecs.open('addons/smart_attach/translations.txt', 'r', 'utf-8')
-	if not f:
-		print "File not found"
-		return txt
-	translations = f.readlines()
-	f.close()
-	for x in translations:
-		for y in x[1:]:
-			txt = txt.replace( y, x[0] )
-	return txt
-
-def findBestTemplate( cr, image, templates ):
-	os.spawnlp(os.P_WAIT, 'convert', 'convert', image, '/tmp/image.tif' )
-	if not os.path.exists( '/tmp/image.tif' ):
-		return None
-	c = scan.Ocr()
-	c.scan( '/tmp/image.tif' )
-	max = 0
-	bestDocument = Document()
-	bestTemplate = None
-	for template in templates:
-		currentDocument = Document()
-
-		if not template.boxes:
-			continue
-		score = 0
-		matcherBoxes = 0
-		for templateBox in template.boxes:
-			if not templateBox.text:
-				continue
-			text = c.textInRegion( templateBox.rect )
-			documentBox = DocumentBox()
-			documentBox.text = text
-			documentBox.templateBox = templateBox
-			currentDocument.addBox( documentBox )
-
-			if templateBox.type != 'matcher':
-				print "Jumping %s due to type %s " % ( templateBox.name, templateBox.type )
-				continue
-			matcherBoxes += 1
-			#cr.execute( 'SELECT similarity(%s,%s)', (translate(text), translate(templateBox.text)) )
-			cr.execute( 'SELECT similarity(%s,%s)', (text, templateBox.text) )
-			similarity = cr.fetchone()[0]
-			score += similarity
-		score = score / matcherBoxes
-		if score > max:
-			max = score
-			bestTemplate = template
-			bestDocument = currentDocument
-		print "Template %s has score %s" % (template.name, score)
-	return { 'template': bestTemplate, 'document': bestDocument }
-
 class nan_template(osv.osv):
 	_name = 'nan.template'
 	_columns = {
@@ -149,8 +93,48 @@ class nan_template(osv.osv):
 		'boxes' : fields.one2many('nan.template.box', 'template_id', 'Boxes'),
 		'attach_function' : fields.char('Attachment Function', 256),
 		'action_function' : fields.char('Action Function', 256),
-		'documents' : fields.one2many('nan.document.queue', 'template_id', 'Documents')
+		'documents' : fields.one2many('nan.document', 'template_id', 'Documents')
 	}
+
+	# Returns a Template from the fields of a template. You'll usually use 
+	# getTemplateFromId() or getAllTemplates()
+	def getTemplateFromData(self, cr, uid, data):
+		template = nanscan.Template( data['name'] )
+		template.id = data['id']
+		ids = self.pool.get('nan.template.box').search( cr, uid, [('template_id','=',data['id'])] )
+		boxes = self.pool.get('nan.template.box').read(cr, uid, ids)
+		for y in boxes:
+			box = nanscan.TemplateBox()
+			box.rect = QRectF( y['x'], y['y'], y['width'], y['height'] )
+			box.name = y['name']
+			box.text = y['text']
+			box.recognizer = y['recognizer']
+			box.type = y['type']
+			box.filter = y['filter']
+			# Important step: ensure box.text is unicode!
+			if isinstance( box.text, str ):
+				box.text = unicode( box.text, 'latin-1' )
+			template.addBox( box )
+		print "GETTING TEMPLATE: %s WITH %d BOXES" % ( data['name'], len(boxes) )
+		return template
+
+	# Returns a Template from the given id
+	def getTemplateFromId(self, cr, uid, id):
+		templates = self.pool.get('nan.template').read(cr, uid, [id])
+		if not templates:
+			return None
+		return self.getTemplateFromData( cr, uid, templates[0] )
+
+	# Returns all templates in a list of objects of class Template
+	def getAllTemplates(self, cr, uid):
+		# Load templates into 'templates' list
+		templates = []
+		ids = self.pool.get('nan.template').search(cr, uid, [])
+		templateValues = self.pool.get('nan.template').read(cr, uid, ids)
+		for x in templateValues:
+			templates.append( self.getTemplateFromData( cr, uid, x ) )
+		return templates
+
 
 nan_template()
 
@@ -158,14 +142,15 @@ class nan_template_box(osv.osv):
 	_name = 'nan.template.box'
 	_columns = {
 		'template_id' : fields.many2one('nan.template', 'Template', required=True, ondelete='cascade'),
-		'x' : fields.integer('X'),
-		'y' : fields.integer('Y'),
-		'width' : fields.integer('Width'),
-		'height' : fields.integer('Height'),
+		'x' : fields.float('X'),
+		'y' : fields.float('Y'),
+		'width' : fields.float('Width'),
+		'height' : fields.float('Height'),
 		'name' : fields.char('Name', 256),
 		'text' : fields.char('Text', 256),
+		'recognizer': fields.selection( [('text','Text'),('barcode','Barcode')], 'Recognizer' ),
 		'type' : fields.selection( [('matcher','Matcher'),('input','Input')], 'Type' ),
-		'filter' : fields.selection( [('numeric','Numeric'), ('alphabetic','Alphabetic'), ('alphanumeric','Alphanumeric'), ('none', 'None')], 'Filter' )
+		'filter' : fields.selection( [('numeric','Numeric'), ('alphabetic','Alphabetic'), ('alphanumeric','Alphanumeric'), ('exists', 'Exists'), ('none', 'None')], 'Filter' )
 	}
 nan_template_box()
 
@@ -175,8 +160,8 @@ def attachableDocuments(self, cr, uid, context={}):
 	res = obj.read(cr, uid, ids, ['model', 'name'], context)
 	return [(r['model'], r['name']) for r in res]
 
-class nan_document_queue(osv.osv):
-	_name = 'nan.document.queue'
+class nan_document(osv.osv):
+	_name = 'nan.document'
 	_columns = {
 		'name' : fields.char('Name', 64),
 		'datas': fields.binary('Data'),
@@ -192,41 +177,42 @@ class nan_document_queue(osv.osv):
 		'state': lambda *a: 'pending'
 	}
 
+	def write(self, cr, uid, ids, values, context=None):
+		# Scan after writting as it will modify the objects and thus a "modified in 
+		# the meanwhile" would be thrown, so by now check which of the records
+		# we'll want to scan later
+		toScan = []
+		if 'template_id' in values:
+			for x in self.read( cr, uid, ids, ['state', 'template_id'], context ):
+				# We only scan the document if template_id has changed and the document
+				# is in 'scanned' state.
+				if x['state'] == 'scanned' and x['template_id'] != values['template_id']:
+					toScan.append( {'id': x['id'], 'template_id': values['template_id'] } )
+
+		ret = super(nan_document, self).write(cr, uid, ids, values, context)
+
+		for x in toScan:
+			self.scanDocumentWithTemplate( cr, uid, x['id'], x['template_id'] )
+		return ret
+
 	def scan_document(self, cr, uid, imageIds):
 		# Load templates into 'templates' list
-		templates = []
-		ids = self.pool.get('nan.template').search(cr, uid, [])
-		templateValues = self.pool.get('nan.template').read(cr, uid, ids)
-		for x in templateValues:
-			template = Template( x['name'] )
-			template.id = x['id']
-			ids = self.pool.get('nan.template.box').search( cr, uid, [('template_id','=',x['id'])] )
-			boxes = self.pool.get('nan.template.box').read(cr, uid, ids)
-			for y in boxes:
-				box = TemplateBox()
-				box.rect = QRectF( y['x'], y['y'], y['width'], y['height'] )
-				box.name = y['name']
-				box.text = y['text']
-				box.type = y['type']
-				box.filter = y['filter']
-				# Important step: ensure box.text is unicode!
-				if isinstance( box.text, str ):
-					box.text = unicode( box.text, 'latin-1' )
-				template.addBox( box )
-			templates.append(template)
+		templates = self.pool.get('nan.template').getAllTemplates( cr, uid )
 
 		# Initialize Ocr System (Gamera)
-		scan.initOcrSystem()
+		nanscan.initOcrSystem()
+		recognizer = nanscan.Recognizer()
 
 		# Iterate over all images and try to find the most similar template
 		for document in self.browse(cr, uid, imageIds):
 			#TODO: Enable workflow test 
 			#if document.state != 'pending':
 			#	continue
-			fp = file('/tmp/image.png','wb+')
+			image = '/tmp/image.png'
+			fp = file(image,'wb+')
 			fp.write( base64.decodestring(document.datas) )
 			fp.close()
-			result = findBestTemplate( cr, '/tmp/image.png', templates)
+			result = recognizer.findBestTemplate( cr, image, templates)
 			template = result['template']
 			doc = result['document']
 			if not template:
@@ -244,9 +230,41 @@ class nan_document_queue(osv.osv):
 				for box in doc.boxes:
 					obj.create(cr, uid, { 'name' : box.templateBox.name, 'value' : box.text, 'document_id': document.id } )
 
-			self.executeAttachs( cr, uid, imageIds )
-			self.executeActions( cr, uid, imageIds, True )
-			cr.commit()
+		self.executeAttachs( cr, uid, imageIds )
+		self.executeActions( cr, uid, imageIds, True )
+		cr.commit()
+
+	def scanDocumentWithTemplate(self, cr, uid, documentId, templateId):
+
+		# Whether templateId is valid or not
+		# Remove previous properties
+		obj = self.pool.get('nan.document.property')
+		ids = obj.search( cr, uid, [('document_id','=',documentId)] )
+		obj.unlink( cr, uid, ids )
+
+		if templateId:
+			# Initialize Ocr System (Gamera)
+			nanscan.initOcrSystem()
+			recognizer = nanscan.Recognizer()
+
+			template = self.pool.get('nan.template').getTemplateFromId( cr, uid, templateId )  
+
+			documents = self.read(cr, uid, [documentId])
+			if not documents:
+				return 
+			document = documents[0]
+
+			image = '/tmp/image.png'
+			fp = file( image, 'wb+')
+			fp.write( base64.decodestring( document['datas'] ) )
+			fp.close()
+			doc = recognizer.scanWithTemplate( image, template )
+
+			for box in doc.boxes:
+				obj.create(cr, uid, { 'name' : box.templateBox.name, 'value' : box.text, 'document_id': document['id'] } )
+		self.executeAttachs( cr, uid, [documentId] )
+		self.executeActions( cr, uid, [documentId], True )
+		cr.commit()
 
 	def process_document(self, cr, uid, ids):
 		self.executeActions( cr, uid, ids, False )
@@ -261,16 +279,18 @@ class nan_document_queue(osv.osv):
 			return False
 
 		parameters = parameters.split(',')
-		#print "P: ", properties
 		newParameters = []
 		for p in parameters:
 			value = p.strip()
 			if value.startswith( '#' ):
-				print "We'll search '%s' in the properties" % value[1:]
 				if value[1:] not in properties:
+					print "Property '%s' not found" % value
+					newParameters.append( "''" )
 					continue
 				value = properties[ value[1:] ]
-			value = "'" + value.replace("'","\\\\'") + "'"
+			value = "'" + value.replace("'","\\'") + "'"
+			if type(value) != unicode:
+				value = unicode( value, errors='ignore' )
 			newParameters.append( value )
 		return (name, newParameters)
 
@@ -280,22 +300,19 @@ class nan_document_queue(osv.osv):
 			#if not explain and document.state != 'verified':
 				#continue
 
-			if not document.template_id:
-				print "Document '%s' has no template associated" % document.name
-				continue
-			function = document.template_id.action_function
-			if not function:
-				print "Template '%s' has no attach function" % document.template_id.name
-				continue
+			task = None
+			if document.template_id:
+				function = document.template_id.action_function
+				if function:
+					properties = dict( [(x.name, unicode(x.value)) for x in document.properties] )
+					(name, parameters) = self._parseFunction(function, properties)
 
-			properties = dict( [(x.name, x.value) for x in document.properties] )
-			(name, parameters) = self._parseFunction(function, properties)
-
-			obj = self.pool.get('nan.document.queue')
-			result = eval('obj.%s(cr, uid, explain, %s)' % ( name, ','.join( parameters ) ) )
+					obj = self.pool.get('nan.document')
+					task = eval('obj.%s(cr, uid, explain, %s)' % ( name, ','.join( parameters ) ) )
 			if explain:
-				self.write( cr, uid, [document.id], {'task': result} )
+				self.write( cr, uid, [document.id], {'task': task} )
 			elif document.document:
+				# Attach document to the appropiate reference
 				ref = document.document.split(',')
 				model = ref[0]
 				id = ref[1]
@@ -313,35 +330,44 @@ class nan_document_queue(osv.osv):
 
 	def executeAttachs( self, cr, uid, ids ):
 		for document in self.browse( cr, uid, ids ):
-			if not document.template_id:
-				print "Document '%s' has no template associated" % document.name
-				continue
-			function = document.template_id.attach_function
-			if not function:
-				print "Template '%s' has no attach function" % document.template_id.name
-				continue
-			expression = re.match('(.*)\((.*)\)', function)
-			name = expression.group(1)
-			parameters = expression.group(2)
-			if name not in dir(self):
-				print "Function '%s' not found" % (name)
-				continue
-			parameters = parameters.split(',')
-			properties = dict( [(x.name, x.value) for x in document.properties] )
-			newParameters = []
-			for p in parameters:
-				value = p.strip()
-				if value.startswith( '#' ):
-					print "We'll search '%s' in the properties" % value[1:]
-					if value[1:] not in properties:
-						continue
-					value = properties[ value[1:] ]
-				value = "'" + value.replace("'","\\\\'") + "'"
-				newParameters.append( value )
+			reference = None
+			if document.template_id:
+				function = document.template_id.attach_function
+				if function:
+					properties = dict( [(x.name, unicode( x.value, 'latin-1' )) for x in document.properties] )
 
-			obj = self.pool.get('nan.document.queue')
-			reference = eval('obj.%s(cr, uid, %s)' % ( name, ','.join( newParameters ) ) )
-			self.write( cr, uid, [document.id], {'document': '%s,%s' % (reference[0],reference[1]) } )
+					(name, parameters) = self._parseFunction(function, properties)
+					obj = self.pool.get('nan.document')
+					#print 'CALLING: obj.%s(cr, uid, %s)' % ( name, u','.join( parameters ) ), 
+					reference = eval('obj.%s(cr, uid, %s)' % ( name, u','.join( parameters ) ) )
+
+			if reference:
+				self.write( cr, uid, [document.id], {'document': '%s,%s' % (reference[0],reference[1]) } )
+			else:
+				self.write( cr, uid, [document.id], {'document': False} )
+
+			#expression = re.match('(.*)\((.*)\)', function)
+			#name = expression.group(1)
+			#parameters = expression.group(2)
+			#if name not in dir(self):
+			#	print "Function '%s' not found" % (name)
+			#	continue
+			#parameters = parameters.split(',')
+			#properties = dict( [(x.name, x.value) for x in document.properties] )
+			#newParameters = []
+			#for p in parameters:
+			#	value = p.strip()
+			#	if value.startswith( '#' ):
+			#		print "We'll search '%s' in the properties" % value[1:]
+			#		if value[1:] not in properties:
+			#			continue
+			#		value = properties[ value[1:] ]
+			#	value = "'" + value.replace("'","\\\\'") + "'"
+			#	newParameters.append( value )
+
+			#obj = self.pool.get('nan.document')
+			#reference = eval('obj.%s(cr, uid, %s)' % ( name, ','.join( newParameters ) ) )
+
 
 
 	def actionAddPartner( self, cr, uid, explain, name ):
@@ -362,13 +388,13 @@ class nan_document_queue(osv.osv):
 		return ( model, record[0] )
 
 		
-nan_document_queue()
+nan_document()
 
 class nan_document_property(osv.osv):
 	_name = 'nan.document.property'
 	_columns = {
 		'name' : fields.char('Text', 256),
 		'value' : fields.char('Value', 256),
-		'document_id' : fields.many2one('nan.document.queue', 'Document', required=True, ondelete='cascade')
+		'document_id' : fields.many2one('nan.document', 'Document', required=True, ondelete='cascade')
 	}
 nan_document_property()	

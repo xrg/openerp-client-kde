@@ -3,7 +3,7 @@
 	<data>
 		<record model="workflow" id="wkf">
 			<field name="name">nan.document.basic</field>
-			<field name="osv">nan.document.queue</field>
+			<field name="osv">nan.document</field>
 			<field name="on_create">True</field>
 		</record>
 
