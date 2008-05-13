@@ -262,6 +262,7 @@ class form( QWidget ):
 		QApplication.restoreOverrideCursor()
 
 	def reload(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if self.screen.current_view.view_type == 'form':
 			self.screen.cancel_current()
 			self.screen.display()
@@ -276,6 +277,7 @@ class form( QWidget ):
 					self.screen.display()
 					break
 		self.updateStatus()
+		QApplication.restoreOverrideCursor()
 
 	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
 		ids = self.screen.ids_get()
