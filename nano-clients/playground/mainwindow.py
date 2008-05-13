@@ -239,9 +239,15 @@ class DocumentScene(QGraphicsScene):
 
 	def clearImage(self):
 		if self._imageBoxes:
+			# When an Item Group is removed all children
+			# are reparented. So remove all children after
+			# destroying the group.
+			boxes = []
 			for x in self._imageBoxes.children():
-				del x
+				boxes.append( x )
 			self.destroyItemGroup( self._imageBoxes )
+			for x in boxes:
+				self.removeItem( x )
 		if self._image:
 			self.removeItem( self._image )
 		if self._oneBitImage:
