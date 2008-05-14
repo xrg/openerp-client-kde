@@ -6,6 +6,8 @@ class res_partner_address(osv.osv):
 
 	def url(self, street, zip, city, country):
 		return 'http://maps.google.com/maps?q=%s %s %s %s' % ( street, zip, city, country )
+		#return 'http://maps.yahoo.com/#mvt=m&zoom=17&q1=%s %s %s %s' % ( street, zip, city, country )
+		#return 'http://link2.map24.com/?maptype=CGI&street0=%s&zip0=%s&city0=%s&state0=&country0=es&name0=&lid=cbecdb9d&ol=es-es' % ( street, zip, city )
 
 	def _partner_address_map(self, cr, uid, ids, name, arg, context={}):
 		res = {}
