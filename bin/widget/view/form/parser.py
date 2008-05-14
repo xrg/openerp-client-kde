@@ -218,6 +218,7 @@ import one2many
 import url
 import image
 import link
+import web
 
 
 widgets_type = {
@@ -244,7 +245,8 @@ widgets_type = {
 	'email' : (url.EMailFormWidget, 1, False),
 	'callto' : (url.CallToFormWidget, 1, False),
 	'sip' : (url.SipFormWidget, 1, False),
-	'link' : (link.LinkFormWidget, 1, False)
+	'link' : (link.LinkFormWidget, 1, False),
+	'web' : (web.WebFormWidget, 1, False)
 }
 
 # vim:noexpandtab:
