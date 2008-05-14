@@ -192,6 +192,13 @@ class ManyToOneField(StringField):
 		if internal != model.values[self.name]:
 			self.changed(model)
 
+# This is the base class for ManyToManyField and OneToManyField
+# The only difference between these classes is the 'get()' method.
+# In the case of ManyToMany we always return all elements because
+# it only stores the relation between two models which already exist.
+# In the case of OneToMany we only return those objects that have 
+# been modified because the pointed object stores the relation to the
+# parent.
 class ToManyField(StringField):
 	def create(self, model):
 		from widget.model.group import ModelRecordGroup
@@ -206,19 +213,7 @@ class ToManyField(StringField):
 		return model.values[self.name]
 
 	def get(self, model, check_load=True, readonly=True, modified=False):
-		if not model.values[self.name]:
-			return []
-		result = []
-		for model2 in model.values[self.name].models:
-			if (modified and not model2.isModified()) or (not model2.id and not model2.isModified()):
-				continue
-			if model2.id:
-				result.append((1,model2.id, model2.get(check_load=check_load, get_readonly=readonly)))
-			else:
-				result.append((0,0, model2.get(check_load=check_load, get_readonly=readonly)))
-		for id in model.values[self.name].model_removed:
-			result.append((2,id, False))
-		return result
+		pass
 
 	def set(self, model, value, test_state=False, modified=False):
 		from widget.model.group import ModelRecordGroup
@@ -230,7 +225,7 @@ class ToManyField(StringField):
 
 	def set_client(self, model, value, test_state=False):
 		self.set(model, value, test_state=test_state)
-		model.changed()
+		self.changed(model)
 
 	def setDefault(self, model, value):
 		from widget.model.group import ModelRecordGroup
@@ -266,6 +261,28 @@ class ToManyField(StringField):
 			ok = False
 		self.stateAttributes(model)['valid'] = ok
 		return ok
+
+class OneToManyField(ToManyField):
+	def get(self, model, check_load=True, readonly=True, modified=False):
+		if not model.values[self.name]:
+			return []
+		result = []
+		for model2 in model.values[self.name].models:
+			if (modified and not model2.isModified()) or (not model2.id and not model2.isModified()):
+				continue
+			if model2.id:
+				result.append((1,model2.id, model2.get(check_load=check_load, get_readonly=readonly)))
+			else:
+				result.append((0,0, model2.get(check_load=check_load, get_readonly=readonly)))
+		for id in model.values[self.name].model_removed:
+			result.append((2,id, False))
+		return result
+
+class ManyToManyField(ToManyField):
+	def get(self, model, check_load=True, readonly=True, modified=False):
+		if not model.values[self.name]:
+			return []
+		return [(6, 0, [x.id for x in model.values[self.name].models])]
 
 class ReferenceField(StringField):
 	def get_client(self, model):
@@ -317,8 +334,8 @@ class FieldFactory:
 		'integer' : IntegerField,
 		'float' : FloatField,
 		'many2one' : ManyToOneField,
-		'many2many' : ToManyField,
-		'one2many' : ToManyField,
+		'many2many' : ManyToManyField,
+		'one2many' : OneToManyField,
 		'reference' : ReferenceField,
 		'selection': SelectionField,
 		'boolean': IntegerField,

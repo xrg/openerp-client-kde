@@ -52,12 +52,12 @@ class ManyToManyFormWidget(AbstractFormWidget):
 		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		
-		#self.screen = Screen(attrs['relation'], view_type=['tree'], parent=self, views_preload=attrs.get('views', {}))
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
+		self.screen.setAddAfterNew( True )
 
 		layout = self.layout()
 		layout.insertWidget( 1, self.screen )
@@ -72,9 +72,9 @@ class ManyToManyFormWidget(AbstractFormWidget):
 		domain = self.model.domain( self.name )
 		context = self.model.fieldContext( self.name )
 
-		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', str( self.uiText.text()), domain, 'ilike', context)
-		ids = map(lambda x: x[0], ids)
-		if len(ids)<>1:
+		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context)
+		ids = [x[0] for x in ids] 
+		if len(ids) != 1:
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids)
 			if dialog.exec_() == QDialog.Rejected:
 				return
@@ -83,6 +83,11 @@ class ManyToManyFormWidget(AbstractFormWidget):
 		self.screen.load(ids)
 		self.screen.display()
 		self.uiText.clear()
+		# Manually set the current model and field as modified
+		# This is not necessary in case of removing an item. 
+		# Maybe a better option should be found. But this one works just right.
+		self.model.modified = True
+		self.model.modified_fields.setdefault(self.name)
 
 	def remove(self):
 		slcIndex =  self.screen.current_view.widget.selectedIndexes()
@@ -105,7 +110,9 @@ class ManyToManyFormWidget(AbstractFormWidget):
 		self.screen.setModelGroup(models)
 		self.screen.display()
 
+	# We do not store anything here as elements are added and removed in the
+	# Screen (self.screen). The only thing we need to take care of (as noted 
+	# above) is to ensure that the model and field are marked as modified.
 	def store(self):
-		#self.model.setValue( self.name, [ x.id for x in self.screen.models.models] )
-		self.screen.display()
+		pass
 
