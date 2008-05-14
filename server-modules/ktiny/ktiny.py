@@ -38,6 +38,8 @@ class nan_ktiny_settings(osv.osv):
 	def get_settings_id(self, cr, uid):
 		user = self.pool.get('res.users').browse(cr, uid, [uid])[0]
 		ids = [x.id for x in user.roles_id]
+		if not ids:
+			return False
 		ids = str(ids).replace('[', '(').replace(']',')')
 		cr.execute( "SELECT setting_id FROM nan_ktiny_settings_roles_rel WHERE role_id IN %s" % ( ids ) )
 		row = cr.fetchone()
