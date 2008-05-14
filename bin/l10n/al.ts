@@ -1,56 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1">
 <context>
-    <name>Binary</name>
-    <message>
-        <location filename="link.ui" line="45"/>
-        <source>Select file...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="binary.ui" line="54"/>
-        <source>Save file...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="binary.ui" line="67"/>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DateTime</name>
-    <message>
-        <location filename="datetime.ui" line="50"/>
-        <source>Time:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="datetime.ui" line="19"/>
-        <source>#DateTime{
-border: 1px solid black;
-}</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Dialog</name>
-    <message>
-        <location filename="win_selection.ui" line="13"/>
-        <source>Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="progress.ui" line="44"/>
-        <source>Operation in progress</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="progress.ui" line="57"/>
-        <source>Please wait, 
-this operation may take a while...</source>
-        <translation type="unfinished"></translation>
-    </message>
+    <name>AboutDialog</name>
     <message>
         <location filename="about.ui" line="13"/>
         <source>About Tiny ERP</source>
@@ -66,13 +17,14 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="about.ui" line="37"/>
+        <location filename="about.ui" line="45"/>
         <source>&amp;Tiny ERP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="about.ui" line="46"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <location filename="about.ui" line="54"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
@@ -90,13 +42,14 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="about.ui" line="68"/>
+        <location filename="about.ui" line="85"/>
         <source>&amp;Contact</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="about.ui" line="77"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <location filename="about.ui" line="94"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
@@ -114,20 +67,970 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_selection.ui" line="44"/>
+        <location filename="about.ui" line="135"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AdminPasswordDialog</name>
+    <message>
+        <location filename="admin_passwd.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="28"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="45"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="55"/>
+        <source>&amp;Old password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="72"/>
+        <source>&amp;New password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="89"/>
+        <source>New password &amp;confirmation:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="136"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="translationdialog.ui" line="13"/>
-        <source>Translation dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_selection.ui" line="57"/>
+        <location filename="admin_passwd.ui" line="146"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="admin_passwd.ui" line="19"/>
+        <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AttachmentWindow</name>
+    <message>
+        <location filename="win_attach.ui" line="16"/>
+        <source>Attachments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="49"/>
+        <source>toolBar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="73"/>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="81"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="89"/>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="97"/>
+        <source>Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="105"/>
+        <source>Switch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="113"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="121"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BinaryWidget</name>
+    <message>
+        <location filename="binary.ui" line="40"/>
+        <source>Select file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="binary.ui" line="53"/>
+        <source>Save file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="binary.ui" line="66"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CalendarWidget</name>
+    <message>
+        <location filename="calendar.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calendar.ui" line="40"/>
+        <source>Open Calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChangeServerDialog</name>
+    <message>
+        <location filename="change_server.ui" line="19"/>
+        <source>Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="31"/>
+        <source>Connect to a Tiny ERP Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="51"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="70"/>
+        <source>&amp;Port:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="112"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="144"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ChooseDatabaseDialog</name>
+    <message>
+        <location filename="choosedb.ui" line="13"/>
+        <source>Choose database...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="25"/>
+        <source>Action here...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="47"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="64"/>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="74"/>
+        <source>&amp;Password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="91"/>
+        <source>&amp;Database:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="119"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="157"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="167"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateDatabaseDialog</name>
+    <message>
+        <location filename="create_database.ui" line="13"/>
+        <source>Create a new database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="49"/>
+        <source>&amp;New database name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="93"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="111"/>
+        <source>(must not contain any special character)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="121"/>
+        <source>(use &apos;admin&apos;, if you did not change it)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="150"/>
+        <source>&amp;Super admin password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="179"/>
+        <source>&amp;Default language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="195"/>
+        <source>&amp;Load demonstration data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="231"/>
+        <source>&amp;TinyERP server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="300"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="313"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="25"/>
+        <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DatabaseCreatedDialog</name>
+    <message>
+        <location filename="dbcreateok.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="56"/>
+        <source>Database created successfully!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="66"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="98"/>
+        <source>Connect &amp;now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="111"/>
+        <source>Connect &amp;later</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DateTimeWidget</name>
+    <message>
+        <location filename="datetime.ui" line="41"/>
+        <source>Time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ErrorDialog</name>
+    <message>
+        <location filename="error.ui" line="13"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="19"/>
+        <source>Application Error !</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="41"/>
+        <source>&amp;Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="47"/>
+        <source>Application Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="71"/>
+        <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="78"/>
+        <source>View details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="124"/>
+        <source>De&amp;tails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="152"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
+        <location filename="win_export.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="21"/>
+        <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="42"/>
+        <source>Re&amp;move Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="105"/>
+        <source>A&amp;dd</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="115"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="125"/>
+        <source>Remo&amp;ve all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="148"/>
+        <source>&amp;Save list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="191"/>
+        <source>Add &amp;field names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="221"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="234"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="71"/>
+        <source>&lt;b&gt;All fields&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="162"/>
+        <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="178"/>
+        <source>&lt;b&gt;Options&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FieldDefaultsDialog</name>
+    <message>
+        <location filename="field_preferences.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="21"/>
+        <source>Field &amp;Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="38"/>
+        <source>&amp;Domain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="55"/>
+        <source>Default &amp;value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="74"/>
+        <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="83"/>
+        <source>&amp;only for you</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="93"/>
+        <source>for all &amp;users</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="134"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="144"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="102"/>
+        <source>&lt;b&gt;Value applicable if:&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FormContainerWidget</name>
+    <message>
+        <location filename="formcontainer.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="formcontainer.ui" line="58"/>
+        <source>State:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FullTextSearchDialog</name>
+    <message>
+        <location filename="full_text_search.ui" line="13"/>
+        <source>Full text search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="39"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="57"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="88"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="98"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="129"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="142"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>GoToIdDialog</name>
+    <message>
+        <location filename="gotoid.ui" line="13"/>
+        <source>Go To Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="21"/>
+        <source>&amp;Search Id:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="68"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="78"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportDialog</name>
+    <message>
+        <location filename="win_import.ui" line="16"/>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="32"/>
+        <source>All fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="59"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="69"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="79"/>
+        <source>Remo&amp;ve All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="102"/>
+        <source>Auto-&amp;detect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="122"/>
+        <source>Fields to import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="141"/>
+        <source>File to &amp;import:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="165"/>
+        <source>&amp;Field separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="175"/>
+        <source>,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="182"/>
+        <source>&amp;Text delimiter:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="192"/>
+        <source>&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="199"/>
+        <source>&amp;Encoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="206"/>
+        <source>&amp;Lines to skip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="220"/>
+        <source>UTF-8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="225"/>
+        <source>Latin1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="250"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="260"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KTinyMainWindow</name>
+    <message>
+        <location filename="mainwindow.ui" line="25"/>
+        <source>KTiny Erp Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="150"/>
+        <source>Requests:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="190"/>
+        <source>Read My Requests</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="209"/>
+        <source>Send New Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="239"/>
+        <source>&amp;Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="245"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="249"/>
+        <source>User &amp;Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="266"/>
+        <source>F&amp;orm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="302"/>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="306"/>
+        <source>&amp;Databases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="324"/>
+        <source>&amp;User</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="335"/>
+        <source>&amp;Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="340"/>
+        <source>&amp;Reports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="345"/>
+        <source>&amp;Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="407"/>
+        <source>&amp;Connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="424"/>
+        <source>&amp;Disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="432"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="440"/>
+        <source>&amp;New Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="448"/>
+        <source>&amp;Restore Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="456"/>
+        <source>&amp;Backup Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="464"/>
+        <source>&amp;Drop Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="472"/>
+        <source>&amp;Administrator Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="480"/>
+        <source>&amp;Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="488"/>
+        <source>&amp;Send Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="496"/>
+        <source>&amp;Read My Requests</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="504"/>
+        <source>&amp;Waiting Requests</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="512"/>
+        <source>&amp;New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="520"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="528"/>
+        <source>D&amp;uplicate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="536"/>
+        <source>&amp;Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="544"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="552"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="560"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="568"/>
+        <source>Switch &amp;View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="573"/>
+        <source>Open &amp;Menu Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="578"/>
+        <source>Next Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="583"/>
+        <source>Previous Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="591"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="596"/>
+        <source>View Access Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="604"/>
+        <source>Go To Resource ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="612"/>
+        <source>&amp;Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="620"/>
+        <source>&amp;Reload/Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="625"/>
+        <source>Repeat Latest Action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="633"/>
+        <source>Preview in PDF</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="641"/>
+        <source>Preview in Editor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="646"/>
+        <source>E&amp;xport Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="651"/>
+        <source>&amp;Import Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="659"/>
+        <source>&amp;Execute Plugins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="667"/>
+        <source>&amp;Contextual Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="672"/>
+        <source>&amp;Tips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="680"/>
+        <source>&amp;Keyboard Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="685"/>
+        <source>&amp;License</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="693"/>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="701"/>
+        <source>Full &amp;Text Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="709"/>
+        <source>Attachments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="717"/>
+        <source>Support Request</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="725"/>
+        <source>&amp;Form designer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="730"/>
+        <source>&amp;Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="735"/>
+        <source>User Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="740"/>
+        <source>TinyERP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="745"/>
+        <source>KTiny</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="750"/>
+        <source>Open Home Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LicenseDialog</name>
     <message>
         <location filename="license.ui" line="19"/>
         <source>Tiny ERP license</source>
@@ -135,7 +1038,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="license.ui" line="29"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            GNU GENERAL PUBLIC LICENSE&lt;/p&gt;
@@ -235,485 +1139,127 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="13"/>
-        <source>Create a new database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="70"/>
-        <source>&amp;New database name:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="123"/>
-        <source>C&amp;hange</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="141"/>
-        <source>(must not contain any special character)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="151"/>
-        <source>(use &apos;admin&apos;, if you did not change it)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="180"/>
-        <source>&amp;Super admin password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="209"/>
-        <source>&amp;Default language:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="225"/>
-        <source>&amp;Load demonstration data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="261"/>
-        <source>&amp;TinyERP server:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="21"/>
-        <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="42"/>
-        <source>Re&amp;move Export</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="71"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;All fields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="108"/>
-        <source>A&amp;dd</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="69"/>
-        <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="128"/>
-        <source>Remo&amp;ve all</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="151"/>
-        <source>&amp;Save list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="165"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Fields to export&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="184"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;&amp;amp;Options&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="200"/>
-        <source>Add &amp;field names</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="preferences.ui" line="13"/>
-        <source>Preferences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_selection.ui" line="19"/>
-        <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="56"/>
-        <source>Database created successfully!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="66"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="97"/>
-        <source>Connect &amp;now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="110"/>
-        <source>Connect &amp;later</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="21"/>
-        <source>Field &amp;Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="38"/>
-        <source>&amp;Domain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="55"/>
-        <source>Default &amp;value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="74"/>
-        <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="83"/>
-        <source>&amp;only for you</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="93"/>
-        <source>for all &amp;users</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="102"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Value applicable if:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="13"/>
-        <source>Full text search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="57"/>
-        <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="75"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="115"/>
-        <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="125"/>
-        <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="19"/>
-        <source>&lt;b&gt;Change your database adniminstration password&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="47"/>
-        <source>&amp;Server:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="55"/>
-        <source>&amp;Old password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="72"/>
-        <source>&amp;New password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="89"/>
-        <source>New password &amp;confirmation:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="gotoid.ui" line="13"/>
-        <source>Go To Id</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="gotoid.ui" line="21"/>
-        <source>&amp;Search Id:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="13"/>
-        <source>Choose database...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="25"/>
-        <source>Action here...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="64"/>
-        <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="74"/>
-        <source>&amp;Password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="91"/>
-        <source>&amp;Database:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="16"/>
-        <source>Import</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="32"/>
-        <source>All fields</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="59"/>
-        <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="79"/>
-        <source>Remo&amp;ve All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="102"/>
-        <source>Auto-&amp;detect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="122"/>
-        <source>Fields to import</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="141"/>
-        <source>File to &amp;import:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="165"/>
-        <source>&amp;Field separator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="175"/>
-        <source>,</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="182"/>
-        <source>&amp;Text delimiter:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="192"/>
-        <source>&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="199"/>
-        <source>&amp;Encoding</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="206"/>
-        <source>&amp;Lines to skip:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="220"/>
-        <source>UTF-8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="225"/>
-        <source>Latin1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="13"/>
-        <source>Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="19"/>
-        <source>Application Error !</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="33"/>
-        <source>&amp;Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="39"/>
-        <source>Application Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="63"/>
-        <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="70"/>
-        <source>View details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="107"/>
-        <source>Click on the Support Request tab if you need more help!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="118"/>
-        <source>De&amp;tails</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="128"/>
-        <source>S&amp;upport Request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="136"/>
-        <source>&lt;b&gt;Complete this form to submit your bug and/or request support.&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="146"/>
-        <source>Your request will be sent to Tiny ERP and we will replay you shortly.
-Note that we may not reply you if your Service Company is not a Tiny ERP partner.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="161"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Support contract &amp;amp;id&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="177"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Your &amp;amp;name:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="193"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Your &amp;amp;company:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="209"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Your &amp;amp;e-mail:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="225"/>
-        <source>&amp;Phone Number:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="238"/>
-        <source>E&amp;mergency:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="248"/>
-        <source>E&amp;xplain what you did:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="261"/>
-        <source>&amp;Other comments:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="275"/>
-        <source>Not Urgent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="280"/>
-        <source>Medium</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="285"/>
-        <source>Urgent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="290"/>
-        <source>Very Urgent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="315"/>
-        <source>&amp;Send support request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="34"/>
-        <source>&lt;b&gt;Could not connect tot database&lt;/b&gt;</source>
+        <location filename="license.ui" line="148"/>
+        <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Form</name>
+    <name>LinkWidget</name>
     <message>
-        <location filename="url.ui" line="19"/>
+        <location filename="link.ui" line="36"/>
+        <source>Select file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoginDialog</name>
+    <message>
+        <location filename="login.ui" line="22"/>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="89"/>
+        <source>&amp;Database:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="102"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="112"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="170"/>
+        <source>&amp;Password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="196"/>
+        <source>&amp;User:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="232"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="245"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="127"/>
+        <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ManyToManyWidget</name>
+    <message>
+        <location filename="many2many.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="42"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="58"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ManyToOneWidget</name>
+    <message>
+        <location filename="dia_form_win_many2one.ui" line="13"/>
+        <source>Tiny ERP - Link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dia_form_win_many2one.ui" line="54"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dia_form_win_many2one.ui" line="64"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="48"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="67"/>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="86"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OneToManyWidget</name>
+    <message>
+        <location filename="one2many.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -723,607 +1269,302 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="89"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;New&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="one2many.ui" line="111"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Edit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="one2many.ui" line="133"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Remove&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="one2many.ui" line="179"/>
+        <location filename="one2many.ui" line="161"/>
         <source>Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="204"/>
+        <location filename="one2many.ui" line="186"/>
         <source>(0/0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="220"/>
+        <location filename="one2many.ui" line="202"/>
         <source>Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="paned.ui" line="124"/>
+        <location filename="one2many.ui" line="230"/>
         <source>Switch View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="66"/>
-        <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reference.ui" line="73"/>
+        <location filename="one2many.ui" line="89"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="one2many.ui" line="108"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="127"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PanedWidget</name>
+    <message>
+        <location filename="paned.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="49"/>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="83"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="99"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="115"/>
+        <source>Switch View</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PreferencesDialog</name>
+    <message>
+        <location filename="preferences.ui" line="13"/>
+        <source>Preferences</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="preferences.ui" line="34"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="preferences.ui" line="44"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProgressDialog</name>
+    <message>
+        <location filename="progress.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="44"/>
+        <source>Operation in progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="57"/>
+        <source>Please wait, 
+this operation may take a while...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ReferenceWidget</name>
+    <message>
+        <location filename="reference.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="48"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="64"/>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="80"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RichTextWidget</name>
+    <message>
+        <location filename="richtext.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="41"/>
+        <source>Bold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="69"/>
+        <source>Italics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="97"/>
+        <source>Underline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="125"/>
+        <source>Strikethrough</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="160"/>
+        <source>Left Justify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="188"/>
+        <source>Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="216"/>
+        <source>Right Justify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="244"/>
+        <source>Justify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="315"/>
+        <source>Select font</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="328"/>
+        <source>Select font size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="279"/>
+        <source>Foreground Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="298"/>
+        <source>Background color</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchDateWidget</name>
+    <message>
+        <location filename="search_date.ui" line="25"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="52"/>
+        <source>Choose a date from a calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="76"/>
+        <source>-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="104"/>
+        <source>Choose the date from a calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchFormWidget</name>
+    <message>
+        <location filename="searchform.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="searchform.ui" line="82"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="searchform.ui" line="92"/>
+        <source>&amp;Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchReferenceWidget</name>
+    <message>
+        <location filename="searchreference.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchViewItemWidget</name>
+    <message>
+        <location filename="searchviewitem.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="searchviewitem.ui" line="152"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchWidget</name>
     <message>
         <location filename="win_search.ui" line="13"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="50"/>
-        <source>Bold</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="78"/>
-        <source>Italics</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="106"/>
-        <source>Underline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="134"/>
-        <source>Strikethrough</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="169"/>
-        <source>Left Justify</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="197"/>
-        <source>Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="225"/>
-        <source>Right Justify</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="253"/>
-        <source>Justify</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="288"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Foreground Color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="310"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Background color&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="330"/>
-        <source>Select font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="343"/>
-        <source>Select font size</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="61"/>
-        <source>Choose a date from a calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="113"/>
-        <source>Choose the date from a calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="url.ui" line="49"/>
-        <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="formcontainer.ui" line="76"/>
-        <source>State:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="calendar.ui" line="41"/>
-        <source>Open Calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="many2many.ui" line="60"/>
-        <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="many2many.ui" line="76"/>
-        <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_search.ui" line="95"/>
+        <location filename="win_search.ui" line="68"/>
         <source>&amp;Find</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_search.ui" line="105"/>
+        <location filename="win_search.ui" line="78"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_search.ui" line="115"/>
-        <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="searchform.ui" line="91"/>
-        <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="searchform.ui" line="101"/>
-        <source>&amp;Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="paned.ui" line="58"/>
-        <source>Title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reference.ui" line="57"/>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="85"/>
-        <source>-</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Login</name>
-    <message>
-        <location filename="login.ui" line="22"/>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="108"/>
-        <source>&amp;Database:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="121"/>
-        <source>C&amp;hange</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="131"/>
-        <source>&amp;Server:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="146"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Could not connect to server !&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="204"/>
-        <source>&amp;Password:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="230"/>
-        <source>&amp;User:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="275"/>
-        <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="288"/>
+        <location filename="win_search.ui" line="88"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>MainWindow</name>
+    <name>SelectionDialog</name>
     <message>
-        <location filename="mainwindow.ui" line="25"/>
-        <source>KTiny Erp Client</source>
+        <location filename="win_selection.ui" line="13"/>
+        <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="169"/>
-        <source>Requests:</source>
+        <location filename="win_selection.ui" line="19"/>
+        <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="218"/>
-        <source>Read My Requests</source>
+        <location filename="win_selection.ui" line="44"/>
+        <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="237"/>
-        <source>Send New Request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="267"/>
-        <source>&amp;Plugins</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="273"/>
-        <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="277"/>
-        <source>User &amp;Manual</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="294"/>
-        <source>F&amp;orm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="330"/>
-        <source>&amp;File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="334"/>
-        <source>&amp;Databases</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="352"/>
-        <source>&amp;User</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="363"/>
-        <source>&amp;Actions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="427"/>
-        <source>&amp;Connect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="444"/>
-        <source>&amp;Disconnect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="452"/>
-        <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="460"/>
-        <source>&amp;New Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="468"/>
-        <source>&amp;Restore Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="476"/>
-        <source>&amp;Backup Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="484"/>
-        <source>&amp;Drop Database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="492"/>
-        <source>&amp;Administrator Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="500"/>
-        <source>&amp;Preferences</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="508"/>
-        <source>&amp;Send Request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="516"/>
-        <source>&amp;Read My Requests</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="524"/>
-        <source>&amp;Waiting Requests</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="532"/>
-        <source>&amp;New</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="540"/>
-        <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="548"/>
-        <source>D&amp;uplicate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="556"/>
-        <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="564"/>
-        <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="572"/>
-        <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="580"/>
-        <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="593"/>
-        <source>Open &amp;Menu Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="598"/>
-        <source>Next Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="603"/>
-        <source>Previous Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="611"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="616"/>
-        <source>View Access Log</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="624"/>
-        <source>Go To Resource ID</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="632"/>
-        <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="640"/>
-        <source>&amp;Reload/Undo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="645"/>
-        <source>Repeat Latest Action</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="653"/>
-        <source>Preview in PDF</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="661"/>
-        <source>Preview in Editor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="666"/>
-        <source>E&amp;xport Data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="671"/>
-        <source>&amp;Import Data</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="679"/>
-        <source>&amp;Execute Plugins</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="687"/>
-        <source>&amp;Contextual Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="692"/>
-        <source>&amp;Tips</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="700"/>
-        <source>&amp;Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="705"/>
-        <source>&amp;License</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="713"/>
-        <source>&amp;About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="721"/>
-        <source>Full &amp;Text Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="16"/>
-        <source>Attachments</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="737"/>
-        <source>Support Request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="745"/>
-        <source>&amp;Form designer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="750"/>
-        <source>&amp;Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="755"/>
-        <source>User Manual</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="760"/>
-        <source>TinyERP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="765"/>
-        <source>KTiny</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="770"/>
-        <source>Open Home Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="24"/>
-        <source>toolBar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="48"/>
-        <source>New</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="56"/>
-        <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="64"/>
-        <source>Next</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="72"/>
-        <source>Previous</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="80"/>
-        <source>Switch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="88"/>
-        <source>Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="96"/>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="368"/>
-        <source>&amp;Reports</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="373"/>
-        <source>&amp;Browse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="588"/>
-        <source>Switch &amp;View</source>
+        <location filename="win_selection.ui" line="57"/>
+        <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1335,425 +1576,378 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="23"/>
+        <location filename="shortcuts.ui" line="31"/>
         <source>&amp;Main Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="29"/>
+        <location filename="shortcuts.ui" line="37"/>
         <source>&lt;center&gt;&lt;b&gt;Shortcuts for TinyERP&lt;/b&gt;&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="38"/>
+        <location filename="shortcuts.ui" line="46"/>
         <source>&lt;Ctrl&gt; + O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="45"/>
+        <location filename="shortcuts.ui" line="53"/>
         <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="52"/>
+        <location filename="shortcuts.ui" line="60"/>
         <source>&lt;Ctrl&gt; + N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="59"/>
+        <location filename="shortcuts.ui" line="67"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="66"/>
+        <location filename="shortcuts.ui" line="74"/>
         <source>&lt;Ctrl&gt; + S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="73"/>
+        <location filename="shortcuts.ui" line="81"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="80"/>
+        <location filename="shortcuts.ui" line="88"/>
         <source>&lt;Ctrl&gt; + D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="87"/>
+        <location filename="shortcuts.ui" line="95"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="94"/>
+        <location filename="shortcuts.ui" line="102"/>
         <source>&lt;Ctrl&gt; + F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="101"/>
+        <location filename="shortcuts.ui" line="109"/>
         <source>Find / Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="108"/>
+        <location filename="shortcuts.ui" line="116"/>
         <source>&lt;Ctrl&gt; + T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="115"/>
+        <location filename="shortcuts.ui" line="123"/>
         <source>Full Text Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="122"/>
+        <location filename="shortcuts.ui" line="130"/>
         <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="129"/>
+        <location filename="shortcuts.ui" line="137"/>
         <source>Previous Record</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="136"/>
+        <location filename="shortcuts.ui" line="144"/>
         <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="143"/>
+        <location filename="shortcuts.ui" line="151"/>
         <source>Next record</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="150"/>
+        <location filename="shortcuts.ui" line="158"/>
         <source>&lt;Ctrl&gt; + L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="157"/>
+        <location filename="shortcuts.ui" line="165"/>
         <source>Switch view mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="164"/>
+        <location filename="shortcuts.ui" line="172"/>
         <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="171"/>
+        <location filename="shortcuts.ui" line="179"/>
         <source>Previous tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="178"/>
+        <location filename="shortcuts.ui" line="186"/>
         <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="185"/>
+        <location filename="shortcuts.ui" line="193"/>
         <source>Next tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="192"/>
+        <location filename="shortcuts.ui" line="200"/>
         <source>&lt;Ctrl&gt; + W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="419"/>
+        <location filename="shortcuts.ui" line="437"/>
         <source>Close tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="206"/>
+        <location filename="shortcuts.ui" line="214"/>
         <source>F5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="213"/>
+        <location filename="shortcuts.ui" line="221"/>
         <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="412"/>
+        <location filename="shortcuts.ui" line="430"/>
         <source>Middle mouse click on Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="220"/>
+        <location filename="shortcuts.ui" line="228"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="227"/>
+        <location filename="shortcuts.ui" line="235"/>
         <source>Duplicate Record</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="236"/>
+        <location filename="shortcuts.ui" line="244"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="245"/>
+        <location filename="shortcuts.ui" line="253"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="252"/>
+        <location filename="shortcuts.ui" line="260"/>
         <source>Save and close window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="259"/>
+        <location filename="shortcuts.ui" line="267"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="266"/>
+        <location filename="shortcuts.ui" line="274"/>
         <source>Close window without saving</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="276"/>
+        <location filename="shortcuts.ui" line="292"/>
         <source>&amp;Edition Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="400"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Shortcuts in text entries&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="294"/>
+        <location filename="shortcuts.ui" line="307"/>
         <source>Cut selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="301"/>
+        <location filename="shortcuts.ui" line="314"/>
         <source>Copy selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="308"/>
+        <location filename="shortcuts.ui" line="321"/>
         <source>Paste selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="315"/>
+        <location filename="shortcuts.ui" line="328"/>
         <source>Next editable widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="322"/>
+        <location filename="shortcuts.ui" line="335"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="329"/>
+        <location filename="shortcuts.ui" line="342"/>
         <source>Previous editable widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="336"/>
+        <location filename="shortcuts.ui" line="349"/>
         <source>&lt;Enter&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="343"/>
+        <location filename="shortcuts.ui" line="356"/>
         <source>Auto-complete text field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="350"/>
+        <location filename="shortcuts.ui" line="363"/>
         <source>&lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="357"/>
+        <location filename="shortcuts.ui" line="370"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="364"/>
+        <location filename="shortcuts.ui" line="377"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="371"/>
+        <location filename="shortcuts.ui" line="384"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="474"/>
+        <location filename="shortcuts.ui" line="492"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="394"/>
+        <location filename="shortcuts.ui" line="415"/>
         <source>&amp;Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="426"/>
+        <location filename="shortcuts.ui" line="444"/>
         <source>&lt;Ctrl&gt; + Switch View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="433"/>
+        <location filename="shortcuts.ui" line="451"/>
         <source>Open Form View in new Tab</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>change_server</name>
     <message>
-        <location filename="change_server.ui" line="19"/>
-        <source>Server</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="40"/>
-        <source>Connect to a Tiny ERP Server</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="81"/>
-        <source>&amp;Server:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="100"/>
-        <source>&amp;Port:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="151"/>
-        <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="182"/>
-        <source>&amp;Cancel</source>
+        <location filename="shortcuts.ui" line="421"/>
+        <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dia_form_win_many2one</name>
-    <message>
-        <location filename="dia_form_win_many2one.ui" line="13"/>
-        <source>Tiny ERP - Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dia_form_win_many2one.ui" line="81"/>
-        <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dia_form_win_many2one.ui" line="91"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>tip</name>
+    <name>TipsDialog</name>
     <message>
         <location filename="tip.ui" line="13"/>
         <source>Tip of the Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="60"/>
+        <location filename="tip.ui" line="51"/>
         <source>&amp;Display a new tip next time ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="104"/>
+        <location filename="tip.ui" line="77"/>
         <source>&amp;Previous Tip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="114"/>
+        <location filename="tip.ui" line="87"/>
         <source>&amp;Next Tip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="139"/>
+        <location filename="tip.ui" line="112"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>tree</name>
+    <name>TranslationDialog</name>
+    <message>
+        <location filename="translationdialog.ui" line="13"/>
+        <source>Translation dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="47"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="57"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TreeWidget</name>
     <message>
         <location filename="tree.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="88"/>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Shortcuts&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="tree.ui" line="104"/>
+        <location filename="tree.ui" line="83"/>
         <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="123"/>
+        <location filename="tree.ui" line="102"/>
         <source>Go</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="142"/>
+        <location filename="tree.ui" line="121"/>
         <source>Remove Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="164"/>
+        <location filename="tree.ui" line="143"/>
         <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="70"/>
+        <source>&lt;b&gt;Shortcuts&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>widget</name>
+    <name>UrlWidget</name>
     <message>
-        <location filename="searchviewitem.ui" line="19"/>
+        <location filename="url.ui" line="19"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchviewitem.ui" line="72"/>
-        <source>font: italic;</source>
+        <location filename="url.ui" line="40"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WebWidget</name>
+    <message>
+        <location filename="web.ui" line="13"/>
+        <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchviewitem.ui" line="170"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="searchviewitem.ui" line="98"/>
-        <source>font: bold;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="searchviewitem.ui" line="120"/>
-        <source>color: blue;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="searchviewitem.ui" line="166"/>
-        <source>color: gray;
-font: italic;</source>
+        <location filename="web.ui" line="23"/>
+        <source>about:blank</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

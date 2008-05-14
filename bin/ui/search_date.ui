@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>Form</class>
- <widget class="QWidget" name="Form" >
+ <class>SearchDateWidget</class>
+ <widget class="QWidget" name="SearchDateWidget" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -28,16 +28,7 @@
    <property name="spacing" >
     <number>3</number>
    </property>
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>
@@ -61,7 +52,7 @@
         <string>Choose a date from a calendar</string>
        </property>
        <property name="styleSheet" >
-        <string/>
+        <string notr="true" />
        </property>
        <property name="text" >
         <string/>

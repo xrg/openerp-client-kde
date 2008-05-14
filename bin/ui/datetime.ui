@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>DateTime</class>
- <widget class="QWidget" name="DateTime" >
+ <class>DateTimeWidget</class>
+ <widget class="QWidget" name="DateTimeWidget" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -16,21 +16,12 @@
    </size>
   </property>
   <property name="styleSheet" >
-   <string>#DateTime{
+   <string notr="true" >#DateTime{
 border: 1px solid black;
 }</string>
   </property>
   <layout class="QVBoxLayout" >
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP Client 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-20 12:22+0200\n"
+"POT-Creation-Date: 2008-05-14 13:33+0200\n"
 "PO-Revision-Date: 2008-03-24 16:21+0100\n"
 "Last-Translator: Udo Spallek <udono@gmx.net>\n"
 "Language-Team: DE <i18n-info@tinyerp.org>\n"
@@ -53,7 +53,7 @@ msgstr "Servername oder -adresse fehlt."
 msgid "specify stylesheet to apply"
 msgstr "Log channel fehlt."
 
-#: bin/ktiny.py:74
+#: bin/ktiny.py:75
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr "Kann Datenbank nicht erstellen."
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:519
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:537
 msgid "Bad database administrator password !"
 msgstr "Falsches Passwort für den Datenbankadministrator!"
 
@@ -172,7 +172,7 @@ msgstr ""
 "Der Datenbankname darf nur alphanumerische Zeichen enthalten und \"_\".\n"
 "Akzente, Umlaute, Leer- oder Sonderzeichen sind zu Vermeiden."
 
-#: bin/modules/gui/main.py:85 bin/modules/gui/main.py:344
+#: bin/modules/gui/main.py:85 bin/modules/gui/main.py:362
 msgid "Press Ctrl+O to login"
 msgstr "Strg-O drücken zum Anmelden"
 
@@ -180,45 +180,54 @@ msgstr "Strg-O drücken zum Anmelden"
 msgid "Close tab"
 msgstr "Tab Schließen"
 
-#: bin/modules/gui/main.py:265
+#: bin/modules/gui/main.py:275
 #, python-format
 msgid "%s request(s)"
 msgstr "%s Anfragen(n)"
 
-#: bin/modules/gui/main.py:267
+#: bin/modules/gui/main.py:277
 msgid "No request"
 msgstr "Keine Anfrage"
 
-#: bin/modules/gui/main.py:269
+#: bin/modules/gui/main.py:279
 #, python-format
 msgid " - %s pending request(s)"
 msgstr "- %s offene Anfrage(n)"
 
-#: bin/modules/gui/main.py:323 bin/modules/gui/main.py:325
+#: bin/modules/gui/main.py:285
+#, fuzzy
+msgid "New Request"
+msgstr "Keine Anfrage"
+
+#: bin/modules/gui/main.py:285
+msgid "You've received a new request"
+msgstr ""
+
+#: bin/modules/gui/main.py:341 bin/modules/gui/main.py:343
 msgid "Connection error !"
 msgstr "Verbindungsfehler!"
 
-#: bin/modules/gui/main.py:323
+#: bin/modules/gui/main.py:341
 msgid "Unable to connect to the server !"
 msgstr "Keine Verbindung zum Server möglich!"
 
-#: bin/modules/gui/main.py:325
+#: bin/modules/gui/main.py:343
 msgid "Bad username or password !"
 msgstr "Falscher Benutzername oder Kennwort!"
 
-#: bin/modules/gui/main.py:329
+#: bin/modules/gui/main.py:347
 msgid "Connection Error !"
 msgstr "Verbindungsfehler!"
 
-#: bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:361
 msgid "Not logged !"
 msgstr "Nicht angemeldet!"
 
-#: bin/modules/gui/main.py:412
+#: bin/modules/gui/main.py:430
 msgid "Access denied"
 msgstr "Zugriff verweigert"
 
-#: bin/modules/gui/main.py:412
+#: bin/modules/gui/main.py:430
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -228,67 +237,67 @@ msgstr ""
 "Problem: Es wurde keine Aktion für den Benutzer definiertFragen Sie ihren "
 "Administrator."
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:455
 msgid "Quit"
 msgstr "Beenden"
 
-#: bin/modules/gui/main.py:437
+#: bin/modules/gui/main.py:455
 msgid "Do you really want to quit ?"
 msgstr "Möchten Sie Tiny ERP wirklich beenden?"
 
-#: bin/modules/gui/main.py:437 bin/widget/model/treemodel.py:265
+#: bin/modules/gui/main.py:455 bin/widget/model/treemodel.py:265
 msgid "Yes"
 msgstr "Ja"
 
-#: bin/modules/gui/main.py:437 bin/widget/model/treemodel.py:267
+#: bin/modules/gui/main.py:455 bin/widget/model/treemodel.py:267
 msgid "No"
 msgstr "Nein"
 
-#: bin/modules/gui/main.py:506 bin/modules/gui/main.py:527
+#: bin/modules/gui/main.py:524 bin/modules/gui/main.py:545
 msgid "Delete a database"
 msgstr "Eine Datenbank löschen"
 
-#: bin/modules/gui/main.py:515 bin/modules/gui/main.py:521
+#: bin/modules/gui/main.py:533 bin/modules/gui/main.py:539
 msgid "Database removal"
 msgstr "Datenbank entfernen"
 
-#: bin/modules/gui/main.py:515
+#: bin/modules/gui/main.py:533
 msgid "Database dropped successfully!"
 msgstr "Datenbank wurde erfolgreich entfernt!"
 
-#: bin/modules/gui/main.py:519
+#: bin/modules/gui/main.py:537
 msgid "Could not drop database."
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: bin/modules/gui/main.py:521
+#: bin/modules/gui/main.py:539
 msgid "Couldn't drop database"
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: bin/modules/gui/main.py:538
+#: bin/modules/gui/main.py:556
 msgid "Database restored successfully!"
 msgstr "Datenbank wurde erfolgreich zurückgespeichert!"
 
-#: bin/modules/gui/main.py:542
-msgid "Could not resotre database"
-msgstr "Kann Datenbank nicht zurückspeichern!"
-
-#: bin/modules/gui/main.py:542
-msgid "Bad database administrator password!"
-msgstr "Falsches Administratorpasswort für die Datenbank!"
-
-#: bin/modules/gui/main.py:544
+#: bin/modules/gui/main.py:560 bin/modules/gui/main.py:562
 msgid "Could not restore database"
 msgstr "Kann Datenbank nicht zurückspeichern!"
 
-#: bin/modules/gui/main.py:547
+#: bin/modules/gui/main.py:560
+msgid "Bad database administrator password!"
+msgstr "Falsches Administratorpasswort für die Datenbank!"
+
+#: bin/modules/gui/main.py:562
+msgid "There was an error restoring the database!"
+msgstr ""
+
+#: bin/modules/gui/main.py:565
 msgid "Backup a database"
 msgstr "Datenbank sichern"
 
-#: bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:580
 msgid "Database backuped successfully!"
 msgstr "Datenbank erfolgreich gesichert!"
 
-#: bin/modules/gui/main.py:565
+#: bin/modules/gui/main.py:583
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -338,7 +347,7 @@ msgstr "Besitzer Gruppe"
 msgid "Access Level"
 msgstr "Zugriffslevel"
 
-#: bin/modules/gui/window/form.py:202 bin/modules/gui/window/form.py:343
+#: bin/modules/gui/window/form.py:202 bin/modules/gui/window/form.py:345
 #: bin/widget/view/form/button.py:30
 msgid "Question"
 msgstr "Frage"
@@ -367,40 +376,40 @@ msgstr "Dokument gespeichert!"
 msgid "Invalid form !"
 msgstr "Formular ungültig!"
 
-#: bin/modules/gui/window/form.py:300
+#: bin/modules/gui/window/form.py:302
 msgid "No record selected!"
 msgstr "Kein Datensatz ausgewählt!"
 
-#: bin/modules/gui/window/form.py:318
+#: bin/modules/gui/window/form.py:320
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s Anhänge)"
 
-#: bin/modules/gui/window/form.py:323
+#: bin/modules/gui/window/form.py:325
 #, fuzzy
 msgid "No records"
 msgstr "Kein Datensatz ausgewählt"
 
-#: bin/modules/gui/window/form.py:330
+#: bin/modules/gui/window/form.py:332
 #, fuzzy
 msgid "No document selected"
 msgstr "Keine Ressource ausgewählt!"
 
-#: bin/modules/gui/window/form.py:334
+#: bin/modules/gui/window/form.py:336
 msgid "New document"
 msgstr "Neues Dokument"
 
-#: bin/modules/gui/window/form.py:336
+#: bin/modules/gui/window/form.py:338
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Bearbeite Dokument (id: %s)"
 
-#: bin/modules/gui/window/form.py:337
+#: bin/modules/gui/window/form.py:339
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Datensatz: %(name)s / %(count)s - %(name2)s"
 
-#: bin/modules/gui/window/form.py:343
+#: bin/modules/gui/window/form.py:345
 msgid "This record has been modified do you want to save it?"
 msgstr "Der Datensatz wurde verändert. Möchten Sie die Änderungen speichern?"
 
@@ -426,18 +435,18 @@ msgstr ""
 msgid "Tree"
 msgstr "Baum"
 
-#: bin/modules/gui/window/win_export.py:48
+#: bin/modules/gui/window/win_export.py:49
 msgid "TinyERP exported information"
 msgstr "Exportierte Tiny ERP Information"
 
-#: bin/modules/gui/window/win_export.py:66
-#: bin/modules/gui/window/win_export.py:86
+#: bin/modules/gui/window/win_export.py:67
+#: bin/modules/gui/window/win_export.py:85
 #, python-format
 msgid "%s record(s) saved!"
 msgstr "%s Datensätze gespeichert"
 
-#: bin/modules/gui/window/win_export.py:68
-#: bin/modules/gui/window/win_export.py:88
+#: bin/modules/gui/window/win_export.py:69
+#: bin/modules/gui/window/win_export.py:87
 #, python-format
 msgid ""
 "Operation failed !\n"
@@ -446,17 +455,32 @@ msgstr ""
 "Vorgang fehlgeschlagen:\n"
 "Ein-/Ausgabe Fehler (%s)"
 
+#: bin/modules/gui/window/win_export.py:85
+#: bin/modules/gui/window/win_export.py:87
+#: bin/modules/gui/window/win_export.py:89
+msgid "Data Export"
+msgstr ""
+
+#: bin/modules/gui/window/win_export.py:89
+#, fuzzy
+msgid "Error exporting data."
+msgstr "Fehler beim Importieren der Datei!"
+
 #: bin/modules/gui/window/win_export.py:111
 msgid "Error opening Excel !"
 msgstr "Fehler beim Öffnen von Excel!"
 
-#: bin/modules/gui/window/win_export.py:113
-msgid ""
-"Function only available for MS Office !\n"
-"Sorry, OOo users :("
+#: bin/modules/gui/window/win_export.py:133
+msgid "Open with Excel"
 msgstr ""
-"Diese Funktion ist nur mit MS Office verfügbar!\n"
-"Sorry, OpenOffice.org Benutzer :-("
+
+#: bin/modules/gui/window/win_export.py:135
+msgid "Save as CSV"
+msgstr ""
+
+#: bin/modules/gui/window/win_export.py:136
+msgid "Save as HTML"
+msgstr ""
 
 #: bin/modules/gui/window/win_export.py:192
 msgid "Export Data"
@@ -752,6 +776,16 @@ msgstr "Bericht"
 #: bin/widget/view/form/translationdialog.py:41
 msgid "Translation Dialog"
 msgstr "Übersetzungsdialog"
+
+#~ msgid "Could not resotre database"
+#~ msgstr "Kann Datenbank nicht zurückspeichern!"
+
+#~ msgid ""
+#~ "Function only available for MS Office !\n"
+#~ "Sorry, OOo users :("
+#~ msgstr ""
+#~ "Diese Funktion ist nur mit MS Office verfügbar!\n"
+#~ "Sorry, OpenOffice.org Benutzer :-("
 
 #, fuzzy
 #~ msgid "True"

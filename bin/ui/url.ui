@@ -1,12 +1,12 @@
 <ui version="4.0" >
- <class>Form</class>
- <widget class="QWidget" name="Form" >
+ <class>UrlWidget</class>
+ <widget class="QWidget" name="UrlWidget" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
     <width>311</width>
-    <height>25</height>
+    <height>26</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -22,16 +22,7 @@
    <property name="spacing" >
     <number>5</number>
    </property>
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>

@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog" >
+ <class>SelectionDialog</class>
+ <widget class="QDialog" name="SelectionDialog" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -30,7 +30,7 @@
        <property name="orientation" >
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>40</width>
          <height>20</height>
@@ -72,7 +72,7 @@
   <connection>
    <sender>pushCancel</sender>
    <signal>clicked()</signal>
-   <receiver>Dialog</receiver>
+   <receiver>SelectionDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel" >

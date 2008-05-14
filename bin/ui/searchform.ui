@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>Form</class>
- <widget class="QWidget" name="Form" >
+ <class>SearchFormWidget</class>
+ <widget class="QWidget" name="SearchFormWidget" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -16,16 +16,7 @@
    <property name="spacing" >
     <number>-1</number>
    </property>
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>
@@ -38,7 +29,7 @@
        <property name="sizeType" >
         <enum>QSizePolicy::Preferred</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>20</width>
          <height>0</height>
@@ -75,7 +66,7 @@
        <property name="sizeType" >
         <enum>QSizePolicy::Preferred</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0" >
         <size>
          <width>20</width>
          <height>0</height>

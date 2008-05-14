@@ -1,6 +1,14 @@
 <ui version="4.0" >
- <class>Binary</class>
- <widget class="QWidget" name="Binary" >
+ <class>BinaryWidget</class>
+ <widget class="QWidget" name="BinaryWidget" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>209</width>
+    <height>28</height>
+   </rect>
+  </property>
   <property name="sizePolicy" >
    <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
     <horstretch>0</horstretch>
@@ -11,16 +19,7 @@
    <property name="spacing" >
     <number>5</number>
    </property>
-   <property name="leftMargin" >
-    <number>0</number>
-   </property>
-   <property name="topMargin" >
-    <number>0</number>
-   </property>
-   <property name="rightMargin" >
-    <number>0</number>
-   </property>
-   <property name="bottomMargin" >
+   <property name="margin" >
     <number>0</number>
    </property>
    <item>
