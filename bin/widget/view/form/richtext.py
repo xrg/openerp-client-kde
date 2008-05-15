@@ -198,7 +198,11 @@ class RichTextFormWidget(AbstractFormWidget):
 		return self.uiText
 
 	def store(self):
-		self.model.setValue(self.name, unicode( self.uiText.document().toHtml() ) or False )
+		# As the HTML returned can be different than the one we set in 
+		# showValue() even if the text hasn't been modified by the user
+		# we need to track modifications using QTextDocument property
+		if self.uiText.document().isModified():
+			self.model.setValue(self.name, unicode( self.uiText.document().toHtml() ) or False )
 
 	def clear(self):
 		self.uiText.setHtml('')
@@ -208,3 +212,7 @@ class RichTextFormWidget(AbstractFormWidget):
 		if not value:
 			value=''
 		self.uiText.setHtml( value )
+		# As the HTML returned can be different than the one we set in 
+		# showValue() even if the text hasn't been modified by the user
+		# we need to track modifications using QTextDocument property
+		self.uiText.document().setModified( False )
