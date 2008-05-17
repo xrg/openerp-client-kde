@@ -9,13 +9,6 @@ from string import *
 # not available
 modules = {}
 try:
-	from gamera.core import *
-	modules['gamera.core'] = True 
-except:
-	modules['gamera.core'] = False
-	print "Module 'gamera.core' is not available. Consider installing it for text recognition in images."
-
-try:
 	from pyaspell import *
 	modules['pyaspell'] = True
 except:
@@ -23,14 +16,8 @@ except:
 	print "Module 'pyaspell' is not available. Consider installing it if you want to use tesseract2 for text recognition in images."
 
 class Classifier:
-	def __init__(self):
-		if modules['gamera.core']:
-			init_gamera()
-
 	def ocr(self):
-		if not modules['gamera.core']:
-			return { 'text': '', 'language': 'en' }
-		return self.tesseract1()
+		return { 'text': self.tesseract2('en'), 'language': 'en' }
 
 	# This function uses tesseract2 instead of tesseract1
 	# The idea is to find out using brute force in which language
@@ -81,9 +68,7 @@ class Classifier:
 			return ''
 		try:
 			dir=tempfile.mkdtemp()
-			filename = dir + '/tmp.tiff'
-			self.onebit.save_tiff(filename)
-			os.spawnlp(os.P_WAIT, 'tesseract', 'tesseract', filename, dir + '/tesseract', '-l', langs[language] )
+			os.spawnlp(os.P_WAIT, 'tesseract', 'tesseract', self.file, dir + '/tesseract', '-l', langs[language] )
 			f=open(dir + '/tesseract.txt', 'r')
 			data = f.read()
 			shutil.rmtree(dir, True)
@@ -91,12 +76,11 @@ class Classifier:
 		except:
 			return ''
 
+	# Simply set the image we want to analyze. Note that tesseract
+	# can only open grayscale 8 bit depth TIF files with '.tif' 
+	# extension.
 	def prepareImage( self, file ):
-		if not modules['gamera.core']:
-			return
-		image = load_image(file)
-		grey = image.to_greyscale()
-		self.onebit = grey.otsu_threshold()
+		self.file = file 
 
 	def classify(self):
 		pass
