@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
 fi
 
 
-for i in 'full_text_search' 'smart_attach' 'maps' 'ktiny'; do
+for i in $(ls -1 | grep -v '*.sh'); do 
 	if [ -d "$i" ]; then
 		ln -s "$(pwd)/$i" "$1"
 	else
