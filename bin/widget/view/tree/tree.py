@@ -39,24 +39,50 @@ class TinyTreeView(QTreeView):
 	
 	def moveCursor(	self, action, modifiers ):
 		index = self.currentIndex()
+		if not index.isValid():
+			return QModelIndex()
 		row = index.row()
 		column = index.column()
-		if action == QAbstractItemView.MoveNext:
+		lastRow = index.model().rowCount() - 1
+		lastColumn = index.model().columnCount() - 1
+		if action == QAbstractItemView.MoveUp:
+			row -= 1
+		elif action == QAbstractItemView.MoveDown:
+			row += 1
+		elif action == QAbstractItemView.MoveLeft:
+			column -= 1
+		elif action == QAbstractItemView.MoveRight:
+			column += 1
+		elif action == QAbstractItemView.MoveHome:
+			if column == 0:
+				row = 0
+			else:
+				column = 0 
+		elif action == QAbstractItemView.MoveEnd:
+			if column == lastColumn:
+				row = lastRow
+			else:
+				column = lastColumn
+		elif action == QAbstractItemView.MovePageUp:
+			row -= 12 
+		elif action == QAbstractItemView.MovePageDown:
+			row += 12 
+		elif action == QAbstractItemView.MoveNext:
 			column += 1
 		elif action == QAbstractItemView.MovePrevious:
 			column -= 1
 
-		if column >= self.model().columnCount():
+		if column > lastColumn:
 			column = 0
 			row += 1
 		elif column < 0:
-			column = self.model().columnCount() - 1
+			column = lastColumn
 			row -= 1
 		if row < 0:
 			column = 0
 			row = 0
-		elif row >= self.model().rowCount():
-			row = self.model().rowCount() - 1
+		elif row > lastRow:
+			row = lastRow
 			column = 0
 		return self.model().createIndex( row, column, index.internalPointer() ) 
 
