@@ -1,6 +1,6 @@
 
 QTreeView#uiTree {
-	background: url('/home/albert/d/ktiny/trunk/nano-clients/requests/imgs/nan.png');
+	background: url('../nano-clients/requests/imgs/nan.png');
 	selection-background-color: rgba(40,40,40,50);
 	background-attachment: fixed;
 }
