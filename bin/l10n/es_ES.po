@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KTiny 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-14 13:33+0200\n"
+"POT-Creation-Date: 2008-05-18 23:22+0200\n"
 "PO-Revision-Date: 2005-22-05 09:43+0200\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bin/common/common.py:157 bin/common/common.py:185
+#: bin/common/common.py:157
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr "El cliente KDE de TinyERP no permite mandar peticiones de soporte"
 
@@ -51,7 +51,7 @@ msgstr "especifique el servidor ip/nombre"
 msgid "specify stylesheet to apply"
 msgstr "especifique la hoja de estilo a aplicar"
 
-#: bin/ktiny.py:75
+#: bin/ktiny.py:74
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."

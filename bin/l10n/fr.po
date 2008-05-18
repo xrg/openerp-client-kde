@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-14 13:33+0200\n"
+"POT-Creation-Date: 2008-05-18 23:22+0200\n"
 "PO-Revision-Date: 2006-11-06 00:15+0100\n"
 "Last-Translator: Luc Maurer <luc.maurer@camptocamp.com>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bin/common/common.py:157 bin/common/common.py:185
+#: bin/common/common.py:157
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr ""
 
@@ -52,7 +52,7 @@ msgstr "spécifier l'adresse serveur (nom/IP)"
 msgid "specify stylesheet to apply"
 msgstr "spécifier un canal à logger"
 
-#: bin/ktiny.py:75
+#: bin/ktiny.py:74
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
