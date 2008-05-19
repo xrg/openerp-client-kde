@@ -64,7 +64,7 @@ class Chart( QWidget ):
 
 		matplotlib.interactive(False)
 		color = str(self.palette().color( self.backgroundRole() ).name())
-		self._figure = Figure(figsize=(1,1), dpi=100, facecolor=color)
+		self._figure = Figure(figsize=(1,1), dpi=100, facecolor=color, edgecolor=color)
 		self._subplot = self._figure.add_subplot(111,axisbg='#eeeeee', alpha=0)
 		self._canvas = FigureCanvas(self._figure)
 
