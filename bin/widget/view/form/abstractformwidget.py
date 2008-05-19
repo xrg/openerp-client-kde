@@ -79,7 +79,7 @@ class AbstractFormWidget(QWidget):
 
 		# Some widgets might want to change their color set.
 		self.colors = {
-			'invalid'  : '#ffdddd', 
+			'invalid'  : '#FF6969',
 			'readonly' : '#e3e3e3', 
 			'required' : '#ddddff', 
 			'normal'   : 'white'
@@ -111,10 +111,10 @@ class AbstractFormWidget(QWidget):
 
 	def refresh(self):
 		self.setReadOnly(self.attrs.get('readonly', False))
-		if self.attrs.get('readonly', False):
-			self.setColor('readonly')
-		elif not self.attrs.get('valid', True):
+		if self.model and not self.model.isFieldValid( self.name ):
 			self.setColor('invalid')
+		elif self.attrs.get('readonly', False):
+			self.setColor('readonly')
 		elif self.attrs.get('required', False):
 			self.setColor('required')
 		else:
@@ -235,8 +235,6 @@ class AbstractFormWidget(QWidget):
 		self.showValue()
 	
 	def reset(self):
-		if 'valid' in self.attrs:
-			self.attrs['valid'] = True
 		self.refresh()
 
 	def load(self, model, state = 'draft' ):

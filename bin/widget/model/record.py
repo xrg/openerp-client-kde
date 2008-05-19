@@ -66,6 +66,7 @@ class ModelRecord(QObject):
 		self.state_attrs = {}
 		self.modified = False
 		self.modified_fields = {}
+		self.invalidFields = []
 		self.read_time = time.time()
 		for key,val in self.mgroup.mfields.items():
 			self.values[key] = val.create(self)
@@ -173,12 +174,26 @@ class ModelRecord(QObject):
 		name = self.rpc.name_get([self.id], rpc.session.context)[0]
 		return name
 
+	def setFieldValid(self, field, value):
+		if value:
+			if field in self.invalidFields:
+				self.invalidFields.remove( field )
+		else:
+			if not field in self.invalidFields:
+				self.invalidFields.append( field )
+
+	def isFieldValid(self, field):
+		if field in self.invalidFields:
+			return False
+		else:
+			return True
+
 	def setValidate(self):
 		change = self._check_load()
+		self.invalidFields = []
 		for fname in self.mgroup.mfields:			
-			field = self.mgroup.mfields[fname]
- 			change = change or not field.stateAttributes(self).get('valid', True)
-			field.stateAttributes(self)['valid'] = True
+			change = change or not self.isFieldValid( fname )
+			self.setFieldValid( fname, True )
 		if change:
 			self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self )
 		return change
@@ -188,17 +203,11 @@ class ModelRecord(QObject):
  		ok = True
  		for fname in self.mgroup.mfields:
  			if not self.mgroup.mfields[fname].validate(self):
-				self.mgroup.mfields[fname].attrs['valid']=False
+				self.setFieldValid( fname, False )
  				ok = False
+			else:
+				self.setFieldValid( fname, True )
  		return ok
-
-	def _invalidFields(self):
-		res = []
-		for fname, field in self.mgroup.mfields.items():
-			if not field.stateAttributes(self).get('valid', True):
-				res.append((fname, field.attrs['string']))
-		return dict(res)
-	invalid_fields = property(_invalidFields)
 
 	def context(self):
 		return self.mgroup.context
@@ -257,6 +266,10 @@ class ModelRecord(QObject):
 			self.read_time= time.time()
 			self.set(value)
 
+	# @brief Evaluates the string expression given by dom.
+	# Before passing the dom expression to rpc.session.evaluateExpression
+	# a context with 'current_date', 'time', 'context', 'active_id' and
+	# 'parent' (if applies) is prepared.
 	def evaluateExpression(self, dom, check_load=True):
 		if not isinstance(dom, basestring):
 			return dom

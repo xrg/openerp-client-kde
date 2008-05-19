@@ -78,7 +78,7 @@ class StringField(QObject):
 		if bool(int(self.stateAttributes(model).get('required', 0))):
 			if not model.values[self.name]:
 				ok=False
-		self.stateAttributes(model)['valid'] = ok
+		model.setFieldValid( self.name, ok )
 		return ok
 
 	## Stores the value from the server
@@ -113,16 +113,6 @@ class StringField(QObject):
 	def create(self, model):
 		return False
 
-	def setStateAttributes(self, model, state='draft'):
-		state_changes = dict(self.attrs.get('states',{}).get(state,[]))
-		for key in ('readonly', 'required'):
-			if key in state_changes:
-				self.stateAttributes(model)[key] = state_changes[key]
-			else:
-				self.stateAttributes(model)[key] = self.attrs[key]
-		if 'value' in state_changes:
-			self.set(model, value, test_state=False, modified=True)
-	
 	def stateAttributes(self, model):
 		if self.name not in model.state_attrs:
 			model.state_attrs[self.name] = self.attrs.copy()
@@ -135,7 +125,7 @@ class SelectionField(StringField):
 
 class FloatField(StringField):
 	def validate(self, model):
-		self.stateAttributes(model)['valid'] = True
+		model.setFieldValid( self.name, True )
 		return True
 
 	def set_client(self, model, value, test_state=True):
@@ -154,7 +144,7 @@ class IntegerField(StringField):
 		return model.values[self.name] or 0
 
 	def validate(self, model):
-		self.stateAttributes(model)['valid'] = True
+		model.setFieldValid( self.name, True )
 		return True
 
 
@@ -259,7 +249,7 @@ class ToManyField(StringField):
 					ok = False
 		if not super(ToManyField, self).validate(model):
 			ok = False
-		self.stateAttributes(model)['valid'] = ok
+		model.setFieldValid( self.name, ok )
 		return ok
 
 class OneToManyField(ToManyField):

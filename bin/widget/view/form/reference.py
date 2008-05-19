@@ -157,10 +157,8 @@ class ReferenceFormWidget(AbstractFormWidget):
 				#self.model.setValue(self.name, model, (id, name))
 			self.uiText.setText(name)
 			self.pushOpen.setIcon( QIcon(":/images/images/folder.png") )
-			self.setState('valid')
 		else:
 			self.uiText.clear()
 			self.uiModel.setCurrentIndex(-1)
 			self.pushOpen.setIcon( QIcon(":/images/images/find.png") )
-			self.setState('valid')
 

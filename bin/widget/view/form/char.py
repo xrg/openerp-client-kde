@@ -40,7 +40,11 @@ class CharFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, view, attrs)
 
 		self.widget = QLineEdit( self )
-		self.widget.setMaxLength( int( attrs.get( 'size',16 ) ) )
+		#self.widget.setMaxLength( int( attrs.get( 'size', 16 ) ) )
+		# In order to work properly with editable lists we don't set 
+		# a default maximum length
+		if 'size' in attrs:
+			self.widget.setMaxLength( int( attrs['size'] ) )
 		self.installPopupMenu( self.widget )
 		if attrs.get( 'invisible', False ):
 			self.widget.setEchoMode( QLineEdit.Password )

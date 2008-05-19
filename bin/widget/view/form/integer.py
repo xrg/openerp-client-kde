@@ -40,7 +40,6 @@ class IntegerFormWidget(AbstractFormWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
- 		self.setState('valid')
 		self.installPopupMenu( self.widget )
 
 	def calculate(self):

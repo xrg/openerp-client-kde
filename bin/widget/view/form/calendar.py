@@ -40,7 +40,6 @@ class DateFormWidget(AbstractFormWidget):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('calendar.ui'), self)
 		self.connect( self.pushCalendar, SIGNAL( "clicked()" ),self.showCalendar )
- 		self.setState('valid')
 		self.dateTime = False
 		self.connect( self.uiDate, SIGNAL('editingFinished()'), self.modified )
 		self.installPopupMenu( self.uiDate )
