@@ -41,14 +41,6 @@ import time
 from modules.gui.window.win_search import SearchDialog
 from abstractformwidget import *
 
-class LoadModelThread(QThread):
-	def run(self):
-		print "loading"
-		timer = QTime()
-		timer.start()
-		self.modelGroup.update()
-		print "loaded: ", unicode( timer.elapsed() )
-
 class ActionFormWidget(AbstractFormWidget):
 	def __init__(self,  parent, view, attrs={}):
 		AbstractFormWidget.__init__( self, parent, view, attrs )
@@ -82,24 +74,14 @@ class ActionFormWidget(AbstractFormWidget):
 				self.modelGroup = ModelRecordGroup( self.action['res_model'], context=self.context )
 				self.modelGroup.setDomain( self.domain )
 
-				QTimer.singleShot( 0, self.deferredStart )
 				# Try to make the impression that it loads faster...
-				#QTimer.singleShot( 0, self.createScreen )
+				QTimer.singleShot( 0, self.createScreen )
 			elif self.action['view_type']=='tree':
 				pass #TODO
 
-	def deferredStart(self):
-		loader = LoadModelThread(self)
-		loader.modelGroup = self.modelGroup
-		self.connect( loader, SIGNAL('finished()'), self.createScreen )
-		loader.start()
-
 	def createScreen(self):
-		print "printing"
-		timer = QTime()
-		timer.start()
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		#self.modelGroup.update()
+		self.modelGroup.update()
 		self.screen = Screen( self )
 		self.screen.setModelGroup( self.modelGroup )
 		#self.screen.setDomain( self.domain )
@@ -122,7 +104,6 @@ class ActionFormWidget(AbstractFormWidget):
 
 		self.setSizePolicy( QSizePolicy.Expanding , QSizePolicy.Expanding )
 		QApplication.restoreOverrideCursor()
-		print "printed: ", unicode( timer.elapsed() )
 
 
 	def sizeHint( self ):

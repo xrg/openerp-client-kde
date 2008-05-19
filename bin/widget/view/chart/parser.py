@@ -101,7 +101,7 @@ class ChartParser( AbstractParser ):
 		try:
 			_container = Chart( self.parent.current_model, axis, fields, axis_data, attrs,container)
 		except Exception, e:
-			common.error('Graph', _('Can not generate graph !'), details=str(e))
+			common.error(_('Graph'), _('Can not generate graph !'), details=unicode(e))
 			_container = EmptyGraph(model, axis, fields, axis_data, attrs,container)
 		return  _container, on_write
 

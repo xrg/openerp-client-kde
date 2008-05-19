@@ -62,8 +62,9 @@ class Chart( QWidget ):
 	def __init__(self, model, axis, fields, axis_data={}, attrs={},parent=None):
 		QWidget.__init__( self , parent ) 
 
+		matplotlib.interactive(False)
 		color = str(self.palette().color( self.backgroundRole() ).name())
-		self._figure = Figure(figsize=(50,50), dpi=100, facecolor=color)
+		self._figure = Figure(figsize=(1,1), dpi=100, facecolor=color)
 		self._subplot = self._figure.add_subplot(111,axisbg='#eeeeee', alpha=0)
 		self._canvas = FigureCanvas(self._figure)
 
@@ -97,13 +98,10 @@ class Chart( QWidget ):
 			for x in self.axis_data.keys():
 				if self.fields[x]['type'] in ('many2one', 'char','time','text','selection'):
 					res[x] = m.value(x) 
-					#str(m[x].get_client(m))
 				elif self.fields[x]['type'] == 'date':
-					#date = time.strptime(m[x].get_client(m), DT_FORMAT)
 					date = time.strptime(m.value(x), DT_FORMAT)
 					res[x] = time.strftime(locale.nl_langinfo(locale.D_FMT).replace('%y', '%Y'), date)
 				elif self.fields[x]['type'] == 'datetime':
-					#date = time.strptime(m[x].get_client(m), DHM_FORMAT)
 					date = time.strptime(m.value(x), DHM_FORMAT)
 					if 'tz' in rpc.session.context:
 						try:
@@ -118,10 +116,7 @@ class Chart( QWidget ):
 							pass
 					res[x] = time.strftime(locale.nl_langinfo(locale.D_FMT).replace('%y', '%Y')+' %H:%M:%S', date)
 				else:
-					#res[x] = float(m[x].get_client(m))
 					res[x] = float(m.value(x))
 			datas.append(res)
 		tinygraph.tinygraph(self._subplot, self.attrs.get('type', 'pie'), self.axis, self.axis_data, datas, axis_group_field=self.axis_group, orientation=self.attrs.get('orientation', 'vertical'))
-
-        	self._canvas.draw()
 		
