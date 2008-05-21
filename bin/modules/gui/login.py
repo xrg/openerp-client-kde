@@ -61,8 +61,10 @@ class LoginDialog( QDialog ):
 		dialog = askserver.AskServer( self )
 		dialog.setDefault( str( self.uiServer.text() ) )
 		dialog.exec_()
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.uiServer.setText( dialog.url )
 		self.refreshList()
+		QApplication.restoreOverrideCursor()
 
 	def slotAccept( self ):
 		m = QUrl( self.uiServer.text() )
