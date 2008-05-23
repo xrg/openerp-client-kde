@@ -18,6 +18,6 @@ for x in files:
 	print "Loading file: ", x 
 	fields = {}
 	fields['name'] = os.path.split(x)[1]
-	fields['datas'] = base64.encodestring(file(x).read())
+	fields['datas'] = base64.encodestring(open(x, 'rb').read())
 	rpc.session.execute('/object', 'execute', 'nan.document', 'create', fields )
 	
