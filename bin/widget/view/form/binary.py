@@ -102,7 +102,7 @@ class BinaryFormWidget(AbstractFormWidget):
 			filename = unicode(filename)
 			self.value = file(filename).read()
 			self.uiBinary.setText( _('%d bytes') % len(self.value) )
-			self.value = base64.encodestring(file(filename).read())
+			self.value = base64.encodestring(open(filename, 'rb').read())
 
 			self.modified()
 
