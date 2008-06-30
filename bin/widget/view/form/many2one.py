@@ -149,8 +149,8 @@ class ManyToOneFormWidget(AbstractFormWidget):
 	def setReadOnly(self, value):
 		self.uiText.setEnabled( not value )
 		self.pushNew.setEnabled( not value )
-		self.pushOpen.setEnabled( not value )
 		self.pushClear.setEnabled( not value )
+		self.pushOpen.setEnabled( not value )
 
 	def colorWidget(self):
 		return self.uiText
@@ -212,9 +212,15 @@ class ManyToOneFormWidget(AbstractFormWidget):
  		if res:
 			self.uiText.setText( res )
 			self.pushOpen.setIcon( QIcon( ":/images/images/folder.png"))
+			# pushOpen will always be enabled if it has to open an existing
+			# element
+			self.pushOpen.setEnabled( True )
  		else:
 			self.uiText.clear()
  			self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
+			# pushOpen won't be enabled if it is to find an element
+			self.pushOpen.setEnabled( not self.isReadOnly() )
+			
 
 	def menuEntries(self):
 		if not self.menuLoaded:
