@@ -157,7 +157,7 @@ class ManyToOneFormWidget(AbstractFormWidget):
 
 	def match(self):
 		name = unicode( self.uiText.text() )
-		if name.strip() == '':
+		if name.strip() == '' or name == self.model.value(self.name):
 			return
 		domain = self.model.domain( self.name )
 		context = self.model.context()
