@@ -32,13 +32,13 @@ from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
+from PyQt4.QtWebKit import *
 
 
 class WebFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		loadUi( common.uiPath('web.ui'), self )
-		self.installPopupMenu( self.uiWeb )
 
 	def store(self):
 		pass
@@ -50,7 +50,8 @@ class WebFormWidget(AbstractFormWidget):
 		self.uiWeb.setUrl(QUrl(self.model.value(self.name) or ''))
 
 	def setReadOnly(self, value):
-		self.uiWeb.setEnabled( not value )
+		# We always enable the browser so the user can use links.
+		self.uiWeb.setEnabled( True )
 
 # vim:noexpandtab:
 
