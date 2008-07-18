@@ -50,12 +50,7 @@ class ViewChart( AbstractView ) :
 		return None
 
  	def display(self, currentModel, models):
-		# Maybe we could not load the charts, due to some missing modules
-		# and thus we can't update it
-		try:
- 			self.widget.display(models)
-		except:
-			pass
+		self.widget.display(models)
 
 	def selectedIds(self):
 		return []

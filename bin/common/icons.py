@@ -37,7 +37,8 @@ mapIcons = {
 	'terp-mrp' : 'mrp.png',
 	'terp-sale' : 'sale.png',
 	'terp-administration' : 'administration.png',
-	'terp-project': 'clock.png'
+	'terp-project': 'clock.png',
+	'reload': 'reload.png'
 }
 
 ## @brief Returns a QIcon given an icon name. The name of the icon is usually a 

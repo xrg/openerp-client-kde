@@ -109,6 +109,40 @@ try:
 except:
 	pass
 
+class KeyboardWidget(QWidget):
+	def __init__(self, parent=None):
+		QWidget.__init__(self, parent)
+		from PyQt4.uic import loadUi
+		loadUi( common.uiPath('keyboard.ui'), self )
+		self.connect( self.pushEscape, SIGNAL('clicked()'), self.escape )
+		self.setWindowFlags( Qt.Popup )
+		self.setWindowModality( Qt.ApplicationModal )
+		pos = parent.mapToGlobal( parent.pos() )
+		self.move( pos.x(), pos.y() + parent.height() )
+		self.show()
+
+	def escape(self):
+		self.hide()
+
+class PosEventFilter(QObject):
+	def __init__(self, parent=None):
+		QObject.__init__(self, parent)
+		print "HOLA"
+
+	def eventFilter(self, obj, event):
+		if event.type() != QEvent.FocusIn:
+			return QObject.eventFilter( self, obj, event )
+
+		if obj.inherits( 'QLineEdit' ):
+			keyboard = KeyboardWidget( obj )
+			print "QLineEdit"
+		return QObject.eventFilter( self, obj, event )
+
+#app.installEventFilter( PosEventFilter(app) )
+
+
+
+
 localization.initializeQtTranslations()
 
 # Create DBUS interface if dbus modules are available.
@@ -140,9 +174,9 @@ class KTinyApi(api.TinyApi):
 		return modules.action.main.executeKeyword( keyword, data, context )
 
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
-			view_type='form', window=None, context=None, mode=None, name=False):
+			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
 		modules.gui.window.windowservice.createWindow( view_ids, model, res_id, domain, 
-			view_type, window, context, mode, name )
+			view_type, window, context, mode, name, autoReload )
 
 	def windowCreated(self, window):
 		win.addWindow( window )

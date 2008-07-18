@@ -115,7 +115,7 @@ def executeAction(action, datas, context={}):
 
 		api.instance.createWindow( view_ids, datas['res_model'], datas['res_id'], domain,
 				action['view_type'], datas.get('window',None), ctx,
-				datas['view_mode'], name=action.get('name', False) )
+				datas['view_mode'], name=action.get('name', False), autoReload=datas['auto_refresh']  )
 
 		#for key in tools.expr_eval(action.get('context', '{}')).keys():
 		#	del rpc.session.context[key]

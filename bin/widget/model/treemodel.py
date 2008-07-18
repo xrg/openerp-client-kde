@@ -184,7 +184,7 @@ class TreeModel(QAbstractItemModel):
 				else:
 					return 0
 
-			# If we get here it means tha we return the _real_ children
+			# If we get here it means that we return the _real_ children
 			fieldType = self.fieldType( parent.column(), parent.internalPointer() )
 			if fieldType in ['one2many', 'many2many']:
 				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
@@ -202,20 +202,9 @@ class TreeModel(QAbstractItemModel):
 		if self.mode == self.ListMode and parent.isValid() and parent.internalPointer() != self.group:
 			return 0
 
-		if parent.isValid():
-			#return len(parent.internalPointer().mfields)
-			return len(self.visibleFields)
-			fieldType = self.fieldType( parent.column(), parent.internalPointer() )
-			if fieldType in ['one2many', 'many2many']:
-				# We suppose all childs have the same number of columns.
-				# Note that trying to browse and search the number of fields of 
-				# the model group wouldn't work we'd have to addFields() as fields
-				# wouldn't be loaded. That would make the function slower.
-				return len(self.visibleFields)
-			else:
-				return 0
-		else:
-			return len(self.visibleFields)
+		# We always return all visibleFields. If the element should have no children then no
+		# rows will be returned. This way we avoid duplication of calculations.
+		return len(self.visibleFields)
 
 	def flags(self, index):
 		f = QAbstractItemModel.flags(self, index)	
@@ -229,7 +218,7 @@ class TreeModel(QAbstractItemModel):
 	def setData(self, index, value, role):
 		return True
 
-	def data(self, index, role):
+	def data(self, index, role=Qt.DisplayRole ):
 		if not self.group:
 			return QVariant()
 		if role == Qt.DisplayRole:

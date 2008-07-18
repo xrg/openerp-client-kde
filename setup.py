@@ -24,7 +24,7 @@ except:
 opj = os.path.join
 
 name = 'ktiny'
-version = '1.0.0-beta1'
+version = '1.0.0-beta2'
 
 # get python short version
 py_short_version = '%s.%s' % sys.version_info[:2]
@@ -137,7 +137,7 @@ setup(name             = name,
                           'ktiny.modules.gui',
                           'ktiny.modules.gui.window',
                           'ktiny.modules.gui.window.view_tree',
-                          'ktiny.modules.spool',
+                          'ktiny.modules',
                           'ktiny.printer', 
                           'ktiny.widget',
                           'ktiny.widget.model',
@@ -149,7 +149,7 @@ setup(name             = name,
                           'ktiny.widget_search',
 			  'ktiny.rpc',
 			  'ktiny.ui',
-			  'ktiny.tinygraph',
+			  'ktiny.tinychart',
                           'ktiny.plugins'] + list(find_plugins()),
       package_dir      = {'ktiny': 'bin'},
       provides         = [ 'ktiny' ]

@@ -35,7 +35,7 @@ import rpc
 
 
 def createWindow(view_ids, model, res_id=False, domain=None,
-		view_type='form', window=None, context=None, mode=None, name=False):
+		view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
 
 	if context is None:
 		context = {}
@@ -46,6 +46,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		win = form.form(model, res_id, domain, view_type=mode,
 				view_ids = (view_ids or []), 
 				context=context, name=name )
+		win.setAutoReload( autoReload )
 		api.instance.windowCreated( win )
 	elif view_type=='tree':
 		if view_ids and view_ids[0]:

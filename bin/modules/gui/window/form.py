@@ -133,6 +133,15 @@ class form( QWidget ):
 		self.updateStatus()
 		self.updateRecordStatus(-1,self.group.count(),None)
 
+		self.reloadTimer = QTimer(self)
+		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.reload )
+
+	def setAutoReload(self, value):
+		if value:
+			self.reloadTimer.start( int(value) * 1000 )
+		else:
+			self.reloadTimer.stop()
+
 	def setAllowOpenInNewWindow( self, value ):
 		self._allowOpenInNewWindow = value
 
@@ -353,7 +362,16 @@ class form( QWidget ):
 		return True
 
 	def canClose(self, urgent=False):
-		return self.modified_save()
+		# Store settings of all opened views before closing the tab.
+		self.screen.storeViewSettings()
+		if self.modified_save():
+			# Here suppose that if we return True the form/tab will
+			# actually be closed, so stop reload timer so it doesn't
+			# remain active if the object is leaked.
+			self.reloadTimer.stop()
+			return True
+		else:
+			return False
 
 	def actions(self):
 		return self.screen.actions

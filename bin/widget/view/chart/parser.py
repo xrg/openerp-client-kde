@@ -36,11 +36,7 @@ from common import common
 from chartview import *
 
 import sys
-try:
-	from chart import *
-	modules['chart'] = True
-except Exception, e:
-	errors['chart'] = e
+from chart import *
 
 from widget.view.abstractparser import *
 from widget.view.form.abstractformwidget import *
@@ -70,12 +66,7 @@ class ChartParser( AbstractParser ):
 		self.view.title = attrs.get('string', _('Unknown') )
 		self.view.model = self.parent.current_model
 
-		if 'chart' in modules:
-			widget, on_write = self.parse( self.parent.current_model, node, fields , self.view )
-		else:
-			widget = QLabel( _('<center><b>Could not load charts: %s</b></center>') % errors['chart'], self.view )
-			on_write = None
-
+		widget, on_write = self.parse( self.parent.current_model, node, fields , self.view )
 		self.view.setWidget( widget )
 
 		return self.view, on_write
@@ -87,23 +78,34 @@ class ChartParser( AbstractParser ):
 		on_write = '' 
 
 		axis = []
+		groups = []
 		axis_data = {}
 		for node in root_node.childNodes:
-			node_attrs = common.node_attributes(node)
 			if node.localName == 'field':
-				axis.append(str(node_attrs['name']))
+				node_attrs = common.node_attributes(node)
+				if node_attrs.get('group', False):
+					groups.append(str(node_attrs['name']))
+				else:
+					axis.append(str(node_attrs['name']))
 				axis_data[str(node_attrs['name'])] = node_attrs
 
 		#
 		# TODO: parse root_node to fill in axis
 		#
 
-		try:
-			_container = Chart( self.parent.current_model, axis, fields, axis_data, attrs,container)
-		except Exception, e:
-			common.error(_('Graph'), _('Can not generate graph !'), details=unicode(e))
-			_container = EmptyGraph(model, axis, fields, axis_data, attrs,container)
-		return  _container, on_write
+		chart = Chart( container )
+		chart.setModel( self.parent.current_model )
+		chart.setType( attrs.get('type', 'pie') )
+		chart.setAxis( axis )
+		chart.setGroups( groups )
+		chart.setFields( fields )
+		chart.setAxisData( axis_data )
+		if attrs.get('orientation', 'vertical') == 'vertical':
+			chart.setOrientation( Qt.Vertical )
+		else:
+			chart.setOrientation( Qt.Horizontal )
+
+		return chart, on_write
 
 
 # vim:noexpandtab:

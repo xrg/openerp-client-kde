@@ -1,0 +1,102 @@
+<ui version="4.0" >
+ <class>Form</class>
+ <widget class="QWidget" name="Form" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>643</width>
+    <height>421</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout" >
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout" >
+     <item>
+      <widget class="QCalendarWidget" name="calendarWidget" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="firstDayOfWeek" >
+        <enum>Qt::Monday</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushMonthlyView" >
+       <property name="text" >
+        <string>Monthly View</string>
+       </property>
+       <property name="checkable" >
+        <bool>true</bool>
+       </property>
+       <property name="checked" >
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushWeeklyView" >
+       <property name="text" >
+        <string>Weekly View</string>
+       </property>
+       <property name="checkable" >
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushDailyView" >
+       <property name="text" >
+        <string>Daily View</string>
+       </property>
+       <property name="checkable" >
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive" >
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer" >
+       <property name="orientation" >
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="CalendarView" name="calendarView" />
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CalendarView</class>
+   <extends>QGraphicsView</extends>
+   <header>widget.view.calendar</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

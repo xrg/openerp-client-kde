@@ -19,7 +19,10 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
-from nanscan import *
+from nanscan.template import *
+from nanscan.ocr import *
+from nanscan.recognizer import *
+
 
 from opentemplatedialog import *
 from commands import *
@@ -144,7 +147,7 @@ class DocumentScene(QGraphicsScene):
 
 		self.recognizer = recognizer
 
-		image = QImage( self.recognizer.fileName )
+		image = self.recognizer.image
 		self.dotsPerMillimeterX = float( image.dotsPerMeterX() ) / 1000.0
 		self.dotsPerMillimeterY = float( image.dotsPerMeterY() ) / 1000.0
 		print "DOTS PER MILLIMETER %s, %s" % (self.dotsPerMillimeterX, self.dotsPerMillimeterY)
@@ -169,7 +172,7 @@ class DocumentScene(QGraphicsScene):
 		self.setImageBoxesVisible( self._imageBoxesVisible )
 		self._imageBoxes.setZValue( 2 )
 
-		self._oneBitImage = self.addPixmap( QPixmap( self.recognizer.fileName ) )
+		self._oneBitImage = self.addPixmap( QPixmap.fromImage( self.recognizer.image ) )
 		self._oneBitImage.setZValue( 1 )
 		self.setBinarizedVisible( self._binarizedVisible )
 
@@ -451,7 +454,7 @@ class MainWindow(QMainWindow):
 		QApplication.setOverrideCursor( Qt.BusyCursor )
 		self.recognizer = Recognizer()
 		self.connect( self.recognizer, SIGNAL('finished()'), self.recognized )
-		self.recognizer.startScan( unicode(self.fileName) )
+		self.recognizer.startRecognition( QImage(self.fileName) )
 
 	def recognized(self):
 		self.scene.setDocument( self.recognizer )

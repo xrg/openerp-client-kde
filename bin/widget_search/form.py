@@ -78,7 +78,7 @@ class SearchFormParser(object):
 		self.focusable = None
 		
 	def _psr_start(self, name, attrs):
-		if name in ('form','tree'):
+		if name in ('form','tree','svg'):
 			self.title = attrs.get('string','Form')
 		elif name=='field':
 			if attrs.get('select', False) or self.fields[attrs['name']].get('select', False):

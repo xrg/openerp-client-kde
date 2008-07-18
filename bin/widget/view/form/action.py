@@ -78,6 +78,7 @@ class ActionFormWidget(AbstractFormWidget):
 				QTimer.singleShot( 0, self.createScreen )
 			elif self.action['view_type']=='tree':
 				pass #TODO
+		self.screen = None
 
 	def createScreen(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -127,4 +128,6 @@ class ActionFormWidget(AbstractFormWidget):
 
 	def showValue(self):
 		self.modelGroup.update()
+		if self.screen:
+			self.screen.display()
 

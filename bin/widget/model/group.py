@@ -272,7 +272,6 @@ class ModelRecordGroup(QObject):
 					self.recordById(id).set(v, signal=False)
 		else:
 			self.load_for(values)
-		print "models count: ", len(self.models)
 		return True
 
 	## @brief Clears the list of models. It doesn't remove them.
@@ -428,6 +427,13 @@ class ModelRecordGroup(QObject):
 		if model._loaded == False:
 			self.ensureModelLoaded(model)
 		return model
+
+	# Returns whether model is in the list of LOADED models
+	# If we use 'model in model_group' then it will try to
+	# load all models and if one of the models has id False
+	# an error will be fired.
+	def modelExists(self, model):
+		return model in self.models
 
 	## @brief Returns the model with id 'id'. You can use [] instead.
 	# Note that it will return the record (model) but won't try to load it.

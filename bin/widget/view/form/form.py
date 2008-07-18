@@ -34,7 +34,6 @@ from widget.view.abstractview import *
 from  abstractformwidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-import traceback
 
 class FormContainer( QWidget ):
 	def __init__(self, parent=None, maxColumns=4):

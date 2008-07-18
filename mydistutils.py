@@ -38,7 +38,8 @@ from distutils.core import setup
 try:
     from dsextras import BuildExt
 except ImportError:
-    sys.exit('Error: Can not find dsextras')
+    #sys.exit('Error: Can not find dsextras')
+    print 'Error: Can not find dsextras'
 
 
 class l10napp_build(build):
@@ -153,8 +154,9 @@ class L10nAppDistribution(Distribution):
             'install_mo' : install_mo,
             'build' : l10napp_build,
             'build_mo' : build_mo,
-            'build_conf' : build_conf,
-            'build_ext': BuildExt}
+            'build_conf' : build_conf
+	    #, 'build_ext': BuildExt
+	    }
 
     def has_po_files(self):
         return len(self.translations) > 0

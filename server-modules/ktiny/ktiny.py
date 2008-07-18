@@ -54,8 +54,16 @@ class nan_ktiny_settings(osv.osv):
 			return {}
 		return self.read(cr, uid, [id])
 		
-
 nan_ktiny_settings()
+
+class nan_ktiny_view_settings(osv.osv):
+	_name = 'nan.ktiny.view.settings'
+	_columns = {
+		'user': fields.many2one('res.users', 'User'),
+		'view': fields.many2one('ir.ui.view', 'View'),
+		'data': fields.text('Data')
+	}
+nan_ktiny_view_settings()
 
 #class nan_ktiny_session(osv.osv):
 	#_name = 'nan.ktiny.session'

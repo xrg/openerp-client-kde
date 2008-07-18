@@ -30,6 +30,16 @@ from PyQt4.QtGui import *
 class AbstractView(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__( self, parent )
+		# TODO: By now, needs the self.widget
+		self.widget = None
+		# Needs the self.model_add_new set to True (like TreeView) or False (like the FormView)
+		self.model_add_new = False
+		# Needs to set self.view_type (example: 'tree' or 'form')
+		self.view_type = 'none'
+		# The 'id' corresponds to the view id in the database. Not directly
+		# used by the view itself might be used by filled and used by 
+		# other classes such as Screen, which will use this id for storing/loading settings
+		self.id = False
 
 	# This one should store the information in the model
 	# The model used should be the one given by display()
@@ -72,8 +82,18 @@ class AbstractView(QWidget):
 	def recordChanged(self, signal, models, index):
 		pass
 
-	# TODO: By now, needs the self.widget
 
-	# Needs the self.model_add_new set to True (like TreeView) or False (like the FormView)
+	# Override this function in your view if you wish to store
+	# some settings per user and view. The function should return
+	# a python string with all the information which should be
+	# parseable afterwords by setViewSettings()
+	def viewSettings(self):
+		return ''
 
-	# Needs to set self.view_type (example: 'tree' or 'form')
+	# Override this function in your view if you wish to restore
+	# a previous configuration. The function will be called when
+	# necessary. The string given in 'settings' will be in one
+	# previously returned by viewSettings()
+	def setViewSettings(self, settings):
+		pass
+

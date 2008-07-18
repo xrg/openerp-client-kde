@@ -219,7 +219,8 @@ import url
 import image
 import link
 import web
-
+#import audio
+#import video
 
 widgets_type = {
 	'date': (calendar.DateFormWidget, 1, False),
@@ -246,7 +247,9 @@ widgets_type = {
 	'callto' : (url.CallToFormWidget, 1, False),
 	'sip' : (url.SipFormWidget, 1, False),
 	'link' : (link.LinkFormWidget, 1, False),
-	'web' : (web.WebFormWidget, 1, False)
+	'web' : (web.WebFormWidget, 1, False),
+	#'audio' : (audio.AudioFormWidget, 1, False),
+	#'video' : (video.VideoFormWidget, 1, False)
 }
 
 # vim:noexpandtab:

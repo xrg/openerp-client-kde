@@ -33,7 +33,7 @@ from widget.view.abstractview import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from common import numeric
-
+import rpc
 
 class TinyTreeView(QTreeView):
 	
@@ -251,4 +251,12 @@ class ViewTree( AbstractView ):
 			for model in self.treeModel.group:
 				value += model.value(agg['name'])
 			agg['widget'].setText( numeric.floatToText( value, agg['digits'] ) )
+
+	def viewSettings(self):
+		header = self.widget.header()
+		return str( header.saveState().toBase64() )
+
+	def setViewSettings(self, settings):
+		header = self.widget.header()
+		header.restoreState( QByteArray.fromBase64( settings ) )
 

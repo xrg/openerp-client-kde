@@ -36,6 +36,7 @@ from widget.model.record import ModelRecord
 
 from common import common
 from common import options
+from common.viewsettings import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -309,7 +310,7 @@ class Screen(QScrollArea):
 		if 'type' in view:
 			if view['type'] in self._viewTypes:
 				self._viewTypes.remove( view['type'] )
-		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
+		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=id)
 		
 	## @brief Adds a view given a view type.
 	# @param type View type ('form', 'tree', 'calendar', 'graph'...). 
@@ -317,19 +318,21 @@ class Screen(QScrollArea):
 	# @return The view widget
 	def addViewByType(self, type, display=False):
 		if type in self.views_preload:
-			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False))
+			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False))
 		else:
 			# TODO: By now we set toolbar to True always. Even when the Screen is embedded
 			view = self.rpc.fields_view_get(False, type, self.context, True)
-			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False))
+			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
 		
 	## @brief Adds a view given it's XML description and fields
 	# @param arch XML string: typically 'arch' field returned by model fields_view_get() function.
 	# @param fields Fields dictionary containing each field (widget) properties.
 	# @param display Whether you want the added view to be shown (True) or only loaded (False)
 	# @param custom If True, fields are added to those existing in the model
+	# @param id View id. This parameter is used for storing and loading settings for the view. If id=False, no
+	#		settings will be stored/loaded.
 	# @return The view widget
-	def addView(self, arch, fields, display=False, custom=False, toolbar={}):
+	def addView(self, arch, fields, display=False, custom=False, toolbar={}, id=False):
 		def _parse_fields(node, fields):
 			if node.nodeType == node.ELEMENT_NODE:
 				if node.localName=='field':
@@ -363,6 +366,9 @@ class Screen(QScrollArea):
 		from widget.view.viewfactory import ViewFactory
 		view, on_write = ViewFactory.create(self, self.resource, dom, self.fields)
 		self.setOnWrite( on_write )
+		view.id = id
+		# Load view settings
+		ViewSettings.load( view )
 
 		self.views.append(view)
 		self.loadActions( toolbar )
@@ -418,6 +424,8 @@ class Screen(QScrollArea):
 		self.models.on_write = func_name
 
 	def cancel_current(self):
+		if not self.current_model:
+			return
 		self.current_model.cancel()
 
 	def save_current(self):
@@ -443,7 +451,7 @@ class Screen(QScrollArea):
 						return False
 			self.display()
 
-		if self.current_model not in self.models:
+		if not self.models.modelExists( self.current_model ):
 			self.models.addModel(self.current_model)
 		self.display()
 		return id
@@ -559,5 +567,10 @@ class Screen(QScrollArea):
 	def on_change(self, callback):
 		self.current_model.on_change(callback)
 		self.display()
+
+	# Stores settings of all opened views
+	def storeViewSettings(self):
+		for view in self.views:
+			ViewSettings.store( view )
 
 # vim:noexpandtab:
