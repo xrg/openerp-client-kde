@@ -31,6 +31,7 @@ import gettext
 from common import api
 from common import common
 from common import options
+from common.viewsettings import *
 import view_tree
 import rpc
 import widget
@@ -42,7 +43,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 class tree( QWidget ): 
-	def __init__( self, view, model, res_id=False, domain=[], context={}, name=False, parent=None ):
+	def __init__( self, view, model, domain=[], context={}, name=False, parent=None ):
 		QWidget.__init__(self,parent)
 		loadUi( common.uiPath('tree.ui'), self ) 
 		
@@ -122,6 +123,7 @@ class tree( QWidget ):
 			# Highlight the first element of the list and update the tree
 			self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
 			self.updateTree()
+		self.restoreViewState()
 
 
 	def updateTree(self):
@@ -198,7 +200,25 @@ class tree( QWidget ):
 
 	# There's no reason why a menu can't be closed, is it?
 	def canClose(self):
+		self.storeViewState()
 		return True
 	
+	def storeViewState(self):
+		id = self.view['view_id']
+		if not id:
+			return
+		header = self.uiTree.header()
+		ViewSettings.store( id, str( header.saveState().toBase64() ) )
+		
+	def restoreViewState(self):
+		id = self.view['view_id']
+		if not id:
+			return
+		settings = ViewSettings.load( id )
+		if not settings:
+			return
+		header = self.uiTree.header()
+		header.restoreState( QByteArray.fromBase64( settings ) )
+		
 	def actions(self):
 		return []

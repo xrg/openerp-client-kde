@@ -61,7 +61,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 			view = rpc.session.execute('/object', 'execute', model,
 					'fields_view_get', False, view_type, context)
 
-		win = tree.tree(view, model, res_id, domain, context, name=name)
+		win = tree.tree(view, model, domain, context, name=name)
 		api.instance.windowCreated( win )
 	else:
 		import logging

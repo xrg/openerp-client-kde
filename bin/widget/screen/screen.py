@@ -368,7 +368,7 @@ class Screen(QScrollArea):
 		self.setOnWrite( on_write )
 		view.id = id
 		# Load view settings
-		ViewSettings.load( view )
+		view.setViewSettings( ViewSettings.load( view.id ) )
 
 		self.views.append(view)
 		self.loadActions( toolbar )
@@ -571,6 +571,6 @@ class Screen(QScrollArea):
 	# Stores settings of all opened views
 	def storeViewSettings(self):
 		for view in self.views:
-			ViewSettings.store( view )
+			ViewSettings.store( view.id, view.viewSettings() )
 
 # vim:noexpandtab:

@@ -27,23 +27,21 @@ class ViewSettings:
 	# Gets a view and stores it's settings for the current user
 	# @param view View object (should inherit AbstractView)
 	@staticmethod
-	def store( view ):
-		if not view or not view.id:
+	def store( id, settings ):
+		if not id:
 			return
 
 		ViewSettings.checkConnection()
 
-		settings = view.viewSettings()
-
 		# Do not update store data in the server if it settings have not changed
 		# from the ones in cache.
-		if view.id in ViewSettings.cache and ViewSettings.cache[view.id] == settings:
+		if id in ViewSettings.cache and ViewSettings.cache[id] == settings:
 			return
 
 		# Add settings in the cache. Note that even if the required ktiny
 		# module is not installed in the server view settings will be kept
 		# during user session.
-		ViewSettings.cache[view.id] = settings
+		ViewSettings.cache[id] = settings
 
 		if not ViewSettings.hasSettingsModule:
 			return
@@ -52,14 +50,13 @@ class ViewSettings:
 			# We don't want to crash if the ktiny module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
 			ids = rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
-				('user','=',rpc.session.uid),('view','=',view.id)
+				('user','=',rpc.session.uid),('view','=',id)
 			])
 		except:
 			ViewSettings.hasSettingsModule = False
 			return
 		# As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here. And we
 		# can use execute() instead of call().
-		settings = view.viewSettings()
 		if ids:
 			rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'write', ids, {
 				'data': settings 
@@ -67,44 +64,43 @@ class ViewSettings:
 		else:
 			rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'create', {
 				'user': rpc.session.uid, 
-				'view': view.id, 
+				'view': id, 
 				'data': settings 
 			})
 
 	@staticmethod
-	def load( view ):
-		if not view or not view.id:
-			return
+	def load( id ):
+		if not id:
+			return None
 
 		ViewSettings.checkConnection()
 
-		if view.id in ViewSettings.cache:
+		if id in ViewSettings.cache:
 			# Restore settings from the cache. Note that even if the required ktiny
 			# module is not installed in the server view settings will be kept
 			# during user session.
-			view.setViewSettings( ViewSettings.cache[view.id] )
-			return
+			return ViewSettings.cache[id]
 
 		if not ViewSettings.hasSettingsModule:
-			return
+			return None
 
 		try:
 			# We don't want to crash if the ktiny module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
 			ids = rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
-				('user','=',rpc.session.uid),('view','=',view.id)
+				('user','=',rpc.session.uid),('view','=',id)
 			])
 		except:
 			ViewSettings.hasSettingsModule = False
-			return
+			return None
 		# As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here.
 		if not ids:
-			return
+			return None
 		settings = rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'read', ids, ['data'] )[0]['data']
 
-		ViewSettings.cache[view.id] = settings
+		ViewSettings.cache[id] = settings
 
-		view.setViewSettings( settings )
+		return settings
 
 	# Checks if connection has changed and clears cache and hasSettingsModule flag
 	@staticmethod

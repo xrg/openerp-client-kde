@@ -257,6 +257,8 @@ class ViewTree( AbstractView ):
 		return str( header.saveState().toBase64() )
 
 	def setViewSettings(self, settings):
+		if not settings:
+			return
 		header = self.widget.header()
 		header.restoreState( QByteArray.fromBase64( settings ) )
 

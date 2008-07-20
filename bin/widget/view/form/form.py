@@ -182,6 +182,8 @@ class ViewForm( AbstractView ):
 		return str( data.toBase64() )
 
 	def setViewSettings(self, settings):
+		if not settings:
+			return
 		splitters = self.findChildren( QSplitter )
 		data = QByteArray.fromBase64( settings )
 		stream = QDataStream( data )
