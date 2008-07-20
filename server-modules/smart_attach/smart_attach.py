@@ -63,8 +63,11 @@ class ir_attachment(osv.osv):
 
 		# Analyze strigi's xmlindexer output
 		output = os.popen('xmlindexer %s' % dir).read()
-		dom = xml.dom.minidom.parseString( output )
-		tags = dom.getElementsByTagName( 'text' )
+		try:
+			dom = xml.dom.minidom.parseString( output )
+			tags = dom.getElementsByTagName( 'text' )
+		except:
+			tags = []
 		if len(tags):
 			metaInfo = self.getText(tags[0].childNodes).strip()
 		else:
