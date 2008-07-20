@@ -13,9 +13,21 @@
 #
 
 import tinychart
-import time
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+
+import datetime 
+import time
+
+DT_FORMAT = '%Y-%m-%d'
+DHM_FORMAT = '%Y-%m-%d %H:%M:%S'
+HM_FORMAT = '%H:%M:%S'
+
+if not hasattr(locale, 'nl_langinfo'):
+	locale.nl_langinfo = lambda *a: '%x'
+
+if not hasattr(locale, 'D_FMT'):
+	locale.D_FMT = None
 
 
 class Chart( QGraphicsView ):
@@ -81,7 +93,7 @@ class Chart( QGraphicsView ):
 							import pytz
 							lzone = pytz.timezone(rpc.session.context['tz'])
 							szone = pytz.timezone(rpc.session.timezone)
-							dt = DT.datetime(date[0], date[1], date[2], date[3], date[4], date[5], date[6])
+							dt = datetime.datetime(date[0], date[1], date[2], date[3], date[4], date[5], date[6])
 							sdt = szone.localize(dt, is_dst=True)
 							ldt = sdt.astimezone(lzone)
 							date = ldt.timetuple()
