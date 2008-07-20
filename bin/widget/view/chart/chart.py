@@ -18,6 +18,7 @@ from PyQt4.QtGui import *
 
 import datetime 
 import time
+import locale
 
 DT_FORMAT = '%Y-%m-%d'
 DHM_FORMAT = '%Y-%m-%d %H:%M:%S'
