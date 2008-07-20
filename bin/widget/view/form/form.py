@@ -173,3 +173,22 @@ class ViewForm( AbstractView ):
 			else:
 				self.widgets[name].load(None, state)
 		 
+	def viewSettings(self):
+		splitters = self.findChildren( QSplitter )
+		data = QByteArray()
+		stream = QDataStream( data, QIODevice.WriteOnly )
+		for x in splitters:
+			stream << x.saveState()
+		return str( data.toBase64() )
+
+	def setViewSettings(self, settings):
+		splitters = self.findChildren( QSplitter )
+		data = QByteArray.fromBase64( settings )
+		stream = QDataStream( data )
+		for x in splitters:
+			if stream.atEnd():
+				return
+			value = QByteArray()
+			stream >> value
+			x.restoreState( value )
+
