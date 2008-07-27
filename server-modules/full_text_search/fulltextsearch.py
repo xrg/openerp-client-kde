@@ -250,6 +250,9 @@ class fulltextsearch_services(netsvc.Service):
 		return ret
 
 fulltextsearch_services()
+paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/fulltextsearch' ]
+SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
+
 
 # vim:noexpandtab
 
