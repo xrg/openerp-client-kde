@@ -46,12 +46,6 @@
 
    <listitem>
     <para>
-     <literal>bin/service.py</literal>. Base class and functions for providing local services.
-    </para>
-   </listitem>
-
-   <listitem>
-    <para>
      <literal>bin/ktiny.py</literal>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
     </para>
    </listitem>
@@ -94,13 +88,13 @@
 
    <listitem>
     <para>
-     <literal>bin/modules</literal>. Each subdirectory handles a different local service: <literal>action</literal>, <literal>gui</literal> and <literal>spool</literal>.
+     <literal>bin/modules</literal>. 
     </para>
    </listitem>
 
    <listitem>
     <para>
-     <literal>bin/modules/action</literal>. Handles the <literal>action</literal> local service. An action can be show a report, wizard or opening a new model screen (tab).
+     <literal>bin/modules/action</literal>. An action can be show a report, wizard or opening a new model screen (tab).
     </para>
    </listitem>
 
