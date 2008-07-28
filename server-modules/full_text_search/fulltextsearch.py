@@ -4,6 +4,7 @@ import netsvc
 import sql_db
 import pooler
 from psycopg2.extensions import adapt as sql_quote
+import SimpleXMLRPCServer
 
 
 def quote(value):
