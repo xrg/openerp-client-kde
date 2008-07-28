@@ -23,7 +23,6 @@
   </property>
   <property name="windowIcon" >
    <iconset>
-    <normaloff/>
    </iconset>
   </property>
   <layout class="QVBoxLayout" >
