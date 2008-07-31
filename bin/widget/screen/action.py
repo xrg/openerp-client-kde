@@ -39,8 +39,7 @@ class TinyAction(QAction):
 	def executeRelate(self, currentId):
 		if not currentId:
 			QMessageBox.information( self, '', _('You must select a record to use the relate button !'))
-
-		api.instance.executeAction(self._data)
+		api.instance.executeAction(self._data, {'id': currentId})
 
 	def executeAction(self, currentId, ids):
 		if not currentId and not ids:
