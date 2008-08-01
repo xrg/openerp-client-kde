@@ -254,7 +254,7 @@ class ViewTree( AbstractView ):
 
 	def viewSettings(self):
 		header = self.widget.header()
-		return unicode( header.saveState().toBase64() )
+		return str( header.saveState().toBase64() )
 
 	def setViewSettings(self, settings):
 		if not settings:
