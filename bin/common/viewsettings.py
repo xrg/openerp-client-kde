@@ -18,6 +18,10 @@
 
 import rpc 
 
+# Settings are stored as a string (not unicode) and in most cases
+# end up converted to/from a QByteArray; hence the need of ensuring
+# we use str instead of unicode. That's why we enforce str() in a
+# couple of places.
 class ViewSettings:
 	cache = {}
 	databaseName = None
@@ -32,6 +36,10 @@ class ViewSettings:
 			return
 
 		ViewSettings.checkConnection()
+
+		if settings:
+			# Ensure it's a string and not unicode
+			settings = str(settings)
 
 		# Do not update store data in the server if it settings have not changed
 		# from the ones in cache.
@@ -97,6 +105,10 @@ class ViewSettings:
 		if not ids:
 			return None
 		settings = rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'read', ids, ['data'] )[0]['data']
+
+		if settings:
+			# Ensure it's a string and not unicode
+			settings = str(settings)
 
 		ViewSettings.cache[id] = settings
 

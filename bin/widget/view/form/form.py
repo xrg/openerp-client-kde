@@ -179,7 +179,7 @@ class ViewForm( AbstractView ):
 		stream = QDataStream( data, QIODevice.WriteOnly )
 		for x in splitters:
 			stream << x.saveState()
-		return str( data.toBase64() )
+		return unicode( data.toBase64() )
 
 	def setViewSettings(self, settings):
 		if not settings:
