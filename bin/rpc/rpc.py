@@ -34,6 +34,7 @@ import socket
 import tiny_socket
 from common import notifier
 import traceback
+import copy
 
 class RpcException(Exception):
 	def __init__(self, code, backtrace):
@@ -116,9 +117,6 @@ class SocketConnection(Connection):
 # The XML-RPC communication protocol is usually opened at port 8069 on the server.
 class XmlRpcConnection(Connection):
 	def call(self, obj, method, *args ):
-		#a = [str(x) for x in list(*args)]
-		#print "XML-RPC Request: %s (%s)" % (method, args)
-		#traceback.print_stack()
 		remote = xmlrpclib.ServerProxy(self.url + obj)
 		function = getattr(remote, method)
 		if self.authorized:
@@ -142,6 +140,32 @@ def createConnection(url):
 		con.url = url + '/xmlrpc'
 		return con
 
+class AbstractCache:
+	def exists( self, obj, method, *args ):
+		pass
+	def get( self, obj, method, *args ):
+		pass
+
+class ViewCache(AbstractCache):
+	def __init__(self):
+		self.cache = {}
+
+	def exists(self, obj, method, *args):
+		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
+			return False
+		return (obj, method, str(args)) in self.cache
+			
+	def get(self, obj, method, *args):
+		return copy.deepcopy( self.cache[(obj, method, str(args))] )
+		
+	def add(self, value, obj, method, *args):
+		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
+			return
+		self.cache[(obj,method,str(args))] = copy.deepcopy( value )
+
+	def clear(self):
+		self.cache = {}
+
 ## @brief The Session class provides a simple way of login and executing function in a server
 #
 # Typical usage of Session:
@@ -163,6 +187,7 @@ class Session:
 		self.databaseName = None
 		self.connection = None
 		self.errorHandler = None
+		self.cache = None
 
 	## @brief Calls the specified method
 	# on the given object on the server. 
@@ -173,7 +198,13 @@ class Session:
 	# @param method Method name (string) to call 
 	# @param args Argument list for the given method
 	def call(self, obj, method, *args):
-		return self.connection.call(obj, method, *args)
+		if self.cache:
+			if self.cache.exists( obj, method, *args ):
+				return self.cache.get( obj, method, *args )
+		value = self.connection.call(obj, method, *args)
+		if self.cache:
+			self.cache.add( value, obj, method, *args )
+		return value
 
 	## @brief Same as call() but uses the notify mechanism to notify
 	# exceptions. 
@@ -184,12 +215,12 @@ class Session:
 		if not self.open:
 			raise RpcException(1, 'not logged')
 		try:
-			return self.connection.call(obj, method, *args)
+			#return self.connection.call(obj, method, *args)
+			return self.call(obj, method, *args)
 		except socket.error, err:
 			notifier.notifyError(_('Connection Refused'), unicode(err), unicode(err) )
 		except xmlrpclib.Fault, err:
 			a = RpcException(err.faultCode, err.faultString)
-			print a
 			if a.type in ('warning','UserError'):
 				notifier.notifyWarning(a.message, a.data )
 			else:
@@ -222,6 +253,8 @@ class Session:
 		self.userName = user
 		self.password = password
 		self.databaseName = db
+		if self.cache:
+			self.cache.clear()
 		
 		self.connection.databaseName = self.databaseName
 		self.connection.password = self.password
@@ -252,6 +285,8 @@ class Session:
 			self.userName = None
 			self.uid = None
 			self.password = None
+			if self.cache:
+				self.cache.clear()
 
 	## Uses eval to evaluate the expression, using the defined context
 	# plus the appropiate 'uid' in it.
@@ -263,6 +298,7 @@ class Session:
 			return expression 
 
 session = Session()
+session.cache = ViewCache()
 
 ## The Database class handles queries that don't require a previous login, served by the db server object
 class Database:
