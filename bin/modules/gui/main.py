@@ -55,6 +55,7 @@ from adminpwd import *
 from common import options
 from common import common
 from common import api
+from common import viewsettings
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
@@ -136,6 +137,7 @@ class MainWindow(QMainWindow):
 		self.connect( self.actionPreferences, SIGNAL('triggered()'), self.userPreferences )
 		self.connect( self.actionOpenMenuTab, SIGNAL('triggered()'), self.openMenuTab )
 		self.connect( self.actionOpenHomeTab, SIGNAL('triggered()'), self.openHomeTab )
+		self.connect( self.actionClearCache, SIGNAL('triggered()'), self.clearCache )
 
 		self.connect( self.actionSupportRequest, SIGNAL('triggered()'), self.supportRequest )
 		self.connect( self.actionKTinyManual, SIGNAL('triggered()'), self.kTinyManual )
@@ -450,6 +452,11 @@ class MainWindow(QMainWindow):
 		if id == self.menuId:
 			return
 		api.instance.execute(id, {'window':self })
+
+	def clearCache(self):
+		viewsettings.ViewSettings.clear()
+		if rpc.session.cache:
+			rpc.session.cache.clear()
 
 	def closeEvent(self, event):
 		if QMessageBox.question(self, _("Quit"), _("Do you really want to quit ?"), _("Yes"), _("No")) == 1:

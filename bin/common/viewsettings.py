@@ -106,8 +106,15 @@ class ViewSettings:
 	@staticmethod
 	def checkConnection():
 		if ViewSettings.databaseName != rpc.session.databaseName or ViewSettings.uid != rpc.session.uid:
-			ViewSettings.databaseName = rpc.session.databaseName
-			ViewSettings.uid = rpc.session.uid
-			ViewSettings.hasSettingsModule = True
-			ViewSettings.cache = {}
+			ViewSettings.clear()
+
+	# Clears cache and resets state. This means that after installing the ktiny
+	# module you don't have to close session and login again because
+	# hasSettingsModule is reset to True.
+	@staticmethod
+	def clear():
+		ViewSettings.databaseName = rpc.session.databaseName
+		ViewSettings.uid = rpc.session.uid
+		ViewSettings.hasSettingsModule = True
+		ViewSettings.cache = {}
 
