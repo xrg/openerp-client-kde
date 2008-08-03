@@ -154,6 +154,12 @@ class Wizard( QObject ):
 	def finishedStep(self):
 		self.progress.stop()
 		res = self.wizardStep.result
+		# Check if 'res' is None as it can happen with 'Split in production lots'
+		# in inventory 'Movements', for example, if no production sequence is defined.
+		if not res:
+			self.state = 'end'
+			self.step()
+			return
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
 		if res['type']=='form':
