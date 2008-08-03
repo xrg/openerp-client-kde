@@ -57,15 +57,6 @@ class RpcException(Exception):
 
 		self.backtrace = backtrace
 
-	#def __init__(self, code, msg):
-		#self.code = code
-		#lines = msg.split('\n')
-		#self.data = '\n'.join(lines[2:])
-		#self.type = lines[0].split(' -- ')[0]
-		#self.message = ''
-		#if len(lines[0].split(' -- ')) > 1:
-			#self.message = lines[0].split(' -- ')[1]
-
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
 class Connection:
