@@ -146,6 +146,7 @@ class SearchFormWidget(AbstractSearchWidget):
 		if self._loaded:
 			return 
 
+		self._loaded = True
 		self.pushExpander.setEnabled( True )
 		self.pushClear.setEnabled( True )
 		self.pushSearch.setEnabled( True )
