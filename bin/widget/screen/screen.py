@@ -490,6 +490,15 @@ class Screen(QScrollArea):
 
 	def remove(self, unlink = False):
 		ids = self.selectedIds()
+		if unlink and id:
+			unlinked = self.rpc.unlink(ids)	
+			# Try to be consistent with database
+			# If records could not be removed from the database
+			# don't remove them on the client. Don't report it directly
+			# though as probably an exception (Warning) has already
+			# been shown to the user.
+			if not unlinked:
+				return False
 		for x in ids:
 			model = self.models[x]
 			idx = self.models.models.index(model)
@@ -499,8 +508,6 @@ class Screen(QScrollArea):
 				self.current_model = self.models.models[idx]
 			else:
 				self.current_model = None
-		if unlink and id:
-			self.rpc.unlink(ids)	
 		self.display()
 		if ids:
 			return True
