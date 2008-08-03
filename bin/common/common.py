@@ -163,7 +163,9 @@ def support():
 
 # Function used by the notifier in the KTiny application
 def warning(title, message):
+	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	QMessageBox.warning(None, title, message)
+	QApplication.restoreOverrideCursor()
 
 ## @brief The ErrorDialog class shows the error dialog used everywhere in KTiny.
 #
@@ -179,6 +181,10 @@ class ErrorDialog( QDialog ):
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
 		QApplication.changeOverrideCursor( Qt.ArrowCursor )
+	
+	def done(self, r):
+		QApplication.restoreOverrideCursor()
+		QDialog.done(self, r)
 
 
 ## @brief Shows the ErrorDialog 
