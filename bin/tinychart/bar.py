@@ -75,13 +75,16 @@ class AxisItem(QGraphicsPathItem):
 		else:
 			path.lineTo( self._size, 0 )
 
+		font = QFont()
+		metrics = QFontMetrics( font )
+
 		diff = self._maximum - self._minimum
 		if self._labels:
 			items = len(self._labels)
 		else:
-			items = 10
-		font = QFont()
-		metrics = QFontMetrics( font )
+			items = int( round( self._size / ( metrics.height() * 1.5 ) ) )
+			items = max( min( items, 10 ), 1 )
+
 		width = float(self._size) / items
 		offset = width / 2
 		for x in range(items):
