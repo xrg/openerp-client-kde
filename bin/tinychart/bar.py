@@ -114,7 +114,9 @@ class BarChart(AbstractChart):
 	def __init__(self, parent=None):
 		AbstractChart.__init__(self, parent)
 		self.yAxis = AxisItem( self )
+		self.yAxis.hide()
 		self.xAxis = AxisItem( self )
+		self.xAxis.hide()
 
 	# Returns the total amount of bars 
 	def barCount( self ):
@@ -144,6 +146,15 @@ class BarChart(AbstractChart):
 			maximum = max(flatten(self._values))
 			if float(maximum) == 0.0:
 				maximum = 1.0
+
+		# Hide axis if there's no data to show
+		if len(self._values):
+			self.xAxis.show()
+			self.yAxis.show()
+		else:
+			self.xAxis.hide()
+			self.yAxis.hide()
+
 		lastPosition = 0
 		maximumHeight = self.height()
 		barWidth = self.barWidth()
