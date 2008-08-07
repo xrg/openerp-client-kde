@@ -100,11 +100,11 @@ Section "KTiny" SecTinyERPClient
 
   File "python-2.5.2.msi"
   File "PyQt-Py2.5-gpl-4.4.2-1.exe"
-  File "ktiny-1.0.0-beta1.win32.exe"
+  File "ktiny-1.0.0-beta2.win32.exe"
 
   ExecWait 'msiexec /i "$TEMP\python-2.5.2.msi" /qn TARGETDIR=c:\python25'
   ExecWait '"$TEMP\PyQt-Py2.5-gpl-4.4.2-1.exe" /S'
-  ExecWait '"$TEMP\ktiny-1.0.0-beta1.win32.exe" /S'
+  ExecWait '"$TEMP\ktiny-1.0.0-beta2.win32.exe" /S'
 
   ;Store installation folder
   #WriteRegStr HKCU "Software\KTiny" "" $INSTDIR
