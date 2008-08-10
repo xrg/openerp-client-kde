@@ -91,6 +91,7 @@ class SearchDialog( QDialog ):
 		self.connect( self.pushAccept, SIGNAL( "clicked()"), self.accepted )
 		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
+		self.connect( self.form, SIGNAL( "search()" ), self.find )
 
 	def find(self):
 		self.modelGroup.setFilter( self.form.getValue() )
