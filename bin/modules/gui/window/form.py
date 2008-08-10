@@ -178,7 +178,7 @@ class form( QWidget ):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
+		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
 			api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()

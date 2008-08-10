@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>578</height>
+    <width>372</width>
+    <height>571</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -16,15 +16,15 @@
    <item>
     <widget class="QTabWidget" name="tabWidget" >
      <property name="currentIndex" >
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab" >
       <property name="geometry" >
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>338</width>
-        <height>491</height>
+        <width>350</width>
+        <height>489</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -284,8 +284,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>338</width>
-        <height>491</height>
+        <width>350</width>
+        <height>489</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -407,8 +407,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>338</width>
-        <height>491</height>
+        <width>350</width>
+        <height>489</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -441,7 +441,7 @@
          <item row="1" column="0" >
           <widget class="QLabel" name="label_53" >
            <property name="text" >
-            <string>&lt;Ctrl> + Switch View</string>
+            <string>&lt;Shift> + Switch View</string>
            </property>
           </widget>
          </item>
@@ -492,7 +492,8 @@
         <string>&amp;Close</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/close.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
        </property>
       </widget>
      </item>

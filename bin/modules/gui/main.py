@@ -109,7 +109,10 @@ class MainWindow(QMainWindow):
 		self.actionNew.setShortcut("Ctrl+N")
 		self.actionSave.setShortcut("Ctrl+S")
 		self.actionDelete.setShortcut("Ctrl+D")
-		self.actionSwitch.setShortcut("Ctrl+L")
+		# Both Ctrl+L and Ctrl+Shift+L can be used to switch view, but 
+		# form will treat them differently as adding Shift will make the
+		# new view to be opened in another tab.
+		self.actionSwitch.setShortcuts( ["Ctrl+L", "Ctrl+Shift+L"] )
 		self.actionClose.setShortcut("Ctrl+W")
 		self.actionPreviousTab.setShortcut("Ctrl+PgUp")
 		self.actionNextTab.setShortcut("Ctrl+PgDown")

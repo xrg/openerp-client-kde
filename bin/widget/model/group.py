@@ -464,13 +464,19 @@ class ModelRecordGroup(QObject):
 			self.recordById(id).set(v, signal=False)
 
 	def setDomain(self, value):
-		self._domain = value
+		if value == None:
+			self._domain = []
+		else:
+			self._domain = value
 	
 	def domain(self):
 		return self._domain
 
 	def setFilter(self, value):
-		self._filter = value
+		if value == None:
+			self._filter = []
+		else:
+			self._filter = value
 	
 	def filter(self):
 		return self._filter
