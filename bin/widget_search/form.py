@@ -170,6 +170,10 @@ class SearchFormWidget(AbstractSearchWidget):
 		self.toggleExpansion()
 		return 
 
+	def keyPressEvent(self, event):
+		if event.key() in ( Qt.Key_Return, Qt.Key_Enter ):
+			self.search()
+
 	def search(self):
 		self.emit( SIGNAL('search()') )
 
