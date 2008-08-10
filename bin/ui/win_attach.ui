@@ -19,9 +19,9 @@
    <property name="geometry" >
     <rect>
      <x>0</x>
-     <y>61</y>
+     <y>54</y>
      <width>608</width>
-     <height>469</height>
+     <height>477</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" />
@@ -30,9 +30,9 @@
    <property name="geometry" >
     <rect>
      <x>0</x>
-     <y>530</y>
+     <y>531</y>
      <width>608</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -42,7 +42,7 @@
      <x>0</x>
      <y>0</y>
      <width>608</width>
-     <height>61</height>
+     <height>54</height>
     </rect>
    </property>
    <property name="windowTitle" >
@@ -67,58 +67,86 @@
   </widget>
   <action name="actionNew" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/new.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
    </property>
    <property name="text" >
     <string>New</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionDelete" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/delete.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
    </property>
    <property name="text" >
     <string>Delete</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+D</string>
+   </property>
   </action>
   <action name="actionNext" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
    </property>
    <property name="text" >
     <string>Next</string>
    </property>
+   <property name="shortcut" >
+    <string>Alt+PgDown</string>
+   </property>
   </action>
   <action name="actionPrevious" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
    </property>
    <property name="text" >
     <string>Previous</string>
    </property>
+   <property name="shortcut" >
+    <string>Alt+PgUp</string>
+   </property>
   </action>
   <action name="actionSwitch" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/switch_view.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
    </property>
    <property name="text" >
     <string>Switch</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+L</string>
+   </property>
   </action>
   <action name="actionClose" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/close.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
    </property>
    <property name="text" >
     <string>Close</string>
    </property>
+   <property name="shortcut" >
+    <string>Esc</string>
+   </property>
   </action>
   <action name="actionSave" >
    <property name="icon" >
-    <iconset resource="common.qrc" >:/images/images/save.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
    </property>
    <property name="text" >
     <string>Save</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
    </property>
   </action>
  </widget>

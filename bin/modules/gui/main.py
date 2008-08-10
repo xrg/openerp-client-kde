@@ -128,6 +128,7 @@ class MainWindow(QMainWindow):
 		self.actionDuplicate.setShortcut("Ctrl+Shift+D")
 		self.actionPrevious.setShortcut("Alt+PgUp")
 		self.actionNext.setShortcut("Alt+PgDown")
+		self.actionAttach.setShortcut("Ctrl+J")
 
 		self.connect( self.actionClose, SIGNAL("triggered()"), self.closeCurrentTab )
 		self.connect( self.actionConnect ,SIGNAL("triggered()"), self.showLoginDialog )
