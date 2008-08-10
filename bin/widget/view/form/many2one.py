@@ -256,6 +256,6 @@ class ManyToOneFormWidget(AbstractFormWidget):
 
 	def executeAction(self, type):
 		id = self.model.id
-		appi.instance.executeKeyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
+		api.instance.executeKeyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 		return True
 
