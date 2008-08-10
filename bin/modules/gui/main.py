@@ -74,6 +74,13 @@ class MainTabWidget(QTabWidget):
 				return
 			self.emit(SIGNAL('middleClicked(int)'), tab)
 
+	def wheelEvent(self, event):
+		if not self.tabBar().underMouse():
+			return 
+		degrees = event.delta() / 8
+		steps = degrees / 15
+		self.setCurrentIndex( ( self.currentIndex() + steps ) % self.count() )
+
 class MainWindow(QMainWindow):
 	
 	def __init__(self):	
