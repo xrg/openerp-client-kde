@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>372</width>
-    <height>571</height>
+    <height>507</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -24,20 +24,13 @@
         <x>0</x>
         <y>0</y>
         <width>350</width>
-        <height>489</height>
+        <height>425</height>
        </rect>
       </property>
       <attribute name="title" >
        <string>&amp;Main Shortcuts</string>
       </attribute>
       <layout class="QVBoxLayout" >
-       <item>
-        <widget class="QLabel" name="label_2" >
-         <property name="text" >
-          <string>&lt;center>&lt;b>Shortcuts for TinyERP&lt;/b>&lt;/center></string>
-         </property>
-        </widget>
-       </item>
        <item>
         <layout class="QGridLayout" >
          <item row="0" column="0" >
@@ -285,13 +278,13 @@
         <x>0</x>
         <y>0</y>
         <width>350</width>
-        <height>489</height>
+        <height>425</height>
        </rect>
       </property>
       <attribute name="title" >
        <string>&amp;Edition Shortcuts</string>
       </attribute>
-      <layout class="QVBoxLayout" >
+      <layout class="QVBoxLayout" name="verticalLayout" >
        <item>
         <widget class="QLabel" name="label" >
          <property name="text" >
@@ -388,6 +381,37 @@
         </layout>
        </item>
        <item>
+        <widget class="QLabel" name="label_2" >
+         <property name="text" >
+          <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Numeric fields&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout" >
+         <item row="0" column="0" >
+          <widget class="QLabel" name="label_55" >
+           <property name="text" >
+            <string>Formula + &lt;Enter>
+(Example: 3+2*2)</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" >
+          <widget class="QLabel" name="label_56" >
+           <property name="text" >
+            <string>Calculates value
+(Example result: 7)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <spacer>
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
@@ -408,7 +432,7 @@
         <x>0</x>
         <y>0</y>
         <width>350</width>
-        <height>489</height>
+        <height>425</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -438,17 +462,31 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
+         <item row="2" column="0" >
           <widget class="QLabel" name="label_53" >
            <property name="text" >
             <string>&lt;Shift> + Switch View</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
+         <item row="2" column="1" >
           <widget class="QLabel" name="label_54" >
            <property name="text" >
             <string>Open Form View in new Tab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" >
+          <widget class="QLabel" name="label_45" >
+           <property name="text" >
+            <string>Mouse Wheel on Tab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" >
+          <widget class="QLabel" name="label_47" >
+           <property name="text" >
+            <string>Change current tab</string>
            </property>
           </widget>
          </item>
