@@ -116,26 +116,23 @@ class Chart( QGraphicsView ):
 		axis_group = {}
 		keys = {}
 		data_axis = []
-		data_all = {}
-		for field in self._axis[1:]:
-			data_all = {}
-			for d in datas:
-				group_eval = ','.join( [d[x] for x in self._groups] )
-				axis_group[group_eval] = 1
+		if self._groups:
+			for field in self._axis[1:]:
+				data = {}
+				for d in datas:
+					group_eval = ','.join( [d[x] for x in self._groups] )
+					axis_group[group_eval] = 1
 
-				data_all.setdefault(d[self._axis[0]], {})
-				keys[d[self._axis[0]]] = 1
+					data.setdefault( d[self._axis[0]], {} )
 
-				if group_eval in  data_all[d[self._axis[0]]]:
-					oper = operators[self._axisData[field].get('operator', '+')]
-					data_all[d[self._axis[0]]][group_eval] = oper(data_all[d[self._axis[0]]][group_eval], d[field])
-				else:
-					data_all[d[self._axis[0]]][group_eval] = d[field]
-			data_axis.append(data_all)
-		axis_group = axis_group.keys()
-		axis_group.sort()
-		keys = keys.keys()
-		keys.sort()
+					if group_eval in  data[d[self._axis[0]]]:
+						oper = operators[self._axisData[field].get('operator', '+')]
+						data[d[self._axis[0]]][group_eval] = oper(data[d[self._axis[0]]][group_eval], d[field])
+					else:
+						data[d[self._axis[0]]][group_eval] = d[field]
+				data_axis.append(data)
+			axis_group = axis_group.keys()
+			axis_group.sort()
 
 		fields = set()
 		for field in self._axis[1:]:
@@ -151,21 +148,24 @@ class Chart( QGraphicsView ):
 		categories = list(categories)
 		categories.sort()
 		
-		values = []
-		for x in datas:
-			value = []
-			for y in fields:
-				value.append( x[y] )
-			values.append( value )
-
 		if self._type == 'pie': 
 			values = []
-			for x in data_all.keys():
-				# Suppose there are no groups in pie charts
-				values.append( data_all[x][''] )
+			for x in datas:
+				values.append( x[self._axis[1]] )
+
 			self.chart.setValues( values ) 
 			self.chart.setLabels( categories )
 		else:
+			values = []
+			for x in categories:
+				for y in datas:
+					if y[self._axis[0]] == x:
+						break
+				value = []
+				for f in fields:
+					value.append( y[f] )
+				values.append( value )
+
 			self.chart.setValues( values )
 			self.chart.setLabels( labels )
 			self.chart.setCategories( categories )
