@@ -226,6 +226,7 @@ class Screen(QScrollArea):
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):
 		self.current_model = model
+		self.emit( SIGNAL('currentChanged()') )
 
 	## @brief Sets the RecordModelGroup this Screen should show.
 	# @param models ModelRecordGroup object.

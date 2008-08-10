@@ -83,6 +83,7 @@ class form( QWidget ):
 		#self.screen.setDomain( domain )
 		self.screen.setEmbedded( False )
 		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
+		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )
 
 		self._allowOpenInNewWindow = True
 
@@ -163,12 +164,15 @@ class form( QWidget ):
 		id = self.screen.id_get()
 		if id:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
-			win = win_attach.win_attach(self.model, id, self)
+			window = win_attach.AttachmentsWindow(self.model, id, self)
+			self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )
 			QApplication.restoreOverrideCursor()
-			win.show()
-			self.updateStatus()
+			window.show()
 		else:
 			self.updateStatus(_('No resource selected !'))
+
+	def attachmentsClosed(self, obj=None):
+		self.updateStatus()
 
 	def switchView(self):
 		if not self.modified_save():

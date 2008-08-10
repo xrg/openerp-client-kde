@@ -38,7 +38,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import * 
 
 
-class win_attach(QMainWindow):
+class AttachmentsWindow(QMainWindow):
 
 	def __init__(self, model, id, parent = None ):	
 		QMainWindow.__init__(self, parent)
@@ -86,4 +86,8 @@ class win_attach(QMainWindow):
 	def slotClose( self ):
 		if self.form.canClose():
 			self.close()
+			# We need this so the window will be deleted (resources freed)
+			# and destroyed() signal will be sent. This way the caller can
+			# update the number of attachments for the current model.
+			self.deleteLater()
 
