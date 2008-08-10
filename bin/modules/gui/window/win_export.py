@@ -56,7 +56,7 @@ def exportHtml(fname, fields, result, write_title=False):
 		for x in result:
 			row = []
 			for y in x:
-				y = str(y)
+				y = unicode(y)
 				y = y.replace('\n','<br/>').replace('\t','&nbsp;')
 				y = y.replace('<','&lt;').replace('>','&gt;').replace('&','&amp;')
 				row.append(y)
@@ -157,8 +157,7 @@ class win_export( QDialog ):
 		if len(idx) != 1:
 			return
 		idx = idx[0]
-		print str( self.storedModel.itemFromIndex( idx ).text() )
-		id = int( str( self.storedModel.itemFromIndex( idx ).text() ) )
+		id = int( unicode( self.storedModel.itemFromIndex( idx ).text() ) )
 		ir_export = rpc.RPCProxy('ir.exports')
 		ir_export.unlink([id])
 		self.storedModel.load( self.model, self.fieldsInfo )
@@ -168,13 +167,13 @@ class win_export( QDialog ):
 		if len(idx) != 1:
 			return
 		idx = idx[0]
-		fields = str( self.storedModel.itemFromIndex( idx ).text() )
+		fields = unicode( self.storedModel.itemFromIndex( idx ).text() )
 		fields = fields.split(', ') 
 		if self.selectedModel.rowCount() > 0:
 			self.selectedModel.removeRows(0, self.selectedModel.rowCount() )
 		for x in fields:
 			newItem = QStandardItem()
-			newItem.setText( str( self.fieldsInfo[x]['string'] ) )
+			newItem.setText( unicode( self.fieldsInfo[x]['string'] ) )
 			newItem.setData( QVariant(x) )
 			self.selectedModel.appendRow( newItem )
 
@@ -182,8 +181,8 @@ class win_export( QDialog ):
 		fields = []
 		fields2 = []
 		for x in range(0, self.selectedModel.rowCount() ):
-			fields.append( str( self.selectedModel.item( x ).data().toString() ) )
-			fields2.append( str( self.selectedModel.item( x ).text() ) )
+			fields.append( unicode( self.selectedModel.item( x ).data().toString() ) )
+			fields2.append( unicode( self.selectedModel.item( x ).text() ) )
 		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
 		result = exportData(self.ids, self.model, fields)
 		if action == 'excel':
@@ -219,14 +218,14 @@ class win_export( QDialog ):
 			self.selectedModel.removeRows(0, self.selectedModel.rowCount())
 
 	def fullPathText(self, item):
-		path = str( item.text() )
+		path = unicode( item.text() )
 		while item.parent() != None:
 			item = item.parent()
 			path = item.text() + "/" + path
 		return path
 	
 	def fullPathData(self, item):
-		path = str( item.data().toString() )
+		path = unicode( item.data().toString() )
 		while item.parent() != None:
 			item = item.parent()
 			path = item.data().toString() + "/" + path
@@ -239,9 +238,9 @@ class win_export( QDialog ):
 		ir_export = rpc.RPCProxy('ir.exports')
 		fields = []
 		for x in range(0, self.selectedModel.rowCount() ):
-			fields.append( str( self.selectedModel.item(x).data().toString() ) )
+			fields.append( unicode( self.selectedModel.item(x).data().toString() ) )
 
-		ir_export.create({'name' : str(name), 'resource' : self.model, 'export_fields' : [(0, 0, {'name' : f}) for f in fields]})
+		ir_export.create({'name' : unicode(name), 'resource' : self.model, 'export_fields' : [(0, 0, {'name' : f}) for f in fields]})
 		self.storedModel.load( self.model, self.fieldsInfo )
 
 # This model holds the information of the predefined exports

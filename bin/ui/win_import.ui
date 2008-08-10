@@ -34,7 +34,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QTreeView" name="uiAllFields" />
+        <widget class="QTreeView" name="uiAllFields" >
+         <property name="editTriggers" >
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -59,7 +63,8 @@
           <string>&amp;Add</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
          </property>
         </widget>
        </item>
@@ -69,7 +74,8 @@
           <string>&amp;Remove</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
          </property>
         </widget>
        </item>
@@ -79,7 +85,8 @@
           <string>Remo&amp;ve All</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/trash.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
          </property>
         </widget>
        </item>
@@ -102,7 +109,8 @@
           <string>Auto-&amp;detect</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
          </property>
         </widget>
        </item>
@@ -124,7 +132,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QListView" name="uiSelectedFields" />
+        <widget class="QListView" name="uiSelectedFields" >
+         <property name="editTriggers" >
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -151,7 +163,8 @@
      <item>
       <widget class="QPushButton" name="pushOpenFile" >
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/open.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
        </property>
       </widget>
      </item>
@@ -250,7 +263,8 @@
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
        </property>
       </widget>
      </item>
@@ -260,7 +274,8 @@
         <string>&amp;Cancel</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
        </property>
       </widget>
      </item>

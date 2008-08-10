@@ -95,11 +95,11 @@ class win_import(QDialog):
 
 	def slotAccept(self):
 		csv = {
-			'fname': str(self.uiFileName.text()),
-			'sep': str(self.uiFieldSeparator.text()),
-			'del': str(self.uiTextDelimiter.text()),
+			'fname': unicode(self.uiFileName.text()),
+			'sep': unicode(self.uiFieldSeparator.text()),
+			'del': unicode(self.uiTextDelimiter.text()),
 			'skip': self.uiLinesToSkip.value(),
-			'encoding': str(self.uiEncoding.currentText())
+			'encoding': unicode(self.uiEncoding.currentText())
 		}
 		if csv['fname'].strip() == '':
 			QMessageBox.information(self, '', _('No file specified'))
@@ -109,7 +109,7 @@ class win_import(QDialog):
 		#	return
 		fieldsData = []
 		for x in range(0, self.selectedModel.rowCount() ):
-			fieldsData.append( str( self.selectedModel.item( x ).data().toString() ) )
+			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
 
 		if csv['fname']:
 			import_csv(csv, fieldsData, self.model)
@@ -138,27 +138,27 @@ class win_import(QDialog):
 			self.selectedModel.removeRows(0, self.selectedModel.rowCount())
 
 	def fullPathText(self, item):
-		path = str( item.text() )
+		path = unicode( item.text() )
 		while item.parent() != None:
 			item = item.parent()
 			path = item.text() + "/" + path
 		return path
 
 	def fullPathData(self, item):
-		path = str( item.data().toString() )
+		path = unicode( item.data().toString() )
 		while item.parent() != None:
 			item = item.parent()
 			path = item.data().toString() + "/" + path
 		return path
 
 	def slotAutoDetect(self):
-		fname=str(self.uiFileName.text())
+		fname=unicode(self.uiFileName.text())
 		if not fname:
 			QMessageBox.information(self, '', 'You must select an import file first !')
 			return 
-		csvsep=str(self.uiFieldSeparator.text())
-		csvdel=str(self.uiTextDelimiter.text())
-		csvcode=str(self.uiEncoding.currentText()) or 'UTF-8'
+		csvsep=unicode(self.uiFieldSeparator.text())
+		csvdel=unicode(self.uiTextDelimiter.text())
+		csvcode=unicode(self.uiEncoding.currentText()) or 'UTF-8'
 
 		self.uiLinesToSkip.setValue(1)
 		try:
