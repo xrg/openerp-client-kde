@@ -289,10 +289,9 @@
     <addaction name="actionAccessLog" />
     <addaction name="actionGoToResourceId" />
     <addaction name="separator" />
+    <addaction name="actionAttach" />
     <addaction name="actionOpen" />
     <addaction name="actionReload" />
-    <addaction name="separator" />
-    <addaction name="actionRepeat_Latest_Action" />
     <addaction name="separator" />
     <addaction name="actionPreview_in_PDF" />
     <addaction name="actionPreview_in_Editor" />
@@ -646,11 +645,6 @@
    </property>
    <property name="text" >
     <string>&amp;Reload/Undo</string>
-   </property>
-  </action>
-  <action name="actionRepeat_Latest_Action" >
-   <property name="text" >
-    <string>Repeat Latest Action</string>
    </property>
   </action>
   <action name="actionPreview_in_PDF" >

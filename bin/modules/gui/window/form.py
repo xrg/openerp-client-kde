@@ -111,7 +111,6 @@ class form( QWidget ):
 			'Save': self.save,
 			'Export': self.export,
 			'Import': self.import_,
-			'Repeat': self.repeatLastPrint,
 			'Delete': self.remove,
 			'Find': self.search,
 			'Previous': self.previous,
@@ -313,9 +312,6 @@ class form( QWidget ):
 			self.reload()
 		else:
 			self.updateStatus(_('No record selected!'))
-
-	def repeatLastPrint(self):
-		self.executeAction('client_print_multi', True)
 
 	def search(self, widget=None):
 		if not self.modified_save():
