@@ -204,11 +204,14 @@ class Screen(QScrollArea):
 			self.containerView.hide()
 
 		self.containerView = widget
+		# Calling first "loadSearchForm()" because when the search form is hidden
+		# it looks better to the user. If we show the widget and then hide the search
+		# form it produces an ugly flickering.
+		self.loadSearchForm()
 		widget.show()
 		self.connect(widget, SIGNAL("activated()"), self.activate )
 		self.connect(widget, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
 		
-		self.loadSearchForm()
 
 		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
