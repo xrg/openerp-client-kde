@@ -245,6 +245,8 @@ class form( QWidget ):
 		self.updateStatus(_('Working now on the duplicated document !'))
 
 	def save(self, widget=None, sig_new=True, auto_continue=True):
+		if not self.screen.current_model:
+			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		modification = self.screen.current_model.id
 		id = self.screen.save_current()
