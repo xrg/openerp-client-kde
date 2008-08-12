@@ -190,8 +190,8 @@ class ErrorDialog( QDialog ):
 ## @brief Shows the ErrorDialog 
 def error(title, message, details=''):
 	log = logging.getLogger('common.message')
-	log.error('MSG %s: %s' % (str(message),details))
-	dialog = ErrorDialog( str(title), str(message), str(details) )
+	log.error('MSG %s: %s' % (unicode(message),details))
+	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
 		
 ## @brief The ProgressDialog class shows a progress bar moving left and right until you stop it.
