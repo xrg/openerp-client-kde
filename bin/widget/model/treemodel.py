@@ -296,9 +296,9 @@ class TreeModel(QAbstractItemModel):
 		elif role == Qt.TextAlignmentRole:
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
 			if fieldType in ['integer', 'float']:
-				return QVariant( Qt.AlignRight )
+				return QVariant( Qt.AlignRight | Qt.AlignVCenter )
 			else:
-				return QVariant( Qt.AlignLeft )
+				return QVariant( Qt.AlignLeft | Qt.AlignVCenter )
 		elif role == Qt.UserRole:
 			model = self.model( index.row(), index.internalPointer() )
 			return QVariant( model.id )
