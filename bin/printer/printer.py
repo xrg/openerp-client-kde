@@ -35,6 +35,7 @@
 # Print or open a previewer
 #
 
+from PyQt4.QtGui import *
 from common import notifier
 from common import options
 import os, base64
@@ -53,7 +54,7 @@ class Printer(object):
 		if os.name == 'nt':
 			return lambda fileName: os.startfile(fileName)
 		else:
-			return lambda fileName: os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName)
+			return lambda fileName: QDesktopServices.openUrl( fileName )
 
 	def _findPDFOpener(self):
 		if os.name == 'nt':
