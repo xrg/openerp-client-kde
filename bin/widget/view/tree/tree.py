@@ -145,6 +145,10 @@ class ViewTree( AbstractView ):
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
 		self.connect( self.widget.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.currentChanged)
+		self.connect( self.treeModel, SIGNAL('rowsInserted(const QModelIndex &,int,int)'), self.updateAggregates )
+		self.connect( self.treeModel, SIGNAL('rowsRemoved(const QModelIndex &,int,int)'), self.updateAggregates )
+		self.connect( self.treeModel, SIGNAL('modelReset()'), self.updateAggregates )
+
 
 	def addAggregate( self, name, label, bold, digits ):
 		aggLabel = QLabel( label + ':', self.aggregatesContainer )
