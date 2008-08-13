@@ -143,7 +143,7 @@ from widget.view.form import url
 from widget.view.form import image
 
 
-widgets_type = {
+widgetsType = {
 	'date': calendar.DateFormWidget,
 	'time': calendar.TimeFormWidget,
 	'datetime': calendar.DateTimeFormWidget,
@@ -156,10 +156,10 @@ widgets_type = {
 	'binary': binary.BinaryFormWidget,
 	'text': char.CharFormWidget,
 	'text_tag': char.CharFormWidget,
-	'one2many': one2many.OneToManyFormWidget,
-	'one2many_form': one2many.OneToManyFormWidget,
-	'one2many_list': one2many.OneToManyFormWidget,
-	'many2many': many2many.ManyToManyFormWidget,
+	#'one2many': one2many.OneToManyFormWidget,
+	#'one2many_form': one2many.OneToManyFormWidget,
+	#'one2many_list': one2many.OneToManyFormWidget,
+	#'many2many': many2many.ManyToManyFormWidget,
 	'many2one': many2one.ManyToOneFormWidget,
 	'image' : image.ImageFormWidget,
 	'url' : url.UrlFormWidget,
@@ -185,7 +185,9 @@ class StandardDelegate( QItemDelegate ):
 
 	def createEditor( self, parent, option, index ):
 		self.currentIndex = index.model().createIndex( index.row(), index.column(), index.internalPointer() )
-		widget = widgets_type[self.type](parent, None, self.attributes)
+		if not self.type in widgetsType:
+			return None
+		widget = widgetsType[self.type](parent, None, self.attributes)
 		for x in widget.findChildren(QWidget):
 			w = x.nextInFocusChain()
 			inside = False
