@@ -35,6 +35,7 @@
 # Print or open a previewer
 #
 
+from common import notifier
 from common import options
 import os, base64
 import gc
@@ -76,6 +77,10 @@ def print_w32_filename(filename):
 	win32api.ShellExecute (0, "print", filename, None, ".", 0)
 
 def print_data(data):
+	if 'result' not in data:
+		notifier.notifyWarning( _('Report error'), _('There was an error trying to create the report.') )
+		return
+		
 	if data.get('code','normal')=='zlib':
 		import zlib
 		content = zlib.decompress(base64.decodestring(data['result']))
