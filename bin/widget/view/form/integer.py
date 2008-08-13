@@ -51,7 +51,7 @@ class IntegerFormWidget(AbstractFormWidget):
 		self.modified()
 
 	def value(self):
-		return textToFloat( str(self.widget.text()) )
+		return textToInteger( str(self.widget.text()) )
 
 	def store(self):
 		self.model.setValue(self.name, self.value() )
