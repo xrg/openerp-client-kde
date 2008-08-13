@@ -185,8 +185,33 @@ class MainWindow(QMainWindow):
 		self.requestsTimer = QTimer()
 		self.connect( self.requestsTimer, SIGNAL('timeout()'), self.updateRequestsStatus )
 		self.pendingRequests = -1 
+
+		# System Tray
+		self.actionOpenPartnersTab = QAction( self )
+		self.actionOpenPartnersTab.setIcon( QIcon( ':/images/images/partner.png' ) )
+		self.actionOpenPartnersTab.setText( _('Open partners tab') )
+		self.connect( self.actionOpenPartnersTab, SIGNAL('triggered()'), self.openPartnersTab )
+
+		self.actionOpenProductsTab = QAction( self )
+		self.actionOpenProductsTab.setIcon( QIcon( ':/images/images/product.png' ) )
+		self.actionOpenProductsTab.setText( _('Open products tab') )
+		self.connect( self.actionOpenProductsTab, SIGNAL('triggered()'), self.openProductsTab )
+		
+		self.systemTrayMenu = QMenu()
+		self.systemTrayMenu.addAction( self.actionFullTextSearch )
+		self.systemTrayMenu.addAction( self.actionOpenPartnersTab ) 
+		self.systemTrayMenu.addAction( self.actionOpenProductsTab ) 
+		self.systemTrayMenu.addAction( self.actionOpenMenuTab )
+		self.systemTrayMenu.addSeparator()
+		self.systemTrayMenu.addAction( self.actionSendRequest )
+		self.systemTrayMenu.addAction( self.actionReadMyRequest )
+		self.systemTrayMenu.addAction( self.actionWaitingRequests )
+		self.systemTrayMenu.addSeparator()
+		self.systemTrayMenu.addAction( self.actionExit )
+
 		self.systemTrayIcon = QSystemTrayIcon( self )
 		self.systemTrayIcon.setIcon( QIcon(":/images/images/tinyerp-icon-32x32.png") )
+		self.systemTrayIcon.setContextMenu( self.systemTrayMenu )
 		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
 
 	def systemTrayIconActivated(self, reason):
@@ -194,6 +219,16 @@ class MainWindow(QMainWindow):
 			return
 		self.setVisible( not self.isVisible() )
 		if self.isMinimized():
+			self.showNormal()
+
+	def openPartnersTab(self):
+		api.instance.createWindow(None, 'res.partner', mode='tree')
+		if not self.isVisible():
+			self.showNormal()
+
+	def openProductsTab(self):
+		api.instance.createWindow(None, 'product.product', mode='tree')
+		if not self.isVisible():
 			self.showNormal()
 
 	def startRequestsTimer(self):
@@ -423,6 +458,11 @@ class MainWindow(QMainWindow):
 	# If a tab menu already exists it's risen, otherwise a new one is created
 	# and rised.
 	def openMenuTab(self):
+
+		# Ensure the window is shown as it might be called from the system tray icon
+		if not self.isVisible():
+			self.showNormal()
+
 		# Search if a menu tab already exists and rise it
 		for p in range(self.tabWidget.count()):
 			if self.tabWidget.widget(p).model=='ir.ui.menu':
@@ -446,9 +486,10 @@ class MainWindow(QMainWindow):
 
 		api.instance.execute(self.menuId, {'window':self })
 
-	## @brief Opens the Home Tab.
+
+	## @brief Opens Home Tab.
 	#
-	# The home tab is an action specified in the server which usually is a 
+	# Home tab is an action specified in the server which usually is a 
 	# dashboard, but could be anything.
 	def openHomeTab(self):
 		id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ 'action_id','name'], rpc.session.context)
