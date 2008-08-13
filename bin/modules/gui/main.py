@@ -263,6 +263,12 @@ class MainWindow(QMainWindow):
 		return self.closeTab( self.tabWidget.currentIndex() )
 
 	def fullTextSearch(self):
+		# Ensure the window is shown as it might be called from the system tray icon
+		# If we don't do this the dialog is shown, but when it's closed the whole
+		# application is closed too.
+		if not self.isVisible():
+			self.showNormal()
+
 		win = win_full_text_search.FullTextSearchDialog(self)
 		if win.exec_() == QDialog.Rejected:
 			return
