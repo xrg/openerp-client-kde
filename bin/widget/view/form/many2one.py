@@ -157,8 +157,29 @@ class ManyToOneFormWidget(AbstractFormWidget):
 
 	def match(self):
 		name = unicode( self.uiText.text() )
-		if name.strip() == '' or name == self.model.value(self.name):
+		if name.strip() == '':
+			self.model.setValue( self.name, False )			
 			return
+		if name == self.model.value(self.name):
+			return
+		self.search( name )
+
+	def open(self):
+		if self.model.value(self.name):
+			dialog = ScreenDialog( self )
+			dialog.setAttributes( self.attrs )
+			dialog.setup( self.attrs['relation'], self.model.get()[self.name] )
+			if dialog.exec_() == QDialog.Accepted:
+				self.model.setValue(self.name, dialog.model)
+				self.display()
+		else:
+			self.search(False)
+
+	# This function searches the given name within the available records. If none or more than
+	# one possible name matches the search dialog is shown. If only one matches we set the
+	# value and don't even show the search dialog. This is also true if the function is called
+	# with 'name=False' and only one record exists in the database (hence the call from open())
+	def search(self, name):
 		domain = self.model.domain( self.name )
 		context = self.model.context()
 		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
@@ -172,25 +193,6 @@ class ManyToOneFormWidget(AbstractFormWidget):
 				name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], rpc.session.context)[0]
 				self.model.setValue(self.name, name)
 				self.display()
-
-	def open(self):
-		if self.model.value(self.name):
-			dialog = ScreenDialog( self )
-			dialog.setAttributes( self.attrs )
-			dialog.setup( self.attrs['relation'], self.model.get()[self.name] )
-			if dialog.exec_() == QDialog.Accepted:
-				self.model.setValue(self.name, dialog.model)
-				self.display()
-		else:
-			domain = self.model.domain( self.name )
-			context = self.model.context()
-			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, context=context, domain=domain)
-			if dialog.exec_() == QDialog.Accepted and dialog.result:
-				id = dialog.result[0]
-				name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], rpc.session.context)[0]
-				self.model.setValue(self.name, name)
-				self.display()
-
 
 	def new(self):
 		dialog = ScreenDialog(self)
