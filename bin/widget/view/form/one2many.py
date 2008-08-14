@@ -98,6 +98,7 @@ class OneToManyFormWidget(AbstractFormWidget):
 		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
 
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
+		self.connect(self.screen, SIGNAL('activated()'), self.switchView)
 
 		self.layout().insertWidget( 1, self.screen )
 		self.uiTitle.setText( self.screen.current_view.title )
