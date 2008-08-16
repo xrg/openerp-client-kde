@@ -36,6 +36,8 @@ class ProgressBar( QDialog ):
 		self.demoData = ""
 		self.language = ""
 		self.password = ""
+		self.progressBar.setMinimum( 0 )
+		self.progressBar.setMaximum( 0 )
 		self.show()
 
 	def start(self):
@@ -56,9 +58,18 @@ class ProgressBar( QDialog ):
 			QMessageBox.warning(self,_("Error during database creation !"),_("The server crashed during installation.\nWe suggest you to drop this database."))
 			self.reject()
 
-		if 0.0 <= progress < 1.0:
+		
+		# While progress will be 0.0 we'll keep the moving (undefined) progress bar.
+		# once it's different we allow it to progress normally. This is done because
+		# currently no intermediate values exist.
+		if progress > 0.0:
+			print "Progress > 0.0"
+			self.progressBar.setMaximum( 100 )
+			
+		if 0.0 < progress < 1.0:
 			self.progressBar.setValue(progress * 100)
 		elif progress == 1.0:
+			self.progressBar.setMaximum( 100 )
 			self.progressBar.setValue(100)
 			self.timer.stop()
 			pwdlst = '\n'.join(map(lambda x: '    - %s: %s / %s' % (x['name'],x['login'],x['password']), users))
