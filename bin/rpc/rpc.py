@@ -157,6 +157,33 @@ class ViewCache(AbstractCache):
 	def clear(self):
 		self.cache = {}
 
+class AsynchronousSessionCall(QThread):
+	def __init__(self, session, parent=None):
+		QThread.__init__(self, parent)
+		self.session = copy.deepcopy( session )
+		self.obj = None
+		self.method = None
+		self.args = None
+		self.result = None
+		self.callback = None
+
+	def call(self, callback, obj, method, *args):
+		self.callback = callback
+		self.obj = obj
+		self.method = method
+		self.args = args
+		self.connect( self, SIGNAL('finished()'), self.hasFinished )
+		self.start()
+
+	def hasFinished(self):
+		self.emit( SIGNAL('called(PyQt_PyObject)'), self.result )
+		if self.callback:
+			self.callback( self.result )
+
+	def run(self):
+		self.result = self.session.call( self.obj, self.method, *self.args )
+
+
 ## @brief The Session class provides a simple way of login and executing function in a server
 #
 # Typical usage of Session:

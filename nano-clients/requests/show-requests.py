@@ -22,7 +22,16 @@ class RequestsDialog(QDialog):
 		layout.setMargin( 0 )
 		self.resize(600, 300)
 
-		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'g1' )
+		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'jornadas' )
+		
+		# Example of asynchronous call:
+		# The function 'called()' will be called twice in this example,
+		# one for the signal and another one for the callback. Of course,
+		# only one method is needed.
+		call = rpc.AsynchronousSessionCall( rpc.session, self )
+		self.connect( call, SIGNAL('called(PyQt_PyObject)'), self.called )
+		call.call( self.called, '/object', 'execute', 'res.partner', 'search', [] )
+
 		visible = ['create_date', 'name', 'act_from', 'act_to', 'body' ]
 		self.fields = rpc.session.execute('/object', 'execute', 'res.request', 'fields_get', visible)
 		ids = rpc.session.execute('/object', 'execute', 'res.request', 'search', [])
@@ -33,6 +42,9 @@ class RequestsDialog(QDialog):
 		treeModel.setShowBackgroundColor( False )
 
 		tree.setModel( treeModel )
+
+	def called(self, obj):
+		print "Returned: ", obj
 
 
 app = QApplication(sys.argv)
