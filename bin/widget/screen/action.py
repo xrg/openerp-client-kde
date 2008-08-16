@@ -57,11 +57,21 @@ class ActionFactory:
 	@staticmethod
 	def create(parent, definition, model):
 		if not definition:
-			return
-
+			# If definition is not set we initialize it appropiately
+			# to be able to add the 'Print Screen' action.
+			definition = {
+				'print': [],
+				'action': [],
+				'relate': []
+			}
 
 		# We always add the 'Print Screen' action.
-		definition['print'].append( {'name': 'Print Screen', 'string': _('Print Screen'), 'report_name': 'printscreen.list', 'type': 'ir.actions.report.xml' } )
+		definition['print'].append({
+			'name': 'Print Screen', 
+			'string': _('Print Screen'), 
+			'report_name': 'printscreen.list', 
+			'type': 'ir.actions.report.xml' 
+		})
 
 		actions = []
 		for icontype in ( 'print','action','relate' ):
