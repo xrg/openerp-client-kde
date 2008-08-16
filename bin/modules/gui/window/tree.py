@@ -159,7 +159,7 @@ class tree( QWidget ):
 
 	def executeAction(self, keyword='tree_but_action', id=None, report_type='pdf'):
 		if id:
-			api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type})
+			api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id]})
 		else:
 			QMessageBox.information( self, '', _('No resource selected!'))
 
