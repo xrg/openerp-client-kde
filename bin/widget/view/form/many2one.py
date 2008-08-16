@@ -173,12 +173,12 @@ class ManyToOneFormWidget(AbstractFormWidget):
 				self.model.setValue(self.name, dialog.model)
 				self.display()
 		else:
-			self.search(False)
+			self.search('')
 
 	# This function searches the given name within the available records. If none or more than
 	# one possible name matches the search dialog is shown. If only one matches we set the
 	# value and don't even show the search dialog. This is also true if the function is called
-	# with 'name=False' and only one record exists in the database (hence the call from open())
+	# with "name=''" and only one record exists in the database (hence the call from open())
 	def search(self, name):
 		domain = self.model.domain( self.name )
 		context = self.model.context()
