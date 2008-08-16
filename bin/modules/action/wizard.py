@@ -98,33 +98,6 @@ class WizardPage(QDialog):
 		self.result = (button, self.datas)
 		self.accept()
 
-class WizardStep( QThread ):
-	def __init__( self, wizardId, datas, state, parent=None ):
-		QThread.__init__(self, parent)
-		self.wizardId = wizardId
-		self.datas = datas
-		self.state = state
-		self.run()
-
-	def run(self):
-		#import options 
-		#session = rpc.rpc_session()
-		#session.login( options.options['login.login'], 'admin', options.options['login.server'], options.options['login.port'], options.options['login.secure'], options.options['login.db'] )
-
-   		#log_response = rpc.session.login(*res)
-		#if log_response==1:
-                #options.options['login.server'] = res[2]
-                #options.options['login.login'] = res[0]
-                #options.options['login.port'] = res[3]
-                #options.options['login.secure'] = res[4]
-                #options.options['login.db'] = res[5]
-
-
-		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.result = rpc.session.execute('/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context)
-		QApplication.restoreOverrideCursor()
-		#self.exit()
-
 class Wizard( QObject ):
 	def __init__(self, action, datas, state='init', parent=None, context={}):
 		QObject.__init__(self, parent)
@@ -134,26 +107,21 @@ class Wizard( QObject ):
 		self.datas = datas
 		self.state = state
 		self.wizardId = rpc.session.execute('/wizard', 'create', self.action)
-		#self.semaphore = semaphore
 		self.finished = False
 		self.progress = common.ProgressDialog()
-		#self.step()
 
 	def step(self):
 		if self.state == 'end':
 			self.finished = True
-			#self.emit( SIGNAL('finished()') )
-			#self.semaphore.release()
 			return
 		self.progress.start()
-		self.wizardStep = WizardStep(self.wizardId, self.datas, self.state, self) 
-		#self.connect( self.wizardStep, SIGNAL('finished()'), self.finishedStep)
-		#self.wizardStep.start()
-		self.finishedStep()
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		call = rpc.AsynchronousSessionCall( rpc.session, self )
+		call.call( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context )
 
-	def finishedStep(self):
+	def finishedStep(self, res):
 		self.progress.stop()
-		res = self.wizardStep.result
+		QApplication.restoreOverrideCursor()
 		# Check if 'res' is None as it can happen with 'Split in production lots'
 		# in inventory 'Movements', for example, if no production sequence is defined.
 		if not res:
