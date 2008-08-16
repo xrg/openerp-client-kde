@@ -221,6 +221,14 @@ class AsynchronousSessionCall(QThread):
 					self.warning = (a.message, a.data)
 				else:
 					self.error = (_('Application Error'), _('View details'), err.faultString)
+			except tiny_socket.Myexception, err:
+				faultCode = unicode( err.faultCode, 'utf-8' )
+				faultString = unicode( err.faultString, 'utf-8' )
+				a = RpcException( faultCode, faultString )
+				if a.type in ('warning','UserError'):
+					self.warning = (a.message, a.data)
+				else:
+					self.error = (_('Application Error'), _('View details'), faultString)
 			except Exception, err:
 				self.exception = err
 
@@ -323,6 +331,14 @@ class Session:
 				notifier.notifyWarning(a.message, a.data )
 			else:
 				notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
+		except tiny_socket.Myexception, err:
+			faultCode = unicode( err.faultCode, 'utf-8' )
+			faultString = unicode( err.faultString, 'utf-8' )
+			a = RpcException( faultCode, faultString )
+			if a.type in ('warning','UserError'):
+				notifier.notifyWarning(a.message, a.data )
+			else:
+				notifier.notifyError(_('Application Error'), _('View details'), faultString)
 
 	## @brief Logs in the given server with specified name and password.
 	# @param url url string such as 'http://admin:admin@localhost:8069'. 
