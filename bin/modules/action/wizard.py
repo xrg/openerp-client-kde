@@ -116,8 +116,7 @@ class Wizard( QObject ):
 			return
 		self.progress.start()
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		call = rpc.AsynchronousSessionCall( rpc.session, self )
-		call.call( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context )
+		rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context )
 
 	def finishedStep(self, res):
 		self.progress.stop()

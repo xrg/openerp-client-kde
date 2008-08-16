@@ -166,6 +166,17 @@ class AsynchronousSessionCall(QThread):
 		self.args = None
 		self.result = None
 		self.callback = None
+		self.error = None
+		self.warning = None
+		self.exception = None
+		# If false, the behaviour is the same as Session.call()
+		# otherwise we use the notification mechanism and behave
+		# like Session.execute()
+		self.useNotifications = False
+
+	def execute(self, callback, obj, method, *args):
+		self.useNotifications = True
+		self.call( callback, obj, method, *args )
 
 	def call(self, callback, obj, method, *args):
 		self.callback = callback
@@ -176,12 +187,42 @@ class AsynchronousSessionCall(QThread):
 		self.start()
 
 	def hasFinished(self):
+		if self.exception:
+			# Note that if there's an error or warning
+			# callback is called anyway with value None
+			if self.error:
+				notifier.notifyError(*self.error)
+			elif self.warning:
+				notifier.notifyWarning(*self.warning)
+			else: 
+				raise self.exception
 		self.emit( SIGNAL('called(PyQt_PyObject)'), self.result )
 		if self.callback:
 			self.callback( self.result )
 
 	def run(self):
-		self.result = self.session.call( self.obj, self.method, *self.args )
+		# As we don't want to force initialization of gettext if 'call' is used
+		# we handle exceptions depending on 'useNotifications' 
+		if not self.useNotifications:
+			try:
+				self.result = self.session.call( self.obj, self.method, *self.args )
+			except Exception, err:
+				self.exception = err
+		else:
+			try:
+				self.result = self.session.call( self.obj, self.method, *self.args )
+			except socket.error, err:
+				self.exception = err
+				self.error = (_('Connection Refused'), unicode(err), unicode(err))
+			except xmlrpclib.Fault, err:
+				self.exception = err
+				a = RpcException(err.faultCode, err.faultString)
+				if a.type in ('warning','UserError'):
+					self.warning = (a.message, a.data)
+				else:
+					self.error = (_('Application Error'), _('View details'), err.faultString)
+			except Exception, err:
+				self.exception = err
 
 
 ## @brief The Session class provides a simple way of login and executing function in a server
@@ -195,6 +236,10 @@ class AsynchronousSessionCall(QThread):
 # rpc.session.logout()
 # \endcode
 class Session:
+	LoggedIn = 1
+	Exception = 2
+	InvalidCredentials = 3
+	
 	def __init__(self):
 		self.open = False
 		self.url = None
@@ -207,11 +252,47 @@ class Session:
 		self.errorHandler = None
 		self.cache = None
 
+	## @brief Calls asynchronously the specified method on the given object on the server.
+	# 
+	# When the response to the request arrives the callback function is called with the
+	# returned value as the first parameter. It returns an AsynchronousSessionCall instance 
+	# that can be used to keep track to what query a callback refers to, consider that as
+	# a call id.
+	# If there is an error during the call it simply rises an exception. See 
+	# execute() if you want exceptions to be handled by the notification mechanism.
+	# @param obj Object name (string) that contains the method
+	# @param method Method name (string) to call 
+	# @param args Argument list for the given method
+	# 
+	# Example of usage:
+	# \code
+	# import rpc
+	# def returned(self, value):
+	# 	print value
+	# rpc.session.login('http://admin:admin@localhost:8069', 'database')
+	# rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
+	# rpc.session.logout()
+	# \end
+	def callAsync( self, callback, obj, method, *args ):
+		caller = AsynchronousSessionCall( self )
+		caller.call( callback, obj, method, *args )
+		return caller
+
+	## @brief Same as callAsync() but uses the notify mechanism to notify
+	# exceptions. 
+	#
+	# Note that you'll need to bind gettext as texts sent to
+	# the notify module are localized.
+	def executeAsync( self, callback, obj, method, *args ):
+		caller = AsynchronousSessionCall( self )
+		caller.execute( callback, obj, method, *args )
+		return caller
+
 	## @brief Calls the specified method
 	# on the given object on the server. 
 	#
 	# If there is an error during the call it simply rises an exception. See 
-	# execute() if you want exceptions to be handled by the notify mechanism.
+	# execute() if you want exceptions to be handled by the notification mechanism.
 	# @param obj Object name (string) that contains the method
 	# @param method Method name (string) to call 
 	# @param args Argument list for the given method
@@ -233,7 +314,6 @@ class Session:
 		if not self.open:
 			raise RpcException(1, 'not logged')
 		try:
-			#return self.connection.call(obj, method, *args)
 			return self.call(obj, method, *args)
 		except socket.error, err:
 			notifier.notifyError(_('Connection Refused'), unicode(err), unicode(err) )
@@ -259,11 +339,11 @@ class Session:
 		try:
 			res = self.connection.call( '/common', 'login', db, user, password )
 		except socket.error, e:
-			return -1
+			return Session.Exception
 		if not res:
 			self.open=False
 			self.uid=False
-			return -2
+			return Session.InvalidCredentials
 
 		self.url = _url
 		self.open = True
@@ -280,8 +360,8 @@ class Session:
 		self.connection.authorized = True
 
 		self.reloadContext()
-		return 1
-	
+		return Session.LoggedIn
+
 	## @brief Reloads the session context
 	#
 	# Useful when some user parameters such as language are changed.

@@ -372,7 +372,7 @@ class MainWindow(QMainWindow):
 		try:
 			log_response = rpc.session.login(url, databaseName)
 			url = QUrl( url )
-			if log_response==1:
+			if log_response==rpc.session.LoggedIn:
 				options.options.loadSettings()
 
 				iconVisible = options.options.get( 'show_system_tray_icon', True )
@@ -391,9 +391,9 @@ class MainWindow(QMainWindow):
 				self.openHomeTab()
 
 				self.updateRequestsStatus()
-			elif log_response==-1:
+			elif log_response==rpc.session.Exception:
 				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
-			elif log_response==-2:
+			elif log_response==rpc.session.InvalidCredentials:
 				QMessageBox.warning(self, _('Connection error !'), _('Bad username or password !'))
 
 		except rpc.RpcException, e:
