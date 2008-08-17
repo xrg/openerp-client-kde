@@ -64,7 +64,11 @@
         <string>&amp;Change</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/configure.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/configure.png</normaloff>:/images/images/configure.png</iconset>
+       </property>
+       <property name="autoDefault" >
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -157,7 +161,11 @@
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
+       </property>
+       <property name="default" >
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -167,7 +175,8 @@
         <string>&amp;Cancel</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
        </property>
       </widget>
      </item>
