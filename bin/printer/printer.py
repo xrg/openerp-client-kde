@@ -27,83 +27,76 @@
 #
 ##############################################################################
 
-# ------------------------------------------------------------------- #
-# Module printer
-# ------------------------------------------------------------------- #
-#
-# Supported formats: pdf
-#
-# Print or open a previewer
-#
-
-from PyQt4.QtGui import *
+from PyQt4.QtCore  import *
 from common import notifier
 from common import options
-import os, base64
-import gc
+import os
+import base64
+import tempfile
 
+## @brief Provides various static functions to easily printe files and/or data
+# comming from the server.
+#
+# It encapsulates system dependent code and handles user preferences, such as
+# sending directly to the printer if the system allows that.
 class Printer(object):
-
-	def __init__(self):
-		self.openers = {
-			'pdf': self._findPDFOpener,
-			'html': self._findHTMLOpener,
-			'doc': self._findHTMLOpener,
-		}
-
-	def _findHTMLOpener(self):
+	## @brief Opens the specified file with system's default application
+	@staticmethod
+	def open(fileName):
 		if os.name == 'nt':
-			return lambda fileName: os.startfile(fileName)
+			os.startfile(fileName)
 		else:
-			return lambda fileName: QDesktopServices.openUrl( fileName )
-
-	def _findPDFOpener(self):
-		if os.name == 'nt':
-			if options.options['printer.preview']:
-				return lambda fn: os.startfile(fn)
-			else:
-				return lambda fn: print_w32_filename(fn)
-		else:
-			return lambda fileName: os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName)
-
-	def print_file(self, fname, ftype):
-		finderfunc = self.openers[ftype]
-		opener = finderfunc()
-		opener(fname)
-		gc.collect()
-
-printer = Printer()
-
-def print_w32_filename(filename):
-	import win32api
-	win32api.ShellExecute (0, "print", filename, None, ".", 0)
-
-def print_data(data):
-	if 'result' not in data:
-		notifier.notifyWarning( _('Report error'), _('There was an error trying to create the report.') )
-		return
+			print "Trying to open: ", fileName
+			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName)
+	
+	## @brief Sends the specified file directly to the printer 
+	@staticmethod
+	def sendToPrinter(fileName):
+		if os.name != 'nt':
+			return
+		import win32api
+		win32api.ShellExecute (0, "print", fileName, None, ".", 0)
 		
-	if data.get('code','normal')=='zlib':
-		import zlib
-		content = zlib.decompress(base64.decodestring(data['result']))
-	else:
-		content = base64.decodestring(data['result'])
+	## @brief Sends the specified file to printer or opens it with the default
+	# application depending on operating system and user settings.
+	@staticmethod
+	def printFile(fileName, fileType):
+		if os.name == 'nt' and options.options['printer.preview']:
+			Printer.sendToPrinter( fileName )
+		else:
+			Printer.open( fileName )
+	
+	## @brief Prints report information contained in the data parameter. Which will 
+	# typically be received from the server.
+	@staticmethod
+	def printData(data):
+		if 'result' not in data:
+			notifier.notifyWarning( _('Report error'), _('There was an error trying to create the report.') )
+			return
+			
+		if data.get('code','normal')=='zlib':
+			import zlib
+			content = zlib.decompress(base64.decodestring(data['result']))
+		else:
+			content = base64.decodestring(data['result'])
 
-	if data['format'] in printer.openers.keys():
-		import tempfile
+		# We'll always try to open the file and won't limit ourselves to 
+		# doc, html and pdf. For example, one might get odt, ods, etc. Before
+		# we stored the report in a file if it wasn't one of the first three
+		# formats.
 		if data['format']=='html' and os.name=='nt':
 			data['format']='doc'
-		fp_name = tempfile.mktemp('.'+data['format'])
-		fp = file(fp_name, 'wb+')
+
+		f = QTemporaryFile( 'XXXXXXXX.%s' % data['format'] )
+		f.setAutoRemove( False )
+		f.open()
+		fileName = os.path.join( unicode( QDir.tempPath() ), unicode( f.fileName() ) )
+		f.write( content )
+		f.close()
+		
+		fp, fileName = tempfile.mkstemp( '.%s' % data['format'] )
+		fp = os.fdopen( fp, 'wb+' )
 		fp.write(content)
 		fp.close()
-		printer.print_file(fp_name, data['format'])
-	else:
-		fname = QFileDialog.getOpenFileName(None, _('Write Report to File'), os.path.join(options.options['client.default_path'], data['format']) )
-		try:
-			fp = file(filename,'wb+')
-			fp.write(content)
-			fp.close()
-		except:
-			QMessageBox.information(None, '', _('Error writing the file!'))
+		Printer.printFile( fileName, data['format'] )
 

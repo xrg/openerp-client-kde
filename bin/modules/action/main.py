@@ -32,7 +32,7 @@ import os, time, base64, datetime
 import rpc
 
 import wizard
-import printer
+from printer import *
 
 from common import api
 from common import common
@@ -63,7 +63,7 @@ def executeReport(name, data, context={}):
 			if attempt>200:
 				QMessageBox.information( None, '', _('Printing aborted, too long delay !'))
 				return False
-		printer.print_data(val)
+		Printer.printData(val)
 	except rpc.RpcException, e:
 		common.error(_('Error: ')+str(e.type), e.message, e.data)
 	return True
