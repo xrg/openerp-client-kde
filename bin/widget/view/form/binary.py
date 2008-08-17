@@ -54,7 +54,6 @@ class BinaryFormWidget(AbstractFormWidget):
 		self.uiBinary.setEnabled( not value )
 		self.pushNew.setEnabled( not value )
 		self.pushRemove.setEnabled( not value )
-		self.pushSave.setEnabled( not value )
 
 	def menuEntries(self):
 		pix = QPixmap()
