@@ -1,8 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#
-# $Id: screen.py 4698 2006-11-27 12:30:44Z ced $
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -26,6 +25,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
 ##############################################################################
+
 import xml.dom.minidom
 
 from rpc import RPCProxy

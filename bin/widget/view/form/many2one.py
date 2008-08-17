@@ -1,8 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#
-# $Id: many2one.py 4773 2006-12-05 11:01:20Z ced $
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential

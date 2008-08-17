@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -38,9 +39,6 @@ import csv, StringIO
 
 from importexport_common import *
 
-#
-# TODO: make it works with references
-#
 def import_csv(csv_data, fields, model):
 	fname = csv_data['fname']
 	content = file(fname,'rb').read()
@@ -56,7 +54,7 @@ def import_csv(csv_data, fields, model):
 		d = ''
 		for key,val in res[1].items():
 			d+= ('\t%s: %s\n' % (str(key),str(val)))
-		error = u'Error trying to import this record:\n%s\nError Message:\n%s\n\n%s' % (d,res[2],res[3])
+		error = _('Error trying to import this record:\n%s\nError Message:\n%s\n\n%s') % (d,res[2],res[3])
 		QMessageBox.warning(None, _('Error importing data'), error )
 
 class win_import(QDialog):

@@ -1,8 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#
-# $Id: parser.py 4776 2006-12-05 13:21:09Z ced $
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential

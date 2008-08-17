@@ -1,10 +1,9 @@
 ##############################################################################
 #
 # Copyright (c) 2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
+# Copyright (c) 2007 Angel Alvarez <angel@nan-tic.com>
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
-# $Id: list.py 4411 2006-11-02 23:59:17Z pinky $
-#      list.py Modified: 2007-03-31 11:00 Angel Alvarez  
-#                
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
 # consequences resulting from its eventual inadequacies and bugs

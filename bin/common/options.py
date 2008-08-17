@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -141,12 +142,6 @@ class configmanager(object):
 		except:
 			return
 		self.options.update( settings )
-		#self.options['stylesheet'] = settings['stylesheet']
-		#self.options['tabs_position'] = settings['tabs_position']
-		#self.options['show_toolbar'] = settings['show_toolbar']
-		#self.options['sort_mode'] = settings['sort_mode']
-		#self.options['limit'] = settings['limit']
-		#self.options['requests_refresh_interval'] = settings['requests_refresh_interval']
 
 options = configmanager()
 

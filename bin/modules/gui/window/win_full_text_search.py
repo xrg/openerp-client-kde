@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #					Fabien Pinckaers <fp@tiny.Be>
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -34,7 +35,6 @@ import rpc
 from widget.screen import Screen
 import widget_search
 
-import gc
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *

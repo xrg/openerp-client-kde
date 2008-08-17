@@ -4,6 +4,7 @@
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -27,6 +28,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
 ##############################################################################
+
 import sys, os
 import logging
 
@@ -39,8 +41,6 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'ktiny'])
 sys.path.append(terp_path)
 
-#from common import locale
-#locale.initializeTranslations()
 from common import localization
 localization.initializeTranslations()
 

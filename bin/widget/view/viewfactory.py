@@ -1,8 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#
-# $Id: widget_parse.py 4231 2006-10-15 21:47:35Z pinky $
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -43,10 +42,6 @@ import os
 class ViewFactory:
 	@staticmethod
 	def create(parent, model, root_node, fields):
-		# TODO: Check out if searching available views is very expensive
-		# if it is not, put the appropiate comments, or load only once
-		# otherwise.
-
 		# Search for all available views
 		parsers = {}
 		imports = {}

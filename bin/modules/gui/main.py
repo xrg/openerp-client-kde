@@ -3,9 +3,8 @@
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #					Fabien Pinckaers <fp@tiny.Be>
-#					Angel Alvarez <angel_alse@yahoo.es>
-#
-# $Id: main.py 4778 2006-12-05 14:15:56Z ced $
+# Copyright (c) 2007 Angel Alvarez <angel@nan-tic.com>
+# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -40,7 +39,6 @@ import rpc
 from window import windowservice, win_preference, win_full_text_search
 from createdb import CreateDatabaseDialog
 from choosedb import ChooseDatabaseDialog
-from formdesigner import FormDesigner
 import re
 import base64
 
