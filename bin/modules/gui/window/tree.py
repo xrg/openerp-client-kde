@@ -103,12 +103,13 @@ class tree( QWidget ):
 		self.uiTree.setModel( self.treeModel )
 		self.uiList.setModel( self.listModel )
 
+
 		self.connect(self.uiTree,SIGNAL('activated( QModelIndex ) ' ), self.open )
 
 		self.connect(self.pushAddShortcut, SIGNAL('clicked()'), self.addShortcut)
 		self.connect(self.pushRemoveShortcut, SIGNAL('clicked()'), self.removeShortcut)
 		self.connect(self.pushGoToShortcut, SIGNAL('clicked()'), self.goToShortcut)
-		self.connect(self.uiShortcuts, SIGNAL('itemActivated(QTreeWidgetItem*,int)'), self.goToShortcut)
+		self.connect(self.uiShortcuts, SIGNAL('activated(QModelIndex)'), self.goToShortcut)
 		self.connect(self.uiList.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.mainMenuClicked)
 
 		if name:
@@ -116,8 +117,21 @@ class tree( QWidget ):
 		else:
 			self.name = p.title
 		
-		self.uiShortcuts.load( self.model )
+		# Shortcuts
 
+		scFields = rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
+		self.shortcutsGroup = widget.model.group.ModelRecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
+		self.shortcutsGroup.setDomain( [('user_id','=',rpc.session.uid), ('resource','=',model)] )
+		self.shortcutsGroup.update()
+
+		self.shortcutsModel = TreeModel( self )
+		self.shortcutsModel.setMode( TreeModel.ListMode )
+		self.shortcutsModel.setFields( scFields )
+		self.shortcutsModel.setFieldsOrder( ['name'] )
+		self.shortcutsModel.setModelGroup( self.shortcutsGroup )
+		self.shortcutsModel.setShowBackgroundColor( False )
+		self.uiShortcuts.setModel( self.shortcutsModel )
+		
 		if not p.toolbar:
 			self.uiList.hide()
 		else:
@@ -177,11 +191,11 @@ class tree( QWidget ):
 			QMessageBox.information(self, '', _('No resource selected!'))
 
 	def removeShortcut(self):
-		id = self.uiShortcuts.currentShortcutId()
-		if id == None:
+		id = self.currentShortcutId()
+		if not id:
 			return
 		rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id])
-		self.uiShortcuts.load( self.model )
+		self.shortcutsGroup.update()
 
 	def addShortcut(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
@@ -192,12 +206,22 @@ class tree( QWidget ):
 		for (id,name) in res:
 			uid = rpc.session.uid
 			rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name})
-		self.uiShortcuts.load( self.model )
+		self.shortcutsGroup.update()
 
-	def goToShortcut(self):
-		id = self.uiShortcuts.currentMenuId()
-		if id!=None:
-			self.executeAction('tree_but_open', id)
+	def goToShortcut(self, index):
+		id = self.currentShortcutId()
+		if not id:
+			return
+		m = self.shortcutsGroup[ id ]
+		id = m.value( 'res_id' )
+		self.executeAction('tree_but_open', id)
+
+	def currentShortcutId(self):
+		item = self.uiShortcuts.currentIndex()
+		if not item.isValid():
+			return None
+		id = item.data( Qt.UserRole ).toInt()[0]
+		return id
 
 	# There's no reason why a menu can't be closed, is it?
 	def canClose(self):
@@ -223,3 +247,4 @@ class tree( QWidget ):
 		
 	def actions(self):
 		return []
+

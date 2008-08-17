@@ -86,7 +86,8 @@
              <string/>
             </property>
             <property name="icon" >
-             <iconset resource="common.qrc" >:/images/images/new.png</iconset>
+             <iconset resource="common.qrc" >
+              <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
             </property>
            </widget>
           </item>
@@ -105,7 +106,8 @@
              <string/>
             </property>
             <property name="icon" >
-             <iconset resource="common.qrc" >:/images/images/relate.png</iconset>
+             <iconset resource="common.qrc" >
+              <normaloff>:/images/images/relate.png</normaloff>:/images/images/relate.png</iconset>
             </property>
            </widget>
           </item>
@@ -124,26 +126,15 @@
              <string/>
             </property>
             <property name="icon" >
-             <iconset resource="common.qrc" >:/images/images/delete.png</iconset>
+             <iconset resource="common.qrc" >
+              <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="ShortcutsListWidget" name="uiShortcuts" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Expanding" hsizetype="Preferred" >
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <column>
-           <property name="text" >
-            <string>1</string>
-           </property>
-          </column>
-         </widget>
+         <widget class="QListView" name="uiShortcuts" />
         </item>
        </layout>
       </widget>
@@ -160,13 +151,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>ShortcutsListWidget</class>
-   <extends>QTreeWidget</extends>
-   <header>modules.gui.window.view_tree</header>
-  </customwidget>
- </customwidgets>
  <resources>
   <include location="common.qrc" />
  </resources>
