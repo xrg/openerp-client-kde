@@ -110,6 +110,8 @@ class LegendItem(QGraphicsItemGroup):
 
 	def updateLabels(self):
 		self.clear()
+		if len(self._labels) == 0:
+			return
 		font = QFont()
 		metrics = QFontMetrics( font )
 		y = 0
