@@ -65,9 +65,7 @@ class WizardPage(QDialog):
 			if 'value' in fields[f]:
 				val[f] = fields[f]['value']
 
-		#self.screen = Screen('wizard.'+name, view_type=[], parent=self)
 		self.screen = Screen( self )
-		self.screen.setViewTypes( None )
 		self.screen.setModelGroup( ModelRecordGroup( 'wizard.'+name ) )
 		self.screen.new(default=False)
 		self.screen.addCustomView(arch, fields, display=True)
@@ -130,7 +128,6 @@ class Wizard( QObject ):
 		if res['type']=='form':
 			dialog = WizardPage(res['arch'], res['fields'], res['state'], self.action, self.datas['form'])
 
-			#dialog.screen.current_model.set( self.datas['form'] )
 			if dialog.exec_() == QDialog.Rejected:
 				self.finished = True
 				return
@@ -140,7 +137,6 @@ class Wizard( QObject ):
 					del new_data[d]
 			self.datas['form'].update(new_data)
 			del new_data
-			#del dialog
 		elif res['type']=='action':
 			api.instance.executeAction(res['action'],self.datas)
 			self.state = res['state']
