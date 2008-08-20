@@ -204,7 +204,6 @@ class StandardDelegate( QItemDelegate ):
 
 	def eventFilter( self, obj, event ):
 		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
-			print "in"
 			self.emit(SIGNAL('commitData(QWidget*)'), self.currentEditor)
 			self.emit(SIGNAL('closeEditor(QWidget*, QAbstractItemDelegate::EndEditHint)'), self.currentEditor, QAbstractItemDelegate.NoHint)
 
