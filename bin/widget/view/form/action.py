@@ -88,10 +88,11 @@ class ActionFormWidget(AbstractFormWidget):
 		self.screen.setEmbedded( True )
 		self.connect( self.screen, SIGNAL('activated()'), self.switch )
 		mode = (self.action['view_mode'] or 'form,tree').split(',')
-		if self.view_id:
-			self.screen.setViewIds( self.view_id )
-		else:
-			self.screen.setViewTypes( mode )
+		#if self.view_id:
+			#self.screen.setViewIds( self.view_id )
+		#else:
+			#self.screen.setViewTypes( mode )
+		self.screen.setupViews( mode, self.view_id )
 		loadUi( common.uiPath('paned.ui'), self  )
 		self.uiTitle.setText( QString( self.attrs['string'] or "" ))
 		layout = QVBoxLayout( self.uiGroup )

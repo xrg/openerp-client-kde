@@ -44,6 +44,7 @@ from PyQt4.QtGui import *
 import widget_search
 from toolbar import ToolBar
 from action import *
+from viewqueue import *
 
 
 ## @brief The Screen class is a widget that provides an easy way of handling multiple views.
@@ -94,17 +95,16 @@ class Screen(QScrollArea):
 
 		self._embedded = True
 
-		#self._domain = []
 		self.views_preload = {}
 		self.rpc = None
 		self.views = []
 		self.fields = {}
-		self._viewIds = []
-		self._viewTypes = ['form','tree']
 		self.models = None
 		self.__current_model = None
 
 		self.__current_view = 0
+
+		self._viewQueue = ViewQueue()
 
 		self._addAfterNew = False
 
@@ -114,23 +114,20 @@ class Screen(QScrollArea):
 	def preloadedViews(self, views):
 		return self.views_preload
 		
+	def setupViews(self, types, ids):
+		self._viewQueue.setup( types, ids )
+		self.switchView()
+
 	def setViewIds(self, ids):
-		self._viewIds = ids[1:]
-		view = self.addViewById( ids[0] )
-		self.setView( view )
-		self.display()
+		self._viewQueue.setViewIds( ids )
+		self.switchView()
 
 	def viewIds(self):
 		return self._viewIds
 
 	def setViewTypes(self, types):
-		if not types:
-			self._viewTypes = []
-			return
-		self._viewTypes = types[1:]
-		view = self.addViewByType( types[0] )
-		self.setView(view)
-		self.display()
+		self._viewQueue.setViewTypes( types )
+		self.switchView()
 
 	def viewTypes(self):
 		return self._viewTypes
@@ -140,12 +137,6 @@ class Screen(QScrollArea):
 
 	def addAfterNew(self):
 		return self._addAfterNew
-
-	#def setDomain(self, value):
-		#self._domain = value
-
-	#def domain(self):
-		#return self._domain
 
 	## @brief Sets whether the screen is embedded.
 	#
@@ -291,16 +282,14 @@ class Screen(QScrollArea):
 	## @brief Loads the next view pending to be loaded.
 	# If there is no view pending it returns False, otherwise returns True.
 	def loadNextView(self):
-		if self._viewIds:
-			self.addViewById( self._viewIds.pop(0) )
-			return True
-		elif self._viewTypes:
-			self.addViewByType( self._viewTypes.pop(0) )
-			return True
-		else:
+		if self._viewQueue.isEmpty():
 			return False
+		if self._viewQueue.isId():
+			self.addViewById( self._viewQueue.next() )
+		else:
+			self.addViewByType( self._viewQueue.next() )
+		return True
 
-	#def add_view_custom(self, arch, fields, display=False, toolbar={}):
 	def addCustomView(self, arch, fields, display=False, toolbar={}):
 		return self.addView(arch, fields, display, True, toolbar=toolbar)
 
@@ -311,9 +300,6 @@ class Screen(QScrollArea):
 	def addViewById(self, id, display=False):
 		# TODO: By now we set toolbar to True always. Even when Screen is embedded
 		view = self.rpc.fields_view_get(id, False, self.context, True)
-		if 'type' in view:
-			if view['type'] in self._viewTypes:
-				self._viewTypes.remove( view['type'] )
 		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=id)
 		
 	## @brief Adds a view given a view type.
@@ -485,9 +471,6 @@ class Screen(QScrollArea):
 					res = True
 		return res 
 
-	#
-	# To write
-	#
 	def reload(self):		
 		self.current_model.reload()
 		self.display()

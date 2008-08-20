@@ -54,7 +54,6 @@ class ManyToManyFormWidget(AbstractFormWidget):
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
 		self.screen.setViewTypes( ['tree'] )
-		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
 		self.screen.setAddAfterNew( True )
 

@@ -79,7 +79,6 @@ class form( QWidget ):
 
 		self.screen = Screen(self)
 		self.screen.setModelGroup( self.group )
-		#self.screen.setDomain( domain )
 		self.screen.setEmbedded( False )
 		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
 		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )
@@ -87,11 +86,7 @@ class form( QWidget ):
 		self._allowOpenInNewWindow = True
 
 		# Remove ids with False value
-		view_ids = [x for x in view_ids if x]
-		if view_ids:
-			self.screen.setViewIds( view_ids )
-		else:
-			self.screen.setViewTypes( view_type )
+		self.screen.setupViews( view_type, view_ids )
 
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.updateRecordStatus)
 		if name:
