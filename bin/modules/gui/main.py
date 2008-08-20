@@ -448,7 +448,7 @@ class MainWindow(QMainWindow):
 	def showAboutDialog(self):
 		dialog = QDialog( self )
 		loadUi( common.uiPath('about.ui'), dialog )
-		dialog.uiTiny.setHtml( str(dialog.uiTiny.toHtml()) % '1.0.0' )
+		dialog.uiTiny.setHtml( unicode(dialog.uiTiny.toHtml()) % '1.0.0' )
 		dialog.exec_()
 
 	def showShortcuts(self):
