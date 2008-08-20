@@ -34,7 +34,7 @@ import os
 import base64
 import tempfile
 
-## @brief Provides various static functions to easily printe files and/or data
+## @brief Provides various static functions to easily print files and/or data
 # comming from the server.
 #
 # It encapsulates system dependent code and handles user preferences, such as
@@ -46,7 +46,6 @@ class Printer(object):
 		if os.name == 'nt':
 			os.startfile(fileName)
 		else:
-			print "Trying to open: ", fileName
 			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName)
 	
 	## @brief Sends the specified file directly to the printer 
