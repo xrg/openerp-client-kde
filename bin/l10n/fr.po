@@ -1,23 +1,26 @@
 # French translation for TinyERP v3
 # Copyright (C) 2005 Sednacom
 # This file is distributed under the same license as the PACKAGE package.
-# Brice Vissière <brice@sednacom.fr>, 2005
 #
+# Brice Vissière <brice@sednacom.fr>, 2005, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-18 23:22+0200\n"
-"PO-Revision-Date: 2006-11-06 00:15+0100\n"
-"Last-Translator: Luc Maurer <luc.maurer@camptocamp.com>\n"
-"Language-Team: FR <i18n-info@tinyerp.org>\n"
+"POT-Creation-Date: 2008-08-14 16:26+0200\n"
+"PO-Revision-Date: 2008-08-14 14:15+0200\n"
+"Last-Translator: \n"
+"Language-Team: fr <kde-i18n-doc@lists.kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KAider 0.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: bin/common/common.py:157
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr ""
+"Envoi de demande de support n'est pas disponible avec le client KDE TinyERP"
 
 #: bin/common/options.py:64
 msgid "specify alternate config file"
@@ -57,6 +60,8 @@ msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with KTiny."
 msgstr ""
+"Le module 'dbus' n'est pas installé. Veuillez l'installer afin de faciliter "
+"l'intéraction des autres applications avec KTiny."
 
 #: bin/modules/action/main.py:47
 msgid "Nothing to print!"
@@ -105,18 +110,20 @@ msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
 msgstr ""
+"Le mot de passe administrateur n'a pas pu être changé. Merci de vérifier que "
+"le serveur et le mot de passe soient correct."
 
 #: bin/modules/gui/askserver.py:33
 msgid "NET-RPC (faster)"
-msgstr ""
+msgstr "NET-RPC (Plus rapide)"
 
 #: bin/modules/gui/askserver.py:34
 msgid "XML-RPC"
-msgstr ""
+msgstr "XML-RPC"
 
 #: bin/modules/gui/askserver.py:35
 msgid "Secure XML-RPC"
-msgstr ""
+msgstr "XML-RPC (sécurisé)"
 
 #: bin/modules/gui/choosedb.py:44 bin/modules/gui/login.py:45
 msgid "Could not connect to server !"
@@ -128,14 +135,6 @@ msgstr "Aucune base de données, veuillez en créer une !"
 
 #: bin/modules/gui/createdb.py:18
 #, fuzzy
-msgid "You can now connect to the database as an administrator."
-msgstr ""
-"Vous pouvez vous connecter à la nouvelle base de données en utilisant les "
-"accès suivants :\n"
-"\n"
-
-#: bin/modules/gui/createdb.py:18
-#, fuzzy
 msgid ""
 "The following users have been installed on your database:\n"
 "\n"
@@ -143,11 +142,25 @@ msgstr ""
 "Cochez cette case si vous désirez installer les données démo dans la "
 "nouvellebase de données"
 
+#: bin/modules/gui/createdb.py:18
+msgid ""
+"\n"
+"\n"
+msgstr ""
+
+#: bin/modules/gui/createdb.py:18
+#, fuzzy
+msgid "You can now connect to the database as an administrator."
+msgstr ""
+"Vous pouvez vous connecter à la nouvelle base de données en utilisant les "
+"accès suivants :\n"
+"\n"
+
 #: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
 msgid "Could not create database."
 msgstr "Impossible de créer cette base de données."
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:537
+#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:602
 msgid "Bad database administrator password !"
 msgstr "Le mot de passe administrateur est incorrect !"
 
@@ -175,259 +188,273 @@ msgstr ""
 "Le nom de la base de donnée ne peut pas contenir de caractères spéciaux, "
 "accents, espaces ou \"_\""
 
-#: bin/modules/gui/main.py:85 bin/modules/gui/main.py:362
+#: bin/modules/gui/main.py:93 bin/modules/gui/main.py:416
 msgid "Press Ctrl+O to login"
 msgstr "Faire Ctrl+O pour se logger"
 
-#: bin/modules/gui/main.py:95
+#: bin/modules/gui/main.py:103
 #, fuzzy
 msgid "Close tab"
 msgstr "Fermer onglet"
 
-#: bin/modules/gui/main.py:275
+#: bin/modules/gui/main.py:192
+msgid "Open partners tab"
+msgstr ""
+
+#: bin/modules/gui/main.py:197
+#, fuzzy
+msgid "Open products tab"
+msgstr "Logiciel Libre: "
+
+#: bin/modules/gui/main.py:329
 #, fuzzy, python-format
 msgid "%s request(s)"
 msgstr " requête(s)"
 
-#: bin/modules/gui/main.py:277
+#: bin/modules/gui/main.py:331
 msgid "No request"
 msgstr "Pas de requête"
 
-#: bin/modules/gui/main.py:279
+#: bin/modules/gui/main.py:333
 #, fuzzy, python-format
 msgid " - %s pending request(s)"
 msgstr "requête(s) en attente"
 
-#: bin/modules/gui/main.py:285
+#: bin/modules/gui/main.py:339
 #, fuzzy
 msgid "New Request"
 msgstr "Pas de requête"
 
-#: bin/modules/gui/main.py:285
+#: bin/modules/gui/main.py:339
 #, fuzzy
 msgid "You've received a new request"
 msgstr "Envoyer une nouvelle requête"
 
-#: bin/modules/gui/main.py:341 bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:395 bin/modules/gui/main.py:397
 #, fuzzy
 msgid "Connection error !"
 msgstr "Erreur de connexion !"
 
-#: bin/modules/gui/main.py:341
+#: bin/modules/gui/main.py:395
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Erreur de connection !\n"
 "Impossible de se connecter au serveur !"
 
-#: bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:397
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Erreur de connexion !\n"
 "Mauvais nom d'utilisateur ou mot de passe !"
 
-#: bin/modules/gui/main.py:347
+#: bin/modules/gui/main.py:401
 msgid "Connection Error !"
 msgstr "Erreur de connexion !"
 
-#: bin/modules/gui/main.py:361
+#: bin/modules/gui/main.py:415
 msgid "Not logged !"
 msgstr "Non connecté !"
 
-#: bin/modules/gui/main.py:430
+#: bin/modules/gui/main.py:489
 #, fuzzy
 msgid "Access denied"
 msgstr "Niveau d'accès"
 
-#: bin/modules/gui/main.py:430
+#: bin/modules/gui/main.py:489
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
+"Vous ne pouvez pas vous connecter sur le système !\n"
+"Demander à votre administrateur de le vérifier\n"
+"vous n'avez pas d'action défini pour votre utilisateur."
 
-#: bin/modules/gui/main.py:455
+#: bin/modules/gui/main.py:520
 msgid "Quit"
-msgstr ""
+msgstr "Quitter"
 
-#: bin/modules/gui/main.py:455
+#: bin/modules/gui/main.py:520
 msgid "Do you really want to quit ?"
 msgstr "Voulez-vous vraiment quitter ?"
 
-#: bin/modules/gui/main.py:455 bin/widget/model/treemodel.py:265
+#: bin/modules/gui/main.py:520 bin/widget/model/treemodel.py:254
+#: bin/widget_search/checkbox.py:41
 msgid "Yes"
 msgstr "Oui"
 
-#: bin/modules/gui/main.py:455 bin/widget/model/treemodel.py:267
+#: bin/modules/gui/main.py:520 bin/widget/model/treemodel.py:256
+#: bin/widget_search/checkbox.py:42
 msgid "No"
 msgstr "Non"
 
-#: bin/modules/gui/main.py:524 bin/modules/gui/main.py:545
+#: bin/modules/gui/main.py:589 bin/modules/gui/main.py:610
 msgid "Delete a database"
 msgstr "Supprimer une base de données"
 
-#: bin/modules/gui/main.py:533 bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:598 bin/modules/gui/main.py:604
 #, fuzzy
 msgid "Database removal"
 msgstr "Creation de la base de données"
 
-#: bin/modules/gui/main.py:533
+#: bin/modules/gui/main.py:598
 #, fuzzy
 msgid "Database dropped successfully!"
 msgstr "La base de données a été supprimée avec succès !"
 
-#: bin/modules/gui/main.py:537
+#: bin/modules/gui/main.py:602
 msgid "Could not drop database."
 msgstr "Impossible de supprimer la base de données."
 
-#: bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:604
 msgid "Couldn't drop database"
 msgstr "Impossible de supprimer la base de données."
 
-#: bin/modules/gui/main.py:556
+#: bin/modules/gui/main.py:621
 #, fuzzy
 msgid "Database restored successfully!"
 msgstr "La base de données a été restaurée avec succès !"
 
-#: bin/modules/gui/main.py:560 bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:625 bin/modules/gui/main.py:627
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Impossible de restaurer la base de données."
 
-#: bin/modules/gui/main.py:560
+#: bin/modules/gui/main.py:625
 #, fuzzy
 msgid "Bad database administrator password!"
 msgstr "Le mot de passe administrateur est incorrect !"
 
-#: bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:627
 msgid "There was an error restoring the database!"
-msgstr ""
+msgstr "Il y a eu des erreurs lors de la restauration de la base de données !"
 
-#: bin/modules/gui/main.py:565
+#: bin/modules/gui/main.py:630
 msgid "Backup a database"
 msgstr "Sauvegarder une base de données"
 
-#: bin/modules/gui/main.py:580
+#: bin/modules/gui/main.py:645
 #, fuzzy
 msgid "Database backuped successfully!"
 msgstr "La base de données a été sauvegardée avec succès !"
 
-#: bin/modules/gui/main.py:583
+#: bin/modules/gui/main.py:648
 #, fuzzy, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr "Impossible de sauvegarder la base de données."
 
-#: bin/modules/gui/window/form.py:162
+#: bin/modules/gui/window/form.py:171
 msgid "No resource selected !"
 msgstr "Pas de ressource sélectionnée"
 
-#: bin/modules/gui/window/form.py:180
+#: bin/modules/gui/window/form.py:192
 msgid "You have to select one resource!"
 msgstr "Vous devez sélectionner une ressource"
 
-#: bin/modules/gui/window/form.py:186
+#: bin/modules/gui/window/form.py:198
 #: bin/modules/gui/window/win_full_text_search.py:392
 msgid "ID"
 msgstr "ID"
 
-#: bin/modules/gui/window/form.py:187
+#: bin/modules/gui/window/form.py:199
 msgid "Creation User"
 msgstr "Créateur"
 
-#: bin/modules/gui/window/form.py:188
+#: bin/modules/gui/window/form.py:200
 msgid "Creation Date"
 msgstr "Date de création"
 
-#: bin/modules/gui/window/form.py:189
+#: bin/modules/gui/window/form.py:201
 msgid "Latest Modification by"
 msgstr "Modifié en dernier par"
 
-#: bin/modules/gui/window/form.py:190
+#: bin/modules/gui/window/form.py:202
 msgid "Latest Modification Date"
 msgstr "Date de la dernière modification"
 
-#: bin/modules/gui/window/form.py:191
+#: bin/modules/gui/window/form.py:203
 msgid "Owner"
 msgstr "Propriétaire"
 
-#: bin/modules/gui/window/form.py:192
+#: bin/modules/gui/window/form.py:204
 msgid "Group Owner"
 msgstr "Groupe propriétaire"
 
-#: bin/modules/gui/window/form.py:193
+#: bin/modules/gui/window/form.py:205
 msgid "Access Level"
 msgstr "Niveau d'accès"
 
-#: bin/modules/gui/window/form.py:202 bin/modules/gui/window/form.py:345
+#: bin/modules/gui/window/form.py:214 bin/modules/gui/window/form.py:356
 #: bin/widget/view/form/button.py:30
 #, fuzzy
 msgid "Question"
 msgstr "version"
 
-#: bin/modules/gui/window/form.py:202
+#: bin/modules/gui/window/form.py:214
 #, fuzzy
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 "Etes-vous certain de vouloir\n"
 "supprimer cet enregistrement ?"
 
-#: bin/modules/gui/window/form.py:206
+#: bin/modules/gui/window/form.py:218
 msgid "Resource not removed !"
 msgstr "Ressource non supprimée"
 
-#: bin/modules/gui/window/form.py:208
+#: bin/modules/gui/window/form.py:220
 msgid "Resource removed."
 msgstr "Ressource supprimée"
 
-#: bin/modules/gui/window/form.py:233
+#: bin/modules/gui/window/form.py:245
 msgid "Working now on the duplicated document !"
 msgstr "Vous travaillez maintenant sur le document dupliqué"
 
-#: bin/modules/gui/window/form.py:240
+#: bin/modules/gui/window/form.py:254
 msgid "Document saved !"
 msgstr "Document sauvé"
 
-#: bin/modules/gui/window/form.py:244
+#: bin/modules/gui/window/form.py:258
 msgid "Invalid form !"
 msgstr "Formulaire invalide"
 
-#: bin/modules/gui/window/form.py:302
+#: bin/modules/gui/window/form.py:316
 msgid "No record selected!"
 msgstr "Pas d'enregistrement sélectionné!"
 
-#: bin/modules/gui/window/form.py:320
+#: bin/modules/gui/window/form.py:331
 #, fuzzy, python-format
 msgid "(%s attachments) "
 msgstr "Attachement"
 
-#: bin/modules/gui/window/form.py:325
+#: bin/modules/gui/window/form.py:336
 #, fuzzy
 msgid "No records"
 msgstr "Suivant"
 
-#: bin/modules/gui/window/form.py:332
+#: bin/modules/gui/window/form.py:343
 #, fuzzy
 msgid "No document selected"
 msgstr "Pas de ressource sélectionnée!"
 
-#: bin/modules/gui/window/form.py:336
+#: bin/modules/gui/window/form.py:347
 msgid "New document"
 msgstr "Nouveau document"
 
-#: bin/modules/gui/window/form.py:338
+#: bin/modules/gui/window/form.py:349
 #, fuzzy, python-format
 msgid "Editing document (id: %s)"
 msgstr "Document en cours d'édition: "
 
-#: bin/modules/gui/window/form.py:339
+#: bin/modules/gui/window/form.py:350
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
+msgstr "Enregistrement: %(name)s / %(count)s - %(name2)s"
 
-#: bin/modules/gui/window/form.py:345
+#: bin/modules/gui/window/form.py:356
 #, fuzzy
 msgid "This record has been modified do you want to save it?"
 msgstr ""
@@ -439,18 +466,20 @@ msgstr ""
 msgid "Fields"
 msgstr "Nom du champ"
 
-#: bin/modules/gui/window/tree.py:162 bin/modules/gui/window/tree.py:174
+#: bin/modules/gui/window/tree.py:164 bin/modules/gui/window/tree.py:176
 msgid "No resource selected!"
 msgstr "Pas de ressource sélectionnée!"
 
-#: bin/modules/gui/window/tree.py:186
+#: bin/modules/gui/window/tree.py:188
 #, fuzzy
 msgid "No item selected"
 msgstr "Pas d'enregistrement sélectionné!"
 
-#: bin/modules/gui/window/tree.py:186
+#: bin/modules/gui/window/tree.py:188
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
+"Merci de sélectionner un élément dans la vue arbre afin de l'ajouter dans "
+"les raccourcis."
 
 #: bin/modules/gui/window/view_tree/parser.py:51
 msgid "Tree"
@@ -481,7 +510,7 @@ msgstr ""
 #: bin/modules/gui/window/win_export.py:87
 #: bin/modules/gui/window/win_export.py:89
 msgid "Data Export"
-msgstr ""
+msgstr "Exportation de données"
 
 #: bin/modules/gui/window/win_export.py:89
 #, fuzzy
@@ -509,22 +538,22 @@ msgstr ""
 
 #: bin/modules/gui/window/win_export.py:136
 msgid "Save as HTML"
-msgstr ""
+msgstr "Enregistrer comme HTML"
 
-#: bin/modules/gui/window/win_export.py:192
+#: bin/modules/gui/window/win_export.py:191
 msgid "Export Data"
 msgstr "Exporter données"
 
-#: bin/modules/gui/window/win_export.py:236
+#: bin/modules/gui/window/win_export.py:235
 msgid "What is the name of this export?"
-msgstr ""
+msgstr "Quel est le nom pour cette exportation ?"
 
-#: bin/modules/gui/window/win_export.py:257
+#: bin/modules/gui/window/win_export.py:256
 #, fuzzy
 msgid "Export name"
 msgstr "Exporter données"
 
-#: bin/modules/gui/window/win_export.py:258
+#: bin/modules/gui/window/win_export.py:257
 #, fuzzy
 msgid "Exported fields"
 msgstr "Vider le champ"
@@ -539,6 +568,10 @@ msgid ""
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
+"<b>Recherche pleine texte est non configuré.</b><br/>Aller sur "
+"<i>Administration - Configuration - Full Text Search - Indexes</i>. Ensuite "
+"ajouter le champ que vous souhaitez indéxer et utiliser <i>Update Full Text "
+"Search</i>."
 
 #: bin/modules/gui/window/win_full_text_search.py:308
 msgid ""
@@ -634,33 +667,43 @@ msgstr "Pas de plugin disponible pour cette ressource !"
 msgid "Choose a Plugin"
 msgstr "Choisissez un plugin"
 
-#: bin/printer/printer.py:95
+#: bin/printer/printer.py:82
+#, fuzzy
+msgid "Report error"
+msgstr "Rapport"
+
+#: bin/printer/printer.py:82
+#, fuzzy
+msgid "There was an error trying to create the report."
+msgstr "Il y a eu des erreurs lors de la restauration de la base de données !"
+
+#: bin/printer/printer.py:101
 msgid "Write Report to File"
 msgstr "Enregistrer le rapport dans un fichier"
 
-#: bin/printer/printer.py:101 bin/widget/view/form/binary.py:127
+#: bin/printer/printer.py:107 bin/widget/view/form/binary.py:127
 msgid "Error writing the file!"
 msgstr "Erreur d'écriture du fichier"
 
-#: bin/rpc/rpc.py:189
+#: bin/rpc/rpc.py:212
 #, fuzzy
 msgid "Connection Refused"
 msgstr "Connexion refusée !"
 
-#: bin/rpc/rpc.py:196
+#: bin/rpc/rpc.py:218
 msgid "Application Error"
 msgstr "Erreur de l'application"
 
-#: bin/rpc/rpc.py:196
+#: bin/rpc/rpc.py:218
 msgid "View details"
 msgstr "Voir les détails"
 
-#: bin/rpc/rpc.py:291
+#: bin/rpc/rpc.py:318
 #, fuzzy
 msgid "Could not contact server!"
 msgstr "Impossible de se connecter au serveur."
 
-#: bin/widget/model/treemodel.py:260 bin/widget/view/form/binary.py:104
+#: bin/widget/model/treemodel.py:249 bin/widget/view/form/binary.py:104
 #: bin/widget/view/form/binary.py:143
 #, python-format
 msgid "%d bytes"
@@ -670,30 +713,20 @@ msgstr "%d bytes"
 msgid "You must select a record to use the relate button !"
 msgstr "Vous devez sélectionner un enregistrement pour utiliser ce bouton"
 
-#: bin/widget/screen/action.py:47
+#: bin/widget/screen/action.py:46
 #, fuzzy
 msgid "You must save this record to use the relate button !"
 msgstr "Vous devez sélectionner un enregistrement pour utiliser ce bouton"
 
-#: bin/widget/screen/action.py:65
+#: bin/widget/screen/action.py:64
 #, fuzzy
 msgid "Print Screen"
 msgstr "Imprimer les documents"
 
-#: bin/widget/view/chart/parser.py:70
+#: bin/widget/view/chart/parser.py:66
 #, fuzzy
 msgid "Unknown"
 msgstr "Fenêtre inconnue"
-
-#: bin/widget/view/chart/parser.py:76
-#, python-format
-msgid "<center><b>Could not load charts: %s</b></center>"
-msgstr ""
-
-#: bin/widget/view/chart/parser.py:104
-#, fuzzy
-msgid "Can not generate graph !"
-msgstr "Impossible d'écrire le fichier"
 
 #: bin/widget/view/form/abstractformwidget.py:65
 msgid "Set to default value"
@@ -736,32 +769,32 @@ msgstr "Erreur de lecture du fichier"
 msgid "Save attachment as..."
 msgstr "Sauver l'attachement sous ..."
 
-#: bin/widget/view/form/button.py:41
+#: bin/widget/view/form/button.py:44
 msgid "Error in Button"
 msgstr ""
 
-#: bin/widget/view/form/button.py:41
+#: bin/widget/view/form/button.py:44
 msgid "Button type not allowed"
 msgstr ""
 
-#: bin/widget/view/form/button.py:45
+#: bin/widget/view/form/button.py:47
 #, fuzzy
 msgid "Invalid Form, correct red fields!"
 msgstr "Formulaire invalide, corrigez les champs en rouge!"
 
-#: bin/widget/view/form/calendar.py:49
+#: bin/widget/view/form/calendar.py:48
 msgid "Set current date"
 msgstr ""
 
-#: bin/widget/view/form/calendar.py:89
+#: bin/widget/view/form/calendar.py:88
 msgid "Set current date and time"
 msgstr ""
 
-#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
+#: bin/widget/view/form/calendar.py:122 bin/widget/view/form/calendar.py:166
 msgid "Set current time"
 msgstr ""
 
-#: bin/widget/view/form/char.py:67
+#: bin/widget/view/form/char.py:71
 msgid "You must save the resource before adding translations"
 msgstr ""
 
@@ -812,6 +845,10 @@ msgstr "Rapport"
 #: bin/widget/view/form/translationdialog.py:41
 msgid "Translation Dialog"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Can not generate graph !"
+#~ msgstr "Impossible d'écrire le fichier"
 
 #, fuzzy
 #~ msgid "Could not resotre database"
@@ -1639,9 +1676,6 @@ msgstr ""
 
 #~ msgid "How did you hear about us:"
 #~ msgstr "Comment nous connaissez-vous:"
-
-#~ msgid "Open Source: "
-#~ msgstr "Logiciel Libre: "
 
 #~ msgid "<b>Your company</b>"
 #~ msgstr "<b>Votre société: </b>"
