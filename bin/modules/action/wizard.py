@@ -67,8 +67,7 @@ class WizardPage(QDialog):
 
 		#self.screen = Screen('wizard.'+name, view_type=[], parent=self)
 		self.screen = Screen( self )
-		self.screen.setViewTypes( [] )
-		gr = ModelRecordGroup( 'wizard.'+name )
+		self.screen.setViewTypes( None )
 		self.screen.setModelGroup( ModelRecordGroup( 'wizard.'+name ) )
 		self.screen.new(default=False)
 		self.screen.addCustomView(arch, fields, display=True)

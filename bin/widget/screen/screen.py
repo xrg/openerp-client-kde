@@ -97,6 +97,7 @@ class Screen(QScrollArea):
 
 		self.views_preload = {}
 		self.rpc = None
+		self.name = None
 		self.views = []
 		self.fields = {}
 		self.models = None
@@ -116,18 +117,24 @@ class Screen(QScrollArea):
 		
 	def setupViews(self, types, ids):
 		self._viewQueue.setup( types, ids )
-		self.switchView()
+		# Try to load only if model group has been set
+		if self.name:
+			self.switchView()
 
 	def setViewIds(self, ids):
 		self._viewQueue.setViewIds( ids )
-		self.switchView()
+		# Try to load only if model group has been set
+		if self.name:
+			self.switchView()
 
 	def viewIds(self):
 		return self._viewIds
 
 	def setViewTypes(self, types):
 		self._viewQueue.setViewTypes( types )
-		self.switchView()
+		# Try to load only if model group has been set
+		if self.name:
+			self.switchView()
 
 	def viewTypes(self):
 		return self._viewTypes
