@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KTiny 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-18 23:22+0200\n"
+"POT-Creation-Date: 2008-08-20 15:58+0200\n"
 "PO-Revision-Date: 2005-22-05 09:43+0200\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
@@ -15,39 +15,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bin/common/common.py:157
+#: bin/common/common.py:158
 msgid "Sending support requests is not available with the TinyERP KDE client"
 msgstr "El cliente KDE de TinyERP no permite mandar peticiones de soporte"
 
-#: bin/common/options.py:64
+#: bin/common/options.py:65
 msgid "specify alternate config file"
 msgstr "especifique un archivo alterno de configuración"
 
-#: bin/common/options.py:65
+#: bin/common/options.py:66
 msgid "enable basic debugging"
 msgstr "habilite depuración básica"
 
-#: bin/common/options.py:66
+#: bin/common/options.py:67
 msgid "specify channels to log"
 msgstr "especificar que canales registrar"
 
-#: bin/common/options.py:67
+#: bin/common/options.py:68
 msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 msgstr "especificar el nivel de registro: INFO, DEBUG, ALERTA; ERROR; CRITICO"
 
-#: bin/common/options.py:68
+#: bin/common/options.py:69
 msgid "specify the user login"
 msgstr "especifique el usuario"
 
-#: bin/common/options.py:69
+#: bin/common/options.py:70
 msgid "specify the server port"
 msgstr "especifique el puerto del servidor"
 
-#: bin/common/options.py:70
+#: bin/common/options.py:71
 msgid "specify the server ip/name"
 msgstr "especifique el servidor ip/nombre"
 
-#: bin/common/options.py:71
+#: bin/common/options.py:72
 msgid "specify stylesheet to apply"
 msgstr "especifique la hoja de estilo a aplicar"
 
@@ -59,43 +59,43 @@ msgstr ""
 "El módulo 'dbus' no está disponible. Considere instalarlo para que otras "
 "aplicaciones puedan interactuar fácilmente con KTiny."
 
-#: bin/modules/action/main.py:47
+#: bin/modules/action/main.py:48
 msgid "Nothing to print!"
 msgstr "Nada a imprimir!"
 
-#: bin/modules/action/main.py:63
+#: bin/modules/action/main.py:64
 msgid "Printing aborted, too long delay !"
 msgstr "Impresión abortada, espera demasiado larga!"
 
-#: bin/modules/action/main.py:67
+#: bin/modules/action/main.py:68
 msgid "Error: "
 msgstr "Error"
 
-#: bin/modules/action/main.py:159
+#: bin/modules/action/main.py:160
 msgid "Select your action"
 msgstr "Seleccionar su acción"
 
-#: bin/modules/action/main.py:165
+#: bin/modules/action/main.py:166
 msgid "No action defined!"
 msgstr "No hay ninguna acción definida!"
 
-#: bin/modules/gui/adminpwd.py:30
+#: bin/modules/gui/adminpwd.py:57
 msgid "Validation Error"
 msgstr "Error de validación"
 
-#: bin/modules/gui/adminpwd.py:30
+#: bin/modules/gui/adminpwd.py:57
 msgid "Confirmation password does not match new password."
 msgstr "La contraseña de validación no concuerda con la nueva contraseña."
 
-#: bin/modules/gui/adminpwd.py:37
+#: bin/modules/gui/adminpwd.py:64
 msgid "Password changed successfully"
 msgstr "Contraseña cambiada correctamente"
 
-#: bin/modules/gui/adminpwd.py:40
+#: bin/modules/gui/adminpwd.py:67
 msgid "Error"
 msgstr "Error"
 
-#: bin/modules/gui/adminpwd.py:40
+#: bin/modules/gui/adminpwd.py:67
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
@@ -103,31 +103,31 @@ msgstr ""
 "No se pudo cambiar la contraseña de administrador. Por favor, compruebe que "
 "el servidor y la contraseña son correctos."
 
-#: bin/modules/gui/askserver.py:33
+#: bin/modules/gui/askserver.py:60
 msgid "NET-RPC (faster)"
 msgstr "NET-RPC (Más rápido)"
 
-#: bin/modules/gui/askserver.py:34
+#: bin/modules/gui/askserver.py:61
 msgid "XML-RPC"
 msgstr "XML-RPC"
 
-#: bin/modules/gui/askserver.py:35
+#: bin/modules/gui/askserver.py:62
 msgid "Secure XML-RPC"
 msgstr "XML-RPC Seguro"
 
-#: bin/modules/gui/choosedb.py:44 bin/modules/gui/login.py:45
+#: bin/modules/gui/choosedb.py:71 bin/modules/gui/login.py:72
 msgid "Could not connect to server !"
 msgstr "No se pudo conectar con el servidor!"
 
-#: bin/modules/gui/choosedb.py:50 bin/modules/gui/login.py:50
+#: bin/modules/gui/choosedb.py:77 bin/modules/gui/login.py:77
 msgid "No database found, you must create one !"
 msgstr "No se encontrón ninguna base de datos. Debe crear una."
 
-#: bin/modules/gui/createdb.py:18
+#: bin/modules/gui/createdb.py:45
 msgid "You can now connect to the database as an administrator."
 msgstr "Ahora se puede conectar a la base de datos como administrador."
 
-#: bin/modules/gui/createdb.py:18
+#: bin/modules/gui/createdb.py:45
 msgid ""
 "The following users have been installed on your database:\n"
 "\n"
@@ -135,19 +135,19 @@ msgstr ""
 "Los siguientes usuarios se han instalado en la base de datos:\n"
 "\n"
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/createdb.py:49
+#: bin/modules/gui/createdb.py:76 bin/modules/gui/createdb.py:78
 msgid "Could not create database."
 msgstr "No se ha podido crear la base de datos."
 
-#: bin/modules/gui/createdb.py:47 bin/modules/gui/main.py:537
+#: bin/modules/gui/createdb.py:76 bin/modules/gui/main.py:600
 msgid "Bad database administrator password !"
 msgstr "Contraseña de administrador incorrecta!"
 
-#: bin/modules/gui/createdb.py:49 bin/modules/gui/createdb.py:56
+#: bin/modules/gui/createdb.py:78 bin/modules/gui/createdb.py:85
 msgid "Error during database creation !"
 msgstr "Error durante la creación de la base de datos!"
 
-#: bin/modules/gui/createdb.py:56
+#: bin/modules/gui/createdb.py:85
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
@@ -155,11 +155,11 @@ msgstr ""
 "El servidor petó durante la instalación.\n"
 "Se sugiere borrar esta base de datos."
 
-#: bin/modules/gui/createdb.py:114
+#: bin/modules/gui/createdb.py:152
 msgid "Bad database name !"
 msgstr "Nombre de base de datos incorrecto!"
 
-#: bin/modules/gui/createdb.py:114
+#: bin/modules/gui/createdb.py:152
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -168,61 +168,69 @@ msgstr ""
 "\"_\".\n"
 "Tiene que evitar todos las tildes, espacios y carácteres especiales."
 
-#: bin/modules/gui/main.py:85 bin/modules/gui/main.py:362
+#: bin/modules/gui/main.py:91 bin/modules/gui/main.py:414
 msgid "Press Ctrl+O to login"
 msgstr "Pulse Ctrl+O para entrar"
 
-#: bin/modules/gui/main.py:95
+#: bin/modules/gui/main.py:101
 msgid "Close tab"
 msgstr "Cerrar la pestaña"
 
-#: bin/modules/gui/main.py:275
+#: bin/modules/gui/main.py:190
+msgid "Open partners tab"
+msgstr ""
+
+#: bin/modules/gui/main.py:195
+msgid "Open products tab"
+msgstr ""
+
+#: bin/modules/gui/main.py:327
 #, python-format
 msgid "%s request(s)"
 msgstr "%s peticion(es)"
 
-#: bin/modules/gui/main.py:277
+#: bin/modules/gui/main.py:329
 msgid "No request"
 msgstr "No hay Solicitudes"
 
-#: bin/modules/gui/main.py:279
+#: bin/modules/gui/main.py:331
 #, python-format
 msgid " - %s pending request(s)"
 msgstr "- %s solicitudes pendientes"
 
-#: bin/modules/gui/main.py:285
+#: bin/modules/gui/main.py:337
 msgid "New Request"
 msgstr "Petición Nueva"
 
-#: bin/modules/gui/main.py:285
+#: bin/modules/gui/main.py:337
 msgid "You've received a new request"
 msgstr "Ha recibido una petición nueva"
 
-#: bin/modules/gui/main.py:341 bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:393 bin/modules/gui/main.py:395
 msgid "Connection error !"
 msgstr "Error de Conexión"
 
-#: bin/modules/gui/main.py:341
+#: bin/modules/gui/main.py:393
 msgid "Unable to connect to the server !"
 msgstr "No ha sido posible connectar con el servidor."
 
-#: bin/modules/gui/main.py:343
+#: bin/modules/gui/main.py:395
 msgid "Bad username or password !"
 msgstr "Usuario o contraseña incorrecto."
 
-#: bin/modules/gui/main.py:347
+#: bin/modules/gui/main.py:399
 msgid "Connection Error !"
 msgstr "Error de Conexión"
 
-#: bin/modules/gui/main.py:361
+#: bin/modules/gui/main.py:413
 msgid "Not logged !"
 msgstr "No conectado!"
 
-#: bin/modules/gui/main.py:430
+#: bin/modules/gui/main.py:487
 msgid "Access denied"
 msgstr "Acceso denegado"
 
-#: bin/modules/gui/main.py:430
+#: bin/modules/gui/main.py:487
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -232,69 +240,71 @@ msgstr ""
 "Pregunte al administrador y verifique\n"
 "que tiene una acción definida para su usuario."
 
-#: bin/modules/gui/main.py:455
+#: bin/modules/gui/main.py:518
 msgid "Quit"
 msgstr "Salir"
 
-#: bin/modules/gui/main.py:455
+#: bin/modules/gui/main.py:518
 msgid "Do you really want to quit ?"
 msgstr "Está seguro que quiere salir?"
 
-#: bin/modules/gui/main.py:455 bin/widget/model/treemodel.py:265
+#: bin/modules/gui/main.py:518 bin/widget/model/treemodel.py:281
+#: bin/widget_search/checkbox.py:42
 msgid "Yes"
 msgstr "Si"
 
-#: bin/modules/gui/main.py:455 bin/widget/model/treemodel.py:267
+#: bin/modules/gui/main.py:518 bin/widget/model/treemodel.py:283
+#: bin/widget_search/checkbox.py:43
 msgid "No"
 msgstr "No"
 
-#: bin/modules/gui/main.py:524 bin/modules/gui/main.py:545
+#: bin/modules/gui/main.py:587 bin/modules/gui/main.py:608
 msgid "Delete a database"
 msgstr "Borrar una base de datos"
 
-#: bin/modules/gui/main.py:533 bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:596 bin/modules/gui/main.py:602
 msgid "Database removal"
 msgstr "Borrado de base de datos"
 
-#: bin/modules/gui/main.py:533
+#: bin/modules/gui/main.py:596
 msgid "Database dropped successfully!"
 msgstr "Base"
 
-#: bin/modules/gui/main.py:537
+#: bin/modules/gui/main.py:600
 msgid "Could not drop database."
 msgstr "No se ha podido borrar la base de datos"
 
-#: bin/modules/gui/main.py:539
+#: bin/modules/gui/main.py:602
 msgid "Couldn't drop database"
 msgstr "No se ha podido borrar la base de datos"
 
-#: bin/modules/gui/main.py:556
+#: bin/modules/gui/main.py:619
 msgid "Database restored successfully!"
 msgstr "Base de datos restaurada correctamente!"
 
-#: bin/modules/gui/main.py:560 bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:623 bin/modules/gui/main.py:625
 msgid "Could not restore database"
 msgstr "No se ha podido restaurar la base de datos"
 
-#: bin/modules/gui/main.py:560
+#: bin/modules/gui/main.py:623
 msgid "Bad database administrator password!"
 msgstr "Contraseña de administrador incorrecto!"
 
-#: bin/modules/gui/main.py:562
+#: bin/modules/gui/main.py:625
 msgid "There was an error restoring the database!"
 msgstr "Se ha producido un error recuperando la base de datos!"
 
-#: bin/modules/gui/main.py:565
+#: bin/modules/gui/main.py:628
 msgid "Backup a database"
 msgstr "Copia de seguridad de base de datos"
 
-#: bin/modules/gui/main.py:580
+#: bin/modules/gui/main.py:643
 msgid "Database backuped successfully!"
 msgstr ""
 "La copia de seguridad de la base de datos se ha realizado correctamente!"
 "hecho corre"
 
-#: bin/modules/gui/main.py:583
+#: bin/modules/gui/main.py:646
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -303,145 +313,145 @@ msgstr ""
 "No se ha podido hacer copia de seguridad de la base de datos.\n"
 "%s"
 
-#: bin/modules/gui/window/form.py:162
+#: bin/modules/gui/window/form.py:165
 msgid "No resource selected !"
 msgstr "No hay ningún recurso seleccionado."
 
-#: bin/modules/gui/window/form.py:180
+#: bin/modules/gui/window/form.py:186
 msgid "You have to select one resource!"
 msgstr "Debe seleccionar un recurso."
 
-#: bin/modules/gui/window/form.py:186
+#: bin/modules/gui/window/form.py:192
 #: bin/modules/gui/window/win_full_text_search.py:392
 msgid "ID"
 msgstr "ID"
 
-#: bin/modules/gui/window/form.py:187
+#: bin/modules/gui/window/form.py:193
 msgid "Creation User"
 msgstr "Usuario de Creación"
 
-#: bin/modules/gui/window/form.py:188
+#: bin/modules/gui/window/form.py:194
 msgid "Creation Date"
 msgstr "Fecha de Creación"
 
-#: bin/modules/gui/window/form.py:189
+#: bin/modules/gui/window/form.py:195
 msgid "Latest Modification by"
 msgstr "Última Modificación por"
 
-#: bin/modules/gui/window/form.py:190
+#: bin/modules/gui/window/form.py:196
 msgid "Latest Modification Date"
 msgstr "Fecha de Última Modificación"
 
-#: bin/modules/gui/window/form.py:191
+#: bin/modules/gui/window/form.py:197
 msgid "Owner"
 msgstr "Propietario"
 
-#: bin/modules/gui/window/form.py:192
+#: bin/modules/gui/window/form.py:198
 msgid "Group Owner"
 msgstr "Grupo Propietario"
 
-#: bin/modules/gui/window/form.py:193
+#: bin/modules/gui/window/form.py:199
 msgid "Access Level"
 msgstr "Nivel de Acceso"
 
-#: bin/modules/gui/window/form.py:202 bin/modules/gui/window/form.py:345
-#: bin/widget/view/form/button.py:30
+#: bin/modules/gui/window/form.py:208 bin/modules/gui/window/form.py:350
+#: bin/widget/view/form/button.py:57
 msgid "Question"
 msgstr "Pregunta"
 
-#: bin/modules/gui/window/form.py:202
+#: bin/modules/gui/window/form.py:208
 msgid "Are you sure you want to remove these records?"
 msgstr "Está seguro que desea borrar este registro?"
 
-#: bin/modules/gui/window/form.py:206
+#: bin/modules/gui/window/form.py:212
 msgid "Resource not removed !"
 msgstr "No se ha podido borrar el recurso."
 
-#: bin/modules/gui/window/form.py:208
+#: bin/modules/gui/window/form.py:214
 msgid "Resource removed."
 msgstr "Recurso eliminado"
 
-#: bin/modules/gui/window/form.py:233
+#: bin/modules/gui/window/form.py:239
 msgid "Working now on the duplicated document !"
 msgstr "Trabajando en el document duplicado!"
 
-#: bin/modules/gui/window/form.py:240
+#: bin/modules/gui/window/form.py:248
 msgid "Document saved !"
 msgstr "Documento guardado"
 
-#: bin/modules/gui/window/form.py:244
+#: bin/modules/gui/window/form.py:252
 msgid "Invalid form !"
 msgstr "Formulario no válido"
 
-#: bin/modules/gui/window/form.py:302
+#: bin/modules/gui/window/form.py:310
 msgid "No record selected!"
 msgstr "Ningún registro seleccionado"
 
-#: bin/modules/gui/window/form.py:320
+#: bin/modules/gui/window/form.py:325
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s adjuntos) "
 
-#: bin/modules/gui/window/form.py:325
+#: bin/modules/gui/window/form.py:330
 msgid "No records"
 msgstr "Sin registros"
 
-#: bin/modules/gui/window/form.py:332
+#: bin/modules/gui/window/form.py:337
 msgid "No document selected"
 msgstr "No hay ningún documento seleccionado"
 
-#: bin/modules/gui/window/form.py:336
+#: bin/modules/gui/window/form.py:341
 msgid "New document"
 msgstr "Nuevo documento"
 
-#: bin/modules/gui/window/form.py:338
+#: bin/modules/gui/window/form.py:343
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Editando documento (id: %s)"
 
-#: bin/modules/gui/window/form.py:339
+#: bin/modules/gui/window/form.py:344
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Registro: %(name)s / %(count)s - %(name2)s"
 
-#: bin/modules/gui/window/form.py:345
+#: bin/modules/gui/window/form.py:350
 msgid "This record has been modified do you want to save it?"
 msgstr "El registro se ha modificado, desea guardarlo?"
 
-#: bin/modules/gui/window/importexport_common.py:10
+#: bin/modules/gui/window/importexport_common.py:37
 msgid "Fields"
 msgstr "Campos"
 
-#: bin/modules/gui/window/tree.py:162 bin/modules/gui/window/tree.py:174
+#: bin/modules/gui/window/tree.py:179 bin/modules/gui/window/tree.py:191
 msgid "No resource selected!"
 msgstr "Ninguno recurso seleccionado"
 
-#: bin/modules/gui/window/tree.py:186
+#: bin/modules/gui/window/tree.py:203
 msgid "No item selected"
 msgstr "No hay ningún elemento seleccionado"
 
-#: bin/modules/gui/window/tree.py:186
+#: bin/modules/gui/window/tree.py:203
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 "Por favor, seleccione un elemento del árbol para añadir un acceso directo a "
 "él."
 
-#: bin/modules/gui/window/view_tree/parser.py:51
+#: bin/modules/gui/window/view_tree/parser.py:52
 msgid "Tree"
 msgstr "Árbol"
 
-#: bin/modules/gui/window/win_export.py:49
+#: bin/modules/gui/window/win_export.py:50
 msgid "TinyERP exported information"
 msgstr "Información exportada de Tiny ERP "
 
-#: bin/modules/gui/window/win_export.py:67
-#: bin/modules/gui/window/win_export.py:85
+#: bin/modules/gui/window/win_export.py:68
+#: bin/modules/gui/window/win_export.py:86
 #, python-format
 msgid "%s record(s) saved!"
 msgstr "%s registro(s) guardado(s)"
 
-#: bin/modules/gui/window/win_export.py:69
-#: bin/modules/gui/window/win_export.py:87
+#: bin/modules/gui/window/win_export.py:70
+#: bin/modules/gui/window/win_export.py:88
 #, python-format
 msgid ""
 "Operation failed !\n"
@@ -450,29 +460,29 @@ msgstr ""
 "Operación fallida!\n"
 "Error de E/S (%s)"
 
-#: bin/modules/gui/window/win_export.py:85
-#: bin/modules/gui/window/win_export.py:87
-#: bin/modules/gui/window/win_export.py:89
+#: bin/modules/gui/window/win_export.py:86
+#: bin/modules/gui/window/win_export.py:88
+#: bin/modules/gui/window/win_export.py:90
 msgid "Data Export"
 msgstr "Exportación de datos"
 
-#: bin/modules/gui/window/win_export.py:89
+#: bin/modules/gui/window/win_export.py:90
 msgid "Error exporting data."
 msgstr "Error en la importación de los datos."
 
-#: bin/modules/gui/window/win_export.py:111
+#: bin/modules/gui/window/win_export.py:112
 msgid "Error opening Excel !"
 msgstr "Error abriendo Excel."
 
-#: bin/modules/gui/window/win_export.py:133
+#: bin/modules/gui/window/win_export.py:134
 msgid "Open with Excel"
 msgstr "Abrir con el Excel"
 
-#: bin/modules/gui/window/win_export.py:135
+#: bin/modules/gui/window/win_export.py:136
 msgid "Save as CSV"
 msgstr "Guardar como CSV"
 
-#: bin/modules/gui/window/win_export.py:136
+#: bin/modules/gui/window/win_export.py:137
 msgid "Save as HTML"
 msgstr "Guardar como HTML"
 
@@ -550,192 +560,215 @@ msgstr "Texto"
 msgid "Ranking"
 msgstr "Ránking"
 
-#: bin/modules/gui/window/win_import.py:54
+#: bin/modules/gui/window/win_import.py:52
 #, python-format
 msgid "Imported %d objects !"
 msgstr "Se han importado %d objetos!"
 
-#: bin/modules/gui/window/win_import.py:60
+#: bin/modules/gui/window/win_import.py:57
+#, python-format
+msgid ""
+"Error trying to import this record:\n"
+"%(record)s\n"
+"Error Message:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
+msgstr ""
+
+#: bin/modules/gui/window/win_import.py:62
 msgid "Error importing data"
 msgstr "Error en la importación de los datos"
 
-#: bin/modules/gui/window/win_import.py:91
+#: bin/modules/gui/window/win_import.py:93
 msgid "File to import"
 msgstr "Fichero a importar"
 
-#: bin/modules/gui/window/win_import.py:105
+#: bin/modules/gui/window/win_import.py:107
 msgid "No file specified"
 msgstr "No se ha especificado ningún fichero"
 
-#: bin/modules/gui/window/win_import.py:167
+#: bin/modules/gui/window/win_import.py:169
 msgid "Error opening .CSV file: Input Error."
 msgstr "Error abriendo fichero .CSV: Error de entrada."
 
-#: bin/modules/gui/window/win_preference.py:51
+#: bin/modules/gui/window/win_preference.py:52
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: bin/modules/gui/window/win_preference.py:72
+#: bin/modules/gui/window/win_preference.py:73
 #, python-format
 msgid "Preference %s"
 msgstr "Preferencia %s"
 
-#: bin/modules/gui/window/win_search.py:73
+#: bin/modules/gui/window/win_search.py:74
 #, python-format
 msgid "Tiny ERP Search: %s"
 msgstr "Búsqueda Tiny ERP: %s"
 
-#: bin/modules/gui/window/win_search.py:74
+#: bin/modules/gui/window/win_search.py:75
 #, python-format
 msgid "Tiny ERP Search: %s (%%d result(s))"
 msgstr "Búsqueda de Tiny ERP: %s (%%d resultado(s))"
 
-#: bin/plugins/__init__.py:40
+#: bin/plugins/__init__.py:69
 msgid "No available plugin for this resource !"
 msgstr "No hay ningún conector disponible para este recurso."
 
-#: bin/plugins/__init__.py:42
+#: bin/plugins/__init__.py:71
 msgid "Choose a Plugin"
 msgstr "Seleccione un conector"
 
-#: bin/printer/printer.py:95
-msgid "Write Report to File"
-msgstr "Guardar informe a archivo"
+#: bin/plugins/scan/__init__.py:133
+#, fuzzy
+msgid "Saving image..."
+msgstr "Guardar imagen como..."
 
-#: bin/printer/printer.py:101 bin/widget/view/form/binary.py:127
-msgid "Error writing the file!"
-msgstr "Error al guardar el archivo!"
+#: bin/plugins/scan/__init__.py:150
+#, fuzzy
+msgid "Image stored successfully"
+msgstr "Base de datos restaurada correctamente!"
 
-#: bin/rpc/rpc.py:189
+#: bin/plugins/scan/__init__.py:153
+#, fuzzy
+msgid "Error storing image"
+msgstr "Error al guardar el archivo"
+
+#: bin/printer/printer.py:73
+#, fuzzy
+msgid "Report error"
+msgstr "Informe"
+
+#: bin/printer/printer.py:73
+#, fuzzy
+msgid "There was an error trying to create the report."
+msgstr "Se ha producido un error recuperando la base de datos!"
+
+#: bin/rpc/rpc.py:215 bin/rpc/rpc.py:326
 msgid "Connection Refused"
 msgstr "Conexión rechazada"
 
-#: bin/rpc/rpc.py:196
+#: bin/rpc/rpc.py:222 bin/rpc/rpc.py:230 bin/rpc/rpc.py:332 bin/rpc/rpc.py:340
 msgid "Application Error"
 msgstr "Error de la Apliación"
 
-#: bin/rpc/rpc.py:196
+#: bin/rpc/rpc.py:222 bin/rpc/rpc.py:230 bin/rpc/rpc.py:332 bin/rpc/rpc.py:340
 msgid "View details"
 msgstr "Ver detalles"
 
-#: bin/rpc/rpc.py:291
+#: bin/rpc/rpc.py:440
 msgid "Could not contact server!"
 msgstr "No se ha podido contactar con el servidor!"
 
-#: bin/widget/model/treemodel.py:260 bin/widget/view/form/binary.py:104
-#: bin/widget/view/form/binary.py:143
+#: bin/widget/model/treemodel.py:276 bin/widget/view/form/binary.py:102
+#: bin/widget/view/form/binary.py:141
 #, python-format
 msgid "%d bytes"
 msgstr "%d bytes"
 
-#: bin/widget/screen/action.py:41
+#: bin/widget/screen/action.py:68
 msgid "You must select a record to use the relate button !"
 msgstr ""
 "Tiene que seleccionar un registro para poder utilizar el botón de relación!"
 
-#: bin/widget/screen/action.py:47
+#: bin/widget/screen/action.py:73
 msgid "You must save this record to use the relate button !"
 msgstr "Tiene que guardar este registro para utilizar el botón de relación!"
 
-#: bin/widget/screen/action.py:65
+#: bin/widget/screen/action.py:98
 msgid "Print Screen"
 msgstr "Imprimir la pantalla"
 
-#: bin/widget/view/chart/parser.py:70
+#: bin/widget/view/chart/parser.py:65 bin/widget/view/calendar/parser.py:47
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: bin/widget/view/chart/parser.py:76
-#, python-format
-msgid "<center><b>Could not load charts: %s</b></center>"
-msgstr "<center><b>No se han podido cargar las gráficas: %s</b></center>"
-
-#: bin/widget/view/chart/parser.py:104
-msgid "Can not generate graph !"
-msgstr "No se ha podido generar la gráfica."
-
-#: bin/widget/view/form/abstractformwidget.py:65
+#: bin/widget/view/form/abstractformwidget.py:66
 msgid "Set to default value"
 msgstr "Ajustar el valor predeterminado"
 
-#: bin/widget/view/form/abstractformwidget.py:71
+#: bin/widget/view/form/abstractformwidget.py:72
 msgid "Set as default value"
 msgstr "Ajustar el valor predeterminado"
 
-#: bin/widget/view/form/abstractformwidget.py:95
+#: bin/widget/view/form/abstractformwidget.py:96
 msgid "Operation not permited"
 msgstr "Operación no permitida"
 
-#: bin/widget/view/form/abstractformwidget.py:95
+#: bin/widget/view/form/abstractformwidget.py:96
 msgid "You can not set to the default value here !"
 msgstr "No se puede establecer el valor por defecto aquí."
 
-#: bin/widget/view/form/binary.py:70 bin/widget/view/form/image.py:86
-#: bin/widget/view/form/link.py:59
+#: bin/widget/view/form/binary.py:68 bin/widget/view/form/image.py:85
+#: bin/widget/view/form/link.py:58
 msgid "Open..."
 msgstr "Abrir..."
 
-#: bin/widget/view/form/binary.py:71
+#: bin/widget/view/form/binary.py:69
 msgid "Show &image..."
 msgstr "Mostrar la &imagen..."
 
-#: bin/widget/view/form/binary.py:99
+#: bin/widget/view/form/binary.py:97
 msgid "Select the file to attach"
 msgstr "Seleccione el archivo a anexar"
 
-#: bin/widget/view/form/binary.py:117
+#: bin/widget/view/form/binary.py:115
 msgid "Error reading the file"
 msgstr "Error leyendo del archivo"
 
-#: bin/widget/view/form/binary.py:121
+#: bin/widget/view/form/binary.py:119
 msgid "Save attachment as..."
 msgstr "Guardar anexo como..."
 
-#: bin/widget/view/form/button.py:41
+#: bin/widget/view/form/binary.py:125
+msgid "Error writing the file!"
+msgstr "Error al guardar el archivo!"
+
+#: bin/widget/view/form/button.py:71
 msgid "Error in Button"
 msgstr "Error en el botón"
 
-#: bin/widget/view/form/button.py:41
+#: bin/widget/view/form/button.py:71
 msgid "Button type not allowed"
 msgstr "Tipo de botón no permitido"
 
-#: bin/widget/view/form/button.py:45
+#: bin/widget/view/form/button.py:74
 msgid "Invalid Form, correct red fields!"
 msgstr "Formulario no válido corrija los campos en rojo"
 
-#: bin/widget/view/form/calendar.py:49
+#: bin/widget/view/form/calendar.py:47
 msgid "Set current date"
 msgstr "Establecer la fecha actual"
 
-#: bin/widget/view/form/calendar.py:89
+#: bin/widget/view/form/calendar.py:87
 msgid "Set current date and time"
 msgstr "Establecer la fecha y hora actuales"
 
-#: bin/widget/view/form/calendar.py:123 bin/widget/view/form/calendar.py:167
+#: bin/widget/view/form/calendar.py:121 bin/widget/view/form/calendar.py:165
 msgid "Set current time"
 msgstr "Establecer la hora actual"
 
-#: bin/widget/view/form/char.py:67
+#: bin/widget/view/form/char.py:70
 msgid "You must save the resource before adding translations"
 msgstr "Tiene que guardar el recurso antes de añadir traducciones"
 
-#: bin/widget/view/form/fieldpreferences.py:56
+#: bin/widget/view/form/fieldpreferences.py:57
 msgid "<center>Always applicable!</center>"
 msgstr "<center>Siempre aplicable!</center>"
 
-#: bin/widget/view/form/image.py:47
+#: bin/widget/view/form/image.py:46
 msgid "(no image)"
 msgstr "(sin imagen)"
 
-#: bin/widget/view/form/image.py:119
+#: bin/widget/view/form/image.py:118
 msgid "Save image as..."
 msgstr "Guardar imagen como..."
 
-#: bin/widget/view/form/image.py:127
+#: bin/widget/view/form/image.py:126
 msgid "Error saving file"
 msgstr "Error al guardar el archivo"
 
-#: bin/widget/view/form/image.py:127
+#: bin/widget/view/form/image.py:126
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
@@ -743,22 +776,31 @@ msgstr ""
 "No se ha podido guardar la imagen con el nombre de fichero especificado. Por "
 "favor, compruebe que tiene permisos."
 
-#: bin/widget/view/form/image.py:130
+#: bin/widget/view/form/image.py:129
 msgid "Open image file..."
 msgstr "Abrir fichero de imagen..."
 
-#: bin/widget/view/form/link.py:71
+#: bin/widget/view/form/link.py:70
 msgid "Select the file to link to"
 msgstr "Seleccione el fichero a enlazar"
 
-#: bin/widget/view/form/many2one.py:107
+#: bin/widget/view/form/many2one.py:106
 msgid "Action"
 msgstr "Acción"
 
-#: bin/widget/view/form/many2one.py:108
+#: bin/widget/view/form/many2one.py:107
 msgid "Report"
 msgstr "Informe"
 
 #: bin/widget/view/form/translationdialog.py:41
 msgid "Translation Dialog"
 msgstr "Diálogo de traducción"
+
+#~ msgid "Write Report to File"
+#~ msgstr "Guardar informe a archivo"
+
+#~ msgid "<center><b>Could not load charts: %s</b></center>"
+#~ msgstr "<center><b>No se han podido cargar las gráficas: %s</b></center>"
+
+#~ msgid "Can not generate graph !"
+#~ msgstr "No se ha podido generar la gráfica."

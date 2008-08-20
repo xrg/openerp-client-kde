@@ -54,7 +54,11 @@ def import_csv(csv_data, fields, model):
 		d = ''
 		for key,val in res[1].items():
 			d+= ('\t%s: %s\n' % (str(key),str(val)))
-		error = _('Error trying to import this record:\n%s\nError Message:\n%s\n\n%s') % (d,res[2],res[3])
+		error = _('Error trying to import this record:\n%(record)s\nError Message:\n%(error1)s\n\n%(error2)s') % {
+			'record': d,
+			'error1': res[2],
+			'error2': res[3]
+		}
 		QMessageBox.warning(None, _('Error importing data'), error )
 
 class win_import(QDialog):
