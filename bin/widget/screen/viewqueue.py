@@ -46,13 +46,8 @@ class ViewQueue:
 	def setup(self, types, ids):
 		if types == None:
 			types = ['form', 'tree']
-		else:
-			types = types
 		if ids == None:
 			ids = []
-		else:
-			ids = ids
-
 		# Merge lists
 		self._views = []
 		for x in range(max(len(types),len(ids))):
