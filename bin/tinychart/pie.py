@@ -37,6 +37,8 @@ class PieChart(AbstractChart):
 	def updateChart(self):
 		self.clear()
 		total = sum(self._values)
+		if total == 0:
+			return
 
 		lastAngle = 0
 		manager = ColorManager( len(self._values) )
