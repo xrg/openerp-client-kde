@@ -96,19 +96,23 @@ class win_import(QDialog):
 		self.uiFileName.setText( file )
 
 	def slotAccept(self):
+		self.uiLinesToSkip.setValue(1)
 		csv = {
-			'fname': unicode(self.uiFileName.text()),
-			'sep': unicode(self.uiFieldSeparator.text()),
-			'del': unicode(self.uiTextDelimiter.text()),
+			'fname': unicode(self.uiFileName.text()).strip(),
+			'sep': unicode(self.uiFieldSeparator.text()).encode('ascii','ignore').strip(),
+			'del': unicode(self.uiTextDelimiter.text()).encode('ascii','ignore').strip(),
 			'skip': self.uiLinesToSkip.value(),
 			'encoding': unicode(self.uiEncoding.currentText())
 		}
-		if csv['fname'].strip() == '':
-			QMessageBox.information(self, '', _('No file specified'))
+		if csv['fname'] == '':
+			QMessageBox.warning(self, _('Import error'), _('No file specified.'))
 			return
-		#if len(csv['sep']) < 1:
-		#	QMessageBox.information(self, '', _('No separator specified'))
-		#	return
+		if len(csv['sep']) != 1:
+			QMessageBox.warning(self, _('Import error'), _('Separator must be a single character.'))
+			return
+		if len(csv['del']) != 1:
+			QMessageBox.warning(self, _('Import error'), _('Delimiter must be a single character.'))
+			return
 		fieldsData = []
 		for x in range(0, self.selectedModel.rowCount() ):
 			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
@@ -156,17 +160,24 @@ class win_import(QDialog):
 	def slotAutoDetect(self):
 		fname=unicode(self.uiFileName.text())
 		if not fname:
-			QMessageBox.information(self, '', 'You must select an import file first !')
+			QMessageBox.information(self, _('Auto-detect error'), 'You must select an import file first !')
 			return 
-		csvsep=unicode(self.uiFieldSeparator.text())
-		csvdel=unicode(self.uiTextDelimiter.text())
+		csvsep=unicode(self.uiFieldSeparator.text()).encode('ascii','ignore').strip()
+		csvdel=unicode(self.uiTextDelimiter.text()).encode('ascii','ignore').strip()
 		csvcode=unicode(self.uiEncoding.currentText()) or 'UTF-8'
 
 		self.uiLinesToSkip.setValue(1)
+		if len(csvsep) != 1:
+			QMessageBox.warning(self, _('Auto-detect error'), _('Separator must be a single character.'))
+			return
+		if len(csvdel) != 1:
+			QMessageBox.warning(self, _('Auto-detect error'), _('Delimiter must be a single character.'))
+			return
+		
 		try:
 			data = csv.reader(file(fname), quotechar=csvdel, delimiter=csvsep)
 		except:
-			QMessageBox.warning(self, '', _('Error opening .CSV file: Input Error.') )
+			QMessageBox.warning(self, _('Auto-detect error'), _('Error opening .CSV file: Input Error.') )
 			return 
 		self.slotRemoveAll()
 		try:
@@ -176,5 +187,5 @@ class win_import(QDialog):
 					self.selectedModel.addField( word, self.fieldsInvertedInfo[word] )
 				break
 		except:
-			QMessageBox.warning(self, '', 'Error processing your first line of the file.\nField %s is unknown !' % (word,), 'Import Error.')
+			QMessageBox.warning(self, _('Auto-detect error'), _('Error processing your first line of the file.\nField %s is unknown !') % (word) )
 
