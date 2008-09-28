@@ -218,6 +218,7 @@ import url
 import image
 import link
 import web
+import progressbar
 #import audio
 #import video
 
@@ -247,6 +248,7 @@ widgets_type = {
 	'sip' : (url.SipFormWidget, 1, False),
 	'link' : (link.LinkFormWidget, 1, False),
 	'web' : (web.WebFormWidget, 1, False),
+	'progressbar' : (progressbar.ProgressBarFormWidget, 1, False),
 	#'audio' : (audio.AudioFormWidget, 1, False),
 	#'video' : (video.VideoFormWidget, 1, False)
 }
