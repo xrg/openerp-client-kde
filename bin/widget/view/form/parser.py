@@ -189,6 +189,9 @@ class FormParser(AbstractParser):
 				expand = widgets_type[ type ][2]
 				hlp = fields[name].get('help', attrs.get('help', False))
 
+				if not 'help' in attrs:
+					attrs['help'] = fields[name].get('help', False)
+
 				container.addWidget(widget_act, attrs, label)
 
 			elif node.localName=='group':

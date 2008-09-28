@@ -43,6 +43,9 @@ class FormContainer( QWidget ):
 		self.maxColumns = maxColumns
 		self.hasExpanding = False
 
+	def showHelp(self, link):
+		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
+
 	def addWidget(self, widget, attributes={}, labelText=None):
 		colspan = int(attributes.get( 'colspan', 1 ))
 		helpText = attributes.get( 'help', False )
@@ -56,11 +59,16 @@ class FormContainer( QWidget ):
 			self.newRow()
 
 		if labelText:
-			label  = QLabel( unicode( labelText ), self )
+			label  = QLabel( self )
+			label.setText( unicode( labelText ) )
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 			if helpText:
+				label.setText( unicode( '<small><a href="help">?</a></small> ' + labelText ) )
 				label.setToolTip( helpText )
+				label.setWhatsThis( helpText )
+				self.connect( label, SIGNAL('linkActivated(QString)'), self.showHelp )
+
 			self.layout.addWidget( label, self.row, self.column )
 			self.column = self.column + 1
 
