@@ -411,7 +411,7 @@
     <string>&amp;Connect</string>
    </property>
    <property name="shortcut" >
-    <string comment="Ctrl+O to Login" />
+    <string comment="Ctrl+O to Login" >Ctrl+O</string>
    </property>
    <property name="shortcutContext" >
     <enum>Qt::ApplicationShortcut</enum>
@@ -527,6 +527,9 @@
    <property name="text" >
     <string>&amp;New</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionSave" >
    <property name="icon" >
@@ -535,6 +538,9 @@
    </property>
    <property name="text" >
     <string>&amp;Save</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionDuplicate" >
@@ -545,6 +551,9 @@
    <property name="text" >
     <string>D&amp;uplicate</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+Shift+D</string>
+   </property>
   </action>
   <action name="actionDelete" >
    <property name="icon" >
@@ -553,6 +562,9 @@
    </property>
    <property name="text" >
     <string>&amp;Delete</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+D</string>
    </property>
   </action>
   <action name="actionFind" >
@@ -563,6 +575,9 @@
    <property name="text" >
     <string>&amp;Find</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+F</string>
+   </property>
   </action>
   <action name="actionNext" >
    <property name="icon" >
@@ -571,6 +586,9 @@
    </property>
    <property name="text" >
     <string>&amp;Next</string>
+   </property>
+   <property name="shortcut" >
+    <string>Alt+PgDown</string>
    </property>
   </action>
   <action name="actionPrevious" >
@@ -581,6 +599,9 @@
    <property name="text" >
     <string>&amp;Previous</string>
    </property>
+   <property name="shortcut" >
+    <string>Alt+PgUp</string>
+   </property>
   </action>
   <action name="actionSwitch" >
    <property name="icon" >
@@ -589,6 +610,9 @@
    </property>
    <property name="text" >
     <string>Switch &amp;View</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+L, Ctrl+Shift+L</string>
    </property>
   </action>
   <action name="actionOpenMenuTab" >
@@ -600,10 +624,16 @@
    <property name="text" >
     <string>Next Tab</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+PgDown</string>
+   </property>
   </action>
   <action name="actionPreviousTab" >
    <property name="text" >
     <string>Previous Tab</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+PgUp</string>
    </property>
   </action>
   <action name="actionClose" >
@@ -613,6 +643,9 @@
    </property>
    <property name="text" >
     <string>&amp;Close</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+W</string>
    </property>
   </action>
   <action name="actionAccessLog" >
@@ -645,6 +678,9 @@
    </property>
    <property name="text" >
     <string>&amp;Reload/Undo</string>
+   </property>
+   <property name="shortcut" >
+    <string>F5</string>
    </property>
   </action>
   <action name="actionPreview_in_PDF" >
@@ -729,6 +765,9 @@
    <property name="text" >
     <string>Full &amp;Text Search</string>
    </property>
+   <property name="shortcut" >
+    <string>Ctrl+T</string>
+   </property>
   </action>
   <action name="actionAttach" >
    <property name="icon" >
@@ -737,6 +776,9 @@
    </property>
    <property name="text" >
     <string>Attachments</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+J</string>
    </property>
   </action>
   <action name="actionSupportRequest" >
