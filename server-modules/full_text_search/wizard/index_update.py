@@ -94,7 +94,10 @@ class wizard_info_get(wizard.interface):
 						value = TD["new"][i]
 						if value != None:
 							tsVector.append( "to_tsvector( 'default', %s )" % sql_quote(value).getquoted() )
-					tsVector = ' || '.join(tsVector)
+					if tsVector:
+						tsVector = ' || '.join(tsVector)
+					else:
+						tsVector = "to_tsvector( 'default', '' )"
 
 				if TD["event"] == "INSERT":
 					plpy.execute( "INSERT INTO fts_full_text_search(model, reference, message) \
