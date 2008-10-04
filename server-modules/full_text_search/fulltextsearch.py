@@ -51,6 +51,21 @@ def isFloat(value):
 	except ValueError, e:
 		return False
 
+def noneToFalse(value):
+	if type(value)==type([]):
+		return map(noneToFalse, value)
+	elif type(value)==type(()):
+		return map(noneToFalse, value)
+	elif type(value)==type({}):
+		newval = {}
+		for i in value.keys():
+			newval[i] = noneToFalse(value[i])
+		return newval 
+	elif value == None:
+		return False
+	else:
+		return value 
+
 def headline( cr, pool, text, id, model_id, model_name ):
 	# Get all the fields of the model that are indexed
 	cr.execute( """
@@ -246,7 +261,7 @@ class fulltextsearch_services(netsvc.Service):
 				continue
 			if i >= offset + limit:
 				break
-
+			
 			model_id = x[0]
 			id = x[1]
 			model_label = x[2]
@@ -275,7 +290,7 @@ class fulltextsearch_services(netsvc.Service):
 			d['model_name'] = model_name
 			ret.append( d )
 
-		return ret
+		return noneToFalse( ret )
 
 fulltextsearch_services()
 paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/fulltextsearch' ]

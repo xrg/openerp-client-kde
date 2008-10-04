@@ -404,7 +404,9 @@ class FullTextSearchModel( QStandardItemModel ):
 		if self.rowCount() > 0:
 			self.removeRows(0, self.rowCount())
 		for x in list:
-			l = [QStandardItem(unicode(x[y])) for y in self.serverOrder ]
+			# If name (for example) is False we just want to print it as empty text
+			# not as 'False' string.
+			l = [QStandardItem(unicode( x[y] or '' )) for y in self.serverOrder ]
 			self.rootItem.appendRow( l )
 		
 # vim:noexpandtab:
