@@ -47,8 +47,8 @@ class ProgressBarFormWidget(AbstractFormWidget):
 		self.installPopupMenu( self.uiBar )
 
 	def clear(self):
-		self.widget.reset()
-	
+		self.uiBar.reset()
+
 	def showValue(self):
 		value = self.model.value(self.name)
 		if not value:
