@@ -56,6 +56,9 @@
           <property name="text" >
            <string>TextLabel</string>
           </property>
+          <property name="textFormat" >
+           <enum>Qt::RichText</enum>
+          </property>
           <property name="textInteractionFlags" >
            <set>Qt::NoTextInteraction</set>
           </property>
@@ -103,6 +106,9 @@
           </property>
           <property name="text" >
            <string>TextLabel</string>
+          </property>
+          <property name="textFormat" >
+           <enum>Qt::RichText</enum>
           </property>
           <property name="textInteractionFlags" >
            <set>Qt::NoTextInteraction</set>
