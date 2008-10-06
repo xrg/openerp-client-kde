@@ -177,5 +177,6 @@ class PopupCalendar(QWidget):
 			else:
 				text = text + ' ' + '00:00:00'
 		self.parent().setText( text )
+		self.emit(SIGNAL('selected()'))
 		self.close()
 

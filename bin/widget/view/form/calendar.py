@@ -60,7 +60,7 @@ class DateFormWidget(AbstractFormWidget):
 		date = textToDate( self.uiDate.text() )
 		if not date.isValid():
 			return False
-		return  str(dateToStorage(date))
+		return dateToStorage(date)
 
 	def store(self):
 		self.model.setValue(self.name, self.value())
@@ -76,7 +76,8 @@ class DateFormWidget(AbstractFormWidget):
 			self.clear()
 
 	def showCalendar(self):
-		PopupCalendar( self.uiDate, self.dateTime )
+		popup = PopupCalendar( self.uiDate, self.dateTime )
+		self.connect( popup, SIGNAL('selected()'), self.store )
 
 class DateTimeFormWidget( DateFormWidget ):
 	def __init__(self, parent, model, attrs={}):
