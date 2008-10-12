@@ -58,3 +58,7 @@ class checkbox(AbstractSearchWidget):
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')
+
+	def clear(self):
+		self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
+		self.value = ''

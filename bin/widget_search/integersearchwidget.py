@@ -57,7 +57,7 @@ class IntegerSearchWidget(AbstractSearchWidget):
 		if val:
 			widget.setText( str(val) )
 		else:
-			widget.setText('')
+			widget.clear()
 
 	def getValue(self):
 		res = []
@@ -76,15 +76,17 @@ class IntegerSearchWidget(AbstractSearchWidget):
 		if value:
 			self.uiStart.setText( str(value) )
 		else:
-			self.uiStart.setText( '' )
+			self.uiStart.clear()
 		if value:
 			self.uiEnd.setText( str(value) ) 
 		else:
-			self.uiEnd.setText( '' ) 
+			self.uiEnd.clear()
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')
 
 	def clear(self):
 		self.value = False
+		self.uiStart.clear()
+		self.uiEnd.clear()
 

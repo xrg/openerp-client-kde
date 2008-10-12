@@ -63,11 +63,12 @@ class selection(AbstractSearchWidget):
 
 	def setValue(self, value):
 		if not value:
-			self.uiCombo.setCurrentIndex( self.uiCombo.findText( '') )
+			self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
 		else:
 			self.uiCombo.setCurrentIndex( self.uiCombo.findData( QVariant(value) ) )
 
 	def clear(self):
+		self.setValue( False )
 		self.value = ''
 
 	value = property(getValue, setValue, None,

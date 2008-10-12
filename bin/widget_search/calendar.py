@@ -63,12 +63,12 @@ class DateSearchWidget(AbstractSearchWidget):
  		if val:
 			res.append((self.name, '>=', val ))
 		else:
-			self.uiStart.setText('')
+			self.uiStart.clear()
 		val = self._getDate( str( self.uiEnd.text()) )
 	 	if val:
 			res.append((self.name, '<=', val ))
 		else:
-			self.uiEnd.setText('')
+			self.uiEnd.clear()
 		return res
 
 	def setValue(self, value ):
@@ -79,6 +79,8 @@ class DateSearchWidget(AbstractSearchWidget):
 
 	def clear(self):
 		self.value = ''
+		self.uiStart.clear()
+		self.uiEnd.clear()
 
 class TimeSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
@@ -107,12 +109,12 @@ class TimeSearchWidget(AbstractSearchWidget):
  		if val:
 			res.append((self.name, '>=', val ))
 		else:
-			self.uiStart.setText('')
+			self.uiStart.clear()
 		val = self._getTime( str( self.uiEnd.text()) )
 	 	if val:
 			res.append((self.name, '<=', val ))
 		else:
-			self.uiEnd.setText('')
+			self.uiEnd.clear()
 		return res
 
 	def setValue(self, value ):
@@ -123,4 +125,6 @@ class TimeSearchWidget(AbstractSearchWidget):
 
 	def clear(self):
 		self.value = ''
+		self.uiStart.clear()
+		self.uiEnd.clear()
 
