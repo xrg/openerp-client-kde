@@ -85,6 +85,7 @@ class ir_attachment(osv.osv):
 		return rc
 
 	# Extracts meta information from the given parameter which should be in base64
+	# Note that the returned parameter should always be an unicode string.
 	def extractMetaInfo(self, data):
 		# First of all we'll see what strigi can do for us. If there is a text tag
 		# it means it's some kind of text file (plain text, pdf, ps, doc, odf, etc..)
@@ -105,7 +106,7 @@ class ir_attachment(osv.osv):
 		except:
 			tags = []
 		if len(tags):
-			metaInfo = self.getText(tags[0].childNodes).strip()
+			metaInfo = unicode( self.getText(tags[0].childNodes).strip(), errors='ignore' )
 		else:
 			# We couldn't get text information with strigi, let's try if it's an image
 			os.spawnlp(os.P_WAIT, 'convert', 'convert', '-type', 'grayscale', '-depth', '8', dir + '/object.tmp', dir + '/object.tif' )
@@ -113,7 +114,7 @@ class ir_attachment(osv.osv):
 				c = ocr.Classifier()
 				c.prepareImage( dir + '/object.tif' )
 				r = c.ocr()
-				metaInfo = r['text'].strip()
+				metaInfo = unicode( r['text'].strip(), errors='ignore' )
 				# TODO: Use language detection to choose different dictionary in TSearch2?
 				# If so, that should apply to text/pdf/etc.. files too
 				#r['language']
