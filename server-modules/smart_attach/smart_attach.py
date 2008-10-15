@@ -52,20 +52,29 @@ class ir_attachment(osv.osv):
 	# This is standard create but extracting meta information first
 	def create(self, cr, uid, vals, context={}):
 		if 'datas' in vals:
-			m = self.extractMetaInfo( vals['datas'] )
-			if m != None:
-				vals['metainfo'] = m
-		return super(ir_attachment, self).create(cr, uid, vals, context)
+			vals['metainfo'] = 'Processing document...'
+		id = super(ir_attachment, self).create(cr, uid, vals, context)
+		if 'datas' in vals:
+			self.pool.get('ir.cron').create(cr, uid, {
+				'name': 'Update attachment metainformation',
+				'user_id': uid,
+				'model': 'ir.attachment',
+				'function': 'updateMetaInfo',
+				'args': repr([ [id] ])
+			})
+		return id
 
 	# This is standard write but extracting meta information first
 	def write(self, cr, uid, ids, vals, context={}):
+		ret = super(ir_attachment, self).write(cr, uid, ids, vals, context)
 		if 'datas' in vals:
-			m = self.extractMetaInfo( vals['datas'] )
-			if m == None:
-				vals['metainfo'] = ''
-			else:
-				vals['metainfo'] = m
-		return super(ir_attachment, self).write(cr, uid, ids, vals, context)
+			self.pool.get('ir.cron').create(cr, uid, {
+				'name': 'Update attachment metainformation',
+				'user_id': uid,
+				'model': 'ir.attachment',
+				'function': 'updateMetaInfo',
+				'args': repr([ ids ])
+			})
 
 	# Extracts data from text nodes of an XML node list
 	def getText(self, nodelist):
@@ -112,5 +121,16 @@ class ir_attachment(osv.osv):
 				metaInfo = None
 		shutil.rmtree( dir, True )
 		return metaInfo
+
+	def updateMetaInfo(self, cr, uid, ids):
+		for attachment in self.browse(cr, uid, ids):
+			metainfo = self.extractMetaInfo( attachment.datas ) or ''
+			print "Meta info for object %s is '%s'" % (attachment.name, metainfo)
+			# We use SQL directly to update metainfo so last modification time doesn't change.
+			# This avoids messages in the GUI telling that the object has been modified in the
+			# meanwhile. After all, the field is readonly in the GUI so no conflicts can occur.
+			cr.execute("UPDATE ir_attachment SET metainfo=%s WHERE id=%d", (metainfo, attachment.id) )
+		cr.commit()
+
 ir_attachment()
 
