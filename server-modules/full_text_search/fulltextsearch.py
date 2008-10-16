@@ -66,60 +66,6 @@ def noneToFalse(value):
 	else:
 		return value 
 
-def headline( cr, pool, text, id, model_id, model_name ):
-	# Get all the fields of the model that are indexed
-	cr.execute( """
-		SELECT
-			f.name
-		FROM
-			fts_current_full_text_index i,
-			ir_model_fields f
-		WHERE
-			i.field_id = f.id AND
-			f.model_id=%d
-		""", (model_id,) )
-	# We will concatenate all those fields just like the
-	# index does, so we can have the headline
-	table = pool.get(model_name)._table
-	fields = []
-	for c in cr.fetchall():
-		fields.append( c[0] )
-	textFields = "''"
-	for k in fields:
-		textFields = textFields + " || ' ' || COALESCE(" + k + "::TEXT,'')"
-
-	# Look if the model has the 'name' field. Which is the
-	# 'default' field we show to represent it on screen instead
-	# of the 'id'
-	cr.execute( """
-		SELECT
-			f.name
-		FROM
-			ir_model_fields f
-		WHERE
-			f.name = 'name' AND
-			f.model_id=%d 
-		LIMIT 1
-		""", (model_id,) )
-	if cr.fetchone():
-		# If it has, fetch the name of the object 
-		cr.execute( "SELECT name FROM \"" + table + "\" WHERE id = %d", (id,) )
-		name = cr.fetchone()[0]
-	else:
-		name = ""
-
-	# Finally, obtain the headline with the concatenation of the
-	# indexed fields
-	cr.execute( """
-		SELECT
-			headline( 'default', """ + textFields + """, to_tsquery('default', %s) ) 
-		FROM 
-			\"""" + table + """\"
-		WHERE
-			id = %d
-		""", (text, id) )	
-
-	return { 'name': name, 'headline': cr.fetchone()[0] }
 
 class fulltextsearch_services(netsvc.Service):
 	def __init__(self, name="fulltextsearch"):
@@ -127,13 +73,96 @@ class fulltextsearch_services(netsvc.Service):
 		self.joinGroup('web-services')
 		self.exportMethod(self.search)
 		self.exportMethod(self.indexedModels)
+		self.postgresVersion = None
+		self.hasIntegratedTs = False
+		self.postgresKeyWords = {}
 		
+	# This method should not be exported
+	def checkPostgresVersion(self, cr):
+		if not self.postgresVersion:
+			cr.execute("SELECT version();")
+			version = cr.fetchone()[0]
+			# The next line should obtain version number, something like '8.3'.
+			self.postgresVersion = version.split(' ')[1]
+			version = self.postgresVersion.split('.')
+			major = version[0]
+			minor = version[1]
+			if major > '8' or (major == '8' and minor >= '3'):
+				self.hasIntegratedTs = True
+			else:
+				self.hasIntegratedTs = False
+		
+			if self.hasIntegratedTs:
+				self.postgresKeyWords[ 'ts_rank' ] = 'ts_rank'
+				self.postgresKeyWords[ 'ts_headline' ] = 'ts_headline'
+			else:
+				self.postgresKeyWords[ 'ts_rank' ] = 'rank'
+				self.postgresKeyWords[ 'ts_headline' ] = 'headline'
+
+	# This method should not be exported
+	def headline( self, cr, pool, text, id, model_id, model_name ):
+		# Get all the fields of the model that are indexed
+		cr.execute( """
+			SELECT
+				f.name
+			FROM
+				fts_current_full_text_index i,
+				ir_model_fields f
+			WHERE
+				i.field_id = f.id AND
+				f.model_id=%d
+			""", (model_id,) )
+		# We will concatenate all those fields just like the
+		# index does, so we can have the headline
+		table = pool.get(model_name)._table
+		fields = []
+		for c in cr.fetchall():
+			fields.append( c[0] )
+		textFields = "''"
+		for k in fields:
+			textFields = textFields + " || ' ' || COALESCE(" + k + "::TEXT,'')"
+
+		# Look if the model has the 'name' field. Which is the
+		# 'default' field we show to represent it on screen instead
+		# of the 'id'
+		cr.execute( """
+			SELECT
+				f.name
+			FROM
+				ir_model_fields f
+			WHERE
+				f.name = 'name' AND
+				f.model_id=%d 
+			LIMIT 1
+			""", (model_id,) )
+		if cr.fetchone():
+			# If it has, fetch the name of the object 
+			cr.execute( "SELECT name FROM \"" + table + "\" WHERE id = %d", (id,) )
+			name = cr.fetchone()[0]
+		else:
+			name = ""
+
+		# Finally, obtain the headline with the concatenation of the
+		# indexed fields
+		cr.execute( """
+			SELECT
+				""" + self.postgresKeyWords['ts_headline'] + """ ( 'default', """ + textFields + """, to_tsquery('default', %s) ) 
+			FROM 
+				\"""" + table + """\"
+			WHERE
+				id = %d
+			""", (text, id) )	
+
+		return { 'name': name, 'headline': cr.fetchone()[0] }
+
 	# Returns a list with the models that have any fields 
 	# indexed with full text index.
 	def indexedModels(self, db, uid, passwd, context={}):
 		security.check(db, uid, passwd)
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
+
+		self.checkPostgresVersion(cr)
 
 		cr.execute("""
 			SELECT 
@@ -183,6 +212,8 @@ class fulltextsearch_services(netsvc.Service):
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
 
+		self.checkPostgresVersion(cr)
+
 		# If text is empty return nothing. Trying to continue makes PostgreSQL
 		# complain because GIN indexes don't support search with void query
 		# Note that this doesn't avoid the problem when you query for a word which
@@ -231,7 +262,7 @@ class fulltextsearch_services(netsvc.Service):
 					fts.reference,
 					m.name,
 					m.model,
-					to_char(rank(message, %s)*100, '990D99') AS ranking
+					to_char(%s(message, %s)*100, '990D99') AS ranking
 				FROM
 					fts_full_text_search fts,
 					ir_model m
@@ -242,7 +273,7 @@ class fulltextsearch_services(netsvc.Service):
 				ORDER BY
 					ranking DESC,
 					fts.model,
-					fts.reference""" % (tsQuery, tsQuery, filterModel) )
+					fts.reference""" % (self.postgresKeyWords['ts_rank'], tsQuery, tsQuery, filterModel) )
 		except:
 			return []
 
@@ -282,7 +313,7 @@ class fulltextsearch_services(netsvc.Service):
 			except except_orm, e:
 				continue
 
-			d = headline( cr, pool, text, id, model_id, model_name )
+			d = self.headline( cr, pool, text, id, model_id, model_name )
 			d['id'] = id
 			d['ranking'] = ranking
 			d['model_id'] = model_id
