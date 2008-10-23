@@ -177,6 +177,9 @@ class AbstractFormWidget(QWidget):
 		if event.type() == QEvent.ContextMenu:
 			self.showPopupMenu( target, event.globalPos() )
 			return True
+		if event.type() == QEvent.FocusOut:
+			if self.model:
+				self.store()
 		#if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
 			#e = QKeyEvent( event.type(), event.key(), event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
 			##QCoreApplication.postEvent( self, e )
