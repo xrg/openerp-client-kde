@@ -34,7 +34,7 @@ import time
 import os
 import gettext
 
-import rpc
+import Rpc
 
 from window import windowservice, win_preference, win_full_text_search
 from DatabaseCreationDialog import DatabaseCreationDialog
@@ -272,37 +272,37 @@ class KooMainWindow(QMainWindow):
 		self.tabWidget.setCurrentIndex( pn )
 
 	def userPreferences(self):
-		actions = rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [('res.users',False)], True, rpc.session.context, True)
-		win = win_preference.win_preference('res.users', rpc.session.uid, actions, self)
+		actions = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [('res.users',False)], True, Rpc.session.context, True)
+		win = win_preference.win_preference('res.users', Rpc.session.uid, actions, self)
 		if win.exec_() == QDialog.Rejected:
 			return
-		rpc.session.reloadContext()
+		Rpc.session.reloadContext()
 
 	def newRequest(self):
 		api.instance.createWindow(None, 'res.request', False, 
-			[('act_from','=',rpc.session.uid)], 'form', mode='form,tree')
+			[('act_from','=',Rpc.session.uid)], 'form', mode='form,tree')
 
 	## Opens a new tab with requests pending for the user to resolve
 	def pendingRequests(self):
 		api.instance.createWindow(False, 'res.request', False, 
-			[('act_to','=',rpc.session.uid)], 'form', mode='tree,form')
+			[('act_to','=',Rpc.session.uid)], 'form', mode='tree,form')
 
 	## Opens a new tab with all unsolved requests posted by the user
 	def waitingRequests(self):
 		api.instance.createWindow(False, 'res.request', False, 
-			[('act_from','=',rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
+			[('act_from','=',Rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
 
 	## Updates the status bar with the number of pending requests.
 	#
-	#  Note that this function uses rpc.session.call() so exceptions are ignored, because this
+	#  Note that this function uses Rpc.session.call() so exceptions are ignored, because this
 	#  function is called every five minutes. We don't want any temporary disconnection of the
 	#  server to annoy the user unnecessarily.
 	def updateRequestsStatus(self):
 		# We use 'try' because we might not have logged in or the server might
 		# be down temporarily. This way the user isn't notified unnecessarily.
 		try:
-			uid = rpc.session.uid
-			ids,ids2 = rpc.session.call('/object', 'execute', 'res.request', 'request_get')
+			uid = Rpc.session.uid
+			ids,ids2 = Rpc.session.call('/object', 'execute', 'res.request', 'request_get')
 			if len(ids):
 				message = _('%s request(s)') % len(ids)
 			else:
@@ -328,7 +328,7 @@ class KooMainWindow(QMainWindow):
 		dialog = LoginDialog( self )
 		while dialog.exec_() == QDialog.Accepted:
 			self.login( dialog.url, dialog.databaseName )
-			if rpc.session.open:
+			if Rpc.session.open:
 				return
 
 	## Logs into the specified database and server.
@@ -348,9 +348,9 @@ class KooMainWindow(QMainWindow):
 			return
 
 		try:
-			log_response = rpc.session.login(url, databaseName)
+			log_response = Rpc.session.login(url, databaseName)
 			url = QUrl( url )
-			if log_response==rpc.session.LoggedIn:
+			if log_response==Rpc.session.LoggedIn:
 				options.options.loadSettings()
 
 				iconVisible = options.options.get( 'show_system_tray_icon', True )
@@ -369,15 +369,15 @@ class KooMainWindow(QMainWindow):
 				self.openHomeTab()
 
 				self.updateRequestsStatus()
-			elif log_response==rpc.session.Exception:
+			elif log_response==Rpc.session.Exception:
 				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
-			elif log_response==rpc.session.InvalidCredentials:
+			elif log_response==Rpc.session.InvalidCredentials:
 				QMessageBox.warning(self, _('Connection error !'), _('Bad username or password !'))
 
-		except rpc.RpcException, e:
+		except Rpc.RpcException, e:
 			(e1,e2) = e
 			common.error(_('Connection Error !'),e1,e2)
-			rpc.session.logout()
+			Rpc.session.logout()
 
 	## Closes all tabs smartly, that is using closeCurrentTab()
 	def closeAllTabs(self):
@@ -394,7 +394,7 @@ class KooMainWindow(QMainWindow):
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 		self.setWindowTitle( self.fixedWindowTitle )
 		self.updateEnabledActions()
-		rpc.session.logout()
+		Rpc.session.logout()
 		
 	def supportRequest(self):
 		common.support()
@@ -412,7 +412,7 @@ class KooMainWindow(QMainWindow):
 
 	def contextHelp(self):
 		model = self.tabWidget.currentWidget().model
-		l = rpc.session.context.get('lang','en')
+		l = Rpc.session.context.get('lang','en')
 		url = 'http://tinyerp.org/scripts/context_index.php?model=%s&lang=%s' % (model,l)
 		QDesktopServices.openUrl( QUrl(url) )
 
@@ -454,10 +454,10 @@ class KooMainWindow(QMainWindow):
 				return 
 
 		# If no menu tab exists query the server and open it
-		id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ 'menu_id','name'], rpc.session.context)
+		id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], [ 'menu_id','name'], Rpc.session.context)
 		self.uiUserName.setText( id[0]['name'] or '' )
-		self.uiServerInformation.setText( "%s [%s]" % (rpc.session.url, rpc.session.databaseName) )
-		self.setWindowTitle( self.fixedWindowTitle + " - [%s]" % rpc.session.databaseName )
+		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
+		self.setWindowTitle( self.fixedWindowTitle + " - [%s]" % Rpc.session.databaseName )
 
 		# Store the menuId so we ensure we don't open the menu twice when
 		# calling openHomeTab()
@@ -465,7 +465,7 @@ class KooMainWindow(QMainWindow):
 
  		if not id[0]['menu_id']:
 			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
- 			rpc.session.logout()
+ 			Rpc.session.logout()
 			return 
 
 		api.instance.execute(self.menuId, {'window':self })
@@ -476,7 +476,7 @@ class KooMainWindow(QMainWindow):
 	# Home tab is an action specified in the server which usually is a 
 	# dashboard, but could be anything.
 	def openHomeTab(self):
-		id = rpc.session.execute('/object', 'execute', 'res.users', 'read', [rpc.session.uid], [ 'action_id','name'], rpc.session.context)
+		id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], [ 'action_id','name'], Rpc.session.context)
 
  		if not id[0]['action_id']:
 			return 
@@ -491,8 +491,8 @@ class KooMainWindow(QMainWindow):
 
 	def clearCache(self):
 		viewsettings.ViewSettings.clear()
-		if rpc.session.cache:
-			rpc.session.cache.clear()
+		if Rpc.session.cache:
+			Rpc.session.cache.clear()
 
 	def closeEvent(self, event):
 		if QMessageBox.question(self, _("Quit"), _("Do you really want to quit ?"), _("Yes"), _("No")) == 1:
@@ -516,7 +516,7 @@ class KooMainWindow(QMainWindow):
 			else:
 				action.setEnabled( False )
 
-		if rpc.session.open:
+		if Rpc.session.open:
 			self.actionFullTextSearch.setEnabled( True )
 		else:
 			self.actionFullTextSearch.setEnabled( False )
@@ -571,7 +571,7 @@ class KooMainWindow(QMainWindow):
 			return
 		try:
 			self.setCursor( Qt.WaitCursor )
-			rpc.database.execute(dialog.url, 'drop', dialog.password, dialog.databaseName )
+			Rpc.database.execute(dialog.url, 'drop', dialog.password, dialog.databaseName )
 			self.unsetCursor()
 			QMessageBox.information( self, _('Database removal'), _('Database dropped successfully!') )
 		except Exception, e:
@@ -594,7 +594,7 @@ class KooMainWindow(QMainWindow):
 			f = file(fileName, 'rb')
 			data = base64.encodestring(f.read())
 			f.close()
-			rpc.database.execute(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
+			Rpc.database.execute(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
 			self.unsetCursor()
 			QMessageBox.information( self, '', _('Database restored successfully!') )
 		except Exception,e:
@@ -614,7 +614,7 @@ class KooMainWindow(QMainWindow):
 			return
 		try:
 			self.setCursor( Qt.WaitCursor )
-			dump_b64 = rpc.database.execute(dialog.url, 'dump', dialog.password, dialog.databaseName)
+			dump_b64 = Rpc.database.execute(dialog.url, 'dump', dialog.password, dialog.databaseName)
 			dump = base64.decodestring(dump_b64)
 			f = file(fileName, 'wb')
 			f.write(dump)

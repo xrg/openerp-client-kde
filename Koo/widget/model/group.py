@@ -26,8 +26,8 @@
 #
 ##############################################################################
 
-from rpc import RPCProxy
-import rpc
+from Rpc import RpcProxy
+import Rpc
 from record import ModelRecord
 import field
 from Common import options
@@ -100,10 +100,10 @@ class ModelRecordGroup(QObject):
 		QObject.__init__(self)
 		self.parent = parent
 		self._context = context
-		self._context.update(rpc.session.context)
+		self._context.update(Rpc.session.context)
 		self.resource = resource
 		self.limit = options.options.get( 'limit', 80 )
-		self.rpc = RPCProxy(resource)
+		self.Rpc = RpcProxy(resource)
 		if fields == None:
 			self.fields = {}
 		else:
@@ -164,7 +164,7 @@ class ModelRecordGroup(QObject):
 	def written(self, edited_id):
 		if not self.on_write:
 			return
-		new_ids = getattr(self.rpc, self.on_write)(edited_id, self.context)
+		new_ids = getattr(self.Rpc, self.on_write)(edited_id, self.context)
 		model_idx = self.models.index(self.recordById(edited_id))
 		result = False
 		for id in new_ids:
@@ -236,9 +236,9 @@ class ModelRecordGroup(QObject):
 
 		if None in queryIds:
 			queryIds.remove( None )
-		c = rpc.session.context.copy()
+		c = Rpc.session.context.copy()
 		c.update(self.context)
-		values = self.rpc.read(queryIds, self.fields.keys(), c)
+		values = self.Rpc.read(queryIds, self.fields.keys(), c)
 		if not values:
 			return False
 
@@ -376,9 +376,9 @@ class ModelRecordGroup(QObject):
 
 		# Update existing models
 		if len(old) and len(to_add):
-			c = rpc.session.context.copy()
+			c = Rpc.session.context.copy()
 			c.update(self.context)
-			values = self.rpc.read(old, to_add, c)
+			values = self.Rpc.read(old, to_add, c)
 			if values:
 				for v in values:
 					id = v['id']
@@ -388,7 +388,7 @@ class ModelRecordGroup(QObject):
 
 		# Set defaults
 		if len(new) and len(to_add):
-			values = self.rpc.default_get(to_add, self.context)
+			values = self.Rpc.default_get(to_add, self.context)
 			for t in to_add:
 				if t not in values:
 					values[t] = False
@@ -397,9 +397,9 @@ class ModelRecordGroup(QObject):
 
 	def ensureAllLoaded(self):
 		ids = [x.id for x in self.models if not x._loaded]
-		c = rpc.session.context.copy()
+		c = Rpc.session.context.copy()
 		c.update(self.context)
-		values = self.rpc.read( ids, self.fields.keys(), c )
+		values = self.Rpc.read( ids, self.fields.keys(), c )
 		if values:
 			for v in values:
 				self.recordById( v['id'] ).set(v, signal=False)
@@ -445,7 +445,7 @@ class ModelRecordGroup(QObject):
 		if model._loaded:
 			return 
 
-		c = rpc.session.context.copy()
+		c = Rpc.session.context.copy()
 		c.update(self.context)
 		ids = [x.id for x in self.models]
 		pos = ids.index(model.id) / self.limit
@@ -453,7 +453,7 @@ class ModelRecordGroup(QObject):
 		queryIds = ids[pos * self.limit: pos * self.limit + self.limit]
 		if None in queryIds:
 			queryIds.remove( None )
-		values = self.rpc.read(queryIds, self.fields.keys(), c)
+		values = self.Rpc.read(queryIds, self.fields.keys(), c)
 		if not values:
 			return False
 
@@ -501,7 +501,7 @@ class ModelRecordGroup(QObject):
 		if not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
-			ids = self.rpc.search( self._domain + self._filter )
+			ids = self.Rpc.search( self._domain + self._filter )
 			self.sortedRelatedIds = []
 		else:
 			type = self.fields[field]['type']
@@ -525,13 +525,13 @@ class ModelRecordGroup(QObject):
 					orderby += 'DESC'
 				try:
 					# Use call to catch exceptions
-					self.sortedRelatedIds = rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0, orderby )
+					self.sortedRelatedIds = Rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0, orderby )
 				except:
 					# Maybe name field doesn't exist :(
 					# Use default order
-					self.sortedRelatedIds = rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0 )
+					self.sortedRelatedIds = Rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0 )
 					
-				ids = self.rpc.search( self._domain + self._filter )
+				ids = self.Rpc.search( self._domain + self._filter )
 			else:
 				orderby = field + " "
 				if order == Qt.AscendingOrder:
@@ -540,12 +540,12 @@ class ModelRecordGroup(QObject):
 					orderby += "DESC"
 				try:
 					# Use call to catch exceptions
-					ids = rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby )
+					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby )
 				except:
 					# In functional fields not stored in the database this will
 					# cause an exceptioin :(
 					# Use default order
-					ids = rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0 )
+					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0 )
 				self.sortedRelatedIds = []
 
 		# We set this fields in the end in case some exceptions where fired 
@@ -563,7 +563,7 @@ class ModelRecordGroup(QObject):
 			return
 
 		if not self.updated:
-			ids = rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, self.limit )
+			ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, self.limit )
 			self.clear()
 			self.load( ids )
 		

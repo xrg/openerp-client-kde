@@ -36,7 +36,7 @@ from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
 
 from modules.gui.window.win_search import SearchDialog
-import rpc
+import Rpc
 
 from abstractformwidget import *
 from PyQt4.QtCore import *
@@ -108,7 +108,7 @@ class ManyToOneFormWidget(AbstractFormWidget):
  		self.newMenuEntries.append((None, None, None))
 
  		if attrs.get('completion',False):
- 			ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', {})
+ 			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', {})
  			if ids:
 				self.loadCompletion( ids, attrs )
 
@@ -181,7 +181,7 @@ class ManyToOneFormWidget(AbstractFormWidget):
 	def search(self, name):
 		domain = self.model.domain( self.name )
 		context = self.model.context()
-		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
 		if len(ids)==1:
 			self.model.setValue( self.name, ids[0] )
 			self.display()
@@ -189,7 +189,7 @@ class ManyToOneFormWidget(AbstractFormWidget):
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
 			if dialog.exec_() == QDialog.Accepted and dialog.result:
 				id = dialog.result[0]
-				name = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], rpc.session.context)[0]
+				name = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], Rpc.session.context)[0]
 				self.model.setValue(self.name, name)
 				self.display()
 
@@ -225,11 +225,11 @@ class ManyToOneFormWidget(AbstractFormWidget):
 
 	def menuEntries(self):
 		if not self.menuLoaded:
-			fields_id = rpc.session.execute('/object', 'execute', 'ir.model.fields', 'search',[('relation','=',self.modelType),('ttype','=','many2one'),('relate','=',True)])
-			fields = rpc.session.execute('/object', 'execute', 'ir.model.fields', 'read', fields_id, ['name','model_id'], rpc.session.context)
+			fields_id = Rpc.session.execute('/object', 'execute', 'ir.model.fields', 'search',[('relation','=',self.modelType),('ttype','=','many2one'),('relate','=',True)])
+			fields = Rpc.session.execute('/object', 'execute', 'ir.model.fields', 'read', fields_id, ['name','model_id'], Rpc.session.context)
 			models_id = [x['model_id'][0] for x in fields if x['model_id']]
 			fields = dict(map(lambda x: (x['model_id'][0], x['name']), fields))
-			models = rpc.session.execute('/object', 'execute', 'ir.model', 'read', models_id, ['name','model'], rpc.session.context)
+			models = Rpc.session.execute('/object', 'execute', 'ir.model', 'read', models_id, ['name','model'], Rpc.session.context)
 			for model in models:
 				field = fields[model['id']]
 				model_name = model['model']
@@ -251,7 +251,7 @@ class ManyToOneFormWidget(AbstractFormWidget):
 	def executeRelation(self, model, field):
 		# Open a view with ids: [(field,'=',value)]
 		value = self.model.value(self.name)
-		ids = rpc.session.execute('/object', 'execute', model, 'search',[(field,'=',value)])
+		ids = Rpc.session.execute('/object', 'execute', model, 'search',[(field,'=',value)])
 		api.instance.createWindow(False, model, ids, [(field,'=',value)], 'form', None, mode='tree,form')
 		return True
 

@@ -32,7 +32,7 @@ from widget.view.abstractview import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from Common import numeric
-import rpc
+import Rpc
 
 class TinyTreeView(QTreeView):
 	

@@ -27,7 +27,7 @@
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-import rpc
+import Rpc
 
 class ToolBar(QToolBar):
 	def __init__(self, parent=None):

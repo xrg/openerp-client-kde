@@ -29,8 +29,8 @@
 import re
 import time
 import exceptions
-import rpc
-from rpc import RPCProxy
+import Rpc
+from Rpc import RpcProxy
 from field import ToManyField
 import gettext
 import traceback
@@ -56,7 +56,7 @@ class ModelRecord(QObject):
 	def __init__(self, resource, id, group=None, parent=None, new=False ):
 		QObject.__init__(self)
 		self.resource = resource
-		self.rpc = RPCProxy(self.resource)
+		self.Rpc = RpcProxy(self.resource)
 		self.id = id
 		self._loaded = False
 		self.parent = parent
@@ -145,7 +145,7 @@ class ModelRecord(QObject):
 		self._check_load()
 		if not self.id:
 			value = self.get(get_readonly=False)
-			self.id = self.rpc.create(value, self.context())
+			self.id = self.Rpc.create(value, self.context())
 		else:
 			if not self.isModified():
 				return self.id
@@ -153,7 +153,7 @@ class ModelRecord(QObject):
 			context= self.context()
 			context= context.copy()
 			context['read_delta']= time.time()-self.read_time
-			if not rpc.session.execute('/object', 'execute', self.resource, 'write', [self.id], value, context):
+			if not Rpc.session.execute('/object', 'execute', self.resource, 'write', [self.id], value, context):
 				return False
 		self._loaded = False
 		if reload:
@@ -163,14 +163,14 @@ class ModelRecord(QObject):
 	# Used only by group.py
 	def fillWithDefaults(self, domain=[], context={}):
 		if len(self.mgroup.fields):
-			val = self.rpc.default_get(self.mgroup.fields.keys(), context)
+			val = self.Rpc.default_get(self.mgroup.fields.keys(), context)
 			for d in domain:
 				if d[0] in self.mgroup.fields and d[1]=='=':
 					val[d[0]]=d[2]
 			self.setDefaults(val)
 
 	def name(self):
-		name = self.rpc.name_get([self.id], rpc.session.context)[0]
+		name = self.Rpc.name_get([self.id], Rpc.session.context)[0]
 		return name
 
 	def setFieldValid(self, field, value):
@@ -257,16 +257,16 @@ class ModelRecord(QObject):
 	def reload(self):
 		if not self.id:
 			return
-		c= rpc.session.context.copy()
+		c= Rpc.session.context.copy()
 		c.update(self.context())
-		res = self.rpc.read([self.id], self.mgroup.mfields.keys(), c)
+		res = self.Rpc.read([self.id], self.mgroup.mfields.keys(), c)
 		if res:
 			value = res[0]
 			self.read_time= time.time()
 			self.set(value)
 
 	# @brief Evaluates the string expression given by dom.
-	# Before passing the dom expression to rpc.session.evaluateExpression
+	# Before passing the dom expression to Rpc.session.evaluateExpression
 	# a context with 'current_date', 'time', 'context', 'active_id' and
 	# 'parent' (if applies) is prepared.
 	def evaluateExpression(self, dom, check_load=True):
@@ -284,7 +284,7 @@ class ModelRecord(QObject):
 		d['active_id'] = self.id
 		if self.parent:
 			d['parent'] = EvalEnvironment(self.parent)
-		val = rpc.session.evaluateExpression(dom, d)
+		val = Rpc.session.evaluateExpression(dom, d)
 		return val
 
 	# This function is called by the field when it's changed
@@ -301,7 +301,7 @@ class ModelRecord(QObject):
 		arg_names = [n.strip() for n in match.group(2).split(',')]
 		args = [self.evaluateExpression(arg) for arg in arg_names]
 		ids = self.id and [self.id] or []
-		response = getattr(self.rpc, func_name)(ids, *args)
+		response = getattr(self.Rpc, func_name)(ids, *args)
 		if response:
 			self.set(response.get('value', {}), modified=True)
 			if 'domain' in response:
@@ -319,7 +319,7 @@ class ModelRecord(QObject):
 	# the 'change_default' field). An example of this case is the zip field
 	# in the partner model.
 	def setConditionalDefaults(self, field, value):
-		ir = RPCProxy('ir.values')
+		ir = RpcProxy('ir.values')
 		values = ir.get('default', '%s=%s' % (field, value),
 						[(self.resource, False)], False, {})
 		data = {}

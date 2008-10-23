@@ -29,7 +29,7 @@
 
 import gettext
 
-import rpc
+import Rpc
 import os
 import sys
 import logging

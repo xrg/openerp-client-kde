@@ -30,7 +30,7 @@
 import gettext
 from Common import common
 
-import rpc
+import Rpc
 
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
@@ -49,7 +49,7 @@ class SearchDialog( QDialog ):
 
 		self.result=None
 		self.context = context
-		self.context.update(rpc.session.context)
+		self.context.update(Rpc.session.context)
 		self.allowMultipleSelection = sel_multi
 
 		self.modelGroup = ModelRecordGroup( model )
@@ -66,7 +66,7 @@ class SearchDialog( QDialog ):
 
 		self.model_name = model
 
-		view_form = rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
+		view_form = Rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
 		self.form = widget_search.SearchFormWidget( self )
 		self.form.setup( view_form['arch'], view_form['fields'], model )
 		self.form.hideButtons()

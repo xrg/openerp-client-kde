@@ -31,7 +31,7 @@ from PyQt4.uic import *
 import ServerConfigurationDialog
 from Common import common
 from Common import options
-import rpc
+import Rpc
 import re
 
 class CreationOkDialog( QDialog ):
@@ -69,7 +69,7 @@ class ProgressBar( QDialog ):
 
 	def start(self):
 		try:
-			self.id = rpc.database.execute(self.url, 'create', self.password, self.databaseName, self.demoData, self.language)
+			self.id = Rpc.database.execute(self.url, 'create', self.password, self.databaseName, self.demoData, self.language)
 			self.timer.start( 1000 )
 		except Exception, e:
 			if e.faultString=='AccessDenied:None':
@@ -79,7 +79,7 @@ class ProgressBar( QDialog ):
 
 	def timeout(self):
 		try:
-			progress,users = rpc.database.call(self.url, 'get_progress', self.password, self.id)
+			progress,users = Rpc.database.call(self.url, 'get_progress', self.password, self.id)
 		except:
 			self.timer.stop()
 			QMessageBox.warning(self,_("Error during database creation !"),_("The server crashed during installation.\nWe suggest you to drop this database."))
@@ -122,7 +122,7 @@ class DatabaseCreationDialog( QDialog ):
 	def refreshLangList(self, url):
 		self.uiLanguage.clear()
 		try:
-			lang_list = rpc.database.call(url, 'list_lang')
+			lang_list = Rpc.database.call(url, 'list_lang')
 		except:
 			self.setDialogEnabled( False )
 			return

@@ -29,7 +29,7 @@
 
 import os, time, base64, datetime
 
-import rpc
+import Rpc
 
 import wizard
 from Printer import *
@@ -43,19 +43,19 @@ def executeReport(name, data, context={}):
 	ids = datas['ids']
 	del datas['ids']
 	if not ids:
-		ids =  rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
+		ids =  Rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
 		if ids == []:
 			QMessageBox.information( None, '', _('Nothing to print!'))
 			return False
 		datas['id'] = ids[0]
 	try:
-		ctx = rpc.session.context.copy()
+		ctx = Rpc.session.context.copy()
 		ctx.update(context)
-		report_id = rpc.session.execute('/report', 'report', name, ids, datas, ctx)
+		report_id = Rpc.session.execute('/report', 'report', name, ids, datas, ctx)
 		state = False
 		attempt = 0
 		while not state:
-			val = rpc.session.execute('/report', 'report_get', report_id)
+			val = Rpc.session.execute('/report', 'report_get', report_id)
 			state = val['state']
 			if not state:
 				time.sleep(1)
@@ -64,19 +64,19 @@ def executeReport(name, data, context={}):
 				QMessageBox.information( None, '', _('Printing aborted, too long delay !'))
 				return False
 		Printer.printData(val)
-	except rpc.RpcException, e:
+	except Rpc.RpcException, e:
 		common.error(_('Error: ')+str(e.type), e.message, e.data)
 	return True
 
 def execute(act_id, datas, type=None, context={}):
-	ctx = rpc.session.context.copy()
+	ctx = Rpc.session.context.copy()
 	ctx.update(context)
 	if type==None:
-		res = rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [act_id], ['type'], ctx)
+		res = Rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [act_id], ['type'], ctx)
 		if not len(res):
 			raise Exception, 'ActionNotFound'
 		type=res[0]['type']
-	res = rpc.session.execute('/object', 'execute', type, 'read', [act_id], False, ctx)[0]
+	res = Rpc.session.execute('/object', 'execute', type, 'read', [act_id], False, ctx)[0]
 	api.instance.executeAction(res,datas)
 
 def executeAction(action, datas, context={}):
@@ -102,14 +102,14 @@ def executeAction(action, datas, context={}):
 			action['domain']='[]'
 		ctx = {'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])}
 		#ctx.update(common.expr_eval(action.get('context','{}'), ctx.copy()))
-		ctx.update(rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
+		ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
 		ctx.update(context)
 
 		a = ctx.copy()
 		a['time'] = time
 		a['datetime'] = datetime
 		#domain = common.expr_eval(action['domain'], a)
-		domain = rpc.session.evaluateExpression(action['domain'], a)
+		domain = Rpc.session.evaluateExpression(action['domain'], a)
 
 		if datas.get('domain', False):
 			domain.append(datas['domain'])
@@ -119,7 +119,7 @@ def executeAction(action, datas, context={}):
 				datas['view_mode'], name=action.get('name', False), autoReload=datas['auto_refresh']  )
 
 		#for key in tools.expr_eval(action.get('context', '{}')).keys():
-		#	del rpc.session.context[key]
+		#	del Rpc.session.context[key]
 
 	elif action['type']=='ir.actions.wizard':
 		win=None
@@ -146,11 +146,11 @@ def executeKeyword(keyword, data={}, context={}):
 	if 'id' in data:
 		try:
 			id = data.get('id', False) 
-			actions = rpc.session.execute('/object', 'execute',
+			actions = Rpc.session.execute('/object', 'execute',
 					'ir.values', 'get', 'action', keyword,
-					[(data['model'], id)], False, rpc.session.context)
+					[(data['model'], id)], False, Rpc.session.context)
 			actions = map(lambda x: x[2], actions)
-		except rpc.RpcException, e:
+		except Rpc.RpcException, e:
 			return False
 
 	keyact = {}

@@ -31,7 +31,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-import rpc
+import Rpc
 from Common import api
 from Common import common
 from Common import icons
@@ -102,7 +102,7 @@ class Wizard( QObject ):
 		self.action = action
 		self.datas = datas
 		self.state = state
-		self.wizardId = rpc.session.execute('/wizard', 'create', self.action)
+		self.wizardId = Rpc.session.execute('/wizard', 'create', self.action)
 		self.finished = False
 		self.progress = common.ProgressDialog()
 
@@ -112,7 +112,7 @@ class Wizard( QObject ):
 			return
 		self.progress.start()
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, rpc.session.context )
+		Rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, Rpc.session.context )
 
 	def finishedStep(self, res):
 		self.progress.stop()

@@ -32,7 +32,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-import rpc
+import Rpc
 
 from Common import common
 import copy
@@ -60,7 +60,7 @@ class win_preference(QDialog):
 		self.screen.new(default=False)
 		self.screen.addCustomView(arch, fields, display=True)
 
-		default = rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,self.id)], False, rpc.session.context, True, True, False)
+		default = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,self.id)], False, Rpc.session.context, True, True, False)
 		default2 = {}
 		self.default = {}
 		for d in default:
@@ -79,8 +79,8 @@ class win_preference(QDialog):
 
 		for key in val:
 			if val[key]:
-				rpc.session.execute('/object', 'execute', 'ir.values', 'set', 'meta', key, key, [(self.model,self.id)], val[key])
+				Rpc.session.execute('/object', 'execute', 'ir.values', 'set', 'meta', key, key, [(self.model,self.id)], val[key])
 			elif self.default.get(key, False):
-				rpc.session.execute('/common', 'ir_del', self.default[key])
+				Rpc.session.execute('/common', 'ir_del', self.default[key])
 		self.accept()
 		

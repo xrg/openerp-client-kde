@@ -28,8 +28,8 @@
 
 import xml.dom.minidom
 
-from rpc import RPCProxy
-import rpc
+from Rpc import RpcProxy
+import Rpc
 
 from widget.model.group import ModelRecordGroup
 from widget.model.record import ModelRecord
@@ -96,7 +96,7 @@ class Screen(QScrollArea):
 		self._embedded = True
 
 		self.views_preload = {}
-		self.rpc = None
+		self.Rpc = None
 		self.name = None
 		self.views = []
 		self.fields = {}
@@ -166,7 +166,7 @@ class Screen(QScrollArea):
 	def loadSearchForm(self):
 		if self.current_view.view_type == 'tree' and not self._embedded: 
 			if not self.searchForm.isLoaded():
-				form = rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
+				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
 				self.searchForm.setup( form['arch'], form['fields'], self.resource )
 
 			if self.searchForm.isEmpty():
@@ -235,7 +235,7 @@ class Screen(QScrollArea):
 		self.name = modelGroup.resource
 		self.resource = modelGroup.resource
 		self.context = modelGroup.context
-		self.rpc = RPCProxy(self.resource)
+		self.Rpc = RpcProxy(self.resource)
 
 		self.models = modelGroup
 		if len(modelGroup.models):
@@ -306,7 +306,7 @@ class Screen(QScrollArea):
 	# @return The view widget
 	def addViewById(self, id, display=False):
 		# TODO: By now we set toolbar to True always. Even when Screen is embedded
-		view = self.rpc.fields_view_get(id, False, self.context, True)
+		view = self.Rpc.fields_view_get(id, False, self.context, True)
 		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=id)
 		
 	## @brief Adds a view given a view type.
@@ -318,7 +318,7 @@ class Screen(QScrollArea):
 			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False))
 		else:
 			# TODO: By now we set toolbar to True always. Even when the Screen is embedded
-			view = self.rpc.fields_view_get(False, type, self.context, True)
+			view = self.Rpc.fields_view_get(False, type, self.context, True)
 			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
 		
 	## @brief Adds a view given it's XML description and fields
@@ -485,7 +485,7 @@ class Screen(QScrollArea):
 	def remove(self, unlink = False):
 		ids = self.selectedIds()
 		if unlink and id:
-			unlinked = self.rpc.unlink(ids)	
+			unlinked = self.Rpc.unlink(ids)	
 			# Try to be consistent with database
 			# If records could not be removed from the database
 			# don't remove them on the client. Don't report it directly

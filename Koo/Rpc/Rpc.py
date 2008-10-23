@@ -237,10 +237,10 @@ class AsynchronousSessionCall(QThread):
 # Typical usage of Session:
 #
 # \code
-# import rpc
-# rpc.session.login('http://admin:admin@localhost:8069', 'database')
-# attached = rpc.session.execute('/object', 'execute', 'ir.attachment', 'read', [1,2,3])
-# rpc.session.logout()
+# import Rpc
+# Rpc.session.login('http://admin:admin@localhost:8069', 'database')
+# attached = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'read', [1,2,3])
+# Rpc.session.logout()
 # \endcode
 class Session:
 	LoggedIn = 1
@@ -273,12 +273,12 @@ class Session:
 	# 
 	# Example of usage:
 	# \code
-	# import rpc
+	# import Rpc
 	# def returned(self, value):
 	# 	print value
-	# rpc.session.login('http://admin:admin@localhost:8069', 'database')
-	# rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
-	# rpc.session.logout()
+	# Rpc.session.login('http://admin:admin@localhost:8069', 'database')
+	# Rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
+	# Rpc.session.logout()
 	# \end
 	def callAsync( self, callback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
@@ -442,18 +442,18 @@ class Database:
 
 database = Database()
 
-class RPCProxy(object):
+class RpcProxy(object):
 	def __init__(self, resource):
 		self.resource = resource
 		self.__attrs = {}
 
 	def __getattr__(self, name):
 		if not name in self.__attrs:
-			self.__attrs[name] = RPCFunction(self.resource, name)
+			self.__attrs[name] = RpcFunction(self.resource, name)
 		return self.__attrs[name]
 	
 
-class RPCFunction(object):
+class RpcFunction(object):
 	def __init__(self, object, func_name):
 		self.object = object
 		self.func = func_name

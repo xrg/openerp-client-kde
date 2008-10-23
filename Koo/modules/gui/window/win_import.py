@@ -33,7 +33,7 @@ from PyQt4.uic import *
 import gettext
 from Common import common
 
-import rpc
+import Rpc
 
 import csv, StringIO
 
@@ -47,7 +47,7 @@ def import_csv(csv_data, fields, model):
 	datas = []
 	for line in data:
 		datas.append(map(lambda x:x.decode(csv_data['encoding']).encode('utf-8'), line))
-	res = rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
+	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
 	if res[0]>=0:
 		QMessageBox.information( None, '', _('Imported %d objects !') % (res[0]))
 	else:

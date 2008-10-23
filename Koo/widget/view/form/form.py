@@ -27,7 +27,7 @@
 ##############################################################################
 
 from Common import common
-import rpc
+import Rpc
 
 from widget.view.abstractview import *
 from  abstractformwidget import *

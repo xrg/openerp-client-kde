@@ -30,7 +30,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from ServerConfigurationDialog import *
 from Common import options
-import rpc
+import Rpc
 
 class AdministratorPasswordDialog( QDialog ):
 	def __init__(self, parent=None):
@@ -60,7 +60,7 @@ class AdministratorPasswordDialog( QDialog ):
 			url = str(self.uiServer.text())
 			old = str(self.uiOldPassword.text())
 			new = str(self.uiNewPassword.text())
-			rpc.database.call(url, 'change_admin_password', old, new)
+			Rpc.database.call(url, 'change_admin_password', old, new)
 			QMessageBox.information(self, '', _('Password changed successfully') )
 			self.accept()
 		except Exception,e:

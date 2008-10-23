@@ -29,7 +29,7 @@
 import types
 import gettext
 
-import rpc
+import Rpc
 from win_search import SearchDialog
 import win_export
 import win_import
@@ -66,7 +66,7 @@ class form( QWidget ):
 			view_type = ['form','tree']
 		else:
 			if view_type[0] in ['graph'] and not res_id:
-				res_id = rpc.session.execute('/object', 'execute', model, 'search', domain)
+				res_id = Rpc.session.execute('/object', 'execute', model, 'search', domain)
 		fields = {}
 		self.model = model
 		self.previous_action = None
@@ -185,7 +185,7 @@ class form( QWidget ):
 		if not id:
 			self.updateStatus(_('You have to select one resource!'))
 			return False
-		res = rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+		res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
 		message = ''
 		for line in res:
 			todo = [
@@ -234,7 +234,7 @@ class form( QWidget ):
 		if not self.modified_save():
 			return
 		res_id = self._id_get()
-		new_id = rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, rpc.session.context)
+		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
 		self.screen.load([new_id])
 		self.updateStatus(_('Working now on the duplicated document !'))
 
@@ -321,7 +321,7 @@ class form( QWidget ):
 
 	def updateStatus(self, message=''):
 		if self.model and self.screen.current_model and self.screen.current_model.id:
-			ids=rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.current_model.id)])
+			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.current_model.id)])
 			message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 

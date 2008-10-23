@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-import rpc
+import Rpc
 
 class FieldsModel( QStandardItemModel ):
 	def __init__(self):
@@ -64,7 +64,7 @@ class FieldsModel( QStandardItemModel ):
 				self.fieldsInfo[prefix_node + field]['string'] = '%s%s' % (prefix_value, self.fieldsInfo[prefix_node + field]['string'])
 			# If it's a relation look at the children
 			if fields[field].get('relation', False) and level>0:
-				fields2 = rpc.session.execute('/object', 'execute', fields[field]['relation'], 'fields_get', False, rpc.session.context)
+				fields2 = Rpc.session.execute('/object', 'execute', fields[field]['relation'], 'fields_get', False, Rpc.session.context)
 				self.populate(fields2, prefix_node+field+'/', node, st_name+'/', level-1)
 
 

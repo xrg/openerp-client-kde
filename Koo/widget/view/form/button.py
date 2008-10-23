@@ -58,11 +58,11 @@ class ButtonFormWidget( AbstractFormWidget ):
 				type = self.attrs.get('type', 'workflow')
 				if type == 'workflow':
 					QApplication.setOverrideCursor( Qt.WaitCursor )
-					rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
+					Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
 					QApplication.restoreOverrideCursor()
 				elif type == 'object':
 					QApplication.setOverrideCursor( Qt.WaitCursor )
-					rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.model.context())
+					Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.model.context())
 					QApplication.restoreOverrideCursor()
 				elif type == 'action':
 					action_id = int(self.attrs['name'])

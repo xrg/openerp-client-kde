@@ -34,7 +34,7 @@ from PyQt4.uic import *
 import gettext
 from Common import common
 
-import rpc
+import Rpc
 import sets
 
 import types
@@ -112,7 +112,7 @@ def openExcel(fields, result):
 		QMessageBox.warning(None, '', _('Error opening Excel !'))
 
 def exportData(ids, model, fields, prefix=''):
-	data = rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
+	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
 	return data
 
 class win_export( QDialog ):
@@ -159,7 +159,7 @@ class win_export( QDialog ):
 			return
 		idx = idx[0]
 		id = int( unicode( self.storedModel.itemFromIndex( idx ).text() ) )
-		ir_export = rpc.RPCProxy('ir.exports')
+		ir_export = Rpc.RpcProxy('ir.exports')
 		ir_export.unlink([id])
 		self.storedModel.load( self.model, self.fieldsInfo )
 		
@@ -236,7 +236,7 @@ class win_export( QDialog ):
 		name, ok = QInputDialog.getText(self, '', _('What is the name of this export?'))
 		if not ok:
 			return
-		ir_export = rpc.RPCProxy('ir.exports')
+		ir_export = Rpc.RpcProxy('ir.exports')
 		fields = []
 		for x in range(0, self.selectedModel.rowCount() ):
 			fields.append( unicode( self.selectedModel.item(x).data().toString() ) )
@@ -260,8 +260,8 @@ class StoredExportsModel( QStandardItemModel ):
 	def load(self, model, fieldsInfo):
 		if self.rowCount() > 0:
 			self.removeRows(0, self.rowCount())
-		ir_export = rpc.RPCProxy('ir.exports')
-		ir_export_line = rpc.RPCProxy('ir.exports.line')
+		ir_export = Rpc.RpcProxy('ir.exports')
+		ir_export_line = Rpc.RpcProxy('ir.exports.line')
 		export_ids = ir_export.search([('resource', '=', model)])
 		for export in ir_export.read(export_ids):
 			fields = ir_export_line.read(export['export_fields'])

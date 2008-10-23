@@ -27,7 +27,7 @@
 #
 ##############################################################################
 
-import rpc
+import Rpc
 from fieldpreferences import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -89,7 +89,7 @@ class AbstractFormWidget(QWidget):
 	def setToDefault(self):
 		try:
 			model = self.model.resource
-			res = rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
+			res = Rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
 			model = self.model.setValue(self.name, res.get(self.name, False))
 			self.display()
 		except:

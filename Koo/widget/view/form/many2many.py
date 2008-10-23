@@ -31,7 +31,7 @@ from Common import common
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
 
-import rpc
+import Rpc
 
 from abstractformwidget import *
 from PyQt4.QtCore import *
@@ -70,7 +70,7 @@ class ManyToManyFormWidget(AbstractFormWidget):
 		domain = self.model.domain( self.name )
 		context = self.model.fieldContext( self.name )
 
-		ids = rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context)
 		ids = [x[0] for x in ids] 
 		if len(ids) != 1:
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids)

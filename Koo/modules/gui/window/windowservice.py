@@ -32,7 +32,7 @@ from Common import common
 import form
 import tree
 
-import rpc
+import Rpc
 
 
 def createWindow(view_ids, model, res_id=False, domain=None,
@@ -40,7 +40,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 
 	if context is None:
 		context = {}
-	context.update(rpc.session.context)
+	context.update(Rpc.session.context)
 
 	if view_type=='form':
 		mode = (mode or 'form,tree').split(',')
@@ -51,15 +51,15 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		api.instance.windowCreated( win )
 	elif view_type=='tree':
 		if view_ids and view_ids[0]:
-			view_base =  rpc.session.execute('/object', 'execute',
+			view_base =  Rpc.session.execute('/object', 'execute',
 					'ir.ui.view', 'read', [view_ids[0]],
 					['model', 'type'], context)[0]
 			model = view_base['model']
-			view = rpc.session.execute('/object', 'execute',
+			view = Rpc.session.execute('/object', 'execute',
 					view_base['model'], 'fields_view_get', view_ids[0],
 					view_base['type'],context)
 		else:
-			view = rpc.session.execute('/object', 'execute', model,
+			view = Rpc.session.execute('/object', 'execute', model,
 					'fields_view_get', False, view_type, context)
 
 		win = tree.tree(view, model, domain, context, name=name)

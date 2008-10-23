@@ -35,7 +35,7 @@ from Common import common
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
 
-import rpc
+import Rpc
 import time
 from modules.gui.window.win_search import SearchDialog
 from abstractformwidget import *
@@ -46,13 +46,13 @@ class ActionFormWidget(AbstractFormWidget):
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )	
 		self.act_id=attrs['name']
-		res = rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [self.act_id], ['type'], rpc.session.context)
+		res = Rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [self.act_id], ['type'], Rpc.session.context)
 		if not res:
 			raise Exception, 'ActionNotFound'
 		type=res[0]['type']
 
 		
-		self.action = rpc.session.execute('/object', 'execute', type, 'read', [self.act_id], False, rpc.session.context)[0]
+		self.action = Rpc.session.execute('/object', 'execute', type, 'read', [self.act_id], False, Rpc.session.context)[0]
 		if 'view_mode' in attrs:
 			self.action['view_mode'] = attrs['view_mode']
 
@@ -63,7 +63,7 @@ class ActionFormWidget(AbstractFormWidget):
 			self.context.update(eval(self.action.get('context', '{}'), self.context.copy()))
 			a = self.context.copy()
 			a['time'] = time
-			self.domain = rpc.session.evaluateExpression(self.action['domain'], a)
+			self.domain = Rpc.session.evaluateExpression(self.action['domain'], a)
 
 			if self.action['view_type']=='form':
 				self.view_id = []

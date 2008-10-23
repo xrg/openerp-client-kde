@@ -30,7 +30,7 @@
 import gettext
 from Common import common
 
-import rpc
+import Rpc
 
 from widget.screen import Screen
 import widget_search
@@ -298,7 +298,7 @@ class FullTextSearchDialog( QDialog ):
 
 		self.uiErrorMessage.hide()
 		try:
-			answer = rpc.session.call('/fulltextsearch', 'indexedModels', rpc.session.context )
+			answer = Rpc.session.call('/fulltextsearch', 'indexedModels', Rpc.session.context )
 			self.uiModel.addItem( _('(Everywhere)'), QVariant( False ) )	
 			for x in answer:
 				self.uiModel.addItem( x['name'], QVariant( x['id'] ) )
@@ -346,7 +346,7 @@ class FullTextSearchDialog( QDialog ):
 			model = False
 		else:
 			model = unicode( self.uiModel.itemData( self.uiModel.currentIndex() ).toString() )
-		answer = rpc.session.execute('/fulltextsearch', 'search', self.textToQuery(), self.limit, self.offset , model, rpc.session.context)
+		answer = Rpc.session.execute('/fulltextsearch', 'search', self.textToQuery(), self.limit, self.offset , model, Rpc.session.context)
 		self.model.setList( answer )
 		if len(answer) < self.limit:
 			self.pushNext.setEnabled( False )

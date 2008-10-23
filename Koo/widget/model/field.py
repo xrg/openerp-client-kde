@@ -27,8 +27,8 @@
 ##############################################################################
 
 from PyQt4.QtCore import *
-from rpc import RPCProxy
-import rpc
+from Rpc import RpcProxy
+import Rpc
 
 try:
 	from sets import Set as set
@@ -166,8 +166,8 @@ class ManyToOneField(StringField):
 
 	def set(self, model, value, test_state=False, modified=False):
 		if value and isinstance(value, (int, str, unicode, long)):
-			rpc2 = RPCProxy(self.attrs['relation'])
-			result = rpc2.name_get([value], rpc.session.context)
+			Rpc2 = RpcProxy(self.attrs['relation'])
+			result = Rpc2.name_get([value], Rpc.session.context)
 			model.values[self.name] = result[0]
 		else:
 			model.values[self.name] = value
@@ -221,8 +221,8 @@ class ToManyField(StringField):
 		fields = {}
 		if value and len(value):
 			context = self.context(model)
-			rpc2 = RPCProxy(self.attrs['relation'])
-			fields = rpc2.fields_get(value[0].keys(), context)
+			Rpc2 = RpcProxy(self.attrs['relation'])
+			fields = Rpc2.fields_get(value[0].keys(), context)
 
 		model.values[self.name] = ModelRecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
 		self.connect( model.values[self.name], SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
@@ -295,8 +295,8 @@ class ReferenceField(StringField):
 			model.values[self.name] = False
 			return
 		ref_model, id = value.split(',')
-		rpc2 = RPCProxy(ref_model)
-		result = rpc2.name_get([id], rpc.session.context)
+		Rpc2 = RpcProxy(ref_model)
+		result = Rpc2.name_get([id], Rpc.session.context)
 		if result:
 			model.values[self.name] = ref_model, result[0]
 		else:

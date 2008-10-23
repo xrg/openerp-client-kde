@@ -28,7 +28,7 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from Common import api
-import rpc
+import Rpc
 
 class TinyAction(QAction):
 	def __init__(self, parent):

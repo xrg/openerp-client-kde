@@ -31,7 +31,7 @@ from PyQt4.uic import *
 import re
 from Common import common
 from Common import options
-import rpc
+import Rpc
 
 # Searches the list of available databases in the server
 def refreshDatabaseList(db_widget, url, dbtoload=None):
@@ -40,7 +40,7 @@ def refreshDatabaseList(db_widget, url, dbtoload=None):
 	index = 0
 	db_widget.clear()
 		
-	result = rpc.database.list(url)
+	result = Rpc.database.list(url)
 	if result == -1:
 		return -1
 	if result:

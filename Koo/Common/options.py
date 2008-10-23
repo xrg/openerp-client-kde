@@ -31,7 +31,7 @@ import ConfigParser, optparse
 import os
 import sys
 import gettext
-import rpc
+import Rpc
 from PyQt4.QtCore import QDir
 
 def get_home_dir():
@@ -138,7 +138,7 @@ class configmanager(object):
 
 	def loadSettings(self):
 		try:
-			settings = rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )[0]
+			settings = Rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )[0]
 		except:
 			return
 		self.options.update( settings )

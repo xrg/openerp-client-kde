@@ -29,7 +29,7 @@
 from Common import common
 from Common import icons
 from Common import options
-import rpc
+import Rpc
 from button import *
 
 from form import ViewForm, FormContainer

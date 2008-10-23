@@ -31,7 +31,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Common import common
 import copy
-import rpc
+import Rpc
 
 class TranslationDialog( QDialog ):
 	def __init__(self, id, model, fieldName, value, parent = None):
@@ -56,10 +56,10 @@ class TranslationDialog( QDialog ):
 			return value
 
 	def init(self):
-		self.currentCode = rpc.session.context.get('lang', 'en_US')
+		self.currentCode = Rpc.session.context.get('lang', 'en_US')
 
-		languageIds = rpc.session.execute( '/object', 'execute', 'res.lang', 'search', [('translatable','=','1')])
-		languages = rpc.session.execute( '/object', 'execute', 'res.lang', 'read', languageIds, ['code', 'name'] )
+		languageIds = Rpc.session.execute( '/object', 'execute', 'res.lang', 'search', [('translatable','=','1')])
+		languages = Rpc.session.execute( '/object', 'execute', 'res.lang', 'read', languageIds, ['code', 'name'] )
 		languages.append( {'code': 'en_US', 'name': 'English'} )
 
 		layout = QGridLayout()
@@ -77,9 +77,9 @@ class TranslationDialog( QDialog ):
 				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': unicode(uiText.text()) } )
 				continue
 
-			context = copy.copy(rpc.session.context)			
+			context = copy.copy(Rpc.session.context)			
 			context['lang'] = self.adaptContext( lang['code'] )
-			val = rpc.session.execute( '/object', 'execute', self.model, 'read', [self.id], [self.fieldName], context)
+			val = Rpc.session.execute( '/object', 'execute', self.model, 'read', [self.id], [self.fieldName], context)
 			val = val[0]
 			uiText.setText( val[self.fieldName] )
 			self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': unicode(uiText.text()) } )
@@ -96,8 +96,8 @@ class TranslationDialog( QDialog ):
 			# Only update on the server if the value has changed
 			if newValue == lang['value']:
 				continue
-			context = copy.copy(rpc.session.context)
+			context = copy.copy(Rpc.session.context)
 			context['lang'] = self.adaptContext( lang['code'] )
-			rpc.session.execute( '/object', 'execute', self.model, 'write', [self.id], {self.fieldName: newValue}, context )
+			Rpc.session.execute( '/object', 'execute', self.model, 'write', [self.id], {self.fieldName: newValue}, context )
 		self.accept()
 

@@ -29,7 +29,7 @@
 
 import gettext
 from Common import common
-import rpc
+import Rpc
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -63,6 +63,6 @@ class FieldPreferencesDialog( QDialog ):
 			if self.widgets[x].isChecked():
 				deps = x[0] + '=' + str(x[1])	
 				break
-		rpc.session.execute('/object', 'execute', 'ir.values', 'set', 'default', deps, self.field, [(self.model,False)], self.value, True, False, False, self.uiOnlyForYou.isChecked())
+		Rpc.session.execute('/object', 'execute', 'ir.values', 'set', 'default', deps, self.field, [(self.model,False)], self.value, True, False, False, self.uiOnlyForYou.isChecked())
 		self.accept()
 

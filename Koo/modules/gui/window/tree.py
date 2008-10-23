@@ -34,7 +34,7 @@ from Common import common
 from Common import options
 from Common.viewsettings import *
 import view_tree
-import rpc
+import Rpc
 import widget
 
 from widget.model.treemodel import TreeModel
@@ -76,7 +76,7 @@ class tree( QWidget ):
 		self.toolbar = p.toolbar
 
 		# Get all visible fields + parent field description
-		self.fields = rpc.session.execute('/object', 'execute', self.model, 'fields_get', p.fieldsOrder + [self.childrenField])
+		self.fields = Rpc.session.execute('/object', 'execute', self.model, 'fields_get', p.fieldsOrder + [self.childrenField])
 
 		self.treeModel = TreeModel( self )
 		self.treeModel.setFields( self.fields )
@@ -119,9 +119,9 @@ class tree( QWidget ):
 		
 		# Shortcuts
 
-		scFields = rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
+		scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
 		self.shortcutsGroup = widget.model.group.ModelRecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
-		self.shortcutsGroup.setDomain( [('user_id','=',rpc.session.uid), ('resource','=',model)] )
+		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
 		self.shortcutsGroup.update()
 
 		self.shortcutsModel = TreeModel( self )
@@ -194,7 +194,7 @@ class tree( QWidget ):
 		id = self.currentShortcutId()
 		if not id:
 			return
-		rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id])
+		Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id])
 		self.shortcutsGroup.update()
 
 	def addShortcut(self):
@@ -202,10 +202,10 @@ class tree( QWidget ):
 		if id == None:
 			QMessageBox.information( self, _('No item selected'), _('Please select an element from the tree to add a shortcut to it.') )
 			return
-		res = rpc.session.execute('/object', 'execute', self.model, 'name_get', [id], rpc.session.context)
+		res = Rpc.session.execute('/object', 'execute', self.model, 'name_get', [id], Rpc.session.context)
 		for (id,name) in res:
-			uid = rpc.session.uid
-			rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name})
+			uid = Rpc.session.uid
+			Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name})
 		self.shortcutsGroup.update()
 
 	def goToShortcut(self, index):

@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-import rpc 
+import Rpc 
 
 # Settings are stored as a string (not unicode) and in most cases
 # end up converted to/from a QByteArray; hence the need of ensuring
@@ -66,8 +66,8 @@ class ViewSettings:
 		try:
 			# We don't want to crash if the ktiny module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
-			ids = rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
-				('user','=',rpc.session.uid),('view','=',id)
+			ids = Rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
+				('user','=',Rpc.session.uid),('view','=',id)
 			])
 		except:
 			ViewSettings.hasSettingsModule = False
@@ -75,12 +75,12 @@ class ViewSettings:
 		# As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here. And we
 		# can use execute() instead of call().
 		if ids:
-			rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'write', ids, {
+			Rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'write', ids, {
 				'data': settings 
 			})
 		else:
-			rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'create', {
-				'user': rpc.session.uid, 
+			Rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'create', {
+				'user': Rpc.session.uid, 
 				'view': id, 
 				'data': settings 
 			})
@@ -104,8 +104,8 @@ class ViewSettings:
 		try:
 			# We don't want to crash if the ktiny module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
-			ids = rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
-				('user','=',rpc.session.uid),('view','=',id)
+			ids = Rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
+				('user','=',Rpc.session.uid),('view','=',id)
 			])
 		except:
 			ViewSettings.hasSettingsModule = False
@@ -113,7 +113,7 @@ class ViewSettings:
 		# As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here.
 		if not ids:
 			return None
-		settings = rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'read', ids, ['data'] )[0]['data']
+		settings = Rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'read', ids, ['data'] )[0]['data']
 
 		if settings:
 			# Ensure it's a string and not unicode
@@ -126,7 +126,7 @@ class ViewSettings:
 	# Checks if connection has changed and clears cache and hasSettingsModule flag
 	@staticmethod
 	def checkConnection():
-		if ViewSettings.databaseName != rpc.session.databaseName or ViewSettings.uid != rpc.session.uid:
+		if ViewSettings.databaseName != Rpc.session.databaseName or ViewSettings.uid != Rpc.session.uid:
 			ViewSettings.clear()
 
 	# Clears cache and resets state. This means that after installing the ktiny
@@ -134,8 +134,8 @@ class ViewSettings:
 	# hasSettingsModule is reset to True.
 	@staticmethod
 	def clear():
-		ViewSettings.databaseName = rpc.session.databaseName
-		ViewSettings.uid = rpc.session.uid
+		ViewSettings.databaseName = Rpc.session.databaseName
+		ViewSettings.uid = Rpc.session.uid
 		ViewSettings.hasSettingsModule = True
 		ViewSettings.cache = {}
 

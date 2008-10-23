@@ -36,8 +36,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-import rpc
-from rpc import RPCProxy
+import Rpc
+from Rpc import RpcProxy
 
 # This widget requires some ugly hacks. Mainly clearing the text fields once it's been
 # modified and searched afterwards. This is due to the fact that the 'name' the server
@@ -104,7 +104,7 @@ class ReferenceFormWidget(AbstractFormWidget):
 		domain = self.model.domain(self.name)
 		context = self.model.fieldContext(self.name)
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-		ids = rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
 		print ids
 		
 		if len(ids)==1:
@@ -116,7 +116,7 @@ class ReferenceFormWidget(AbstractFormWidget):
 		dialog = SearchDialog(resource, sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
 		if dialog.exec_() == QDialog.Accepted and dialog.result:
 			id = dialog.result[0]
-			id, name = rpc.session.execute('/object', 'execute', resource, 'name_get', [id], rpc.session.context)[0]
+			id, name = Rpc.session.execute('/object', 'execute', resource, 'name_get', [id], Rpc.session.context)[0]
 			self.model.setValue(self.name, (resource, (id, name)) )
 			self.display()
 
@@ -152,7 +152,7 @@ class ReferenceFormWidget(AbstractFormWidget):
 			model, (id, name) = value
 			self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
 			if not name:
-				id, name = RPCProxy(model).name_get([id], rpc.session.context)[0]
+				id, name = RpcProxy(model).name_get([id], Rpc.session.context)[0]
 				#self.model.setValue(self.name, model, (id, name))
 			self.uiText.setText(name)
 			self.pushOpen.setIcon( QIcon(":/images/images/folder.png") )
