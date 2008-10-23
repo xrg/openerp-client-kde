@@ -30,10 +30,11 @@ import types
 import gettext
 
 import Rpc
-from win_search import SearchDialog
-import win_export
-import win_import
-import win_attach
+from SearchDialog import *
+from ExportDialog import *
+from ImportDialog import *
+from AttachmentDialog import *
+from GoToIdDialog import *
 
 from Common import api
 from Common import common
@@ -45,7 +46,6 @@ from widget.model.group import ModelRecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-from win_gotoid import *
 
 
 class form( QWidget ):
@@ -157,7 +157,7 @@ class form( QWidget ):
 		id = self.screen.id_get()
 		if id:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
-			window = win_attach.AttachmentsWindow(self.model, id, self)
+			window = AttachmentDialog(self.model, id, self)
 			self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )
 			QApplication.restoreOverrideCursor()
 			window.show()
@@ -216,12 +216,12 @@ class form( QWidget ):
 
 	def import_(self):
 		fields = []
-		dialog = win_import.win_import(self.model, self.screen.fields, fields)
+		dialog = ImportDialog(self.model, self.screen.fields, fields)
 		dialog.exec_()
 
 	def export(self):
 		fields = []
-		dialog = win_export.win_export(self.model, self.screen.ids_get(), self.screen.fields, fields)
+		dialog = ExportDialog(self.model, self.screen.ids_get(), self.screen.fields, fields)
 		dialog.exec_()
 
 	def new(self, widget=None, autosave=True):

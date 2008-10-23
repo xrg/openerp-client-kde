@@ -156,7 +156,7 @@
   <customwidget>
    <class>SearchView</class>
    <extends>QWidget</extends>
-   <header>modules.gui.window.win_full_text_search</header>
+   <header>modules.gui.window.FullTextSearchDialog</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

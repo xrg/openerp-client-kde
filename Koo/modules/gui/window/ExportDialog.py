@@ -115,7 +115,7 @@ def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
 	return data
 
-class win_export( QDialog ):
+class ExportDialog( QDialog ):
 	def __init__(self, model, ids, fields, preload =[], parent=None):
 		QDialog.__init__(self, parent)
 		loadUi( common.uiPath('win_export.ui'), self)

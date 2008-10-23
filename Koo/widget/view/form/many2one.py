@@ -35,7 +35,7 @@ import widget
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
 
-from modules.gui.window.win_search import SearchDialog
+from modules.gui.window.SearchDialog import SearchDialog
 import Rpc
 
 from abstractformwidget import *

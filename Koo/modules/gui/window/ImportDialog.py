@@ -61,7 +61,7 @@ def import_csv(csv_data, fields, model):
 		}
 		QMessageBox.warning(None, _('Error importing data'), error )
 
-class win_import(QDialog):
+class ImportDialog(QDialog):
 	def __init__(self, model, fields, preload = [], parent=None):
 		QDialog.__init__(self, parent)
 		loadUi(common.uiPath('win_import.ui'), self)

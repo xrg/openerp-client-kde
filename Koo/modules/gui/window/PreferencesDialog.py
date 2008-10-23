@@ -40,7 +40,7 @@ import copy
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
 
-class win_preference(QDialog):
+class PreferencesDialog(QDialog):
 	def __init__(self, model, id, preferences, parent=None):
 		QDialog.__init__(self, parent)
 		loadUi( common.uiPath('preferences.ui'), self )

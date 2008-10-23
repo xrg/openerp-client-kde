@@ -29,7 +29,7 @@
 import form
 from Common import common
 from many2one import ScreenDialog
-from modules.gui.window.win_search import SearchDialog
+from modules.gui.window.SearchDialog import SearchDialog
 
 from abstractformwidget import *
 from PyQt4.QtCore import *

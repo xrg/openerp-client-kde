@@ -38,7 +38,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-from modules.gui.window.win_search import SearchDialog
+from modules.gui.window.SearchDialog import SearchDialog
 
 class ManyToManyFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):

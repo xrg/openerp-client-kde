@@ -33,7 +33,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import * 
 
 
-class AttachmentsWindow(QMainWindow):
+class AttachmentDialog(QMainWindow):
 
 	def __init__(self, model, id, parent = None ):	
 		QMainWindow.__init__(self, parent)

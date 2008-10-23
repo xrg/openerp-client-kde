@@ -36,7 +36,9 @@ import gettext
 
 import Rpc
 
-from window import windowservice, win_preference, win_full_text_search
+from window import windowservice
+from window.PreferencesDialog import *
+from window.FullTextSearchDialog import *
 from DatabaseCreationDialog import DatabaseCreationDialog
 from DatabaseDialog import DatabaseDialog
 import re
@@ -247,7 +249,7 @@ class KooMainWindow(QMainWindow):
 		if not self.isVisible():
 			self.showNormal()
 
-		win = win_full_text_search.FullTextSearchDialog(self)
+		win = FullTextSearchDialog(self)
 		if win.exec_() == QDialog.Rejected:
 			return
 		self.setCursor( Qt.WaitCursor )
@@ -273,7 +275,7 @@ class KooMainWindow(QMainWindow):
 
 	def userPreferences(self):
 		actions = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [('res.users',False)], True, Rpc.session.context, True)
-		win = win_preference.win_preference('res.users', Rpc.session.uid, actions, self)
+		win = PreferencesDialog('res.users', Rpc.session.uid, actions, self)
 		if win.exec_() == QDialog.Rejected:
 			return
 		Rpc.session.reloadContext()
