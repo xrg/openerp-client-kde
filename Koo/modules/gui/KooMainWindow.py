@@ -129,8 +129,8 @@ class KooMainWindow(QMainWindow):
 		self.connect( self.actionClearCache, SIGNAL('triggered()'), self.clearCache )
 
 		self.connect( self.actionSupportRequest, SIGNAL('triggered()'), self.supportRequest )
-		self.connect( self.actionKTinyManual, SIGNAL('triggered()'), self.kTinyManual )
-		self.connect( self.actionTinyErpManual, SIGNAL('triggered()'), self.tinyErpManual )
+		self.connect( self.actionKooManual, SIGNAL('triggered()'), self.kooManual )
+		self.connect( self.actionOpenErpManual, SIGNAL('triggered()'), self.openErpManual )
 		self.connect( self.actionTips, SIGNAL('triggered()'), self.showTipOfTheDay )
 		self.connect( self.actionContextualHelp, SIGNAL('triggered()'), self.contextHelp )
 		self.connect( self.actionShortcuts, SIGNAL('triggered()'), self.showShortcuts )
@@ -399,7 +399,7 @@ class KooMainWindow(QMainWindow):
 	def supportRequest(self):
 		common.support()
 
-	def kTinyManual(self):
+	def kooManual(self):
 		dir = os.path.abspath(os.path.dirname(__file__))
 		index = dir + '/../../../doc/html/index.html'
 		if os.path.exists( index ):
@@ -407,7 +407,7 @@ class KooMainWindow(QMainWindow):
 		else:
 			QDesktopServices.openUrl( QUrl('http://www.nan-tic.com/ftp/ktiny-doc/index.html') )
 
-	def tinyErpManual(self):
+	def openErpManual(self):
 		QDesktopServices.openUrl( QUrl('http://tinyerp.com/documentation/user-manual/') )
 
 	def contextHelp(self):

@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>KTinyMainWindow</class>
- <widget class="QMainWindow" name="KTinyMainWindow" >
+ <class>KooMainWindow</class>
+ <widget class="QMainWindow" name="KooMainWindow" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -22,7 +22,7 @@
    </size>
   </property>
   <property name="windowTitle" >
-   <string>KTiny Erp Client</string>
+   <string>Koo: OpenObject KDE Client</string>
   </property>
   <property name="windowIcon" >
    <iconset resource="common.qrc" >
@@ -251,8 +251,8 @@
      <property name="title" >
       <string>User &amp;Manual</string>
      </property>
-     <addaction name="actionKTinyManual" />
-     <addaction name="actionTinyErpManual" />
+     <addaction name="actionKooManual" />
+     <addaction name="actionOpenErpManual" />
     </widget>
     <addaction name="actionSupportRequest" />
     <addaction name="separator" />
@@ -809,14 +809,14 @@
     <string>User Manual</string>
    </property>
   </action>
-  <action name="actionTinyErpManual" >
+  <action name="actionOpenErpManual" >
    <property name="text" >
-    <string>TinyERP</string>
+    <string>OpenERP</string>
    </property>
   </action>
-  <action name="actionKTinyManual" >
+  <action name="actionKooManual" >
    <property name="text" >
-    <string>KTiny</string>
+    <string>Koo</string>
    </property>
   </action>
   <action name="actionOpenHomeTab" >
