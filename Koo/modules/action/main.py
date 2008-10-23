@@ -32,7 +32,7 @@ import os, time, base64, datetime
 import rpc
 
 import wizard
-from printer import *
+from Printer import *
 
 from Common import api
 from Common import common
