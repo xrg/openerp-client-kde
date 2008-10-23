@@ -58,7 +58,6 @@ def listPlugins():
 def execute(datas):
 	result = {}
 	plugins = listPlugins()
-	print plugins
 	for p in plugins:
 		if not 'model_re' in plugins[p]:
 			plugins[p]['model_re'] = re.compile(plugins[p]['model'])

@@ -373,7 +373,7 @@ class form( QWidget ):
 		return self.screen.actions
 
 	def executePlugins(self):
-		import plugins
+		import Plugins
 		datas = {'model': self.model, 'ids':self.screen.ids_get(), 'id' : self.screen.id_get()}
-		plugins.execute(datas)
+		Plugins.execute(datas)
 
