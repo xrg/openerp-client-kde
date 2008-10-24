@@ -211,7 +211,7 @@ class LegendItem(QGraphicsItemGroup):
 		self.setPos( maxWidthPosition + maxWidth / 2 - self.boundingRect().width() / 2, self.pos().y() )
 
 
-class AbstractChart(QGraphicsItemGroup):
+class AbstractGraphicsChartItem(QGraphicsItemGroup):
 	colorList = [ QColor('#%02x%02x%02x' % (25+((r+10)%11)*23,5+((g+1)%11)*20,25+((b+4)%11)*23) ) for r in range(11) for g in range(11) for b in range(11) ]
 
 	def __init__(self, parent=None):

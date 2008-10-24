@@ -26,9 +26,9 @@
 #
 ##############################################################################
 
-import tinychart
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+from KooChart import *
 
 import datetime 
 import time
@@ -85,9 +85,9 @@ class Chart( QGraphicsView ):
 		self._models = models
 		if not self.chart:
 			if self._type == 'pie': 
-				self.chart = tinychart.pie.PieChart()
+				self.chart = GraphicsPieChartItem()
 			else:
-				self.chart = tinychart.bar.BarChart()
+				self.chart = GraphicsBarChartItem()
 			self.chart.setSize( self.size() )
 			self.scene.addItem( self.chart )
 

@@ -16,7 +16,7 @@
 #   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
 
 from PyQt4.QtGui import *
-from abstractchart import *
+from AbstractGraphicsChartItem import *
 
 
 class PieChartSector(QGraphicsEllipseItem):
@@ -24,9 +24,9 @@ class PieChartSector(QGraphicsEllipseItem):
 		QGraphicsEllipseItem.__init__(self, parent)
 		self.label = None
 
-class PieChart(AbstractChart):
+class GraphicsPieChartItem(AbstractGraphicsChartItem):
 	def __init__(self, parent=None):
-		AbstractChart.__init__(self, parent)
+		AbstractGraphicsChartItem.__init__(self, parent)
 
 	def setValues( self, values ):
 		self.clear()

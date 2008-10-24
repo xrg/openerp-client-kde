@@ -17,7 +17,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from abstractchart import *
+from AbstractGraphicsChartItem import *
 
 
 class BarChartBar(QGraphicsRectItem):
@@ -112,9 +112,9 @@ class AxisItem(QGraphicsPathItem):
 		self.setPath( path )
 
 
-class BarChart(AbstractChart):
+class GraphicsBarChartItem(AbstractGraphicsChartItem):
 	def __init__(self, parent=None):
-		AbstractChart.__init__(self, parent)
+		AbstractGraphicsChartItem.__init__(self, parent)
 		self.yAxis = AxisItem( self )
 		self.yAxis.hide()
 		self.xAxis = AxisItem( self )
