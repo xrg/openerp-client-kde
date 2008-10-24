@@ -27,64 +27,32 @@
 #
 ##############################################################################
 
-from Common.numeric import *
-from abstractsearchwidget import * 
+from AbstractSearchWidget import *
 from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-from PyQt4.uic import *
 
-class FloatSearchWidget(AbstractSearchWidget):
+class CharSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		layout = QHBoxLayout( self )
-		layout.setSpacing( 0 )
-		layout.setContentsMargins( 0, 0, 0, 0 )
-		self.uiStart = QLineEdit( self )
-		label = QLabel( '-', self )
-		self.uiEnd = QLineEdit( self )
-		layout.addWidget( self.uiStart )
-		layout.addWidget( label )
-		layout.addWidget( self.uiEnd )
-		self.connect( self.uiStart, SIGNAL('returnPressed()'), self.calculate )
-		self.connect( self.uiEnd, SIGNAL('returnPressed()'), self.calculate )
-
-		self.focusWidget = self.uiStart
-
-	def calculate(self):
-		widget = sender()
-		val = textToFloat( str(widget.text() ) )
-		if val:
-			widget.setText( str(val) )
-		else:
-			widget.setText('')
+		self.layout = QHBoxLayout( self )
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
+		self.uiText = QLineEdit( self )
+		self.layout.addWidget( self.uiText )
+		self.focusWidget = self.uiText
 
 	def getValue(self):
-		res = []
-		start = textToFloat( str(self.uiStart.text()) )
-		end = textToFloat( str(self.uiEnd.text()) )
-		if start and not end:
-			res.append((self.name, '=', start))
-			return res
-		if start:
-			res.append((self.name, '>=', start))
-		if end:
-			res.append((self.name, '<=', end))
-		return res
+		s = unicode(self.uiText.text())
+		if s:
+			return [(self.name,self.attrs.get('comparator','ilike'),s)]
+		else:
+			return []
 
 	def setValue(self, value):
-		if value:
-			self.uiStart.setText( str(value) )
-		else:
-			self.uiStart.clear()
-		if value:
-			self.uiEnd.setText( str(value) ) 
-		else:
-			self.uiEnd.clear()
+		self.uiText.setText(value)
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')
 
 	def clear(self):
-		self.value = False
-		self.uiStart.clear()
-		self.uiEnd.clear()
+		self.value = ''
+

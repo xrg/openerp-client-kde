@@ -1,7 +1,5 @@
 ##############################################################################
 #
-# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -27,66 +25,39 @@
 #
 ##############################################################################
 
-from Common import common
-from Common.numeric import *
-
-from abstractsearchwidget import *
+from AbstractSearchWidget import *
 from PyQt4.QtGui import *
-from PyQt4.QtCore import *
 from PyQt4.uic import *
+from Common import common
 
-class IntegerSearchWidget(AbstractSearchWidget):
+class ReferenceSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		layout = QHBoxLayout( self )
-		layout.setSpacing( 0 )
-		layout.setContentsMargins( 0, 0, 0, 0 )
-		self.uiStart = QLineEdit( self )
-		label = QLabel( '-', self )
-		self.uiEnd = QLineEdit( self )
-		layout.addWidget( self.uiStart )
-		layout.addWidget( label )
-		layout.addWidget( self.uiEnd )
-		self.connect( self.uiStart, SIGNAL('returnPressed()'), self.calculate )
-		self.connect( self.uiEnd, SIGNAL('returnPressed()'), self.calculate )
-		self.focusWidget = self.uiStart
+		loadUi( common.uiPath('searchreference.ui'), self )
+		self.setPopdown( attrs.get('selection',[]) )
+		self.focusWidget = self.uiModel
 
-	def calculate(self):
-		widget = sender()
-		val = textToInteger( str(widget.text() ) )
-		if val:
-			widget.setText( str(val) )
-		else:
-			widget.clear()
+	def setPopdown(self, selection):
+		self.invertedModels = {}
+		for (i,j) in selection:
+			self.uiModel.addItem( j, QVariant(i) )
+			self.invertedModels[i] = j
 
 	def getValue(self):
-		res = []
-		start = textToInteger( str(self.uiStart.text()) )
-		end = textToInteger( str(self.uiEnd.text()) )
-		if start and not end:
-			res.append((self.name, '=', start))
-			return res
-		if start:
-			res.append((self.name, '>=', start))
-		if end:
-			res.append((self.name, '<=', end))
-		return res
+		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+		if resource:
+			return [(self.name, 'like', resource + ',')]
+		else:
+			return []
+
 
 	def setValue(self, value):
-		if value:
-			self.uiStart.setText( str(value) )
-		else:
-			self.uiStart.clear()
-		if value:
-			self.uiEnd.setText( str(value) ) 
-		else:
-			self.uiEnd.clear()
+		model, (id, name) = value
+		self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')
 
 	def clear(self):
-		self.value = False
-		self.uiStart.clear()
-		self.uiEnd.clear()
+		self.value = ''
 

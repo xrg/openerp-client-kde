@@ -33,7 +33,6 @@ from Common import common
 import Rpc
 
 from widget.screen import Screen
-import widget_search
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *

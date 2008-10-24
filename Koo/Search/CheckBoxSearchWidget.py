@@ -27,49 +27,38 @@
 #
 ##############################################################################
 
-from abstractsearchwidget import *
+from Common import common
+
+from AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
-# TODO: If we make all search widgets inherit QWidget, we should remove the self.widget = self
-# and make everything work without the widget property. Then it would probably make sense to 
-# require the widget parent widget.
-class selection(AbstractSearchWidget):
+class CheckBoxSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
 		self.uiCombo = QComboBox( self )
 		self.uiCombo.setEditable( False )
-
-		self.layout = QHBoxLayout( self )
-		self.layout.addWidget( self.uiCombo )
-		self.layout.setSpacing( 0 )
-		self.layout.setContentsMargins( 0, 0, 0, 0 )
-
-		self.fill( attrs.get('selection',[] ) )
+		self.uiCombo.addItem( '', QVariant() )
+		self.uiCombo.addItem( _('Yes'), QVariant( True ) )
+		self.uiCombo.addItem( _('No'), QVariant( False ) )
+		layout = QVBoxLayout( self )
+		layout.addWidget( self.uiCombo )
+		layout.setSpacing( 0 )
+		layout.setContentsMargins( 0, 0, 0, 0 )
 		self.focusWidget = self.uiCombo
-		
-	def fill(self, selection):
-		# The first is a blank element
-		self.uiCombo.addItem( '' )
-		for (id,name) in selection:
-			self.uiCombo.addItem( name, QVariant(id) )
 
-	def getValue( self ):
-		value = self.uiCombo.itemData( self.uiCombo.currentIndex() )
-		if value.isValid():
-			return [(self.name,'=',unicode( value.toString() ) )]
-		else:
-			return []
+	def getValue(self):
+		val = self.uiCombo.itemData( self.uiCombo.currentIndex() ).toBool()
+		if val:
+			return [(self.name,'=',int(val))]
+		return []
 
 	def setValue(self, value):
-		if not value:
-			self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
-		else:
-			self.uiCombo.setCurrentIndex( self.uiCombo.findData( QVariant(value) ) )
-
-	def clear(self):
-		self.setValue( False )
-		self.value = ''
+		pass
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')
+
+	def clear(self):
+		self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
+		self.value = ''

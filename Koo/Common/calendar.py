@@ -27,7 +27,7 @@
 
 ## In this module you can find various functions that help calendar 
 # widgets (date, time & datetime) in widget.view.form, widget.view.tree and 
-# widget_search modules. Probably others will use them in the future. These 
+# Search modules. Probably others will use them in the future. These 
 # functions provide very simple ways of parsing user input, and here we define 
 # the standard output format too. Also from and to Storage functions are 
 # provided that ensure date and time are formated the way the storage system 

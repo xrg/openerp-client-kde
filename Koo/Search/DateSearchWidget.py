@@ -1,7 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
+# Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -29,36 +28,57 @@
 
 from Common import common
 
-from abstractsearchwidget import *
+from Common.calendar import *
+from AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+from PyQt4.uic import *
 
-class checkbox(AbstractSearchWidget):
+class DateSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		self.uiCombo = QComboBox( self )
-		self.uiCombo.setEditable( False )
-		self.uiCombo.addItem( '', QVariant() )
-		self.uiCombo.addItem( _('Yes'), QVariant( True ) )
-		self.uiCombo.addItem( _('No'), QVariant( False ) )
-		layout = QVBoxLayout( self )
-		layout.addWidget( self.uiCombo )
-		layout.setSpacing( 0 )
-		layout.setContentsMargins( 0, 0, 0, 0 )
-		self.focusWidget = self.uiCombo
+		loadUi( common.uiPath('search_date.ui'), self )
+		self.widget = self
+		self.focusWidget = self.uiStart
+		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )
+		self.connect( self.pushEnd, SIGNAL('clicked()'), self.slotEnd )
+
+	def slotStart(self):
+		PopupCalendar( self.uiStart )
+
+	def slotEnd(self):
+		PopupCalendar( self.uiEnd )
+
+	# converts from locale specific format to our internal format
+	def _getDate(self, text):
+		date = textToDate(text)
+		if date.isValid():
+			return str( date.toString( 'yyyy-MM-dd' ) )
+		else:
+			return False
 
 	def getValue(self):
-		val = self.uiCombo.itemData( self.uiCombo.currentIndex() ).toBool()
-		if val:
-			return [(self.name,'=',int(val))]
-		return []
+		res = []
+		val = self._getDate( str( self.uiStart.text() ) )
+ 		if val:
+			res.append((self.name, '>=', val ))
+		else:
+			self.uiStart.clear()
+		val = self._getDate( str( self.uiEnd.text()) )
+	 	if val:
+			res.append((self.name, '<=', val ))
+		else:
+			self.uiEnd.clear()
+		return res
 
-	def setValue(self, value):
+	def setValue(self, value ):
 		pass
 
 	value = property(getValue, setValue, None,
 	  'The content of the widget or ValueError if not valid')
 
 	def clear(self):
-		self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
 		self.value = ''
+		self.uiStart.clear()
+		self.uiEnd.clear()
+

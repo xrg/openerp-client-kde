@@ -41,7 +41,7 @@ from Common.viewsettings import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-import widget_search
+import Search
 from toolbar import ToolBar
 from action import *
 from viewqueue import *
@@ -72,7 +72,7 @@ class Screen(QScrollArea):
 
 		self.container.show()
 
-		self.searchForm = widget_search.SearchFormWidget(self.container)
+		self.searchForm = Search.SearchFormWidget(self.container)
 		self.connect( self.searchForm, SIGNAL('search()'), self.search )
 		self.searchForm.hide()
 		self.containerView = None

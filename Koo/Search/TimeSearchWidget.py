@@ -29,58 +29,10 @@
 from Common import common
 
 from Common.calendar import *
-from abstractsearchwidget import *
+from AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
-
-class DateSearchWidget(AbstractSearchWidget):
-	def __init__(self, name, parent, attrs={}):
-		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		loadUi( common.uiPath('search_date.ui'), self )
-		self.widget = self
-		self.focusWidget = self.uiStart
-		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )
-		self.connect( self.pushEnd, SIGNAL('clicked()'), self.slotEnd )
-
-	def slotStart(self):
-		PopupCalendar( self.uiStart )
-
-	def slotEnd(self):
-		PopupCalendar( self.uiEnd )
-
-	# converts from locale specific format to our internal format
-	def _getDate(self, text):
-		date = textToDate(text)
-		if date.isValid():
-			return str( date.toString( 'yyyy-MM-dd' ) )
-		else:
-			return False
-
-	def getValue(self):
-		res = []
-		val = self._getDate( str( self.uiStart.text() ) )
- 		if val:
-			res.append((self.name, '>=', val ))
-		else:
-			self.uiStart.clear()
-		val = self._getDate( str( self.uiEnd.text()) )
-	 	if val:
-			res.append((self.name, '<=', val ))
-		else:
-			self.uiEnd.clear()
-		return res
-
-	def setValue(self, value ):
-		pass
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
-
-	def clear(self):
-		self.value = ''
-		self.uiStart.clear()
-		self.uiEnd.clear()
 
 class TimeSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):

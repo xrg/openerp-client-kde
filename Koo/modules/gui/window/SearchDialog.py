@@ -34,7 +34,7 @@ import Rpc
 
 from widget.screen import Screen
 from widget.model.group import ModelRecordGroup
-import widget_search
+import Search
 
 
 from PyQt4.QtGui import *
@@ -67,7 +67,7 @@ class SearchDialog( QDialog ):
 		self.model_name = model
 
 		view_form = Rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
-		self.form = widget_search.SearchFormWidget( self )
+		self.form = Search.SearchFormWidget( self )
 		self.form.setup( view_form['arch'], view_form['fields'], model )
 		self.form.hideButtons()
 

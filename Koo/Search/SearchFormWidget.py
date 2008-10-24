@@ -32,7 +32,7 @@ from xml.parsers import expat
 import sys
 import gettext
 
-from abstractsearchwidget import *
+from AbstractSearchWidget import *
 from Common import common
 
 from PyQt4.QtGui import *
@@ -86,7 +86,7 @@ class SearchFormParser(object):
 				type = attrs.get('widget', self.fields[attrs['name']]['type'])
 				self.fields[attrs['name']].update(attrs)
 				self.fields[attrs['name']]['model']=self.model
-				widget_act = widgets_type[ type ](attrs['name'], self.container, self.fields[attrs['name']])
+				widget_act = widgetTypes[ type ](attrs['name'], self.container, self.fields[attrs['name']])
 				if 'string' in self.fields[attrs['name']]:
 					label = self.fields[attrs['name']]['string']+' :'
 				else:
@@ -227,33 +227,34 @@ class SearchFormWidget(AbstractSearchWidget):
 			if x in self.widgets:
 				self.widgets[x].value = val[x]
 
-import calendar
-import floatsearchwidget
-import integersearchwidget
-import selection
-import char
-import checkbox
-import reference
+from DateSearchWidget import *
+from TimeSearchWidget import *
+from IntegerSearchWidget import *
+from FloatSearchWidget import *
+from SelectionSearchWidget import *
+from CharSearchWidget import *
+from CheckBoxSearchWidget import *
+from ReferenceSearchWidget import *
 
-widgets_type = {
-	'date': calendar.DateSearchWidget,
-	'time': calendar.TimeSearchWidget,
-	'datetime': calendar.DateSearchWidget,
-	'float': floatsearchwidget.FloatSearchWidget,
-	'integer': integersearchwidget.IntegerSearchWidget,
-	'selection': selection.selection,
-	'many2one_selection': selection.selection,
-	'char': char.char,
-	'boolean': checkbox.checkbox,
-	'text': char.char,
-	'email': char.char,
-	'url': char.char,
-	'many2one': char.char,
-	'one2many': char.char,
-	'one2many_form': char.char,
-	'one2many_list': char.char,
-	'many2many_edit': char.char,
-	'many2many': char.char,
-	'reference': reference.ReferenceSearchWidget
+widgetTypes = {
+	'date': DateSearchWidget,
+	'time': TimeSearchWidget,
+	'datetime': DateSearchWidget,
+	'float': FloatSearchWidget,
+	'integer': IntegerSearchWidget,
+	'selection': SelectionSearchWidget,
+	'many2one_selection': SelectionSearchWidget,
+	'char': CharSearchWidget,
+	'boolean': CheckBoxSearchWidget,
+	'text': CharSearchWidget,
+	'email': CharSearchWidget,
+	'url': CharSearchWidget,
+	'many2one': CharSearchWidget,
+	'one2many': CharSearchWidget,
+	'one2many_form': CharSearchWidget,
+	'one2many_list': CharSearchWidget,
+	'many2many_edit': CharSearchWidget,
+	'many2many': CharSearchWidget,
+	'reference': ReferenceSearchWidget
 }
 
