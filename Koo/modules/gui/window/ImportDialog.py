@@ -37,7 +37,7 @@ import Rpc
 
 import csv, StringIO
 
-from importexport_common import *
+from ImportExportCommon import *
 
 def import_csv(csv_data, fields, model):
 	fname = csv_data['fname']

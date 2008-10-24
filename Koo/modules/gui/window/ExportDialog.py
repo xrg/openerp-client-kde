@@ -41,7 +41,7 @@ import types
 import os
 import codecs
 
-from importexport_common import *
+from ImportExportCommon import *
 
 def exportHtml(fname, fields, result, write_title=False):
 	try:
