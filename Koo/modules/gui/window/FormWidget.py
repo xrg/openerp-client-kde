@@ -114,7 +114,6 @@ class FormWidget( QWidget ):
 			'Reload': self.reload,
 			'Switch': self.switchView,
 			'Attach': self.showAttachments,
-			'Plugins': self.executePlugins,
 			'Duplicate': self.duplicate
 		}
 		if res_id:
@@ -371,9 +370,4 @@ class FormWidget( QWidget ):
 
 	def actions(self):
 		return self.screen.actions
-
-	def executePlugins(self):
-		import Plugins
-		datas = {'model': self.model, 'ids':self.screen.ids_get(), 'id' : self.screen.id_get()}
-		Plugins.execute(datas)
 

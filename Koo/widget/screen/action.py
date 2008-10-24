@@ -28,6 +28,7 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from Common import api
+from Plugins import *
 import Rpc
 
 class TinyAction(QAction):
@@ -58,10 +59,10 @@ class TinyAction(QAction):
 	def execute(self, currentId, selectedIds):
 		if self._type == 'relate':
 			self.executeRelate( currentId )
-		elif self._type in ( 'action','print' ):
+		elif self._type in ( 'action', 'print' ):
 			self.executeAction( currentId, selectedIds )
 		else:
-			print "Unknown action"
+			self.executePlugin( currentId, selectedIds )
 
 	def executeRelate(self, currentId):
 		if not currentId:
@@ -79,6 +80,8 @@ class TinyAction(QAction):
 			ids = [currentId]
 		api.instance.executeAction(self._data, { 'id': currentId, 'ids': ids, 'model': self._model } )
 		
+	def executePlugin(self, currentId, ids):
+		Plugins.execute( self._data, self._model, currentId, ids )
 
 class ActionFactory:
 	@staticmethod
@@ -110,5 +113,16 @@ class ActionFactory:
 				action.setData( tool )
 				action.setModel( model )
 				actions.append( action )
+
+		plugs = Plugins.list()
+		for p in plugs:
+			action = TinyAction( parent )
+			action.setIcon( QIcon( ":/images/images/exec.png" ) )
+			action.setText( unicode( plugs[p]['string'] ) )
+			action.setData( p )
+			action.setType( 'plugin' )
+			action.setModel( model )
+			actions.append( action )
+
 		return actions
 

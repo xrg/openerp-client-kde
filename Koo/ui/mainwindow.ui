@@ -32,14 +32,6 @@
    <string/>
   </property>
   <widget class="QWidget" name="centralwidget" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>76</y>
-     <width>800</width>
-     <height>524</height>
-    </rect>
-   </property>
    <layout class="QVBoxLayout" >
     <property name="spacing" >
      <number>6</number>
@@ -241,7 +233,6 @@
     <property name="title" >
      <string>&amp;Plugins</string>
     </property>
-    <addaction name="actionPlugins" />
    </widget>
    <widget class="QMenu" name="menuHelp" >
     <property name="title" >
@@ -358,14 +349,6 @@
    <addaction name="menuHelp" />
   </widget>
   <widget class="QToolBar" name="toolBar" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>22</y>
-     <width>800</width>
-     <height>54</height>
-    </rect>
-   </property>
    <property name="sizePolicy" >
     <sizepolicy vsizetype="Expanding" hsizetype="Minimum" >
      <horstretch>0</horstretch>

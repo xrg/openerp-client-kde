@@ -26,7 +26,7 @@
 ##############################################################################
 
 from Common import common
-import form
+from FormWidget import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

@@ -151,7 +151,7 @@ class KooMainWindow(QMainWindow):
 		# may have several windows opened at the same time and all children would receive
 		# the signal...
 		self.actions = [ 'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 'Open', 
-			'Reload', 'Switch', 'Attach', 'Export', 'Import', 'GoToResourceId', 'Plugins',
+			'Reload', 'Switch', 'Attach', 'Export', 'Import', 'GoToResourceId', 
 			'Duplicate', 'AccessLog' ]
 		for x in self.actions:
 			action = eval('self.action'+ x)
@@ -527,9 +527,11 @@ class KooMainWindow(QMainWindow):
 		self.menuReports.clear()
 		self.menuBrowse.clear()
 		self.menuActions.clear()
+		self.menuPlugins.clear()
 		reports = False
 		browse = False
 		actions = False
+		plugins = False
 		if view and view.actions():
 			for x in view.actions():
 				if x.type() == 'print':
@@ -538,13 +540,17 @@ class KooMainWindow(QMainWindow):
 				elif x.type() == 'relate':
 					self.menuBrowse.addAction( x )
 					browse = True
-				else:
+				elif x.type() == 'action':
 					self.menuActions.addAction( x )	
 					actions = True
+				else: # Should be 'plugin'
+					self.menuPlugins.addAction( x )
+					plugins = True
 			
 		self.menuReports.setEnabled( reports )
 		self.menuBrowse.setEnabled( browse )
 		self.menuActions.setEnabled( actions )
+		self.menuPlugins.setEnabled( plugins )
 
 	def callChildView( self ):
 		o = self.sender()
