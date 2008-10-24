@@ -175,7 +175,7 @@ class KTinyApi(api.TinyApi):
 
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
 			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
-		modules.gui.window.windowservice.createWindow( view_ids, model, res_id, domain, 
+		modules.gui.window.WindowService.createWindow( view_ids, model, res_id, domain, 
 			view_type, window, context, mode, name, autoReload )
 
 	def windowCreated(self, window):

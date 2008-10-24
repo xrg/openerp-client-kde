@@ -29,8 +29,8 @@
 
 from Common import api
 from Common import common
-import form
-import tree
+from FormWidget import *
+from TreeWidget import *
 
 import Rpc
 
@@ -44,7 +44,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 
 	if view_type=='form':
 		mode = (mode or 'form,tree').split(',')
-		win = form.form(model, res_id, domain, view_type=mode,
+		win = FormWidget(model, res_id, domain, view_type=mode,
 				view_ids = (view_ids or []), 
 				context=context, name=name )
 		win.setAutoReload( autoReload )
@@ -62,7 +62,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 			view = Rpc.session.execute('/object', 'execute', model,
 					'fields_view_get', False, view_type, context)
 
-		win = tree.tree(view, model, domain, context, name=name)
+		win = TreeWidget(view, model, domain, context, name=name)
 		api.instance.windowCreated( win )
 	else:
 		import logging

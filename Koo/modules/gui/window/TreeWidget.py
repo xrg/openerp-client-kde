@@ -43,7 +43,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-class tree( QWidget ): 
+class TreeWidget( QWidget ): 
 	def __init__( self, view, model, domain=[], context={}, name=False, parent=None ):
 		QWidget.__init__(self,parent)
 		loadUi( common.uiPath('tree.ui'), self ) 

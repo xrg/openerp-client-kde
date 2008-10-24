@@ -48,7 +48,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 
-class form( QWidget ):
+class FormWidget( QWidget ):
 	# form constructor:
 	# model -> Name of the model the form should handle
 	# res_id -> List of ids of type 'model' to load
