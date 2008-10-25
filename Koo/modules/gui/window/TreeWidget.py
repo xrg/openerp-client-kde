@@ -28,12 +28,12 @@
 ##############################################################################
 
 import gettext
+from xml.parsers import expat
 
 from Common import api
 from Common import common
 from Common import options
 from Common.viewsettings import *
-import view_tree
 import Rpc
 import widget
 
@@ -43,6 +43,45 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
+## @brief The TreeParser class parses the arch (XML) of tree views.
+#
+# In order to use this function execute the parse() function with the XML
+# data to parse as string.
+# This will fill in the title (string), toolbar (boolean) and fieldsOrder 
+# (list). 
+#
+# title contains the 'string' attribute set in the 'tree'
+# tag of the XML or 'Tree' if none was specified. The 
+# same applies to the toolbar property with the 'toolbar' attribute.
+# The fieldsOrder property, is the list of field names specified in the XML
+# in the exact same order that appear there.
+class TreeParser:
+	def tagStart(self, name, attrs):
+		if name=='tree':
+			self.title = attrs.get('string',_('Tree'))
+			self.toolbar = bool(attrs.get('toolbar',False))
+		elif name=='field':
+			if 'icon' in attrs:
+				self.fieldsOrder.append(str(attrs['icon']))
+			self.fieldsOrder.append(str(attrs['name']))
+		else:
+			import logging
+			log = logging.getLogger('view')
+			log.error('unknown tag: '+str(name))
+			del log
+
+	## @brief This function parses the xml data provided as parameter.
+	# This function fills class member properties: title, toolbar and 
+	# fieldsOrder
+	def parse(self, xmlData):
+		self.fieldsOrder = []
+
+		psr = expat.ParserCreate()
+		psr.StartElementHandler = self.tagStart
+		psr.Parse(xmlData.encode('utf-8'))
+
+
+## @brief The TreeWidget class shows main menu tree as well as other tree views.
 class TreeWidget( QWidget ): 
 	def __init__( self, view, model, domain=[], context={}, name=False, parent=None ):
 		QWidget.__init__(self,parent)
@@ -71,7 +110,7 @@ class TreeWidget( QWidget ):
 			'Reload': self.reload,
 		}
 
-		p = view_tree.parser.TreeParser()
+		p = TreeParser()
 		p.parse( view['arch'] )
 		self.toolbar = p.toolbar
 
