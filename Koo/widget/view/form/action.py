@@ -37,7 +37,7 @@ from widget.model.group import ModelRecordGroup
 
 import Rpc
 import time
-from modules.gui.window.SearchDialog import SearchDialog
+from Dialogs.SearchDialog import SearchDialog
 from abstractformwidget import *
 
 class ActionFormWidget(AbstractFormWidget):

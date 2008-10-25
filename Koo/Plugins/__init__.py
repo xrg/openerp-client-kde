@@ -80,5 +80,4 @@ class Plugins:
 		datas = { 'model': model, 'id': id, 'ids': ids }
 		exec('import %s' % plugins[plugin]['module'])
 		exec('%s(%s)' % ( plugins[plugin]['action'], datas ) )
-		
-		
+

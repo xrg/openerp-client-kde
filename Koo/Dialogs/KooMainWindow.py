@@ -36,9 +36,9 @@ import gettext
 
 import Rpc
 
-from window import WindowService
-from window.PreferencesDialog import *
-from window.FullTextSearchDialog import *
+import WindowService
+from PreferencesDialog import *
+from FullTextSearchDialog import *
 from DatabaseCreationDialog import DatabaseCreationDialog
 from DatabaseDialog import DatabaseDialog
 import re

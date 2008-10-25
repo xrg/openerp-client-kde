@@ -26,7 +26,7 @@
 ##############################################################################
 
 from Common import common
-from FormWidget import *
+import FormWidget
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -48,7 +48,7 @@ class AttachmentDialog(QMainWindow):
 		self.model = model
 		self.id = id
 
-		self.form = form.form( 'ir.attachment', view_type=['tree','form'], domain=[('res_model','=',self.model), ('res_id', '=', self.id)])
+		self.form = FormWidget.FormWidget( 'ir.attachment', view_type=['tree','form'], domain=[('res_model','=',self.model), ('res_id', '=', self.id)])
 		self.form.setAllowOpenInNewWindow( False )
 
 		self.layout = self.centralWidget().layout()

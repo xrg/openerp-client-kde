@@ -42,6 +42,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 import Search
+from Plugins import *
 from toolbar import ToolBar
 from action import *
 from viewqueue import *
@@ -383,11 +384,12 @@ class Screen(QScrollArea):
 				self.connect( action, SIGNAL('triggered()'), self.triggerAction )
 			# If there's only one action it will be the 'Print Screen' action
 			# that is added "manually" by ActionFactory. In those cases in which
-			# Print Screen is the only action we won't show it in the toolbar. 
+			# Print Screen is the only action we won't show it in the toolbar. We
+			# don't consider Plugins a good reason to show the toolbar either.
 			# This way dashboards won't show the toolbar, though the option will
 			# remain available in the menu for those screens that don't have any
 			# actions configured in the server, but Print Screen can be useful.
-			if len(self.actions) > 1 and options.options['show_toolbar']:
+			if len(self.actions) > 1 + len(Plugins.list()) and options.options['show_toolbar']:
 				self.toolBar.setup( self.actions )
 
 	def isReadOnly(self):

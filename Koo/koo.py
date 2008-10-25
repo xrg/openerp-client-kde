@@ -153,10 +153,11 @@ if imports['dbus']:
 	name = dbus.service.BusName("org.tinyerp.Interface", sessionBus )
 	example = TinyERPInterface('/TinyERP')
 
-import modules.gui.KooMainWindow
+from Dialogs.KooMainWindow import *
+from Dialogs.WindowService import *
 import modules.action
 
-win = modules.gui.KooMainWindow.KooMainWindow()
+win = KooMainWindow()
 
 from Common import api
 
@@ -175,7 +176,7 @@ class KTinyApi(api.TinyApi):
 
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
 			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
-		modules.gui.window.WindowService.createWindow( view_ids, model, res_id, domain, 
+		WindowService.createWindow( view_ids, model, res_id, domain, 
 			view_type, window, context, mode, name, autoReload )
 
 	def windowCreated(self, window):
