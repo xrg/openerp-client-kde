@@ -175,9 +175,17 @@ class AsynchronousSessionCall(QThread):
 
 	def execute(self, callback, obj, method, *args):
 		self.useNotifications = True
-		self.call( callback, obj, method, *args )
+		self.exception = None
+		self.callback = callback
+		self.obj = obj
+		self.method = method
+		self.args = args
+		self.connect( self, SIGNAL('finished()'), self.hasFinished )
+		self.start()
 
 	def call(self, callback, obj, method, *args):
+		self.useNotifications = False
+		self.exception = None
 		self.callback = callback
 		self.obj = obj
 		self.method = method
@@ -187,17 +195,21 @@ class AsynchronousSessionCall(QThread):
 
 	def hasFinished(self):
 		if self.exception:
-			# Note that if there's an error or warning
-			# callback is called anyway with value None
-			if self.error:
-				notifier.notifyError(*self.error)
-			elif self.warning:
-				notifier.notifyWarning(*self.warning)
-			else: 
-				raise self.exception
-		self.emit( SIGNAL('called(PyQt_PyObject)'), self.result )
+			if self.useNotifications:
+				# Note that if there's an error or warning
+				# callback is called anyway with value None
+				if self.error:
+					notifier.notifyError(*self.error)
+				elif self.warning:
+					notifier.notifyWarning(*self.warning)
+				else: 
+					raise self.exception
+			self.emit( SIGNAL('exception(PyQt_PyObject)'), self.exception )
+		else:
+			self.emit( SIGNAL('called(PyQt_PyObject)'), self.result )
+
 		if self.callback:
-			self.callback( self.result )
+			self.callback( self.result, self.exception )
 
 	def run(self):
 		# As we don't want to force initialization of gettext if 'call' is used
@@ -221,6 +233,7 @@ class AsynchronousSessionCall(QThread):
 				else:
 					self.error = (_('Application Error'), _('View details'), err.faultString)
 			except tiny_socket.Myexception, err:
+				self.exception = err
 				faultCode = unicode( err.faultCode, 'utf-8' )
 				faultString = unicode( err.faultString, 'utf-8' )
 				a = RpcException( faultCode, faultString )
@@ -230,6 +243,8 @@ class AsynchronousSessionCall(QThread):
 					self.error = (_('Application Error'), _('View details'), faultString)
 			except Exception, err:
 				self.exception = err
+				faultString = unicode( err )
+				self.error = (_('Application Error'), _('View details'), faultString)
 
 
 ## @brief The Session class provides a simple way of login and executing function in a server
@@ -280,7 +295,7 @@ class Session:
 	# Rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
 	# Rpc.session.logout()
 	# \end
-	def callAsync( self, callback, obj, method, *args ):
+	def callAsync( self, callback, exceptionCallback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.call( callback, obj, method, *args )
 		return caller

@@ -114,15 +114,18 @@ class Wizard( QObject ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		Rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, Rpc.session.context )
 
-	def finishedStep(self, res):
+	def finishedStep(self, res, exception):
 		self.progress.stop()
 		QApplication.restoreOverrideCursor()
+		
 		# Check if 'res' is None as it can happen with 'Split in production lots'
 		# in inventory 'Movements', for example, if no production sequence is defined.
-		if not res:
+		# We'll also leave the wizard if an exception was thrown.
+		if exception or not res:
 			self.state = 'end'
 			self.step()
 			return
+
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
 		if res['type']=='form':
@@ -160,4 +163,3 @@ def execute(action, datas, state='init', parent=None, context={}):
 	while not w.finished:
 		QCoreApplication.processEvents()
 
-	

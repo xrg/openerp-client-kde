@@ -38,6 +38,46 @@ from Common import api
 from Common import common
 from PyQt4.QtGui import *
 
+class ExecuteReportThread(QThread):
+	def __init__(self, name, data, context={}, parent=None):
+		QThread.__init__(self, parent)
+		self.name = name
+		self.datas = data.copy()
+		self.status = ''
+
+	def run(self):
+		ids = self.datas['ids']
+		del self.datas['ids']
+		if not ids:
+			try:
+				ids =  Rpc.session.call('/object', 'execute', self.datas['model'], 'search', [])
+			except Rpc.RpcException, e:
+				self.emit( SIGNAL('error'), ( _('Error: ') + unicode(e.type), e.message, e.data ) )
+				return
+				
+			if ids == []:
+				self.emit( SIGNAL('warning'), _('Nothing to print.') )
+				return 
+			self.datas['id'] = ids[0]
+		try:
+			ctx = Rpc.session.context.copy()
+			ctx.update(context)
+			report_id = Rpc.session.call('/report', 'report', self.name, ids, self.datas, ctx)
+			state = False
+			attempt = 0
+			while not state:
+				val = Rpc.session.call('/report', 'report_get', report_id)
+				state = val['state']
+				if not state:
+					time.sleep(1)
+					attempt += 1
+				if attempt>200:
+					self.emit( SIGNAL('warning'), _('Printint aborted. Delay too long.') )
+					return False
+			Printer.printData(val)
+		except Rpc.RpcException, e:
+			self.emit( SIGNAL('error'), ( _('Error: ') + unicode(e.type), e.message, e.data ) )
+		
 def executeReport(name, data, context={}):
 	datas = data.copy()
 	ids = datas['ids']
