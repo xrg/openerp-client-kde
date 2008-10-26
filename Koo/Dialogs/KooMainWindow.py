@@ -508,7 +508,7 @@ class KooMainWindow(QMainWindow):
 	def addWindow(self, win):
 		self.tabWidget.addTab( win, win.name )
 		# If shift key is pressed do not show the added tab
-		if not (QApplication.keyboardModifiers() and Qt.ShiftModifier):
+		if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
 			self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
 
 	def updateEnabledActions(self):
