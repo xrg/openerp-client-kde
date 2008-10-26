@@ -488,7 +488,8 @@ class Screen(QScrollArea):
 		ids = self.selectedIds()
 		# Remove records with id None as they would cause an exception
 		# trying to remove from the server and in 'self.models.models.index()'
-		ids.remove(None)
+		if None in ids:
+			ids.remove(None)
 		if unlink and ids:
 			unlinked = self.Rpc.unlink(ids)	
 			# Try to be consistent with database
