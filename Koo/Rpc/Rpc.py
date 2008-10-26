@@ -350,6 +350,10 @@ class Session:
 					notifier.notifyWarning(a.message, a.data )
 			else:
 				notifier.notifyError(_('Application Error'), _('View details'), faultString)
+		except Exception, err:
+			faultString = unicode( err )
+			notifier.notifyError(_('Application Error'), _('View details'), faultString)
+			
 
 	## @brief Logs in the given server with specified name and password.
 	# @param url url string such as 'http://admin:admin@localhost:8069'. 
