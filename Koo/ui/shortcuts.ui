@@ -5,7 +5,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
+    <width>395</width>
     <height>507</height>
    </rect>
   </property>
@@ -16,17 +16,9 @@
    <item>
     <widget class="QTabWidget" name="tabWidget" >
      <property name="currentIndex" >
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>350</width>
-        <height>425</height>
-       </rect>
-      </property>
       <attribute name="title" >
        <string>&amp;Main Shortcuts</string>
       </attribute>
@@ -273,14 +265,6 @@
       </layout>
      </widget>
      <widget class="QWidget" name="tab_2" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>350</width>
-        <height>425</height>
-       </rect>
-      </property>
       <attribute name="title" >
        <string>&amp;Edition Shortcuts</string>
       </attribute>
@@ -427,14 +411,6 @@ p, li { white-space: pre-wrap; }
       </layout>
      </widget>
      <widget class="QWidget" name="tab_3" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>350</width>
-        <height>425</height>
-       </rect>
-      </property>
       <attribute name="title" >
        <string>&amp;Advanced</string>
       </attribute>
@@ -472,7 +448,7 @@ p, li { white-space: pre-wrap; }
          <item row="2" column="1" >
           <widget class="QLabel" name="label_54" >
            <property name="text" >
-            <string>Open Form View in new Tab</string>
+            <string>Open form view in new tab</string>
            </property>
           </widget>
          </item>
@@ -487,6 +463,20 @@ p, li { white-space: pre-wrap; }
           <widget class="QLabel" name="label_47" >
            <property name="text" >
             <string>Change current tab</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" >
+          <widget class="QLabel" name="label_57" >
+           <property name="text" >
+            <string>&lt;Shift> + Open View</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" >
+          <widget class="QLabel" name="label_58" >
+           <property name="text" >
+            <string>Open view in a background tab</string>
            </property>
           </widget>
          </item>
