@@ -100,7 +100,6 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='button':
 				button = ButtonFormWidget(container, self.view, attrs )
-				#self.view.buttons.append(button)
 				name = attrs['name']
 				self.view.widgets[name] = button
 				container.addWidget(button, attrs)
@@ -185,9 +184,7 @@ class FormParser(AbstractParser):
 					label = fields[name]['string']+' :'
 					
 				self.view.widgets[name] = widget_act
-				size = int(attrs.get('colspan', widgets_type[ type ][1]))
-				expand = widgets_type[ type ][2]
-				hlp = fields[name].get('help', attrs.get('help', False))
+				attrs['colspan'] = int(attrs.get('colspan', widgets_type[ type ][1]))
 
 				if not 'help' in attrs:
 					attrs['help'] = fields[name].get('help', False)
@@ -226,32 +223,32 @@ import progressbar
 #import video
 
 widgets_type = {
-	'date': (calendar.DateFormWidget, 1, False),
-	'time': (calendar.TimeFormWidget, 1, False),
-	'datetime': (calendar.DateTimeFormWidget, 1, False),
-	'float_time': (calendar.FloatTimeFormWidget, 1, False),
-	'float': (float.FloatFormWidget, 1, False),
-	'integer': (integer.IntegerFormWidget, 1, False),
-	'selection': (selection.SelectionFormWidget, 1, False),
-	'char': (char.CharFormWidget, 1, False),
-	'boolean': (checkbox.CheckBoxFormWidget, 1, False),
-	'reference': (reference.ReferenceFormWidget, 1, False),
-	'binary': (binary.BinaryFormWidget, 1, False),
-	'text': (textbox.TextBoxFormWidget, 1, True),
-	'text_tag': (richtext.RichTextFormWidget, 1, True),
-	'one2many': (one2many.OneToManyFormWidget, 1, True),
-	'one2many_form': (one2many.OneToManyFormWidget, 1, True),
-	'one2many_list': (one2many.OneToManyFormWidget, 1, True),
-	'many2many': (many2many.ManyToManyFormWidget, 1, True),
-	'many2one': (many2one.ManyToOneFormWidget, 1, False),
-	'image' : (image.ImageFormWidget, 1, False),
-	'url' : (url.UrlFormWidget, 1, False),
-	'email' : (url.EMailFormWidget, 1, False),
-	'callto' : (url.CallToFormWidget, 1, False),
-	'sip' : (url.SipFormWidget, 1, False),
-	'link' : (link.LinkFormWidget, 1, False),
-	'web' : (web.WebFormWidget, 1, False),
-	'progressbar' : (progressbar.ProgressBarFormWidget, 1, False),
+	'date': (calendar.DateFormWidget, 1),
+	'time': (calendar.TimeFormWidget, 1),
+	'datetime': (calendar.DateTimeFormWidget, 1),
+	'float_time': (calendar.FloatTimeFormWidget, 1),
+	'float': (float.FloatFormWidget, 1),
+	'integer': (integer.IntegerFormWidget, 1),
+	'selection': (selection.SelectionFormWidget, 1),
+	'char': (char.CharFormWidget, 1),
+	'boolean': (checkbox.CheckBoxFormWidget, 1),
+	'reference': (reference.ReferenceFormWidget, 1),
+	'binary': (binary.BinaryFormWidget, 1),
+	'text': (textbox.TextBoxFormWidget, 1),
+	'text_tag': (richtext.RichTextFormWidget, 1),
+	'one2many': (one2many.OneToManyFormWidget, 1),
+	'one2many_form': (one2many.OneToManyFormWidget, 1),
+	'one2many_list': (one2many.OneToManyFormWidget, 1),
+	'many2many': (many2many.ManyToManyFormWidget, 1),
+	'many2one': (many2one.ManyToOneFormWidget, 1),
+	'image' : (image.ImageFormWidget, 1),
+	'url' : (url.UrlFormWidget, 1),
+	'email' : (url.EMailFormWidget, 1),
+	'callto' : (url.CallToFormWidget, 1),
+	'sip' : (url.SipFormWidget, 1),
+	'link' : (link.LinkFormWidget, 1),
+	'web' : (web.WebFormWidget, 1),
+	'progressbar' : (progressbar.ProgressBarFormWidget, 1),
 	#'audio' : (audio.AudioFormWidget, 1, False),
 	#'video' : (video.VideoFormWidget, 1, False)
 }

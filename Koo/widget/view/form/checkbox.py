@@ -32,13 +32,17 @@ from PyQt4.QtGui import *
 class CheckBoxFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		self.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 		self.widget = QCheckBox( self )
 		self.widget.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.setSpacing( 0 )
 		layout.addWidget( self.widget )
+		# Adding the stretch ensures the Widget will be placed on the left, just
+		# after the label while allowing other widgets in the same column of the grid
+		# occupy the space they need.
+		layout.addStretch()
 		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('stateChanged(int)'), self.callModified )
 
