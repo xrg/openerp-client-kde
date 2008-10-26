@@ -51,6 +51,7 @@
 
 errorHandler = None
 warningHandler = None
+concurrencyErrorHandler = None
 
 ## @brief Calls the function that has been registered to handle errors.
 def notifyError(title, message, detail):
@@ -61,4 +62,8 @@ def notifyError(title, message, detail):
 def notifyWarning(title, message):
 	if warningHandler:
 		warningHandler(title, message)
+
+def notifyConcurrencyError(model, id, context):
+	if concurrencyErrorHandler:
+		return concurrencyErrorHandler(model, id, context)
 

@@ -29,6 +29,7 @@
 
 import gettext
 
+import api
 import Rpc
 import os
 import sys
@@ -167,6 +168,28 @@ def warning(title, message):
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	QMessageBox.warning(None, title, message)
 	QApplication.restoreOverrideCursor()
+
+class ConcurrencyErrorDialog(QMessageBox):
+	def __init__(self, parent=None):
+		QMessageBox.__init__(self, parent)	
+		self.setIcon( QMessageBox.Warning )
+		self.setWindowTitle( _('Concurrency warning') )
+		self.setText( _('<b>Write concurrency warning:</b><br/>This document has been modified while you were editing it.') )
+		self.addButton( _('Save anyway'), QMessageBox.AcceptRole )
+		self.addButton( _('Compare'), QMessageBox.ActionRole )
+		self.addButton( _('Do not save'), QMessageBox.RejectRole )
+	
+def concurrencyError(model, id, context):
+	QApplication.setOverrideCursor( Qt.ArrowCursor )
+	dialog = ConcurrencyErrorDialog()
+	result = dialog.exec_()
+	QApplication.restoreOverrideCursor()
+	if result == 0:
+		return True
+	if result == 1:
+		api.instance.createWindow( False, model, id, context=context )
+
+	return False
 
 ## @brief The ErrorDialog class shows the error dialog used everywhere in KTiny.
 #

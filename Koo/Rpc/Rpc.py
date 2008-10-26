@@ -327,7 +327,13 @@ class Session:
 		except xmlrpclib.Fault, err:
 			a = RpcException(err.faultCode, err.faultString)
 			if a.type in ('warning','UserError'):
-				notifier.notifyWarning(a.message, a.data )
+				if a.message in ('ConcurrencyException') and len(args) > 4:
+					if notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+						if 'read_delta' in args[4]:
+							del args[4]['read_delta']
+						return self.execute(obj, method, *args)
+				else:
+					notifier.notifyWarning(a.message, a.data )
 			else:
 				notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
 		except tiny_socket.Myexception, err:
@@ -335,7 +341,13 @@ class Session:
 			faultString = unicode( err.faultString, 'utf-8' )
 			a = RpcException( faultCode, faultString )
 			if a.type in ('warning','UserError'):
-				notifier.notifyWarning(a.message, a.data )
+				if a.message in ('ConcurrencyException') and len(args) > 4:
+					if notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+						if 'read_delta' in args[4]:
+							del args[4]['read_delta']
+						return self.execute(obj, method, *args)
+				else:
+					notifier.notifyWarning(a.message, a.data )
 			else:
 				notifier.notifyError(_('Application Error'), _('View details'), faultString)
 

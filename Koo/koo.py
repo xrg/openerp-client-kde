@@ -79,10 +79,7 @@ from Common import notifier, common
 # Declare notifier handlers for the whole application
 notifier.errorHandler = common.error
 notifier.warningHandler = common.warning
-
-
-	
-
+notifier.concurrencyErrorHandler = common.concurrencyError
 
 
 
