@@ -27,6 +27,7 @@
 ##############################################################################
 
 
+from TranslationDialog import *
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -41,6 +42,19 @@ class TextBoxFormWidget(AbstractFormWidget):
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiText )
+		if attrs.get('translate', False):
+			pushTranslate = QPushButton( self )
+			pushTranslate.setIcon( QIcon( ':/images/images/locale.png' ) )
+			layout.addWidget( pushTranslate )
+			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
+
+	def translate(self):
+		if not self.model.id:
+			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
+			return
+		dialog = TranslationDialog( self.model.id, self.model.resource, self.attrs['name'], unicode(self.uiText.document().toPlainText()), TranslationDialog.TextEdit, self )
+		if dialog.exec_() == QDialog.Accepted:
+			self.uiText.setText( dialog.result )
 
 	def setReadOnly(self, value):
 		self.uiText.setReadOnly( value )

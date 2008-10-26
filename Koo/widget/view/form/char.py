@@ -28,7 +28,7 @@
 
 from Common import common
 
-from translationdialog import *
+from TranslationDialog import *
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -67,9 +67,9 @@ class CharFormWidget(AbstractFormWidget):
 
 	def translate(self):
 		if not self.model.id:
-			QMessageBox.information( self, '', _('You must save the resource before adding translations'))
+			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
 			return
-		dialog = TranslationDialog( self.model.id, self.model.resource, self.attrs['name'], unicode(self.widget.text()), self )
+		dialog = TranslationDialog( self.model.id, self.model.resource, self.attrs['name'], unicode(self.widget.text()), TranslationDialog.LineEdit, self )
 		if dialog.exec_() == QDialog.Accepted:
 			self.widget.setText( dialog.result )
 

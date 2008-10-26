@@ -34,7 +34,10 @@ import copy
 import Rpc
 
 class TranslationDialog( QDialog ):
-	def __init__(self, id, model, fieldName, value, parent = None):
+	LineEdit = 0
+	TextEdit = 1
+
+	def __init__(self, id, model, fieldName, value, type, parent = None):
 		QDialog.__init__(self, parent)
 		loadUi( common.uiPath('translationdialog.ui'), self )
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
@@ -43,6 +46,7 @@ class TranslationDialog( QDialog ):
 		self.model = model
 		self.fieldName = fieldName
 		self.value = value
+		self.type = type
 
 		self.translations = []
 		self.result = value
@@ -66,7 +70,10 @@ class TranslationDialog( QDialog ):
 		self.layout().insertLayout(0, layout)
 		for lang in languages:
 			uiLabel = QLabel( lang['name'] + ':', self)
-			uiText = QLineEdit(self)
+			if self.type == TranslationDialog.LineEdit:
+				uiText = QLineEdit(self)
+			else:
+				uiText = QTextEdit(self)
 
 			row = layout.rowCount() + 1
 			layout.addWidget( uiLabel, row, 0 )
@@ -74,19 +81,25 @@ class TranslationDialog( QDialog ):
 
 			if lang['code'] == self.currentCode:
 				uiText.setText( self.value )
-				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': unicode(uiText.text()) } )
+				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.getText(uiText) } )
 				continue
 
 			context = copy.copy(Rpc.session.context)			
 			context['lang'] = self.adaptContext( lang['code'] )
 			val = Rpc.session.execute( '/object', 'execute', self.model, 'read', [self.id], [self.fieldName], context)
 			val = val[0]
-			uiText.setText( val[self.fieldName] )
-			self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': unicode(uiText.text()) } )
+			uiText.setText( val[self.fieldName] or '' )
+			self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.getText(uiText) } )
 
+	def getText(self, widget):
+		if self.type == TranslationDialog.LineEdit:
+			return unicode(widget.text())
+		else:
+			return unicode(widget.document().toPlainText())
+		
 	def slotAccept(self):
 		for lang in self.translations:
-			newValue = unicode(lang['widget'].text())
+			newValue = self.getText( lang['widget'] )
 			# Don't update on the server the current text. This would cause information
 			# on the server to be updated after the form has been read causing possible
 			# conflits.
