@@ -28,6 +28,7 @@
 
 import form
 from Common import common
+from Common import api
 from many2one import ScreenDialog
 from Dialogs.SearchDialog import SearchDialog
 
@@ -133,10 +134,16 @@ class ReferenceFormWidget(AbstractFormWidget):
 		value = self.model.value(self.name)
 		if value:
 			model, (id, name) = value
-			dialog = ScreenDialog( self )
-			dialog.setup( model, id )
-			dialog.setAttributes( self.attrs )
-			dialog.exec_()
+			# If Control Key is pressed when the open button is clicked
+			# the record will be opened in a new tab. Otherwise it's opened
+			# in a new modal dialog.
+			if QApplication.keyboardModifiers() & Qt.ControlModifier:
+				api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
+			else:	
+				dialog = ScreenDialog( self )
+				dialog.setup( model, id )
+				dialog.setAttributes( self.attrs )
+				dialog.exec_()
 		else:
 			self.match()
 

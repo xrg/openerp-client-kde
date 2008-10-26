@@ -165,12 +165,20 @@ class ManyToOneFormWidget(AbstractFormWidget):
 
 	def open(self):
 		if self.model.value(self.name):
-			dialog = ScreenDialog( self )
-			dialog.setAttributes( self.attrs )
-			dialog.setup( self.attrs['relation'], self.model.get()[self.name] )
-			if dialog.exec_() == QDialog.Accepted:
-				self.model.setValue(self.name, dialog.model)
-				self.display()
+			# If Control Key is pressed when the open button is clicked
+			# the record will be opened in a new tab. Otherwise it's opened
+			# in a new modal dialog.
+			if QApplication.keyboardModifiers() & Qt.ControlModifier:
+				model = self.attrs['relation']
+				id = self.model.get()[self.name]
+				api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
+			else:	
+				dialog = ScreenDialog( self )
+				dialog.setAttributes( self.attrs )
+				dialog.setup( self.attrs['relation'], self.model.get()[self.name] )
+				if dialog.exec_() == QDialog.Accepted:
+					self.model.setValue(self.name, dialog.model)
+					self.display()
 		else:
 			self.search('')
 
