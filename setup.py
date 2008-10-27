@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# setup for KTiny (taken from TinyERP GTK client)
+# setup for Koo (taken from TinyERP GTK client)
 #   taken from straw http://www.nongnu.org/straw/index.html
 #   taken from gnomolicious http://www.nongnu.org/gnomolicious/
 #   adapted by Nicolas Évrard <nicoe@altern.org>
@@ -79,15 +79,15 @@ def translations():
 
 long_desc = '''\
 =====================================
-KTiny Client and Development Platform
+Koo Client and Development Platform
 =====================================
 
-KTiny is a Qt/KDE based client for Tiny ERP, a complete ERP and CRM. KTiny
+Koo is a Qt/KDE based client for Tiny ERP, a complete ERP and CRM. Koo 
 aims for great flexibility allowing easy creation of plugins and views, high
 integration with KDE4 under Unix, Windows and Mac, as well as providing
 a development platform for new applications using the Tiny ERP server.
 
-A set of server side modules is also provided among the KTiny distribution
+A set of server side modules is also provided among the Koo distribution
 which provide better attachments handling and full text search capabilities.
 '''
 
@@ -119,7 +119,7 @@ command = sys.argv[1]
 
 setup(name             = name,
       version          = version,
-      description      = "KTiny Client",
+      description      = "Koo Client",
       long_description = long_desc,
       url              = 'http://sf.net/projects/ktiny',
       author           = 'NaN',
