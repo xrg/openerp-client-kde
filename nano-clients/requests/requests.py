@@ -28,7 +28,7 @@
 
 import karamba
 
-import rpc
+from Koo import Rpc
 from PyQt4.QtGui import *
 
 def initWidget(widget):
@@ -46,8 +46,8 @@ def widgetUpdated(widget):
 	karamba.changeText( widget, text, status() )
 
 def status():
-	rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'graficas' )
-	ids, ids2 = rpc.session.call( '/object', 'execute', 'res.request', 'request_get' )
+	Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'NaN' )
+	ids, ids2 = Rpc.session.call( '/object', 'execute', 'res.request', 'request_get' )
 
 	if len(ids) == 0:
 		message = 'No requests'

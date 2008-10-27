@@ -28,14 +28,15 @@
 ##############################################################################
 
 
-from common import localization
-localization.initializeTranslations()
+from Koo.Common import Localization
+Localization.initializeTranslations()
 
-import rpc
-from widget.model.field import *
-from widget.model.record import *
-from widget.model.group import *
-from widget.model.treemodel import *
+from Koo import Rpc
+
+from Koo.Model.Field import *
+from Koo.Model.Record import *
+from Koo.Model.Group import *
+from Koo.Model.KooModel import *
 
 import sys
 from PyQt4.QtGui import *
@@ -50,33 +51,34 @@ class RequestsDialog(QDialog):
 		layout.setMargin( 0 )
 		self.resize(600, 300)
 
-		rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'jornadas' )
+		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'jornadas' )
 		
 		# Example of asynchronous call:
 		# The function 'called()' will be called twice in this example,
 		# one for the signal and another one for the callback. Of course,
 		# only one method is needed.
-		call = rpc.AsynchronousSessionCall( rpc.session, self )
-		self.connect( call, SIGNAL('called(PyQt_PyObject)'), self.called )
-		call.call( self.called, '/object', 'execute', 'res.partner', 'search', [] )
+		#call = Rpc.AsynchronousSessionCall( rpc.session, self )
+		#self.connect( call, SIGNAL('called(PyQt_PyObject)'), self.called )
+		#call.call( self.called, '/object', 'execute', 'res.partner', 'search', [] )
+		Rpc.session.executeAsync( self.called, '/object', 'execute', 'res.partner', 'search', [] )
 
 		visible = ['create_date', 'name', 'act_from', 'act_to', 'body' ]
-		self.fields = rpc.session.execute('/object', 'execute', 'res.request', 'fields_get', visible)
-		ids = rpc.session.execute('/object', 'execute', 'res.request', 'search', [])
+		self.fields = Rpc.session.execute('/object', 'execute', 'res.request', 'fields_get', visible)
+		ids = Rpc.session.execute('/object', 'execute', 'res.request', 'search', [])
 		self.group = ModelRecordGroup( 'res.request', self.fields, ids )
-		treeModel = TreeModel( self )
+		treeModel = KooModel( self )
 		treeModel.setModelGroup( self.group )
 		treeModel.setFields( self.fields )
 		treeModel.setShowBackgroundColor( False )
 
 		tree.setModel( treeModel )
 
-	def called(self, obj):
-		print "Returned: ", obj
+	def called(self, result, exception):
+		QMessageBox.information(self, 'Background request', 'Result was: %s' % result )
 
 
 app = QApplication(sys.argv)
-localization.initializeQtTranslations()
+Localization.initializeQtTranslations()
 
 r = RequestsDialog()
 

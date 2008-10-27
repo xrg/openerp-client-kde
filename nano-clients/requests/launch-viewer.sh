@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export PYTHONPATH=../../bin
+export PYTHONPATH=../../
 
 python show-requests.py -stylesheet show-requests.qss
