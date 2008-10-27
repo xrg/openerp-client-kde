@@ -1,15 +1,15 @@
 <chapter>
  <title>Development</title>
  <para>
-  In this chapter we'll take a look at &ktiny; architecture show the developer how to add plugins, views, widgets in forms and lists and how to develop new applications using the &ktiny; components. So yes, we want &ktiny; to become, more than an application, an extensible development platform.
+  In this chapter we'll take a look at &koo; architecture show the developer how to add plugins, views, widgets in forms and lists and how to develop new applications using the &koo; components. So yes, we want &koo; to become, more than an application, an extensible development platform.
  </para>
  <para>
-  We're trying to add more comments to the source code, mainly in widgets and view interfaces and abstract classes, but also in other places. As always the source code is the most up to date documentation, and if you have any doubts you're encouraged to subscribe to the hackets mailing list at <ulink url="http://sf.net/projects/ktiny"></ulink>
+  We're trying to add more comments to the source code, mainly in widgets and view interfaces and abstract classes, but also in other places. As always the source code is the most up to date documentation, and if you have any doubts you're encouraged to subscribe to the hackets mailing list at <ulink url="http://sf.net/projects/koo"></ulink>
  </para>
  <sect1 id="directory-tree">
   <title>Directory tree</title>
   <para>
-   First of all we'll introduce you the directory tree so you know where to look for things in the &ktiny; distribution.
+   First of all we'll introduce you the directory tree so you know where to look for things in the &koo; distribution.
   </para>
  
   <itemizedlist>
@@ -22,7 +22,7 @@
 
    <listitem>
     <para>
-     <literal>man</literal>. Contains the man pages source files for &ktiny;
+     <literal>man</literal>. Contains the man pages source files for &koo;
     </para>
    </listitem>
 
@@ -46,7 +46,7 @@
 
    <listitem>
     <para>
-     <literal>bin/ktiny.py</literal>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
+     <literal>bin/koo.py</literal>. Main application. This is where the program starts. Tryies to start up the DBUS sservice and shows the first dialogs.
     </para>
    </listitem>
 
@@ -110,7 +110,7 @@
   <sect2>
    <title>Encoding</title>
    <para>
-    Unlike the GTK client, &ktiny; doesn't convert all incoming server strings into UTF-8 using the <literal>encode('utf-8')</literal>. This makes it possible to use the automatic conversions between QString and python unicode strings.
+    Unlike the GTK client, &koo; doesn't convert all incoming server strings into UTF-8 using the <literal>encode('utf-8')</literal>. This makes it possible to use the automatic conversions between QString and python unicode strings.
    </para>
    <para>
     You'll likely only need to care about string encodings when passing a string received from the server into a XML parser. There you should use the <literal>encode('utf-8')</literal> function.
@@ -126,7 +126,7 @@ dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
   <sect2>
    <title>XML-RPC</title>
    <para>
-    As you already learned &ktiny; uses the XML-RPC protocol to communicate with the server. The lower level API to access the server can be found at <literal>bin/rpc/rpc.py</literal>. This file contains a clear set of classes and functions that allow you to easily acces the most common server functionalities.
+    As you already learned &koo; uses the XML-RPC protocol to communicate with the server. The lower level API to access the server can be found at <literal>bin/rpc/rpc.py</literal>. This file contains a clear set of classes and functions that allow you to easily acces the most common server functionalities.
    </para>
    <para>
     There are mainly three classes that help you with server interaction:
@@ -182,7 +182,7 @@ ir_export.unlink([1])
   <sect2>
    <title>Local services</title>
    <para>
-    &ktiny; has inherited from the GTK client a simple mechanism for calling local or internal services. Though we call them <emphasis>services</emphasis> they're not any kind of server waiting for requests. They're simply objects for which we create an alias. There are four such services with the current version (though plugins could create their own). These are: <literal>gui.main</literal>, <literal>gui.window</literal>, <literal>action.main</literal> and <literal>spool</literal>.
+    &koo; has inherited from the GTK client a simple mechanism for calling local or internal services. Though we call them <emphasis>services</emphasis> they're not any kind of server waiting for requests. They're simply objects for which we create an alias. There are four such services with the current version (though plugins could create their own). These are: <literal>gui.main</literal>, <literal>gui.window</literal>, <literal>action.main</literal> and <literal>spool</literal>.
    </para>
    <para>
     TinyERP uses this mechanism to allow certain actions to be specified from server modules. For example, menu entries use <literal>action.main</literal> services to specify what should happen when it's triggered.
@@ -310,7 +310,7 @@ object.sayHello()
     <para>
      Where <literal>view_id</literal> is the view identifier or if <literal>None</literal> then the default view is used.
      <literal>model</literal> is a string with the model name of the model to show (e.g. <literal>ir.attachment</literal>).
-     <literal>res_id</literal> identifier list of all items to show. <literal>domain</literal> is the domain for the data to show. <literal>view_type</literal> can be one of <literal>form</literal> which will show a new Screen or <literal>tree</literal> which will show a tab like the menu with the appropiate data. <literal>window</literal> is unused in &ktiny; <literal>context</literal> let's you specify a context for the data to show. <literal>mode</literal> is used only when <literal>view_type='form'</literal> and is a string with a list of coma separated view types (the default is <literal>'form,tree'</literal>).
+     <literal>res_id</literal> identifier list of all items to show. <literal>domain</literal> is the domain for the data to show. <literal>view_type</literal> can be one of <literal>form</literal> which will show a new Screen or <literal>tree</literal> which will show a tab like the menu with the appropiate data. <literal>window</literal> is unused in &koo; <literal>context</literal> let's you specify a context for the data to show. <literal>mode</literal> is used only when <literal>view_type='form'</literal> and is a string with a list of coma separated view types (the default is <literal>'form,tree'</literal>).
     </para>
    </sect3>
 
@@ -326,7 +326,7 @@ object.sayHello()
   <sect2>
    <title>DBus</title>
    <para>
-    &ktiny; currently provides a very simple DBus inteface. A smarter interface will be provided in the future but some things are already possible.
+    &koo; currently provides a very simple DBus inteface. A smarter interface will be provided in the future but some things are already possible.
    </para>
    <para>
     Current interface provides only two methods:
@@ -345,18 +345,18 @@ object.sayHello()
    </itemizedlist>
 
    <para>
-    Following a sample shell session using <literal>qdbus</literal> to query &ktiny; DBus interface:
+    Following a sample shell session using <literal>qdbus</literal> to query &koo; DBus interface:
    </para>
    <programlisting>
-$ qdbus org.ktiny.Interface /TinyERP services
+$ qdbus org.koo.Interface /TinyERP services
 spool
 action.main
 gui.main
 gui.window
-$ qdbus org.ktiny.Interface /TinyERP call "gui.window" "create" "None, 'ir.attachment', False, [], 'form', mode='form,tree'"
+$ qdbus org.koo.Interface /TinyERP call "gui.window" "create" "None, 'ir.attachment', False, [], 'form', mode='form,tree'"
    </programlisting>
    <para>
-    This example queries all available services in &ktiny; and then opens a new tab with the attachments form.
+    This example queries all available services in &koo; and then opens a new tab with the attachments form.
    </para>
   </sect2>
 
@@ -422,7 +422,7 @@ def wkf_print_simple(datas):
  <sect1 id="views">
   <title>Views</title>
   <para>
-   A view in TinyERP is a graphical representation of a data set. Obvious views that come to mind are <emphasis>form</emphasis> and <emphasis>list</emphasis> plus currently &ktiny; also offers a <emphasis>chart</emphasis> view. All of them are available in the GTK and Web user interfaces. A calendar view is being worked on these two clients too, and &ktiny; we'll add it in the future. Here we want to explain how a developer can add another view to fit his/her needs.
+   A view in TinyERP is a graphical representation of a data set. Obvious views that come to mind are <emphasis>form</emphasis> and <emphasis>list</emphasis> plus currently &koo; also offers a <emphasis>chart</emphasis> view. All of them are available in the GTK and Web user interfaces. A calendar view is being worked on these two clients too, and &koo; we'll add it in the future. Here we want to explain how a developer can add another view to fit his/her needs.
   </para>
   <para>
    The three views can be found in different subdirectories inside <literal>bin/widget/view</literal>. To summarize we'll say that in order to create a new view you need to create a new directory with a <literal>__terp__.py</literal> file and a couple of classes. One inheriting from AbstractView and another one inheriting from AbstractParser (whose interfaces can be found at <literal>bin/widget/view</literal>).

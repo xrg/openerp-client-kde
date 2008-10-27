@@ -1,13 +1,13 @@
  <chapter>
  <title>Server modules</title>
  <para>
-  In the &ktiny; repository, apart from the client itself you'll find several server modules. We'd like, of course, them to be added to the official TinyERP server distribution, but even if that happens someday, their everyday development needs to be somewhere and we want the process to remain public.
+  In the &koo; repository, apart from the client itself you'll find several server modules. We'd like, of course, them to be added to the official TinyERP server distribution, but even if that happens someday, their everyday development needs to be somewhere and we want the process to remain public.
  </para>
  <para>
   In this chapter you'll find an in-depth explanation of each module. What offers to the user and how it's done for developers to improve it. However, before explaining each module, we will explain how to make it available to TinyERP for install.
  </para>
  <para>
-  Server modules can be found in the <literal>server-modules</literal> directory in the &ktiny; source distribution. There, each directory is a different module that can be independently installed, except otherwise stated in the specific module documentation. In this directory you can also find a shell script named <literal>create-symlinks.sh</literal> which can be used in &unix; machines to make all the modules available to the TinyERP server.
+  Server modules can be found in the <literal>server-modules</literal> directory in the &koo; source distribution. There, each directory is a different module that can be independently installed, except otherwise stated in the specific module documentation. In this directory you can also find a shell script named <literal>create-symlinks.sh</literal> which can be used in &unix; machines to make all the modules available to the TinyERP server.
  </para>
  <para>
   Suppose you have your server at <literal>/usr/local/tinyerp</literal>, then use <literal>./create-symlinks.sh /usr/local/tinyerp/bin/addons</literal>, restart the server and the modules should be available at <emphasis>Administration -> Modules Management -> Modules -> Uninstalled Modules</emphasis>

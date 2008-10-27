@@ -4,13 +4,13 @@
  <sect1 id="common">
   <title>Common configuration for all platforms</title>
   <para>
-   Note that &ktiny; is intended to work with TinyERP 4.2 server or newer.
+   Note that &koo; is intended to work with TinyERP 4.2 server or newer.
   </para>
   <para>
-   Although &ktiny; tries to work without any server modification, the <literal>ktiny</literal> server module is necessary for proper use of attachments. Please, simply install this module that can be found in <literal>server-modules</literal> directory, as you would with any other module, and attachments should work smoothly.
+   Although &koo; tries to work without any server modification, the <literal>koo</literal> server module is necessary for proper use of attachments. Please, simply install this module that can be found in <literal>server-modules</literal> directory, as you would with any other module, and attachments should work smoothly.
   </para>
   <para>
-   This module also provides client side configuration options that can be found at <emphasis>Administration -> Configuration -> KTiny -> Settings</emphasis>.
+   This module also provides client side configuration options that can be found at <emphasis>Administration -> Configuration -> Koo -> Settings</emphasis>.
   </para>
  </sect1>
 
@@ -18,25 +18,25 @@
   <title>Linux and other Unixes</title>
 
   <para>
-   &ktiny; has some dependencies, some of them in the server side, that is, they can be in another computer in the network and some of them need to be in the client side. In the server you'll need PostgreSQL and TinyERP Server 4.2. On the client side you'll need a python distribution and PyQt 4.3, at least. You can also benefit from having dbus python bindings but they're not required. Indeed, &ktiny; will automatically use them if it finds them.
+   &koo; has some dependencies, some of them in the server side, that is, they can be in another computer in the network and some of them need to be in the client side. In the server you'll need PostgreSQL and TinyERP Server 4.2. On the client side you'll need a python distribution and PyQt 4.3, at least. You can also benefit from having dbus python bindings but they're not required. Indeed, &koo; will automatically use them if it finds them.
   </para>
   <para>
-   First of all you'll need a running PostgreSQL available, though there's no need for it to be in the same machine as &ktiny; nor TinyERP server. 
+   First of all you'll need a running PostgreSQL available, though there's no need for it to be in the same machine as &koo; nor TinyERP server. 
   </para>
   <para>
-   To test &ktiny; you need TinyERP server 4.2 or newer. As TinyERP is a very popular and easy to install, many distributions already provide it as a package. If your distribution doesn't offer the package or the version is too old you should download it from <ulink url="http://www.tinyerp.org"/> and then unpack it into any directory. Note that the tiny server can be run in a different server from PostgreSQL and the client.
+   To test &koo; you need TinyERP server 4.2 or newer. As TinyERP is a very popular and easy to install, many distributions already provide it as a package. If your distribution doesn't offer the package or the version is too old you should download it from <ulink url="http://www.tinyerp.org"/> and then unpack it into any directory. Note that the tiny server can be run in a different server from PostgreSQL and the client.
   </para>
   <para>
    Next step is starting the server. If you use your distribution's package most probably it's automatically started each time the computer starts. Otherwise, go to the directory you unpacked it and run <literal>bin/tinyerp-server.py</literal>. 
   </para>
   <para>
-   Given that &ktiny; is programmed in python you don't need to compile it. You will see some Makefiles in the source distribution, however, but they are provided for other tasks, such as compiling the documentation or language files.
+   Given that &koo; is programmed in python you don't need to compile it. You will see some Makefiles in the source distribution, however, but they are provided for other tasks, such as compiling the documentation or language files.
   </para>
  </sect1>
  <sect1 id="windows">
   <title>Windows</title>
   <para>
-   Here you can find the necessary steps to have KTiny up and running on 
+   Here you can find the necessary steps to have Koo up and running on 
    Windows.
   </para>
   <sect2>
@@ -51,7 +51,7 @@
   <sect2>
    <title>Install dependencies</title>
    <para>
-    As any other application, KTiny has dependencies on third party software. This software packages are also open source and are freely downloadable from the Internet, and they should be installed before KTiny itself.
+    As any other application, Koo has dependencies on third party software. This software packages are also open source and are freely downloadable from the Internet, and they should be installed before Koo itself.
    </para>
    <para>
     First you should start by downloading the Python installer package that can be downloaded from <ulink url="http://www.python.org/download/"/>. The installer is a wizard which you probably only need to click on next in every page.
@@ -67,7 +67,7 @@
  <sect1 id="mac">
   <title>Mac OS</title>
   <para>
-   In this section we're aggregating information on how to make &ktiny; work on the Mac platform.
+   In this section we're aggregating information on how to make &koo; work on the Mac platform.
   </para>
   <para>
    Needed software:
@@ -105,7 +105,7 @@
    <listitem>
     <para>
      From <ulink url="http://www.koders.com"/> copy <literal>dextras.py</literal> into 
-     <literal>ktiny/</literal>
+     <literal>koo/</literal>
     </para>
    </listitem>
 

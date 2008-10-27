@@ -1,9 +1,9 @@
 doc: docbook doxygen
 
 docbook:
-	cd src && docbook2html -o ../html ktiny.docbook && cp *.png ../html
+	cd src && docbook2html -o ../html koo.docbook && cp *.png ../html
 	
 doxygen:
-	cd doxygen && doxygen ktiny.doxyfile
+	cd doxygen && doxygen koo.doxyfile
 
 .PHONY: doxygen docbook
