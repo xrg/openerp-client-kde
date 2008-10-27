@@ -56,7 +56,7 @@ class ModelRecord(QObject):
 	def __init__(self, resource, id, group=None, parent=None, new=False ):
 		QObject.__init__(self)
 		self.resource = resource
-		self.Rpc = RpcProxy(self.resource)
+		self.rpc = RpcProxy(self.resource)
 		self.id = id
 		self._loaded = False
 		self.parent = parent
@@ -145,7 +145,7 @@ class ModelRecord(QObject):
 		self._check_load()
 		if not self.id:
 			value = self.get(get_readonly=False)
-			self.id = self.Rpc.create(value, self.context())
+			self.id = self.rpc.create(value, self.context())
 		else:
 			if not self.isModified():
 				return self.id
@@ -163,14 +163,14 @@ class ModelRecord(QObject):
 	# Used only by group.py
 	def fillWithDefaults(self, domain=[], context={}):
 		if len(self.mgroup.fields):
-			val = self.Rpc.default_get(self.mgroup.fields.keys(), context)
+			val = self.rpc.default_get(self.mgroup.fields.keys(), context)
 			for d in domain:
 				if d[0] in self.mgroup.fields and d[1]=='=':
 					val[d[0]]=d[2]
 			self.setDefaults(val)
 
 	def name(self):
-		name = self.Rpc.name_get([self.id], Rpc.session.context)[0]
+		name = self.rpc.name_get([self.id], Rpc.session.context)[0]
 		return name
 
 	def setFieldValid(self, field, value):
@@ -259,7 +259,7 @@ class ModelRecord(QObject):
 			return
 		c= Rpc.session.context.copy()
 		c.update(self.context())
-		res = self.Rpc.read([self.id], self.mgroup.mfields.keys(), c)
+		res = self.rpc.read([self.id], self.mgroup.mfields.keys(), c)
 		if res:
 			value = res[0]
 			self.read_time= time.time()
@@ -301,7 +301,7 @@ class ModelRecord(QObject):
 		arg_names = [n.strip() for n in match.group(2).split(',')]
 		args = [self.evaluateExpression(arg) for arg in arg_names]
 		ids = self.id and [self.id] or []
-		response = getattr(self.Rpc, func_name)(ids, *args)
+		response = getattr(self.rpc, func_name)(ids, *args)
 		if response:
 			self.set(response.get('value', {}), modified=True)
 			if 'domain' in response:
