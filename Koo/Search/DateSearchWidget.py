@@ -26,9 +26,9 @@
 #
 ##############################################################################
 
-from Common import common
+from Common import Common
 
-from Common.calendar import *
+from Common.Calendar import *
 from AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -37,7 +37,7 @@ from PyQt4.uic import *
 class DateSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		loadUi( common.uiPath('search_date.ui'), self )
+		loadUi( Common.uiPath('search_date.ui'), self )
 		self.widget = self
 		self.focusWidget = self.uiStart
 		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )

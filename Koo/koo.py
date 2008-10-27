@@ -41,18 +41,18 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'ktiny'])
 sys.path.append(terp_path)
 
-from Common import localization
-localization.initializeTranslations()
+from Common import Localization
+Localization.initializeTranslations()
 
-from Common import options
+from Common import Options
 
 
-for logger in options.options['logging.logger'].split(','):
+for logger in Options.options['logging.logger'].split(','):
 	if len(logger):
 		loglevel = {'DEBUG':logging.DEBUG, 'INFO':logging.INFO, 'WARNING':logging.WARNING, 'ERROR':logging.ERROR, 'CRITICAL':logging.CRITICAL}
 		log = logging.getLogger(logger)
-		log.setLevel(loglevel[options.options['logging.level'].upper()])
-if options.options['logging.verbose']:
+		log.setLevel(loglevel[Options.options['logging.level'].upper()])
+if Options.options['logging.verbose']:
 	logging.getLogger().setLevel(logging.INFO)
 else:
 	logging.getLogger().setLevel(logging.ERROR)
@@ -74,12 +74,12 @@ except:
 	print _("Module 'dbus' not available. Consider installing it so other applications can easily interact with KTiny.")
 imports['dbus'] = False
 
-from Common import notifier, common
+from Common import Notifier, Common
 
 # Declare notifier handlers for the whole application
-notifier.errorHandler = common.error
-notifier.warningHandler = common.warning
-notifier.concurrencyErrorHandler = common.concurrencyError
+Notifier.errorHandler = Common.error
+Notifier.warningHandler = Common.warning
+Notifier.concurrencyErrorHandler = Common.concurrencyError
 
 
 
@@ -102,7 +102,7 @@ if imports['dbus']:
 ### Main application loop
 app = QApplication( sys.argv )
 try:
-	app.setStyleSheet( file(options.options['stylesheet']).read() )
+	app.setStyleSheet( file(Options.options['stylesheet']).read() )
 except:
 	pass
 
@@ -110,7 +110,7 @@ class KeyboardWidget(QWidget):
 	def __init__(self, parent=None):
 		QWidget.__init__(self, parent)
 		from PyQt4.uic import loadUi
-		loadUi( common.uiPath('keyboard.ui'), self )
+		loadUi( Common.uiPath('keyboard.ui'), self )
 		self.connect( self.pushEscape, SIGNAL('clicked()'), self.escape )
 		self.setWindowFlags( Qt.Popup )
 		self.setWindowModality( Qt.ApplicationModal )
@@ -124,7 +124,6 @@ class KeyboardWidget(QWidget):
 class PosEventFilter(QObject):
 	def __init__(self, parent=None):
 		QObject.__init__(self, parent)
-		print "HOLA"
 
 	def eventFilter(self, obj, event):
 		if event.type() != QEvent.FocusIn:
@@ -140,7 +139,7 @@ class PosEventFilter(QObject):
 
 
 
-localization.initializeQtTranslations()
+Localization.initializeQtTranslations()
 
 # Create DBUS interface if dbus modules are available.
 # Needs to go after creating QApplication
@@ -156,9 +155,9 @@ import modules.action
 
 win = KooMainWindow()
 
-from Common import api
+from Common import Api
 
-class KTinyApi(api.TinyApi):
+class KTinyApi(Api.TinyApi):
 	def execute(self, actionId, data={}, type=None, context={}):
 		modules.action.main.execute( actionId, data, type, context )
 
@@ -179,13 +178,13 @@ class KTinyApi(api.TinyApi):
 	def windowCreated(self, window):
 		win.addWindow( window )
 
-api.instance = KTinyApi()
+Api.instance = KTinyApi()
 
 win.show()
 
-if options.options.rcexist:
-	if options.options['tip.autostart']:
-		dialog = common.TipOfTheDayDialog()
+if Options.options.rcexist:
+	if Options.options['tip.autostart']:
+		dialog = Common.TipOfTheDayDialog()
 		dialog.exec_()
 	else:
 		win.showLoginDialog()

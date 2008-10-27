@@ -29,19 +29,19 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 from ServerConfigurationDialog import *
-from Common import options
+from Common import Options
 import Rpc
 
 class AdministratorPasswordDialog( QDialog ):
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi(common.uiPath('admin_passwd.ui'), self)
+		loadUi(Common.uiPath('admin_passwd.ui'), self)
 		self.connect( self.pushChange, SIGNAL('clicked()'), self.slotChange )	
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
-		host = options.options['login.server']
-		port = options.options['login.port']
-		secure = options.options['login.secure']
+		host = Options.options['login.server']
+		port = Options.options['login.port']
+		secure = Options.options['login.secure']
 		protocol = secure and 'https' or 'http'
 		url = '%s://%s:%s' % (protocol, host, port)
 		self.uiServer.setText(url)

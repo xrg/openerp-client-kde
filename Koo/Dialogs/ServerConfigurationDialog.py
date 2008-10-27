@@ -29,14 +29,14 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import re
-from Common import common
-from Common import options
+from Common import Common
+from Common import Options
 import Rpc
 
 # Searches the list of available databases in the server
 def refreshDatabaseList(db_widget, url, dbtoload=None):
 	if not dbtoload:
-		dbtoload = options.options['login.db']
+		dbtoload = Options.options['login.db']
 	index = 0
 	db_widget.clear()
 		
@@ -56,7 +56,7 @@ class ServerConfigurationDialog( QDialog ):
 
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( common.uiPath('change_server.ui'), self ) 
+		loadUi( Common.uiPath('change_server.ui'), self ) 
 		self.uiConnection.addItem( _("NET-RPC (faster)"), QVariant( 'socket://' ) )
 		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http://' ) )
 		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https://' ) )

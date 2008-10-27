@@ -29,8 +29,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import ServerConfigurationDialog
-from Common import common
-from Common import options
+from Common import Common
+from Common import Options
 
 class DatabaseDialog( QDialog ):
 	# Database chooser type: 
@@ -41,7 +41,7 @@ class DatabaseDialog( QDialog ):
 
 	def __init__(self, type, title, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( common.uiPath('choosedb.ui'), self )
+		loadUi( Common.uiPath('choosedb.ui'), self )
 		self.type = type
 		if type == DatabaseDialog.TypeSelect:
 			self.uiDatabaseEditor.setVisible( False )
@@ -50,9 +50,9 @@ class DatabaseDialog( QDialog ):
 			self.uiDatabaseSelector.setVisible( False )
 			self.uiDatabaseLabel.setBuddy( self.uiDatabaseEditor )
 
-		host = options.options['login.server']
-		port = options.options['login.port']
-		secure = options.options['login.secure']
+		host = Options.options['login.server']
+		port = Options.options['login.port']
+		secure = Options.options['login.secure']
 		protocol = secure and 'https' or 'http'
 		url = '%s://%s:%s' % (protocol, host, port)
 		self.uiServer.setText( url )

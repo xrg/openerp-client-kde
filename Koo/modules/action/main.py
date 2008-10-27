@@ -34,8 +34,8 @@ import Rpc
 import wizard
 from Printer import *
 
-from Common import api
-from Common import common
+from Common import Api
+from Common import Common
 from PyQt4.QtGui import *
 
 class ExecuteReportThread(QThread):
@@ -105,7 +105,7 @@ def executeReport(name, data, context={}):
 				return False
 		Printer.printData(val)
 	except Rpc.RpcException, e:
-		common.error(_('Error: ')+str(e.type), e.message, e.data)
+		Common.error(_('Error: ')+str(e.type), e.message, e.data)
 	return True
 
 def execute(act_id, datas, type=None, context={}):
@@ -117,7 +117,7 @@ def execute(act_id, datas, type=None, context={}):
 			raise Exception, 'ActionNotFound'
 		type=res[0]['type']
 	res = Rpc.session.execute('/object', 'execute', type, 'read', [act_id], False, ctx)[0]
-	api.instance.executeAction(res,datas)
+	Api.instance.executeAction(res,datas)
 
 def executeAction(action, datas, context={}):
 	if 'type' not in action:
@@ -154,7 +154,7 @@ def executeAction(action, datas, context={}):
 		if datas.get('domain', False):
 			domain.append(datas['domain'])
 
-		api.instance.createWindow( view_ids, datas['res_model'], datas['res_id'], domain,
+		Api.instance.createWindow( view_ids, datas['res_model'], datas['res_id'], domain,
 				action['view_type'], datas.get('window',None), ctx,
 				datas['view_mode'], name=action.get('name', False), autoReload=datas['auto_refresh']  )
 
@@ -173,13 +173,13 @@ def executeAction(action, datas, context={}):
 			win=datas['window']
 			del datas['window']
 		datas['report_id'] = action['report_id']
-		api.instance.executeReport('custom', datas)
+		Api.instance.executeReport('custom', datas)
 
 	elif action['type']=='ir.actions.report.xml':
 		if 'window' in datas:
 			win=datas['window']
 			del datas['window']
-		api.instance.executeReport(action['report_name'], datas)
+		Api.instance.executeReport(action['report_name'], datas)
 
 def executeKeyword(keyword, data={}, context={}):
 	actions = None
@@ -197,10 +197,10 @@ def executeKeyword(keyword, data={}, context={}):
 	for action in actions:
 		keyact[action['name']] = action
 
-	res = common.selection(_('Select your action'), keyact)
+	res = Common.selection(_('Select your action'), keyact)
 	if res:
 		(name,action) = res
-		api.instance.executeAction(action, data, context=context)
+		Api.instance.executeAction(action, data, context=context)
 		return (name, action)
 	elif not len(keyact):
 		QMessageBox.information( None, '', _('No action defined!'))

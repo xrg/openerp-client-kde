@@ -32,7 +32,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 import gettext
-from Common import common
+from Common import Common
 
 import Rpc
 import sets
@@ -118,7 +118,7 @@ def exportData(ids, model, fields, prefix=''):
 class ExportDialog( QDialog ):
 	def __init__(self, model, ids, fields, preload =[], parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( common.uiPath('win_export.ui'), self)
+		loadUi( Common.uiPath('win_export.ui'), self)
 		self.ids = ids
 		self.model = model
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )

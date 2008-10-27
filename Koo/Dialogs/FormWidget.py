@@ -36,13 +36,13 @@ from ImportDialog import *
 from AttachmentDialog import *
 from GoToIdDialog import *
 
-from Common import api
-from Common import common
-from Common import options
+from Common import Api
+from Common import Common
+from Common import Options
 import copy
 
-from widget.screen import Screen
-from widget.model.group import ModelRecordGroup
+from Screen import Screen
+from Model.Group import ModelRecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
@@ -60,7 +60,7 @@ class FormWidget( QWidget ):
 	# name -> User visible title of the form
 	def __init__(self, model, res_id=False, domain=[], view_type=None, view_ids=[], context={}, parent=None, name=False):
 		QWidget.__init__(self,parent)
-		loadUi( common.uiPath('formcontainer.ui'), self ) 
+		loadUi( Common.uiPath('formcontainer.ui'), self ) 
 
 		if not view_type:
 			view_type = ['form','tree']
@@ -171,7 +171,7 @@ class FormWidget( QWidget ):
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
-			api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
+			Api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()
 		QApplication.restoreOverrideCursor()
@@ -299,9 +299,9 @@ class FormWidget( QWidget ):
 			ids = [id]
 		if len(ids):
 			if previous and self.previous_action:
-				api.instance.executeAction(self.previous_action[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
+				Api.instance.executeAction(self.previous_action[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
 			else:
-				res = api.instance.executeKeyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
+				res = Api.instance.executeKeyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
 				if res:
 					self.previous_action = res
 			self.reload()

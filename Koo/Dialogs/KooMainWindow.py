@@ -52,10 +52,10 @@ from ServerConfigurationDialog import *
 from LoginDialog import * 
 from AdministratorPasswordDialog import *
 
-from Common import options
-from Common import common
-from Common import api
-from Common import viewsettings
+from Common import Options
+from Common import Common
+from Common import Api
+from Common import ViewSettings
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
@@ -85,7 +85,7 @@ class KooMainWindow(QMainWindow):
 	
 	def __init__(self):	
 		QMainWindow.__init__(self)
-		loadUi( common.uiPath( "mainwindow.ui" ), self ) 
+		loadUi( Common.uiPath( "mainwindow.ui" ), self ) 
 		self.showMaximized()	
 
 		self.fixedWindowTitle = self.windowTitle()
@@ -202,19 +202,19 @@ class KooMainWindow(QMainWindow):
 			self.showNormal()
 
 	def openPartnersTab(self):
-		api.instance.createWindow(None, 'res.partner', mode='tree')
+		Api.instance.createWindow(None, 'res.partner', mode='tree')
 		if not self.isVisible():
 			self.showNormal()
 
 	def openProductsTab(self):
-		api.instance.createWindow(None, 'product.product', mode='tree')
+		Api.instance.createWindow(None, 'product.product', mode='tree')
 		if not self.isVisible():
 			self.showNormal()
 
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
-		self.requestsTimer.start( options.options.get( 'requests_refresh_interval', 5 * 60 ) * 1000 )
+		self.requestsTimer.start( Options.options.get( 'requests_refresh_interval', 5 * 60 ) * 1000 )
 		
 	def formDesigner(self):
 		dialog = FormDesigner(self)
@@ -254,7 +254,7 @@ class KooMainWindow(QMainWindow):
 			return
 		self.setCursor( Qt.WaitCursor )
 		res = win.result
-		api.instance.createWindow(None, res[1], res[0], view_type='form', mode='form,tree')
+		Api.instance.createWindow(None, res[1], res[0], view_type='form', mode='form,tree')
 		self.unsetCursor()
 
 	def nextTab(self):
@@ -281,17 +281,17 @@ class KooMainWindow(QMainWindow):
 		Rpc.session.reloadContext()
 
 	def newRequest(self):
-		api.instance.createWindow(None, 'res.request', False, 
+		Api.instance.createWindow(None, 'res.request', False, 
 			[('act_from','=',Rpc.session.uid)], 'form', mode='form,tree')
 
 	## Opens a new tab with requests pending for the user to resolve
 	def pendingRequests(self):
-		api.instance.createWindow(False, 'res.request', False, 
+		Api.instance.createWindow(False, 'res.request', False, 
 			[('act_to','=',Rpc.session.uid)], 'form', mode='tree,form')
 
 	## Opens a new tab with all unsolved requests posted by the user
 	def waitingRequests(self):
-		api.instance.createWindow(False, 'res.request', False, 
+		Api.instance.createWindow(False, 'res.request', False, 
 			[('act_from','=',Rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
 
 	## Updates the status bar with the number of pending requests.
@@ -323,10 +323,10 @@ class KooMainWindow(QMainWindow):
 			return ([], [])
 
 	def showLoginDialog(self):
-		LoginDialog.defaultHost = options.options['login.server']
-		LoginDialog.defaultPort = options.options['login.port']
-		LoginDialog.defaultProtocol = options.options['login.protocol']
-		LoginDialog.defaultUserName = options.options['login.login']
+		LoginDialog.defaultHost = Options.options['login.server']
+		LoginDialog.defaultPort = Options.options['login.port']
+		LoginDialog.defaultProtocol = Options.options['login.protocol']
+		LoginDialog.defaultUserName = Options.options['login.login']
 		dialog = LoginDialog( self )
 		while dialog.exec_() == QDialog.Accepted:
 			self.login( dialog.url, dialog.databaseName )
@@ -353,20 +353,20 @@ class KooMainWindow(QMainWindow):
 			log_response = Rpc.session.login(url, databaseName)
 			url = QUrl( url )
 			if log_response==Rpc.session.LoggedIn:
-				options.options.loadSettings()
+				Options.options.loadSettings()
 
-				iconVisible = options.options.get( 'show_system_tray_icon', True )
+				iconVisible = Options.options.get( 'show_system_tray_icon', True )
 				self.systemTrayIcon.setVisible( iconVisible )
 
 				# Start timer once settings have been loaded because
 				# the request interval can be configured
 				self.startRequestsTimer()
-				options.options['login.server'] = unicode( url.host() )
-				options.options['login.login'] = unicode( url.userName() )
-				options.options['login.port'] = url.port()
-				options.options['login.protocol'] = unicode( url.scheme() ) + '://'
-				options.options['login.db'] = databaseName
-				options.options.save()
+				Options.options['login.server'] = unicode( url.host() )
+				Options.options['login.login'] = unicode( url.userName() )
+				Options.options['login.port'] = url.port()
+				Options.options['login.protocol'] = unicode( url.scheme() ) + '://'
+				Options.options['login.db'] = databaseName
+				Options.options.save()
 			        self.openMenuTab()
 				self.openHomeTab()
 
@@ -378,7 +378,7 @@ class KooMainWindow(QMainWindow):
 
 		except Rpc.RpcException, e:
 			(e1,e2) = e
-			common.error(_('Connection Error !'),e1,e2)
+			Common.error(_('Connection Error !'),e1,e2)
 			Rpc.session.logout()
 
 	## Closes all tabs smartly, that is using closeCurrentTab()
@@ -399,7 +399,7 @@ class KooMainWindow(QMainWindow):
 		Rpc.session.logout()
 		
 	def supportRequest(self):
-		common.support()
+		Common.support()
 
 	def kooManual(self):
 		dir = os.path.abspath(os.path.dirname(__file__))
@@ -419,23 +419,23 @@ class KooMainWindow(QMainWindow):
 		QDesktopServices.openUrl( QUrl(url) )
 
 	def showTipOfTheDay(self):
-		dialog = common.TipOfTheDayDialog(self)
+		dialog = Common.TipOfTheDayDialog(self)
 		dialog.exec_()
 		
 	def showLicense(self):
 		dialog = QDialog( self )
-		loadUi( common.uiPath('license.ui'), dialog )
+		loadUi( Common.uiPath('license.ui'), dialog )
 		dialog.exec_()
 
 	def showAboutDialog(self):
 		dialog = QDialog( self )
-		loadUi( common.uiPath('about.ui'), dialog )
+		loadUi( Common.uiPath('about.ui'), dialog )
 		dialog.uiTiny.setHtml( unicode(dialog.uiTiny.toHtml()) % '1.0.0' )
 		dialog.exec_()
 
 	def showShortcuts(self):
 		dialog = QDialog( self )
-		loadUi( common.uiPath('shortcuts.ui'), dialog )
+		loadUi( Common.uiPath('shortcuts.ui'), dialog )
 		dialog.exec_()
 
 
@@ -470,7 +470,7 @@ class KooMainWindow(QMainWindow):
  			Rpc.session.logout()
 			return 
 
-		api.instance.execute(self.menuId, {'window':self })
+		Api.instance.execute(self.menuId, {'window':self })
 
 
 	## @brief Opens Home Tab.
@@ -489,10 +489,10 @@ class KooMainWindow(QMainWindow):
 		# Do not open the action if the id is the same as the menu id.
 		if id == self.menuId:
 			return
-		api.instance.execute(id, {'window':self })
+		Api.instance.execute(id, {'window':self })
 
 	def clearCache(self):
-		viewsettings.ViewSettings.clear()
+		ViewSettings.ViewSettings.clear()
 		if Rpc.session.cache:
 			Rpc.session.cache.clear()
 

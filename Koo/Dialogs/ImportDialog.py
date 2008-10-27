@@ -31,7 +31,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import gettext
-from Common import common
+from Common import Common
 
 import Rpc
 
@@ -64,7 +64,7 @@ def import_csv(csv_data, fields, model):
 class ImportDialog(QDialog):
 	def __init__(self, model, fields, preload = [], parent=None):
 		QDialog.__init__(self, parent)
-		loadUi(common.uiPath('win_import.ui'), self)
+		loadUi(Common.uiPath('win_import.ui'), self)
 		self.model = model
 		self.fields = fields
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )

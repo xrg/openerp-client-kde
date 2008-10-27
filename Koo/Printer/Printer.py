@@ -28,8 +28,8 @@
 ##############################################################################
 
 from PyQt4.QtCore  import *
-from Common import notifier
-from Common import options
+from Common import Notifier
+from Common import Options
 import os
 import base64
 import tempfile
@@ -60,7 +60,7 @@ class Printer(object):
 	# application depending on operating system and user settings.
 	@staticmethod
 	def printFile(fileName, fileType):
-		if os.name == 'nt' and options.options['printer.preview']:
+		if os.name == 'nt' and Options.options['printer.preview']:
 			Printer.sendToPrinter( fileName )
 		else:
 			Printer.open( fileName )

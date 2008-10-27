@@ -34,16 +34,16 @@ from PyQt4.uic import *
 
 import Rpc
 
-from Common import common
+from Common import Common
 import copy
 
-from widget.screen import Screen
-from widget.model.group import ModelRecordGroup
+from Screen import Screen
+from Model.Group import ModelRecordGroup
 
 class PreferencesDialog(QDialog):
 	def __init__(self, model, id, preferences, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( common.uiPath('preferences.ui'), self )
+		loadUi( Common.uiPath('preferences.ui'), self )
 		self.id = id
 		self.model = model
 		

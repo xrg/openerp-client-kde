@@ -32,12 +32,12 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 import Rpc
-from Common import api
-from Common import common
-from Common import icons
+from Common import Api
+from Common import Common
+from Common import Icons
 
-from widget.screen import Screen
-from widget.model.group import ModelRecordGroup
+import Screen
+from Model.Group import ModelRecordGroup
 
 class WizardPage(QDialog):
 	def __init__(self, arch, fields, state, name, datas, parent=None):
@@ -53,7 +53,7 @@ class WizardPage(QDialog):
 			but.setObjectName(x[0])
 			# The third element is the gtk-icon
 			if len(x) >= 3:
-				but.setIcon( icons.kdeIcon( x[2] ) )
+				but.setIcon( Icons.kdeIcon( x[2] ) )
 			# The forth element is True if the button is the default one
 			if len(x) >= 4 and x[3]:
 				but.setDefault(True)
@@ -104,7 +104,7 @@ class Wizard( QObject ):
 		self.state = state
 		self.wizardId = Rpc.session.execute('/wizard', 'create', self.action)
 		self.finished = False
-		self.progress = common.ProgressDialog()
+		self.progress = Common.ProgressDialog()
 
 	def step(self):
 		if self.state == 'end':
@@ -141,17 +141,17 @@ class Wizard( QObject ):
 			self.datas['form'].update(new_data)
 			del new_data
 		elif res['type']=='action':
-			api.instance.executeAction(res['action'],self.datas)
+			Api.instance.executeAction(res['action'],self.datas)
 			self.state = res['state']
 		elif res['type']=='print':
 			self.datas['report_id'] = res.get('report_id', False)
 			if res.get('get_id_from_action', False):
 				backup_ids = self.datas['ids']
 				self.datas['ids'] = self.datas['form']['ids']
-				win = api.instance.executeReport(res['report'], self.datas)
+				win = Api.instance.executeReport(res['report'], self.datas)
 				self.datas['ids'] = backup_ids
 			else:
-				win = api.instance.executeReport(res['report'], self.datas)
+				win = Api.instance.executeReport(res['report'], self.datas)
 			self.state = res['state']
 		elif res['type']=='state':
 			self.state = res['state']

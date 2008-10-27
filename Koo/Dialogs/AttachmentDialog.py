@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-from Common import common
+from Common import Common
 import FormWidget
 
 from PyQt4.QtCore import *
@@ -37,7 +37,7 @@ class AttachmentDialog(QMainWindow):
 
 	def __init__(self, model, id, parent = None ):	
 		QMainWindow.__init__(self, parent)
-		loadUi( common.uiPath('win_attach.ui'), self ) 
+		loadUi( Common.uiPath('win_attach.ui'), self ) 
 
 		# Center dialog on the screen
 		rect = QApplication.desktop().screenGeometry()

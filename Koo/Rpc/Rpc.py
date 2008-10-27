@@ -31,7 +31,7 @@ import xmlrpclib
 import logging
 import socket
 import tiny_socket
-from Common import notifier
+from Common import Notifier
 import traceback
 import copy
 

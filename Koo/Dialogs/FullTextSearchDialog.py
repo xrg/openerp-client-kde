@@ -28,11 +28,9 @@
 ##############################################################################
 
 import gettext
-from Common import common
+from Common import Common
 
 import Rpc
-
-from widget.screen import Screen
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -282,7 +280,7 @@ class FullTextSearchDialog( QDialog ):
 	def __init__(self, parent = None):
 		QDialog.__init__( self, parent )
 		self.setModal( True )
-		loadUi( common.uiPath('full_text_search.ui') , self )
+		loadUi( Common.uiPath('full_text_search.ui') , self )
 
 		self.result=None
 
@@ -291,7 +289,7 @@ class FullTextSearchDialog( QDialog ):
 		map = [ ('uiModel', 3), ('uiName', 4), ('uiHeadline', 5),
 			('uiRanking', 6) ]
 		self.uiItems.setModelItemMap( map )
-		self.uiItems.setItemUi( common.uiPath('searchviewitem.ui') )
+		self.uiItems.setItemUi( Common.uiPath('searchviewitem.ui') )
 		self.uiItems.setModel( self.model )
 		self.layout().insertWidget( 1, self.uiItems )
 

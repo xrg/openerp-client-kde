@@ -29,7 +29,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 #import options
-from Common import common
+from Common import Common
 import ServerConfigurationDialog
 
 class LoginDialog( QDialog ):
@@ -40,7 +40,7 @@ class LoginDialog( QDialog ):
 
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
-		loadUi( common.uiPath('login.ui'), self ) 
+		loadUi( Common.uiPath('login.ui'), self ) 
 		self.databaseName = ''
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
@@ -53,15 +53,15 @@ class LoginDialog( QDialog ):
 	def init(self):
 		uid = 0
 		self.uiNoConnection.hide()
-		#host = options.options['login.server']
-		#port = options.options['login.port']
-		#protocol = options.options['login.protocol']
+		#host = Options.options['login.server']
+		#port = Options.options['login.port']
+		#protocol = Options.options['login.protocol']
 		host = LoginDialog.defaultHost
 		port = LoginDialog.defaultPort
 		protocol = LoginDialog.defaultProtocol
 		url = '%s%s:%s' % (protocol, host, port)
 		self.uiServer.setText( url )
-		#self.uiUserName.setText( options.options['login.login'] )
+		#self.uiUserName.setText( Options.options['login.login'] )
 		self.uiUserName.setText( LoginDialog.defaultUserName )
 		res = self.refreshList()
 

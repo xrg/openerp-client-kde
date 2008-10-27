@@ -33,7 +33,7 @@ import sys
 import gettext
 
 from AbstractSearchWidget import *
-from Common import common
+from Common import Common
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -113,7 +113,7 @@ class SearchFormParser(object):
 class SearchFormWidget(AbstractSearchWidget):
 	def __init__(self, parent=None):
 		AbstractSearchWidget.__init__(self, '', parent)
-		loadUi( common.uiPath('searchform.ui'), self)
+		loadUi( Common.uiPath('searchform.ui'), self)
 		
 		self.model = None
 		self.widgets = {}

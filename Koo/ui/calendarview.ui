@@ -94,7 +94,7 @@
   <customwidget>
    <class>CalendarView</class>
    <extends>QGraphicsView</extends>
-   <header>widget.view.calendar</header>
+   <header>View.Calendar</header>
   </customwidget>
  </customwidgets>
  <resources/>

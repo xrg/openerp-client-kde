@@ -28,12 +28,12 @@
 from AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-from Common import common
+from Common import Common
 
 class ReferenceSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		loadUi( common.uiPath('searchreference.ui'), self )
+		loadUi( Common.uiPath('searchreference.ui'), self )
 		self.setPopdown( attrs.get('selection',[]) )
 		self.focusWidget = self.uiModel
 

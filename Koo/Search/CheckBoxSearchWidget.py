@@ -27,7 +27,7 @@
 #
 ##############################################################################
 
-from Common import common
+from Common import Common
 
 from AbstractSearchWidget import *
 from PyQt4.QtGui import *

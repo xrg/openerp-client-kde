@@ -29,8 +29,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import ServerConfigurationDialog
-from Common import common
-from Common import options
+from Common import Common
+from Common import Options
 import Rpc
 import re
 
@@ -38,7 +38,7 @@ class CreationOkDialog( QDialog ):
 	def __init__(self, passwordList, parent=None ):
 		QDialog.__init__(self, parent)
 
-		loadUi( common.uiPath('dbcreateok.ui'), self ) 
+		loadUi( Common.uiPath('dbcreateok.ui'), self ) 
 		self.connect( self.pushConnect, SIGNAL('clicked()'), self.connectNow )
 		self.connect( self.pushLater, SIGNAL('clicked()'), self.connectLater )
 
@@ -54,7 +54,7 @@ class CreationOkDialog( QDialog ):
 class ProgressBar( QDialog ):
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent )
-		loadUi( common.uiPath('progress.ui'), self ) 
+		loadUi( Common.uiPath('progress.ui'), self ) 
 		self.setModal( True )
 		self.timer = QTimer( self )
 		self.connect(self.timer,SIGNAL("timeout()"),self.timeout)
@@ -110,12 +110,12 @@ class ProgressBar( QDialog ):
 class DatabaseCreationDialog( QDialog ):
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
-		loadUi( common.uiPath('create_database.ui'), self ) 
+		loadUi( Common.uiPath('create_database.ui'), self ) 
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
 		self.connect(self.pushChange,SIGNAL("clicked()"),self.slotChange )
 
-		url = '%s%s:%s' % (options.options['login.protocol'], options.options['login.server'], options.options['login.port'])
+		url = '%s%s:%s' % (Options.options['login.protocol'], Options.options['login.server'], Options.options['login.port'])
 		self.uiServer.setText(url)
 		self.refreshLangList(url) 
 	

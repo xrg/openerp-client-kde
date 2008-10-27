@@ -27,16 +27,16 @@
 #
 ##############################################################################
 
-from Common import api
-from Common import common
+from Common import Api
+from Common import Common
 
 def printWorkflow(datas):
 	datas['nested'] = True
-	api.instance.executeReport('workflow.instance.graph', datas)
+	Api.instance.executeReport('workflow.instance.graph', datas)
 	return True
 
 def printSimpleWorkflow(datas):
 	datas['nested'] = False
-	api.instance.executeReport('workflow.instance.graph', datas)
+	Api.instance.executeReport('workflow.instance.graph', datas)
 	return True
 

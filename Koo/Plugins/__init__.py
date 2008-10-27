@@ -28,7 +28,7 @@
 ##############################################################################
 
 from PyQt4.QtGui import *
-from Common import common
+from Common import Common
 import re
 import os
 
@@ -69,7 +69,7 @@ class Plugins:
 		if not len(result):
 			QMessageBox.information(None, '',_('No available plugin for this resource !'))
 			return 
-		sel = common.selection(_('Choose a Plugin'), result, alwaysask=True)
+		sel = Common.selection(_('Choose a Plugin'), result, alwaysask=True)
 		if sel:
 			# Import the appropiate module and execute the action
 			exec('import %s' % plugins[sel[1]]['module'])

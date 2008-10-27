@@ -30,14 +30,14 @@
 import gettext
 from xml.parsers import expat
 
-from Common import api
-from Common import common
-from Common import options
-from Common.viewsettings import *
+from Common import Api
+from Common import Common
+from Common import Options
+from Common.ViewSettings import *
 import Rpc
-import widget
 
-from widget.model.treemodel import TreeModel
+from Model.KooModel import KooModel
+from Model.Group import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -85,7 +85,7 @@ class TreeParser:
 class TreeWidget( QWidget ): 
 	def __init__( self, view, model, domain=[], context={}, name=False, parent=None ):
 		QWidget.__init__(self,parent)
-		loadUi( common.uiPath('tree.ui'), self ) 
+		loadUi( Common.uiPath('tree.ui'), self ) 
 		
 		self.uiSplitter.setStretchFactor( 0, 0 )
 		self.uiSplitter.setStretchFactor( 1, 2 )
@@ -117,21 +117,21 @@ class TreeWidget( QWidget ):
 		# Get all visible fields + parent field description
 		self.fields = Rpc.session.execute('/object', 'execute', self.model, 'fields_get', p.fieldsOrder + [self.childrenField])
 
-		self.treeModel = TreeModel( self )
+		self.treeModel = KooModel( self )
 		self.treeModel.setFields( self.fields )
 		self.treeModel.setFieldsOrder( p.fieldsOrder )
 		self.treeModel.setIconForField( 'icon', 'name')
 		self.treeModel.setChildrenForField( self.childrenField, p.fieldsOrder[0] )
 		self.treeModel.setShowBackgroundColor( False )
 
-		self.listModel = TreeModel( self )
-		self.listModel.setMode( TreeModel.ListMode )
+		self.listModel = KooModel( self )
+		self.listModel.setMode( KooModel.ListMode )
 		self.listModel.setFields( self.fields )
 		self.listModel.setFieldsOrder( p.fieldsOrder )
 		self.listModel.setIconForField( 'icon', 'name' )
 		self.listModel.setShowBackgroundColor( False )
 
-		self.group = widget.model.group.ModelRecordGroup( self.model, self.fields, context = self.context )
+		self.group = ModelRecordGroup( self.model, self.fields, context = self.context )
 		self.group.setDomain( domain )
 		self.group.update()
 		if self.toolbar:
@@ -159,12 +159,12 @@ class TreeWidget( QWidget ):
 		# Shortcuts
 
 		scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
-		self.shortcutsGroup = widget.model.group.ModelRecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
+		self.shortcutsGroup = ModelRecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
 		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
 		self.shortcutsGroup.update()
 
-		self.shortcutsModel = TreeModel( self )
-		self.shortcutsModel.setMode( TreeModel.ListMode )
+		self.shortcutsModel = KooModel( self )
+		self.shortcutsModel.setMode( KooModel.ListMode )
 		self.shortcutsModel.setFields( scFields )
 		self.shortcutsModel.setFieldsOrder( ['name'] )
 		self.shortcutsModel.setModelGroup( self.shortcutsGroup )
@@ -213,7 +213,7 @@ class TreeWidget( QWidget ):
 
 	def executeAction(self, keyword='tree_but_action', id=None, report_type='pdf'):
 		if id:
-			api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id]})
+			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id]})
 		else:
 			QMessageBox.information( self, '', _('No resource selected!'))
 
@@ -225,7 +225,7 @@ class TreeWidget( QWidget ):
 	def editCurrentItem(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
 		if id:
-			api.instance.createWindow(None, self.model, id, self.domain)
+			Api.instance.createWindow(None, self.model, id, self.domain)
 		else:
 			QMessageBox.information(self, '', _('No resource selected!'))
 

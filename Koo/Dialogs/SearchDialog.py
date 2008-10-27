@@ -28,12 +28,12 @@
 ##############################################################################
 
 import gettext
-from Common import common
+from Common import Common
 
 import Rpc
 
-from widget.screen import Screen
-from widget.model.group import ModelRecordGroup
+from Screen import Screen
+from Model.Group import ModelRecordGroup
 import Search
 
 
@@ -44,7 +44,7 @@ from PyQt4.uic import *
 class SearchDialog( QDialog ):
 	def __init__(self, model, sel_multi=True, ids=[], context={}, domain = [], parent = None):
 		QDialog.__init__( self, parent )
-		loadUi( common.uiPath('win_search.ui'), self )
+		loadUi( Common.uiPath('win_search.ui'), self )
 		self.setModal( True )
 
 		self.result=None

@@ -27,8 +27,8 @@
 #
 ##############################################################################
 
-from Common import api
-from Common import common
+from Common import Api
+from Common import Common
 from FormWidget import *
 from TreeWidget import *
 
@@ -48,7 +48,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 				view_ids = (view_ids or []), 
 				context=context, name=name )
 		win.setAutoReload( autoReload )
-		api.instance.windowCreated( win )
+		Api.instance.windowCreated( win )
 	elif view_type=='tree':
 		if view_ids and view_ids[0]:
 			view_base =  Rpc.session.execute('/object', 'execute',
@@ -63,7 +63,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 					'fields_view_get', False, view_type, context)
 
 		win = TreeWidget(view, model, domain, context, name=name)
-		api.instance.windowCreated( win )
+		Api.instance.windowCreated( win )
 	else:
 		import logging
 		log = logging.getLogger('view')
