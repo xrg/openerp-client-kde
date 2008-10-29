@@ -30,17 +30,22 @@
 import os
 import sys
 
+## @brief This functions searches the given file (optionally adding a subdirectory)
+# in the possible directories it could be found.
+#
+# This should hide different installation and operating system directories. Making
+# it easier to find resource files.
 def searchFile(file, subdir=None):
 	tests = []
 	if subdir:
 		tests += [os.path.join( x, subdir ) for x in sys.path]
 		tests += [os.path.join( x, 'Koo', subdir ) for x in sys.path]
 		# The following line is needed for KTiny to work properly
-		# under windows. Mainly we say attach 'share/ktiny/subdir' to
+		# under windows. Mainly we say attach 'share/koo/subdir' to
 		# sys.path, which by default has 'c:\python25' (among others). 
-		# This will give 'c:\python25\share\ktiny\ui' for example, which is 
+		# This will give 'c:\python25\share\koo\ui' for example, which is 
 		# where '.ui' files are stored under the Windows platform.
-		tests += [os.path.join( x, 'share', 'ktiny', subdir ) for x in sys.path]
+		tests += [os.path.join( x, 'share', 'koo', subdir ) for x in sys.path]
 	else:
 		tests += [os.path.join( x, 'Koo' ) for x in sys.path]
 		tests += sys.path
@@ -51,6 +56,5 @@ def searchFile(file, subdir=None):
 			return x
 	return False
 
-kPath = lambda x: searchFile(x)
 uiPath = lambda x: searchFile(x, 'ui')
 

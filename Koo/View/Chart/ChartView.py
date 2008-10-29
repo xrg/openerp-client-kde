@@ -29,7 +29,7 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
-from View.AbstractView import *
+from Koo.View.AbstractView import *
 
 class ChartView( AbstractView ) :
 	def __init__(self, parent=None ):

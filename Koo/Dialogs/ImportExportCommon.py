@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-import Rpc
+from Koo import Rpc
 
 class FieldsModel( QStandardItemModel ):
 	def __init__(self):

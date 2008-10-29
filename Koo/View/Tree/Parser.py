@@ -26,20 +26,20 @@
 #
 ##############################################################################
 
-from View.AbstractParser import *
+from Koo.View.AbstractParser import *
 
 import time
 
-from Model import KooModel
+from Koo.Model import KooModel
 
 from TreeView import *
 from PyQt4.uic import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-from Common import Common
-from Common.Numeric import *
-from Common.Calendar import *
+from Koo.Common import Common
+from Koo.Common.Numeric import *
+from Koo.Common.Calendar import *
 
 
 
@@ -125,21 +125,21 @@ class TreeParser(AbstractParser):
 				view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
 
-from View.Form import calendar
-from View.Form import float
-from View.Form import integer
-from View.Form import char
-from View.Form import checkbox
-from View.Form import reference
-from View.Form import binary
-from View.Form import textbox
-from View.Form import richtext
-from View.Form import many2many
-from View.Form import many2one
-from View.Form import selection
-from View.Form import one2many
-from View.Form import url
-from View.Form import image
+from Koo.View.Form import calendar
+from Koo.View.Form import float
+from Koo.View.Form import integer
+from Koo.View.Form import char
+from Koo.View.Form import checkbox
+from Koo.View.Form import reference
+from Koo.View.Form import binary
+from Koo.View.Form import textbox
+from Koo.View.Form import richtext
+from Koo.View.Form import many2many
+from Koo.View.Form import many2one
+from Koo.View.Form import selection
+from Koo.View.Form import one2many
+from Koo.View.Form import url
+from Koo.View.Form import image
 
 
 widgetsType = {

@@ -35,7 +35,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-from Common import Common
+from Koo.Common import Common
 
 class BinaryFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):

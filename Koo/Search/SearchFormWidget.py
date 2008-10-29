@@ -33,7 +33,7 @@ import sys
 import gettext
 
 from AbstractSearchWidget import *
-from Common import Common
+from Koo.Common import Common
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *

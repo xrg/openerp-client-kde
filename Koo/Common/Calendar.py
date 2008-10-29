@@ -126,7 +126,7 @@ def storageToDateTime( text ):
 
 
 
-## @brief The PopupCalendar class, provides a simple way to show a calendar 
+## @brief The PopupCalendar class provides a simple way to show a calendar 
 # where the user can pick up a date. 
 #
 # You simply need to call PopupCalendar(widget) where widget

@@ -26,14 +26,14 @@
 #
 ##############################################################################
 
-from Common import Common
-from Common import Icons
-from Common import Options
-import Rpc
+from Koo.Common import Common
+from Koo.Common import Icons
+from Koo.Common import Options
+from Koo import Rpc
 from button import *
 
 from FormView import FormView, FormContainer
-from View.AbstractParser import *
+from Koo.View.AbstractParser import *
 from action import ActionFormWidget
 from abstractformwidget import *
 from PyQt4.QtCore import *

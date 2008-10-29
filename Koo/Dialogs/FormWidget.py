@@ -29,20 +29,20 @@
 import types
 import gettext
 
-import Rpc
+from Koo import Rpc
 from SearchDialog import *
 from ExportDialog import *
 from ImportDialog import *
 from AttachmentDialog import *
 from GoToIdDialog import *
 
-from Common import Api
-from Common import Common
-from Common import Options
+from Koo.Common import Api
+from Koo.Common import Common
+from Koo.Common import Options
 import copy
 
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *

@@ -28,12 +28,12 @@
 ##############################################################################
 
 import gettext
-from Common import Common
+from Koo.Common import Common
 
-import Rpc
+from Koo import Rpc
 
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 import Search
 
 

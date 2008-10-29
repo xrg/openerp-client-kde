@@ -71,7 +71,7 @@ mapIcons = {
 }
 
 ## @brief Returns a QIcon given an icon name. The name of the icon is usually a 
-# GTK or TinyERP name.
+# GTK or OpenERP name.
 def kdeIcon(icon):
 	if icon in mapIcons:
 		return QIcon( ':/images/images/' + mapIcons[icon] )
@@ -80,7 +80,7 @@ def kdeIcon(icon):
 		return QIcon()
 
 ## @brief Returns a QPixmap given an icon name. The name of the icon is usually 
-# a GTK or TinyERP name.
+# a GTK or OpenERP name.
 def kdePixmap(icon):
 	if icon in mapIcons:
 		return QPixmap( ':/images/images/' + mapIcons[icon] )

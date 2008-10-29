@@ -26,9 +26,9 @@
 #
 ##############################################################################
 
-from Rpc import RpcProxy
-import Rpc
-from Common import Options
+from Koo.Rpc import RpcProxy
+from Koo import Rpc
+from Koo.Common import Options
 from Record import ModelRecord
 import Field 
 

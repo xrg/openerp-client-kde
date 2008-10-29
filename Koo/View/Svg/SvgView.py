@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-from View.AbstractView import *
+from Koo.View.AbstractView import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.QtSvg import *

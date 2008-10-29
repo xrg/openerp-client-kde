@@ -26,10 +26,10 @@
 #
 ##############################################################################
 
-from Common import Common
+from Koo.Common import Common
 
 from abstractformwidget import *
-from Common.Calendar import *
+from Koo.Common.Calendar import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *

@@ -25,25 +25,33 @@
 #
 ##############################################################################
 
-class TinyApi:
+## @brief KooApi class provides an interface several Koo components relay on being
+# available for their proper use. 
+class KooApi:
+	## @brief Executes the given actionId (which can be a report, keword, etc.).
 	def execute(self, actionId, data={}, type=None, context={}):
 		pass
 
+	## @brief Executes the server action to open a report.
 	def executeReport(self, name, data={}, context={}):
 		return True
 
+	## @brief Executes the given server action (which can ba report, keyword, etc.).
 	def executeAction(self, action, data={}, context={}):
 		pass
-		
+
+	## @brief Executes the given server keyword action.
 	def executeKeyword(self, keyword, data={}, context={}):
 		return False
 
+	## @brief Opens a new window (a new tab with Koo application) with the given model.
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
 			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
 		pass
 
+	## @brief This callback function is (should be) executed each time a new window (tab in Koo) is opened.
 	def windowCreated(self, window):
 		pass
 
-# This variable should point to a TinyApi instance
+# This variable should point to a KooApi instance
 instance = None

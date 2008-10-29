@@ -27,9 +27,9 @@
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common import Api
-from Plugins import *
-import Rpc
+from Koo.Common import Api
+from Koo.Plugins import *
+from Koo import Rpc
 
 class Action(QAction):
 	def __init__(self, parent):

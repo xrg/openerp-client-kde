@@ -27,12 +27,12 @@
 #
 ##############################################################################
 
-from Common import Api
-from Common import Common
+from Koo.Common import Api
+from Koo.Common import Common
 from FormWidget import *
 from TreeWidget import *
 
-import Rpc
+from Koo import Rpc
 
 
 def createWindow(view_ids, model, res_id=False, domain=None,

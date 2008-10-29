@@ -26,18 +26,18 @@
 #
 ##############################################################################
 
-from Common import Common
-from Common import Api
+from Koo.Common import Common
+from Koo.Common import Api
 from many2one import ScreenDialog
-from Dialogs.SearchDialog import SearchDialog
+from Koo.Dialogs.SearchDialog import SearchDialog
 
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-import Rpc
-from Rpc import RpcProxy
+from Koo import Rpc
+from Koo.Rpc import RpcProxy
 
 # This widget requires some ugly hacks. Mainly clearing the text fields once it's been
 # modified and searched afterwards. This is due to the fact that the 'name' the server

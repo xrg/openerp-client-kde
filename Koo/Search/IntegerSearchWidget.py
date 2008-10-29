@@ -27,8 +27,8 @@
 #
 ##############################################################################
 
-from Common import Common
-from Common.Numeric import *
+from Koo.Common import Common
+from Koo.Common.Numeric import *
 
 from AbstractSearchWidget import *
 from PyQt4.QtGui import *

@@ -29,8 +29,8 @@
 import re
 import time
 import exceptions
-import Rpc
-from Rpc import RpcProxy
+from Koo import Rpc
+from Koo.Rpc import RpcProxy
 from Field import ToManyField
 import gettext
 import traceback

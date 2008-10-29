@@ -28,9 +28,9 @@
 ##############################################################################
 
 import gettext
-from Common import Common
+from Koo.Common import Common
 
-import Rpc
+from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *

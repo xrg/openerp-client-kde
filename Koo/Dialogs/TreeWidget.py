@@ -30,14 +30,14 @@
 import gettext
 from xml.parsers import expat
 
-from Common import Api
-from Common import Common
-from Common import Options
-from Common.ViewSettings import *
-import Rpc
+from Koo.Common import Api
+from Koo.Common import Common
+from Koo.Common import Options
+from Koo.Common.ViewSettings import *
+from Koo import Rpc
 
-from Model.KooModel import KooModel
-from Model.Group import *
+from Koo.Model.KooModel import KooModel
+from Koo.Model.Group import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

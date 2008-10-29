@@ -27,12 +27,12 @@
 #
 ##############################################################################
 
-from Model import KooModel
-from View.AbstractView import *
+from Koo.Model import KooModel
+from Koo.View.AbstractView import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common import Numeric
-import Rpc
+from Koo.Common import Numeric
+from Koo import Rpc
 
 class TinyTreeView(QTreeView):
 	

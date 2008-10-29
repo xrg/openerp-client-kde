@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Dialog</string>
+   <string>Progress...</string>
   </property>
   <widget class="QProgressBar" name="progressBar" >
    <property name="geometry" >

@@ -30,15 +30,15 @@ modules = {}
 errors = {}
 
 import locale
-from Common import Common
+from Koo.Common import Common
 
 from ChartView import *
 from ChartGraphicsView import *
 
 import sys
 
-from View.AbstractParser import *
-from View.Form.abstractformwidget import *
+from Koo.View.AbstractParser import *
+from Koo.View.Form.abstractformwidget import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

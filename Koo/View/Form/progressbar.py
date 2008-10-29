@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-from Common import Common
+from Koo.Common import Common
 
 from abstractformwidget import *
 from PyQt4.QtCore import *

@@ -30,7 +30,7 @@ import os
 import base64 
 import tempfile
 
-from Common import Common
+from Koo.Common import Common
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

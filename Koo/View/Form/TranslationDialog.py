@@ -29,9 +29,9 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-from Common import Common
+from Koo.Common import Common
 import copy
-import Rpc
+from Koo import Rpc
 
 class TranslationDialog( QDialog ):
 	LineEdit = 0

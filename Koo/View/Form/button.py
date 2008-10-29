@@ -28,9 +28,9 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from abstractformwidget import *
-from Common import Api
-from Common import Notifier
-from Common import Icons
+from Koo.Common import Api
+from Koo.Common import Notifier
+from Koo.Common import Icons
 
 class ButtonFormWidget( AbstractFormWidget ):
 	def __init__(self, parent, view, attributes) :

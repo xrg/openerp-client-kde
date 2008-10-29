@@ -38,13 +38,13 @@ if os.name == 'nt':
 	sys.path.append('.')
 
 from distutils.sysconfig import get_python_lib
-terp_path = "/".join([get_python_lib(), 'ktiny'])
+terp_path = "/".join([get_python_lib(), 'Koo'])
 sys.path.append(terp_path)
 
-from Common import Localization
+from Koo.Common import Localization
 Localization.initializeTranslations()
 
-from Common import Options
+from Koo.Common import Options
 
 
 for logger in Options.options['logging.logger'].split(','):
@@ -58,8 +58,6 @@ else:
 	logging.getLogger().setLevel(logging.ERROR)
 
 
-import modules
-
 imports={}
 
 from PyQt4.QtCore import *
@@ -71,10 +69,10 @@ try:
 	imports['dbus'] = True 
 except:
 	imports['dbus'] = False
-	print _("Module 'dbus' not available. Consider installing it so other applications can easily interact with KTiny.")
+	print _("Module 'dbus' not available. Consider installing it so other applications can easily interact with Koo.")
 imports['dbus'] = False
 
-from Common import Notifier, Common
+from Koo.Common import Notifier, Common
 
 # Declare notifier handlers for the whole application
 Notifier.errorHandler = Common.error
@@ -83,17 +81,17 @@ Notifier.concurrencyErrorHandler = Common.concurrencyError
 
 
 
-# The TinyERPInterface gives access from DBUS to local api.
+# The OpenErpInterface gives access from DBUS to local api.
 # To test it you may simply use the following command line: 
-# qdbus org.ktiny.Interface /TinyERP org.ktiny.Interface.call "gui.window" "create" "None, 'res.partner', False, [], 'form', mode='form,tree'"
+# qdbus org.openerp.Interface /OpenERP org.openerp.Interface.call "gui.window" "create" "None, 'res.partner', False, [], 'form', mode='form,tree'"
 #
 if imports['dbus']:
-	class TinyERPInterface(dbus.service.Object):
+	class OpenErpInterface(dbus.service.Object):
 		def __init__(self, path):
 			dbus.service.Object.__init__(self, dbus.SessionBus(), path)
 
 		# This function lets execute any given function of any local service. See example above.
-		@dbus.service.method(dbus_interface='org.tinyerp.Interface', in_signature='sss', out_signature='')
+		@dbus.service.method(dbus_interface='org.openerp.Interface', in_signature='sss', out_signature='')
 		def call(self, serviceName, function, parameters):
 			obj = service.LocalService(serviceName)
 			f = 'obj.%s(%s)' % (function, parameters) 
@@ -146,29 +144,29 @@ Localization.initializeQtTranslations()
 if imports['dbus']:
 	dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
 	sessionBus = dbus.SessionBus()
-	name = dbus.service.BusName("org.tinyerp.Interface", sessionBus )
-	example = TinyERPInterface('/TinyERP')
+	name = dbus.service.BusName("org.openerp.Interface", sessionBus )
+	example = OpenErpInterface('/OpenERP')
 
-from Dialogs.KooMainWindow import *
-from Dialogs.WindowService import *
-import modules.action
+from Koo.Dialogs.KooMainWindow import *
+from Koo.Dialogs.WindowService import *
+import Actions
 
 win = KooMainWindow()
 
-from Common import Api
+from Koo.Common import Api
 
-class KTinyApi(Api.TinyApi):
+class KooApi(Api.KooApi):
 	def execute(self, actionId, data={}, type=None, context={}):
-		modules.action.main.execute( actionId, data, type, context )
+		Actions.execute( actionId, data, type, context )
 
 	def executeReport(self, name, data={}, context={}):
-		return modules.action.main.executeReport( name, data, context )
+		return Actions.executeReport( name, data, context )
 
 	def executeAction(self, action, data={}, context={}):
-		modules.action.main.executeAction( action, data, context )
+		Actions.executeAction( action, data, context )
 		
 	def executeKeyword(self, keyword, data={}, context={}):
-		return modules.action.main.executeKeyword( keyword, data, context )
+		return Actions.executeKeyword( keyword, data, context )
 
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
 			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
@@ -178,7 +176,7 @@ class KTinyApi(Api.TinyApi):
 	def windowCreated(self, window):
 		win.addWindow( window )
 
-Api.instance = KTinyApi()
+Api.instance = KooApi()
 
 win.show()
 

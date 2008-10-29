@@ -26,10 +26,10 @@
 #
 ##############################################################################
 
-from Common import Common
-import Rpc
+from Koo.Common import Common
+from Koo import Rpc
 
-from View.AbstractView import *
+from Koo.View.AbstractView import *
 from abstractformwidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *

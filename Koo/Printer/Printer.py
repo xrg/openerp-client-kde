@@ -28,8 +28,8 @@
 ##############################################################################
 
 from PyQt4.QtCore  import *
-from Common import Notifier
-from Common import Options
+from Koo.Common import Notifier
+from Koo.Common import Options
 import os
 import base64
 import tempfile

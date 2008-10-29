@@ -34,7 +34,7 @@ import time
 import os
 import gettext
 
-import Rpc
+from Koo import Rpc
 
 import WindowService
 from PreferencesDialog import *
@@ -52,10 +52,10 @@ from ServerConfigurationDialog import *
 from LoginDialog import * 
 from AdministratorPasswordDialog import *
 
-from Common import Options
-from Common import Common
-from Common import Api
-from Common import ViewSettings
+from Koo.Common import Options
+from Koo.Common import Common
+from Koo.Common import Api
+from Koo.Common import ViewSettings
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):

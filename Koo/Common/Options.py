@@ -31,13 +31,13 @@ import ConfigParser, optparse
 import os
 import sys
 import gettext
-import Rpc
+from Koo import Rpc
 from PyQt4.QtCore import QDir
 
-def get_home_dir():
-	return str(QDir.toNativeSeparators(QDir.homePath()))
-
-class configmanager(object):
+## @brief The ConfigurationManager class handles Koo settings information. 
+# Those settings can be specified in the command line, koo.rc configuration file
+# or ktiny server module.
+class ConfigurationManager(object):
 	def __init__(self,fname=None):
 		self.options = {
 			'login.login': 'demo',
@@ -45,9 +45,10 @@ class configmanager(object):
 			'login.port': '8069',
 			'login.db': 'terp',
 			'login.protocol': 'http://',
-			'path.share': os.path.join(sys.prefix, 'share/ktiny/'),
-			'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/ktiny/'),
-			'path.ui': os.path.join(sys.prefix, 'share/ktiny/ui'), 
+			'login.secure': False,
+			'path.share': os.path.join(sys.prefix, 'share/Koo/'),
+			'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
+			'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
 			'tip.autostart': False,
 			'tip.position': 0,
 			'printer.preview': True,
@@ -73,7 +74,7 @@ class configmanager(object):
 		(opt, args) = parser.parse_args()
 
 
-		self.rcfile = fname or opt.config or os.environ.get('TERPRC') or os.path.join(get_home_dir(), '.ktinyrc')
+		self.rcfile = fname or opt.config or os.environ.get('TERPRC') or os.path.join(self.homeDirectory(), 'koo.rc')
 		self.load()
 
 		if opt.verbose:
@@ -85,6 +86,9 @@ class configmanager(object):
 		for arg in ('login', 'port', 'server'):
 			if getattr(opt, arg):
 				self.options['login.'+arg] = getattr(opt, arg)
+
+	def homeDirectory(self):
+		return str(QDir.toNativeSeparators(QDir.homePath()))
 
 	def save(self, fname = None):
 		try:
@@ -143,5 +147,5 @@ class configmanager(object):
 			return
 		self.options.update( settings )
 
-options = configmanager()
+options = ConfigurationManager()
 

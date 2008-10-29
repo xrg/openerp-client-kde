@@ -29,8 +29,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 from ServerConfigurationDialog import *
-from Common import Options
-import Rpc
+from Koo.Common import Options
+from Koo import Rpc
 
 class AdministratorPasswordDialog( QDialog ):
 	def __init__(self, parent=None):

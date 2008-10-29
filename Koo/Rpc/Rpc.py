@@ -31,7 +31,7 @@ import xmlrpclib
 import logging
 import socket
 import tiny_socket
-from Common import Notifier
+from Koo.Common import Notifier
 import traceback
 import copy
 
@@ -252,7 +252,7 @@ class AsynchronousSessionCall(QThread):
 # Typical usage of Session:
 #
 # \code
-# import Rpc
+# from Koo import Rpc
 # Rpc.session.login('http://admin:admin@localhost:8069', 'database')
 # attached = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'read', [1,2,3])
 # Rpc.session.logout()
@@ -288,7 +288,7 @@ class Session:
 	# 
 	# Example of usage:
 	# \code
-	# import Rpc
+	# from Koo import Rpc
 	# def returned(self, value):
 	# 	print value
 	# Rpc.session.login('http://admin:admin@localhost:8069', 'database')
@@ -441,11 +441,7 @@ class Session:
 		else:
 			return expression 
 
-print "CREATING NEW SESSION"
 session = Session()
-import traceback
-traceback.print_stack()
-print "session: ", session
 session.cache = ViewCache()
 
 ## The Database class handles queries that don't require a previous login, served by the db server object
@@ -477,6 +473,10 @@ class Database:
 
 database = Database()
 
+## @brief The RpcProxy class allows wrapping a server object only by giving it's name.
+# 
+# For example: 
+# obj = RpcProxy('ir.values')
 class RpcProxy(object):
 	def __init__(self, resource):
 		self.resource = resource

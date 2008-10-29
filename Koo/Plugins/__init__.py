@@ -28,7 +28,7 @@
 ##############################################################################
 
 from PyQt4.QtGui import *
-from Common import Common
+from Koo.Common import Common
 import re
 import os
 
@@ -55,7 +55,7 @@ class Plugins:
 		return plugs
 		
 
-	##@brief Shows the plugin selection dialog and executes the one selected
+	## @brief Shows the plugin selection dialog and executes the one selected.
 	@staticmethod
 	def showDialog(datas):
 		result = {}
@@ -74,6 +74,8 @@ class Plugins:
 			# Import the appropiate module and execute the action
 			exec('import %s' % plugins[sel[1]]['module'])
 			exec('%s(%s)' % ( plugins[sel[1]]['action'], datas ) )
+	
+	## @brief Executes the given plugin.
 	@staticmethod
 	def execute(plugin, model, id, ids):
 		plugins = Plugins.list()

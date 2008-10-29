@@ -28,9 +28,9 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-from Common import Common
-from Common import Calendar
-from View.AbstractView import *
+from Koo.Common import Common
+from Koo.Common import Calendar
+from Koo.View.AbstractView import *
 import math
 
 class GraphicsTaskItem( QGraphicsItemGroup ):

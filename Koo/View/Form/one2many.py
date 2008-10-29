@@ -32,9 +32,9 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 import gettext
-from Common import Common
+from Koo.Common import Common
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 
 class ScreenDialog( QDialog ):
 	def __init__(self, modelGroup, parent, model=None, attrs={}):

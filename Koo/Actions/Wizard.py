@@ -31,14 +31,15 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-import Rpc
-from Common import Api
-from Common import Common
-from Common import Icons
+from Koo import Rpc
+from Koo.Common import Api
+from Koo.Common import Common
+from Koo.Common import Icons
 
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 
+## @brief The WizardPage class shows a QDialog with the information givenin one wizard step.
 class WizardPage(QDialog):
 	def __init__(self, arch, fields, state, name, datas, parent=None):
 		QDialog.__init__(self, parent)
@@ -94,6 +95,7 @@ class WizardPage(QDialog):
 		self.result = (button, self.datas)
 		self.accept()
 
+## @brief The Wizard class shows a step by step wizard with the provided information.
 class Wizard( QObject ):
 	def __init__(self, action, datas, state='init', parent=None, context={}):
 		QObject.__init__(self, parent)
@@ -157,6 +159,7 @@ class Wizard( QObject ):
 			self.state = res['state']
 		self.step()
 
+## @brief Executes the wizard with the provided information.
 def execute(action, datas, state='init', parent=None, context={}):
 	w = Wizard(action, datas, state, parent, context)
 	w.step()

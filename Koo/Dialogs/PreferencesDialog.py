@@ -32,13 +32,13 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-import Rpc
+from Koo import Rpc
 
-from Common import Common
+from Koo.Common import Common
 import copy
 
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 
 class PreferencesDialog(QDialog):
 	def __init__(self, model, id, preferences, parent=None):

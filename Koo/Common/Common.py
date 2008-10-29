@@ -30,7 +30,7 @@
 import gettext
 
 import Api
-import Rpc
+from Koo import Rpc
 import os
 import sys
 import logging
@@ -122,7 +122,7 @@ class TipOfTheDayDialog( QDialog ):
 		self.showTip()
 	
 	def showTip(self):
-		tips = file(kPath('ktinytips.txt')).read().split('---')
+		tips = file(searchFile('kootips.txt')).read().split('---')
 		tip = tips[self.number % len(tips)]
 		del tips
 		self.uiTip.setText(tip)
@@ -163,12 +163,14 @@ def support():
 	dialog = SupportDialog()
 	dialog.exec_()
 
-# Function used by the notifier in the KTiny application
+## @brief Shows a warning dialog. Function used by the notifier in the Koo application.
 def warning(title, message):
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	QMessageBox.warning(None, title, message)
 	QApplication.restoreOverrideCursor()
 
+## @breif The ConcurrencyErrorDialog class provices a Dialog used when a 
+# concurrency error is received from the server.
 class ConcurrencyErrorDialog(QMessageBox):
 	def __init__(self, parent=None):
 		QMessageBox.__init__(self, parent)	
@@ -179,6 +181,7 @@ class ConcurrencyErrorDialog(QMessageBox):
 		self.addButton( _('Compare'), QMessageBox.ActionRole )
 		self.addButton( _('Do not save'), QMessageBox.RejectRole )
 	
+## @brief Shows the ConcurrencyErrorDialog. Function used by the notifier in the Koo application.
 def concurrencyError(model, id, context):
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	dialog = ConcurrencyErrorDialog()
@@ -211,7 +214,7 @@ class ErrorDialog( QDialog ):
 		QDialog.done(self, r)
 
 
-## @brief Shows the ErrorDialog 
+## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
 def error(title, message, details=''):
 	log = logging.getLogger('common.message')
 	log.error('MSG %s: %s' % (unicode(message),details))

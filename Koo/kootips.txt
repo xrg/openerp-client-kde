@@ -1,3 +1,8 @@
+<b>Welcome to OpenERP!</b>
+
+If it is your first install of Tiny ERP, we suggest you to read the first five tips.
+Click on the 'Next Tip' button to continue...
+---
 <p>
 <b>Integrated calculator</b>
 </p>
@@ -17,4 +22,7 @@ Did you know that you can easily export TinyERP information? Go to Form and then
 <b>Full text search</b>
 ---
 <b>Attachments</b>
+---
+<b>First connection:</b>
 
+You can use the shortcuts on the left or use the complete menu to expand sections. The demo database is an enterprise that builds computers on demand.

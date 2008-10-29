@@ -29,9 +29,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import ServerConfigurationDialog
-from Common import Common
-from Common import Options
-import Rpc
+from Koo.Common import Common
+from Koo.Common import Options
+from Koo import Rpc
 import re
 
 class CreationOkDialog( QDialog ):
@@ -99,14 +99,15 @@ class ProgressBar( QDialog ):
 			self.progressBar.setMaximum( 100 )
 			self.progressBar.setValue(100)
 			self.timer.stop()
-			pwdlst = '\n'.join(map(lambda x: '    - %s: %s / %s' % (x['name'],x['login'],x['password']), users))
+			pwdlst = '\n'.join(['    - %s: %s / %s' % (x['name'],x['login'],x['password']) for x in users])
 			dialog = CreationOkDialog( pwdlst, self )
 			r = dialog.exec_()
 			# Propagate the result of the dialog. If the user wants to connect return
 			# Accepted, otherwise return Rejected
 			self.done( r )
 
-
+## @brief The DatabaseCreationDialog class shows a dialog to create a new database 
+# in the OpenERP server.
 class DatabaseCreationDialog( QDialog ):
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
@@ -156,7 +157,7 @@ class DatabaseCreationDialog( QDialog ):
 		passwd = unicode( self.uiPassword.text() )
 		url = unicode( self.uiServer.text() )
 
-		progress = ProgressBar()
+		progress = ProgressBar( self )
 		progress.url = url
 		progress.databaseName = databaseName
 		progress.demoData = demoData

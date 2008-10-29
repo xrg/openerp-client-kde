@@ -26,7 +26,7 @@
 #
 ##############################################################################
 
-from Common import Common
+from Koo.Common import Common
 
 from TranslationDialog import *
 from abstractformwidget import *

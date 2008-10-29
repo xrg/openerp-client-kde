@@ -29,8 +29,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import ServerConfigurationDialog
-from Common import Common
-from Common import Options
+from Koo.Common import Common
+from Koo.Common import Options
 
 class DatabaseDialog( QDialog ):
 	# Database chooser type: 

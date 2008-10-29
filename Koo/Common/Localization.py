@@ -27,11 +27,12 @@
 
 import Paths
 
+## @brief Initializes gettext translation system.
 def initializeTranslations():
 	import locale
 	import gettext
 
-	name = 'ktiny'
+	name = 'koo'
 	directory = Paths.searchFile( 'l10n' )
 
 	locale.setlocale(locale.LC_ALL, '')
@@ -39,6 +40,7 @@ def initializeTranslations():
 	gettext.textdomain(name)
 	gettext.install(name, directory, unicode=1)
 
+## @brief Initializes Qt translation system.
 def initializeQtTranslations():
 	from PyQt4.QtCore import QTranslator, QCoreApplication, QLocale
 	translator = QTranslator( QCoreApplication.instance() )

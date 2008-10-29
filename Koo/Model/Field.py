@@ -27,8 +27,8 @@
 ##############################################################################
 
 from PyQt4.QtCore import *
-from Rpc import RpcProxy
-import Rpc
+from Koo.Rpc import RpcProxy
+from Koo import Rpc
 
 try:
 	from sets import Set as set
@@ -190,7 +190,7 @@ class ManyToOneField(StringField):
 # parent.
 class ToManyField(StringField):
 	def create(self, model):
-		from Model.Group import ModelRecordGroup
+		from Koo.Model.Group import ModelRecordGroup
 		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
 		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		return mod
@@ -205,7 +205,7 @@ class ToManyField(StringField):
 		pass
 
 	def set(self, model, value, test_state=False, modified=False):
-		from Model.Group import ModelRecordGroup
+		from Koo.Model.Group import ModelRecordGroup
 		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
 		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		mod.setDomain( [('id','in',value)] )
@@ -217,7 +217,7 @@ class ToManyField(StringField):
 		self.changed(model)
 
 	def setDefault(self, model, value):
-		from Model.Group import ModelRecordGroup
+		from Koo.Model.Group import ModelRecordGroup
 		fields = {}
 		if value and len(value):
 			context = self.context(model)

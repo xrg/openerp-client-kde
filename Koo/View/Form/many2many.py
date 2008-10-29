@@ -26,19 +26,19 @@
 #
 ##############################################################################
 
-from Common import Common
+from Koo.Common import Common
 
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 
-import Rpc
+from Koo import Rpc
 
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-from Dialogs.SearchDialog import SearchDialog
+from Koo.Dialogs.SearchDialog import SearchDialog
 
 class ManyToManyFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):

@@ -28,14 +28,14 @@
 
 import gettext
 
-from Common import Api
-from Common import Common
+from Koo.Common import Api
+from Koo.Common import Common
 
 from Screen import Screen
-from Model.Group import ModelRecordGroup
+from Koo.Model.Group import ModelRecordGroup
 
-from Dialogs.SearchDialog import SearchDialog
-import Rpc
+from Koo.Dialogs.SearchDialog import SearchDialog
+from Koo import Rpc
 
 from abstractformwidget import *
 from PyQt4.QtCore import *

@@ -27,7 +27,7 @@
 ##############################################################################
 
 from abstractformwidget import *
-from Common.Numeric import *
+from Koo.Common.Numeric import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 

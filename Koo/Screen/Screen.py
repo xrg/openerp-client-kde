@@ -28,22 +28,22 @@
 
 import xml.dom.minidom
 
-from Rpc import RpcProxy
-import Rpc
+from Koo.Rpc import RpcProxy
+from Koo import Rpc
 
-from Model.Group import ModelRecordGroup
-from Model.Record import ModelRecord
-from View.ViewFactory import ViewFactory
+from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Record import ModelRecord
+from Koo.View.ViewFactory import ViewFactory
 
-from Common import Common
-from Common import Options
-from Common.ViewSettings import *
+from Koo.Common import Common
+from Koo.Common import Options
+from Koo.Common.ViewSettings import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 import Search
-from Plugins import *
+from Koo.Plugins import *
 from ToolBar import ToolBar
 from Action import *
 from ViewQueue import *

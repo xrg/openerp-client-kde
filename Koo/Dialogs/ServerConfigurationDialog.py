@@ -29,9 +29,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 import re
-from Common import Common
-from Common import Options
-import Rpc
+from Koo.Common import Common
+from Koo.Common import Options
+from Koo import Rpc
 
 # Searches the list of available databases in the server
 def refreshDatabaseList(db_widget, url, dbtoload=None):

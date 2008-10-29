@@ -28,9 +28,9 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-from Common import Icons
-from Common import Calendar
-from Common import Numeric
+from Koo.Common import Icons
+from Koo.Common import Calendar
+from Koo.Common import Numeric
 
 #
 # We store the pointer to the Tiny ModelGroup on QModelIndex.internalPointer
@@ -94,9 +94,11 @@ class KooModel(QAbstractItemModel):
 		self.emit( SIGNAL('modelReset()') )
 		self.updateVisibleFields()
 
+	## @brief Sets the model as read-only.
 	def setReadOnly(self, value):
 		self._readOnly = value
 
+	## @brief Returns whether the model is read-only or read-write.
 	def readOnly(self):
 		return self._readOnly
 

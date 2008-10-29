@@ -29,13 +29,14 @@
 
 import os, time, base64, datetime
 
-import Rpc
+from Koo import Rpc
 
-import wizard
-from Printer import *
+import Wizard
+from Koo.Printer import *
 
-from Common import Api
-from Common import Common
+from Koo.Common import Api
+from Koo.Common import Common
+from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 class ExecuteReportThread(QThread):
@@ -78,6 +79,7 @@ class ExecuteReportThread(QThread):
 		except Rpc.RpcException, e:
 			self.emit( SIGNAL('error'), ( _('Error: ') + unicode(e.type), e.message, e.data ) )
 		
+## @brief Executes the given report.
 def executeReport(name, data, context={}):
 	datas = data.copy()
 	ids = datas['ids']
@@ -108,6 +110,7 @@ def executeReport(name, data, context={}):
 		Common.error(_('Error: ')+str(e.type), e.message, e.data)
 	return True
 
+## @brief Executes the given action id (it could be a report, wizard, etc).
 def execute(act_id, datas, type=None, context={}):
 	ctx = Rpc.session.context.copy()
 	ctx.update(context)
@@ -119,6 +122,7 @@ def execute(act_id, datas, type=None, context={}):
 	res = Rpc.session.execute('/object', 'execute', type, 'read', [act_id], False, ctx)[0]
 	Api.instance.executeAction(res,datas)
 
+## @brief Executes the given action (it could be a report, wizard, etc).
 def executeAction(action, datas, context={}):
 	if 'type' not in action:
 		return
@@ -166,7 +170,7 @@ def executeAction(action, datas, context={}):
 		if 'window' in datas:
 			win=datas['window']
 			del datas['window']
-		wizard.execute(action['wiz_name'], datas, parent=win, context=context)
+		Wizard.execute(action['wiz_name'], datas, parent=win, context=context)
 
 	elif action['type']=='ir.actions.report.custom':
 		if 'window' in datas:
@@ -181,6 +185,7 @@ def executeAction(action, datas, context={}):
 			del datas['window']
 		Api.instance.executeReport(action['report_name'], datas)
 
+## @brief Executes the given keyword action (it could be a report, wizard, etc).
 def executeKeyword(keyword, data={}, context={}):
 	actions = None
 	if 'id' in data:
@@ -203,6 +208,6 @@ def executeKeyword(keyword, data={}, context={}):
 		Api.instance.executeAction(action, data, context=context)
 		return (name, action)
 	elif not len(keyact):
-		QMessageBox.information( None, '', _('No action defined!'))
+		QMessageBox.information( None, _('Action'), _('No action defined!'))
 	return False
 

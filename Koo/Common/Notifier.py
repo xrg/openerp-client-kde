@@ -63,6 +63,7 @@ def notifyWarning(title, message):
 	if warningHandler:
 		warningHandler(title, message)
 
+## @brief Calls the function that has been registered to handle concurrency errors.
 def notifyConcurrencyError(model, id, context):
 	if concurrencyErrorHandler:
 		return concurrencyErrorHandler(model, id, context)

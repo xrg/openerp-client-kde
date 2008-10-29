@@ -26,7 +26,7 @@
 ##############################################################################
 
 from SvgView import SvgView
-from View.AbstractParser import *
+from Koo.View.AbstractParser import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 

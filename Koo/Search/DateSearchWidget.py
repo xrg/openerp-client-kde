@@ -26,9 +26,9 @@
 #
 ##############################################################################
 
-from Common import Common
+from Koo.Common import Common
 
-from Common.Calendar import *
+from Koo.Common.Calendar import *
 from AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *

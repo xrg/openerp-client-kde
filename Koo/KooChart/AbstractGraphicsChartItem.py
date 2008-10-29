@@ -39,6 +39,8 @@ def flatten(x):
 			result.append(el)
 	return result
 
+## @brief The ColorManager class encapsulates various color management tasks such 
+# as providing a color list to use in charts as background and foreground colors.
 class ColorManager:
 	colorList = [ QColor('#%02x%02x%02x' % (25+((r+10)%11)*23,5+((g+1)%11)*20,25+((b+4)%11)*23) ) for r in range(11) for g in range(11) for b in range(11) ]
 
@@ -81,7 +83,7 @@ class ColorManager:
 		else:
 			return []
 
-	
+## @brief The LegendItem class provides a QGraphicsItem to display a chart legend.	
 class LegendItem(QGraphicsItemGroup):
 	# Parent must be a Chart
 	def __init__(self, parent):
@@ -211,8 +213,9 @@ class LegendItem(QGraphicsItemGroup):
 		self.setPos( maxWidthPosition + maxWidth / 2 - self.boundingRect().width() / 2, self.pos().y() )
 
 
+## @brief The AbstractGraphicsChartItem class is the base class for different chart types
+# such as Bar and Pie.
 class AbstractGraphicsChartItem(QGraphicsItemGroup):
-	colorList = [ QColor('#%02x%02x%02x' % (25+((r+10)%11)*23,5+((g+1)%11)*20,25+((b+4)%11)*23) ) for r in range(11) for g in range(11) for b in range(11) ]
 
 	def __init__(self, parent=None):
 		QGraphicsItemGroup.__init__(self, parent)
