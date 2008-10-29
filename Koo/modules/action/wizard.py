@@ -36,7 +36,7 @@ from Common import Api
 from Common import Common
 from Common import Icons
 
-import Screen
+from Screen import Screen
 from Model.Group import ModelRecordGroup
 
 class WizardPage(QDialog):
@@ -104,7 +104,7 @@ class Wizard( QObject ):
 		self.state = state
 		self.wizardId = Rpc.session.execute('/wizard', 'create', self.action)
 		self.finished = False
-		self.progress = Common.ProgressDialog()
+		self.progress = Common.ProgressDialog( QApplication.activeWindow() )
 
 	def step(self):
 		if self.state == 'end':

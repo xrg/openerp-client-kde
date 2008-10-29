@@ -199,9 +199,9 @@ class AsynchronousSessionCall(QThread):
 				# Note that if there's an error or warning
 				# callback is called anyway with value None
 				if self.error:
-					notifier.notifyError(*self.error)
+					Notifier.notifyError(*self.error)
 				elif self.warning:
-					notifier.notifyWarning(*self.warning)
+					Notifier.notifyWarning(*self.warning)
 				else: 
 					raise self.exception
 			self.emit( SIGNAL('exception(PyQt_PyObject)'), self.exception )
@@ -338,36 +338,36 @@ class Session:
 		try:
 			return self.call(obj, method, *args)
 		except socket.error, err:
-			notifier.notifyError(_('Connection Refused'), unicode(err), unicode(err) )
+			Notifier.notifyError(_('Connection Refused'), unicode(err), unicode(err) )
 		except xmlrpclib.Fault, err:
 			a = RpcException(err.faultCode, err.faultString)
 			if a.type in ('warning','UserError'):
 				if a.message in ('ConcurrencyException') and len(args) > 4:
-					if notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
 						if 'read_delta' in args[4]:
 							del args[4]['read_delta']
 						return self.execute(obj, method, *args)
 				else:
-					notifier.notifyWarning(a.message, a.data )
+					Notifier.notifyWarning(a.message, a.data )
 			else:
-				notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
+				Notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
 		except tiny_socket.Myexception, err:
 			faultCode = unicode( err.faultCode, 'utf-8' )
 			faultString = unicode( err.faultString, 'utf-8' )
 			a = RpcException( faultCode, faultString )
 			if a.type in ('warning','UserError'):
 				if a.message in ('ConcurrencyException') and len(args) > 4:
-					if notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
 						if 'read_delta' in args[4]:
 							del args[4]['read_delta']
 						return self.execute(obj, method, *args)
 				else:
-					notifier.notifyWarning(a.message, a.data )
+					Notifier.notifyWarning(a.message, a.data )
 			else:
-				notifier.notifyError(_('Application Error'), _('View details'), faultString)
+				Notifier.notifyError(_('Application Error'), _('View details'), faultString)
 		except Exception, err:
 			faultString = unicode( err )
-			notifier.notifyError(_('Application Error'), _('View details'), faultString)
+			Notifier.notifyError(_('Application Error'), _('View details'), faultString)
 			
 
 	## @brief Logs in the given server with specified name and password.
@@ -441,7 +441,11 @@ class Session:
 		else:
 			return expression 
 
+print "CREATING NEW SESSION"
 session = Session()
+import traceback
+traceback.print_stack()
+print "session: ", session
 session.cache = ViewCache()
 
 ## The Database class handles queries that don't require a previous login, served by the db server object
@@ -468,7 +472,7 @@ class Database:
 		try:
 			res = self.call(url, method, *args)
 		except socket.error, msg:
-			notifier.notifyWarning('', _('Could not contact server!') )
+			Notifier.notifyWarning('', _('Could not contact server!') )
 		return res
 
 database = Database()

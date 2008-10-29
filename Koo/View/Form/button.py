@@ -68,10 +68,10 @@ class ButtonFormWidget( AbstractFormWidget ):
 					action_id = int(self.attrs['name'])
 					Api.instance.execute(action_id, {'model':screen.name, 'id': id, 'ids': [id]})
 				else:
-					notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
+					Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
 				screen.reload()
 		else:
-			notifier.notifyWarning('',_('Invalid Form, correct red fields!'))
+			Notifier.notifyWarning('',_('Invalid Form, correct red fields!'))
 			screen.display()
 
 	def setReadOnly(self, value):

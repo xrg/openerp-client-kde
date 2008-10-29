@@ -70,7 +70,7 @@ class FormParser(AbstractParser):
 			attrs = Common.nodeAttributes(node)
 			if node.localName=='image':
 				icon = QLabel(container)
-				icon.setPixmap( icons.kdePixmap(attrs['name']) ) 
+				icon.setPixmap( Icons.kdePixmap(attrs['name']) ) 
 				container.addWidget(icon, attrs)
 
 			elif node.localName=='separator':

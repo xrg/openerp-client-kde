@@ -70,7 +70,7 @@ class Printer(object):
 	@staticmethod
 	def printData(data):
 		if 'result' not in data:
-			notifier.notifyWarning( _('Report error'), _('There was an error trying to create the report.') )
+			Notifier.notifyWarning( _('Report error'), _('There was an error trying to create the report.') )
 			return
 			
 		if data.get('code','normal')=='zlib':
