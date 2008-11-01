@@ -106,7 +106,9 @@ class ir_attachment(osv.osv):
 		except:
 			tags = []
 		if len(tags):
-			metaInfo = unicode( self.getText(tags[0].childNodes).strip(), errors='ignore' )
+			metaInfo = self.getText(tags[0].childNodes).strip()
+			if not isinstance( metaInfo, unicode ):
+				metaInfo = unicode( self.getText(tags[0].childNodes).strip(), errors='ignore' )
 		else:
 			# We couldn't get text information with strigi, let's try if it's an image
 			os.spawnlp(os.P_WAIT, 'convert', 'convert', '-type', 'grayscale', '-depth', '8', dir + '/object.tmp', dir + '/object.tif' )
@@ -126,7 +128,6 @@ class ir_attachment(osv.osv):
 	def updateMetaInfo(self, cr, uid, ids):
 		for attachment in self.browse(cr, uid, ids):
 			metainfo = self.extractMetaInfo( attachment.datas ) or ''
-			print "Meta info for object %s is '%s'" % (attachment.name, metainfo)
 			# We use SQL directly to update metainfo so last modification time doesn't change.
 			# This avoids messages in the GUI telling that the object has been modified in the
 			# meanwhile. After all, the field is readonly in the GUI so no conflicts can occur.
