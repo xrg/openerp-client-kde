@@ -202,14 +202,21 @@ class KooMainWindow(QMainWindow):
 			self.showNormal()
 
 	def openPartnersTab(self):
+		if not self.isVisible():
+			self.showNormal()
 		Api.instance.createWindow(None, 'res.partner', mode='tree')
+
+	def openProductsTab(self):
 		if not self.isVisible():
 			self.showNormal()
 
-	def openProductsTab(self):
+		model =	Rpc.session.execute('/object', 'execute', 'ir.model', 'search', [('model','=','product.product')], Rpc.session.context )
+		if not model:
+			QMessageBox.information(self, _('Products'), _('Products module is not installed.') )
+			return
+
 		Api.instance.createWindow(None, 'product.product', mode='tree')
-		if not self.isVisible():
-			self.showNormal()
+			
 
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
@@ -281,16 +288,22 @@ class KooMainWindow(QMainWindow):
 		Rpc.session.reloadContext()
 
 	def newRequest(self):
+		if not self.isVisible():
+			self.showNormal()
 		Api.instance.createWindow(None, 'res.request', False, 
 			[('act_from','=',Rpc.session.uid)], 'form', mode='form,tree')
 
 	## Opens a new tab with requests pending for the user to resolve
 	def pendingRequests(self):
+		if not self.isVisible():
+			self.showNormal()
 		Api.instance.createWindow(False, 'res.request', False, 
 			[('act_to','=',Rpc.session.uid)], 'form', mode='tree,form')
 
 	## Opens a new tab with all unsolved requests posted by the user
 	def waitingRequests(self):
+		if not self.isVisible():
+			self.showNormal()
 		Api.instance.createWindow(False, 'res.request', False, 
 			[('act_from','=',Rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
 
