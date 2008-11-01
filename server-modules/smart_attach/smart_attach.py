@@ -46,7 +46,7 @@ class ir_attachment(osv.osv):
 	_name = 'ir.attachment'
 	_inherit = 'ir.attachment'
 	_columns = {
-		'metainfo': fields.text('Meta Information')
+		'metainfo': fields.text('Meta Information', help='Text automatically extracted from the attached file.')
 	}
 
 	# This is standard create but extracting meta information first
