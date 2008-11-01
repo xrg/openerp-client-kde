@@ -65,7 +65,7 @@ class FormContainer( QWidget ):
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 			if helpText:
 				label.setText( unicode( '<small><a href="help">?</a></small> ' + labelText ) )
-				label.setToolTip( helpText )
+				label.setToolTip( '<b>%s</b><br/>%s' % (labelText, helpText) )
 				label.setWhatsThis( helpText )
 				self.connect( label, SIGNAL('linkActivated(QString)'), self.showHelp )
 
