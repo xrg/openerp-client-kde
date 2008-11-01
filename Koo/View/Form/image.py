@@ -67,6 +67,7 @@ class ImageFormWidget(AbstractFormWidget):
 		self.connect( self.pushLoad, SIGNAL('clicked()'), self.loadImage )
 		self.connect( self.pushSave, SIGNAL('clicked()'), self.saveImage )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self.removeImage )
+		self.pushSave.setEnabled( False )
 
 	def setReadOnly(self, ro):
 		self.pushLoad.setEnabled( not ro )
@@ -142,11 +143,15 @@ class ImageFormWidget(AbstractFormWidget):
 
 	def clear(self):
 		self.uiImage.setText( '(load an image)' )
+		self.image = None
 
 	def showValue(self):
 		self.image = self.model.value(self.name)
 		if self.image:
 			self.image = base64.decodestring(self.image)
+			self.pushSave.setEnabled( True )
+		else:
+			self.pushSave.setEnabled( False )
 		self.update()
 
 	def store(self):
