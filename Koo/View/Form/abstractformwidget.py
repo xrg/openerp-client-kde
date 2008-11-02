@@ -124,8 +124,7 @@ class AbstractFormWidget(QWidget):
 	# It's called when the widget has to be Read-Only. When implementing a
 	# new widget, please use setEnabled( not ro ) instead of read-only. The
 	# gray color gives information to the user so she knows the field can't
-
-# be modified
+	# be modified
 	def setReadOnly(self, ro):
 		pass
 

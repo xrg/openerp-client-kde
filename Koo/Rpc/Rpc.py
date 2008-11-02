@@ -32,7 +32,6 @@ import logging
 import socket
 import tiny_socket
 from Koo.Common import Notifier
-import traceback
 import copy
 
 class RpcException(Exception):
@@ -109,10 +108,14 @@ class XmlRpcConnection(Connection):
 	def call(self, obj, method, *args ):
 		remote = xmlrpclib.ServerProxy(self.url + obj)
 		function = getattr(remote, method)
+		#import traceback
+		#print "Traceback:\n%s\n" % ''.join( traceback.format_stack() )
+		#print "Call: %s.%s%s" % (obj, method, args)
 		if self.authorized:
 			result = function(self.databaseName, self.uid, self.password, *args)
 		else:
 			result = function( *args )
+		#print "Result: %s\n==================================================\n\n\n" % result
 		return result
 
 ## Creates an instance of the appropiate Connection class (whether 
@@ -418,11 +421,11 @@ class Session:
 			if c[2]:
 				self.context[c[1]] = c[2]
 
-	## Returns whether the login function has been called and was successfull
+	## @brief Returns whether the login function has been called and was successfull
 	def logged(self):
 		return self.open
 
-	## Logs out of the server.
+	## @brief Logs out of the server.
 	def logout(self):
 		if self.open:
 			self.open = False
@@ -432,7 +435,7 @@ class Session:
 			if self.cache:
 				self.cache.clear()
 
-	## Uses eval to evaluate the expression, using the defined context
+	## @brief Uses eval to evaluate the expression, using the defined context
 	# plus the appropiate 'uid' in it.
 	def evaluateExpression(self, expression, context={}):
 		context['uid'] = self.uid
@@ -444,9 +447,9 @@ class Session:
 session = Session()
 session.cache = ViewCache()
 
-## The Database class handles queries that don't require a previous login, served by the db server object
+## @brief The Database class handles queries that don't require a previous login, served by the db server object
 class Database:
-	## Obtains the list of available databases from the given URL. None if there 
+	## @brief Obtains the list of available databases from the given URL. None if there 
 	# was an error trying to fetch the list.
 	def list(self, url):
 		try:
@@ -461,8 +464,8 @@ class Database:
 		con = createConnection( url )
 		return con.call( '/db', method, *args )
 
-	## Same as call() but uses the notify mechanism to notify 
-	#  exceptions.
+	## @brief Same as call() but uses the notify mechanism to notify 
+	# exceptions.
 	def execute(self, url, method, *args):
 		res = False
 		try:

@@ -74,11 +74,11 @@ class ModelList(list):
 		if not self.lock_signal:
 			self.recordGroup.emit(SIGNAL('recordChanged(QString,int)'), 'record-changed', key)
 
-## @brief The ModelRecordGroup class enables manages a list of objects (models).
+## @brief The ModelRecordGroup class manages a list of records (models).
 # 
 # Provides functions for loading, storing and creating new objects of the same type.
 # The 'fields' property stores a dictionary of dictionaries, each of which contains 
-# function about a field. This information includes the data type ('type'), its name
+# information about a field. This information includes the data type ('type'), its name
 # ('name') and other attributes. The 'mfields' property stores the classes responsible
 # for managing the values which are finally stored on the 'values' dictionary in the
 # Model
@@ -89,14 +89,23 @@ class ModelList(list):
 # are considered in the sorting. SortAllItems, sorts items in the server so all items
 # are considered. Although this would cost a lot when there are thousands of items, 
 # only some of them are loaded and the rest are loaded on demand.
+#
+# Note that by default the group will handle (and eventually load) all records that match 
+# the conditions imposed by 'domain' and 'filter'. Those are empty by default so creating 
+# ModelRecordGroup('res.parnter') and iterating through it's items will return all partners
+# in the database. If you want to ensure that the group is kept completely empty, you can
+# call makeEmpty() which is equivalent to calling setFilter() with a filter that no records
+# match, but without the overhead of asking the server.
 class ModelRecordGroup(QObject):
 
 	SortVisibleItems = 1
 	SortAllItems = 2
 
-	# If fields is None, all fields are loaded. This means an extra query (fields_get) to the server. Use with care.
-	# If you don't know the numbers of fields you'll use, but want some ids to be loaded use fields={}
-	# parent is only used if this ModelRecordGroup serves as a relation to another model. Otherwise it's None.
+	## @brief Creates a new ModelRecordGroup object.
+	# @param resource Name of the model to load. Such as 'res.partner'.
+	# @param fields Dictionary with the fields to load. This value typically comes from the server.
+	# @param ids Record identifiers to load in the group.
+	# @param parent Only used if this ModelRecordGroup serves as a relation to another model. Otherwise it's None.
 	def __init__(self, resource, fields = None, ids=[], parent=None, context={}):
 		QObject.__init__(self)
 		self.parent = parent
@@ -120,6 +129,7 @@ class ModelRecordGroup(QObject):
 		self.updated = False
 		self._domain = []
 		self._filter = []
+		self._empty = False
 
 		#self._sortMode = self.SortVisibleItems
 		if Options.options['sort_mode'] == 'visible_items':
@@ -132,7 +142,7 @@ class ModelRecordGroup(QObject):
 		self.on_write = ''
 
 
-	## @brief Creates the entries in 'mfields' for each key of the 'fkeys' list.
+	# Creates the entries in 'mfields' for each key of the 'fkeys' list.
 	def mfields_load(self, fkeys):
 		for fname in fkeys:
 			fvalue = self.fields[fname]
@@ -396,6 +406,7 @@ class ModelRecordGroup(QObject):
 			for mod in new:
 				mod.setDefaults(values)
 
+	## @brief Ensures all records in the group are loaded.
 	def ensureAllLoaded(self):
 		ids = [x.id for x in self.models if not x._loaded]
 		c = Rpc.session.context.copy()
@@ -422,13 +433,14 @@ class ModelRecordGroup(QObject):
 				return model
 	__getitem__ = modelById
 
+	## @brief Returns the model at the specified row number.
 	def modelByRow(self, row):
 		model = self.models[row]
 		if model._loaded == False:
 			self.ensureModelLoaded(model)
 		return model
 
-	# Returns whether model is in the list of LOADED models
+	## @brief Returns whether model is in the list of LOADED models
 	# If we use 'model in model_group' then it will try to
 	# load all models and if one of the models has id False
 	# an error will be fired.
@@ -442,6 +454,8 @@ class ModelRecordGroup(QObject):
 			if model.id == id:
 				return model
 
+	## @brief Checks whether the specified model is fully loaded and loads
+	# it if necessary.
 	def ensureModelLoaded(self, model):
 		if model._loaded:
 			return 
@@ -463,23 +477,40 @@ class ModelRecordGroup(QObject):
 			id = v['id']
 			self.recordById(id).set(v, signal=False)
 
+	## @brief Allows setting the domain for this group of records.
 	def setDomain(self, value):
 		if value == None:
 			self._domain = []
 		else:
 			self._domain = value
+		self._empty = False
 	
+	## @brief Returns the current domain.
 	def domain(self):
 		return self._domain
 
+	## @brief Allows setting a filter for this group of records.
+	#
+	# The filter is conatenated to the domain to further restrict the records of
+	# the group.
 	def setFilter(self, value):
 		if value == None:
 			self._filter = []
 		else:
 			self._filter = value
+		self._empty = False
 	
+	## @brief Returns the current filter.
 	def filter(self):
 		return self._filter
+
+	## @brief Makes the group completely empty. It's like applying a filter that
+	# ensures that no record is loaded but without the need of quering the server.
+	#
+	# Calling setFilter() or setDomain() after this function will clear the empty flag.
+	def makeEmpty(self):
+		self._empty = True
+		self.clear()
 
 	## @brief Reload the model group with current selected sort field, order, domain and filter
 	def update(self):
@@ -491,11 +522,14 @@ class ModelRecordGroup(QObject):
 
 	## @brief Sorts the model by the given field name.
 	def sort(self, field, order):
+		if self._empty:
+			return
 		if self._sortMode == self.SortAllItems:
 			self.sortAll( field, order )
 		else:
 			self.sortVisible( field, order )
 
+	# Sorts the models in the group using ALL records in the database
 	def sortAll(self, field, order):
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return
@@ -559,6 +593,7 @@ class ModelRecordGroup(QObject):
 		# The load function will be in charge of loading and sorting elements
 		self.load( ids )
 
+	# Sorts the records of the group taking into account only loaded fields.
 	def sortVisible(self, field, order):
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return

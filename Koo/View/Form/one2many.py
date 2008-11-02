@@ -89,8 +89,11 @@ class OneToManyFormWidget(AbstractFormWidget):
 		self.connect( self.pushForward, SIGNAL( "clicked()"),self.next )
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
+		group = ModelRecordGroup( attrs['relation'] )
+		group.makeEmpty()
+
 		self.screen = Screen( self )
-		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
+		self.screen.setModelGroup( group )
 		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
 		self.screen.setAddAfterNew( True )
