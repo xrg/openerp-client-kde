@@ -180,6 +180,21 @@ Api.instance = KooApi()
 
 win.show()
 
+# The DebugEventFilter class has been used to find a problem with an invisible
+# widget that was created, not inserted in any layout and that didn't allow to 
+# click widgets below it. I'm leaving the code by now as it might be useful in the
+# future. Simply uncommenting the installEventFilter line will do.
+class DebugEventFilter(QObject):
+	def __init__(self, parent=None):
+		QObject.__init__(self, parent)
+		
+	def eventFilter(self, obj, event):
+		print "EVENT %d THROWN ON OBJECT '%s' OF TYPE '%s'" % ( event.type(), unicode(obj.objectName() ), unicode(obj.staticMetaObject.className()) )
+		return QObject.eventFilter( self, obj, event )
+		
+
+#app.installEventFilter( DebugEventFilter(win) )
+
 if Options.options.rcexist:
 	if Options.options['tip.autostart']:
 		dialog = Common.TipOfTheDayDialog()

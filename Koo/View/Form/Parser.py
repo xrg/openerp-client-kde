@@ -126,7 +126,11 @@ class FormParser(AbstractParser):
 				
 				container.addWidget(tab, attrs)
 				
-				_ , on_write = self.parse(node, fields, tab)
+				# We pass a container because othewise a new container would 
+				# be created by parse() and we don't want that because the tab
+				# itself doesn't have a container: it's each of it's pages
+				# that will have a container.
+				_ , on_write = self.parse(node, fields, tab, container)
 
 			elif node.localName=='page':
 				widget, on_write = self.parse(node, fields, notebook )
@@ -147,11 +151,11 @@ class FormParser(AbstractParser):
 				_, on_write = self.parse( node, fields, layout, container)
 
 			elif node.localName == 'child1':
-				widget, on_write = self.parse( node, fields, None, None )
+				widget, on_write = self.parse( node, fields )
 				notebook.addWidget( widget )
 
 			elif node.localName == 'child2':
-				widget, on_write = self.parse( node, fields, None,None)
+				widget, on_write = self.parse( node, fields )
  				notebook.addWidget( widget )
 
 			elif node.localName =='action':
