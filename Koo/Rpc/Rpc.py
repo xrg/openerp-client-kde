@@ -27,11 +27,10 @@
 ##############################################################################
 
 from PyQt4.QtCore import *
+from Koo.Common import Notifier
 import xmlrpclib
-import logging
 import socket
 import tiny_socket
-from Koo.Common import Notifier
 import copy
 
 class RpcException(Exception):
@@ -60,6 +59,9 @@ class RpcException(Exception):
 class Connection:
 	def __init__(self):
 		self.authorized = False
+		self.databaseName = None
+		self.uid = None
+		self.password = None
 
 	def connect(self, database, uid, password):
 		self.databaseName = database
@@ -97,9 +99,9 @@ class SocketConnection(Connection):
 			s.mysend((obj, method, self.databaseName, self.uid, self.password)+args)
 		else:
 			s.mysend((obj, method)+args)
-		res = s.myreceive()
+		result = s.myreceive()
 		s.disconnect()
-		return self.convert( res )
+		return self.convert( result )
 
 ## @brief The XmlRpcConnection class implements Connection class for XML-RPC.
 #
@@ -108,14 +110,10 @@ class XmlRpcConnection(Connection):
 	def call(self, obj, method, *args ):
 		remote = xmlrpclib.ServerProxy(self.url + obj)
 		function = getattr(remote, method)
-		#import traceback
-		#print "Traceback:\n%s\n" % ''.join( traceback.format_stack() )
-		#print "Call: %s.%s%s" % (obj, method, args)
 		if self.authorized:
 			result = function(self.databaseName, self.uid, self.password, *args)
 		else:
 			result = function( *args )
-		#print "Result: %s\n==================================================\n\n\n" % result
 		return result
 
 ## Creates an instance of the appropiate Connection class (whether 
