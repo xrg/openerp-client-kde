@@ -292,7 +292,6 @@ class ModelRecord(QObject):
 	# is the function that has to be executed on the server.
 	# So the function specified is called on the server whenever
 	# the field changes.
-	#XXX Shoud use changes of attributes (ro, ...)
 	def callOnChange(self, callback):
 		match = re.match('^(.*?)\((.*)\)$', callback)
 		if not match:
@@ -309,7 +308,6 @@ class ModelRecord(QObject):
 					if fieldname not in self.mgroup.mfields:
 						continue
 					self.mgroup.mfields[fieldname].attrs['domain'] = value
-		self.emit( SIGNAL('recordChanged( PyQt_PyObject '), self )
 	
 	# This functions is called whenever a field with 'change_default'
 	# attribute set to True is modified. The function sets all conditional
