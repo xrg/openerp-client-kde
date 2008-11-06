@@ -34,31 +34,13 @@ from Koo.Common import Common
 from abstractformwidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+from PyQt4.uic import *
 
 class ImageFormWidget(AbstractFormWidget):
 
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		layout = QHBoxLayout( self )
-		buttonsLayout = QVBoxLayout()
-		self.uiImage = QLabel( self )
-		self.uiImage.setAlignment( Qt.AlignHCenter | Qt.AlignVCenter )
-		self.uiImage.setText( _('(no image)') )
-		self.pushLoad = QPushButton( self )
-		self.pushSave = QPushButton( self )
-		self.pushRemove = QPushButton( self )
-		buttonsLayout.addWidget( self.pushLoad )
-		buttonsLayout.addWidget( self.pushSave )
-		buttonsLayout.addWidget( self.pushRemove )
-		buttonsLayout.addStretch()
-		layout.addWidget( self.uiImage )
-		layout.addLayout( buttonsLayout )
-		#self.pushLoad.setText( _('&Load image') )
-		self.pushLoad.setIcon( QIcon( ':/images/images/open.png' ) )
-		#self.pushSave.setText( _('&Save image') )
-		self.pushSave.setIcon( QIcon( ':/images/images/save.png' ) )
-		#self.pushRemove.setText( _('&Remove image') )
-		self.pushRemove.setIcon( QIcon( ':/images/images/trash.png' ) )
+		loadUi( Common.uiPath('image.ui'), self )
 		self.image = None
 
 		self.width = int( attrs.get( 'img_width', 300 ) )
@@ -137,7 +119,7 @@ class ImageFormWidget(AbstractFormWidget):
 		if self.image:
 			pix = QPixmap()
 			pix.loadFromData(self.image)
-			self.uiImage.setPixmap( pix.scaled( self.width, self.height, Qt.KeepAspectRatio ) )
+			self.uiImage.setPixmap( pix.scaled( self.width, self.height, Qt.KeepAspectRatio, Qt.SmoothTransformation ) )
 		else:
 			self.clear()
 
