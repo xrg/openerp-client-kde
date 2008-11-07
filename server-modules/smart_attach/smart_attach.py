@@ -66,6 +66,8 @@ class ir_attachment(osv.osv):
 
 	# This is standard write but extracting meta information first
 	def write(self, cr, uid, ids, vals, context={}):
+		if 'datas' in vals:
+			vals['metainfo'] = 'Processing document...'
 		ret = super(ir_attachment, self).write(cr, uid, ids, vals, context)
 		if 'datas' in vals:
 			self.pool.get('ir.cron').create(cr, uid, {
