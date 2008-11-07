@@ -71,7 +71,13 @@ class Connection:
 	def call(self, url, method, *args ):
 		pass
 
-import Pyro.core
+modules = []
+try:
+	import Pyro.core
+	modules.append( 'pyro' )
+except:
+	pass
+
 class PyroConnection(Connection):
 	def __init__(self):
 		Connection.__init__(self)
