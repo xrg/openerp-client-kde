@@ -32,11 +32,13 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from PyQt4.QtWebKit import *
 
+(WebFormWidgetUi, WebFormWidgetBase) = loadUiType( Common.uiPath('web.ui') ) 
 
-class WebFormWidget(AbstractFormWidget):
+class WebFormWidget(AbstractFormWidget, WebFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('web.ui'), self )
+		WebFormWidgetUi.__init__(self)
+		self.setupUi( self )
 
 	def store(self):
 		pass

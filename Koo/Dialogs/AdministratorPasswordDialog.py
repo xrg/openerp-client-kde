@@ -32,10 +32,14 @@ from ServerConfigurationDialog import *
 from Koo.Common import Options
 from Koo import Rpc
 
-class AdministratorPasswordDialog( QDialog ):
+(AdministratorPasswordDialogUi, AdministratorPasswordDialogBase) = loadUiType( Common.uiPath('admin_passwd.ui') )
+
+class AdministratorPasswordDialog( QDialog, AdministratorPasswordDialogUi ):
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi(Common.uiPath('admin_passwd.ui'), self)
+		AdministratorPasswordDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.connect( self.pushChange, SIGNAL('clicked()'), self.slotChange )	
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )

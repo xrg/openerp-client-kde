@@ -42,11 +42,13 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
+(ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
 
-class ScreenDialog( QDialog ):
+class ScreenDialog( QDialog, ScreenDialogUi ):
 	def __init__(self, parent):
 		QWidget.__init__( self, parent )
-		loadUi( Common.uiPath('dia_form_win_many2one.ui'), self )
+		ScreenDialogUi.__init__( self )
+		self.setupUi( self )
 
 		self.setMinimumWidth( 800 )
 		self.setMinimumHeight( 600 )
@@ -85,10 +87,13 @@ class ScreenDialog( QDialog ):
 		else:
 			self.reject()
 
-class ManyToOneFormWidget(AbstractFormWidget):
+(ManyToOneFormWidgetUi, ManyToOneFormWidgetBase ) = loadUiType( Common.uiPath('many2one.ui') ) 
+
+class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('many2one.ui'), self )
+		ManyToOneFormWidgetUi.__init__(self)
+		self.setupUi(self)
 		
 		self.uiText.installEventFilter( self )
 		self.connect( self.uiText, SIGNAL( "editingFinished()" ), self.match )

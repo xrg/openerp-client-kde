@@ -80,12 +80,14 @@ class TreeParser:
 		psr.StartElementHandler = self.tagStart
 		psr.Parse(xmlData.encode('utf-8'))
 
+(TreeWidgetUi, TreeWidgetBase) = loadUiType( Common.uiPath('tree.ui') )
 
 ## @brief The TreeWidget class shows main menu tree as well as other tree views.
-class TreeWidget( QWidget ): 
+class TreeWidget( QWidget, TreeWidgetUi ): 
 	def __init__( self, view, model, domain=[], context={}, name=False, parent=None ):
 		QWidget.__init__(self,parent)
-		loadUi( Common.uiPath('tree.ui'), self ) 
+		TreeWidgetUi.__init__(self)
+		self.setupUi( self )
 		
 		self.uiSplitter.setStretchFactor( 0, 0 )
 		self.uiSplitter.setStretchFactor( 1, 2 )

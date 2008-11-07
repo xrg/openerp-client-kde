@@ -32,12 +32,14 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import * 
 
+(AttachmentDialogUi, AttachmentDialogBase) = loadUiType( Common.uiPath('win_attach.ui') )
 
-class AttachmentDialog(QMainWindow):
+class AttachmentDialog(QMainWindow, AttachmentDialogUi):
 
 	def __init__(self, model, id, parent = None ):	
 		QMainWindow.__init__(self, parent)
-		loadUi( Common.uiPath('win_attach.ui'), self ) 
+		AttachmentDialogUi.__init__(self)
+		self.setupUi( self )
 
 		# Center dialog on the screen
 		rect = QApplication.desktop().screenGeometry()

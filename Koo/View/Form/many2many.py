@@ -40,10 +40,14 @@ from PyQt4.uic import *
 
 from Koo.Dialogs.SearchDialog import SearchDialog
 
-class ManyToManyFormWidget(AbstractFormWidget):
+(ManyToManyFormWidgetUi, ManyToManyFormWidgetBase ) = loadUiType( Common.uiPath('many2many.ui') ) 
+
+class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('many2many.ui'), self)
+		ManyToManyFormWidgetUi.__init__(self)
+		self.setupUi(self)
+
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )	

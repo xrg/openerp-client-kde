@@ -34,11 +34,14 @@ from Koo.Common import Options
 from Koo import Rpc
 import re
 
-class CreationOkDialog( QDialog ):
+(CreationOkDialogUi, CreationOkDialogBase) = loadUiType( Common.uiPath('dbcreateok.ui') )
+
+class CreationOkDialog( QDialog, CreationOkDialogUi ):
 	def __init__(self, passwordList, parent=None ):
 		QDialog.__init__(self, parent)
+		CreationOkDialogUi.__init__(self)
+		self.setupUi( self )
 
-		loadUi( Common.uiPath('dbcreateok.ui'), self ) 
 		self.connect( self.pushConnect, SIGNAL('clicked()'), self.connectNow )
 		self.connect( self.pushLater, SIGNAL('clicked()'), self.connectLater )
 
@@ -51,10 +54,14 @@ class CreationOkDialog( QDialog ):
 	def connectNow(self):
 		self.accept()
 
-class ProgressBar( QDialog ):
+(ProgressBarUi, ProgressBarBase) = loadUiType( Common.uiPath('progress.ui') )
+
+class ProgressBar( QDialog, ProgressBarUi ):
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent )
-		loadUi( Common.uiPath('progress.ui'), self ) 
+		ProgressBarUi.__init__(self)
+		self.setupUi( self )
+
 		self.setModal( True )
 		self.timer = QTimer( self )
 		self.connect(self.timer,SIGNAL("timeout()"),self.timeout)
@@ -106,12 +113,16 @@ class ProgressBar( QDialog ):
 			# Accepted, otherwise return Rejected
 			self.done( r )
 
+(DatabaseCreationDialogUi, DatabaseCreationDialogBase) = loadUiType( Common.uiPath('create_database.ui') )
+
 ## @brief The DatabaseCreationDialog class shows a dialog to create a new database 
 # in the OpenERP server.
-class DatabaseCreationDialog( QDialog ):
+class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('create_database.ui'), self ) 
+		DatabaseCreationDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
 		self.connect(self.pushChange,SIGNAL("clicked()"),self.slotChange )

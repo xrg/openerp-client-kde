@@ -36,10 +36,14 @@ from Koo.Common import Common
 from Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
-class ScreenDialog( QDialog ):
+(ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
+
+class ScreenDialog( QDialog, ScreenDialogUi ):
 	def __init__(self, modelGroup, parent, model=None, attrs={}):
 		QDialog.__init__( self, parent )
-		loadUi( Common.uiPath('dia_form_win_many2one.ui'), self )
+		ScreenDialogUi.__init__( self )
+		self.setupUi( self )
+
 		self.setModal(True)
 		if ('string' in attrs) and attrs['string']:
 			self.setWindowTitle( self.windowTitle() + " - " + attrs['string'])
@@ -74,10 +78,14 @@ class ScreenDialog( QDialog ):
 		self.result = self.screen.current_model
 		self.accept()
 
-class OneToManyFormWidget(AbstractFormWidget):
+(OneToManyFormWidgetUi, OneToManyFormWidgetBase ) = loadUiType( Common.uiPath('one2many.ui') ) 
+
+class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('one2many.ui'), self )
+		OneToManyFormWidgetUi.__init__(self, parent, model, attrs)
+		self.setupUi(self)
+
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )

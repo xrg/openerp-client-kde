@@ -47,8 +47,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
+(FormWidgetUi, FormWidgetBase) = loadUiType( Common.uiPath('formcontainer.ui') )
 
-class FormWidget( QWidget ):
+class FormWidget( QWidget, FormWidgetUi ):
 	# form constructor:
 	# model -> Name of the model the form should handle
 	# res_id -> List of ids of type 'model' to load
@@ -60,7 +61,8 @@ class FormWidget( QWidget ):
 	# name -> User visible title of the form
 	def __init__(self, model, res_id=False, domain=[], view_type=None, view_ids=[], context={}, parent=None, name=False):
 		QWidget.__init__(self,parent)
-		loadUi( Common.uiPath('formcontainer.ui'), self ) 
+		FormWidgetUi.__init__(self)
+		self.setupUi( self )
 
 		if not view_type:
 			view_type = ['form','tree']

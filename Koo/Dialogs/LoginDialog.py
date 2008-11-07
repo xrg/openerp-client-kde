@@ -32,7 +32,9 @@ from PyQt4.uic import *
 from Koo.Common import Common
 import ServerConfigurationDialog
 
-class LoginDialog( QDialog ):
+(LoginDialogUi, LoginDialogBase) = loadUiType( Common.uiPath('login.ui') )
+
+class LoginDialog( QDialog, LoginDialogUi ):
 	defaultHost = ''
 	defaultPort = 0
 	defaultProtocol = ''
@@ -40,7 +42,9 @@ class LoginDialog( QDialog ):
 
 	def __init__(self, parent=None ):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('login.ui'), self ) 
+		LoginDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.databaseName = ''
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )

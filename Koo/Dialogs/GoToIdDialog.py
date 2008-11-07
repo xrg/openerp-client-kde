@@ -30,10 +30,14 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Koo.Common import Common
 
-class GoToIdDialog( QDialog ):
+(GoToIdDialogUi, GoToIdDialogBase) = loadUiType( Common.uiPath('gotoid.ui') )
+
+class GoToIdDialog( QDialog, GoToIdDialogUi ):
 	def __init__( self, parent=None ):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('gotoid.ui'), self )
+		GoToIdDialogUi.__init__(self)
+		self.setupUi( self )
+		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 
 	def slotAccept( self ):

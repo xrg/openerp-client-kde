@@ -240,10 +240,13 @@ class CalendarView( QGraphicsView ):
 		self._calendar.updateCalendarData()
 		self._calendar.updateCalendarView()
 
-class ViewCalendar( AbstractView ):
+(ViewCalendarUi, ViewCalendarBase) = loadUiType( Common.uiPath('calendarview.ui') )
+
+class ViewCalendar( AbstractView, ViewCalendarUi ):
 	def __init__(self, parent):
 		AbstractView.__init__(self, parent)
-		loadUi( Common.uiPath('calendarview.ui'), self )
+		ViewCalendarUi.__init__(self)
+		self.setupUi( self )
 		self.connect( self.calendarWidget, SIGNAL('selectionChanged()'), self.updateCalendarView )
 		self.connect( self.pushMonthlyView, SIGNAL('clicked()'), self.updateCalendarView )
 		self.connect( self.pushWeeklyView, SIGNAL('clicked()'), self.updateCalendarView )

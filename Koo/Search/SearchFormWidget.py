@@ -109,11 +109,14 @@ class SearchFormParser(object):
 		psr.Parse(xml_data.encode('utf-8'))
 		return self.dict_widget
 
+(SearchFormWidgetUi, SearchFormWidgetBase) = loadUiType( Common.uiPath('searchform.ui') )
+
 ## @brief This class provides a form with the fields to search given a model.
-class SearchFormWidget(AbstractSearchWidget):
+class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	def __init__(self, parent=None):
 		AbstractSearchWidget.__init__(self, '', parent)
-		loadUi( Common.uiPath('searchform.ui'), self)
+		SearchFormWidgetUi.__init__(self)
+		self.setupUi( self )
 		
 		self.model = None
 		self.widgets = {}

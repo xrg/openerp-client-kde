@@ -39,13 +39,17 @@ from PyQt4.uic import *
 from Koo import Rpc
 from Koo.Rpc import RpcProxy
 
+(ReferenceFormWidgetUi, ReferenceFormWidgetBase ) = loadUiType( Common.uiPath('reference.ui') ) 
+
 # This widget requires some ugly hacks. Mainly clearing the text fields once it's been
 # modified and searched afterwards. This is due to the fact that the 'name' the server
 # returns, if searched, it might not be found again :(
-class ReferenceFormWidget(AbstractFormWidget):
+class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('reference.ui'), self )
+		ReferenceFormWidgetUi.__init__(self)
+		self.setupUi(self)
+
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushOpen, SIGNAL('clicked()'), self.open )
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )

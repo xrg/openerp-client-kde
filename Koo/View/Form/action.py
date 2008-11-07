@@ -40,9 +40,13 @@ import time
 from Koo.Dialogs.SearchDialog import SearchDialog
 from abstractformwidget import *
 
-class ActionFormWidget(AbstractFormWidget):
+(ActionFormWidgetUi, ActionFormWidgetBase) = loadUiType( Common.uiPath('paned.ui') ) 
+
+class ActionFormWidget(AbstractFormWidget, ActionFormWidgetUi):
 	def __init__(self,  parent, view, attrs={}):
 		AbstractFormWidget.__init__( self, parent, view, attrs )
+		ActionFormWidgetUi.__init__( self )
+		self.setupUi( self )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )	
 		self.act_id=attrs['name']
@@ -93,7 +97,6 @@ class ActionFormWidget(AbstractFormWidget):
 		#else:
 			#self.screen.setViewTypes( mode )
 		self.screen.setupViews( mode, self.view_id )
-		loadUi( Common.uiPath('paned.ui'), self  )
 		self.uiTitle.setText( QString( self.attrs['string'] or "" ))
 		layout = QVBoxLayout( self.uiGroup )
 		layout.setContentsMargins( 0, 0, 0 , 0 )

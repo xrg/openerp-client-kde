@@ -32,10 +32,14 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-class UrlFormWidget(AbstractFormWidget):
+(UrlFormWidgetUi, UrlFormWidgetBase ) = loadUiType( Common.uiPath('url.ui') ) 
+
+class UrlFormWidget(AbstractFormWidget, UrlFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('url.ui'), self )
+		UrlFormWidgetUi.__init__(self)
+		self.setupUi(self)
+
 		self.uiUrl.setMaxLength( int( attrs.get('size',16)))
 		if attrs.get('invisible',False):
 			self.uiUrl.hide()

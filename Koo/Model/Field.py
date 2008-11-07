@@ -29,6 +29,7 @@
 from PyQt4.QtCore import *
 from Koo.Rpc import RpcProxy, Rpc
 from Koo import Rpc
+import base64
 
 try:
 	from sets import Set as set
@@ -118,16 +119,33 @@ class StringField(QObject):
 		return model.state_attrs[self.name]
 
 class BinaryField(StringField):
+	def set(self, model, value, test_state=True, modified=False):
+		model.values[self.name] = None
+		if modified:
+			model.modified = True
+			model.modified_fields.setdefault(self.name)
+		return True
+
+	def set_client(self, model, value, test_state=True):
+		internal = model.values.get(self.name, False)
+		model.values[self.name] = value
+		if (internal or False) != model.values[self.name]:
+			self.changed(model)
+
 	def get(self, model, check_load=True, readonly=True, modified=False):
-		return self.get_client(model)
+		value = self.get_client(model)
+		if value:
+			value = base64.encodestring(value)
+		return value
 
 	def get_client(self, model):
 		if model.values[self.name] is None and model.id:
 			c = Rpc.session.context.copy()
 			c.update(model.context())
 			value = model.rpc.read([model.id], [self.name], c)[0][self.name]
-			model.values[self.name] = value
-		return model.values.get(self.name, False) 
+			if value:
+				model.values[self.name] = base64.decodestring(value)
+		return model.values[self.name]
 
 class SelectionField(StringField):
 	def set(self, model, value, test_state=True, modified=False):

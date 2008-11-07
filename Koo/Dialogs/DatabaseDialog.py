@@ -32,7 +32,9 @@ import ServerConfigurationDialog
 from Koo.Common import Common
 from Koo.Common import Options
 
-class DatabaseDialog( QDialog ):
+(DatabaseDialogUi, DatabaseDialogBase) = loadUiType(  Common.uiPath('choosedb.ui') )
+
+class DatabaseDialog( QDialog, DatabaseDialogUi ):
 	# Database chooser type: 
 	#  Select -> Shows a combo box for the database selection
 	#  Edit   -> Shows a line edit for the database selection
@@ -41,7 +43,9 @@ class DatabaseDialog( QDialog ):
 
 	def __init__(self, type, title, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('choosedb.ui'), self )
+		DatabaseDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.type = type
 		if type == DatabaseDialog.TypeSelect:
 			self.uiDatabaseEditor.setVisible( False )

@@ -45,7 +45,11 @@ from Paths import *
 
 
 # Load Resource
-QResource.registerResource( uiPath( "common.rcc" ) )
+import common_rc
+# When using loadUiType(), the generated (and executed) code will try to import
+# common_rc and it will crash if we don't ensure it's available in PYTHONPATH
+# so by no we have to add Koo/Common to sys.paht
+sys.path.append( os.path.abspath(os.path.dirname(__file__)) )
 
 ## @brief Returns a dictionary with all the attributes found in a XML with their 
 # name as key and the corresponding value.
@@ -58,15 +62,19 @@ def nodeAttributes(node):
 	result[attrs.item(i).localName] = attrs.item(i).nodeValue
    return result
 
+(SelectionDialogUi, SelectionDialogBase) = loadUiType( uiPath('win_selection.ui') )
+
 ## @brief The SelectionDialog class shows a dialog prompting the user to choose
 # among a list of items.
 #
 # The selected value is stored in the 'result' property.
 # @see selection()
-class SelectionDialog(QDialog):	
+class SelectionDialog(QDialog, SelectionDialogUi):	
 	def __init__(self, title, values, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( uiPath( 'win_selection.ui' ), self )
+		SelectionDialogUi.__init__(self)
+		self.setupUi( self )
+
 		if title:
 			self.uiTitle.setText( title )
 		for x in values.keys():
@@ -102,11 +110,16 @@ def selection(title, values, alwaysask=False):
 		return False
 	
 
+(TipOfTheDayDialogUi, TipOfTheDayDialogBase) = loadUiType( uiPath('tip.ui') )
+
 ## @brief The TipOfTheDayDialog class shows a dialog with a Tip of the day
 # TODO: Use KTipDialog when we start using KDE libs
-class TipOfTheDayDialog( QDialog ):
+class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
+		TipOfTheDayDialogUi.__init__(self)
+		self.setupUi( self )
+
 		try:
 			self.number = int(Options.options['tip.position'])
 		except:
@@ -114,7 +127,6 @@ class TipOfTheDayDialog( QDialog ):
 			log = logging.getLogger('common.message')
 			log.error('Invalid value for option tip.position ! See ~/.terprc !')
 	
-		loadUi( uiPath('tip.ui'), self )	
 		self.connect( self.pushNext, SIGNAL('clicked()'), self.nextTip )
 		self.connect( self.pushPrevious, SIGNAL('clicked()'), self.previousTip )
 		self.connect( self.pushClose, SIGNAL('clicked()'), self.closeTip )
@@ -141,27 +153,6 @@ class TipOfTheDayDialog( QDialog ):
 		Options.options['tip.position'] = self.number+1
 		Options.save()
 		self.close()
-
-
-## @brief The SupportDialog class shows the support dialog.
-#
-# Currently, doesn't allow to send support requests, so we should consider
-# implmenting this or simply removing it.
-# @see support()
-# TODO: Decide about the future of this class.
-class SupportDialog(QDialog):
-	def __init__(self, parent=None):
-		QDialog.__init__(self, parent)
-		loadUi( uiPath('support.ui'), self )
-		self.connect( self.pushAccept, SIGNAL('clicked()'), self.send )
-
-	def send(self):
-		QMessageBox.information(self, '', _('Sending support requests is not available with the TinyERP KDE client'))
-
-## @brief Shows the SupportDialog
-def support():
-	dialog = SupportDialog()
-	dialog.exec_()
 
 ## @brief Shows a warning dialog. Function used by the notifier in the Koo application.
 def warning(title, message):
@@ -194,16 +185,20 @@ def concurrencyError(model, id, context):
 
 	return False
 
+(ErrorDialogUi, ErrorDialogBase) = loadUiType( uiPath('error.ui') )
+
 ## @brief The ErrorDialog class shows the error dialog used everywhere in KTiny.
 #
 # The dialog shows two tabs. One with a short description of the problem and the
 # second one with the details, usually a backtrace.
 #
 # @see error()
-class ErrorDialog( QDialog ):
+class ErrorDialog( QDialog, ErrorDialogUi ):
 	def __init__(self, title, message, details='', parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( uiPath('error.ui'), self )
+		ErrorDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
@@ -220,6 +215,8 @@ def error(title, message, details=''):
 	log.error('MSG %s: %s' % (unicode(message),details))
 	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
+
+(ProgressDialogUi, ProgressDialogBase) = loadUiType( uiPath('progress.ui') )
 		
 ## @brief The ProgressDialog class shows a progress bar moving left and right until you stop it.
 #
@@ -229,10 +226,11 @@ def error(title, message, details=''):
 # 3) Call the stop function when the operation has finished (eg. dlg.stop() )
 # Take into account that the dialog will only show after a couple of seconds. This way, it
 # only appears on long running tasks.
-class ProgressDialog(QDialog):
+class ProgressDialog(QDialog, ProgressDialogUi):
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( uiPath('progress.ui'), self )
+		ProgressDialogUi.__init__(self)
+		self.setupUi( self )
 		self.progressBar.setMinimum( 0 )
 		self.progressBar.setMaximum( 0 )
 		

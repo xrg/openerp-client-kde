@@ -33,13 +33,17 @@ from Koo.Common import Common
 import copy
 from Koo import Rpc
 
-class TranslationDialog( QDialog ):
+(TranslationDialogUi, TranslationDialogBase) = loadUiType( Common.uiPath('translationdialog.ui') ) 
+
+class TranslationDialog( QDialog, TranslationDialogUi ):
 	LineEdit = 0
 	TextEdit = 1
 
 	def __init__(self, id, model, fieldName, value, type, parent = None):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('translationdialog.ui'), self )
+		TranslationDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.setWindowTitle( _('Translation Dialog') )
 		self.id = id

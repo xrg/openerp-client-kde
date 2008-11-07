@@ -34,10 +34,14 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
 
-class DateSearchWidget(AbstractSearchWidget):
+(DateSearchWidgetUi, DateSearchWidgetBase) = loadUiType( Common.uiPath('search_date.ui') )
+
+class DateSearchWidget(AbstractSearchWidget, DateSearchWidgetUi):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		loadUi( Common.uiPath('search_date.ui'), self )
+		DateSearchWidgetUi.__init__(self)
+		self.setupUi( self )
+
 		self.widget = self
 		self.focusWidget = self.uiStart
 		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )

@@ -51,12 +51,16 @@ def refreshDatabaseList(db_widget, url, dbtoload=None):
 	db_widget.setCurrentIndex(index)
 	return db_widget.count()
 
-class ServerConfigurationDialog( QDialog ):
+(ServerConfigurationDialogUi, ServerConfigurationDialogBase) = loadUiType( Common.uiPath('change_server.ui') )
+
+class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 	url = ''
 
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('change_server.ui'), self ) 
+		ServerConfigurationDialogUi.__init__(self)
+		self.setupUi(self)
+
 		self.uiConnection.addItem( _("NET-RPC (faster)"), QVariant( 'socket://' ) )
 		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http://' ) )
 		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https://' ) )

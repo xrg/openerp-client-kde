@@ -125,6 +125,7 @@ def storageToDateTime( text ):
 	return QDateTime.fromString( text, 'yyyy-MM-dd h:m:s' )
 
 
+(PopupCalendarUi, PopupCalendarBase) = loadUiType( Common.uiPath('datetime.ui') )
 
 ## @brief The PopupCalendar class provides a simple way to show a calendar 
 # where the user can pick up a date. 
@@ -139,10 +140,12 @@ def storageToDateTime( text ):
 #
 # Of course, PopupCalendar uses the other ToTime and ToText helper functions.
 #
-class PopupCalendar(QWidget):
+class PopupCalendar(QWidget, PopupCalendarUi):
 	def __init__(self, parent, showTime = False):
 		QWidget.__init__(self, parent)
-		loadUi( Common.uiPath('datetime.ui'), self )
+		PopupCalendarUi.__init__(self)
+		self.setupUi( self )
+
 		self.showTime = showTime
 		if self.showTime:
 			self.uiTime.setText( textToDateTime( str(parent.text()) ).time().toString() )

@@ -26,7 +26,6 @@
 #
 ##############################################################################
 
-import base64
 import os
 import tempfile
 
@@ -37,16 +36,18 @@ from PyQt4.uic import *
 
 from Koo.Common import Common
 
-class BinaryFormWidget(AbstractFormWidget):
+(BinaryFormWidgetUi, BinaryFormWidgetBase) = loadUiType( Common.uiPath('binary.ui') ) 
+
+class BinaryFormWidget(AbstractFormWidget, BinaryFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
+		BinaryFormWidgetUi.__init__(self)
+		self.setupUi(self)
 
-		loadUi( Common.uiPath('binary.ui'), self )
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.slotNew )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.slotRemove )
 		self.connect( self.pushSave, SIGNAL('clicked()'),self.slotSave )
 
-		self.value = False
 		self.installPopupMenu( self.uiBinary )
 		
 	def setReadOnly(self, value):
@@ -56,12 +57,12 @@ class BinaryFormWidget(AbstractFormWidget):
 
 	def menuEntries(self):
 		pix = QPixmap()
-		if self.value:
+		if self.model.value(self.name):
 			enableApplication = True
 		else:
 			enableApplication = False
 
-		if pix.loadFromData( base64.decodestring(self.value) ):
+		if pix.loadFromData( self.model.value(self.name) ):
 			enableImage = True
 		else:
 			enableImage = False
@@ -69,11 +70,11 @@ class BinaryFormWidget(AbstractFormWidget):
 			 (_('Show &image...'), self.showImage, enableImage) ]
 
 	def openApplication(self):
-		if not self.value:
+		if not self.model.value(self.name):
 			return
 		fileName = tempfile.mktemp()
 		fp = file(fileName,'wb+')
-		fp.write(base64.decodestring(self.value))
+		fp.write( self.model.value(self.name) )
 		fp.close()
 		if os.name == 'nt':
 			os.startfile(fileName)
@@ -81,12 +82,12 @@ class BinaryFormWidget(AbstractFormWidget):
 			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName )
 
 	def showImage(self):
-		if not self.value: 
+		if not self.model.value(self.name): 
 			return
 		dialog = QDialog( self )
 		label = QLabel( dialog )
 		pix = QPixmap()
-		pix.loadFromData( base64.decodestring(self.value) )
+		pix.loadFromData( self.model.value(self.name) )
 		label.setPixmap( pix )
 		layout = QHBoxLayout( dialog )
 		layout.addWidget( label )
@@ -98,9 +99,9 @@ class BinaryFormWidget(AbstractFormWidget):
 			if filename.isNull():
 				return
 			filename = unicode(filename)
-			self.value = file(filename).read()
-			self.uiBinary.setText( _('%d bytes') % len(self.value) )
-			self.value = base64.encodestring(open(filename, 'rb').read())
+			value = file(filename).read()
+			self.model.setValue( self.name, value )
+			self.uiBinary.setText( _('%d bytes') % len(value) )
 
 			self.modified()
 
@@ -119,13 +120,13 @@ class BinaryFormWidget(AbstractFormWidget):
 			filename = QFileDialog.getSaveFileName( self, _('Save attachment as...') )
 			if filename:
 				fp = file(filename,'wb+')
-				fp.write(base64.decodestring(self.value))
+				fp.write( self.model.value(self.name) )
 				fp.close()
 		except:
 			QMessageBox.information(self, '', _('Error writing the file!'))
 
 	def slotRemove(self):
-		self.value = False
+		self.model.setValue( self.name, False )
 		self.clear()
 		self.modified()
 		if 'fname_widget' in self.attrs:
@@ -135,21 +136,20 @@ class BinaryFormWidget(AbstractFormWidget):
 				self.view.widgets[w].load(self.model)
 
 	def showValue(self):
-		self.value = self.model.value( self.name )
-		if self.value:
-			size = len(base64.decodestring(self.value))
+		if self.model.value( self.name ):
+			size = len( self.model.value( self.name ) )
 			self.uiBinary.setText( _('%d bytes') % size ) 
 		else:
 			self.clear()
 
 	def clear(self):
-		self.uiBinary.setText('')
+		self.uiBinary.clear()
 
 	# This widget is a bit special. We don't set the value
 	# here. We do it in the slotNew, so we don't have two copies
 	# of the file (which can be pretty big) in memory.
 	def store(self):
-		self.model.setValue( self.name, self.value )
+		pass
 
 	def colorWidget(self):
 		return self.uiBinary

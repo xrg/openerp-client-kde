@@ -81,11 +81,15 @@ class MainTabWidget(QTabWidget):
 		steps = degrees / 15
 		self.setCurrentIndex( ( self.currentIndex() + steps ) % self.count() )
 
-class KooMainWindow(QMainWindow):
+(KooMainWindowUi, KooMainWindowBase) = loadUiType( Common.uiPath('mainwindow.ui') )
+
+class KooMainWindow(QMainWindow, KooMainWindowUi):
 	
 	def __init__(self):	
 		QMainWindow.__init__(self)
-		loadUi( Common.uiPath( "mainwindow.ui" ), self ) 
+		KooMainWindowUi.__init__(self)
+		self.setupUi( self )
+
 		self.showMaximized()	
 
 		self.fixedWindowTitle = self.windowTitle()
@@ -130,7 +134,6 @@ class KooMainWindow(QMainWindow):
 		self.connect( self.actionOpenHomeTab, SIGNAL('triggered()'), self.openHomeTab )
 		self.connect( self.actionClearCache, SIGNAL('triggered()'), self.clearCache )
 
-		self.connect( self.actionSupportRequest, SIGNAL('triggered()'), self.supportRequest )
 		self.connect( self.actionKooManual, SIGNAL('triggered()'), self.kooManual )
 		self.connect( self.actionOpenErpManual, SIGNAL('triggered()'), self.openErpManual )
 		self.connect( self.actionTips, SIGNAL('triggered()'), self.showTipOfTheDay )
@@ -411,9 +414,6 @@ class KooMainWindow(QMainWindow):
 		self.updateEnabledActions()
 		Rpc.session.logout()
 		
-	def supportRequest(self):
-		Common.support()
-
 	def kooManual(self):
 		dir = os.path.abspath(os.path.dirname(__file__))
 		index = dir + '/../../../doc/html/index.html'

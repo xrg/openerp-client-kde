@@ -272,15 +272,19 @@ class SearchView( QAbstractItemView ):
 			else:
 				self.items[x].setStyleSheet( '' )
 
+(FullTextSearchDialogUi, FullTextSearchDialogBase) = loadUiType( Common.uiPath('full_text_search.ui') )
+
 ## @brief The FullTextSearchDialog class shows a dialog for searching text at all indexed models.
 #
 # The dialog has a text box for the user input and a combo box to search at one specific
 # model or all models that have at least one field indexed.
-class FullTextSearchDialog( QDialog ):
+class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 	def __init__(self, parent = None):
 		QDialog.__init__( self, parent )
+		FullTextSearchDialogUi.__init__( self )
+		self.setupUi( self )
+		
 		self.setModal( True )
-		loadUi( Common.uiPath('full_text_search.ui') , self )
 
 		self.result=None
 

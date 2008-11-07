@@ -30,10 +30,14 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Koo.Common import Common
 
-class ReferenceSearchWidget(AbstractSearchWidget):
+(ReferenceSearchWidgetUi, ReferenceSearchWidgetBase) = loadUiType( Common.uiPath('searchreference.ui') )
+
+class ReferenceSearchWidget(AbstractSearchWidget, ReferenceSearchWidgetUi):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		loadUi( Common.uiPath('searchreference.ui'), self )
+		ReferenceSearchWidgetUi.__init__(self)
+		self.setupUi( self )
+
 		self.setPopdown( attrs.get('selection',[]) )
 		self.focusWidget = self.uiModel
 

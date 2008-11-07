@@ -71,18 +71,30 @@ class Connection:
 	def call(self, url, method, *args ):
 		pass
 
+import Pyro.core
+class PyroConnection(Connection):
+	def __init__(self):
+		Connection.__init__(self)
+		self.proxy = Pyro.core.getProxyForURI("PYROLOC://localhost/rpc")
+	def call(self, obj, method, *args):
+		if self.authorized:
+			result = self.proxy.dispatch( obj[1:], method, self.databaseName, self.uid, self.password, *args )
+		else:
+			result = self.proxy.dispatch( obj[1:], method, *args )
+		return result
+
 ## @brief The SocketConnection class implements Connection for the TinyERP socket RPC protocol.
 #
 # The socket RPC protocol is usually opened at port 8070 on the server.
 class SocketConnection(Connection):
 	def convert(self, result): 
-		if type(result)==type(''):
+		if isinstance(result, str):
 			return unicode( result, 'utf-8' )
-		elif type(result)==type([]):
+		elif isinstance(result, list):
 			return map(self.convert, result)
-		elif type(result)==type(()):
+		elif isinstance(result, tuple):
 			return map(self.convert, result)
-		elif type(result)==type({}):
+		elif isinstance(result, dict):
 			newres = {}
 			for i in result.keys():
 				newres[i] = self.convert(result[i])
@@ -125,11 +137,13 @@ def createConnection(url):
 	if qUrl.scheme() == 'socket':
 		con = SocketConnection()
 		con.url = url
-		return con
+	elif qUrl.scheme() == 'pyro':
+		con = PyroConnection()
+		con.url = url
 	else:
 		con = XmlRpcConnection()
 		con.url = url + '/xmlrpc'
-		return con
+	return con
 
 class AbstractCache:
 	def exists( self, obj, method, *args ):

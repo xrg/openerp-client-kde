@@ -35,10 +35,14 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-class FieldPreferencesDialog( QDialog ):
+(FieldPreferencesDialogUi, FieldPreferencesDialogBase) = loadUiType( Common.uiPath('field_preferences.ui') ) 
+
+class FieldPreferencesDialog( QDialog, FieldPreferencesDialogUi ):
 	def __init__(self, field, name, model, value, dependance=[], parent=None):
 		QDialog.__init__( self, parent )
-		loadUi( Common.uiPath('field_preferences.ui'), self )
+		FieldPreferencesDialogUi.__init__(self)
+		self.setupUi(self)
+
 		self.uiFieldName.setText( name )
 		self.uiDomain.setText( model )
 		self.uiDefaultValue.setText( (value and unicode(value)) or '/' )

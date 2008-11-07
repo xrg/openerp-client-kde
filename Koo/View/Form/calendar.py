@@ -34,10 +34,14 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-class DateFormWidget(AbstractFormWidget):
+(DateFormWidgetUi, DateFormWidgetBase ) = loadUiType( Common.uiPath('calendar.ui') ) 
+
+class DateFormWidget(AbstractFormWidget, DateFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('calendar.ui'), self)
+		DateFormWidgetUi.__init__(self)
+		self.setupUi(self)
+
 		self.connect( self.pushCalendar, SIGNAL( "clicked()" ),self.showCalendar )
 		self.dateTime = False
 		self.connect( self.uiDate, SIGNAL('editingFinished()'), self.modified )

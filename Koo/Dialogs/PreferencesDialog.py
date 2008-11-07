@@ -40,10 +40,14 @@ import copy
 from Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
-class PreferencesDialog(QDialog):
+(PreferencesDialogUi, PreferencesDialogBase) = loadUiType( Common.uiPath('preferences.ui') )
+
+class PreferencesDialog(QDialog, PreferencesDialogUi):
 	def __init__(self, model, id, preferences, parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('preferences.ui'), self )
+		PreferencesDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.id = id
 		self.model = model
 		

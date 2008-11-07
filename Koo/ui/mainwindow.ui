@@ -245,8 +245,6 @@
      <addaction name="actionKooManual" />
      <addaction name="actionOpenErpManual" />
     </widget>
-    <addaction name="actionSupportRequest" />
-    <addaction name="separator" />
     <addaction name="menuUser_Manual" />
     <addaction name="actionContextualHelp" />
     <addaction name="actionTips" />
@@ -762,15 +760,6 @@
    </property>
    <property name="shortcut" >
     <string>Ctrl+J</string>
-   </property>
-  </action>
-  <action name="actionSupportRequest" >
-   <property name="icon" >
-    <iconset resource="common.qrc" >
-     <normaloff>:/images/images/info.png</normaloff>:/images/images/info.png</iconset>
-   </property>
-   <property name="text" >
-    <string>Support Request</string>
    </property>
   </action>
   <action name="actionFormDesigner" >

@@ -37,10 +37,13 @@ from PyQt4.uic import *
 
 from Koo.Common import Common
 
-class LinkFormWidget(AbstractFormWidget):
+(LinkFormWidgetUi, LinkFormWidgetBase) = loadUiType( Common.uiPath('link.ui') ) 
+
+class LinkFormWidget(AbstractFormWidget, LinkFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('link.ui'), self )
+		LinkFormWidgetUi.__init__(self)
+		self.setupUi(self)
 		self.connect( self.pushOpen, SIGNAL('clicked()'), self.open )
 		self.installPopupMenu( self.uiText )
 		

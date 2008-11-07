@@ -115,10 +115,14 @@ def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
 	return data
 
-class ExportDialog( QDialog ):
+(ExportDialogUi, ExportDialogBase) = loadUiType( Common.uiPath('win_export.ui') )
+
+class ExportDialog( QDialog, ExportDialogUi ):
 	def __init__(self, model, ids, fields, preload =[], parent=None):
 		QDialog.__init__(self, parent)
-		loadUi( Common.uiPath('win_export.ui'), self)
+		ExportDialogUi.__init__(self)
+		self.setupUi( self )
+
 		self.ids = ids
 		self.model = model
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )

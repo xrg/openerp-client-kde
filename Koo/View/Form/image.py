@@ -27,7 +27,7 @@
 ##############################################################################
 
 import os
-import base64 
+#import base64 
 import tempfile
 
 from Koo.Common import Common
@@ -36,12 +36,14 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-class ImageFormWidget(AbstractFormWidget):
+(ImageFormWidgetUi, ImageFormWidgetBase) = loadUiType( Common.uiPath('image.ui') ) 
+
+class ImageFormWidget(AbstractFormWidget, ImageFormWidgetUi):
 
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('image.ui'), self )
-		self.image = None
+		ImageFormWidgetUi.__init__(self)
+		self.setupUi(self)
 
 		self.width = int( attrs.get( 'img_width', 300 ) )
 		self.height = int( attrs.get( 'img_height', 100 ) )
@@ -61,7 +63,7 @@ class ImageFormWidget(AbstractFormWidget):
 		else:
 			enableApplication = False
 
-		if self.image:
+		if self.model.value(self.name):
 			enableImage = True
 		else:
 			enableImage = False
@@ -69,11 +71,11 @@ class ImageFormWidget(AbstractFormWidget):
 			 ('&Show image...', self.showImage, enableImage) ]
 
 	def openApplication(self):
-		if not self.image:
+		if not self.model.value(self.name):
 			return
 		fileName = tempfile.mktemp()
 		fp = file(fileName,'wb')
-		fp.write(self.image)
+		fp.write(self.model.value(self.name))
 		fp.close()
 		if os.name == 'nt':
 			os.startfile(fileName)
@@ -81,19 +83,19 @@ class ImageFormWidget(AbstractFormWidget):
 			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName )
 
 	def showImage(self):
-		if not self.image: 
+		if not self.model.value(self.name):
 			return
 		dialog = QDialog( self )
 		label = QLabel( dialog )
 		pix = QPixmap()
-		pix.loadFromData( self.image )
+		pix.loadFromData( self.model.value(self.name) )
 		label.setPixmap( pix )
 		layout = QHBoxLayout( dialog )
 		layout.addWidget( label )
 		dialog.exec_()
 
 	def removeImage(self):
-		self.image = None
+		self.model.setValue(self.name, False)
 		self.update()
 		self.modified()
 
@@ -103,7 +105,7 @@ class ImageFormWidget(AbstractFormWidget):
 			return
 		try:
 			fp = file(name, 'wb')
-			fp.write(self.image)
+			fp.write(self.model.value(self.name))
 			fp.close()
 		except:
 			QMessageBox.warning( self, _('Error saving file'), _('Could not save the image with the given file name. Please check that you have permissions.') )
@@ -111,34 +113,30 @@ class ImageFormWidget(AbstractFormWidget):
 	def loadImage(self):
 		name = QFileDialog.getOpenFileName( self, _('Open image file...') )
 		if not name.isNull():
-			self.image = file(name).read()
+			image = file(name).read()
+			self.model.setValue(self.name, image )
 			self.update()
 			self.modified()
 
 	def update(self):
-		if self.image:
-			pix = QPixmap()
-			pix.loadFromData(self.image)
-			self.uiImage.setPixmap( pix.scaled( self.width, self.height, Qt.KeepAspectRatio, Qt.SmoothTransformation ) )
+		if self.model.value(self.name):
+			img = QImage()
+			img.loadFromData( self.model.value(self.name) )
+			pix = QPixmap.fromImage( img.scaled( self.width, self.height, Qt.KeepAspectRatio, Qt.SmoothTransformation ) )
+			self.uiImage.setPixmap( pix )
 		else:
 			self.clear()
 
 	def clear(self):
 		self.uiImage.setText( '(load an image)' )
-		self.image = None
 
 	def showValue(self):
-		self.image = self.model.value(self.name)
-		if self.image:
-			self.image = base64.decodestring(self.image)
+		if self.model.value(self.name):
 			self.pushSave.setEnabled( True )
 		else:
 			self.pushSave.setEnabled( False )
 		self.update()
 
 	def store(self):
-		if self.image:
-			return self.model.setValue(self.name, base64.encodestring(self.image))
-		else:
-			return self.model.setValue(self.name, False)
+		pass
 

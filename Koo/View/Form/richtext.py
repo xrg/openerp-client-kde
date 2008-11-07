@@ -33,10 +33,14 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Koo.Common import Common
 
-class RichTextFormWidget(AbstractFormWidget):
+(RichTextFormWidgetUi, RichTextFormWidgetBase) = loadUiType( Common.uiPath('richtext.ui') ) 
+
+class RichTextFormWidget(AbstractFormWidget, RichTextFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		loadUi( Common.uiPath('richtext.ui'), self )
+		RichTextFormWidgetUi.__init__(self)
+		self.setupUi(self)
+
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.installPopupMenu( self.uiText )
 
