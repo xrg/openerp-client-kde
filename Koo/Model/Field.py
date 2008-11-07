@@ -27,7 +27,7 @@
 ##############################################################################
 
 from PyQt4.QtCore import *
-from Koo.Rpc import RpcProxy
+from Koo.Rpc import RpcProxy, Rpc
 from Koo import Rpc
 
 try:
@@ -116,6 +116,18 @@ class StringField(QObject):
 		if self.name not in model.state_attrs:
 			model.state_attrs[self.name] = self.attrs.copy()
 		return model.state_attrs[self.name]
+
+class BinaryField(StringField):
+	def get(self, model, check_load=True, readonly=True, modified=False):
+		return self.get_client(model)
+
+	def get_client(self, model):
+		if model.values[self.name] is None and model.id:
+			c = Rpc.session.context.copy()
+			c.update(model.context())
+			value = model.rpc.read([model.id], [self.name], c)[0][self.name]
+			model.values[self.name] = value
+		return model.values.get(self.name, False) 
 
 class SelectionField(StringField):
 	def set(self, model, value, test_state=True, modified=False):
@@ -319,6 +331,8 @@ class FieldFactory:
 	#  created or existing ones replaced.
 	types = {
 		'char' : StringField,
+		'binary' : BinaryField,
+		'image' : BinaryField,
 		'float_time': FloatField,
 		'integer' : IntegerField,
 		'float' : FloatField,

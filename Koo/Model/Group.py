@@ -385,17 +385,34 @@ class ModelRecordGroup(QObject):
 			else:
 				new.append(model)
 
+		
 		# Update existing models
 		if len(old) and len(to_add):
-			c = Rpc.session.context.copy()
-			c.update(self.context)
-			values = self.rpc.read(old, to_add, c)
-			if values:
-				for v in values:
-					id = v['id']
-					if 'id' not in to_add:
-						del v['id']
-					self.recordById(id).set(v, signal=False)
+
+			# Do not read from the server binary and image types 
+			# They'll be loaded on demand
+			binaries = [x for x in fields if fields[x]['type'] in ('binary','image')]
+			others = list( set(to_add) - set(binaries) )
+
+			if others:
+				c = Rpc.session.context.copy()
+				c.update(self.context)
+				values = self.rpc.read(old, others, c)
+				if values:
+					for v in values:
+						id = v['id']
+						if 'id' not in others:
+							del v['id']
+						self.recordById(id).set(v, signal=False)
+			if binaries:
+				# We set binaries to the special value None so
+				# the field will know it hasn't been loaded and thus
+				# load data on demand when get() is called.
+				data = {}
+				for x in binaries:
+					data[x] = None
+				for x in self.models:
+					x.set( data )
 
 		# Set defaults
 		if len(new) and len(to_add):
