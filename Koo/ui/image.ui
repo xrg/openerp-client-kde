@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>444</width>
-    <height>69</height>
+    <height>70</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -91,7 +91,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
+         <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
        </property>
       </widget>
      </item>
