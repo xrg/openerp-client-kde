@@ -83,6 +83,7 @@ class ir_attachment(osv.osv):
 				'function': 'updateMetaInfo',
 				'args': repr([ ids ])
 			})
+		return ret
 
 	# Extracts data from text nodes of an XML node list
 	def getText(self, nodelist):
