@@ -75,9 +75,14 @@ class StringField(QObject):
 	# Here it's checked if the field is required but is empty.
 	def validate(self, model):
 		ok = True
-		if bool(int(self.stateAttributes(model).get('required', 0))):
-			if not model.values[self.name]:
-				ok=False
+		# We ensure that the field is read-write. In some cases there might be 
+		# forms in which a readonly field is marked as required. For example,
+		# banks some fields inside partner change readonlyness depending on the 
+		# value of a selection field. 
+		if not self.stateAttributes(model).get('readonly', False):
+			if bool(int(self.stateAttributes(model).get('required', 0))):
+				if not model.values[self.name]:
+					ok=False
 		model.setFieldValid( self.name, ok )
 		return ok
 
