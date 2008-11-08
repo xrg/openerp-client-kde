@@ -23,7 +23,7 @@ except:
 
 opj = os.path.join
 
-name = 'ktiny'
+name = 'koo'
 version = '1.0.0-beta2'
 
 # get python short version
@@ -47,15 +47,12 @@ def check_modules():
 
 def data_files():
     '''Build list of data files to be installed'''
-    files = [(opj('share','man','man1',''),['man/ktiny.1']),
-             #(opj('share','doc', 'ktiny-%s' % version), [f for f in glob.glob('doc/*') if os.path.isfile(f)]),
-             #(opj('share', 'pixmaps', 'ktiny'), glob.glob('bin/ui/common.rcc') + glob.glob('bin/ui/*.ui')),
-             #(opj('share', 'pixmaps', 'ktiny', 'icons'), glob.glob('bin/ui/images/*.png')),
-             (opj('share', 'doc', 'ktiny', 'manual' ), [f for f in glob.glob('doc/html/*') if os.path.isfile(f)]),
-             (opj('share', 'doc', 'ktiny', 'api' ), [f for f in glob.glob('doc/doxygen/html/*') if os.path.isfile(f)]),
-             (opj('share', 'ktiny'), ['bin/tipoftheday.txt']),
-	     (opj('share', 'ktiny', 'ui'), glob.glob('bin/ui/common.rcc') + glob.glob('bin/ui/*.ui')),
-	     (opj('share', 'ktiny', 'ui', 'images'), glob.glob('bin/ui/images/*.png'))
+    files = [(opj('share','man','man1',''),['man/koo.1']),
+             (opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob('doc/html/*') if os.path.isfile(f)]),
+             (opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob('doc/doxygen/html/*') if os.path.isfile(f)]),
+             (opj('share', 'koo'), ['Koo/kootips.txt']),
+	     (opj('share', 'koo', 'ui'), glob.glob('Koo/ui/common.rcc') + glob.glob('Koo/ui/*.ui')),
+	     (opj('share', 'koo', 'ui', 'images'), glob.glob('Koo/ui/images/*.png'))
 	     ]
     return files
 
@@ -63,16 +60,16 @@ included_plugins = ['workflow_print']
 
 def find_plugins():
     for plugin in included_plugins:
-        path=opj('bin', 'plugins', plugin)
+        path=opj('Koo', 'Plugins', plugin)
         for dirpath, dirnames, filenames in os.walk(path):
             if '__init__.py' in filenames:
-                modname = dirpath.replace(os.path.sep, '.')
-                yield modname.replace('bin', 'ktiny', 1)
+                yield dirpath.replace(os.path.sep, '.')
+ 
 
 def translations():
     trans = []
     dest = 'share/locale/%s/LC_MESSAGES/%s.mo'
-    for po in glob.glob('bin/l10n/*.po'):
+    for po in glob.glob('Koo/l10n/*.po'):
         lang = os.path.splitext(os.path.basename(po))[0]
         trans.append((dest % (lang, name), po))
     return trans
@@ -106,17 +103,18 @@ check_modules()
 
 # create startup script
 start_script = """
-cd %s/ktiny
-exec %s ./ktiny.py $@
+cd %s/Koo
+exec %s ./koo.py $@
 """ % ( get_python_lib(), sys.executable)
 # write script
-f = open('ktiny', 'w')
+f = open('koo', 'w')
 f.write(start_script)
 f.close()
 
 # todo: use 
 command = sys.argv[1]
 
+print "PLUGINS: ", find_plugins()
 setup(name             = name,
       version          = version,
       description      = "Koo Client",
@@ -128,31 +126,28 @@ setup(name             = name,
       license          = 'GPL',
       data_files       = data_files(),
       translations     = translations(),
-      pot_file         = 'bin/l10n/ktiny.pot',
-      scripts          = ['ktiny'],
-      packages         = ['ktiny', 
-                          'ktiny.common', 
-                          'ktiny.modules', 
-			  'ktiny.modules.action',
-                          'ktiny.modules.gui',
-                          'ktiny.modules.gui.window',
-                          'ktiny.modules.gui.window.view_tree',
-                          'ktiny.modules',
-                          'ktiny.printer', 
-                          'ktiny.widget',
-                          'ktiny.widget.model',
-                          'ktiny.widget.screen',
-                          'ktiny.widget.view',
-                          'ktiny.widget.view.form',
-                          'ktiny.widget.view.tree',
-			  'ktiny.widget.view.chart',
-                          'ktiny.widget_search',
-			  'ktiny.rpc',
-			  'ktiny.ui',
-			  'ktiny.tinychart',
-                          'ktiny.plugins'] + list(find_plugins()),
-      package_dir      = {'ktiny': 'bin'},
-      provides         = [ 'ktiny' ]
+      pot_file         = 'Koo/l10n/koo.pot',
+      scripts          = ['koo'],
+      packages         = ['Koo', 
+                          'Koo.Actions', 
+                          'Koo.Common', 
+			  'Koo.Dialogs',
+			  'Koo.KooChart',
+			  'Koo.Model',
+			  'Koo.Plugins',
+			  'Koo.Printer',
+			  'Koo.Rpc',
+			  'Koo.Screen',
+			  'Koo.Search',
+			  'Koo.View',
+			  'Koo.View.Calendar',
+			  'Koo.View.Chart',
+			  'Koo.View.Form',
+			  'Koo.View.Svg',
+			  'Koo.View.Tree',
+                          ] + list(find_plugins()),
+      package_dir      = {'Koo': 'Koo'},
+      provides         = [ 'Koo' ]
       )
 
 
