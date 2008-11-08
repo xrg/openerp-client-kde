@@ -52,8 +52,8 @@
 ;--------------------------------
 ;Pages
 
-  !define MUI_ICON "..\bin\ui\images\tinyerp-icon.ico"
-  !define MUI_UNICON "..\bin\ui\images\tinyerp-icon.ico"
+  !define MUI_ICON "..\Koo\ui\images\tinyerp-icon.ico"
+  !define MUI_UNICON "..\Koo\ui\images\tinyerp-icon.ico"
   !define MUI_WELCOMEFINISHPAGE_BITMAP "tinyerp-intro.bmp"
   !define MUI_HEADERIMAGE
   !define MUI_HEADERIMAGE_BITMAP "tinyerp-header.bmp"
