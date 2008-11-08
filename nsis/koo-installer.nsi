@@ -3,14 +3,14 @@
 ;Written by Joost Verburg
 
 ; In order to compile this installer you'll need:
-; a) ktiny installer (.exe): created with setup.py bdist_wininst
+; a) koo installer (.exe): created with setup.py bdist_wininst
 ; b) python installer (.msi): download latest from python website
 ; c) pyqt installer (.exe): download latest from pyqt website
 ; All these files should be placed in the 'nsis' directory. If versions
 ; have changed you might need to modify 'SecTinyERPClient' with the
 ; appropiate filenames.
 ;
-; Once compiled you should get a file called 'ktiny-setup.exe' in the 'nsis' 
+; Once compiled you should get a file called 'koo-setup.exe' in the 'nsis' 
 ; directory.
 ;
 ; Enjoy!
@@ -24,14 +24,14 @@
 ;General
 
   ;Name and file
-  Name "KTiny"
-  OutFile "ktiny-setup.exe"
+  Name "Koo"
+  OutFile "koo-setup.exe"
 
   ;Default installation folder
-  InstallDir "$PROGRAMFILES\KTiny"
+  InstallDir "$PROGRAMFILES\Koo"
   
   ;Get installation folder from registry if available
-  InstallDirRegKey HKCU "Software\KTiny" ""
+  InstallDirRegKey HKCU "Software\Koo" ""
 
   ;Vista redirects $SMPROGRAMS to all users without this
   RequestExecutionLevel admin
@@ -65,8 +65,8 @@
   
   ;Start Menu Folder Page Configuration
   !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
-  !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\KTiny"
-  !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "KTiny"
+  !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\Koo"
+  !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Koo"
   
   !insertmacro MUI_PAGE_STARTMENU Application $STARTMENU_FOLDER
   
@@ -75,7 +75,7 @@
   !define MUI_FINISHPAGE_NOAUTOCLOSE
   !define MUI_FINISHPAGE_RUN
   !define MUI_FINISHPAGE_RUN_CHECKED
-  !define MUI_FINISHPAGE_RUN_TEXT "Start KTiny"
+  !define MUI_FINISHPAGE_RUN_TEXT "Start Koo"
   !define MUI_FINISHPAGE_RUN_FUNCTION "LaunchLink"
   !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
   !define MUI_FINISHPAGE_SHOWREADME $INSTDIR\README.txt
@@ -94,31 +94,31 @@
 ;--------------------------------
 ;Installer Sections
 
-Section "KTiny" SecTinyERPClient
+Section "Koo" SecTinyERPClient
 
   SetOutPath "$TEMP"
 
   File "python-2.5.2.msi"
   File "PyQt-Py2.5-gpl-4.4.2-1.exe"
-  File "ktiny-1.0.0-beta2.win32.exe"
+  File "koo-1.0.0-beta2.win32.exe"
 
   ExecWait 'msiexec /i "$TEMP\python-2.5.2.msi" /qn TARGETDIR=c:\python25'
   ExecWait '"$TEMP\PyQt-Py2.5-gpl-4.4.2-1.exe" /S'
-  ExecWait '"$TEMP\ktiny-1.0.0-beta2.win32.exe" /S'
+  ExecWait '"$TEMP\koo-1.0.0-beta2.win32.exe" /S'
 
   ;Store installation folder
-  #WriteRegStr HKCU "Software\KTiny" "" $INSTDIR
+  #WriteRegStr HKCU "Software\Koo" "" $INSTDIR
   
   ;Create uninstaller
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\KTiny" "DisplayName" "KTiny (remove only)"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\KTiny" "UninstallString" "$INSTDIR\Uninstall.exe"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "DisplayName" "Koo (remove only)"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "UninstallString" "$INSTDIR\Uninstall.exe"
   WriteUninstaller "$INSTDIR\Uninstall.exe"
   
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$STARTMENU_FOLDER"
-    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\KTiny.lnk" "c:\python25\lib\site-packages\ktiny\ktiny.py"
+    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Koo.lnk" "c:\python25\lib\site-packages\koo\koo.py"
   
   !insertmacro MUI_STARTMENU_WRITE_END
 
@@ -127,7 +127,7 @@ SectionEnd
 ;Descriptions
 
   ;Language strings
-  LangString DESC_SecTinyERPClient ${LANG_ENGLISH} "KTiny."
+  LangString DESC_SecTinyERPClient ${LANG_ENGLISH} "Koo."
 
   ;Assign language strings to sections
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
@@ -139,13 +139,13 @@ SectionEnd
 
 Section "Uninstall"
 
-  RMDir /r "c:\python25\lib\site-packages\ktiny"
-  RMDir /r "c:\python25\share\ktiny\"
+  RMDir /r "c:\python25\lib\site-packages\Koo"
+  RMDir /r "c:\python25\share\koo\"
   RMDir /r "$INSTDIR"
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
 
-  Delete "$SMPROGRAMS\$MUI_TEMP\KTiny.lnk"
+  Delete "$SMPROGRAMS\$MUI_TEMP\Koo.lnk"
   RMDir /r "$SMPROGRAMS\$STARTMENU_FOLDER"
 
   ;Delete empty start menu parent diretories
@@ -161,13 +161,13 @@ Section "Uninstall"
     StrCmp $MUI_TEMP $SMPROGRAMS startMenuDeleteLoopDone startMenuDeleteLoop
   startMenuDeleteLoopDone:
 
-  DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\KTiny"
-  DeleteRegKey /ifempty HKCU "Software\KTiny"
+  DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Koo"
+  DeleteRegKey /ifempty HKCU "Software\Koo"
 
 SectionEnd
 
 Function LaunchLink
-  ExecShell "" "$INSTDIR\lib\site-packages\ktiny\ktiny.py"
+  ExecShell "" "$INSTDIR\lib\site-packages\Koo\koo.py"
 FunctionEnd
 
 Function un.RmDirsButOne
