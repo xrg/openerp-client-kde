@@ -107,7 +107,7 @@ cd %s/Koo
 exec %s ./koo.py $@
 """ % ( get_python_lib(), sys.executable)
 # write script
-f = open('koo', 'w')
+f = open('koo.py', 'w')
 f.write(start_script)
 f.close()
 
