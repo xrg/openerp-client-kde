@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-20 15:58+0200\n"
+"POT-Creation-Date: 2008-11-08 01:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,534 +15,346 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: bin/common/common.py:158
-msgid "Sending support requests is not available with the TinyERP KDE client"
-msgstr ""
-"L'enviament de peticions de suport no està disponible amb el client KDE del "
-"TinyERP."
-
-#: bin/common/options.py:65
-msgid "specify alternate config file"
-msgstr ""
-
-#: bin/common/options.py:66
-msgid "enable basic debugging"
-msgstr ""
-
-#: bin/common/options.py:67
-msgid "specify channels to log"
-msgstr ""
-
-#: bin/common/options.py:68
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr ""
-
-#: bin/common/options.py:69
-msgid "specify the user login"
-msgstr ""
-
-#: bin/common/options.py:70
-msgid "specify the server port"
-msgstr ""
-
-#: bin/common/options.py:71
-msgid "specify the server ip/name"
-msgstr ""
-
-#: bin/common/options.py:72
-msgid "specify stylesheet to apply"
-msgstr ""
-
-#: bin/ktiny.py:74
+#: Koo/koo.py:72
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with KTiny."
+"can easily interact with Koo."
 msgstr ""
 
-#: bin/modules/action/main.py:48
-msgid "Nothing to print!"
+#: Koo/Printer/Printer.py:73
+#, fuzzy
+msgid "Report error"
+msgstr "Informe"
+
+#: Koo/Printer/Printer.py:73
+msgid "There was an error trying to create the report."
 msgstr ""
 
-#: bin/modules/action/main.py:64
-msgid "Printing aborted, too long delay !"
+#: Koo/Rpc/Rpc.py:248 Koo/Rpc/Rpc.py:362
+msgid "Connection Refused"
 msgstr ""
 
-#: bin/modules/action/main.py:68
+#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:374
+#: Koo/Rpc/Rpc.py:388 Koo/Rpc/Rpc.py:391
+msgid "Application Error"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:374
+#: Koo/Rpc/Rpc.py:388 Koo/Rpc/Rpc.py:391
+msgid "View details"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:492
+msgid "Could not contact server!"
+msgstr ""
+
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:283
+#: Koo/Dialogs/KooMainWindow.py:513
+msgid "Yes"
+msgstr ""
+
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:285
+#: Koo/Dialogs/KooMainWindow.py:513
+msgid "No"
+msgstr ""
+
+#: Koo/Model/KooModel.py:278 Koo/View/Form/binary.py:104
+#: Koo/View/Form/binary.py:141
+#, python-format
+msgid "%d bytes"
+msgstr ""
+
+#: Koo/Actions/Actions.py:56 Koo/Actions/Actions.py:80
+#: Koo/Actions/Actions.py:110
 msgid "Error: "
 msgstr ""
 
-#: bin/modules/action/main.py:160
+#: Koo/Actions/Actions.py:60
+msgid "Nothing to print."
+msgstr ""
+
+#: Koo/Actions/Actions.py:76
+msgid "Printint aborted. Delay too long."
+msgstr ""
+
+#: Koo/Actions/Actions.py:90
+msgid "Nothing to print!"
+msgstr ""
+
+#: Koo/Actions/Actions.py:106
+msgid "Printing aborted, too long delay !"
+msgstr ""
+
+#: Koo/Actions/Actions.py:205
 msgid "Select your action"
 msgstr ""
 
-#: bin/modules/action/main.py:166
+#: Koo/Actions/Actions.py:211 Koo/View/Form/many2one.py:110
+msgid "Action"
+msgstr "Acció"
+
+#: Koo/Actions/Actions.py:211
 msgid "No action defined!"
 msgstr ""
 
-#: bin/modules/gui/adminpwd.py:57
+#: Koo/Screen/Action.py:69
+msgid "You must select a record to use the relate button !"
+msgstr "Heu de seleccionar un registre abans d'utilitzar el botó de relació."
+
+#: Koo/Screen/Action.py:74
+msgid "You must save this record to use the relate button !"
+msgstr "Heu de desar el registre abans d'utilitzar el botó de relació."
+
+#: Koo/Screen/Action.py:101
+msgid "Print Screen"
+msgstr ""
+
+#: Koo/Plugins/__init__.py:70
+msgid "No available plugin for this resource !"
+msgstr "No hi ha connectors disponibles per a aquest recurs."
+
+#: Koo/Plugins/__init__.py:72
+msgid "Choose a Plugin"
+msgstr "Escolliu un connector"
+
+#: Koo/Common/Common.py:169
+msgid "Concurrency warning"
+msgstr ""
+
+#: Koo/Common/Common.py:170
+msgid ""
+"<b>Write concurrency warning:</b><br/>This document has been modified while "
+"you were editing it."
+msgstr ""
+
+#: Koo/Common/Common.py:171
+msgid "Save anyway"
+msgstr ""
+
+#: Koo/Common/Common.py:172
+msgid "Compare"
+msgstr ""
+
+#: Koo/Common/Common.py:173
+msgid "Do not save"
+msgstr ""
+
+#: Koo/Common/Options.py:66
+msgid "specify alternate config file"
+msgstr ""
+
+#: Koo/Common/Options.py:67
+msgid "enable basic debugging"
+msgstr ""
+
+#: Koo/Common/Options.py:68
+msgid "specify channels to log"
+msgstr ""
+
+#: Koo/Common/Options.py:69
+msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+msgstr ""
+
+#: Koo/Common/Options.py:70
+msgid "specify the user login"
+msgstr ""
+
+#: Koo/Common/Options.py:71
+msgid "specify the server port"
+msgstr ""
+
+#: Koo/Common/Options.py:72
+msgid "specify the server ip/name"
+msgstr ""
+
+#: Koo/Common/Options.py:73
+msgid "specify stylesheet to apply"
+msgstr ""
+
+#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:47
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: Koo/View/Form/abstractformwidget.py:66
+msgid "Set to default value"
+msgstr "Establir al valor per defecte"
+
+#: Koo/View/Form/abstractformwidget.py:72
+msgid "Set as default value"
+msgstr "Establir com a valor per defecte"
+
+#: Koo/View/Form/abstractformwidget.py:96
+msgid "Operation not permited"
+msgstr "L'operació no està permesa"
+
+#: Koo/View/Form/abstractformwidget.py:96
+msgid "You can not set to the default value here !"
+msgstr "No podeu establir el valor per defecte aquí."
+
+#: Koo/View/Form/TranslationDialog.py:48
+msgid "Translation Dialog"
+msgstr ""
+
+#: Koo/View/Form/char.py:70 Koo/View/Form/textbox.py:53
+msgid "Translation dialog"
+msgstr ""
+
+#: Koo/View/Form/char.py:70 Koo/View/Form/textbox.py:53
+msgid "You must save the resource before adding translations"
+msgstr "Heu de desar el recurs abans d'afegir traduccions"
+
+#: Koo/View/Form/image.py:70 Koo/View/Form/binary.py:69
+#: Koo/View/Form/link.py:61
+msgid "Open..."
+msgstr "Obre..."
+
+#: Koo/View/Form/image.py:103
+msgid "Save image as..."
+msgstr "Desa la imatge com..."
+
+#: Koo/View/Form/image.py:111
+msgid "Error saving file"
+msgstr "Error desant el fitxer"
+
+#: Koo/View/Form/image.py:111
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: Koo/View/Form/image.py:114
+msgid "Open image file..."
+msgstr ""
+
+#: Koo/View/Form/binary.py:70
+msgid "Show &image..."
+msgstr ""
+
+#: Koo/View/Form/binary.py:98
+msgid "Select the file to attach"
+msgstr ""
+
+#: Koo/View/Form/binary.py:116
+msgid "Error reading the file"
+msgstr ""
+
+#: Koo/View/Form/binary.py:120
+msgid "Save attachment as..."
+msgstr ""
+
+#: Koo/View/Form/binary.py:126
+msgid "Error writing the file!"
+msgstr ""
+
+#: Koo/View/Form/button.py:57 Koo/Dialogs/FormWidget.py:209
+#: Koo/Dialogs/FormWidget.py:351
+msgid "Question"
+msgstr ""
+
+#: Koo/View/Form/button.py:71
+msgid "Error in Button"
+msgstr ""
+
+#: Koo/View/Form/button.py:71
+msgid "Button type not allowed"
+msgstr ""
+
+#: Koo/View/Form/button.py:77
+msgid "Invalid Form, correct red fields!"
+msgstr ""
+
+#: Koo/View/Form/link.py:73
+msgid "Select the file to link to"
+msgstr ""
+
+#: Koo/View/Form/calendar.py:51
+msgid "Set current date"
+msgstr "Estableix la data actual"
+
+#: Koo/View/Form/calendar.py:92
+msgid "Set current date and time"
+msgstr "Estableix la data i hora actuals"
+
+#: Koo/View/Form/calendar.py:126 Koo/View/Form/calendar.py:170
+msgid "Set current time"
+msgstr "Estableix l'hora actual"
+
+#: Koo/View/Form/many2one.py:111
+msgid "Report"
+msgstr "Informe"
+
+#: Koo/View/Form/fieldpreferences.py:61
+msgid "<center>Always applicable!</center>"
+msgstr "<center>Sempre aplicable</center>"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:61
 msgid "Validation Error"
 msgstr ""
 
-#: bin/modules/gui/adminpwd.py:57
+#: Koo/Dialogs/AdministratorPasswordDialog.py:61
 msgid "Confirmation password does not match new password."
 msgstr ""
 
-#: bin/modules/gui/adminpwd.py:64
+#: Koo/Dialogs/AdministratorPasswordDialog.py:68
 msgid "Password changed successfully"
 msgstr ""
 
-#: bin/modules/gui/adminpwd.py:67
+#: Koo/Dialogs/AdministratorPasswordDialog.py:71
 msgid "Error"
 msgstr ""
 
-#: bin/modules/gui/adminpwd.py:67
+#: Koo/Dialogs/AdministratorPasswordDialog.py:71
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
 msgstr ""
 
-#: bin/modules/gui/askserver.py:60
-msgid "NET-RPC (faster)"
-msgstr ""
-
-#: bin/modules/gui/askserver.py:61
-msgid "XML-RPC"
-msgstr ""
-
-#: bin/modules/gui/askserver.py:62
-msgid "Secure XML-RPC"
-msgstr ""
-
-#: bin/modules/gui/choosedb.py:71 bin/modules/gui/login.py:72
-msgid "Could not connect to server !"
-msgstr ""
-
-#: bin/modules/gui/choosedb.py:77 bin/modules/gui/login.py:77
-msgid "No database found, you must create one !"
-msgstr ""
-
-#: bin/modules/gui/createdb.py:45
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:45
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid ""
 "The following users have been installed on your database:\n"
 "\n"
 msgstr ""
 
-#: bin/modules/gui/createdb.py:76 bin/modules/gui/createdb.py:78
+#: Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/DatabaseCreationDialog.py:85
 msgid "Could not create database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:76 bin/modules/gui/main.py:600
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:603
 msgid "Bad database administrator password !"
 msgstr ""
 
-#: bin/modules/gui/createdb.py:78 bin/modules/gui/createdb.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:92
 msgid "Error during database creation !"
 msgstr ""
 
-#: bin/modules/gui/createdb.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:92
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
 msgstr ""
 
-#: bin/modules/gui/createdb.py:152
+#: Koo/Dialogs/DatabaseCreationDialog.py:164
 msgid "Bad database name !"
 msgstr ""
 
-#: bin/modules/gui/createdb.py:152
+#: Koo/Dialogs/DatabaseCreationDialog.py:164
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: bin/modules/gui/main.py:91 bin/modules/gui/main.py:414
-msgid "Press Ctrl+O to login"
-msgstr ""
-
-#: bin/modules/gui/main.py:101
-msgid "Close tab"
-msgstr ""
-
-#: bin/modules/gui/main.py:190
-msgid "Open partners tab"
-msgstr ""
-
-#: bin/modules/gui/main.py:195
-msgid "Open products tab"
-msgstr ""
-
-#: bin/modules/gui/main.py:327
-#, python-format
-msgid "%s request(s)"
-msgstr "%s peticions"
-
-#: bin/modules/gui/main.py:329
-msgid "No request"
-msgstr "Cap petició"
-
-#: bin/modules/gui/main.py:331
-#, python-format
-msgid " - %s pending request(s)"
-msgstr "- %s peticions pendents"
-
-#: bin/modules/gui/main.py:337
-#, fuzzy
-msgid "New Request"
-msgstr "Cap petició"
-
-#: bin/modules/gui/main.py:337
-msgid "You've received a new request"
-msgstr ""
-
-#: bin/modules/gui/main.py:393 bin/modules/gui/main.py:395
-msgid "Connection error !"
-msgstr ""
-
-#: bin/modules/gui/main.py:393
-msgid "Unable to connect to the server !"
-msgstr ""
-
-#: bin/modules/gui/main.py:395
-msgid "Bad username or password !"
-msgstr ""
-
-#: bin/modules/gui/main.py:399
-msgid "Connection Error !"
-msgstr ""
-
-#: bin/modules/gui/main.py:413
-msgid "Not logged !"
-msgstr ""
-
-#: bin/modules/gui/main.py:487
-msgid "Access denied"
-msgstr ""
-
-#: bin/modules/gui/main.py:487
-msgid ""
-"You can not log into the system !\n"
-"Ask the administrator to verify\n"
-"you have an action defined for your user."
-msgstr ""
-
-#: bin/modules/gui/main.py:518
-msgid "Quit"
-msgstr ""
-
-#: bin/modules/gui/main.py:518
-msgid "Do you really want to quit ?"
-msgstr ""
-
-#: bin/modules/gui/main.py:518 bin/widget/model/treemodel.py:281
-#: bin/widget_search/checkbox.py:42
-msgid "Yes"
-msgstr ""
-
-#: bin/modules/gui/main.py:518 bin/widget/model/treemodel.py:283
-#: bin/widget_search/checkbox.py:43
-msgid "No"
-msgstr ""
-
-#: bin/modules/gui/main.py:587 bin/modules/gui/main.py:608
-msgid "Delete a database"
-msgstr ""
-
-#: bin/modules/gui/main.py:596 bin/modules/gui/main.py:602
-msgid "Database removal"
-msgstr ""
-
-#: bin/modules/gui/main.py:596
-msgid "Database dropped successfully!"
-msgstr ""
-
-#: bin/modules/gui/main.py:600
-msgid "Could not drop database."
-msgstr ""
-
-#: bin/modules/gui/main.py:602
-msgid "Couldn't drop database"
-msgstr ""
-
-#: bin/modules/gui/main.py:619
-msgid "Database restored successfully!"
-msgstr ""
-
-#: bin/modules/gui/main.py:623 bin/modules/gui/main.py:625
-msgid "Could not restore database"
-msgstr ""
-
-#: bin/modules/gui/main.py:623
-msgid "Bad database administrator password!"
-msgstr ""
-
-#: bin/modules/gui/main.py:625
-msgid "There was an error restoring the database!"
-msgstr ""
-
-#: bin/modules/gui/main.py:628
-msgid "Backup a database"
-msgstr ""
-
-#: bin/modules/gui/main.py:643
-msgid "Database backuped successfully!"
-msgstr ""
-
-#: bin/modules/gui/main.py:646
-#, python-format
-msgid ""
-"Could not backup database.\n"
-"%s"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:165
-msgid "No resource selected !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:186
-msgid "You have to select one resource!"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:192
-#: bin/modules/gui/window/win_full_text_search.py:392
-msgid "ID"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:193
-msgid "Creation User"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:194
-msgid "Creation Date"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:195
-msgid "Latest Modification by"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:196
-msgid "Latest Modification Date"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:197
-msgid "Owner"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:198
-msgid "Group Owner"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:199
-msgid "Access Level"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:208 bin/modules/gui/window/form.py:350
-#: bin/widget/view/form/button.py:57
-msgid "Question"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:208
-#, fuzzy
-msgid "Are you sure you want to remove these records?"
-msgstr "Esteu segur que voleu eliminar aquest registre?"
-
-#: bin/modules/gui/window/form.py:212
-msgid "Resource not removed !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:214
-msgid "Resource removed."
-msgstr ""
-
-#: bin/modules/gui/window/form.py:239
-msgid "Working now on the duplicated document !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:248
-msgid "Document saved !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:252
-msgid "Invalid form !"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:310
-msgid "No record selected!"
-msgstr "No hi ha cap registre seleccionat."
-
-#: bin/modules/gui/window/form.py:325
-#, python-format
-msgid "(%s attachments) "
-msgstr "(%s adjunts) "
-
-#: bin/modules/gui/window/form.py:330
-#, fuzzy
-msgid "No records"
-msgstr "No hi ha cap registre seleccionat."
-
-#: bin/modules/gui/window/form.py:337
-#, fuzzy
-msgid "No document selected"
-msgstr "No hi ha cap recurs seleccionat."
-
-#: bin/modules/gui/window/form.py:341
-msgid "New document"
-msgstr ""
-
-#: bin/modules/gui/window/form.py:343
-#, python-format
-msgid "Editing document (id: %s)"
-msgstr "Editant el document amb id: %s"
-
-#: bin/modules/gui/window/form.py:344
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr "Registre: %(name)s / %(count)s - %(name2)s"
-
-#: bin/modules/gui/window/form.py:350
-msgid "This record has been modified do you want to save it?"
-msgstr ""
-
-#: bin/modules/gui/window/importexport_common.py:37
-msgid "Fields"
-msgstr ""
-
-#: bin/modules/gui/window/tree.py:179 bin/modules/gui/window/tree.py:191
-msgid "No resource selected!"
-msgstr "No hi ha cap recurs seleccionat."
-
-#: bin/modules/gui/window/tree.py:203
-msgid "No item selected"
-msgstr "No hi ha cap element seleccionat"
-
-#: bin/modules/gui/window/tree.py:203
-msgid "Please select an element from the tree to add a shortcut to it."
-msgstr "Si us plau, seleccioneu un elment de l'arbre per crear-ne una drecera."
-
-#: bin/modules/gui/window/view_tree/parser.py:52
-msgid "Tree"
-msgstr "Arbre"
-
-#: bin/modules/gui/window/win_export.py:50
-msgid "TinyERP exported information"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:68
-#: bin/modules/gui/window/win_export.py:86
-#, python-format
-msgid "%s record(s) saved!"
-msgstr "%s registre(s) desat(s)!"
-
-#: bin/modules/gui/window/win_export.py:70
-#: bin/modules/gui/window/win_export.py:88
-#, python-format
-msgid ""
-"Operation failed !\n"
-"I/O error (%s)"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:86
-#: bin/modules/gui/window/win_export.py:88
-#: bin/modules/gui/window/win_export.py:90
-msgid "Data Export"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:90
-msgid "Error exporting data."
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:112
-msgid "Error opening Excel !"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:134
-msgid "Open with Excel"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:136
-msgid "Save as CSV"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:137
-msgid "Save as HTML"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:192
-msgid "Export Data"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:236
-msgid "What is the name of this export?"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:257
-msgid "Export name"
-msgstr ""
-
-#: bin/modules/gui/window/win_export.py:258
-msgid "Exported fields"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:302
-msgid "(Everywhere)"
-msgstr "(Arreu)"
-
-#: bin/modules/gui/window/win_full_text_search.py:306
-msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:308
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:310
-msgid "Tiny ERP Full Text Search"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:311
-#, python-format
-msgid "Tiny ERP Full Text Search (%%d result(s))"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:393
-msgid "Model ID"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:394
-msgid "Model Name"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:396
-msgid "Type"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:397
-msgid "Name"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:398
-msgid "Text"
-msgstr ""
-
-#: bin/modules/gui/window/win_full_text_search.py:399
-msgid "Ranking"
-msgstr ""
-
-#: bin/modules/gui/window/win_import.py:52
+#: Koo/Dialogs/ImportDialog.py:52
 #, python-format
 msgid "Imported %d objects !"
 msgstr ""
 
-#: bin/modules/gui/window/win_import.py:57
+#: Koo/Dialogs/ImportDialog.py:57
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -553,221 +365,473 @@ msgid ""
 "%(error2)s"
 msgstr ""
 
-#: bin/modules/gui/window/win_import.py:62
+#: Koo/Dialogs/ImportDialog.py:62
 msgid "Error importing data"
 msgstr ""
 
-#: bin/modules/gui/window/win_import.py:93
+#: Koo/Dialogs/ImportDialog.py:97
 msgid "File to import"
 msgstr ""
 
-#: bin/modules/gui/window/win_import.py:107
-msgid "No file specified"
+#: Koo/Dialogs/ImportDialog.py:112 Koo/Dialogs/ImportDialog.py:115
+#: Koo/Dialogs/ImportDialog.py:118
+#, fuzzy
+msgid "Import error"
+msgstr "Informe"
+
+#: Koo/Dialogs/ImportDialog.py:112
+#, fuzzy
+msgid "No file specified."
+msgstr "No hi ha cap element seleccionat"
+
+#: Koo/Dialogs/ImportDialog.py:115 Koo/Dialogs/ImportDialog.py:175
+msgid "Separator must be a single character."
 msgstr ""
 
-#: bin/modules/gui/window/win_import.py:169
+#: Koo/Dialogs/ImportDialog.py:118 Koo/Dialogs/ImportDialog.py:178
+msgid "Delimiter must be a single character."
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:167 Koo/Dialogs/ImportDialog.py:175
+#: Koo/Dialogs/ImportDialog.py:178 Koo/Dialogs/ImportDialog.py:184
+#: Koo/Dialogs/ImportDialog.py:194
+msgid "Auto-detect error"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:184
 msgid "Error opening .CSV file: Input Error."
 msgstr ""
 
-#: bin/modules/gui/window/win_preference.py:52
+#: Koo/Dialogs/ImportDialog.py:194
+#, python-format
+msgid ""
+"Error processing your first line of the file.\n"
+"Field %s is unknown !"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:75 Koo/Dialogs/LoginDialog.py:76
+msgid "Could not connect to server !"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:81 Koo/Dialogs/LoginDialog.py:81
+msgid "No database found, you must create one !"
+msgstr ""
+
+#: Koo/Dialogs/ImportExportCommon.py:37
+msgid "Fields"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:50
+msgid "TinyERP exported information"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:68 Koo/Dialogs/ExportDialog.py:86
+#, python-format
+msgid "%s record(s) saved!"
+msgstr "%s registre(s) desat(s)!"
+
+#: Koo/Dialogs/ExportDialog.py:70 Koo/Dialogs/ExportDialog.py:88
+#, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:86 Koo/Dialogs/ExportDialog.py:88
+#: Koo/Dialogs/ExportDialog.py:90
+msgid "Data Export"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:90
+msgid "Error exporting data."
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:112
+msgid "Error opening Excel !"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:138
+msgid "Open with Excel"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:140
+msgid "Save as CSV"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:141
+msgid "Save as HTML"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:196
+msgid "Export Data"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:240
+msgid "What is the name of this export?"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:261
+msgid "Export name"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:262
+msgid "Exported fields"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:166
+msgid "No resource selected !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:187
+msgid "You have to select one resource!"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:193 Koo/Dialogs/FullTextSearchDialog.py:393
+msgid "ID"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:194
+msgid "Creation User"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:195
+msgid "Creation Date"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:196
+msgid "Latest Modification by"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:197
+msgid "Latest Modification Date"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:198
+msgid "Owner"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:199
+msgid "Group Owner"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:200
+msgid "Access Level"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:209
+#, fuzzy
+msgid "Are you sure you want to remove these records?"
+msgstr "Esteu segur que voleu eliminar aquest registre?"
+
+#: Koo/Dialogs/FormWidget.py:213
+msgid "Resource not removed !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:215
+msgid "Resource removed."
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:240
+msgid "Working now on the duplicated document !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:249
+msgid "Document saved !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:253
+msgid "Invalid form !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:311
+msgid "No record selected!"
+msgstr "No hi ha cap registre seleccionat."
+
+#: Koo/Dialogs/FormWidget.py:326
+#, python-format
+msgid "(%s attachments) "
+msgstr "(%s adjunts) "
+
+#: Koo/Dialogs/FormWidget.py:331
+#, fuzzy
+msgid "No records"
+msgstr "No hi ha cap registre seleccionat."
+
+#: Koo/Dialogs/FormWidget.py:338
+#, fuzzy
+msgid "No document selected"
+msgstr "No hi ha cap recurs seleccionat."
+
+#: Koo/Dialogs/FormWidget.py:342
+msgid "New document"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:344
+#, python-format
+msgid "Editing document (id: %s)"
+msgstr "Editant el document amb id: %s"
+
+#: Koo/Dialogs/FormWidget.py:345
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr "Registre: %(name)s / %(count)s - %(name2)s"
+
+#: Koo/Dialogs/FormWidget.py:351
+msgid "This record has been modified do you want to save it?"
+msgstr ""
+
+#: Koo/Dialogs/PreferencesDialog.py:56
 msgid "Preferences"
 msgstr ""
 
-#: bin/modules/gui/window/win_preference.py:73
+#: Koo/Dialogs/PreferencesDialog.py:77
 #, python-format
 msgid "Preference %s"
 msgstr ""
 
-#: bin/modules/gui/window/win_search.py:74
+#: Koo/Dialogs/KooMainWindow.py:97 Koo/Dialogs/KooMainWindow.py:412
+msgid "Press Ctrl+O to login"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:107
+msgid "Close tab"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:175
+msgid "Open partners tab"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:180
+msgid "Open products tab"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:218
+msgid "Products"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:218
+msgid "Products module is not installed."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:325
+#, python-format
+msgid "%s request(s)"
+msgstr "%s peticions"
+
+#: Koo/Dialogs/KooMainWindow.py:327
+msgid "No request"
+msgstr "Cap petició"
+
+#: Koo/Dialogs/KooMainWindow.py:329
+#, python-format
+msgid " - %s pending request(s)"
+msgstr "- %s peticions pendents"
+
+#: Koo/Dialogs/KooMainWindow.py:335
+#, fuzzy
+msgid "New Request"
+msgstr "Cap petició"
+
+#: Koo/Dialogs/KooMainWindow.py:335
+msgid "You've received a new request"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:391 Koo/Dialogs/KooMainWindow.py:393
+msgid "Connection error !"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:391
+msgid "Unable to connect to the server !"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:393
+msgid "Bad username or password !"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:397
+msgid "Connection Error !"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:411
+msgid "Not logged !"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:482
+msgid "Access denied"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:482
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:513
+msgid "Quit"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:513
+msgid "Do you really want to quit ?"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:590 Koo/Dialogs/KooMainWindow.py:611
+msgid "Delete a database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:599 Koo/Dialogs/KooMainWindow.py:605
+msgid "Database removal"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:599
+msgid "Database dropped successfully!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:603
+msgid "Could not drop database."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:605
+msgid "Couldn't drop database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:622
+msgid "Database restored successfully!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:626 Koo/Dialogs/KooMainWindow.py:628
+msgid "Could not restore database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:626
+msgid "Bad database administrator password!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:628
+msgid "There was an error restoring the database!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:631
+msgid "Backup a database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:646
+msgid "Database backuped successfully!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:649
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:303
+msgid "(Everywhere)"
+msgstr "(Arreu)"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:307
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:309
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:311
+msgid "Tiny ERP Full Text Search"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:312
+#, python-format
+msgid "Tiny ERP Full Text Search (%%d result(s))"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:394
+msgid "Model ID"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:395
+msgid "Model Name"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:397
+msgid "Type"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:398
+msgid "Name"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:399
+msgid "Text"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:400
+msgid "Ranking"
+msgstr ""
+
+#: Koo/Dialogs/SearchDialog.py:78
 #, python-format
 msgid "Tiny ERP Search: %s"
 msgstr ""
 
-#: bin/modules/gui/window/win_search.py:75
+#: Koo/Dialogs/SearchDialog.py:79
 #, python-format
 msgid "Tiny ERP Search: %s (%%d result(s))"
 msgstr ""
 
-#: bin/plugins/__init__.py:69
-msgid "No available plugin for this resource !"
-msgstr "No hi ha connectors disponibles per a aquest recurs."
+#: Koo/Dialogs/ServerConfigurationDialog.py:64
+msgid "NET-RPC (faster)"
+msgstr ""
 
-#: bin/plugins/__init__.py:71
-msgid "Choose a Plugin"
-msgstr "Escolliu un connector"
+#: Koo/Dialogs/ServerConfigurationDialog.py:65
+msgid "XML-RPC"
+msgstr ""
 
-#: bin/plugins/scan/__init__.py:133
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "Secure XML-RPC"
+msgstr ""
+
+#: Koo/Dialogs/TreeWidget.py:61
+msgid "Tree"
+msgstr "Arbre"
+
+#: Koo/Dialogs/TreeWidget.py:220 Koo/Dialogs/TreeWidget.py:232
+msgid "No resource selected!"
+msgstr "No hi ha cap recurs seleccionat."
+
+#: Koo/Dialogs/TreeWidget.py:244
+msgid "No item selected"
+msgstr "No hi ha cap element seleccionat"
+
+#: Koo/Dialogs/TreeWidget.py:244
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr "Si us plau, seleccioneu un elment de l'arbre per crear-ne una drecera."
+
+#~ msgid ""
+#~ "Sending support requests is not available with the TinyERP KDE client"
+#~ msgstr ""
+#~ "L'enviament de peticions de suport no està disponible amb el client KDE "
+#~ "del TinyERP."
+
 #, fuzzy
-msgid "Saving image..."
-msgstr "Desa la imatge com..."
+#~ msgid "Saving image..."
+#~ msgstr "Desa la imatge com..."
 
-#: bin/plugins/scan/__init__.py:150
-msgid "Image stored successfully"
-msgstr ""
-
-#: bin/plugins/scan/__init__.py:153
 #, fuzzy
-msgid "Error storing image"
-msgstr "Error desant el fitxer"
+#~ msgid "Error storing image"
+#~ msgstr "Error desant el fitxer"
 
-#: bin/printer/printer.py:73
 #, fuzzy
-msgid "Report error"
-msgstr "Informe"
-
-#: bin/printer/printer.py:73
-msgid "There was an error trying to create the report."
-msgstr ""
-
-#: bin/rpc/rpc.py:215 bin/rpc/rpc.py:326
-msgid "Connection Refused"
-msgstr ""
-
-#: bin/rpc/rpc.py:222 bin/rpc/rpc.py:230 bin/rpc/rpc.py:332 bin/rpc/rpc.py:340
-msgid "Application Error"
-msgstr ""
-
-#: bin/rpc/rpc.py:222 bin/rpc/rpc.py:230 bin/rpc/rpc.py:332 bin/rpc/rpc.py:340
-msgid "View details"
-msgstr ""
-
-#: bin/rpc/rpc.py:440
-msgid "Could not contact server!"
-msgstr ""
-
-#: bin/widget/model/treemodel.py:276 bin/widget/view/form/binary.py:102
-#: bin/widget/view/form/binary.py:141
-#, python-format
-msgid "%d bytes"
-msgstr ""
-
-#: bin/widget/screen/action.py:68
-msgid "You must select a record to use the relate button !"
-msgstr "Heu de seleccionar un registre abans d'utilitzar el botó de relació."
-
-#: bin/widget/screen/action.py:73
-msgid "You must save this record to use the relate button !"
-msgstr "Heu de desar el registre abans d'utilitzar el botó de relació."
-
-#: bin/widget/screen/action.py:98
-msgid "Print Screen"
-msgstr ""
-
-#: bin/widget/view/chart/parser.py:65 bin/widget/view/calendar/parser.py:47
-msgid "Unknown"
-msgstr "Desconegut"
-
-#: bin/widget/view/form/abstractformwidget.py:66
-msgid "Set to default value"
-msgstr "Establir al valor per defecte"
-
-#: bin/widget/view/form/abstractformwidget.py:72
-msgid "Set as default value"
-msgstr "Establir com a valor per defecte"
-
-#: bin/widget/view/form/abstractformwidget.py:96
-msgid "Operation not permited"
-msgstr "L'operació no està permesa"
-
-#: bin/widget/view/form/abstractformwidget.py:96
-msgid "You can not set to the default value here !"
-msgstr "No podeu establir el valor per defecte aquí."
-
-#: bin/widget/view/form/binary.py:68 bin/widget/view/form/image.py:85
-#: bin/widget/view/form/link.py:58
-msgid "Open..."
-msgstr "Obre..."
-
-#: bin/widget/view/form/binary.py:69
-msgid "Show &image..."
-msgstr ""
-
-#: bin/widget/view/form/binary.py:97
-msgid "Select the file to attach"
-msgstr ""
-
-#: bin/widget/view/form/binary.py:115
-msgid "Error reading the file"
-msgstr ""
-
-#: bin/widget/view/form/binary.py:119
-msgid "Save attachment as..."
-msgstr ""
-
-#: bin/widget/view/form/binary.py:125
-msgid "Error writing the file!"
-msgstr ""
-
-#: bin/widget/view/form/button.py:71
-msgid "Error in Button"
-msgstr ""
-
-#: bin/widget/view/form/button.py:71
-msgid "Button type not allowed"
-msgstr ""
-
-#: bin/widget/view/form/button.py:74
-msgid "Invalid Form, correct red fields!"
-msgstr ""
-
-#: bin/widget/view/form/calendar.py:47
-msgid "Set current date"
-msgstr "Estableix la data actual"
-
-#: bin/widget/view/form/calendar.py:87
-msgid "Set current date and time"
-msgstr "Estableix la data i hora actuals"
-
-#: bin/widget/view/form/calendar.py:121 bin/widget/view/form/calendar.py:165
-msgid "Set current time"
-msgstr "Estableix l'hora actual"
-
-#: bin/widget/view/form/char.py:70
-msgid "You must save the resource before adding translations"
-msgstr "Heu de desar el recurs abans d'afegir traduccions"
-
-#: bin/widget/view/form/fieldpreferences.py:57
-msgid "<center>Always applicable!</center>"
-msgstr "<center>Sempre aplicable</center>"
-
-#: bin/widget/view/form/image.py:46
-#, fuzzy
-msgid "(no image)"
-msgstr "(escolliu una imatge)"
-
-#: bin/widget/view/form/image.py:118
-msgid "Save image as..."
-msgstr "Desa la imatge com..."
-
-#: bin/widget/view/form/image.py:126
-msgid "Error saving file"
-msgstr "Error desant el fitxer"
-
-#: bin/widget/view/form/image.py:126
-msgid ""
-"Could not save the image with the given file name. Please check that you "
-"have permissions."
-msgstr ""
-
-#: bin/widget/view/form/image.py:129
-msgid "Open image file..."
-msgstr ""
-
-#: bin/widget/view/form/link.py:70
-msgid "Select the file to link to"
-msgstr ""
-
-#: bin/widget/view/form/many2one.py:106
-msgid "Action"
-msgstr "Acció"
-
-#: bin/widget/view/form/many2one.py:107
-msgid "Report"
-msgstr "Informe"
-
-#: bin/widget/view/form/translationdialog.py:41
-msgid "Translation Dialog"
-msgstr ""
+#~ msgid "(no image)"
+#~ msgstr "(escolliu una imatge)"
 
 #~ msgid "<center><b>Could not load charts: %s</b></center>"
 #~ msgstr "<center><b>No s'han pogut carregar les gràfiques: %s</b></center>"

@@ -406,7 +406,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="13"/>
         <source>Dialog</source>
-        <translation>Diàleg</translation>
+        <translation type="obsolete">Diàleg</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="56"/>
@@ -422,7 +422,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Us podeu connectar a la base de dades nova utilitzant algun dels comptes següents:&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Administrador: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;p, li { white-space: pre-wrap; }&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Us podeu connectar a la base de dades nova utilitzant algun dels comptes següents:&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Administrador: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="98"/>
@@ -430,9 +430,25 @@ p, li { white-space: pre-wrap; }
         <translation>Connecta &amp;ara</translation>
     </message>
     <message>
-        <location filename="dbcreateok.ui" line="111"/>
+        <location filename="dbcreateok.ui" line="112"/>
         <source>Connect &amp;later</source>
         <translation>Connecta &amp;més tard</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="13"/>
+        <source>Database created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="66"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1189,7 +1205,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Form</name>
     <message>
-        <location filename="keyboard.ui" line="13"/>
+        <location filename="image.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished">Formulari</translation>
     </message>
@@ -1207,9 +1223,9 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;(new line)p, li { white-space: pre-wrap; }(new line)&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal; text-decoration:none;&quot;&gt;(new line)&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="73"/>
+        <location filename="image.ui" line="25"/>
         <source>TextLabel</source>
-        <translation type="obsolete">TextLabel</translation>
+        <translation type="unfinished">TextLabel</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="89"/>
@@ -1705,6 +1721,21 @@ p, li { white-space: pre-wrap; }
         <source>P</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="image.ui" line="56"/>
+        <source>Load Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="73"/>
+        <source>Save Image</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="90"/>
+        <source>Remove Image</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FormContainerWidget</name>
@@ -1878,212 +1909,212 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="25"/>
         <source>KTiny Erp Client</source>
-        <translation>Client ERP KTiny</translation>
+        <translation type="obsolete">Client ERP KTiny</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="151"/>
         <source>Requests:</source>
-        <translation>Peticions:</translation>
+        <translation type="obsolete">Peticions:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="191"/>
         <source>Read My Requests</source>
-        <translation>Llegeix les meves peticions</translation>
+        <translation type="obsolete">Llegeix les meves peticions</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="211"/>
         <source>Send New Request</source>
-        <translation>Envia una nova petició</translation>
+        <translation type="obsolete">Envia una nova petició</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="242"/>
         <source>&amp;Plugins</source>
-        <translation>&amp;Extensions</translation>
+        <translation type="obsolete">&amp;Extensions</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="248"/>
         <source>&amp;Help</source>
-        <translation>&amp;Ajuda</translation>
+        <translation type="obsolete">&amp;Ajuda</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="252"/>
         <source>User &amp;Manual</source>
-        <translation>&amp;Manual d&apos;Usuari</translation>
+        <translation type="obsolete">&amp;Manual d&apos;Usuari</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="269"/>
         <source>F&amp;orm</source>
-        <translation>F&amp;ormulari</translation>
+        <translation type="obsolete">F&amp;ormulari</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="304"/>
         <source>&amp;File</source>
-        <translation>&amp;Fitxer</translation>
+        <translation type="obsolete">&amp;Fitxer</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="308"/>
         <source>&amp;Databases</source>
-        <translation>&amp;Bases de dades</translation>
+        <translation type="obsolete">&amp;Bases de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="326"/>
         <source>&amp;User</source>
-        <translation>&amp;Usuari</translation>
+        <translation type="obsolete">&amp;Usuari</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="338"/>
         <source>&amp;Actions</source>
-        <translation>&amp;Accions</translation>
+        <translation type="obsolete">&amp;Accions</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="343"/>
         <source>&amp;Reports</source>
-        <translation>&amp;Informes</translation>
+        <translation type="obsolete">&amp;Informes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="348"/>
         <source>&amp;Browse</source>
-        <translation>&amp;Navega</translation>
+        <translation type="obsolete">&amp;Navega</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="411"/>
         <source>&amp;Connect</source>
-        <translation>&amp;Connecta</translation>
+        <translation type="obsolete">&amp;Connecta</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="429"/>
         <source>&amp;Disconnect</source>
-        <translation>&amp;Desconnecta</translation>
+        <translation type="obsolete">&amp;Desconnecta</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="438"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Surt</translation>
+        <translation type="obsolete">&amp;Surt</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="447"/>
         <source>&amp;New Database</source>
-        <translation>&amp;Base de dades nova</translation>
+        <translation type="obsolete">&amp;Base de dades nova</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="456"/>
         <source>&amp;Restore Database</source>
-        <translation>&amp;Restaura una base de dades</translation>
+        <translation type="obsolete">&amp;Restaura una base de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="465"/>
         <source>&amp;Backup Database</source>
-        <translation>Fes  una còpia de seguretat de la &amp;base de dades</translation>
+        <translation type="obsolete">Fes  una còpia de seguretat de la &amp;base de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="474"/>
         <source>&amp;Drop Database</source>
-        <translation>&amp;Elimina la base de dades</translation>
+        <translation type="obsolete">&amp;Elimina la base de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="483"/>
         <source>&amp;Administrator Password</source>
-        <translation>&amp;Contrasenya de l&apos;administrador</translation>
+        <translation type="obsolete">&amp;Contrasenya de l&apos;administrador</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="492"/>
         <source>&amp;Preferences</source>
-        <translation>&amp;Preferències</translation>
+        <translation type="obsolete">&amp;Preferències</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="501"/>
         <source>&amp;Send Request</source>
-        <translation>&amp;Envia una petició</translation>
+        <translation type="obsolete">&amp;Envia una petició</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="510"/>
         <source>&amp;Read My Requests</source>
-        <translation>&amp;Llegeix les meves peticions</translation>
+        <translation type="obsolete">&amp;Llegeix les meves peticions</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="519"/>
         <source>&amp;Waiting Requests</source>
-        <translation>&amp;Esperant peticions</translation>
+        <translation type="obsolete">&amp;Esperant peticions</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="528"/>
         <source>&amp;New</source>
-        <translation>&amp;Nou</translation>
+        <translation type="obsolete">&amp;Nou</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="537"/>
         <source>&amp;Save</source>
-        <translation>&amp;Desa</translation>
+        <translation type="obsolete">&amp;Desa</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="546"/>
         <source>D&amp;uplicate</source>
-        <translation>D&amp;uplica</translation>
+        <translation type="obsolete">D&amp;uplica</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="555"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Elimina</translation>
+        <translation type="obsolete">&amp;Elimina</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="564"/>
         <source>&amp;Find</source>
-        <translation>&amp;Cerca</translation>
+        <translation type="obsolete">&amp;Cerca</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="573"/>
         <source>&amp;Next</source>
-        <translation>&amp;Següent</translation>
+        <translation type="obsolete">&amp;Següent</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="582"/>
         <source>&amp;Previous</source>
-        <translation>&amp;Anterior</translation>
+        <translation type="obsolete">&amp;Anterior</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="591"/>
         <source>Switch &amp;View</source>
-        <translation>Canvia la &amp;vista</translation>
+        <translation type="obsolete">Canvia la &amp;vista</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="596"/>
         <source>Open &amp;Menu Tab</source>
-        <translation>Obre la pestanya de &amp;Menú</translation>
+        <translation type="obsolete">Obre la pestanya de &amp;Menú</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="601"/>
         <source>Next Tab</source>
-        <translation>Vés a la pestanya següent</translation>
+        <translation type="obsolete">Vés a la pestanya següent</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="606"/>
         <source>Previous Tab</source>
-        <translation>Vés a la pestanya anterior</translation>
+        <translation type="obsolete">Vés a la pestanya anterior</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="615"/>
         <source>&amp;Close</source>
-        <translation>&amp;Tanca</translation>
+        <translation type="obsolete">&amp;Tanca</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="620"/>
         <source>View Access Log</source>
-        <translation>Veure el registre d&apos;accessos</translation>
+        <translation type="obsolete">Veure el registre d&apos;accessos</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="629"/>
         <source>Go To Resource ID</source>
-        <translation>Vés al recurs amb ID</translation>
+        <translation type="obsolete">Vés al recurs amb ID</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="638"/>
         <source>&amp;Open</source>
-        <translation>&amp;Obre</translation>
+        <translation type="obsolete">&amp;Obre</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="647"/>
         <source>&amp;Reload/Undo</source>
-        <translation>&amp;Recarrega/Desfés</translation>
+        <translation type="obsolete">&amp;Recarrega/Desfés</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="625"/>
@@ -2093,100 +2124,479 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="656"/>
         <source>Preview in PDF</source>
-        <translation>Mostra la vista prèvia en PDF</translation>
+        <translation type="obsolete">Mostra la vista prèvia en PDF</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="665"/>
         <source>Preview in Editor</source>
-        <translation>Mostra la vista prèvia en un editor</translation>
+        <translation type="obsolete">Mostra la vista prèvia en un editor</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="670"/>
         <source>E&amp;xport Data</source>
-        <translation>E&amp;xporta dades</translation>
+        <translation type="obsolete">E&amp;xporta dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="675"/>
         <source>&amp;Import Data</source>
-        <translation>&amp;Importa dades</translation>
+        <translation type="obsolete">&amp;Importa dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="684"/>
         <source>&amp;Execute Plugins</source>
-        <translation>&amp;Executa extensions</translation>
+        <translation type="obsolete">&amp;Executa extensions</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="693"/>
         <source>&amp;Contextual Help</source>
-        <translation>&amp;Ajuda contextual</translation>
+        <translation type="obsolete">&amp;Ajuda contextual</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="698"/>
         <source>&amp;Tips</source>
-        <translation>&amp;Consells</translation>
+        <translation type="obsolete">&amp;Consells</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="707"/>
         <source>&amp;Keyboard Shortcut</source>
-        <translation>&amp;Dreceres de teclat</translation>
+        <translation type="obsolete">&amp;Dreceres de teclat</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="712"/>
         <source>&amp;License</source>
-        <translation>&amp;Llicència</translation>
+        <translation type="obsolete">&amp;Llicència</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="721"/>
         <source>&amp;About</source>
-        <translation>&amp;Quant a</translation>
+        <translation type="obsolete">&amp;Quant a</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="730"/>
         <source>Full &amp;Text Search</source>
-        <translation>Cerca de &amp;Text</translation>
+        <translation type="obsolete">Cerca de &amp;Text</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="739"/>
         <source>Attachments</source>
-        <translation>Adjunts</translation>
+        <translation type="obsolete">Adjunts</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="748"/>
         <source>Support Request</source>
-        <translation>Petició de suport</translation>
+        <translation type="obsolete">Petició de suport</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="757"/>
         <source>&amp;Form designer</source>
-        <translation>&amp;Dissenyador de formularis</translation>
+        <translation type="obsolete">&amp;Dissenyador de formularis</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="762"/>
         <source>&amp;Menu</source>
-        <translation>&amp;Menú</translation>
+        <translation type="obsolete">&amp;Menú</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="767"/>
         <source>User Manual</source>
-        <translation>Manual d&apos;Usuari</translation>
+        <translation type="obsolete">Manual d&apos;Usuari</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="772"/>
         <source>TinyERP</source>
-        <translation>TinyERP</translation>
+        <translation type="obsolete">TinyERP</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="777"/>
         <source>KTiny</source>
-        <translation>KTiny</translation>
+        <translation type="obsolete">KTiny</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="782"/>
         <source>Open Home Tab</source>
-        <translation>Obre la pestanya inicial</translation>
+        <translation type="obsolete">Obre la pestanya inicial</translation>
+    </message>
+</context>
+<context>
+    <name>KooMainWindow</name>
+    <message>
+        <location filename="mainwindow.ui" line="25"/>
+        <source>Koo: OpenObject KDE Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="143"/>
+        <source>Requests:</source>
+        <translation type="unfinished">Peticions:</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="183"/>
+        <source>Read My Requests</source>
+        <translation type="unfinished">Llegeix les meves peticions</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="203"/>
+        <source>Send New Request</source>
+        <translation type="unfinished">Envia una nova petició</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="234"/>
+        <source>&amp;Plugins</source>
+        <translation type="unfinished">&amp;Extensions</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="239"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished">&amp;Ajuda</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="243"/>
+        <source>User &amp;Manual</source>
+        <translation type="unfinished">&amp;Manual d&apos;Usuari</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="258"/>
+        <source>F&amp;orm</source>
+        <translation type="unfinished">F&amp;ormulari</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="293"/>
+        <source>&amp;File</source>
+        <translation type="unfinished">&amp;Fitxer</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="297"/>
+        <source>&amp;Databases</source>
+        <translation type="unfinished">&amp;Bases de dades</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="315"/>
+        <source>&amp;User</source>
+        <translation type="unfinished">&amp;Usuari</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="327"/>
+        <source>&amp;Actions</source>
+        <translation type="unfinished">&amp;Accions</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="332"/>
+        <source>&amp;Reports</source>
+        <translation type="unfinished">&amp;Informes</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="337"/>
+        <source>&amp;Browse</source>
+        <translation type="unfinished">&amp;Navega</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="392"/>
+        <source>&amp;Connect</source>
+        <translation type="unfinished">&amp;Connecta</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="395"/>
+        <source>Ctrl+O</source>
+        <comment>Ctrl+O to Login</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="410"/>
+        <source>&amp;Disconnect</source>
+        <translation type="unfinished">&amp;Desconnecta</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="419"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">&amp;Surt</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="428"/>
+        <source>&amp;New Database</source>
+        <translation type="unfinished">&amp;Base de dades nova</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="437"/>
+        <source>&amp;Restore Database</source>
+        <translation type="unfinished">&amp;Restaura una base de dades</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="446"/>
+        <source>&amp;Backup Database</source>
+        <translation type="unfinished">Fes  una còpia de seguretat de la &amp;base de dades</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="455"/>
+        <source>&amp;Drop Database</source>
+        <translation type="unfinished">&amp;Elimina la base de dades</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="464"/>
+        <source>&amp;Administrator Password</source>
+        <translation type="unfinished">&amp;Contrasenya de l&apos;administrador</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="473"/>
+        <source>&amp;Preferences</source>
+        <translation type="unfinished">&amp;Preferències</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="482"/>
+        <source>&amp;Send Request</source>
+        <translation type="unfinished">&amp;Envia una petició</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="491"/>
+        <source>&amp;Read My Requests</source>
+        <translation type="unfinished">&amp;Llegeix les meves peticions</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="500"/>
+        <source>&amp;Waiting Requests</source>
+        <translation type="unfinished">&amp;Esperant peticions</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="509"/>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;Nou</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="512"/>
+        <source>Ctrl+N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="521"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished">&amp;Desa</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="524"/>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="533"/>
+        <source>D&amp;uplicate</source>
+        <translation type="unfinished">D&amp;uplica</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="536"/>
+        <source>Ctrl+Shift+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="545"/>
+        <source>&amp;Delete</source>
+        <translation type="unfinished">&amp;Elimina</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="548"/>
+        <source>Ctrl+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="557"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;Cerca</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="560"/>
+        <source>Ctrl+F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="569"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">&amp;Següent</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="572"/>
+        <source>Alt+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="581"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="584"/>
+        <source>Alt+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="593"/>
+        <source>Switch &amp;View</source>
+        <translation type="unfinished">Canvia la &amp;vista</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="596"/>
+        <source>Ctrl+L, Ctrl+Shift+L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="601"/>
+        <source>Open &amp;Menu Tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="606"/>
+        <source>Next Tab</source>
+        <translation type="unfinished">Vés a la pestanya següent</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="609"/>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="614"/>
+        <source>Previous Tab</source>
+        <translation type="unfinished">Vés a la pestanya anterior</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="617"/>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="626"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;Tanca</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="629"/>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="634"/>
+        <source>View Access Log</source>
+        <translation type="unfinished">Veure el registre d&apos;accessos</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="643"/>
+        <source>Go To Resource ID</source>
+        <translation type="unfinished">Vés al recurs amb ID</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="652"/>
+        <source>&amp;Open</source>
+        <translation type="unfinished">&amp;Obre</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="661"/>
+        <source>&amp;Reload/Undo</source>
+        <translation type="unfinished">&amp;Recarrega/Desfés</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="664"/>
+        <source>F5</source>
+        <translation type="unfinished">F5</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="673"/>
+        <source>Preview in PDF</source>
+        <translation type="unfinished">Mostra la vista prèvia en PDF</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="682"/>
+        <source>Preview in Editor</source>
+        <translation type="unfinished">Mostra la vista prèvia en un editor</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="687"/>
+        <source>E&amp;xport Data</source>
+        <translation type="unfinished">E&amp;xporta dades</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="692"/>
+        <source>&amp;Import Data</source>
+        <translation type="unfinished">&amp;Importa dades</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="701"/>
+        <source>&amp;Execute Plugins</source>
+        <translation type="unfinished">&amp;Executa extensions</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="710"/>
+        <source>&amp;Contextual Help</source>
+        <translation type="unfinished">&amp;Ajuda contextual</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="715"/>
+        <source>&amp;Tips</source>
+        <translation type="unfinished">&amp;Consells</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="724"/>
+        <source>&amp;Keyboard Shortcut</source>
+        <translation type="unfinished">&amp;Dreceres de teclat</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="729"/>
+        <source>&amp;License</source>
+        <translation type="unfinished">&amp;Llicència</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="738"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;Quant a</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="747"/>
+        <source>Full &amp;Text Search</source>
+        <translation type="unfinished">Cerca de &amp;Text</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="750"/>
+        <source>Ctrl+T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="759"/>
+        <source>Attachments</source>
+        <translation type="unfinished">Adjunts</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="762"/>
+        <source>Ctrl+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="771"/>
+        <source>&amp;Form designer</source>
+        <translation type="unfinished">&amp;Dissenyador de formularis</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="776"/>
+        <source>&amp;Menu</source>
+        <translation type="unfinished">&amp;Menú</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="781"/>
+        <source>User Manual</source>
+        <translation type="unfinished">Manual d&apos;Usuari</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="786"/>
+        <source>OpenERP</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="791"/>
+        <source>Koo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="796"/>
+        <source>Open Home Tab</source>
+        <translation type="unfinished">Obre la pestanya inicial</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="805"/>
         <source>&amp;Clear Cache</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2874,7 +3284,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="progress.ui" line="13"/>
         <source>Dialog</source>
-        <translation>Diàleg</translation>
+        <translation type="obsolete">Diàleg</translation>
     </message>
     <message>
         <location filename="progress.ui" line="44"/>
@@ -2887,6 +3297,11 @@ p, li { white-space: pre-wrap; }
 this operation may take a while...</source>
         <translation>Si us plau, espereu, 
 aquesta operació pot tardar una estona...</translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="13"/>
+        <source>Progress...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3053,7 +3468,7 @@ p, li { white-space: pre-wrap; }
         <translation>Formulari</translation>
     </message>
     <message>
-        <location filename="searchviewitem.ui" line="152"/>
+        <location filename="searchviewitem.ui" line="158"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
@@ -3117,7 +3532,7 @@ p, li { white-space: pre-wrap; }
         <translation>Dreceres de teclat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="31"/>
+        <location filename="shortcuts.ui" line="23"/>
         <source>&amp;Main Shortcuts</source>
         <translation>Dreceres &amp;Principals</translation>
     </message>
@@ -3127,247 +3542,247 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;center&gt;&lt;b&gt;Dreceres del TinyERP&lt;/b&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="39"/>
+        <location filename="shortcuts.ui" line="31"/>
         <source>&lt;Ctrl&gt; + O</source>
         <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="46"/>
+        <location filename="shortcuts.ui" line="38"/>
         <source>Connect</source>
         <translation>Connecta</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="53"/>
+        <location filename="shortcuts.ui" line="45"/>
         <source>&lt;Ctrl&gt; + N</source>
         <translation>&lt;Ctrl&gt; + N</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="60"/>
+        <location filename="shortcuts.ui" line="52"/>
         <source>New</source>
         <translation>Nou</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="67"/>
+        <location filename="shortcuts.ui" line="59"/>
         <source>&lt;Ctrl&gt; + S</source>
         <translation>&lt;Ctrl&gt; + S</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="74"/>
+        <location filename="shortcuts.ui" line="66"/>
         <source>Save</source>
         <translation>Desa</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="81"/>
+        <location filename="shortcuts.ui" line="73"/>
         <source>&lt;Ctrl&gt; + D</source>
         <translation>&lt;Ctrl&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="88"/>
+        <location filename="shortcuts.ui" line="80"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="95"/>
+        <location filename="shortcuts.ui" line="87"/>
         <source>&lt;Ctrl&gt; + F</source>
         <translation>&lt;Ctrl&gt; + F</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="102"/>
+        <location filename="shortcuts.ui" line="94"/>
         <source>Find / Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="109"/>
+        <location filename="shortcuts.ui" line="101"/>
         <source>&lt;Ctrl&gt; + T</source>
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="116"/>
+        <location filename="shortcuts.ui" line="108"/>
         <source>Full Text Search</source>
         <translation>Cerca de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="123"/>
+        <location filename="shortcuts.ui" line="115"/>
         <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="130"/>
+        <location filename="shortcuts.ui" line="122"/>
         <source>Previous Record</source>
         <translation>Registre anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="137"/>
+        <location filename="shortcuts.ui" line="129"/>
         <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="144"/>
+        <location filename="shortcuts.ui" line="136"/>
         <source>Next record</source>
         <translation>Registre següent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="151"/>
+        <location filename="shortcuts.ui" line="143"/>
         <source>&lt;Ctrl&gt; + L</source>
         <translation>&lt;Ctrl&gt; + L</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="158"/>
+        <location filename="shortcuts.ui" line="150"/>
         <source>Switch view mode</source>
         <translation>Canvia la vista</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="165"/>
+        <location filename="shortcuts.ui" line="157"/>
         <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="172"/>
+        <location filename="shortcuts.ui" line="164"/>
         <source>Previous tab</source>
         <translation>Pestanya anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="179"/>
+        <location filename="shortcuts.ui" line="171"/>
         <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="186"/>
+        <location filename="shortcuts.ui" line="178"/>
         <source>Next tab</source>
         <translation>Pestanya següent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="193"/>
+        <location filename="shortcuts.ui" line="185"/>
         <source>&lt;Ctrl&gt; + W</source>
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="461"/>
+        <location filename="shortcuts.ui" line="480"/>
         <source>Close tab</source>
         <translation>Tanca la pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="207"/>
+        <location filename="shortcuts.ui" line="199"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="214"/>
+        <location filename="shortcuts.ui" line="206"/>
         <source>Reload</source>
         <translation>Recarrega</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="454"/>
+        <location filename="shortcuts.ui" line="473"/>
         <source>Middle mouse click on Tab</source>
         <translation>Clic amb el botó del mig en una pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="221"/>
+        <location filename="shortcuts.ui" line="213"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="228"/>
+        <location filename="shortcuts.ui" line="220"/>
         <source>Duplicate Record</source>
         <translation>Duplica el registre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="237"/>
+        <location filename="shortcuts.ui" line="229"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;i&gt;Quan s&apos;edita un recurs en una finestra emergent&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="246"/>
+        <location filename="shortcuts.ui" line="238"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="253"/>
+        <location filename="shortcuts.ui" line="245"/>
         <source>Save and close window</source>
         <translation>Desa i tanca la finestra</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="260"/>
+        <location filename="shortcuts.ui" line="252"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="267"/>
+        <location filename="shortcuts.ui" line="259"/>
         <source>Close window without saving</source>
         <translation>Tanca la finestra sense desar</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="285"/>
+        <location filename="shortcuts.ui" line="269"/>
         <source>&amp;Edition Shortcuts</source>
         <translation>Dreceres d&apos;&amp;edició</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="300"/>
+        <location filename="shortcuts.ui" line="284"/>
         <source>Cut selected text</source>
         <translation>Talla el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="307"/>
+        <location filename="shortcuts.ui" line="291"/>
         <source>Copy selected text</source>
         <translation>Copia el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="314"/>
+        <location filename="shortcuts.ui" line="298"/>
         <source>Paste selected text</source>
         <translation>Enganxa el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="321"/>
+        <location filename="shortcuts.ui" line="305"/>
         <source>Next editable widget</source>
         <translation>Següent camp editable</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="328"/>
+        <location filename="shortcuts.ui" line="312"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation>&lt;Shift&gt; + &lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="335"/>
+        <location filename="shortcuts.ui" line="319"/>
         <source>Previous editable widget</source>
         <translation>Camp editable anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="342"/>
+        <location filename="shortcuts.ui" line="326"/>
         <source>&lt;Enter&gt;</source>
         <translation>&lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="349"/>
+        <location filename="shortcuts.ui" line="333"/>
         <source>Auto-complete text field</source>
         <translation>Auto-completa el camp de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="356"/>
+        <location filename="shortcuts.ui" line="340"/>
         <source>&lt;Tab&gt;</source>
         <translation>&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="363"/>
+        <location filename="shortcuts.ui" line="347"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="370"/>
+        <location filename="shortcuts.ui" line="354"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="377"/>
+        <location filename="shortcuts.ui" line="361"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="530"/>
+        <location filename="shortcuts.ui" line="563"/>
         <source>&amp;Close</source>
         <translation>&amp;Tanca</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="439"/>
+        <location filename="shortcuts.ui" line="458"/>
         <source>&amp;Advanced</source>
         <translation>&amp;Avançat</translation>
     </message>
@@ -3379,15 +3794,15 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="475"/>
         <source>Open Form View in new Tab</source>
-        <translation>Obre la vista de formulari en una nova pestanya</translation>
+        <translation type="obsolete">Obre la vista de formulari en una nova pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="445"/>
+        <location filename="shortcuts.ui" line="464"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation>&lt;b&gt;Dreceres en camps de text&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="386"/>
+        <location filename="shortcuts.ui" line="370"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -3396,30 +3811,74 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="399"/>
+        <location filename="shortcuts.ui" line="383"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="407"/>
+        <location filename="shortcuts.ui" line="391"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="468"/>
+        <location filename="shortcuts.ui" line="487"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="482"/>
+        <location filename="shortcuts.ui" line="501"/>
         <source>Mouse Wheel on Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="489"/>
+        <location filename="shortcuts.ui" line="508"/>
         <source>Change current tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="401"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relation fields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="414"/>
+        <source>&lt;Ctrl&gt; + Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="421"/>
+        <source>Opens the record in a new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="428"/>
+        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="435"/>
+        <source>Opens the record in a new background tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="494"/>
+        <source>Open form view in new tab</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="515"/>
+        <source>&lt;Shift&gt; + Open View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="522"/>
+        <source>Open view in a background tab</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

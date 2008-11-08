@@ -1,10 +1,10 @@
 #!/bin/bash
 
-UI_FILES=$(find bin/ui -name "*.ui")
-PYTHON_FILES=$(find bin -name "*py")
+UI_FILES=$(find Koo/ui -name "*.ui")
+PYTHON_FILES=$(find Koo -name "*py")
 PYTHONC_FILES=$(find -name "*pyc")
 LANGS="ca_ES de_DE es_ES fr hu it pt ro ru sv uk zh al cs"
-DIR="bin/l10n"
+DIR="Koo/l10n"
 
 # Extract strings with get text from python files
 xgettext -k_ -kN_ -o $DIR/koo.pot $PYTHON_FILES
