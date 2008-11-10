@@ -303,12 +303,15 @@ class KooModel(QAbstractItemModel):
 				return QVariant()
 			field = self.fields[self.field( index.column() )]
 			model = self.model( index.row(), index.internalPointer() )
+			# Priorize readonly to required as if it's readonly the 
+			# user doesn't mind if it's required as she won't be able
+			# to change it anyway.
 			if not model.isFieldValid( self.field( index.column() ) ):
 				color = '#FF6969'
-			elif 'required' in field and field['required']:
-				color = '#ddddff'	
 			elif 'readonly' in field and field['readonly']:
 				color = 'lightgrey'
+			elif 'required' in field and field['required']:
+				color = '#ddddff'	
 			else:
 				color = 'white'
 			return QVariant( QBrush( QColor( color ) ) )
