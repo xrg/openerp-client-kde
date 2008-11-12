@@ -31,7 +31,7 @@
       <widget class="QLineEdit" name="uiText" />
      </item>
      <item>
-      <widget class="QPushButton" name="pushAdd" >
+      <widget class="QToolButton" name="pushAdd" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -47,7 +47,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushRemove" >
+      <widget class="QToolButton" name="pushRemove" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>

@@ -47,7 +47,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushStart" >
+      <widget class="QToolButton" name="pushStart" >
        <property name="toolTip" >
         <string>Choose a date from a calendar</string>
        </property>
@@ -99,7 +99,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushEnd" >
+      <widget class="QToolButton" name="pushEnd" >
        <property name="toolTip" >
         <string>Choose the date from a calendar</string>
        </property>

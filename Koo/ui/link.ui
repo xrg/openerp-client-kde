@@ -31,7 +31,7 @@
       <number>1</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushOpen" >
+      <widget class="QToolButton" name="pushOpen" >
        <property name="toolTip" >
         <string>Select file...</string>
        </property>

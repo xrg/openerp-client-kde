@@ -27,7 +27,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushBold" >
+        <widget class="QToolButton" name="pushBold" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -55,7 +55,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushItalic" >
+        <widget class="QToolButton" name="pushItalic" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -83,7 +83,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushUnderline" >
+        <widget class="QToolButton" name="pushUnderline" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -111,7 +111,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushStrike" >
+        <widget class="QToolButton" name="pushStrike" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -146,7 +146,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushLeftJustify" >
+        <widget class="QToolButton" name="pushLeftJustify" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -174,7 +174,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushCenter" >
+        <widget class="QToolButton" name="pushCenter" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -202,7 +202,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushRightJustify" >
+        <widget class="QToolButton" name="pushRightJustify" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -230,7 +230,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushJustify" >
+        <widget class="QToolButton" name="pushJustify" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -265,7 +265,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushForegroundColor" >
+        <widget class="QToolButton" name="pushForegroundColor" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -284,7 +284,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushBackgroundColor" >
+        <widget class="QToolButton" name="pushBackgroundColor" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>

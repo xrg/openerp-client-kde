@@ -35,7 +35,7 @@
       <number>1</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushNew" >
+      <widget class="QToolButton" name="pushNew" >
        <property name="toolTip" >
         <string>Select file...</string>
        </property>
@@ -48,7 +48,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushSave" >
+      <widget class="QToolButton" name="pushSave" >
        <property name="toolTip" >
         <string>Save file...</string>
        </property>
@@ -61,7 +61,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushRemove" >
+      <widget class="QToolButton" name="pushRemove" >
        <property name="toolTip" >
         <string>Clear</string>
        </property>

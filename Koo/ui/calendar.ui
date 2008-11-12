@@ -29,7 +29,7 @@
     <widget class="QLineEdit" name="uiDate" />
    </item>
    <item>
-    <widget class="QPushButton" name="pushCalendar" >
+    <widget class="QToolButton" name="pushCalendar" >
      <property name="sizePolicy" >
       <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
        <horstretch>0</horstretch>

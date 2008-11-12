@@ -78,7 +78,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushNew" >
+      <widget class="QToolButton" name="pushNew" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -97,7 +97,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushEdit" >
+      <widget class="QToolButton" name="pushEdit" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -116,7 +116,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushRemove" >
+      <widget class="QToolButton" name="pushRemove" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -150,7 +150,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushBack" >
+        <widget class="QToolButton" name="pushBack" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -191,7 +191,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushForward" >
+        <widget class="QToolButton" name="pushForward" >
          <property name="sizePolicy" >
           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
            <horstretch>0</horstretch>
@@ -219,7 +219,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushSwitchView" >
+      <widget class="QToolButton" name="pushSwitchView" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
