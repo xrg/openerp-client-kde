@@ -107,6 +107,7 @@ class Wizard( QObject ):
 		self.wizardId = Rpc.session.execute('/wizard', 'create', self.action)
 		self.finished = False
 		self.progress = Common.ProgressDialog( QApplication.activeWindow() )
+		self.thread = None
 
 	def step(self):
 		if self.state == 'end':
@@ -114,7 +115,7 @@ class Wizard( QObject ):
 			return
 		self.progress.start()
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		Rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, Rpc.session.context )
+		self.thread = Rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, Rpc.session.context )
 
 	def finishedStep(self, res, exception):
 		self.progress.stop()
