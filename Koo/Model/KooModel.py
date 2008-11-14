@@ -47,11 +47,23 @@ from Koo.Common import Numeric
 # instance to wrap, and setFields() with the fields to load.
 # Then it's ready to be used in any Qt model/view enabled widget such as 
 # QTreeView or QListView.
-# Note that by default TreeModel is read-only.
+# Note that by default KooModel is read-only.
 class KooModel(QAbstractItemModel):
 	
+	# Modes
 	TreeMode = 1
 	ListMode = 2
+
+	# Extra roles appended to UserRole
+	
+	# IdRole: Returns model id of the given field
+	IdRole = Qt.UserRole 
+	# ValueRole: Returns the QVariant of the appropiate type
+	# for the field. For example, date fields are returned as
+	# QDate inside QVariant, instead of a QString as Qt.DisplayRole
+	# does. It's been created for the Calendar view but others
+	# might benefit too.
+	ValueRole = Qt.UserRole + 1 
 
 	def __init__(self, parent=None):
 		QAbstractItemModel.__init__(self, parent)
@@ -331,9 +343,46 @@ class KooModel(QAbstractItemModel):
 				return QVariant( Qt.AlignRight | Qt.AlignVCenter )
 			else:
 				return QVariant( Qt.AlignLeft | Qt.AlignVCenter )
-		elif role == Qt.UserRole:
+		elif role == KooModel.IdRole:
 			model = self.model( index.row(), index.internalPointer() )
 			return QVariant( model.id )
+		elif role == KooModel.ValueRole:
+			value = self.value( index.row(), index.column(), index.internalPointer() )
+			fieldType = self.fieldType( index.column(), index.internalPointer() )
+			if fieldType in ['one2many', 'many2many']:
+				# By now, return the same as DisplayRole for these
+				return QVariant( '(%d)' % len(value.models) )
+			elif fieldType == 'selection':
+				# By now, return the same as DisplayRole for these
+				field = self.fields[self.field( index.column() )]
+				for x in field['selection']:
+					if x[0] == value:
+						return QVariant( unicode(x[1]) )
+				return QVariant()
+			elif fieldType == 'date' and value:
+				return QVariant( Calendar.storageToDate( value ) )
+			elif fieldType == 'datetime' and value:
+				return QVariant( Calendar.storageToDateTime( value ) )
+			elif fieldType == 'float':
+				# If we use the default conversion big numbers are shown
+				# in scientific notation. Also we have to respect the number
+				# of decimal digits given by the server.
+				field = self.fields[self.field( index.column() )]
+				return QVariant( Numeric.floatToText(value, field.get('digits',None) ) )	
+			elif fieldType == 'float_time':
+				return QVariant( Calendar.floatTimeToTime(value) )
+			elif fieldType == 'binary':
+				if value:
+					return QVariant( QByteArray.fromBase64( value ) )
+				else:
+					return QVariant()
+			elif fieldType == 'boolean':
+				return QVariant( bool(value) )
+			else:
+				if value == False or value == None:
+					return QVariant()
+				else:
+					return QVariant( unicode(value) )
 		else:
 			return QVariant()
 

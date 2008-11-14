@@ -38,7 +38,7 @@ class CalendarParser( AbstractParser ):
 
 	def create(self, parent, model, rootNode, fields):
 		self.screen = parent
-		view = ViewCalendar( parent )
+		view = CalendarView( parent )
 
 		attrs = Common.nodeAttributes(rootNode)
  		on_write = attrs.get('on_write', '')
