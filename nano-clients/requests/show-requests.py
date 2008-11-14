@@ -57,10 +57,7 @@ class RequestsDialog(QDialog):
 		# The function 'called()' will be called twice in this example,
 		# one for the signal and another one for the callback. Of course,
 		# only one method is needed.
-		#call = Rpc.AsynchronousSessionCall( rpc.session, self )
-		#self.connect( call, SIGNAL('called(PyQt_PyObject)'), self.called )
-		#call.call( self.called, '/object', 'execute', 'res.partner', 'search', [] )
-		Rpc.session.executeAsync( self.called, '/object', 'execute', 'res.partner', 'search', [] )
+		self.thread = Rpc.session.executeAsync( self.called, '/object', 'execute', 'res.partner', 'search', [] )
 
 		visible = ['create_date', 'name', 'act_from', 'act_to', 'body' ]
 		self.fields = Rpc.session.execute('/object', 'execute', 'res.request', 'fields_get', visible)
@@ -74,6 +71,9 @@ class RequestsDialog(QDialog):
 		tree.setModel( treeModel )
 
 	def called(self, result, exception):
+		if exception:
+			QMessageBox.information(self, 'Error', 'There was an error executing the background request.' )
+			return
 		QMessageBox.information(self, 'Background request', 'Result was: %s' % result )
 
 
