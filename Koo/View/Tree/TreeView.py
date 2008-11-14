@@ -182,7 +182,7 @@ class TreeView( AbstractView ):
 		if self.selecting:
 			return
 		self.currentIndex = current
-		# We send the current model. Previously we sended only the id of the model, but
+		# We send the current model. Previously we sent only the id of the model, but
 		# new models have id=None
 		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.modelFromIndex(current) )
 		self.updateAggregates()
