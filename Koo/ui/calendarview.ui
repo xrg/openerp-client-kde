@@ -86,15 +86,15 @@
     </layout>
    </item>
    <item>
-    <widget class="CalendarView" name="calendarView" />
+    <widget class="GraphicsCalendarView" name="calendarView" />
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CalendarView</class>
+   <class>GraphicsCalendarView</class>
    <extends>QGraphicsView</extends>
-   <header>View.Calendar</header>
+   <header>View.Calendar.Calendar</header>
   </customwidget>
  </customwidgets>
  <resources/>
