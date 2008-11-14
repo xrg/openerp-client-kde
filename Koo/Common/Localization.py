@@ -35,7 +35,12 @@ def initializeTranslations():
 	name = 'koo'
 	directory = Paths.searchFile( 'l10n' )
 
-	locale.setlocale(locale.LC_ALL, '')
+	try:
+		locale.setlocale(locale.LC_ALL, '')
+	except:
+		# If locale is not supported just continue
+		# with default language
+		print "Warning: Unsupported locale." 
 	gettext.bindtextdomain(name, directory)
 	gettext.textdomain(name)
 	gettext.install(name, directory, unicode=1)
