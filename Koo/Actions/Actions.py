@@ -152,7 +152,6 @@ def executeAction(action, datas, context={}):
 		a = ctx.copy()
 		a['time'] = time
 		a['datetime'] = datetime
-		#domain = common.expr_eval(action['domain'], a)
 		domain = Rpc.session.evaluateExpression(action['domain'], a)
 
 		if datas.get('domain', False):
