@@ -34,6 +34,7 @@ class AxisItem(QGraphicsPathItem):
 		self._orientation = Qt.Vertical
 		self._size = 100
 		self._items = []
+		self._showLabels = True
 
 	def setMinimum( self, minimum ):
 		self._minimum = minimum
@@ -45,6 +46,15 @@ class AxisItem(QGraphicsPathItem):
 
 	def setLabels( self, labels ):
 		self._labels = labels
+		self._showLabels = True
+		self.updatePath()
+
+	def hideLabels( self ):
+		self._showLabels = False
+		self.updatePath()
+
+	def showLabels( self ):
+		self._showLabels = True
 		self.updatePath()
 
 	def setSize( self, size ):
@@ -73,42 +83,41 @@ class AxisItem(QGraphicsPathItem):
 			path.lineTo( 0, self._size )
 		else:
 			path.lineTo( self._size, 0 )
+		
+		if self._showLabels:
+			font = QFont()
+			metrics = QFontMetrics( font )
 
-		font = QFont()
-		metrics = QFontMetrics( font )
-
-		diff = self._maximum - self._minimum
-		if self._labels:
-			items = len(self._labels)
-		else:
-			items = int( round( self._size / ( metrics.height() * 1.5 ) ) )
-			items = max( min( items, 10 ), 1 )
-
-		width = float(self._size) / items
-		offset = width / 2
-		for x in range(items):
-			p = x * width
-			item = QGraphicsSimpleTextItem( self )
-			if self._orientation == Qt.Vertical:
-				path.moveTo( -5, p )
-				path.lineTo( 0, p )
-				if self._labels:
-					text = self._labels[x]
-				else:
-					text = '%.2f' % ( self._minimum + ( diff / items ) * ( items - x ) )
-				item.setPos( -10 - metrics.width( text ), p - metrics.boundingRect(text).height() / 2.5 )
-				item.setText( text )
+			diff = self._maximum - self._minimum
+			if self._labels:
+				items = len(self._labels)
 			else:
-				path.moveTo( p + offset, 5 )
-				path.lineTo( p + offset, 0 )
+				items = int( round( self._size / ( metrics.height() * 1.5 ) ) )
+				items = max( min( items, 10 ), 1 )
+
+			width = float(self._size) / items
+			if not self._labels:
+				items += 1
+			offset = width / 2
+			for x in range(items):
+				p = x * width
+				item = QGraphicsSimpleTextItem( self )
 				if self._labels:
 					text = self._labels[x]
 				else:
-					text = '%.2f' % ( self._minimum + ( diff / items ) * ( items - x ) )
-				item.setPos( p + offset, metrics.lineSpacing()  )
+					text = '%.2f' % ( self._minimum + ( diff / (items-1) ) * ( (items-1) - x ) )
 				item.setText( text )
-				item.rotate( 45 )
-			self._items.append( item )
+
+				if self._orientation == Qt.Vertical:
+					path.moveTo( -5, p )
+					path.lineTo( 0, p )
+					item.setPos( -10 - metrics.width( text ), p - metrics.boundingRect(text).height() / 2.5 )
+				else:
+					path.moveTo( p + offset, 5 )
+					path.lineTo( p + offset, 0 )
+					item.setPos( p + offset, metrics.lineSpacing()  )
+					item.rotate( 45 )
+				self._items.append( item )
 		self.setPath( path )
 
 
@@ -119,6 +128,9 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		self.yAxis.hide()
 		self.xAxis = AxisItem( self )
 		self.xAxis.hide()
+		# X axis only appearing when there are negative values
+		self.xAxisNegative = AxisItem( self )
+		self.xAxisNegative.hide()
 
 	# Returns the total amount of bars 
 	def barCount( self ):
@@ -146,44 +158,57 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		self.clear()
 		if len(flatten(self._values)):
 			maximum = max(flatten(self._values))
-			if float(maximum) == 0.0:
-				maximum = 1.0
+			minimum = min(flatten(self._values))
+		else:
+			maximum = 1.0
+			minimum = 0
+		diff = maximum - minimum
+		if diff == 0:
+			maximum += 1.0
 
 		# Hide axis if there's no data to show
 		if len(self._values):
 			self.xAxis.show()
 			self.yAxis.show()
+			self.xAxisNegative.show()
 		else:
 			self.xAxis.hide()
 			self.yAxis.hide()
+			self.xAxisNegative.hide()
 
 		lastPosition = 0
 		maximumHeight = self.height()
 		barWidth = self.barWidth()
 		separatorWidth = self.separatorWidth()
+		## Set xAxis position (height)
+		zero = ( (0.0 - minimum) / diff * maximumHeight ) 
+		# Ensure it doesn't go beyond axis due to rounding errors
+		zero = min( max( 0.0, zero ), maximumHeight )
 		for i in range(len(self._values)):
 			manager = ColorManager( len(self._values[i]) )
 			for j in range(len(self._values[i])):
 				value = self._values[i][j]
-				height = ( value / maximum ) * maximumHeight
+				height = abs( ( value / diff ) * maximumHeight )
+				# Ensure it doesn't go beyond axis due to rounding errors
+				height = min( max( 0.0, height ), maximumHeight )
 
 				item = BarChartBar( self )
 				item.labelId = i
 				item.setBrush( manager.brush(j) )
 				item.setPen( manager.pen(j) )
-				item.setRect( lastPosition, maximumHeight - height, barWidth, height )
+				if value >= 0.0:
+					item.setRect( lastPosition, maximumHeight - height - zero, barWidth, height )
+				else:
+					item.setRect( lastPosition, maximumHeight - zero, barWidth, height )
+
 				self.addToGroup( item )
 				self._items.append( item )
 
 				lastPosition += barWidth
 			lastPosition += separatorWidth
 
-		if len(flatten(self._values)):
-			self.yAxis.setMinimum( min(flatten(self._values)) )
-			self.yAxis.setMaximum( max(flatten(self._values)) )
-		else:
-			self.yAxis.setMinimum( 0 )
-			self.yAxis.setMaximum( 10 )
+		self.yAxis.setMinimum( minimum )
+		self.yAxis.setMaximum( maximum )
 		self.yAxis.setOrientation( Qt.Vertical )
 		self.yAxis.setSize( maximumHeight )
 		self.yAxis.setZValue( 1 )
@@ -195,6 +220,21 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		self.xAxis.setPos( 0, maximumHeight )
 		self.xAxis.setZValue( 1 )
 		self.addToGroup( self.xAxis )
+
+		if minimum < 0.0:
+			self.xAxisNegative.hideLabels()
+			self.xAxisNegative.setOrientation( Qt.Horizontal )
+			self.xAxisNegative.setSize( self.width() )
+			#self.xAxisNegative.setPos( 0, 0 )
+			if maximum < 0:
+				self.xAxisNegative.setPos( 0, 0 )
+			else:
+				pos = maximumHeight - ( 0 - minimum / diff * maximumHeight )
+				self.xAxisNegative.setPos( 0, pos )
+			self.xAxisNegative.setZValue( 1 )
+			self.addToGroup( self.xAxisNegative )
+		else:
+			self.xAxisNegative.hide()
 
 		self.updateToolTips()
 		self._legend.place()
