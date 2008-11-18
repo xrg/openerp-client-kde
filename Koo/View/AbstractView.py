@@ -26,6 +26,7 @@
 ##############################################################################
 from PyQt4.QtGui import *
 
+## @brief The AbstractView class describes the interface Views must implement
 class AbstractView(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__( self, parent )
@@ -40,40 +41,42 @@ class AbstractView(QWidget):
 		# other classes such as Screen, which will use this id for storing/loading settings
 		self.id = False
 
-	# This one should store the information in the model
+	## @brief This function should store the information in the model
 	# The model used should be the one given by display()
 	# which will always have been called before store().
 	def store(self):
 		pass
 	
-	# This one should display the information of the model or models
+	## @brief This function should display the information of the model or models
 	# currentModel points to the model (object ModelRecord) that is currently selected
 	# models points to the model list (object ModelGroup) 
 	# Example: forms only use the currentModel, while tree & charts use models
 	def display(self, currentModel, models):
 		pass
 	
-	# Not used in the TreeView, used in the FormView to
+	## @brief Not used in the TreeView, used in the FormView to
 	# set all widgets to the state of 'valid'
 	def reset(self):
 		pass
 
-	# Should return a list with the currently selected 
+	## @brief Should return a list with the currently selected 
 	# items in the view. If the view is a form, for example,
 	# the current id is returned. If it's a tree with
 	# several items selected, returns them all.
 	def selectedIds(self):
 		return []
 
-	# Selects the current modelId
+	## @brief Selects the current modelId
 	def setSelected(self, modelId):
 		pass
 
-	# This function should return False if the view modifies data
+	## @brief This function should return False if the view modifies data
 	# or True if it doesn't
 	def isReadOnly(self):
 		return True
 
+	## @brief This function should be implemented if the function can be
+	# configured to be read-only or read-write.
 	def setReadOnly(self, value):
 		return 
 
@@ -82,17 +85,17 @@ class AbstractView(QWidget):
 		pass
 
 
-	# Override this function in your view if you wish to store
+	## @brief Override this function in your view if you wish to store
 	# some settings per user and view. The function should return
 	# a python string with all the information which should be
-	# parseable afterwords by setViewSettings()
+	# parseable afterwords by setViewSettings().
 	def viewSettings(self):
 		return ''
 
-	# Override this function in your view if you wish to restore
+	## @brief Override this function in your view if you wish to restore
 	# a previous configuration. The function will be called when
-	# necessary. The string given in 'settings' will be in one
-	# previously returned by viewSettings()
+	# necessary. The string given in 'settings' will be one 
+	# previously returned by viewSettings().
 	def setViewSettings(self, settings):
 		pass
 
