@@ -25,12 +25,14 @@
 #
 ##############################################################################
 
-# In ordre to create a view you need to create a Parser. This should
+##@brief The AbstractParser class describes the interface any view parser
+# has to implement. 
+# In ordre to create a view you need to create a Parser. It should
 # inherit AbstractParser and provide the following interface:
 
 class AbstractParser(object):
 
-	# You need to provide the create function with the following parameters:
+	## @brief You need to provide the create function with the following parameters:
 	#    parent:    Holds the reference to the parent QWidget. Usually screen.
 	#               You should make of this the parent of your view.
 	#               Note/TODO: As of this writing parent NEEDS TO BE a Screen object
