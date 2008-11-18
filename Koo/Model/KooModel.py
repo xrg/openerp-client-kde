@@ -370,7 +370,7 @@ class KooModel(QAbstractItemModel):
 				field = self.fields[self.field( index.column() )]
 				return QVariant( Numeric.floatToText(value, field.get('digits',None) ) )	
 			elif fieldType == 'float_time':
-				return QVariant( Calendar.floatTimeToTime(value) )
+				return QVariant( value )
 			elif fieldType == 'binary':
 				if value:
 					return QVariant( QByteArray.fromBase64( value ) )
