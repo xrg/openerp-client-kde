@@ -60,6 +60,12 @@ def floatTimeToText( value ):
 		t = '-'+t
 	return t
 
+## @brief Converts a float (type floatTime) into a QTime
+def floatTimeToTime( value ):
+	if value < 0:
+		return QTime( 0, 0 )
+	return QTime( math.floor(abs(value)), round(abs(value)%1+0.01,2) * 60 )
+
 ## @brief Converts a QDate object into a Python string ready to be sent to the 
 # server.
 def dateToStorage( date ):
