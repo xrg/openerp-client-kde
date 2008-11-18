@@ -46,7 +46,7 @@ class CalendarParser( AbstractParser ):
 		if not view.title:
  			view.title = attrs.get('string', _('Unknown'))
 
-		header = [ attrs['date_start'] ]
+		header = [ attrs['date_start'], attrs['date_delay'] ]
 		for node in rootNode.childNodes:
 			node_attrs = Common.nodeAttributes(node)
  			if node.localName == 'field':
@@ -68,7 +68,8 @@ class CalendarParser( AbstractParser ):
 		view.setReadOnly( not attrs.get('editable', False) )
 		view.setModel( model )
 		view.setModelDateColumn( 0 )
-		view.setModelTitleColumn( 1 )
+		view.setModelDurationColumn( 1 )
+		view.setModelTitleColumn( 2 )
 		return view, on_write
 
 # vim:noexpandtab:

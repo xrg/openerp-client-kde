@@ -33,27 +33,40 @@ from Koo.Common import Calendar
 from Koo.View.AbstractView import *
 import math
 
-class GraphicsTaskItem( QGraphicsItemGroup ):
+class GraphicsTaskItem( QGraphicsRectItem ):
 	# Parent should be a GraphicsDayItem
 	def __init__(self, parent=None):
-		QGraphicsItemGroup.__init__(self, parent)
-		self._background = QGraphicsRectItem( self )
-		self._background.setBrush( QBrush( QColor( 200, 250, 200 ) ) )
-		self._background.setPen( QPen( QColor( 100, 200, 100 ) ) )
+		QGraphicsRectItem.__init__(self, parent)
+		self.setFlag( QGraphicsItem.ItemClipsChildrenToShape, True )
 		self._text = QGraphicsTextItem( self )
 		self._text.setZValue( 1 )
 		self.setSize( QSize(100, 100) )
-		self.addToGroup( self._text )
 		self._index = None
+		self._start = ''
+		self._duration = ''
+		self.setActive( False )
 
+	def setActive(self, active):
+		self._active = active
+		if active:
+			self.setBrush( QBrush( QColor( 250, 200, 200 ) ) )
+			self.setPen( QPen( QColor( 200, 100, 100 ) ) )
+		else:
+			self.setBrush( QBrush( QColor( 200, 250, 200 ) ) )
+			self.setPen( QPen( QColor( 100, 200, 100 ) ) )
+
+	def isActive(self):
+		return self_active
+		
 	def setSize(self, size):
 		self._size = size
 		self._text.setTextWidth( self._size.width() )
-		self._background.setRect( 0, 0, size.width(), size.height() )
+		self.setRect( 0, 0, size.width(), size.height() )
 
 	def setTitle(self, title):
 		self._title = title
 		self._text.setPlainText( title )
+		self.updateToolTip()
 
 	def setIndex(self, index):
 		self._index = index
@@ -61,13 +74,18 @@ class GraphicsTaskItem( QGraphicsItemGroup ):
 	def index(self):
 		return self._index
 
-class Appointment:
-	def __init__(self):
-		self.start = QDateTime()
-		self.end = QDateTime()
-		self.id = None
-		self.title = ''
-		self.message = ''
+	def updateToolTip(self):
+		text = _('<b>%s</b><br/><b>Start:</b> %s<br/><b>Duration:</b> %s<br/>') % ( self._title, self._start, self._duration )
+		self.setToolTip( text )
+
+	def setStart(self, start):
+		self._start = start
+		self.updateToolTip()
+
+	def setDuration(self, duration):
+		self._duration = duration
+		self.updateToolTip()
+		
 
 class GraphicsDayItem( QGraphicsItemGroup ):
 	def __init__(self, parent=None):
@@ -86,7 +104,6 @@ class GraphicsDayItem( QGraphicsItemGroup ):
 		self._title.setFont( font )
 		self.addToGroup( self._title )
 
-		#self._appointments = []
 		self._indexes = {}
 		self._tasks = {}
 
@@ -130,10 +147,6 @@ class GraphicsDayItem( QGraphicsItemGroup ):
 		self._tasks = {}
 
 	def updateData(self):
-		#apps = ''
-		#for x in self._appointments:
-			#apps += '<br/><b>%s</b><br/>%s' % ( x['title'], x['message'] )
-#
 		title = '<center>%s</center>' % ( unicode(self._date.toString()) )
 		self._title.setHtml( title )
 		for index in self._tasks.keys():
@@ -141,14 +154,25 @@ class GraphicsDayItem( QGraphicsItemGroup ):
 			model = index.model()
 			titleIdx = model.index( index.row(), self.parentItem()._modelTitleColumn )
 			dateIdx = model.index( index.row(), self.parentItem()._modelDateColumn )
+			durationIdx = model.index( index.row(), self.parentItem()._modelDurationColumn )
 			task.setTitle( titleIdx.data().toString() )
+			task.setStart( dateIdx.data().toString() )
+			task.setDuration( durationIdx.data().toString() )
 
 			startTime = self.parentItem().dateTimeFromIndex( dateIdx ).time()
-			secs = QTime( 0, 0 ).secsTo( startTime )
+			durationTime, ok = durationIdx.data( self.parentItem().ValueRole ).toDouble()
+
 			height = self._size.height()
-			y = QTime( 0, 0 ).secsTo( startTime ) * self._size.height() / 86400.0
+
+			# Position
+			secs = QTime( 0, 0 ).secsTo( startTime )
+			y = QTime( 0, 0 ).secsTo( startTime ) * height / 86400.0
 			task.setPos( 0, y )
-			task.setSize( QSize( self._size.width(), 50 ) )
+
+			# Size
+			secs = durationTime * 3600.0
+			y = secs * height / 86400.0
+			task.setSize( QSize( self._size.width(), y ) )
 
 			title = unicode( titleIdx.data().toString() )
 
@@ -285,20 +309,36 @@ class GraphicsCalendarItem( QGraphicsItemGroup ):
 	def modelTitleColumn(self):
 		return self._modelTitleColumn
 
+	def setModelDurationColumn(self, column):
+		self._modelDurationColumn = column
+		self.updateCalendarData()
+
+	def modelDurationColumn(self):
+		return self._modelDurationColumn
+
 class GraphicsCalendarScene( QGraphicsScene ):
 	def __init__(self, parent=None):
 		QGraphicsScene.__init__(self, parent)
 		self._calendar = GraphicsCalendarItem()
 		self.addItem( self._calendar )
+		self._activeItem = None
 
 	def mousePressEvent( self, event ):
 		for item in self.items( event.scenePos() ):
 			if isinstance(item, GraphicsTaskItem ):
+				if self._activeItem:
+					self._activeItem.setActive( False )
+				item.setActive( True )
+				self._activeItem = item
 				self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(item.index() ) )
 
 	def mouseDoubleClickEvent( self, event ):
 		for item in self.items( event.scenePos() ):
 			if isinstance(item, GraphicsTaskItem ):
+				if self._activeItem:
+					self._activeItem.setActive( False )
+				item.setActive( True )
+				self._activeItem = item
 				self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(item.index() ) )
 				self.emit( SIGNAL('activated()') )
 
@@ -317,6 +357,9 @@ class GraphicsCalendarScene( QGraphicsScene ):
 	def setModelTitleColumn(self, column):
 		self._calendar.setModelTitleColumn( column )
 
+	def setModelDurationColumn(self, column):
+		self._calendar.setModelDurationColumn( column )
+
 	def updateData(self):
 		self._calendar.updateCalendarData()
 		self._calendar.updateCalendarView()
@@ -333,11 +376,6 @@ class GraphicsCalendarView( QGraphicsView ):
 		QGraphicsView.__init__(self, parent)
 		self._model = None
 		self.setScene( GraphicsCalendarScene(self) )
-		#self._calendar = GraphicsCalendarScene(self)
-		#self._calendar = GraphicsCalendarItem()
-		#self._calendar.setSize( self.size() )
-		#self.scene().addItem( self._calendar )
-		#self.scend().setSize( self.size() )
 
 	def resizeEvent(self, event):
 		self.scene().setSize( QSize( self.size().width()-20, self.size().height()-20 ) )
@@ -353,6 +391,9 @@ class GraphicsCalendarView( QGraphicsView ):
 
 	def setModelTitleColumn(self, column):
 		self.scene().setModelTitleColumn( column )
+
+	def setModelDurationColumn(self, column):
+		self.scene().setModelDurationColumn( column )
 
 	def updateData(self):
 		self.scene().updateData()
@@ -390,6 +431,9 @@ class CalendarView( AbstractView, CalendarViewUi ):
 
 	def setModelTitleColumn(self, column):
 		self.calendarView.setModelTitleColumn( column )
+
+	def setModelDurationColumn(self, column):
+		self.calendarView.setModelDurationColumn( column )
 
 	def updateCalendarView(self):
 		date = self.calendarWidget.selectedDate()
