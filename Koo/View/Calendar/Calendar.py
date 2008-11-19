@@ -175,6 +175,9 @@ class GraphicsDayItem( QGraphicsItemGroup ):
 			task.setSize( QSize( self._size.width(), y ) )
 
 			title = unicode( titleIdx.data().toString() )
+	
+	def taskFromIndex(self, index):
+		return self._tasks.get( index, None )
 
 
 class GraphicsCalendarItem( QGraphicsItemGroup ):
@@ -268,7 +271,6 @@ class GraphicsCalendarItem( QGraphicsItemGroup ):
 			date = Calendar.dateToText( self.dateTimeFromIndex( idx ).date() )
 			if date in self._days:
 				idx = self._model.index( x, self._modelTitleColumn )
-				#title = unicode( self._model.data( idx ).toString() )
 				self._days[date].addModelIndex( idx )
 
 	def dateTimeFromIndex(self, idx):
@@ -316,31 +318,47 @@ class GraphicsCalendarItem( QGraphicsItemGroup ):
 	def modelDurationColumn(self):
 		return self._modelDurationColumn
 
+	def tasksFromIndex(self, index):
+		tasks = []
+		for item in self._days.values():
+			task = item.taskFromIndex( index )
+			if task:
+				tasks.append( task )
+		return tasks
+
 class GraphicsCalendarScene( QGraphicsScene ):
 	def __init__(self, parent=None):
 		QGraphicsScene.__init__(self, parent)
 		self._calendar = GraphicsCalendarItem()
 		self.addItem( self._calendar )
-		self._activeItem = None
+		self._activeIndex = QModelIndex()
 
 	def mousePressEvent( self, event ):
+		self.setActiveIndex( False )
+		self._activeIndex = QModelIndex()
 		for item in self.items( event.scenePos() ):
 			if isinstance(item, GraphicsTaskItem ):
-				if self._activeItem:
-					self._activeItem.setActive( False )
-				item.setActive( True )
-				self._activeItem = item
-				self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(item.index() ) )
+				self._activeIndex = item.index()
+				break
+		self.setActiveIndex( True )
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(self._activeIndex) )
+
+	def setActiveIndex( self, active ):
+		if not self._activeIndex.isValid():
+			return
+		for x in self._calendar.tasksFromIndex( self._activeIndex ):
+			x.setActive( active )
 
 	def mouseDoubleClickEvent( self, event ):
+		self.setActiveIndex( False )
+		self._activeIndex = QModelIndex()
 		for item in self.items( event.scenePos() ):
 			if isinstance(item, GraphicsTaskItem ):
-				if self._activeItem:
-					self._activeItem.setActive( False )
-				item.setActive( True )
-				self._activeItem = item
-				self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(item.index() ) )
-				self.emit( SIGNAL('activated()') )
+				self._activeIndex = item.index()
+				break
+		self.setActiveIndex( True )
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(self._activeIndex) )
+		self.emit( SIGNAL('activated()') )
 
 	def setSize(self, size):
 		self._calendar.setSize( size )
