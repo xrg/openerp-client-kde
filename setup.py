@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# setup for Koo (taken from TinyERP GTK client)
+# setup for Koo (taken from OpenERP GTK client)
 #   taken from straw http://www.nongnu.org/straw/index.html
 #   taken from gnomolicious http://www.nongnu.org/gnomolicious/
 #   adapted by Nicolas Évrard <nicoe@altern.org>
@@ -50,9 +50,9 @@ def data_files():
     files = [(opj('share','man','man1',''),['man/koo.1']),
              (opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob('doc/html/*') if os.path.isfile(f)]),
              (opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob('doc/doxygen/html/*') if os.path.isfile(f)]),
-             (opj('share', 'koo'), ['Koo/kootips.txt']),
-	     (opj('share', 'koo', 'ui'), glob.glob('Koo/ui/common.rcc') + glob.glob('Koo/ui/*.ui')),
-	     (opj('share', 'koo', 'ui', 'images'), glob.glob('Koo/ui/images/*.png'))
+             (opj('share', 'Koo'), ['Koo/kootips.txt']),
+	     (opj('share', 'Koo', 'ui'), glob.glob('Koo/ui/*.ui')),
+	     (opj('share', 'Koo', 'ui', 'images'), glob.glob('Koo/ui/images/*.png'))
 	     ]
     return files
 
@@ -79,10 +79,10 @@ long_desc = '''\
 Koo Client and Development Platform
 =====================================
 
-Koo is a Qt/KDE based client for Tiny ERP, a complete ERP and CRM. Koo 
+Koo is a Qt/KDE based client for Open ERP, a complete ERP and CRM. Koo 
 aims for great flexibility allowing easy creation of plugins and views, high
 integration with KDE4 under Unix, Windows and Mac, as well as providing
-a development platform for new applications using the Tiny ERP server.
+a development platform for new applications using the Open ERP server.
 
 A set of server side modules is also provided among the Koo distribution
 which provide better attachments handling and full text search capabilities.
@@ -114,7 +114,6 @@ f.close()
 # todo: use 
 command = sys.argv[1]
 
-print "PLUGINS: ", find_plugins()
 setup(name             = name,
       version          = version,
       description      = "Koo Client",
