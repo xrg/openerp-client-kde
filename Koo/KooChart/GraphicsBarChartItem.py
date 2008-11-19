@@ -163,8 +163,21 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 			maximum = 1.0
 			minimum = 0
 		diff = maximum - minimum
+		# If there's only one item or all of them have the same
+		# value diff will be zero
 		if diff == 0:
-			maximum += 1.0
+			# In those cases make the chart show the whole range
+			# from zero
+			if maximum >= 0:
+				minimum = 0
+			else:
+				maximum = 0
+			diff = maximum - minimum
+			# If the only values are indeed zero show the yAxis from
+			# zero to 1.0 by default
+			if diff == 0:
+				diff = 1.0
+				maximum = 1.0
 
 		# Hide axis if there's no data to show
 		if len(self._values):
@@ -184,6 +197,7 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		zero = ( (0.0 - minimum) / diff * maximumHeight ) 
 		# Ensure it doesn't go beyond axis due to rounding errors
 		zero = min( max( 0.0, zero ), maximumHeight )
+		print "VALUES: ", self._values
 		for i in range(len(self._values)):
 			manager = ColorManager( len(self._values[i]) )
 			for j in range(len(self._values[i])):
