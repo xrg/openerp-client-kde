@@ -716,7 +716,7 @@ Tenga en cuenta que pude que no respondamos si la compañía que le da soporte n
 <context>
     <name>Form</name>
     <message>
-        <location filename="image.ui" line="13"/>
+        <location filename="keyboard.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished">Formulario</translation>
     </message>

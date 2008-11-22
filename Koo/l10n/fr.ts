@@ -603,7 +603,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Form</name>
     <message>
-        <location filename="image.ui" line="13"/>
+        <location filename="keyboard.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished">Formulaire</translation>
     </message>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-08 01:57+0100\n"
+"POT-Creation-Date: 2008-11-22 23:28+0100\n"
 "PO-Revision-Date: 2008-08-14 14:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: fr <kde-i18n-doc@lists.kde.org>\n"
@@ -56,17 +56,17 @@ msgstr "Voir les détails"
 msgid "Could not contact server!"
 msgstr "Impossible de se connecter au serveur."
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:283
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:295
 #: Koo/Dialogs/KooMainWindow.py:513
 msgid "Yes"
 msgstr "Oui"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:285
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:297
 #: Koo/Dialogs/KooMainWindow.py:513
 msgid "No"
 msgstr "Non"
 
-#: Koo/Model/KooModel.py:278 Koo/View/Form/binary.py:104
+#: Koo/Model/KooModel.py:290 Koo/View/Form/binary.py:104
 #: Koo/View/Form/binary.py:141
 #, python-format
 msgid "%d bytes"
@@ -95,15 +95,15 @@ msgstr "Rien à imprimer !"
 msgid "Printing aborted, too long delay !"
 msgstr "Impression interrompue, durée trop longue !"
 
-#: Koo/Actions/Actions.py:205
+#: Koo/Actions/Actions.py:204
 msgid "Select your action"
 msgstr "Sélectionnez votre action"
 
-#: Koo/Actions/Actions.py:211 Koo/View/Form/many2one.py:110
+#: Koo/Actions/Actions.py:210 Koo/View/Form/many2one.py:110
 msgid "Action"
 msgstr "Action"
 
-#: Koo/Actions/Actions.py:211
+#: Koo/Actions/Actions.py:210
 msgid "No action defined!"
 msgstr "Pas d'action définie!"
 
@@ -312,6 +312,13 @@ msgstr "Rapport"
 #, fuzzy
 msgid "<center>Always applicable!</center>"
 msgstr "Toujours applicable !"
+
+#: Koo/View/Calendar/Calendar.py:78
+#, python-format
+msgid ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
+"s<br/>"
+msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:61
 #, fuzzy

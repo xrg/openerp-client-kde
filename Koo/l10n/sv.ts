@@ -587,7 +587,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Form</name>
     <message>
-        <location filename="image.ui" line="13"/>
+        <location filename="keyboard.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1043,9 +1043,6 @@ p, li { white-space: pre-wrap; }
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>KTinyMainWindow</name>
 </context>
 <context>
     <name>KooMainWindow</name>
