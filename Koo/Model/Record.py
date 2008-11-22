@@ -30,6 +30,7 @@ import re
 import time
 import exceptions
 from Koo import Rpc
+from Koo.Common import Notifier
 from Koo.Rpc import RpcProxy
 from Field import ToManyField
 import gettext
@@ -308,7 +309,10 @@ class ModelRecord(QObject):
 					if fieldname not in self.mgroup.mfields:
 						continue
 					self.mgroup.mfields[fieldname].attrs['domain'] = value
-	
+			warning = response.get('warning',{})
+			if warning:
+				Notifier.notifyWarning(warning['title'], warning['message'])
+
 	# This functions is called whenever a field with 'change_default'
 	# attribute set to True is modified. The function sets all conditional
 	# defaults to each field.
