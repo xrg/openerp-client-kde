@@ -75,7 +75,11 @@ class GraphicsTaskItem( QGraphicsRectItem ):
 		return self._index
 
 	def updateToolTip(self):
-		text = _('<b>%s</b><br/><b>Start:</b> %s<br/><b>Duration:</b> %s<br/>') % ( self._title, self._start, self._duration )
+		text = _('<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)s<br/>') % { 
+			'title': self._title, 
+			'start': self._start, 
+			'duration': self._duration 
+		}
 		self.setToolTip( text )
 
 	def setStart(self, start):
