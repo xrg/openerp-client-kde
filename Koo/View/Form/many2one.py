@@ -194,7 +194,7 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		domain = self.model.domain( self.name )
 		context = self.model.context()
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
-		if len(ids)==1:
+		if ids and len(ids)==1:
 			self.model.setValue( self.name, ids[0] )
 			self.display()
 		else:
