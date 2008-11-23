@@ -92,7 +92,6 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.model.modified_fields.setdefault(self.name)
 
 	def remove(self):
-		slcIndex =  self.screen.current_view.widget.selectedIndexes()
 		self.screen.remove()
 		self.screen.display()
 
