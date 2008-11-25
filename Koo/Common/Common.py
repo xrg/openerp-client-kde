@@ -151,7 +151,7 @@ class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 	def closeTip(self):
 		Options.options['tip.autostart'] = self.uiShowNextTime.isChecked()
 		Options.options['tip.position'] = self.number+1
-		Options.save()
+		Options.options.save()
 		self.close()
 
 ## @brief Shows a warning dialog. Function used by the notifier in the Koo application.
