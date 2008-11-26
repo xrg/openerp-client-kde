@@ -423,12 +423,14 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			QDesktopServices.openUrl( QUrl('http://www.nan-tic.com/ftp/ktiny-doc/index.html') )
 
 	def openErpManual(self):
-		QDesktopServices.openUrl( QUrl('http://tinyerp.com/documentation/user-manual/') )
+		QDesktopServices.openUrl( QUrl('http://www.openerp.com/documentation/user-manual/') )
 
 	def contextHelp(self):
+		if not self.tabWidget.currentWidget():
+			return
 		model = self.tabWidget.currentWidget().model
 		l = Rpc.session.context.get('lang','en')
-		url = 'http://tinyerp.org/scripts/context_index.php?model=%s&lang=%s' % (model,l)
+		url = 'http://www.openerp.com/scripts/context_index.php?model=%s&lang=%s' % (model,l)
 		QDesktopServices.openUrl( QUrl(url) )
 
 	def showTipOfTheDay(self):
