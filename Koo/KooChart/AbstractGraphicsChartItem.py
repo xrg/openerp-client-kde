@@ -44,12 +44,15 @@ def flatten(x):
 class ColorManager:
 	colorList = [ QColor('#%02x%02x%02x' % (25+((r+10)%11)*23,5+((g+1)%11)*20,25+((b+4)%11)*23) ) for r in range(11) for g in range(11) for b in range(11) ]
 
+	## @brief Creates a ColorManager object to handle count different colors.
 	def __init__(self, count):
 		self.list = ColorManager.pickColors(count)
 
+	## @brief Returns a QPen object for the given index. 
 	def pen(self, i):
 		return QPen( self.edgeColor(i) )
 
+	## @brief Returns a QBrush object for the given index. 
 	def brush(self, i):
 		g = QLinearGradient(0, 0, 200, 200)
 		g.setColorAt( 0.0, self.color(i) )
@@ -61,11 +64,15 @@ class ColorManager:
 		g.setColorAt( 1.0, edge )
 		return QBrush( g )
 
+	## @brief Returns a QColor object for the given index. 
 	def color(self, i):
+		i = i % len(self.list)
 		return QColor( self.list[i] )
 
-	# Returns the appropiate edge color for the given color
+	## @brief Returns a QColor object for the given index. 
+	# Note edgeColor will be brigther than the color returned by color()
 	def edgeColor( self, i ):
+		i = i % len(self.list)
 		color = self.color(i)
 		edge = QColor()
 		edge.setRed( max( color.red()-45, 0 ) )
@@ -73,8 +80,7 @@ class ColorManager:
 		edge.setBlue( max( color.blue()-45, 0 ) )
 		return edge
 
-		
-	# Creates a list of colors of size n.
+	## @brief Creates a list of colors of size n.
 	# This way, colors can be as far from each other as possible
 	@staticmethod
 	def pickColors(n):
