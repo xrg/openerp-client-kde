@@ -31,7 +31,9 @@ from PyQt4.uic import *
 from Koo.Common import Common
 from Koo.Common import Calendar
 from Koo.View.AbstractView import *
+from Koo.KooChart import ColorManager
 import math
+
 
 class GraphicsTaskItem( QGraphicsRectItem ):
 	# Parent should be a GraphicsDayItem
@@ -44,20 +46,25 @@ class GraphicsTaskItem( QGraphicsRectItem ):
 		self._index = None
 		self._start = ''
 		self._duration = ''
+		self._backgroundColor = QColor( 200, 250, 200 )
+		self._edgeColor = QColor( 100, 200, 100 )
 		self.setActive( False )
 
+	def setBackgroundColor(self, color):
+		self._backgroundColor = color
+		self.updateColors()
+
+	def setEdgeColor(self, color):
+		self._edgeColor = color
+		self.updateColors()
+		
 	def setActive(self, active):
 		self._active = active
-		if active:
-			self.setBrush( QBrush( QColor( 250, 200, 200 ) ) )
-			self.setPen( QPen( QColor( 200, 100, 100 ) ) )
-		else:
-			self.setBrush( QBrush( QColor( 200, 250, 200 ) ) )
-			self.setPen( QPen( QColor( 100, 200, 100 ) ) )
+		self.updateColors()
 
 	def isActive(self):
 		return self_active
-		
+
 	def setSize(self, size):
 		self._size = size
 		self._text.setTextWidth( self._size.width() )
@@ -74,6 +81,14 @@ class GraphicsTaskItem( QGraphicsRectItem ):
 	def index(self):
 		return self._index
 
+	def updateColors(self):
+		if self._active:
+			self.setBrush( QBrush( QColor( 250, 200, 200 ) ) )
+			self.setPen( QPen( QColor( 200, 100, 100 ) ) )
+		else:
+			self.setBrush( self._backgroundColor )
+			self.setPen( self._edgeColor )
+		
 	def updateToolTip(self):
 		text = _('<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)s<br/>') % { 
 			'title': self._title, 
@@ -92,6 +107,8 @@ class GraphicsTaskItem( QGraphicsRectItem ):
 		
 
 class GraphicsDayItem( QGraphicsItemGroup ):
+	colorManager = ColorManager( 30 )
+
 	def __init__(self, parent=None):
 		QGraphicsItemGroup.__init__(self, parent)
 
@@ -159,9 +176,12 @@ class GraphicsDayItem( QGraphicsItemGroup ):
 			titleIdx = model.index( index.row(), self.parentItem()._modelTitleColumn )
 			dateIdx = model.index( index.row(), self.parentItem()._modelDateColumn )
 			durationIdx = model.index( index.row(), self.parentItem()._modelDurationColumn )
+			colorIdx = model.index( index.row(), self.parentItem()._modelColorColumn )
 			task.setTitle( titleIdx.data().toString() )
 			task.setStart( dateIdx.data().toString() )
 			task.setDuration( durationIdx.data().toString() )
+			task.setBackgroundColor( GraphicsDayItem.colorManager.color( colorIdx.data().toInt()[0] ) )
+			task.setEdgeColor( GraphicsDayItem.colorManager.edgeColor( colorIdx.data().toInt()[0] ) )
 
 			startTime = self.parentItem().dateTimeFromIndex( dateIdx ).time()
 			durationTime, ok = durationIdx.data( self.parentItem().ValueRole ).toDouble()
@@ -322,6 +342,10 @@ class GraphicsCalendarItem( QGraphicsItemGroup ):
 	def modelDurationColumn(self):
 		return self._modelDurationColumn
 
+	def setModelColorColumn(self, column):
+		self._modelColorColumn = column
+		self.updateCalendarData()
+
 	def tasksFromIndex(self, index):
 		tasks = []
 		for item in self._days.values():
@@ -382,6 +406,9 @@ class GraphicsCalendarScene( QGraphicsScene ):
 	def setModelDurationColumn(self, column):
 		self._calendar.setModelDurationColumn( column )
 
+	def setModelColorColumn(self, column):
+		self._calendar.setModelColorColumn( column )
+
 	def updateData(self):
 		self._calendar.updateCalendarData()
 		self._calendar.updateCalendarView()
@@ -416,6 +443,9 @@ class GraphicsCalendarView( QGraphicsView ):
 
 	def setModelDurationColumn(self, column):
 		self.scene().setModelDurationColumn( column )
+
+	def setModelColorColumn(self, column):
+		self.scene().setModelColorColumn( column )
 
 	def updateData(self):
 		self.scene().updateData()
@@ -456,6 +486,9 @@ class CalendarView( AbstractView, CalendarViewUi ):
 
 	def setModelDurationColumn(self, column):
 		self.calendarView.setModelDurationColumn( column )
+
+	def setModelColorColumn(self, column):
+		self.calendarView.setModelColorColumn( column )
 
 	def updateCalendarView(self):
 		date = self.calendarWidget.selectedDate()
