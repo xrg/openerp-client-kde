@@ -180,7 +180,7 @@ class ViewCache(AbstractCache):
 class AsynchronousSessionCall(QThread):
 	def __init__(self, session, parent=None):
 		QThread.__init__(self, parent)
-		self.session = copy.deepcopy( session )
+		self.session = session.copy()
 		self.obj = None
 		self.method = None
 		self.args = None
@@ -292,8 +292,21 @@ class Session:
 		self.userName = None
 		self.databaseName = None
 		self.connection = None
-		self.errorHandler = None
 		self.cache = None
+		self.threads = []
+
+	# This function removes all finished threads from the list of running
+	# threads and appends the one provided.
+	# We keep a reference to all threads started because otherwise their
+	# C++ counterparts would be freed by garbage collector. User can also
+	# keep a reference to it when she calls callAsync or executeAsync but
+	# with this mechanism she's not forced to it.
+	# The only inconvenience we could find is that we kept some thread
+	# objects for much too long in memory, but that doesn't seem worrisome
+	# by now.
+	def appendThread(self, thread):
+		self.threads = [x for x in self.threads if x.isRunning()]
+		self.threads.append( thread )
 
 	## @brief Calls asynchronously the specified method on the given object on the server.
 	# 
@@ -319,6 +332,7 @@ class Session:
 	def callAsync( self, callback, exceptionCallback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.call( callback, obj, method, *args )
+		self.appendThread( caller )
 		return caller
 
 	## @brief Same as callAsync() but uses the notify mechanism to notify
@@ -329,6 +343,7 @@ class Session:
 	def executeAsync( self, callback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.execute( callback, obj, method, *args )
+		self.appendThread( caller )
 		return caller
 
 	## @brief Calls the specified method
@@ -461,6 +476,18 @@ class Session:
 			return eval(expression, context)
 		else:
 			return expression 
+
+	def copy(self):
+		new = Session()
+		new.open = self.open 
+		new.url = self.url 
+		new.password = self.password
+		new.uid = self.uid
+		new.context = self.context
+		new.userName = self.userName
+		new.databaseName = self.databaseName 
+		new.connection = self.connection 
+		return new
 
 session = Session()
 session.cache = ViewCache()
