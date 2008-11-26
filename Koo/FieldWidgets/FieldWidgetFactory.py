@@ -58,7 +58,6 @@ class FieldWidgetFactory:
 					print "Error importing widget: ", i
 
 		if not widgetType in imports:
-			print "IMPORTS: ", imports
 			print "Widget '%s' not available" % widgetType
 			return None
 

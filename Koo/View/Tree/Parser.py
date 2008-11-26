@@ -37,6 +37,7 @@ from PyQt4.uic import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+from Koo.FieldWidgets.FieldWidgetFactory import *
 from Koo.Common import Common
 from Koo.Common.Numeric import *
 from Koo.Common.Calendar import *
@@ -184,9 +185,9 @@ class StandardDelegate( QItemDelegate ):
 
 	def createEditor( self, parent, option, index ):
 		self.currentIndex = index.model().createIndex( index.row(), index.column(), index.internalPointer() )
-		if not self.type in widgetsType:
+		if self.type in ('one2many', 'one2many_list', 'one2many_form', 'many2many'):
 			return None
-		widget = widgetsType[self.type](parent, None, self.attributes)
+		widget = FieldWidgetFactory.create( self.type, parent, None, self.attributes )
 		for x in widget.findChildren(QWidget):
 			w = x.nextInFocusChain()
 			inside = False
