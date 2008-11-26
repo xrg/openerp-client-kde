@@ -31,11 +31,6 @@ from Koo.Rpc import RpcProxy, Rpc
 from Koo import Rpc
 import base64
 
-try:
-	from sets import Set as set
-except ImportError:
-	pass
-
 
 class StringField(QObject):
 	def __init__(self, parent, attrs):

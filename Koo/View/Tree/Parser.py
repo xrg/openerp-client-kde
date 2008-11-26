@@ -125,47 +125,47 @@ class TreeParser(AbstractParser):
 				view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
 
-from Koo.View.Form import calendar
-from Koo.View.Form import float
-from Koo.View.Form import integer
-from Koo.View.Form import char
-from Koo.View.Form import checkbox
-from Koo.View.Form import reference
-from Koo.View.Form import binary
-from Koo.View.Form import textbox
-from Koo.View.Form import richtext
-from Koo.View.Form import many2many
-from Koo.View.Form import many2one
-from Koo.View.Form import selection
-from Koo.View.Form import one2many
-from Koo.View.Form import url
-from Koo.View.Form import image
+#from Koo.View.Form import calendar
+#from Koo.View.Form import float
+#from Koo.View.Form import integer
+#from Koo.View.Form import char
+#from Koo.View.Form import checkbox
+#from Koo.View.Form import reference
+#from Koo.View.Form import binary
+#from Koo.View.Form import textbox
+#from Koo.View.Form import richtext
+#from Koo.View.Form import many2many
+#from Koo.View.Form import many2one
+#from Koo.View.Form import selection
+#from Koo.View.Form import one2many
+#from Koo.View.Form import url
+#from Koo.View.Form import image
 
 
-widgetsType = {
-	'date': calendar.DateFormWidget,
-	'time': calendar.TimeFormWidget,
-	'datetime': calendar.DateTimeFormWidget,
-	'float': float.FloatFormWidget,
-	'integer': integer.IntegerFormWidget,
-	'selection': selection.SelectionFormWidget,
-	'char': char.CharFormWidget,
-	'boolean': checkbox.CheckBoxFormWidget,
-	'reference': reference.ReferenceFormWidget,
-	'binary': binary.BinaryFormWidget,
-	'text': char.CharFormWidget,
-	'text_tag': char.CharFormWidget,
-	#'one2many': one2many.OneToManyFormWidget,
-	#'one2many_form': one2many.OneToManyFormWidget,
-	#'one2many_list': one2many.OneToManyFormWidget,
-	#'many2many': many2many.ManyToManyFormWidget,
-	'many2one': many2one.ManyToOneFormWidget,
-	'image' : image.ImageFormWidget,
-	'url' : url.UrlFormWidget,
-	'email' : url.EMailFormWidget,
-	'callto' : url.CallToFormWidget,
-	'sip' : url.SipFormWidget,
-}
+#widgetsType = {
+#	'date': calendar.DateFormWidget,
+#	'time': calendar.TimeFormWidget,
+#	'datetime': calendar.DateTimeFormWidget,
+#	'float': float.FloatFormWidget,
+#	'integer': integer.IntegerFormWidget,
+#	'selection': selection.SelectionFormWidget,
+#	'char': char.CharFormWidget,
+#	'boolean': checkbox.CheckBoxFormWidget,
+#	'reference': reference.ReferenceFormWidget,
+#	'binary': binary.BinaryFormWidget,
+#	'text': char.CharFormWidget,
+#	'text_tag': char.CharFormWidget,
+#	#'one2many': one2many.OneToManyFormWidget,
+#	#'one2many_form': one2many.OneToManyFormWidget,
+#	#'one2many_list': one2many.OneToManyFormWidget,
+#	#'many2many': many2many.ManyToManyFormWidget,
+#	'many2one': many2one.ManyToOneFormWidget,
+#	'image' : image.ImageFormWidget,
+#	'url' : url.UrlFormWidget,
+#	'email' : url.EMailFormWidget,
+#	'callto' : url.CallToFormWidget,
+#	'sip' : url.SipFormWidget,
+#}
 
 class StandardDelegate( QItemDelegate ):
 	def __init__( self, type, attributes, parent=None):

@@ -30,12 +30,11 @@ from Koo.Common import Common
 from Koo.Common import Icons
 from Koo.Common import Options
 from Koo import Rpc
-from button import *
 
 from FormView import FormView, FormContainer
 from Koo.View.AbstractParser import *
-from action import ActionFormWidget
-from abstractformwidget import *
+from Koo.FieldWidgets.FieldWidgetFactory import *
+from Koo.FieldWidgets.AbstractFieldWidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -98,7 +97,7 @@ class FormParser(AbstractParser):
 				container.newRow()
 
 			elif node.localName=='button':
-				button = ButtonFormWidget(container, self.view, attrs )
+				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
 				name = attrs['name']
 				self.view.widgets[name] = button
 				container.addWidget(button, attrs)
@@ -160,9 +159,9 @@ class FormParser(AbstractParser):
 
 			elif node.localName =='action':
 				name = str(attrs['name'])
-				widget_act = ActionFormWidget( container, self.view, attrs)
-				self.view.widgets[name] = widget_act
-				container.addWidget(widget_act, attrs)
+				widget = FieldWidgetFactory.create( 'action', container, self.view, attrs )
+				self.view.widgets[name] = widget 
+				container.addWidget(widget, attrs)
 
 			elif node.localName=='field':
 				name = attrs['name']
@@ -170,29 +169,29 @@ class FormParser(AbstractParser):
 				type = attrs.get('widget', fields[name]['type'])
 				fields[name].update(attrs)
 				fields[name]['model']=self.viewModel
-				if not type in widgets_type:
-					print "Data Type %s not implemented in the client" % (type)
+
+				# Create the appropiate widget for the given field type
+				widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
+				if not widget:
 					continue
 
 				fields[name]['name'] = name
-				# Create the appropiate widget for the given field type
-				widget_act = widgets_type[type][0](container, self.view, fields[name])
 				if self.filter:
-					widget_act.node = node
-					self.widgetList.append(widget_act)
+					widget.node = node
+					self.widgetList.append(widget)
 
 
 				label = None
 				if not int(attrs.get('nolabel', 0)):
 					label = fields[name]['string']+' :'
 					
-				self.view.widgets[name] = widget_act
-				attrs['colspan'] = int(attrs.get('colspan', widgets_type[ type ][1]))
+				self.view.widgets[name] = widget
+				#attrs['colspan'] = int(attrs.get('colspan', widgets_type[ type ][1]))
 
 				if not 'help' in attrs:
 					attrs['help'] = fields[name].get('help', False)
 
-				container.addWidget(widget_act, attrs, label)
+				container.addWidget(widget, attrs, label)
 
 			elif node.localName=='group':
 				widget, on_write = self.parse( node, fields, notebook )
@@ -204,56 +203,56 @@ class FormParser(AbstractParser):
 		return  container, on_write
 
 				
-import calendar
-import float
-import integer
-import char
-import checkbox
-import reference
-import binary
-import textbox
-import richtext
-import many2many
-import many2one
-import selection
-import one2many
-import url
-import image
-import link
-import web
-import progressbar
-#import audio
-#import video
+#import calendar
+#import float
+#import integer
+#import char
+#import checkbox
+#import reference
+#import binary
+#import textbox
+#import richtext
+#import many2many
+#import many2one
+#import selection
+#import one2many
+#import url
+#import image
+#import link
+#import web
+#import progressbar
+##import audio
+##import video
 
-widgets_type = {
-	'date': (calendar.DateFormWidget, 1),
-	'time': (calendar.TimeFormWidget, 1),
-	'datetime': (calendar.DateTimeFormWidget, 1),
-	'float_time': (calendar.FloatTimeFormWidget, 1),
-	'float': (float.FloatFormWidget, 1),
-	'integer': (integer.IntegerFormWidget, 1),
-	'selection': (selection.SelectionFormWidget, 1),
-	'char': (char.CharFormWidget, 1),
-	'boolean': (checkbox.CheckBoxFormWidget, 1),
-	'reference': (reference.ReferenceFormWidget, 1),
-	'binary': (binary.BinaryFormWidget, 1),
-	'text': (textbox.TextBoxFormWidget, 1),
-	'text_tag': (richtext.RichTextFormWidget, 1),
-	'one2many': (one2many.OneToManyFormWidget, 1),
-	'one2many_form': (one2many.OneToManyFormWidget, 1),
-	'one2many_list': (one2many.OneToManyFormWidget, 1),
-	'many2many': (many2many.ManyToManyFormWidget, 1),
-	'many2one': (many2one.ManyToOneFormWidget, 1),
-	'image' : (image.ImageFormWidget, 1),
-	'url' : (url.UrlFormWidget, 1),
-	'email' : (url.EMailFormWidget, 1),
-	'callto' : (url.CallToFormWidget, 1),
-	'sip' : (url.SipFormWidget, 1),
-	'link' : (link.LinkFormWidget, 1),
-	'web' : (web.WebFormWidget, 1),
-	'progressbar' : (progressbar.ProgressBarFormWidget, 1),
-	#'audio' : (audio.AudioFormWidget, 1, False),
-	#'video' : (video.VideoFormWidget, 1, False)
-}
+#widgets_type = {
+#	'date': (calendar.DateFormWidget, 1),
+#	'time': (calendar.TimeFormWidget, 1),
+#	'datetime': (calendar.DateTimeFormWidget, 1),
+#	'float_time': (calendar.FloatTimeFormWidget, 1),
+#	'float': (float.FloatFormWidget, 1),
+#	'integer': (integer.IntegerFormWidget, 1),
+#	'selection': (selection.SelectionFormWidget, 1),
+#	'char': (char.CharFormWidget, 1),
+#	'boolean': (checkbox.CheckBoxFormWidget, 1),
+#	'reference': (reference.ReferenceFormWidget, 1),
+#	'binary': (binary.BinaryFormWidget, 1),
+#	'text': (textbox.TextBoxFormWidget, 1),
+#	'text_tag': (richtext.RichTextFormWidget, 1),
+#	'one2many': (one2many.OneToManyFormWidget, 1),
+#	'one2many_form': (one2many.OneToManyFormWidget, 1),
+#	'one2many_list': (one2many.OneToManyFormWidget, 1),
+#	'many2many': (many2many.ManyToManyFormWidget, 1),
+#	'many2one': (many2one.ManyToOneFormWidget, 1),
+#	'image' : (image.ImageFormWidget, 1),
+#	'url' : (url.UrlFormWidget, 1),
+#	'email' : (url.EMailFormWidget, 1),
+#	'callto' : (url.CallToFormWidget, 1),
+#	'sip' : (url.SipFormWidget, 1),
+#	'link' : (link.LinkFormWidget, 1),
+#	'web' : (web.WebFormWidget, 1),
+#	'progressbar' : (progressbar.ProgressBarFormWidget, 1),
+#	#'audio' : (audio.AudioFormWidget, 1, False),
+#	#'video' : (video.VideoFormWidget, 1, False)
+#}
 
 # vim:noexpandtab:

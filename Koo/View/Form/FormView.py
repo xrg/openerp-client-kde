@@ -30,7 +30,7 @@ from Koo.Common import Common
 from Koo import Rpc
 
 from Koo.View.AbstractView import *
-from abstractformwidget import *
+from Koo.FieldWidgets.AbstractFieldWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 

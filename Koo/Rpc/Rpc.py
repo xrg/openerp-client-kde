@@ -317,9 +317,9 @@ class Session:
 	# Rpc.session.logout()
 	# \end
 	def callAsync( self, callback, exceptionCallback, obj, method, *args ):
-		caller = AsynchronousSessionCall( self )
-		caller.call( callback, obj, method, *args )
-		return caller
+                self.caller = AsynchronousSessionCall( self )
+                self.caller.call( callback, obj, method, *args )
+                return self.caller
 
 	## @brief Same as callAsync() but uses the notify mechanism to notify
 	# exceptions. 
@@ -327,9 +327,9 @@ class Session:
 	# Note that you'll need to bind gettext as texts sent to
 	# the notify module are localized.
 	def executeAsync( self, callback, obj, method, *args ):
-		caller = AsynchronousSessionCall( self )
-		caller.execute( callback, obj, method, *args )
-		return caller
+                self.caller = AsynchronousSessionCall( self )
+                self.caller.execute( callback, obj, method, *args )
+                return self.caller
 
 	## @brief Calls the specified method
 	# on the given object on the server. 
