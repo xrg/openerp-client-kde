@@ -26,18 +26,17 @@
 #
 ##############################################################################
 
-from Koo.Common import Common
-
-from Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
-
-from Koo import Rpc
-
-from Koo.FieldWidgets.AbstractFieldWidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
+from Koo.Common import Api
+from Koo.Common import Common
+from Koo import Rpc
+
+from Screen import Screen
+from Koo.Model.Group import ModelRecordGroup
+from Koo.FieldWidgets.AbstractFieldWidget import *
 from Koo.Dialogs.SearchDialog import SearchDialog
 
 (ManyToManyFormWidgetUi, ManyToManyFormWidgetBase ) = loadUiType( Common.uiPath('many2many.ui') ) 
@@ -60,12 +59,20 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
 		self.screen.setAddAfterNew( True )
+		self.connect( self.screen, SIGNAL('activated()'), self.open )
 
 		layout = self.layout()
 		layout.insertWidget( 1, self.screen )
 		self.installPopupMenu( self.uiText )
 		self.old = None
 
+	def open( self ):
+		if not self.screen.current_model:
+			return
+		id = self.screen.current_model.id 
+		if not id:
+			return
+		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree')	
 	
 	def sizeHint( self ):
 		return QSize( 200,800 )
