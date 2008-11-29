@@ -32,6 +32,7 @@ import sql_db
 import pooler
 from psycopg2.extensions import adapt as sql_quote
 import SimpleXMLRPCServer
+from operator import itemgetter
 
 
 def quote(value):
@@ -165,8 +166,7 @@ class fulltextsearch_services(netsvc.Service):
 		self.checkPostgresVersion(cr)
 
 		cr.execute("""
-			SELECT 
-				DISTINCT
+			SELECT DISTINCT
 				m.id, 
 				m.name,
 				m.model
@@ -201,6 +201,7 @@ class fulltextsearch_services(netsvc.Service):
 				name = x[1]
 
 			ret.append( { 'id': x[0], 'name': name } )		
+		ret.sort( key=itemgetter('name') )
 		return ret
 		
 	# Searches limit records that match the text query in the specified model 
