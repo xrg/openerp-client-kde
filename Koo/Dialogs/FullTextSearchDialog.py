@@ -313,7 +313,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 
 		self.setWindowTitle( self.title )
 
-		self.limit = 4
+		self.limit = 10 
 		self.offset = 0
 		self.pushNext.setEnabled( False )
 		self.pushPrevious.setEnabled( False )
