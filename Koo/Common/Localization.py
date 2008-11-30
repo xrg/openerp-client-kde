@@ -26,6 +26,7 @@
 ##############################################################################
 
 import Paths
+import os
 
 ## @brief Initializes gettext translation system.
 def initializeTranslations():
@@ -33,7 +34,13 @@ def initializeTranslations():
 	import gettext
 
 	name = 'koo'
+	# First of all search the files in the l10n directory (in case Koo was
+	# not installed in the system).
 	directory = Paths.searchFile( 'l10n' )
+	if not directory:
+		# If the first try didn't work try to search translation files
+		# in standard directories 'share/locale'
+		directory = Paths.searchFile( os.path.join('share','locale') )
 
 	try:
 		locale.setlocale(locale.LC_ALL, '')
@@ -41,14 +48,12 @@ def initializeTranslations():
 		# If locale is not supported just continue
 		# with default language
 		print "Warning: Unsupported locale." 
-	gettext.bindtextdomain(name, directory)
-	gettext.textdomain(name)
-	gettext.install(name, directory, unicode=1)
+	lang = gettext.translation(name, directory, fallback=True)
+	lang.install(unicode=1)
 
 ## @brief Initializes Qt translation system.
 def initializeQtTranslations():
 	from PyQt4.QtCore import QTranslator, QCoreApplication, QLocale
-	translator = QTranslator( QCoreApplication.instance() )
 	language = str(QLocale.system().name())
 	# First we try to load the file with the same system language name 
 	# Usually in $LANG and looks something like ca_ES, de_DE, etc.
@@ -62,6 +67,7 @@ def initializeQtTranslations():
 		# If no translation files were found, don't crash
 		# but continue silently.
 		return
+	translator = QTranslator( QCoreApplication.instance() )
 	translator.load( file )
 	QCoreApplication.instance().installTranslator( translator )
 
