@@ -34,21 +34,36 @@ def initializeTranslations():
 	import gettext
 
 	name = 'koo'
-	# First of all search the files in the l10n directory (in case Koo was
-	# not installed in the system).
-	directory = Paths.searchFile( 'l10n' )
-	if not directory:
-		# If the first try didn't work try to search translation files
-		# in standard directories 'share/locale'
-		directory = Paths.searchFile( os.path.join('share','locale') )
-
 	try:
 		locale.setlocale(locale.LC_ALL, '')
 	except:
 		# If locale is not supported just continue
 		# with default language
 		print "Warning: Unsupported locale." 
-	lang = gettext.translation(name, directory, fallback=True)
+
+
+	language, encoding = locale.getdefaultlocale()
+
+	# Set environment variables otherwise it doesn't properly
+	# work on windows
+	os.environ.setdefault('LANG', language)
+	os.environ.setdefault('LANGUAGE', language)
+
+	# First of all search the files in the l10n directory (in case Koo was
+	# not installed in the system).
+	directory = Paths.searchFile( 'l10n' )
+	if directory:
+		try:
+			lang = gettext.translation(name, directory, fallback=False)
+		except:
+			directory = None
+
+	if not directory:
+		# If the first try didn't work try to search translation files
+		# in standard directories 'share/locale'
+		directory = Paths.searchFile( os.path.join('share','locale') )
+		lang = gettext.translation(name, directory, fallback=True)
+
 	lang.install(unicode=1)
 
 ## @brief Initializes Qt translation system.
