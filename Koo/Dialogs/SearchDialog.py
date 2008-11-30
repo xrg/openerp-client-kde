@@ -75,8 +75,8 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.form.setup( view_form['arch'], view_form['fields'], model )
 		self.form.hideButtons()
 
-		self.title = _('Tiny ERP Search: %s') % self.form.name
-		self.title_results = _('Tiny ERP Search: %s (%%d result(s))') % self.form.name
+		self.title = _('Search: %s') % self.form.name
+		self.title_results = _('Search: %s (%%d result(s))') % self.form.name
 
 		self.setWindowTitle( self.title )
 

@@ -892,6 +892,41 @@ p, li { white-space: pre-wrap; }
         <source>Remove Image</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="video.ui" line="40"/>
+        <source>&amp;Play</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="video.ui" line="53"/>
+        <source>Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="video.ui" line="69"/>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="video.ui" line="82"/>
+        <source>&amp;Load</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="video.ui" line="95"/>
+        <source>S&amp;ave</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="video.ui" line="102"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">&amp;Supprimer</translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="83"/>
+        <source>Color Legend</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FormContainerWidget</name>
@@ -919,27 +954,27 @@ p, li { white-space: pre-wrap; }
         <translation>&amp;Rechercher</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="57"/>
+        <location filename="full_text_search.ui" line="65"/>
         <source>TextLabel</source>
         <translation>Libellé du texte</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="88"/>
+        <location filename="full_text_search.ui" line="96"/>
         <source>&amp;Previous</source>
         <translation>&amp;Précédent</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="98"/>
+        <location filename="full_text_search.ui" line="107"/>
         <source>&amp;Next</source>
         <translation>&amp;Suivant</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="129"/>
+        <location filename="full_text_search.ui" line="139"/>
         <source>&amp;Accept</source>
         <translation>&amp;Accepter</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="142"/>
+        <location filename="full_text_search.ui" line="153"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Annuler</translation>
     </message>

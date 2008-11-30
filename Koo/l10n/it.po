@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-22 23:28+0100\n"
+"POT-Creation-Date: 2008-11-30 12:48+0100\n"
 "PO-Revision-Date: 2005-04-05 09:43+0200\n"
 "Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -31,72 +31,75 @@ msgstr "Errore ricerca!"
 msgid "There was an error trying to create the report."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:248 Koo/Rpc/Rpc.py:362
+#: Koo/Rpc/Rpc.py:248 Koo/Rpc/Rpc.py:377
 #, fuzzy
 msgid "Connection Refused"
 msgstr "Connessione rifiutata!"
 
-#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:374
-#: Koo/Rpc/Rpc.py:388 Koo/Rpc/Rpc.py:391
+#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:389
+#: Koo/Rpc/Rpc.py:403 Koo/Rpc/Rpc.py:406
 msgid "Application Error"
 msgstr "Errore Applicazione"
 
-#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:374
-#: Koo/Rpc/Rpc.py:388 Koo/Rpc/Rpc.py:391
+#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:389
+#: Koo/Rpc/Rpc.py:403 Koo/Rpc/Rpc.py:406
 msgid "View details"
 msgstr "Dettagli vista"
 
-#: Koo/Rpc/Rpc.py:492
+#: Koo/Rpc/Rpc.py:519
 msgid "Could not contact server!"
 msgstr ""
 
 #: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:295
-#: Koo/Dialogs/KooMainWindow.py:513
+#: Koo/Dialogs/KooMainWindow.py:515
 msgid "Yes"
 msgstr "Si"
 
 #: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:297
-#: Koo/Dialogs/KooMainWindow.py:513
+#: Koo/Dialogs/KooMainWindow.py:515
 msgid "No"
 msgstr "No"
 
-#: Koo/Model/KooModel.py:290 Koo/View/Form/binary.py:104
-#: Koo/View/Form/binary.py:141
+#: Koo/Model/KooModel.py:290
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:104
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:139
 #, python-format
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/Actions/Actions.py:56 Koo/Actions/Actions.py:80
-#: Koo/Actions/Actions.py:110
-msgid "Error: "
+#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
+#: Koo/Actions/Actions.py:112
+#, fuzzy, python-format
+msgid "Error: %s"
 msgstr "Errore: "
 
-#: Koo/Actions/Actions.py:60
+#: Koo/Actions/Actions.py:62
 msgid "Nothing to print."
 msgstr ""
 
-#: Koo/Actions/Actions.py:76
+#: Koo/Actions/Actions.py:78
 #, fuzzy
-msgid "Printint aborted. Delay too long."
+msgid "Printing aborted. Delay too long."
 msgstr "Stampa rimossa, troppo ritardo!"
 
-#: Koo/Actions/Actions.py:90
+#: Koo/Actions/Actions.py:92
 msgid "Nothing to print!"
 msgstr ""
 
-#: Koo/Actions/Actions.py:106
+#: Koo/Actions/Actions.py:108
 msgid "Printing aborted, too long delay !"
 msgstr "Stampa rimossa, troppo ritardo!"
 
-#: Koo/Actions/Actions.py:204
+#: Koo/Actions/Actions.py:206
 msgid "Select your action"
 msgstr "Seleziona la tua azione"
 
-#: Koo/Actions/Actions.py:210 Koo/View/Form/many2one.py:110
+#: Koo/Actions/Actions.py:212
+#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:110
 msgid "Action"
 msgstr "Azione"
 
-#: Koo/Actions/Actions.py:210
+#: Koo/Actions/Actions.py:212
 msgid "No action defined!"
 msgstr "Nessuna azione definita"
 
@@ -121,6 +124,139 @@ msgstr "nessun plugin disponibile per questa risorsa!"
 #: Koo/Plugins/__init__.py:72
 msgid "Choose a Plugin"
 msgstr "Scegli un Plugin"
+
+#: Koo/FieldWidgets/AbstractFieldWidget.py:66
+msgid "Set to default value"
+msgstr "Imposta al valore di default"
+
+#: Koo/FieldWidgets/AbstractFieldWidget.py:72
+#, fuzzy
+msgid "Set as default value"
+msgstr "Imposta al valore di default"
+
+#: Koo/FieldWidgets/AbstractFieldWidget.py:96
+#, fuzzy
+msgid "Operation not permited"
+msgstr ""
+"Operazione fallita!\n"
+"Errore I/O"
+
+#: Koo/FieldWidgets/AbstractFieldWidget.py:96
+#, fuzzy
+msgid "You can not set to the default value here !"
+msgstr "Imposta al valore di default"
+
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:69
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:70
+#: Koo/FieldWidgets/LinkFieldWidget/LinkFieldWidget.py:61
+#, fuzzy
+msgid "Open..."
+msgstr "Apri"
+
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:70
+msgid "Show &image..."
+msgstr ""
+
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:98
+#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:56
+msgid "Select the file to attach"
+msgstr "Selezionare il file da allegare"
+
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:114
+#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:63
+msgid "Error reading the file"
+msgstr "Errore di lettura nel file"
+
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:118
+#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:67
+#, fuzzy
+msgid "Save as..."
+msgstr "Salva allegato come..."
+
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:124
+#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:73
+msgid "Error writing the file!"
+msgstr "Errore di scrittura nel file!"
+
+#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:57
+#: Koo/Dialogs/FormWidget.py:209 Koo/Dialogs/FormWidget.py:351
+#, fuzzy
+msgid "Question"
+msgstr "Descrizione"
+
+#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:71
+msgid "Error in Button"
+msgstr ""
+
+#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:71
+msgid "Button type not allowed"
+msgstr ""
+
+#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:77
+#, fuzzy
+msgid "Invalid Form, correct red fields!"
+msgstr "Modulo Invalido, correggere i campi in rosso"
+
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:51
+msgid "Set current date"
+msgstr ""
+
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:92
+msgid "Set current date and time"
+msgstr ""
+
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:126
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:170
+msgid "Set current time"
+msgstr ""
+
+#: Koo/FieldWidgets/CharFieldWidget/CharFieldWidget.py:70
+#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:53
+msgid "Translation dialog"
+msgstr ""
+
+#: Koo/FieldWidgets/CharFieldWidget/CharFieldWidget.py:70
+#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:53
+msgid "You must save the resource before adding translations"
+msgstr ""
+
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:103
+#, fuzzy
+msgid "Save image as..."
+msgstr "Salva allegato come..."
+
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:111
+#, fuzzy
+msgid "Error saving file"
+msgstr "Errore di lettura nel file"
+
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:111
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:114
+msgid "Open image file..."
+msgstr ""
+
+#: Koo/FieldWidgets/LinkFieldWidget/LinkFieldWidget.py:73
+#, fuzzy
+msgid "Select the file to link to"
+msgstr "Selezionare il file da allegare"
+
+#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:111
+msgid "Report"
+msgstr ""
+
+#: Koo/FieldWidgets/FieldPreferencesDialog.py:61
+#, fuzzy
+msgid "<center>Always applicable!</center>"
+msgstr "Sempre applicabile!"
+
+#: Koo/FieldWidgets/TranslationDialog.py:48
+msgid "Translation Dialog"
+msgstr ""
 
 #: Koo/Common/Common.py:169
 msgid "Concurrency warning"
@@ -185,131 +321,7 @@ msgstr "specifica canali da registrare"
 msgid "Unknown"
 msgstr "Finestra sconosciuta"
 
-#: Koo/View/Form/abstractformwidget.py:66
-msgid "Set to default value"
-msgstr "Imposta al valore di default"
-
-#: Koo/View/Form/abstractformwidget.py:72
-#, fuzzy
-msgid "Set as default value"
-msgstr "Imposta al valore di default"
-
-#: Koo/View/Form/abstractformwidget.py:96
-#, fuzzy
-msgid "Operation not permited"
-msgstr ""
-"Operazione fallita!\n"
-"Errore I/O"
-
-#: Koo/View/Form/abstractformwidget.py:96
-#, fuzzy
-msgid "You can not set to the default value here !"
-msgstr "Imposta al valore di default"
-
-#: Koo/View/Form/TranslationDialog.py:48
-msgid "Translation Dialog"
-msgstr ""
-
-#: Koo/View/Form/char.py:70 Koo/View/Form/textbox.py:53
-msgid "Translation dialog"
-msgstr ""
-
-#: Koo/View/Form/char.py:70 Koo/View/Form/textbox.py:53
-msgid "You must save the resource before adding translations"
-msgstr ""
-
-#: Koo/View/Form/image.py:70 Koo/View/Form/binary.py:69
-#: Koo/View/Form/link.py:61
-#, fuzzy
-msgid "Open..."
-msgstr "Apri"
-
-#: Koo/View/Form/image.py:103
-#, fuzzy
-msgid "Save image as..."
-msgstr "Salva allegato come..."
-
-#: Koo/View/Form/image.py:111
-#, fuzzy
-msgid "Error saving file"
-msgstr "Errore di lettura nel file"
-
-#: Koo/View/Form/image.py:111
-msgid ""
-"Could not save the image with the given file name. Please check that you "
-"have permissions."
-msgstr ""
-
-#: Koo/View/Form/image.py:114
-msgid "Open image file..."
-msgstr ""
-
-#: Koo/View/Form/binary.py:70
-msgid "Show &image..."
-msgstr ""
-
-#: Koo/View/Form/binary.py:98
-msgid "Select the file to attach"
-msgstr "Selezionare il file da allegare"
-
-#: Koo/View/Form/binary.py:116
-msgid "Error reading the file"
-msgstr "Errore di lettura nel file"
-
-#: Koo/View/Form/binary.py:120
-msgid "Save attachment as..."
-msgstr "Salva allegato come..."
-
-#: Koo/View/Form/binary.py:126
-msgid "Error writing the file!"
-msgstr "Errore di scrittura nel file!"
-
-#: Koo/View/Form/button.py:57 Koo/Dialogs/FormWidget.py:209
-#: Koo/Dialogs/FormWidget.py:351
-#, fuzzy
-msgid "Question"
-msgstr "Descrizione"
-
-#: Koo/View/Form/button.py:71
-msgid "Error in Button"
-msgstr ""
-
-#: Koo/View/Form/button.py:71
-msgid "Button type not allowed"
-msgstr ""
-
-#: Koo/View/Form/button.py:77
-#, fuzzy
-msgid "Invalid Form, correct red fields!"
-msgstr "Modulo Invalido, correggere i campi in rosso"
-
-#: Koo/View/Form/link.py:73
-#, fuzzy
-msgid "Select the file to link to"
-msgstr "Selezionare il file da allegare"
-
-#: Koo/View/Form/calendar.py:51
-msgid "Set current date"
-msgstr ""
-
-#: Koo/View/Form/calendar.py:92
-msgid "Set current date and time"
-msgstr ""
-
-#: Koo/View/Form/calendar.py:126 Koo/View/Form/calendar.py:170
-msgid "Set current time"
-msgstr ""
-
-#: Koo/View/Form/many2one.py:111
-msgid "Report"
-msgstr ""
-
-#: Koo/View/Form/fieldpreferences.py:61
-#, fuzzy
-msgid "<center>Always applicable!</center>"
-msgstr "Sempre applicabile!"
-
-#: Koo/View/Calendar/Calendar.py:78
+#: Koo/View/Calendar/Calendar.py:93
 #, python-format
 msgid ""
 "<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
@@ -355,7 +367,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:603
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:605
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -719,72 +731,72 @@ msgstr "Errore di Connessione!"
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:484
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:484
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:513
+#: Koo/Dialogs/KooMainWindow.py:515
 msgid "Quit"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:513
+#: Koo/Dialogs/KooMainWindow.py:515
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:590 Koo/Dialogs/KooMainWindow.py:611
+#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/KooMainWindow.py:613
 #, fuzzy
 msgid "Delete a database"
 msgstr "Seleziona una data"
 
-#: Koo/Dialogs/KooMainWindow.py:599 Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/KooMainWindow.py:607
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:599
+#: Koo/Dialogs/KooMainWindow.py:601
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:603
+#: Koo/Dialogs/KooMainWindow.py:605
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:607
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:622
+#: Koo/Dialogs/KooMainWindow.py:624
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:626 Koo/Dialogs/KooMainWindow.py:628
+#: Koo/Dialogs/KooMainWindow.py:628 Koo/Dialogs/KooMainWindow.py:630
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Seleziona una data"
 
-#: Koo/Dialogs/KooMainWindow.py:626
+#: Koo/Dialogs/KooMainWindow.py:628
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:628
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:631
+#: Koo/Dialogs/KooMainWindow.py:633
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:646
+#: Koo/Dialogs/KooMainWindow.py:648
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:649
+#: Koo/Dialogs/KooMainWindow.py:651
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -811,12 +823,12 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:311
 #, fuzzy
-msgid "Tiny ERP Full Text Search"
+msgid "Full Text Search"
 msgstr "Tiny ERP - Cerca"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:312
 #, fuzzy, python-format
-msgid "Tiny ERP Full Text Search (%%d result(s))"
+msgid "Full Text Search (%%d result(s))"
 msgstr "Tiny ERP - Cerca Widgets"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:394
@@ -847,12 +859,12 @@ msgstr ""
 
 #: Koo/Dialogs/SearchDialog.py:78
 #, fuzzy, python-format
-msgid "Tiny ERP Search: %s"
-msgstr "Tiny ERP - Cerca"
+msgid "Search: %s"
+msgstr "Ricerca:"
 
 #: Koo/Dialogs/SearchDialog.py:79
 #, fuzzy, python-format
-msgid "Tiny ERP Search: %s (%%d result(s))"
+msgid "Search: %s (%%d result(s))"
 msgstr "Tiny ERP - Cerca Widgets"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
@@ -883,6 +895,13 @@ msgstr "Nessun record selezionato!"
 #: Koo/Dialogs/TreeWidget.py:244
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
+
+#~ msgid "Save attachment as..."
+#~ msgstr "Salva allegato come..."
+
+#, fuzzy
+#~ msgid "Tiny ERP Search: %s"
+#~ msgstr "Tiny ERP - Cerca"
 
 #, fuzzy
 #~ msgid "Saving image..."
@@ -1350,10 +1369,6 @@ msgstr ""
 
 #~ msgid "Tiny ERP - Filter"
 #~ msgstr "Tiny ERP - Filtro"
-
-#, fuzzy
-#~ msgid "S_earch:"
-#~ msgstr "Ricerca:"
 
 #, fuzzy
 #~ msgid "on _field:"

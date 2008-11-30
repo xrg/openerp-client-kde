@@ -308,8 +308,8 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		except:
 			self.disableQueries( _('<b>Full text search module not installed.</b><br/>Go to <i>Administration - Modules administration - Uninstalled Modules</i> and add the <i>full_text_search</i> module.') )
 
-		self.title = _('Tiny ERP Full Text Search')
-		self.title_results = _('Tiny ERP Full Text Search (%%d result(s))')
+		self.title = _('Full Text Search')
+		self.title_results = _('Full Text Search (%%d result(s))')
 
 		self.setWindowTitle( self.title )
 
