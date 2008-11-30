@@ -29,42 +29,66 @@ version = '1.0.0-beta2'
 # get python short version
 py_short_version = '%s.%s' % sys.version_info[:2]
 
-required_modules = [('PyQt4.QtCore', 'Qt4 Core python bindings'),
-                    ('PyQt4.QtGui', 'Qt4 Gui python bindings'),
-                    ('PyQt4.uic', 'Qt4 uic python bindings')]
+required_modules = [
+	('PyQt4.QtCore', 'Qt4 Core python bindings'),
+	('PyQt4.QtGui', 'Qt4 Gui python bindings'),
+	('PyQt4.uic', 'Qt4 uic python bindings'),
+	('PyQt4.QtWebKit', 'Qt4 WebKit python bindings')
+]
 
 def check_modules():
-    ok = True
-    for modname, desc in required_modules:
-        try:
-            exec('import %s' % modname)
-        except ImportError:
-            ok = False
-            print 'Error: python module %s (%s) is required' % (modname, desc)
+	ok = True
+	for modname, desc in required_modules:
+		try:
+			exec('import %s' % modname)
+		except ImportError:
+			ok = False
+			print 'Error: python module %s (%s) is required' % (modname, desc)
 
-    if not ok:
-        sys.exit(1)
+	if not ok:
+		sys.exit(1)
 
 def data_files():
-    '''Build list of data files to be installed'''
-    files = [(opj('share','man','man1',''),['man/koo.1']),
-             (opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob('doc/html/*') if os.path.isfile(f)]),
-             (opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob('doc/doxygen/html/*') if os.path.isfile(f)]),
-             (opj('share', 'Koo'), ['Koo/kootips.txt']),
-	     (opj('share', 'Koo', 'ui'), glob.glob('Koo/ui/*.ui')),
-	     (opj('share', 'Koo', 'ui', 'images'), glob.glob('Koo/ui/images/*.png'))
-	     ]
-    return files
+	'''Build list of data files to be installed'''
+	files = [
+		(opj('share','man','man1',''),['man/koo.1']),
+		(opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob('doc/html/*') if os.path.isfile(f)]),
+		(opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob('doc/doxygen/html/*') if os.path.isfile(f)]),
+		(opj('share', 'Koo'), ['Koo/kootips.txt']),
+		(opj('share', 'Koo', 'ui'), glob.glob('Koo/ui/*.ui')),
+		(opj('share', 'Koo', 'ui', 'images'), glob.glob('Koo/ui/images/*.png')),
+		(opj('share', 'Koo', 'l10n'), glob.glob('Koo/l10n/*.qm'))
+	]
+	return files
 
 included_plugins = ['workflow_print']
 
-def find_plugins():
-    for plugin in included_plugins:
-        path=opj('Koo', 'Plugins', plugin)
-        for dirpath, dirnames, filenames in os.walk(path):
-            if '__init__.py' in filenames:
-                yield dirpath.replace(os.path.sep, '.')
- 
+def findPlugins():
+	result = []
+	for plugin in included_plugins:
+		path=opj('Koo', 'Plugins', plugin)
+		for dirpath, dirnames, filenames in os.walk(path):
+			if '__init__.py' in filenames:
+				result.append( dirpath.replace(os.path.sep, '.') )
+	return result
+
+def findViews():
+	result = []
+	views = [x for x in glob.glob('Koo/View/*') if os.path.isdir(x)]
+	for view in views:
+		for dirpath, dirnames, filenames in os.walk(view):
+			if '__init__.py' in filenames:
+				result.append( dirpath.replace(os.path.sep, '.') )
+	return result
+
+def findFieldWidgets():
+	result = []
+	views = [x for x in glob.glob('Koo/FieldWidgets/*') if os.path.isdir(x)]
+	for view in views:
+		for dirpath, dirnames, filenames in os.walk(view):
+			if '__init__.py' in filenames:
+				result.append( dirpath.replace(os.path.sep, '.') )
+	return result
 
 def translations():
     trans = []
@@ -139,12 +163,8 @@ setup(name             = name,
 			  'Koo.Screen',
 			  'Koo.Search',
 			  'Koo.View',
-			  'Koo.View.Calendar',
-			  'Koo.View.Chart',
-			  'Koo.View.Form',
-			  'Koo.View.Svg',
-			  'Koo.View.Tree',
-                          ] + list(find_plugins()),
+			  'Koo.FieldWidgets',
+                          ] + findPlugins() + findViews() + findFieldWidgets(),
       package_dir      = {'Koo': 'Koo'},
       provides         = [ 'Koo' ]
       )
