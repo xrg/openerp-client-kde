@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Koo Catalan translation.
+# Copyright (C) 2008
+# This file is distributed under the same license as the Koo package.
+# Albert Cervera i Areny <albert@nan-tic.com>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 12:48+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2008-11-30 21:02+0100\n"
+"PO-Revision-Date: 2008-11-30 21:02+0100\n"
+"Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
+"Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -193,7 +193,7 @@ msgid "Set current date and time"
 msgstr "Estableix la data i hora actuals"
 
 #: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:126
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:170
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:169
 msgid "Set current time"
 msgstr "Estableix l'hora actual"
 
@@ -300,7 +300,7 @@ msgstr "especificar la ip o el nom del servidor"
 msgid "specify stylesheet to apply"
 msgstr "especificar el full d'estil a aplicar"
 
-#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:47
+#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:46
 msgid "Unknown"
 msgstr "Desconegut"
 

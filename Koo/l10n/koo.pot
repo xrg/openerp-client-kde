@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 12:48+0100\n"
+"POT-Creation-Date: 2008-11-30 21:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,7 +192,7 @@ msgid "Set current date and time"
 msgstr ""
 
 #: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:126
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:170
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:169
 msgid "Set current time"
 msgstr ""
 
@@ -294,7 +294,7 @@ msgstr ""
 msgid "specify stylesheet to apply"
 msgstr ""
 
-#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:47
+#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:46
 msgid "Unknown"
 msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pt_BR\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 12:48+0100\n"
+"POT-Creation-Date: 2008-11-30 21:02+0100\n"
 "PO-Revision-Date: 2005-07-08 13:08-0300\n"
 "Last-Translator: Cosme Correa <cosme@pcs.com.br>\n"
 "Language-Team:  <pt@li.org>\n"
@@ -207,7 +207,7 @@ msgid "Set current date and time"
 msgstr ""
 
 #: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:126
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:170
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:169
 msgid "Set current time"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 msgid "specify stylesheet to apply"
 msgstr "Especificar canais para log"
 
-#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:47
+#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:46
 #, fuzzy
 msgid "Unknown"
 msgstr "Janela desconhecida"

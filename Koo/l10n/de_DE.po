@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de_DE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 12:48+0100\n"
+"POT-Creation-Date: 2008-11-30 21:02+0100\n"
 "PO-Revision-Date: 2008-11-22 21:57+0100\n"
 "Last-Translator: Ferdinand Gassauer <translate-erp@chricar.at>\n"
 "Language-Team:\n"
@@ -198,7 +198,7 @@ msgid "Set current date and time"
 msgstr "aktuelles Datum und Uhrzeit einstellen"
 
 #: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:126
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:170
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:169
 msgid "Set current time"
 msgstr "aktuelle Uhrzeit einstellen"
 
@@ -306,7 +306,7 @@ msgstr "Servername oder -adresse definieren"
 msgid "specify stylesheet to apply"
 msgstr "Style Sheet definieren"
 
-#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:47
+#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:46
 msgid "Unknown"
 msgstr "Unbekannt"
 
