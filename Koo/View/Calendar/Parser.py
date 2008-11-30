@@ -27,7 +27,6 @@
 
 from Koo.Model.KooModel import *
 from Koo.View.AbstractParser import *
-from Koo.View.Form.abstractformwidget import *
 from Calendar import *
 
 from PyQt4.QtCore import *
