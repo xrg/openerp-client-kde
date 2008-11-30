@@ -29,5 +29,5 @@
 	'date' : 'CalendarFieldWidget.DateFormWidget',
 	'time' : 'CalendarFieldWidget.DateFormWidget',
 	'datetime' : 'CalendarFieldWidget.DateTimeFormWidget',
-	'float_time' : 'CalendarFieldWidget.DateTimeFormWidget'
+	'float_time' : 'CalendarFieldWidget.FloatTimeFormWidget'
 }

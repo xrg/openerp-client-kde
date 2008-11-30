@@ -153,7 +153,6 @@ class TimeFormWidget(AbstractFormWidget):
 		else:
 			self.clear()
 
-
 class FloatTimeFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
