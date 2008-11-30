@@ -28,6 +28,7 @@
 ##############################################################################
 
 import os, time, base64, datetime
+import copy
 
 from Koo import Rpc
 
@@ -45,15 +46,16 @@ class ExecuteReportThread(QThread):
 		self.name = name
 		self.datas = data.copy()
 		self.status = ''
+		self.session = Rpc.session.copy()
 
 	def run(self):
 		ids = self.datas['ids']
 		del self.datas['ids']
 		if not ids:
 			try:
-				ids =  Rpc.session.call('/object', 'execute', self.datas['model'], 'search', [])
+				ids =  self.session.call('/object', 'execute', self.datas['model'], 'search', [])
 			except Rpc.RpcException, e:
-				self.emit( SIGNAL('error'), ( _('Error: ') + unicode(e.type), e.message, e.data ) )
+				self.emit( SIGNAL('error'), ( _('Error: %s') % unicode(e.type), e.message, e.data ) )
 				return
 				
 			if ids == []:
@@ -61,23 +63,23 @@ class ExecuteReportThread(QThread):
 				return 
 			self.datas['id'] = ids[0]
 		try:
-			ctx = Rpc.session.context.copy()
+			ctx = self.session.context.copy()
 			ctx.update(context)
-			report_id = Rpc.session.call('/report', 'report', self.name, ids, self.datas, ctx)
+			report_id = self.session.call('/report', 'report', self.name, ids, self.datas, ctx)
 			state = False
 			attempt = 0
 			while not state:
-				val = Rpc.session.call('/report', 'report_get', report_id)
+				val = self.session.call('/report', 'report_get', report_id)
 				state = val['state']
 				if not state:
 					time.sleep(1)
 					attempt += 1
 				if attempt>200:
-					self.emit( SIGNAL('warning'), _('Printint aborted. Delay too long.') )
+					self.emit( SIGNAL('warning'), _('Printing aborted. Delay too long.') )
 					return False
 			Printer.printData(val)
 		except Rpc.RpcException, e:
-			self.emit( SIGNAL('error'), ( _('Error: ') + unicode(e.type), e.message, e.data ) )
+			self.emit( SIGNAL('error'), ( _('Error: %s') % unicode(e.type), e.message, e.data ) )
 		
 ## @brief Executes the given report.
 def executeReport(name, data, context={}):
@@ -107,7 +109,7 @@ def executeReport(name, data, context={}):
 				return False
 		Printer.printData(val)
 	except Rpc.RpcException, e:
-		Common.error(_('Error: ')+str(e.type), e.message, e.data)
+		Common.error( _('Error: %s') % str(e.type), e.message, e.data )
 	return True
 
 ## @brief Executes the given action id (it could be a report, wizard, etc).

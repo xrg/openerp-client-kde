@@ -187,7 +187,7 @@ def concurrencyError(model, id, context):
 
 (ErrorDialogUi, ErrorDialogBase) = loadUiType( uiPath('error.ui') )
 
-## @brief The ErrorDialog class shows the error dialog used everywhere in KTiny.
+## @brief The ErrorDialog class shows the error dialog used everywhere in Koo.
 #
 # The dialog shows two tabs. One with a short description of the problem and the
 # second one with the details, usually a backtrace.
