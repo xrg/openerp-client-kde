@@ -27,13 +27,13 @@
 
 {
 	'workflow_print_simple': {
-		'model':'.*', 
-		'string':'Print Workflow', 
+		'model': '.*', 
+		'string': _('Print Workflow'), 
 		'action': 'workflow_print.printSimpleWorkflow'
 	},
 	'workflow_print': {
-		'model':'.*', 
-		'string':'Print Workflow (Complex)', 
+		'model': '.*', 
+		'string': _('Print Workflow (Complex)'), 
 		'action': 'workflow_print.printWorkflow'
 	}
 }
