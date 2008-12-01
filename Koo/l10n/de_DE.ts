@@ -3,8 +3,18 @@
 <context>
     <name>AboutDialog</name>
     <message>
+        <location filename="about.ui" line="85"/>
+        <source>&amp;Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="about.ui" line="135"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="about.ui" line="13"/>
-        <source>About Tiny ERP</source>
+        <source>About OpenERP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12,13 +22,13 @@
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;About Tiny ERP&lt;/span&gt; &lt;/p&gt;
+&lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;About OpenERP&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The most advanced Open Source ERP &amp;amp; CRM !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="about.ui" line="45"/>
-        <source>&amp;Tiny ERP</source>
+        <source>&amp;OpenERP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -28,9 +38,9 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tiny ERP - KDE Client - %s&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;OpenERP - KDE Client - %s&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tiny ERP is an Open Source ERP+CRM&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;OpenERP is an Open Source ERP+CRM&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;for small to medium businesses.&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The whole source code is distributed under &lt;/p&gt;
@@ -38,12 +48,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(c) 2003-TODAY, Tiny sprl&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;More Info on &lt;a href=&quot;http://www.tinyerp.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.TinyERP.com&lt;/span&gt;&lt;/a&gt; !&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="85"/>
-        <source>&amp;Contact</source>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;More Info on &lt;a href=&quot;http://www.tinyerp.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.openerp.com&lt;/span&gt;&lt;/a&gt; !&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message encoding="UTF-8">
@@ -54,7 +59,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(c) 2003-TODAY - Tiny sprl&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tiny ERP is a product of Tiny sprl:&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;OpenERP is a product of Tiny sprl:&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tiny sprl&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;40 Chaussuée de Namur&lt;/p&gt;
@@ -64,11 +69,6 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tel : (+32)81.81.37.00&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mail: &lt;a href=&quot;mailto:sales@tiny.be&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;sales@tiny.be&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Web: &lt;a href=&quot;http://www.tinyerp.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://tiny.be&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="135"/>
-        <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -242,11 +242,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="change_server.ui" line="31"/>
-        <source>Connect to a Tiny ERP Server</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="change_server.ui" line="51"/>
         <source>&amp;Server:</source>
         <translation type="unfinished"></translation>
@@ -264,6 +259,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="change_server.ui" line="144"/>
         <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="31"/>
+        <source>Connect to a OpenERP Server</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -358,11 +358,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="231"/>
-        <source>&amp;TinyERP server:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="create_database.ui" line="300"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
@@ -375,6 +370,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="25"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="231"/>
+        <source>&amp;OpenERP server:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1466,11 +1466,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LicenseDialog</name>
     <message>
-        <location filename="license.ui" line="19"/>
-        <source>Tiny ERP license</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="license.ui" line="29"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1577,6 +1572,11 @@ p, li { white-space: pre-wrap; }
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="license.ui" line="19"/>
+        <source>OpenERP license</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LinkWidget</name>
@@ -1655,11 +1655,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToOneWidget</name>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="13"/>
-        <source>Tiny ERP - Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="dia_form_win_many2one.ui" line="54"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
@@ -1687,6 +1682,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="many2one.ui" line="86"/>
         <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dia_form_win_many2one.ui" line="13"/>
+        <source>OpenERP - Link</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

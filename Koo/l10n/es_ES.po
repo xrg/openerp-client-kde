@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 21:02+0100\n"
+"POT-Creation-Date: 2008-12-02 00:06+0100\n"
 "PO-Revision-Date: 2005-22-05 09:43+0200\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
@@ -113,6 +113,14 @@ msgstr "Tiene que guardar este registro para utilizar el botón de relación!"
 #: Koo/Screen/Action.py:101
 msgid "Print Screen"
 msgstr "Imprimir la pantalla"
+
+#: Koo/Plugins/workflow_print/__terp__.py:31
+msgid "Print Workflow"
+msgstr "Flujo de trabajo"
+
+#: Koo/Plugins/workflow_print/__terp__.py:36
+msgid "Print Workflow (Complex)"
+msgstr "Flujo de trabajo (complejo)"
 
 #: Koo/Plugins/__init__.py:70
 msgid "No available plugin for this resource !"
@@ -463,8 +471,8 @@ msgid "Fields"
 msgstr "Campos"
 
 #: Koo/Dialogs/ExportDialog.py:50
-msgid "TinyERP exported information"
-msgstr "Información exportada de Tiny ERP "
+msgid "OpenERP exported information"
+msgstr "Información exportada de OpenERP"
 
 #: Koo/Dialogs/ExportDialog.py:68 Koo/Dialogs/ExportDialog.py:86
 #, python-format

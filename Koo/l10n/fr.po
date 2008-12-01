@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 21:02+0100\n"
+"POT-Creation-Date: 2008-12-02 00:06+0100\n"
 "PO-Revision-Date: 2008-08-14 14:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: fr <kde-i18n-doc@lists.kde.org>\n"
@@ -123,6 +123,14 @@ msgstr "Vous devez sélectionner un enregistrement pour utiliser ce bouton"
 #, fuzzy
 msgid "Print Screen"
 msgstr "Imprimer les documents"
+
+#: Koo/Plugins/workflow_print/__terp__.py:31
+msgid "Print Workflow"
+msgstr ""
+
+#: Koo/Plugins/workflow_print/__terp__.py:36
+msgid "Print Workflow (Complex)"
+msgstr ""
 
 #: Koo/Plugins/__init__.py:70
 msgid "No available plugin for this resource !"
@@ -491,7 +499,7 @@ msgstr "Nom du champ"
 
 #: Koo/Dialogs/ExportDialog.py:50
 #, fuzzy
-msgid "TinyERP exported information"
+msgid "OpenERP exported information"
 msgstr "Tiny ERP - Confirmation"
 
 #: Koo/Dialogs/ExportDialog.py:68 Koo/Dialogs/ExportDialog.py:86

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de_DE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 21:02+0100\n"
+"POT-Creation-Date: 2008-12-02 00:06+0100\n"
 "PO-Revision-Date: 2008-11-22 21:57+0100\n"
 "Last-Translator: Ferdinand Gassauer <translate-erp@chricar.at>\n"
 "Language-Team:\n"
@@ -116,6 +116,14 @@ msgstr "Der Datensatz muss gespeichert sein, um verknüpft werden zu können!"
 #: Koo/Screen/Action.py:101
 msgid "Print Screen"
 msgstr "Bildschirm drucken"
+
+#: Koo/Plugins/workflow_print/__terp__.py:31
+msgid "Print Workflow"
+msgstr ""
+
+#: Koo/Plugins/workflow_print/__terp__.py:36
+msgid "Print Workflow (Complex)"
+msgstr ""
 
 #: Koo/Plugins/__init__.py:70
 msgid "No available plugin for this resource !"
@@ -468,7 +476,8 @@ msgid "Fields"
 msgstr "Felder"
 
 #: Koo/Dialogs/ExportDialog.py:50
-msgid "TinyERP exported information"
+#, fuzzy
+msgid "OpenERP exported information"
 msgstr "Exportierte OpenERP Information ??**??"
 
 #: Koo/Dialogs/ExportDialog.py:68 Koo/Dialogs/ExportDialog.py:86

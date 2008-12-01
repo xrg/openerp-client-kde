@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 21:02+0100\n"
+"POT-Creation-Date: 2008-12-02 00:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,6 +115,14 @@ msgstr ""
 #, fuzzy
 msgid "Print Screen"
 msgstr "Напечатать документы"
+
+#: Koo/Plugins/workflow_print/__terp__.py:31
+msgid "Print Workflow"
+msgstr ""
+
+#: Koo/Plugins/workflow_print/__terp__.py:36
+msgid "Print Workflow (Complex)"
+msgstr ""
 
 #: Koo/Plugins/__init__.py:70
 msgid "No available plugin for this resource !"
@@ -471,7 +479,7 @@ msgstr "Имя поля"
 
 #: Koo/Dialogs/ExportDialog.py:50
 #, fuzzy
-msgid "TinyERP exported information"
+msgid "OpenERP exported information"
 msgstr "Tiny ERP - Подтверждение"
 
 #: Koo/Dialogs/ExportDialog.py:68 Koo/Dialogs/ExportDialog.py:86
