@@ -89,7 +89,7 @@ class PyroConnection(Connection):
 			result = self.proxy.dispatch( obj[1:], method, *args )
 		return result
 
-## @brief The SocketConnection class implements Connection for the TinyERP socket RPC protocol.
+## @brief The SocketConnection class implements Connection for the OpenERP socket RPC protocol.
 #
 # The socket RPC protocol is usually opened at port 8070 on the server.
 class SocketConnection(Connection):

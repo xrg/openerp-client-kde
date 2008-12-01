@@ -10,13 +10,13 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Tiny ERP license</string>
+   <string>OpenERP license</string>
   </property>
   <layout class="QVBoxLayout" >
    <item>
     <widget class="QLabel" name="label" >
      <property name="text" >
-      <string>Tiny ERP license</string>
+      <string>OpenERP license</string>
      </property>
      <property name="alignment" >
       <set>Qt::AlignCenter</set>

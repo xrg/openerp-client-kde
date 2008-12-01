@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Tiny ERP - Link</string>
+   <string>OpenERP - Link</string>
   </property>
   <layout class="QVBoxLayout" >
    <property name="spacing" >

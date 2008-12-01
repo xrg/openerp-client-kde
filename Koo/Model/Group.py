@@ -561,7 +561,7 @@ class ModelRecordGroup(QObject):
 				# We're not able to sort 2many fields
 				return
 
-			# A lot of the work done here should be done on the server by core TinyERP
+			# A lot of the work done here should be done on the server by core OpenERP
 			# functions. This means this runs slower than it should due to network and
 			# serialization latency. Even more, we lack some information to make it 
 			# work well.

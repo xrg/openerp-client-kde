@@ -28,7 +28,7 @@
    <item>
     <widget class="QGroupBox" name="groupBox" >
      <property name="title" >
-      <string>Connect to a Tiny ERP Server</string>
+      <string>Connect to a OpenERP Server</string>
      </property>
      <layout class="QVBoxLayout" >
       <property name="spacing" >

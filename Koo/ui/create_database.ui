@@ -228,7 +228,7 @@
         </sizepolicy>
        </property>
        <property name="text" >
-        <string>&amp;TinyERP server:</string>
+        <string>&amp;OpenERP server:</string>
        </property>
        <property name="buddy" >
         <cstring>pushChange</cstring>

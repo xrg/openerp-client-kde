@@ -47,7 +47,7 @@ def exportHtml(fname, fields, result, write_title=False):
 	try:
 		f = file(fname, 'wb+')
 		f.write( '<html>' )
-		f.write( '<head><title>' + _('TinyERP exported information') + '</title></head>' )
+		f.write( '<head><title>' + _('OpenERP exported information') + '</title></head>' )
 		f.write( '<table>' )
 		if write_title:
 			f.write( '<tr>' )
