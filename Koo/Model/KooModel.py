@@ -328,6 +328,8 @@ class KooModel(QAbstractItemModel):
 				color = 'white'
 			return QVariant( QBrush( QColor( color ) ) )
 		elif role == Qt.ForegroundRole:
+			if not self.colors:
+				return QVariant()
 			model = self.model( index.row(), index.internalPointer() )
 			palette = QPalette()
 			color = palette.color( QPalette.WindowText )
@@ -335,7 +337,6 @@ class KooModel(QAbstractItemModel):
 				if model.evaluateExpression( expression, check_load=False ):
 					color = c
 					break
-
 			return QVariant( QBrush( QColor( color ) ) )
 		elif role == Qt.TextAlignmentRole:
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
