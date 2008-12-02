@@ -54,7 +54,10 @@ def searchFile(file, subdir=None):
 		x = os.path.join(p, file)
 		if os.path.exists(x):
 			return x
-	return False
+	# Previously we returned False but None is more appropiate
+	# and even some functions (such as initializeTranslations using
+	# gettext.translation() will depend on it).
+	return None
 
 uiPath = lambda x: searchFile(x, 'ui')
 
