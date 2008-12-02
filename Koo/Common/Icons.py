@@ -67,6 +67,7 @@ mapIcons = {
 	'terp-sale' : 'sale.png',
 	'terp-administration' : 'administration.png',
 	'terp-project': 'clock.png',
+	'terp-calendar': 'calendar.png',
 	'reload': 'reload.png'
 }
 
