@@ -55,6 +55,10 @@ class FieldsModel( QStandardItemModel ):
 			st_name = fields[field]['string'] or field 
 			node = QStandardItem(st_name) 
 			node.setData( QVariant(field) )
+			if fields[field].get('required', False):
+				font = node.font()
+				font.setBold( True )
+				node.setFont( font )
 			prefix.appendRow( node )
 
 			# Fill in cache structures
