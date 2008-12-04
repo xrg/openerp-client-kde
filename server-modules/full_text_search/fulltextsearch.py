@@ -228,17 +228,17 @@ class fulltextsearch_services(netsvc.Service):
 		tsVector = []
 		for x in text.split(' '):
 			if isFloat(x):
-				tsVector.append( "to_tsvector( 'default', %f )" % float(x) )
-				tsQuery.append( "to_tsquery( 'default', %f )" % float(x) )
+				tsVector.append( "to_tsvector( 'default', %f::TEXT )" % float(x) )
+				tsQuery.append( "to_tsquery( 'default', %f::TEXT )" % float(x) )
 			elif isInteger(x):
-				tsVector.append( "to_tsvector( 'default', %d )" % long(x) )
-				tsQuery.append( "to_tsquery( 'default', %d )" % long(x) )
+				tsVector.append( "to_tsvector( 'default', %d::TEXT )" % long(x) )
+				tsQuery.append( "to_tsquery( 'default', %d::TEXT )" % long(x) )
 			#elif isDate(x):
 				#tsVector.append( "to_tsvector( 'default', %s::DATE )" % quote(date(x) )  
 				#tsQuery.append( "to_tsquery( 'default', %s::DATE )" % quote(date(x) )  
 			else:
-				tsVector.append( "to_tsvector( 'default', %s )" % quote(x) )
-				tsQuery.append( "to_tsquery( 'default', %s )" % quote(x) )
+				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % quote(x) )
+				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % quote(x) )
 		tsVector = ' || '.join(tsVector)
 		tsQuery = ' && '.join(tsQuery)
 

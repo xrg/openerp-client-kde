@@ -93,7 +93,7 @@ class wizard_info_get(wizard.interface):
 					for i in TD["args"][1].split(","):
 						value = TD["new"][i]
 						if value != None:
-							tsVector.append( "to_tsvector( 'default', %s )" % sql_quote(value).getquoted() )
+							tsVector.append( "to_tsvector( 'default', %s::TEXT )" % sql_quote(value).getquoted() )
 					if tsVector:
 						tsVector = ' || '.join(tsVector)
 					else:
@@ -145,7 +145,7 @@ class wizard_info_get(wizard.interface):
 		tsVector = []
 		fields = []
 		for k in [x[0] for x in cr.fetchall()]:
-			tsVector.append( "COALESCE(to_tsvector('default', %s), to_tsvector('default',''))" % k )
+			tsVector.append( "COALESCE(to_tsvector('default', %s::TEXT), to_tsvector('default',''))" % k )
 			fields.append( str(k) )
 		tsVector = ' || '.join( tsVector )
 		fields = ','.join( fields )
