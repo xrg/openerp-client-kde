@@ -486,12 +486,11 @@ class Screen(QScrollArea):
 
 	def remove(self, unlink = False):
 		ids = self.selectedIds()
-		# Remove records with id None as they would cause an exception
-		# trying to remove from the server and in 'self.models.models.index()'
-		if None in ids:
-			ids.remove(None)
 		if unlink and ids:
-			unlinked = self.Rpc.unlink(ids)	
+			# Remove records with id None as they would cause an exception
+			# trying to remove from the server 
+			idsToUnlink = [x for x in ids if x != None]
+			unlinked = self.Rpc.unlink( idsToUnlink )	
 			# Try to be consistent with database
 			# If records could not be removed from the database
 			# don't remove them on the client. Don't report it directly
