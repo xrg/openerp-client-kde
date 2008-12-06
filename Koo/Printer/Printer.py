@@ -48,7 +48,7 @@ class Printer(object):
 		else:
 			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName)
 	
-	## @brief Sends the specified file directly to the printer 
+	## @brief Sends the specified file directly to the printer. Windows only.
 	@staticmethod
 	def sendToPrinter(fileName):
 		if os.name != 'nt':
@@ -61,9 +61,9 @@ class Printer(object):
 	@staticmethod
 	def printFile(fileName, fileType):
 		if os.name == 'nt' and Options.options['printer.preview']:
-			Printer.sendToPrinter( fileName )
-		else:
 			Printer.open( fileName )
+		else:
+			Printer.sendToPrinter( fileName )
 	
 	## @brief Prints report information contained in the data parameter. Which will 
 	# typically be received from the server.
