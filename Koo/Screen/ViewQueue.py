@@ -27,7 +27,7 @@
 
 ## @brief This class encapsulates the view types and ids handling for Screen.
 #
-# Model view definitions have an unintuitive way of handlint which views should
+# Model view definitions have an unintuitive way of handling which views should
 # be shown. There are two ways of specifying it: view types and ids. The problem
 # is that they can be combined. For example:
 #   types = ['form','tree'] and ids = [24, False]
