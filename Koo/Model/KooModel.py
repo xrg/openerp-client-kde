@@ -422,6 +422,12 @@ class KooModel(QAbstractItemModel):
 		model = group.parent
 		parent = group.parent.mgroup
 
+		if not model in parent.models:
+			# Though it should not normally happen, when you reload 
+			# in the main menu we receive calls in which the model
+			# is not in the list.
+			return QModelIndex()
+
 		row = parent.models.index(model)
 		for x, y in model.values.items():
 			if y == group:
