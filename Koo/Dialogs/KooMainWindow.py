@@ -514,11 +514,14 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def closeEvent(self, event):
 		if QMessageBox.question(self, _("Quit"), _("Do you really want to quit ?"), _("Yes"), _("No")) == 1:
 			event.ignore()	
+			return
 		wid = self.tabWidget.currentWidget()
 		if wid:
 			# Ask the current tab if it can be closed
 			if not wid.canClose():
 				event.ignore()
+				return
+		self.systemTrayIcon.setVisible( False )
 
 	def addWindow(self, win):
 		self.tabWidget.addTab( win, win.name )
