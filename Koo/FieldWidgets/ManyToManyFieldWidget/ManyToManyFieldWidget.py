@@ -53,6 +53,7 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		
 		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
+		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
 		
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
