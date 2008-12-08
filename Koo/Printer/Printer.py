@@ -61,7 +61,7 @@ class Printer(object):
 	# application depending on operating system and user settings.
 	@staticmethod
 	def printFile(fileName, fileType):
-		if os.name == 'nt' and Options.options['print_directly']:
+		if Options.options['print_directly']:
 			Printer.sendToPrinter( fileName )
 		else:
 			Printer.open( fileName )
