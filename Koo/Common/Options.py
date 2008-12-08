@@ -51,7 +51,7 @@ class ConfigurationManager(object):
 			'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
 			'tip.autostart': False,
 			'tip.position': 0,
-			'printer.preview': True,
+			'print_directly': False,
 			'logging.logger': '',
 			'logging.level': 'DEBUG',
 			'logging.output': 'stdout',

@@ -282,8 +282,6 @@
     <addaction name="actionOpen" />
     <addaction name="actionReload" />
     <addaction name="separator" />
-    <addaction name="actionPreview_in_PDF" />
-    <addaction name="actionPreview_in_Editor" />
     <addaction name="separator" />
     <addaction name="actionExport" />
     <addaction name="actionImport" />
@@ -662,24 +660,6 @@
    </property>
    <property name="shortcut" >
     <string>F5</string>
-   </property>
-  </action>
-  <action name="actionPreview_in_PDF" >
-   <property name="icon" >
-    <iconset resource="common.qrc" >
-     <normaloff>:/images/images/pdf-preview.png</normaloff>:/images/images/pdf-preview.png</iconset>
-   </property>
-   <property name="text" >
-    <string>Preview in PDF</string>
-   </property>
-  </action>
-  <action name="actionPreview_in_Editor" >
-   <property name="icon" >
-    <iconset resource="common.qrc" >
-     <normaloff>:/images/images/editor-preview.png</normaloff>:/images/images/editor-preview.png</iconset>
-   </property>
-   <property name="text" >
-    <string>Preview in Editor</string>
    </property>
   </action>
   <action name="actionExport" >

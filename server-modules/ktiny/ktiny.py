@@ -61,7 +61,8 @@ class nan_ktiny_settings(osv.osv):
 		'limit': fields.integer('Limit',help='Number of records to be fetched at once.'),
 		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)', help='Indicates the number of seconds to wait to check if new requests have been received by the current user.'),
 		'show_system_tray_icon': fields.boolean( 'Show Icon in System Tray', help='If checked, an icon is shown in the system tray to keep Koo accessible all the time.' ),
-		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.')
+		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.'),
+		'print_directly': fields.boolean( 'Print directly', help='If set, sends the document directly to the printer. Otherwise the document is shown in a PDF viewer.' )
 	}
 	_defaults = {
 		'limit': lambda *a: 80,

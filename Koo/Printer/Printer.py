@@ -51,19 +51,20 @@ class Printer(object):
 	## @brief Sends the specified file directly to the printer. Windows only.
 	@staticmethod
 	def sendToPrinter(fileName):
-		if os.name != 'nt':
-			return
-		import win32api
-		win32api.ShellExecute (0, "print", fileName, None, ".", 0)
+		if os.name == 'nt':
+			import win32api
+			win32api.ShellExecute (0, "print", fileName, None, ".", 0)
+		else:
+			os.spawnlp(os.P_NOWAIT, 'lpr', 'lpr', fileName)
 		
 	## @brief Sends the specified file to printer or opens it with the default
 	# application depending on operating system and user settings.
 	@staticmethod
 	def printFile(fileName, fileType):
-		if os.name == 'nt' and Options.options['printer.preview']:
-			Printer.open( fileName )
-		else:
+		if os.name == 'nt' and Options.options['print_directly']:
 			Printer.sendToPrinter( fileName )
+		else:
+			Printer.open( fileName )
 	
 	## @brief Prints report information contained in the data parameter. Which will 
 	# typically be received from the server.
