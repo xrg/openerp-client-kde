@@ -36,28 +36,42 @@ class ir_attachment(osv.osv):
 	}
 ir_attachment()
 
-class res_roles(osv.osv):
-	_name = 'res.roles'
-	_inherit = 'res.roles'
-	_columns = {
-		'ktiny_settings_id': fields.many2many('nan.ktiny.settings', 'nan_ktiny_settings_roles_rel', 'role_id', 'setting_id', 'KTiny Settings')
-	}
-
 class nan_ktiny_settings(osv.osv):
 	_name = 'nan.ktiny.settings'
 
+	def _check_limit(self, cr, uid, ids, context={}):
+		for x in self.read(cr, uid, ids, ['limit']):
+			if x['limit'] <= 0:
+				return False
+		return True
+
+	def _check_interval(self, cr, uid, ids, context={}):
+		for x in self.read(cr, uid, ids, ['requests_refresh_interval']):
+			if x['requests_refresh_interval'] <= 0:
+				return False
+		return True
+
 	_columns = {
-		'name': fields.char( 'Settings Name', 50, required=True ),
-		'show_toolbar': fields.boolean( 'Show toolbar' ),
+		'name': fields.char( 'Settings Name', 50, required=True, help='Name to be given to these settings.' ),
+		'show_toolbar': fields.boolean( 'Show toolbar', help='Whether toolbar is shown on screens. Note the toolbar may be convenient but not necessary as all options are available from the Reports, Actions, Browse and Plugins menu entries.' ),
 		'tabs_position': fields.selection( [('left', 'Left'), ('top', 'Top'), 
-			('right', 'Right'), ('bottom', 'Bottom')], 'Default tabs position' ),
-		'stylesheet': fields.text( 'Stylesheet' ),
-		'sort_mode': fields.selection( [('visible_items', 'Visible Items'), ('all_items', 'All Items')], 'Sorting Mode' ),
-		'limit': fields.integer('Limit'),
-		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)'),
-		'show_system_tray_icon': fields.boolean( 'Show Icon in System Tray' ),
-		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles')
+			('right', 'Right'), ('bottom', 'Bottom')], 'Default tabs position', help='Tabs can be on the left, top, right or bottom by default. Note that some screens may require an specific position which will override this default.' ),
+		'stylesheet': fields.text( 'Stylesheet', help='A valid Qt Stylesheet can be provided to be applied once the user has logged in.' ),
+		'sort_mode': fields.selection( [('visible_items', 'Visible Items'), ('all_items', 'All Items')], 'Sorting Mode', help='If set to "Visible Items" only the "Limit" elements are loaded and sorting is done in the client side. If "All Items" is used, sorting is done in the server and all records are (virtually) loaded in chunks of size "Limit"'),
+		'limit': fields.integer('Limit',help='Number of records to be fetched at once.'),
+		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)', help='Indicates the number of seconds to wait to check if new requests have been received by the current user.'),
+		'show_system_tray_icon': fields.boolean( 'Show Icon in System Tray', help='If checked, an icon is shown in the system tray to keep Koo accessible all the time.' ),
+		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.')
 	}
+	_defaults = {
+		'limit': lambda *a: 80,
+		'requests_refresh_interval': lambda *a: 300,
+	}
+	_constraints = [
+		(_check_limit, 'Limit must be greater than zero.', ['limit']),
+		(_check_interval, 'Requests refresh interval must be greater than zero.', ['requests_refresh_interval']),
+	]
+	
 
 	# Returns the id of the settings to load. Currently only uses roles to
 	# decide the appropiate settings, but in the future it could use user IP
@@ -92,16 +106,3 @@ class nan_ktiny_view_settings(osv.osv):
 	}
 nan_ktiny_view_settings()
 
-#class nan_ktiny_session(osv.osv):
-	#_name = 'nan.ktiny.session'
-#
-	#_columns = {
-		#
-	#}
-#nan_ktiny_session()
-#
-#class nan_ktiny_list_view(osv.osv):
-	#_name = 'nan.ktiny.list_view'	
-	#_columns = {
-	#}
-#nan_ktiny_list_view()
