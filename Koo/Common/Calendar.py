@@ -83,6 +83,9 @@ def dateTimeToStorage( dateTime ):
 
 ## @brief Converts a Python string or QString into a QDate object
 def textToDate( text ):
+	if unicode( QString( text ).trimmed() ) == '=':
+		return QDate.currentDate()
+
 	inputFormats = ["dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy']
 	for x in inputFormats:
 		date  = QDate.fromString( text, x )
@@ -92,6 +95,9 @@ def textToDate( text ):
 
 ## @brief Converts a Python string or QString into a QTime object
 def textToTime( text ):
+	if unicode( QString( text ).trimmed() ) == '=':
+		return QTime.currentTime()
+
 	inputFormats = ['h:m:s', 'h:m', 'hh:mm:ss', 'h.m.s', 'h.m']
 	for x in inputFormats:
 		time = QTime.fromString( text, x )
@@ -101,6 +107,9 @@ def textToTime( text ):
 
 ## @brief Converts a Python string or QString into a QDateTime object
 def textToDateTime( text ):
+	if unicode( QString( text ).trimmed() ) == '=':
+		return QDateTime.currentDateTime()
+
 	inputFormats = ['dd/MM/yyyy h:m:s', "dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy' ]
 	for x in inputFormats:
 		datetime = QDateTime.fromString( text, x )
