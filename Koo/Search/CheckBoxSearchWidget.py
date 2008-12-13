@@ -48,9 +48,9 @@ class CheckBoxSearchWidget(AbstractSearchWidget):
 		self.focusWidget = self.uiCombo
 
 	def getValue(self):
-		val = self.uiCombo.itemData( self.uiCombo.currentIndex() ).toBool()
-		if val:
-			return [(self.name,'=',int(val))]
+		value = self.uiCombo.itemData( self.uiCombo.currentIndex() )
+		if value.type() == QVariant.Bool:
+			return [(self.name,'=',int(value.toBool()))]
 		return []
 
 	def setValue(self, value):
