@@ -69,12 +69,10 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		size = self.screen.sizeHint()
 		self.screen.setMinimumSize( size.width(), size.height()+80 )
 
-		self.result = None
 		self.show()
 
 	def accepted( self ):
 		self.screen.current_view.store()
-		self.result = self.screen.current_model
 		self.accept()
 
 (OneToManyFormWidgetUi, OneToManyFormWidgetBase ) = loadUiType( Common.uiPath('one2many.ui') ) 
