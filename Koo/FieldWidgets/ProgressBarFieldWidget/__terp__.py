@@ -26,5 +26,6 @@
 ##############################################################################
 
 [
-	{ 'name': 'progressbar', 'type': 'widget', 'class' : 'ProgressBarFieldWidget.ProgressBarFormWidget' }
+	{ 'name': 'progressbar', 'type': 'widget', 'class' : 'ProgressBarFieldWidget.ProgressBarFormWidget' },
+	{ 'name': 'progressbar', 'type': 'delegate', 'class' : 'ProgressBarFieldWidget.ProgressBarFieldDelegate' }
 ]

@@ -28,6 +28,7 @@
 
 from Koo.Common import Common
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -54,8 +55,6 @@ class SelectionFormWidget(AbstractFormWidget):
 		self.fill(attrs.get('selection',[]))
 
 	def fill(self, selection):
-		# The first is a blank element
-		self.widget.addItem( '' )
 		for (id,name) in selection:
 			self.widget.addItem( name, QVariant(id) )
 
@@ -90,4 +89,24 @@ class SelectionFormWidget(AbstractFormWidget):
 
 	def colorWidget(self):
 		return self.widget
+
+class SelectionFieldDelegate( AbstractFieldDelegate ):
+	def createEditor(self, parent, option, index):
+		widget = QComboBox( parent )
+		widget.setEditable( False )
+		widget.setInsertPolicy( QComboBox.InsertAtTop )
+		for (id,name) in self.attributes.get('selection',[]):
+			widget.addItem( name, QVariant(id) )
+		return widget
+	
+	def setEditorData(self, editor, index):
+		value = index.data(Qt.EditRole).toString()
+		editor.setCurrentIndex( editor.findText( value ) )
+
+	def setModelData(self, editor, model, index):
+		model.setData( index, QVariant( editor.currentText() ), Qt.EditRole )
+
+	#def sizeHint(self, option, index):
+	#	return QSize(30, 30)
+
 

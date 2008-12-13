@@ -30,6 +30,7 @@ from PyQt4.QtGui import *
 
 from Koo.Common import Common
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 
 
 class ProgressBarFormWidget(AbstractFormWidget):
@@ -54,4 +55,27 @@ class ProgressBarFormWidget(AbstractFormWidget):
 			self.clear()
 		value = max( min( value, 100 ), 0 )
 		self.uiBar.setValue( value )
+
+class ProgressBarFieldDelegate( AbstractFieldDelegate ):
+
+	def createEditor(self, parent, option, index):
+		return None
+
+	def sizeHint(self, option, index):
+		return QSize(30, 30)
+
+	def paint(self, painter, option, index):
+		# Paint background if row/item is selected
+		if (option.state & QStyle.State_Selected):
+			painter.fillRect(option.rect, option.palette.highlight());
+		opts = QStyleOptionProgressBarV2()
+		opts.rect = option.rect
+		opts.minimum = 1
+		opts.maximum = 100
+		opts.textVisible = True
+		percent, ok = index.data(Qt.DisplayRole).toDouble()
+		percent = max( min( percent, 100 ), 0 )
+		opts.progress = percent
+		opts.text = QString( '%d%%' % percent )
+		QApplication.style().drawControl(QStyle.CE_ProgressBar, opts, painter)
 

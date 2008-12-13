@@ -38,6 +38,7 @@ from Koo.Dialogs.SearchDialog import SearchDialog
 from Koo import Rpc
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
@@ -195,6 +196,7 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		context = self.model.context()
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
 		if ids and len(ids)==1:
+			print "SETTING: ", ids[0]
 			self.model.setValue( self.name, ids[0] )
 			self.display()
 		else:
@@ -271,4 +273,23 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		id = self.model.id
 		Api.instance.executeKeyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 		return True
+
+class ManyToOneFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, kooModel, index):
+		# We expecte a KooModel here
+		model = kooModel.modelFromIndex( index )
+
+		domain = model.domain( self.name )
+		context = model.context()
+		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context)
+		if ids and len(ids)==1:
+			model.setValue( self.name, ids[0] )
+		else:
+			dialog = SearchDialog(self.attributes['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
+			if dialog.exec_() == QDialog.Accepted and dialog.result:
+				id = dialog.result[0]
+				name = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_get', [id], Rpc.session.context)[0]
+				
+				value = [ QVariant( name[0] ), QVariant( name[1] ) ]
+				kooModel.setData( index, QVariant( value ), Qt.EditRole )
 

@@ -29,6 +29,7 @@
 from PyQt4.QtGui import *
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 
 class CheckBoxFormWidget(AbstractFormWidget):
 	def __init__(self, parent, model, attrs={}):
@@ -64,4 +65,30 @@ class CheckBoxFormWidget(AbstractFormWidget):
 
 	def colorWidget(self):
 		return self.widget
+
+class BooleanFieldDelegate( AbstractFieldDelegate ):
+	def createEditor(self, parent, option, index):
+		return QCheckBox(parent)
+	
+	def setEditorData(self, editor, index):
+		editor.setChecked( index.data(Qt.EditRole).toBool() )
+
+	def setModelData(self, editor, model, index):
+		model.setData( index, QVariant( editor.isChecked() ), Qt.EditRole )
+
+	def sizeHint(self, option, index):
+		return QSize(30, 30)
+
+	def paint(self, painter, option, index):
+		# Paint background if row/item is selected
+		if (option.state & QStyle.State_Selected):
+			painter.fillRect(option.rect, option.palette.highlight());
+		op = QStyleOptionButton()
+		op.rect = option.rect
+		value = index.data(Qt.DisplayRole).toBool()
+		if value:
+			op.state = QStyle.State_On
+		else:
+			op.state = QStyle.State_Off
+		QApplication.style().drawControl(QStyle.CE_CheckBox, op, painter)
 

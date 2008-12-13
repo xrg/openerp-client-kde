@@ -38,6 +38,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 from Koo.FieldWidgets.FieldWidgetFactory import *
+from Koo.FieldWidgets.FieldDelegateFactory import *
 from Koo.Common import Common
 from Koo.Common.Numeric import *
 from Koo.Common.Calendar import *
@@ -118,59 +119,22 @@ class TreeParser(AbstractParser):
 			current = columns[column]
 			view.widget.setColumnWidth( column, current['width'] )
 
-			if not model.readOnly():
+			delegate = FieldDelegateFactory.create( current['type'], view.widget, current['attributes'] )
+			view.widget.setItemDelegateForColumn( column, delegate )
+			#if current['type'] == 'boolean':
+			#	delegate = BooleanItemDelegate( view.widget )
+			#	view.widget.setItemDelegateForColumn( column, delegate )
+			#if not model.readOnly():
 				# Assign delegates to editable models only. Editable delegates need
 				# somewhat heigher rows (StandardDelegate.sizeHint()) which read only
 				# models don't need. This way we save some space in read only views.
-				delegate = StandardDelegate( current['type'], current['attributes'], view.widget )
-				view.widget.setItemDelegateForColumn( column, delegate )
+				#delegate = StandardDelegate( current['type'], current['attributes'], view.widget )
+				#view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
 
-#from Koo.View.Form import calendar
-#from Koo.View.Form import float
-#from Koo.View.Form import integer
-#from Koo.View.Form import char
-#from Koo.View.Form import checkbox
-#from Koo.View.Form import reference
-#from Koo.View.Form import binary
-#from Koo.View.Form import textbox
-#from Koo.View.Form import richtext
-#from Koo.View.Form import many2many
-#from Koo.View.Form import many2one
-#from Koo.View.Form import selection
-#from Koo.View.Form import one2many
-#from Koo.View.Form import url
-#from Koo.View.Form import image
-
-
-#widgetsType = {
-#	'date': calendar.DateFormWidget,
-#	'time': calendar.TimeFormWidget,
-#	'datetime': calendar.DateTimeFormWidget,
-#	'float': float.FloatFormWidget,
-#	'integer': integer.IntegerFormWidget,
-#	'selection': selection.SelectionFormWidget,
-#	'char': char.CharFormWidget,
-#	'boolean': checkbox.CheckBoxFormWidget,
-#	'reference': reference.ReferenceFormWidget,
-#	'binary': binary.BinaryFormWidget,
-#	'text': char.CharFormWidget,
-#	'text_tag': char.CharFormWidget,
-#	#'one2many': one2many.OneToManyFormWidget,
-#	#'one2many_form': one2many.OneToManyFormWidget,
-#	#'one2many_list': one2many.OneToManyFormWidget,
-#	#'many2many': many2many.ManyToManyFormWidget,
-#	'many2one': many2one.ManyToOneFormWidget,
-#	'image' : image.ImageFormWidget,
-#	'url' : url.UrlFormWidget,
-#	'email' : url.EMailFormWidget,
-#	'callto' : url.CallToFormWidget,
-#	'sip' : url.SipFormWidget,
-#}
-
-class StandardDelegate( QItemDelegate ):
+class StandardDelegate( QStyledItemDelegate ):
 	def __init__( self, type, attributes, parent=None):
-		QItemDelegate.__init__( self, parent )
+		QStyledItemDelegate.__init__( self, parent )
 		self.attributes = attributes
 		self.type = type
 		self.currentIndex = None
@@ -236,7 +200,7 @@ class StandardDelegate( QItemDelegate ):
 				parent.setCurrentIndex( index )
 				parent.edit( index )
 			return True
-		return QItemDelegate.eventFilter( self, obj, event )
+		return QStyledItemDelegate.eventFilter( self, obj, event )
 
 	def setEditorData( self, editor, index ):
 		if not editor:
@@ -258,7 +222,7 @@ class StandardDelegate( QItemDelegate ):
 	# and QComboBox sizeHint height. Which should usually result in
 	# QComboBox measure. This ensures widgets fit correctly.
 	def sizeHint(self, option, index ):
-		size = QItemDelegate.sizeHint( self, option, index )
+		size = QStyledItemDelegate.sizeHint( self, option, index )
 		size.setHeight( max(size.height(), self.minimumHeight ) )
 		return size
 

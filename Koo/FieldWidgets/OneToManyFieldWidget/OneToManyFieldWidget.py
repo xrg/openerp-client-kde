@@ -31,6 +31,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from Koo.Common import Common
 from Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
@@ -170,3 +171,8 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 
 	def store(self):
 		self.screen.current_view.store()
+
+class OneToManyFieldDelegate( AbstractFieldDelegate ):
+	def createEditor(self, parent, option, index):
+		return None
+

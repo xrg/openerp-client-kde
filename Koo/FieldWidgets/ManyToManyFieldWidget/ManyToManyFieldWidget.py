@@ -37,6 +37,7 @@ from Koo import Rpc
 from Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from Koo.Dialogs.SearchDialog import SearchDialog
 
 (ManyToManyFormWidgetUi, ManyToManyFormWidgetBase ) = loadUiType( Common.uiPath('many2many.ui') ) 
@@ -127,4 +128,26 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 	# above) is to ensure that the model and field are marked as modified.
 	def store(self):
 		pass
+
+class ManyToManyFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, kooModel, index):
+		if unicode( editor.text() ) == unicode( index.data( Qt.DisplayRole ).toString() ):
+			return
+		# We expecte a KooModel here
+		model = kooModel.modelFromIndex( index )
+
+		#model.setData( index, QVariant( editor.currentText() ), Qt.EditRole )
+		domain = model.domain( self.name )
+		context = model.fieldContext( self.name )
+
+		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context)
+		ids = [x[0] for x in ids] 
+		if len(ids) != 1:
+			dialog = SearchDialog(self.attributes['relation'], sel_multi=True, ids=ids)
+			if dialog.exec_() == QDialog.Rejected:
+				return
+			ids = dialog.result
+
+		ids = [QVariant(x) for x in ids]
+		kooModel.setData( index, QVariant(ids), Qt.EditRole )
 

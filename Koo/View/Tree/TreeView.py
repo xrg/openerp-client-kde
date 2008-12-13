@@ -241,9 +241,12 @@ class TreeView( AbstractView ):
 		#self.widget.setSortingEnabled( value )
 		if self._readOnly:
 			self.widget.setEditTriggers( QAbstractItemView.NoEditTriggers ) 
+			self.widget.setTabKeyNavigation( False )
 		else:
-			#self.widget.setEditTriggers( QAbstractItemView.AllEditTriggers )
-			self.widget.setEditTriggers( QAbstractItemView.DoubleClicked | QAbstractItemView.EditKeyPressed | QAbstractItemView.AnyKeyPressed )
+			self.widget.setEditTriggers( QAbstractItemView.DoubleClicked | QAbstractItemView.EditKeyPressed | QAbstractItemView.AnyKeyPressed | QAbstractItemView.SelectedClicked )
+			# Allow tab navigation because otherwise non editable fields
+			# make tab go out of the widget when editting.
+			self.widget.setTabKeyNavigation( True )
 	
 	def isReadOnly(self):
 		return self._readOnly

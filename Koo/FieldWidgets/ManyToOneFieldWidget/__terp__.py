@@ -26,5 +26,6 @@
 ##############################################################################
 
 [
-	{ 'name': 'many2one', 'type': 'widget', 'class' : 'ManyToOneFieldWidget.ManyToOneFormWidget' }
+	{ 'name': 'many2one', 'type': 'widget', 'class' : 'ManyToOneFieldWidget.ManyToOneFormWidget' },
+	{ 'name': 'many2one', 'type': 'delegate', 'class' : 'ManyToOneFieldWidget.ManyToOneFieldDelegate' }
 ]

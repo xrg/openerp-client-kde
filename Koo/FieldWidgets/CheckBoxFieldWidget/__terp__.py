@@ -26,5 +26,6 @@
 ##############################################################################
 
 [
-	{ 'name': 'boolean', 'type': 'widget', 'class' : 'CheckBoxFieldWidget.CheckBoxFormWidget' }
+	{ 'name': 'boolean', 'type': 'widget', 'class' : 'CheckBoxFieldWidget.CheckBoxFormWidget' },
+	{ 'name': 'boolean', 'type': 'delegate', 'class' : 'CheckBoxFieldWidget.BooleanFieldDelegate' }
 ]

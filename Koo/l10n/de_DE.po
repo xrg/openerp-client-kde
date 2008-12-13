@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de_DE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-02 00:06+0100\n"
+"POT-Creation-Date: 2008-12-13 12:56+0100\n"
 "PO-Revision-Date: 2008-11-22 21:57+0100\n"
 "Last-Translator: Ferdinand Gassauer <translate-erp@chricar.at>\n"
 "Language-Team:\n"
@@ -26,11 +26,11 @@ msgstr ""
 "Modul 'dbus' ist nicht installiert. Andere Applikationen können deshalb "
 "nicht mit KTiny interagieren."
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 msgid "Report error"
 msgstr "Bericht Fehler"
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 msgid "There was an error trying to create the report."
 msgstr "Fehler bei der Berichtserstellung"
 
@@ -52,13 +52,11 @@ msgstr "Details anzeigen"
 msgid "Could not contact server!"
 msgstr "Kann nicht mit dem Server verbinden!"
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:295
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:515
 msgid "Yes"
 msgstr "Ja"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:297
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:515
 msgid "No"
 msgstr "Nein"
 
@@ -365,7 +363,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr "Kann Datenbank nicht erstellen."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:608
 msgid "Bad database administrator password !"
 msgstr "Falsches Kennwort für den Datenbankverwalter!"
 
@@ -383,11 +381,11 @@ msgstr ""
 "Bitte löschen sie die Datenbank und legen sie eine neue an.\n"
 " (drop database)"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid "Bad database name !"
 msgstr "Ungültiger Datenbankname!"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -731,51 +729,51 @@ msgstr "Beenden"
 msgid "Do you really want to quit ?"
 msgstr "Möchten Sie OpenERP wirklich beenden?"
 
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:595 Koo/Dialogs/KooMainWindow.py:616
 msgid "Delete a database"
 msgstr "Eine Datenbank löschen"
 
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:604 Koo/Dialogs/KooMainWindow.py:610
 msgid "Database removal"
 msgstr "Datenbank entfernen"
 
-#: Koo/Dialogs/KooMainWindow.py:601
+#: Koo/Dialogs/KooMainWindow.py:604
 msgid "Database dropped successfully!"
 msgstr "Datenbank wurde erfolgreich entfernt!"
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:608
 msgid "Could not drop database."
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:610
 msgid "Couldn't drop database"
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: Koo/Dialogs/KooMainWindow.py:624
+#: Koo/Dialogs/KooMainWindow.py:627
 msgid "Database restored successfully!"
 msgstr "Datenbank wurde erfolgreich wiederhergestellt!"
 
-#: Koo/Dialogs/KooMainWindow.py:628 Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:631 Koo/Dialogs/KooMainWindow.py:633
 msgid "Could not restore database"
 msgstr "Kann Datenbank nicht wiederherstellen!"
 
-#: Koo/Dialogs/KooMainWindow.py:628
+#: Koo/Dialogs/KooMainWindow.py:631
 msgid "Bad database administrator password!"
 msgstr "Falsches Administratorkennwort für die Datenbank!"
 
-#: Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:633
 msgid "There was an error restoring the database!"
 msgstr "Fehler beim Wiederherstellen der Datenbank!"
 
-#: Koo/Dialogs/KooMainWindow.py:633
+#: Koo/Dialogs/KooMainWindow.py:636
 msgid "Backup a database"
 msgstr "Datenbank sichern"
 
-#: Koo/Dialogs/KooMainWindow.py:648
+#: Koo/Dialogs/KooMainWindow.py:651
 msgid "Database backuped successfully!"
 msgstr "Datenbank erfolgreich gesichert!"
 
-#: Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Dialogs/KooMainWindow.py:654
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -853,18 +851,6 @@ msgstr "OpenERP Suche: %s"
 msgid "Search: %s (%%d result(s))"
 msgstr "OpenERP Suche: %s (%%d Treffer)"
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:64
-msgid "NET-RPC (faster)"
-msgstr "NET-RPC (schneller)"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:65
-msgid "XML-RPC"
-msgstr "XML-RPC"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "Secure XML-RPC"
-msgstr "Gesichertes XML-RPC"
-
 #: Koo/Dialogs/TreeWidget.py:61
 msgid "Tree"
 msgstr "Baum"
@@ -882,6 +868,18 @@ msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 "Bitte ein Element aus dem Baum (Liste) auswählen, um eine "
 "Abkürzunghinzuzufügen."
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:64
+msgid "NET-RPC (faster)"
+msgstr "NET-RPC (schneller)"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:65
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "Secure XML-RPC"
+msgstr "Gesichertes XML-RPC"
 
 #~ msgid "Save attachment as..."
 #~ msgstr "Anhang speichern unter ..."

@@ -29,7 +29,7 @@
 import os
 
 # The 'ViewFactory' class specializes in creating the appropiate views. Searches
-# for the available views and calls the parser of the appropiate one.
+# for available views and calls the parser of the appropiate one.
 #
 # To add a new view, simply create a new directory and put a __terp__.py file.
 # The file should look like this:

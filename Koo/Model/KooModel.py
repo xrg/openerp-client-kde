@@ -257,12 +257,52 @@ class KooModel(QAbstractItemModel):
 			return f | Qt.ItemIsEditable
 
 	def setData(self, index, value, role):
+
+		if role != Qt.EditRole:
+			return True
+		model = self.model( index.row(), index.internalPointer() )
+		field = self.field( index.column() )
+		fieldType = self.fieldType( index.column(), index.internalPointer() )
+
+		if fieldType == 'boolean':
+			model.setValue( field, value.toBool() )
+		elif fieldType == 'float':
+			model.setValue( field, value.toDouble()[0] )
+		elif fieldType == 'integer':
+			model.setValue( field, value.toInt()[0] )
+		elif fieldType == 'selection':
+			value = unicode( value.toString() )
+			modelField = self.fields[self.field( index.column() )]
+			for x in modelField['selection']:
+				if x[1] == value:
+					model.setValue( field, x[0] )
+		elif fieldType in ('char', 'text'):
+			model.setValue( field, unicode( value.toString() ) )
+		elif fieldType == 'date':
+			model.setValue( dateToStorage( value.toDate() ) )
+		elif fieldType == 'datetime' and value:
+			model.setValue( dateTimeToStorage( value.toDateTime() ) )
+		elif fieldType == 'time' and value:
+			model.setValue( timeToStorage( value.toTime() ) )
+		elif fieldType == 'many2many':
+			m = model.value( field )
+			m.clear()
+			ids = [x.toInt()[0] for x in value.toList()]
+			m.pre_load( ids )
+		elif fieldType == 'many2one':
+			value = value.toList()
+			if value:
+				value = [ int(value[0].toInt()[0]), unicode(value[1].toString()) ]
+			model.setValue( field, value )
+		else:
+			print "Unable to store value of type: ", fieldType
+
 		return True
 
 	def data(self, index, role=Qt.DisplayRole ):
 		if not self.group:
 			return QVariant()
-		if role == Qt.DisplayRole:
+		if role == Qt.DisplayRole or role == Qt.EditRole:
 			value = self.value( index.row(), index.column(), index.internalPointer() )
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
 			if fieldType in ['one2many', 'many2many']:
@@ -291,10 +331,7 @@ class KooModel(QAbstractItemModel):
 				else:
 					return QVariant()
 			elif fieldType == 'boolean':
-				if bool(value):
-					return QVariant( _('Yes') )
-				else:
-					return QVariant( _('No') )
+				return QVariant( bool(value) )
 			else:
 				if value == False or value == None:
 					return QVariant()

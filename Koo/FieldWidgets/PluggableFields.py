@@ -59,8 +59,6 @@ class PluggableFields:
 				moduleDelegates = {}
 				moduleWidgets = {}
 				for w in moduleDicts:
-					print "I: ", i
-					print "W: ", w
 					if w['type'] == 'widget':
 						moduleWidgets[ w['name'] ] = w['class']
 					elif w['type'] == 'delegate':

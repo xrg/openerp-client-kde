@@ -26,5 +26,6 @@
 ##############################################################################
 
 [
-	{ 'name': 'selection', 'type': 'widget', 'class' : 'SelectionFieldWidget.SelectionFormWidget' }
+	{ 'name': 'selection', 'type': 'widget', 'class' : 'SelectionFieldWidget.SelectionFormWidget' },
+	{ 'name': 'selection', 'type': 'delegate', 'class' : 'SelectionFieldWidget.SelectionFieldDelegate' }
 ]

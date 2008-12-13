@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-02 00:06+0100\n"
+"POT-Creation-Date: 2008-12-13 12:56+0100\n"
 "PO-Revision-Date: 2005-04-17 20:27+0200\n"
 "Last-Translator: Szilard Novaki <novaki@agmen-software.com>\n"
 "Language-Team: Hungarian <hu@gnome.hu>\n"
@@ -22,12 +22,12 @@ msgid ""
 "can easily interact with Koo."
 msgstr ""
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 #, fuzzy
 msgid "Report error"
 msgstr "Keresési hiba!"
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 msgid "There was an error trying to create the report."
 msgstr ""
 
@@ -50,13 +50,11 @@ msgstr "Részletek megtekintése"
 msgid "Could not contact server!"
 msgstr ""
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:295
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:515
 msgid "Yes"
 msgstr "Igen"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:297
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:515
 msgid "No"
 msgstr "Nem"
 
@@ -373,7 +371,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:608
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -388,11 +386,11 @@ msgid ""
 "We suggest you to drop this database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid "Bad database name !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -754,53 +752,53 @@ msgstr ""
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:595 Koo/Dialogs/KooMainWindow.py:616
 #, fuzzy
 msgid "Delete a database"
 msgstr "Adja meg a dátumot"
 
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:604 Koo/Dialogs/KooMainWindow.py:610
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:601
+#: Koo/Dialogs/KooMainWindow.py:604
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:608
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:610
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:624
+#: Koo/Dialogs/KooMainWindow.py:627
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:628 Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:631 Koo/Dialogs/KooMainWindow.py:633
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Adja meg a dátumot"
 
-#: Koo/Dialogs/KooMainWindow.py:628
+#: Koo/Dialogs/KooMainWindow.py:631
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:633
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:633
+#: Koo/Dialogs/KooMainWindow.py:636
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:648
+#: Koo/Dialogs/KooMainWindow.py:651
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Dialogs/KooMainWindow.py:654
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -871,18 +869,6 @@ msgstr "Keresés:"
 msgid "Search: %s (%%d result(s))"
 msgstr "Tiny ERP - Felületelemek keresése"
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:64
-msgid "NET-RPC (faster)"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:65
-msgid "XML-RPC"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "Secure XML-RPC"
-msgstr ""
-
 #: Koo/Dialogs/TreeWidget.py:61
 msgid "Tree"
 msgstr "Fa"
@@ -898,6 +884,18 @@ msgstr "Nincs kiválasztott rekord!"
 
 #: Koo/Dialogs/TreeWidget.py:244
 msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:64
+msgid "NET-RPC (faster)"
+msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:65
+msgid "XML-RPC"
+msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "Secure XML-RPC"
 msgstr ""
 
 #~ msgid "Save attachment as..."

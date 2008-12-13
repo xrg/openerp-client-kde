@@ -25,9 +25,22 @@
 #
 ##############################################################################
 
-[
-	{ 'name': 'one2many', 'type': 'widget', 'class' : 'OneToManyFieldWidget.OneToManyFormWidget' },
-	{ 'name': 'one2many_list', 'type': 'widget', 'class' : 'OneToManyFieldWidget.OneToManyFormWidget' },
-	{ 'name': 'one2many', 'type': 'delegate', 'class' : 'OneToManyFieldWidget.OneToManyFieldDelegate' },
-	{ 'name': 'one2many_list', 'type': 'delegate', 'class' : 'OneToManyFieldWidget.OneToManyFieldDelegate' }
-]
+from PluggableFields import *
+from AbstractFieldDelegate import *
+
+## @brief The FieldDelegateFactory class specializes in creating the appropiate 
+# delegates for a given type.
+
+class FieldDelegateFactory:
+	@staticmethod
+	def create(delegateType, parent, attributes):
+		PluggableFields.scan()
+		if not delegateType in PluggableFields.delegates:
+			return AbstractFieldDelegate( parent, attributes )
+			#print "Delegate '%s' not available" % delegateType
+			#return None
+
+		delegateClass = PluggableFields.delegates[delegateType]
+		exec( 'import %s' % PluggableFields.imports[delegateClass] )
+		return eval( '%s(parent, attributes)' % delegateClass )
+

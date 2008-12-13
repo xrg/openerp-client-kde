@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-02 00:06+0100\n"
+"POT-Creation-Date: 2008-12-13 12:56+0100\n"
 "PO-Revision-Date: 2008-11-30 21:02+0100\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
@@ -23,11 +23,11 @@ msgstr ""
 "El mòdul 'dbus' no està disponible. Considereu instal·lar-lo per tal que "
 "altres aplicacions puguin interactuar fàcilment amb el Koo."
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 msgid "Report error"
 msgstr "Error en l'informe"
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 msgid "There was an error trying to create the report."
 msgstr "S'ha produït un error intentant crear l'informe."
 
@@ -49,13 +49,11 @@ msgstr "Veure els detalls"
 msgid "Could not contact server!"
 msgstr "No s'ha pogut contactar amb el servidor."
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:295
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:515
 msgid "Yes"
 msgstr "Sí"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:297
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:515
 msgid "No"
 msgstr "No"
 
@@ -131,7 +129,7 @@ msgstr "Escolliu un connector"
 
 #: Koo/FieldWidgets/AbstractFieldWidget.py:66
 msgid "Set to default value"
-msgstr "Establir al valor per defecte"
+msgstr "Posar el valor per defecte"
 
 #: Koo/FieldWidgets/AbstractFieldWidget.py:72
 msgid "Set as default value"
@@ -362,7 +360,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr "No s'ha pogut crear la base de dades."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:608
 msgid "Bad database administrator password !"
 msgstr "Contrasenya d'administrador incorrecta."
 
@@ -379,11 +377,11 @@ msgstr ""
 "El servidor ha petat durant la instal·lació.\n"
 "Us suggerim que elimineu la base de dades."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid "Bad database name !"
 msgstr "Nom invàlid"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -724,51 +722,51 @@ msgstr "Sortir"
 msgid "Do you really want to quit ?"
 msgstr "Esteu segur que voleu sortir?"
 
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:595 Koo/Dialogs/KooMainWindow.py:616
 msgid "Delete a database"
 msgstr "Eliminar una base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:604 Koo/Dialogs/KooMainWindow.py:610
 msgid "Database removal"
 msgstr "Eliminació d'una base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:601
+#: Koo/Dialogs/KooMainWindow.py:604
 msgid "Database dropped successfully!"
 msgstr "Base de dades eliminada correctament."
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:608
 msgid "Could not drop database."
 msgstr "No s'ha pogut eliminar la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:610
 msgid "Couldn't drop database"
 msgstr "No s'ha pogut eliminar la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:624
+#: Koo/Dialogs/KooMainWindow.py:627
 msgid "Database restored successfully!"
 msgstr "Base de dades reestablerta correctament."
 
-#: Koo/Dialogs/KooMainWindow.py:628 Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:631 Koo/Dialogs/KooMainWindow.py:633
 msgid "Could not restore database"
 msgstr "No s'ha  pogut reestablir la base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:628
+#: Koo/Dialogs/KooMainWindow.py:631
 msgid "Bad database administrator password!"
 msgstr "Contrasenya d'administrador incorrecta."
 
-#: Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:633
 msgid "There was an error restoring the database!"
 msgstr "S'ha produït un error reestablint la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:633
+#: Koo/Dialogs/KooMainWindow.py:636
 msgid "Backup a database"
 msgstr "Còpia de seguretat d'una base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:648
+#: Koo/Dialogs/KooMainWindow.py:651
 msgid "Database backuped successfully!"
 msgstr "Base de dades copiada correctament."
 
-#: Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Dialogs/KooMainWindow.py:654
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -844,18 +842,6 @@ msgstr "Cerca: %s"
 msgid "Search: %s (%%d result(s))"
 msgstr "Cerca: %s (%%d resultat(s))"
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:64
-msgid "NET-RPC (faster)"
-msgstr "NET-RPC (més ràpid)"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:65
-msgid "XML-RPC"
-msgstr "XML-RPC"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "Secure XML-RPC"
-msgstr "XML-RPC Segur"
-
 #: Koo/Dialogs/TreeWidget.py:61
 msgid "Tree"
 msgstr "Arbre"
@@ -871,3 +857,15 @@ msgstr "No hi ha cap element seleccionat"
 #: Koo/Dialogs/TreeWidget.py:244
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "Si us plau, seleccioneu un elment de l'arbre per crear-ne una drecera."
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:64
+msgid "NET-RPC (faster)"
+msgstr "NET-RPC (més ràpid)"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:65
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "Secure XML-RPC"
+msgstr "XML-RPC Segur"

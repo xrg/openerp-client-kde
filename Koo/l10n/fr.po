@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-02 00:06+0100\n"
+"POT-Creation-Date: 2008-12-13 12:56+0100\n"
 "PO-Revision-Date: 2008-08-14 14:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: fr <kde-i18n-doc@lists.kde.org>\n"
@@ -26,12 +26,12 @@ msgstr ""
 "Le module 'dbus' n'est pas installé. Veuillez l'installer afin de faciliter "
 "l'intéraction des autres applications avec KTiny."
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 #, fuzzy
 msgid "Report error"
 msgstr "Rapport"
 
-#: Koo/Printer/Printer.py:73
+#: Koo/Printer/Printer.py:74
 #, fuzzy
 msgid "There was an error trying to create the report."
 msgstr "Il y a eu des erreurs lors de la restauration de la base de données !"
@@ -56,13 +56,11 @@ msgstr "Voir les détails"
 msgid "Could not contact server!"
 msgstr "Impossible de se connecter au serveur."
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Model/KooModel.py:295
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:515
 msgid "Yes"
 msgstr "Oui"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Model/KooModel.py:297
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:515
 msgid "No"
 msgstr "Non"
 
@@ -392,7 +390,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr "Impossible de créer cette base de données."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:608
 msgid "Bad database administrator password !"
 msgstr "Le mot de passe administrateur est incorrect !"
 
@@ -409,11 +407,11 @@ msgstr ""
 "Une erreur est apparue pendant la création.\n"
 "Veuillez supprimer la base de données et recommencer."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid "Bad database name !"
 msgstr "Mauvais nom de base de données !"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:163
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -784,57 +782,57 @@ msgstr "Quitter"
 msgid "Do you really want to quit ?"
 msgstr "Voulez-vous vraiment quitter ?"
 
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:595 Koo/Dialogs/KooMainWindow.py:616
 msgid "Delete a database"
 msgstr "Supprimer une base de données"
 
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:604 Koo/Dialogs/KooMainWindow.py:610
 #, fuzzy
 msgid "Database removal"
 msgstr "Creation de la base de données"
 
-#: Koo/Dialogs/KooMainWindow.py:601
+#: Koo/Dialogs/KooMainWindow.py:604
 #, fuzzy
 msgid "Database dropped successfully!"
 msgstr "La base de données a été supprimée avec succès !"
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:608
 msgid "Could not drop database."
 msgstr "Impossible de supprimer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:607
+#: Koo/Dialogs/KooMainWindow.py:610
 msgid "Couldn't drop database"
 msgstr "Impossible de supprimer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:624
+#: Koo/Dialogs/KooMainWindow.py:627
 #, fuzzy
 msgid "Database restored successfully!"
 msgstr "La base de données a été restaurée avec succès !"
 
-#: Koo/Dialogs/KooMainWindow.py:628 Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:631 Koo/Dialogs/KooMainWindow.py:633
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Impossible de restaurer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:628
+#: Koo/Dialogs/KooMainWindow.py:631
 #, fuzzy
 msgid "Bad database administrator password!"
 msgstr "Le mot de passe administrateur est incorrect !"
 
-#: Koo/Dialogs/KooMainWindow.py:630
+#: Koo/Dialogs/KooMainWindow.py:633
 msgid "There was an error restoring the database!"
 msgstr "Il y a eu des erreurs lors de la restauration de la base de données !"
 
-#: Koo/Dialogs/KooMainWindow.py:633
+#: Koo/Dialogs/KooMainWindow.py:636
 msgid "Backup a database"
 msgstr "Sauvegarder une base de données"
 
-#: Koo/Dialogs/KooMainWindow.py:648
+#: Koo/Dialogs/KooMainWindow.py:651
 #, fuzzy
 msgid "Database backuped successfully!"
 msgstr "La base de données a été sauvegardée avec succès !"
 
-#: Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Dialogs/KooMainWindow.py:654
 #, fuzzy, python-format
 msgid ""
 "Could not backup database.\n"
@@ -910,18 +908,6 @@ msgstr "Ch_ercher"
 msgid "Search: %s (%%d result(s))"
 msgstr "Tiny ERP - Widgets de recherche"
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:64
-msgid "NET-RPC (faster)"
-msgstr "NET-RPC (Plus rapide)"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:65
-msgid "XML-RPC"
-msgstr "XML-RPC"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "Secure XML-RPC"
-msgstr "XML-RPC (sécurisé)"
-
 #: Koo/Dialogs/TreeWidget.py:61
 msgid "Tree"
 msgstr "Arbre"
@@ -940,6 +926,18 @@ msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 "Merci de sélectionner un élément dans la vue arbre afin de l'ajouter dans "
 "les raccourcis."
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:64
+msgid "NET-RPC (faster)"
+msgstr "NET-RPC (Plus rapide)"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:65
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "Secure XML-RPC"
+msgstr "XML-RPC (sécurisé)"
 
 #~ msgid "Save attachment as..."
 #~ msgstr "Sauver l'attachement sous ..."
