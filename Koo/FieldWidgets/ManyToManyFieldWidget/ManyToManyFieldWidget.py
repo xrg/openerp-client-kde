@@ -54,9 +54,12 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
+
+		group = ModelRecordGroup( attrs['relation'] )
+		group.makeEmpty()
 		
 		self.screen = Screen( self )
-		self.screen.setModelGroup( ModelRecordGroup( attrs['relation'] ) )
+		self.screen.setModelGroup( group )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
 		self.screen.setAddAfterNew( True )
