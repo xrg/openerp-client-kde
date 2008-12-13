@@ -97,7 +97,6 @@ class ProgressBar( QDialog, ProgressBarUi ):
 		# once it's different we allow it to progress normally. This is done because
 		# currently no intermediate values exist.
 		if progress > 0.0:
-			print "Progress > 0.0"
 			self.progressBar.setMaximum( 100 )
 			
 		if 0.0 < progress < 1.0:
