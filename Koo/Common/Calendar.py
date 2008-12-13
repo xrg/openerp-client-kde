@@ -95,7 +95,8 @@ def textToDate( text ):
 
 ## @brief Converts a Python string or QString into a QTime object
 def textToTime( text ):
-	if unicode( QString( text ).trimmed() ) == '=':
+	text = unicode( text ).strip()
+	if text == '=':
 		return QTime.currentTime()
 
 	inputFormats = ['h:m:s', 'h:m', 'hh:mm:ss', 'h.m.s', 'h.m']
@@ -103,6 +104,14 @@ def textToTime( text ):
 		time = QTime.fromString( text, x )
 		if time.isValid():
 			break
+
+	if not time.isValid():
+		if len(text) == 4:
+			# Try to convert '1234' to '12:34'
+			time = QTime.fromString( '%s:%s' % ( text[0:2], text[2:4] ), 'h:m' )
+		elif len(text) == 6:
+			# Try to convert '123456' to '12:34:56'
+			time = QTime.fromString( '%s:%s:%s' % ( text[0:2], text[2:4], text[4:6] ), 'h:m:s' )
 	return time
 
 ## @brief Converts a Python string or QString into a QDateTime object
