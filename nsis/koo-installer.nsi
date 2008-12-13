@@ -5,7 +5,8 @@
 ; In order to compile this installer you'll need:
 ; a) koo installer (.exe): created with setup.py bdist_wininst
 ; b) python installer (.msi): download latest from python website
-; c) pyqt installer (.exe): download latest from pyqt website
+; c) python win32 extensions (.exe): download latest form pywin32 website
+; d) pyqt installer (.exe): download latest from pyqt website
 ; All these files should be placed in the 'nsis' directory. If versions
 ; have changed you might need to modify 'SecTinyERPClient' with the
 ; appropiate filenames.
@@ -99,10 +100,12 @@ Section "Koo" SecTinyERPClient
   SetOutPath "$TEMP"
 
   File "python-2.5.2.msi"
+  File "pywin32-212.win32-py2.5.exe"
   File "PyQt-Py2.5-gpl-4.4.2-1.exe"
   File "koo-1.0.0-beta2.win32.exe"
 
   ExecWait 'msiexec /i "$TEMP\python-2.5.2.msi" /qn TARGETDIR=c:\python25'
+  ExecWait '"$TEMP\pywin32-212.win32-py2.5.exe" /S'
   ExecWait '"$TEMP\PyQt-Py2.5-gpl-4.4.2-1.exe" /S'
   ExecWait '"$TEMP\koo-1.0.0-beta2.win32.exe" /S'
 
