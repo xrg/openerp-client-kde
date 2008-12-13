@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'image' : 'ImageFieldWidget.ImageFormWidget'
-}
+[
+	{ 'name': 'image', 'type': 'widget', 'class' : 'ImageFieldWidget.ImageFormWidget' }
+]

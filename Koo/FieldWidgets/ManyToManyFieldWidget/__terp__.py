@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'many2many' : 'ManyToManyFieldWidget.ManyToManyFormWidget'
-}
+[
+	{ 'name': 'many2many', 'type': 'widget', 'class' : 'ManyToManyFieldWidget.ManyToManyFormWidget' }
+]

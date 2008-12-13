@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'web' : 'WebFieldWidget.WebFormWidget'
-}
+[
+	{ 'name': 'web', 'type': 'widget', 'class' : 'WebFieldWidget.WebFormWidget' }
+]

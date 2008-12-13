@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'char' : 'CharFieldWidget.CharFormWidget'
-}
+[
+	{ 'name': 'char', 'type': 'widget', 'class': 'CharFieldWidget.CharFormWidget' }
+]

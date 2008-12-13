@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'text' : 'TextBoxFieldWidget.TextBoxFormWidget'
-}
+[
+	{ 'name': 'text', 'type': 'widget', 'class' : 'TextBoxFieldWidget.TextBoxFormWidget' }
+]

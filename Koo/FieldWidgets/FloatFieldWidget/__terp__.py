@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'float' : 'FloatFieldWidget.FloatFormWidget'
-}
+[
+	{ 'name': 'float', 'type': 'widget', 'class' : 'FloatFieldWidget.FloatFormWidget' }
+]

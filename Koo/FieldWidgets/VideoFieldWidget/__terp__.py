@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'video' : 'VideoFieldWidget.VideoFormWidget'
-}
+[
+	{ 'name': 'video', 'type': 'widget', 'class' : 'VideoFieldWidget.VideoFormWidget' }
+]

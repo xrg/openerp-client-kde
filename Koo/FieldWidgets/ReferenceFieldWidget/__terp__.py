@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'reference' : 'ReferenceFieldWidget.ReferenceFormWidget'
-}
+[
+	{ 'name': 'reference', 'type': 'widget', 'class' : 'ReferenceFieldWidget.ReferenceFormWidget' }
+]

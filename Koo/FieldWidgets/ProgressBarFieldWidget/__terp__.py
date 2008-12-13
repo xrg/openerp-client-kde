@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'progressbar' : 'ProgressBarFieldWidget.ProgressBarFormWidget'
-}
+[
+	{ 'name': 'progressbar', 'type': 'widget', 'class' : 'ProgressBarFieldWidget.ProgressBarFormWidget' }
+]

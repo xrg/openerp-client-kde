@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'binary' : 'BinaryFieldWidget.BinaryFormWidget'
-}
+[
+	{ 'name': 'binary', 'type': 'widget', 'class': 'BinaryFieldWidget.BinaryFormWidget' }
+]

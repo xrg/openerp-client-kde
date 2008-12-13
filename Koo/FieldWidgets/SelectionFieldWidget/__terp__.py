@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'selection' : 'SelectionFieldWidget.SelectionFormWidget'
-}
+[
+	{ 'name': 'selection', 'type': 'widget', 'class' : 'SelectionFieldWidget.SelectionFormWidget' }
+]

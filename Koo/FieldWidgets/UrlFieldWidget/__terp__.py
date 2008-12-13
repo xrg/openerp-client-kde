@@ -25,9 +25,9 @@
 #
 ##############################################################################
 
-{
-	'url' : 'UrlFieldWidget.UrlFormWidget',
-	'email' : 'UrlFieldWidget.EMailFormWidget',
-	'callto' : 'UrlFieldWidget.CallToFormWidget',
-	'sip' : 'UrlFieldWidget.SipFormWidget'
-}
+[
+	{ 'name': 'url', 'type': 'widget', 'class': 'UrlFieldWidget.UrlFormWidget'} ,
+	{ 'name': 'email', 'type': 'widget', 'class': 'UrlFieldWidget.EMailFormWidget'} ,
+	{ 'name': 'callto', 'type': 'widget', 'class': 'UrlFieldWidget.CallToFormWidget'} ,
+	{ 'name': 'sip', 'type': 'widget', 'class': 'UrlFieldWidget.SipFormWidget'}
+]

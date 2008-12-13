@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'button' : 'ButtonFieldWidget.ButtonFormWidget'
-}
+[
+	{ 'name': 'button', 'type': 'widget', 'class' : 'ButtonFieldWidget.ButtonFormWidget' }
+]

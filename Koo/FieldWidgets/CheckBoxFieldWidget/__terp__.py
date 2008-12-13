@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'boolean' : 'CheckBoxFieldWidget.CheckBoxFormWidget'
-}
+[
+	{ 'name': 'boolean', 'type': 'widget', 'class' : 'CheckBoxFieldWidget.CheckBoxFormWidget' }
+]

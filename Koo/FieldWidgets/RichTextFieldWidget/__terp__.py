@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'text_tag' : 'RichTextFieldWidget.RichTextFormWidget'
-}
+[
+	{ 'name': 'text_tag', 'type': 'widget', 'class' : 'RichTextFieldWidget.RichTextFormWidget' }
+]

@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'link' : 'LinkFieldWidget.LinkFormWidget'
-}
+[
+	{ 'name': 'link', 'type': 'widget', 'class' : 'LinkFieldWidget.LinkFormWidget' }
+]

@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'many2one' : 'ManyToOneFieldWidget.ManyToOneFormWidget'
-}
+[
+	{ 'name': 'many2one', 'type': 'widget', 'class' : 'ManyToOneFieldWidget.ManyToOneFormWidget' }
+]

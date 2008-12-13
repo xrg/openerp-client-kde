@@ -25,9 +25,9 @@
 #
 ##############################################################################
 
-{
-	'date' : 'CalendarFieldWidget.DateFormWidget',
-	'time' : 'CalendarFieldWidget.TimeFormWidget',
-	'datetime' : 'CalendarFieldWidget.DateTimeFormWidget',
-	'float_time' : 'CalendarFieldWidget.FloatTimeFormWidget'
-}
+[
+	{ 'name': 'date', 'type': 'widget', 'class': 'CalendarFieldWidget.DateFormWidget' },
+	{ 'name': 'time', 'type': 'widget', 'class': 'CalendarFieldWidget.TimeFormWidget' },
+	{ 'name': 'datetime', 'type': 'widget', 'class': 'CalendarFieldWidget.DateTimeFormWidget' },
+	{ 'name': 'float_time', 'type': 'widget', 'class': 'CalendarFieldWidget.FloatTimeFormWidget' }
+]

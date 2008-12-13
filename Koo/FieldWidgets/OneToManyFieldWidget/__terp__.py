@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-{
-	'one2many' : 'OneToManyFieldWidget.OneToManyFormWidget',
-	'one2many_list' : 'OneToManyFieldWidget.OneToManyFormWidget'
-}
+[
+	{ 'name': 'one2many', 'type': 'widget', 'class' : 'OneToManyFieldWidget.OneToManyFormWidget' },
+	{ 'name': 'one2many_list', 'type': 'widget', 'class' : 'OneToManyFieldWidget.OneToManyFormWidget' }
+]

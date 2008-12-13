@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'integer' : 'IntegerFieldWidget.IntegerFormWidget'
-}
+[
+	{ 'name': 'integer', 'type': 'widget', 'class': 'IntegerFieldWidget.IntegerFormWidget' }
+]

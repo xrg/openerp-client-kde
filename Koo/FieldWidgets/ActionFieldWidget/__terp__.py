@@ -25,6 +25,6 @@
 #
 ##############################################################################
 
-{
-	'action' : 'ActionFieldWidget.ActionFormWidget'
-}
+[
+	{ 'name': 'action', 'type': 'widget', 'class': 'ActionFieldWidget.ActionFormWidget' }
+]

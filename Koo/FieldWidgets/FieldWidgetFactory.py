@@ -1,4 +1,3 @@
-
 ##############################################################################
 #
 # Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
@@ -26,41 +25,20 @@
 #
 ##############################################################################
 
-import os
+from PluggableFields import *
 
 ## @brief The FieldWidgetFactory class specializes in creating the appropiate 
-# widgets. Searches for the available widgets and calls the parser of 
-# the appropiate one.
-#
-# To add a new widget, simply create a new directory and put a __terp__.py file.
-# The file should look like this:
-# {
-# 	'widgettype' : WidgetClass
-# }
-# Each directory could handle more than one widget types.
+# widget for a given type.
 
 class FieldWidgetFactory:
 	@staticmethod
 	def create(widgetType, parent, view, attributes):
-		# Search for all available widgets
-		imports = {}
-		widgets = {}
-		dir=os.path.abspath(os.path.dirname(__file__))
-		for i in os.listdir(dir):
-			path = os.path.join( dir, i, '__terp__.py' )
-			if os.path.isfile( path ):
-				try:
-					moduleWidgets = eval( file(path).read() )
-					widgets.update(moduleWidgets)
-					for key in moduleWidgets:
-						imports[key] = i
-				except:
-					print "Error importing widget: ", i
-
-		if not widgetType in imports:
+		PluggableFields.scan()
+		if not widgetType in PluggableFields.widgets:
 			print "Widget '%s' not available" % widgetType
 			return None
 
-		exec( 'import %s' % imports[widgetType] )
-		return eval( '%s(parent, view, attributes)' % widgets[widgetType] )
+		widgetClass = PluggableFields.widgets[ widgetType ]
+		exec( 'import %s' % PluggableFields.imports[ widgetClass ] )
+		return eval( '%s(parent, view, attributes)' %  widgetClass )
 
