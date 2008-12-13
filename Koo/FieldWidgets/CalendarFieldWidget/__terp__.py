@@ -29,5 +29,9 @@
 	{ 'name': 'date', 'type': 'widget', 'class': 'CalendarFieldWidget.DateFormWidget' },
 	{ 'name': 'time', 'type': 'widget', 'class': 'CalendarFieldWidget.TimeFormWidget' },
 	{ 'name': 'datetime', 'type': 'widget', 'class': 'CalendarFieldWidget.DateTimeFormWidget' },
-	{ 'name': 'float_time', 'type': 'widget', 'class': 'CalendarFieldWidget.FloatTimeFormWidget' }
+	{ 'name': 'float_time', 'type': 'widget', 'class': 'CalendarFieldWidget.FloatTimeFormWidget' },
+	{ 'name': 'date', 'type': 'delegate', 'class': 'CalendarFieldWidget.DateFieldDelegate' },
+	{ 'name': 'time', 'type': 'delegate', 'class': 'CalendarFieldWidget.TimeFieldDelegate' },
+	{ 'name': 'datetime', 'type': 'delegate', 'class': 'CalendarFieldWidget.DateTimeFieldDelegate' },
+	{ 'name': 'float_time', 'type': 'delegate', 'class': 'CalendarFieldWidget.FloatTimeFieldDelegate' }
 ]

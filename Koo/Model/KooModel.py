@@ -279,11 +279,13 @@ class KooModel(QAbstractItemModel):
 		elif fieldType in ('char', 'text'):
 			model.setValue( field, unicode( value.toString() ) )
 		elif fieldType == 'date':
-			model.setValue( dateToStorage( value.toDate() ) )
+			model.setValue( field, Calendar.dateToStorage( value.toDate() ) )
 		elif fieldType == 'datetime' and value:
-			model.setValue( dateTimeToStorage( value.toDateTime() ) )
+			model.setValue( field, Calendar.dateTimeToStorage( value.toDateTime() ) )
 		elif fieldType == 'time' and value:
-			model.setValue( timeToStorage( value.toTime() ) )
+			model.setValue( field, Calendar.timeToStorage( value.toTime() ) )
+		elif fieldType == 'float_time' and value:
+			model.setValue( field, Calendar.timeToStorage( value.toTime() ) )
 		elif fieldType == 'many2many':
 			m = model.value( field )
 			m.clear()

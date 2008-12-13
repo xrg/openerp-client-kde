@@ -29,6 +29,7 @@
 from Koo.Common import Common
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from Koo.Common.Calendar import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -195,3 +196,25 @@ class FloatTimeFormWidget(AbstractFormWidget):
 			self.uiTime.setText( floatTimeToText( value ) )
 		else:
 			self.uiTime.setText( '00:00' )
+
+class DateFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToDate( editor.text() )
+		model.setData( index, QVariant( value ), Qt.EditRole )
+
+class TimeFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToTime( editor.text() )
+		model.setData( index, QVariant( value ), Qt.EditRole )
+
+class DateTimeFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToDateTime( editor.text() )
+		model.setData( index, QVariant( value ), Qt.EditRole )
+
+class FloatTimeFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToFloatTime( editor.text() )
+		value = floatTimeToTime( value )
+		model.setData( index, QVariant( value ), Qt.EditRole )
+
