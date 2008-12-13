@@ -27,6 +27,7 @@
 ##############################################################################
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from Koo.Common.Numeric import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -74,3 +75,7 @@ class FloatFormWidget(AbstractFormWidget):
 	def colorWidget(self):
 		return self.widget
 
+class FloatFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToFloat( unicode( editor.text() ) )
+		model.setData( index, QVariant( value ), Qt.EditRole )

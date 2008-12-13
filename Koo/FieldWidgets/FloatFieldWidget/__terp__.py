@@ -26,5 +26,6 @@
 ##############################################################################
 
 [
-	{ 'name': 'float', 'type': 'widget', 'class' : 'FloatFieldWidget.FloatFormWidget' }
+	{ 'name': 'float', 'type': 'widget', 'class' : 'FloatFieldWidget.FloatFormWidget' },
+	{ 'name': 'float', 'type': 'delegate', 'class' : 'FloatFieldWidget.FloatFieldDelegate' }
 ]

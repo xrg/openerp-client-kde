@@ -26,5 +26,6 @@
 ##############################################################################
 
 [
-	{ 'name': 'integer', 'type': 'widget', 'class': 'IntegerFieldWidget.IntegerFormWidget' }
+	{ 'name': 'integer', 'type': 'widget', 'class': 'IntegerFieldWidget.IntegerFormWidget' },
+	{ 'name': 'integer', 'type': 'delegate', 'class': 'IntegerFieldWidget.IntegerFieldDelegate' }
 ]

@@ -27,6 +27,7 @@
 ##############################################################################
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.FieldWidgets.AbstractFieldDelegate import *
 from Koo.Common.Numeric import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -42,7 +43,7 @@ class IntegerFormWidget(AbstractFormWidget):
 		self.installPopupMenu( self.widget )
 
 	def calculate(self):
-		val = textToInteger( str(self.widget.text() ) )
+		val = textToInteger( unicode(self.widget.text() ) )
 		if val:
 			self.widget.setText( str(val) )
 		else:
@@ -50,7 +51,7 @@ class IntegerFormWidget(AbstractFormWidget):
 		self.modified()
 
 	def value(self):
-		return textToInteger( str(self.widget.text()) )
+		return textToInteger( unicode(self.widget.text()) )
 
 	def store(self):
 		self.model.setValue(self.name, self.value() )
@@ -67,3 +68,9 @@ class IntegerFormWidget(AbstractFormWidget):
 
 	def colorWidget(self):
 		return self.widget
+
+class IntegerFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToInteger( unicode( editor.text() ) )
+		model.setData( index, QVariant( value ), Qt.EditRole )
+
