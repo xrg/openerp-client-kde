@@ -38,18 +38,10 @@ from ChartGraphicsView import *
 import sys
 
 from Koo.View.AbstractParser import *
-from Koo.View.Form.abstractformwidget import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-
-class EmptyGraph(AbstractFormWidget):
-	def __init__(self, model, axis, fields, axis_data={}, attrs={},parent=None):
-		AbstractFormWidget.__init__( self, parent, model,attrs )
-
-	def display(self, models):
-		pass
 
 class ChartParser( AbstractParser ):
 
