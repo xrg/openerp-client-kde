@@ -80,9 +80,11 @@ class BooleanFieldDelegate( AbstractFieldDelegate ):
 		return QSize(30, 30)
 
 	def paint(self, painter, option, index):
-		# Paint background if row/item is selected
-		if (option.state & QStyle.State_Selected):
-			painter.fillRect(option.rect, option.palette.highlight());
+		# Draw background
+		itemOption = QStyleOptionViewItemV4(option)
+		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter)
+
+		# Draw CheckBox
 		op = QStyleOptionButton()
 		op.rect = option.rect
 		value = index.data(Qt.DisplayRole).toBool()
