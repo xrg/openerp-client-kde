@@ -58,7 +58,7 @@ class ConfigurationManager(object):
 			'logging.verbose': False,
 			'client.default_path': os.path.expanduser('~'),
 			'stylesheet' : '',
-			'tabs_position' : 'left',
+			'tabs_position' : 'top',
 			'show_toolbar' : True,
 			'sort_mode' : 'all_items'
 		}
