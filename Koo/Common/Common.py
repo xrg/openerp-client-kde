@@ -247,3 +247,11 @@ class ProgressDialog(QDialog, ProgressDialogUi):
 		self.timer.stop()
 		self.accept()
 
+## @brief Opens the given file with system's default application.
+def openFile( fileName ):
+	if os.name == 'nt':
+		os.startfile(fileName)
+	elif os.name == 'mac':
+		os.spawnlp(os.P_NOWAIT, 'open', 'open', fileName)
+	else:
+		os.spawnlp(os.P_NOWAIT, 'xdg-open', 'xdg-open', fileName)

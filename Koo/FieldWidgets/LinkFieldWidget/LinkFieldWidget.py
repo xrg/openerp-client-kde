@@ -64,10 +64,7 @@ class LinkFormWidget(AbstractFormWidget, LinkFormWidgetUi):
 		fileName = self.model.value(self.name)
 		if not fileName:
 			return
-		if os.name == 'nt':
-			os.startfile(fileName)
-		else:
-			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName )
+		Common.openFile( fileName )
 
 	def open(self):
 		filename = QFileDialog.getOpenFileName(self, _('Select the file to link to'))

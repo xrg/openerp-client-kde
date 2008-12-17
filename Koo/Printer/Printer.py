@@ -30,6 +30,7 @@
 from PyQt4.QtCore  import *
 from Koo.Common import Notifier
 from Koo.Common import Options
+from Koo.Common import Common
 import os
 import base64
 import tempfile
@@ -43,11 +44,8 @@ class Printer(object):
 	## @brief Opens the specified file with system's default application
 	@staticmethod
 	def open(fileName):
-		if os.name == 'nt':
-			os.startfile(fileName)
-		else:
-			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName)
-	
+		Common.openFile( fileName )
+
 	## @brief Sends the specified file directly to the printer. Windows only.
 	@staticmethod
 	def sendToPrinter(fileName):
@@ -56,7 +54,7 @@ class Printer(object):
 			win32api.ShellExecute (0, "print", fileName, None, ".", 0)
 		else:
 			os.spawnlp(os.P_NOWAIT, 'lpr', 'lpr', fileName)
-		
+
 	## @brief Sends the specified file to printer or opens it with the default
 	# application depending on operating system and user settings.
 	@staticmethod

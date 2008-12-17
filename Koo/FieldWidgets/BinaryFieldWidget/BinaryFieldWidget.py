@@ -76,10 +76,7 @@ class BinaryFormWidget(AbstractFormWidget, BinaryFormWidgetUi):
 		fp = file(fileName,'wb+')
 		fp.write( self.model.value(self.name) )
 		fp.close()
-		if os.name == 'nt':
-			os.startfile(fileName)
-		else:
-			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName )
+		Common.openFile( fileName )
 
 	def showImage(self):
 		if not self.model.value(self.name): 

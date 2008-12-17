@@ -77,10 +77,7 @@ class ImageFormWidget(AbstractFormWidget, ImageFormWidgetUi):
 		fp = file(fileName,'wb')
 		fp.write(self.model.value(self.name))
 		fp.close()
-		if os.name == 'nt':
-			os.startfile(fileName)
-		else:
-			os.spawnlp(os.P_NOWAIT, 'kfmclient', 'kfmclient', 'exec', fileName )
+		Common.openFile( fileName )
 
 	def showImage(self):
 		if not self.model.value(self.name):
@@ -139,4 +136,21 @@ class ImageFormWidget(AbstractFormWidget, ImageFormWidgetUi):
 
 	def store(self):
 		pass
+
+class ImageFieldDelegate( AbstractFieldDelegate ):
+	def createEditor(self, parent, option, index):
+		return None
+	
+	def sizeHint(self, option, index):
+		return QSize(30, 30)
+
+	def paint(self, painter, option, index):
+		# Paint background if row/item is selected
+		if (option.state & QStyle.State_Selected):
+			painter.fillRect(option.rect, option.palette.highlight());
+
+		value = index.model().modelFromIndex( index ).value( self.name )
+		image = QImage()
+		image.loadFromData( value )
+		painter.drawImage( option.rect, image )
 
