@@ -208,7 +208,5 @@ def executeKeyword(keyword, data={}, context={}):
 		(name,action) = res
 		Api.instance.executeAction(action, data, context=context)
 		return (name, action)
-	elif not len(keyact):
-		QMessageBox.information( None, _('Action'), _('No action defined!'))
 	return False
 
