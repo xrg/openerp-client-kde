@@ -37,7 +37,7 @@
       <number>1</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushClear" >
+      <widget class="QToolButton" name="pushClear" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -53,7 +53,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushNew" >
+      <widget class="QToolButton" name="pushNew" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -69,7 +69,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushOpen" >
+      <widget class="QToolButton" name="pushOpen" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
