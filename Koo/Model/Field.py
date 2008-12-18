@@ -198,7 +198,12 @@ class ManyToOneField(StringField):
 		if value and isinstance(value, (int, str, unicode, long)):
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			result = Rpc2.name_get([value], Rpc.session.context)
-			model.values[self.name] = result[0]
+
+			# In some very rare cases we may get an empty
+			# list from the server so we just check it before
+			# trying to store result[0]
+			if result:
+				model.values[self.name] = result[0]
 		else:
 			model.values[self.name] = value
 		if modified:
