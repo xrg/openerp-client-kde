@@ -550,6 +550,14 @@ class ModelRecordGroup(QObject):
 	def sortAll(self, field, order):
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return
+
+		# Check there're no new or modified fields. If there are
+		# we won't sort as it means reloading data from the server
+		# and we'd loose current changes.
+		for record in self.models:
+			if record.modified:
+				return
+			
 		if not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
