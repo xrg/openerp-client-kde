@@ -44,6 +44,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="focusPolicy" >
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip" >
         <string>Remove</string>
        </property>
@@ -51,7 +54,8 @@
         <string/>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/trash.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
        </property>
       </widget>
      </item>
@@ -63,6 +67,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="focusPolicy" >
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip" >
         <string>New</string>
        </property>
@@ -70,7 +77,8 @@
         <string/>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/new.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
        </property>
       </widget>
      </item>
@@ -82,6 +90,9 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="focusPolicy" >
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="toolTip" >
         <string>Search</string>
        </property>
@@ -89,7 +100,8 @@
         <string/>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
        </property>
       </widget>
      </item>
