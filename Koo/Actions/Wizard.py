@@ -138,7 +138,8 @@ class Wizard( QObject ):
 				self.finished = True
 				return
 			(self.state, new_data) = dialog.result
-			for d in new_data:
+
+			for d in new_data.keys():
 				if new_data[d]==None:
 					del new_data[d]
 			self.datas['form'].update(new_data)
