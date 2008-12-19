@@ -172,7 +172,13 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 	def store(self):
 		self.screen.current_view.store()
 
+# We don't allow modifying OneToMany fields but we allow creating the editor
+# because otherwise the view is no longer in edit mode and moving from one field
+# to another, if there's a OneToMany in the middle the user has to press F2 again
+# in the next field.
 class OneToManyFieldDelegate( AbstractFieldDelegate ):
-	def createEditor(self, parent, option, index):
-		return None
+	def setEditorData(self, editor, index):
+		pass
+	def setModelData(self, editor, model, index):
+		pass
 
