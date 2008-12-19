@@ -118,9 +118,12 @@ class KooModel(QAbstractItemModel):
 		if self._updatesEnabled:
 			self.reset()
 		
-	def modelChanged(self,obj):
-		if self._updatesEnabled:
+	def modelChanged(self, model):
+		leftIndex = self.indexFromId( model.id )
+		if not leftIndex.isValid():
 			self.reset()
+		rightIndex = self.index( leftIndex.row(), len(model.values) )
+		self.emit( SIGNAL('dataChanged(QModelIndex,QModelIndex)'), leftIndex, rightIndex )
 
 	def recordChanged(self,when,pos):
 		if self._updatesEnabled:
