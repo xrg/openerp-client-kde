@@ -59,7 +59,6 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.modelGroup = ModelRecordGroup( model )
 		self.modelGroup.setDomain( domain )
 
-		self.screen = Screen( self )
 		self.screen.setModelGroup( self.modelGroup )
 		self.screen.setViewTypes( ['tree'] )
 
@@ -71,7 +70,6 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.model_name = model
 
 		view_form = Rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
-		self.form = Search.SearchFormWidget( self )
 		self.form.setup( view_form['arch'], view_form['fields'], model )
 		self.form.hideButtons()
 

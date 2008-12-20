@@ -20,18 +20,10 @@
     <number>9</number>
    </property>
    <item>
-    <widget class="Line" name="line" >
-     <property name="orientation" >
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
+    <widget class="SearchFormWidget" native="1" name="form" />
    </item>
    <item>
-    <widget class="Line" name="line_2" >
-     <property name="orientation" >
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
+    <widget class="Screen" native="1" name="screen" />
    </item>
    <item>
     <layout class="QHBoxLayout" >
@@ -104,6 +96,20 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SearchFormWidget</class>
+   <extends>QWidget</extends>
+   <header>Search</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Screen</class>
+   <extends>QWidget</extends>
+   <header>Screen</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="common.qrc" />
  </resources>
