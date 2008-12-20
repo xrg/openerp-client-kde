@@ -76,15 +76,12 @@ class BooleanFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):
 		model.setData( index, QVariant( editor.isChecked() ), Qt.EditRole )
 
-	def sizeHint(self, option, index):
-		return QSize(30, 30)
-
 	def paint(self, painter, option, index):
-		# Draw background
+		# Paint background
 		itemOption = QStyleOptionViewItemV4(option)
 		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter)
 
-		# Draw CheckBox
+		# Paint CheckBox
 		op = QStyleOptionButton()
 		op.rect = option.rect
 		value = index.data(Qt.DisplayRole).toBool()

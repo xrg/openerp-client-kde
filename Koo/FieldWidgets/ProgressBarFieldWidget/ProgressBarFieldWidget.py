@@ -61,13 +61,12 @@ class ProgressBarFieldDelegate( AbstractFieldDelegate ):
 	def createEditor(self, parent, option, index):
 		return None
 
-	def sizeHint(self, option, index):
-		return QSize(30, 30)
-
 	def paint(self, painter, option, index):
-		# Paint background if row/item is selected
-		if (option.state & QStyle.State_Selected):
-			painter.fillRect(option.rect, option.palette.highlight());
+		# Paint background
+		itemOption = QStyleOptionViewItemV4(option)
+		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter)
+
+		# Paint ProgressBar
 		opts = QStyleOptionProgressBarV2()
 		opts.rect = option.rect
 		opts.minimum = 1
