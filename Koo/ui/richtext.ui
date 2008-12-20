@@ -14,7 +14,7 @@
   </property>
   <layout class="QVBoxLayout" >
    <property name="spacing" >
-    <number>-1</number>
+    <number>4</number>
    </property>
    <property name="margin" >
     <number>0</number>
@@ -44,12 +44,13 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/text_bold.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/text_bold.png</normaloff>:/images/images/text_bold.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
          </property>
-         <property name="flat" >
+         <property name="flat" stdset="0" >
           <bool>false</bool>
          </property>
         </widget>
@@ -72,12 +73,13 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/text_italic.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/text_italic.png</normaloff>:/images/images/text_italic.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
          </property>
-         <property name="flat" >
+         <property name="flat" stdset="0" >
           <bool>false</bool>
          </property>
         </widget>
@@ -100,12 +102,13 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/text_under.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/text_under.png</normaloff>:/images/images/text_under.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
          </property>
-         <property name="flat" >
+         <property name="flat" stdset="0" >
           <bool>false</bool>
          </property>
         </widget>
@@ -128,12 +131,13 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/text_strike.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/text_strike.png</normaloff>:/images/images/text_strike.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
          </property>
-         <property name="flat" >
+         <property name="flat" stdset="0" >
           <bool>false</bool>
          </property>
         </widget>
@@ -163,7 +167,8 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/leftjust.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/leftjust.png</normaloff>:/images/images/leftjust.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -191,7 +196,8 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/text_center.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/text_center.png</normaloff>:/images/images/text_center.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -219,7 +225,8 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/rightjust.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/rightjust.png</normaloff>:/images/images/rightjust.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -247,7 +254,8 @@
           <string/>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/text_block.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/text_block.png</normaloff>:/images/images/text_block.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -340,7 +348,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextEdit" name="uiText" />
+    <widget class="QTextEdit" name="uiText" >
+     <property name="tabChangesFocus" >
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
