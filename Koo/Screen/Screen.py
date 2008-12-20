@@ -65,6 +65,7 @@ class Screen(QScrollArea):
 
 	def __init__(self, parent=None):
 		QScrollArea.__init__(self, parent)
+		self.setFocusPolicy( Qt.NoFocus )
 
 		# GUI Stuff
 		self.setFrameShape( QFrame.NoFrame )

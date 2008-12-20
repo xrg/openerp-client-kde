@@ -20,10 +20,18 @@
     <number>9</number>
    </property>
    <item>
-    <widget class="SearchFormWidget" native="1" name="form" />
+    <widget class="SearchFormWidget" native="1" name="form" >
+     <property name="focusPolicy" >
+      <enum>Qt::TabFocus</enum>
+     </property>
+    </widget>
    </item>
    <item>
-    <widget class="Screen" native="1" name="screen" />
+    <widget class="Screen" native="1" name="screen" >
+     <property name="focusPolicy" >
+      <enum>Qt::TabFocus</enum>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" >
