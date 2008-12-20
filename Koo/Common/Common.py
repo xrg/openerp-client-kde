@@ -124,8 +124,6 @@ class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 			self.number = int(Options.options['tip.position'])
 		except:
 			self.number = 0
-			log = logging.getLogger('common.message')
-			log.error('Invalid value for option tip.position ! See ~/.terprc !')
 	
 		self.connect( self.pushNext, SIGNAL('clicked()'), self.nextTip )
 		self.connect( self.pushPrevious, SIGNAL('clicked()'), self.previousTip )
@@ -251,7 +249,7 @@ class ProgressDialog(QDialog, ProgressDialogUi):
 def openFile( fileName ):
 	if os.name == 'nt':
 		os.startfile(fileName)
-	elif os.name == 'mac':
-		os.spawnlp(os.P_NOWAIT, 'open', 'open', fileName)
+	elif os.uname()[0] == 'Darwin':
+		os.system('/usr/bin/open -a Preview %s' % fileName)
 	else:
 		os.spawnlp(os.P_NOWAIT, 'xdg-open', 'xdg-open', fileName)
