@@ -207,13 +207,11 @@ class TreeView( AbstractView ):
 		#self.widget.header().resizeSections( QHeaderView.ResizeToContents )
 		self.updateAggregates()
 		if not currentModel:
-			return
-			item = self.treeModel.item(0)
-			if not item:
+			index = self.treeModel.index( 0, 0 )
+			if not index.isValid():
 				return
-			idx = self.treeModel.indexFromItem(item)
 			
-			self.widget.setCurrentIndex( idx )
+			self.widget.setCurrentIndex( index )
 			self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 		else:
 			idx = self.treeModel.indexFromId( currentModel.id )
