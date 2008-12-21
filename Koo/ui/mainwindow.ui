@@ -179,6 +179,9 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="focusPolicy" >
+              <enum>Qt::NoFocus</enum>
+             </property>
              <property name="toolTip" >
               <string>Read My Requests</string>
              </property>
@@ -198,6 +201,9 @@
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
+             </property>
+             <property name="focusPolicy" >
+              <enum>Qt::NoFocus</enum>
              </property>
              <property name="toolTip" >
               <string>Send New Request</string>
@@ -226,7 +232,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlugins" >
