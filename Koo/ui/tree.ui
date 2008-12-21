@@ -72,7 +72,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushAddShortcut" >
+           <widget class="QToolButton" name="pushAddShortcut" >
             <property name="sizePolicy" >
              <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
               <horstretch>0</horstretch>
@@ -92,7 +92,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushGoToShortcut" >
+           <widget class="QToolButton" name="pushGoToShortcut" >
             <property name="sizePolicy" >
              <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
               <horstretch>0</horstretch>
@@ -112,7 +112,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushRemoveShortcut" >
+           <widget class="QToolButton" name="pushRemoveShortcut" >
             <property name="sizePolicy" >
              <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
               <horstretch>0</horstretch>
