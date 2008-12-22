@@ -80,14 +80,14 @@ class SelectionDialog(QDialog, SelectionDialogUi):
 		for x in values.keys():
 			item = QListWidgetItem()
 			item.setText(x)
-			item.setData(Qt.UserRole, QVariant(values[x]))
+			item.value = values[x]
 			self.uiList.addItem( item )
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.selected )
 
 	def selected(self):
 		self.result = ""
 		item = self.uiList.currentItem()
-		self.result = ( unicode(item.text()), unicode(item.data(Qt.UserRole).toString()) )
+		self.result = ( unicode(item.text()), item.value )
 		self.accept()
 
 ## @brief Shows the SelectionDialog

@@ -270,7 +270,6 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 	def executeAction(self, type):
 		id = self.model.id
 		Api.instance.executeKeyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
-		return True
 
 class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 	def __init__(self, parent, attributes):

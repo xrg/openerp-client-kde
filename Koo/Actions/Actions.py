@@ -37,6 +37,7 @@ from Koo.Printer import *
 
 from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Common import Notifier
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -197,16 +198,20 @@ def executeKeyword(keyword, data={}, context={}):
 					[(data['model'], id)], False, Rpc.session.context)
 			actions = map(lambda x: x[2], actions)
 		except Rpc.RpcException, e:
-			return False
+			return None
+
+	if not actions:
+		Notifier.notifyWarning( _('No actions defined'), _('There are no actions defined for this item.') )
+		return None
 
 	keyact = {}
 	for action in actions:
 		keyact[action['name']] = action
 
 	res = Common.selection(_('Select your action'), keyact)
-	if res:
-		(name,action) = res
-		Api.instance.executeAction(action, data, context=context)
-		return (name, action)
-	return False
+	if not res:
+		return None
+	(name,action) = res
+	Api.instance.executeAction(action, data, context=context)
+	return (name, action)
 
