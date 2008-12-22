@@ -30,6 +30,7 @@ import gettext
 
 from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 
 from Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
@@ -102,6 +103,17 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		self.connect( self.pushOpen, SIGNAL( "clicked()" ), self.open )
 		self.connect( self.pushClear, SIGNAL( "clicked()" ), self.clear )
 
+		# Create shortcuts
+		self.scNew = QShortcut( self.uiText )
+		self.scNew.setKey( Shortcuts.CreateInField )
+		self.scNew.setContext( Qt.WidgetShortcut )
+		self.connect( self.scNew, SIGNAL('activated()'), self.new )
+
+		self.scSearch = QShortcut( self.uiText )
+		self.scSearch.setKey( Shortcuts.SearchInField )
+		self.scSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scSearch, SIGNAL('activated()'), self.open )
+
  		self.modelType = attrs['relation']	
 		# To build the menu entries we need to query the server so we only make 
 		# the call if necessary and only once. Hence with self.menuLoaded we know
@@ -122,17 +134,6 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 			self.model.setValue( self.name, False )
 		self.uiText.clear()
 		self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
-
-	def eventFilter( self, target, event):
-		if self.model and event.type() == QEvent.KeyPress :
-			if event.key()==Qt.Key_F1:
-				self.new()
-				return True
-			return False
-		elif event.type() == QEvent.ContextMenu:
-			self.showPopupMenu( target, event.globalPos() )
-			return True
-		return False
 
 	def loadCompletion(self,ids,attrs):
 		self.completion = QCompleter()
@@ -196,7 +197,6 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		context = self.model.context()
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
 		if ids and len(ids)==1:
-			print "SETTING: ", ids[0]
 			self.model.setValue( self.name, ids[0] )
 			self.display()
 		else:
@@ -275,8 +275,42 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		return True
 
 class ManyToOneFieldDelegate( AbstractFieldDelegate ):
+	def __init__(self, parent, attributes):
+		AbstractFieldDelegate.__init__(self, parent, attributes)
+		self.currentIndex = None
+		self.currentEditor = None
+
+	def createEditor(self, parent, option, index):
+		widget = AbstractFieldDelegate.createEditor(self, parent, option, index)
+		if widget:
+			# Create shortcuts
+			self.scNew = QShortcut( widget )
+			self.scNew.setContext( Qt.WidgetShortcut )
+			self.scNew.setKey( Shortcuts.CreateInField )
+			self.connect( self.scNew, SIGNAL('activated()'), self.new )
+
+			self.scSearch = QShortcut( widget )
+			self.scSearch.setContext( Qt.WidgetShortcut )
+			self.scSearch.setKey( Shortcuts.SearchInField )
+			self.connect( self.scSearch, SIGNAL('activated()'), self.open )
+		self.currentEditor = widget
+		return widget
+
+	def open(self):
+		pass
+
+	def new(self):
+		dialog = ScreenDialog( self.currentEditor )
+		dialog.setAttributes( self.attributes )
+		dialog.setup( self.attributes['relation'] )
+		if dialog.exec_() == QDialog.Accepted:
+			if self.currentIndex and self.currentIndex.isValid():
+				# We expect a KooModel here
+				model = index.model().modelFromIndex( index )
+				model.setValue(self.name, dialog.model)
+
 	def setModelData(self, editor, kooModel, index):
-		# We expecte a KooModel here
+		# We expect a KooModel here
 		model = kooModel.modelFromIndex( index )
 
 		domain = model.domain( self.name )

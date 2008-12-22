@@ -27,6 +27,7 @@
 ##############################################################################
 
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
 from Koo.FieldWidgets.AbstractFieldDelegate import *
@@ -42,6 +43,12 @@ class DateFormWidget(AbstractFormWidget, DateFormWidgetUi):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		DateFormWidgetUi.__init__(self)
 		self.setupUi(self)
+
+		# Add shortcut
+		self.scSearch = QShortcut( self.uiDate )
+		self.scSearch.setKey( Shortcuts.SearchInField )
+		self.scSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scSearch, SIGNAL('activated()'), self.showCalendar )
 
 		self.connect( self.pushCalendar, SIGNAL( "clicked()" ),self.showCalendar )
 		self.dateTime = False

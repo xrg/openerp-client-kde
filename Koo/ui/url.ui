@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>311</width>
-    <height>26</height>
+    <height>27</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -36,6 +36,9 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="focusPolicy" >
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="toolTip" >
       <string>Open</string>
      </property>
@@ -43,7 +46,8 @@
       <string/>
      </property>
      <property name="icon" >
-      <iconset resource="common.qrc" >:/images/images/relate.png</iconset>
+      <iconset resource="common.qrc" >
+       <normaloff>:/images/images/relate.png</normaloff>:/images/images/relate.png</iconset>
      </property>
     </widget>
    </item>

@@ -31,6 +31,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 from Koo.FieldWidgets.AbstractFieldWidget import *
 
 (UrlFormWidgetUi, UrlFormWidgetBase ) = loadUiType( Common.uiPath('url.ui') ) 
@@ -40,6 +41,12 @@ class UrlFormWidget(AbstractFormWidget, UrlFormWidgetUi):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
 		UrlFormWidgetUi.__init__(self)
 		self.setupUi(self)
+
+		# Add shortcut
+		self.scSearch = QShortcut( self.uiUrl )
+		self.scSearch.setKey( Shortcuts.SearchInField )
+		self.scSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scSearch, SIGNAL('activated()'), self.openUrl )
 
 		self.uiUrl.setMaxLength( int( attrs.get('size',16)))
 		if attrs.get('invisible',False):

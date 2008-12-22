@@ -32,6 +32,7 @@ from PyQt4.uic import *
 
 from Koo.Common import Common
 from Koo.Common import Api
+from Koo.Common import Shortcuts
 from Koo.Dialogs.SearchDialog import SearchDialog
 
 from Koo.FieldWidgets.AbstractFieldWidget import *
@@ -44,7 +45,7 @@ from Koo.Rpc import RpcProxy
 
 # This widget requires some ugly hacks. Mainly clearing the text fields once it's been
 # modified and searched afterwards. This is due to the fact that the 'name' the server
-# returns, if searched, it might not be found again :(
+# returns, if searched, might not be found again :(
 class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
@@ -57,6 +58,16 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 		self.setPopdown( attrs.get('selection',[]) )
 		self.connect( self.uiModel, SIGNAL('currentIndexChanged(int)'), self.modelChanged )
 		self.connect( self.uiText, SIGNAL( "editingFinished()" ), self.match )
+		self.scNew = QShortcut( self.uiText )
+		self.scNew.setContext( Qt.WidgetShortcut )
+		self.scNew.setKey( Shortcuts.CreateInField )
+		self.connect( self.scNew, SIGNAL('activated()'), self.new )
+
+		self.scSearch  = QShortcut( self.uiText )
+		self.scSearch.setContext( Qt.WidgetShortcut )
+		self.scSearch.setKey( Shortcuts.SearchInField )
+		self.connect( self.scSearch, SIGNAL('activated()'), self.open )
+
 		self.uiModel.setEditable( False )
 		self.installPopupMenu( self.uiText )
 
@@ -100,17 +111,11 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 		# No update of the model, the model is updated in real time 
 		pass
 
-	def match(self):
-		name = unicode(self.uiText.text())
-		value = self.model.value(self.name)
-		if value and value[1][1] == name:
-			return
-
+	def search(self):
 		domain = self.model.domain(self.name)
 		context = self.model.fieldContext(self.name)
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 		ids = Rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
-		print ids
 		
 		if len(ids)==1:
 			id, name = ids[0]
@@ -125,14 +130,25 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 			self.model.setValue(self.name, (resource, (id, name)) )
 			self.display()
 
+	def match(self):
+		name = unicode(self.uiText.text())
+		if name.strip() == '':
+			self.model.setValue(self.name, False)
+			return
+
+		value = self.model.value(self.name)
+		if value and value[1][1] == name:
+			return
+		self.search()
+
 	def new(self):
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 		dialog = ScreenDialog( self )
 		dialog.setup( resource )
 		dialog.setAttributes( self.attrs )
 		if dialog.exec_() == QDialog.Accepted:
-			#self.model.setValue(self.name, dialog.model)
-			pass
+			resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+			self.model.setValue(self.name, (resource, dialog.model) )
 
 	def open(self):
 		value = self.model.value(self.name)
@@ -149,7 +165,7 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 				dialog.setAttributes( self.attrs )
 				dialog.exec_()
 		else:
-			self.match()
+			self.search()
 
 	def clear(self):
 		self.uiModel.setCurrentIndex(-1)
@@ -164,7 +180,6 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 			self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
 			if not name:
 				id, name = RpcProxy(model).name_get([id], Rpc.session.context)[0]
-				#self.model.setValue(self.name, model, (id, name))
 			self.uiText.setText(name)
 			self.pushOpen.setIcon( QIcon(":/images/images/folder.png") )
 		else:
