@@ -55,7 +55,6 @@ class SearchView( QAbstractItemView ):
 		layout = QVBoxLayout( self.viewport() )
 		layout.setSpacing( 0 )
 		layout.setMargin( 0 )
-		layout.addStretch()
 		self.items = []
 		self.selected = -1
 		self.keyboard = ""
@@ -231,8 +230,8 @@ class SearchView( QAbstractItemView ):
 			else:
 				# Otherwise let the user fill in the item
 				self.fillItemWidget( item )
-			self.viewport().layout().insertWidget( self.viewport().layout().count() -1, item )
 			self.items.append(item)
+			self.viewport().layout().insertWidget( self.viewport().layout().count() -1, item )
 			self.updateViewport( item.height() )
 
 		if self.selected == -1:
