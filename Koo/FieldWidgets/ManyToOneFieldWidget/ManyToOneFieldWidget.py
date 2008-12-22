@@ -239,16 +239,11 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 
 	def menuEntries(self):
 		if not self.menuLoaded:
-			fields_id = Rpc.session.execute('/object', 'execute', 'ir.model.fields', 'search',[('relation','=',self.modelType),('ttype','=','many2one'),('relate','=',True)])
-			fields = Rpc.session.execute('/object', 'execute', 'ir.model.fields', 'read', fields_id, ['name','model_id'], Rpc.session.context)
-			models_id = [x['model_id'][0] for x in fields if x['model_id']]
-			fields = dict(map(lambda x: (x['model_id'][0], x['name']), fields))
-			models = Rpc.session.execute('/object', 'execute', 'ir.model', 'read', models_id, ['name','model'], Rpc.session.context)
-			for model in models:
-				field = fields[model['id']]
-				model_name = model['model']
-				f = lambda model_name,field: lambda: self.executeRelation(model_name,field)					
-				self.newMenuEntries.append(('... '+model['name'], f(model_name,field), False))
+			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.modelType, False)], False, Rpc.session.context)
+			actions = [x[2] for x in related]
+			for action in actions:
+				f = lambda action: lambda: self.executeRelation(action)
+				self.newMenuEntries.append(('... '+ action['name'], f(action), False))
 			self.menuLoaded = True
 
 		# Set enabled/disabled values
@@ -262,12 +257,15 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 			currentEntries.append( (x[0], x[1], value) )
 		return currentEntries
 
-	def executeRelation(self, model, field):
-		# Open a view with ids: [(field,'=',value)]
+	def executeRelation(self, action):
 		value = self.model.value(self.name)
-		ids = Rpc.session.execute('/object', 'execute', model, 'search',[(field,'=',value)])
-		Api.instance.createWindow(False, model, ids, [(field,'=',value)], 'form', None, mode='tree,form')
-		return True
+		group = ModelRecordGroup( self.attrs['relation'] )
+		group.load( [value] )
+		record = group.models[0]
+		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
+		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
+		Api.instance.executeAction( action )
+		return 
 
 	def executeAction(self, type):
 		id = self.model.id
