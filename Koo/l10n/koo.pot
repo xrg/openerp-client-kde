@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-13 12:56+0100\n"
+"POT-Creation-Date: 2008-12-23 01:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,11 +22,11 @@ msgid ""
 "can easily interact with Koo."
 msgstr ""
 
-#: Koo/Printer/Printer.py:74
+#: Koo/Printer/Printer.py:72
 msgid "Report error"
 msgstr ""
 
-#: Koo/Printer/Printer.py:74
+#: Koo/Printer/Printer.py:72
 msgid "There was an error trying to create the report."
 msgstr ""
 
@@ -56,46 +56,45 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: Koo/Model/KooModel.py:290
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:104
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:139
+#: Koo/Model/KooModel.py:335
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:101
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:136
 #, python-format
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
-#: Koo/Actions/Actions.py:112
+#: Koo/Actions/Actions.py:59 Koo/Actions/Actions.py:83
+#: Koo/Actions/Actions.py:113
 #, python-format
 msgid "Error: %s"
 msgstr ""
 
-#: Koo/Actions/Actions.py:62
+#: Koo/Actions/Actions.py:63
 msgid "Nothing to print."
 msgstr ""
 
-#: Koo/Actions/Actions.py:78
+#: Koo/Actions/Actions.py:79
 msgid "Printing aborted. Delay too long."
 msgstr ""
 
-#: Koo/Actions/Actions.py:92
+#: Koo/Actions/Actions.py:93
 msgid "Nothing to print!"
 msgstr ""
 
-#: Koo/Actions/Actions.py:108
+#: Koo/Actions/Actions.py:109
 msgid "Printing aborted, too long delay !"
 msgstr ""
 
-#: Koo/Actions/Actions.py:206
+#: Koo/Actions/Actions.py:204
+msgid "No actions defined"
+msgstr ""
+
+#: Koo/Actions/Actions.py:204
+msgid "There are no actions defined for this item."
+msgstr ""
+
+#: Koo/Actions/Actions.py:211
 msgid "Select your action"
-msgstr ""
-
-#: Koo/Actions/Actions.py:212
-#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:110
-msgid "Action"
-msgstr ""
-
-#: Koo/Actions/Actions.py:212
-msgid "No action defined!"
 msgstr ""
 
 #: Koo/Screen/Action.py:69
@@ -152,22 +151,22 @@ msgstr ""
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:98
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:95
 #: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:56
 msgid "Select the file to attach"
 msgstr ""
 
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:114
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:111
 #: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:63
 msgid "Error reading the file"
 msgstr ""
 
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:118
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:115
 #: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:67
 msgid "Save as..."
 msgstr ""
 
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:124
+#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:121
 #: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:73
 msgid "Error writing the file!"
 msgstr ""
@@ -189,52 +188,56 @@ msgstr ""
 msgid "Invalid Form, correct red fields!"
 msgstr ""
 
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:51
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:59
 msgid "Set current date"
 msgstr ""
 
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:92
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:100
 msgid "Set current date and time"
 msgstr ""
 
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:126
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:169
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:134
+#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:177
 msgid "Set current time"
 msgstr ""
 
 #: Koo/FieldWidgets/CharFieldWidget/CharFieldWidget.py:70
-#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:53
+#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:54
 msgid "Translation dialog"
 msgstr ""
 
 #: Koo/FieldWidgets/CharFieldWidget/CharFieldWidget.py:70
-#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:53
+#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:54
 msgid "You must save the resource before adding translations"
 msgstr ""
 
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:103
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:100
 msgid "Save image as..."
 msgstr ""
 
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:111
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:108
 msgid "Error saving file"
 msgstr ""
 
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:111
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:108
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
 msgstr ""
 
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:114
+#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:111
 msgid "Open image file..."
 msgstr ""
 
-#: Koo/FieldWidgets/LinkFieldWidget/LinkFieldWidget.py:73
+#: Koo/FieldWidgets/LinkFieldWidget/LinkFieldWidget.py:70
 msgid "Select the file to link to"
 msgstr ""
 
-#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:111
+#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:123
+msgid "Action"
+msgstr ""
+
+#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:124
 msgid "Report"
 msgstr ""
 
@@ -246,25 +249,25 @@ msgstr ""
 msgid "Translation Dialog"
 msgstr ""
 
-#: Koo/Common/Common.py:169
+#: Koo/Common/Common.py:167
 msgid "Concurrency warning"
 msgstr ""
 
-#: Koo/Common/Common.py:170
+#: Koo/Common/Common.py:168
 msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
 msgstr ""
 
-#: Koo/Common/Common.py:171
+#: Koo/Common/Common.py:169
 msgid "Save anyway"
 msgstr ""
 
-#: Koo/Common/Common.py:172
+#: Koo/Common/Common.py:170
 msgid "Compare"
 msgstr ""
 
-#: Koo/Common/Common.py:173
+#: Koo/Common/Common.py:171
 msgid "Do not save"
 msgstr ""
 
@@ -300,7 +303,7 @@ msgstr ""
 msgid "specify stylesheet to apply"
 msgstr ""
 
-#: Koo/View/Chart/Parser.py:65 Koo/View/Calendar/Parser.py:46
+#: Koo/View/Chart/Parser.py:57 Koo/View/Calendar/Parser.py:46
 msgid "Unknown"
 msgstr ""
 
@@ -508,7 +511,7 @@ msgstr ""
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:193 Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FormWidget.py:193 Koo/Dialogs/FullTextSearchDialog.py:392
 msgid "ID"
 msgstr ""
 
@@ -744,63 +747,63 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:303
+#: Koo/Dialogs/FullTextSearchDialog.py:302
 msgid "(Everywhere)"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:307
+#: Koo/Dialogs/FullTextSearchDialog.py:306
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:309
+#: Koo/Dialogs/FullTextSearchDialog.py:308
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:311
+#: Koo/Dialogs/FullTextSearchDialog.py:310
 msgid "Full Text Search"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:312
+#: Koo/Dialogs/FullTextSearchDialog.py:311
 #, python-format
 msgid "Full Text Search (%%d result(s))"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:394
+#: Koo/Dialogs/FullTextSearchDialog.py:393
 msgid "Model ID"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:395
+#: Koo/Dialogs/FullTextSearchDialog.py:394
 msgid "Model Name"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:397
+#: Koo/Dialogs/FullTextSearchDialog.py:396
 msgid "Type"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:398
+#: Koo/Dialogs/FullTextSearchDialog.py:397
 msgid "Name"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:399
+#: Koo/Dialogs/FullTextSearchDialog.py:398
 msgid "Text"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:400
+#: Koo/Dialogs/FullTextSearchDialog.py:399
 msgid "Ranking"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:78
+#: Koo/Dialogs/SearchDialog.py:76
 #, python-format
 msgid "Search: %s"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:79
+#: Koo/Dialogs/SearchDialog.py:77
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr ""
