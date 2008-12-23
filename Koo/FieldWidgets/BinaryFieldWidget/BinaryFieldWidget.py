@@ -96,7 +96,7 @@ class BinaryFormWidget(AbstractFormWidget, BinaryFormWidgetUi):
 			if filename.isNull():
 				return
 			filename = unicode(filename)
-			value = file(filename).read()
+			value = file(filename, 'rb').read()
 			self.model.setValue( self.name, value )
 			self.uiBinary.setText( _('%d bytes') % len(value) )
 

@@ -110,7 +110,7 @@ class ImageFormWidget(AbstractFormWidget, ImageFormWidgetUi):
 	def loadImage(self):
 		name = QFileDialog.getOpenFileName( self, _('Open image file...') )
 		if not name.isNull():
-			image = file(name).read()
+			image = file(name, 'rb').read()
 			self.model.setValue(self.name, image )
 			self.update()
 			self.modified()
