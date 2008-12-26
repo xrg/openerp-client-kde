@@ -69,17 +69,26 @@ def floatTimeToTime( value ):
 ## @brief Converts a QDate object into a Python string ready to be sent to the 
 # server.
 def dateToStorage( date ):
-	return str( date.toString( 'yyyy-MM-dd' ) )
+	if date.isValid():
+		return str( date.toString( 'yyyy-MM-dd' ) )
+	else:
+		return False
 
 ## @brief Converts a QTime object into a Python string ready to be sent to the 
 # server.
 def timeToStorage( time ):
-	return str( time.toString( 'hh:mm:ss' ) )
+	if time.isValid():
+		return str( time.toString( 'hh:mm:ss' ) )
+	else:
+		return False
 	
 ## @brief Converts a QDateTime object into a Python string ready to be sent to 
 # the server.
 def dateTimeToStorage( dateTime ):
-	return str( dateTime.toString( 'yyyy-MM-dd hh:mm:ss' ) )
+	if dateTime.isValid():
+		return str( dateTime.toString( 'yyyy-MM-dd hh:mm:ss' ) )
+	else:
+		return False
 
 ## @brief Converts a Python string or QString into a QDate object
 def textToDate( text ):

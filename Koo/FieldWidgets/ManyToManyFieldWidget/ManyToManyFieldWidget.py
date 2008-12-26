@@ -63,7 +63,6 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.screen.setModelGroup( group )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
-		self.screen.setAddAfterNew( True )
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
 
 		layout = self.layout()

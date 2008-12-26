@@ -263,7 +263,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		print "CALLING SCREEN RELOAD"
 		self.screen.reload()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()

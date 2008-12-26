@@ -102,7 +102,6 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		self.screen.setModelGroup( group )
 		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
-		self.screen.setAddAfterNew( True )
 		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
 
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
