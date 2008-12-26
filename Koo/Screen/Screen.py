@@ -237,7 +237,7 @@ class Screen(QScrollArea):
 	def setModelGroup(self, modelGroup):
 		self.name = modelGroup.resource
 		self.resource = modelGroup.resource
-		self.context = modelGroup.context
+		self.context = modelGroup.context()
 		self.Rpc = RpcProxy(self.resource)
 
 		self.models = modelGroup
@@ -395,10 +395,8 @@ class Screen(QScrollArea):
 		if self.currentView() and self.currentView().showsMultipleRecords() \
 				and self.currentView().isReadOnly():
 			self.switchView()
-		model = self.models.newModel(default, self.models.domain(), self.context)
 
-		if (not self.currentView() ) or self.currentView().model_add_new or self._addAfterNew:
-			self.models.addModel(model, self.new_model_position())
+		record = self.models.create( default, self.newRecordPosition(), self.models.domain(), self.context )
 
 		if self.currentView():
 			self.currentView().reset()
@@ -407,7 +405,7 @@ class Screen(QScrollArea):
 		self.display()
 		return self.currentRecord()
 
-	def new_model_position(self):
+	def newRecordPosition(self):
 		position = -1
 		if self.currentView() and self.currentView().showsMultipleRecords() \
 			    and self.currentView().isReadOnly():
@@ -418,7 +416,7 @@ class Screen(QScrollArea):
 	def setOnWrite(self, func_name):
 		self.models.on_write = func_name
 
-	def cancel_current(self):
+	def cancelCurrentRecord(self):
 		if not self.currentRecord():
 			return
 		self.currentRecord().cancel()
@@ -446,8 +444,6 @@ class Screen(QScrollArea):
 						return False
 			self.display()
 
-		if not self.models.modelExists( self.currentRecord() ):
-			self.models.addModel( self.currentRecord() )
 		self.display()
 		return id
 
@@ -463,7 +459,7 @@ class Screen(QScrollArea):
                                         self.display()
                                         break	
                 else:
-                        self.cancel_current()
+                        self.cancelCurrentRecord()
                         self.display()
 
 	def currentView(self):

@@ -35,7 +35,6 @@ class ChartView( AbstractView ) :
 	def __init__(self, parent=None ):
 		AbstractView.__init__( self, parent )
 		self.view_type = 'graph'
-		self.model_add_new = False
 		self.widget = None 
 		layout = QVBoxLayout( self )
 		self.title= ''

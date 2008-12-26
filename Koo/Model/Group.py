@@ -177,7 +177,7 @@ class ModelRecordGroup(QObject):
 			return
 		# Execute the on_write function on the server.
 		# It's expected it'll return a list of ids to be loaded or reloaded.
-		new_ids = getattr(self.rpc, self.on_write)(edited_id, self.context)
+		new_ids = getattr(self.rpc, self.on_write)( edited_id, self.context() )
 		model_idx = self.models.index(self.recordById(edited_id))
 		result = False
 		for id in new_ids:
@@ -250,13 +250,12 @@ class ModelRecordGroup(QObject):
 		if None in queryIds:
 			queryIds.remove( None )
 		c = Rpc.session.context.copy()
-		c.update(self.context)
+		c.update( self.context() )
 		values = self.rpc.read(queryIds, self.fields.keys(), c)
 		if not values:
 			return False
 
 		if self._sortMode == self.SortAllItems:
-			#if not self.models:
 			# If nothing else was loaded, we sort the fields in the order given
 			# by 'ids' or 'self.sortedRedlatedIds' when appropiate.
 			if self.sortedRelatedIds:
@@ -292,11 +291,10 @@ class ModelRecordGroup(QObject):
 		self.model_removed = []
 	
 	## @brief Returns a copy of the current context
-	def getContext(self):
+	def context(self):
 		ctx = {}
 		ctx.update(self._context)
 		return ctx
-	context = property(getContext)
 
 	## @brief Adds a model to the list
 	def addModel(self, model, position=-1):
@@ -320,19 +318,17 @@ class ModelRecordGroup(QObject):
 	#
 	# If 'default' is true, the model is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
-	#
-	# Note that the model is not added to the group. You need to call addModel()
-	# in order to do that.
-	def newModel(self, default=True, domain=[], context={}):
-		newmod = ModelRecord(self.resource, None, group=self, 
+	def create(self, default=True, position=-1, domain=[], context={}):
+		record = ModelRecord(self.resource, None, group=self, 
 					   parent=self.parent, new=True)
-		self.connect(newmod, SIGNAL('recordChanged( PyQt_PyObject )'), self._record_changed)
+		self.connect(record, SIGNAL('recordChanged( PyQt_PyObject )'), self._record_changed)
 		if default:
 			ctx=context.copy()
-			ctx.update(self.context)
-			newmod.fillWithDefaults(domain, ctx)
-		self.emit(SIGNAL('modelChanged( PyQt_PyObject )'), newmod)
-		return newmod
+			ctx.update( self.context() )
+			record.fillWithDefaults(domain, ctx)
+		self.addModel( record, position )
+		self.emit(SIGNAL('modelChanged( PyQt_PyObject )'), record)
+		return record
 	
 	def _record_changed(self, model):
 		self.emit(SIGNAL('modelChanged( PyQt_PyObject )'), model)
@@ -401,7 +397,7 @@ class ModelRecordGroup(QObject):
 
 			if others:
 				c = Rpc.session.context.copy()
-				c.update(self.context)
+				c.update( self.context() )
 				values = self.rpc.read(old, others, c)
 				if values:
 					for v in values:
@@ -421,7 +417,7 @@ class ModelRecordGroup(QObject):
 
 		# Set defaults
 		if len(new) and len(to_add):
-			values = self.rpc.default_get(to_add, self.context)
+			values = self.rpc.default_get( to_add, self.context() )
 			for t in to_add:
 				if t not in values:
 					values[t] = False
@@ -432,7 +428,7 @@ class ModelRecordGroup(QObject):
 	def ensureAllLoaded(self):
 		ids = [x.id for x in self.models if not x._loaded]
 		c = Rpc.session.context.copy()
-		c.update(self.context)
+		c.update( self.context() )
 		values = self.rpc.read( ids, self.fields.keys(), c )
 		if values:
 			for v in values:
@@ -483,7 +479,7 @@ class ModelRecordGroup(QObject):
 			return 
 
 		c = Rpc.session.context.copy()
-		c.update(self.context)
+		c.update( self.context() )
 		ids = [x.id for x in self.models]
 		pos = ids.index(model.id) / self.limit
 

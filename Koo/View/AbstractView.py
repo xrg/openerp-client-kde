@@ -32,8 +32,6 @@ class AbstractView(QWidget):
 		QWidget.__init__( self, parent )
 		# TODO: By now, needs the self.widget
 		self.widget = None
-		# Needs the self.model_add_new set to True (like TreeView) or False (like the FormView)
-		self.model_add_new = False
 		# Needs to set self.view_type (example: 'tree' or 'form')
 		self.view_type = 'none'
 		# The 'id' corresponds to the view id in the database. Not directly
@@ -79,11 +77,6 @@ class AbstractView(QWidget):
 	# configured to be read-only or read-write.
 	def setReadOnly(self, value):
 		return 
-
-	# This function is called when the
-	def recordChanged(self, signal, models, index):
-		pass
-
 
 	## @brief Override this function in your view if you wish to store
 	# some settings per user and view. The function should return

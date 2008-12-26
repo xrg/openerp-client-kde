@@ -34,7 +34,6 @@ class SvgView( AbstractView ):
 	def __init__(self, parent=None):
 		AbstractView.__init__( self, parent )
 		self.view_type = 'svg'
-		self.model_add_new = False
 		self.scene = QGraphicsScene( self )
 		self.view = QGraphicsView( self )
 		self.view.setScene( self.scene )

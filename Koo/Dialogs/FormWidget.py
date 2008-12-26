@@ -336,7 +336,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def modified_save(self):
 		if self.screen.isModified():
-			value = QMessageBox.question(self, _('Question'), _('This record has been modified do you want to save it?'),QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel)
+			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel ))
 			if value == QMessageBox.Save:
 				return self.save()
 			elif value == QMessageBox.Discard:

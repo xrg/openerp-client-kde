@@ -71,8 +71,7 @@ class ModelRecord(QObject):
 		for key,val in self.mgroup.mfields.items():
 			self.values[key] = val.create(self)
 			if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
-				mod = self.values[key].newModel()
-				self.values[key].addModel(mod)
+				self.values[key].create()
 
 	def _getModified(self):
 		return self._modified
@@ -210,7 +209,7 @@ class ModelRecord(QObject):
  		return ok
 
 	def context(self):
-		return self.mgroup.context
+		return self.mgroup.context()
 
 	# Returns a dict with the default value of each field
 	# { 'field': defaultValue }
