@@ -58,7 +58,7 @@ class StringField(QObject):
 
 	def context(self, model, check_load=True, eval=True):
 		context = {}
-		context.update(self.parent.context)
+		context.update( self.parent.context() )
 		field_context_str = self.attrs.get('context', '{}') or '{}'
 		if eval:
 			field_context = model.evaluateExpression('dict(%s)' % field_context_str, check_load=check_load)
@@ -266,7 +266,6 @@ class ToManyField(StringField):
 			mod = model.values[self.name].model_new(default=False)
 			mod.setDefault(record)
 			model.values[self.name].model_add(mod)
-		model.values[self.name].setCurrentRecord( mod )
 		return True
 
 	def default(self, model):

@@ -240,10 +240,10 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateStatus(_('Working now on the duplicated document !'))
 
 	def save(self, widget=None, sig_new=True, auto_continue=True):
-		if not self.screen.currentModel():
+		if not self.screen.currentRecord():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		modification = self.screen.currentModel().id
+		modification = self.screen.currentRecord().id
 		id = self.screen.save()
 		if id:
 			self.updateStatus(_('Document saved !'))
@@ -272,14 +272,14 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		screen.reload()
+		self.screen.reload()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
 	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
 		ids = self.screen.ids_get()
-		if self.screen.currentModel():
-			id = self.screen.currentModel().id
+		if self.screen.currentRecord():
+			id = self.screen.currentRecord().id
 		else:
 			id = False
 		if not self.screen.currentView().showsMultipleRecords():
@@ -309,8 +309,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.screen.load( dialog.result )
 
 	def updateStatus(self, message=''):
-		if self.model and self.screen.currentModel() and self.screen.currentModel().id:
-			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.currentModel().id)])
+		if self.model and self.screen.currentRecord() and self.screen.currentRecord().id:
+			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.currentRecord().id)])
 			message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 
@@ -336,7 +336,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def modified_save(self):
 		if self.screen.isModified():
-			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel ))
+			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel )
 			if value == QMessageBox.Save:
 				return self.save()
 			elif value == QMessageBox.Discard:

@@ -401,12 +401,13 @@ class Screen(QScrollArea):
 		if self.currentView():
 			self.currentView().reset()
 
-		self.setCurrentRecord( model )
+		self.setCurrentRecord( record )
 		self.display()
 		return self.currentRecord()
 
 	def newRecordPosition(self):
 		position = -1
+		#print "VIEW TYPE: %s EDITABLE: %s", (self.currentView().view_type, self.currentView().editable )
 		if self.currentView() and self.currentView().showsMultipleRecords() \
 			    and self.currentView().isReadOnly():
 			#and self.currentView().editable == 'top':
@@ -478,7 +479,7 @@ class Screen(QScrollArea):
 			return False
 		self.currentView().store()
 		res = False
-		if self.currentView().view_type.showsMultipleRecords():
+		if self.currentView().showsMultipleRecords():
 			for model in self.models.models:
 				if model.isModified():
 					res = True
