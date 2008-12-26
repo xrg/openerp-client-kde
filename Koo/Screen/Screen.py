@@ -110,8 +110,6 @@ class Screen(QScrollArea):
 
 		self._viewQueue = ViewQueue()
 
-		self._addAfterNew = False
-
 	def setPreloadedViews(self, views):
 		self.views_preload = views
 
@@ -142,12 +140,6 @@ class Screen(QScrollArea):
 	def viewTypes(self):
 		return self._viewTypes
 
-	def setAddAfterNew(self, value):
-		self._addAfterNew = value
-
-	def addAfterNew(self):
-		return self._addAfterNew
-
 	## @brief Sets whether the screen is embedded.
 	#
 	# Embedded screens don't show the search or toolbar widgets.
@@ -163,6 +155,7 @@ class Screen(QScrollArea):
 			if self.currentView() and self.currentView().showsMultipleRecords():
 				self.loadSearchForm()
 
+	## @brief Returns True if the Screen acts in embedded mode.
 	def embedded(self):
 		return self._embedded
 
@@ -180,12 +173,12 @@ class Screen(QScrollArea):
 			self.searchForm.hide()
 
 	def triggerAction(self):
-		if not self.id_get():
+		if not self.currentId():
 			return
 		# We expect a Screen.Action here
 		action = self.sender()
 
-		id = self.id_get()
+		id = self.currentId()
 		ids = self.selectedIds()
 
 		if action.type() != 'relate':
@@ -197,7 +190,7 @@ class Screen(QScrollArea):
 		if action.type() != 'relate':
 			self.reload()
 
-	# Sets the current widget of the Screen
+	## @brief Sets the current widget of the Screen
 	def setView(self, widget):
 		if self.containerView:
 			self.disconnect(self.containerView, SIGNAL("activated()"), self.activate )
@@ -220,7 +213,7 @@ class Screen(QScrollArea):
 	def activate( self ):
 		self.emit( SIGNAL('activated()') )
 
-	# Searches with the current parameters of the search form and loads the
+	## @brief Searches with the current parameters of the search form and loads the
 	# models that fit the criteria.
 	def search( self ):
 		value = self.searchForm.getValue()
@@ -249,9 +242,13 @@ class Screen(QScrollArea):
 		modelGroup.addFields(self.fields)
 		self.fields.update(modelGroup.fields)
 
+	## @brief Returns a reference the current record (ModelRecord).
 	def currentRecord(self):
 		return self.__current_model
 
+	## @brief Sets the current record.
+	#
+	# Note that value will be a reference to the ModelRecord.
 	def setCurrentRecord(self, value):
 		self.__current_model = value
 		try:
@@ -267,6 +264,7 @@ class Screen(QScrollArea):
 			if self.currentView():
 				self.currentView().setSelected(self.__current_model.id)
 
+	## @brief Switches to the next view in the queue of views.
 	def switchView(self):
 		if self.currentView(): 
 			self.currentView().store()
@@ -373,6 +371,7 @@ class Screen(QScrollArea):
 			self.setView(view)
 		return view
 
+	## @brief Loads all actions associated with the current model including plugins.
 	def loadActions( self, actions ):
 		self.actions = ActionFactory.create( self, actions, self.resource )
 		if self.actions:
@@ -388,6 +387,7 @@ class Screen(QScrollArea):
 			if len(self.actions) > 1 + len(Plugins.list()) and Options.options['show_toolbar']:
 				self.toolBar.setup( self.actions )
 
+	## @brief Returns True if the current view is read-only. Returns False if it's read-write.
 	def isReadOnly(self):
 		return self.currentView().isReadOnly()
 
@@ -417,11 +417,7 @@ class Screen(QScrollArea):
 	def setOnWrite(self, func_name):
 		self.models.on_write = func_name
 
-	def cancelCurrentRecord(self):
-		if not self.currentRecord():
-			return
-		self.currentRecord().cancel()
-
+	## @brief Stores all modified models.
 	def save(self):
  		if not self.currentRecord():
  			return False
@@ -448,32 +444,51 @@ class Screen(QScrollArea):
 		self.display()
 		return id
 
-	def reload(self):
-		if self.currentView().showsMultipleRecords():
-                        id = self.id_get()
-                        ids = self.ids_get()
-                        self.clear()
-                        self.load(ids)
-                        for model in self.models:
-                                if model.id == id:
-                                        self.setCurrentRecord( model )
-                                        self.display()
-                                        break	
-                else:
-                        self.cancelCurrentRecord()
-                        self.display()
+	#def reload(self):		
+	#	self.currentRecord().reload()
+	#	self.display()
 
+	def reload(self):
+		#if self.currentView().showsMultipleRecords():
+		print "RELOADING WITH CURRENT ID: ", self.currentId()
+		print "ALL IDS: ", self.allIds()
+		id = self.currentId()
+		ids = self.allIds()
+		self.clear()
+		self.load(ids)
+		for model in self.models:
+			if model.id == id:
+				self.setCurrentRecord( model )
+				self.display()
+				break	
+		#else:
+			#self.cancelCurrentRecord()
+			#self.display()
+
+	def cancel(self):
+		if not self.currentRecord():
+			return
+		self.currentRecord().cancel()
+		
+	def cancelCurrentRecord(self):
+		if not self.currentRecord():
+			return
+		self.currentRecord().cancel()
+
+	## @brief Returns a reference to the current view.
 	def currentView(self):
 		if not len(self.views):
 			return None
 		return self.views[self.__current_view]
 
+	## @brief Returns a dictionary with all field values for the current record. 
 	def get(self):
 		if not self.currentRecord():
 			return None
 		self.currentView().store()
 		return self.currentRecord().get()
 
+	## @brief Returns True if any record has been modified. Returns False otherwise.
 	def isModified(self):
 		if not self.currentRecord():
 			return False
@@ -487,10 +502,10 @@ class Screen(QScrollArea):
 			res = self.currentRecord().isModified()
 		return res 
 
-	def reload(self):		
-		self.currentRecord().reload()
-		self.display()
-
+	## @brief Removes all selected ids.
+	#
+	# If unlink is False (the default) records are only removed from the list. If
+	# unlink is True records will be removed from the server too.
 	def remove(self, unlink = False):
 		ids = self.selectedIds()
 		if unlink and ids:
@@ -529,13 +544,17 @@ class Screen(QScrollArea):
 			self.setCurrentRecord( None )
 			self.display()
 
-	def display(self, res_id=None):
-		if res_id:
-			self.setCurrentRecord( self.models[res_id] )
+	## @brief Displays the record with id 'id' or refreshes the current record if 
+	# no id is given.
+	def display(self, id=None):
+		if id:
+			self.setCurrentRecord( self.models[id] )
 		if self.views:
 			self.currentView().display(self.currentRecord(), self.models)
 
-	def display_next(self):
+	## @brief Moves current record to the next one in the list and displays it in the 
+	# current view.
+	def displayNext(self):
 		self.currentView().store()
 		if self.currentRecord() in self.models.models:
 			idx = self.models.models.index(self.currentRecord())
@@ -547,7 +566,9 @@ class Screen(QScrollArea):
 			self.currentRecord().setValidate()
 		self.display()
 
-	def display_prev(self):
+	## @brief Moves current record to the previous one in the list and displays it in the 
+	# current view.
+	def displayPrevious(self):
 		self.currentView().store()
 		if self.currentRecord() in self.models.models:
 			idx = self.models.models.index(self.currentRecord())-1
@@ -561,16 +582,19 @@ class Screen(QScrollArea):
 			self.currentRecord().setValidate()
 		self.display()
 
+	## @brief Returns all selected record ids.
 	def selectedIds(self):
 		return self.currentView().selectedIds()
 
-	def id_get(self):
+	## @brief Returns the current record id.
+	def currentId(self):
 		if self.currentRecord():
 			return self.currentRecord().id
 		else:
 			return None
 
-	def ids_get(self):
+	## @brief Returns a list with all loaded (or preloaded) record ids.
+	def allIds(self):
 		return [x.id for x in self.models if x.id]
 
 	def clear(self):

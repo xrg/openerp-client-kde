@@ -148,14 +148,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		self.screen.load( [dialog.result] )
 		
-	def ids_get(self):
-		return self.screen.ids_get()
-
-	def id_get(self):
-		return self.screen.id_get()
-
 	def showAttachments(self, widget=None):
-		id = self.screen.id_get()
+		id = self.screen.currentId()
 		if id:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			window = AttachmentDialog(self.model, id, self)
@@ -173,16 +167,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
-			Api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
+			Api.instance.createWindow(None, self.model, self.screen.currentId(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()
 		QApplication.restoreOverrideCursor()
 
-	def _id_get(self):
-		return self.screen.id_get()
-
 	def showLogs(self, widget=None):
-		id = self._id_get()
+		id = self.screen.currentId()
 		if not id:
 			self.updateStatus(_('You have to select one resource!'))
 			return False
@@ -222,7 +213,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def export(self):
 		fields = []
-		dialog = ExportDialog(self.model, self.screen.ids_get(), self.screen.fields, fields)
+		dialog = ExportDialog(self.model, self.screen.allIds(), self.screen.fields, fields)
 		dialog.exec_()
 
 	def new(self, widget=None, autosave=True):
@@ -234,7 +225,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def duplicate(self):
 		if not self.modified_save():
 			return
-		res_id = self._id_get()
+		res_id = self.screen.currentId()
 		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
 		self.screen.load([new_id])
 		self.updateStatus(_('Working now on the duplicated document !'))
@@ -258,7 +249,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.display_prev()
+		self.screen.displayPrevious()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
@@ -266,18 +257,25 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.display_next()
+		self.screen.displayNext()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
+		print "CALLING SCREEN RELOAD"
 		self.screen.reload()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
+	def cancel(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		self.screen.cancel()
+		self.updateStatus()
+		QApplication.restoreOverrideCursor()
+
 	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
-		ids = self.screen.ids_get()
+		ids = self.screen.allIds()
 		if self.screen.currentRecord():
 			id = self.screen.currentRecord().id
 		else:

@@ -141,10 +141,10 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		self.screen.display()
 
 	def next(self ): 
-		self.screen.display_next()
+		self.screen.displayNext()
 
 	def previous(self): 
-		self.screen.display_prev()
+		self.screen.displayPrevious()
 
 	def remove(self): 
 		self.screen.remove()
