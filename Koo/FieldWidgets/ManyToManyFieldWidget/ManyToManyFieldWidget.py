@@ -72,9 +72,9 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.old = None
 
 	def open( self ):
-		if not self.screen.current_model:
+		if not self.screen.currentRecord():
 			return
-		id = self.screen.current_model.id 
+		id = self.screen.currentRecord().id 
 		if not id:
 			return
 		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree')	
@@ -113,7 +113,7 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.pushRemove.setEnabled( not ro )
 
 	def clear(self):
-		self.screen.current_model = None
+		self.screen.setCurrentRecord( None )
 		self.uiText.setText('')
 		self.screen.clear()	
 		self.screen.display()

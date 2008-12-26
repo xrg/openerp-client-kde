@@ -91,7 +91,6 @@ class TreeView( AbstractView ):
 		AbstractView.__init__(self, parent)
 		self.treeModel = None
 		self.view_type = 'tree'
-		self.model_add_new = True
 		self.reload = False
 		self.title=""
 		self.selecting = False

@@ -94,7 +94,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if name:
 			self.name = name
 		else:
-			self.name = self.screen.current_view.title
+			self.name = self.screen.currentView().title
 
 		# TODO: Use desinger's widget promotion
 		self.layout().insertWidget(0, self.screen )
@@ -240,11 +240,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateStatus(_('Working now on the duplicated document !'))
 
 	def save(self, widget=None, sig_new=True, auto_continue=True):
-		if not self.screen.current_model:
+		if not self.screen.currentModel():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		modification = self.screen.current_model.id
-		id = self.screen.save_current()
+		modification = self.screen.currentModel().id
+		id = self.screen.save()
 		if id:
 			self.updateStatus(_('Document saved !'))
 			if not modification:
@@ -272,30 +272,18 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if self.screen.current_view.view_type == 'form':
-			self.screen.cancel_current()
-			self.screen.display()
-		else:
-			id = self.screen.id_get()
-			ids = self.screen.ids_get()
-			self.screen.clear()
-			self.screen.load(ids)
-			for model in self.screen.models:
-				if model.id == id:
-					self.screen.current_model = model
-					self.screen.display()
-					break
+		screen.reload()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
 	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
 		ids = self.screen.ids_get()
-		if self.screen.current_model:
-			id = self.screen.current_model.id
+		if self.screen.currentModel():
+			id = self.screen.currentModel().id
 		else:
 			id = False
-		if self.screen.current_view.view_type == 'form':
-			id = self.screen.save_current()
+		if not self.screen.currentView().showsMultipleRecords():
+			id = self.screen.save()
 			if not id:
 				return False
 			ids = [id]
@@ -321,8 +309,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.screen.load( dialog.result )
 
 	def updateStatus(self, message=''):
-		if self.model and self.screen.current_model and self.screen.current_model.id:
-			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.current_model.id)])
+		if self.model and self.screen.currentModel() and self.screen.currentModel().id:
+			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.currentModel().id)])
 			message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 

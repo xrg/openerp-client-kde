@@ -70,14 +70,14 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		for d in default:
 			default2[d[1]] = d[2]
 			self.default[d[1]] = d[0]
-		self.screen.current_model.set(default2)
+		self.screen.currentRecord().set(default2)
 
 		self.layout().insertWidget( 0, self.screen )
 
 		self.setWindowTitle(_('Preference %s') % model )
 
 	def slotAccept(self):
-		if not self.screen.current_model.validate():
+		if not self.screen.currentRecord().validate():
 			return
 		val = copy.copy(self.screen.get())
 

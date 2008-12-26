@@ -127,7 +127,7 @@ class ActionFormWidget(AbstractFormWidget, ActionFormWidgetUi):
 		Api.instance.execute(self.act_id )
 
 	def store(self):
-		self.screen.current_view.store()
+		self.screen.currentView().store()
 
 	def showValue(self):
 		self.modelGroup.update()

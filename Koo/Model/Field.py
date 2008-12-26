@@ -244,7 +244,7 @@ class ToManyField(StringField):
 		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
 		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		mod.setDomain( [('id','in',value)] )
-		mod.pre_load(value, display=False)
+		mod.preload(value, display=False)
 		model.values[self.name] = mod
 
 	def set_client(self, model, value, test_state=False):
@@ -266,7 +266,7 @@ class ToManyField(StringField):
 			mod = model.values[self.name].model_new(default=False)
 			mod.setDefault(record)
 			model.values[self.name].model_add(mod)
-		model.values[self.name].current_model = mod
+		model.values[self.name].setCurrentRecord( mod )
 		return True
 
 	def default(self, model):

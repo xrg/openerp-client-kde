@@ -160,14 +160,14 @@ class Screen(QScrollArea):
 		else:
 			self.searchForm.show()
 			self.toolBar.show() 
-			if self.current_view and self.current_view.view_type == 'tree':
+			if self.currentView() and self.currentView().showsMultipleRecords():
 				self.loadSearchForm()
 
 	def embedded(self):
 		return self._embedded
 
 	def loadSearchForm(self):
-		if self.current_view.view_type == 'tree' and not self._embedded: 
+		if self.currentView().showsMultipleRecords() and not self._embedded: 
 			if not self.searchForm.isLoaded():
 				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
 				self.searchForm.setup( form['arch'], form['fields'], self.resource )
@@ -189,7 +189,7 @@ class Screen(QScrollArea):
 		ids = self.selectedIds()
 
 		if action.type() != 'relate':
-			self.save_current()
+			self.save()
 			self.display()
 
 		action.execute( id, ids )
@@ -229,7 +229,7 @@ class Screen(QScrollArea):
 
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):
-		self.current_model = model
+		self.setCurrentRecord( model )
 		self.emit( SIGNAL('currentChanged()') )
 
 	## @brief Sets the RecordModelGroup this Screen should show.
@@ -242,20 +242,17 @@ class Screen(QScrollArea):
 
 		self.models = modelGroup
 		if len(modelGroup.models):
-			self.current_model = modelGroup.models[0]
+			self.setCurrentRecord( modelGroup.models[0] )
 		else:
-			self.current_model = None
+			self.setCurrentRecord( None )
 
 		modelGroup.addFields(self.fields)
 		self.fields.update(modelGroup.fields)
 
-	def _get_current_model(self):
+	def currentRecord(self):
 		return self.__current_model
 
-	#
-	# Check more or less fields than in the screen !
-	#
-	def _set_current_model(self, value):
+	def setCurrentRecord(self, value):
 		self.__current_model = value
 		try:
 			pos = self.models.models.index(value)
@@ -267,26 +264,24 @@ class Screen(QScrollArea):
 			id = -1
 		self.emit(SIGNAL('recordMessage(int,int,int)'), pos, len(self.models.models or []), id)
 		if self.__current_model:
-			if self.current_view:
-				self.current_view.setSelected(self.__current_model.id)
-		return True
-	current_model = property(_get_current_model, _set_current_model)
+			if self.currentView():
+				self.currentView().setSelected(self.__current_model.id)
 
 	def switchView(self):
-		if self.current_view: 
-			self.current_view.store()
+		if self.currentView(): 
+			self.currentView().store()
 
-		if self.current_model and ( self.current_model not in self.models.models ):
-			self.current_model = None
+		if self.currentRecord() and ( self.currentRecord() not in self.models.models ):
+			self.setCurrentRecord( None )
 
 		if self.loadNextView():
 			self.__current_view = len(self.views) - 1
 		else:
 			self.__current_view = (self.__current_view + 1) % len(self.views)
 
-		self.setView(self.current_view)
-	    	if self.current_model:
-			self.current_model.setValidate()
+		self.setView( self.currentView() )
+	    	if self.currentRecord():
+			self.currentRecord().setValidate()
 		self.display()
 
 	## @brief Loads the next view pending to be loaded.
@@ -353,8 +348,8 @@ class Screen(QScrollArea):
 		_parse_fields(dom, fields)
 
 		models = self.models.models
-		if self.current_model and (self.current_model not in models):
-			models = models + [self.current_model]
+		if self.currentRecord() and (self.currentRecord() not in models):
+			models = models + [self.currentRecord()]
 		if custom:
 			self.models.addCustomFields(fields)
 		else:
@@ -374,7 +369,7 @@ class Screen(QScrollArea):
 
 		if display:
 			self.__current_view = len(self.views) - 1
-			self.current_view.display(self.current_model, self.models)
+			self.currentView().display(self.currentRecord(), self.models)
 			self.setView(view)
 		return view
 
@@ -394,29 +389,29 @@ class Screen(QScrollArea):
 				self.toolBar.setup( self.actions )
 
 	def isReadOnly(self):
-		return self.current_view.isReadOnly()
+		return self.currentView().isReadOnly()
 
 	def new(self, default=True):
-		if self.current_view and self.current_view.view_type == 'tree' \
-				and self.current_view.isReadOnly():
+		if self.currentView() and self.currentView().showsMultipleRecords() \
+				and self.currentView().isReadOnly():
 			self.switchView()
 		model = self.models.newModel(default, self.models.domain(), self.context)
 
-		if (not self.current_view) or self.current_view.model_add_new or self._addAfterNew:
+		if (not self.currentView() ) or self.currentView().model_add_new or self._addAfterNew:
 			self.models.addModel(model, self.new_model_position())
 
-		if self.current_view:
-			self.current_view.reset()
+		if self.currentView():
+			self.currentView().reset()
 
-		self.current_model = model
+		self.setCurrentRecord( model )
 		self.display()
-		return self.current_model
+		return self.currentRecord()
 
 	def new_model_position(self):
 		position = -1
-		if self.current_view and self.current_view.view_type =='tree' \
-			    and self.current_view.isReadOnly():
-			#and self.current_view.editable == 'top':
+		if self.currentView() and self.currentView().showsMultipleRecords() \
+			    and self.currentView().isReadOnly():
+			#and self.currentView().editable == 'top':
 			position = 0
 		return position
 
@@ -424,65 +419,79 @@ class Screen(QScrollArea):
 		self.models.on_write = func_name
 
 	def cancel_current(self):
-		if not self.current_model:
+		if not self.currentRecord():
 			return
-		self.current_model.cancel()
+		self.currentRecord().cancel()
 
-	def save_current(self):
- 		if not self.current_model:
+	def save(self):
+ 		if not self.currentRecord():
  			return False
- 		self.current_view.store()
+ 		self.currentView().store()
 		
 		id = False
-		if self.current_model.validate():
-			id = self.current_model.save(reload=True)
+		if self.currentRecord().validate():
+			id = self.currentRecord().save(reload=True)
 		else:
-			self.current_view.display(self.current_model, self.models)
+			self.currentView().display(self.currentRecord(), self.models)
 			return False
 		
-		if self.current_view.view_type == 'tree':
+		if self.currentView().showsMultipleRecords():
 			for model in self.models.models:
 				if model.isModified():
 					if model.validate():
 						id = model.save(reload=True)
 					else:
-						self.current_model = model
+						self.setCurrentRecord( model )
 						self.display()
 						return False
 			self.display()
 
-		if not self.models.modelExists( self.current_model ):
-			self.models.addModel(self.current_model)
+		if not self.models.modelExists( self.currentRecord() ):
+			self.models.addModel( self.currentRecord() )
 		self.display()
 		return id
 
-	def _getCurrentView(self):
+	def reload(self):
+		if self.currentView().showsMultipleRecords():
+                        id = self.id_get()
+                        ids = self.ids_get()
+                        self.clear()
+                        self.load(ids)
+                        for model in self.models:
+                                if model.id == id:
+                                        self.setCurrentRecord( model )
+                                        self.display()
+                                        break	
+                else:
+                        self.cancel_current()
+                        self.display()
+
+	def currentView(self):
 		if not len(self.views):
 			return None
 		return self.views[self.__current_view]
-	current_view = property(_getCurrentView)
 
 	def get(self):
-		if not self.current_model:
+		if not self.currentRecord():
 			return None
-		self.current_view.store()
-		return self.current_model.get()
+		self.currentView().store()
+		return self.currentRecord().get()
 
 	def isModified(self):
-		if not self.current_model:
+		if not self.currentRecord():
 			return False
-		self.current_view.store()
+		self.currentView().store()
 		res = False
-		if self.current_view.view_type != 'tree':
-			res = self.current_model.isModified()
-		else:
+		if self.currentView().view_type.showsMultipleRecords():
 			for model in self.models.models:
 				if model.isModified():
 					res = True
+		else:
+			res = self.currentRecord().isModified()
 		return res 
 
 	def reload(self):		
-		self.current_model.reload()
+		self.currentRecord().reload()
 		self.display()
 
 	def remove(self, unlink = False):
@@ -505,9 +514,9 @@ class Screen(QScrollArea):
 			self.models.remove( model )
 			if self.models.models:
 				idx = min(idx, len(self.models.models)-1)
-				self.current_model = self.models.models[idx]
+				self.setCurrentRecord( self.models.models[idx] )
 			else:
-				self.current_model = None
+				self.setCurrentRecord( None )
 		self.display()
 		if ids:
 			return True
@@ -515,52 +524,52 @@ class Screen(QScrollArea):
 			return False
 
 	def load(self, ids):
-		self.current_view.reset()
+		self.currentView().reset()
 		self.models.load( ids, display =True )
 		if ids:
 			self.display(ids[0])
 		else:
-			self.current_model = None
+			self.setCurrentRecord( None )
 			self.display()
 
 	def display(self, res_id=None):
 		if res_id:
-			self.current_model = self.models[res_id]
+			self.setCurrentRecord( self.models[res_id] )
 		if self.views:
-			self.current_view.display(self.current_model, self.models)
+			self.currentView().display(self.currentRecord(), self.models)
 
 	def display_next(self):
-		self.current_view.store()
-		if self.current_model in self.models.models:
-			idx = self.models.models.index(self.current_model)
+		self.currentView().store()
+		if self.currentRecord() in self.models.models:
+			idx = self.models.models.index(self.currentRecord())
 			idx = (idx+1) % len(self.models.models)
-			self.current_model = self.models.models[idx]
+			self.setCurrentRecord( self.models.models[idx] )
 		else:
-			self.current_model = len(self.models.models) and self.models.models[0]
-		if self.current_model:
-			self.current_model.setValidate()
+			self.setCurrentRecord( len(self.models.models) and self.models.models[0] )
+		if self.currentRecord():
+			self.currentRecord().setValidate()
 		self.display()
 
 	def display_prev(self):
-		self.current_view.store()
-		if self.current_model in self.models.models:
-			idx = self.models.models.index(self.current_model)-1
+		self.currentView().store()
+		if self.currentRecord() in self.models.models:
+			idx = self.models.models.index(self.currentRecord())-1
 			if idx<0:
 				idx = len(self.models.models)-1
-			self.current_model = self.models.models[idx]
+			self.setCurrentRecord( self.models.models[idx] )
 		else:
-			self.current_model = len(self.models.models) and self.models.models[-1]
+			self.setCurrentRecord( len(self.models.models) and self.models.models[-1] )
 
-		if self.current_model:
-			self.current_model.setValidate()
+		if self.currentRecord():
+			self.currentRecord().setValidate()
 		self.display()
 
 	def selectedIds(self):
-		return self.current_view.selectedIds()
+		return self.currentView().selectedIds()
 
 	def id_get(self):
-		if self.current_model:
-			return self.current_model.id
+		if self.currentRecord():
+			return self.currentRecord().id
 		else:
 			return None
 
@@ -569,10 +578,6 @@ class Screen(QScrollArea):
 
 	def clear(self):
 		self.models.clear()
-		self.display()
-
-	def on_change(self, callback):
-		self.current_model.on_change(callback)
 		self.display()
 
 	# Stores settings of all opened views

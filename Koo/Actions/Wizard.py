@@ -71,9 +71,9 @@ class WizardPage(QDialog):
 		self.screen.new(default=False)
 		self.screen.addCustomView(arch, fields, display=True)
 		# Set default values
-		self.screen.current_model.set(val)
+		self.screen.currentRecord().set(val)
 		# Set already stored values
-		self.screen.current_model.set(self.datas)
+		self.screen.currentRecord().set(self.datas)
 		self.screen.display()
 
 		size = self.screen.sizeHint()
@@ -81,14 +81,14 @@ class WizardPage(QDialog):
 		self.layout = QVBoxLayout( self )
 		self.layout.addWidget( self.screen )
 		self.layout.addLayout( self.buttonsLayout )
-		self.setWindowTitle(self.screen.current_view.title)
+		self.setWindowTitle(self.screen.currentView().title)
 	
 	def slotPush( self ):
 		o = self.sender()
-		self.screen.current_view.store()
+		self.screen.currentView().store()
 		# Get the value we want to return
 		button = str( o.objectName() )
-		if button != 'end' and not self.screen.current_model.validate():
+		if button != 'end' and not self.screen.currentRecord().validate():
 			self.screen.display()
 			return
 		self.datas.update(self.screen.get())

@@ -79,12 +79,12 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
 
 	def accepted( self ):
-		self.screen.current_view.store()
+		self.screen.currentView().store()
 
-		if self.screen.current_model.validate():
+		if self.screen.currentRecord().validate():
 			self.accept()
-			self.screen.save_current()
-			self.model = self.screen.current_model.name()
+			self.screen.save()
+			self.model = self.screen.currentRecord().name()
 			self.close()
 		else:
 			self.reject()

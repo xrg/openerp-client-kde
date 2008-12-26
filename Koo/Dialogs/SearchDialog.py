@@ -62,7 +62,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.screen.setModelGroup( self.modelGroup )
 		self.screen.setViewTypes( ['tree'] )
 
-		self.view = self.screen.current_view
+		self.view = self.screen.currentView()
 		self.view.setAllowMultipleSelection( sel_multi )
 		self.view.setReadOnly( True )
 		self.connect( self.view, SIGNAL('activated()'), self.accepted )

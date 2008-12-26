@@ -175,6 +175,8 @@ class ModelRecordGroup(QObject):
 	def written(self, edited_id):
 		if not self.on_write:
 			return
+		# Execute the on_write function on the server.
+		# It's expected it'll return a list of ids to be loaded or reloaded.
 		new_ids = getattr(self.rpc, self.on_write)(edited_id, self.context)
 		model_idx = self.models.index(self.recordById(edited_id))
 		result = False
@@ -194,11 +196,11 @@ class ModelRecordGroup(QObject):
 			self.addModel(newmod, new_index)
 		return result
 	
-	## @brief Creates as many records as len(ids) with the id[x] as id.
+	## @brief Creates as many records as len(ids) with the ids[x] as id.
 	#
-	# 'ids' needs to be a list of identifiers. addFields can be used later to 
-	# load the necessary fields for each record.
-	def pre_load(self, ids, display=True):
+	# 'ids' needs to be a list of identifiers. The addFields() function
+	# can be used later to load the necessary fields for each record.
+	def preload(self, ids, display=True):
 		if not ids:
 			return True
 		if len(ids)>10:
@@ -217,7 +219,7 @@ class ModelRecordGroup(QObject):
 	#
 	# 'values' has to be a list of dictionaries, each of which containing fields
 	# names -> values. At least key 'id' needs to be in all dictionaries.
-	def load_for(self, values):
+	def loadFromValues(self, values):
 		if len(values)>10:
 			self.models.lock_signal = True
 
@@ -237,10 +239,10 @@ class ModelRecordGroup(QObject):
 			return True
 
 		if not self.fields:
-			return self.pre_load(ids, display)
+			return self.preload(ids, display)
 
 		if self._sortMode == self.SortAllItems:
-			self.pre_load( ids, False )
+			self.preload( ids, False )
 			queryIds = ids[0:self.limit]
 		else:
 			queryIds = ids
@@ -281,7 +283,7 @@ class ModelRecordGroup(QObject):
 					id = v['id']
 					self.recordById(id).set(v, signal=False)
 		else:
-			self.load_for(values)
+			self.loadFromValues(values)
 		return True
 
 	## @brief Clears the list of models. It doesn't remove them.
@@ -314,10 +316,13 @@ class ModelRecordGroup(QObject):
 		self.connect(model, SIGNAL('recordChanged( PyQt_PyObject )'), self._record_changed)
 		return model
 
-	## @brief Adds a new model to the model group
+	## @brief Creates a new model of the same type of the models in the group.
 	#
 	# If 'default' is true, the model is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
+	#
+	# Note that the model is not added to the group. You need to call addModel()
+	# in order to do that.
 	def newModel(self, default=True, domain=[], context={}):
 		newmod = ModelRecord(self.resource, None, group=self, 
 					   parent=self.parent, new=True)

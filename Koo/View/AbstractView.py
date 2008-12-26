@@ -99,3 +99,11 @@ class AbstractView(QWidget):
 	def setViewSettings(self, settings):
 		pass
 
+	## @brief Should return True if the view is capable of showing multiple records
+	# or False if it can only show one.
+	#
+	# For example, tree will return True whereas 'form' will return False.
+	# The default implementation returns True.
+	def showsMultipleRecords(self):
+		return True
+

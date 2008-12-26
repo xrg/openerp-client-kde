@@ -53,7 +53,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.screen.setEmbedded( True )
 		if not model:
 			model = self.screen.new()
-		self.screen.current_model = model
+		self.screen.setCurrentRecord( model )
 		if ('views' in attrs) and ('form' in attrs['views']):
 			arch = attrs['views']['form']['arch']
 			fields = attrs['views']['form']['fields']
@@ -73,7 +73,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.show()
 
 	def accepted( self ):
-		self.screen.current_view.store()
+		self.screen.currentView().store()
 		self.accept()
 
 (OneToManyFormWidgetUi, OneToManyFormWidgetBase ) = loadUiType( Common.uiPath('one2many.ui') ) 
@@ -109,7 +109,7 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		self.connect(self.screen, SIGNAL('activated()'), self.switchView)
 
 		self.layout().insertWidget( 1, self.screen )
-		self.uiTitle.setText( self.screen.current_view.title )
+		self.uiTitle.setText( self.screen.currentView().title )
 		self.installPopupMenu( self.uiTitle )
 
 	def sizeHint( self ):
@@ -128,7 +128,7 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		return self.screen
 
 	def new(self):
-                if (self.screen.current_view.view_type=='form') or not self.screen.isReadOnly():
+                if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
 			dialog = ScreenDialog(self.screen.models, parent=self, attrs=self.attrs)
@@ -136,7 +136,7 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 				self.screen.display()
 
 	def edit(self):
-		dialog = ScreenDialog( self.screen.models, parent=self, model=self.screen.current_model, attrs=self.attrs)
+		dialog = ScreenDialog( self.screen.models, parent=self, model=self.screen.currentRecord(), attrs=self.attrs)
 		dialog.exec_()
 		self.screen.display()
 
@@ -157,7 +157,7 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		self.uiLabel.setText( line )
 
 	def clear(self):
-		self.screen.current_model = None
+		self.screen.setCurrentRecord( None )
 		self.screen.clear()
 		self.screen.display()
 		
@@ -166,11 +166,11 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		if self.screen.models != models:
 			self.screen.setModelGroup(models)
 			if models.count():
-				self.screen.current_model = models.modelByRow(0)
+				self.screen.setCurrentRecord( models.modelByRow(0) )
 		self.screen.display()
 
 	def store(self):
-		self.screen.current_view.store()
+		self.screen.currentView().store()
 
 # We don't allow modifying OneToMany fields but we allow creating the editor
 # because otherwise the view is no longer in edit mode and moving from one field
