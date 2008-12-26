@@ -147,15 +147,24 @@ def textToFloatTime( text ):
 
 ## @brief Converts a Python string comming from the server into a QDate object
 def storageToDate( text ):
-	return QDate.fromString( text, 'yyyy-MM-dd' )
+	if text:
+		return QDate.fromString( text, 'yyyy-MM-dd' )
+	else:
+		return QDate()
 
 ## @brief Converts a Python string comming from the server into a QTime object
 def storageToTime( text ):
-	return QTime.fromString( text, 'h:m:s' )
+	if text:
+		return QTime.fromString( text, 'h:m:s' )
+	else:
+		return QTime()
 
 ## @brief Converts a Python string comming from the server into a QDateTime object
 def storageToDateTime( text ):
-	return QDateTime.fromString( text, 'yyyy-MM-dd h:m:s' )
+	if text:
+		return QDateTime.fromString( text, 'yyyy-MM-dd h:m:s' )
+	else:
+		return QDateTime
 
 
 (PopupCalendarUi, PopupCalendarBase) = loadUiType( Common.uiPath('datetime.ui') )
