@@ -94,6 +94,7 @@ class TreeView( AbstractView ):
 		self.reload = False
 		self.title=""
 		self.selecting = False
+		self.setAddOnTop( False )
 
 		#self.widget = QTableView( self )
 		#self.widget.setSortingEnabled( True )
@@ -257,6 +258,12 @@ class TreeView( AbstractView ):
 
 	def startEditing(self):
 		self.widget.edit( self.widget.currentIndex() )
+
+	def addOnTop(self):
+		return self._addOnTop
+
+	def setAddOnTop(self, add):
+		self._addOnTop = add
 
 	def viewSettings(self):
 		header = self.widget.header()

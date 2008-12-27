@@ -108,3 +108,8 @@ class AbstractView(QWidget):
 	# this call.
 	def startEditing(self):
 		return 
+
+	## @brief Returns True if new records should be added at the top of the list
+	# or False if they should be added at the bottom (the default).
+	def addOnTop(self):
+		return False

@@ -180,7 +180,7 @@ class ModelRecordGroup(QObject):
 		for id in ids:
 			newmod = ModelRecord(self.resource, id, parent=self.parent, group=self)
 			self.addModel(newmod)
-		end = len(self.records)
+		end = len(self.records)-1
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 
 	## @brief Adds a list of models as specified by 'values'.
@@ -194,7 +194,7 @@ class ModelRecordGroup(QObject):
 			record.set(value)
 			self.records.append(record)
 			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
-		end = len(self.records)
+		end = len(self.records)-1
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 	
 	## @brief Loads the list of ids in this group.
@@ -252,7 +252,7 @@ class ModelRecordGroup(QObject):
 
 	## @brief Clears the list of models. It doesn't remove them.
 	def clear(self):
-		self.emit( SIGNAL('recordsRemoved(int,int)'), 0, len( self.records ) )
+		self.emit( SIGNAL('recordsRemoved(int,int)'), 0, len(self.records)-1 )
 		self.records = []
 		self.model_removed = []
 	
@@ -296,7 +296,7 @@ class ModelRecordGroup(QObject):
 			start = len(self.records) - 1
 		else:
 			start = position
-		self.emit( SIGNAL('recordsInserted(int,int)'), position, position+1 )
+		self.emit( SIGNAL('recordsInserted(int,int)'), start, start )
 		return record
 	
 	def recordChanged(self, model):
@@ -314,7 +314,7 @@ class ModelRecordGroup(QObject):
 		if record.parent:
 			record.parent.modified = True
 		self.emit( SIGNAL('modified()') )
-		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx+1 )
+		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx )
 		self.records.remove(self.records[idx])
 
 	## @brief Adds the specified fields to the model group

@@ -116,10 +116,8 @@ class KooModel(QAbstractItemModel):
 
 	def recordsInserted(self, start, end):
 		if self._updatesEnabled:
-			startIdx = self.index( start, 0 )
-			endIdx = self.index( end, self.columnCount() - 1 )
-			self.emit( SIGNAL('rowsAboutToBeInserted(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
-			self.emit( SIGNAL('rowsInserted(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
+			self.emit( SIGNAL('rowsAboutToBeInserted(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			self.emit( SIGNAL('rowsInserted(QModelIndex,int,int)'), QModelIndex(), start, end ) 
 
 	def recordChanged(self, record):
 		leftIndex = self.indexFromId( record.id )
@@ -130,10 +128,9 @@ class KooModel(QAbstractItemModel):
 
 	def recordsRemoved(self, start, end):
 		if self._updatesEnabled:
-			startIdx = self.index( start, 0 )
-			endIdx = self.index( end, self.columnCount() - 1 )
-			self.emit( SIGNAL('rowsAboutToBeRemoved(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
-			self.emit( SIGNAL('rowsRemoved(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
+			self.emit( SIGNAL('rowsAboutToBeRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			self.emit( SIGNAL('rowsRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			print "ROWS REMOVED: ", start, end
 		
 	## @brief Sets the dictionary of fields that should be loaded
 	def setFields(self, fields):

@@ -404,13 +404,10 @@ class Screen(QScrollArea):
 		return self.currentRecord()
 
 	def newRecordPosition(self):
-		position = -1
-		#print "VIEW TYPE: %s EDITABLE: %s", (self.currentView().view_type, self.currentView().editable )
-		if self.currentView() and self.currentView().showsMultipleRecords() \
-			    and self.currentView().isReadOnly():
-			#and self.currentView().editable == 'top':
-			position = 0
-		return position
+		if self.currentView() and self.currentView().addOnTop():
+			return 0
+		else:
+			return -1 
 
 	def setOnWrite(self, func_name):
 		self.models.on_write = func_name
