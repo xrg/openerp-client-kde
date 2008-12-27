@@ -130,7 +130,6 @@ class KooModel(QAbstractItemModel):
 		if self._updatesEnabled:
 			self.emit( SIGNAL('rowsAboutToBeRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
 			self.emit( SIGNAL('rowsRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
-			print "ROWS REMOVED: ", start, end
 		
 	## @brief Sets the dictionary of fields that should be loaded
 	def setFields(self, fields):
