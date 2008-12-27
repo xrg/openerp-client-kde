@@ -428,7 +428,9 @@ class Screen(QScrollArea):
 
 		self.setCurrentRecord( record )
 		self.display()
-		self.currentView().startEditing()
+
+		if self.currentView():
+			self.currentView().startEditing()
 		return self.currentRecord()
 
 	def newRecordPosition(self):
