@@ -190,10 +190,10 @@ class ModelRecordGroup(QObject):
 	def loadFromValues(self, values):
 		start = len(self.records)
 		for value in values:
-			newmod = ModelRecord(self.resource, value['id'], parent=self.parent, group=self)
-			newmod.set(value)
-			self.records.append(newmod)
-			self.connect(newmod, SIGNAL('recordChanged( PyQt_PyObject )'), self._record_changed )
+			record = ModelRecord(self.resource, value['id'], parent=self.parent, group=self)
+			record.set(value)
+			self.records.append(record)
+			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
 		end = len(self.records)
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 	
@@ -263,23 +263,22 @@ class ModelRecordGroup(QObject):
 		return ctx
 
 	## @brief Adds a model to the list
-	def addModel(self, model, position=-1):
-		if not model.mgroup is self:
+	def addModel(self, record, position=-1):
+		if not record.mgroup is self:
 			fields = {}
-			for mf in model.mgroup.fields:
-				fields[model.mgroup.fields[mf]['name']] = model.mgroup.fields[mf]
+			for mf in record.mgroup.fields:
+				fields[record.mgroup.fields[mf]['name']] = record.mgroup.fields[mf]
 			self.addFields(fields)
-			model.mgroup.addFields(self.fields)
-			model.mgroup = self
+			record.mgroup.addFields(self.fields)
+			record.mgroup = self
 
 		if position==-1:
-			self.records.append(model)
+			self.records.append(record)
 		else:
-			self.records.insert(position, model)
-		model.parent = self.parent
-		#self.connect(model, SIGNAL('recordChanged( PyQt_PyObject )'), self._record_changed)
-		#self.emit( SIGNAL('recordsInserted(int,int)'), ids )
-		return model
+			self.records.insert(position, record)
+		record.parent = self.parent
+		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+		return record
 
 	## @brief Creates a new model of the same type of the models in the group.
 	#
@@ -287,7 +286,7 @@ class ModelRecordGroup(QObject):
 	# 'domain' and 'context' are only used if default is true.
 	def create(self, default=True, position=-1, domain=[], context={}):
 		record = ModelRecord(self.resource, None, group=self, parent=self.parent, new=True)
-		self.connect(record, SIGNAL('recordChanged( PyQt_PyObject )'), self._record_changed)
+		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
 		if default:
 			ctx=context.copy()
 			ctx.update( self.context() )
@@ -300,8 +299,8 @@ class ModelRecordGroup(QObject):
 		self.emit( SIGNAL('recordsInserted(int,int)'), position, position+1 )
 		return record
 	
-	def _record_changed(self, model):
-		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), model)
+	def recordChanged(self, model):
+		self.emit( SIGNAL('modified()') )
 
 	## @brief Removes a model from the model group but not from the server.
 	#
@@ -314,6 +313,7 @@ class ModelRecordGroup(QObject):
 			self.model_removed.append(self.records[idx].id)
 		if record.parent:
 			record.parent.modified = True
+		self.emit( SIGNAL('modified()') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx+1 )
 		self.records.remove(self.records[idx])
 

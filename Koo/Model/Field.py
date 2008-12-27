@@ -226,9 +226,20 @@ class ManyToOneField(StringField):
 class ToManyField(StringField):
 	def create(self, model):
 		from Koo.Model.Group import ModelRecordGroup
-		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
-		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
-		return mod
+		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
+		self.connect( group, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		self.connect( group, SIGNAL('modified()'), self.groupModified )
+		return group
+
+	def groupModified(self):
+		print "GROUP MODIFIED"
+		p = self.sender().parent
+		print "PARENT: ", p
+		print "NAM: ", self.sender().resource
+		print "PNAM: ", self.sender().parent.resource
+		print "FIELD: ", self.name
+		self.changed( self.sender().parent )
+		print "MODIFIED: ", p.isModified()
 
 	def _modelChanged(self, model):
 		self.changed(model.parent)
@@ -241,11 +252,12 @@ class ToManyField(StringField):
 
 	def set(self, model, value, test_state=False, modified=False):
 		from Koo.Model.Group import ModelRecordGroup
-		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
-		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
-		mod.setDomain( [('id','in',value)] )
-		mod.preload(value)
-		model.values[self.name] = mod
+		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
+		self.connect( group, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		self.connect( group, SIGNAL('modified()'), self.groupModified )
+		group.setDomain( [('id','in',value)] )
+		group.preload(value)
+		model.values[self.name] = group
 
 	def set_client(self, model, value, test_state=False):
 		self.set(model, value, test_state=test_state)
@@ -261,6 +273,7 @@ class ToManyField(StringField):
 
 		model.values[self.name] = ModelRecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
 		self.connect( model.values[self.name], SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		self.connect( model.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):
 			mod = model.values[self.name].model_new(default=False)

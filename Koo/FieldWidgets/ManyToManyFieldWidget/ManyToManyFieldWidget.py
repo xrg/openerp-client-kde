@@ -99,8 +99,7 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		# Manually set the current model and field as modified
 		# This is not necessary in case of removing an item. 
 		# Maybe a better option should be found. But this one works just right.
-		self.model.modified = True
-		self.model.modified_fields.setdefault(self.name)
+		self.screen.models.recordChanged( None )
 
 	def remove(self):
 		self.screen.remove()
