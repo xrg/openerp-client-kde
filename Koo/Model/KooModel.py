@@ -91,15 +91,15 @@ class KooModel(QAbstractItemModel):
 	def setModelGroup(self, group):
 		self.emit( SIGNAL('modelAboutToBeReset()') )
 		if self.group:
-			self.disconnect( self.group, SIGNAL('recordCleared()'), self.modelGroupChanged )
-			self.disconnect( self.group, SIGNAL('modelChanged(PyQt_PyObject)'), self.modelChanged )
-			self.disconnect( self.group, SIGNAL('recordChanged(QString,int)'), self.recordChanged )
+			self.disconnect( self.group, SIGNAL('recordsInserted(int,int)'), self.recordsInserted )
+			self.disconnect( self.group, SIGNAL('recordChanged(PyQt_PyObject)'), self.recordChanged )
+			self.disconnect( self.group, SIGNAL('recordsRemoved(int,int)'), self.recordsRemoved )
 			
 		self.group = group
 		if self.group:
-			self.connect( self.group, SIGNAL('recordCleared()'), self.modelGroupChanged )
-			self.connect( self.group, SIGNAL('modelChanged(PyQt_PyObject)'), self.modelChanged )
-			self.connect( self.group, SIGNAL('recordChanged(QString,int)'), self.recordChanged )
+			self.connect( self.group, SIGNAL('recordsInserted(int,int)'), self.recordsInserted )
+			self.connect( self.group, SIGNAL('recordChanged(PyQt_PyObject)'), self.recordChanged )
+			self.connect( self.group, SIGNAL('recordsRemoved(int,int)'), self.recordsRemoved )
 			
 		# We emit modelReset() so widgets will be notified that 
 		# they need to be updated
@@ -114,20 +114,26 @@ class KooModel(QAbstractItemModel):
 	def readOnly(self):
 		return self._readOnly
 
-	def modelGroupChanged(self):
+	def recordsInserted(self, start, end):
 		if self._updatesEnabled:
-			self.reset()
-		
-	def modelChanged(self, model):
-		leftIndex = self.indexFromId( model.id )
+			startIdx = self.index( start, 0 )
+			endIdx = self.index( end, self.columnCount() - 1 )
+			self.emit( SIGNAL('rowsAboutToBeInserted(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
+			self.emit( SIGNAL('rowsInserted(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
+
+	def recordChanged(self, record):
+		leftIndex = self.indexFromId( record.id )
 		if not leftIndex.isValid():
 			self.reset()
-		rightIndex = self.index( leftIndex.row(), len(model.values) )
+		rightIndex = self.index( leftIndex.row(), self.columnCount() - 1 )
 		self.emit( SIGNAL('dataChanged(QModelIndex,QModelIndex)'), leftIndex, rightIndex )
 
-	def recordChanged(self,when,pos):
+	def recordsRemoved(self, start, end):
 		if self._updatesEnabled:
-			self.reset()
+			startIdx = self.index( start, 0 )
+			endIdx = self.index( end, self.columnCount() - 1 )
+			self.emit( SIGNAL('rowsAboutToBeRemoved(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
+			self.emit( SIGNAL('rowsRemoved(QModelIndex,QModelIndex)'), startIdx, endIdx ) 
 		
 	## @brief Sets the dictionary of fields that should be loaded
 	def setFields(self, fields):
@@ -224,7 +230,7 @@ class KooModel(QAbstractItemModel):
 				fieldType = self.fieldTypeByName(self.child, parent.internalPointer())
 				if fieldType in ['one2many', 'many2many']:
 					value = self.valueByName(parent.row(), self.child, parent.internalPointer())
-					return len(value.models)
+					return value.count()
 				else:
 					return 0
 
@@ -232,11 +238,11 @@ class KooModel(QAbstractItemModel):
 			fieldType = self.fieldType( parent.column(), parent.internalPointer() )
 			if fieldType in ['one2many', 'many2many']:
 				value = self.value( parent.row(), parent.column(), parent.internalPointer() )
-				return len(value.models)
+				return value.count()
 			else:
 				return 0
 		else:
-			return len(self.group.models)
+			return self.group.count()
 
 	def columnCount(self, parent = QModelIndex()):
 		if not self.group:
@@ -311,7 +317,7 @@ class KooModel(QAbstractItemModel):
 			value = self.value( index.row(), index.column(), index.internalPointer() )
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
 			if fieldType in ['one2many', 'many2many']:
-				return QVariant( '(%d)' % len(value.models) )
+				return QVariant( '(%d)' % value.count() )
 			elif fieldType == 'selection':
 				field = self.fields[self.field( index.column() )]
 				for x in field['selection']:
@@ -394,7 +400,7 @@ class KooModel(QAbstractItemModel):
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
 			if fieldType in ['one2many', 'many2many']:
 				# By now, return the same as DisplayRole for these
-				return QVariant( '(%d)' % len(value.models) )
+				return QVariant( '(%d)' % value.count() )
 			elif fieldType == 'selection':
 				# By now, return the same as DisplayRole for these
 				field = self.fields[self.field( index.column() )]
@@ -464,13 +470,13 @@ class KooModel(QAbstractItemModel):
 		model = group.parent
 		parent = group.parent.mgroup
 
-		if not model in parent.models:
+		if not model in parent.records:
 			# Though it should not normally happen, when you reload 
 			# in the main menu we receive calls in which the model
 			# is not in the list.
 			return QModelIndex()
 
-		row = parent.models.index(model)
+		row = parent.records.index(model)
 		for x, y in model.values.items():
 			if y == group:
 				field = x
@@ -540,7 +546,7 @@ class KooModel(QAbstractItemModel):
 		# the only drawback that the server will be queried twice.
 		if not group.mfields:
 			group.addFields( self.fields )
-		if row >= len(group.models):
+		if row >= group.count():
 			return None
 		else:
 			return group.modelByRow( row )
@@ -600,7 +606,7 @@ class KooModel(QAbstractItemModel):
 			return QModelIndex()
 
 		i = 0
-		for x in self.group.models:
+		for x in self.group.records:
 			if x.id == id:
 				return self.index( i, 0 )
 			i = i + 1

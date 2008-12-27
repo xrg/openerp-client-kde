@@ -261,7 +261,7 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		value = self.model.value(self.name)
 		group = ModelRecordGroup( self.attrs['relation'] )
 		group.load( [value] )
-		record = group.models[0]
+		record = group.modelByRow( 0 )
 		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
 		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
 		Api.instance.executeAction( action )

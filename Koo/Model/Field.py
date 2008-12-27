@@ -244,7 +244,7 @@ class ToManyField(StringField):
 		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
 		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		mod.setDomain( [('id','in',value)] )
-		mod.preload(value, display=False)
+		mod.preload(value)
 		model.values[self.name] = mod
 
 	def set_client(self, model, value, test_state=False):
@@ -269,15 +269,14 @@ class ToManyField(StringField):
 		return True
 
 	def default(self, model):
-		res = map(lambda x: x.defaults(), model.values[self.name].models or [])
-		return res
+		return [ x.defaults() for x in model.values[self.name].records ]
 
 	def validate(self, model):
 		ok = True
-		for model2 in model.values[self.name].models:
+		for model2 in model.values[self.name].records:
 			if not model2.validate():
 				if not model2.isModified():
-					model.values[self.name].models.remove(model2)
+					model.values[self.name].records.remove(model2)
 				else:
 					ok = False
 		if not super(ToManyField, self).validate(model):
@@ -290,7 +289,7 @@ class OneToManyField(ToManyField):
 		if not model.values[self.name]:
 			return []
 		result = []
-		for model2 in model.values[self.name].models:
+		for model2 in model.values[self.name].records:
 			if (modified and not model2.isModified()) or (not model2.id and not model2.isModified()):
 				continue
 			if model2.id:
@@ -305,7 +304,7 @@ class ManyToManyField(ToManyField):
 	def get(self, model, check_load=True, readonly=True, modified=False):
 		if not model.values[self.name]:
 			return []
-		return [(6, 0, [x.id for x in model.values[self.name].models])]
+		return [(6, 0, [x.id for x in model.values[self.name].records])]
 
 class ReferenceField(StringField):
 	def get_client(self, model):
