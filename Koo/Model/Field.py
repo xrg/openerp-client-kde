@@ -232,14 +232,8 @@ class ToManyField(StringField):
 		return group
 
 	def groupModified(self):
-		print "GROUP MODIFIED"
 		p = self.sender().parent
-		print "PARENT: ", p
-		print "NAM: ", self.sender().resource
-		print "PNAM: ", self.sender().parent.resource
-		print "FIELD: ", self.name
 		self.changed( self.sender().parent )
-		print "MODIFIED: ", p.isModified()
 
 	def _modelChanged(self, model):
 		self.changed(model.parent)
