@@ -287,21 +287,44 @@ class Screen(QScrollArea):
 	def loadNextView(self):
 		if self._viewQueue.isEmpty():
 			return False
-		if self._viewQueue.isId():
-			self.addViewById( self._viewQueue.next() )
-		else:
-			self.addViewByType( self._viewQueue.next() )
+
+		(id, type) = self._viewQueue.next()
+		self.addViewByIdAndType( id, type )
 		return True
 
 	def addCustomView(self, arch, fields, display=False, toolbar={}):
 		return self.addView(arch, fields, display, True, toolbar=toolbar)
 
+	## @briefs Adds a view given it's id and type.
+	#
+	# This function is needed to resemble server's fields_view_get function. This 
+	# function wasn't necessary but accounting module needs it because it tries to
+	# open a view with it's ID but reimplements fields_view_get and checks the view
+	# type.
+	#
+	# @see AddViewById
+	# @see AddViewByType
+	def addViewByIdAndType(self, id, type, display=False):
+		if type in self.views_preload:
+			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False))
+		else:
+			# By now we set toolbar to True always. Even when the Screen is embedded.
+			# This way we don't force setting the embedded option in the class constructor
+			# and can be set later.
+			view = self.Rpc.fields_view_get(id, type, self.context, True)
+			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
+		
 	## @brief Adds a view given its id.
 	# @param id View id to load or False if you want to load given view_type.
 	# @param display Whether you want the added view to be shown (True) or only loaded (False).
 	# @return The view widget
+	# 
+	# @see AddViewByType
+	# @see AddViewByIdAndType
 	def addViewById(self, id, display=False):
-		# TODO: By now we set toolbar to True always. Even when Screen is embedded
+		# By now we set toolbar to True always. Even when the Screen is embedded.
+		# This way we don't force setting the embedded option in the class constructor
+		# and can be set later.
 		view = self.Rpc.fields_view_get(id, False, self.context, True)
 		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=id)
 		
@@ -309,11 +332,16 @@ class Screen(QScrollArea):
 	# @param type View type ('form', 'tree', 'calendar', 'graph'...). 
 	# @param display Whether you want the added view to be shown (True) or only loaded (False).
 	# @return The view widget
+	#
+	# @see AddViewById
+	# @see AddViewByIdAndType
 	def addViewByType(self, type, display=False):
 		if type in self.views_preload:
 			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False))
 		else:
-			# TODO: By now we set toolbar to True always. Even when the Screen is embedded
+			# By now we set toolbar to True always. Even when the Screen is embedded.
+			# This way we don't force setting the embedded option in the class constructor
+			# and can be set later.
 			view = self.Rpc.fields_view_get(False, type, self.context, True)
 			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
 		

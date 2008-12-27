@@ -50,11 +50,22 @@ class ViewQueue:
 			ids = []
 		# Merge lists
 		self._views = []
+		self._mixed = []
 		for x in range(max(len(types),len(ids))):
 			if x < len(ids) and ids[x]:
 				self._views.append( ids[x] )
 			elif x < len(types):
 				self._views.append( types[x] )
+
+			if x < len(ids):
+				id = ids[x]
+			else:
+				id = False
+			if x < len(types):
+				type = types[x]
+			else:
+				type = False
+			self._mixed.append( (id, type) )
 
 	## @brief Initializes the queue with a given list of view types.
 	# If types is None then the list is initialized to the default ['form', 'tree']
@@ -63,10 +74,12 @@ class ViewQueue:
 			self._views = ['form', 'tree']
 		else:
 			self._views = types
+		self._mixed = [ (False, x) for x in self._views ]
 
 	## @brief Initializes the queue with a given list of view ids.
 	def setViewIds(self, ids):
 		self._views = ids
+		self._mixed = [ (x, False) for x in self._views ]
 
 	## @brief Returns True if the next element is a view type.
 	def isType(self):
@@ -88,6 +101,7 @@ class ViewQueue:
 	# 
 	# If the queue is already empty, it will rise an exception.
 	def next(self):
-		return self._views.pop(0)
+		return self._mixed.pop(0)
+
 
 # vim:noexpandtab:

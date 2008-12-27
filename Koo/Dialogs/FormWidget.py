@@ -148,7 +148,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		self.screen.load( [dialog.result] )
 		
-	def showAttachments(self, widget=None):
+	def showAttachments(self):
 		id = self.screen.currentId()
 		if id:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -172,7 +172,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.screen.switchView()
 		QApplication.restoreOverrideCursor()
 
-	def showLogs(self, widget=None):
+	def showLogs(self):
 		id = self.screen.currentId()
 		if not id:
 			self.updateStatus(_('You have to select one resource!'))
@@ -216,7 +216,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog = ExportDialog(self.model, self.screen.allIds(), self.screen.fields, fields)
 		dialog.exec_()
 
-	def new(self, widget=None, autosave=True):
+	def new(self, autosave=True):
 		if autosave:
 			if not self.modified_save():
 				return
@@ -230,7 +230,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.screen.load([new_id])
 		self.updateStatus(_('Working now on the duplicated document !'))
 
-	def save(self, widget=None, sig_new=True, auto_continue=True):
+	def save(self):
 		if not self.screen.currentRecord():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -245,7 +245,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QApplication.restoreOverrideCursor()
 		return bool(id)
 
-	def previous(self, widget=None):
+	def previous(self):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -253,7 +253,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
-	def next(self, widget=None):
+	def next(self):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -295,7 +295,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		else:
 			self.updateStatus(_('No record selected!'))
 
-	def search(self, widget=None):
+	def search(self):
 		if not self.modified_save():
 			return
 		dom = self.domain
