@@ -310,6 +310,10 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		# We expect a KooModel here
 		model = kooModel.modelFromIndex( index )
 
+		if not unicode(editor.text()):
+			model.setValue( self.name, False )
+			return
+
 		domain = model.domain( self.name )
 		context = model.context()
 		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context)
