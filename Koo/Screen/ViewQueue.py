@@ -101,6 +101,7 @@ class ViewQueue:
 	# 
 	# If the queue is already empty, it will rise an exception.
 	def next(self):
+		self._views.pop(0)
 		return self._mixed.pop(0)
 
 
