@@ -35,8 +35,8 @@ class AbstractView(QWidget):
 		# Needs to set self.view_type (example: 'tree' or 'form')
 		self.view_type = 'none'
 		# The 'id' corresponds to the view id in the database. Not directly
-		# used by the view itself might be used by filled and used by 
-		# other classes such as Screen, which will use this id for storing/loading settings
+		# used by the view itself might be filled and used by other classes 
+		# such as Screen, which will use this id for storing/loading settings
 		self.id = False
 
 	## @brief This function should store the information in the model
@@ -100,3 +100,11 @@ class AbstractView(QWidget):
 	def showsMultipleRecords(self):
 		return True
 
+	## @brief Start editing current record.
+	#
+	# Some views (such as TreeView) need a way of being told to start edit mode.
+	# Such is the case when a new record is created as we want TreeView to start
+	# editing the newly created record. Other views such as form can simply ignore
+	# this call.
+	def startEditing(self):
+		return 

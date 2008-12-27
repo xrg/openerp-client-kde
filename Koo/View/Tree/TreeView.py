@@ -255,6 +255,9 @@ class TreeView( AbstractView ):
 				value += model.value(agg['name'])
 			agg['widget'].setText( Numeric.floatToText( value, agg['digits'] ) )
 
+	def startEditing(self):
+		self.widget.edit( self.widget.currentIndex() )
+
 	def viewSettings(self):
 		header = self.widget.header()
 		return str( header.saveState().toBase64() )
