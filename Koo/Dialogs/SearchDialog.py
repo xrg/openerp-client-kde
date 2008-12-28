@@ -72,6 +72,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		view_form = Rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
 		self.form.setup( view_form['arch'], view_form['fields'], model )
 		self.form.hideButtons()
+		self.connect( self.form, SIGNAL('keyDownPressed()'), self.setFocusToList )
 
 		self.title = _('Search: %s') % self.form.name
 		self.title_results = _('Search: %s (%%d result(s))') % self.form.name
@@ -95,6 +96,9 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.form, SIGNAL( "search()" ), self.find )
+
+	def setFocusToList(self):
+		self.screen.setFocus()
 
 	def find(self):
 		self.modelGroup.setFilter( self.form.getValue() )

@@ -39,6 +39,7 @@ class CharSearchWidget(AbstractSearchWidget):
 		self.uiText = QLineEdit( self )
 		self.layout.addWidget( self.uiText )
 		self.focusWidget = self.uiText
+		self.focusWidget.installEventFilter( self )
 
 	def getValue(self):
 		s = unicode(self.uiText.text())

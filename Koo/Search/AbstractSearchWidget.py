@@ -39,6 +39,12 @@ class AbstractSearchWidget(QWidget):
 		self.attrs = attrs
 		self.focusWidget = self
 
+	def eventFilter( self, target, event ):
+		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Down:
+			self.emit( SIGNAL('keyDownPressed()') )
+			return True
+		return False
+
 	def setFocus(self):
 		self.focusWidget.setFocus()
 

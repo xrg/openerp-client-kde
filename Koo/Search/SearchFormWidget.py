@@ -159,6 +159,8 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.model = model
 
 		self.widgets = parser.parse(xml)
+		for widget in self.widgets.values():
+			self.connect( widget, SIGNAL('keyDownPressed()'), self, SIGNAL('keyDownPressed()') )
 
 		# Don't show expander button unless there are widgets in the
 		# second row
