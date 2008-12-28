@@ -468,10 +468,6 @@ class Screen(QScrollArea):
 		self.display()
 		return id
 
-	#def reload(self):		
-	#	self.currentRecord().reload()
-	#	self.display()
-
 	def reload(self):
 		if self.currentView().showsMultipleRecords():
 			self.cancel()
@@ -500,18 +496,6 @@ class Screen(QScrollArea):
 				self.setCurrentRecord( record )
 				self.display()
 				break	
-
-		#if self.currentView().showsMultipleRecords():
-			#self.reload()
-		#else:
-			#if self.currentRecord():
-				#self.currentRecord().cancel()
-				#self.display()
-		
-	def cancelCurrentRecord(self):
-		if not self.currentRecord():
-			return
-		self.currentRecord().cancel()
 
 	## @brief Returns a reference to the current view.
 	def currentView(self):
