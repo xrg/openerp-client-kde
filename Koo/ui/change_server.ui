@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>282</width>
-    <height>178</height>
+    <height>202</height>
    </rect>
   </property>
   <property name="sizePolicy" >
@@ -112,8 +112,8 @@
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset>
-        </iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
        </property>
        <property name="default" >
         <bool>true</bool>
@@ -144,8 +144,8 @@
         <string>&amp;Cancel</string>
        </property>
        <property name="icon" >
-        <iconset>
-        </iconset>
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
        </property>
       </widget>
      </item>
