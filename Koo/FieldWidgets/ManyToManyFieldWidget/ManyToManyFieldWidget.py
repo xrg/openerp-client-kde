@@ -63,7 +63,6 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.screen.setModelGroup( group )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
-		self.screen.setAddAfterNew( True )
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
 
 		layout = self.layout()
@@ -72,9 +71,9 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.old = None
 
 	def open( self ):
-		if not self.screen.current_model:
+		if not self.screen.currentRecord():
 			return
-		id = self.screen.current_model.id 
+		id = self.screen.currentRecord().id 
 		if not id:
 			return
 		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree')	
@@ -100,8 +99,7 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		# Manually set the current model and field as modified
 		# This is not necessary in case of removing an item. 
 		# Maybe a better option should be found. But this one works just right.
-		self.model.modified = True
-		self.model.modified_fields.setdefault(self.name)
+		self.screen.models.recordChanged( None )
 
 	def remove(self):
 		self.screen.remove()
@@ -113,7 +111,7 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.pushRemove.setEnabled( not ro )
 
 	def clear(self):
-		self.screen.current_model = None
+		self.screen.setCurrentRecord( None )
 		self.uiText.setText('')
 		self.screen.clear()	
 		self.screen.display()

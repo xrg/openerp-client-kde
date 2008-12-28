@@ -124,7 +124,6 @@ class FormView( AbstractView ):
 		# We still depend on the parent being a screen because of ButtonFormWidget
 		self.screen = parent
 		self.view_type = 'form'
-		self.model_add_new = False
 		self.title = ""
 		self.model = None
 
@@ -201,3 +200,5 @@ class FormView( AbstractView ):
 			stream >> value
 			x.restoreState( value )
 
+	def showsMultipleRecords(self):
+		return False

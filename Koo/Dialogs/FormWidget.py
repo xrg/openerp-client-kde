@@ -94,7 +94,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if name:
 			self.name = name
 		else:
-			self.name = self.screen.current_view.title
+			self.name = self.screen.currentView().title
 
 		# TODO: Use desinger's widget promotion
 		self.layout().insertWidget(0, self.screen )
@@ -148,14 +148,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		self.screen.load( [dialog.result] )
 		
-	def ids_get(self):
-		return self.screen.ids_get()
-
-	def id_get(self):
-		return self.screen.id_get()
-
-	def showAttachments(self, widget=None):
-		id = self.screen.id_get()
+	def showAttachments(self):
+		id = self.screen.currentId()
 		if id:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			window = AttachmentDialog(self.model, id, self)
@@ -173,16 +167,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
-			Api.instance.createWindow(None, self.model, self.screen.id_get(), view_type='form', mode='form,tree')
+			Api.instance.createWindow(None, self.model, self.screen.currentId(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()
 		QApplication.restoreOverrideCursor()
 
-	def _id_get(self):
-		return self.screen.id_get()
-
-	def showLogs(self, widget=None):
-		id = self._id_get()
+	def showLogs(self):
+		id = self.screen.currentId()
 		if not id:
 			self.updateStatus(_('You have to select one resource!'))
 			return False
@@ -222,10 +213,10 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def export(self):
 		fields = []
-		dialog = ExportDialog(self.model, self.screen.ids_get(), self.screen.fields, fields)
+		dialog = ExportDialog(self.model, self.screen.allIds(), self.screen.fields, fields)
 		dialog.exec_()
 
-	def new(self, widget=None, autosave=True):
+	def new(self, autosave=True):
 		if autosave:
 			if not self.modified_save():
 				return
@@ -234,17 +225,17 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def duplicate(self):
 		if not self.modified_save():
 			return
-		res_id = self._id_get()
+		res_id = self.screen.currentId()
 		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
 		self.screen.load([new_id])
 		self.updateStatus(_('Working now on the duplicated document !'))
 
-	def save(self, widget=None, sig_new=True, auto_continue=True):
-		if not self.screen.current_model:
+	def save(self):
+		if not self.screen.currentRecord():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		modification = self.screen.current_model.id
-		id = self.screen.save_current()
+		modification = self.screen.currentRecord().id
+		id = self.screen.save()
 		if id:
 			self.updateStatus(_('Document saved !'))
 			if not modification:
@@ -254,48 +245,42 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QApplication.restoreOverrideCursor()
 		return bool(id)
 
-	def previous(self, widget=None):
+	def previous(self):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.display_prev()
+		self.screen.displayPrevious()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
-	def next(self, widget=None):
+	def next(self):
 		if not self.modified_save():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.display_next()
+		self.screen.displayNext()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if self.screen.current_view.view_type == 'form':
-			self.screen.cancel_current()
-			self.screen.display()
-		else:
-			id = self.screen.id_get()
-			ids = self.screen.ids_get()
-			self.screen.clear()
-			self.screen.load(ids)
-			for model in self.screen.models:
-				if model.id == id:
-					self.screen.current_model = model
-					self.screen.display()
-					break
+		self.screen.reload()
+		self.updateStatus()
+		QApplication.restoreOverrideCursor()
+
+	def cancel(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		self.screen.cancel()
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
 	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
-		ids = self.screen.ids_get()
-		if self.screen.current_model:
-			id = self.screen.current_model.id
+		ids = self.screen.allIds()
+		if self.screen.currentRecord():
+			id = self.screen.currentRecord().id
 		else:
 			id = False
-		if self.screen.current_view.view_type == 'form':
-			id = self.screen.save_current()
+		if not self.screen.currentView().showsMultipleRecords():
+			id = self.screen.save()
 			if not id:
 				return False
 			ids = [id]
@@ -310,7 +295,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		else:
 			self.updateStatus(_('No record selected!'))
 
-	def search(self, widget=None):
+	def search(self):
 		if not self.modified_save():
 			return
 		dom = self.domain
@@ -321,8 +306,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.screen.load( dialog.result )
 
 	def updateStatus(self, message=''):
-		if self.model and self.screen.current_model and self.screen.current_model.id:
-			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.current_model.id)])
+		if self.model and self.screen.currentRecord() and self.screen.currentRecord().id:
+			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.currentRecord().id)])
 			message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 
@@ -348,11 +333,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def modified_save(self):
 		if self.screen.isModified():
-			value = QMessageBox.question(self, _('Question'), _('This record has been modified do you want to save it?'),QMessageBox.Save|QMessageBox.Discard|QMessageBox.Cancel)
+			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel )
 			if value == QMessageBox.Save:
 				return self.save()
 			elif value == QMessageBox.Discard:
-				self.reload()
+				self.cancel()
 				return True
 			else:
 				return False

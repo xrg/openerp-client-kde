@@ -91,10 +91,10 @@ class TreeView( AbstractView ):
 		AbstractView.__init__(self, parent)
 		self.treeModel = None
 		self.view_type = 'tree'
-		self.model_add_new = True
 		self.reload = False
 		self.title=""
 		self.selecting = False
+		self.setAddOnTop( False )
 
 		#self.widget = QTableView( self )
 		#self.widget.setSortingEnabled( True )
@@ -255,6 +255,15 @@ class TreeView( AbstractView ):
 			for model in self.treeModel.group:
 				value += model.value(agg['name'])
 			agg['widget'].setText( Numeric.floatToText( value, agg['digits'] ) )
+
+	def startEditing(self):
+		self.widget.edit( self.widget.currentIndex() )
+
+	def addOnTop(self):
+		return self._addOnTop
+
+	def setAddOnTop(self, add):
+		self._addOnTop = add
 
 	def viewSettings(self):
 		header = self.widget.header()

@@ -52,7 +52,7 @@ class ButtonFormWidget( AbstractFormWidget ):
 		screen = self.view.screen
 		self.view.store()
 		if self.model.validate():
-			id = screen.save_current()
+			id = screen.save()
 			if not self.attrs.get('confirm',False) or \
 					QMessageBox.question(self,_('Question'),self.attrs['confirm'],QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
 				type = self.attrs.get('type', 'workflow')

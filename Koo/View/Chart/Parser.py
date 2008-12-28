@@ -55,9 +55,9 @@ class ChartParser( AbstractParser ):
 		# Create the view
 		self.view = ChartView( parent )
 		self.view.title = attrs.get('string', _('Unknown') )
-		self.view.model = self.parent.current_model
+		self.view.model = self.parent.currentRecord()
 
-		widget, on_write = self.parse( self.parent.current_model, node, fields , self.view )
+		widget, on_write = self.parse( self.parent.currentRecord(), node, fields , self.view )
 		self.view.setWidget( widget )
 
 		return self.view, on_write
@@ -85,7 +85,7 @@ class ChartParser( AbstractParser ):
 		#
 
 		chart = ChartGraphicsView( container )
-		chart.setModel( self.parent.current_model )
+		chart.setModel( self.parent.currentRecord() )
 		chart.setType( attrs.get('type', 'pie') )
 		chart.setAxis( axis )
 		chart.setGroups( groups )

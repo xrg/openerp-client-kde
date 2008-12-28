@@ -58,7 +58,7 @@ class StringField(QObject):
 
 	def context(self, model, check_load=True, eval=True):
 		context = {}
-		context.update(self.parent.context)
+		context.update( self.parent.context() )
 		field_context_str = self.attrs.get('context', '{}') or '{}'
 		if eval:
 			field_context = model.evaluateExpression('dict(%s)' % field_context_str, check_load=check_load)
@@ -226,9 +226,14 @@ class ManyToOneField(StringField):
 class ToManyField(StringField):
 	def create(self, model):
 		from Koo.Model.Group import ModelRecordGroup
-		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
-		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
-		return mod
+		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
+		self.connect( group, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		self.connect( group, SIGNAL('modified()'), self.groupModified )
+		return group
+
+	def groupModified(self):
+		p = self.sender().parent
+		self.changed( self.sender().parent )
 
 	def _modelChanged(self, model):
 		self.changed(model.parent)
@@ -241,11 +246,12 @@ class ToManyField(StringField):
 
 	def set(self, model, value, test_state=False, modified=False):
 		from Koo.Model.Group import ModelRecordGroup
-		mod = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
-		self.connect( mod, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
-		mod.setDomain( [('id','in',value)] )
-		mod.pre_load(value, display=False)
-		model.values[self.name] = mod
+		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
+		self.connect( group, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		self.connect( group, SIGNAL('modified()'), self.groupModified )
+		group.setDomain( [('id','in',value)] )
+		group.preload(value)
+		model.values[self.name] = group
 
 	def set_client(self, model, value, test_state=False):
 		self.set(model, value, test_state=test_state)
@@ -261,24 +267,23 @@ class ToManyField(StringField):
 
 		model.values[self.name] = ModelRecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
 		self.connect( model.values[self.name], SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
+		self.connect( model.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):
 			mod = model.values[self.name].model_new(default=False)
 			mod.setDefault(record)
 			model.values[self.name].model_add(mod)
-		model.values[self.name].current_model = mod
 		return True
 
 	def default(self, model):
-		res = map(lambda x: x.defaults(), model.values[self.name].models or [])
-		return res
+		return [ x.defaults() for x in model.values[self.name].records ]
 
 	def validate(self, model):
 		ok = True
-		for model2 in model.values[self.name].models:
+		for model2 in model.values[self.name].records:
 			if not model2.validate():
 				if not model2.isModified():
-					model.values[self.name].models.remove(model2)
+					model.values[self.name].records.remove(model2)
 				else:
 					ok = False
 		if not super(ToManyField, self).validate(model):
@@ -291,7 +296,7 @@ class OneToManyField(ToManyField):
 		if not model.values[self.name]:
 			return []
 		result = []
-		for model2 in model.values[self.name].models:
+		for model2 in model.values[self.name].records:
 			if (modified and not model2.isModified()) or (not model2.id and not model2.isModified()):
 				continue
 			if model2.id:
@@ -306,7 +311,7 @@ class ManyToManyField(ToManyField):
 	def get(self, model, check_load=True, readonly=True, modified=False):
 		if not model.values[self.name]:
 			return []
-		return [(6, 0, [x.id for x in model.values[self.name].models])]
+		return [(6, 0, [x.id for x in model.values[self.name].records])]
 
 class ReferenceField(StringField):
 	def get_client(self, model):

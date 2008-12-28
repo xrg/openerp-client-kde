@@ -109,6 +109,9 @@ class TreeParser(AbstractParser):
 		model.setReadOnly( not attrs.get('editable', False) )
 		view.setReadOnly( not attrs.get('editable', False) )
 
+		if attrs.get('editable', False) == 'top':
+			view.setAddOnTop( True )
+
 		if view.isReadOnly():
 			model.setShowBackgroundColor( False )
 		else:

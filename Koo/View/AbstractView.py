@@ -32,13 +32,11 @@ class AbstractView(QWidget):
 		QWidget.__init__( self, parent )
 		# TODO: By now, needs the self.widget
 		self.widget = None
-		# Needs the self.model_add_new set to True (like TreeView) or False (like the FormView)
-		self.model_add_new = False
 		# Needs to set self.view_type (example: 'tree' or 'form')
 		self.view_type = 'none'
 		# The 'id' corresponds to the view id in the database. Not directly
-		# used by the view itself might be used by filled and used by 
-		# other classes such as Screen, which will use this id for storing/loading settings
+		# used by the view itself might be filled and used by other classes 
+		# such as Screen, which will use this id for storing/loading settings
 		self.id = False
 
 	## @brief This function should store the information in the model
@@ -80,11 +78,6 @@ class AbstractView(QWidget):
 	def setReadOnly(self, value):
 		return 
 
-	# This function is called when the
-	def recordChanged(self, signal, models, index):
-		pass
-
-
 	## @brief Override this function in your view if you wish to store
 	# some settings per user and view. The function should return
 	# a python string with all the information which should be
@@ -99,3 +92,24 @@ class AbstractView(QWidget):
 	def setViewSettings(self, settings):
 		pass
 
+	## @brief Should return True if the view is capable of showing multiple records
+	# or False if it can only show one.
+	#
+	# For example, tree will return True whereas 'form' will return False.
+	# The default implementation returns True.
+	def showsMultipleRecords(self):
+		return True
+
+	## @brief Start editing current record.
+	#
+	# Some views (such as TreeView) need a way of being told to start edit mode.
+	# Such is the case when a new record is created as we want TreeView to start
+	# editing the newly created record. Other views such as form can simply ignore
+	# this call.
+	def startEditing(self):
+		return 
+
+	## @brief Returns True if new records should be added at the top of the list
+	# or False if they should be added at the bottom (the default).
+	def addOnTop(self):
+		return False

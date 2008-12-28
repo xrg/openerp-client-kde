@@ -79,12 +79,12 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
 
 	def accepted( self ):
-		self.screen.current_view.store()
+		self.screen.currentView().store()
 
-		if self.screen.current_model.validate():
+		if self.screen.currentRecord().validate():
 			self.accept()
-			self.screen.save_current()
-			self.model = self.screen.current_model.name()
+			self.screen.save()
+			self.model = self.screen.currentRecord().name()
 			self.close()
 		else:
 			self.reject()
@@ -261,7 +261,7 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		value = self.model.value(self.name)
 		group = ModelRecordGroup( self.attrs['relation'] )
 		group.load( [value] )
-		record = group.models[0]
+		record = group.modelByRow( 0 )
 		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
 		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
 		Api.instance.executeAction( action )
@@ -276,6 +276,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		AbstractFieldDelegate.__init__(self, parent, attributes)
 		self.currentIndex = None
 		self.currentEditor = None
+		self.currentValue = None
 
 	def createEditor(self, parent, option, index):
 		widget = AbstractFieldDelegate.createEditor(self, parent, option, index)
@@ -309,6 +310,13 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, kooModel, index):
 		# We expect a KooModel here
 		model = kooModel.modelFromIndex( index )
+
+		if not unicode(editor.text()):
+			model.setValue( self.name, False )
+			return
+
+		if unicode( kooModel.data( index, Qt.DisplayRole ).toString() ) == unicode( editor.text() ):
+			return
 
 		domain = model.domain( self.name )
 		context = model.context()
