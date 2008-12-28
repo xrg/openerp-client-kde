@@ -534,14 +534,18 @@ class Screen(QScrollArea):
 			# Remove records with id None as they would cause an exception
 			# trying to remove from the server 
 			idsToUnlink = [x for x in ids if x != None]
-			unlinked = self.Rpc.unlink( idsToUnlink )	
-			# Try to be consistent with database
-			# If records could not be removed from the database
-			# don't remove them on the client. Don't report it directly
-			# though as probably an exception (Warning) has already
-			# been shown to the user.
-			if not unlinked:
-				return False
+			# It could be that after removing records with id == None
+			# there are no records to remove from the database. That is,
+			# all records that should be removed are new and not stored yet.
+			if idsToUnlink:
+				unlinked = self.Rpc.unlink( idsToUnlink )	
+				# Try to be consistent with database
+				# If records could not be removed from the database
+				# don't remove them on the client. Don't report it directly
+				# though as probably an exception (Warning) has already
+				# been shown to the user.
+				if not unlinked:
+					return False
 		for x in ids:
 			model = self.models[x]
 			idx = self.models.records.index(model)

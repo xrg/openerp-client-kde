@@ -276,6 +276,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		AbstractFieldDelegate.__init__(self, parent, attributes)
 		self.currentIndex = None
 		self.currentEditor = None
+		self.currentValue = None
 
 	def createEditor(self, parent, option, index):
 		widget = AbstractFieldDelegate.createEditor(self, parent, option, index)
@@ -312,6 +313,10 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 
 		if not unicode(editor.text()):
 			model.setValue( self.name, False )
+			return
+
+		print "COMPARANT: ", unicode( kooModel.data( index, Qt.DisplayRole ).toString() ), unicode( editor.text() ) 
+		if unicode( kooModel.data( index, Qt.DisplayRole ).toString() ) == unicode( editor.text() ):
 			return
 
 		domain = model.domain( self.name )

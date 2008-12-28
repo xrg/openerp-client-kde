@@ -456,6 +456,9 @@ class ModelRecordGroup(QObject):
 		queryIds = ids[pos * self.limit: pos * self.limit + self.limit]
 		if None in queryIds:
 			queryIds.remove( None )
+		print "ensureModelLoaded: ", queryIds
+		import traceback
+		traceback.print_stack()
 		values = self.rpc.read(queryIds, self.fields.keys(), c)
 		if not values:
 			return False
