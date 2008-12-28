@@ -158,6 +158,8 @@ class ModelRecord(QObject):
 		self._loaded = False
 		if reload:
 			self.reload()
+		if self.mgroup:
+			self.mgroup.written(self.id)
 		return self.id
 
 	# Used only by group.py

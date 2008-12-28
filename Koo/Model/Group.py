@@ -123,14 +123,8 @@ class ModelRecordGroup(QObject):
 	# Note that there will be one request to the server per modified or 
 	# created model.
 	def save(self):
-		for model in self.records:
-			saved = model.save()
-			# TODO: Ensure this is the right place to call
-			# this function. It seems that ModelRecord.save()
-			# would be more appropiate, as otherwise storing
-			# a single model won't trigger the 'on_write' 
-			# function on the server.
-			self.written(saved)
+		for record in self.records:
+			saved = record.save()
 
 	## @brief This function executes the 'on_write' function in the server.
 	#
@@ -142,7 +136,7 @@ class ModelRecordGroup(QObject):
 	# the remote function might update some other models, and they need to
 	# be (re)loaded.
 	def written( self, editedId ):
-		if not self.on_write:
+		if not self.on_write or not editedId:
 			return
 		# Execute the on_write function on the server.
 		# It's expected it'll return a list of ids to be loaded or reloaded.
@@ -166,7 +160,8 @@ class ModelRecordGroup(QObject):
 			self.addModel(newmod, newIndex)
 			indexes.append(newIndex)
 
-		self.emit( SIGNAL('recordsInserted(int,int)'), min(indexes), max(indexes) )
+		if indexes:
+			self.emit( SIGNAL('recordsInserted(int,int)'), min(indexes), max(indexes) )
 		return result
 	
 	## @brief Creates as many records as len(ids) with the ids[x] as id.
