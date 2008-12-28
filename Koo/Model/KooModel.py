@@ -116,20 +116,23 @@ class KooModel(QAbstractItemModel):
 
 	def recordsInserted(self, start, end):
 		if self._updatesEnabled:
-			self.emit( SIGNAL('rowsAboutToBeInserted(QModelIndex,int,int)'), QModelIndex(), start, end ) 
-			self.emit( SIGNAL('rowsInserted(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			self.reset()
+			#self.emit( SIGNAL('rowsAboutToBeInserted(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			#self.emit( SIGNAL('rowsInserted(QModelIndex,int,int)'), QModelIndex(), start, end ) 
 
 	def recordChanged(self, record):
 		leftIndex = self.indexFromId( record.id )
 		if not leftIndex.isValid():
 			self.reset()
+			return
 		rightIndex = self.index( leftIndex.row(), self.columnCount() - 1 )
 		self.emit( SIGNAL('dataChanged(QModelIndex,QModelIndex)'), leftIndex, rightIndex )
 
 	def recordsRemoved(self, start, end):
 		if self._updatesEnabled:
-			self.emit( SIGNAL('rowsAboutToBeRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
-			self.emit( SIGNAL('rowsRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			self.reset()
+			#self.emit( SIGNAL('rowsAboutToBeRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
+			#self.emit( SIGNAL('rowsRemoved(QModelIndex,int,int)'), QModelIndex(), start, end ) 
 		
 	## @brief Sets the dictionary of fields that should be loaded
 	def setFields(self, fields):
