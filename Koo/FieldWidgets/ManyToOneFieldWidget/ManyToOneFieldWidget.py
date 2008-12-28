@@ -315,7 +315,6 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 			model.setValue( self.name, False )
 			return
 
-		print "COMPARANT: ", unicode( kooModel.data( index, Qt.DisplayRole ).toString() ), unicode( editor.text() ) 
 		if unicode( kooModel.data( index, Qt.DisplayRole ).toString() ) == unicode( editor.text() ):
 			return
 
