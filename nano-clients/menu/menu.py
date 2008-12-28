@@ -43,7 +43,7 @@ class MenuDialog(QDialog):
 	def __init__(self,parent=None):
 		QDialog.__init__(self,parent)
 
-		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'agrutrans5' )
+		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'jornadas' )
 
 		#model = 'account.account'
 		#visibleFields = ['name', 'code', 'debit', 'credit', 'balance', 'company_currency_id']
