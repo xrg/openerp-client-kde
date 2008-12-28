@@ -337,7 +337,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			if value == QMessageBox.Save:
 				return self.save()
 			elif value == QMessageBox.Discard:
-				self.reload()
+				self.cancel()
 				return True
 			else:
 				return False

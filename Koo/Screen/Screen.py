@@ -104,9 +104,8 @@ class Screen(QScrollArea):
 		self.views = []
 		self.fields = {}
 		self.models = None
-		self.__current_model = None
-
-		self.__current_view = 0
+		self._currentRecord = None
+		self._currentView = 0
 
 		self._viewQueue = ViewQueue()
 
@@ -244,13 +243,13 @@ class Screen(QScrollArea):
 
 	## @brief Returns a reference the current record (ModelRecord).
 	def currentRecord(self):
-		return self.__current_model
+		return self._currentRecord
 
 	## @brief Sets the current record.
 	#
 	# Note that value will be a reference to the ModelRecord.
 	def setCurrentRecord(self, value):
-		self.__current_model = value
+		self._currentRecord = value
 		try:
 			pos = self.models.records.index(value)
 		except:
@@ -260,9 +259,9 @@ class Screen(QScrollArea):
 		else:
 			id = -1
 		self.emit(SIGNAL('recordMessage(int,int,int)'), pos, self.models.count(), id)
-		if self.__current_model:
+		if self._currentRecord:
 			if self.currentView():
-				self.currentView().setSelected(self.__current_model.id)
+				self.currentView().setSelected(self._currentRecord.id)
 
 	## @brief Switches to the next view in the queue of views.
 	def switchView(self):
@@ -273,9 +272,9 @@ class Screen(QScrollArea):
 			self.setCurrentRecord( None )
 
 		if self.loadNextView():
-			self.__current_view = len(self.views) - 1
+			self._currentView = len(self.views) - 1
 		else:
-			self.__current_view = (self.__current_view + 1) % len(self.views)
+			self._currentView = (self._currentView + 1) % len(self.views)
 
 		self.setView( self.currentView() )
 	    	if self.currentRecord():
@@ -391,7 +390,7 @@ class Screen(QScrollArea):
 		self.loadActions( toolbar )
 
 		if display:
-			self.__current_view = len(self.views) - 1
+			self._currentView = len(self.views) - 1
 			self.currentView().display(self.currentRecord(), self.models)
 			self.setView(view)
 		return view
@@ -474,24 +473,40 @@ class Screen(QScrollArea):
 	#	self.display()
 
 	def reload(self):
-		#if self.currentView().showsMultipleRecords():
-		id = self.currentId()
-		ids = self.allIds()
-		self.clear()
-		self.load(ids)
-		for model in self.models:
-			if model.id == id:
-				self.setCurrentRecord( model )
+		if self.currentView().showsMultipleRecords():
+			self.cancel()
+		else:
+			if self.currentRecord():
+				self.currentRecord().cancel()
 				self.display()
-				break	
-		#else:
-			#self.cancelCurrentRecord()
-			#self.display()
 
 	def cancel(self):
-		if not self.currentRecord():
-			return
-		self.currentRecord().cancel()
+		id = self.currentId()
+		# If it has no ID the record will be removed and thus we want
+		# to move to the previous record.
+		if not id:
+			idx = self.models.records.index(self.currentRecord())-1
+			if idx < 0:
+				idx = self.models.count() - 1
+			id = self.models.records[idx].id
+
+		ids = self.allIds()
+		self.models.clear()
+			
+		self.models.preload( ids )
+
+		for record in self.models.records:
+			if record.id == id:
+				self.setCurrentRecord( record )
+				self.display()
+				break	
+
+		#if self.currentView().showsMultipleRecords():
+			#self.reload()
+		#else:
+			#if self.currentRecord():
+				#self.currentRecord().cancel()
+				#self.display()
 		
 	def cancelCurrentRecord(self):
 		if not self.currentRecord():
@@ -502,7 +517,7 @@ class Screen(QScrollArea):
 	def currentView(self):
 		if not len(self.views):
 			return None
-		return self.views[self.__current_view]
+		return self.views[self._currentView]
 
 	## @brief Returns a dictionary with all field values for the current record. 
 	def get(self):
