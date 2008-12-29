@@ -35,12 +35,10 @@ from Koo.Common import Common
 def printWorkflow(datas):
 	datas['nested'] = True
 	Api.instance.executeReport('workflow.instance.graph', datas)
-	return True
 
 ## @brief Executes the workflow graph report 'workflow.instance.graph' without
 # subworkflows.
 def printSimpleWorkflow(datas):
 	datas['nested'] = False
 	Api.instance.executeReport('workflow.instance.graph', datas)
-	return True
 
