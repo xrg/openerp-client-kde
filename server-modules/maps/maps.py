@@ -31,9 +31,19 @@ class res_partner_address(osv.osv):
 	_name = 'res.partner.address'
 	_inherit = 'res.partner.address'
 
+	def toUnicode(self, value):
+		if isinstance(value, unicode):
+			return value
+		else:
+			return unicode( value, 'utf-8' )
+
 	def url(self, street, zip, city, country):
-		#return 'http://maps.google.com/maps?q=%s %s %s %s' % ( street, zip, city, country )
-		return 'http://maps.yahoo.com/#mvt=m&zoom=17&q1=%s %s %s %s' % ( street, zip, city, country )
+		street = self.toUnicode(street)
+		zip = self.toUnicode(zip)
+		city = self.toUnicode(city)
+		country = self.toUnicode(country)
+		return 'http://maps.google.com/maps?q=%s %s %s %s' % ( street, zip, city, country )
+		#return 'http://maps.yahoo.com/#mvt=m&zoom=17&q1=%s %s %s %s' % ( street, zip, city, country )
 		#return 'http://link2.map24.com/?maptype=CGI&street0=%s&zip0=%s&city0=%s&state0=&country0=es&name0=&lid=cbecdb9d&ol=es-es' % ( street, zip, city )
 
 	def _partner_address_map(self, cr, uid, ids, name, arg, context={}):
@@ -57,7 +67,6 @@ class res_partner_address(osv.osv):
 		street=street or ''
 		zip=zip or ''
 		city=city or ''
-		#print country_id
 		country = ''
 		if country_id:
 			c = self.pool.get('res.country').read(cr, uid, [country_id])
