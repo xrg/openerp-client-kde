@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,21 +25,36 @@
 #
 ##############################################################################
 
-{
-	"name" : "KTiny",
-	"version" : "0.1",
-	"description" : "This module prepares the server for properly handling attachments in KTiny and allows server side client settings storage.",
-	"author" : "NaN",
-	"website" : "http://www.nan-tic.com",
-	"depends" : ["base"],
-	"category" : "Generic Modules/KTiny",
-	"init_xml" : [],
-	"demo_xml" : [],
-	"update_xml" : [
-		"ktiny_view.xml",
-		"ktiny_data.xml"
-	],
-	"active": False,
-	"installable": True
-}
+import copy
+
+class AbstractCache:
+	def exists( self, obj, method, *args ):
+		pass
+	def get( self, obj, method, *args ):
+		pass
+
+class ViewCache(AbstractCache):
+	exceptions = []
+
+	def __init__(self):
+		self.cache = {}
+
+	def exists(self, obj, method, *args):
+		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
+			return False
+		return (obj, method, str(args)) in self.cache
+			
+	def get(self, obj, method, *args):
+		return copy.deepcopy( self.cache[(obj, method, str(args))] )
+		
+	def add(self, value, obj, method, *args):
+		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
+			return
+		# Don't cache models configured in the exception list of the server module 'ktiny'.
+		if args[0] in ViewCache.exceptions:
+			return False
+		self.cache[(obj,method,str(args))] = copy.deepcopy( value )
+
+	def clear(self):
+		self.cache = {}
 

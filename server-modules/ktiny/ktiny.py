@@ -91,10 +91,18 @@ class nan_ktiny_settings(osv.osv):
 			return False
 
 	def get_settings(self, cr, uid):
+		ids = self.pool.get('nan.ktiny.cache.exception').search(cr, uid, [])
+		exceptions = []
+		for exception in self.pool.get('nan.ktiny.cache.exception').browse(cr, uid, ids):
+			exceptions.append( exception.name )
+
+		settings = {
+			'cache_exceptions': exceptions
+		}
 		id = self.get_settings_id(cr, uid)
-		if not id:
-			return {}
-		return self.read(cr, uid, [id])
+		if id:
+			settings.update( self.read(cr, uid, [id])[0] )
+		return settings
 		
 nan_ktiny_settings()
 
@@ -107,3 +115,9 @@ class nan_ktiny_view_settings(osv.osv):
 	}
 nan_ktiny_view_settings()
 
+class nan_ktiny_cache_exceptions(osv.osv):
+	_name = 'nan.ktiny.cache.exception'
+	_columns = {
+		'name': fields.char('Model Name', size=64, required=True),
+	}
+nan_ktiny_cache_exceptions()

@@ -142,10 +142,11 @@ class ConfigurationManager(object):
 
 	def loadSettings(self):
 		try:
-			settings = Rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )[0]
+			settings = Rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )
 		except:
-			return
+			settings = {}
 		self.options.update( settings )
+		Rpc.ViewCache.exceptions = self.options.get('cache_exceptions', [])
 
 options = ConfigurationManager()
 

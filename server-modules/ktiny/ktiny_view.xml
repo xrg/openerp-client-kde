@@ -1,6 +1,36 @@
 <?xml version="1.0"?>
 <terp>
 	<data>
+		<!-- View cache exceptions -->
+		<record model='ir.ui.view' id='ktiny_cache_exception_form'>
+			<field name="name">nan.ktiny.cache_exception.form</field>
+			<field name="model">nan.ktiny.cache_exception</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="View Cache Exceptions">
+					<field name="name"/>
+				</form>
+			</field>
+		</record>
+		<record model='ir.ui.view' id='ktiny_cache_exception_tree'>
+			<field name="name">nan.ktiny.cache.exception.tree</field>
+			<field name="model">nan.ktiny.cache.exception</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="View Cache Exceptions">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="ktiny_cache_exception_action">
+			<field name="name">View Cache Exceptions</field>
+			<field name="res_model">nan.ktiny.cache.exception</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Administration/Configuration/KTiny/View Cache Exceptions" 
+			action="ktiny_cache_exception_action" id="ktiny_cache_exception_menu"/>
+
 		<!-- KTiny Settings views -->
 		<record model='ir.ui.view' id='ktiny_settings_form'>
 			<field name="name">nan.ktiny.settings.form</field>
@@ -50,7 +80,6 @@
 		</record>
 		<menuitem name="Administration/Configuration/KTiny/Settings" 
 			action="ktiny_settings_action" id="ktiny_settings_menu"/>
-
 
 		<!-- Attachment updates for KTiny -->
 

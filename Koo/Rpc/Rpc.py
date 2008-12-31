@@ -31,7 +31,7 @@ from Koo.Common import Notifier
 import xmlrpclib
 import socket
 import tiny_socket
-import copy
+from Cache import *
 
 class RpcException(Exception):
 	def __init__(self, code, backtrace):
@@ -151,31 +151,6 @@ def createConnection(url):
 		con.url = url + '/xmlrpc'
 	return con
 
-class AbstractCache:
-	def exists( self, obj, method, *args ):
-		pass
-	def get( self, obj, method, *args ):
-		pass
-
-class ViewCache(AbstractCache):
-	def __init__(self):
-		self.cache = {}
-
-	def exists(self, obj, method, *args):
-		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
-			return False
-		return (obj, method, str(args)) in self.cache
-			
-	def get(self, obj, method, *args):
-		return copy.deepcopy( self.cache[(obj, method, str(args))] )
-		
-	def add(self, value, obj, method, *args):
-		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
-			return
-		self.cache[(obj,method,str(args))] = copy.deepcopy( value )
-
-	def clear(self):
-		self.cache = {}
 
 class AsynchronousSessionCall(QThread):
 	def __init__(self, session, parent=None):
