@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-23 01:19+0100\n"
+"POT-Creation-Date: 2008-12-30 13:43+0100\n"
 "PO-Revision-Date: 2005-22-05 09:43+0200\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
@@ -57,7 +57,7 @@ msgstr "Si"
 msgid "No"
 msgstr "No"
 
-#: Koo/Model/KooModel.py:335
+#: Koo/Model/KooModel.py:340
 #: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:101
 #: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:136
 #, python-format
@@ -174,7 +174,7 @@ msgid "Error writing the file!"
 msgstr "Error al guardar el archivo!"
 
 #: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:57
-#: Koo/Dialogs/FormWidget.py:209 Koo/Dialogs/FormWidget.py:351
+#: Koo/Dialogs/FormWidget.py:200 Koo/Dialogs/FormWidget.py:336
 msgid "Question"
 msgstr "Pregunta"
 
@@ -530,102 +530,102 @@ msgstr "Nombre de la exportación"
 msgid "Exported fields"
 msgstr "Campos a exportar"
 
-#: Koo/Dialogs/FormWidget.py:166
+#: Koo/Dialogs/FormWidget.py:160
 msgid "No resource selected !"
 msgstr "No hay ningún recurso seleccionado."
 
-#: Koo/Dialogs/FormWidget.py:187
+#: Koo/Dialogs/FormWidget.py:178
 msgid "You have to select one resource!"
 msgstr "Debe seleccionar un recurso."
 
-#: Koo/Dialogs/FormWidget.py:193 Koo/Dialogs/FullTextSearchDialog.py:392
+#: Koo/Dialogs/FormWidget.py:184 Koo/Dialogs/FullTextSearchDialog.py:392
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:194
+#: Koo/Dialogs/FormWidget.py:185
 msgid "Creation User"
 msgstr "Usuario de Creación"
 
-#: Koo/Dialogs/FormWidget.py:195
+#: Koo/Dialogs/FormWidget.py:186
 msgid "Creation Date"
 msgstr "Fecha de Creación"
 
-#: Koo/Dialogs/FormWidget.py:196
+#: Koo/Dialogs/FormWidget.py:187
 msgid "Latest Modification by"
 msgstr "Última Modificación por"
 
-#: Koo/Dialogs/FormWidget.py:197
+#: Koo/Dialogs/FormWidget.py:188
 msgid "Latest Modification Date"
 msgstr "Fecha de Última Modificación"
 
-#: Koo/Dialogs/FormWidget.py:198
+#: Koo/Dialogs/FormWidget.py:189
 msgid "Owner"
 msgstr "Propietario"
 
-#: Koo/Dialogs/FormWidget.py:199
+#: Koo/Dialogs/FormWidget.py:190
 msgid "Group Owner"
 msgstr "Grupo Propietario"
 
-#: Koo/Dialogs/FormWidget.py:200
+#: Koo/Dialogs/FormWidget.py:191
 msgid "Access Level"
 msgstr "Nivel de Acceso"
 
-#: Koo/Dialogs/FormWidget.py:209
+#: Koo/Dialogs/FormWidget.py:200
 msgid "Are you sure you want to remove these records?"
 msgstr "Está seguro que desea borrar este registro?"
 
-#: Koo/Dialogs/FormWidget.py:213
+#: Koo/Dialogs/FormWidget.py:204
 msgid "Resource not removed !"
 msgstr "No se ha podido borrar el recurso."
 
-#: Koo/Dialogs/FormWidget.py:215
+#: Koo/Dialogs/FormWidget.py:206
 msgid "Resource removed."
 msgstr "Recurso eliminado"
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:231
 msgid "Working now on the duplicated document !"
 msgstr "Trabajando en el document duplicado!"
 
-#: Koo/Dialogs/FormWidget.py:249
+#: Koo/Dialogs/FormWidget.py:240
 msgid "Document saved !"
 msgstr "Documento guardado"
 
-#: Koo/Dialogs/FormWidget.py:253
+#: Koo/Dialogs/FormWidget.py:244
 msgid "Invalid form !"
 msgstr "Formulario no válido"
 
-#: Koo/Dialogs/FormWidget.py:311
+#: Koo/Dialogs/FormWidget.py:296
 msgid "No record selected!"
 msgstr "Ningún registro seleccionado"
 
-#: Koo/Dialogs/FormWidget.py:326
+#: Koo/Dialogs/FormWidget.py:311
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s adjuntos) "
 
-#: Koo/Dialogs/FormWidget.py:331
+#: Koo/Dialogs/FormWidget.py:316
 msgid "No records"
 msgstr "Sin registros"
 
-#: Koo/Dialogs/FormWidget.py:338
+#: Koo/Dialogs/FormWidget.py:323
 msgid "No document selected"
 msgstr "No hay ningún documento seleccionado"
 
-#: Koo/Dialogs/FormWidget.py:342
+#: Koo/Dialogs/FormWidget.py:327
 msgid "New document"
 msgstr "Nuevo documento"
 
-#: Koo/Dialogs/FormWidget.py:344
+#: Koo/Dialogs/FormWidget.py:329
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Editando documento (id: %s)"
 
-#: Koo/Dialogs/FormWidget.py:345
+#: Koo/Dialogs/FormWidget.py:330
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Registro: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:351
+#: Koo/Dialogs/FormWidget.py:336
 msgid "This record has been modified do you want to save it?"
 msgstr "El registro se ha modificado, desea guardarlo?"
 
@@ -839,12 +839,12 @@ msgstr "Texto"
 msgid "Ranking"
 msgstr "Ránking"
 
-#: Koo/Dialogs/SearchDialog.py:76
+#: Koo/Dialogs/SearchDialog.py:77
 #, python-format
 msgid "Search: %s"
 msgstr "Búsqueda: %s"
 
-#: Koo/Dialogs/SearchDialog.py:77
+#: Koo/Dialogs/SearchDialog.py:78
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr "Búsqueda: %s (%%d resultado(s))"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-23 01:19+0100\n"
+"POT-Creation-Date: 2008-12-30 13:43+0100\n"
 "PO-Revision-Date: 2005-04-05 09:43+0200\n"
 "Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -58,7 +58,7 @@ msgstr "Po!"
 msgid "No"
 msgstr "Jo"
 
-#: Koo/Model/KooModel.py:335
+#: Koo/Model/KooModel.py:340
 #: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:101
 #: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:136
 #, python-format
@@ -184,7 +184,7 @@ msgid "Error writing the file!"
 msgstr "Gabim gjate shkrimit ne fajlle!"
 
 #: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:57
-#: Koo/Dialogs/FormWidget.py:209 Koo/Dialogs/FormWidget.py:351
+#: Koo/Dialogs/FormWidget.py:200 Koo/Dialogs/FormWidget.py:336
 #, fuzzy
 msgid "Question"
 msgstr "Pershkrimi"
@@ -548,110 +548,110 @@ msgstr "Еksportoj Shenimet"
 msgid "Exported fields"
 msgstr "Pastro fushen"
 
-#: Koo/Dialogs/FormWidget.py:166
+#: Koo/Dialogs/FormWidget.py:160
 msgid "No resource selected !"
 msgstr "s'ka resurse te zgjedhura !"
 
-#: Koo/Dialogs/FormWidget.py:187
+#: Koo/Dialogs/FormWidget.py:178
 #, fuzzy
 msgid "You have to select one resource!"
 msgstr "Zgjedhe resursin !"
 
-#: Koo/Dialogs/FormWidget.py:193 Koo/Dialogs/FullTextSearchDialog.py:392
+#: Koo/Dialogs/FormWidget.py:184 Koo/Dialogs/FullTextSearchDialog.py:392
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:194
+#: Koo/Dialogs/FormWidget.py:185
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:195
+#: Koo/Dialogs/FormWidget.py:186
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:196
+#: Koo/Dialogs/FormWidget.py:187
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:197
+#: Koo/Dialogs/FormWidget.py:188
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:198
+#: Koo/Dialogs/FormWidget.py:189
 msgid "Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:199
+#: Koo/Dialogs/FormWidget.py:190
 msgid "Group Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:200
+#: Koo/Dialogs/FormWidget.py:191
 msgid "Access Level"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:209
+#: Koo/Dialogs/FormWidget.py:200
 #, fuzzy
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 "A jeni te sigurt qe deshironi\n"
 "T'a largoni kete shenim?"
 
-#: Koo/Dialogs/FormWidget.py:213
+#: Koo/Dialogs/FormWidget.py:204
 #, fuzzy
 msgid "Resource not removed !"
 msgstr "Resursi i larguar."
 
-#: Koo/Dialogs/FormWidget.py:215
+#: Koo/Dialogs/FormWidget.py:206
 msgid "Resource removed."
 msgstr "Resursi i larguar."
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:231
 msgid "Working now on the duplicated document !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:249
+#: Koo/Dialogs/FormWidget.py:240
 #, fuzzy
 msgid "Document saved !"
 msgstr "Opcionet u ruajten!"
 
-#: Koo/Dialogs/FormWidget.py:253
+#: Koo/Dialogs/FormWidget.py:244
 msgid "Invalid form !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:311
+#: Koo/Dialogs/FormWidget.py:296
 msgid "No record selected!"
 msgstr "S'ka shenim te zgjedhur!"
 
-#: Koo/Dialogs/FormWidget.py:326
+#: Koo/Dialogs/FormWidget.py:311
 #, fuzzy, python-format
 msgid "(%s attachments) "
 msgstr "Bashkangjite:"
 
-#: Koo/Dialogs/FormWidget.py:331
+#: Koo/Dialogs/FormWidget.py:316
 #, fuzzy
 msgid "No records"
 msgstr "Tjetri: Asnje shenim i zgjedhur!"
 
-#: Koo/Dialogs/FormWidget.py:338
+#: Koo/Dialogs/FormWidget.py:323
 #, fuzzy
 msgid "No document selected"
 msgstr "Nuk jane zgjedhur resurset!"
 
-#: Koo/Dialogs/FormWidget.py:342
+#: Koo/Dialogs/FormWidget.py:327
 msgid "New document"
 msgstr "Dokument i ri"
 
-#: Koo/Dialogs/FormWidget.py:344
+#: Koo/Dialogs/FormWidget.py:329
 #, fuzzy, python-format
 msgid "Editing document (id: %s)"
 msgstr "Azhuro dokumentin:"
 
-#: Koo/Dialogs/FormWidget.py:345
+#: Koo/Dialogs/FormWidget.py:330
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:351
+#: Koo/Dialogs/FormWidget.py:336
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
@@ -867,12 +867,12 @@ msgstr "Tjetri"
 msgid "Ranking"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:76
+#: Koo/Dialogs/SearchDialog.py:77
 #, fuzzy, python-format
 msgid "Search: %s"
 msgstr "Kerko:"
 
-#: Koo/Dialogs/SearchDialog.py:77
+#: Koo/Dialogs/SearchDialog.py:78
 #, fuzzy, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr "Tiny ERP - Kerko elementi"
