@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<terp>
+	<data>
+		<!-- View cache exceptions -->
+		<record model='ir.ui.view' id='ktiny_cache_exception_form'>
+			<field name="name">nan.ktiny.cache_exception.form</field>
+			<field name="model">nan.ktiny.cache_exception</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="View Cache Exceptions">
+					<field name="name"/>
+				</form>
+			</field>
+		</record>
+		<record model='ir.ui.view' id='ktiny_cache_exception_tree'>
+			<field name="name">nan.ktiny.cache.exception.tree</field>
+			<field name="model">nan.ktiny.cache.exception</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="View Cache Exceptions">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="ktiny_cache_exception_action">
+			<field name="name">View Cache Exceptions</field>
+			<field name="res_model">nan.ktiny.cache.exception</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Administration/Custom/Jasper Reports/Create Data Template" 
+			action="jasper_create_data_template" id="jasper_create_data_template_menu"/>
+
+		<!-- KTiny Settings views -->
+		<record model='ir.ui.view' id='ktiny_settings_form'>
+			<field name="name">nan.ktiny.settings.form</field>
+			<field name="model">nan.ktiny.settings</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="KTiny Settings">
+					<field name="name" colspan="4"/>
+					<separator colspan="4" string="Appearance"/>
+					<field name="tabs_position"/>
+					<field name="show_toolbar"/>
+					<newline/>
+					<separator colspan="4" string="Stylesheet"/>
+					<field name="stylesheet" colspan="4" nolabel="1"/>
+					<separator colspan="4" string="Behaviour"/>
+					<field name="sort_mode"/>
+					<field name="limit"/>
+					<field name="requests_refresh_interval"/>
+					<field name="show_system_tray_icon"/>
+					<field name="print_directly"/>
+					<separator colspan="4" string="Roles"/>
+					<field name="roles_id" colspan="4" nolabel="1"/>
+				</form>
+			</field>
+		</record>
+		<record model='ir.ui.view' id='ktiny_settings_tree'>
+			<field name="name">nan.ktiny.settings.tree</field>
+			<field name="model">nan.ktiny.settings</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="KTiny Settings">
+					<field name="name"/>
+					<field name="show_toolbar"/>
+					<field name="tabs_position"/>
+					<field name="sort_mode"/>
+					<field name="limit"/>
+					<field name="requests_refresh_interval"/>
+					<field name="roles_id"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="ktiny_settings_action">
+			<field name="name">KTiny Settings</field>
+			<field name="res_model">nan.ktiny.settings</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem name="Administration/Configuration/KTiny/Settings" 
+			action="ktiny_settings_action" id="ktiny_settings_menu"/>
+
+		<!-- Attachment updates for KTiny -->
+
+<!-- Replace "datas" field to attachment view form -->
+		<record model="ir.ui.view" id="attachment_form_datas">
+			<field name="name">ir.attachment.view</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="base.view_attachment_form"/>
+			<field name="arch" type="xml">
+				<field name="datas" position="replace">
+					<field name="datas" colspan="4" fname_widget="datas_fname"/>
+				</field>
+			</field>
+		</record>
+
+<!-- Add "link" field to attachment view form -->
+		<record model="ir.ui.view" id="attachment_form_link">
+			<field name="name">ir.attachment.view</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="base.view_attachment_form"/>
+			<field name="arch" type="xml">
+				<field name="datas_fname" position="after">
+					<field name="link" widget="link" colspan="4"/>
+				</field>
+			</field>
+		</record>
+
+<!-- Replace "res_model" field to attachment view form -->
+		<record model="ir.ui.view" id="attachment_form_res_model">
+			<field name="name">ir.attachment.view</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="base.view_attachment_form"/>
+			<field name="arch" type="xml">
+				<field name="res_model" position="replace">
+					<field name="res_model" select="1" visible="0" nolabel="1"/>
+				</field>
+			</field>
+		</record>
+
+<!-- Replace "res_id" field to attachment view form -->
+		<record model="ir.ui.view" id="attachment_form_res_id">
+			<field name="name">ir.attachment.view</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="base.view_attachment_form"/>
+			<field name="arch" type="xml">
+				<field name="res_id" position="replace">
+					<field name="res_id" visible="0" nolabel="1"/>
+				</field>
+			</field>
+		</record>
+
+<!-- Remove "res_model" field to attachment view tree -->
+		<record model="ir.ui.view" id="attachment_tree_res_model">
+			<field name="name">ir.attachment.view.tree</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="base.view_attachment_tree"/>
+			<field name="arch" type="xml">
+				<field name="res_model" position="replace">
+				</field>
+			</field>
+		</record>
+
+<!-- Remove "res_id" field to attachment view tree -->
+		<record model="ir.ui.view" id="attachment_tree_res_id">
+			<field name="name">ir.attachment.view.tree</field>
+			<field name="model">ir.attachment</field>
+			<field name="inherit_id" ref="base.view_attachment_tree"/>
+			<field name="arch" type="xml">
+				<field name="res_id" position="replace">
+				</field>
+			</field>
+		</record>
+	</data>
+</terp>

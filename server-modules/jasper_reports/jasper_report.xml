@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<terp>
+        <data>
+                <report
+                   string="Jasper Partners"
+                   model="res.partner"
+                   auto="True"
+                   name="res.partner.jaspertest"
+		   rml="jasper_reports/partner.jrxml"
+                   id="res_partner_jaspertest" 
+		   menu="True"
+		   header="False"
+		   />
+        </data>
+</terp>
+
+
+
