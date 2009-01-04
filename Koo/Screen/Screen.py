@@ -109,6 +109,9 @@ class Screen(QScrollArea):
 
 		self._viewQueue = ViewQueue()
 
+	def sizeHint(self):
+		return self.container.sizeHint()
+
 	def setPreloadedViews(self, views):
 		self.views_preload = views
 
