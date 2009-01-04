@@ -161,11 +161,7 @@ class FormView( AbstractView ):
 			widget.reset()
 
 	def display(self, currentModel, models):
-		if self.model:
-			self.disconnect(self.model,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
 		self.model = currentModel
-		if self.model:
-			self.connect(self.model, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
 		self.updateDisplay(self.model)
 
 	def updateDisplay(self,model):
