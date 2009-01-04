@@ -346,7 +346,8 @@ class KooModel(QAbstractItemModel):
 				if value == False or value == None:
 					return QVariant()
 				else:
-					return QVariant( unicode(value) )
+					# If the text has several lines put them all in a single one
+					return QVariant( unicode(value).replace('\n', ' ') )
 		elif role == Qt.DecorationRole:
 			if self.field( index.column() ) == self.iconField:
 				model = self.model( index.row(), index.internalPointer() )
