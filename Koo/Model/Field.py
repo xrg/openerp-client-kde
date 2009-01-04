@@ -121,6 +121,8 @@ class StringField(QObject):
 class BinaryField(StringField):
 	def set(self, model, value, test_state=True, modified=False):
 		model.values[self.name] = None
+		if value:
+			model.values[self.name] = base64.decodestring(value)
 		if modified:
 			model.modified = True
 			model.modified_fields.setdefault(self.name)
