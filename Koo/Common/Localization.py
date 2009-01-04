@@ -81,13 +81,13 @@ def initializeQtTranslations():
 		# information and try again.
 		language = language.split('_')[0]
 		file = Paths.searchFile( '%s.qm' % language, 'l10n' )
-	if not file:
-		# If no translation files were found, don't crash
-		# but continue silently.
-		return
-	translator = QTranslator( QCoreApplication.instance() )
-	translator.load( file )
-	QCoreApplication.instance().installTranslator( translator )
+
+	# If no translation files were found, don't crash
+	# but continue silently.
+	if file:
+		translator = QTranslator( QCoreApplication.instance() )
+		translator.load( file )
+		QCoreApplication.instance().installTranslator( translator )
 
 	# First we try to load the file with the same system language name 
 	# Usually in $LANG and looks something like ca_ES, de_DE, etc.
@@ -97,11 +97,10 @@ def initializeQtTranslations():
 		# information and try again.
 		language = language.split('_')[0]
 		file = Paths.searchFile( 'qt_%s.qm' % language, 'l10n' )
+	# If no translation files were found, don't crash
+	# but continue silently.
 	if not file:
-		# If no translation files were found, don't crash
-		# but continue silently.
-		return
-	translator = QTranslator( QCoreApplication.instance() )
-	translator.load( file )
-	QCoreApplication.instance().installTranslator( translator )
+		translator = QTranslator( QCoreApplication.instance() )
+		translator.load( file )
+		QCoreApplication.instance().installTranslator( translator )
 
