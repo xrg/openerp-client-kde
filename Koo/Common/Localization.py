@@ -59,7 +59,7 @@ def initializeTranslations():
 			lang = gettext.translation(name, directory, fallback=False)
 		except:
 			directory = None
-
+	
 	if not directory:
 		# If the first try didn't work try to search translation files
 		# in standard directories 'share/locale'
@@ -87,6 +87,7 @@ def initializeQtTranslations():
 		return
 	translator = QTranslator( QCoreApplication.instance() )
 	translator.load( file )
+	QCoreApplication.instance().installTranslator( translator )
 
 	# First we try to load the file with the same system language name 
 	# Usually in $LANG and looks something like ca_ES, de_DE, etc.
@@ -102,6 +103,5 @@ def initializeQtTranslations():
 		return
 	translator = QTranslator( QCoreApplication.instance() )
 	translator.load( file )
-
 	QCoreApplication.instance().installTranslator( translator )
 
