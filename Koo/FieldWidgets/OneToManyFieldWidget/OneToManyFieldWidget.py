@@ -67,8 +67,13 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
 		
+		# Make screen as big as needed but ensuring it's not bigger than
+		# the available space on screen (minus some pixels so they can be
+		# used by dialog).
 		size = self.screen.sizeHint()
-		self.screen.setMinimumSize( size.width(), size.height()+80 )
+		available = QDesktopWidget().availableGeometry().size()
+		available -= QSize( 180, 180 )
+		self.screen.setMinimumSize( size.boundedTo( available ) )
 
 		self.show()
 
