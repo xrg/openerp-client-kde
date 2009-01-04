@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de_DE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-30 13:43+0100\n"
+"POT-Creation-Date: 2009-01-04 20:28+0100\n"
 "PO-Revision-Date: 2008-11-22 21:57+0100\n"
 "Last-Translator: Ferdinand Gassauer <translate-erp@chricar.at>\n"
 "Language-Team:\n"
@@ -34,21 +34,21 @@ msgstr "Bericht Fehler"
 msgid "There was an error trying to create the report."
 msgstr "Fehler bei der Berichtserstellung"
 
-#: Koo/Rpc/Rpc.py:248 Koo/Rpc/Rpc.py:377
+#: Koo/Rpc/Rpc.py:223 Koo/Rpc/Rpc.py:352
 msgid "Connection Refused"
 msgstr "Verbindung abgelehnt!"
 
-#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:389
-#: Koo/Rpc/Rpc.py:403 Koo/Rpc/Rpc.py:406
+#: Koo/Rpc/Rpc.py:230 Koo/Rpc/Rpc.py:239 Koo/Rpc/Rpc.py:243 Koo/Rpc/Rpc.py:364
+#: Koo/Rpc/Rpc.py:378 Koo/Rpc/Rpc.py:381
 msgid "Application Error"
 msgstr "Anwendungsfehler"
 
-#: Koo/Rpc/Rpc.py:255 Koo/Rpc/Rpc.py:264 Koo/Rpc/Rpc.py:268 Koo/Rpc/Rpc.py:389
-#: Koo/Rpc/Rpc.py:403 Koo/Rpc/Rpc.py:406
+#: Koo/Rpc/Rpc.py:230 Koo/Rpc/Rpc.py:239 Koo/Rpc/Rpc.py:243 Koo/Rpc/Rpc.py:364
+#: Koo/Rpc/Rpc.py:378 Koo/Rpc/Rpc.py:381
 msgid "View details"
 msgstr "Details anzeigen"
 
-#: Koo/Rpc/Rpc.py:519
+#: Koo/Rpc/Rpc.py:494
 msgid "Could not contact server!"
 msgstr "Kann nicht mit dem Server verbinden!"
 
