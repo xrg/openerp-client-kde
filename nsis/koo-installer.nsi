@@ -53,12 +53,6 @@
 ;--------------------------------
 ;Pages
 
-  !define MUI_ICON "..\Koo\ui\images\tinyerp-icon.ico"
-  !define MUI_UNICON "..\Koo\ui\images\tinyerp-icon.ico"
-  !define MUI_WELCOMEFINISHPAGE_BITMAP "tinyerp-intro.bmp"
-  !define MUI_HEADERIMAGE
-  !define MUI_HEADERIMAGE_BITMAP "tinyerp-header.bmp"
-
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE "..\doc\LICENCE.txt"
  # !insertmacro MUI_PAGE_COMPONENTS
@@ -99,14 +93,14 @@ Section "Koo" SecTinyERPClient
 
   SetOutPath "$TEMP"
 
-  File "python-2.5.2.msi"
-  File "pywin32-212.win32-py2.5.exe"
-  File "PyQt-Py2.5-gpl-4.4.2-1.exe"
+  File "python-2.6.1.msi"
+  File "pywin32-212.win32-py2.6.exe"
+  File "PyQt-Py2.6-gpl-4.4.4-2.exe"
   File "koo-1.0.0-beta2.win32.exe"
 
-  ExecWait 'msiexec /i "$TEMP\python-2.5.2.msi" /qn TARGETDIR=c:\python25'
-  ExecWait '"$TEMP\pywin32-212.win32-py2.5.exe" /S'
-  ExecWait '"$TEMP\PyQt-Py2.5-gpl-4.4.2-1.exe" /S'
+  ExecWait 'msiexec /i "$TEMP\python-2.6.1.msi" /qn TARGETDIR=c:\python26'
+  ExecWait '"$TEMP\pywin32-212.win32-py2.6.exe" /S'
+  ExecWait '"$TEMP\PyQt-Py2.6-gpl-4.4.4-2.exe" /S'
   ExecWait '"$TEMP\koo-1.0.0-beta2.win32.exe" /S'
 
   ;Store installation folder
@@ -121,7 +115,7 @@ Section "Koo" SecTinyERPClient
     
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$STARTMENU_FOLDER"
-    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Koo.lnk" "c:\python25\lib\site-packages\koo\koo.py"
+    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Koo.lnk" "c:\python26\lib\site-packages\koo\koo.py"
   
   !insertmacro MUI_STARTMENU_WRITE_END
 
@@ -142,8 +136,8 @@ SectionEnd
 
 Section "Uninstall"
 
-  RMDir /r "c:\python25\lib\site-packages\Koo"
-  RMDir /r "c:\python25\share\koo\"
+  RMDir /r "c:\python26\lib\site-packages\Koo"
+  RMDir /r "c:\python26\share\koo\"
   RMDir /r "$INSTDIR"
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
