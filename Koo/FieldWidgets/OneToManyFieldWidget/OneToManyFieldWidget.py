@@ -81,7 +81,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFormWidget.__init__(self, parent, model, attrs)
-		OneToManyFormWidgetUi.__init__(self, parent)
+		OneToManyFormWidgetUi.__init__(self)
 		self.setupUi(self)
 
 		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
