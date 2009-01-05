@@ -164,6 +164,7 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		name = unicode( self.uiText.text() )
 		if name.strip() == '':
 			self.model.setValue( self.name, False )			
+			self.showValue()
 			return
 		if name == self.model.value(self.name):
 			return

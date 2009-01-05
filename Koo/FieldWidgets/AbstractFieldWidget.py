@@ -179,13 +179,6 @@ class AbstractFormWidget(QWidget):
 		if event.type() == QEvent.FocusOut:
 			if self.model:
 				self.store()
-		#if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
-			#e = QKeyEvent( event.type(), event.key(), event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
-			##QCoreApplication.postEvent( self, e )
-			#self.event( e )
-			#event.ignore()
-			#print "Sending events!!!"
-			#return True
 		return False
 
 	## @brief Shows a popup menu with default and widget specific
