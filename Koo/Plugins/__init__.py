@@ -36,7 +36,7 @@ class Plugins:
 	## @brief This function obtains the list of all available plugins by iterating
 	# over every subdirectory inside Plugins/
 	@staticmethod
-	def list():
+	def list( model = None ):
 		# Search for all available plugins
 		plugs = {}
 		dir=os.path.abspath(os.path.dirname(__file__))
@@ -49,10 +49,19 @@ class Plugins:
 					# to execute the 'action'
 					for y in x:
 						x[y]['module'] = i
+						x[y]['model_regexp'] = re.compile( x[y]['model'] )
 					plugs.update( x )
 				except:
 					print "Error importing view: ", i
-		return plugs
+
+		plugins = {}
+		for name, plugin in plugs.items():
+			if model:
+				if plugin['model_regexp'].search( model ):
+					plugins[name] = plugin
+			else:
+				plugins[name] = plugin
+		return plugins
 		
 
 	## @brief Shows the plugin selection dialog and executes the one selected.

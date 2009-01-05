@@ -114,7 +114,7 @@ class ActionFactory:
 				action.setModel( model )
 				actions.append( action )
 
-		plugs = Plugins.list()
+		plugs = Plugins.list(model)
 		for p in plugs:
 			action = Action( parent )
 			action.setIcon( QIcon( ":/images/images/exec.png" ) )
