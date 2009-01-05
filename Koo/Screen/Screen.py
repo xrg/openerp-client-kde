@@ -179,10 +179,13 @@ class Screen(QScrollArea):
 			self.searchForm.hide()
 
 	def triggerAction(self):
-		if not self.currentId():
-			return
 		# We expect a Screen.Action here
 		action = self.sender()
+
+		# Do not trigger action if there is no record selected. This is
+		# only permitted for plugins.
+		if not self.currentId() and action.type() != 'plugin':
+			return
 
 		id = self.currentId()
 		ids = self.selectedIds()
@@ -490,25 +493,29 @@ class Screen(QScrollArea):
 				self.display()
 
 	def cancel(self):
-		id = self.currentId()
-		# If it has no ID the record will be removed and thus we want
-		# to move to the previous record.
-		if not id:
-			idx = self.models.records.index(self.currentRecord())-1
-			if idx < 0:
-				idx = self.models.count() - 1
-			id = self.models.records[idx].id
+		id = 0
+		# There might be no record selected
+		if self.currentRecord():
+			id = self.currentId()
+			# If it has no ID the record will be removed and thus we want
+			# to move to the previous record.
+			if not id:
+				idx = self.models.records.index(self.currentRecord())-1
+				if idx < 0:
+					idx = self.models.count() - 1
+				id = self.models.records[idx].id
 
 		ids = self.allIds()
 		self.models.clear()
 			
 		self.models.preload( ids )
 
-		for record in self.models.records:
-			if record.id == id:
-				self.setCurrentRecord( record )
-				self.display()
-				break	
+		if id:
+			for record in self.models.records:
+				if record.id == id:
+					self.setCurrentRecord( record )
+					self.display()
+					break	
 
 	## @brief Returns a reference to the current view.
 	def currentView(self):

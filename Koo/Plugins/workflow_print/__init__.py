@@ -33,12 +33,20 @@ from Koo.Common import Common
 ## @brief Executes the workflow graph report 'workflow.instance.graph'
 # including subworkflows.
 def printWorkflow(datas):
+	# Plugins might be called with no record selected but that doesn't
+	# make sense for this plugin so simply return.
+	if not datas['id']:
+		return
 	datas['nested'] = True
 	Api.instance.executeReport('workflow.instance.graph', datas)
 
 ## @brief Executes the workflow graph report 'workflow.instance.graph' without
 # subworkflows.
 def printSimpleWorkflow(datas):
+	# Plugins might be called with no record selected but that doesn't
+	# make sense for this plugin so simply return.
+	if not datas['id']:
+		return
 	datas['nested'] = False
 	Api.instance.executeReport('workflow.instance.graph', datas)
 
