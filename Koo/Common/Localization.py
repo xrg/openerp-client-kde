@@ -99,7 +99,7 @@ def initializeQtTranslations():
 		file = Paths.searchFile( 'qt_%s.qm' % language, 'l10n' )
 	# If no translation files were found, don't crash
 	# but continue silently.
-	if not file:
+	if file:
 		translator = QTranslator( QCoreApplication.instance() )
 		translator.load( file )
 		QCoreApplication.instance().installTranslator( translator )
