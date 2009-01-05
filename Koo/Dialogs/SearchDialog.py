@@ -107,7 +107,9 @@ class SearchDialog( QDialog, SearchDialogUi ):
 	def reload(self):
 		self.modelGroup.update()
 		if self.allowMultipleSelection:
-			self.view.widget.selectAll()
+			self.view.selectAll()
+		else:
+			self.view.selectFirst()
 		self.setWindowTitle( self.title_results % self.modelGroup.count() )
 
 	def accepted( self ):

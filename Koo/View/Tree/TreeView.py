@@ -96,20 +96,17 @@ class TreeView( AbstractView ):
 		self.selecting = False
 		self.setAddOnTop( False )
 
-		#self.widget = QTableView( self )
-		#self.widget.setSortingEnabled( True )
-		#self.widget.setShowGrid( False )
-
-
-		#self.widget = QTreeView( self )
 		self.widget = TinyTreeView( self )
 		self.widget.setAllColumnsShowFocus( False )
 		self.widget.setSortingEnabled(True)
 		self.widget.setRootIsDecorated( False )
 		self.widget.setAlternatingRowColors( True )
-		#self.widget.verticalScrollBar().setTracking( False )
 		self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
 		self.widget.sortByColumn( 0, Qt.AscendingOrder )
+
+		# Set focus proxy so other widgets can try to setFocus to us
+		# and the focus is set to the expected widget.
+		self.setFocusProxy( self.widget )
 
 		# Contains list of aggregated fields
 		self.aggregates = []
@@ -207,17 +204,34 @@ class TreeView( AbstractView ):
 		#self.widget.header().resizeSections( QHeaderView.ResizeToContents )
 		self.updateAggregates()
 		if not currentModel:
-			index = self.treeModel.index( 0, 0 )
-			if not index.isValid():
-				return
-			
-			self.widget.setCurrentIndex( index )
-			self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
+			self.selectFirst()
+			#index = self.treeModel.index( 0, 0 )
+			#if not index.isValid():
+				#return
+			#
+			#self.widget.setCurrentIndex( index )
+			#self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 		else:
 			idx = self.treeModel.indexFromId( currentModel.id )
 			if idx:
 				self.widget.setCurrentIndex( idx )
 				self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
+
+	## @brief Selects the first item of the list.
+	def selectFirst(self):
+		index = self.treeModel.index( 0, 0 )
+		if not index.isValid():
+			return
+		
+		self.widget.setCurrentIndex( index )
+		self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
+
+	## @brief Selects all items of the list.
+	def selectAll(self):
+		start = self.treeModel.index( 0, 0 )
+		end = self.treeModel.index( self.treeModel.rowCount() - 1, 0 )
+		selection = QItemSelection( start, end )
+		self.widget.selectionModel().select( selection, QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 
 	def selectedIds(self):
 		ids = []

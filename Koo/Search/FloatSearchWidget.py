@@ -45,6 +45,11 @@ class FloatSearchWidget(AbstractSearchWidget):
 		layout.addWidget( self.uiStart )
 		layout.addWidget( label )
 		layout.addWidget( self.uiEnd )
+
+		# Catch keyDownPressed
+		self.uiStart.installEventFilter( self )
+		self.uiEnd.installEventFilter( self )
+
 		self.connect( self.uiStart, SIGNAL('returnPressed()'), self.calculate )
 		self.connect( self.uiEnd, SIGNAL('returnPressed()'), self.calculate )
 

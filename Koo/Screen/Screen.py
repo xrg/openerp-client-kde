@@ -77,6 +77,7 @@ class Screen(QScrollArea):
 
 		self.searchForm = Search.SearchFormWidget(self.container)
 		self.connect( self.searchForm, SIGNAL('search()'), self.search )
+		self.connect( self.searchForm, SIGNAL('keyDownPressed()'), self.setFocusToView )
 		self.searchForm.hide()
 		self.containerView = None
 
@@ -108,6 +109,9 @@ class Screen(QScrollArea):
 		self._currentView = 0
 
 		self._viewQueue = ViewQueue()
+
+	def setFocusToView(self):
+		self.currentView().setFocus()
 
 	def sizeHint(self):
 		return self.container.sizeHint()
@@ -207,7 +211,10 @@ class Screen(QScrollArea):
 		widget.show()
 		self.connect(widget, SIGNAL("activated()"), self.activate )
 		self.connect(widget, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
-		
+
+		# Set focus proxy so other widgets can try to setFocus to us
+		# and the focus is set to the expected widget.
+		self.setFocusProxy( self.containerView )
 
 		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
@@ -221,6 +228,9 @@ class Screen(QScrollArea):
 		value = self.searchForm.getValue()
 		self.models.setFilter( value )
 		self.models.update()
+		if self.models.count() > 0:
+			self.setCurrentRecord( self.models.records[0] )
+			self.display()
 
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):

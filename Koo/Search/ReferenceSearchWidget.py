@@ -40,6 +40,8 @@ class ReferenceSearchWidget(AbstractSearchWidget, ReferenceSearchWidgetUi):
 
 		self.setPopdown( attrs.get('selection',[]) )
 		self.focusWidget = self.uiModel
+		# Catch keyDownPressed
+		self.focusWidget.installEventFilter( self )
 
 	def setPopdown(self, selection):
 		self.invertedModels = {}

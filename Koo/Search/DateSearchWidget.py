@@ -42,6 +42,10 @@ class DateSearchWidget(AbstractSearchWidget, DateSearchWidgetUi):
 		DateSearchWidgetUi.__init__(self)
 		self.setupUi( self )
 
+		# Catch keyDownPressed
+		self.uiStart.installEventFilter( self )
+		self.uiEnd.installEventFilter( self )
+
 		self.widget = self
 		self.focusWidget = self.uiStart
 		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )

@@ -46,6 +46,11 @@ class TimeSearchWidget(AbstractSearchWidget):
 		layout.addWidget(self.uiStart)
 		layout.addWidget(label)
 		layout.addWidget(self.uiEnd)
+
+		# Catch keyDownPressed
+		self.uiStart.installEventFilter( self )
+		self.uiEnd.installEventFilter( self )
+
 		self.focusWidget = self.uiStart
 
 	def _getTime(self, text):
