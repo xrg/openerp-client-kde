@@ -83,6 +83,11 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 		self.pushClear.setEnabled( enabled )
 
 	def clear(self):
+		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
+		# the parent model could make us lose changes.
+		self.view.store()
+
 		# This automatically refreshes the widget and thus clears
 		# the uiModel combo and the uiText line edit
 		if self.model:
@@ -151,6 +156,11 @@ class ReferenceFormWidget(AbstractFormWidget, ReferenceFormWidgetUi):
 			self.model.setValue(self.name, (resource, dialog.model) )
 
 	def open(self):
+		# As the 'open' button might modify the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
+		# the parent model could make us lose changes.
+		self.view.store()
+
 		value = self.model.value(self.name)
 		if value:
 			model, (id, name) = value

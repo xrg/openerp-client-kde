@@ -63,7 +63,7 @@ class CharFormWidget(AbstractFormWidget):
 			layout.addWidget( pushTranslate )
 			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
 
-		self.connect( self.widget, SIGNAL('editingFinished()'), self.modified )
+		self.connect( self.widget, SIGNAL('editingFinished()'), self.store )
 
 	def translate(self):
 		if not self.model.id:

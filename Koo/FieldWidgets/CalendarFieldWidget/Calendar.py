@@ -52,8 +52,12 @@ class DateFormWidget(AbstractFormWidget, DateFormWidgetUi):
 
 		self.connect( self.pushCalendar, SIGNAL( "clicked()" ),self.showCalendar )
 		self.dateTime = False
-		self.connect( self.uiDate, SIGNAL('editingFinished()'), self.modified )
+		self.connect( self.uiDate, SIGNAL('editingFinished()'), self.updateValue )
 		self.installPopupMenu( self.uiDate )
+
+	def updateValue(self):
+		self.modified()
+		self.showValue()
 
 	def menuEntries(self):
 		return [ (_('Set current date'), self._setCurrentDate, True ) ]	
@@ -128,7 +132,11 @@ class TimeFormWidget(AbstractFormWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiTime )
 		self.installPopupMenu( self.uiTime )
-		self.connect( self.uiTime, SIGNAL('editingFinished()'), self.modified )
+		self.connect( self.uiTime, SIGNAL('editingFinished()'), self.updateValue )
+
+	def updateValue(self):
+		self.modified()
+		self.showValue()
 
 	def menuEntries( self ):
 		return [ (_('Set current time'), self.setCurrentTime, True ) ]
@@ -171,7 +179,11 @@ class FloatTimeFormWidget(AbstractFormWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiTime )
 		self.installPopupMenu( self.uiTime )
-		self.connect( self.uiTime, SIGNAL('editingFinished()'), self.modified )
+		self.connect( self.uiTime, SIGNAL('editingFinished()'), self.updateValue )
+
+	def updateValue(self):
+		self.modified()
+		self.showValue()
 
 	def menuEntries( self ):
 		return [ (_('Set current time'), self.setCurrentTime, True ) ]

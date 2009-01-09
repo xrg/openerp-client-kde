@@ -52,7 +52,7 @@ class FloatFormWidget(AbstractFormWidget):
 	def calculate(self):
 		val = textToFloat( str(self.widget.text() ) )
 		if val:
-			self.widget.setText( str(val) )
+			self.widget.setText( floatToText( val, self.digits) )
 		else:
 			self.clear()
 		self.modified()

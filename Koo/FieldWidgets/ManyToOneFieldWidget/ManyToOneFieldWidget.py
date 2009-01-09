@@ -130,6 +130,11 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 				self.loadCompletion( ids, attrs )
 
 	def clear( self ):
+		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
+		# the parent model could make us lose changes.
+		self.view.store()
+
 		if self.model:
 			self.model.setValue( self.name, False )
 		self.uiText.clear()
@@ -171,6 +176,11 @@ class ManyToOneFormWidget(AbstractFormWidget, ManyToOneFormWidgetUi):
 		self.search( name )
 
 	def open(self):
+		# As the 'open' button might modify the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
+		# the parent model could make us lose changes.
+		self.view.store()
+
 		if self.model.value(self.name):
 			# If Control Key is pressed when the open button is clicked
 			# the record will be opened in a new tab. Otherwise it's opened

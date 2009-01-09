@@ -161,7 +161,19 @@ class FormView( AbstractView ):
 			widget.reset()
 
 	def display(self, currentModel, models):
+		# Though it might seem it's not necessary to connect FormView to recordChanged signal it
+		# actually is. This is due to possible 'on_change' events triggered by the modification of
+		# a field. This forces those widgets that might change the model before a 'lostfocus' has been
+		# triggered to ensure the view has saved all its fields. As an example, modifying a char field
+		# and pressing the new button of a OneToMany widget might trigger a recordChanged before 
+		# char field has actually changed the value in the model. After updateDisplay, char field will
+		# be reset to its previous state. Take a look at OneToMany implementation to see what's needed
+		# in such buttons.
+		if self.model:
+			self.disconnect(self.model,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
 		self.model = currentModel
+		if self.model:
+			self.connect(self.model, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
 		self.updateDisplay(self.model)
 
 	def updateDisplay(self,model):

@@ -132,6 +132,10 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		return self.screen
 
 	def new(self):
+		# As the 'new' button modifies the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by calling new
+		# in the parent model could make us lose changes.
+		self.view.store()
                 if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
@@ -151,6 +155,10 @@ class OneToManyFormWidget(AbstractFormWidget, OneToManyFormWidgetUi):
 		self.screen.displayPrevious()
 
 	def remove(self): 
+		# As the 'remove' button modifies the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by calling remove
+		# in the parent model could make us lose changes.
+		self.view.store()
 		self.screen.remove()
 
 	def setLabel(self, position, count, value):
