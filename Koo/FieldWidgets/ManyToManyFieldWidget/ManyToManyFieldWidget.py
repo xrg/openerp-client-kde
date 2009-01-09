@@ -82,6 +82,11 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		return QSize( 200,800 )
 
 	def add(self):
+		# As the 'add' button modifies the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered 
+		# could make us lose changes.
+		self.view.store()
+
 		domain = self.model.domain( self.name )
 		context = self.model.fieldContext( self.name )
 
@@ -102,6 +107,10 @@ class ManyToManyFormWidget(AbstractFormWidget, ManyToManyFormWidgetUi):
 		self.screen.models.recordChanged( None )
 
 	def remove(self):
+		# As the 'remove' button modifies the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered 
+		# could make us lose changes.
+		self.view.store()
 		self.screen.remove()
 		self.screen.display()
 
