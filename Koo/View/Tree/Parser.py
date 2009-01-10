@@ -105,6 +105,7 @@ class TreeParser(AbstractParser):
 		model.setModelGroup( self.screen.models )
 		model.setFields( fields )
 		model.setFieldsOrder( [x['name'] for x in header] )
+		print "FIELDS: " , [x['name'] for x in header]
 		model.setColors( colors )
 		model.setReadOnly( not attrs.get('editable', False) )
 		view.setReadOnly( not attrs.get('editable', False) )
@@ -120,113 +121,11 @@ class TreeParser(AbstractParser):
 
 		for column in range( len(columns)):
 			current = columns[column]
-			view.widget.setColumnWidth( column, current['width'] )
+			if view._widgetType != 'list':
+				view.widget.setColumnWidth( column, current['width'] )
 
 			delegate = FieldDelegateFactory.create( current['type'], view.widget, current['attributes'] )
 			view.widget.setItemDelegateForColumn( column, delegate )
-			#if current['type'] == 'boolean':
-			#	delegate = BooleanItemDelegate( view.widget )
-			#	view.widget.setItemDelegateForColumn( column, delegate )
-			#if not model.readOnly():
-				# Assign delegates to editable models only. Editable delegates need
-				# somewhat heigher rows (StandardDelegate.sizeHint()) which read only
-				# models don't need. This way we save some space in read only views.
-				#delegate = StandardDelegate( current['type'], current['attributes'], view.widget )
-				#view.widget.setItemDelegateForColumn( column, delegate )
 		return view, on_write
-
-class StandardDelegate( QStyledItemDelegate ):
-	def __init__( self, type, attributes, parent=None):
-		QStyledItemDelegate.__init__( self, parent )
-		self.attributes = attributes
-		self.type = type
-		self.currentIndex = None
-		self.currentEditor = None
-
-		# We pick QComboBox sizeHint height as the minimum
-		# row height. This way editable views will have enough
-		# room so widgets won't be clipped.
-		combo = QComboBox()
-		self.minimumHeight = combo.sizeHint().height()
-		del combo
-
-	def createEditor( self, parent, option, index ):
-		self.currentIndex = index.model().createIndex( index.row(), index.column(), index.internalPointer() )
-		if self.type in ('one2many', 'one2many_list', 'one2many_form', 'many2many'):
-			return None
-		widget = FieldWidgetFactory.create( self.type, parent, None, self.attributes )
-		for x in widget.findChildren(QWidget):
-			w = x.nextInFocusChain()
-			inside = False
-			while w:
-				if w == widget:
-					inside = True
-					break
-				w = w.parent()
-			if not inside:
-				x.installEventFilter( self )
-				break
-		self.currentEditor = widget
-		index.model()._updatesEnabled = False
-		return widget
-
-	def eventFilter( self, obj, event ):
-		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Tab:
-			self.emit(SIGNAL('commitData(QWidget*)'), self.currentEditor)
-			self.emit(SIGNAL('closeEditor(QWidget*, QAbstractItemDelegate::EndEditHint)'), self.currentEditor, QAbstractItemDelegate.NoHint)
-
-			parent = self.parent()
-			if parent.inherits( 'QAbstractItemView' ):
-				model = self.currentIndex.model()
-				row = self.currentIndex.row()
-
-				# Check whether we have to move to the next item or the
-				# previous one
-				if event.modifiers() and Qt.ShiftModifier:
-					# Previous item
-					column = self.currentIndex.column() - 1
-					if column < 0:
-						column = model.columnCount( self.currentIndex.parent() ) - 1
-						row = self.currentIndex.row() - 1
-						if row < 0:
-							row = model.rowCount( self.currentIndex.parent() ) - 1
-				else:
-					# Next item
-					column = self.currentIndex.column() + 1
-					if column >= model.columnCount( self.currentIndex.parent() ):
-						column = 0
-						row = self.currentIndex.row() + 1
-						if row >= model.rowCount( self.currentIndex.parent() ):
-							row = 0
-				index = model.createIndex( row, column, self.currentIndex.internalPointer() )
-				# Set current index per Qt4 documentation before trying to edit
-				parent.setCurrentIndex( index )
-				parent.edit( index )
-			return True
-		return QStyledItemDelegate.eventFilter( self, obj, event )
-
-	def setEditorData( self, editor, index ):
-		if not editor:
-			return
-		# We assume a KooModel here
-		model = index.model().modelFromIndex( index )
-		editor.load( model )
-		return
-
-	def setModelData( self, editor, model, index ):
-		model._updatesEnabled = True
-		#if editor:
-			#editor.store()
-		
-	def updateEditorGeometry(self, editor, option, index ):
-		 editor.setGeometry(option.rect)
-	
-	# As noted above height will be the maximum between standard Delegate
-	# and QComboBox sizeHint height. Which should usually result in
-	# QComboBox measure. This ensures widgets fit correctly.
-	def sizeHint(self, option, index ):
-		size = QStyledItemDelegate.sizeHint( self, option, index )
-		size.setHeight( max(size.height(), self.minimumHeight ) )
-		return size
 
 # vim:noexpandtab:
