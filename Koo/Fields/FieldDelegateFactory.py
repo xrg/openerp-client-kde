@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,8 +25,34 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from AbstractFieldDelegate import *
+from Koo.Common import Plugins
+import os
 
-ViewFactory.register( 'tree', TreeParser )
+## @brief The FieldDelegateFactory class specializes in creating the appropiate 
+# delegates for a given type.
+
+class FieldDelegateFactory:
+	delegates = {}
+
+	@staticmethod
+	def scan():
+		# Scan only once
+		if FieldDelegateFactory.delegates:
+			return
+		# Search for all available views
+		Plugins.scan( 'Koo.Fields', os.path.abspath(os.path.dirname(__file__)) )
+
+	@staticmethod
+	def create(delegateType, parent, attributes):
+		FieldDelegateFactory.scan()
+		if not delegateType in FieldDelegateFactory.delegates:
+			return AbstractFieldDelegate( parent, attributes )
+
+		delegateClass = FieldDelegateFactory.delegates[delegateType]
+		return delegateClass(parent, attributes)
+
+	@staticmethod
+	def register( name, delegate ):
+		FieldDelegateFactory.delegates[ name ] = delegate
+

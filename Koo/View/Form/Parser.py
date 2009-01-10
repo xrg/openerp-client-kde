@@ -33,8 +33,8 @@ from Koo import Rpc
 
 from FormView import FormView, FormContainer
 from Koo.View.AbstractParser import *
-from Koo.FieldWidgets.FieldWidgetFactory import *
-from Koo.FieldWidgets.AbstractFieldWidget import *
+from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 

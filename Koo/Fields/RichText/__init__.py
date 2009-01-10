@@ -25,8 +25,7 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from RichTextFieldWidget import *
+from Koo.Fields.FieldWidgetFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'text_tag', RichTextFieldWidget )

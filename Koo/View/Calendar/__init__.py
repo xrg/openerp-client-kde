@@ -26,3 +26,6 @@
 ##############################################################################
 
 from Parser import *
+from Koo.View.ViewFactory import *
+
+ViewFactory.register( 'calendar', CalendarParser )

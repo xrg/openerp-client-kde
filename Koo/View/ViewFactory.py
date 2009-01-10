@@ -27,6 +27,7 @@
 ##############################################################################
 
 import os
+from Koo.Common import Plugins
 
 # The 'ViewFactory' class specializes in creating the appropiate views. Searches
 # for available views and calls the parser of the appropiate one.
@@ -40,31 +41,31 @@ import os
 # Standard types are 'form', 'tree' and 'graph'. 
 
 class ViewFactory:
+	parsers = {}
+
+	@staticmethod
+	def scan():
+		# Scan only once
+		if ViewFactory.parsers:
+			return
+		# Search for all available views
+		Plugins.scan( 'Koo.View', os.path.abspath(os.path.dirname(__file__)) )
+
 	@staticmethod
 	def create(parent, model, root_node, fields):
-		# Search for all available views
-		parsers = {}
-		imports = {}
-		dir=os.path.abspath(os.path.dirname(__file__))
-		for i in os.listdir(dir):
-			path = os.path.join( dir, i, '__terp__.py' )
-			if os.path.isfile( path ):
-				try:
-					x = eval( file(path).read() )
-					parsers.update(x)
-					imports[x.keys()[0]] = i
-				except:
-					print "Error importing view: ", i
-
-		# Search for the views and parse the XML 
+		ViewFactory.scan()
+		# Search for the view and parse the XML 
 		widget = None
 		for node in root_node.childNodes:
 			if not node.nodeType == node.ELEMENT_NODE:
 				continue
-			if node.localName in parsers:
-				exec( 'import %s' % imports[node.localName] )	
-				parser = eval('%s()' % parsers[node.localName])
+			if node.localName in ViewFactory.parsers:
+				parser = ViewFactory.parsers[ node.localName ]()
 				view, on_write = parser.create(parent, model, node, fields)
 				return view, on_write
 		return None
+
+	@staticmethod
+	def register(viewName, parser):
+		ViewFactory.parsers[viewName] = parser
 

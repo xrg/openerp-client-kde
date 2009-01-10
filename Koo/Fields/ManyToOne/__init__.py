@@ -25,8 +25,9 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from ManyToOne import *
+from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.FieldDelegateFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'many2one', ManyToOneFieldWidget )
+FieldDelegateFactory.register( 'many2one', ManyToOneFieldDelegate )

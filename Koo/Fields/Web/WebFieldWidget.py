@@ -25,8 +25,33 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+from PyQt4.uic import *
+from PyQt4.QtWebKit import *
+from Koo.Common import Common
+from Koo.Fields.AbstractFieldWidget import *
 
-ViewFactory.register( 'tree', TreeParser )
+(WebFieldWidgetUi, WebFieldWidgetBase) = loadUiType( Common.uiPath('web.ui') ) 
+
+class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
+	def __init__(self, parent, model, attrs={}):
+		AbstractFieldWidget.__init__(self, parent, model, attrs)
+		WebFieldWidgetUi.__init__(self)
+		self.setupUi( self )
+
+	def store(self):
+		pass
+
+	def clear( self ):
+		self.uiWeb.setUrl(QUrl(''))
+
+	def showValue(self):
+		self.uiWeb.setUrl(QUrl(self.model.value(self.name) or ''))
+
+	def setReadOnly(self, value):
+		# We always enable the browser so the user can use links.
+		self.uiWeb.setEnabled( True )
+
+# vim:noexpandtab:
+

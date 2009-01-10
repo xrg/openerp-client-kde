@@ -25,8 +25,15 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from Calendar import *
+from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.FieldDelegateFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'date', DateFieldWidget )
+FieldWidgetFactory.register( 'time', TimeFieldWidget )
+FieldWidgetFactory.register( 'datetime', DateTimeFieldWidget )
+FieldWidgetFactory.register( 'float_time', FloatTimeFieldWidget )
+FieldDelegateFactory.register( 'date', DateFieldDelegate )
+FieldDelegateFactory.register( 'time', TimeFieldDelegate )
+FieldDelegateFactory.register( 'datetime', DateTimeFieldDelegate )
+FieldDelegateFactory.register( 'float_time', FloatTimeFieldDelegate )

@@ -25,8 +25,7 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from ImageFieldWidget import *
+from Koo.Fields.FieldWidgetFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'image', ImageFieldWidget )

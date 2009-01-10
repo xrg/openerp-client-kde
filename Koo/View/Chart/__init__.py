@@ -26,4 +26,8 @@
 ##############################################################################
 
 from Parser import *
+from Koo.View.ViewFactory import *
+
+ViewFactory.register( 'graph', ChartParser )
+#from __terp__ import *
 

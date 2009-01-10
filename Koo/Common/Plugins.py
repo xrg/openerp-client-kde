@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,8 +25,24 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+import os
 
-ViewFactory.register( 'tree', TreeParser )
+def scan( module, directory ):
+	pluginImports = __import__(module, globals(), locals())
+	# Check if it's being run using py2exe environment
+	if hasattr(pluginImports, '__loader__'):
+		# If it's run using py2exe environment, all files will be in a single 
+		# zip file and we can't use listdir() to find all available plugins.
+		zipFiles = pluginImports.__loader__._files
+		moduleDir = os.path.join( module.split(',') )
+		files = [zipFiles[file][0] for file in zipFiles.keys() if moduleDir in file]
+		files = [file for file in files if '__init__.py' in file]
+		for file in files:
+			newModule = os.path.basename(os.path.dirname(a))
+			__import__( '%s.%s' % (module, newModule), globals(), locals(), [newModule] ) 
+	else:
+		for i in os.listdir(directory):
+			path = os.path.join( directory, i, '__init__.py' )
+			if os.path.isfile( path ):
+				__import__( '%s.%s' % (module, i), globals(), locals(), [i] )
+

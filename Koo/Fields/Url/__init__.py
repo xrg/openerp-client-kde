@@ -25,8 +25,10 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from Url import *
+from Koo.Fields.FieldWidgetFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'url', UrlFieldWidget )
+FieldWidgetFactory.register( 'email', EMailFieldWidget )
+FieldWidgetFactory.register( 'callto', CallToFieldWidget )
+FieldWidgetFactory.register( 'sip', SipFieldWidget )

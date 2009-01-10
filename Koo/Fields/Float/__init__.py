@@ -25,8 +25,9 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from Float import *
+from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.FieldDelegateFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'float', FloatFieldWidget )
+FieldDelegateFactory.register( 'float', FloatFieldDelegate )

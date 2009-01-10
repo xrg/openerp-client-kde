@@ -1,7 +1,6 @@
 ##############################################################################
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -27,29 +26,51 @@
 #
 ##############################################################################
 
-from Koo.Common import Api
-from Koo.Common import Common
-from Koo.Plugins import Plugins
+from Koo.Fields.AbstractFieldWidget import *
+from Koo.Fields.AbstractFieldDelegate import *
+from Koo.Common.Numeric import *
+from PyQt4.QtGui import *
+from PyQt4.QtCore import *
 
-## @brief Executes the workflow graph report 'workflow.instance.graph'
-# including subworkflows.
-def printWorkflow(datas):
-	# Plugins might be called with no record selected but that doesn't
-	# make sense for this plugin so simply return.
-	if not datas['id']:
-		return
-	datas['nested'] = True
-	Api.instance.executeReport('workflow.instance.graph', datas)
+class IntegerFieldWidget(AbstractFieldWidget):
+	def __init__(self, parent, model, attrs={}):
+		AbstractFieldWidget.__init__(self, parent, model, attrs)
+		self.widget = QLineEdit( self )
+		layout = QHBoxLayout( self )
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		layout.addWidget( self.widget )
+		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
+		self.installPopupMenu( self.widget )
 
-## @brief Executes the workflow graph report 'workflow.instance.graph' without
-# subworkflows.
-def printSimpleWorkflow(datas):
-	# Plugins might be called with no record selected but that doesn't
-	# make sense for this plugin so simply return.
-	if not datas['id']:
-		return
-	datas['nested'] = False
-	Api.instance.executeReport('workflow.instance.graph', datas)
+	def calculate(self):
+		val = textToInteger( unicode(self.widget.text() ) )
+		if val:
+			self.widget.setText( str(val) )
+		else:
+			self.widget.setText('')
+		self.modified()
 
-Plugins.register( 'workflow_print_simple', '.*', _('Print Workflow'), printSimpleWorkflow )
-Plugins.register( 'workflow_print', '.*', _('Print Workflow (Complex)'), printWorkflow )
+	def value(self):
+		return textToInteger( unicode(self.widget.text()) )
+
+	def store(self):
+		self.model.setValue(self.name, self.value() )
+
+	def clear(self):
+		self.widget.setText('0')
+
+	def showValue(self):
+		value = self.model.value( self.name )
+		self.widget.setText( str(value) )
+
+	def setReadOnly(self, value):
+		self.widget.setEnabled( not value )
+
+	def colorWidget(self):
+		return self.widget
+
+class IntegerFieldDelegate( AbstractFieldDelegate ):
+	def setModelData(self, editor, model, index):
+		value = textToInteger( unicode( editor.text() ) )
+		model.setData( index, QVariant( value ), Qt.EditRole )
+

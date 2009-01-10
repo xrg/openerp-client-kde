@@ -25,8 +25,9 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from Selection import *
+from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.FieldDelegateFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'selection', SelectionFieldWidget )
+FieldDelegateFactory.register( 'selection', SelectionFieldDelegate )

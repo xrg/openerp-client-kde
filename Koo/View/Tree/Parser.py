@@ -37,8 +37,8 @@ from PyQt4.uic import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-from Koo.FieldWidgets.FieldWidgetFactory import *
-from Koo.FieldWidgets.FieldDelegateFactory import *
+from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.FieldDelegateFactory import *
 from Koo.Common import Common
 from Koo.Common.Numeric import *
 from Koo.Common.Calendar import *
@@ -105,7 +105,6 @@ class TreeParser(AbstractParser):
 		model.setModelGroup( self.screen.models )
 		model.setFields( fields )
 		model.setFieldsOrder( [x['name'] for x in header] )
-		print "FIELDS: " , [x['name'] for x in header]
 		model.setColors( colors )
 		model.setReadOnly( not attrs.get('editable', False) )
 		view.setReadOnly( not attrs.get('editable', False) )

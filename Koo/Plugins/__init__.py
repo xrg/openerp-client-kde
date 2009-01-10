@@ -29,66 +29,70 @@
 
 from PyQt4.QtGui import *
 from Koo.Common import Common
+#from Koo import Common.Plugins
+import Koo.Common.Plugins
 import re
 import os
 
 class Plugins:
+	plugins = {}
+
 	## @brief This function obtains the list of all available plugins by iterating
 	# over every subdirectory inside Plugins/
 	@staticmethod
 	def list( model = None ):
 		# Search for all available plugins
-		plugs = {}
-		dir=os.path.abspath(os.path.dirname(__file__))
-		for i in os.listdir(dir):
-			path = os.path.join( dir, i, '__terp__.py' )
-			if os.path.isfile( path ):
-				try:
-					x = eval(file(path).read())
-					# Store the module we need to import in order
-					# to execute the 'action'
-					for y in x:
-						x[y]['module'] = i
-						x[y]['model_regexp'] = re.compile( x[y]['model'] )
-					plugs.update( x )
-				except:
-					print "Error importing view: ", i
+		# Scan only once
+		if not Plugins.plugins:
+			Koo.Common.Plugins.scan( 'Koo.Plugins', os.path.abspath(os.path.dirname(__file__)) )
 
 		plugins = {}
-		for name, plugin in plugs.items():
+		for name, plugin in Plugins.plugins.items():
 			if model:
 				if plugin['model_regexp'].search( model ):
 					plugins[name] = plugin
 			else:
 				plugins[name] = plugin
 		return plugins
+		#plugs = {}
+		#dir=os.path.abspath(os.path.dirname(__file__))
+		#for i in os.listdir(dir):
+			#path = os.path.join( dir, i, '__terp__.py' )
+			#if os.path.isfile( path ):
+				#try:
+					#x = eval(file(path).read())
+					## Store the module we need to import in order
+					## to execute the 'action'
+					#for y in x:
+						#x[y]['module'] = i
+						#x[y]['model_regexp'] = re.compile( x[y]['model'] )
+					#plugs.update( x )
+				#except:
+					#print "Error importing view: ", i
+#
+		#plugins = {}
+		#for name, plugin in plugs.items():
+			#if model:
+				#if plugin['model_regexp'].search( model ):
+					#plugins[name] = plugin
+			#else:
+				#plugins[name] = plugin
+		#return plugins
 		
 
-	## @brief Shows the plugin selection dialog and executes the one selected.
-	@staticmethod
-	def showDialog(datas):
-		result = {}
-		plugins = Plugins.list()
-		for p in plugins:
-			if not 'model_re' in plugins[p]:
-				plugins[p]['model_re'] = re.compile(plugins[p]['model'])
-			res = plugins[p]['model_re'].search(datas['model'])
-			if res:
-				result[plugins[p]['string']] = p
-		if not len(result):
-			QMessageBox.information(None, '',_('No available plugin for this resource !'))
-			return 
-		sel = Common.selection(_('Choose a Plugin'), result, alwaysask=True)
-		if sel:
-			# Import the appropiate module and execute the action
-			exec('import %s' % plugins[sel[1]]['module'])
-			exec('%s(%s)' % ( plugins[sel[1]]['action'], datas ) )
-	
 	## @brief Executes the given plugin.
 	@staticmethod
 	def execute(plugin, model, id, ids):
 		plugins = Plugins.list()
 		datas = { 'model': model, 'id': id, 'ids': ids }
-		exec('import %s' % plugins[plugin]['module'])
-		exec('%s(%s)' % ( plugins[plugin]['action'], datas ) )
+		action = plugins[plugin]['action']
+		action( datas )
 
+	@staticmethod
+	def register(name, model, title, action):
+		Plugins.plugins[ name ] = {
+			'model': model,
+			'string': title,
+			'action': action,
+			'model_regexp': re.compile( model )
+		}

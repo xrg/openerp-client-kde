@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,8 +25,8 @@
 #
 ##############################################################################
 
-from Parser import *
-from TreeView import *
-from Koo.View.ViewFactory import *
+from CharFieldWidget import *
+from Koo.Fields.FieldWidgetFactory import *
 
-ViewFactory.register( 'tree', TreeParser )
+FieldWidgetFactory.register( 'char', CharFieldWidget )
+
