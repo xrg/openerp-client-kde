@@ -32,9 +32,8 @@ import report
 import pooler
 import osv
 import tools
-
-from tempfile import *
-
+import tempfile 
+import codecs
 import sql_db
 
 class report_jasper(report.interface.report_int):
@@ -42,27 +41,52 @@ class report_jasper(report.interface.report_int):
 		super(report_jasper, self).__init__(name)
 		print "report_jasper:",name,model
 		self.model = model
-		
+
+	def path(self):
+		return os.path.abspath(os.path.dirname(__file__))
+
+	def addonsPath(self):
+		return os.path.dirname( self.path() )	
+
+	def isLanguageXPath(self, reportPath):
+		# Open report file '....jrxml'
+		f = codecs.open( reportPath, 'r', 'utf-8' )
+		data = f.read()
+		f.close()
+		# Process file simply to obtain the language it expects
+		data = data.split( '\n' )
+		data = [line for line in data if '<queryString language=' in line]
+		data = data[0].strip()
+		if data.lower().endswith('xpath">'):
+			return True
+		else:
+			return False
 
 	def create(self, cr, uid, ids, data, context):
-		f = NamedTemporaryFile()
-		fa="/tmp/aaaa"
-		if True:
-			self.sqlReport(cr,uid,ids,data,context,fa )
+		fd, name = tempfile.mkstemp()
+		# Find out if the report expects an XML or JDBC connection
+		pool = pooler.get_pool( cr.dbname )
+		reports = pool.get( 'ir.actions.report.xml' )
+		ids = reports.search(cr, uid, [('report_name', '=', self.name[7:])], context=context)
+		report = reports.read(cr, uid, ids[0], ['report_rml'])['report_rml']
+		reportPath = "%s/%s" % ( self.addonsPath(), report )
+		print "D: ", data
+		recordIds = [data['id']]
+		if self.isLanguageXPath( reportPath ):
+			self.xmlReport( cr, uid, recordIds, data['model'], report, name, context )
 		else:
-			self.generate_xml( cr, uid, ids, data['model'], context)
-			self.generate_xml( cr, uid, ids, 'account.invoice', context)
-			os.spawnlp(os.P_WAIT, '/home/angel/work/koo/server-modules/jasper_reports/java/create-report.sh', '/home/angel/work/koo/server-modules/jasper_reports/java/create-report.sh', '--compile', 'invoice2', '/tmp/jasper.xml', '/tmp/output.pdf', )
-			print "OutpuT"
-		
-		f = open( fa, 'rb')
+			self.createReport( cr, uid, recordIds, report, name )
+		f = open( name, 'rb')
 		data = f.read()
 		f.close()
 		return ( data, 'pdf' )
 
-	def sqlReport( self,cr,uid,ids,data,context, file):
-		print "Name:", self.name, "Model:", self.model
- 
+	def xmlReport( self, cr, uid, ids, model, report, outputFile, context ):
+		self.generate_xml( cr, uid, ids, model, context)
+		self.generate_xml( cr, uid, ids, model, context)
+		self.createReport( cr, uid, ids, report, outputFile )
+
+	def createReport( self, cr, uid, ids, report, outputFile ):
 		host = tools.config['db_host'] and "%s" % tools.config['db_host'] or 'localhost'
 		port = tools.config['db_port'] and "%s" % tools.config['db_port'] or '5432'
 		dbname = "%s" % cr.dbname
@@ -71,25 +95,12 @@ class report_jasper(report.interface.report_int):
 		maxconn = int(tools.config['db_maxconn']) or 64
 		dsn= 'jdbc:postgresql://%s:%s/%s'%(host,port,dbname)
 
-		print "dsn:",dsn,"ids:",ids,"contexte:",context
-
-		pool = pooler.get_pool( cr.dbname )
-		reports = pool.get( 'ir.actions.report.xml' )
-		report_xml_ids = reports.search(cr, uid, [('report_name', '=', self.name[7:])], context=context)
-		print "IDS:",report_xml_ids
-		report_xml = reports.browse(cr, uid, report_xml_ids[0], {})
-
-		print "FILES:", report_xml.report_rml[:-6]
-
-
-		print file
 		idss=""
 		for id in ids:
 			idss += ' %s'%id
 
-		os.spawnlp(os.P_WAIT, '/home/angel/work/koo/server-modules/jasper_reports/java/create-report.sh', 
-			              '/home/angel/work/koo/server-modules/jasper_reports/java/create-report.sh', 
-			              '--compile', report_xml.report_rml[:-6], '/tmp/jasper.xml', file, dsn,user,password,'ids:%s;'%idss)
+		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
+	              '--compile', self.addonsPath(), report[:-6], '/tmp/jasper.xml', outputFile, dsn, user, password, 'ids:%s;' % idss )
 		
 
 	def generate_xml(self, cr, uid, ids, model, context):
@@ -101,15 +112,13 @@ class report_jasper(report.interface.report_int):
 			recordNode = document.createElement('record')
 			topNode.appendChild( recordNode )
 			(fields, fieldNames) = self.fields(pool, model)
-			self.generate_record( pool, record, recordNode, document, fields, fieldNames, 2 )
+			self.generate_record( pool, record, recordNode, document, fields, fieldNames, 1 )
 				
 		f = open('/tmp/jasper.xml', 'wb+')
 		f.write( topNode.toxml() )
 		f.close()
 
 	def generate_record(self, pool, record, recordNode, document, fields, fieldNames, depth):
-		#print "fieldName:",fieldNames
-		#print "record:",record
 		for field in fieldNames:
 			fieldNode = document.createElement(field)
 			recordNode.appendChild( fieldNode )
@@ -123,8 +132,8 @@ class report_jasper(report.interface.report_int):
 				if depth <= 1:
 					continue
 				modelName = value._table._name
-				(fields, fieldNames) = self.fields(pool, modelName)
-				self.generate_record(pool, value, fieldNode, document, fields, fieldNames, depth-1)
+				(fields2, fieldNames2) = self.fields(pool, modelName)
+				self.generate_record(pool, value, fieldNode, document, fields2, fieldNames2, depth-1)
 				continue
 
 			if isinstance(value, osv.orm.browse_record_list):
@@ -133,9 +142,9 @@ class report_jasper(report.interface.report_int):
 				if not value:
 					continue
 				modelName = value[0]._table._name
-				(fields, fieldNames) = self.fields(pool, modelName)
+				(fields2, fieldNames2) = self.fields(pool, modelName)
 				for val in value:
-					self.generate_record(pool, val, fieldNode, document, fields, fieldNames, depth-1)
+					self.generate_record(pool, val, fieldNode, document, fields2, fieldNames2, depth-1)
 				value = None
 				continue
 
@@ -155,6 +164,30 @@ class report_jasper(report.interface.report_int):
 		fieldNames.sort()
 		return (fields, fieldNames)
 
+
+# Ugly hack to avoid developers the need to register reports
+import service.security
+import pooler
+import netsvc
+
+old_login = service.security.login 
+def new_login(db, login, password):
+	uid = old_login(db, login, password)
+	if uid:
+		pool = pooler.get_pool(db)
+		cr = pooler.get_db(db).cursor()
+		ids = pool.get('ir.actions.report.xml').search(cr, uid, [])
+		records = pool.get('ir.actions.report.xml').read(cr, uid, ids, ['report_name','report_rml','model'])
+		for record in records:
+			path = record['report_rml']
+			if path and path.endswith('.jrxml'):
+				print "REGISTERING REPORT JRXML: ", record['report_name']
+				name = 'report.%s' % record['report_name']
+				if name in netsvc._service:
+					del netsvc._service[name]
+				report_jasper( name, record['model'] )
+	return uid
+service.security.login = new_login
 
 #a = report_jasper( 'report.'+'account_invoice.jaspertest', 'account_invoice' )
 #print a.__module__

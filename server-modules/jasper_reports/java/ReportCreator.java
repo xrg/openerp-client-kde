@@ -40,13 +40,13 @@ public class ReportCreator {
 
 			System.out.println("LANGUAGE:" + query.getLanguage());
 			if( query.getLanguage().equalsIgnoreCase(  "XPATH")  ){
-			  System.out.println("XPATH");
-			  JRXmlDataSource dataSource = new JRXmlDataSource( xmlFile, "/data/record" );
-			  jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
+				System.out.println("XPATH");
+				JRXmlDataSource dataSource = new JRXmlDataSource( xmlFile, "/data/record" );
+				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else if(  query.getLanguage().equalsIgnoreCase( "SQL")  ) {
-			  System.out.println("2-SQL");
-			  System.out.println("Parameters:" + parameters.toString() );
-			  jasperPrint = JasperFillManager.fillReport( report, parameters, con );
+				System.out.println("2-SQL");
+				System.out.println("Parameters:" + parameters.toString() );
+				jasperPrint = JasperFillManager.fillReport( report, parameters, con );
 			}
 		    
 			JasperExportManager.exportReportToPdfFile( jasperPrint, reportOutput );
@@ -56,52 +56,53 @@ public class ReportCreator {
 		}
 	}
 
-  public static Connection getConnection(String dsn, String user, String password) throws java.lang.ClassNotFoundException, java.sql.SQLException
-  {
-    Connection connection;
-    Class.forName("org.postgresql.Driver");
-    connection = DriverManager.getConnection( dsn ,user, password );
-    connection.setAutoCommit(false);
-    System.out.println( "colsed:" + connection.isClosed() );
-    return connection;
-  }
-  
-  public static HashMap parseParams( String params ){
-    HashMap parameters= new HashMap();
-    System.out.println( "Params:" + params );
-    String[] p = params.split(";");
-    for( int j=0; j < p.length ; j++ ){
-      System.out.println( p[j] );
-      String[] map = p[j].split(":");
-      parameters.put( map[0] , map[1] );
-    }
-    System.out.println( parameters );
-    return parameters;
-  }
+	public static Connection getConnection(String dsn, String user, String password) throws java.lang.ClassNotFoundException, java.sql.SQLException
+	{
+		Connection connection;
+		Class.forName("org.postgresql.Driver");
 
-  public static void main( String[] args ) 
-  {
-	  for( int i=0;i< args.length; i++ )
-	      System.out.println( "arguments:" + args[i]);
+		System.out.println("DSN: " + dsn);
+		connection = DriverManager.getConnection( dsn, user, password );
+		connection.setAutoCommit(false);
+		System.out.println( "colsed:" + connection.isClosed() );
+		return connection;
+	}
 
-	  Connection con=null;
-	  HashMap parameters;
+	public static HashMap parseParams( String params ){
+		HashMap parameters= new HashMap();
+		System.out.println( "Params:" + params );
+		String[] p = params.split(";");
+		for( int j=0; j < p.length ; j++ ){
+			System.out.println( p[j] );
+			String[] map = p[j].split(":");
+			parameters.put( map[0] , map[1] );
+		}
+		System.out.println( parameters );
+		return parameters;
+	}
 
-	  if ( args.length >= 3 ){  
-	    String dsn = args[3];
-	    String user=args[4];
-	    String password=args[5];
-	    String params = args[6];
-	    try {
-	      con = getConnection( dsn,user,password );
-	    } catch( Exception e ){
-	      e.printStackTrace();
-	    }
-	    parameters = parseParams( params );
-	    createReport( args[0], args[1], args[2] , con, parameters );
-	  }
-	  else
-	    System.out.println( "Three arguments needed." );
+	public static void main( String[] args ) 
+	{
+		for( int i=0;i< args.length; i++ )
+			System.out.println( "arguments:" + args[i]);
+
+		Connection con=null;
+		HashMap parameters;
+
+		if ( args.length >= 3 ) {  
+			String dsn = args[3];
+			String user=args[4];
+			String password=args[5];
+			String params = args[6];
+			try {
+				con = getConnection( dsn,user,password );
+			} catch( Exception e ){
+				e.printStackTrace();
+			}
+			parameters = parseParams( params );
+			createReport( args[0], args[1], args[2] , con, parameters );
+		} else
+			System.out.println( "Three arguments needed." );
 	}
 }
 
