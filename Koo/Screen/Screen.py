@@ -233,7 +233,7 @@ class Screen(QScrollArea):
 		self.models.update()
 		if self.models.count() > 0:
 			self.setCurrentRecord( self.models.records[0] )
-			self.display()
+		self.display()
 
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):
