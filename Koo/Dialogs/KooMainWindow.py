@@ -387,6 +387,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				self.openHomeTab()
 
 				self.updateRequestsStatus()
+
 			elif log_response==Rpc.session.Exception:
 				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
 			elif log_response==Rpc.session.InvalidCredentials:
@@ -397,6 +398,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			Common.error(_('Connection Error !'),e1,e2)
 			Rpc.session.logout()
 
+		
 	## Closes all tabs smartly, that is using closeCurrentTab()
 	def closeAllTabs(self):
 		while self.tabWidget.count() > 0:
@@ -571,6 +573,24 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.menuBrowse.setEnabled( browse )
 		self.menuActions.setEnabled( actions )
 		self.menuPlugins.setEnabled( plugins )
+
+		value = Rpc.session.logged()
+		self.actionOpenMenuTab.setEnabled( value )
+		self.actionOpenHomeTab.setEnabled( value )
+		self.actionPreferences.setEnabled( value )
+		self.actionClearCache.setEnabled( value )
+		self.actionSendRequest.setEnabled( value )
+		self.actionReadMyRequest.setEnabled( value )
+		self.actionWaitingRequests.setEnabled( value )
+		self.actionDisconnect.setEnabled( value )
+
+		if self.tabWidget.count() > 0:
+			value = True
+		else:
+			value = False
+		self.actionClose.setEnabled( value )
+		self.actionNextTab.setEnabled( value )
+		self.actionPreviousTab.setEnabled( value )
 
 	def callChildView( self ):
 		o = self.sender()
