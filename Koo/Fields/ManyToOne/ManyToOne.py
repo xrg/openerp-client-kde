@@ -32,7 +32,7 @@ from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common import Shortcuts
 
-from Screen import Screen
+from Koo.Screen.Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
 from Koo.Dialogs.SearchDialog import SearchDialog
@@ -269,14 +269,13 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		return currentEntries
 
 	def executeRelation(self, action):
-		value = self.model.value(self.name)
+		id = self.model.get()[self.name]
 		group = ModelRecordGroup( self.attrs['relation'] )
-		group.load( [value] )
+		group.load( [id] )
 		record = group.modelByRow( 0 )
 		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
 		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
 		Api.instance.executeAction( action )
-		return 
 
 	def executeAction(self, type):
 		id = self.model.id

@@ -41,7 +41,7 @@ from Koo.Common import Common
 from Koo.Common import Options
 import copy
 
-from Screen import Screen
+from Koo.Screen.Screen import *
 from Koo.Model.Group import ModelRecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *

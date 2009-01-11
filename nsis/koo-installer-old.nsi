@@ -89,50 +89,60 @@
 ;--------------------------------
 ;Installer Sections
 
-Section "Koo" SecKoo
+Section "Koo" SecTinyERPClient
 
-    SetOutPath "$INSTDIR"
+  SetOutPath "$TEMP"
 
-    File /r "..\dist\*"
+  File "python-2.6.1.msi"
+  File "pywin32-212.win32-py2.6.exe"
+  File "PyQt-Py2.6-gpl-4.4.4-2.exe"
+  File "koo-1.0.0-beta2.win32.exe"
 
-    ;Store installation folder
-    WriteRegStr HKCU "Software\Koo" "" $INSTDIR
+  ExecWait 'msiexec /i "$TEMP\python-2.6.1.msi" /qn TARGETDIR=c:\python26'
+  ExecWait '"$TEMP\pywin32-212.win32-py2.6.exe" /S'
+  ExecWait '"$TEMP\PyQt-Py2.6-gpl-4.4.4-2.exe" /S'
+  ExecWait '"$TEMP\koo-1.0.0-beta2.win32.exe" /S'
+
+  ;Store installation folder
+  #WriteRegStr HKCU "Software\Koo" "" $INSTDIR
+  
+  ;Create uninstaller
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "DisplayName" "Koo (remove only)"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "UninstallString" "$INSTDIR\Uninstall.exe"
+  WriteUninstaller "$INSTDIR\Uninstall.exe"
+  
+  !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     
-    ;Create uninstaller
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "DisplayName" "Koo (remove only)"
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "UninstallString" "$INSTDIR\Uninstall.exe"
-    WriteUninstaller "$INSTDIR\Uninstall.exe"
-    
-    !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-      
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$STARTMENU_FOLDER"
-    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Koo.lnk" "$INSTDIR\koo.exe"
-    CreateShortCut "$DESKTOP\Koo.lnk" "$INSTDIR\koo.exe"
-    !insertmacro MUI_STARTMENU_WRITE_END
+    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Koo.lnk" "c:\python26\lib\site-packages\koo\koo.py"
+  
+  !insertmacro MUI_STARTMENU_WRITE_END
 
 SectionEnd
 
 ;Descriptions
 
   ;Language strings
-  LangString DESC_SecKoo ${LANG_ENGLISH} "Koo."
+  LangString DESC_SecTinyERPClient ${LANG_ENGLISH} "Koo."
 
   ;Assign language strings to sections
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-    !insertmacro MUI_DESCRIPTION_TEXT ${SecKoo} $(DESC_SecKoo)
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecTinyERPClient} $(DESC_SecTinyERPClient)
   !insertmacro MUI_FUNCTION_DESCRIPTION_END
  
 ;--------------------------------
 ;Uninstaller Section
 
 Section "Uninstall"
+
+  RMDir /r "c:\python26\lib\site-packages\Koo"
+  RMDir /r "c:\python26\share\koo\"
   RMDir /r "$INSTDIR"
 
   !insertmacro MUI_STARTMENU_GETFOLDER Application $MUI_TEMP
 
   Delete "$SMPROGRAMS\$MUI_TEMP\Koo.lnk"
-  Delete "$DESKTOP\Koo.lnk"
   RMDir /r "$SMPROGRAMS\$STARTMENU_FOLDER"
 
   ;Delete empty start menu parent diretories
@@ -154,5 +164,73 @@ Section "Uninstall"
 SectionEnd
 
 Function LaunchLink
-  ExecShell "" "$INSTDIR\koo.exe"
+  ExecShell "" "$INSTDIR\lib\site-packages\Koo\koo.py"
+FunctionEnd
+
+Function un.RmDirsButOne
+ Exch $R0 ; exclude dir
+ Exch
+ Exch $R1 ; route dir
+ Push $R2
+ Push $R3
+ 
+  FindFirst $R3 $R2 "$R1\*.*"
+  IfErrors Exit
+ 
+  Top:
+   StrCmp $R2 "." Next
+   StrCmp $R2 ".." Next
+   StrCmp $R2 $R0 Next
+   IfFileExists "$R1\$R2\*.*" 0 Next
+    RmDir /r "$R1\$R2"
+ 
+   #Goto Exit ;uncomment this to stop it being recursive
+ 
+   Next:
+    ClearErrors
+    FindNext $R3 $R2
+    IfErrors Exit
+   Goto Top
+ 
+  Exit:
+  FindClose $R3
+ 
+ Pop $R3
+ Pop $R2
+ Pop $R1
+ Pop $R0
+FunctionEnd
+
+Function un.RmFilesButOne
+ Exch $R0 ; exclude file
+ Exch
+ Exch $R1 ; route dir
+ Push $R2
+ Push $R3
+ 
+  FindFirst $R3 $R2 "$R1\*.*"
+  IfErrors Exit
+ 
+  Top:
+   StrCmp $R2 "." Next
+   StrCmp $R2 ".." Next
+   StrCmp $R2 $R0 Next
+   IfFileExists "$R1\$R2\*.*" Next
+    Delete "$R1\$R2"
+ 
+   #Goto Exit ;uncomment this to stop it being recursive
+ 
+   Next:
+    ClearErrors
+    FindNext $R3 $R2
+    IfErrors Exit
+   Goto Top
+ 
+  Exit:
+  FindClose $R3
+ 
+ Pop $R3
+ Pop $R2
+ Pop $R1
+ Pop $R0
 FunctionEnd

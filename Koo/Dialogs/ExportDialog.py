@@ -35,7 +35,6 @@ import gettext
 from Koo.Common import Common
 
 from Koo import Rpc
-import sets
 
 import types
 import os

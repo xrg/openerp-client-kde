@@ -37,7 +37,7 @@ from Koo import Rpc
 from Koo.Common import Common
 import copy
 
-from Screen import Screen
+from Koo.Screen.Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
 (PreferencesDialogUi, PreferencesDialogBase) = loadUiType( Common.uiPath('preferences.ui') )

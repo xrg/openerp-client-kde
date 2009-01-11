@@ -32,9 +32,8 @@ from Koo.Common import Common
 
 from Koo import Rpc
 
-from Screen import Screen
+from Koo.Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
-import Search
 
 
 from PyQt4.QtGui import *

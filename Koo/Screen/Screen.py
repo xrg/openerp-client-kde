@@ -42,7 +42,7 @@ from Koo.Common.ViewSettings import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-import Search
+from Koo.Search import SearchFormWidget
 from Koo.Plugins import *
 from ToolBar import ToolBar
 from Action import *
@@ -75,7 +75,7 @@ class Screen(QScrollArea):
 
 		self.container.show()
 
-		self.searchForm = Search.SearchFormWidget(self.container)
+		self.searchForm = SearchFormWidget(self.container)
 		self.connect( self.searchForm, SIGNAL('search()'), self.search )
 		self.connect( self.searchForm, SIGNAL('keyDownPressed()'), self.setFocusToView )
 		self.searchForm.hide()
@@ -233,7 +233,7 @@ class Screen(QScrollArea):
 		self.models.update()
 		if self.models.count() > 0:
 			self.setCurrentRecord( self.models.records[0] )
-			self.display()
+		self.display()
 
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):

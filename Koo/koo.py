@@ -29,6 +29,9 @@
 #
 ##############################################################################
 
+# Added so py2exe properly packs xml.etree.ElementTree
+from xml.etree.ElementTree import parse, SubElement
+
 import sys, os
 import logging
 
@@ -149,7 +152,7 @@ if imports['dbus']:
 
 from Koo.Dialogs.KooMainWindow import *
 from Koo.Dialogs.WindowService import *
-import Actions
+import Koo.Actions
 
 win = KooMainWindow()
 
@@ -157,16 +160,16 @@ from Koo.Common import Api
 
 class KooApi(Api.KooApi):
 	def execute(self, actionId, data={}, type=None, context={}):
-		Actions.execute( actionId, data, type, context )
+		Koo.Actions.execute( actionId, data, type, context )
 
 	def executeReport(self, name, data={}, context={}):
-		return Actions.executeReport( name, data, context )
+		return Koo.Actions.executeReport( name, data, context )
 
 	def executeAction(self, action, data={}, context={}):
-		Actions.executeAction( action, data, context )
+		Koo.Actions.executeAction( action, data, context )
 		
 	def executeKeyword(self, keyword, data={}, context={}):
-		return Actions.executeKeyword( keyword, data, context )
+		return Koo.Actions.executeKeyword( keyword, data, context )
 
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
 			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
