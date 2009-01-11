@@ -54,31 +54,6 @@ class Plugins:
 			else:
 				plugins[name] = plugin
 		return plugins
-		#plugs = {}
-		#dir=os.path.abspath(os.path.dirname(__file__))
-		#for i in os.listdir(dir):
-			#path = os.path.join( dir, i, '__terp__.py' )
-			#if os.path.isfile( path ):
-				#try:
-					#x = eval(file(path).read())
-					## Store the module we need to import in order
-					## to execute the 'action'
-					#for y in x:
-						#x[y]['module'] = i
-						#x[y]['model_regexp'] = re.compile( x[y]['model'] )
-					#plugs.update( x )
-				#except:
-					#print "Error importing view: ", i
-#
-		#plugins = {}
-		#for name, plugin in plugs.items():
-			#if model:
-				#if plugin['model_regexp'].search( model ):
-					#plugins[name] = plugin
-			#else:
-				#plugins[name] = plugin
-		#return plugins
-		
 
 	## @brief Executes the given plugin.
 	@staticmethod
