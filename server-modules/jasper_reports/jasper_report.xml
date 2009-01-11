@@ -11,6 +11,16 @@
 		   menu="True"
 		   header="False"
 		   />
+		<report
+                   string="Jasper Invoice"
+                   model="account.invoice"
+                   auto="True"
+                   name="account_invoice.jaspertest"
+		   rml="jasper_reports/invoice.jrxml"
+                   id="account_invoice_jaspertest" 
+		   menu="True"
+		   header="False"
+		   />
         </data>
 </terp>
 

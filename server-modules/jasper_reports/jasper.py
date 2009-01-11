@@ -25,9 +25,11 @@
 #
 ##############################################################################
 
-from osv import osv, fields
+#from osv import osv, fields
 
-#class i(osv.osv):
+#class jaspers_report(osv.osv):
+#    _inherit = 'ir.actions.report.xml'
+
 	#_name = 'ir.attachment'
 	#_inherit = 'ir.attachment'
 	#_columns = {
@@ -36,3 +38,4 @@ from osv import osv, fields
 	#}
 #ir_attachment()
 
+#jaspers_report()

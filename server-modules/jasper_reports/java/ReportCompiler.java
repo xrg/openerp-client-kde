@@ -8,6 +8,7 @@ public class ReportCompiler {
 		try {
 			JasperCompileManager.compileReportToFile( src, dst );
 		} catch (Exception e){
+		  e.printStackTrace();
 			System.out.println( e.getMessage() );
 		}
 	}
