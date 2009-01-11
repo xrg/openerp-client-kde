@@ -33,7 +33,7 @@ from PyQt4.uic import *
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common import Common
-from Screen import Screen
+from Koo.Screen.Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
 (ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 

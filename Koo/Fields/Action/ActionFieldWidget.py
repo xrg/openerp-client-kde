@@ -32,7 +32,7 @@ from Koo.Common import Api
 from Koo.Common import Common
 
 
-from Screen import Screen
+from Koo.Screen.Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
 from Koo import Rpc

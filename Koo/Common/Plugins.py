@@ -34,11 +34,14 @@ def scan( module, directory ):
 		# If it's run using py2exe environment, all files will be in a single 
 		# zip file and we can't use listdir() to find all available plugins.
 		zipFiles = pluginImports.__loader__._files
-		moduleDir = os.path.join( module.split(',') )
+		moduleDir = '\\'.join( module.split('.') )
 		files = [zipFiles[file][0] for file in zipFiles.keys() if moduleDir in file]
 		files = [file for file in files if '__init__.py' in file]
 		for file in files:
-			newModule = os.path.basename(os.path.dirname(a))
+			d = os.path.dirname(file)
+			if d.endswith( moduleDir ):
+				continue
+			newModule = os.path.basename(os.path.dirname(file))
 			__import__( '%s.%s' % (module, newModule), globals(), locals(), [newModule] ) 
 	else:
 		for i in os.listdir(directory):

@@ -25,4 +25,4 @@
 #
 ##############################################################################
 
-from Screen import Screen
+from Koo.Screen import Screen

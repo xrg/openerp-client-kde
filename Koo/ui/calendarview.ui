@@ -109,7 +109,7 @@
   <customwidget>
    <class>GraphicsCalendarView</class>
    <extends>QGraphicsView</extends>
-   <header>View.Calendar.Calendar</header>
+   <header>Koo.View.Calendar.Calendar</header>
   </customwidget>
  </customwidgets>
  <resources/>

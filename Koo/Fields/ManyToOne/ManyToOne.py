@@ -32,7 +32,7 @@ from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common import Shortcuts
 
-from Screen import Screen
+from Koo.Screen.Screen import Screen
 from Koo.Model.Group import ModelRecordGroup
 
 from Koo.Dialogs.SearchDialog import SearchDialog

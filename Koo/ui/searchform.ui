@@ -112,7 +112,7 @@
   <customwidget>
    <class>SearchFormContainer</class>
    <extends>QWidget</extends>
-   <header>Search.SearchFormWidget</header>
+   <header>Koo.Search.SearchFormWidget</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

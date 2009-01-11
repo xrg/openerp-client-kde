@@ -168,7 +168,7 @@
   <customwidget>
    <class>SearchView</class>
    <extends>QWidget</extends>
-   <header>Dialogs.FullTextSearchDialog</header>
+   <header>Koo.Dialogs.FullTextSearchDialog</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

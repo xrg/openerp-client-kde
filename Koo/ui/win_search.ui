@@ -108,13 +108,13 @@
   <customwidget>
    <class>SearchFormWidget</class>
    <extends>QWidget</extends>
-   <header>Search</header>
+   <header>Koo.Search</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>Screen</class>
    <extends>QWidget</extends>
-   <header>Screen</header>
+   <header>Koo.Screen.Screen</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

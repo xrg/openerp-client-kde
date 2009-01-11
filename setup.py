@@ -14,12 +14,21 @@ from stat import ST_MODE
 
 from distutils.file_util import copy_file
 from distutils.sysconfig import get_python_lib
-from mydistutils import setup
+from distutils.core import setup
 
 try:
-	import py2exe
+  import py2exe
+
+  # Override the function in py2exe to determine if a dll should be included
+  dllList = ('mfc90.dll','msvcp90.dll')
+  origIsSystemDLL = py2exe.build_exe.isSystemDLL
+  def isSystemDLL(pathname):
+    if os.path.basename(pathname).lower() in dllList:
+      return 0
+    return origIsSystemDLL(pathname)
+  py2exe.build_exe.isSystemDLL = isSystemDLL
 except:
-	pass
+  pass
 
 opj = os.path.join
 
@@ -51,52 +60,35 @@ def check_modules():
 def data_files():
 	'''Build list of data files to be installed'''
 	files = [
-		(opj('share','man','man1',''),['man/koo.1']),
-		(opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob('doc/html/*') if os.path.isfile(f)]),
-		(opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob('doc/doxygen/html/*') if os.path.isfile(f)]),
-		(opj('share', 'Koo'), ['Koo/kootips.txt']),
-		(opj('share', 'Koo', 'ui'), glob.glob('Koo/ui/*.ui')),
-		(opj('share', 'Koo', 'ui', 'images'), glob.glob('Koo/ui/images/*.png')),
-		(opj('share', 'Koo', 'l10n'), glob.glob('Koo/l10n/*.qm'))
+		(opj('share','man','man1',''),[ opj('man','koo.1')]),
+		(opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob(opj('doc','html','*')) if os.path.isfile(f)]),
+		(opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob(opj('doc','doxygen','html','*')) if os.path.isfile(f)]),
+		(opj('share', 'Koo'), [ opj('Koo','kootips.txt')]),
+		(opj('share', 'Koo', 'ui'), glob.glob( opj('Koo','ui','*.ui') ) ),
+		(opj('share', 'Koo', 'ui', 'images'), glob.glob( opj('Koo','ui','images','*.png') ) ),
+		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) )
 	]
 	return files
 
-included_plugins = ['workflow_print']
-
-def findPlugins():
+def findPlugins( module ):
 	result = []
-	for plugin in included_plugins:
-		path=opj('Koo', 'Plugins', plugin)
-		for dirpath, dirnames, filenames in os.walk(path):
-			if '__init__.py' in filenames:
-				result.append( dirpath.replace(os.path.sep, '.') )
-	return result
-
-def findViews():
-	result = []
-	views = [x for x in glob.glob('Koo/View/*') if os.path.isdir(x)]
-	for view in views:
-		for dirpath, dirnames, filenames in os.walk(view):
-			if '__init__.py' in filenames:
-				result.append( dirpath.replace(os.path.sep, '.') )
-	return result
-
-def findFieldWidgets():
-	result = []
-	views = [x for x in glob.glob('Koo/FieldWidgets/*') if os.path.isdir(x)]
-	for view in views:
-		for dirpath, dirnames, filenames in os.walk(view):
+	plugins = [x for x in glob.glob( opj('Koo', module,'*') ) if os.path.isdir(x)]
+	for plugin in plugins:
+		for dirpath, dirnames, filenames in os.walk(plugin):
 			if '__init__.py' in filenames:
 				result.append( dirpath.replace(os.path.sep, '.') )
 	return result
 
 def translations():
     trans = []
-    dest = 'share/locale/%s/LC_MESSAGES/%s.mo'
-    for po in glob.glob('Koo/l10n/*.po'):
+    dest = opj('share','locale','%s','LC_MESSAGES','%s.mo')
+    for po in glob.glob( opj('Koo','l10n','*.po') ):
         lang = os.path.splitext(os.path.basename(po))[0]
         trans.append((dest % (lang, name), po))
     return trans
+
+
+
 
 long_desc = '''\
 =====================================
@@ -138,6 +130,22 @@ f.close()
 # todo: use 
 command = sys.argv[1]
 
+packages = [
+	'Koo', 
+	'Koo.Actions', 
+	'Koo.Common', 
+	'Koo.Dialogs',
+	'Koo.KooChart',
+	'Koo.Model',
+	'Koo.Plugins',
+	'Koo.Printer',
+	'Koo.Rpc',
+	'Koo.Screen',
+	'Koo.Search',
+	'Koo.View',
+	'Koo.Fields',
+        ] + findPlugins('Plugins') + findPlugins('View') + findPlugins('Fields')
+
 setup(name             = name,
       version          = version,
       description      = "Koo Client",
@@ -149,24 +157,18 @@ setup(name             = name,
       license          = 'GPL',
       data_files       = data_files(),
       translations     = translations(),
-      pot_file         = 'Koo/l10n/koo.pot',
+      pot_file         = opj('Koo','l10n','koo.pot'),
       scripts          = ['koo.py'],
-      packages         = ['Koo', 
-                          'Koo.Actions', 
-                          'Koo.Common', 
-			  'Koo.Dialogs',
-			  'Koo.KooChart',
-			  'Koo.Model',
-			  'Koo.Plugins',
-			  'Koo.Printer',
-			  'Koo.Rpc',
-			  'Koo.Screen',
-			  'Koo.Search',
-			  'Koo.View',
-			  'Koo.FieldWidgets',
-                          ] + findPlugins() + findViews() + findFieldWidgets(),
+      windows          = [{'script': opj('Koo','koo.py')}],
+      #console          = ['Koo/koo.py'],
+      packages         = packages ,
       package_dir      = {'Koo': 'Koo'},
-      provides         = [ 'Koo' ]
+      provides         = [ 'Koo' ],
+      options          = { 'py2exe': {
+                                'includes': ['sip', 'PyQt4.QtNetwork',
+					'PyQt4.QtWebKit'] + packages 
+                                }
+                         }
       )
 
 
