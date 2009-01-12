@@ -28,6 +28,8 @@
 import os
 import base64
 from xml.dom.minidom import getDOMImplementation
+import xml.xpath
+import xml.dom.minidom
 import report
 import pooler
 import osv
@@ -48,22 +50,56 @@ class report_jasper(report.interface.report_int):
 	def addonsPath(self):
 		return os.path.dirname( self.path() )	
 
-	def isLanguageXPath(self, reportPath):
+	def extractReportProperties(self, reportPath):
 		# Open report file '....jrxml'
 		f = codecs.open( reportPath, 'r', 'utf-8' )
 		data = f.read()
 		f.close()
-		# Process file simply to obtain the language it expects
-		data = data.split( '\n' )
-		data = [line for line in data if '<queryString language=' in line]
-		data = data[0].strip()
-		if data.lower().endswith('xpath">'):
-			return True
+		# XML processing
+		properties = {}
+
+		doc = xml.dom.minidom.parseString( data )
+		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
+		if langTags:
+			properties['language'] = langTags[0].getAttribute('language').lower()
+		
+		relationTags = xml.xpath.Evaluate( '/jasperReport/parameter[@name="OPENERP_RELATIONS"]/defaultValueExpression', doc )
+		if relationTags:
+			properties['relations'] = relationTags[0].firstChild.data
+			
+		return properties
+
+	def relations(self):
+		# relation example: ('line_id', 'LEFT', ('tax_id', 'LEFT'))
+		relations = eval( relations )
+		
+	def relationTuple(self, model, relation):
+		field = relation[0].strip().lower()
+		joinType = relation[1].strip().upper()
+
+		if len(relation) > 2:
+			self.relationTuple( relation[3] )
 		else:
-			return False
+			relatedModel = model._columns[field]._obj
+			relatedTable  = pool.get(relatedModel)._table
+
+		if joinType == 'LEFT':
+			joinName = 'LEFT JOIN'
+		elif joinType == 'INNER':
+			joinName = 'INNER JOIN'
+		else:
+			joinName = joinType
+
+		leftAlias = 'a'
+		rightAlias = 'b'
+
+		tables = '%s AS %s %s %s AS %s' % ( model._table, leftAlias, joinName, relatedTable, rightAlias )
+		fields = '%s.%s = %s.id' % (leftAlias, field, rightAlias)
+		'( %s ON (%s))' % (tables, fields )
 
 	def create(self, cr, uid, ids, data, context):
-		fd, name = tempfile.mkstemp()
+		fd, outputFile = tempfile.mkstemp()
+		fd, inputFile = tempfile.mkstemp()
 		# Find out if the report expects an XML or JDBC connection
 		pool = pooler.get_pool( cr.dbname )
 		reports = pool.get( 'ir.actions.report.xml' )
@@ -72,21 +108,21 @@ class report_jasper(report.interface.report_int):
 		reportPath = "%s/%s" % ( self.addonsPath(), report )
 		print "D: ", data
 		recordIds = [data['id']]
-		if self.isLanguageXPath( reportPath ):
-			self.xmlReport( cr, uid, recordIds, data['model'], report, name, context )
+		reportProperties = self.extractReportProperties( reportPath )
+		if reportProperties['language'] == 'xpath':
+			self.xmlReport( cr, uid, recordIds, data['model'], report, inputFile, outputFile, context )
 		else:
-			self.createReport( cr, uid, recordIds, report, name )
-		f = open( name, 'rb')
+			self.createReport( cr, uid, recordIds, report, inputFile, outputFile )
+		f = open( outputFile, 'rb')
 		data = f.read()
 		f.close()
 		return ( data, 'pdf' )
 
-	def xmlReport( self, cr, uid, ids, model, report, outputFile, context ):
-		self.generate_xml( cr, uid, ids, model, context)
-		self.generate_xml( cr, uid, ids, model, context)
-		self.createReport( cr, uid, ids, report, outputFile )
+	def xmlReport( self, cr, uid, ids, model, report, inputFile, outputFile, context ):
+		self.generate_xml( cr, uid, ids, model, inputFile, context)
+		self.createReport( cr, uid, ids, report, inputFile, outputFile )
 
-	def createReport( self, cr, uid, ids, report, outputFile ):
+	def createReport( self, cr, uid, ids, report, inputFile, outputFile ):
 		host = tools.config['db_host'] and "%s" % tools.config['db_host'] or 'localhost'
 		port = tools.config['db_port'] and "%s" % tools.config['db_port'] or '5432'
 		dbname = "%s" % cr.dbname
@@ -100,10 +136,10 @@ class report_jasper(report.interface.report_int):
 			idss += ' %s'%id
 
 		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
-	              '--compile', self.addonsPath(), report[:-6], '/tmp/jasper.xml', outputFile, dsn, user, password, 'ids:%s;' % idss )
+	              '--compile', self.addonsPath(), report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
 		
 
-	def generate_xml(self, cr, uid, ids, model, context):
+	def generate_xml(self, cr, uid, ids, model, fileName, context):
 		pool = pooler.get_pool( cr.dbname )
 		document = getDOMImplementation().createDocument(None, 'data', None)
 		topNode = document.documentElement
@@ -114,7 +150,7 @@ class report_jasper(report.interface.report_int):
 			(fields, fieldNames) = self.fields(pool, model)
 			self.generate_record( pool, record, recordNode, document, fields, fieldNames, 1 )
 				
-		f = open('/tmp/jasper.xml', 'wb+')
+		f = open( fileName, 'wb+')
 		f.write( topNode.toxml() )
 		f.close()
 
