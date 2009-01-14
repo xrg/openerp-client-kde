@@ -38,11 +38,35 @@ import tempfile
 import codecs
 import sql_db
 
-class report_jasper(report.interface.report_int):
-	def __init__(self, name, model ):
-		super(report_jasper, self).__init__(name)
-		print "report_jasper:",name,model
-		self.model = model
+class Report:
+	def __init__(self, name, cr, uid, ids, data, context):
+		self.name = name
+		self.cr = cr
+		self.uid = uid
+		self.ids = ids
+		self.data = data
+		self.model = self.data['model']
+		self.context = context
+		self.pool = pooler.get_pool( self.cr.dbname )
+		self.reportPath = None
+		self.report = None
+
+	def execute(self):
+		fd, outputFile = tempfile.mkstemp()
+		fd, inputFile = tempfile.mkstemp()
+		# Find out if the report expects an XML or JDBC connection
+		reports = self.pool.get( 'ir.actions.report.xml' )
+		ids = reports.search(self.cr, self.uid, [('report_name', '=', self.name[7:])], context=self.context)
+		self.report = reports.read(self.cr, self.uid, ids[0], ['report_rml'])['report_rml']
+		self.reportPath = "%s/%s" % ( self.addonsPath(), self.report )
+		self.reportProperties = self.extractReportProperties()
+		if self.reportProperties['language'] == 'xpath':
+			self.xmlReport( self.ids, inputFile, outputFile )
+		else:
+			self.createReport( self.ids, inputFile, outputFile )
+		f = open( outputFile, 'rb')
+		data = f.read()
+		f.close()
 
 	def path(self):
 		return os.path.abspath(os.path.dirname(__file__))
@@ -50,38 +74,27 @@ class report_jasper(report.interface.report_int):
 	def addonsPath(self):
 		return os.path.dirname( self.path() )	
 
-	def extractReportProperties(self, reportPath):
-		# Open report file '....jrxml'
-		f = codecs.open( reportPath, 'r', 'utf-8' )
-		data = f.read()
-		f.close()
-		# XML processing
-		properties = {}
-
-		doc = xml.dom.minidom.parseString( data )
-		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
-		if langTags:
-			properties['language'] = langTags[0].getAttribute('language').lower()
-		
-		relationTags = xml.xpath.Evaluate( '/jasperReport/parameter[@name="OPENERP_RELATIONS"]/defaultValueExpression', doc )
-		if relationTags:
-			properties['relations'] = relationTags[0].firstChild.data
-			
-		return properties
-
-	def relations(self):
+	def processRelations(self, ids, relations):
 		# relation example: ('line_id', 'LEFT', ('tax_id', 'LEFT'))
+		print "Relations: ", relations
 		relations = eval( relations )
-		
+		print "Relations: ", relations
+		fromClause = self.relationTuple( self.model, relations )
+		query = "SELECT a.id, b.id FROM %s WHERE a.id IN (%s)" % ( fromClause, ','.join( ids ) )
+		print "QUERY: ", query
+		return query
+
 	def relationTuple(self, model, relation):
 		field = relation[0].strip().lower()
 		joinType = relation[1].strip().upper()
 
+		print "RELLEN: ", len(relation)
+		print "RELATION: ", relation
 		if len(relation) > 2:
 			self.relationTuple( relation[3] )
 		else:
 			relatedModel = model._columns[field]._obj
-			relatedTable  = pool.get(relatedModel)._table
+			relatedTable  = self.pool.get(relatedModel)._table
 
 		if joinType == 'LEFT':
 			joinName = 'LEFT JOIN'
@@ -92,40 +105,53 @@ class report_jasper(report.interface.report_int):
 
 		leftAlias = 'a'
 		rightAlias = 'b'
+		fullAlias = 'c'
 
 		tables = '%s AS %s %s %s AS %s' % ( model._table, leftAlias, joinName, relatedTable, rightAlias )
 		fields = '%s.%s = %s.id' % (leftAlias, field, rightAlias)
-		'( %s ON (%s))' % (tables, fields )
+		fromClause = '( %s ON (%s)) AS %s' % (tables, fields, fullAlias )
+		return fromClause
 
-	def create(self, cr, uid, ids, data, context):
-		fd, outputFile = tempfile.mkstemp()
-		fd, inputFile = tempfile.mkstemp()
-		# Find out if the report expects an XML or JDBC connection
-		pool = pooler.get_pool( cr.dbname )
-		reports = pool.get( 'ir.actions.report.xml' )
-		ids = reports.search(cr, uid, [('report_name', '=', self.name[7:])], context=context)
-		report = reports.read(cr, uid, ids[0], ['report_rml'])['report_rml']
-		reportPath = "%s/%s" % ( self.addonsPath(), report )
-		print "D: ", data
-		recordIds = [data['id']]
-		reportProperties = self.extractReportProperties( reportPath )
-		if reportProperties['language'] == 'xpath':
-			self.xmlReport( cr, uid, recordIds, data['model'], report, inputFile, outputFile, context )
-		else:
-			self.createReport( cr, uid, recordIds, report, inputFile, outputFile )
-		f = open( outputFile, 'rb')
+		
+	def extractReportProperties(self):
+		# Open report file '....jrxml'
+		print "PATH: ", self.reportPath
+		f = codecs.open( self.reportPath, 'r', 'utf-8' )
 		data = f.read()
 		f.close()
-		return ( data, 'pdf' )
+		# XML processing
+		properties = {
+			'language': 'SQL',
+			'relations': '',
+			'fields': []
+		}
 
-	def xmlReport( self, cr, uid, ids, model, report, inputFile, outputFile, context ):
-		self.generate_xml( cr, uid, ids, model, inputFile, context)
-		self.createReport( cr, uid, ids, report, inputFile, outputFile )
+		doc = xml.dom.minidom.parseString( data )
+		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
+		if langTags:
+			properties['language'] = langTags[0].getAttribute('language').lower()
+		
+		relationTags = xml.xpath.Evaluate( '/jasperReport/parameter[@name="OPENERP_RELATIONS"]/defaultValueExpression', doc )
+		if relationTags:
+			properties['relations'] = relationTags[0].firstChild.data
 
-	def createReport( self, cr, uid, ids, report, inputFile, outputFile ):
+		fields = []
+		fieldTags = xml.xpath.Evaluate( '/jasperReport/field/fieldDescription', doc )
+		for tag in fieldTags:
+			properties['fields'].append( tag.firstChild.data )
+
+		return properties
+	
+	def xmlReport( self, ids, inputFile, outputFile ):
+		#if self.reportProperties['relations']:
+			#query = self.processRelations( ids, self.reportProperties['relations'] )
+		self.generate_xml( ids, inputFile )
+		self.createReport( ids, inputFile, outputFile )
+
+	def createReport( self, ids, inputFile, outputFile ):
 		host = tools.config['db_host'] and "%s" % tools.config['db_host'] or 'localhost'
 		port = tools.config['db_port'] and "%s" % tools.config['db_port'] or '5432'
-		dbname = "%s" % cr.dbname
+		dbname = "%s" % self.cr.dbname
 		user = tools.config['db_user'] and "%s" % tools.config['db_user'] or 'postgres'
 		password = tools.config['db_password'] and "%s" % tools.config['db_password'] or 'a'
 		maxconn = int(tools.config['db_maxconn']) or 64
@@ -136,27 +162,77 @@ class report_jasper(report.interface.report_int):
 			idss += ' %s'%id
 
 		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
-	              '--compile', self.addonsPath(), report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
-		
+	              '--compile', self.addonsPath(), self.report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
 
-	def generate_xml(self, cr, uid, ids, model, fileName, context):
-		pool = pooler.get_pool( cr.dbname )
-		document = getDOMImplementation().createDocument(None, 'data', None)
-		topNode = document.documentElement
+	def pathToNode(self, node):
+		path = []
+		n = node
+		while not isinstance(n, xml.dom.minidom.Document):
+			path = [ n.tagName ] + path
+			n = n.parentNode
+		return '/'.join( path )
 
-		for record in pool.get(model).browse(cr, uid, ids, context):
-			recordNode = document.createElement('record')
+	def generate_xml(self, ids, fileName):
+		self.document = getDOMImplementation().createDocument(None, 'data', None)
+		topNode = self.document.documentElement
+
+		for record in self.pool.get(self.model).browse(self.cr, self.uid, ids, self.context):
+			recordNode = self.document.createElement('record')
 			topNode.appendChild( recordNode )
-			(fields, fieldNames) = self.fields(pool, model)
-			self.generate_record( pool, record, recordNode, document, fields, fieldNames, 1 )
+			#(fields, fieldNames) = self.fields(self.model)
+			#self.generate_record_old( record, recordNode, document, fields, fieldNames, 3 )
+			self.generate_record( record, recordNode, self.reportProperties['fields'] )
 				
 		f = open( fileName, 'wb+')
 		f.write( topNode.toxml() )
 		f.close()
 
-	def generate_record(self, pool, record, recordNode, document, fields, fieldNames, depth):
+	def generate_record(self, record, recordNode, fields):
+		# One field (many2one, many2many or one2many) can appear several times.
+		# Process each "root" field only once.
+		unrepeated = set( [field.partition('/')[0] for field in fields] )
+		for field in unrepeated:
+			root = field.partition('/')[0]
+			fieldNode = self.document.createElement( root )
+			recordNode.appendChild( fieldNode )
+			try:
+				value = record.__getattr__(root)
+			except:
+				value = None
+				print "Field '%s' does not exist in model" % root
+
+			if isinstance(value, osv.orm.browse_record):
+				modelName = value._table._name
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
+				self.generate_record(value, fieldNode, fields2)
+				continue
+			if isinstance(value, osv.orm.browse_record_list):
+				if not value:
+					continue
+				modelName = value[0]._table._name
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
+				print "F2: ", fields2
+				for val in value:
+					self.generate_record(val, fieldNode, fields2)
+				continue
+
+			if value == False:
+				value = ''
+			elif isinstance(value, unicode):
+				value = value.encode('ascii', 'ignore')
+			elif not isinstance(value, str):
+				value = str(value)
+
+			valueNode = self.document.createTextNode( value )
+			fieldNode.appendChild( valueNode )
+
+	def generate_record_old(self, record, recordNode, document, fields, fieldNames, depth):
+		print "PATH TO NODE. ", self.pathToNode( recordNode )
 		for field in fieldNames:
 			fieldNode = document.createElement(field)
+			#if self.pathToNode( fieldNode ) in self.reportProperties['fields']:
+				#print "FIELD %s FOUND!", fieldNode
+
 			recordNode.appendChild( fieldNode )
 			try:
 				value = record.__getattr__(field)
@@ -168,8 +244,8 @@ class report_jasper(report.interface.report_int):
 				if depth <= 1:
 					continue
 				modelName = value._table._name
-				(fields2, fieldNames2) = self.fields(pool, modelName)
-				self.generate_record(pool, value, fieldNode, document, fields2, fieldNames2, depth-1)
+				(fields2, fieldNames2) = self.fields(modelName)
+				self.generate_record(value, fieldNode, document, fields2, fieldNames2, depth-1)
 				continue
 
 			if isinstance(value, osv.orm.browse_record_list):
@@ -178,9 +254,9 @@ class report_jasper(report.interface.report_int):
 				if not value:
 					continue
 				modelName = value[0]._table._name
-				(fields2, fieldNames2) = self.fields(pool, modelName)
+				(fields2, fieldNames2) = self.fields(modelName)
 				for val in value:
-					self.generate_record(pool, val, fieldNode, document, fields2, fieldNames2, depth-1)
+					self.generate_record(val, fieldNode, document, fields2, fieldNames2, depth-1)
 				value = None
 				continue
 
@@ -194,11 +270,23 @@ class report_jasper(report.interface.report_int):
 			valueNode = document.createTextNode( value )
 			fieldNode.appendChild( valueNode )
 		
-	def fields(self, pool, model):
-		fields = pool.get(model)._columns
-		fieldNames = pool.get(model)._columns.keys()
+	def fields(self, model):
+		fields = self.pool.get(model)._columns
+		fieldNames = self.pool.get(model)._columns.keys()
 		fieldNames.sort()
 		return (fields, fieldNames)
+
+class report_jasper(report.interface.report_int):
+	def __init__(self, name, model ):
+		super(report_jasper, self).__init__(name)
+		print "report_jasper:",name,model
+		self.model = model
+
+	def create(self, cr, uid, ids, data, context):
+		r = Report( self.name, cr, uid, ids, data, context )
+		r.execute()
+		return ( r.execute(), 'pdf' )
+
 
 
 # Ugly hack to avoid developers the need to register reports
