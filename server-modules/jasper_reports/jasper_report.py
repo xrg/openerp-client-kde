@@ -92,11 +92,11 @@ class Report:
 		if langTags:
 			properties['language'] = langTags[0].getAttribute('language').lower()
 		
-		relationTags = xml.xpath.Evaluate( '/jasperReport/parameter[@name="OPENERP_RELATIONS"]/defaultValueExpression', doc )
-		if relationTags:
+		relationTags = xml.xpath.Evaluate( '/jasperReport/property[@name="OPENERP_RELATIONS"]', doc )
+		if relationTags and relationTags[0].hasAttribute('value'):
 			# Evaluate twice as the first one extracts the "" and returns a plain string.
 			# The second one evaluates the string without the "".
-			properties['relations'] = eval( eval( relationTags[0].firstChild.data ) )
+			properties['relations'] = eval( relationTags[0].getAttribute('value') )
 
 		fields = []
 		fieldTags = xml.xpath.Evaluate( '/jasperReport/field/fieldDescription', doc )
