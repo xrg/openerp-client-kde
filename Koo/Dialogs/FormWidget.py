@@ -129,7 +129,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateRecordStatus(-1,self.group.count(),None)
 
 		self.reloadTimer = QTimer(self)
-		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.reload )
+		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
 
 	def setAutoReload(self, value):
 		if value:
@@ -261,6 +261,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
+	def autoReload(self):
+		# Do not reload automatically there are any modified records
+		if self.screen.isModified():
+			return
+		self.reload()
+			
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.reload()
