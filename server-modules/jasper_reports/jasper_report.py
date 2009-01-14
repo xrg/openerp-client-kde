@@ -142,7 +142,7 @@ class Report:
 		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
 			currentRecords = [ { 'root': record } ]
 			for relation in relations:
-				if isinstance(relation,tuple):
+				if isinstance(relation,list):
 					continue
 				try:
 					value = record.__getattr__(relation)
@@ -167,7 +167,7 @@ class Report:
 			self.generate_record( records['root'], records, recordNode, self.reportProperties['fields'] )
 
 		f = open( fileName, 'wb+')
-		f.write( topNode.toxml() )
+		topNode.writexml( f )
 		f.close()
 
 	def generate_record(self, record, records, recordNode, fields):
@@ -197,108 +197,18 @@ class Report:
 				if root in records:
 					self.generate_record(records[root], records, fieldNode, fields2)
 				else:
-					# If the field is not marked to be iterated use the first one
+					# If the field is not marked to be iterated use the first one only
 					self.generate_record(value[0], records, fieldNode, fields2)
-				#for val in value:
-					#self.generate_record(val, fieldNode, fields2)
 				continue
 
 			if value == False:
 				value = ''
-			elif isinstance(value, unicode):
-				value = value.encode('ascii', 'ignore')
 			elif not isinstance(value, str):
 				value = str(value)
 
 			valueNode = self.document.createTextNode( value )
 			fieldNode.appendChild( valueNode )
 
-	def generate_record_semi(self, record, recordNode, fields):
-		# One field (many2one, many2many or one2many) can appear several times.
-		# Process each "root" field only once.
-		unrepeated = set( [field.partition('/')[0] for field in fields] )
-		for field in unrepeated:
-			root = field.partition('/')[0]
-			fieldNode = self.document.createElement( root )
-			recordNode.appendChild( fieldNode )
-			try:
-				value = record.__getattr__(root)
-			except:
-				value = None
-				print "Field '%s' does not exist in model" % root
-
-			if isinstance(value, osv.orm.browse_record):
-				modelName = value._table._name
-				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				self.generate_record(value, fieldNode, fields2)
-				continue
-			if isinstance(value, osv.orm.browse_record_list):
-				if not value:
-					continue
-				modelName = value[0]._table._name
-				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				for val in value:
-					self.generate_record(val, fieldNode, fields2)
-				continue
-
-			if value == False:
-				value = ''
-			elif isinstance(value, unicode):
-				value = value.encode('ascii', 'ignore')
-			elif not isinstance(value, str):
-				value = str(value)
-
-			valueNode = self.document.createTextNode( value )
-			fieldNode.appendChild( valueNode )
-
-	def generate_record_old(self, record, recordNode, document, fields, fieldNames, depth):
-		for field in fieldNames:
-			fieldNode = document.createElement(field)
-			#if self.pathToNode( fieldNode ) in self.reportProperties['fields']:
-				#print "FIELD %s FOUND!", fieldNode
-
-			recordNode.appendChild( fieldNode )
-			try:
-				value = record.__getattr__(field)
-			except:
-				value=None
-				print "Exception: ", field
-
-			if isinstance(value, osv.orm.browse_record):
-				if depth <= 1:
-					continue
-				modelName = value._table._name
-				(fields2, fieldNames2) = self.fields(modelName)
-				self.generate_record(value, fieldNode, document, fields2, fieldNames2, depth-1)
-				continue
-
-			if isinstance(value, osv.orm.browse_record_list):
-				if depth <= 1:
-					continue
-				if not value:
-					continue
-				modelName = value[0]._table._name
-				(fields2, fieldNames2) = self.fields(modelName)
-				for val in value:
-					self.generate_record(val, fieldNode, document, fields2, fieldNames2, depth-1)
-				value = None
-				continue
-
-			if value == False:
-				value = ''
-			elif isinstance(value, unicode):
-				value = value.encode('ascii', 'ignore')
-			elif not isinstance(value, str):
-				value = str(value)
-
-			valueNode = document.createTextNode( value )
-			fieldNode.appendChild( valueNode )
-		
-	def fields(self, model):
-		fields = self.pool.get(model)._columns
-		fieldNames = self.pool.get(model)._columns.keys()
-		fieldNames.sort()
-		return (fields, fieldNames)
 
 class report_jasper(report.interface.report_int):
 	def __init__(self, name, model ):
@@ -307,7 +217,6 @@ class report_jasper(report.interface.report_int):
 
 	def create(self, cr, uid, ids, data, context):
 		r = Report( self.name, cr, uid, ids, data, context )
-		r.execute()
 		return ( r.execute(), 'pdf' )
 
 
