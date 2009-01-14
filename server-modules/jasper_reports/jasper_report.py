@@ -61,12 +61,13 @@ class Report:
 		self.reportPath = "%s/%s" % ( self.addonsPath(), self.report )
 		self.reportProperties = self.extractReportProperties()
 		if self.reportProperties['language'] == 'xpath':
-			self.xmlReport( self.ids, inputFile, outputFile )
+			self.xmlReport( inputFile, outputFile )
 		else:
-			self.createReport( self.ids, inputFile, outputFile )
+			self.createReport( inputFile, outputFile )
 		f = open( outputFile, 'rb')
 		data = f.read()
 		f.close()
+		return data
 
 	def path(self):
 		return os.path.abspath(os.path.dirname(__file__))
@@ -74,48 +75,8 @@ class Report:
 	def addonsPath(self):
 		return os.path.dirname( self.path() )	
 
-	def processRelations(self, ids, relations):
-		# relation example: ('line_id', 'LEFT', ('tax_id', 'LEFT'))
-		print "Relations: ", relations
-		relations = eval( relations )
-		print "Relations: ", relations
-		fromClause = self.relationTuple( self.model, relations )
-		query = "SELECT a.id, b.id FROM %s WHERE a.id IN (%s)" % ( fromClause, ','.join( ids ) )
-		print "QUERY: ", query
-		return query
-
-	def relationTuple(self, model, relation):
-		field = relation[0].strip().lower()
-		joinType = relation[1].strip().upper()
-
-		print "RELLEN: ", len(relation)
-		print "RELATION: ", relation
-		if len(relation) > 2:
-			self.relationTuple( relation[3] )
-		else:
-			relatedModel = model._columns[field]._obj
-			relatedTable  = self.pool.get(relatedModel)._table
-
-		if joinType == 'LEFT':
-			joinName = 'LEFT JOIN'
-		elif joinType == 'INNER':
-			joinName = 'INNER JOIN'
-		else:
-			joinName = joinType
-
-		leftAlias = 'a'
-		rightAlias = 'b'
-		fullAlias = 'c'
-
-		tables = '%s AS %s %s %s AS %s' % ( model._table, leftAlias, joinName, relatedTable, rightAlias )
-		fields = '%s.%s = %s.id' % (leftAlias, field, rightAlias)
-		fromClause = '( %s ON (%s)) AS %s' % (tables, fields, fullAlias )
-		return fromClause
-
-		
 	def extractReportProperties(self):
 		# Open report file '....jrxml'
-		print "PATH: ", self.reportPath
 		f = codecs.open( self.reportPath, 'r', 'utf-8' )
 		data = f.read()
 		f.close()
@@ -133,7 +94,9 @@ class Report:
 		
 		relationTags = xml.xpath.Evaluate( '/jasperReport/parameter[@name="OPENERP_RELATIONS"]/defaultValueExpression', doc )
 		if relationTags:
-			properties['relations'] = relationTags[0].firstChild.data
+			# Evaluate twice as the first one extracts the "" and returns a plain string.
+			# The second one evaluates the string without the "".
+			properties['relations'] = eval( eval( relationTags[0].firstChild.data ) )
 
 		fields = []
 		fieldTags = xml.xpath.Evaluate( '/jasperReport/field/fieldDescription', doc )
@@ -142,13 +105,11 @@ class Report:
 
 		return properties
 	
-	def xmlReport( self, ids, inputFile, outputFile ):
-		#if self.reportProperties['relations']:
-			#query = self.processRelations( ids, self.reportProperties['relations'] )
-		self.generate_xml( ids, inputFile )
-		self.createReport( ids, inputFile, outputFile )
+	def xmlReport( self, inputFile, outputFile ):
+		self.generate_xml( inputFile )
+		self.createReport( inputFile, outputFile )
 
-	def createReport( self, ids, inputFile, outputFile ):
+	def createReport( self, inputFile, outputFile ):
 		host = tools.config['db_host'] and "%s" % tools.config['db_host'] or 'localhost'
 		port = tools.config['db_port'] and "%s" % tools.config['db_port'] or '5432'
 		dbname = "%s" % self.cr.dbname
@@ -158,7 +119,7 @@ class Report:
 		dsn= 'jdbc:postgresql://%s:%s/%s'%(host,port,dbname)
 
 		idss=""
-		for id in ids:
+		for id in self.ids:
 			idss += ' %s'%id
 
 		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
@@ -172,22 +133,44 @@ class Report:
 			n = n.parentNode
 		return '/'.join( path )
 
-	def generate_xml(self, ids, fileName):
+	def generate_xml(self, fileName):
 		self.document = getDOMImplementation().createDocument(None, 'data', None)
 		topNode = self.document.documentElement
 
-		for record in self.pool.get(self.model).browse(self.cr, self.uid, ids, self.context):
+		relations = self.reportProperties['relations']
+		allRecords = []
+		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
+			currentRecords = [ { 'root': record } ]
+			for relation in relations:
+				if isinstance(relation,tuple):
+					continue
+				try:
+					value = record.__getattr__(relation)
+				except:
+					print "Field '%s' does not exist in model" % relation
+					continue
+				if not isinstance(value, osv.orm.browse_record_list):
+					continue
+
+				newRecords = []
+				for v in value:
+					for id in currentRecords:
+						new = id.copy()
+						new[relation] = v
+						newRecords.append( new )
+				currentRecords = newRecords
+			allRecords += currentRecords
+
+		for records in allRecords:
 			recordNode = self.document.createElement('record')
 			topNode.appendChild( recordNode )
-			#(fields, fieldNames) = self.fields(self.model)
-			#self.generate_record_old( record, recordNode, document, fields, fieldNames, 3 )
-			self.generate_record( record, recordNode, self.reportProperties['fields'] )
-				
+			self.generate_record( records['root'], records, recordNode, self.reportProperties['fields'] )
+
 		f = open( fileName, 'wb+')
 		f.write( topNode.toxml() )
 		f.close()
 
-	def generate_record(self, record, recordNode, fields):
+	def generate_record(self, record, records, recordNode, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
 		# Process each "root" field only once.
 		unrepeated = set( [field.partition('/')[0] for field in fields] )
@@ -211,7 +194,49 @@ class Report:
 					continue
 				modelName = value[0]._table._name
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				print "F2: ", fields2
+				if root in records:
+					self.generate_record(records[root], records, fieldNode, fields2)
+				else:
+					# If the field is not marked to be iterated use the first one
+					self.generate_record(value[0], records, fieldNode, fields2)
+				#for val in value:
+					#self.generate_record(val, fieldNode, fields2)
+				continue
+
+			if value == False:
+				value = ''
+			elif isinstance(value, unicode):
+				value = value.encode('ascii', 'ignore')
+			elif not isinstance(value, str):
+				value = str(value)
+
+			valueNode = self.document.createTextNode( value )
+			fieldNode.appendChild( valueNode )
+
+	def generate_record_semi(self, record, recordNode, fields):
+		# One field (many2one, many2many or one2many) can appear several times.
+		# Process each "root" field only once.
+		unrepeated = set( [field.partition('/')[0] for field in fields] )
+		for field in unrepeated:
+			root = field.partition('/')[0]
+			fieldNode = self.document.createElement( root )
+			recordNode.appendChild( fieldNode )
+			try:
+				value = record.__getattr__(root)
+			except:
+				value = None
+				print "Field '%s' does not exist in model" % root
+
+			if isinstance(value, osv.orm.browse_record):
+				modelName = value._table._name
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
+				self.generate_record(value, fieldNode, fields2)
+				continue
+			if isinstance(value, osv.orm.browse_record_list):
+				if not value:
+					continue
+				modelName = value[0]._table._name
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
 				for val in value:
 					self.generate_record(val, fieldNode, fields2)
 				continue
@@ -227,7 +252,6 @@ class Report:
 			fieldNode.appendChild( valueNode )
 
 	def generate_record_old(self, record, recordNode, document, fields, fieldNames, depth):
-		print "PATH TO NODE. ", self.pathToNode( recordNode )
 		for field in fieldNames:
 			fieldNode = document.createElement(field)
 			#if self.pathToNode( fieldNode ) in self.reportProperties['fields']:
@@ -279,7 +303,6 @@ class Report:
 class report_jasper(report.interface.report_int):
 	def __init__(self, name, model ):
 		super(report_jasper, self).__init__(name)
-		print "report_jasper:",name,model
 		self.model = model
 
 	def create(self, cr, uid, ids, data, context):
