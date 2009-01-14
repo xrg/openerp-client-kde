@@ -1,7 +1,7 @@
 #!/bin/bash
 
 scriptdir=$(dirname "$0")
-#serverdir=.
+
 if [ "$1" = "--compile" ]; then
 	compile="true"
 	makejasper="true"
@@ -43,43 +43,28 @@ export PATH="$JAVA_HOME"/bin:/bin:/usr/bin
 export CLASSPATH=$(ls -1 lib/* | grep jar$ | awk '{printf "%s:", $1}')
 export CLASSPATH="$CLASSPATH":$scriptdir
 
-rm -f *.class
-
-java -version
-javac -g ReportCompiler.java
-javac -g ReportCreator.java
-rm -f "$serverdir/$report.jasper"
-java ReportCompiler "$serverdir/$report.jrxml" "$serverdir/$report.jasper"
-java ReportCreator "$serverdir/$report.jasper" "$xml" "$output" "$dsn" "$user" "$password" "$params"
-
-exit
-
 if [ ! -f "ReportCreator.class" ]; then
+	echo "Forcing ReportCreator compilation"
 	compile="true"
 fi
 
 if [ ! -f "ReportCompiler.class" ]; then
 	echo "Compiling ReportCompiler.java ..."
-	javac -g ReportCompiler.java
-	echo "Result: $?"
+	javac ReportCompiler.java
 fi
 
 if [ "$compile" = "true" ]; then
 	echo "Compiling ReportCreator.java ..."
-	javac -g ReportCreator.java
-	echo "Result: $?"
+	javac ReportCreator.java
 fi
 
 if [ "$makejasper" = "true" ]; then
 	echo "Creating $report.jasper ..."
 	java ReportCompiler "$serverdir/$report.jrxml" "$serverdir/$report.jasper"
-	echo "Resultat: $?"
 fi
 
 echo "Creating report..."
 java ReportCreator "$serverdir/$report.jasper" "$xml" "$output" "$dsn" "$user" "$password" "$params"
-echo "Result: $?"
-echo $0
 
 popd
 

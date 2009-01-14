@@ -123,7 +123,7 @@ class Report:
 			idss += ' %s'%id
 
 		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
-	              '--compile', self.addonsPath(), self.report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
+	              self.addonsPath(), self.report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
 
 	def pathToNode(self, node):
 		path = []
