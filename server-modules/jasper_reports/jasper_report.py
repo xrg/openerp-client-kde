@@ -76,18 +76,13 @@ class Report:
 		return os.path.dirname( self.path() )	
 
 	def extractReportProperties(self):
-		# Open report file '....jrxml'
-		f = codecs.open( self.reportPath, 'r', 'utf-8' )
-		data = f.read()
-		f.close()
-		# XML processing
 		properties = {
 			'language': 'SQL',
 			'relations': '',
 			'fields': []
 		}
 
-		doc = xml.dom.minidom.parseString( data )
+		doc = xml.dom.minidom.parse( self.reportPath )
 		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
 		if langTags:
 			properties['language'] = langTags[0].getAttribute('language').lower()
