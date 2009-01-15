@@ -187,7 +187,7 @@ class Report:
 			if isinstance(value, osv.orm.browse_record):
 				modelName = value._table._name
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				self.generate_record(value, fieldNode, fields2)
+				self.generate_record(value, records, fieldNode, fields2)
 				continue
 			if isinstance(value, osv.orm.browse_record_list):
 				if not value:
