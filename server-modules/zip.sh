@@ -4,6 +4,7 @@ fts-indexes \
 full_text_search \
 ktiny \
 maps \
+jasper_reports \
 smart_attach`
 
 do 
