@@ -52,18 +52,26 @@ class Report:
 		self.report = None
 
 	def execute(self):
-		fd, outputFile = tempfile.mkstemp()
-		fd, inputFile = tempfile.mkstemp()
-		# Find out if the report expects an XML or JDBC connection
+		# Get the report path
 		reports = self.pool.get( 'ir.actions.report.xml' )
 		ids = reports.search(self.cr, self.uid, [('report_name', '=', self.name[7:])], context=self.context)
 		self.report = reports.read(self.cr, self.uid, ids[0], ['report_rml'])['report_rml']
 		self.reportPath = "%s/%s" % ( self.addonsPath(), self.report )
+
+		# Get report information from the jrxml file
 		self.reportProperties = self.extractReportProperties()
+
+		# Create temporary input (XML) and output (PDF) files 
+		fd, inputFile = tempfile.mkstemp()
+		fd, outputFile = tempfile.mkstemp()
+
+		# If the language used is xpath create the xmlFile in inputFile.
 		if self.reportProperties['language'] == 'xpath':
-			self.xmlReport( inputFile, outputFile )
-		else:
-			self.createReport( inputFile, outputFile )
+			self.generate_xml( inputFile )
+		# Call the external java application that will generate the PDF file in outputFile
+		self.createReport( inputFile, outputFile )
+
+		# Read data from the generated file and return it
 		f = open( outputFile, 'rb')
 		data = f.read()
 		f.close()
@@ -73,9 +81,10 @@ class Report:
 		return os.path.abspath(os.path.dirname(__file__))
 
 	def addonsPath(self):
-		return os.path.dirname( self.path() )	
+		return os.path.dirname( self.path() )
 
 	def extractReportProperties(self):
+		# The function will read all relevant information from the jrxml file
 		properties = {
 			'language': 'SQL',
 			'relations': '',
@@ -96,22 +105,21 @@ class Report:
 		fields = []
 		fieldTags = xml.xpath.Evaluate( '/jasperReport/field/fieldDescription', doc )
 		for tag in fieldTags:
-			properties['fields'].append( tag.firstChild.data )
+			path = tag.firstChild.data
+			# Make the path relative if it isn't already
+			if path.startswith('/data/record/'):
+				path = path[13:]
+			properties['fields'].append( path )
 
 		return properties
 	
-	def xmlReport( self, inputFile, outputFile ):
-		self.generate_xml( inputFile )
-		self.createReport( inputFile, outputFile )
-
 	def createReport( self, inputFile, outputFile ):
 		host = tools.config['db_host'] and "%s" % tools.config['db_host'] or 'localhost'
 		port = tools.config['db_port'] and "%s" % tools.config['db_port'] or '5432'
 		dbname = "%s" % self.cr.dbname
 		user = tools.config['db_user'] and "%s" % tools.config['db_user'] or 'postgres'
-		password = tools.config['db_password'] and "%s" % tools.config['db_password'] or 'a'
-		maxconn = int(tools.config['db_maxconn']) or 64
-		dsn= 'jdbc:postgresql://%s:%s/%s'%(host,port,dbname)
+		password = tools.config['db_password'] and "%s" % tools.config['db_password'] or ''
+		dsn= 'jdbc:postgresql://%s:%s/%s' % ( host, port, dbname )
 
 		idss=""
 		for id in self.ids:
@@ -120,18 +128,17 @@ class Report:
 		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
 	              self.addonsPath(), self.report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
 
-	def pathToNode(self, node):
-		path = []
-		n = node
-		while not isinstance(n, xml.dom.minidom.Document):
-			path = [ n.tagName ] + path
-			n = n.parentNode
-		return '/'.join( path )
-
+	# XML file generation works as follows:
+	# By default (if no OPENERP_RELATIONS property exists in the report) a record will be created
+	# for each model id we've been asked to show. If there are any elements in the OPENERP_RELATIONS
+	# list, they will imply a LEFT JOIN like behaviour on the rows to be shown.
 	def generate_xml(self, fileName):
 		self.document = getDOMImplementation().createDocument(None, 'data', None)
 		topNode = self.document.documentElement
 
+		# The following loop generates one entry to allRecords list for each record
+		# that will be created. If there are any relations it acts like a
+		# LEFT JOIN against the main model/table.
 		relations = self.reportProperties['relations']
 		allRecords = []
 		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
@@ -142,9 +149,11 @@ class Report:
 				try:
 					value = record.__getattr__(relation)
 				except:
-					print "Field '%s' does not exist in model" % relation
+					print "Field '%s' does not exist in model '%s'." % (relation, self.model)
 					continue
+
 				if not isinstance(value, osv.orm.browse_record_list):
+					print "Field '%s' in model '%s' is not a list (2many)." % (relation, self.model)
 					continue
 
 				newRecords = []
@@ -156,18 +165,20 @@ class Report:
 				currentRecords = newRecords
 			allRecords += currentRecords
 
+		# Once all records have been calculated, create the XML structure itself
 		for records in allRecords:
 			recordNode = self.document.createElement('record')
 			topNode.appendChild( recordNode )
 			self.generate_record( records['root'], records, recordNode, self.reportProperties['fields'] )
 
+		# Once created, the only missing step is to store the XML into a file
 		f = open( fileName, 'wb+')
 		topNode.writexml( f )
 		f.close()
 
 	def generate_record(self, record, records, recordNode, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
-		# Process each "root" field only once.
+		# Process each "root" field only once by using a set.
 		unrepeated = set( [field.partition('/')[0] for field in fields] )
 		for field in unrepeated:
 			root = field.partition('/')[0]
@@ -184,6 +195,7 @@ class Report:
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
 				self.generate_record(value, records, fieldNode, fields2)
 				continue
+
 			if isinstance(value, osv.orm.browse_record_list):
 				if not value:
 					continue
@@ -192,7 +204,7 @@ class Report:
 				if root in records:
 					self.generate_record(records[root], records, fieldNode, fields2)
 				else:
-					# If the field is not marked to be iterated use the first one only
+					# If the field is not marked to be iterated use the first record only
 					self.generate_record(value[0], records, fieldNode, fields2)
 				continue
 

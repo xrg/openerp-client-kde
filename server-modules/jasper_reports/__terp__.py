@@ -34,9 +34,10 @@
 	"depends" : ["base"],
 	"category" : "Generic Modules/Jasper Reports",
 	"init_xml" : [],
-	"demo_xml" : [],
+	"demo_xml" : [ 
+		'jasper_report.xml' 
+	],
 	"update_xml" : [
-		'jasper_report.xml',
 		'jasper_wizard.xml',
 	],
 	"active": False,
