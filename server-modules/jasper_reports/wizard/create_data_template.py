@@ -54,8 +54,27 @@ class create_data_template(wizard.interface):
 				self.generate_xml(pool, newName, fieldNode, document, depth-1)
 				continue
 			
-			valueNode = document.createTextNode( field )
+			if type == 'float':
+				value = '12345.67'
+			elif type == 'integer':
+				value = '12345'
+			elif type == 'date':
+				value = '2009-12-31 00:00:00'
+			elif type == 'time':
+				value = '12:34:56'
+			elif type == 'datetime':
+				value = '2009-12-31 12:34:56'
+			else:
+				value = field
+
+			valueNode = document.createTextNode( value )
 			fieldNode.appendChild( valueNode )
+
+		if depth > 1 and name != 'ir.attachment':
+			# Create relation with attachments
+			fieldNode = document.createElement( 'Attachments' )
+			parentNode.appendChild( fieldNode )
+			self.generate_xml(pool, 'ir.attachment', fieldNode, document, depth-1)
 
 	def _action_create_xml(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)

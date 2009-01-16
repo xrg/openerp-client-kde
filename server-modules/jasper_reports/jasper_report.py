@@ -50,6 +50,8 @@ class Report:
 		self.pool = pooler.get_pool( self.cr.dbname )
 		self.reportPath = None
 		self.report = None
+		self.temporaryFiles = []
+		self.imageFiles = {}
 
 	def execute(self):
 		# Get the report path
@@ -64,6 +66,8 @@ class Report:
 		# Create temporary input (XML) and output (PDF) files 
 		fd, inputFile = tempfile.mkstemp()
 		fd, outputFile = tempfile.mkstemp()
+		self.temporaryFiles.append( inputFile )
+		self.temporaryFiles.append( outputFile )
 
 		# If the language used is xpath create the xmlFile in inputFile.
 		if self.reportProperties['language'] == 'xpath':
@@ -75,6 +79,11 @@ class Report:
 		f = open( outputFile, 'rb')
 		data = f.read()
 		f.close()
+
+		# Remove all temporary files created during the report
+		for file in self.temporaryFiles:
+			os.unlink( file )
+		self.temporaryFiles = []
 		return data
 
 	def path(self):
@@ -146,15 +155,19 @@ class Report:
 			for relation in relations:
 				if isinstance(relation,list):
 					continue
-				try:
-					value = record.__getattr__(relation)
-				except:
-					print "Field '%s' does not exist in model '%s'." % (relation, self.model)
-					continue
+				if relation == 'Attachments':
+					ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',self.model),('res_id','=',record.id)])
+					value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
+				else:
+					try:
+						value = record.__getattr__(relation)
+					except:
+						print "Field '%s' does not exist in model '%s'." % (relation, self.model)
+						continue
 
-				if not isinstance(value, osv.orm.browse_record_list):
-					print "Field '%s' in model '%s' is not a list (2many)." % (relation, self.model)
-					continue
+					if not isinstance(value, osv.orm.browse_record_list):
+						print "Field '%s' in model '%s' is not a list (2many)." % (relation, self.model)
+						continue
 
 				newRecords = []
 				for v in value:
@@ -184,11 +197,15 @@ class Report:
 			root = field.partition('/')[0]
 			fieldNode = self.document.createElement( root )
 			recordNode.appendChild( fieldNode )
-			try:
-				value = record.__getattr__(root)
-			except:
-				value = None
-				print "Field '%s' does not exist in model" % root
+			if root == 'Attachments':
+				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
+				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
+			else:
+				try:
+					value = record.__getattr__(root)
+				except:
+					value = None
+					print "Field '%s' does not exist in model" % root
 
 			if isinstance(value, osv.orm.browse_record):
 				modelName = value._table._name
@@ -210,6 +227,20 @@ class Report:
 
 			if value == False:
 				value = ''
+			elif record._table._columns[field]._type == 'date':
+				value = '%s 00:00:00' % str(value) 
+			elif record._table._columns[field]._type == 'binary':
+				imageId = (record.id, field)
+				if imageId in self.imageFiles:
+					fileName = self.imageFiles[ imageId ]
+				else:
+					fd, fileName = tempfile.mkstemp()
+					f = open( fileName, 'wb+' )
+					f.write( base64.decodestring( value ) )
+					f.close()
+					self.temporaryFiles.append( fileName )
+					self.imageFiles[ imageId ] = fileName
+				value = fileName
 			elif not isinstance(value, str):
 				value = str(value)
 

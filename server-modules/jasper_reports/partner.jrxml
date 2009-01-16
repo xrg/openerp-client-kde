@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="OPENERP_RELATIONS" value="[&apos;address&apos;]"/>
+	<property name="OPENERP_RELATIONS" value="[&apos;address&apos;,&apos;Attachments&apos;]"/>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
@@ -13,7 +13,7 @@
 	<field name="ref" class="java.lang.String">
 		<fieldDescription><![CDATA[ref]]></fieldDescription>
 	</field>
-	<field name="total_risk" class="java.lang.String">
+	<field name="total_risk" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[total_risk]]></fieldDescription>
 	</field>
 	<field name="street" class="java.lang.String">
@@ -21,6 +21,21 @@
 	</field>
 	<field name="name2" class="java.lang.String">
 		<fieldDescription><![CDATA[category_id/name]]></fieldDescription>
+	</field>
+	<field name="date" class="java.util.Date">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="picture" class="java.lang.String">
+		<fieldDescription><![CDATA[property_product_quotation/picture]]></fieldDescription>
+	</field>
+	<field name="datas" class="java.lang.String">
+		<fieldDescription><![CDATA[Attachments/datas]]></fieldDescription>
+	</field>
+	<field name="datas_fname" class="java.lang.String">
+		<fieldDescription><![CDATA[Attachments/datas_fname]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[/data/record/Attachments/description]]></fieldDescription>
 	</field>
 	<background>
 		<band/>
@@ -35,7 +50,7 @@
 		<band height="15"/>
 	</columnHeader>
 	<detail>
-		<band height="26">
+		<band height="234">
 			<textField hyperlinkType="None">
 				<reportElement x="3" y="4" width="100" height="20"/>
 				<textElement/>
@@ -51,10 +66,10 @@
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{ref}]]></textFieldExpression>
 			</textField>
-			<textField hyperlinkType="None">
+			<textField pattern="#,##0.00" hyperlinkType="None">
 				<reportElement x="303" y="4" width="61" height="20"/>
 				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{total_risk}]]></textFieldExpression>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{total_risk}]]></textFieldExpression>
 			</textField>
 			<textField hyperlinkType="None">
 				<reportElement x="364" y="4" width="100" height="20"/>
@@ -66,6 +81,29 @@
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{name2}]]></textFieldExpression>
 			</textField>
+			<textField pattern="dd/MM/yyyy" hyperlinkType="None">
+				<reportElement x="102" y="33" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="67" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{datas_fname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="31" y="213" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="25" y="97" width="167" height="103"/>
+				<imageExpression class="java.lang.String"><![CDATA[$F{datas}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="286" y="97" width="167" height="103"/>
+				<imageExpression class="java.lang.String"><![CDATA[$F{picture}]]></imageExpression>
+			</image>
 		</band>
 	</detail>
 	<columnFooter>

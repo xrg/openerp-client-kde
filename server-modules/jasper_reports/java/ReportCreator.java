@@ -19,11 +19,6 @@ public class ReportCreator {
   public static void createReport( String reportFile, String xmlFile, String reportOutput, Connection con , HashMap params )
 	{
 		try {
-			System.out.println( "Src: '" + reportFile + "'");
-			System.out.println( "Xml: '" + xmlFile + "'");
-			System.out.println( "Dst: '" + reportOutput + "'");
-			System.out.println( "params: '" + params + "'");
-
 			JasperReport report;
 			JRQuery query;
 			JasperPrint jasperPrint=null;
@@ -32,20 +27,16 @@ public class ReportCreator {
 			query = report.getQuery();
 			
 			Map parameters = params;
-			//parameters.put(JRXPathQueryExecuterFactory.PARAMETER_XML_DATA_DOCUMENT, document);
-			//parameters.put(JRXPathQueryExecuterFactory.XML_DATE_PATTERN, "yyyy-MM-dd");
-			//parameters.put(JRXPathQueryExecuterFactory.XML_NUMBER_PATTERN, "#,##0.##");
-			//parameters.put(JRXPathQueryExecuterFactory.XML_LOCALE, Locale.ENGLISH);
 
-
-			System.out.println("LANGUAGE:" + query.getLanguage());
 			if( query.getLanguage().equalsIgnoreCase(  "XPATH")  ){
-				System.out.println("XPATH");
 				JRXmlDataSource dataSource = new JRXmlDataSource( xmlFile, "/data/record" );
+				dataSource.setDatePattern( "yyyy-MM-dd mm:hh:ss" );
+				dataSource.setNumberPattern( "###0.##" );
+				//parameters.put(JRXPathQueryExecuterFactory.XML_DATE_PATTERN, "yyyy-MM-dd mm:hh:ss");
+				//parameters.put(JRXPathQueryExecuterFactory.XML_NUMBER_PATTERN, "###0.##");
+				parameters.put(JRXPathQueryExecuterFactory.XML_LOCALE, Locale.ENGLISH);
 				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else if(  query.getLanguage().equalsIgnoreCase( "SQL")  ) {
-				System.out.println("2-SQL");
-				System.out.println("Parameters:" + parameters.toString() );
 				jasperPrint = JasperFillManager.fillReport( report, parameters, con );
 			}
 		    
