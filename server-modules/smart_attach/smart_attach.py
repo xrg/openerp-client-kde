@@ -28,6 +28,7 @@
 from osv import osv, fields
 import base64
 import xml.dom.minidom
+import xml.xpath
 import tempfile
 import os
 import shutil
@@ -108,29 +109,49 @@ class ir_attachment(osv.osv):
 		f.close()
 
 		# Analyze strigi's xmlindexer output
-		output = os.popen('xmlindexer %s' % dir).read()
+		f = os.popen('xmlindexer %s' % dir, 'r')
+		output = f.read()
+		f.close()
+
+		metaInfo = None
+		mimeTypes = []
 		try:
-			dom = xml.dom.minidom.parseString( output )
-			tags = dom.getElementsByTagName( 'text' )
+			doc = xml.dom.minidom.parseString( output )
+			tags = doc.getElementsByTagName( 'text' )
+			if tags:
+				metaInfo = self.getText(tags[0].childNodes).strip()
+			tags = xml.xpath.Evaluate( "//file/value[@name='http://freedesktop.org/standards/xesam/1.0/core#mimeType']", doc )
+			for tag in tags:
+				mimeTypes.append( tag.firstChild.data )
 		except:
-			tags = []
-		if len(tags):
-			metaInfo = self.getText(tags[0].childNodes).strip()
-			if not isinstance( metaInfo, unicode ):
-				metaInfo = unicode( self.getText(tags[0].childNodes).strip(), errors='ignore' )
-		else:
-			# We couldn't get text information with strigi, let's try if it's an image
+			pass
+
+		if 'application/pdf' in mimeTypes:
+			f = os.popen( 'pdftotext -enc UTF-8 -nopgbrk %s/object.tmp -' % dir, 'r')
+			metaInfo = f.read()
+			f.close()
+		elif 'application/vnd.oasis.opendocument.text' in mimeTypes:
+			f = os.popen( 'odt2txt --encoding=UTF-8 %s/object.tmp' % dir, 'r' )
+			metaInfo = f.read()
+			f.close()
+		elif 'application/x-ole-storage' in mimeTypes:
+			f = os.popen( 'antiword %s/object.tmp' % dir, 'r' )
+			metaInfo = f.read()
+			f.close()
+
+		if not metaInfo:
+			# We couldn't get text information with other methods, let's see if it's an image
 			os.spawnlp(os.P_WAIT, 'convert', 'convert', '-type', 'grayscale', '-depth', '8', dir + '/object.tmp', dir + '/object.tif' )
 			if os.path.exists( dir + '/object.tif' ):
 				c = ocr.Classifier()
 				c.prepareImage( dir + '/object.tif' )
 				r = c.ocr()
-				metaInfo = unicode( r['text'].strip(), errors='ignore' )
+				metaInfo = r['text'].strip()
 				# TODO: Use language detection to choose different dictionary in TSearch2?
 				# If so, that should apply to text/pdf/etc.. files too
 				#r['language']
-			else:
-				metaInfo = None
+
+		metaInfo = unicode( metaInfo, 'utf-8', errors='ignore' )
 		shutil.rmtree( dir, True )
 		return metaInfo
 
