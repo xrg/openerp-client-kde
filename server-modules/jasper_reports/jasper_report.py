@@ -142,59 +142,81 @@ class Report:
 	# for each model id we've been asked to show. If there are any elements in the OPENERP_RELATIONS
 	# list, they will imply a LEFT JOIN like behaviour on the rows to be shown.
 	def generate_xml(self, fileName):
-		self.document = getDOMImplementation().createDocument(None, 'data', None)
-		topNode = self.document.documentElement
-
+		self.allRecords = []
+		relations = self.reportProperties['relations']
 		# The following loop generates one entry to allRecords list for each record
 		# that will be created. If there are any relations it acts like a
 		# LEFT JOIN against the main model/table.
-		relations = self.reportProperties['relations']
-		allRecords = []
 		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
-			currentRecords = [ { 'root': record } ]
-			for relation in relations:
-				if isinstance(relation,list):
-					continue
-				if relation == 'Attachments':
-					ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',self.model),('res_id','=',record.id)])
-					value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
-				else:
-					try:
-						value = record.__getattr__(relation)
-					except:
-						print "Field '%s' does not exist in model '%s'." % (relation, self.model)
-						continue
-
-					if not isinstance(value, osv.orm.browse_record_list):
-						print "Field '%s' in model '%s' is not a list (2many)." % (relation, self.model)
-						continue
-
-				newRecords = []
-				for v in value:
-					for id in currentRecords:
-						new = id.copy()
-						new[relation] = v
-						newRecords.append( new )
-				currentRecords = newRecords
-			allRecords += currentRecords
+			self.allRecords += self.generate_ids( record, relations, '', [ { 'root': record } ] )
 
 		# Once all records have been calculated, create the XML structure itself
-		for records in allRecords:
+		self.document = getDOMImplementation().createDocument(None, 'data', None)
+		topNode = self.document.documentElement
+		for records in self.allRecords:
 			recordNode = self.document.createElement('record')
 			topNode.appendChild( recordNode )
-			self.generate_record( records['root'], records, recordNode, self.reportProperties['fields'] )
+			self.generate_record( records['root'], records, recordNode, '', self.reportProperties['fields'] )
 
 		# Once created, the only missing step is to store the XML into a file
 		f = open( fileName, 'wb+')
 		topNode.writexml( f )
 		f.close()
 
-	def generate_record(self, record, records, recordNode, fields):
+	def generate_ids(self, record, relations, path, currentRecords):
+		unrepeated = set( [field.partition('/')[0] for field in relations] )
+		for relation in unrepeated:
+			root = relation.partition('/')[0]
+			if path:
+				currentPath = '%s/%s' % (path,root)
+			else:
+				currentPath = root
+			if root == 'Attachments':
+				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
+				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids, self.context)
+			else:
+				try:
+					value = record.__getattr__(root)
+				except:
+					print "Field '%s' does not exist in model '%s'." % (root, self.model)
+					continue
+
+				if isinstance(value, osv.orm.browse_record):
+					relations2 = [ f.partition('/')[2] for f in relations if f.partition('/')[0] == root and f.partition('/')[2] ]
+					return self.generate_ids( value, relations2, currentPath, currentRecords )
+
+				if not isinstance(value, osv.orm.browse_record_list):
+					print "Field '%s' in model '%s' is not a relation." % (root, self.model)
+					return currentRecords
+
+			# Only join if there are any records because it's a LEFT JOIN
+			# If we wanted an INNER JOIN we wouldn't check for "value" and
+			# return an empty currentRecords
+			if value:
+				# Only 
+				newRecords = []
+				for v in value:
+					currentNewRecords = []
+					for id in currentRecords:
+						new = id.copy()
+						new[currentPath] = v
+						currentNewRecords.append( new )
+					relations2 = [ f.partition('/')[2] for f in relations if f.partition('/')[0] == root and f.partition('/')[2] ]
+					newRecords += self.generate_ids( v, relations2, currentPath, currentNewRecords )
+
+				currentRecords = newRecords
+		return currentRecords
+
+	def generate_record(self, record, records, recordNode, path, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
 		# Process each "root" field only once by using a set.
 		unrepeated = set( [field.partition('/')[0] for field in fields] )
 		for field in unrepeated:
 			root = field.partition('/')[0]
+			if path:
+				currentPath = '%s/%s' % (path,root)
+			else:
+				currentPath = root
 			fieldNode = self.document.createElement( root )
 			recordNode.appendChild( fieldNode )
 			if root == 'Attachments':
@@ -207,24 +229,25 @@ class Report:
 					value = None
 					print "Field '%s' does not exist in model" % root
 
+			# Check if it's a many2one
 			if isinstance(value, osv.orm.browse_record):
-				modelName = value._table._name
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				self.generate_record(value, records, fieldNode, fields2)
+				self.generate_record(value, records, fieldNode, currentPath, fields2)
 				continue
 
+			# Check if it's a one2many or many2many
 			if isinstance(value, osv.orm.browse_record_list):
 				if not value:
 					continue
-				modelName = value[0]._table._name
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				if root in records:
-					self.generate_record(records[root], records, fieldNode, fields2)
+				if currentPath in records:
+					self.generate_record(records[currentPath], records, fieldNode, currentPath, fields2)
 				else:
 					# If the field is not marked to be iterated use the first record only
-					self.generate_record(value[0], records, fieldNode, fields2)
+					self.generate_record(value[0], records, fieldNode, currentPath, fields2)
 				continue
 
+			# The rest of field types must be converted into str
 			if value == False:
 				value = ''
 			elif record._table._columns[field]._type == 'date':
