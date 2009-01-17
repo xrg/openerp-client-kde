@@ -40,6 +40,13 @@ class create_data_template(wizard.interface):
 		return res
 		
 	def generate_xml(self, pool, name, parentNode, document, depth):
+		# First of all add "id" field
+		fieldNode = document.createElement('id')
+		parentNode.appendChild( fieldNode )
+		valueNode = document.createTextNode( '1' )
+		fieldNode.appendChild( valueNode )
+
+		# Then add all fields in alphabetical order
 		model = pool.get(name)
 		fields = model._columns.keys()
 		fields.sort()

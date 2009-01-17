@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="OPENERP_RELATIONS" value="[&apos;address/Attachments&apos;]"/>
+	<property name="OPENERP_RELATIONS" value="[&apos;parent_id/address&apos;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["/home/albert/d/koo/server-modules/jasper_reports/"]]></defaultValueExpression>
 	</parameter>
@@ -10,26 +10,11 @@
 	<field name="name" class="java.lang.String">
 		<fieldDescription><![CDATA[name]]></fieldDescription>
 	</field>
-	<field name="website" class="java.lang.String">
-		<fieldDescription><![CDATA[website]]></fieldDescription>
-	</field>
 	<field name="ref" class="java.lang.String">
 		<fieldDescription><![CDATA[ref]]></fieldDescription>
 	</field>
-	<field name="total_risk" class="java.math.BigDecimal">
-		<fieldDescription><![CDATA[total_risk]]></fieldDescription>
-	</field>
-	<field name="street" class="java.lang.String">
-		<fieldDescription><![CDATA[address/street]]></fieldDescription>
-	</field>
-	<field name="name2" class="java.lang.String">
-		<fieldDescription><![CDATA[category_id/name]]></fieldDescription>
-	</field>
-	<field name="date" class="java.util.Date">
-		<fieldDescription><![CDATA[date]]></fieldDescription>
-	</field>
-	<field name="picture" class="java.lang.String">
-		<fieldDescription><![CDATA[property_product_quotation/picture]]></fieldDescription>
+	<field name="attachment_name" class="java.lang.String">
+		<fieldDescription><![CDATA[Attachments/name]]></fieldDescription>
 	</field>
 	<field name="datas" class="java.lang.String">
 		<fieldDescription><![CDATA[Attachments/datas]]></fieldDescription>
@@ -37,19 +22,58 @@
 	<field name="datas_fname" class="java.lang.String">
 		<fieldDescription><![CDATA[Attachments/datas_fname]]></fieldDescription>
 	</field>
-	<field name="description" class="java.lang.String">
-		<fieldDescription><![CDATA[/data/record/Attachments/description]]></fieldDescription>
+	<field name="street" class="java.lang.String">
+		<fieldDescription><![CDATA[address/street]]></fieldDescription>
 	</field>
-	<field name="link" class="java.lang.String">
-		<fieldDescription><![CDATA[address/Attachments/link]]></fieldDescription>
+	<field name="street2" class="java.lang.String">
+		<fieldDescription><![CDATA[address/street2]]></fieldDescription>
 	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[address/type]]></fieldDescription>
+	</field>
+	<field name="zip" class="java.lang.String">
+		<fieldDescription><![CDATA[address/zip]]></fieldDescription>
+	</field>
+	<field name="address_name" class="java.lang.String">
+		<fieldDescription><![CDATA[address/name]]></fieldDescription>
+	</field>
+	<field name="state_name" class="java.lang.String">
+		<fieldDescription><![CDATA[address/state_id/name]]></fieldDescription>
+	</field>
+	<field name="country_name" class="java.lang.String">
+		<fieldDescription><![CDATA[address/country_id/name]]></fieldDescription>
+	</field>
+	<field name="credit" class="java.lang.String">
+		<fieldDescription><![CDATA[credit]]></fieldDescription>
+	</field>
+	<field name="credit_limit" class="java.lang.String">
+		<fieldDescription><![CDATA[credit_limit]]></fieldDescription>
+	</field>
+	<field name="debit" class="java.lang.String">
+		<fieldDescription><![CDATA[debit]]></fieldDescription>
+	</field>
+	<field name="debit_limit" class="java.lang.String">
+		<fieldDescription><![CDATA[debit_limit]]></fieldDescription>
+	</field>
+	<field name="website" class="java.lang.String">
+		<fieldDescription><![CDATA[website]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="address_id" class="java.lang.String">
+		<fieldDescription><![CDATA[address/id]]></fieldDescription>
+	</field>
+	<sortField name="name"/>
+	<sortField name="address_id"/>
+	<sortField name="attachment_name"/>
 	<background>
 		<band/>
 	</background>
 	<title>
-		<band height="113">
+		<band height="81">
 			<subreport>
-				<reportElement x="0" y="34" width="555" height="79"/>
+				<reportElement x="0" y="0" width="555" height="79"/>
 				<subreportParameter name="comments">
 					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
 				</subreportParameter>
@@ -71,19 +95,19 @@
 		<band height="15"/>
 	</columnHeader>
 	<detail>
-		<band height="234">
+		<band height="265">
 			<textField hyperlinkType="None">
-				<reportElement x="3" y="4" width="100" height="20"/>
+				<reportElement x="102" y="4" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 			</textField>
 			<textField hyperlinkType="None">
-				<reportElement x="103" y="4" width="100" height="20"/>
+				<reportElement x="202" y="4" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{website}]]></textFieldExpression>
 			</textField>
 			<textField hyperlinkType="None">
-				<reportElement x="203" y="4" width="100" height="20"/>
+				<reportElement x="0" y="4" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{ref}]]></textFieldExpression>
 			</textField>
@@ -131,6 +155,14 @@
 					<font size="20" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{link}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="25" y="251" width="506" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="279" y="221" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{street2}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
