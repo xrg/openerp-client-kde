@@ -248,7 +248,10 @@ class Report:
 				continue
 
 			# The rest of field types must be converted into str
-			if value == False:
+			if field == 'id':
+				# Check for field 'id' because we can't find it's type in _columns
+				value = str(value)
+			elif value == False:
 				value = ''
 			elif record._table._columns[field]._type == 'date':
 				value = '%s 00:00:00' % str(value) 
