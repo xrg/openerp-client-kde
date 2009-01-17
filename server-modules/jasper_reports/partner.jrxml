@@ -56,23 +56,25 @@
 		<groupHeader>
 			<band height="25">
 				<textField isBlankWhenNull="true" hyperlinkType="None">
-					<reportElement x="0" y="0" width="100" height="20"/>
+					<reportElement x="0" y="0" width="73" height="20"/>
 					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{ref}]]></textFieldExpression>
 				</textField>
-				<textField isBlankWhenNull="true" hyperlinkType="RemotePage" hyperlinkTarget="Blank">
-					<reportElement x="340" y="0" width="118" height="20"/>
-					<textElement verticalAlignment="Middle"/>
+				<textField isBlankWhenNull="true" hyperlinkType="Reference">
+					<reportElement x="301" y="0" width="184" height="20" forecolor="#3366FF"/>
+					<textElement verticalAlignment="Middle">
+						<font isUnderline="true"/>
+					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{website}]]></textFieldExpression>
 					<hyperlinkReferenceExpression><![CDATA[$F{website}]]></hyperlinkReferenceExpression>
 				</textField>
 				<textField isBlankWhenNull="true" hyperlinkType="None">
-					<reportElement x="100" y="0" width="227" height="20"/>
+					<reportElement x="74" y="0" width="227" height="20"/>
 					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 				</textField>
 				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true" hyperlinkType="None">
-					<reportElement x="458" y="0" width="54" height="20"/>
+					<reportElement x="485" y="0" width="70" height="20"/>
 					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
 				</textField>
@@ -157,28 +159,28 @@
 	<columnHeader>
 		<band height="31">
 			<staticText>
-				<reportElement x="4" y="11" width="96" height="20"/>
+				<reportElement x="4" y="11" width="69" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reference]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="11" width="227" height="20"/>
+				<reportElement x="74" y="11" width="227" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="340" y="11" width="118" height="20"/>
+				<reportElement x="301" y="11" width="184" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Website]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="458" y="11" width="54" height="20"/>
+				<reportElement x="485" y="11" width="70" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
