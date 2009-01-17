@@ -70,7 +70,7 @@ class create_data_template(wizard.interface):
 			valueNode = document.createTextNode( value )
 			fieldNode.appendChild( valueNode )
 
-		if depth > 1 and name != 'ir.attachment':
+		if depth > 1 and name != 'Attachments':
 			# Create relation with attachments
 			fieldNode = document.createElement( 'Attachments' )
 			parentNode.appendChild( fieldNode )
