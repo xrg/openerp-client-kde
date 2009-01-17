@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
-	<property name="OPENERP_RELATIONS" value="[&apos;parent_id/address&apos;]"/>
+	<property name="OPENERP_RELATIONS" value="[&apos;Attachments&apos;]"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["/home/albert/d/koo/server-modules/jasper_reports/"]]></defaultValueExpression>
 	</parameter>
@@ -22,27 +22,6 @@
 	<field name="datas_fname" class="java.lang.String">
 		<fieldDescription><![CDATA[Attachments/datas_fname]]></fieldDescription>
 	</field>
-	<field name="street" class="java.lang.String">
-		<fieldDescription><![CDATA[address/street]]></fieldDescription>
-	</field>
-	<field name="street2" class="java.lang.String">
-		<fieldDescription><![CDATA[address/street2]]></fieldDescription>
-	</field>
-	<field name="type" class="java.lang.String">
-		<fieldDescription><![CDATA[address/type]]></fieldDescription>
-	</field>
-	<field name="zip" class="java.lang.String">
-		<fieldDescription><![CDATA[address/zip]]></fieldDescription>
-	</field>
-	<field name="address_name" class="java.lang.String">
-		<fieldDescription><![CDATA[address/name]]></fieldDescription>
-	</field>
-	<field name="state_name" class="java.lang.String">
-		<fieldDescription><![CDATA[address/state_id/name]]></fieldDescription>
-	</field>
-	<field name="country_name" class="java.lang.String">
-		<fieldDescription><![CDATA[address/country_id/name]]></fieldDescription>
-	</field>
 	<field name="credit" class="java.lang.String">
 		<fieldDescription><![CDATA[credit]]></fieldDescription>
 	</field>
@@ -58,15 +37,55 @@
 	<field name="website" class="java.lang.String">
 		<fieldDescription><![CDATA[website]]></fieldDescription>
 	</field>
-	<field name="id" class="java.lang.String">
-		<fieldDescription><![CDATA[id]]></fieldDescription>
+	<field name="date" class="java.util.Date">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
 	</field>
-	<field name="address_id" class="java.lang.String">
-		<fieldDescription><![CDATA[address/id]]></fieldDescription>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[Attachments/id]]></fieldDescription>
+	</field>
+	<field name="attachment_id" class="java.lang.String">
+		<fieldDescription><![CDATA[Attachments/id]]></fieldDescription>
 	</field>
 	<sortField name="name"/>
-	<sortField name="address_id"/>
 	<sortField name="attachment_name"/>
+	<variable name="attachments" class="java.lang.String" calculation="Count">
+		<variableExpression><![CDATA[$F{attachment_id}]]></variableExpression>
+	</variable>
+	<group name="partner">
+		<groupExpression><![CDATA[$F{name}]]></groupExpression>
+		<groupHeader>
+			<band height="25">
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement x="0" y="0" width="100" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ref}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="RemotePage" hyperlinkTarget="Blank">
+					<reportElement x="340" y="0" width="118" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{website}]]></textFieldExpression>
+					<hyperlinkReferenceExpression><![CDATA[$F{website}]]></hyperlinkReferenceExpression>
+				</textField>
+				<textField isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement x="100" y="0" width="227" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true" hyperlinkType="None">
+					<reportElement x="458" y="0" width="54" height="20"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="41">
+				<line>
+					<reportElement x="29" y="21" width="506" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band/>
 	</background>
@@ -92,87 +111,89 @@
 		<band/>
 	</pageHeader>
 	<columnHeader>
-		<band height="15"/>
+		<band height="31">
+			<staticText>
+				<reportElement x="4" y="11" width="96" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reference]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="11" width="227" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="11" width="118" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Website]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="11" width="54" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="265">
-			<textField hyperlinkType="None">
-				<reportElement x="102" y="4" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
-			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="202" y="4" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{website}]]></textFieldExpression>
-			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="0" y="4" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{ref}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00" hyperlinkType="None">
-				<reportElement x="303" y="4" width="61" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{total_risk}]]></textFieldExpression>
-			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="364" y="4" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{street}]]></textFieldExpression>
-			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="471" y="4" width="72" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{name2}]]></textFieldExpression>
-			</textField>
-			<textField pattern="dd/MM/yyyy" hyperlinkType="None">
-				<reportElement x="102" y="33" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
-			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="25" y="67" width="100" height="20"/>
-				<textElement/>
+		<band height="224">
+			<textField isBlankWhenNull="true" hyperlinkType="None">
+				<reportElement x="340" y="7" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{datas_fname}]]></textFieldExpression>
 			</textField>
-			<textField hyperlinkType="None">
-				<reportElement x="31" y="213" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{description}]]></textFieldExpression>
-			</textField>
-			<image hyperlinkType="None">
-				<reportElement x="25" y="97" width="167" height="103"/>
+			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" hyperlinkType="None">
+				<reportElement x="47" y="46" width="465" height="169"/>
 				<imageExpression class="java.lang.String"><![CDATA[$F{datas}]]></imageExpression>
 			</image>
-			<image hyperlinkType="None">
-				<reportElement x="286" y="97" width="167" height="103"/>
-				<imageExpression class="java.lang.String"><![CDATA[$F{picture}]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="305" y="40" width="166" height="27"/>
-				<textElement>
-					<font size="20" isBold="true"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="118" y="6" width="116" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{attachment_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="18" y="7" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{link}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="25" y="251" width="506" height="1"/>
-			</line>
-			<textField>
-				<reportElement x="279" y="221" width="100" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{street2}]]></textFieldExpression>
-			</textField>
+				<text><![CDATA[Attachment:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="7" width="76" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[File Name:]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="186"/>
+		<band/>
 	</pageFooter>
 	<summary>
-		<band height="42"/>
+		<band height="23">
+			<staticText>
+				<reportElement x="137" y="3" width="160" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Number of attachments listed:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="301" y="3" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{attachments}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
