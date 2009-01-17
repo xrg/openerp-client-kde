@@ -22,16 +22,16 @@
 	<field name="datas_fname" class="java.lang.String">
 		<fieldDescription><![CDATA[Attachments/datas_fname]]></fieldDescription>
 	</field>
-	<field name="credit" class="java.lang.String">
+	<field name="credit" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[credit]]></fieldDescription>
 	</field>
-	<field name="credit_limit" class="java.lang.String">
+	<field name="credit_limit" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[credit_limit]]></fieldDescription>
 	</field>
-	<field name="debit" class="java.lang.String">
+	<field name="debit" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[debit]]></fieldDescription>
 	</field>
-	<field name="debit_limit" class="java.lang.String">
+	<field name="debit_limit" class="java.math.BigDecimal">
 		<fieldDescription><![CDATA[debit_limit]]></fieldDescription>
 	</field>
 	<field name="website" class="java.lang.String">
@@ -79,10 +79,54 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="41">
+			<band height="162">
 				<line>
-					<reportElement x="29" y="21" width="506" height="1"/>
+					<reportElement x="18" y="144" width="506" height="1"/>
 				</line>
+				<barChart>
+					<chart isShowLegend="false" hyperlinkType="None">
+						<reportElement x="118" y="0" width="266" height="129"/>
+						<chartTitle/>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<categoryDataset>
+						<categorySeries>
+							<seriesExpression><![CDATA["Used"]]></seriesExpression>
+							<categoryExpression><![CDATA["Credit"]]></categoryExpression>
+							<valueExpression><![CDATA[$F{credit}]]></valueExpression>
+							<labelExpression><![CDATA["Used"]]></labelExpression>
+							<itemHyperlink hyperlinkType="None"/>
+						</categorySeries>
+						<categorySeries>
+							<seriesExpression><![CDATA["Limit"]]></seriesExpression>
+							<categoryExpression><![CDATA["Credit"]]></categoryExpression>
+							<valueExpression><![CDATA[$F{credit_limit}]]></valueExpression>
+							<labelExpression><![CDATA["Limit"]]></labelExpression>
+							<itemHyperlink hyperlinkType="None"/>
+						</categorySeries>
+						<categorySeries>
+							<seriesExpression><![CDATA["Used"]]></seriesExpression>
+							<categoryExpression><![CDATA["Debit"]]></categoryExpression>
+							<valueExpression><![CDATA[$F{debit}]]></valueExpression>
+							<labelExpression><![CDATA["Used"]]></labelExpression>
+							<itemHyperlink hyperlinkType="None"/>
+						</categorySeries>
+						<categorySeries>
+							<seriesExpression><![CDATA["Limit"]]></seriesExpression>
+							<categoryExpression><![CDATA["Debit"]]></categoryExpression>
+							<valueExpression><![CDATA[$F{debit_limit}]]></valueExpression>
+							<labelExpression><![CDATA["Limit"]]></labelExpression>
+							<itemHyperlink hyperlinkType="None"/>
+						</categorySeries>
+					</categoryDataset>
+					<barPlot isShowLabels="false" isShowTickLabels="true" isShowTickMarks="true">
+						<plot>
+							<seriesColor seriesOrder="0" color="#3333FF"/>
+							<seriesColor seriesOrder="1" color="#FF3333"/>
+						</plot>
+					</barPlot>
+				</barChart>
 			</band>
 		</groupFooter>
 	</group>
@@ -143,17 +187,17 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="224">
+		<band height="168">
 			<textField isBlankWhenNull="true" hyperlinkType="None">
 				<reportElement x="340" y="7" width="100" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{datas_fname}]]></textFieldExpression>
 			</textField>
 			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" hyperlinkType="None">
-				<reportElement x="47" y="46" width="465" height="169"/>
+				<reportElement x="47" y="46" width="393" height="113"/>
 				<imageExpression class="java.lang.String"><![CDATA[$F{datas}]]></imageExpression>
 			</image>
-			<textField isBlankWhenNull="true">
+			<textField isBlankWhenNull="true" hyperlinkType="None">
 				<reportElement x="118" y="6" width="116" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{attachment_name}]]></textFieldExpression>
@@ -189,7 +233,7 @@
 				</textElement>
 				<text><![CDATA[Number of attachments listed:]]></text>
 			</staticText>
-			<textField>
+			<textField hyperlinkType="None">
 				<reportElement x="301" y="3" width="100" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{attachments}]]></textFieldExpression>
