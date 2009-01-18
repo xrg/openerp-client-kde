@@ -16,38 +16,43 @@ import java.io.FileInputStream;
 
 public class ReportCreator {
 
-  public static void createReport( String reportFile, String xmlFile, String reportOutput, Connection con , HashMap params )
+	public static void createReport( String reportFile, String xmlFile, String reportOutput, Connection con , HashMap params )
 	{
 		try {
 			JasperReport report;
 			JRQuery query;
 			JasperPrint jasperPrint=null;
+			String subreportDir;
+			int index;
 			
 			report = (JasperReport) JRLoader.loadObject( reportFile );
 			query = report.getQuery();
 			
 			Map parameters = params;
 
+			subreportDir = reportFile.substring( 0, reportFile.lastIndexOf('/') );
+			index = reportFile.lastIndexOf('/');
+			if ( index != -1 )
+				parameters.put( "SUBREPORT_DIR", reportFile.substring( 0, index+1 ) );
+
 			if( query.getLanguage().equalsIgnoreCase(  "XPATH")  ){
 				JRXmlDataSource dataSource = new JRXmlDataSource( xmlFile, "/data/record" );
 				dataSource.setDatePattern( "yyyy-MM-dd mm:hh:ss" );
 				dataSource.setNumberPattern( "###0.##" );
-				//parameters.put(JRXPathQueryExecuterFactory.XML_DATE_PATTERN, "yyyy-MM-dd mm:hh:ss");
-				//parameters.put(JRXPathQueryExecuterFactory.XML_NUMBER_PATTERN, "###0.##");
 				parameters.put(JRXPathQueryExecuterFactory.XML_LOCALE, Locale.ENGLISH);
 				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else if(  query.getLanguage().equalsIgnoreCase( "SQL")  ) {
 				jasperPrint = JasperFillManager.fillReport( report, parameters, con );
 			}
-		    
 			JasperExportManager.exportReportToPdfFile( jasperPrint, reportOutput );
 		} catch (Exception e){
-		  e.printStackTrace();
-		  System.out.println( e.getMessage() );
+			e.printStackTrace();
+			System.out.println( e.getMessage() );
 		}
 	}
 
-	public static Connection getConnection(String dsn, String user, String password) throws java.lang.ClassNotFoundException, java.sql.SQLException
+	public static Connection getConnection(String dsn, String user, String password) 
+		throws java.lang.ClassNotFoundException, java.sql.SQLException
 	{
 		Connection connection;
 		Class.forName("org.postgresql.Driver");
@@ -55,7 +60,6 @@ public class ReportCreator {
 		System.out.println("DSN: " + dsn);
 		connection = DriverManager.getConnection( dsn, user, password );
 		connection.setAutoCommit(false);
-		System.out.println( "colsed:" + connection.isClosed() );
 		return connection;
 	}
 
