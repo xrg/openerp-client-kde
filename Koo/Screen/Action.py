@@ -78,8 +78,12 @@ class Action(QAction):
 			currentId = ids[0]
 		elif not ids:
 			ids = [currentId]
+		if self._type == 'print':
+			QApplication.setOverrideCursor( Qt.WaitCursor )
 		Api.instance.executeAction(self._data, { 'id': currentId, 'ids': ids, 'model': self._model } )
-		
+		if self._type == 'print':
+			QApplication.restoreOverrideCursor()
+
 	def executePlugin(self, currentId, ids):
 		Plugins.execute( self._data, self._model, currentId, ids )
 
