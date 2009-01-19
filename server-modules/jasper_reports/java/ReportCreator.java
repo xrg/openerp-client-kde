@@ -38,8 +38,8 @@ public class ReportCreator {
 			if( query.getLanguage().equalsIgnoreCase(  "XPATH")  ){
 				JRXmlDataSource dataSource = new JRXmlDataSource( xmlFile, "/data/record" );
 				dataSource.setDatePattern( "yyyy-MM-dd mm:hh:ss" );
-				dataSource.setNumberPattern( "###0.##" );
-				parameters.put(JRXPathQueryExecuterFactory.XML_LOCALE, Locale.ENGLISH);
+				dataSource.setNumberPattern( "#######0.##" );
+				dataSource.setLocale( Locale.ENGLISH );
 				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else if(  query.getLanguage().equalsIgnoreCase( "SQL")  ) {
 				jasperPrint = JasperFillManager.fillReport( report, parameters, con );
