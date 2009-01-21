@@ -121,13 +121,20 @@ class Report:
 			properties['fields'].append( path )
 
 		return properties
-	
+	def userName(self):
+		if os.name == 'nt':
+			import win32api
+			return win32api.GetUserName()
+		else:
+			import pwd
+			return pwd.getpwuid(os.getuid())[0]
+
 	def createReport( self, inputFile, outputFile ):
-		host = tools.config['db_host'] and "%s" % tools.config['db_host'] or 'localhost'
-		port = tools.config['db_port'] and "%s" % tools.config['db_port'] or '5432'
-		dbname = "%s" % self.cr.dbname
-		user = tools.config['db_user'] and "%s" % tools.config['db_user'] or 'postgres'
-		password = tools.config['db_password'] and "%s" % tools.config['db_password'] or ''
+		host = tools.config['db_host'] or 'localhost'
+		port = tools.config['db_port'] or '5432'
+		dbname = self.cr.dbname
+		user = tools.config['db_user'] or self.userName()
+		password = tools.config['db_password'] or ''
 		dsn= 'jdbc:postgresql://%s:%s/%s' % ( host, port, dbname )
 
 		idss=""
