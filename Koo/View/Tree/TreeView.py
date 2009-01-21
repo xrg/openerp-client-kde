@@ -87,8 +87,9 @@ class TinyTreeView(QTreeView):
 
 class TreeView( AbstractView ):
 
-	def __init__(self, parent, fields):
+	def __init__(self, parent, widgetType='tree'):
 		AbstractView.__init__(self, parent)
+		self._widgetType = widgetType
 		self.treeModel = None
 		self.view_type = 'tree'
 		self.reload = False
@@ -96,26 +97,32 @@ class TreeView( AbstractView ):
 		self.selecting = False
 		self.setAddOnTop( False )
 
-		self._widgetType = 'tree'
-		self.widget = TinyTreeView( self )
-		self.widget.setAllColumnsShowFocus( False )
-		self.widget.setSortingEnabled(True)
-		self.widget.setRootIsDecorated( False )
-		self.widget.setAlternatingRowColors( True )
-		self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
-		self.widget.sortByColumn( 0, Qt.AscendingOrder )
-		# We set uniformRowHeights property to True because this allows some 
-		# optimizations. It makes a really big difference in models with thousands 
-		# of tuples because moving to the end of the list only requires to query
-		# for those items at the end (those that are shown) wheras if we don't
-		# guarantee that all items have the same height, all previous items
-		# need to be loaded too so the view can measure what height they are
-		# and in which position the scroll is.
-		self.widget.setUniformRowHeights( True )
-
-		#self._widgetType = 'list'
-		#self.widget = QListView( self )
-		#self._widgetType = 'table'
+		if self._widgetType == 'tree':
+			self.widget = TinyTreeView( self )
+			self.widget.setAllColumnsShowFocus( False )
+			self.widget.setSortingEnabled(True)
+			self.widget.setRootIsDecorated( False )
+			self.widget.setAlternatingRowColors( True )
+			self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
+			self.widget.sortByColumn( 0, Qt.AscendingOrder )
+			# We set uniformRowHeights property to True because this allows some 
+			# optimizations. It makes a really big difference in models with thousands 
+			# of tuples because moving to the end of the list only requires to query
+			# for those items at the end (those that are shown) wheras if we don't
+			# guarantee that all items have the same height, all previous items
+			# need to be loaded too so the view can measure what height they are
+			# and in which position the scroll is.
+			self.widget.setUniformRowHeights( True )
+		elif self._widgetType == 'list':
+			self.widget = QListView( self )
+			self.widget.setViewMode( QListView.IconMode )
+			self.widget.setFlow( QListView.LeftToRight )
+			#self.widget.setGridSize( QSize( 100, 20 ) )
+			self.widget.setResizeMode( QListView.Adjust )
+			self.widget.setSpacing( 20 )
+		elif self._widgetType == 'table':
+			self._widgetType = 'table'
+			self.widget = QTableView( self )
 
 		# Set focus proxy so other widgets can try to setFocus to us
 		# and the focus is set to the expected widget.
@@ -177,9 +184,6 @@ class TreeView( AbstractView ):
 		if self._readOnly:
 			self.emit( SIGNAL('activated()') )
 
-	def __getitem__(self, name):
-		return None
-
 	def currentChanged(self, current):
 		if self.selecting:
 			return
@@ -206,15 +210,11 @@ class TreeView( AbstractView ):
 	def display(self, currentModel, models):
 		# TODO: Avoid setting the model group each time...
 		self.treeModel.setModelGroup( models )
+		if self._widgetType != 'tree':
+			self.treeModel.sort( 0, Qt.AscendingOrder )
 		self.updateAggregates()
 		if not currentModel:
 			self.selectFirst()
-			#index = self.treeModel.index( 0, 0 )
-			#if not index.isValid():
-				#return
-			#
-			#self.widget.setCurrentIndex( index )
-			#self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 		else:
 			idx = self.treeModel.indexFromId( currentModel.id )
 			if idx:
@@ -284,13 +284,13 @@ class TreeView( AbstractView ):
 		self._addOnTop = add
 
 	def viewSettings(self):
-		if self._widgetType == 'list':
+		if self._widgetType in ('list','table'):
 			return ''
 		header = self.widget.header()
 		return str( header.saveState().toBase64() )
 
 	def setViewSettings(self, settings):
-		if not settings or self._widgetType == 'list':
+		if not settings or self._widgetType in ('list','table'):
 			return
 		header = self.widget.header()
 		header.restoreState( QByteArray.fromBase64( settings ) )

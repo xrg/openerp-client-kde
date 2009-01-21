@@ -48,13 +48,15 @@ from Koo.Common.Calendar import *
 class TreeParser(AbstractParser):
 	def create(self, parent, model, rootNode, fields):
 		self.screen = parent
-		view = TreeView( parent, fields )
-		
+
 		attrs = Common.nodeAttributes(rootNode)
+		
+		view = TreeView( parent, attrs.get('type','tree') )
+		
  		on_write = attrs.get('on_write', '')
 
 		if not view.title:
- 			view.title = attrs.get('string', 'Unknown')
+ 			view.title = attrs.get('string', _('Unknown') )
 
 		colors = []
 		for color_spec in attrs.get('colors', '').split(';'):
@@ -120,7 +122,7 @@ class TreeParser(AbstractParser):
 
 		for column in range( len(columns)):
 			current = columns[column]
-			if view._widgetType != 'list':
+			if view._widgetType in ('tree','table'):
 				view.widget.setColumnWidth( column, current['width'] )
 
 			delegate = FieldDelegateFactory.create( current['type'], view.widget, current['attributes'] )
