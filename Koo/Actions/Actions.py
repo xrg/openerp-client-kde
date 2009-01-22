@@ -226,7 +226,8 @@ def executeKeyword(keyword, data=None, context=None):
 			actions = Rpc.session.execute('/object', 'execute',
 					'ir.values', 'get', 'action', keyword,
 					[(data['model'], id)], False, Rpc.session.context)
-			actions = map(lambda x: x[2], actions)
+			if (actions):
+				actions = map(lambda x: x[2], actions)
 		except Rpc.RpcException, e:
 			return None
 
