@@ -74,7 +74,19 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 	def openApplication(self):
 		if not self.model.value(self.name):
 			return
-		fileName = tempfile.mktemp()
+		extension = ''
+		# Under windows platforms we need to create the temporary
+		# file with an appropiate extension, otherwise the system
+		# won't be able to know how to open it. So we let Qt guess
+		# what image format it is and use that as an extension.
+		byte = QByteArray( str(self.model.value(self.name) ) )
+		buf = QBuffer( byte )
+		buf.open( QBuffer.ReadOnly )
+		reader = QImageReader( buf )
+		if reader.canRead():
+			extension = '.%s' % str( reader.format() )
+
+		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb')
 		fp.write(self.model.value(self.name))
 		fp.close()

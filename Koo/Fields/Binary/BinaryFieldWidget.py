@@ -72,7 +72,19 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 	def openApplication(self):
 		if not self.model.value(self.name):
 			return
-		fileName = tempfile.mktemp()
+
+		# Under windows platforms we need to create the temporary
+		# file with an appropiate extension, otherwise the system
+		# won't be able to know how to open it. The only way we have
+		# to know what kind of file it is, is if the fname_widget property
+		# was set, and pick up the extension from that field.
+		extension = ''
+		if 'fname_widget' in self.attrs:
+			fileName = self.model.value( self.attrs['fname_widget'] )
+			if fileName:
+				extension = '.%s' % fileName.rpartition('.')[2]
+
+		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb+')
 		fp.write( self.model.value(self.name) )
 		fp.close()
