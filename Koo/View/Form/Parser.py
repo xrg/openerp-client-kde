@@ -137,17 +137,17 @@ class FormParser(AbstractParser):
 				notebook.addTab( widget, attrs.get('string','No String Attr.') )
 
 			elif node.localName =='hpaned':
-				widget = QSplitter( container )
+				widget = QSplitter( Qt.Horizontal, container )
 
 				container.addWidget(widget, attrs)
-				_, on_write = self.parse( node, fields, widget, container)
+				self.parse( node, fields, widget, container)
 
 			elif node.localName =='vpaned':
 				widget = QWidget( container )
 				layout = QVBoxLayout( widget )
 				layout.setContentsMargins( 0, 0, 0, 0 )
 				container.addWidget(widget, attrs)
-				_, on_write = self.parse( node, fields, layout, container)
+				self.parse( node, fields, layout, container)
 
 			elif node.localName == 'child1':
 				widget, on_write = self.parse( node, fields )
