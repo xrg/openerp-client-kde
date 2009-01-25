@@ -16,7 +16,15 @@ import java.io.FileInputStream;
 
 public class ReportCreator {
 
-	public static void createReport( String reportFile, String xmlFile, String reportOutput, Connection con , HashMap params )
+	static String reportFile;
+	static String xmlFile;
+	static String outputFile;
+	static String dsn;
+	static String user;
+	static String password;
+	static String params;
+
+	public static void createReport()
 	{
 		try {
 			JasperReport report;
@@ -28,7 +36,7 @@ public class ReportCreator {
 			report = (JasperReport) JRLoader.loadObject( reportFile );
 			query = report.getQuery();
 			
-			Map parameters = params;
+			Map parameters = parsedParameters();
 
 			subreportDir = reportFile.substring( 0, reportFile.lastIndexOf('/') );
 			index = reportFile.lastIndexOf('/');
@@ -42,30 +50,35 @@ public class ReportCreator {
 				dataSource.setLocale( Locale.ENGLISH );
 				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else if(  query.getLanguage().equalsIgnoreCase( "SQL")  ) {
-				jasperPrint = JasperFillManager.fillReport( report, parameters, con );
+				Connection con=null;
+				try {
+					con = getConnection();
+					jasperPrint = JasperFillManager.fillReport( report, parameters, con );
+				} catch( Exception e ){
+					e.printStackTrace();
+				}
 			}
-			JasperExportManager.exportReportToPdfFile( jasperPrint, reportOutput );
+			JasperExportManager.exportReportToPdfFile( jasperPrint, outputFile );
 		} catch (Exception e){
 			e.printStackTrace();
 			System.out.println( e.getMessage() );
 		}
 	}
 
-	public static Connection getConnection(String dsn, String user, String password) 
+	public static Connection getConnection() 
 		throws java.lang.ClassNotFoundException, java.sql.SQLException
 	{
 		Connection connection;
 		Class.forName("org.postgresql.Driver");
 
-		System.out.println("DSN: " + dsn);
 		connection = DriverManager.getConnection( dsn, user, password );
 		connection.setAutoCommit(false);
 		return connection;
 	}
 
-	public static HashMap parseParams( String params ){
-		HashMap parameters= new HashMap();
-		System.out.println( "Params:" + params );
+	public static HashMap parsedParameters(){
+		HashMap parameters = new HashMap();
+		System.out.println( "Params: " + params );
 		String[] p = params.split(";");
 		for( int j=0; j < p.length ; j++ ){
 			System.out.println( p[j] );
@@ -81,23 +94,21 @@ public class ReportCreator {
 		for( int i=0;i< args.length; i++ )
 			System.out.println( "arguments:" + args[i]);
 
-		Connection con=null;
 		HashMap parameters;
 
-		if ( args.length >= 3 ) {  
-			String dsn = args[3];
-			String user=args[4];
-			String password=args[5];
-			String params = args[6];
-			try {
-				con = getConnection( dsn,user,password );
-			} catch( Exception e ){
-				e.printStackTrace();
-			}
-			parameters = parseParams( params );
-			createReport( args[0], args[1], args[2] , con, parameters );
-		} else
-			System.out.println( "Three arguments needed." );
+		if ( args.length < 7 ) {  
+			System.out.println( "Seven arguments needed." );
+			return;
+		}
+
+		reportFile = args[0];
+		xmlFile = args[1];
+		outputFile = args[2];
+		dsn = args[3];
+		user = args[4];
+		password = args[5];
+		params = args[6];
+		createReport();
 	}
 }
 

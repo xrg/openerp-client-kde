@@ -27,6 +27,7 @@
 
 import os
 import base64
+import glob
 from xml.dom.minidom import getDOMImplementation
 import xml.xpath
 import xml.dom.minidom
@@ -66,6 +67,7 @@ class Report:
 		# Create temporary input (XML) and output (PDF) files 
 		fd, inputFile = tempfile.mkstemp()
 		fd, outputFile = tempfile.mkstemp()
+		outputFile = '/tmp/jasper.pdf'
 		self.temporaryFiles.append( inputFile )
 		self.temporaryFiles.append( outputFile )
 
@@ -141,8 +143,30 @@ class Report:
 		for id in self.ids:
 			idss += ' %s'%id
 
-		os.spawnlp(os.P_WAIT, self.path() + '/java/create-report.sh', self.path() + '/java/create-report.sh', 
-	              self.addonsPath(), self.report[:-6], inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
+		jrxmlFile = os.path.join( self.addonsPath(), self.report )
+		jasperFile = os.path.join( self.addonsPath(), self.report[:-6] + '.jasper' )
+		self.compileReport( jrxmlFile, jasperFile )
+		self.executeReport( jasperFile, inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
+
+	def compileReport(self, inputFile, outputFile):
+		# Compile report only when the date of .jasper file is older than the one of the .jrxml file
+		if os.path.exists(outputFile):
+			inputDate = os.stat(inputFile).st_mtime
+			outputDate = os.stat(outputFile).st_mtime
+			if outputDate > inputDate:
+				return
+		
+		env = {}
+		env.update( os.environ )
+		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
+		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCompiler', inputFile, outputFile, env)
+
+	def executeReport(self, inputFile, xmlFile, outputFile, dsn, user, password,  params):
+		env = {}
+		env.update( os.environ )
+		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
+		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCreator', inputFile, xmlFile, outputFile, dsn, user, password, params, env)
+
 
 	# XML file generation works as follows:
 	# By default (if no OPENERP_RELATIONS property exists in the report) a record will be created
