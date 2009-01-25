@@ -89,7 +89,11 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.screen = Screen( self )
 		self.screen.setModelGroup( self.modelGroup )
 		#self.screen.setDomain( self.domain )
-		self.screen.setEmbedded( True )
+		self.screen.setEmbedded( False )
+		if int( self.attrs.get('show_toolbar','0') ):
+			self.screen.setToolbarVisible( True )
+		else:
+			self.screen.setToolbarVisible( False )
 		self.connect( self.screen, SIGNAL('activated()'), self.switch )
 		mode = (self.action['view_mode'] or 'form,tree').split(',')
 		#if self.view_id:

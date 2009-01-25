@@ -152,18 +152,23 @@ class Screen(QScrollArea):
 	# By default embedded is True so it doesn't load unnecessary forms.
 	def setEmbedded(self, value):
 		self._embedded = value
-		if value:
-			self.searchForm.hide()
-			self.toolBar.hide()
-		else:
-			self.searchForm.show()
-			self.toolBar.show() 
-			if self.currentView() and self.currentView().showsMultipleRecords():
-				self.loadSearchForm()
+		self.setToolbarVisible( not value )
+		self.setSearchFormVisible( not value )
 
 	## @brief Returns True if the Screen acts in embedded mode.
 	def embedded(self):
 		return self._embedded
+
+	def setToolbarVisible(self, value):
+		self._toolbarVisible = value
+		self.toolBar.setVisible( value )
+
+	def setSearchFormVisible(self, value):
+		self._searchFormVisible = value
+		self.searchForm.setVisible( value )
+		if value:
+			if self.currentView() and self.currentView().showsMultipleRecords():
+				self.loadSearchForm()
 
 	def loadSearchForm(self):
 		if self.currentView().showsMultipleRecords() and not self._embedded: 
