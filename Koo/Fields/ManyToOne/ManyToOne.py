@@ -339,6 +339,9 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 				id = dialog.result[0]
 				name = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_get', [id], Rpc.session.context)[0]
 				
-				value = [ QVariant( name[0] ), QVariant( name[1] ) ]
-				kooModel.setData( index, QVariant( value ), Qt.EditRole )
-
+				# Directly set the value to the model. There's no need to
+				# use setData() but we mainly want to workaround a bug in
+				# PyQt 4.4.3 and 4.4.4.
+				#value = [ QVariant( name[0] ), QVariant( name[1] ) ]
+				#kooModel.setData( index, QVariant( value ), Qt.EditRole )
+				model.setValue( self.name, name )

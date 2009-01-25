@@ -65,7 +65,6 @@ def data_files():
 		(opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob(opj('doc','doxygen','html','*')) if os.path.isfile(f)]),
 		(opj('share', 'Koo'), [ opj('Koo','kootips.txt')]),
 		(opj('share', 'Koo', 'ui'), glob.glob( opj('Koo','ui','*.ui') ) ),
-		(opj('share', 'Koo', 'ui', 'images'), glob.glob( opj('Koo','ui','images','*.png') ) ),
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) )
 	]
 	return files
