@@ -56,7 +56,7 @@ class TreeParser(AbstractParser):
  		on_write = attrs.get('on_write', '')
 
 		if not view.title:
- 			view.title = attrs.get('string', _('Unknown') )
+ 			view.title = attrs.get('string', 'Unknown' )
 
 		colors = []
 		for color_spec in attrs.get('colors', '').split(';'):
