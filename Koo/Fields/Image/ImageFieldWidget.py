@@ -102,7 +102,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		if name.isNull():
 			return
 		try:
-			fp = file(name, 'wb')
+			fp = file(unicode(name), 'wb')
 			fp.write(self.model.value(self.name))
 			fp.close()
 		except:
@@ -111,7 +111,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 	def loadImage(self):
 		name = QFileDialog.getOpenFileName( self, _('Open image file...') )
 		if not name.isNull():
-			image = file(name, 'rb').read()
+			image = file(unicode(name), 'rb').read()
 			self.model.setValue(self.name, image )
 			self.update()
 			self.modified()
