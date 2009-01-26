@@ -46,7 +46,7 @@ class PyroDaemon(threading.Thread):
 					result = service._service._response
 				return result
 
-		Pyro.core.initServer()
+		Pyro.core.initServer(storageCheck=0)
 		daemon=Pyro.core.Daemon(port=self.__port)
 		uri=daemon.connect( RpcDispatcher(), "rpc" )
 		daemon.requestLoop()
