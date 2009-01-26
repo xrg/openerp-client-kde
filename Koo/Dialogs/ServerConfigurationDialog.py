@@ -64,13 +64,14 @@ class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 		self.uiConnection.addItem( _("NET-RPC (faster)"), QVariant( 'socket://' ) )
 		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http://' ) )
 		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https://' ) )
+		self.uiConnection.addItem( _("Pyro"), QVariant( 'PYROLOC://' ) )
 		result = False
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.reject )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
 
 	def setDefault( self, url ):
 		self.url = url
-		m = re.match('^(http[s]?://|socket://)([\w.\-]+):(\d{1,5})$', url )
+		m = re.match('^(http[s]?://|socket://|PYROLOC://)([\w.\-]+):(\d{1,5})$', url )
 		if m:
 			self.uiConnection.setCurrentIndex( self.uiConnection.findData( QVariant( m.group(1) ) ) )
 			self.uiServer.setText( m.group(2) )

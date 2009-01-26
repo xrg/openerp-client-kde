@@ -57,11 +57,27 @@ class RpcException(Exception):
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
 class Connection:
-	def __init__(self):
+	def __init__(self, url):
 		self.authorized = False
 		self.databaseName = None
 		self.uid = None
 		self.password = None
+		self.url = url
+
+	def convert(self, result): 
+		if isinstance(result, str):
+			return unicode( result, 'utf-8' )
+		elif isinstance(result, list):
+			return map(self.convert, result)
+		elif isinstance(result, tuple):
+			return map(self.convert, result)
+		elif isinstance(result, dict):
+			newres = {}
+			for i in result.keys():
+				newres[i] = self.convert(result[i])
+			return newres
+		else:
+			return result
 
 	def connect(self, database, uid, password):
 		self.databaseName = database
@@ -79,35 +95,22 @@ except:
 	pass
 
 class PyroConnection(Connection):
-	def __init__(self):
-		Connection.__init__(self)
-		self.proxy = Pyro.core.getProxyForURI("PYROLOC://localhost/rpc")
+	def __init__(self, url):
+		Connection.__init__(self, url)
+		self.url += '/rpc'
+		self.proxy = Pyro.core.getProxyForURI( self.url )
+
 	def call(self, obj, method, *args):
 		if self.authorized:
 			result = self.proxy.dispatch( obj[1:], method, self.databaseName, self.uid, self.password, *args )
 		else:
 			result = self.proxy.dispatch( obj[1:], method, *args )
-		return result
+		return self.convert( result )
 
 ## @brief The SocketConnection class implements Connection for the OpenERP socket RPC protocol.
 #
 # The socket RPC protocol is usually opened at port 8070 on the server.
 class SocketConnection(Connection):
-	def convert(self, result): 
-		if isinstance(result, str):
-			return unicode( result, 'utf-8' )
-		elif isinstance(result, list):
-			return map(self.convert, result)
-		elif isinstance(result, tuple):
-			return map(self.convert, result)
-		elif isinstance(result, dict):
-			newres = {}
-			for i in result.keys():
-				newres[i] = self.convert(result[i])
-			return newres
-		else:
-			return result
-
 	def call(self, obj, method, *args):
 		s = tiny_socket.mysocket()
 		s.connect( self.url )
@@ -125,6 +128,10 @@ class SocketConnection(Connection):
 #
 # The XML-RPC communication protocol is usually opened at port 8069 on the server.
 class XmlRpcConnection(Connection):
+	def __init__(self, url):
+		Connection.__init__(self, url)
+		self.url += '/xmlrpc'
+
 	def call(self, obj, method, *args ):
 		remote = xmlrpclib.ServerProxy(self.url + obj)
 		function = getattr(remote, method)
@@ -141,14 +148,11 @@ class XmlRpcConnection(Connection):
 def createConnection(url):
 	qUrl = QUrl( url )
 	if qUrl.scheme() == 'socket':
-		con = SocketConnection()
-		con.url = url
-	elif qUrl.scheme() == 'pyro':
-		con = PyroConnection()
-		con.url = url
+		con = SocketConnection( url )
+	elif qUrl.scheme() == 'PYROLOC':
+		con = PyroConnection( url )
 	else:
-		con = XmlRpcConnection()
-		con.url = url + '/xmlrpc'
+		con = XmlRpcConnection( url )
 	return con
 
 
