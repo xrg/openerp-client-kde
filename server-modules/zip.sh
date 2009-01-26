@@ -5,6 +5,7 @@ full_text_search \
 ktiny \
 maps \
 jasper_reports \
+pyro \
 smart_attach`
 
 do 
