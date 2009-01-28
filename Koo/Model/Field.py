@@ -30,6 +30,7 @@ from PyQt4.QtCore import *
 from Koo.Rpc import RpcProxy, Rpc
 from Koo import Rpc
 import base64
+from Common import Numeric
 
 
 class StringField(QObject):
@@ -162,7 +163,11 @@ class FloatField(StringField):
 	def set_client(self, model, value, test_state=True):
 		internal = model.values[self.name]
 		self.set(model, value, test_state)
-		if abs(float(internal or 0.0) - float(model.values[self.name] or 0.0)) >= (10.0**(-int(self.attrs.get('digits', (12,4))[1]))):
+		digits = self.attrs.get('digits', (12,4))
+		# Use floatToText as the comparison we inherited from the GTK client failed for us in some cases
+		# were python was considering the difference between 145,13 and 145,12 as 0,009999999 instead of 0,01
+		# Converting to string the numbers with the appropiate number of digits make it much easier.
+		if Numeric.floatToText( internal, digits ) != Numeric.floatToText( model.values[self.name], digits ):
 			if not self.stateAttributes(model).get('readonly', False):
 				self.changed(model)
 
