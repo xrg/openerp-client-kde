@@ -79,6 +79,10 @@ class TreeParser(AbstractParser):
 					'char': 140,
 					'one2many': 50,
 				}
+				if 'invisible' in node_attrs:
+					visible = False
+				else:
+					visible = True
 
 				if 'readonly' in node_attrs:
 					fields[fname]['readonly'] = bool(int(node_attrs['readonly']))
@@ -98,7 +102,12 @@ class TreeParser(AbstractParser):
 				else:
 					width = twidth.get(fields[fname]['type'], 200)
 				header.append( { 'name': fname, 'type': fields[fname]['type'], 'string': fields[fname].get('string', '') })
-				columns.append( { 'width': width , 'type': fields[fname]['type'], 'attributes':node_attrs } )
+				columns.append({ 
+					'width': width , 
+					'type': fields[fname]['type'], 
+					'attributes':node_attrs,
+					'visible': visible
+				})
 
 		view.finishAggregates()
 
@@ -124,6 +133,8 @@ class TreeParser(AbstractParser):
 			current = columns[column]
 			if view._widgetType in ('tree','table'):
 				view.widget.setColumnWidth( column, current['width'] )
+			if not current['visible']:
+				view.widget.hideColumn( column )
 
 			delegate = FieldDelegateFactory.create( current['type'], view.widget, current['attributes'] )
 			view.widget.setItemDelegateForColumn( column, delegate )
