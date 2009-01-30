@@ -52,7 +52,7 @@ class IntegerSearchWidget(AbstractSearchWidget):
 		self.focusWidget = self.uiStart
 
 	def calculate(self):
-		widget = sender()
+		widget = self.sender()
 		val = textToInteger( str(widget.text() ) )
 		if val:
 			widget.setText( str(val) )

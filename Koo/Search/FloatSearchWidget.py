@@ -56,7 +56,7 @@ class FloatSearchWidget(AbstractSearchWidget):
 		self.focusWidget = self.uiStart
 
 	def calculate(self):
-		widget = sender()
+		widget = self.sender()
 		val = textToFloat( str(widget.text() ) )
 		if val:
 			widget.setText( str(val) )
