@@ -243,8 +243,27 @@ class AsynchronousSessionCall(QThread):
 					self.error = (_('Application Error'), _('View details'), faultString)
 			except Exception, err:
 				self.exception = err
-				faultString = unicode( err )
-				self.error = (_('Application Error'), _('View details'), faultString)
+				notified = False
+				if 'pyro' in modules:
+					if Pyro.util.getPyroTraceback(err):
+						notified = True
+						faultCode = unicode( err.message, 'utf-8' )
+						faultString = unicode( ''.join( Pyro.util.getPyroTraceback(err) ), 'utf-8' )
+						a = RpcException( faultCode, faultString )
+						if a.type in ('warning','UserError'):
+							if a.message in ('ConcurrencyException') and len(args) > 4:
+								if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+									if 'read_delta' in args[4]:
+										del args[4]['read_delta']
+									return self.execute(obj, method, *args)
+							else:
+								Notifier.notifyWarning(a.message, a.data )
+						else:
+							Notifier.notifyError(_('Application Error'), _('View details'), faultString)
+
+				if not notified:
+					faultString = unicode( err )
+					Notifier.notifyError(_('Application Error'), _('View details'), faultString)
 
 
 ## @brief The Session class provides a simple way of login and executing function in a server
@@ -369,6 +388,8 @@ class Session:
 		except tiny_socket.Myexception, err:
 			faultCode = unicode( err.faultCode, 'utf-8' )
 			faultString = unicode( err.faultString, 'utf-8' )
+			print "TiNY: ", faultCode
+			print "TiNY: ", faultString
 			a = RpcException( faultCode, faultString )
 			if a.type in ('warning','UserError'):
 				if a.message in ('ConcurrencyException') and len(args) > 4:
@@ -381,8 +402,27 @@ class Session:
 			else:
 				Notifier.notifyError(_('Application Error'), _('View details'), faultString)
 		except Exception, err:
-			faultString = unicode( err )
-			Notifier.notifyError(_('Application Error'), _('View details'), faultString)
+			notified = False
+			if 'pyro' in modules:
+				if Pyro.util.getPyroTraceback(err):
+					notified = True
+					faultCode = unicode( err.message, 'utf-8' )
+					faultString = unicode( ''.join( Pyro.util.getPyroTraceback(err) ), 'utf-8' )
+					a = RpcException( faultCode, faultString )
+					if a.type in ('warning','UserError'):
+						if a.message in ('ConcurrencyException') and len(args) > 4:
+							if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+								if 'read_delta' in args[4]:
+									del args[4]['read_delta']
+								return self.execute(obj, method, *args)
+						else:
+							Notifier.notifyWarning(a.message, a.data )
+					else:
+						Notifier.notifyError(_('Application Error'), _('View details'), faultString)
+
+			if not notified:
+				faultString = unicode( err )
+				Notifier.notifyError(_('Application Error'), _('View details'), faultString)
 			
 
 	## @brief Logs in the given server with specified name and password.
@@ -465,7 +505,14 @@ class Session:
 		new.context = self.context
 		new.userName = self.userName
 		new.databaseName = self.databaseName 
-		new.connection = self.connection 
+		# Create a new connection as Pyro protocol does not allow the use of
+		# the same connection in different threads and this copy() function
+		# will mostly be called to use the session in new threads.
+		new.connection = createConnection( new.url )
+		new.connection.databaseName = self.databaseName
+		new.connection.password = self.password
+		new.connection.uid = self.uid
+		new.connection.authorized = True
 		return new
 
 session = Session()
