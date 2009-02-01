@@ -91,6 +91,10 @@
 
 Section "Koo" SecKoo
 
+    SetOutPath "$TEMP"
+    File "vcredist_x86.exe"
+    ExecWait '"$TEMP\vcredist_x86.exe" /S'
+
     SetOutPath "$INSTDIR"
 
     File /r "..\dist\*"
