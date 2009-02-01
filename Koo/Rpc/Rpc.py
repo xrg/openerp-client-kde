@@ -251,19 +251,12 @@ class AsynchronousSessionCall(QThread):
 						faultString = unicode( ''.join( Pyro.util.getPyroTraceback(err) ), 'utf-8' )
 						a = RpcException( faultCode, faultString )
 						if a.type in ('warning','UserError'):
-							if a.message in ('ConcurrencyException') and len(args) > 4:
-								if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
-									if 'read_delta' in args[4]:
-										del args[4]['read_delta']
-									return self.execute(obj, method, *args)
-							else:
-								Notifier.notifyWarning(a.message, a.data )
+							self.warning = (a.message, a.data)
 						else:
-							Notifier.notifyError(_('Application Error'), _('View details'), faultString)
-
+							self.error = (_('Application Error'), _('View details'), faultString)
 				if not notified:
 					faultString = unicode( err )
-					Notifier.notifyError(_('Application Error'), _('View details'), faultString)
+					self.error = (_('Application Error'), _('View details'), faultString)
 
 
 ## @brief The Session class provides a simple way of login and executing function in a server
