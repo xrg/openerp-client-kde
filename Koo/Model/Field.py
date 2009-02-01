@@ -30,7 +30,7 @@ from PyQt4.QtCore import *
 from Koo.Rpc import RpcProxy, Rpc
 from Koo import Rpc
 import base64
-from Common import Numeric
+from Koo.Common import Numeric
 
 
 class StringField(QObject):
