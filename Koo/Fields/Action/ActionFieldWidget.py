@@ -89,7 +89,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.screen = Screen( self )
 		self.screen.setModelGroup( self.modelGroup )
 		#self.screen.setDomain( self.domain )
-		self.screen.setEmbedded( False )
+		self.screen.setEmbedded( True )
 		if int( self.attrs.get('show_toolbar','0') ):
 			self.screen.setToolbarVisible( True )
 		else:
