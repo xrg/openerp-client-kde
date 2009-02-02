@@ -98,7 +98,7 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='button':
 				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
-				name = attrs['name']
+				name = attrs.get('name', 'unnamed')
 				self.view.widgets[name] = button
 				container.addWidget(button, attrs)
 

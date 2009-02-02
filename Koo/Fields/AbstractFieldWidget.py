@@ -75,7 +75,7 @@ class AbstractFieldWidget(QWidget):
 			self.setStyleSheet( self.attrs['stylesheet'] )
 
 		# self.name holds the name of the field the widget handles
-		self.name = self.attrs['name']
+		self.name = self.attrs.get('name', 'unnamed')
 		self.model = None
 
 		# Some widgets might want to change their color set.

@@ -46,11 +46,12 @@ class KooApi:
 
 	## @brief Opens a new window (a new tab with Koo application) with the given model.
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
-			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
+			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False, 
+			target='current'):
 		pass
 
 	## @brief This callback function is (should be) executed each time a new window (tab in Koo) is opened.
-	def windowCreated(self, window):
+	def windowCreated(self, window, target):
 		pass
 
 # This variable should point to a KooApi instance

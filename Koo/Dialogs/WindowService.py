@@ -36,7 +36,7 @@ from Koo import Rpc
 
 
 def createWindow(view_ids, model, res_id=False, domain=None,
-		view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
+		view_type='form', window=None, context=None, mode=None, name=False, autoReload=False, target='current'):
 
 	if context is None:
 		context = {}
@@ -48,7 +48,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 				view_ids = (view_ids or []), 
 				context=context, name=name )
 		win.setAutoReload( autoReload )
-		Api.instance.windowCreated( win )
+		Api.instance.windowCreated( win, target )
 	elif view_type=='tree':
 		if view_ids and view_ids[0]:
 			view_base =  Rpc.session.execute('/object', 'execute',
@@ -63,7 +63,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 					'fields_view_get', False, view_type, context)
 
 		win = TreeWidget(view, model, domain, context, name=name)
-		Api.instance.windowCreated( win )
+		Api.instance.windowCreated( win, target )
 	else:
 		import logging
 		log = logging.getLogger('view')

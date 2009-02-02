@@ -172,12 +172,13 @@ class KooApi(Api.KooApi):
 		return Koo.Actions.executeKeyword( keyword, data, context )
 
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
-			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False):
+			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False, 
+			target='current'):
 		WindowService.createWindow( view_ids, model, res_id, domain, 
-			view_type, window, context, mode, name, autoReload )
+			view_type, window, context, mode, name, autoReload, target )
 
-	def windowCreated(self, window):
-		win.addWindow( window )
+	def windowCreated(self, window, target):
+		win.addWindow( window, target )
 
 Api.instance = KooApi()
 

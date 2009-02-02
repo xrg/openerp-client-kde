@@ -160,9 +160,13 @@ def executeAction(action, datas, context={}):
 		if datas.get('domain', False):
 			domain.append(datas['domain'])
 
+		target = action.get('target','current')
+		if not target:
+			target = 'current'
 		Api.instance.createWindow( view_ids, datas['res_model'], datas['res_id'], domain,
-				action['view_type'], datas.get('window',None), ctx,
-				datas['view_mode'], name=action.get('name', False), autoReload=datas['auto_refresh']  )
+			action['view_type'], datas.get('window',None), ctx,
+			datas['view_mode'], name=action.get('name', False), autoReload=datas['auto_refresh'], 
+			target=target )
 
 		#for key in tools.expr_eval(action.get('context', '{}')).keys():
 		#	del Rpc.session.context[key]

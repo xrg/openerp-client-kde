@@ -525,11 +525,19 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				return
 		self.systemTrayIcon.setVisible( False )
 
-	def addWindow(self, win):
-		self.tabWidget.addTab( win, win.name )
-		# If shift key is pressed do not show the added tab
-		if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
-			self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
+	def addWindow(self, win, target):
+		if target == 'current':
+			self.tabWidget.addTab( win, win.name )
+			# If shift key is pressed do not show the added tab
+			if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
+				self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
+		else:
+			dialog = QDialog( self )	
+			layout = QHBoxLayout(dialog)
+			layout.addWidget( win )
+			win.setParent( dialog )
+			win.show()
+			dialog.show()
 
 	def updateEnabledActions(self):
 		view = self.tabWidget.currentWidget()
