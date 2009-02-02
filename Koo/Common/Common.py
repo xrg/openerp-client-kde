@@ -253,3 +253,28 @@ def openFile( fileName ):
 		os.system('/usr/bin/open -a Preview %s' % fileName)
 	else:
 		os.spawnlp(os.P_NOWAIT, 'xdg-open', 'xdg-open', fileName)
+
+## @brief Converts GTK accelerators to Qt ones.
+# GTK uses underscore as accelerator in labels and buttons whereas Qt uses
+# ampersand. This function will convert a text prepared for a GTK label into
+# a valid Qt one.
+def normalizeLabel( text ):
+	res = ''
+	underscore = False
+	for x in text:
+		if x == '_':
+			if underscore:
+				res += '_'
+				underscore = False
+			else:
+				underscore = True
+		else:
+			if underscore:
+				res += '&'
+				underscore = False
+			if x == '&':
+				res += '&&'
+			else:
+				res += x
+	return res
+

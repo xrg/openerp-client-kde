@@ -49,7 +49,7 @@ class WizardPage(QDialog):
 		self.buttonsLayout = QHBoxLayout()
 		self.buttonsLayout.addStretch()
 		for x in state:
-			but = QPushButton(x[1])
+			but = QPushButton( Common.normalizeLabel( x[1] ) )
 			# We store the value to return into objectName property
 			but.setObjectName(x[0])
 			# The third element is the gtk-icon

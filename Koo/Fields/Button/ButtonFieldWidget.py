@@ -31,6 +31,7 @@ from Koo.Fields.AbstractFieldWidget import *
 from Koo.Common import Api
 from Koo.Common import Notifier
 from Koo.Common import Icons
+from Koo.Common import Common
 
 class ButtonFieldWidget( AbstractFieldWidget ):
 	def __init__(self, parent, view, attributes) :
@@ -41,7 +42,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		layout.setContentsMargins(0, 0, 0, 0)
 		layout.addWidget( self.button )
 
-		self.button.setText( attributes.get('string', 'unknown' ) )
+		self.button.setText( Common.normalizeLabel( attributes.get('string', 'unknown' ) ) )
 		if 'icon' in attributes:
 			self.button.setIcon( Icons.kdeIcon( attributes['icon'] ))
 	

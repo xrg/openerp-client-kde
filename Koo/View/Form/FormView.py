@@ -60,7 +60,7 @@ class FormContainer( QWidget ):
 
 		if labelText:
 			label  = QLabel( self )
-			label.setText( unicode( labelText ) )
+			label.setText( unicode( Common.normalizeLabel( labelText ) ) )
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 			if helpText:
