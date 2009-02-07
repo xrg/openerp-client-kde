@@ -46,6 +46,9 @@ def searchFile(file, subdir=None):
 		# This will give 'c:\python25\share\koo\ui' for example, which is 
 		# where '.ui' files are stored under the Windows platform.
 		tests += [os.path.join( x, 'share', 'Koo', subdir ) for x in sys.path]
+		# Hardcoded '/usr' path. We should probably make this configurable
+		# or smartly search what's the prefix.
+		tests += ['/usr/share/Koo/%s' % subdir]
 	else:
 		tests += [os.path.join( x, 'Koo' ) for x in sys.path]
 		tests += sys.path
