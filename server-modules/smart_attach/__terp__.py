@@ -37,5 +37,6 @@
 	"demo_xml" : [],
 	"update_xml" : ["smart_attach_view.xml"],
 	"active": False,
-	"installable": True
+	"installable": True,
+	"doc": ["doc/doc.docbook"]
 }

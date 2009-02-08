@@ -67,7 +67,6 @@ class Report:
 		# Create temporary input (XML) and output (PDF) files 
 		fd, inputFile = tempfile.mkstemp()
 		fd, outputFile = tempfile.mkstemp()
-		outputFile = '/tmp/jasper.pdf'
 		self.temporaryFiles.append( inputFile )
 		self.temporaryFiles.append( outputFile )
 
