@@ -143,11 +143,10 @@ class FormParser(AbstractParser):
 				self.parse( node, fields, widget, container)
 
 			elif node.localName =='vpaned':
-				widget = QWidget( container )
-				layout = QVBoxLayout( widget )
-				layout.setContentsMargins( 0, 0, 0, 0 )
+				widget = QSplitter( Qt.Vertical, container )
+
 				container.addWidget(widget, attrs)
-				self.parse( node, fields, layout, container)
+				self.parse( node, fields, widget, container)
 
 			elif node.localName == 'child1':
 				widget, on_write = self.parse( node, fields )
