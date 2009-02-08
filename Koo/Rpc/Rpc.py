@@ -247,8 +247,8 @@ class AsynchronousSessionCall(QThread):
 				if 'pyro' in modules:
 					if Pyro.util.getPyroTraceback(err):
 						notified = True
-						faultCode = unicode( err.message, 'utf-8' )
-						faultString = unicode( ''.join( Pyro.util.getPyroTraceback(err) ), 'utf-8' )
+						faultCode = err.message
+						faultString = u''.join( Pyro.util.getPyroTraceback(err) )
 						a = RpcException( faultCode, faultString )
 						if a.type in ('warning','UserError'):
 							self.warning = (a.message, a.data)
@@ -399,8 +399,8 @@ class Session:
 			if 'pyro' in modules:
 				if Pyro.util.getPyroTraceback(err):
 					notified = True
-					faultCode = unicode( err.message, 'utf-8' )
-					faultString = unicode( ''.join( Pyro.util.getPyroTraceback(err) ), 'utf-8' )
+					faultCode = err.message
+					faultString = u''.join( Pyro.util.getPyroTraceback(err) )
 					a = RpcException( faultCode, faultString )
 					if a.type in ('warning','UserError'):
 						if a.message in ('ConcurrencyException') and len(args) > 4:
