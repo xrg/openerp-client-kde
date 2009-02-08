@@ -117,9 +117,8 @@ class TreeView( AbstractView ):
 			self.widget = QListView( self )
 			self.widget.setViewMode( QListView.IconMode )
 			self.widget.setFlow( QListView.LeftToRight )
-			#self.widget.setGridSize( QSize( 100, 20 ) )
+			self.widget.setGridSize( QSize( 200, 20 ) )
 			self.widget.setResizeMode( QListView.Adjust )
-			self.widget.setSpacing( 20 )
 		elif self._widgetType == 'table':
 			self._widgetType = 'table'
 			self.widget = QTableView( self )
