@@ -40,7 +40,7 @@ import WindowService
 from PreferencesDialog import *
 from FullTextSearchDialog import *
 from DatabaseCreationDialog import DatabaseCreationDialog
-from DatabaseDialog import DatabaseDialog
+from DatabaseDialog import DatabaseDialog 
 import re
 import base64
 
@@ -134,10 +134,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.connect( self.actionOpenHomeTab, SIGNAL('triggered()'), self.openHomeTab )
 		self.connect( self.actionClearCache, SIGNAL('triggered()'), self.clearCache )
 
-		self.connect( self.actionKooManual, SIGNAL('triggered()'), self.kooManual )
 		self.connect( self.actionOpenErpManual, SIGNAL('triggered()'), self.openErpManual )
 		self.connect( self.actionTips, SIGNAL('triggered()'), self.showTipOfTheDay )
-		self.connect( self.actionContextualHelp, SIGNAL('triggered()'), self.contextHelp )
 		self.connect( self.actionShortcuts, SIGNAL('triggered()'), self.showShortcuts )
 		self.connect( self.actionLicense, SIGNAL('triggered()'), self.showLicense )
 		self.connect( self.actionAbout, SIGNAL('triggered()'), self.showAboutDialog )
@@ -416,24 +414,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.updateEnabledActions()
 		Rpc.session.logout()
 		
-	def kooManual(self):
-		dir = os.path.abspath(os.path.dirname(__file__))
-		index = dir + '/../../../doc/html/index.html'
-		if os.path.exists( index ):
-			QDesktopServices.openUrl( QUrl( index ) )
-		else:
-			QDesktopServices.openUrl( QUrl('http://www.nan-tic.com/ftp/ktiny-doc/index.html') )
-
 	def openErpManual(self):
-		QDesktopServices.openUrl( QUrl('http://www.openerp.com/documentation/user-manual/') )
-
-	def contextHelp(self):
-		if not self.tabWidget.currentWidget():
-			return
-		model = self.tabWidget.currentWidget().model
-		l = Rpc.session.context.get('lang','en')
-		url = 'http://www.openerp.com/scripts/context_index.php?model=%s&lang=%s' % (model,l)
-		QDesktopServices.openUrl( QUrl(url) )
+		QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
 
 	def showTipOfTheDay(self):
 		dialog = Common.TipOfTheDayDialog(self)

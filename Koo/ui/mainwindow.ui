@@ -244,15 +244,7 @@
     <property name="title" >
      <string>&amp;Help</string>
     </property>
-    <widget class="QMenu" name="menuUser_Manual" >
-     <property name="title" >
-      <string>User &amp;Manual</string>
-     </property>
-     <addaction name="actionKooManual" />
-     <addaction name="actionOpenErpManual" />
-    </widget>
-    <addaction name="menuUser_Manual" />
-    <addaction name="actionContextualHelp" />
+    <addaction name="actionOpenErpManual" />
     <addaction name="actionTips" />
     <addaction name="actionShortcuts" />
     <addaction name="separator" />
@@ -769,7 +761,7 @@
   </action>
   <action name="actionOpenErpManual" >
    <property name="text" >
-    <string>OpenERP</string>
+    <string>Documentation</string>
    </property>
   </action>
   <action name="actionKooManual" >
