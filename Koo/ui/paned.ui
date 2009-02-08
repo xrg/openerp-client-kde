@@ -46,7 +46,7 @@
      <item>
       <widget class="QLabel" name="uiTitle" >
        <property name="text" >
-        <string>Title</string>
+        <string/>
        </property>
       </widget>
      </item>
@@ -83,7 +83,8 @@
           <string>Search</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
          </property>
         </widget>
        </item>
@@ -99,7 +100,8 @@
           <string>Open</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/open.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
          </property>
         </widget>
        </item>
@@ -115,7 +117,8 @@
           <string>Switch View</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/switch_view.png</iconset>
+          <iconset resource="common.qrc" >
+           <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
          </property>
         </widget>
        </item>
