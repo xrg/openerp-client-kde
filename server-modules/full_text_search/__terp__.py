@@ -28,7 +28,7 @@
 {
 	"name" : "Full Text Search",
 	"version" : "0.1",
-	"description" : "This module adds full text search capabilities to TinyERP if used in conjunction with the KTiny client.",
+	"description" : "This module adds full text search capabilities to OpenERP if used in conjunction with the KTiny client.",
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
