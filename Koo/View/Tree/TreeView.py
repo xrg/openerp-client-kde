@@ -147,6 +147,13 @@ class TreeView( AbstractView ):
 		self.setLayout( layout )
 		self.setReadOnly( True )
 
+	def setGridWidth( self, width ):
+		if self._widgetType == 'list':
+			self.widget.setGridSize( QSize( width, self.widget.gridSize().height() ) )
+
+	def setGridHeight( self, height ):
+		if self._widgetType == 'list':
+			self.widget.setGridSize( QSize( self.widget.gridSize().width(), height ) )
 
 	def setModel( self, model ):
 		self.treeModel = model	

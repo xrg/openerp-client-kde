@@ -52,6 +52,10 @@ class TreeParser(AbstractParser):
 		attrs = Common.nodeAttributes(rootNode)
 		
 		view = TreeView( parent, attrs.get('type','tree') )
+		if 'gridwidth' in attrs:
+			view.setGridWidth( int(attrs['gridwidth']) )
+		if 'gridheight' in attrs:
+			view.setGridWidth( int(attrs['gridheight']) )
 		
  		on_write = attrs.get('on_write', '')
 
