@@ -141,7 +141,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self._allowOpenInNewWindow = value
 
 	def goto(self, *args):
-		if not self.modified_save():
+		if not self.modifiedSave():
 			return
 		dialog = GoToIdDialog( self )
 		if dialog.exec_() == QDialog.Rejected:
@@ -163,7 +163,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateStatus()
 
 	def switchView(self):
-		if not self.modified_save():
+		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
@@ -218,12 +218,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def new(self, autosave=True):
 		if autosave:
-			if not self.modified_save():
+			if not self.modifiedSave():
 				return
 		self.screen.new()
 	
 	def duplicate(self):
-		if not self.modified_save():
+		if not self.modifiedSave():
 			return
 		res_id = self.screen.currentId()
 		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
@@ -246,7 +246,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		return bool(id)
 
 	def previous(self):
-		if not self.modified_save():
+		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.displayPrevious()
@@ -254,7 +254,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QApplication.restoreOverrideCursor()
 
 	def next(self):
-		if not self.modified_save():
+		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.displayNext()
@@ -302,7 +302,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.updateStatus(_('No record selected!'))
 
 	def search(self):
-		if not self.modified_save():
+		if not self.modifiedSave():
 			return
 		dom = self.domain
 		dialog = SearchDialog(self.model, domain=self.domain, context=self.context, parent=self)
@@ -337,7 +337,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.statForm.setText( msg )
 
-	def modified_save(self):
+	def modifiedSave(self):
 		if self.screen.isModified():
 			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel )
 			if value == QMessageBox.Save:
@@ -352,7 +352,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def canClose(self, urgent=False):
 		# Store settings of all opened views before closing the tab.
 		self.screen.storeViewSettings()
-		if self.modified_save():
+		if self.modifiedSave():
 			# Here suppose that if we return True the form/tab will
 			# actually be closed, so stop reload timer so it doesn't
 			# remain active if the object is leaked.
