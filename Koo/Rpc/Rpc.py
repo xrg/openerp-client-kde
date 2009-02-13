@@ -100,12 +100,25 @@ class PyroConnection(Connection):
 		self.url += '/rpc'
 		self.proxy = Pyro.core.getProxyForURI( self.url )
 
-	def call(self, obj, method, *args):
+	def singleCall(self, obj, method, *args):
 		if self.authorized:
 			result = self.proxy.dispatch( obj[1:], method, self.databaseName, self.uid, self.password, *args )
 		else:
 			result = self.proxy.dispatch( obj[1:], method, *args )
 		return self.convert( result )
+
+	def call(self, obj, method, *args):
+		try:
+			result = self.singleCall( obj, method, *args )
+		except Pyro.errors.ConnectionClosedError, x:
+			# As Pyro is a statefull protocol, network errors
+			# or server reestarts will cause errors even if the server
+			# is running and available again. So if remote call failed 
+			# due to network error or server restart, try to bind 
+			# and make the call again.
+			self.proxy = Pyro.core.getProxyForURI( self.url )
+			result = self.singleCall( obj, method, *args )
+		return result
 
 ## @brief The SocketConnection class implements Connection for the OpenERP socket RPC protocol.
 #
