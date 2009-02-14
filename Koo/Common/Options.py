@@ -60,7 +60,8 @@ class ConfigurationManager(object):
 			'stylesheet' : '',
 			'tabs_position' : 'top',
 			'show_toolbar' : True,
-			'sort_mode' : 'all_items'
+			'sort_mode' : 'all_items',
+			'pos_mode' : False
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))
@@ -71,6 +72,7 @@ class ConfigurationManager(object):
 		parser.add_option("-p", "--port", dest="port", help=_("specify the server port"))
 		parser.add_option("-s", "--server", dest="server", help=_("specify the server ip/name"))
 		parser.add_option("", "--stylesheet", dest="stylesheet", help=_("specify stylesheet to apply"))
+		parser.add_option("", "--pos-mode", action="store_true", default=False, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
 		(opt, args) = parser.parse_args()
 
 
@@ -82,6 +84,7 @@ class ConfigurationManager(object):
 		self.options['logging.logger'] = opt.log_logger
 		self.options['logging.level'] = opt.log_level
 		self.options['stylesheet'] = opt.stylesheet
+		self.options['pos_mode'] = opt.pos_mode
 	
 		for arg in ('login', 'port', 'server'):
 			if getattr(opt, arg):

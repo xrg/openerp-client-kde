@@ -1,0 +1,32 @@
+* {
+	font-size: 14px;
+}
+
+QListView::item {
+	padding: 5px;
+}
+
+QTreeView::item {
+	padding: 5px;
+}
+
+QPushButton {
+	padding: 10px;
+	qproperty-iconSize: 40px 40px;
+}
+
+QToolBar {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	qproperty-iconSize: 40px 40px;
+}
+
+// Doesn't work
+QCalendarWidget {
+	qproperty-font: bold italic large "Times New Roman";
+}
+
+// Doesn't work
+QScrollBar {
+	width: 60px;
+}

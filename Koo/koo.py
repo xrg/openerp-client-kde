@@ -184,6 +184,10 @@ Api.instance = KooApi()
 
 win.show()
 
+if Options.options['pos_mode']:
+        import Pos
+	app.installEventFilter( Pos.PosEventFilter(win) )
+
 # The DebugEventFilter class has been used to find a problem with an invisible
 # widget that was created, not inserted in any layout and that didn't allow to 
 # click widgets below it. I'm leaving the code by now as it might be useful in the
