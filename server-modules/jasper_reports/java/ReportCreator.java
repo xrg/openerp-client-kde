@@ -83,7 +83,8 @@ public class ReportCreator {
 		for( int j=0; j < p.length ; j++ ){
 			System.out.println( p[j] );
 			String[] map = p[j].split(":");
-			parameters.put( map[0] , map[1] );
+			if ( map.length == 2 ) 
+				parameters.put( map[0] , map[1] );
 		}
 		System.out.println( parameters );
 		return parameters;
