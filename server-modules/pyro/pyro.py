@@ -25,14 +25,17 @@
 #
 ##############################################################################
 
-import threading
+from threading import Thread
 import Pyro.core
+import Pyro.EventService.Server
+from Pyro.EventService.Clients import Publisher
 import netsvc
 import tools
 
-class PyroDaemon(threading.Thread):
+
+class PyroDaemon(Thread):
 	def __init__(self, port):
-		threading.Thread.__init__(self)
+		Thread.__init__(self)
 		self.__port = port
 
 	def run(self):
@@ -48,8 +51,28 @@ class PyroDaemon(threading.Thread):
 
 		Pyro.core.initServer(storageCheck=0)
 		daemon=Pyro.core.Daemon(port=self.__port)
-		uri=daemon.connect( RpcDispatcher(), "rpc" )
+		uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
 		daemon.requestLoop()
+
+from workflow.wkf_service import workflow_service
+
+class new_workflow_service(workflow_service):
+	def __init__(self, name='workflow', audience='*'):
+		workflow_service.__init__(self, name, audience)
+	
+	def trg_create(self, *args):
+		print "NEW CREATE"
+		return workflow_service.trg_create(self, *args)
+
+	def trg_write(self, *args):
+		print "NEW WRITE"
+		return workflow_service.trg_write(self, *args)
+
+	def trg_delete(self, *args):
+		print "NEW DELETE"
+		return workflow_service.trg_delete(self, *args)
+new_workflow_service()
+
 
 # We use the tools stuff to resemble netsvc way of doing things. No need for sure,
 # but who knows, maybe we want to integrate it into core one day.
@@ -63,7 +86,7 @@ if tools.config['pyro']:
 		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport"]) )
 
 	pyrod = PyroDaemon(pyroport)
-
 	pyrod.start()
+
 
 # vim:noexpandtab:
