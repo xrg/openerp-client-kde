@@ -305,12 +305,18 @@ class Report:
 
 
 class report_jasper(report.interface.report_int):
-	def __init__(self, name, model ):
+	def __init__(self, name, model, parser=None ):
 		super(report_jasper, self).__init__(name)
 		self.model = model
+		self.parser = parser
 
 	def create(self, cr, uid, ids, data, context):
-		r = Report( self.name, cr, uid, ids, data, context )
+		name = self.name
+		if self.parser:
+			d = self.parser( cr, uid, ids, data, context )
+			ids = d.get( 'ids', ids )
+			name = d.get( 'name', self.name )
+		r = Report( name, cr, uid, ids, data, context )
 		return ( r.execute(), 'pdf' )
 
 

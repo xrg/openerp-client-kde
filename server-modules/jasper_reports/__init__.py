@@ -25,5 +25,5 @@
 #
 ##############################################################################
 
-import jasper_report
+from jasper_report import *
 import wizard
