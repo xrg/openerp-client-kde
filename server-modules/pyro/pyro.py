@@ -54,24 +54,6 @@ class PyroDaemon(Thread):
 		uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
 		daemon.requestLoop()
 
-from workflow.wkf_service import workflow_service
-
-class new_workflow_service(workflow_service):
-	def __init__(self, name='workflow', audience='*'):
-		workflow_service.__init__(self, name, audience)
-	
-	def trg_create(self, *args):
-		print "NEW CREATE"
-		return workflow_service.trg_create(self, *args)
-
-	def trg_write(self, *args):
-		print "NEW WRITE"
-		return workflow_service.trg_write(self, *args)
-
-	def trg_delete(self, *args):
-		print "NEW DELETE"
-		return workflow_service.trg_delete(self, *args)
-new_workflow_service()
 
 
 # We use the tools stuff to resemble netsvc way of doing things. No need for sure,
