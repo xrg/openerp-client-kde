@@ -130,10 +130,16 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
+		# We always use the Subscriber as the class itself will handle
+		# whether the module exists on the server or not
+		self.subscriber = Rpc.Subscriber(Rpc.session, self)
 
 	def setAutoReload(self, value):
 		if value:
+			# We use both, timer and subscriber as in some cases information may change
+			# only virtually: Say change the color of a row depending on current time.
 			self.reloadTimer.start( int(value) * 1000 )
+			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
 		else:
 			self.reloadTimer.stop()
 
@@ -266,7 +272,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if self.screen.isModified():
 			return
 		self.reload()
-			
+
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.reload()
@@ -357,6 +363,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			# actually be closed, so stop reload timer so it doesn't
 			# remain active if the object is leaked.
 			self.reloadTimer.stop()
+			self.subscriber.unsubscribe()
 			return True
 		else:
 			return False
