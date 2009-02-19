@@ -51,6 +51,7 @@
 					<field name="requests_refresh_interval"/>
 					<field name="show_system_tray_icon"/>
 					<field name="print_directly"/>
+					<field name="auto_reload"/>
 					<separator colspan="4" string="Roles"/>
 					<field name="roles_id" colspan="4" nolabel="1"/>
 				</form>

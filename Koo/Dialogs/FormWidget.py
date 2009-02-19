@@ -1,7 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2007-2009 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -133,13 +133,21 @@ class FormWidget( QWidget, FormWidgetUi ):
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
+		if Options.options.get('auto_reload', False):
+			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
 
 	def setAutoReload(self, value):
 		if value:
 			# We use both, timer and subscriber as in some cases information may change
 			# only virtually: Say change the color of a row depending on current time.
-			self.reloadTimer.start( int(value) * 1000 )
-			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
+			# If the value is negative we don't start the timer but keep subscription,
+			# so this allows setting -1 in autorefresh when you don't want timed updates
+			# but only when data is changed in the server.
+			if value > 0:
+				self.reloadTimer.start( int(value) * 1000 )
+			if not Options.options.get('auto_reload', False):
+				# Do not subscribe again if that was already done in the constructor
+				self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
 		else:
 			self.reloadTimer.stop()
 
