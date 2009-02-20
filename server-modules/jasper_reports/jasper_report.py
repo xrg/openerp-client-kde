@@ -309,10 +309,12 @@ class report_jasper(report.interface.report_int):
 		super(report_jasper, self).__init__(name)
 		self.model = model
 		self.parser = parser
+		print "Report Jasper:",name,model,parser
 
 	def create(self, cr, uid, ids, data, context):
 		name = self.name
 		if self.parser:
+			data['model']=self.model # always use model defined in report_jasper definition. necesary for menu entries
 			d = self.parser( cr, uid, ids, data, context )
 			ids = d.get( 'ids', ids )
 			name = d.get( 'name', self.name )
@@ -340,9 +342,11 @@ def new_login(db, login, password):
 				print "REGISTERING REPORT JRXML: ", record['report_name']
 				name = 'report.%s' % record['report_name']
 				if name in netsvc._service:
+					print "DELETING %s"% name
 					del netsvc._service[name]
 				report_jasper( name, record['model'] )
 	return uid
+
 service.security.login = new_login
 
 #a = report_jasper( 'report.'+'account_invoice.jaspertest', 'account_invoice' )
