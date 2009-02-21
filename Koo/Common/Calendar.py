@@ -190,7 +190,7 @@ class PopupCalendar(QWidget, PopupCalendarUi):
 
 		self.showTime = showTime
 		if self.showTime:
-			self.uiTime.setText( textToDateTime( str(parent.text()) ).time().toString() )
+			self.uiTime.setText( textToDateTime( unicode(parent.text()) ).time().toString() )
 			self.connect( self.uiTime, SIGNAL('returnPressed()'), self.storeOnParent )
 		else:
 			self.uiTime.hide()
@@ -198,7 +198,7 @@ class PopupCalendar(QWidget, PopupCalendarUi):
 
 		self.setWindowFlags( Qt.Popup )
 		self.setWindowModality( Qt.ApplicationModal )
-		pos = parent.mapToGlobal( parent.pos() )
+		pos = parent.parent().mapToGlobal( parent.pos() )
 		self.move( pos.x(), pos.y() + parent.height() )
 		self.connect( self.uiCalendar, SIGNAL('activated(QDate)'), self.storeOnParent )
 		if self.showTime:
