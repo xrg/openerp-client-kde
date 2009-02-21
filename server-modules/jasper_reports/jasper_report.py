@@ -73,7 +73,10 @@ class Report:
 
 		# If the language used is xpath create the xmlFile in inputFile.
 		if self.reportProperties['language'] == 'xpath':
-			self.generate_xml( inputFile )
+			if self.data.get('records',False):
+				self.generate_xml_from_records( inputFile )
+			else:
+				self.generate_xml( inputFile )
 		# Call the external java application that will generate the PDF file in outputFile
 		self.createReport( inputFile, outputFile )
 
@@ -167,6 +170,28 @@ class Report:
 		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
 		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCreator', inputFile, xmlFile, outputFile, dsn, user, password, params, env)
 
+	# XML file generation using a list of dictionaries provided by the parser function.
+	def generate_xml_from_records(self, fileName):
+		# Once all records have been calculated, create the XML structure itself
+		self.document = getDOMImplementation().createDocument(None, 'data', None)
+		topNode = self.document.documentElement
+		for record in self.data['records']:
+			recordNode = self.document.createElement('record')
+			topNode.appendChild( recordNode )
+			for field, value in record.iteritems():
+				fieldNode = self.document.createElement( field )
+				recordNode.appendChild( fieldNode )
+				# The rest of field types must be converted into str
+				if value == False:
+					value = ''
+				elif not isinstance(value, str):
+					value = str(value)
+				valueNode = self.document.createTextNode( value )
+				fieldNode.appendChild( valueNode )
+		# Once created, the only missing step is to store the XML into a file
+		f = open( fileName, 'wb+')
+		topNode.writexml( f )
+		f.close()
 
 	# XML file generation works as follows:
 	# By default (if no OPENERP_RELATIONS property exists in the report) a record will be created
@@ -316,15 +341,17 @@ class report_jasper(report.interface.report_int):
 		super(report_jasper, self).__init__(name)
 		self.model = model
 		self.parser = parser
-		print "Report Jasper:",name,model,parser
 
 	def create(self, cr, uid, ids, data, context):
 		name = self.name
 		if self.parser:
-			data['model']=self.model # always use model defined in report_jasper definition. necesary for menu entries
 			d = self.parser( cr, uid, ids, data, context )
 			ids = d.get( 'ids', ids )
 			name = d.get( 'name', self.name )
+			# Use model defined in report_jasper definition. Necesary for menu entries.
+			data['model'] = d.get( 'model', self.model )
+			data['records'] = d.get( 'records', [] )
+
 		r = Report( name, cr, uid, ids, data, context )
 		return ( r.execute(), 'pdf' )
 
@@ -345,16 +372,11 @@ def new_login(db, login, password):
 		for record in records:
 			path = record['report_rml']
 			if path and path.endswith('.jrxml'):
-				print "REGISTERING REPORT JRXML: ", record['report_name']
 				name = 'report.%s' % record['report_name']
 				if name in netsvc._service:
-					print "DELETING %s"% name
 					del netsvc._service[name]
 				report_jasper( name, record['model'] )
 	return uid
 
 service.security.login = new_login
 
-#a = report_jasper( 'report.'+'account_invoice.jaspertest', 'account_invoice' )
-#print a.__module__
-#print dir( a.__module__ )
