@@ -612,7 +612,7 @@ class Screen(QScrollArea):
 			idx = (idx+1) % self.models.count()
 			self.setCurrentRecord( self.models.records[idx] )
 		else:
-			self.setCurrentRecord( self.models.count() and self.modelByRow(0) )
+			self.setCurrentRecord( self.models.count() and self.models.modelByRow(0) )
 		if self.currentRecord():
 			self.currentRecord().setValidate()
 		self.display()
