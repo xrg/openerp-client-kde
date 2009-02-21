@@ -38,6 +38,7 @@ import tools
 import tempfile 
 import codecs
 import sql_db
+import netsvc
 
 class Report:
 	def __init__(self, name, cr, uid, ids, data, context):
@@ -306,6 +307,12 @@ class Report:
 
 class report_jasper(report.interface.report_int):
 	def __init__(self, name, model, parser=None ):
+		# Remove report name from list of services if it already
+		# exists to avoid report_int's assert. We want to keep the 
+		# automatic registration at login, but at the same time we 
+		# need modules to be able to use a parser for certain reports.
+		if name in netsvc._service:
+			del netsvc._service[name]
 		super(report_jasper, self).__init__(name)
 		self.model = model
 		self.parser = parser
@@ -326,7 +333,6 @@ class report_jasper(report.interface.report_int):
 # Ugly hack to avoid developers the need to register reports
 import service.security
 import pooler
-import netsvc
 
 old_login = service.security.login 
 def new_login(db, login, password):
