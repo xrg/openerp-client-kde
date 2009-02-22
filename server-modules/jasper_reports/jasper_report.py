@@ -351,7 +351,6 @@ class report_jasper(report.interface.report_int):
 			# Use model defined in report_jasper definition. Necesary for menu entries.
 			data['model'] = d.get( 'model', self.model )
 			data['records'] = d.get( 'records', [] )
-
 		r = Report( name, cr, uid, ids, data, context )
 		return ( r.execute(), 'pdf' )
 
@@ -373,9 +372,11 @@ def new_login(db, login, password):
 			path = record['report_rml']
 			if path and path.endswith('.jrxml'):
 				name = 'report.%s' % record['report_name']
-				if name in netsvc._service:
+				if name in netsvc._service and not isinstance( netsvc._service[name], report_jasper ):
+					print "REMOVING"
 					del netsvc._service[name]
-				report_jasper( name, record['model'] )
+				if not name in netsvc._service:
+					report_jasper( name, record['model'] )
 	return uid
 
 service.security.login = new_login
