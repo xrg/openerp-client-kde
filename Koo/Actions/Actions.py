@@ -84,12 +84,14 @@ class ExecuteReportThread(QThread):
 		
 ## @brief Executes the given report.
 def executeReport(name, data, context={}):
+	QApplication.setOverrideCursor( Qt.WaitCursor )
 	datas = data.copy()
 	ids = datas['ids']
 	del datas['ids']
 	if not ids:
 		ids =  Rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
 		if ids == []:
+			QApplication.restoreOverrideCursor()
 			QMessageBox.information( None, '', _('Nothing to print!'))
 			return False
 		datas['id'] = ids[0]
@@ -106,11 +108,13 @@ def executeReport(name, data, context={}):
 				time.sleep(1)
 				attempt += 1
 			if attempt>200:
+				QApplication.restoreOverrideCursor()
 				QMessageBox.information( None, '', _('Printing aborted, too long delay !'))
 				return False
 		Printer.printData(val)
 	except Rpc.RpcException, e:
 		Common.error( _('Error: %s') % str(e.type), e.message, e.data )
+	QApplication.restoreOverrideCursor()
 	return True
 
 ## @brief Executes the given action id (it could be a report, wizard, etc).
