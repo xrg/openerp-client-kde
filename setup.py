@@ -27,7 +27,10 @@ try:
       return 0
     return origIsSystemDLL(pathname)
   py2exe.build_exe.isSystemDLL = isSystemDLL
+  
+  using_py2exe = True
 except:
+  using_py2exe = False
   pass
 
 opj = os.path.join
@@ -67,6 +70,17 @@ def data_files():
 		(opj('share', 'Koo', 'ui'), glob.glob( opj('Koo','ui','*.ui') ) ),
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) )
 	]
+	if using_py2exe:
+		#trans = []
+		dest = opj('share','locale','%s','LC_MESSAGES')
+		#src = opj('Koo','l10n','%s','LC_MESSAGES','%s.mo')
+		#for po in glob.glob( opj('Koo','l10n','*.po') ):
+		    #lang = os.path.splitext(os.path.basename(po))[0]
+		    #files.append( (dest % (lang, name), src % (lang, name) ) )
+		    #print "ADDING: ", ( dest % (lang, name), src % (lang, name) )
+		for src in glob.glob( opj('Koo','l10n','*','LC_MESSAGES','koo.mo') ):
+			lang = src.split(os.sep)[2]
+			files.append( ( (dest % lang), [src] ) )
 	return files
 
 def findPlugins( module ):
@@ -169,6 +183,3 @@ setup(name             = name,
                                 }
                          }
       )
-
-
-# vim:expandtab:tw=80
