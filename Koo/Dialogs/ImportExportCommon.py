@@ -70,5 +70,3 @@ class FieldsModel( QStandardItemModel ):
 			if fields[field].get('relation', False) and level>0:
 				fields2 = Rpc.session.execute('/object', 'execute', fields[field]['relation'], 'fields_get', False, Rpc.session.context)
 				self.populate(fields2, prefix_node+field+'/', node, st_name+'/', level-1)
-
-

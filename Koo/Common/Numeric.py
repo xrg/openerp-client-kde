@@ -72,3 +72,8 @@ def floatToText(number, digits=None):
 		d='2'
 	return ('%.' + d + 'f') % number
 
+def isNumeric(value):
+	try:
+		return float(value) or True
+	except (ValueError, TypeError), e:
+		return False

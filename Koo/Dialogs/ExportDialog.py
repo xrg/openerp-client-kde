@@ -33,6 +33,7 @@ from PyQt4.uic import *
 
 import gettext
 from Koo.Common import Common
+from Koo.Common import Numeric
 
 from Koo import Rpc
 
@@ -88,7 +89,7 @@ def exportCsv(fname, fields, result, write_title=False):
 	except Except:
 		QMessageBox.warning( None, _('Data Export'), _("Error exporting data.") )
 
-def openExcel(fields, result):
+def openExcel(fields, fieldsType, result):
 	try:
 		from win32com.client import Dispatch
 		xlApp = Dispatch("Excel.Application")
@@ -96,6 +97,7 @@ def openExcel(fields, result):
 		for col in range(len(fields)):
 			xlApp.ActiveSheet.Cells(1,col+1).Value = fields[col]
 		sht = xlApp.ActiveSheet
+
 		for a in result:
 			for b in range(len(a)):
 				if type(a[b]) == type(''):
@@ -105,7 +107,11 @@ def openExcel(fields, result):
 						a[b] = a[b][1].decode('utf-8','replace')
 					else:
 						a[b] = ''
+				if fieldsType[b] in ('float', 'integer'):
+					if Numeric.isNumeric( a[b] ):
+						a[b] = float( a[b] )
 		sht.Range(sht.Cells(2, 1), sht.Cells(len(result)+1, len(fields))).Value = result
+		
 		xlApp.Visible = 1
 	except:
 		QMessageBox.warning(None, '', _('Error opening Excel !'))
@@ -190,7 +196,8 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
 		result = exportData(self.ids, self.model, fields)
 		if action == 'excel':
-			openExcel(fields2, result)
+			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
+			openExcel(fields2, fieldsType, result)
 		else:
 			fname = QFileDialog.getSaveFileName( self, _('Export Data') )
 			if not fname.isNull():
@@ -270,4 +277,3 @@ class StoredExportsModel( QStandardItemModel ):
 			fields = ir_export_line.read(export['export_fields'])
 			items = [ QStandardItem( ', '.join([f['name'] for f in fields]) ), QStandardItem( str(export['id']) ), QStandardItem( export['name'] ), QStandardItem( ', '.join( [fieldsInfo[f['name']]['string'] for f in fields] ) ) ]
 			self.rootItem.appendRow( items )
-			
