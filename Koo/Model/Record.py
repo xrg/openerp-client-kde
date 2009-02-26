@@ -117,7 +117,7 @@ class ModelRecord(QObject):
 	def fields(self):
 		return self.mgroup.mfields
 
-	def _check_load(self):
+	def ensureIsLoaded(self):
 		if not self._loaded:
 			self.reload()
 			return True
@@ -125,7 +125,7 @@ class ModelRecord(QObject):
 
 	def get(self, get_readonly=True, includeid=False, check_load=True, get_modifiedonly=False):
 		if check_load:
-			self._check_load()
+			self.ensureIsLoaded()
 		value = []
 		for name, field in self.mgroup.mfields.items():
 			if (get_readonly or not field.stateAttributes(self).get('readonly', False)) \
@@ -142,7 +142,7 @@ class ModelRecord(QObject):
 		self.reload()
 
 	def save(self, reload=True):
-		self._check_load()
+		self.ensureIsLoaded()
 		if not self.id:
 			value = self.get(get_readonly=False)
 			self.id = self.rpc.create(value, self.context())
@@ -190,7 +190,7 @@ class ModelRecord(QObject):
 			return True
 
 	def setValidate(self):
-		change = self._check_load()
+		change = self.ensureIsLoaded()
 		self.invalidFields = []
 		for fname in self.mgroup.mfields:			
 			change = change or not self.isFieldValid( fname )
@@ -200,7 +200,7 @@ class ModelRecord(QObject):
 		return change
 
 	def validate(self):
- 		self._check_load()
+ 		self.ensureIsLoaded()
  		ok = True
  		for fname in self.mgroup.mfields:
  			if not self.mgroup.mfields[fname].validate(self):
@@ -216,7 +216,7 @@ class ModelRecord(QObject):
 	# Returns a dict with the default value of each field
 	# { 'field': defaultValue }
 	def defaults(self):
-		self._check_load()
+		self.ensureIsLoaded()
 		value = dict([(name, field.default(self))
 					  for name, field in self.mgroup.mfields.items()])
 		return value
@@ -275,7 +275,7 @@ class ModelRecord(QObject):
 		if not isinstance(dom, basestring):
 			return dom
 		if check_load:
-			self._check_load()
+			self.ensureIsLoaded()
 		d = {}
 		for name, mfield in self.mgroup.mfields.items():
 			d[name] = mfield.get(self, check_load=check_load)
