@@ -93,7 +93,8 @@ Section "Koo" SecKoo
 
     SetOutPath "$TEMP"
     File "vcredist_x86.exe"
-    ExecWait '"$TEMP\vcredist_x86.exe" /S'
+    ;ExecWait '"$TEMP\vcredist_x86.exe" /S'
+    ExecWait '"$TEMP\vcredist_x86.exe" /q:a /c:"VCREDI~1.EXE /q:a /c:""msiexec /i vcredist.msi /qb!"" "'
 
     SetOutPath "$INSTDIR"
 
