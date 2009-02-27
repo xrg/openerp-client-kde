@@ -489,38 +489,56 @@ class Screen(QScrollArea):
 		self.display()
 		return id
 
+	## @brief Reloads 
 	def reload(self):
-		if self.currentView().showsMultipleRecords():
-			self.cancel()
-		else:
+		#if self.currentView().showsMultipleRecords():
+		#	self.update()
+		#else:
+		#	if self.currentRecord():
+		#		self.currentRecord().reload()
+		#self.display()
+		if not self.currentView().showsMultipleRecords():
 			if self.currentRecord():
-				self.currentRecord().cancel()
+				self.currentRecord().reload()
 				self.display()
+			return
 
-	def cancel(self):
 		id = 0
-		# There might be no record selected
+		idx = 0
 		if self.currentRecord():
 			id = self.currentId()
-			# If it has no ID the record will be removed and thus we want
-			# to move to the previous record.
-			if not id:
-				idx = self.models.records.index(self.currentRecord())-1
-				if idx < 0:
-					idx = self.models.count() - 1
-				id = self.models.records[idx].id
-
-		ids = self.allIds()
-		self.models.clear()
+			idx = self.models.records.index(self.currentRecord())
 			
-		self.models.preload( ids )
+		self.models.update()
+		if idx:
+			record = self.models.modelById( id )
+			
+			if record:
+				self.setCurrentRecord( record )
+			else:
+				# If what it was the current record no longer exists
+				# at least keep index position
+				idx = min( idx, self.models.count() - 1 )
+				if idx >= 0:
+					self.setCurrentRecord( self.models.records[ idx ] )
+				else:
+					self.setCurrentRecord( None )
+		self.display()
 
-		if id:
-			for record in self.models.records:
-				if record.id == id:
-					self.setCurrentRecord( record )
-					self.display()
-					break	
+	## @brief Removes all new records and marks all modified ones as not loaded.
+	def cancel(self):
+		idx = 0
+		if self.currentRecord():
+			idx = self.models.records.index(self.currentRecord())
+			
+		self.models.cancel()
+		if idx:
+			idx = min( idx, self.models.count() - 1 )
+			if idx >= 0:
+				self.setCurrentRecord( self.models.records[ idx ] )
+			else:
+				self.setCurrentRecord( None )
+			self.display()
 
 	## @brief Returns a reference to the current view.
 	def currentView(self):

@@ -139,7 +139,7 @@ class ModelRecord(QObject):
 
 	def cancel(self):
 		self._loaded = False
-		self.reload()
+		#self.reload()
 
 	def save(self, reload=True):
 		self.ensureIsLoaded()

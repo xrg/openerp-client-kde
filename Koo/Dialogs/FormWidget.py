@@ -130,12 +130,17 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
+		self.pendingReload = False
+
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
 		if Options.options.get('auto_reload', False):
 			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
 
+	## @brief Establishes that every value seconds a reload should be scheduled.
+	# If value is < 0 only Subscription based reloads are executed. Note that if
+	# value is != 0 Subscription based reloads are always used if available.
 	def setAutoReload(self, value):
 		if value:
 			# We use both, timer and subscriber as in some cases information may change
@@ -184,6 +189,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			Api.instance.createWindow(None, self.model, self.screen.currentId(), view_type='form', mode='form,tree')
 		else:
 			self.screen.switchView()
+		if self.pendingReload:
+			self.reload()
 		QApplication.restoreOverrideCursor()
 
 	def showLogs(self):
@@ -276,15 +283,26 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QApplication.restoreOverrideCursor()
 
 	def autoReload(self):
-		# Do not reload automatically there are any modified records
+		# Do not reload automatically if there are any modified records
+		# However, we take note that there's a pending reload which 
+		# will be done in the next switchView()
 		if self.screen.isModified():
+			self.pendingReload = True
 			return
 		self.reload()
+		# If current view only shows one record self.screen.reload() 
+		# only reloads the current record. As we want to be sure that
+		# any new records will appear in the list view (or any view that 
+		# shows multiple records), we set pendingReload to be run
+		# when switching view.
+		if not self.screen.currentView().showsMultipleRecords():
+			self.pendingReload = True
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.screen.reload()
 		self.updateStatus()
+		self.pendingReload = False
 		QApplication.restoreOverrideCursor()
 
 	def cancel(self):

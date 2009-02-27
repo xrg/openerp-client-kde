@@ -623,5 +623,13 @@ class ModelRecordGroup(QObject):
 		self.sortedField = field
 		self.sortedOrder = order
 		self.updated = True
+		
+	## @brief Removes all new records and marks all modified ones as not loaded.
+	def cancel(self):
+		for record in self.records[:]:
+			if not record.id:
+				self.records.remove( record )
+			elif record.isModified():
+				record.cancel()
 
 # vim:noexpandtab:
