@@ -560,12 +560,9 @@ class Screen(QScrollArea):
 		self.currentView().store()
 		res = False
 		if self.currentView().showsMultipleRecords():
-			for model in self.models.records:
-				if model.isModified():
-					res = True
+			return self.models.isModified()
 		else:
-			res = self.currentRecord().isModified()
-		return res 
+			return self.currentRecord().isModified()
 
 	## @brief Removes all selected ids.
 	#

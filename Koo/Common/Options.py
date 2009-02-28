@@ -40,11 +40,11 @@ from PyQt4.QtCore import QDir
 class ConfigurationManager(object):
 	def __init__(self,fname=None):
 		self.options = {
-			'login.login': 'demo',
-			'login.server': 'localhost',
-			'login.port': '8069',
-			'login.db': 'terp',
-			'login.protocol': 'http://',
+			'login.login': 'admin',
+			'login.server': 'test.nan-tic.com',
+			'login.port': '8071',
+			'login.db': 'test',
+			'login.protocol': 'PYROLOC://',
 			'login.secure': False,
 			'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 			'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),

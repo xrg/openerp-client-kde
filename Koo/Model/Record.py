@@ -197,6 +197,7 @@ class ModelRecord(QObject):
 			self.setFieldValid( fname, True )
 		if change:
 			self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self )
+			self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self )
 		return change
 
 	def validate(self):
@@ -230,13 +231,15 @@ class ModelRecord(QObject):
 			self.mgroup.mfields[fieldname].setDefault(self, value)
 		self._loaded = True
 		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
+		self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
 
 	# This functions simply emits a signal indicating that
 	# the model has changed. This is mainly used by fields
 	# so they don't have to emit the signal, but relay in 
 	# model emiting it itself.
 	def changed(self):
-		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)	
+		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
+		self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
 
 	def set(self, val, modified=False, signal=True):
 		later={}
@@ -253,8 +256,9 @@ class ModelRecord(QObject):
 		self.modified = modified
 		if not self.modified:
 			self.modified_fields = {}
+		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
 		if signal:
-			self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
+			self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
 
 	def reload(self):
 		if not self.id:
@@ -265,7 +269,9 @@ class ModelRecord(QObject):
 		if res:
 			value = res[0]
 			self.read_time= time.time()
-			self.set(value)
+			# Set signal=False as we don't want the record to be considered
+			# modified (as it's not, it's just reloaded).
+			self.set(value, signal=False)
 
 	# @brief Evaluates the string expression given by dom.
 	# Before passing the dom expression to Rpc.session.evaluateExpression

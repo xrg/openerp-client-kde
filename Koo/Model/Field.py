@@ -234,16 +234,12 @@ class ToManyField(StringField):
 	def create(self, model):
 		from Koo.Model.Group import ModelRecordGroup
 		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
-		self.connect( group, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		return group
 
 	def groupModified(self):
 		p = self.sender().parent
 		self.changed( self.sender().parent )
-
-	def _modelChanged(self, model):
-		self.changed(model.parent)
 
 	def get_client(self, model):
 		return model.values[self.name]
@@ -254,7 +250,6 @@ class ToManyField(StringField):
 	def set(self, model, value, test_state=False, modified=False):
 		from Koo.Model.Group import ModelRecordGroup
 		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
-		self.connect( group, SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.preload(value)
@@ -273,7 +268,6 @@ class ToManyField(StringField):
 			fields = Rpc2.fields_get(value[0].keys(), context)
 
 		model.values[self.name] = ModelRecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
-		self.connect( model.values[self.name], SIGNAL('modelChanged( PyQt_PyObject )'), self._modelChanged )
 		self.connect( model.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):

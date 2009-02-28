@@ -188,7 +188,8 @@ class ModelRecordGroup(QObject):
 			record = ModelRecord(self.resource, value['id'], parent=self.parent, group=self)
 			record.set(value)
 			self.records.append(record)
-			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
+			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		end = len(self.records)-1
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 	
@@ -272,7 +273,8 @@ class ModelRecordGroup(QObject):
 		else:
 			self.records.insert(position, record)
 		record.parent = self.parent
-		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
+		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		return record
 
 	## @brief Creates a new model of the same type of the models in the group.
@@ -282,6 +284,7 @@ class ModelRecordGroup(QObject):
 	def create(self, default=True, position=-1, domain=[], context={}):
 		record = ModelRecord(self.resource, None, group=self, parent=self.parent, new=True)
 		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
+		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		if default:
 			ctx=context.copy()
 			ctx.update( self.context() )
@@ -295,6 +298,9 @@ class ModelRecordGroup(QObject):
 		return record
 	
 	def recordChanged(self, model):
+		self.emit( SIGNAL('recordChanged(PyQt_PyObject)'), model )
+
+	def recordModified(self, model):
 		self.emit( SIGNAL('modified()') )
 
 	## @brief Removes a model from the model group but not from the server.
@@ -632,4 +638,10 @@ class ModelRecordGroup(QObject):
 			elif record.isModified():
 				record.cancel()
 
+	## @brief Returns True if any of the records in the group have been modified.
+	def isModified(self):
+		for record in self.records:
+			if record.isModified():
+				return True
+		return False
 # vim:noexpandtab:
