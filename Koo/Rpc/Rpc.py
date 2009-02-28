@@ -110,7 +110,7 @@ class PyroConnection(Connection):
 	def call(self, obj, method, *args):
 		try:
 			result = self.singleCall( obj, method, *args )
-		except Pyro.errors.ConnectionClosedError, x:
+		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), x:
 			# As Pyro is a statefull protocol, network errors
 			# or server reestarts will cause errors even if the server
 			# is running and available again. So if remote call failed 
