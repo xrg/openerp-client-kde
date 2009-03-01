@@ -41,7 +41,7 @@ try:
 except NameError:
 	from sets import Set as set
 
-## @brief The ModelRecordGroup class manages a list of records (models).
+## @brief The ModelRecordGroup class manages a list of records.
 # 
 # Provides functions for loading, storing and creating new objects of the same type.
 # The 'fields' property stores a dictionary of dictionaries, each of which contains 
@@ -118,7 +118,7 @@ class ModelRecordGroup(QObject):
 			fvalue['name'] = fname
 			self.mfields[fname] = Field.FieldFactory.create( fvalue['type'], self, fvalue )
 
-	## @brief Saves all the models. 
+	## @brief Saves all the records. 
 	#
 	# Note that there will be one request to the server per modified or 
 	# created model.
@@ -133,7 +133,7 @@ class ModelRecordGroup(QObject):
 	# id of the just saved model.
 	#
 	# This functionality is provided here instead of on the model because
-	# the remote function might update some other models, and they need to
+	# the remote function might update some other records, and they need to
 	# be (re)loaded.
 	def written( self, editedId ):
 		if not self.on_write or not editedId:
@@ -178,7 +178,7 @@ class ModelRecordGroup(QObject):
 		end = len(self.records)-1
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 
-	## @brief Adds a list of models as specified by 'values'.
+	## @brief Adds a list of records as specified by 'values'.
 	#
 	# 'values' has to be a list of dictionaries, each of which containing fields
 	# names -> values. At least key 'id' needs to be in all dictionaries.
@@ -246,7 +246,7 @@ class ModelRecordGroup(QObject):
 			self.loadFromValues(values)
 		return True
 
-	## @brief Clears the list of models. It doesn't remove them.
+	## @brief Clears the list of records. It doesn't remove them.
 	def clear(self):
 		self.emit( SIGNAL('recordsRemoved(int,int)'), 0, len(self.records)-1 )
 		self.records = []
@@ -277,7 +277,7 @@ class ModelRecordGroup(QObject):
 		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		return record
 
-	## @brief Creates a new model of the same type of the models in the group.
+	## @brief Creates a new model of the same type of the records in the group.
 	#
 	# If 'default' is true, the model is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
@@ -322,7 +322,7 @@ class ModelRecordGroup(QObject):
 	#
 	# Note that it updates 'fields' and 'mfields' in the group
 	# and creates the necessary entries in the 'values' property of 
-	# all the models. 'fields' is a dict of dicts as typically returned by 
+	# all the records. 'fields' is a dict of dicts as typically returned by 
 	# the server.
 	def addCustomFields(self, fields):
 		to_add = []
@@ -358,7 +358,7 @@ class ModelRecordGroup(QObject):
 				new.append(model)
 
 		
-		# Update existing models
+		# Update existing records
 		if len(old) and len(to_add):
 
 			# Do not read from the server binary and image types 
@@ -405,7 +405,7 @@ class ModelRecordGroup(QObject):
 			for v in values:
 				self.recordById( v['id'] ).set(v, signal=False)
 
-	## @brief Returns the number of models in this group.
+	## @brief Returns the number of records in this group.
 	def count(self):
 		return len(self.records)
 
@@ -429,9 +429,9 @@ class ModelRecordGroup(QObject):
 			self.ensureModelLoaded(model)
 		return model
 
-	## @brief Returns whether model is in the list of LOADED models
+	## @brief Returns whether model is in the list of LOADED records
 	# If we use 'model in model_group' then it will try to
-	# load all models and if one of the models has id False
+	# load all records and if one of the records has id False
 	# an error will be fired.
 	def modelExists(self, model):
 		return model in self.records
@@ -518,7 +518,7 @@ class ModelRecordGroup(QObject):
 		else:
 			self.sortVisible( field, order )
 
-	# Sorts the models in the group using ALL records in the database
+	# Sorts the records in the group using ALL records in the database
 	def sortAll(self, field, order):
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return
@@ -616,7 +616,7 @@ class ModelRecordGroup(QObject):
 
 			type = self.fields[field]['type']
 			if type == 'one2many' or type == 'many2many':
-				self.records.sort( key=lambda x: len(x.value(field).models) )
+				self.records.sort( key=lambda x: len(x.value(field).group) )
 			else:
 				self.records.sort( key=ignoreCase )
 			if order == Qt.DescendingOrder:

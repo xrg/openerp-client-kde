@@ -139,12 +139,12 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
                 if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.isReadOnly():
 			self.screen.new()
 		else:
-			dialog = ScreenDialog(self.screen.models, parent=self, attrs=self.attrs)
+			dialog = ScreenDialog(self.screen.group, parent=self, attrs=self.attrs)
 			if dialog.exec_() == QDialog.Accepted:
 				self.screen.display()
 
 	def edit(self):
-		dialog = ScreenDialog( self.screen.models, parent=self, model=self.screen.currentRecord(), attrs=self.attrs)
+		dialog = ScreenDialog( self.screen.group, parent=self, model=self.screen.currentRecord(), attrs=self.attrs)
 		dialog.exec_()
 		self.screen.display()
 
@@ -174,11 +174,11 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.display()
 		
 	def showValue(self):
-		models = self.model.value(self.name)
-		if self.screen.models != models:
-			self.screen.setModelGroup(models)
-			if models.count():
-				self.screen.setCurrentRecord( models.modelByRow(0) )
+		group = self.model.value(self.name)
+		if self.screen.group != group:
+			self.screen.setModelGroup(group)
+			if group.count():
+				self.screen.setCurrentRecord( group.modelByRow(0) )
 		self.screen.display()
 
 	def store(self):

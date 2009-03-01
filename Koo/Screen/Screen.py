@@ -104,7 +104,7 @@ class Screen(QScrollArea):
 		self.name = None
 		self.views = []
 		self.fields = {}
-		self.models = None
+		self.group = None
 		self._currentRecord = None
 		self._currentView = 0
 
@@ -234,10 +234,10 @@ class Screen(QScrollArea):
 	# models that fit the criteria.
 	def search( self ):
 		value = self.searchForm.getValue()
-		self.models.setFilter( value )
-		self.models.update()
-		if self.models.count() > 0:
-			self.setCurrentRecord( self.models.records[0] )
+		self.group.setFilter( value )
+		self.group.update()
+		if self.group.count() > 0:
+			self.setCurrentRecord( self.group.records[0] )
 		self.display()
 
 	# Slot to recieve the signal from a view when the current item changes
@@ -249,8 +249,8 @@ class Screen(QScrollArea):
 	# @param models ModelRecordGroup object.
 	def setModelGroup(self, modelGroup):
 		if not modelGroup:
-			self.models = None
-			# Call setCurrentRecord() after setting self.models
+			self.group = None
+			# Call setCurrentRecord() after setting self.group
 			# because it will emit a signal with the count of elements
 			# which must be 0.
 			self.setCurrentRecord( None )
@@ -261,7 +261,7 @@ class Screen(QScrollArea):
 		self.context = modelGroup.context()
 		self.Rpc = RpcProxy(self.resource)
 
-		self.models = modelGroup
+		self.group = modelGroup
 		if modelGroup.count():
 			self.setCurrentRecord( modelGroup.records[0] )
 		else:
@@ -280,15 +280,15 @@ class Screen(QScrollArea):
 	def setCurrentRecord(self, value):
 		self._currentRecord = value
 		try:
-			pos = self.models.records.index(value)
+			pos = self.group.records.index(value)
 		except:
 			pos = -1
 		if value and value.id:
 			id = value.id
 		else:
 			id = -1
-		if self.models:
-			count = self.models.count()
+		if self.group:
+			count = self.group.count()
 		else:
 			count = 0
 		self.emit(SIGNAL('recordMessage(int,int,int)'), pos, count, id)
@@ -301,7 +301,7 @@ class Screen(QScrollArea):
 		if self.currentView(): 
 			self.currentView().store()
 
-		if self.currentRecord() and ( self.currentRecord() not in self.models.records ):
+		if self.currentRecord() and ( self.currentRecord() not in self.group.records ):
 			self.setCurrentRecord( None )
 
 		if self.loadNextView():
@@ -406,11 +406,11 @@ class Screen(QScrollArea):
 		_parse_fields(dom, fields)
 
 		if custom:
-			self.models.addCustomFields(fields)
+			self.group.addCustomFields(fields)
 		else:
-			self.models.addFields(fields)
+			self.group.addFields(fields)
 
-		self.fields = self.models.fields
+		self.fields = self.group.fields
 
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
 		view, on_write = ViewFactory.create(self, self.resource, dom, self.fields)
@@ -424,7 +424,7 @@ class Screen(QScrollArea):
 
 		if display:
 			self._currentView = len(self.views) - 1
-			self.currentView().display(self.currentRecord(), self.models)
+			self.currentView().display(self.currentRecord(), self.group)
 			self.setView(view)
 		return view
 
@@ -453,7 +453,7 @@ class Screen(QScrollArea):
 				and self.currentView().isReadOnly():
 			self.switchView()
 
-		record = self.models.create( default, self.newRecordPosition(), self.models.domain(), self.context )
+		record = self.group.create( default, self.newRecordPosition(), self.group.domain(), self.context )
 
 		if self.currentView():
 			self.currentView().reset()
@@ -472,7 +472,7 @@ class Screen(QScrollArea):
 			return -1 
 
 	def setOnWrite(self, func_name):
-		self.models.on_write = func_name
+		self.group.on_write = func_name
 
 	## @brief Stores all modified models.
 	def save(self):
@@ -484,11 +484,11 @@ class Screen(QScrollArea):
 		if self.currentRecord().validate():
 			id = self.currentRecord().save(reload=True)
 		else:
-			self.currentView().display(self.currentRecord(), self.models)
+			self.currentView().display(self.currentRecord(), self.group)
 			return False
 		
 		if self.currentView().showsMultipleRecords():
-			for model in self.models.records:
+			for model in self.group.records:
 				if model.isModified():
 					if model.validate():
 						id = model.save(reload=True)
@@ -519,20 +519,20 @@ class Screen(QScrollArea):
 		idx = 0
 		if self.currentRecord():
 			id = self.currentId()
-			idx = self.models.records.index(self.currentRecord())
+			idx = self.group.records.index(self.currentRecord())
 			
-		self.models.update()
+		self.group.update()
 		if idx:
-			record = self.models.modelById( id )
+			record = self.group.modelById( id )
 			
 			if record:
 				self.setCurrentRecord( record )
 			else:
 				# If what it was the current record no longer exists
 				# at least keep index position
-				idx = min( idx, self.models.count() - 1 )
+				idx = min( idx, self.group.count() - 1 )
 				if idx >= 0:
-					self.setCurrentRecord( self.models.records[ idx ] )
+					self.setCurrentRecord( self.group.records[ idx ] )
 				else:
 					self.setCurrentRecord( None )
 		self.display()
@@ -541,13 +541,13 @@ class Screen(QScrollArea):
 	def cancel(self):
 		idx = 0
 		if self.currentRecord():
-			idx = self.models.records.index(self.currentRecord())
+			idx = self.group.records.index(self.currentRecord())
 			
-		self.models.cancel()
+		self.group.cancel()
 		if idx:
-			idx = min( idx, self.models.count() - 1 )
+			idx = min( idx, self.group.count() - 1 )
 			if idx >= 0:
-				self.setCurrentRecord( self.models.records[ idx ] )
+				self.setCurrentRecord( self.group.records[ idx ] )
 			else:
 				self.setCurrentRecord( None )
 			self.display()
@@ -572,7 +572,7 @@ class Screen(QScrollArea):
 		self.currentView().store()
 		res = False
 		if self.currentView().showsMultipleRecords():
-			return self.models.isModified()
+			return self.group.isModified()
 		else:
 			return self.currentRecord().isModified()
 
@@ -599,12 +599,12 @@ class Screen(QScrollArea):
 				if not unlinked:
 					return False
 		for x in ids:
-			model = self.models[x]
-			idx = self.models.records.index(model)
-			self.models.remove( model )
-			if self.models.records:
-				idx = min(idx, self.models.count() - 1)
-				self.setCurrentRecord( self.models.records[idx] )
+			model = self.group[x]
+			idx = self.group.records.index(model)
+			self.group.remove( model )
+			if self.group.records:
+				idx = min(idx, self.group.count() - 1)
+				self.setCurrentRecord( self.group.records[idx] )
 			else:
 				self.setCurrentRecord( None )
 		self.display()
@@ -615,7 +615,7 @@ class Screen(QScrollArea):
 
 	def load(self, ids):
 		self.currentView().reset()
-		self.models.load( ids, display =True )
+		self.group.load( ids, display =True )
 		if ids:
 			self.display(ids[0])
 		else:
@@ -626,20 +626,20 @@ class Screen(QScrollArea):
 	# no id is given.
 	def display(self, id=None):
 		if id:
-			self.setCurrentRecord( self.models[id] )
+			self.setCurrentRecord( self.group[id] )
 		if self.views:
-			self.currentView().display(self.currentRecord(), self.models)
+			self.currentView().display(self.currentRecord(), self.group)
 
 	## @brief Moves current record to the next one in the list and displays it in the 
 	# current view.
 	def displayNext(self):
 		self.currentView().store()
-		if self.currentRecord() in self.models.records:
-			idx = self.models.records.index(self.currentRecord())
-			idx = (idx+1) % self.models.count()
-			self.setCurrentRecord( self.models.records[idx] )
+		if self.currentRecord() in self.group.records:
+			idx = self.group.records.index(self.currentRecord())
+			idx = (idx+1) % self.group.count()
+			self.setCurrentRecord( self.group.records[idx] )
 		else:
-			self.setCurrentRecord( self.models.count() and self.models.modelByRow(0) )
+			self.setCurrentRecord( self.group.count() and self.group.modelByRow(0) )
 		if self.currentRecord():
 			self.currentRecord().setValidate()
 		self.display()
@@ -648,13 +648,13 @@ class Screen(QScrollArea):
 	# current view.
 	def displayPrevious(self):
 		self.currentView().store()
-		if self.currentRecord() in self.models.records:
-			idx = self.models.records.index(self.currentRecord())-1
+		if self.currentRecord() in self.group.records:
+			idx = self.group.records.index(self.currentRecord())-1
 			if idx<0:
-				idx = self.models.count()-1
-			self.setCurrentRecord( self.models.records[idx] )
+				idx = self.group.count()-1
+			self.setCurrentRecord( self.group.records[idx] )
 		else:
-			self.setCurrentRecord( self.models.count() and self.models.modelByRow(-1) )
+			self.setCurrentRecord( self.group.count() and self.group.modelByRow(-1) )
 
 		if self.currentRecord():
 			self.currentRecord().setValidate()
@@ -673,7 +673,7 @@ class Screen(QScrollArea):
 
 	## @brief Returns a list with all loaded (or preloaded) record ids.
 	def allIds(self):
-		return [x.id for x in self.models if x.id]
+		return [x.id for x in self.group if x.id]
 
 	## @brief Clears the list of records and refreshes the view.
 	#
@@ -683,7 +683,7 @@ class Screen(QScrollArea):
 	# OneToMany and ManyToMany widgets do, for example.
 	# @see remove()
 	def clear(self):
-		self.models.clear()
+		self.group.clear()
 		self.display()
 
 	# Stores settings of all opened views

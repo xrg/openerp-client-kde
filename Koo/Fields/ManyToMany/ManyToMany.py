@@ -104,7 +104,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		# Manually set the current model and field as modified
 		# This is not necessary in case of removing an item. 
 		# Maybe a better option should be found. But this one works just right.
-		self.screen.models.recordChanged( None )
+		self.screen.group.recordChanged( None )
 
 	def remove(self):
 		# As the 'remove' button modifies the model we need to be sure all other fields/widgets
@@ -125,8 +125,8 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.screen.display()
 
 	def showValue(self):
-		models = self.model.value(self.name)
-		self.screen.setModelGroup(models)
+		group = self.model.value(self.name)
+		self.screen.setModelGroup(group)
 		self.screen.display()
 
 	# We do not store anything here as elements are added and removed in the
