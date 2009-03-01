@@ -248,6 +248,14 @@ class Screen(QScrollArea):
 	## @brief Sets the RecordModelGroup this Screen should show.
 	# @param models ModelRecordGroup object.
 	def setModelGroup(self, modelGroup):
+		if not modelGroup:
+			self.models = None
+			# Call setCurrentRecord() after setting self.models
+			# because it will emit a signal with the count of elements
+			# which must be 0.
+			self.setCurrentRecord( None )
+			return
+
 		self.name = modelGroup.resource
 		self.resource = modelGroup.resource
 		self.context = modelGroup.context()
@@ -279,7 +287,11 @@ class Screen(QScrollArea):
 			id = value.id
 		else:
 			id = -1
-		self.emit(SIGNAL('recordMessage(int,int,int)'), pos, self.models.count(), id)
+		if self.models:
+			count = self.models.count()
+		else:
+			count = 0
+		self.emit(SIGNAL('recordMessage(int,int,int)'), pos, count, id)
 		if self._currentRecord:
 			if self.currentView():
 				self.currentView().setSelected(self._currentRecord.id)
@@ -665,7 +677,10 @@ class Screen(QScrollArea):
 
 	## @brief Clears the list of records and refreshes the view.
 	#
-	# Note that this won't remove the records from the database. 
+	# Note that this won't remove the records from the database. But clears
+	# the records from the model. It means that sometimes you might want to
+	# use setModelGroup( None ) instead of calling clear(). This is what
+	# OneToMany and ManyToMany widgets do, for example.
 	# @see remove()
 	def clear(self):
 		self.models.clear()

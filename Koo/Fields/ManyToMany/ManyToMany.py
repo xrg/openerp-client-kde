@@ -120,9 +120,8 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.pushRemove.setEnabled( not ro )
 
 	def clear(self):
-		self.screen.setCurrentRecord( None )
 		self.uiText.setText('')
-		self.screen.clear()	
+		self.screen.setModelGroup( None )	
 		self.screen.display()
 
 	def showValue(self):

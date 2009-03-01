@@ -169,8 +169,8 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.uiLabel.setText( line )
 
 	def clear(self):
-		self.screen.setCurrentRecord( None )
-		self.screen.clear()
+		self.setLabel( 0, 0, 0 )
+		self.screen.setModelGroup( None )
 		self.screen.display()
 		
 	def showValue(self):
