@@ -78,7 +78,7 @@ class WizardPage(QDialog):
 
 		# Set minimum and maximum dialog size
 		size = self.screen.sizeHint()
-		self.setMinimumSize( size.width()+60, min(750, size.height()+25) ) 
+		self.setMinimumSize( size.width()+100, min(600, size.height()+25) ) 
 		desktop = QDesktopWidget()
 		size = desktop.availableGeometry( self ).size()
 		size -= QSize( 50, 50 )
