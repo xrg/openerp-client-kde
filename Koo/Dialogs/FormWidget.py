@@ -283,6 +283,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QApplication.restoreOverrideCursor()
 
 	def autoReload(self):
+		# Do not reload automatically if it's an editable list
+		# By explicitly disallowing this it makes the global 
+		# ktiny module auto_reload option to be usable.
+		if self.screen.currentView().showsMultipleRecords() and not self.screen.currentView().isReadOnly():
+			return
 		# Do not reload automatically if there are any modified records
 		# However, we take note that there's a pending reload which 
 		# will be done in the next switchView()
