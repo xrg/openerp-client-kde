@@ -276,8 +276,9 @@ class TreeView( AbstractView ):
 	def updateAggregates(self):
 		for agg in self.aggregates:
 			value = 0.0
-			for model in self.treeModel.group:
-				value += model.value(agg['name'])
+			if self.treeModel.group:
+				for model in self.treeModel.group:
+					value += model.value(agg['name'])
 			agg['widget'].setText( Numeric.floatToText( value, agg['digits'] ) )
 
 	def startEditing(self):
