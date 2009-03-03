@@ -91,7 +91,7 @@
 			<field name="inherit_id" ref="base.view_attachment_form"/>
 			<field name="arch" type="xml">
 				<field name="datas" position="replace">
-					<field name="datas" colspan="4" fname_widget="datas_fname"/>
+					<field name="datas" colspan="4" filename="datas_fname"/>
 				</field>
 			</field>
 		</record>
