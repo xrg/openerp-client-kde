@@ -44,6 +44,10 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		BinaryFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
+		# Versions prior to 5.0 used 'fname_widget' instead of 'filename'
+		# attribute.
+		if 'fname_widget' in self.attrs:
+			self.attrs['filename'] = self.attrs['fname_widget']
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.slotNew )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.slotRemove )
 		self.connect( self.pushSave, SIGNAL('clicked()'),self.slotSave )
@@ -76,11 +80,11 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		# Under windows platforms we need to create the temporary
 		# file with an appropiate extension, otherwise the system
 		# won't be able to know how to open it. The only way we have
-		# to know what kind of file it is, is if the fname_widget property
+		# to know what kind of file it is, is if the filename property
 		# was set, and pick up the extension from that field.
 		extension = ''
-		if 'fname_widget' in self.attrs:
-			fileName = self.model.value( self.attrs['fname_widget'] )
+		if 'filename' in self.attrs:
+			fileName = self.model.value( self.attrs['filename'] )
 			if fileName:
 				extension = '.%s' % fileName.rpartition('.')[2]
 
@@ -112,10 +116,10 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			self.model.setValue( self.name, value )
 			self.uiBinary.setText( _('%d bytes') % len(value) )
 
-			# The binary widget might have a 'fname_widget' attribute
-			# that stores the file name in the field indicated by 'fname_widget'
-			if 'fname_widget' in self.attrs:
-				w = self.attrs['fname_widget']
+			# The binary widget might have a 'filename' attribute
+			# that stores the file name in the field indicated by 'filename'
+			if 'filename' in self.attrs:
+				w = self.attrs['filename']
 				self.model.setValue( w, os.path.basename(filename) )
 				if self.view:
 					self.view.widgets[w].load(self.model)
@@ -136,8 +140,8 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.model.setValue( self.name, False )
 		self.clear()
 		self.modified()
-		if 'fname_widget' in self.attrs:
-			w = self.attrs['fname_widget']
+		if 'filename' in self.attrs:
+			w = self.attrs['filename']
 			self.model.setValue( w, False )
 			if self.view:
 				self.view.widgets[w].load(self.model)
