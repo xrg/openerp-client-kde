@@ -79,11 +79,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.group = ModelRecordGroup( self.model, context=self.context )
 		self.group.setDomain( domain )
 
-		self.screen = Screen(self)
 		self.screen.setModelGroup( self.group )
 		self.screen.setEmbedded( False )
 		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
 		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )
+		self.connect( self.screen, SIGNAL('closed()'), self.closeWidget )
 
 		self._allowOpenInNewWindow = True
 
@@ -95,9 +95,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.name = name
 		else:
 			self.name = self.screen.currentView().title
-
-		# TODO: Use desinger's widget promotion
-		self.layout().insertWidget(0, self.screen )
 
 		self.has_backup = False
 		self.backup = {}
@@ -159,13 +156,18 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def setAllowOpenInNewWindow( self, value ):
 		self._allowOpenInNewWindow = value
 
-	def goto(self, *args):
+	def goto(self):
 		if not self.modifiedSave():
 			return
 		dialog = GoToIdDialog( self )
 		if dialog.exec_() == QDialog.Rejected:
 			return
 		self.screen.load( [dialog.result] )
+		
+	def setStatusBarVisible(self, value):
+		self.uiStatusLabel.setVisible( value )
+		self.uiStatus.setVisible( value )
+		self.uiRecordStatus.setVisible( value )
 		
 	def showAttachments(self):
 		id = self.screen.currentId()
@@ -372,7 +374,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 					edit = _('Editing document (id: %s)') % str(value)
 			msg = _('Record: %(name)s / %(count)s - %(name2)s') % { 'name': pos, 'count': str(count), 'name2': edit }
 
-		self.statForm.setText( msg )
+		self.uiRecordStatus.setText( msg )
 
 	def modifiedSave(self):
 		if self.screen.isModified():
@@ -385,6 +387,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 			else:
 				return False
 		return True
+
+	def closeWidget(self):
+		self.screen.storeViewSettings()
+		self.reloadTimer.stop()
+		self.subscriber.unsubscribe()
+		self.emit( SIGNAL('closed()') )
 
 	def canClose(self, urgent=False):
 		# Store settings of all opened views before closing the tab.

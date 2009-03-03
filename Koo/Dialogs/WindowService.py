@@ -44,11 +44,13 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 
 	if view_type=='form':
 		mode = (mode or 'form,tree').split(',')
-		win = FormWidget(model, res_id, domain, view_type=mode,
+		widget = FormWidget(model, res_id, domain, view_type=mode,
 				view_ids = (view_ids or []), 
 				context=context, name=name )
-		win.setAutoReload( autoReload )
-		Api.instance.windowCreated( win, target )
+		if target != 'current':
+			widget.setStatusBarVisible( False )
+		widget.setAutoReload( autoReload )
+		Api.instance.windowCreated( widget, target )
 	elif view_type=='tree':
 		if view_ids and view_ids[0]:
 			view_base =  Rpc.session.execute('/object', 'execute',

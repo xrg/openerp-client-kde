@@ -230,6 +230,9 @@ class Screen(QScrollArea):
 	def activate( self ):
 		self.emit( SIGNAL('activated()') )
 
+	def close( self ):
+		self.emit( SIGNAL('closed()') )
+
 	## @brief Searches with the current parameters of the search form and loads the
 	# models that fit the criteria.
 	def search( self ):

@@ -32,6 +32,7 @@ from Koo.Common import Api
 from Koo.Common import Notifier
 from Koo.Common import Icons
 from Koo.Common import Common
+from Koo.Common import Api
 
 class ButtonFieldWidget( AbstractFieldWidget ):
 	def __init__(self, parent, view, attributes) :
@@ -52,6 +53,17 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		# TODO: Remove screen dependency and thus ViewForm.screen
 		screen = self.view.screen
 		self.view.store()
+		if self.attrs.get('special', '') == 'cancel':
+			screen.close()
+			if 'name' in self.attrs.keys():
+				result = rpc.session.execute(
+					'/object', 'execute', screen.name,
+					self.attrs['name'], [], model.context()
+				)
+				datas = {}
+				Api.instance.executeAction( result, datas, screen.context )
+			return
+
 		if self.model.validate():
 			id = screen.save()
 			if not self.attrs.get('confirm',False) or \
@@ -59,15 +71,30 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 				type = self.attrs.get('type', 'workflow')
 				if type == 'workflow':
 					QApplication.setOverrideCursor( Qt.WaitCursor )
-					Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
+					result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
+					if isinstance( result, dict ):
+						if result['type'] == 'ir.actions.act_window_close':
+							screen.close()
+						else:
+							Api.instance.executeAction( result, {'ids': [id]} )
+					elif isinstance( result, list ):
+						for r in result:
+							Api.instance.executeAction( r, { 'ids': [id] } )
 					QApplication.restoreOverrideCursor()
 				elif type == 'object':
+					if not id:
+						return
 					QApplication.setOverrideCursor( Qt.WaitCursor )
-					Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.model.context())
+
+					result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.model.context())
+					if isinstance( result, dict ):
+						screen.close()
+						Api.instance.executeAction( result, {}, screen.context)
+
 					QApplication.restoreOverrideCursor()
 				elif type == 'action':
 					action_id = int(self.attrs['name'])
-					Api.instance.execute(action_id, {'model':screen.name, 'id': id, 'ids': [id]})
+					Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
 				else:
 					Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
 
