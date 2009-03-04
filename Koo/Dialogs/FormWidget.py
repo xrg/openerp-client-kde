@@ -35,6 +35,7 @@ from ExportDialog import *
 from ImportDialog import *
 from AttachmentDialog import *
 from GoToIdDialog import *
+from MassiveUpdateDialog import *
 
 from Koo.Common import Api
 from Koo.Common import Common
@@ -113,7 +114,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'Reload': self.reload,
 			'Switch': self.switchView,
 			'Attach': self.showAttachments,
-			'Duplicate': self.duplicate
+			'Duplicate': self.duplicate,
+			'MassiveUpdate': self.massiveUpdate
 		}
 		if res_id:
 			if isinstance(res_id, int):
@@ -388,6 +390,15 @@ class FormWidget( QWidget, FormWidgetUi ):
 				return False
 		return True
 
+	def massiveUpdate(self):
+		if not self.screen.selectedIds():
+			QMessageBox.information( self, _('No records selected'), _('No records selected') )
+			return
+		dialog = MassiveUpdateDialog( self )
+		dialog.setIds( self.screen.selectedIds() )
+		dialog.setup( self.model, self.context )
+		dialog.exec_()
+			
 	def closeWidget(self):
 		self.screen.storeViewSettings()
 		self.reloadTimer.stop()

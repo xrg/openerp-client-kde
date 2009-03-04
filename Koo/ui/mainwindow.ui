@@ -258,6 +258,8 @@
     <addaction name="actionNew" />
     <addaction name="actionSave" />
     <addaction name="actionDuplicate" />
+    <addaction name="actionMassiveUpdate" />
+    <addaction name="separator" />
     <addaction name="actionDelete" />
     <addaction name="separator" />
     <addaction name="actionFind" />
@@ -781,6 +783,15 @@
    </property>
    <property name="text" >
     <string>&amp;Clear Cache</string>
+   </property>
+  </action>
+  <action name="actionMassiveUpdate" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/edit.png</normaloff>:/images/images/edit.png</iconset>
+   </property>
+   <property name="text" >
+    <string>Modify All Selected Records</string>
    </property>
   </action>
  </widget>
