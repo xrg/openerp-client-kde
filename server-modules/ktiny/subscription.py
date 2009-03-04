@@ -62,18 +62,6 @@ class subscription_services(netsvc.Service):
 		self.queue = []
 		self.waits = []
 
-	def subscribe(self, db, uid, passwd, model, host, port, cookie):
-		security.check(db, uid, passwd)
-		self.subscriptions[db][model] = { 
-			'host': host,
-			'port': port,
-			'cookie': cookie,
-		}
-
-	def unsubscribe(self, db, uid, passwd, model, host, port):
-		security.check(db, uid, passwd)
-		del self.subscriptions[db][model]
-
 	def wait(self, db, uid, passwd, expression):
 		self.lock.acquire()
 		currentLock = Semaphore(0)
