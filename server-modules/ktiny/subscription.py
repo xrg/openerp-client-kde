@@ -52,8 +52,6 @@ class subscription_services(netsvc.Service):
 	def __init__(self, name="subscription"):
 		netsvc.Service.__init__(self,name)
 		self.joinGroup('web-services')
-		self.exportMethod(self.subscribe)
-		self.exportMethod(self.unsubscribe)
 		self.exportMethod(self.wait)
 		self.exportMethod(self.publish)
 		self.subscriptions = []
