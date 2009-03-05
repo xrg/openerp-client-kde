@@ -133,7 +133,6 @@ class TreeView( AbstractView ):
 		self.aggregatesLayout = QHBoxLayout( self.aggregatesContainer )
 		self.aggregatesLayout.setContentsMargins( 0, 0, 0, 0 )
 
-
 		self.setAllowMultipleSelection(True)
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
@@ -180,7 +179,22 @@ class TreeView( AbstractView ):
 		self.aggregates.append( { 'name': name, 'widget': aggValue, 'digits': digits } )
 
 	def finishAggregates(self):
+		self.aggregatesLayout.addSpacing( 10 )
+		# The uiUpdateAggregates QLabel will be shown only when not all records are loaded in the record group.
+		# In such a case, aggregates are not calculated and the user must clic the link in the label in order
+		# to see aggregates calculated.
+		self.uiUpdateAggregates = QLabel( _('<a href="update">Update totals</a>'), self.aggregatesContainer )
+		self.uiUpdateAggregates.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+		self.connect( self.uiUpdateAggregates, SIGNAL('linkActivated(QString)'), self.forceAggregatesUpdate )
+		self.aggregatesLayout.addWidget( self.uiUpdateAggregates )
 		self.aggregatesLayout.addStretch( 0 )
+
+	## @brief Forces calculation of aggregates, even if not all records in the group have been loaded yet.
+	def forceAggregatesUpdate(self, url):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		self.treeModel.group.ensureAllLoaded()
+		self.updateAggregates()
+		QApplication.restoreOverrideCursor()
 
 	# This signal is emited when a list item is double clicked
 	# or activated, only when it's read-only.
@@ -273,13 +287,31 @@ class TreeView( AbstractView ):
 	def isReadOnly(self):
 		return self._readOnly
 
+	## @brief Updates aggregates values. Note that if some records have not been loaded it 
+	# will show a hyphen instead of the appropiate value, avoiding long load times for some
+	# screens.
 	def updateAggregates(self):
+		if self.treeModel.group and self.aggregates:
+			if self.treeModel.group.unloadedIds():
+				self.uiUpdateAggregates.show()
+				calculate = False
+			else:
+				self.uiUpdateAggregates.hide()
+				calculate = True
+		else:
+			calculate = False
+			self.uiUpdateAggregates.hide()
+
 		for agg in self.aggregates:
-			value = 0.0
-			if self.treeModel.group:
+			# As we don't want the aggregates to force loading all records
+			# don't calculate aggregates if there are unloaded records.
+			if calculate:
+				value = 0.0
 				for model in self.treeModel.group:
 					value += model.value(agg['name'])
-			agg['widget'].setText( Numeric.floatToText( value, agg['digits'] ) )
+				agg['widget'].setText( Numeric.floatToText( value, agg['digits'] ) )
+			else:
+				agg['widget'].setText( '-' )
 
 	def startEditing(self):
 		self.widget.edit( self.widget.currentIndex() )
