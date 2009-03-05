@@ -85,38 +85,39 @@ class ModelRecord(QObject):
 	def __repr__(self):
 		return '<ModelRecord %s@%s>' % (self.id, self.resource)
 
-	# Establishes the value for a given field
+	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
 		self.mgroup.mfields[fieldName].set_client(self, value)
 
-	# Obtains the value of a given field
+	## @brief Obtains the value of a given field
 	def value(self, fieldName):
 		return self.mgroup.mfields[fieldName].get_client(self)
 
-	# Establishes the default value for a given field
+	## @brief Establishes the default value for a given field
 	def setDefault(self, fieldName, value):
 		self.mgroup.mfields[fieldName].set_client(self, value)
 
-	# Obtains the default value of a given field
+	## @brief Obtains the default value of a given field
 	def default(self, fieldName):
 		#return self.mgroup.mfields[fieldName].get_client(self)
 		return self.mgroup.mfields[fieldName].default(self)
 
-	# Obtains the domain of the given field
+	## @brief Obtains the domain of the given field
 	def domain(self, fieldName):
 		return self.mgroup.mfields[fieldName].domain(self)
 
-	# Obtains the context of the given field
+	## @brief Obtains the context of the given field
 	def fieldContext(self, fieldName):
 		return self.mgroup.mfields[fieldName].context(self)
 
-	# Returns whether the record has been modified or not
+	## @brief Returns whether the record has been modified or not
 	def isModified(self):
 		return self.modified
 
 	def fields(self):
 		return self.mgroup.mfields
 
+	## @brief Loads the record if it's not been loaded already.
 	def ensureIsLoaded(self):
 		if not self._loaded:
 			self.reload()
@@ -129,7 +130,7 @@ class ModelRecord(QObject):
 		value = []
 		for name, field in self.mgroup.mfields.items():
 			if (get_readonly or not field.stateAttributes(self).get('readonly', False)) \
-				and (not get_modifiedonly or (field.name in self.modified_fields or isinstance(field, ToManyField))):
+				and (not get_modifiedonly or field.name in self.modified_fields):
 					value.append((name, field.get(self, readonly=get_readonly,
 						modified=get_modifiedonly)))
 		value = dict(value)
@@ -137,10 +138,11 @@ class ModelRecord(QObject):
 			value['id'] = self.id
 		return value
 
+	## @brief Marks the current record as not loaded.
 	def cancel(self):
 		self._loaded = False
-		#self.reload()
 
+	## @brief Save the record to the database. It doesn't matter if the record is new or already exists.
 	def save(self, reload=True):
 		self.ensureIsLoaded()
 		if not self.id:
@@ -163,6 +165,7 @@ class ModelRecord(QObject):
 		return self.id
 
 	# Used only by group.py
+	# Fills the record with the corresponding default values.
 	def fillWithDefaults(self, domain=[], context={}):
 		if len(self.mgroup.fields):
 			val = self.rpc.default_get(self.mgroup.fields.keys(), context)
@@ -171,6 +174,8 @@ class ModelRecord(QObject):
 					val[d[0]]=d[2]
 			self.setDefaults(val)
 
+	## @brief Obtains the value of the 'name' field for the record by calling model's
+	# name_get function in the server.
 	def name(self):
 		name = self.rpc.name_get([self.id], Rpc.session.context)[0]
 		return name
@@ -200,6 +205,7 @@ class ModelRecord(QObject):
 			self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self )
 		return change
 
+	## @brief Returns True if all fields are valid. Otherwise it returns False.
 	def validate(self):
  		self.ensureIsLoaded()
  		ok = True
@@ -211,10 +217,11 @@ class ModelRecord(QObject):
 				self.setFieldValid( fname, True )
  		return ok
 
+	## @brief Returns the context with which the record has been loaded.
 	def context(self):
 		return self.mgroup.context()
 
-	# Returns a dict with the default value of each field
+	## @brief Returns a dict with the default value of each field
 	# { 'field': defaultValue }
 	def defaults(self):
 		self.ensureIsLoaded()
@@ -222,7 +229,7 @@ class ModelRecord(QObject):
 					  for name, field in self.mgroup.mfields.items()])
 		return value
 
-	# Sets the default values for each field from a dict
+	## @brief Sets the default values for each field from a dict
 	# { 'field': defaultValue }
 	def setDefaults(self, val):
 		for fieldname, value in val.items():

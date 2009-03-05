@@ -50,22 +50,33 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 	def setup( self, model, context ):
 		self.model = model
 		self.context = context
-                self.group = ModelRecordGroup( self.model, context=self.context )
-                self.group.makeEmpty()
+		self.group = ModelRecordGroup( self.model, context=self.context )
+		self.group.makeEmpty()
 
-                self.screen.setModelGroup( self.group )
-                self.screen.setEmbedded( True )
-                self.screen.setupViews( ['form'], [False] )
-                self.screen.new()
+		self.screen.setModelGroup( self.group )
+		self.screen.setEmbedded( True )
+		self.screen.setupViews( ['form'], [False] )
+		self.screen.new()
 
 	def save( self ):
-		#self.result = self.uiId.value()
-		#self.accept()	
                 self.screen.currentView().store()
                 record = self.screen.currentRecord()
+		fields = []
                 if record.isModified():
                         values = record.get(get_readonly=False, get_modifiedonly=True)
-			answer = QMessageBox.question( self, _('Confirmation'), _('This process will update %d fields in %d records. Do you want to continue?') % ( len(values), len(self.ids) ), QMessageBox.Yes | QMessageBox.No )
+			for field in values:
+				attrs = record.fields()[ field ].attrs
+				if 'string' in attrs:
+					name = attrs['string']
+				else:
+					name = field
+				fields.append( '<li>%s</li>' % name )
+
+			fields.sort()
+			fields = '<ul>%s</ul>' % ''.join( fields )
+
+		if fields:
+			answer = QMessageBox.question( self, _('Confirmation'), _('<p>This process will update the following fields in %d records:</p>%s<p>Do you want to continue?</p>') % ( len(self.ids), fields ), QMessageBox.Yes | QMessageBox.No )
 			if answer == QMessageBox.No:
 				return
                         Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, values, self.context)
