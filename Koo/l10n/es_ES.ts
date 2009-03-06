@@ -1040,97 +1040,97 @@ Tenga en cuenta que pude que no respondamos si la compañía que le da soporte n
         <translation>Caps</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="446"/>
+        <location filename="keyboard.ui" line="449"/>
         <source>Esc</source>
         <translation>Esc</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="459"/>
+        <location filename="keyboard.ui" line="462"/>
         <source>Space</source>
         <translation>Space</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="472"/>
+        <location filename="keyboard.ui" line="475"/>
         <source>7</source>
         <translation>7</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="485"/>
+        <location filename="keyboard.ui" line="488"/>
         <source>9</source>
         <translation>9</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="498"/>
+        <location filename="keyboard.ui" line="501"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="511"/>
+        <location filename="keyboard.ui" line="514"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="524"/>
+        <location filename="keyboard.ui" line="527"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="537"/>
+        <location filename="keyboard.ui" line="540"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="550"/>
+        <location filename="keyboard.ui" line="553"/>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="563"/>
+        <location filename="keyboard.ui" line="566"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="576"/>
+        <location filename="keyboard.ui" line="670"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="589"/>
+        <location filename="keyboard.ui" line="579"/>
         <source>Q</source>
         <translation>Q</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="602"/>
+        <location filename="keyboard.ui" line="592"/>
         <source>&lt;-</source>
         <translation>&lt;-</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="615"/>
         <source>`</source>
-        <translation>`</translation>
+        <translation type="obsolete">`</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="628"/>
+        <location filename="keyboard.ui" line="605"/>
         <source>&apos;</source>
         <translation>&apos;</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="641"/>
+        <location filename="keyboard.ui" line="618"/>
         <source>+</source>
         <translation>+</translation>
     </message>
     <message encoding="UTF-8">
-        <location filename="keyboard.ui" line="654"/>
+        <location filename="keyboard.ui" line="631"/>
         <source>Ç</source>
         <translation>Ç</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="667"/>
+        <location filename="keyboard.ui" line="644"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="680"/>
+        <location filename="keyboard.ui" line="657"/>
         <source>P</source>
         <translation>P</translation>
     </message>
@@ -1184,6 +1184,21 @@ Tenga en cuenta que pude que no respondamos si la compañía que le da soporte n
         <source>Color Legend</source>
         <translation>Leyenda de colores</translation>
     </message>
+    <message>
+        <location filename="keypad.ui" line="95"/>
+        <source>*</source>
+        <translation>*</translation>
+    </message>
+    <message>
+        <location filename="keypad.ui" line="147"/>
+        <source>/</source>
+        <translation>/</translation>
+    </message>
+    <message>
+        <location filename="keypad.ui" line="238"/>
+        <source>Intro</source>
+        <translation>Intro</translation>
+    </message>
 </context>
 <context>
     <name>FormContainerWidget</name>
@@ -1193,7 +1208,7 @@ Tenga en cuenta que pude que no respondamos si la compañía que le da soporte n
         <translation>Formulario</translation>
     </message>
     <message>
-        <location filename="formcontainer.ui" line="58"/>
+        <location filename="formcontainer.ui" line="56"/>
         <source>State:</source>
         <translation>Estado:</translation>
     </message>
@@ -1700,246 +1715,246 @@ Tenga en cuenta que pude que no respondamos si la compañía que le da soporte n
     <message>
         <location filename="mainwindow.ui" line="249"/>
         <source>User &amp;Manual</source>
-        <translation>&amp;Manual de Usuario</translation>
+        <translation type="obsolete">&amp;Manual de Usuario</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="264"/>
+        <location filename="mainwindow.ui" line="256"/>
         <source>F&amp;orm</source>
         <translation>F&amp;ormulario</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="297"/>
+        <location filename="mainwindow.ui" line="291"/>
         <source>&amp;File</source>
         <translation>&amp;Fichero</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="301"/>
+        <location filename="mainwindow.ui" line="295"/>
         <source>&amp;Databases</source>
         <translation>&amp;Bases de datos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="319"/>
+        <location filename="mainwindow.ui" line="313"/>
         <source>&amp;User</source>
         <translation>&amp;Usuario</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="331"/>
+        <location filename="mainwindow.ui" line="325"/>
         <source>&amp;Actions</source>
         <translation>&amp;Acciones</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="336"/>
+        <location filename="mainwindow.ui" line="330"/>
         <source>&amp;Reports</source>
         <translation>&amp;Informes</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="341"/>
+        <location filename="mainwindow.ui" line="335"/>
         <source>&amp;Browse</source>
         <translation>&amp;Navegar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="396"/>
+        <location filename="mainwindow.ui" line="390"/>
         <source>&amp;Connect</source>
         <translation>&amp;Conectar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="399"/>
+        <location filename="mainwindow.ui" line="393"/>
         <source>Ctrl+O</source>
         <comment>Ctrl+O to Login</comment>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="414"/>
+        <location filename="mainwindow.ui" line="408"/>
         <source>&amp;Disconnect</source>
         <translation>&amp;Desconectar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="423"/>
+        <location filename="mainwindow.ui" line="417"/>
         <source>&amp;Quit</source>
         <translation>&amp;Salir</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="432"/>
+        <location filename="mainwindow.ui" line="426"/>
         <source>&amp;New Database</source>
         <translation>&amp;Nueva base de datos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="441"/>
+        <location filename="mainwindow.ui" line="435"/>
         <source>&amp;Restore Database</source>
         <translation>&amp;Restaurar una Base de Datos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="450"/>
+        <location filename="mainwindow.ui" line="444"/>
         <source>&amp;Backup Database</source>
         <translation>&amp;Copia de Seguridad</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="459"/>
+        <location filename="mainwindow.ui" line="453"/>
         <source>&amp;Drop Database</source>
         <translation>&amp;Eliminar una Base de Datos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="468"/>
+        <location filename="mainwindow.ui" line="462"/>
         <source>&amp;Administrator Password</source>
         <translation>&amp;Contraseña del Administrador</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="477"/>
+        <location filename="mainwindow.ui" line="471"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Preferencias</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="486"/>
+        <location filename="mainwindow.ui" line="480"/>
         <source>&amp;Send Request</source>
         <translation>&amp;Enviar una Petición</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="495"/>
+        <location filename="mainwindow.ui" line="489"/>
         <source>&amp;Read My Requests</source>
         <translation>&amp;Leer Mis Peticiones</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="504"/>
+        <location filename="mainwindow.ui" line="498"/>
         <source>&amp;Waiting Requests</source>
         <translation>&amp;Peticiones en Espera</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="513"/>
+        <location filename="mainwindow.ui" line="507"/>
         <source>&amp;New</source>
         <translation>&amp;Nuevo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="516"/>
+        <location filename="mainwindow.ui" line="510"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="525"/>
+        <location filename="mainwindow.ui" line="519"/>
         <source>&amp;Save</source>
         <translation>&amp;Guardar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="528"/>
+        <location filename="mainwindow.ui" line="522"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="537"/>
+        <location filename="mainwindow.ui" line="531"/>
         <source>D&amp;uplicate</source>
         <translation>D&amp;uplicar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="540"/>
+        <location filename="mainwindow.ui" line="534"/>
         <source>Ctrl+Shift+D</source>
         <translation>Ctrl+Shift+D</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="549"/>
+        <location filename="mainwindow.ui" line="543"/>
         <source>&amp;Delete</source>
         <translation>&amp;Borrar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="552"/>
+        <location filename="mainwindow.ui" line="546"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="561"/>
+        <location filename="mainwindow.ui" line="555"/>
         <source>&amp;Find</source>
         <translation>&amp;Buscar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="564"/>
+        <location filename="mainwindow.ui" line="558"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="573"/>
+        <location filename="mainwindow.ui" line="567"/>
         <source>&amp;Next</source>
         <translation>&amp;Siguiente</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="576"/>
+        <location filename="mainwindow.ui" line="570"/>
         <source>Alt+PgDown</source>
         <translation>Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="585"/>
+        <location filename="mainwindow.ui" line="579"/>
         <source>&amp;Previous</source>
         <translation>&amp;Anterior</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="588"/>
+        <location filename="mainwindow.ui" line="582"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="597"/>
+        <location filename="mainwindow.ui" line="591"/>
         <source>Switch &amp;View</source>
         <translation>Cambiar &amp;Vista</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="600"/>
+        <location filename="mainwindow.ui" line="594"/>
         <source>Ctrl+L, Ctrl+Shift+L</source>
         <translation>Ctrl+L, Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="605"/>
+        <location filename="mainwindow.ui" line="599"/>
         <source>Open &amp;Menu Tab</source>
         <translation>Abrir la Pestaña de &amp;Menú</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="610"/>
+        <location filename="mainwindow.ui" line="604"/>
         <source>Next Tab</source>
         <translation>Pestaña Siguiente</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="613"/>
+        <location filename="mainwindow.ui" line="607"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="618"/>
+        <location filename="mainwindow.ui" line="612"/>
         <source>Previous Tab</source>
         <translation>Pestaña Anterior</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="621"/>
+        <location filename="mainwindow.ui" line="615"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="630"/>
+        <location filename="mainwindow.ui" line="624"/>
         <source>&amp;Close</source>
         <translation>&amp;Cerrar</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="633"/>
+        <location filename="mainwindow.ui" line="627"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="638"/>
+        <location filename="mainwindow.ui" line="632"/>
         <source>View Access Log</source>
         <translation>Ver el Histórico de Accesos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="647"/>
+        <location filename="mainwindow.ui" line="641"/>
         <source>Go To Resource ID</source>
         <translation>Ir al recurso con ID</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="656"/>
+        <location filename="mainwindow.ui" line="650"/>
         <source>&amp;Open</source>
         <translation>&amp;Abrir</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="665"/>
+        <location filename="mainwindow.ui" line="659"/>
         <source>&amp;Reload/Undo</source>
         <translation>&amp;Recardar/Deshacer</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="668"/>
+        <location filename="mainwindow.ui" line="662"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
@@ -1954,99 +1969,109 @@ Tenga en cuenta que pude que no respondamos si la compañía que le da soporte n
         <translation type="obsolete">Previsualizar en un Editor</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="673"/>
+        <location filename="mainwindow.ui" line="667"/>
         <source>E&amp;xport Data</source>
         <translation>E&amp;xportar Datos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="678"/>
+        <location filename="mainwindow.ui" line="672"/>
         <source>&amp;Import Data</source>
         <translation>&amp;Importar Datos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="687"/>
+        <location filename="mainwindow.ui" line="681"/>
         <source>&amp;Execute Plugins</source>
         <translation>&amp;Ejectuar un Conector</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="696"/>
+        <location filename="mainwindow.ui" line="690"/>
         <source>&amp;Contextual Help</source>
         <translation>&amp;Ayuda Contextual</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="701"/>
+        <location filename="mainwindow.ui" line="695"/>
         <source>&amp;Tips</source>
         <translation>&amp;Consejos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="710"/>
+        <location filename="mainwindow.ui" line="704"/>
         <source>&amp;Keyboard Shortcut</source>
         <translation>&amp;Accesos de Teclado</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="715"/>
+        <location filename="mainwindow.ui" line="709"/>
         <source>&amp;License</source>
         <translation>&amp;Licencia</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="724"/>
+        <location filename="mainwindow.ui" line="718"/>
         <source>&amp;About</source>
         <translation>&amp;Acerca de</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="733"/>
+        <location filename="mainwindow.ui" line="727"/>
         <source>Full &amp;Text Search</source>
         <translation>Búsqueda de &amp;Texto</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="736"/>
+        <location filename="mainwindow.ui" line="730"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="745"/>
+        <location filename="mainwindow.ui" line="739"/>
         <source>Attachments</source>
         <translation>Adjuntos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="748"/>
+        <location filename="mainwindow.ui" line="742"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="757"/>
+        <location filename="mainwindow.ui" line="751"/>
         <source>&amp;Form designer</source>
         <translation>&amp;Diseñador de Formularios</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="762"/>
+        <location filename="mainwindow.ui" line="756"/>
         <source>&amp;Menu</source>
         <translation>&amp;Menú</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="767"/>
+        <location filename="mainwindow.ui" line="761"/>
         <source>User Manual</source>
         <translation>Manual de Usuario</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="772"/>
         <source>OpenERP</source>
-        <translation>OpenERP</translation>
+        <translation type="obsolete">OpenERP</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="777"/>
+        <location filename="mainwindow.ui" line="771"/>
         <source>Koo</source>
         <translation>Koo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="782"/>
+        <location filename="mainwindow.ui" line="776"/>
         <source>Open Home Tab</source>
         <translation>Abrir la Pestaña Principal</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="791"/>
+        <location filename="mainwindow.ui" line="785"/>
         <source>&amp;Clear Cache</source>
         <translation>&amp;Limpiar cache</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="766"/>
+        <source>Documentation</source>
+        <translation>Documentación</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="794"/>
+        <source>Modify All Selected Records</source>
+        <translation>Modificar todos los registros seleccionados</translation>
     </message>
 </context>
 <context>
@@ -2688,6 +2713,24 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>MassiveUpdateDialog</name>
+    <message>
+        <location filename="massiveupdate.ui" line="13"/>
+        <source>Massive Update Process</source>
+        <translation>Proceso de actualización masiva</translation>
+    </message>
+    <message>
+        <location filename="massiveupdate.ui" line="44"/>
+        <source>&amp;Accept</source>
+        <translation>&amp;Aceptar</translation>
+    </message>
+    <message>
+        <location filename="massiveupdate.ui" line="55"/>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancelar</translation>
+    </message>
+</context>
+<context>
     <name>OneToManyWidget</name>
     <message>
         <location filename="one2many.ui" line="13"/>
@@ -2745,7 +2788,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="paned.ui" line="49"/>
         <source>Title</source>
-        <translation>Título</translation>
+        <translation type="obsolete">Título</translation>
     </message>
     <message>
         <location filename="paned.ui" line="83"/>
@@ -2753,12 +2796,12 @@ p, li { white-space: pre-wrap; }
         <translation>Buscar</translation>
     </message>
     <message>
-        <location filename="paned.ui" line="99"/>
+        <location filename="paned.ui" line="100"/>
         <source>Open</source>
         <translation>Abrir</translation>
     </message>
     <message>
-        <location filename="paned.ui" line="115"/>
+        <location filename="paned.ui" line="117"/>
         <source>Switch View</source>
         <translation>Cambiar Vista</translation>
     </message>

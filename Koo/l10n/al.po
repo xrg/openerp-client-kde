@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-04 20:28+0100\n"
+"POT-Creation-Date: 2009-03-06 01:54+0100\n"
 "PO-Revision-Date: 2005-04-05 09:43+0200\n"
 "Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
 "Language-Team: FR <i18n-info@tinyerp.org>\n"
@@ -16,10 +16,152 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Koo/koo.py:72
+#: Koo/koo.py:75
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with Koo."
+msgstr ""
+
+#: Koo/Fields/AbstractFieldWidget.py:68
+msgid "Set to default value"
+msgstr "Vendose vleren standarde"
+
+#: Koo/Fields/AbstractFieldWidget.py:74
+#, fuzzy
+msgid "Set as default value"
+msgstr "Vendose vleren standarde"
+
+#: Koo/Fields/AbstractFieldWidget.py:101
+#, fuzzy
+msgid "Operation not permited"
+msgstr ""
+"Operacioni deshtoj !\n"
+"I/O Gabimi"
+
+#: Koo/Fields/AbstractFieldWidget.py:101
+#, fuzzy
+msgid "You can not set to the default value here !"
+msgstr "Vendose vleren standarde"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:73
+#: Koo/Fields/Image/ImageFieldWidget.py:71
+#: Koo/Fields/Link/LinkFieldWidget.py:61
+#, fuzzy
+msgid "Open..."
+msgstr "Hape"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:74
+msgid "Show &image..."
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:111
+#: Koo/Fields/Video/VideoFieldWidget.py:60
+msgid "Select the file to attach"
+msgstr "Selekto fajllin per te bashkangjitur"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:117
+#: Koo/Fields/Binary/BinaryFieldWidget.py:152 Koo/Model/KooModel.py:342
+#, python-format
+msgid "%d bytes"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:127
+#: Koo/Fields/Video/VideoFieldWidget.py:67
+msgid "Error reading the file"
+msgstr "Gabim gjate leximit te fajllit"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:131
+#: Koo/Fields/Video/VideoFieldWidget.py:71
+#, fuzzy
+msgid "Save as..."
+msgstr "Rauje attachmentin sikurse..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:137
+#: Koo/Fields/Video/VideoFieldWidget.py:77
+msgid "Error writing the file!"
+msgstr "Gabim gjate shkrimit ne fajlle!"
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:70 Koo/Dialogs/FormWidget.py:223
+#: Koo/Dialogs/FormWidget.py:380
+#, fuzzy
+msgid "Question"
+msgstr "Pershkrimi"
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:99
+msgid "Error in Button"
+msgstr ""
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:99
+msgid "Button type not allowed"
+msgstr ""
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:105
+#, fuzzy
+msgid "Invalid Form, correct red fields!"
+msgstr "Forma jo e rregullte, permisoni fushat ne te kuqe!"
+
+#: Koo/Fields/Calendar/Calendar.py:63
+msgid "Set current date"
+msgstr ""
+
+#: Koo/Fields/Calendar/Calendar.py:104
+msgid "Set current date and time"
+msgstr ""
+
+#: Koo/Fields/Calendar/Calendar.py:142 Koo/Fields/Calendar/Calendar.py:189
+msgid "Set current time"
+msgstr ""
+
+#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+msgid "Translation dialog"
+msgstr ""
+
+#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+msgid "You must save the resource before adding translations"
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:113
+#, fuzzy
+msgid "Save image as..."
+msgstr "Rauje attachmentin sikurse..."
+
+#: Koo/Fields/Image/ImageFieldWidget.py:121
+#, fuzzy
+msgid "Error saving file"
+msgstr "Gabim gjate leximit te fajllit"
+
+#: Koo/Fields/Image/ImageFieldWidget.py:121
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:124
+msgid "Open image file..."
+msgstr ""
+
+#: Koo/Fields/Link/LinkFieldWidget.py:70
+#, fuzzy
+msgid "Select the file to link to"
+msgstr "Selekto fajllin per te bashkangjitur"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:123
+msgid "Action"
+msgstr "Akcioni"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:124
+msgid "Report"
+msgstr ""
+
+#: Koo/Fields/FieldPreferencesDialog.py:64
+#, fuzzy
+msgid "<center>Always applicable!</center>"
+msgstr "Gjithmon e aplikueshme"
+
+#: Koo/Fields/TranslationDialog.py:51
+msgid "Translation Dialog"
 msgstr ""
 
 #: Koo/Printer/Printer.py:72
@@ -31,42 +173,40 @@ msgstr "Gabim kerkimi!"
 msgid "There was an error trying to create the report."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:223 Koo/Rpc/Rpc.py:352
+#: Koo/Rpc/Rpc-copy.py:232 Koo/Rpc/Rpc-copy.py:365 Koo/Rpc/Rpc.py:243
+#: Koo/Rpc/Rpc.py:384
 #, fuzzy
 msgid "Connection Refused"
 msgstr "Nderlidhja rrefuzuar !"
 
-#: Koo/Rpc/Rpc.py:230 Koo/Rpc/Rpc.py:239 Koo/Rpc/Rpc.py:243 Koo/Rpc/Rpc.py:364
-#: Koo/Rpc/Rpc.py:378 Koo/Rpc/Rpc.py:381
+#: Koo/Rpc/Rpc-copy.py:239 Koo/Rpc/Rpc-copy.py:248 Koo/Rpc/Rpc-copy.py:252
+#: Koo/Rpc/Rpc-copy.py:377 Koo/Rpc/Rpc-copy.py:391 Koo/Rpc/Rpc-copy.py:394
+#: Koo/Rpc/Rpc.py:250 Koo/Rpc/Rpc.py:259 Koo/Rpc/Rpc.py:272 Koo/Rpc/Rpc.py:275
+#: Koo/Rpc/Rpc.py:396 Koo/Rpc/Rpc.py:410 Koo/Rpc/Rpc.py:430 Koo/Rpc/Rpc.py:434
 msgid "Application Error"
 msgstr "Gabim aplikacioni"
 
-#: Koo/Rpc/Rpc.py:230 Koo/Rpc/Rpc.py:239 Koo/Rpc/Rpc.py:243 Koo/Rpc/Rpc.py:364
-#: Koo/Rpc/Rpc.py:378 Koo/Rpc/Rpc.py:381
+#: Koo/Rpc/Rpc-copy.py:239 Koo/Rpc/Rpc-copy.py:248 Koo/Rpc/Rpc-copy.py:252
+#: Koo/Rpc/Rpc-copy.py:377 Koo/Rpc/Rpc-copy.py:391 Koo/Rpc/Rpc-copy.py:394
+#: Koo/Rpc/Rpc.py:250 Koo/Rpc/Rpc.py:259 Koo/Rpc/Rpc.py:272 Koo/Rpc/Rpc.py:275
+#: Koo/Rpc/Rpc.py:396 Koo/Rpc/Rpc.py:410 Koo/Rpc/Rpc.py:430 Koo/Rpc/Rpc.py:434
 msgid "View details"
 msgstr "Veshtro detalet"
 
-#: Koo/Rpc/Rpc.py:494
+#: Koo/Rpc/Rpc-copy.py:510 Koo/Rpc/Rpc.py:554
 msgid "Could not contact server!"
 msgstr ""
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:501
 msgid "Yes"
 msgstr "Po!"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:501
 msgid "No"
 msgstr "Jo"
 
-#: Koo/Model/KooModel.py:340
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:101
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:136
-#, python-format
-msgid "%d bytes"
-msgstr ""
-
 #: Koo/Actions/Actions.py:59 Koo/Actions/Actions.py:83
-#: Koo/Actions/Actions.py:113
+#: Koo/Actions/Actions.py:116
 #, fuzzy, python-format
 msgid "Error: %s"
 msgstr "Gabim:"
@@ -80,24 +220,24 @@ msgstr ""
 msgid "Printing aborted. Delay too long."
 msgstr "Shtypja e nderprer, vonese e tepruar !"
 
-#: Koo/Actions/Actions.py:93
+#: Koo/Actions/Actions.py:95
 msgid "Nothing to print!"
 msgstr ""
 
-#: Koo/Actions/Actions.py:109
+#: Koo/Actions/Actions.py:112
 msgid "Printing aborted, too long delay !"
 msgstr "Shtypja e nderprer, vonese e tepruar !"
 
-#: Koo/Actions/Actions.py:204
+#: Koo/Actions/Actions.py:211
 #, fuzzy
 msgid "No actions defined"
 msgstr "S'ka akcion te definuar!"
 
-#: Koo/Actions/Actions.py:204
+#: Koo/Actions/Actions.py:211
 msgid "There are no actions defined for this item."
 msgstr ""
 
-#: Koo/Actions/Actions.py:211
+#: Koo/Actions/Actions.py:218
 msgid "Select your action"
 msgstr "Zgjedheni akcionin tuaj"
 
@@ -109,162 +249,17 @@ msgstr ""
 msgid "You must save this record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:101
+#: Koo/Screen/Action.py:105
 #, fuzzy
 msgid "Print Screen"
 msgstr "Shtypi dokumentet"
 
-#: Koo/Plugins/workflow_print/__terp__.py:31
+#: Koo/Plugins/workflow_print/__init__.py:54
 msgid "Print Workflow"
 msgstr ""
 
-#: Koo/Plugins/workflow_print/__terp__.py:36
+#: Koo/Plugins/workflow_print/__init__.py:55
 msgid "Print Workflow (Complex)"
-msgstr ""
-
-#: Koo/Plugins/__init__.py:70
-msgid "No available plugin for this resource !"
-msgstr "S'ka shtojce te mundeshme per kete resurse !"
-
-#: Koo/Plugins/__init__.py:72
-msgid "Choose a Plugin"
-msgstr "Zgjedhe Shtojcen"
-
-#: Koo/FieldWidgets/AbstractFieldWidget.py:66
-msgid "Set to default value"
-msgstr "Vendose vleren standarde"
-
-#: Koo/FieldWidgets/AbstractFieldWidget.py:72
-#, fuzzy
-msgid "Set as default value"
-msgstr "Vendose vleren standarde"
-
-#: Koo/FieldWidgets/AbstractFieldWidget.py:96
-#, fuzzy
-msgid "Operation not permited"
-msgstr ""
-"Operacioni deshtoj !\n"
-"I/O Gabimi"
-
-#: Koo/FieldWidgets/AbstractFieldWidget.py:96
-#, fuzzy
-msgid "You can not set to the default value here !"
-msgstr "Vendose vleren standarde"
-
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:69
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:70
-#: Koo/FieldWidgets/LinkFieldWidget/LinkFieldWidget.py:61
-#, fuzzy
-msgid "Open..."
-msgstr "Hape"
-
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:70
-msgid "Show &image..."
-msgstr ""
-
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:95
-#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:56
-msgid "Select the file to attach"
-msgstr "Selekto fajllin per te bashkangjitur"
-
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:111
-#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:63
-msgid "Error reading the file"
-msgstr "Gabim gjate leximit te fajllit"
-
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:115
-#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:67
-#, fuzzy
-msgid "Save as..."
-msgstr "Rauje attachmentin sikurse..."
-
-#: Koo/FieldWidgets/BinaryFieldWidget/BinaryFieldWidget.py:121
-#: Koo/FieldWidgets/VideoFieldWidget/VideoFieldWidget.py:73
-msgid "Error writing the file!"
-msgstr "Gabim gjate shkrimit ne fajlle!"
-
-#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:57
-#: Koo/Dialogs/FormWidget.py:200 Koo/Dialogs/FormWidget.py:336
-#, fuzzy
-msgid "Question"
-msgstr "Pershkrimi"
-
-#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:71
-msgid "Error in Button"
-msgstr ""
-
-#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:71
-msgid "Button type not allowed"
-msgstr ""
-
-#: Koo/FieldWidgets/ButtonFieldWidget/ButtonFieldWidget.py:77
-#, fuzzy
-msgid "Invalid Form, correct red fields!"
-msgstr "Forma jo e rregullte, permisoni fushat ne te kuqe!"
-
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:59
-msgid "Set current date"
-msgstr ""
-
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:100
-msgid "Set current date and time"
-msgstr ""
-
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:134
-#: Koo/FieldWidgets/CalendarFieldWidget/Calendar.py:177
-msgid "Set current time"
-msgstr ""
-
-#: Koo/FieldWidgets/CharFieldWidget/CharFieldWidget.py:70
-#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:54
-msgid "Translation dialog"
-msgstr ""
-
-#: Koo/FieldWidgets/CharFieldWidget/CharFieldWidget.py:70
-#: Koo/FieldWidgets/TextBoxFieldWidget/TextBoxFieldWidget.py:54
-msgid "You must save the resource before adding translations"
-msgstr ""
-
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:100
-#, fuzzy
-msgid "Save image as..."
-msgstr "Rauje attachmentin sikurse..."
-
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:108
-#, fuzzy
-msgid "Error saving file"
-msgstr "Gabim gjate leximit te fajllit"
-
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:108
-msgid ""
-"Could not save the image with the given file name. Please check that you "
-"have permissions."
-msgstr ""
-
-#: Koo/FieldWidgets/ImageFieldWidget/ImageFieldWidget.py:111
-msgid "Open image file..."
-msgstr ""
-
-#: Koo/FieldWidgets/LinkFieldWidget/LinkFieldWidget.py:70
-#, fuzzy
-msgid "Select the file to link to"
-msgstr "Selekto fajllin per te bashkangjitur"
-
-#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:123
-msgid "Action"
-msgstr "Akcioni"
-
-#: Koo/FieldWidgets/ManyToOneFieldWidget/ManyToOneFieldWidget.py:124
-msgid "Report"
-msgstr ""
-
-#: Koo/FieldWidgets/FieldPreferencesDialog.py:61
-#, fuzzy
-msgid "<center>Always applicable!</center>"
-msgstr "Gjithmon e aplikueshme"
-
-#: Koo/FieldWidgets/TranslationDialog.py:48
-msgid "Translation Dialog"
 msgstr ""
 
 #: Koo/Common/Common.py:167
@@ -290,44 +285,52 @@ msgstr ""
 msgid "Do not save"
 msgstr "Opcionet u ruajten!"
 
-#: Koo/Common/Options.py:66
+#: Koo/Common/Options.py:70
 msgid "specify alternate config file"
 msgstr "specifikoni fajllin alternative te konfigurimit"
 
-#: Koo/Common/Options.py:67
+#: Koo/Common/Options.py:71
 msgid "enable basic debugging"
 msgstr "lejoni kontrollen themelore"
 
-#: Koo/Common/Options.py:68
+#: Koo/Common/Options.py:72
 msgid "specify channels to log"
 msgstr "tregoni kanalet per qasje"
 
-#: Koo/Common/Options.py:69
+#: Koo/Common/Options.py:73
 msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 msgstr "tregoni nivelet e qasjeve per : INFO, DEBUG, WARNING, ERROR, CRITICAL"
 
-#: Koo/Common/Options.py:70
+#: Koo/Common/Options.py:74
 #, fuzzy
 msgid "specify the user login"
 msgstr "tregoni kanalet per qasje"
 
-#: Koo/Common/Options.py:71
+#: Koo/Common/Options.py:75
 msgid "specify the server port"
 msgstr ""
 
-#: Koo/Common/Options.py:72
+#: Koo/Common/Options.py:76
 msgid "specify the server ip/name"
 msgstr ""
 
-#: Koo/Common/Options.py:73
+#: Koo/Common/Options.py:77
 #, fuzzy
 msgid "specify stylesheet to apply"
 msgstr "tregoni kanalet per qasje"
 
-#: Koo/View/Chart/Parser.py:57 Koo/View/Calendar/Parser.py:46
+#: Koo/Common/Options.py:78
+msgid "use POS (Point of Sales) mode"
+msgstr ""
+
+#: Koo/View/Chart/Parser.py:58 Koo/View/Calendar/Parser.py:47
 #, fuzzy
 msgid "Unknown"
 msgstr "Dritare e panjohur"
+
+#: Koo/View/Tree/TreeView.py:186
+msgid "<a href=\"update\">Update totals</a>"
+msgstr ""
 
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
@@ -375,7 +378,7 @@ msgstr ""
 msgid "Could not create database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:608
+#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:634
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -462,33 +465,28 @@ msgid ""
 "Field %s is unknown !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:75 Koo/Dialogs/LoginDialog.py:76
+#: Koo/Dialogs/DatabaseDialog.py:74 Koo/Dialogs/LoginDialog.py:76
 #, fuzzy
 msgid "Could not connect to server !"
 msgstr ""
 "Gabim Nderlidhje!\n"
 "S'mundemi te nderlidhemi ne server!"
 
-#: Koo/Dialogs/DatabaseDialog.py:81 Koo/Dialogs/LoginDialog.py:81
+#: Koo/Dialogs/DatabaseDialog.py:80 Koo/Dialogs/LoginDialog.py:81
 msgid "No database found, you must create one !"
 msgstr ""
-
-#: Koo/Dialogs/ImportExportCommon.py:37
-#, fuzzy
-msgid "Fields"
-msgstr "Emri Fushes"
 
 #: Koo/Dialogs/ExportDialog.py:50
 #, fuzzy
 msgid "OpenERP exported information"
 msgstr "Tiny ERP - Konfirmimi"
 
-#: Koo/Dialogs/ExportDialog.py:68 Koo/Dialogs/ExportDialog.py:86
+#: Koo/Dialogs/ExportDialog.py:69 Koo/Dialogs/ExportDialog.py:87
 #, fuzzy, python-format
 msgid "%s record(s) saved!"
 msgstr " shenime(t) ruhen!"
 
-#: Koo/Dialogs/ExportDialog.py:70 Koo/Dialogs/ExportDialog.py:88
+#: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:89
 #, fuzzy, python-format
 msgid ""
 "Operation failed !\n"
@@ -497,196 +495,192 @@ msgstr ""
 "Operacioni deshtoj !\n"
 "I/O Gabimi"
 
-#: Koo/Dialogs/ExportDialog.py:86 Koo/Dialogs/ExportDialog.py:88
-#: Koo/Dialogs/ExportDialog.py:90
+#: Koo/Dialogs/ExportDialog.py:87 Koo/Dialogs/ExportDialog.py:89
+#: Koo/Dialogs/ExportDialog.py:91
 msgid "Data Export"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:90
+#: Koo/Dialogs/ExportDialog.py:91
 #, fuzzy
 msgid "Error exporting data."
 msgstr "Gabim gjate shkrimit ne fajlle!"
 
-#: Koo/Dialogs/ExportDialog.py:112
+#: Koo/Dialogs/ExportDialog.py:118
 #, fuzzy
 msgid "Error opening Excel !"
 msgstr "Gabim Gjate Hapjes Se Excelit !"
 
-#: Koo/Dialogs/ExportDialog.py:138
+#: Koo/Dialogs/ExportDialog.py:144
 #, fuzzy
 msgid "Open with Excel"
 msgstr ""
 "Hape ne Excel\n"
 "Ruaje si CSV"
 
-#: Koo/Dialogs/ExportDialog.py:140
+#: Koo/Dialogs/ExportDialog.py:146
 #, fuzzy
 msgid "Save as CSV"
 msgstr ""
 "Hape ne Excel\n"
 "Ruaje si CSV"
 
-#: Koo/Dialogs/ExportDialog.py:141
+#: Koo/Dialogs/ExportDialog.py:147
 msgid "Save as HTML"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:196
+#: Koo/Dialogs/ExportDialog.py:203
 msgid "Export Data"
 msgstr "Еksportoj Shenimet"
 
-#: Koo/Dialogs/ExportDialog.py:240
+#: Koo/Dialogs/ExportDialog.py:247
 msgid "What is the name of this export?"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:261
+#: Koo/Dialogs/ExportDialog.py:268
 #, fuzzy
 msgid "Export name"
 msgstr "Еksportoj Shenimet"
 
-#: Koo/Dialogs/ExportDialog.py:262
+#: Koo/Dialogs/ExportDialog.py:269
 #, fuzzy
 msgid "Exported fields"
 msgstr "Pastro fushen"
 
-#: Koo/Dialogs/FormWidget.py:160
+#: Koo/Dialogs/FormWidget.py:181
 msgid "No resource selected !"
 msgstr "s'ka resurse te zgjedhura !"
 
-#: Koo/Dialogs/FormWidget.py:178
+#: Koo/Dialogs/FormWidget.py:201
 #, fuzzy
 msgid "You have to select one resource!"
 msgstr "Zgjedhe resursin !"
 
-#: Koo/Dialogs/FormWidget.py:184 Koo/Dialogs/FullTextSearchDialog.py:392
+#: Koo/Dialogs/FormWidget.py:207 Koo/Dialogs/FullTextSearchDialog.py:392
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:185
+#: Koo/Dialogs/FormWidget.py:208
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:186
+#: Koo/Dialogs/FormWidget.py:209
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:187
+#: Koo/Dialogs/FormWidget.py:210
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:188
+#: Koo/Dialogs/FormWidget.py:211
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:189
+#: Koo/Dialogs/FormWidget.py:212
 msgid "Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:190
+#: Koo/Dialogs/FormWidget.py:213
 msgid "Group Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:191
+#: Koo/Dialogs/FormWidget.py:214
 msgid "Access Level"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:200
+#: Koo/Dialogs/FormWidget.py:223
 #, fuzzy
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 "A jeni te sigurt qe deshironi\n"
 "T'a largoni kete shenim?"
 
-#: Koo/Dialogs/FormWidget.py:204
+#: Koo/Dialogs/FormWidget.py:227
 #, fuzzy
 msgid "Resource not removed !"
 msgstr "Resursi i larguar."
 
-#: Koo/Dialogs/FormWidget.py:206
+#: Koo/Dialogs/FormWidget.py:229
 msgid "Resource removed."
 msgstr "Resursi i larguar."
 
-#: Koo/Dialogs/FormWidget.py:231
+#: Koo/Dialogs/FormWidget.py:253
 msgid "Working now on the duplicated document !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:262
 #, fuzzy
 msgid "Document saved !"
 msgstr "Opcionet u ruajten!"
 
-#: Koo/Dialogs/FormWidget.py:244
+#: Koo/Dialogs/FormWidget.py:266
 msgid "Invalid form !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:296
+#: Koo/Dialogs/FormWidget.py:340
 msgid "No record selected!"
 msgstr "S'ka shenim te zgjedhur!"
 
-#: Koo/Dialogs/FormWidget.py:311
+#: Koo/Dialogs/FormWidget.py:355
 #, fuzzy, python-format
 msgid "(%s attachments) "
 msgstr "Bashkangjite:"
 
-#: Koo/Dialogs/FormWidget.py:316
+#: Koo/Dialogs/FormWidget.py:360
 #, fuzzy
 msgid "No records"
 msgstr "Tjetri: Asnje shenim i zgjedhur!"
 
-#: Koo/Dialogs/FormWidget.py:323
+#: Koo/Dialogs/FormWidget.py:367
 #, fuzzy
 msgid "No document selected"
 msgstr "Nuk jane zgjedhur resurset!"
 
-#: Koo/Dialogs/FormWidget.py:327
+#: Koo/Dialogs/FormWidget.py:371
 msgid "New document"
 msgstr "Dokument i ri"
 
-#: Koo/Dialogs/FormWidget.py:329
+#: Koo/Dialogs/FormWidget.py:373
 #, fuzzy, python-format
 msgid "Editing document (id: %s)"
 msgstr "Azhuro dokumentin:"
 
-#: Koo/Dialogs/FormWidget.py:330
+#: Koo/Dialogs/FormWidget.py:374
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:336
+#: Koo/Dialogs/FormWidget.py:380
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: Koo/Dialogs/PreferencesDialog.py:56
-msgid "Preferences"
-msgstr "Preferencat"
+#: Koo/Dialogs/FormWidget.py:392
+#, fuzzy
+msgid "No records selected"
+msgstr "S'ka shenim te zgjedhur!"
 
-#: Koo/Dialogs/PreferencesDialog.py:77
-#, fuzzy, python-format
-msgid "Preference %s"
-msgstr "Preferencat"
-
-#: Koo/Dialogs/KooMainWindow.py:97 Koo/Dialogs/KooMainWindow.py:412
+#: Koo/Dialogs/KooMainWindow.py:98 Koo/Dialogs/KooMainWindow.py:414
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:107
+#: Koo/Dialogs/KooMainWindow.py:108
 #, fuzzy
 msgid "Close tab"
 msgstr "Mbylle"
 
-#: Koo/Dialogs/KooMainWindow.py:175
+#: Koo/Dialogs/KooMainWindow.py:174
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:180
+#: Koo/Dialogs/KooMainWindow.py:179
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:218
+#: Koo/Dialogs/KooMainWindow.py:217
 #, fuzzy
 msgid "Products"
 msgstr "Paraprak"
 
-#: Koo/Dialogs/KooMainWindow.py:218
+#: Koo/Dialogs/KooMainWindow.py:217
 msgid "Products module is not installed."
 msgstr ""
 
@@ -714,103 +708,114 @@ msgstr "S'ka resurse"
 msgid "You've received a new request"
 msgstr "Dergo kerkesen e re"
 
-#: Koo/Dialogs/KooMainWindow.py:391 Koo/Dialogs/KooMainWindow.py:393
+#: Koo/Dialogs/KooMainWindow.py:392 Koo/Dialogs/KooMainWindow.py:394
 #, fuzzy
 msgid "Connection error !"
 msgstr "Gabim nderlidheje!"
 
-#: Koo/Dialogs/KooMainWindow.py:391
+#: Koo/Dialogs/KooMainWindow.py:392
 #, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
 "Gabim Nderlidhje!\n"
 "S'mundemi te nderlidhemi ne server!"
 
-#: Koo/Dialogs/KooMainWindow.py:393
+#: Koo/Dialogs/KooMainWindow.py:394
 #, fuzzy
 msgid "Bad username or password !"
 msgstr ""
 "Gabim nderlidheje!\n"
 "Emri i perdoruesit ose shifra gabim!"
 
-#: Koo/Dialogs/KooMainWindow.py:397
+#: Koo/Dialogs/KooMainWindow.py:398
 msgid "Connection Error !"
 msgstr "Gabim nderlidheje!"
 
-#: Koo/Dialogs/KooMainWindow.py:411
+#: Koo/Dialogs/KooMainWindow.py:413
 msgid "Not logged !"
 msgstr "S'jeni te qasur!"
 
-#: Koo/Dialogs/KooMainWindow.py:484
+#: Koo/Dialogs/KooMainWindow.py:470
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:484
+#: Koo/Dialogs/KooMainWindow.py:470
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Dialogs/KooMainWindow.py:501
 msgid "Quit"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:515
+#: Koo/Dialogs/KooMainWindow.py:501
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:595 Koo/Dialogs/KooMainWindow.py:616
+#: Koo/Dialogs/KooMainWindow.py:621 Koo/Dialogs/KooMainWindow.py:642
 #, fuzzy
 msgid "Delete a database"
 msgstr "Zgjedhe daten"
 
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Dialogs/KooMainWindow.py:610
+#: Koo/Dialogs/KooMainWindow.py:630 Koo/Dialogs/KooMainWindow.py:636
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:608
+#: Koo/Dialogs/KooMainWindow.py:634
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:610
+#: Koo/Dialogs/KooMainWindow.py:636
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:627
+#: Koo/Dialogs/KooMainWindow.py:653
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:631 Koo/Dialogs/KooMainWindow.py:633
+#: Koo/Dialogs/KooMainWindow.py:657 Koo/Dialogs/KooMainWindow.py:659
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Zgjedhe daten"
 
-#: Koo/Dialogs/KooMainWindow.py:631
+#: Koo/Dialogs/KooMainWindow.py:657
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:633
+#: Koo/Dialogs/KooMainWindow.py:659
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:636
+#: Koo/Dialogs/KooMainWindow.py:662
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Dialogs/KooMainWindow.py:677
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:654
+#: Koo/Dialogs/KooMainWindow.py:680
 #, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:79
+msgid "Confirmation"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:80
+#, python-format
+msgid ""
+"<p>This process will update the following fields in %(number)d records:</p>%"
+"(records)s<p>Do you want to continue?</p>"
 msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:302
@@ -867,12 +872,12 @@ msgstr "Tjetri"
 msgid "Ranking"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:77
+#: Koo/Dialogs/SearchDialog.py:76
 #, fuzzy, python-format
 msgid "Search: %s"
 msgstr "Kerko:"
 
-#: Koo/Dialogs/SearchDialog.py:78
+#: Koo/Dialogs/SearchDialog.py:77
 #, fuzzy, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr "Tiny ERP - Kerko elementi"
@@ -881,18 +886,32 @@ msgstr "Tiny ERP - Kerko elementi"
 msgid "Tree"
 msgstr "Pema"
 
-#: Koo/Dialogs/TreeWidget.py:220 Koo/Dialogs/TreeWidget.py:232
+#: Koo/Dialogs/TreeWidget.py:218 Koo/Dialogs/TreeWidget.py:230
 msgid "No resource selected!"
 msgstr "Nuk jane zgjedhur resurset!"
 
-#: Koo/Dialogs/TreeWidget.py:244
+#: Koo/Dialogs/TreeWidget.py:242
 #, fuzzy
 msgid "No item selected"
 msgstr "S'ka shenim te zgjedhur!"
 
-#: Koo/Dialogs/TreeWidget.py:244
+#: Koo/Dialogs/TreeWidget.py:242
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
+
+#: Koo/Dialogs/ImportExportCommon.py:37
+#, fuzzy
+msgid "Fields"
+msgstr "Emri Fushes"
+
+#: Koo/Dialogs/PreferencesDialog.py:56
+msgid "Preferences"
+msgstr "Preferencat"
+
+#: Koo/Dialogs/PreferencesDialog.py:77
+#, fuzzy, python-format
+msgid "Preference %s"
+msgstr "Preferencat"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
 msgid "NET-RPC (faster)"
@@ -905,6 +924,16 @@ msgstr ""
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "Secure XML-RPC"
 msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
+msgid "Pyro"
+msgstr ""
+
+#~ msgid "No available plugin for this resource !"
+#~ msgstr "S'ka shtojce te mundeshme per kete resurse !"
+
+#~ msgid "Choose a Plugin"
+#~ msgstr "Zgjedhe Shtojcen"
 
 #~ msgid "Save attachment as..."
 #~ msgstr "Rauje attachmentin sikurse..."
@@ -954,10 +983,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "&Save image"
 #~ msgstr "Ruaj opcionet"
-
-#, fuzzy
-#~ msgid "No record selected"
-#~ msgstr "S'ka shenim te zgjedhur!"
 
 #~ msgid "No preference available for this resource !"
 #~ msgstr "S'ka preference te zgjedhur per kete resurs !"
