@@ -71,7 +71,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		self.uiModel.setEditable( False )
 		self.installPopupMenu( self.uiText )
 
-	def modelChanged(self, idx):
+	def recordChanged(self, idx):
 		if idx < 0:
 			enabled = False
 			self.uiText.clear()
