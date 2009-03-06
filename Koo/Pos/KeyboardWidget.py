@@ -16,4 +16,19 @@
 #   Free Software Foundation, Inc.,
 #   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
 
-from EventFilter import *
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+from PyQt4.uic import *
+from Koo.Common import Common
+from AbstractKeyboardWidget import *
+
+(KeyboardWidgetUi, KeyboardWidgetBase) = loadUiType( Common.uiPath('keyboard.ui') )
+
+class KeyboardWidget(AbstractKeyboardWidget, KeyboardWidgetUi):
+	## @brief Creates a KeyboardWidget that will send keyboard events to it's parent. It will
+	# also be positioned in the screen acording to its parent coordinates.
+	def __init__(self, parent):
+		AbstractKeyboardWidget.__init__(self, parent)
+		KeyboardWidgetUi.__init__( self )
+		self.setupUi( self )
+		self.init()

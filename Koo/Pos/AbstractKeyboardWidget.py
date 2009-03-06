@@ -1,4 +1,4 @@
-#   Copyright (C) 2008 by Albert Cervera i Areny
+#   Copyright (C) 2009 by Albert Cervera i Areny
 #   albert@nan-tic.com
 #
 #   This program is free software; you can redistribute it and/or modify 
@@ -18,19 +18,21 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
-from Koo.Common import Common
 
-(KeyboardWidgetUi, KeyboardWidgetBase) = loadUiType( Common.uiPath('keyboard.ui') )
-
-class KeyboardWidget(QWidget, KeyboardWidgetUi):
-	def __init__(self, parent=None):
+class AbstractKeyboardWidget(QWidget):
+	## @brief Creates a KeyboardWidget that will send keyboard events to it's parent. It will
+	# also be positioned in the screen acording to its parent coordinates.
+	def __init__(self, parent):
 		QWidget.__init__(self, parent)
-		KeyboardWidgetUi.__init__( self )
-		self.setupUi( self )
 
+	# @brief Initializes keyboard by connecting buttons to slots. Setting window flags. And 
+	# positioning it in the screen.
+	def init(self):
 		self.connect( self.pushEscape, SIGNAL('clicked()'), self.escape )
-		self.connect( self.pushCaps, SIGNAL('clicked()'), self.caps )
+		if hasattr(self, 'pushCaps'):
+			self.connect( self.pushCaps, SIGNAL('clicked()'), self.caps )
+		else:
+			self.pushCaps = None
 		buttons = self.findChildren( QPushButton )
 		for button in buttons:
 			if button in (self.pushCaps, self.pushEscape):
@@ -44,9 +46,11 @@ class KeyboardWidget(QWidget, KeyboardWidgetUi):
 		for widget in all:
 			widget.setFocusPolicy( Qt.NoFocus )
 		self.fitInScreen()
-		self.caps()
+		if self.pushCaps:
+			self.caps()
 		self.show()
 
+	## @brief Tries to position the Keyboard in the best place in the screen.
 	def fitInScreen(self):
 		parent = self.parent()
 		parentPos = parent.parent().mapToGlobal( parent.pos() )
@@ -68,6 +72,8 @@ class KeyboardWidget(QWidget, KeyboardWidgetUi):
 		
 	def clicked(self):
 		button = self.sender()
+		# We expect objectName to be filled with the appropiate name Qt gives
+		# to the Key the button should emulate.
 		key = self.key( unicode( button.objectName() ) )
 		if not key:
 			print 'No key assigned to button "%s"' % unicode( button.text() )
@@ -75,9 +81,11 @@ class KeyboardWidget(QWidget, KeyboardWidgetUi):
 		event = QKeyEvent( QEvent.KeyPress, key, Qt.NoModifier, button.text() )
 		QApplication.sendEvent( self.parent(), event )
 	
+	## @brief Returns the value of "Qt.Key_" + text value.
 	def key(self, text):
 		return eval( 'Qt.%s' % text )
 
+	## @brief Hides the keyboard.
 	def escape(self):
 		self.hide()
 
@@ -89,5 +97,4 @@ class KeyboardWidget(QWidget, KeyboardWidgetUi):
 					button.setText( button.text().toUpper() )
 				else:
 					button.setText( button.text().toLower() )
-
 

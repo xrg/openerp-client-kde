@@ -17,8 +17,8 @@
 #   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA. 
 
 from PyQt4.QtCore import *
-from Keyboard import *
-from Keypad import *
+from KeyboardWidget import *
+from KeypadWidget import *
 
 class PosEventFilter(QObject):
 	def __init__(self, parent=None):
