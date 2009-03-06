@@ -395,7 +395,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog.setIds( self.screen.selectedIds() )
 		dialog.setup( self.model, self.context )
 		dialog.exec_()
-			
+		self.reload()
+
 	def closeWidget(self):
 		self.screen.storeViewSettings()
 		self.reloadTimer.stop()
