@@ -52,10 +52,10 @@ class DateSearchWidget(AbstractSearchWidget, DateSearchWidgetUi):
 		self.connect( self.pushEnd, SIGNAL('clicked()'), self.slotEnd )
 
 	def slotStart(self):
-		PopupCalendar( self.uiStart )
+		PopupCalendarWidget( self.uiStart )
 
 	def slotEnd(self):
-		PopupCalendar( self.uiEnd )
+		PopupCalendarWidget( self.uiEnd )
 
 	# converts from locale specific format to our internal format
 	def _getDate(self, text):

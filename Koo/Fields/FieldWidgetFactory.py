@@ -34,6 +34,7 @@ import os
 class FieldWidgetFactory:
 	widgets = {}
 
+	## @brief Scans for all available widgets.
 	@staticmethod
 	def scan():
 		# Scan only once
@@ -42,6 +43,7 @@ class FieldWidgetFactory:
 		# Search for all available views
 		Plugins.scan( 'Koo.Fields', os.path.abspath(os.path.dirname(__file__)) )
 
+	## @brief Creates a new widget given type, parent and attributes.
 	@staticmethod
 	def create(widgetType, parent, view, attributes):
 		FieldWidgetFactory.scan()
@@ -52,6 +54,8 @@ class FieldWidgetFactory:
 		widgetClass = FieldWidgetFactory.widgets[ widgetType ]
 		return widgetClass(parent, view, attributes)
 
+	## @brief Registers a new widget, given it's name (or type) and reference
+	# to the class.
 	@staticmethod
 	def register(name, widget):
 		FieldWidgetFactory.widgets[ name ] = widget

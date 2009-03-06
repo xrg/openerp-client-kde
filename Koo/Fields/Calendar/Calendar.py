@@ -92,7 +92,7 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 			self.clear()
 
 	def showCalendar(self):
-		popup = PopupCalendar( self.uiDate, self.dateTime )
+		popup = PopupCalendarWidget( self.uiDate, self.dateTime )
 		self.connect( popup, SIGNAL('selected()'), self.store )
 
 class DateTimeFieldWidget( DateFieldWidget ):

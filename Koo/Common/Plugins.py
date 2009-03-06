@@ -27,6 +27,8 @@
 
 import os
 
+## @brief This helper function searches all available modules in a given directory.
+# It's used to scan the Plugins, Fields and View directories.
 def scan( module, directory ):
 	pluginImports = __import__(module, globals(), locals())
 	# Check if it's being run using py2exe environment

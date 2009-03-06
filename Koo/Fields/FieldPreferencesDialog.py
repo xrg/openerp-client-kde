@@ -37,7 +37,10 @@ from PyQt4.uic import *
 
 (FieldPreferencesDialogUi, FieldPreferencesDialogBase) = loadUiType( Common.uiPath('field_preferences.ui') ) 
 
+## @brief FieldPreferencesDialog class provides a dialog for storing a value as default 
+# for a field in a model.
 class FieldPreferencesDialog( QDialog, FieldPreferencesDialogUi ):
+	## @brief Constructs a new FieldPreferencesDialog.
 	def __init__(self, field, name, model, value, dependance=[], parent=None):
 		QDialog.__init__( self, parent )
 		FieldPreferencesDialogUi.__init__(self)

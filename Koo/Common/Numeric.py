@@ -72,6 +72,8 @@ def floatToText(number, digits=None):
 		d='2'
 	return ('%.' + d + 'f') % number
 
+## @brief This function returns True if the given value can be converted into
+# a float number. Otherwise it returns False.
 def isNumeric(value):
 	try:
 		return float(value) or True

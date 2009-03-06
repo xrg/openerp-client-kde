@@ -35,6 +35,7 @@ import os
 class FieldDelegateFactory:
 	delegates = {}
 
+	## @brief Scans for all available delegates.
 	@staticmethod
 	def scan():
 		# Scan only once
@@ -43,6 +44,7 @@ class FieldDelegateFactory:
 		# Search for all available views
 		Plugins.scan( 'Koo.Fields', os.path.abspath(os.path.dirname(__file__)) )
 
+	## @brief Creates a new delegate given type, parent and attributes.
 	@staticmethod
 	def create(delegateType, parent, attributes):
 		FieldDelegateFactory.scan()
@@ -52,6 +54,8 @@ class FieldDelegateFactory:
 		delegateClass = FieldDelegateFactory.delegates[delegateType]
 		return delegateClass(parent, attributes)
 
+	## @brief Registers a new delegate, given it's name (or type) and reference
+	# to the class.
 	@staticmethod
 	def register( name, delegate ):
 		FieldDelegateFactory.delegates[ name ] = delegate

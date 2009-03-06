@@ -30,7 +30,13 @@ from FieldPreferencesDialog import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
+## @brief AbstractFieldDelegate is the base class for all delegates used in Koo.
+# Delegates are used by editable lists but could be used by any Model/View based
+# widget.
 class AbstractFieldDelegate(QStyledItemDelegate):
+	## @brief Creates a new Delegate. 
+	# 'attributes' is a dictionary with attributes that apply to the field such
+	# as 'readonly' or 'required'.
 	def __init__(self, parent, attributes):
 		QStyledItemDelegate.__init__(self, parent)
 		self.name = attributes['name']
@@ -60,7 +66,7 @@ class AbstractFieldDelegate(QStyledItemDelegate):
 		editor.setPalette(palette);
 		return editor
 
-	# Use this function to return the menuEntries your widget wants to show
+	## @brief Use this function to return the menuEntries your widget wants to show
 	# just before the context menu is shown. Return a list of tuples in the form:
 	# [ (_('Menu text'), function/slot to connect the entry, True (for enabled) or False (for disabled) )] 
 	def menuEntries(self):

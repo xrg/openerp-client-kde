@@ -35,10 +35,13 @@ from Koo import Rpc
 
 (TranslationDialogUi, TranslationDialogBase) = loadUiType( Common.uiPath('translationdialog.ui') ) 
 
+## @brief TranslationDialog class provides a dialog for translating the value of a
+# translatable field.
 class TranslationDialog( QDialog, TranslationDialogUi ):
 	LineEdit = 0
 	TextEdit = 1
 
+	## @brief Constructs a new TranslationDialog object.
 	def __init__(self, id, model, fieldName, value, type, parent = None):
 		QDialog.__init__(self, parent)
 		TranslationDialogUi.__init__(self)

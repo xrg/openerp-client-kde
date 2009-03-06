@@ -38,7 +38,10 @@ from PyQt4.QtCore import QDir
 # Those settings can be specified in the command line, koo.rc configuration file
 # or ktiny server module.
 class ConfigurationManager(object):
-	def __init__(self,fname=None):
+	## @brief Constructs a ConfigurationManager object.
+	# If fileName is specified, the given file name will be used to store and retrive
+	# configuration. Otherwise, a standard location will be used.
+	def __init__(self, fileName=None):
 		self.options = {
 			'login.login': 'admin',
 			'login.server': 'localhost',
@@ -76,7 +79,7 @@ class ConfigurationManager(object):
 		(opt, args) = parser.parse_args()
 
 
-		self.rcfile = fname or opt.config or os.environ.get('TERPRC') or os.path.join(self.homeDirectory(), 'koo.rc')
+		self.rcfile = fileName or opt.config or os.environ.get('TERPRC') or os.path.join(self.homeDirectory(), 'koo.rc')
 		self.load()
 
 		if opt.verbose:
@@ -93,7 +96,8 @@ class ConfigurationManager(object):
 	def homeDirectory(self):
 		return str(QDir.toNativeSeparators(QDir.homePath()))
 
-	def save(self, fname = None):
+	## @brief Stores current settings in the appropiate config file.
+	def save(self):
 		try:
 			p = ConfigParser.ConfigParser()
 			sections = {}
@@ -111,7 +115,8 @@ class ConfigurationManager(object):
 			log.warn('Unable to write config file %s !'% (self.rcfile,))
 		return True
 
-	def load(self, fname=None):
+	## @brief Loads settings from the appropiate config file.
+	def load(self):
 		try:
 			self.rcexist = False
 			if not os.path.isfile(self.rcfile):
@@ -143,6 +148,8 @@ class ConfigurationManager(object):
 	def get(self, key, defaultValue):
 		return self.options.get(key, defaultValue)
 
+	## @brief Tries to load settings from ktiny server module.
+	# If the module is not installed, no exception or error is thrown.
 	def loadSettings(self):
 		try:
 			settings = Rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )

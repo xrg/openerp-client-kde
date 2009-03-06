@@ -169,20 +169,22 @@ def storageToDateTime( text ):
 
 (PopupCalendarUi, PopupCalendarBase) = loadUiType( Common.uiPath('datetime.ui') )
 
-## @brief The PopupCalendar class provides a simple way to show a calendar 
+## @brief The PopupCalendarWidget class provides a simple way to show a calendar 
 # where the user can pick up a date. 
 #
-# You simply need to call PopupCalendar(widget) where widget
-# should be a QLineEdit or similar. The Popup will fill in the widget itself.
+# You simply need to call PopupCalendarWidget(widget) where widget
+# should be a QLineEdit or similar. The Popup will fill in the date itself.
 #
 # If you want the user to be able to select date and time, specify showTime=True
 # when constructing the object.
 #
 # You may force the pop-up to store and close with the storeOnParent() function.
 #
-# Of course, PopupCalendar uses the other ToTime and ToText helper functions.
+# Of course, PopupCalendarWidget uses the other ToTime and ToText helper functions.
 #
-class PopupCalendar(QWidget, PopupCalendarUi):
+class PopupCalendarWidget(QWidget, PopupCalendarUi):
+	## @brief Constructs a PopupCalendarWidget. 
+	# If showTime is True, the user will be able to select the time too.
 	def __init__(self, parent, showTime = False):
 		QWidget.__init__(self, parent)
 		PopupCalendarUi.__init__(self)
@@ -212,6 +214,8 @@ class PopupCalendar(QWidget, PopupCalendarUi):
 		else:
 			self.uiCalendar.setFocus()
 
+	## @brief Stores the currently selected date (or date and time) in the parent widget
+	# and closes the popup. It also emits a 'selected()' signal.
 	def storeOnParent(self):
 		date = self.uiCalendar.selectedDate()
 		text = dateToText( date )
