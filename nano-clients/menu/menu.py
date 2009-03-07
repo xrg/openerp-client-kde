@@ -70,7 +70,7 @@ class MenuDialog(QDialog):
 		# Create GUI
 		layout = QVBoxLayout(self)
 		#widget = QTreeView(self)
-		#widget = QColumnView(self)
+		widget = QColumnView(self)
 		#widget = QListView(self)
 		#widget.setViewMode( QListView.IconMode )
 		#widget.setGridSize( QSize( 100, 100 ) )
