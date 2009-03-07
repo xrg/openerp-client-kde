@@ -113,6 +113,7 @@ class SearchFormParser(object):
 
 ## @brief This class provides a form with the fields to search given a model.
 class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
+	## @brief Constructs a new SearchFormWidget.
 	def __init__(self, parent=None):
 		AbstractSearchWidget.__init__(self, '', parent)
 		SearchFormWidgetUi.__init__(self)
