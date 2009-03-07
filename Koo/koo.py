@@ -122,23 +122,6 @@ class KeyboardWidget(QWidget):
 	def escape(self):
 		self.hide()
 
-class PosEventFilter(QObject):
-	def __init__(self, parent=None):
-		QObject.__init__(self, parent)
-
-	def eventFilter(self, obj, event):
-		if event.type() != QEvent.FocusIn:
-			return QObject.eventFilter( self, obj, event )
-
-		if obj.inherits( 'QLineEdit' ):
-			keyboard = KeyboardWidget( obj )
-			print "QLineEdit"
-		return QObject.eventFilter( self, obj, event )
-
-#app.installEventFilter( PosEventFilter(app) )
-
-
-
 
 Localization.initializeQtTranslations()
 
