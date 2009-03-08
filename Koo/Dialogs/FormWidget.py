@@ -151,7 +151,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 				self.reloadTimer.start( int(value) * 1000 )
 			if not Options.options.get('auto_reload', False):
 				# Do not subscribe again if that was already done in the constructor
-				self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
+				self.subscriber.subscribe( 'updated_model:%s' % self.model, self.autoReload )
 		else:
 			self.reloadTimer.stop()
 
