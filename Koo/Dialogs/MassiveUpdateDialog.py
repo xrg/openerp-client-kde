@@ -51,7 +51,7 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 		self.model = model
 		self.context = context
 		self.group = ModelRecordGroup( self.model, context=self.context )
-		self.group.makeEmpty()
+		self.group.setAllowRecordLoading( False )
 
 		self.screen.setModelGroup( self.group )
 		self.screen.setEmbedded( True )

@@ -101,7 +101,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
 		group = ModelRecordGroup( attrs['relation'] )
-		group.makeEmpty()
+		group.setAllowRecordLoading( False )
 
 		self.screen = Screen( self )
 		self.screen.setModelGroup( group )

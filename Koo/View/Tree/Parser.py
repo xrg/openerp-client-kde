@@ -42,16 +42,19 @@ from Koo.Fields.FieldDelegateFactory import *
 from Koo.Common import Common
 from Koo.Common.Numeric import *
 from Koo.Common.Calendar import *
+from Koo.Common.ViewSettings import *
 
 
 
 class TreeParser(AbstractParser):
-	def create(self, parent, model, rootNode, fields):
-		self.screen = parent
+	def create(self, viewId, parent, model, rootNode, fields):
+		# It's expected that parent will be a Screen
+		screen = parent
 
 		attrs = Common.nodeAttributes(rootNode)
 		
 		view = TreeView( parent, attrs.get('type','tree') )
+		view.id = viewId
 		if 'gridwidth' in attrs:
 			view.setGridWidth( int(attrs['gridwidth']) )
 		if 'gridheight' in attrs:
@@ -117,7 +120,7 @@ class TreeParser(AbstractParser):
 
 		model = KooModel.KooModel( view )
 		model.setMode( KooModel.KooModel.ListMode )
-		model.setModelGroup( self.screen.group )
+		model.setModelGroup( screen.group )
 		model.setFields( fields )
 		model.setFieldsOrder( [x['name'] for x in header] )
 		model.setColors( colors )
@@ -131,6 +134,14 @@ class TreeParser(AbstractParser):
 			model.setShowBackgroundColor( False )
 		else:
 			model.setShowBackgroundColor( True )
+
+		# Here we use a trick to avoid double data loading.
+		# If we don't disallow record loading, records would be loaded twice
+		# once, in "view.setModel( model )" and another one when Screen loads
+		# view.setViewSettings(). What we do here is disallow record loading,
+		# run setModel(), load settings and finally allow record loading again.
+		# This optimizes Tree View loading times.
+		screen.group.setAllowRecordLoading( False )
 		view.setModel( model )
 
 		for column in range( len(columns)):
@@ -142,6 +153,10 @@ class TreeParser(AbstractParser):
 
 			delegate = FieldDelegateFactory.create( current['type'], view.widget, current['attributes'] )
 			view.widget.setItemDelegateForColumn( column, delegate )
+
+		view.setViewSettings( ViewSettings.load( view.id ) )
+		screen.group.setAllowRecordLoading( True )
+
 		return view, on_write
 
 # vim:noexpandtab:

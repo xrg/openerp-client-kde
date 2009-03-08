@@ -92,15 +92,22 @@ class ModelRecordGroup(QObject):
 
 		self.records = []
 		
+		# toBeSorted properties store information each time sort() function
+		# is called. If loading of records is not enabled, records won't be
+		# loaded but we keep by which field we want information to be sorted
+		# so when record loading is enabled again we know how should the sorting
+		# be.
+		self.toBeSortedField = None
+		self.toBeSortedOrder = None
+
 		self.sortedField = None
 		self.sortedRelatedIds = []
 		self.sortedOrder = None
 		self.updated = False
 		self._domain = []
 		self._filter = []
-		self._empty = False
+		self._allowRecordLoading = True
 
-		#self._sortMode = self.SortVisibleItems
 		if Options.options['sort_mode'] == 'visible_items':
 			self._sortMode = self.SortVisibleItems
 		else:
@@ -174,7 +181,8 @@ class ModelRecordGroup(QObject):
 		start = len(self.records)
 		for id in ids:
 			newmod = ModelRecord(self.resource, id, parent=self.parent, group=self)
-			self.addModel(newmod)
+			# Don't use addModel( newmod ) for performance reasons.
+			self.records.append( newmod )
 		end = len(self.records)-1
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 
@@ -472,7 +480,7 @@ class ModelRecordGroup(QObject):
 			self._domain = []
 		else:
 			self._domain = value
-		self._empty = False
+		self._allowRecordLoading  = True
 	
 	## @brief Returns the current domain.
 	def domain(self):
@@ -487,31 +495,48 @@ class ModelRecordGroup(QObject):
 			self._filter = []
 		else:
 			self._filter = value
-		self._empty = False
+		self._allowRecordLoading  = True
 	
 	## @brief Returns the current filter.
 	def filter(self):
 		return self._filter
 
-	## @brief Makes the group completely empty. It's like applying a filter that
-	# ensures that no record is loaded but without the need of quering the server.
+	## @brief Enables or disables record loading. Sometimes it's desired that the model
+	# won't load anything, as otherwise it would load records, by default.
 	#
-	# Calling setFilter() or setDomain() after this function will clear the empty flag.
-	def makeEmpty(self):
-		self._empty = True
-		self.clear()
+	# Calling setFilter() or setDomain() after this function will reallow record loading
+	# if it's disallowed. If the following sequence happens:
+	#
+	# setAllowRecordLoading( False )
+	# sort( 'name', Qt.Descending )
+	# setAllowRecordLoading( True )
+	# 
+	# When setAllowRecordLoading( True ) is called, the model will be updated with the
+	# latest sort parameters. That is, sorted by name in descending order.
+	def setAllowRecordLoading(self, value):
+		self._allowRecordLoading  = value
+		if not value:
+			self.clear()
+		else:
+			self.update()
+	
+	## @brief Returns whether record loading is enabled or not.
+	def allowRecordLoading(self):
+		return self._allowRecordLoading 
 
 	## @brief Reload the model group with current selected sort field, order, domain and filter
 	def update(self):
-		#f = self.sortedField
-		#self.sortedField = None
 		## Make it reload again
 		self.updated = False
-		self.sort( self.sortedField, self.sortedOrder )
+		self.sort( self.toBeSortedField, self.toBeSortedOrder )
 
 	## @brief Sorts the model by the given field name.
 	def sort(self, field, order):
-		if self._empty:
+		#if self._empty:
+		#	return
+		self.toBeSortedField = field
+		self.toBeSortedOrder = order
+		if not self._allowRecordLoading:
 			return
 		if self._sortMode == self.SortAllItems:
 			self.sortAll( field, order )
@@ -526,10 +551,9 @@ class ModelRecordGroup(QObject):
 		# Check there're no new or modified fields. If there are
 		# we won't sort as it means reloading data from the server
 		# and we'd loose current changes.
-		for record in self.records:
-			if record.modified:
-				return
-			
+		if self.isModified():
+			return
+
 		if not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.

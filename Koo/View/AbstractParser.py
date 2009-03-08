@@ -33,6 +33,7 @@
 class AbstractParser(object):
 
 	## @brief You need to provide the create function with the following parameters:
+	#    viewId:    Id of the view. The parser is responsible for assigning view.id = viewId.
 	#    parent:    Holds the reference to the parent QWidget. Usually screen.
 	#               You should make of this the parent of your view.
 	#               Note/TODO: As of this writing parent NEEDS TO BE a Screen object
@@ -48,6 +49,6 @@ class AbstractParser(object):
 	#    widget:    Will hold the View which will inherit AbstractView
 	#    on_write:  Will contain the on_write attribute that comes from the server
 	#               TODO: This parameter should be a property of the View ??
-	def create(self, parent, model, node, fields):
+	def create(self, viewId, parent, model, node, fields):
 		pass
 

@@ -33,12 +33,13 @@ from PyQt4.QtGui import *
 
 class SvgParser(AbstractParser):
 
-	def create(self, parent, viewModel, node, fields, filter=None):
+	def create(self, viewId, parent, viewModel, node, fields, filter=None):
 		self.viewModel = viewModel
 		self.filter = filter
 		self.widgetList = []
 		# Create the view
 		self.view = ViewSvg( parent )
+		self.view.id = viewId
 		self.view.setSvg( 'restaurant.svg' )
 		# Parse and fill in the view
 		#on_write = self.parse( node, fields )

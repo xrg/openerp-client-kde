@@ -35,9 +35,10 @@ from PyQt4.QtGui import *
 
 class CalendarParser( AbstractParser ):
 
-	def create(self, parent, model, rootNode, fields):
+	def create(self, viewId, parent, model, rootNode, fields):
 		self.screen = parent
 		view = CalendarView( parent )
+		view.id = viewId
 
 		attrs = Common.nodeAttributes(rootNode)
  		on_write = attrs.get('on_write', '')

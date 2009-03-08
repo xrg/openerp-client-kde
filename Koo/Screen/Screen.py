@@ -416,9 +416,8 @@ class Screen(QScrollArea):
 		self.fields = self.group.fields
 
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
-		view, on_write = ViewFactory.create(self, self.resource, dom, self.fields)
+		view, on_write = ViewFactory.create(id, self, self.resource, dom, self.fields)
 		self.setOnWrite( on_write )
-		view.id = id
 		# Load view settings
 		view.setViewSettings( ViewSettings.load( view.id ) )
 

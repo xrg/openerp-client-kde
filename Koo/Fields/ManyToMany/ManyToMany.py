@@ -57,7 +57,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
 
 		group = ModelRecordGroup( attrs['relation'] )
-		group.makeEmpty()
+		group.setAllowRecordLoading( False )
 		
 		self.screen = Screen( self )
 		self.screen.setModelGroup( group )

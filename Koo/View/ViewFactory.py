@@ -52,7 +52,7 @@ class ViewFactory:
 		Plugins.scan( 'Koo.View', os.path.abspath(os.path.dirname(__file__)) )
 
 	@staticmethod
-	def create(parent, model, root_node, fields):
+	def create(viewId, parent, model, root_node, fields):
 		ViewFactory.scan()
 		# Search for the view and parse the XML 
 		widget = None
@@ -61,7 +61,7 @@ class ViewFactory:
 				continue
 			if node.localName in ViewFactory.parsers:
 				parser = ViewFactory.parsers[ node.localName ]()
-				view, on_write = parser.create(parent, model, node, fields)
+				view, on_write = parser.create(viewId, parent, model, node, fields)
 				return view, on_write
 		return None
 

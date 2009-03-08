@@ -45,7 +45,7 @@ from PyQt4.QtGui import *
 
 class ChartParser( AbstractParser ):
 
-	def create(self, parent, viewModel, node, fields):
+	def create(self, viewId, parent, viewModel, node, fields):
 		self.viewModel = viewModel
 		self.parent = parent
 
@@ -54,6 +54,7 @@ class ChartParser( AbstractParser ):
 
 		# Create the view
 		self.view = ChartView( parent )
+		self.view.id = viewId
 		self.view.title = attrs.get('string', _('Unknown') )
 		self.view.model = self.parent.currentRecord()
 

@@ -41,12 +41,13 @@ from PyQt4.QtGui import *
 
 class FormParser(AbstractParser):
 
-	def create(self, parent, viewModel, node, fields, filter=None):
+	def create(self, viewId, parent, viewModel, node, fields, filter=None):
 		self.viewModel = viewModel
 		self.filter = filter
 		self.widgetList = []
 		# Create the view
 		self.view = FormView( parent )
+		self.view.id = viewId
 		# Parse and fill in the view
 		container, on_write = self.parse( node, fields )
 		container.expand()
