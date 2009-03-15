@@ -52,6 +52,7 @@ def exportHtml(fname, fields, result, write_title=False):
 		if write_title:
 			f.write( '<tr>' )
 			for x in fields:
+				x = unicode(x)
 				f.write('<th>%s</th>' % x)
 			f.write( '</tr>' )
 		for x in result:
@@ -189,22 +190,22 @@ class ExportDialog( QDialog, ExportDialogUi ):
 
 	def slotAccept(self):
 		fields = []
-		fields2 = []
+		fieldTitles = []
 		for x in range(0, self.selectedModel.rowCount() ):
 			fields.append( unicode( self.selectedModel.item( x ).data().toString() ) )
-			fields2.append( unicode( self.selectedModel.item( x ).text() ) )
+			fieldTitles.append( unicode( self.selectedModel.item( x ).text() ) )
 		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
 		result = exportData(self.ids, self.model, fields)
 		if action == 'excel':
 			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
-			openExcel(fields2, fieldsType, result)
+			openExcel(fieldTitles, fieldsType, result)
 		else:
 			fname = QFileDialog.getSaveFileName( self, _('Export Data') )
 			if not fname.isNull():
 				if action == 'csv':
-					exportCsv(fname, fields2, result, self.uiAddFieldNames.isChecked() )
+					exportCsv(fname, fieldTitles, result, self.uiAddFieldNames.isChecked() )
 				else:
-					exportHtml(fname, fields2, result, self.uiAddFieldNames.isChecked() )
+					exportHtml(fname, fieldTitles, result, self.uiAddFieldNames.isChecked() )
 
 	def slotAdd(self):
 		idx = self.uiAllFields.selectionModel().selectedRows()
@@ -275,5 +276,14 @@ class StoredExportsModel( QStandardItemModel ):
 		export_ids = ir_export.search([('resource', '=', model)])
 		for export in ir_export.read(export_ids):
 			fields = ir_export_line.read(export['export_fields'])
+
+			allFound = True
+			for f in fields:
+				if not f['name'] in fieldsInfo:
+					allFound = False
+					break
+			if not allFound:
+				continue
+
 			items = [ QStandardItem( ', '.join([f['name'] for f in fields]) ), QStandardItem( str(export['id']) ), QStandardItem( export['name'] ), QStandardItem( ', '.join( [fieldsInfo[f['name']]['string'] for f in fields] ) ) ]
 			self.rootItem.appendRow( items )
