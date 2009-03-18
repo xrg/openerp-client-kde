@@ -74,6 +74,10 @@ class CharFieldWidget(AbstractFieldWidget):
 			self.widget.setText( dialog.result )
 
 	def store(self):
+		# editingFinished() signal might be triggered when no record is selected
+		# so we should return immediately in that case.
+		if not self.model:
+			return
 		self.model.setValue( self.name, unicode(self.widget.text()) or False )
 
 	def clear(self):
