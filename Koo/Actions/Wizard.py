@@ -69,7 +69,7 @@ class WizardPage(QDialog):
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( 'wizard.'+name ) )
 		self.screen.new(default=False)
-		self.screen.addCustomView(arch, fields, display=True)
+		self.screen.addView(arch, fields, display=True)
 		# Set default values
 		self.screen.currentRecord().set(val)
 		# Set already stored values

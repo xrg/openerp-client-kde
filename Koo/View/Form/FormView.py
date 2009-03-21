@@ -177,7 +177,7 @@ class FormView( AbstractView ):
 		self.updateDisplay(self.model)
 
 	def updateDisplay(self,model):
-		if self.model and ('state' in self.model.mgroup.fields):
+		if self.model and ('state' in self.model.group.fields):
 			state = self.model.value('state')
 		else:
 			state = 'draft'

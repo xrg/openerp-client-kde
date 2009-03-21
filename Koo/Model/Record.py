@@ -51,27 +51,25 @@ class EvalEnvironment(object):
 			return time
 		return self.parent.get(includeid=True)[item]
 
-
 # We inherit QObject as we'll be using signals & slots
 class ModelRecord(QObject):
-	def __init__(self, resource, id, group=None, parent=None, new=False ):
+	def __init__(self, id, group, parent=None, new=False ):
 		QObject.__init__(self, group)
-		self.resource = resource
-		self.rpc = RpcProxy(self.resource)
+		self.rpc = group.rpc
 		self.id = id
 		self._loaded = False
 		self.parent = parent
-		self.mgroup = group
+		self.group = group
 		self.values = {}
 		self.state_attrs = {}
 		self.modified = False
 		self.modified_fields = {}
 		self.invalidFields = []
 		self.read_time = time.time()
-		for key,val in self.mgroup.mfields.items():
-			self.values[key] = val.create(self)
-			if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
-				self.values[key].create()
+		#for key,val in self.group.fieldObjects.items():
+		#	self.values[key] = val.create(self)
+		#	if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
+		#		self.values[key].create()
 
 	def _getModified(self):
 		return self._modified
@@ -80,42 +78,41 @@ class ModelRecord(QObject):
 	modified=property(_getModified,_setModified)
 
 	def __getitem__(self, name):
-		return self.mgroup.mfields.get(name, False)
+		return self.group.fieldObjects.get(name, False)
 	
 	def __repr__(self):
-		return '<ModelRecord %s@%s>' % (self.id, self.resource)
+		return '<ModelRecord %s@%s>' % (self.id, self.group.resource)
 
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
-		self.mgroup.mfields[fieldName].set_client(self, value)
+		self.group.fieldObjects[fieldName].set_client(self, value)
 
 	## @brief Obtains the value of a given field
 	def value(self, fieldName):
-		return self.mgroup.mfields[fieldName].get_client(self)
+		return self.group.fieldObjects[fieldName].get_client(self)
 
 	## @brief Establishes the default value for a given field
 	def setDefault(self, fieldName, value):
-		self.mgroup.mfields[fieldName].set_client(self, value)
+		self.group.fieldObjects[fieldName].set_client(self, value)
 
 	## @brief Obtains the default value of a given field
 	def default(self, fieldName):
-		#return self.mgroup.mfields[fieldName].get_client(self)
-		return self.mgroup.mfields[fieldName].default(self)
+		return self.group.fieldObjects[fieldName].default(self)
 
 	## @brief Obtains the domain of the given field
 	def domain(self, fieldName):
-		return self.mgroup.mfields[fieldName].domain(self)
+		return self.group.fieldObjects[fieldName].domain(self)
 
 	## @brief Obtains the context of the given field
 	def fieldContext(self, fieldName):
-		return self.mgroup.mfields[fieldName].context(self)
+		return self.group.fieldObjects[fieldName].context(self)
 
 	## @brief Returns whether the record has been modified or not
 	def isModified(self):
 		return self.modified
 
 	def fields(self):
-		return self.mgroup.mfields
+		return self.group.fieldObjects
 
 	## @brief Loads the record if it's not been loaded already.
 	def ensureIsLoaded(self):
@@ -128,7 +125,7 @@ class ModelRecord(QObject):
 		if check_load:
 			self.ensureIsLoaded()
 		value = []
-		for name, field in self.mgroup.mfields.items():
+		for name, field in self.group.fieldObjects.items():
 			if (get_readonly or not field.stateAttributes(self).get('readonly', False)) \
 				and (not get_modifiedonly or field.name in self.modified_fields):
 					value.append((name, field.get(self, readonly=get_readonly,
@@ -155,22 +152,22 @@ class ModelRecord(QObject):
 			context= self.context()
 			context= context.copy()
 			context['read_delta']= time.time()-self.read_time
-			if not Rpc.session.execute('/object', 'execute', self.resource, 'write', [self.id], value, context):
+			if not self.rpc.write([self.id], value, context):
 				return False
 		self._loaded = False
 		if reload:
 			self.reload()
-		if self.mgroup:
-			self.mgroup.written(self.id)
+		if self.group:
+			self.group.written(self.id)
 		return self.id
 
 	# Used only by group.py
 	# Fills the record with the corresponding default values.
 	def fillWithDefaults(self, domain=[], context={}):
-		if len(self.mgroup.fields):
-			val = self.rpc.default_get(self.mgroup.fields.keys(), context)
+		if len(self.group.fields):
+			val = self.rpc.default_get(self.group.fields.keys(), context)
 			for d in domain:
-				if d[0] in self.mgroup.fields and d[1]=='=':
+				if d[0] in self.group.fields and d[1]=='=':
 					val[d[0]]=d[2]
 			self.setDefaults(val)
 
@@ -197,7 +194,7 @@ class ModelRecord(QObject):
 	def setValidate(self):
 		change = self.ensureIsLoaded()
 		self.invalidFields = []
-		for fname in self.mgroup.mfields:			
+		for fname in self.group.fieldObjects:			
 			change = change or not self.isFieldValid( fname )
 			self.setFieldValid( fname, True )
 		if change:
@@ -209,8 +206,8 @@ class ModelRecord(QObject):
 	def validate(self):
  		self.ensureIsLoaded()
  		ok = True
- 		for fname in self.mgroup.mfields:
- 			if not self.mgroup.mfields[fname].validate(self):
+ 		for fname in self.group.fieldObjects:
+ 			if not self.group.fieldObjects[fname].validate(self):
 				self.setFieldValid( fname, False )
  				ok = False
 			else:
@@ -219,23 +216,23 @@ class ModelRecord(QObject):
 
 	## @brief Returns the context with which the record has been loaded.
 	def context(self):
-		return self.mgroup.context()
+		return self.group.context()
 
 	## @brief Returns a dict with the default value of each field
 	# { 'field': defaultValue }
 	def defaults(self):
 		self.ensureIsLoaded()
 		value = dict([(name, field.default(self))
-					  for name, field in self.mgroup.mfields.items()])
+					  for name, field in self.group.fieldObjects.items()])
 		return value
 
 	## @brief Sets the default values for each field from a dict
 	# { 'field': defaultValue }
 	def setDefaults(self, val):
 		for fieldname, value in val.items():
-			if fieldname not in self.mgroup.mfields:
+			if fieldname not in self.group.fieldObjects:
 				continue
-			self.mgroup.mfields[fieldname].setDefault(self, value)
+			self.group.fieldObjects[fieldname].setDefault(self, value)
 		self._loaded = True
 		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
 		self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
@@ -249,16 +246,19 @@ class ModelRecord(QObject):
 		self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
 
 	def set(self, val, modified=False, signal=True):
+		# Ensure there are values for all fields in the group
+		self.createMissingFields()
+
 		later={}
 		for fieldname, value in val.items():
-			if fieldname not in self.mgroup.mfields:
+			if fieldname not in self.group.fieldObjects:
 				continue
-			if isinstance(self.mgroup.mfields[fieldname], ToManyField):
+			if isinstance(self.group.fieldObjects[fieldname], ToManyField):
 				later[fieldname]=value
 				continue
-			self.mgroup.mfields[fieldname].set(self, value, modified=modified)
+			self.group.fieldObjects[fieldname].set(self, value, modified=modified)
 		for fieldname, value in later.items():
-			self.mgroup.mfields[fieldname].set(self, value, modified=modified)
+			self.group.fieldObjects[fieldname].set(self, value, modified=modified)
 		self._loaded = True
 		self.modified = modified
 		if not self.modified:
@@ -272,7 +272,7 @@ class ModelRecord(QObject):
 			return
 		c= Rpc.session.context.copy()
 		c.update(self.context())
-		res = self.rpc.read([self.id], self.mgroup.mfields.keys(), c)
+		res = self.rpc.read([self.id], self.group.fieldObjects.keys(), c)
 		if res:
 			value = res[0]
 			self.read_time= time.time()
@@ -290,7 +290,7 @@ class ModelRecord(QObject):
 		if check_load:
 			self.ensureIsLoaded()
 		d = {}
-		for name, mfield in self.mgroup.mfields.items():
+		for name, mfield in self.group.fieldObjects.items():
 			d[name] = mfield.get(self, check_load=check_load)
 
 		d['current_date'] = time.strftime('%Y-%m-%d')
@@ -320,9 +320,9 @@ class ModelRecord(QObject):
 			self.set(response.get('value', {}), modified=True)
 			if 'domain' in response:
 				for fieldname, value in response['domain'].items():
-					if fieldname not in self.mgroup.mfields:
+					if fieldname not in self.group.fieldObjects:
 						continue
-					self.mgroup.mfields[fieldname].attrs['domain'] = value
+					self.group.fieldObjects[fieldname].attrs['domain'] = value
 			warning = response.get('warning',{})
 			if warning:
 				Notifier.notifyWarning(warning['title'], warning['message'])
@@ -337,9 +337,30 @@ class ModelRecord(QObject):
 	def setConditionalDefaults(self, field, value):
 		ir = RpcProxy('ir.values')
 		values = ir.get('default', '%s=%s' % (field, value),
-						[(self.resource, False)], False, {})
+						[(self.group.resource, False)], False, {})
 		data = {}
 		for index, fname, value in values:
 			data[fname] = value
 		self.setDefaults(data)
+
+	## @brief Returns True if the record is loaded and has values for all the
+	# fields the Group requires.
+	def isFullyLoaded(self):
+		if not self._loaded:
+			return False
+		if set(self.values.keys()) == set(self.group.fields.keys()):
+			return True
+		else:
+			return False
+
+	## @brief Returns the list of field names the record should have (according to 
+	# group requirements) but it doesn't.
+	def missingFields(self):
+		return list( set(self.group.fields.keys()) - set(self.values.keys()) )
+
+	## @brief Creates entries in the values dictionary for fields
+	# returned by missingFields()
+	def createMissingFields(self):
+		for key in self.missingFields():
+			self.values[key] = self.group.fieldObjects[key].create(self)
 

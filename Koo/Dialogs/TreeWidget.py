@@ -135,7 +135,6 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 		self.group = ModelRecordGroup( self.model, self.fields, context = self.context )
 		self.group.setDomain( domain )
-		self.group.update()
 		if self.toolbar:
 			self.listModel.setModelGroup( self.group )
 		else:
@@ -163,7 +162,6 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
 		self.shortcutsGroup = ModelRecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
 		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
-		self.shortcutsGroup.update()
 
 		self.shortcutsModel = KooModel( self )
 		self.shortcutsModel.setMode( KooModel.ListMode )

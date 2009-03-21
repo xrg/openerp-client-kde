@@ -92,7 +92,7 @@ class AbstractFieldWidget(QWidget):
 	# Note that this requires a call to the server.
 	def setToDefault(self):
 		try:
-			model = self.model.resource
+			model = self.model.group.resource
 			res = Rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
 			model = self.model.setValue(self.name, res.get(self.name, False))
 			self.display()
@@ -111,7 +111,7 @@ class AbstractFieldWidget(QWidget):
 				value = wview.model.value(wview.name)
 				deps.append((wname, wname, value, value))
 		value = self.model.default( self.name )
-		model = self.model.resource
+		model = self.model.group.resource
 		dialog = FieldPreferencesDialog(self.attrs['name'], self.attrs.get('string', self.attrs['name']), model, value, deps)
 		dialog.exec_()
 

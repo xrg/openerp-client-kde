@@ -468,17 +468,17 @@ class KooModel(QAbstractItemModel):
 
 		# The 'parent' of the child ModelRecordGroup is a Model. The
 		# model has a pointer to the ModelRecordGroup it belongs and
-		# it's called 'mgroup'
+		# it's called 'group'
 		model = group.parent
-		parent = group.parent.mgroup
+		parent = group.parent.group
 
-		if not model in parent.records:
+		if not parent.recordExists( model ):
 			# Though it should not normally happen, when you reload 
 			# in the main menu we receive calls in which the model
 			# is not in the list.
 			return QModelIndex()
 
-		row = parent.records.index(model)
+		row = parent.indexOfRecord( model )
 		for x, y in model.values.items():
 			if y == group:
 				field = x
@@ -524,7 +524,7 @@ class KooModel(QAbstractItemModel):
 	def fieldType(self, column, group):
 		field = self.field(column)
 		if field:
-			if not group.mfields:
+			if not group.fields:
 				group.addFields( self.fields )
 			return group.fields[ field ]['type']
 		else:
@@ -542,16 +542,16 @@ class KooModel(QAbstractItemModel):
 		if not group:
 			return None
 		# We ensure the group has been loaded by checking if there
-		# are any fields. modelByRow loads on demand, but it means
+		# are any fields. modelByIndex loads on demand, but it means
 		# two reads to the server. So with these two lines (addFields)
 		# we only have performance gains they can be removed with 
 		# the only drawback that the server will be queried twice.
-		if not group.mfields:
+		if not group.fields:
 			group.addFields( self.fields )
 		if row >= group.count():
 			return None
 		else:
-			return group.modelByRow( row )
+			return group.modelByIndex( row )
 
 	## @brief Returns the value from the model from the given row, column and group
 	#
@@ -559,7 +559,7 @@ class KooModel(QAbstractItemModel):
 	def value(self, row, column, group):
 		# We ensure the group has been loaded by checking if there
 		# are any fields
-		if not group.mfields:
+		if not group.fields:
 			group.addFields( self.fields )
 		model = self.model(row, group)
 		field = self.field(column)
@@ -571,7 +571,7 @@ class KooModel(QAbstractItemModel):
 	def setValue(self, value, row, column, group):
 		# We ensure the group has been loaded by checking if there
 		# are any fields
-		if not group.mfields:
+		if not group.fields:
 			group.addFields( self.fields )
 		model = self.model(row, group)
 		field = self.field(column)
@@ -582,7 +582,7 @@ class KooModel(QAbstractItemModel):
 	def valueByName(self, row, field, group):
 		# We ensure the group has been loaded by checking if there
 		# are any fields
-		if not group.mfields:
+		if not group.fields:
 			group.addFields( self.fields )
 
 		model = self.model( row, group )
@@ -607,11 +607,9 @@ class KooModel(QAbstractItemModel):
 		if not self.group:
 			return QModelIndex()
 
-		i = 0
-		for x in self.group.records:
-			if x.id == id:
-				return self.index( i, 0 )
-			i = i + 1
+		row = self.group.indexOfId( id )
+		if row >= 0:
+			return self.index( row, 0 )
 		return QModelIndex()
 
 	def modelFromIndex(self, index):

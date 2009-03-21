@@ -177,7 +177,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		if self.screen.group != group:
 			self.screen.setModelGroup(group)
 			if group.count():
-				self.screen.setCurrentRecord( group.modelByRow(0) )
+				self.screen.setCurrentRecord( group.modelByIndex(0) )
 		self.screen.display()
 
 	def store(self):

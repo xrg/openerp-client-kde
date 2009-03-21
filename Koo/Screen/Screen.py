@@ -100,12 +100,13 @@ class Screen(QScrollArea):
 		self._embedded = True
 
 		self.views_preload = {}
-		self.Rpc = None
+		self.rpc = None
 		self.name = None
 		self.views = []
 		self.fields = {}
 		self.group = None
-		self._currentRecord = None
+		self._currentRecordPosition = None
+		#self._currentRecord = None
 		self._currentView = 0
 
 		self._viewQueue = ViewQueue()
@@ -240,7 +241,7 @@ class Screen(QScrollArea):
 		self.group.setFilter( value )
 		self.group.update()
 		if self.group.count() > 0:
-			self.setCurrentRecord( self.group.records[0] )
+			self.setCurrentRecord( self.group.recordByIndex( 0 ) )
 		self.display()
 
 	# Slot to recieve the signal from a view when the current item changes
@@ -262,11 +263,11 @@ class Screen(QScrollArea):
 		self.name = modelGroup.resource
 		self.resource = modelGroup.resource
 		self.context = modelGroup.context()
-		self.Rpc = RpcProxy(self.resource)
+		self.rpc = RpcProxy(self.resource)
 
 		self.group = modelGroup
 		if modelGroup.count():
-			self.setCurrentRecord( modelGroup.records[0] )
+			self.setCurrentRecord( modelGroup.recordByIndex(0) )
 		else:
 			self.setCurrentRecord( None )
 
@@ -275,17 +276,30 @@ class Screen(QScrollArea):
 
 	## @brief Returns a reference the current record (ModelRecord).
 	def currentRecord(self):
-		return self._currentRecord
+		if self.group.count() and self._currentRecordPosition >= 0:
+			# Use modelByIndex because this ensures all missing fields of the model
+			# are loaded. For example, the model could have been loaded in tree view
+			# but now might need more fields for form view.
+			return self.group.modelByIndex( self._currentRecordPosition )
+		else:
+			# New records won't have that problem (althouth the problem might be that
+			# fields haven't been created yet??)
+			return self._currentRecord
 
 	## @brief Sets the current record.
 	#
 	# Note that value will be a reference to the ModelRecord.
 	def setCurrentRecord(self, value):
 		self._currentRecord = value
-		try:
-			pos = self.group.records.index(value)
-		except:
+		#try:
+		#	pos = self.group.records.index(value)
+		#except:
+		#	pos = -1
+		if self.group.recordExists( value ):
+			pos = self.group.indexOfRecord( value )
+		else:
 			pos = -1
+		self._currentRecordPosition = pos
 		if value and value.id:
 			id = value.id
 		else:
@@ -304,7 +318,7 @@ class Screen(QScrollArea):
 		if self.currentView(): 
 			self.currentView().store()
 
-		if self.currentRecord() and ( self.currentRecord() not in self.group.records ):
+		if self.currentRecord() and ( not self.group.recordExists( self.currentRecord() ) ):
 			self.setCurrentRecord( None )
 
 		if self.loadNextView():
@@ -327,8 +341,6 @@ class Screen(QScrollArea):
 		self.addViewByIdAndType( id, type )
 		return True
 
-	def addCustomView(self, arch, fields, display=False, toolbar={}):
-		return self.addView(arch, fields, display, True, toolbar=toolbar)
 
 	## @briefs Adds a view given it's id and type.
 	#
@@ -346,7 +358,7 @@ class Screen(QScrollArea):
 			# By now we set toolbar to True always. Even when the Screen is embedded.
 			# This way we don't force setting the embedded option in the class constructor
 			# and can be set later.
-			view = self.Rpc.fields_view_get(id, type, self.context, True)
+			view = self.rpc.fields_view_get(id, type, self.context, True)
 			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
 		
 	## @brief Adds a view given its id.
@@ -360,7 +372,7 @@ class Screen(QScrollArea):
 		# By now we set toolbar to True always. Even when the Screen is embedded.
 		# This way we don't force setting the embedded option in the class constructor
 		# and can be set later.
-		view = self.Rpc.fields_view_get(id, False, self.context, True)
+		view = self.rpc.fields_view_get(id, False, self.context, True)
 		return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=id)
 		
 	## @brief Adds a view given a view type.
@@ -377,18 +389,17 @@ class Screen(QScrollArea):
 			# By now we set toolbar to True always. Even when the Screen is embedded.
 			# This way we don't force setting the embedded option in the class constructor
 			# and can be set later.
-			view = self.Rpc.fields_view_get(False, type, self.context, True)
+			view = self.rpc.fields_view_get(False, type, self.context, True)
 			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
 		
 	## @brief Adds a view given it's XML description and fields
 	# @param arch XML string: typically 'arch' field returned by model fields_view_get() function.
 	# @param fields Fields dictionary containing each field (widget) properties.
 	# @param display Whether you want the added view to be shown (True) or only loaded (False)
-	# @param custom If True, fields are added to those existing in the model
 	# @param id View id. This parameter is used for storing and loading settings for the view. If id=False, no
 	#		settings will be stored/loaded.
 	# @return The view widget
-	def addView(self, arch, fields, display=False, custom=False, toolbar={}, id=False):
+	def addView(self, arch, fields, display=False, toolbar={}, id=False):
 		def _parse_fields(node, fields):
 			if node.nodeType == node.ELEMENT_NODE:
 				if node.localName=='field':
@@ -408,10 +419,7 @@ class Screen(QScrollArea):
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
 		_parse_fields(dom, fields)
 
-		if custom:
-			self.group.addCustomFields(fields)
-		else:
-			self.group.addFields(fields)
+		self.group.addFields(fields)
 
 		self.fields = self.group.fields
 
@@ -490,14 +498,21 @@ class Screen(QScrollArea):
 			return False
 		
 		if self.currentView().showsMultipleRecords():
-			for model in self.group.records:
-				if model.isModified():
-					if model.validate():
-						id = model.save(reload=True)
-					else:
-						self.setCurrentRecord( model )
-						self.display()
-						return False
+			for record in self.modifiedRecords():
+				if record.validate():
+					id = record.save(reload=True)
+				else:
+					self.setCurrentRecord( record )
+					self.display()
+					return False
+			#for model in self.group.records:
+				#if model.isModified():
+					#if model.validate():
+						#id = model.save(reload=True)
+					#else:
+						#self.setCurrentRecord( model )
+						#self.display()
+						#return False
 			self.display()
 
 		self.display()
@@ -521,7 +536,7 @@ class Screen(QScrollArea):
 		idx = 0
 		if self.currentRecord():
 			id = self.currentId()
-			idx = self.group.records.index(self.currentRecord())
+			idx = self.group.indexOfRecord(self.currentRecord())
 			
 		self.group.update()
 		if idx:
@@ -534,7 +549,7 @@ class Screen(QScrollArea):
 				# at least keep index position
 				idx = min( idx, self.group.count() - 1 )
 				if idx >= 0:
-					self.setCurrentRecord( self.group.records[ idx ] )
+					self.setCurrentRecord( self.group.recordByIndex( idx ) )
 				else:
 					self.setCurrentRecord( None )
 		self.display()
@@ -543,13 +558,13 @@ class Screen(QScrollArea):
 	def cancel(self):
 		idx = 0
 		if self.currentRecord():
-			idx = self.group.records.index(self.currentRecord())
+			idx = self.group.indexOfRecord( self.currentRecord() )
 			
 		self.group.cancel()
 		if idx:
 			idx = min( idx, self.group.count() - 1 )
 			if idx >= 0:
-				self.setCurrentRecord( self.group.records[ idx ] )
+				self.setCurrentRecord( self.group.recordByIndex( idx ) )
 			else:
 				self.setCurrentRecord( None )
 			self.display()
@@ -592,7 +607,7 @@ class Screen(QScrollArea):
 			# there are no records to remove from the database. That is,
 			# all records that should be removed are new and not stored yet.
 			if idsToUnlink:
-				unlinked = self.Rpc.unlink( idsToUnlink )	
+				unlinked = self.rpc.unlink( idsToUnlink )	
 				# Try to be consistent with database
 				# If records could not be removed from the database
 				# don't remove them on the client. Don't report it directly
@@ -602,11 +617,11 @@ class Screen(QScrollArea):
 					return False
 		for x in ids:
 			model = self.group[x]
-			idx = self.group.records.index(model)
+			idx = self.group.indexOfRecord( model )
 			self.group.remove( model )
-			if self.group.records:
+			if self.group.count():
 				idx = min(idx, self.group.count() - 1)
-				self.setCurrentRecord( self.group.records[idx] )
+				self.setCurrentRecord( self.group.recordByIndex( idx ) )
 			else:
 				self.setCurrentRecord( None )
 		self.display()
@@ -636,12 +651,13 @@ class Screen(QScrollArea):
 	# current view.
 	def displayNext(self):
 		self.currentView().store()
-		if self.currentRecord() in self.group.records:
-			idx = self.group.records.index(self.currentRecord())
+		if self.group.recordExists( self.currentRecord() ):
+			#idx = self.group.records.index(self.currentRecord())
+			idx = self.group.indexOfRecord(self.currentRecord())
 			idx = (idx+1) % self.group.count()
-			self.setCurrentRecord( self.group.records[idx] )
+			self.setCurrentRecord( self.group.modelByIndex(idx) )
 		else:
-			self.setCurrentRecord( self.group.count() and self.group.modelByRow(0) )
+			self.setCurrentRecord( self.group.count() and self.group.modelByIndex(0) )
 		if self.currentRecord():
 			self.currentRecord().setValidate()
 		self.display()
@@ -650,13 +666,14 @@ class Screen(QScrollArea):
 	# current view.
 	def displayPrevious(self):
 		self.currentView().store()
-		if self.currentRecord() in self.group.records:
-			idx = self.group.records.index(self.currentRecord())-1
+		if self.group.recordExists( self.currentRecord() ):
+			#idx = self.group.records.index(self.currentRecord())-1
+			idx = self.group.indexOfRecord(self.currentRecord())-1
 			if idx<0:
 				idx = self.group.count()-1
-			self.setCurrentRecord( self.group.records[idx] )
+			self.setCurrentRecord( self.group.modelByIndex(idx) )
 		else:
-			self.setCurrentRecord( self.group.count() and self.group.modelByRow(-1) )
+			self.setCurrentRecord( self.group.count() and self.group.modelByIndex(-1) )
 
 		if self.currentRecord():
 			self.currentRecord().setValidate()

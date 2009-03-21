@@ -85,7 +85,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 
 	def createScreen(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.modelGroup.update()
+		#self.modelGroup.update()
 		self.screen = Screen( self )
 		self.screen.setModelGroup( self.modelGroup )
 		#self.screen.setDomain( self.domain )
@@ -134,7 +134,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.screen.currentView().store()
 
 	def showValue(self):
-		self.modelGroup.update()
+		#self.modelGroup.update()
 		if self.screen:
 			self.screen.display()
 

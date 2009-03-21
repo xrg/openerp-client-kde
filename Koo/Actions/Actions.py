@@ -152,7 +152,6 @@ def executeAction(action, datas, context={}):
 		if not action.get('domain', False):
 			action['domain']='[]'
 		ctx = {'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])}
-		#ctx.update(common.expr_eval(action.get('context','{}'), ctx.copy()))
 		ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
 		ctx.update(context)
 

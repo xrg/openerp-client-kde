@@ -109,6 +109,9 @@ class PyroConnection(Connection):
 
 	def call(self, obj, method, *args):
 		try:
+			#import traceback
+			#traceback.print_stack()
+			#print "CALLING: ", obj, method, args
 			result = self.singleCall( obj, method, *args )
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), x:
 			# As Pyro is a statefull protocol, network errors

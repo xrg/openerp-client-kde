@@ -46,11 +46,11 @@ except NameError:
 # Provides functions for loading, storing and creating new objects of the same type.
 # The 'fields' property stores a dictionary of dictionaries, each of which contains 
 # information about a field. This information includes the data type ('type'), its name
-# ('name') and other attributes. The 'mfields' property stores the classes responsible
+# ('name') and other attributes. The 'fieldObjects' property stores the classes responsible
 # for managing the values which are finally stored on the 'values' dictionary in the
 # Model
 #
-# The model can also be sorted by any of it's fields. Two sorting methods are provided:
+# The group can also be sorted by any of it's fields. Two sorting methods are provided:
 # SortVisibleItems and SortAllItems. SortVisibleItems is usually faster for a small
 # number of elements as sorting is handled on the client side, but only those loaded
 # are considered in the sorting. SortAllItems, sorts items in the server so all items
@@ -61,8 +61,8 @@ except NameError:
 # the conditions imposed by 'domain' and 'filter'. Those are empty by default so creating 
 # ModelRecordGroup('res.parnter') and iterating through it's items will return all partners
 # in the database. If you want to ensure that the group is kept completely empty, you can
-# call makeEmpty() which is equivalent to calling setFilter() with a filter that no records
-# match, but without the overhead of asking the server.
+# call setAllowRecordLoading( False ) which is equivalent to calling setFilter() with a filter 
+# that no records match, but without the overhead of querying the server.
 #
 # ModelRecordGroup will emit several kinds of signals on certain events. 
 class ModelRecordGroup(QObject):
@@ -87,8 +87,8 @@ class ModelRecordGroup(QObject):
 			self.fields = {}
 		else:
 			self.fields = fields
-		self.mfields = {}
-		self.mfields_load(self.fields.keys())
+		self.fieldObjects = {}
+		self.loadFieldObjects( self.fields.keys() )
 
 		self.records = []
 		
@@ -114,32 +114,41 @@ class ModelRecordGroup(QObject):
 			self._sortMode = self.SortAllItems
 
 		self.load(ids)
-		self.model_removed = []
+		self.removedRecords = []
 		self.on_write = ''
 
 
-	# Creates the entries in 'mfields' for each key of the 'fkeys' list.
-	def mfields_load(self, fkeys):
+	# Creates the entries in 'fieldObjects' for each key of the 'fkeys' list.
+	def loadFieldObjects(self, fkeys):
 		for fname in fkeys:
 			fvalue = self.fields[fname]
 			fvalue['name'] = fname
-			self.mfields[fname] = Field.FieldFactory.create( fvalue['type'], self, fvalue )
+			self.fieldObjects[fname] = Field.FieldFactory.create( fvalue['type'], self, fvalue )
 
 	## @brief Saves all the records. 
 	#
 	# Note that there will be one request to the server per modified or 
-	# created model.
+	# created record.
 	def save(self):
 		for record in self.records:
-			saved = record.save()
+			if isinstance( record, ModelRecord ):
+				saved = record.save()
+
+	## @brief Returns a list with all modified records
+	def modifiedRecords(self):
+		modified = []
+		for record in self.records:
+			if isinstance( record, ModelRecord ) and record.isModified():
+				modified.append( record )
+		return modified
 
 	## @brief This function executes the 'on_write' function in the server.
 	#
 	# If there is a 'on_write' function associated with the model type handled by 
-	# this model group it will be executed. 'editedId' should provide the 
-	# id of the just saved model.
+	# this record group it will be executed. 'editedId' should provide the 
+	# id of the just saved record.
 	#
-	# This functionality is provided here instead of on the model because
+	# This functionality is provided here instead of on the record because
 	# the remote function might update some other records, and they need to
 	# be (re)loaded.
 	def written( self, editedId ):
@@ -148,23 +157,28 @@ class ModelRecordGroup(QObject):
 		# Execute the on_write function on the server.
 		# It's expected it'll return a list of ids to be loaded or reloaded.
 		new_ids = getattr(self.rpc, self.on_write)( editedId, self.context() )
-		model_idx = self.records.index( self.recordById( editedId ) )
+		record_idx = self.records.index( self.recordById( editedId ) )
 		result = False
 		indexes = []
 		for id in new_ids:
 			cont = False
 			for m in self.records:
-				if m.id == id:
-					cont = True
-					m.reload()
+				if isinstance( m, ModelRecord ):
+					if m.id == id:
+						cont = True
+						# TODO: Shouldn't we just call cancel() so the record
+						# is reloaded on demand?
+						m.reload()
 			if cont:
 				continue
-			newmod = ModelRecord(self.resource, id, parent=self.parent, group=self)
+			# TODO: Should we reconsider this? Do we need/want to reload. Probably we
+			# only want to add the id to the list.
+			newmod = ModelRecord(id, self, parent=self.parent)
 			newmod.reload()
 			if not result:
 				result = newmod
-			newIndex = min(model_idx, len(self.records)-1)
-			self.addModel(newmod, newIndex)
+			newIndex = min(record_idx, len(self.records)-1)
+			self.add(newmod, newIndex)
 			indexes.append(newIndex)
 
 		if indexes:
@@ -179,11 +193,12 @@ class ModelRecordGroup(QObject):
 		if not ids:
 			return 
 		start = len(self.records)
-		for id in ids:
-			newmod = ModelRecord(self.resource, id, parent=self.parent, group=self)
-			# Don't use addModel( newmod ) for performance reasons.
-			self.records.append( newmod )
+		self.records += ids
 		end = len(self.records)-1
+		# We consider the group is updated because otherwise calling count() would
+		# force an update() which would cause one2many relations to load elements
+		# when we only want to know how many are there.
+		self.updated = True
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
 
 	## @brief Adds a list of records as specified by 'values'.
@@ -193,7 +208,7 @@ class ModelRecordGroup(QObject):
 	def loadFromValues(self, values):
 		start = len(self.records)
 		for value in values:
-			record = ModelRecord(self.resource, value['id'], parent=self.parent, group=self)
+			record = ModelRecord(value['id'], self, parent=self.parent)
 			record.set(value)
 			self.records.append(record)
 			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
@@ -206,9 +221,11 @@ class ModelRecordGroup(QObject):
 		if not ids:
 			return True
 
-		if not self.fields:
-			self.preload( ids )
-			return True
+		self.preload( ids )
+		#if not self.fields:
+		#	self.preload( ids )
+		#	return True
+		return True
 
 		if self._sortMode == self.SortAllItems:
 			self.preload( ids )
@@ -249,7 +266,8 @@ class ModelRecordGroup(QObject):
 				#vals = sorted( values, key=lambda x: ids.index(x['id']) )
 				for v in values:
 					id = v['id']
-					self.recordById(id).set(v, signal=False)
+					record = self.recordById(id)
+					record.set(v, signal=False)
 		else:
 			self.loadFromValues(values)
 		return True
@@ -258,7 +276,7 @@ class ModelRecordGroup(QObject):
 	def clear(self):
 		self.emit( SIGNAL('recordsRemoved(int,int)'), 0, len(self.records)-1 )
 		self.records = []
-		self.model_removed = []
+		self.removedRecords = []
 	
 	## @brief Returns a copy of the current context
 	def context(self):
@@ -266,15 +284,15 @@ class ModelRecordGroup(QObject):
 		ctx.update(self._context)
 		return ctx
 
-	## @brief Adds a model to the list
-	def addModel(self, record, position=-1):
-		if not record.mgroup is self:
+	## @brief Adds a record to the list
+	def add(self, record, position=-1):
+		if not record.group is self:
 			fields = {}
-			for mf in record.mgroup.fields:
-				fields[record.mgroup.fields[mf]['name']] = record.mgroup.fields[mf]
+			for mf in record.group.fields:
+				fields[record.group.fields[mf]['name']] = record.group.fields[mf]
 			self.addFields(fields)
-			record.mgroup.addFields(self.fields)
-			record.mgroup = self
+			record.group.addFields(self.fields)
+			record.group = self
 
 		if position==-1:
 			self.records.append(record)
@@ -285,19 +303,19 @@ class ModelRecordGroup(QObject):
 		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		return record
 
-	## @brief Creates a new model of the same type of the records in the group.
+	## @brief Creates a new record of the same type of the records in the group.
 	#
-	# If 'default' is true, the model is filled in with default values. 
+	# If 'default' is true, the record is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
 	def create(self, default=True, position=-1, domain=[], context={}):
-		record = ModelRecord(self.resource, None, group=self, parent=self.parent, new=True)
+		record = ModelRecord(None, self, parent=self.parent, new=True)
 		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
 		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		if default:
 			ctx=context.copy()
 			ctx.update( self.context() )
 			record.fillWithDefaults(domain, ctx)
-		self.addModel( record, position )
+		self.add( record, position )
 		if position == -1:
 			start = len(self.records) - 1
 		else:
@@ -305,34 +323,37 @@ class ModelRecordGroup(QObject):
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, start )
 		return record
 	
-	def recordChanged(self, model):
-		self.emit( SIGNAL('recordChanged(PyQt_PyObject)'), model )
+	def recordChanged(self, record):
+		self.emit( SIGNAL('recordChanged(PyQt_PyObject)'), record )
 
-	def recordModified(self, model):
+	def recordModified(self, record):
 		self.emit( SIGNAL('modified()') )
 
-	## @brief Removes a model from the model group but not from the server.
+	## @brief Removes a record from the record group but not from the server.
 	#
-	# If the model doesn't exist it will ignore it silently.
+	# If the record doesn't exist it will ignore it silently.
 	def remove(self, record):
 		if not record in self.records:
 			return
 		idx = self.records.index(record)
-		if self.records[idx].id:
-			self.model_removed.append(self.records[idx].id)
-		if record.parent:
-			record.parent.modified = True
+		if isinstance( record, ModelRecord ):
+			id = record.id
+		else:
+			id = record
+		self.removedRecords.append( id )
+		if isinstance( record, ModelRecord ):
+			if record.parent:
+				record.parent.modified = True
 		self.emit( SIGNAL('modified()') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx )
-		self.records.remove(self.records[idx])
+		self.records.remove( record )
 
-	## @brief Adds the specified fields to the model group
+	## @brief Adds the specified fields to the record group
 	#
-	# Note that it updates 'fields' and 'mfields' in the group
-	# and creates the necessary entries in the 'values' property of 
-	# all the records. 'fields' is a dict of dicts as typically returned by 
+	# Note that it updates 'fields' and 'fieldObjects' in the group.
+	# 'fields' is a dict of dicts as typically returned by 
 	# the server.
-	def addCustomFields(self, fields):
+	def addFields(self, fields):
 		to_add = []
 		for f in fields.keys():
 			if not f in self.fields:
@@ -341,71 +362,13 @@ class ModelRecordGroup(QObject):
 				to_add.append(f)
 			else:
 				self.fields[f].update(fields[f])
-		self.mfields_load(to_add)
-		for fname in to_add:
-			for m in self.records:
-				m.values[fname] = self.mfields[fname].create(m)
+		self.loadFieldObjects(to_add)
 		return to_add
 
-	## @brief Adds the specified fields and loads the necessary ones from the 
-	# server.
-	#
-	# 'fields' is a dict of dicts as typically returned by the server.
-	def addFields(self, fields):
-		to_add = self.addCustomFields(fields)
-		if not len(self.records):
-			return True
-
-		old = []
-		new = []
-		for model in self.records:
-			if model.id:
-				if model._loaded:
-					old.append(model.id)
-			else:
-				new.append(model)
-
-		
-		# Update existing records
-		if len(old) and len(to_add):
-
-			# Do not read from the server binary and image types 
-			# They'll be loaded on demand
-			binaries = [x for x in fields if fields[x]['type'] in ('binary','image')]
-			others = list( set(to_add) - set(binaries) )
-
-			if others:
-				c = Rpc.session.context.copy()
-				c.update( self.context() )
-				values = self.rpc.read(old, others, c)
-				if values:
-					for v in values:
-						id = v['id']
-						if 'id' not in others:
-							del v['id']
-						self.recordById(id).set(v, signal=False)
-			if binaries:
-				# We set binaries to the special value None so
-				# the field will know it hasn't been loaded and thus
-				# load data on demand when get() is called.
-				data = {}
-				for x in binaries:
-					data[x] = None
-				for x in self.records:
-					x.set( data )
-
-		# Set defaults
-		if len(new) and len(to_add):
-			values = self.rpc.default_get( to_add, self.context() )
-			for t in to_add:
-				if t not in values:
-					values[t] = False
-			for mod in new:
-				mod.setDefaults(values)
 
 	## @brief Ensures all records in the group are loaded.
 	def ensureAllLoaded(self):
-		ids = [x.id for x in self.records if not x._loaded]
+		ids = self.unloadedIds()
 		c = Rpc.session.context.copy()
 		c.update( self.context() )
 		values = self.rpc.read( ids, self.fields.keys(), c )
@@ -413,66 +376,144 @@ class ModelRecordGroup(QObject):
 			for v in values:
 				self.recordById( v['id'] ).set(v, signal=False)
 
+	def unloadedIds(self):
+		ids = []
+		for x in self.records:
+			if isinstance(x, ModelRecord) and not x._loaded:
+				ids.append( x.id )
+			else:
+				ids.append( x )
+		return ids
+
+	def ids(self):
+		ids = []
+		for x in self.records:
+			if isinstance(x, ModelRecord):
+				ids.append( x.id )
+			else:
+				ids.append( x )
+		return ids
+
 	## @brief Returns the number of records in this group.
 	def count(self):
+		self.ensureUpdated()
 		return len(self.records)
 
 	def __iter__(self):
 		self.ensureAllLoaded()
 		return iter(self.records)
 
-	## @brief Returns the model with id 'id'. You can use [] instead.
-	# Note that it will check if the model is loaded and load it if not.
+	## @brief Returns the record with id 'id'. You can use [] instead.
+	# Note that it will check if the record is loaded and load it if not.
 	def modelById(self, id):
-		for model in self.records:
-			if model.id == id:
-				self.ensureModelLoaded(model)
-				return model
+		record = self.recordById( id )
+		if not record:
+			return None
+		self.ensureModelLoaded( record )
+		return record
 	__getitem__ = modelById
 
-	## @brief Returns the model at the specified row number.
-	def modelByRow(self, row):
-		model = self.records[row]
-		if model._loaded == False:
-			self.ensureModelLoaded(model)
-		return model
+	## @brief Returns the record at the specified row number.
+	def modelByIndex(self, row):
+		record = self.recordByIndex( row )
+		self.ensureModelLoaded(record)
+		return record
 
-	## @brief Returns whether model is in the list of LOADED records
-	# If we use 'model in model_group' then it will try to
-	# load all records and if one of the records has id False
-	# an error will be fired.
-	def modelExists(self, model):
-		return model in self.records
+	## @brief Returns the row number of the given record. Note that
+	# the record must be in the group. Otherwise an exception is risen.
+	def indexOfRecord(self, record):
+		return self.records.index(record)
+		
+	def indexOfId(self, id):
+		i = 0
+		for record in self.records:
+			if isinstance( record, ModelRecord ):
+				if record.id == id:
+					return i
+			elif record == id:
+				return i
+			i += 1
+		return -1
 
-	## @brief Returns the model with id 'id'. You can use [] instead.
-	# Note that it will return the record (model) but won't try to load it.
+	## @brief Returns True if the given record exists in the group.
+	def recordExists(self, record):
+		return record in self.records
+
+	## @brief Returns the record with id 'id'. You can use [] instead.
+	# Note that it will return the record but won't try to load it.
 	def recordById(self, id):
-		for model in self.records:
-			if model.id == id:
-				return model
+		for record in self.records:
+			if isinstance( record, ModelRecord ):
+				if record.id == id:
+					return record
+			elif record == id:
+				idx = self.records.index( id )
+				record = ModelRecord(id, self, parent=self.parent)
+				self.records[idx] = record 
+				return record
 
-	## @brief Checks whether the specified model is fully loaded and loads
+	def recordByIndex(self, row):
+		record = self.records[row]
+		if isinstance( record, ModelRecord ):
+			return record
+		else:
+			record = ModelRecord(record, self, parent=self.parent)
+			self.records[row] = record
+			return record
+		
+
+	## @brief Checks whether the specified record is fully loaded and loads
 	# it if necessary.
-	def ensureModelLoaded(self, model):
-		if model._loaded:
-			return 
+	def ensureModelLoaded(self, record):
+		self.ensureUpdated()
+		# Do not try to load if record is new.
+		if not record.id:
+			record.createMissingFields()
+			return
+		if record.isFullyLoaded():
+			return
 
 		c = Rpc.session.context.copy()
 		c.update( self.context() )
-		ids = [x.id for x in self.records]
-		pos = ids.index(model.id) / self.limit
+		#ids = [x.id for x in self.records]
+		ids = self.ids()
+		pos = ids.index(record.id) / self.limit
 
 		queryIds = ids[pos * self.limit: pos * self.limit + self.limit]
 		if None in queryIds:
 			queryIds.remove( None )
-		values = self.rpc.read(queryIds, self.fields.keys(), c)
-		if not values:
-			return False
 
-		# This treats the case when the sorted field is a non-relation field
-		for v in values:
-			id = v['id']
-			self.recordById(id).set(v, signal=False)
+		missingFields = record.missingFields()
+
+		# Load only non binary and image fields
+		binaries = [x for x in missingFields if self.fields[x]['type'] in ('binary','image')]
+		others = list( set(missingFields) - set(binaries) )
+		if others:
+			values = self.rpc.read(queryIds, others, c)
+			if values:
+				for v in values:
+					id = v['id']
+					if 'id' not in others:
+						del v['id']
+					self.recordById(id).set(v, signal=False)
+		if binaries:
+			# We set binaries to the special value None so
+			# the field will know it hasn't been loaded and thus
+			# load data on demand when get() is called.
+			data = {}
+			for x in binaries:
+				data[x] = None
+			for x in queryIds:
+				self.recordById(x).set( data )
+		# TODO: Take a look if we need to set default values for new records!
+		## Set defaults
+		#if len(new) and len(to_add):
+			#values = self.rpc.default_get( to_add, self.context() )
+			#for t in to_add:
+				#if t not in values:
+					#values[t] = False
+			#for mod in new:
+				#mod.setDefaults(values)
 
 	## @brief Allows setting the domain for this group of records.
 	def setDomain(self, value):
@@ -481,6 +522,7 @@ class ModelRecordGroup(QObject):
 		else:
 			self._domain = value
 		self._allowRecordLoading  = True
+		self.updated = False
 	
 	## @brief Returns the current domain.
 	def domain(self):
@@ -496,12 +538,13 @@ class ModelRecordGroup(QObject):
 		else:
 			self._filter = value
 		self._allowRecordLoading  = True
+		self.updated = False
 	
 	## @brief Returns the current filter.
 	def filter(self):
 		return self._filter
 
-	## @brief Enables or disables record loading. Sometimes it's desired that the model
+	## @brief Enables or disables record loading. Sometimes it's desired that the record
 	# won't load anything, as otherwise it would load records, by default.
 	#
 	# Calling setFilter() or setDomain() after this function will reallow record loading
@@ -511,7 +554,7 @@ class ModelRecordGroup(QObject):
 	# sort( 'name', Qt.Descending )
 	# setAllowRecordLoading( True )
 	# 
-	# When setAllowRecordLoading( True ) is called, the model will be updated with the
+	# When setAllowRecordLoading( True ) is called, the record will be updated with the
 	# latest sort parameters. That is, sorted by name in descending order.
 	def setAllowRecordLoading(self, value):
 		self._allowRecordLoading  = value
@@ -524,16 +567,22 @@ class ModelRecordGroup(QObject):
 	def allowRecordLoading(self):
 		return self._allowRecordLoading 
 
-	## @brief Reload the model group with current selected sort field, order, domain and filter
+	## @brief Reload the record group with current selected sort field, order, domain and filter
 	def update(self):
 		## Make it reload again
 		self.updated = False
 		self.sort( self.toBeSortedField, self.toBeSortedOrder )
 
-	## @brief Sorts the model by the given field name.
+	## @brief Ensures the group is updated.
+	def ensureUpdated(self):
+		if not self._allowRecordLoading:
+			return
+		if self.updated:
+			return
+		self.update()
+
+	## @brief Sorts the group by the given field name.
 	def sort(self, field, order):
-		#if self._empty:
-		#	return
 		self.toBeSortedField = field
 		self.toBeSortedOrder = order
 		if not self._allowRecordLoading:
@@ -631,8 +680,8 @@ class ModelRecordGroup(QObject):
 			# Sort only if last sorted field was different than current
 
 			# We need this function here as we use the 'field' variable
-			def ignoreCase(model):
-				v = model.value(field)
+			def ignoreCase(record):
+				v = record.value(field)
 				if isinstance(v, unicode) or isinstance(v, str):
 					return v.lower()
 				else:
@@ -657,15 +706,31 @@ class ModelRecordGroup(QObject):
 	## @brief Removes all new records and marks all modified ones as not loaded.
 	def cancel(self):
 		for record in self.records[:]:
-			if not record.id:
-				self.records.remove( record )
-			elif record.isModified():
-				record.cancel()
+			if isinstance( record, ModelRecord ):
+				if not record.id:
+					self.records.remove( record )
+				elif record.isModified():
+					record.cancel()
+			else:
+				if not record:
+					self.records.remove( record )
 
 	## @brief Returns True if any of the records in the group have been modified.
 	def isModified(self):
 		for record in self.records:
-			if record.isModified():
-				return True
+			if isinstance( record, ModelRecord ):
+				if record.isModified():
+					return True
 		return False
+
+	## @brief Returns True if the given record has been modified.
+	def isRecordModified(self, id):
+		for record in self.records:
+			if isinstance( record, ModelRecord ):
+				if record.id == id:
+					return record.isModified()
+			elif record == id:
+				return False
+		return False	
+
 # vim:noexpandtab:

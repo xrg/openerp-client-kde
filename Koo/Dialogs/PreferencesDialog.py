@@ -62,7 +62,7 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		self.screen = Screen( self )
 		self.screen.setModelGroup( ModelRecordGroup( model ) )
 		self.screen.new(default=False)
-		self.screen.addCustomView(arch, fields, display=True)
+		self.screen.addView(arch, fields, display=True)
 
 		default = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,self.id)], False, Rpc.session.context, True, True, False)
 		default2 = {}

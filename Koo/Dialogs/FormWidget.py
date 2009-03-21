@@ -85,13 +85,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
 		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )
 		self.connect( self.screen, SIGNAL('closed()'), self.closeWidget )
+		self.connect( self.screen, SIGNAL('recordMessage(int,int,int)'), self.updateRecordStatus )
 
 		self._allowOpenInNewWindow = True
 
 		# Remove ids with False value
 		self.screen.setupViews( view_type, view_ids )
 
-		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.updateRecordStatus)
 		if name:
 			self.name = name
 		else:
@@ -124,8 +124,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 		else:
 			if len(view_type) and view_type[0]=='form':
 				self.new(autosave=False)
-		self.updateStatus()
-		self.updateRecordStatus(-1,self.group.count(),None)
 
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )

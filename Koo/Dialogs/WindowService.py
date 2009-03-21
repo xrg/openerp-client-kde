@@ -43,6 +43,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 	context.update(Rpc.session.context)
 
 	if view_type=='form':
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		mode = (mode or 'form,tree').split(',')
 		widget = FormWidget(model, res_id, domain, view_type=mode,
 				view_ids = (view_ids or []), 
@@ -50,8 +51,10 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		if target != 'current':
 			widget.setStatusBarVisible( False )
 		widget.setAutoReload( autoReload )
+		QApplication.restoreOverrideCursor()
 		Api.instance.windowCreated( widget, target )
 	elif view_type=='tree':
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if view_ids and view_ids[0]:
 			view_base =  Rpc.session.execute('/object', 'execute',
 					'ir.ui.view', 'read', [view_ids[0]],
@@ -65,6 +68,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 					'fields_view_get', False, view_type, context)
 
 		win = TreeWidget(view, model, domain, context, name=name)
+		QApplication.restoreOverrideCursor()
 		Api.instance.windowCreated( win, target )
 	else:
 		import logging

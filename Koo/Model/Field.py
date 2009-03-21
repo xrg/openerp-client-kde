@@ -234,6 +234,7 @@ class ToManyField(StringField):
 	def create(self, model):
 		from Koo.Model.Group import ModelRecordGroup
 		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
+		group.setAllowRecordLoading( False )
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		return group
 
@@ -271,22 +272,27 @@ class ToManyField(StringField):
 		self.connect( model.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):
+			# TODO: Fix with new Group behaviour. Has this ever really worked?
 			mod = model.values[self.name].model_new(default=False)
 			mod.setDefault(record)
 			model.values[self.name].model_add(mod)
 		return True
 
 	def default(self, model):
+		# TODO: Fix with new Group behaviour. Has this ever really worked?
 		return [ x.defaults() for x in model.values[self.name].records ]
 
 	def validate(self, model):
+		#for model2 in model.values[self.name].records:
+			#if not model2.validate():
+				#if not model2.isModified():
+					#model.values[self.name].records.remove(model2)
+				#else:
+					#ok = False
 		ok = True
-		for model2 in model.values[self.name].records:
-			if not model2.validate():
-				if not model2.isModified():
-					model.values[self.name].records.remove(model2)
-				else:
-					ok = False
+		for record in model.values[self.name].modifiedRecords():
+			if not record.validate():
+				ok = False
 		if not super(ToManyField, self).validate(model):
 			ok = False
 		model.setFieldValid( self.name, ok )
@@ -297,22 +303,29 @@ class OneToManyField(ToManyField):
 		if not model.values[self.name]:
 			return []
 		result = []
-		for model2 in model.values[self.name].records:
-			if (modified and not model2.isModified()) or (not model2.id and not model2.isModified()):
+		# TODO: Fix with new Group behaviour. Has this ever really worked?
+		group = model.values[self.name]
+		for id in group.ids():
+			if (modified and not group.isRecordModified(id)) or (not id and not group.isRecordModified( id ) ):
 				continue
-			if model2.id:
-				result.append((1,model2.id, model2.get(check_load=check_load, get_readonly=readonly)))
+			if id:
+				# Note that group.modelById() might force loading a model that wasn't yet loaded
+				# if 'modified' is False.
+				result.append((1, id, group.modelById( id ).get(check_load=check_load, get_readonly=readonly)))
 			else:
-				result.append((0,0, model2.get(check_load=check_load, get_readonly=readonly)))
-		for id in model.values[self.name].model_removed:
-			result.append((2,id, False))
+				# Note that group.modelById() might force loading a model that wasn't yet loaded
+				# if 'modified' is False.
+				result.append((0, 0, group.modelById( id ).get(check_load=check_load, get_readonly=readonly)))
+				
+		for id in model.values[self.name].removedRecords:
+			result.append( (2, id, False) )
 		return result
 
 class ManyToManyField(ToManyField):
 	def get(self, model, check_load=True, readonly=True, modified=False):
 		if not model.values[self.name]:
 			return []
-		return [(6, 0, [x.id for x in model.values[self.name].records])]
+		return [(6, 0, model.values[self.name].ids())]
 
 class ReferenceField(StringField):
 	def get_client(self, model):

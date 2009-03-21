@@ -69,11 +69,15 @@ class CharFieldWidget(AbstractFieldWidget):
 		if not self.model.id:
 			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
 			return
-		dialog = TranslationDialog( self.model.id, self.model.resource, self.attrs['name'], unicode(self.widget.text()), TranslationDialog.LineEdit, self )
+		dialog = TranslationDialog( self.model.id, self.model.group.resource, self.attrs['name'], unicode(self.widget.text()), TranslationDialog.LineEdit, self )
 		if dialog.exec_() == QDialog.Accepted:
 			self.widget.setText( dialog.result )
 
 	def store(self):
+		# The function might be called by 'editingFinished()' signal when no
+		# record is set.
+		if not self.model:
+			return
 		self.model.setValue( self.name, unicode(self.widget.text()) or False )
 
 	def clear(self):
