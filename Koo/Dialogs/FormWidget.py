@@ -43,7 +43,7 @@ from Koo.Common import Options
 import copy
 
 from Koo.Screen.Screen import *
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
@@ -77,7 +77,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.domain = domain
 		self.context = context
 
-		self.group = ModelRecordGroup( self.model, context=self.context )
+		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setDomain( domain )
 
 		self.screen.setModelGroup( self.group )

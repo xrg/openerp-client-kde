@@ -52,7 +52,7 @@ class EvalEnvironment(object):
 		return self.parent.get(includeid=True)[item]
 
 # We inherit QObject as we'll be using signals & slots
-class ModelRecord(QObject):
+class Record(QObject):
 	def __init__(self, id, group, parent=None, new=False ):
 		QObject.__init__(self, group)
 		self.rpc = group.rpc
@@ -81,7 +81,7 @@ class ModelRecord(QObject):
 		return self.group.fieldObjects.get(name, False)
 	
 	def __repr__(self):
-		return '<ModelRecord %s@%s>' % (self.id, self.group.resource)
+		return '<Record %s@%s>' % (self.id, self.group.resource)
 
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):

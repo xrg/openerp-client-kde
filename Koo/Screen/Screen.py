@@ -31,8 +31,8 @@ import xml.dom.minidom
 from Koo.Rpc import RpcProxy
 from Koo import Rpc
 
-from Koo.Model.Group import ModelRecordGroup
-from Koo.Model.Record import ModelRecord
+from Koo.Model.Group import RecordGroup
+from Koo.Model.Record import Record
 from Koo.View.ViewFactory import ViewFactory
 
 from Koo.Common import Common
@@ -249,8 +249,8 @@ class Screen(QScrollArea):
 		self.setCurrentRecord( model )
 		self.emit( SIGNAL('currentChanged()') )
 
-	## @brief Sets the RecordModelGroup this Screen should show.
-	# @param models ModelRecordGroup object.
+	## @brief Sets the RecordGroup this Screen should show.
+	# @param models RecordGroup object.
 	def setModelGroup(self, modelGroup):
 		if not modelGroup:
 			self.group = None
@@ -274,7 +274,7 @@ class Screen(QScrollArea):
 		modelGroup.addFields(self.fields)
 		self.fields.update(modelGroup.fields)
 
-	## @brief Returns a reference the current record (ModelRecord).
+	## @brief Returns a reference the current record (Record).
 	def currentRecord(self):
 		if self.group.count() and self._currentRecordPosition >= 0:
 			# Use modelByIndex because this ensures all missing fields of the model
@@ -288,7 +288,7 @@ class Screen(QScrollArea):
 
 	## @brief Sets the current record.
 	#
-	# Note that value will be a reference to the ModelRecord.
+	# Note that value will be a reference to the Record.
 	def setCurrentRecord(self, value):
 		self._currentRecord = value
 		#try:

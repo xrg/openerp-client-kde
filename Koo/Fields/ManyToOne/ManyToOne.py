@@ -33,7 +33,7 @@ from Koo.Common import Common
 from Koo.Common import Shortcuts
 
 from Koo.Screen.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 from Koo.Dialogs.SearchDialog import SearchDialog
 from Koo import Rpc
@@ -64,7 +64,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		if self.screen:
 			return
 		self.screen = Screen(self)
-		self.screen.setModelGroup( ModelRecordGroup( model ) )
+		self.screen.setModelGroup( RecordGroup( model ) )
 		self.screen.setViewTypes( ['form'] )
 		if id:
 			self.screen.load([id])
@@ -270,7 +270,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def executeRelation(self, action):
 		id = self.model.get()[self.name]
-		group = ModelRecordGroup( self.attrs['relation'] )
+		group = RecordGroup( self.attrs['relation'] )
 		group.load( [id] )
 		record = group.modelByIndex( 0 )
 		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)

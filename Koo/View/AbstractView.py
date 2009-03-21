@@ -46,10 +46,10 @@ class AbstractView(QWidget):
 		pass
 	
 	## @brief This function should display the information of the model or models
-	# currentModel points to the model (object ModelRecord) that is currently selected
-	# models points to the model list (object ModelGroup) 
+	# currentRecord points to the record (object Record) that is currently selected
+	# models points to the model list (object RecordGroup) 
 	# Example: forms only use the currentModel, while tree & charts use models
-	def display(self, currentModel, models):
+	def display(self, currentRecord, models):
 		pass
 	
 	## @brief Not used in the TreeView, used in the FormView to

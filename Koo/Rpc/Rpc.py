@@ -397,8 +397,6 @@ class Session:
 		except tiny_socket.Myexception, err:
 			faultCode = unicode( err.faultCode, 'utf-8' )
 			faultString = unicode( err.faultString, 'utf-8' )
-			print "TiNY: ", faultCode
-			print "TiNY: ", faultString
 			a = RpcException( faultCode, faultString )
 			if a.type in ('warning','UserError'):
 				if a.message in ('ConcurrencyException') and len(args) > 4:

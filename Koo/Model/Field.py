@@ -232,8 +232,8 @@ class ManyToOneField(StringField):
 # parent.
 class ToManyField(StringField):
 	def create(self, model):
-		from Koo.Model.Group import ModelRecordGroup
-		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
+		from Koo.Model.Group import RecordGroup
+		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
 		group.setAllowRecordLoading( False )
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		return group
@@ -249,8 +249,8 @@ class ToManyField(StringField):
 		pass
 
 	def set(self, model, value, test_state=False, modified=False):
-		from Koo.Model.Group import ModelRecordGroup
-		group = ModelRecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
+		from Koo.Model.Group import RecordGroup
+		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.preload(value)
@@ -261,14 +261,14 @@ class ToManyField(StringField):
 		self.changed(model)
 
 	def setDefault(self, model, value):
-		from Koo.Model.Group import ModelRecordGroup
+		from Koo.Model.Group import RecordGroup
 		fields = {}
 		if value and len(value):
 			context = self.context(model)
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			fields = Rpc2.fields_get(value[0].keys(), context)
 
-		model.values[self.name] = ModelRecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
+		model.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
 		self.connect( model.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):

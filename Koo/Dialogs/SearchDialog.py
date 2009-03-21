@@ -33,7 +33,7 @@ from Koo.Common import Common
 from Koo import Rpc
 
 from Koo.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 
 from PyQt4.QtGui import *
@@ -55,7 +55,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.context.update(Rpc.session.context)
 		self.allowMultipleSelection = sel_multi
 
-		self.modelGroup = ModelRecordGroup( model )
+		self.modelGroup = RecordGroup( model )
 		self.modelGroup.setDomain( domain )
 
 		self.screen.setModelGroup( self.modelGroup )

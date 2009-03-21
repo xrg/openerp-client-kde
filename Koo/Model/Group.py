@@ -29,7 +29,7 @@
 from Koo.Rpc import RpcProxy
 from Koo import Rpc
 from Koo.Common import Options
-from Record import ModelRecord
+from Record import Record
 import Field 
 
 
@@ -41,7 +41,7 @@ try:
 except NameError:
 	from sets import Set as set
 
-## @brief The ModelRecordGroup class manages a list of records.
+## @brief The RecordGroup class manages a list of records.
 # 
 # Provides functions for loading, storing and creating new objects of the same type.
 # The 'fields' property stores a dictionary of dictionaries, each of which contains 
@@ -59,22 +59,22 @@ except NameError:
 #
 # Note that by default the group will handle (and eventually load) all records that match 
 # the conditions imposed by 'domain' and 'filter'. Those are empty by default so creating 
-# ModelRecordGroup('res.parnter') and iterating through it's items will return all partners
+# RecordGroup('res.parnter') and iterating through it's items will return all partners
 # in the database. If you want to ensure that the group is kept completely empty, you can
 # call setAllowRecordLoading( False ) which is equivalent to calling setFilter() with a filter 
 # that no records match, but without the overhead of querying the server.
 #
-# ModelRecordGroup will emit several kinds of signals on certain events. 
-class ModelRecordGroup(QObject):
+# RecordGroup will emit several kinds of signals on certain events. 
+class RecordGroup(QObject):
 
 	SortVisibleItems = 1
 	SortAllItems = 2
 
-	## @brief Creates a new ModelRecordGroup object.
+	## @brief Creates a new RecordGroup object.
 	# @param resource Name of the model to load. Such as 'res.partner'.
 	# @param fields Dictionary with the fields to load. This value typically comes from the server.
 	# @param ids Record identifiers to load in the group.
-	# @param parent Only used if this ModelRecordGroup serves as a relation to another model. Otherwise it's None.
+	# @param parent Only used if this RecordGroup serves as a relation to another model. Otherwise it's None.
 	def __init__(self, resource, fields = None, ids=[], parent=None, context={}):
 		QObject.__init__(self)
 		self.parent = parent
@@ -131,14 +131,14 @@ class ModelRecordGroup(QObject):
 	# created record.
 	def save(self):
 		for record in self.records:
-			if isinstance( record, ModelRecord ):
+			if isinstance( record, Record ):
 				saved = record.save()
 
 	## @brief Returns a list with all modified records
 	def modifiedRecords(self):
 		modified = []
 		for record in self.records:
-			if isinstance( record, ModelRecord ) and record.isModified():
+			if isinstance( record, Record ) and record.isModified():
 				modified.append( record )
 		return modified
 
@@ -163,7 +163,7 @@ class ModelRecordGroup(QObject):
 		for id in new_ids:
 			cont = False
 			for m in self.records:
-				if isinstance( m, ModelRecord ):
+				if isinstance( m, Record ):
 					if m.id == id:
 						cont = True
 						# TODO: Shouldn't we just call cancel() so the record
@@ -173,7 +173,7 @@ class ModelRecordGroup(QObject):
 				continue
 			# TODO: Should we reconsider this? Do we need/want to reload. Probably we
 			# only want to add the id to the list.
-			newmod = ModelRecord(id, self, parent=self.parent)
+			newmod = Record(id, self, parent=self.parent)
 			newmod.reload()
 			if not result:
 				result = newmod
@@ -208,7 +208,7 @@ class ModelRecordGroup(QObject):
 	def loadFromValues(self, values):
 		start = len(self.records)
 		for value in values:
-			record = ModelRecord(value['id'], self, parent=self.parent)
+			record = Record(value['id'], self, parent=self.parent)
 			record.set(value)
 			self.records.append(record)
 			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
@@ -308,7 +308,7 @@ class ModelRecordGroup(QObject):
 	# If 'default' is true, the record is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
 	def create(self, default=True, position=-1, domain=[], context={}):
-		record = ModelRecord(None, self, parent=self.parent, new=True)
+		record = Record(None, self, parent=self.parent, new=True)
 		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
 		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		if default:
@@ -336,12 +336,12 @@ class ModelRecordGroup(QObject):
 		if not record in self.records:
 			return
 		idx = self.records.index(record)
-		if isinstance( record, ModelRecord ):
+		if isinstance( record, Record ):
 			id = record.id
 		else:
 			id = record
 		self.removedRecords.append( id )
-		if isinstance( record, ModelRecord ):
+		if isinstance( record, Record ):
 			if record.parent:
 				record.parent.modified = True
 		self.emit( SIGNAL('modified()') )
@@ -379,7 +379,7 @@ class ModelRecordGroup(QObject):
 	def unloadedIds(self):
 		ids = []
 		for x in self.records:
-			if isinstance(x, ModelRecord) and not x._loaded:
+			if isinstance(x, Record) and not x._loaded:
 				ids.append( x.id )
 			else:
 				ids.append( x )
@@ -388,7 +388,7 @@ class ModelRecordGroup(QObject):
 	def ids(self):
 		ids = []
 		for x in self.records:
-			if isinstance(x, ModelRecord):
+			if isinstance(x, Record):
 				ids.append( x.id )
 			else:
 				ids.append( x )
@@ -427,7 +427,7 @@ class ModelRecordGroup(QObject):
 	def indexOfId(self, id):
 		i = 0
 		for record in self.records:
-			if isinstance( record, ModelRecord ):
+			if isinstance( record, Record ):
 				if record.id == id:
 					return i
 			elif record == id:
@@ -443,21 +443,21 @@ class ModelRecordGroup(QObject):
 	# Note that it will return the record but won't try to load it.
 	def recordById(self, id):
 		for record in self.records:
-			if isinstance( record, ModelRecord ):
+			if isinstance( record, Record ):
 				if record.id == id:
 					return record
 			elif record == id:
 				idx = self.records.index( id )
-				record = ModelRecord(id, self, parent=self.parent)
+				record = Record(id, self, parent=self.parent)
 				self.records[idx] = record 
 				return record
 
 	def recordByIndex(self, row):
 		record = self.records[row]
-		if isinstance( record, ModelRecord ):
+		if isinstance( record, Record ):
 			return record
 		else:
-			record = ModelRecord(record, self, parent=self.parent)
+			record = Record(record, self, parent=self.parent)
 			self.records[row] = record
 			return record
 		
@@ -706,7 +706,7 @@ class ModelRecordGroup(QObject):
 	## @brief Removes all new records and marks all modified ones as not loaded.
 	def cancel(self):
 		for record in self.records[:]:
-			if isinstance( record, ModelRecord ):
+			if isinstance( record, Record ):
 				if not record.id:
 					self.records.remove( record )
 				elif record.isModified():
@@ -718,7 +718,7 @@ class ModelRecordGroup(QObject):
 	## @brief Returns True if any of the records in the group have been modified.
 	def isModified(self):
 		for record in self.records:
-			if isinstance( record, ModelRecord ):
+			if isinstance( record, Record ):
 				if record.isModified():
 					return True
 		return False
@@ -726,7 +726,7 @@ class ModelRecordGroup(QObject):
 	## @brief Returns True if the given record has been modified.
 	def isRecordModified(self, id):
 		for record in self.records:
-			if isinstance( record, ModelRecord ):
+			if isinstance( record, Record ):
 				if record.id == id:
 					return record.isModified()
 			elif record == id:

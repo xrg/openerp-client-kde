@@ -38,7 +38,7 @@ from Koo.Common import Common
 import copy
 
 from Koo.Screen.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 (PreferencesDialogUi, PreferencesDialogBase) = loadUiType( Common.uiPath('preferences.ui') )
 
@@ -60,7 +60,7 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		arch+= '</form>'
 
 		self.screen = Screen( self )
-		self.screen.setModelGroup( ModelRecordGroup( model ) )
+		self.screen.setModelGroup( RecordGroup( model ) )
 		self.screen.new(default=False)
 		self.screen.addView(arch, fields, display=True)
 

@@ -30,7 +30,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Koo import Rpc
 from Koo.Common import Common
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 (MassiveUpdateDialogUi, MassiveUpdateDialogBase) = loadUiType( Common.uiPath('massiveupdate.ui') )
 
@@ -50,7 +50,7 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 	def setup( self, model, context ):
 		self.model = model
 		self.context = context
-		self.group = ModelRecordGroup( self.model, context=self.context )
+		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setAllowRecordLoading( False )
 
 		self.screen.setModelGroup( self.group )

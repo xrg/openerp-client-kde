@@ -37,7 +37,7 @@ from Koo.Common import Common
 from Koo.Common import Icons
 
 from Koo.Screen.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 ## @brief The WizardPage class shows a QDialog with the information givenin one wizard step.
 class WizardPage(QDialog):
@@ -66,8 +66,12 @@ class WizardPage(QDialog):
 			if 'value' in fields[f]:
 				val[f] = fields[f]['value']
 
+		self.group = RecordGroup( 'wizard.'+name )
+		# Do not allow record loading as most probably 'wizard.'+name model
+		# won't exist in the server
+		self.group.setAllowRecordLoading( False )
 		self.screen = Screen( self )
-		self.screen.setModelGroup( ModelRecordGroup( 'wizard.'+name ) )
+		self.screen.setModelGroup( self.group )
 		self.screen.new(default=False)
 		self.screen.addView(arch, fields, display=True)
 		# Set default values

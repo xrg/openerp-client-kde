@@ -35,7 +35,7 @@ from Koo.Common import Common
 from Koo import Rpc
 
 from Koo.Screen.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Dialogs.SearchDialog import SearchDialog
@@ -56,7 +56,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
 
-		group = ModelRecordGroup( attrs['relation'] )
+		group = RecordGroup( attrs['relation'] )
 		group.setAllowRecordLoading( False )
 		
 		self.screen = Screen( self )

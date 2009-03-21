@@ -41,9 +41,9 @@ from Koo.Common import Numeric
 
 
 ## @brief The KooModel class provides a QAbstractItemModel wrapper around 
-# ModelRecordGroup class.
+# RecordGroup class.
 #
-# To use this class, simply call setModelGroup() to set the ModelRecordGroup
+# To use this class, simply call setModelGroup() to set the RecordGroup
 # instance to wrap, and setFields() with the fields to load.
 # Then it's ready to be used in any Qt model/view enabled widget such as 
 # QTreeView or QListView.
@@ -84,7 +84,7 @@ class KooModel(QAbstractItemModel):
 		# updateVisibleFields().
 		self.visibleFields = []
 		
-	## @brief Sets the ModelRecordGroup associated with this Qt Model
+	## @brief Sets the RecordGroup associated with this Qt Model
 	#
 	# Fields should already be set and can't be added after this 
 	# call
@@ -466,8 +466,8 @@ class KooModel(QAbstractItemModel):
 		if group == self.group:
 			return QModelIndex()
 
-		# The 'parent' of the child ModelRecordGroup is a Model. The
-		# model has a pointer to the ModelRecordGroup it belongs and
+		# The 'parent' of the child RecordGroup is a Model. The
+		# model has a pointer to the RecordGroup it belongs and
 		# it's called 'group'
 		model = group.parent
 		parent = group.parent.group
@@ -537,7 +537,7 @@ class KooModel(QAbstractItemModel):
 		else:
 			return None
 
-	## @brief Returns a ModelRecord refered by row and group parameters
+	## @brief Returns a Record refered by row and group parameters
 	def model(self, row, group):
 		if not group:
 			return None

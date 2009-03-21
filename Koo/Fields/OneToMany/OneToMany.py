@@ -34,7 +34,7 @@ from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common import Common
 from Koo.Screen.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 (ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
 
@@ -100,7 +100,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect( self.pushForward, SIGNAL( "clicked()"),self.next )
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
-		group = ModelRecordGroup( attrs['relation'] )
+		group = RecordGroup( attrs['relation'] )
 		group.setAllowRecordLoading( False )
 
 		self.screen = Screen( self )

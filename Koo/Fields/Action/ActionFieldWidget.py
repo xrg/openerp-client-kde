@@ -33,7 +33,7 @@ from Koo.Common import Common
 
 
 from Koo.Screen.Screen import Screen
-from Koo.Model.Group import ModelRecordGroup
+from Koo.Model.Group import RecordGroup
 
 from Koo import Rpc
 import time
@@ -74,7 +74,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 				if self.action['view_id']:
 					self.view_id = [self.action['view_id'][0]]
 
-				self.modelGroup = ModelRecordGroup( self.action['res_model'], context=self.context )
+				self.modelGroup = RecordGroup( self.action['res_model'], context=self.context )
 				self.modelGroup.setDomain( self.domain )
 
 				# Try to make the impression that it loads faster...
