@@ -266,17 +266,19 @@ class Screen(QScrollArea):
 		self.rpc = RpcProxy(self.resource)
 
 		self.group = modelGroup
-		if modelGroup.count():
-			self.setCurrentRecord( modelGroup.recordByIndex(0) )
-		else:
-			self.setCurrentRecord( None )
+		self._currentRecord = None
 
 		modelGroup.addFields(self.fields)
 		self.fields.update(modelGroup.fields)
 
 	## @brief Returns a reference the current record (Record).
 	def currentRecord(self):
-		if self.group.count() and self._currentRecordPosition >= 0:
+		# Checking _currentRecordPosition before count() can save a search() call to the server because
+		# count() will execute a search() in the server if no items have been loaded yet. What happens is
+		# that the first time a screen with a TreeView is shown currentRecord() will be called but there
+		# will be no currentRecord. TreeView then will set the appropiate order by loading settings from 
+		# the server through restoreViewSettings, and KooModel will load data on demand.
+		if self._currentRecordPosition >= 0 and self.group.count():
 			# Use modelByIndex because this ensures all missing fields of the model
 			# are loaded. For example, the model could have been loaded in tree view
 			# but now might need more fields for form view.
