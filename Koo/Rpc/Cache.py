@@ -58,3 +58,32 @@ class ViewCache(AbstractCache):
 	def clear(self):
 		self.cache = {}
 
+class ActionViewCache(AbstractCache):
+	exceptions = []
+
+	def __init__(self):
+		self.cache = {}
+
+	def exists(self, obj, method, *args):
+		if method == 'execute' and len(args) >= 2 and args[1] == 'fields_view_get':
+			return (obj, method, str(args)) in self.cache
+		elif method == 'execute' and len(args) >= 2 and args[0] == 'ir.values' and args[1] == 'get':
+			return (obj, method, str(args)) in self.cache
+		else:
+			return False
+			
+	def get(self, obj, method, *args):
+		return copy.deepcopy( self.cache[(obj, method, str(args))] )
+		
+	def add(self, value, obj, method, *args):
+		if method == 'execute' and len(args) >= 2 and args[1] == 'fields_view_get':
+			# Don't cache models configured in the exception list of the server module 'ktiny'.
+			if args[0] in ViewCache.exceptions:
+				return 
+			self.cache[(obj,method,str(args))] = copy.deepcopy( value )
+		elif method == 'execute' and len(args) >= 2 and args[0] == 'ir.values' and args[1] == 'get':
+			self.cache[(obj,method,str(args))] = copy.deepcopy( value )
+
+	def clear(self):
+		self.cache = {}
+

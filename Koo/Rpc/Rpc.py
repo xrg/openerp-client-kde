@@ -523,7 +523,7 @@ class Session:
 		return new
 
 session = Session()
-session.cache = ViewCache()
+session.cache = ActionViewCache()
 
 ## @brief The Database class handles queries that don't require a previous login, served by the db server object
 class Database:
