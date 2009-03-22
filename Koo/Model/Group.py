@@ -379,8 +379,9 @@ class RecordGroup(QObject):
 	def unloadedIds(self):
 		ids = []
 		for x in self.records:
-			if isinstance(x, Record) and not x._loaded:
-				ids.append( x.id )
+			if isinstance(x, Record):
+				if not x._loaded:
+					ids.append( x.id )
 			else:
 				ids.append( x )
 		return ids
