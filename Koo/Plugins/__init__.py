@@ -29,7 +29,6 @@
 
 from PyQt4.QtGui import *
 from Koo.Common import Common
-#from Koo import Common.Plugins
 import Koo.Common.Plugins
 import re
 import os

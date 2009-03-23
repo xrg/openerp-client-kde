@@ -73,7 +73,7 @@ class Report:
 
 		# If the language used is xpath create the xmlFile in inputFile.
 		if self.reportProperties['language'] == 'xpath':
-			if self.data.get('records',False):
+			if self.data.get('data_source','model') == 'records':
 				self.generate_xml_from_records( inputFile )
 			else:
 				self.generate_xml( inputFile )
@@ -351,6 +351,9 @@ class report_jasper(report.interface.report_int):
 			# Use model defined in report_jasper definition. Necesary for menu entries.
 			data['model'] = d.get( 'model', self.model )
 			data['records'] = d.get( 'records', [] )
+			# data_source can be 'model' or 'records' and lets parser to return
+			# an empty 'records' parameter while still executing using 'records'
+			data['data_source'] = d.get( 'data_source', 'model' )
 		r = Report( name, cr, uid, ids, data, context )
 		return ( r.execute(), 'pdf' )
 
