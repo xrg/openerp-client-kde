@@ -500,7 +500,7 @@ class Screen(QScrollArea):
 			return False
 		
 		if self.currentView().showsMultipleRecords():
-			for record in self.modifiedRecords():
+			for record in self.group.modifiedRecords():
 				if record.validate():
 					id = record.save(reload=True)
 				else:
