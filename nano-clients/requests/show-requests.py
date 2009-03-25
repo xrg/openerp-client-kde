@@ -62,7 +62,7 @@ class RequestsDialog(QDialog):
 		visible = ['create_date', 'name', 'act_from', 'act_to', 'body' ]
 		self.fields = Rpc.session.execute('/object', 'execute', 'res.request', 'fields_get', visible)
 		ids = Rpc.session.execute('/object', 'execute', 'res.request', 'search', [])
-		self.group = ModelRecordGroup( 'res.request', self.fields, ids )
+		self.group = RecordGroup( 'res.request', self.fields, ids )
 		treeModel = KooModel( self )
 		treeModel.setModelGroup( self.group )
 		treeModel.setFields( self.fields )
