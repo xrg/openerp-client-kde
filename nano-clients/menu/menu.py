@@ -56,7 +56,11 @@ class MenuDialog(QDialog):
 		self.fields = Rpc.session.execute('/object', 'execute', model, 'fields_get', 
 				visibleFields + ['child_id', 'icon'] )
 		ids = Rpc.session.execute('/object', 'execute', model, 'search', domain)
-		self.group = ModelRecordGroup( model, self.fields, ids )
+		import gc
+		for x in xrange(1000):
+			self.group = RecordGroup( model, self.fields, ids )
+			self.group.ensureAllLoaded()
+			gc.collect()
 
 		# Setup Qt Model
 		self.model = KooModel( self )
