@@ -376,13 +376,15 @@ class RecordGroup(QObject):
 			for v in values:
 				self.recordById( v['id'] ).set(v, signal=False)
 
+	## @brief Returns the list of ids that have not been loaded yet. The list
+	# won't include new records as those have id 0 or None.
 	def unloadedIds(self):
 		ids = []
 		for x in self.records:
 			if isinstance(x, Record):
-				if not x._loaded:
+				if x.id and not x._loaded:
 					ids.append( x.id )
-			else:
+			elif x:
 				ids.append( x )
 		return ids
 
