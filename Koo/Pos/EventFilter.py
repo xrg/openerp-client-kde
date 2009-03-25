@@ -35,7 +35,7 @@ class PosEventFilter(QObject):
 	## @brief Reimplements eventFilter() to show a Keyboard when a QLineEdit or QTextEdit gets
 	# the focus.
 	def eventFilter(self, obj, event):
-		if event.type() == QEvent.FocusIn:
+		if event.type() == QEvent.MouseButtonPress:
 			if obj != self.currentWidget:
 				if obj.inherits( 'QLineEdit' ) or obj.inherits( 'QTextEdit' ):
 					self.currentWidget = obj
