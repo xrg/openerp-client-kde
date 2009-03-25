@@ -409,7 +409,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if self.modifiedSave():
 			# Here suppose that if we return True the form/tab will
 			# actually be closed, so stop reload timer so it doesn't
-			# remain active if the object is leaked.
+			# remain active if the object is freed.
 			self.reloadTimer.stop()
 			self.subscriber.unsubscribe()
 			return True
