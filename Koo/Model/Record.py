@@ -66,6 +66,7 @@ class Record(QObject):
 		self.modified_fields = {}
 		self.invalidFields = []
 		self.read_time = time.time()
+		self.new = new
 		#for key,val in self.group.fieldObjects.items():
 		#	self.values[key] = val.create(self)
 		#	if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
@@ -362,5 +363,12 @@ class Record(QObject):
 	# returned by missingFields()
 	def createMissingFields(self):
 		for key in self.missingFields():
-			self.values[key] = self.group.fieldObjects[key].create(self)
+			val = self.group.fieldObjects[key]
+			self.values[key] = val.create(self)
+			#if (self.new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
+				#val.create()
 
+		#for key,val in self.group.fieldObjects.items():
+		#	self.values[key] = val.create(self)
+		#	if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
+		#		self.values[key].create()
