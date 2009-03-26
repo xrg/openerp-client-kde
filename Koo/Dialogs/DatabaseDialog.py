@@ -56,9 +56,8 @@ class DatabaseDialog( QDialog, DatabaseDialogUi ):
 
 		host = Options.options['login.server']
 		port = Options.options['login.port']
-		secure = Options.options['login.secure']
-		protocol = secure and 'https' or 'http'
-		url = '%s://%s:%s' % (protocol, host, port)
+		protocol = Options.options['login.protocol']
+		url = '%s%s:%s' % (protocol, host, port)
 		self.uiServer.setText( url )
 
 		self.uiTitle.setText( title )
