@@ -293,11 +293,7 @@ class Screen(QScrollArea):
 	# Note that value will be a reference to the Record.
 	def setCurrentRecord(self, value):
 		self._currentRecord = value
-		#try:
-		#	pos = self.group.records.index(value)
-		#except:
-		#	pos = -1
-		if self.group.recordExists( value ):
+		if self.group and self.group.recordExists( value ):
 			pos = self.group.indexOfRecord( value )
 		else:
 			pos = -1
