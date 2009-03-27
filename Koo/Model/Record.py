@@ -365,10 +365,5 @@ class Record(QObject):
 		for key in self.missingFields():
 			val = self.group.fieldObjects[key]
 			self.values[key] = val.create(self)
-			#if (self.new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
-				#val.create()
-
-		#for key,val in self.group.fieldObjects.items():
-		#	self.values[key] = val.create(self)
-		#	if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
-		#		self.values[key].create()
+			if (self.new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
+				self.values[key].create()
