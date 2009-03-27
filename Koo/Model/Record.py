@@ -86,10 +86,14 @@ class Record(QObject):
 
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
+		# Ensure there are values for all fields in the group
+		self.createMissingFields()
 		self.group.fieldObjects[fieldName].set_client(self, value)
 
 	## @brief Obtains the value of a given field
 	def value(self, fieldName):
+		# Ensure there are values for all fields in the group
+		self.createMissingFields()
 		return self.group.fieldObjects[fieldName].get_client(self)
 
 	## @brief Establishes the default value for a given field
