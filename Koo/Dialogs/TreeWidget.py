@@ -117,7 +117,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.toolbar = p.toolbar
 
 		# Get all visible fields + parent field description
-		self.fields = Rpc.session.execute('/object', 'execute', self.model, 'fields_get', p.fieldsOrder + [self.childrenField])
+		self.fields = Rpc.session.execute('/object', 'execute', self.model, 'fields_get', p.fieldsOrder + [self.childrenField], self.context)
 
 		self.treeModel = KooModel( self )
 		self.treeModel.setFields( self.fields )
