@@ -78,7 +78,8 @@ def kdeIcon(icon):
 	if icon in mapIcons:
 		return QIcon( ':/images/images/' + mapIcons[icon] )
 	else:
-		print "KDE ICON '%s' NOT FOUND" % icon
+		if icon:
+			print "KDE ICON '%s' NOT FOUND" % icon
 		return QIcon()
 
 ## @brief Returns a QPixmap given an icon name. The name of the icon is usually 
@@ -87,6 +88,7 @@ def kdePixmap(icon):
 	if icon in mapIcons:
 		return QPixmap( ':/images/images/' + mapIcons[icon] )
 	else:
-		print "KDE ICON '%s' NOT FOUND" % icon
+		if icon:
+			print "KDE ICON '%s' NOT FOUND" % icon
 		return QPixmap()
 
