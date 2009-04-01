@@ -623,12 +623,12 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			return
 		try:
 			self.setCursor( Qt.WaitCursor )
-			Rpc.database.execute(dialog.url, 'drop', dialog.password, dialog.databaseName )
+			Rpc.database.call(dialog.url, 'drop', dialog.password, dialog.databaseName )
 			self.unsetCursor()
 			QMessageBox.information( self, _('Database removal'), _('Database dropped successfully!') )
 		except Exception, e:
 			self.unsetCursor()
-			if e.faultString=='AccessDenied:None':
+			if e.message=='AccessDenied:None':
 				QMessageBox.warning( self, _("Could not drop database."), _('Bad database administrator password !') )
 			else:
 				QMessageBox.warning( self, _("Database removal"), _("Couldn't drop database") )
@@ -646,12 +646,12 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			f = file(fileName, 'rb')
 			data = base64.encodestring(f.read())
 			f.close()
-			Rpc.database.execute(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
+			Rpc.database.call(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
 			self.unsetCursor()
 			QMessageBox.information( self, '', _('Database restored successfully!') )
 		except Exception,e:
 			self.unsetCursor()
-			if e.faultString=='AccessDenied:None':
+			if e.message=='AccessDenied:None':
 				QMessageBox.warning(self, _('Could not restore database'), _('Bad database administrator password!') )
 			else:
 				QMessageBox.warning(self, _('Could not restore database'), _('There was an error restoring the database!') )
