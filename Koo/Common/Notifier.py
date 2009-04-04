@@ -60,9 +60,6 @@ def notifyError(title, message, detail):
 
 ## @brief Calls the function that has been registered to handle warnings.
 def notifyWarning(title, message):
-	print "NOTIFYING WARNING!!!!"
-	import traceback
-	traceback.print_stack()
 	if warningHandler:
 		warningHandler(title, message)
 
