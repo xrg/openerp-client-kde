@@ -1,5 +1,5 @@
 #!/bin/bash
 
-export PYTHONPATH=../../
+export PYTHONPATH=../../:$PYTHONPATH
 
 python menu.py -stylesheet menu.qss
