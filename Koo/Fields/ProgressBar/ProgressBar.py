@@ -50,7 +50,7 @@ class ProgressBarFieldWidget(AbstractFieldWidget):
 		self.uiBar.reset()
 
 	def showValue(self):
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if not value:
 			self.clear()
 		value = max( min( value, 100 ), 0 )

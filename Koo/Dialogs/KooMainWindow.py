@@ -56,6 +56,7 @@ from Koo.Common import Options
 from Koo.Common import Common
 from Koo.Common import Api
 from Koo.Common import ViewSettings
+from Koo.Common import Debug
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
@@ -236,16 +237,17 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	# It returns True if all tabs could be closed, False otherwise. If there are no 
 	# tabs always returns True.
 	def closeTab(self, tab):
-		wid = self.tabWidget.widget(tab)
-		if wid:
+		widget = self.tabWidget.widget(tab)
+		if widget:
 			# Ask the current tab if it can be closed
-			if not wid.canClose():
+			if not widget.canClose():
 				return False
 		self.tabWidget.removeTab( tab ) 
-		del wid
+		widget.setParent( None )
+		del widget
 		self.updateEnabledActions()
 		return True
-		
+
 	## @brief Closes the current tab smartly. 
 	def closeCurrentTab(self):
 		return self.closeTab( self.tabWidget.currentIndex() )

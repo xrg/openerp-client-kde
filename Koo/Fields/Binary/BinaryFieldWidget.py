@@ -61,12 +61,12 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 
 	def menuEntries(self):
 		pix = QPixmap()
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			enableApplication = True
 		else:
 			enableApplication = False
 
-		if pix.loadFromData( self.model.value(self.name) ):
+		if pix.loadFromData( self.record.value(self.name) ):
 			enableImage = True
 		else:
 			enableImage = False
@@ -74,7 +74,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			 (_('Show &image...'), self.showImage, enableImage) ]
 
 	def openApplication(self):
-		if not self.model.value(self.name):
+		if not self.record.value(self.name):
 			return
 
 		# Under windows platforms we need to create the temporary
@@ -84,23 +84,23 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		# was set, and pick up the extension from that field.
 		extension = ''
 		if 'filename' in self.attrs:
-			fileName = self.model.value( self.attrs['filename'] )
+			fileName = self.record.value( self.attrs['filename'] )
 			if fileName:
 				extension = '.%s' % fileName.rpartition('.')[2]
 
 		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb+')
-		fp.write( self.model.value(self.name) )
+		fp.write( self.record.value(self.name) )
 		fp.close()
 		Common.openFile( fileName )
 
 	def showImage(self):
-		if not self.model.value(self.name): 
+		if not self.record.value(self.name): 
 			return
 		dialog = QDialog( self )
 		label = QLabel( dialog )
 		pix = QPixmap()
-		pix.loadFromData( self.model.value(self.name) )
+		pix.loadFromData( self.record.value(self.name) )
 		label.setPixmap( pix )
 		layout = QHBoxLayout( dialog )
 		layout.addWidget( label )
@@ -113,16 +113,16 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 				return
 			filename = unicode(filename)
 			value = file(filename, 'rb').read()
-			self.model.setValue( self.name, value )
+			self.record.setValue( self.name, value )
 			self.uiBinary.setText( _('%d bytes') % len(value) )
 
 			# The binary widget might have a 'filename' attribute
 			# that stores the file name in the field indicated by 'filename'
 			if 'filename' in self.attrs:
 				w = self.attrs['filename']
-				self.model.setValue( w, os.path.basename(filename) )
+				self.record.setValue( w, os.path.basename(filename) )
 				if self.view:
-					self.view.widgets[w].load(self.model)
+					self.view.widgets[w].load(self.record)
 		except:
 			QMessageBox.information(self, '', _('Error reading the file'))
 
@@ -131,24 +131,24 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			filename = QFileDialog.getSaveFileName( self, _('Save as...') )
 			if filename:
 				fp = file(filename,'wb+')
-				fp.write( self.model.value(self.name) )
+				fp.write( self.record.value(self.name) )
 				fp.close()
 		except:
 			QMessageBox.information(self, '', _('Error writing the file!'))
 
 	def slotRemove(self):
-		self.model.setValue( self.name, False )
+		self.record.setValue( self.name, False )
 		self.clear()
 		self.modified()
 		if 'filename' in self.attrs:
 			w = self.attrs['filename']
-			self.model.setValue( w, False )
+			self.record.setValue( w, False )
 			if self.view:
-				self.view.widgets[w].load(self.model)
+				self.view.widgets[w].load(self.record)
 
 	def showValue(self):
-		if self.model.value( self.name ):
-			size = len( self.model.value( self.name ) )
+		if self.record.value( self.name ):
+			size = len( self.record.value( self.name ) )
 			self.uiBinary.setText( _('%d bytes') % size ) 
 		else:
 			self.clear()

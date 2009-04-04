@@ -43,24 +43,73 @@ class MenuDialog(QDialog):
 	def __init__(self,parent=None):
 		QDialog.__init__(self,parent)
 
-		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'jornadas' )
+		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'agrutrans' )
 
 		#model = 'account.account'
 		#visibleFields = ['name', 'code', 'debit', 'credit', 'balance', 'company_currency_id']
 		#domain = [('code', '=', '0')]
 
-		model = 'ir.ui.menu'
-		visibleFields = ['name']
-		domain = [('parent_id','=',False)]
+		#model = 'ir.ui.menu'
+		#visibleFields = ['name']
+		#extraFields = ['child_id', 'icon']
+		#domain = [('parent_id','=',False)]
+
+		model = 'res.partner.address'
+		#visibleFields = ['partner_id', 'name', 'zip', 'city', 'country_id']
+		visibleFields = ['street', 'name', 'zip', 'city', 'street2']
+		extraFields = []
+		domain = []
 
 		self.fields = Rpc.session.execute('/object', 'execute', model, 'fields_get', 
-				visibleFields + ['child_id', 'icon'] )
+				visibleFields + extraFields  )
 		ids = Rpc.session.execute('/object', 'execute', model, 'search', domain)
 		import gc
-		for x in xrange(1000):
+		import sys
+		#from muppy import tracker
+
+		#mt = tracker.ObjectTracker()
+		iterations = 6
+		for x in xrange(iterations):
+			#print "NUM OBJECTS: ", len(gc.get_objects())
 			self.group = RecordGroup( model, self.fields, ids )
+			print "GC 0: ", len(gc.get_referrers(self.group))
+			#for x in gc.get_referrers(self.group):
+			#	print "REF: ", x
+			#	print "--------"
 			self.group.ensureAllLoaded()
+			#print "GC 0: ", len(gc.get_referrers(self.group))
+			#print "GC 1: ", sys.getrefcount(self.group)
+			#print "COUNT: ", len(self.group.records)
+			#for r in self.group.records:
+				#r.parent = None
+				#r.group = None
+				#r.setParent( None )
+				#for key, value in r.values.iteritems():
+					#import Koo.Model.Field
+					#if isinstance(value, Koo.Model.Field.ToManyField):
+						#value.parent = None
+				#r.values = {}
+			##print "COUNT 2: ", len(self.group.fieldObjects)
+			#self.group.records = []
+			#for f in self.group.fieldObjects:
+				#self.group.fieldObjects[f].parent = None
+			#self.group.fieldObjects = {}
+			#print "NUM OBJECTS: ", len(gc.get_objects())
+			#print "GC 1: ", len(gc.get_referrers(self.group))
+			#del self.group
+			#del f
+			#del r
+			#del self.group
+			if x != iterations - 1:
+				self.group.__del__()
+			#self.group = None
 			gc.collect()
+			#mt.print_diff()
+			print "NUM OBJECTS: ", len(gc.get_objects())
+			#print "----"
+			#print "GC: ", gc.get_referrers(self.group)
+			print "GC: ", len(gc.get_referrers(self.group))
+		print "AFD"
 
 		# Setup Qt Model
 		self.model = KooModel( self )
@@ -73,8 +122,8 @@ class MenuDialog(QDialog):
 
 		# Create GUI
 		layout = QVBoxLayout(self)
-		#widget = QTreeView(self)
-		widget = QColumnView(self)
+		widget = QTreeView(self)
+		#widget = QColumnView(self)
 		#widget = QListView(self)
 		#widget.setViewMode( QListView.IconMode )
 		#widget.setGridSize( QSize( 100, 100 ) )

@@ -64,7 +64,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 				Api.instance.executeAction( result, datas, screen.context )
 			return
 
-		if self.model.validate():
+		if self.record.validate():
 			id = screen.save()
 			if not self.attrs.get('confirm',False) or \
 					QMessageBox.question(self,_('Question'),self.attrs['confirm'],QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
@@ -86,7 +86,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 						return
 					QApplication.setOverrideCursor( Qt.WaitCursor )
 
-					result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.model.context())
+					result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
 					if isinstance( result, dict ):
 						screen.close()
 						Api.instance.executeAction( result, {}, screen.context)
@@ -108,14 +108,17 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 	def setReadOnly(self, value):
 		self.button.setEnabled( not value )
 
-	def display(self, state):
-		if self.attrs.get('states', False):
-			states = self.attrs.get('states', '').split(',')
-			if state not in states:
-				self.hide()
-			else:
-				self.show()
-		else:
+	def display(self):
+		if not self.attrs.get('states', False):
 			self.show()
+			return
 
+		state = 'draft'
+		if self.record and self.record.fieldExists('state'):
+			state = self.record.value('state')
+		states = self.attrs.get('states', '').split(',')
+		if state in states:
+			self.show()
+		else:
+			self.hide()
 

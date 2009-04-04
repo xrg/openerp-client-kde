@@ -56,7 +56,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		self.connect( self.pushOpen, SIGNAL('clicked()'), self.open )
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
 		self.setPopdown( attrs.get('selection',[]) )
-		self.connect( self.uiModel, SIGNAL('currentIndexChanged(int)'), self.modelChanged )
+		self.connect( self.uiModel, SIGNAL('currentIndexChanged(int)'), self.recordChanged )
 		self.connect( self.uiText, SIGNAL( "editingFinished()" ), self.match )
 		self.scNew = QShortcut( self.uiText )
 		self.scNew.setContext( Qt.WidgetShortcut )
@@ -90,8 +90,8 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 
 		# This automatically refreshes the widget and thus clears
 		# the uiModel combo and the uiText line edit
-		if self.model:
-			self.model.setValue(self.name, False)
+		if self.record:
+			self.record.setValue(self.name, False)
 
 	def setPopdown(self, selection):
 		self.invertedModels = {}
@@ -117,14 +117,14 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		pass
 
 	def search(self):
-		domain = self.model.domain(self.name)
-		context = self.model.fieldContext(self.name)
+		domain = self.record.domain(self.name)
+		context = self.record.fieldContext(self.name)
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 		ids = Rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
 		
 		if len(ids)==1:
 			id, name = ids[0]
-			self.model.setValue(self.name, (resource, (id, name)) ) 
+			self.record.setValue(self.name, (resource, (id, name)) ) 
 			self.display()
 			return
 
@@ -132,16 +132,16 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		if dialog.exec_() == QDialog.Accepted and dialog.result:
 			id = dialog.result[0]
 			id, name = Rpc.session.execute('/object', 'execute', resource, 'name_get', [id], Rpc.session.context)[0]
-			self.model.setValue(self.name, (resource, (id, name)) )
+			self.record.setValue(self.name, (resource, (id, name)) )
 			self.display()
 
 	def match(self):
 		name = unicode(self.uiText.text())
 		if name.strip() == '':
-			self.model.setValue(self.name, False)
+			self.record.setValue(self.name, False)
 			return
 
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if value and value[1][1] == name:
 			return
 		self.search()
@@ -153,7 +153,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		dialog.setAttributes( self.attrs )
 		if dialog.exec_() == QDialog.Accepted:
 			resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-			self.model.setValue(self.name, (resource, dialog.model) )
+			self.record.setValue(self.name, (resource, dialog.model) )
 
 	def open(self):
 		# As the 'open' button might modify the model we need to be sure all other fields/widgets
@@ -161,7 +161,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		# the parent model could make us lose changes.
 		self.view.store()
 
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if value:
 			model, (id, name) = value
 			# If Control Key is pressed when the open button is clicked
@@ -179,12 +179,12 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 
 	def clear(self):
 		self.uiModel.setCurrentIndex(-1)
-		if self.model:
-			self.model.setValue( self.name, False )
+		if self.record:
+			self.record.setValue( self.name, False )
 			self.display()
 		
 	def showValue(self):
-		value = self.model.value(self.name) 
+		value = self.record.value(self.name) 
 		if value:
 			model, (id, name) = value
 			self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )

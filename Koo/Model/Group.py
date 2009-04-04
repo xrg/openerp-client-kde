@@ -117,6 +117,27 @@ class RecordGroup(QObject):
 		self.removedRecords = []
 		self.on_write = ''
 
+	def __del__(self):
+		#print "DEL..."
+		self.rpc = None
+		self.parent = None
+		self.resource = None
+		self._context = None
+		self.fields = None
+		for r in self.records:
+			if not isinstance(r, Record):
+				continue
+			r.__del__()
+		self.records = []
+		#print "F: ", self.fieldObjects
+		for f in self.fieldObjects:
+			self.fieldObjects[f].parent = None
+			self.fieldObjects[f].setParent( None )
+			#self.disconnect( self.fieldObjects[f], None, 0, 0 )
+			#self.fieldObjects[f] = None
+			#del self.fieldObjects[f]
+		#print "DELETE"
+		self.fieldObjects = {}
 
 	# Creates the entries in 'fieldObjects' for each key of the 'fkeys' list.
 	def loadFieldObjects(self, fkeys):
@@ -308,6 +329,8 @@ class RecordGroup(QObject):
 	# If 'default' is true, the record is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
 	def create(self, default=True, position=-1, domain=[], context={}):
+		self.ensureUpdated()
+
 		record = Record(None, self, parent=self.parent, new=True)
 		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
 		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
@@ -374,7 +397,9 @@ class RecordGroup(QObject):
 		values = self.rpc.read( ids, self.fields.keys(), c )
 		if values:
 			for v in values:
-				self.recordById( v['id'] ).set(v, signal=False)
+				#self.recordById( v['id'] ).set(v, signal=False)
+				r = self.recordById( v['id'] )
+				r.set(v, signal=False)
 
 	## @brief Returns the list of ids that have not been loaded yet. The list
 	# won't include new records as those have id 0 or None.

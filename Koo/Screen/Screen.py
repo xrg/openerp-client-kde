@@ -518,12 +518,6 @@ class Screen(QScrollArea):
 
 	## @brief Reloads 
 	def reload(self):
-		#if self.currentView().showsMultipleRecords():
-		#	self.update()
-		#else:
-		#	if self.currentRecord():
-		#		self.currentRecord().reload()
-		#self.display()
 		if not self.currentView().showsMultipleRecords():
 			if self.currentRecord():
 				self.currentRecord().reload()

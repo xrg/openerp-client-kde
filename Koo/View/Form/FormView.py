@@ -125,7 +125,7 @@ class FormView( AbstractView ):
 		self.screen = parent
 		self.view_type = 'form'
 		self.title = ""
-		self.model = None
+		self.record = None
 
 		self.layout = QHBoxLayout( self )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
@@ -141,51 +141,47 @@ class FormView( AbstractView ):
 		return self.widgets[name]
 	
 	def store(self):
-		if not self.model:
+		if not self.record:
 			return
 		
 		for name in self.widgets:
-			if self.widgets[name].model:
+			if self.widgets[name].record:
 				self.widgets[name].store()
 			else:
 				# TODO: Why should this happen?
 				print "NO MODEL SET FOR WIDGET: ", name
 
 	def selectedIds(self):
-		if self.model:
-			return [self.model.id]
+		if self.record:
+			return [self.record.id]
 		return []
 
 	def reset(self):
 		for name, widget in self.widgets.items():
 			widget.reset()
 
-	def display(self, currentModel, models):
+	def display(self, currentRecord, records):
 		# Though it might seem it's not necessary to connect FormView to recordChanged signal it
 		# actually is. This is due to possible 'on_change' events triggered by the modification of
-		# a field. This forces those widgets that might change the model before a 'lostfocus' has been
+		# a field. This forces those widgets that might change the record before a 'lostfocus' has been
 		# triggered to ensure the view has saved all its fields. As an example, modifying a char field
 		# and pressing the new button of a OneToMany widget might trigger a recordChanged before 
-		# char field has actually changed the value in the model. After updateDisplay, char field will
+		# char field has actually changed the value in the record. After updateDisplay, char field will
 		# be reset to its previous state. Take a look at OneToMany implementation to see what's needed
 		# in such buttons.
-		if self.model:
-			self.disconnect(self.model,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
-		self.model = currentModel
-		if self.model:
-			self.connect(self.model, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
-		self.updateDisplay(self.model)
+		if self.record:
+			self.disconnect(self.record,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+		self.record = currentRecord
+		if self.record:
+			self.connect(self.record, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+		self.updateDisplay(self.record)
 
-	def updateDisplay(self,model):
-		if self.model and ('state' in self.model.group.fields):
-			state = self.model.value('state')
-		else:
-			state = 'draft'
+	def updateDisplay(self, record):
 		for name in self.widgets:
-			if self.model:
-				self.widgets[name].load(self.model, state)
+			if self.record:
+				self.widgets[name].load(self.record)
 			else:
-				self.widgets[name].load(None, state)
+				self.widgets[name].load(None)
 		 
 	def viewSettings(self):
 		splitters = self.findChildren( QSplitter )

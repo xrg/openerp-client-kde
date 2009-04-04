@@ -87,8 +87,8 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		# could make us lose changes.
 		self.view.store()
 
-		domain = self.model.domain( self.name )
-		context = self.model.fieldContext( self.name )
+		domain = self.record.domain( self.name )
+		context = self.record.fieldContext( self.name )
 
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context)
 		ids = [x[0] for x in ids] 
@@ -126,7 +126,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.screen.display()
 
 	def showValue(self):
-		group = self.model.value(self.name)
+		group = self.record.value(self.name)
 		self.screen.setModelGroup(group)
 		self.screen.display()
 

@@ -74,8 +74,8 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 				if self.action['view_id']:
 					self.view_id = [self.action['view_id'][0]]
 
-				self.modelGroup = RecordGroup( self.action['res_model'], context=self.context )
-				self.modelGroup.setDomain( self.domain )
+				self.recordGroup = RecordGroup( self.action['res_model'], context=self.context )
+				self.recordGroup.setDomain( self.domain )
 
 				# Try to make the impression that it loads faster...
 				QTimer.singleShot( 0, self.createScreen )
@@ -85,9 +85,9 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 
 	def createScreen(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		#self.modelGroup.update()
+		#self.recordGroup.update()
 		self.screen = Screen( self )
-		self.screen.setModelGroup( self.modelGroup )
+		self.screen.setModelGroup( self.recordGroup )
 		#self.screen.setDomain( self.domain )
 		self.screen.setEmbedded( True )
 		if int( self.attrs.get('show_toolbar','0') ):
@@ -134,7 +134,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.screen.currentView().store()
 
 	def showValue(self):
-		#self.modelGroup.update()
+		#self.recordGroup.update()
 		if self.screen:
 			self.screen.display()
 

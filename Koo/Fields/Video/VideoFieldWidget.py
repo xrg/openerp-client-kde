@@ -62,7 +62,7 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 				return
 			filename = unicode(filename)
 			value = file(filename).read()
-			self.model.setValue( self.name, value )
+			self.record.setValue( self.name, value )
 		except:
 			QMessageBox.information(self, '', _('Error reading the file'))
 
@@ -71,18 +71,18 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 			filename = QFileDialog.getSaveFileName( self, _('Save as...') )
 			if filename:
 				fp = file(filename,'wb+')
-				fp.write( self.model.value(self.name) )
+				fp.write( self.record.value(self.name) )
 				fp.close()
 		except:
 			QMessageBox.information(self, '', _('Error writing the file!'))
 	def remove(self):
-		self.model.setValue( self.name, False )
+		self.record.setValue( self.name, False )
 		self.clear()
 		self.modified()
 
 	def play(self):
 		self.uiVideo.stop()
-		value = self.model.value( self.name )
+		value = self.record.value( self.name )
 		if not value:
 			return
 		if self.isUrl( value ):

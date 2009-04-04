@@ -57,7 +57,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
-		self.model = None
+		self.record = None
 		self.screen = None
 
 	def setup(self, model, id=None):
@@ -84,7 +84,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		if self.screen.currentRecord().validate():
 			self.accept()
 			self.screen.save()
-			self.model = self.screen.currentRecord().name()
+			self.record = self.screen.currentRecord().name()
 			self.close()
 		else:
 			self.reject()
@@ -114,7 +114,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.open )
 
- 		self.modelType = attrs['relation']	
+ 		self.recordType = attrs['relation']	
 		# To build the menu entries we need to query the server so we only make 
 		# the call if necessary and only once. Hence with self.menuLoaded we know
 		# if we've got it in the 'cache'
@@ -135,8 +135,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		# the parent model could make us lose changes.
 		self.view.store()
 
-		if self.model:
-			self.model.setValue( self.name, False )
+		if self.record:
+			self.record.setValue( self.name, False )
 		self.uiText.clear()
 		self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
 
@@ -168,10 +168,10 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 	def match(self):
 		name = unicode( self.uiText.text() )
 		if name.strip() == '':
-			self.model.setValue( self.name, False )			
+			self.record.setValue( self.name, False )			
 			self.showValue()
 			return
-		if name == self.model.value(self.name):
+		if name == self.record.value(self.name):
 			return
 		self.search( name )
 
@@ -181,20 +181,20 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		# the parent model could make us lose changes.
 		self.view.store()
 
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			# If Control Key is pressed when the open button is clicked
 			# the record will be opened in a new tab. Otherwise it's opened
 			# in a new modal dialog.
 			if QApplication.keyboardModifiers() & Qt.ControlModifier:
 				model = self.attrs['relation']
-				id = self.model.get()[self.name]
+				id = self.record.get()[self.name]
 				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
 			else:	
 				dialog = ScreenDialog( self )
 				dialog.setAttributes( self.attrs )
-				dialog.setup( self.attrs['relation'], self.model.get()[self.name] )
+				dialog.setup( self.attrs['relation'], self.record.get()[self.name] )
 				if dialog.exec_() == QDialog.Accepted:
-					self.model.setValue(self.name, dialog.model)
+					self.record.setValue(self.name, dialog.model)
 					self.display()
 		else:
 			self.search('')
@@ -204,18 +204,18 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 	# value and don't even show the search dialog. This is also true if the function is called
 	# with "name=''" and only one record exists in the database (hence the call from open())
 	def search(self, name):
-		domain = self.model.domain( self.name )
-		context = self.model.context()
+		domain = self.record.domain( self.name )
+		context = self.record.context()
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
 		if ids and len(ids)==1:
-			self.model.setValue( self.name, ids[0] )
+			self.record.setValue( self.name, ids[0] )
 			self.display()
 		else:
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
 			if dialog.exec_() == QDialog.Accepted and dialog.result:
 				id = dialog.result[0]
 				name = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], Rpc.session.context)[0]
-				self.model.setValue(self.name, name)
+				self.record.setValue(self.name, name)
 				self.display()
 
 	def new(self):
@@ -223,7 +223,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		dialog.setAttributes( self.attrs )
 		dialog.setup( self.attrs['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
-			self.model.setValue(self.name, dialog.model)
+			self.record.setValue(self.name, dialog.model)
 			self.display()
 
 	def store(self):
@@ -234,7 +234,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.uiText.clear()
 		
 	def showValue(self):
-		res = self.model.value(self.name)
+		res = self.record.value(self.name)
  		if res:
 			self.uiText.setText( res )
 			self.pushOpen.setIcon( QIcon( ":/images/images/folder.png"))
@@ -250,7 +250,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def menuEntries(self):
 		if not self.menuLoaded:
-			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.modelType, False)], False, Rpc.session.context)
+			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.recordType, False)], False, Rpc.session.context)
 			actions = [x[2] for x in related]
 			for action in actions:
 				f = lambda action: lambda: self.executeRelation(action)
@@ -258,7 +258,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.menuLoaded = True
 
 		# Set enabled/disabled values
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if value:
 			value = True
 		else:
@@ -269,7 +269,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		return currentEntries
 
 	def executeRelation(self, action):
-		id = self.model.get()[self.name]
+		id = self.record.get()[self.name]
 		group = RecordGroup( self.attrs['relation'] )
 		group.load( [id] )
 		record = group.modelByIndex( 0 )
@@ -278,8 +278,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		Api.instance.executeAction( action )
 
 	def executeAction(self, type):
-		id = self.model.id
-		Api.instance.executeKeyword(type, {'model':self.modelType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
+		id = self.record.id
+		Api.instance.executeKeyword(type, {'model':self.recordType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 
 class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 	def __init__(self, parent, attributes):

@@ -53,7 +53,7 @@ class LinkFieldWidget(AbstractFieldWidget, LinkFieldWidgetUi):
 
 	def menuEntries(self):
 		pix = QPixmap()
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			enableApplication = True
 		else:
 			enableApplication = False
@@ -61,7 +61,7 @@ class LinkFieldWidget(AbstractFieldWidget, LinkFieldWidgetUi):
 		return [ (_('Open...'), self.openApplication, enableApplication) ]
 
 	def openApplication(self):
-		fileName = self.model.value(self.name)
+		fileName = self.record.value(self.name)
 		if not fileName:
 			return
 		Common.openFile( fileName )
@@ -70,10 +70,10 @@ class LinkFieldWidget(AbstractFieldWidget, LinkFieldWidgetUi):
 		filename = QFileDialog.getOpenFileName(self, _('Select the file to link to'))
 		if filename.isNull():
 			return
-		self.model.setValue(self.name, unicode(filename) )
+		self.record.setValue(self.name, unicode(filename) )
 
 	def showValue(self):
-		value = self.model.value( self.name )
+		value = self.record.value( self.name )
 		if value:
 			self.uiText.setText( value )
 		else:

@@ -66,25 +66,25 @@ class CharFieldWidget(AbstractFieldWidget):
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.store )
 
 	def translate(self):
-		if not self.model.id:
+		if not self.record.id:
 			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
 			return
-		dialog = TranslationDialog( self.model.id, self.model.group.resource, self.attrs['name'], unicode(self.widget.text()), TranslationDialog.LineEdit, self )
+		dialog = TranslationDialog( self.record.id, self.record.group.resource, self.attrs['name'], unicode(self.widget.text()), TranslationDialog.LineEdit, self )
 		if dialog.exec_() == QDialog.Accepted:
 			self.widget.setText( dialog.result )
 
 	def store(self):
 		# The function might be called by 'editingFinished()' signal when no
 		# record is set.
-		if not self.model:
+		if not self.record:
 			return
-		self.model.setValue( self.name, unicode(self.widget.text()) or False )
+		self.record.setValue( self.name, unicode(self.widget.text()) or False )
 
 	def clear(self):
 		self.widget.setText('')
 	
 	def showValue(self):
-		self.widget.setText( self.model.value(self.name) or '' )
+		self.widget.setText( self.record.value(self.name) or '' )
 
 	def setReadOnly(self, value):
 		self.widget.setReadOnly( value )

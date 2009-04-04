@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2009 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,33 +25,14 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from PyQt4.uic import *
-from PyQt4.QtWebKit import *
-from Koo.Common import Common
-from Koo.Fields.AbstractFieldWidget import *
+import gc
 
-(WebFieldWidgetUi, WebFieldWidgetBase) = loadUiType( Common.uiPath('web.ui') ) 
+def printObjects():
+	printList( gc.get_objects() )
 
-class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
-	def __init__(self, parent, model, attrs={}):
-		AbstractFieldWidget.__init__(self, parent, model, attrs)
-		WebFieldWidgetUi.__init__(self)
-		self.setupUi( self )
+def printReferrers( obj ):
+	printList( [x for x in gc.get_referrers( obj ) if not '<bound method ' in str(x)] )
 
-	def store(self):
-		pass
-
-	def clear( self ):
-		self.uiWeb.setUrl(QUrl(''))
-
-	def showValue(self):
-		self.uiWeb.setUrl(QUrl(self.record.value(self.name) or ''))
-
-	def setReadOnly(self, value):
-		# We always enable the browser so the user can use links.
-		self.uiWeb.setEnabled( True )
-
-# vim:noexpandtab:
+def printList( l ):
+	print '\n'.join( [str(x) for x in l] )
 

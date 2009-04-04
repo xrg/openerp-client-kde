@@ -173,7 +173,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.display()
 		
 	def showValue(self):
-		group = self.model.value(self.name)
+		group = self.record.value(self.name)
 		if self.screen.group != group:
 			self.screen.setModelGroup(group)
 			if group.count():

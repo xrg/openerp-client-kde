@@ -58,13 +58,13 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		self.installPopupMenu( self.uiUrl )
 
 	def store(self):
-		return self.model.setValue(self.name, unicode( self.uiUrl.text() ) or False)
+		return self.record.setValue(self.name, unicode( self.uiUrl.text() ) or False)
 
 	def clear( self ):
 		self.uiUrl.setText('')
 
 	def showValue(self):
-		self.uiUrl.setText(self.model.value(self.name) or '')
+		self.uiUrl.setText(self.record.value(self.name) or '')
 
 	def setReadOnly(self, value):
 		self.uiUrl.setEnabled( not value )

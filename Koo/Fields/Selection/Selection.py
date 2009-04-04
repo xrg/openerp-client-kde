@@ -72,13 +72,13 @@ class SelectionFieldWidget(AbstractFieldWidget):
 			return False
 
 	def store(self):
-		self.model.setValue(self.name, self.value())
+		self.record.setValue(self.name, self.value())
 
 	def clear(self):
 		self.widget.setCurrentIndex( self.widget.findText('') )
 		
 	def showValue(self):
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if not value:
 			self.widget.setCurrentIndex( self.widget.findText( '') )
 		else:

@@ -51,6 +51,9 @@ class EvalEnvironment(object):
 			return time
 		return self.parent.get(includeid=True)[item]
 
+	def __del__(self):
+		self.parent = None
+
 # We inherit QObject as we'll be using signals & slots
 class Record(QObject):
 	def __init__(self, id, group, parent=None, new=False ):
@@ -61,7 +64,7 @@ class Record(QObject):
 		self.parent = parent
 		self.group = group
 		self.values = {}
-		self.state_attrs = {}
+		self._stateAttributes = {}
 		self.modified = False
 		self.modified_fields = {}
 		self.invalidFields = []
@@ -71,6 +74,22 @@ class Record(QObject):
 		#	self.values[key] = val.create(self)
 		#	if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
 		#		self.values[key].create()
+
+	def __del__(self):
+		#self.parent = None
+		#self.setParent( None )
+		for key, value in self.values.iteritems():
+			from Group import RecordGroup
+			if isinstance(value, RecordGroup):
+				#value.parent.fieldObjects[key].disconnect( SIGNAL('modified()'), value )
+				value.__del__()
+		self.values = {}
+		from Koo.Common import Debug
+		print "START RECORD"
+		if self.id == 2:
+			Debug.printReferrers( self )
+		print "END RECORD"
+		self.group = None
 
 	def _getModified(self):
 		return self._modified
@@ -82,7 +101,8 @@ class Record(QObject):
 		return self.group.fieldObjects.get(name, False)
 	
 	def __repr__(self):
-		return '<Record %s@%s>' % (self.id, self.group.resource)
+		#return '<Record %s@%s>' % (self.id, self.group.resource)
+		return '<Record %s>' % self.id
 
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
@@ -119,6 +139,39 @@ class Record(QObject):
 	def fields(self):
 		return self.group.fieldObjects
 
+	def stateAttributes(self, fieldName):
+		if fieldName not in self._stateAttributes:
+			self._stateAttributes[fieldName] = self.group.fieldObjects[fieldName].attrs.copy()
+		return self._stateAttributes[fieldName]
+
+	def setStateAttributes(self, fieldName, state='draft'):
+		field = self.group.fieldObjects[fieldName]
+                stateChanges = dict(field.attrs.get('states',{}).get(state,[]))
+                for key in ('readonly', 'required'):
+                        if key in stateChanges:
+                                self.stateAttributes(fieldName)[key] = stateChanges[key]
+                        else:
+                                self.stateAttributes(fieldName)[key] = field.attrs.get(key, False)
+                #if 'value' in stateChanges:
+                        #field.set(model, value, test_state=False, modified=True)
+
+	def updateStateAttributes(self):
+		state = self.values.get('state', 'draft')
+		for key in self.group.fieldObjects:
+			self.setStateAttributes( key, state )
+
+	def isFieldReadOnly(self, fieldName):
+		return self.stateAttributes( fieldName ).get('readonly', False)
+		
+	def isFieldRequired(self, fieldName):
+		required = self.stateAttributes( fieldName ).get('required', False)
+		if isinstance(required, bool):
+			return required
+		return bool(int(required))
+
+	def fieldExists(self, fieldName):
+		return fieldName in self.group.fieldObjects
+
 	## @brief Loads the record if it's not been loaded already.
 	def ensureIsLoaded(self):
 		if not self._loaded:
@@ -131,7 +184,7 @@ class Record(QObject):
 			self.ensureIsLoaded()
 		value = []
 		for name, field in self.group.fieldObjects.items():
-			if (get_readonly or not field.stateAttributes(self).get('readonly', False)) \
+			if (get_readonly or not self.isFieldReadOnly(name)) \
 				and (not get_modifiedonly or field.name in self.modified_fields):
 					value.append((name, field.get(self, readonly=get_readonly,
 						modified=get_modifiedonly)))
@@ -175,6 +228,7 @@ class Record(QObject):
 				if d[0] in self.group.fields and d[1]=='=':
 					val[d[0]]=d[2]
 			self.setDefaults(val)
+			self.updateStateAttributes()
 
 	## @brief Obtains the value of the 'name' field for the record by calling model's
 	# name_get function in the server.
@@ -264,6 +318,10 @@ class Record(QObject):
 			self.group.fieldObjects[fieldname].set(self, value, modified=modified)
 		for fieldname, value in later.items():
 			self.group.fieldObjects[fieldname].set(self, value, modified=modified)
+
+		if 'state' in val.keys():
+			self.updateStateAttributes()
+
 		self._loaded = True
 		self.modified = modified
 		if not self.modified:

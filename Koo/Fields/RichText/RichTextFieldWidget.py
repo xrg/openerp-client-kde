@@ -205,13 +205,13 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 		# showValue() even if the text hasn't been modified by the user
 		# we need to track modifications using QTextDocument property
 		if self.uiText.document().isModified():
-			self.model.setValue(self.name, unicode( self.uiText.document().toHtml() ) or False )
+			self.record.setValue(self.name, unicode( self.uiText.document().toHtml() ) or False )
 
 	def clear(self):
 		self.uiText.setHtml('')
 
 	def showValue(self):
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if not value:
 			value=''
 		self.uiText.setHtml( value )

@@ -79,13 +79,13 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		return dateToStorage(date)
 
 	def store(self):
-		self.model.setValue(self.name, self.value())
+		self.record.setValue(self.name, self.value())
 
 	def clear(self):
 		self.uiDate.setText('')
 	
 	def showValue(self):
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if value:
 			self.uiDate.setText( dateToText( storageToDate( value ) ) )
 		else:
@@ -116,7 +116,7 @@ class DateTimeFieldWidget( DateFieldWidget ):
 		self.uiDate.setText('')
 
  	def showValue(self):
- 		value = self.model.value(self.name)
+ 		value = self.record.value(self.name)
 		if value:
 			self.uiDate.setText( dateTimeToText( storageToDateTime(value) ) )
 		else:
@@ -157,13 +157,13 @@ class TimeFieldWidget(AbstractFieldWidget):
 		return timeToStorage( time )
 
 	def store(self):
-		self.model.setValue(self.name, self.value())
+		self.record.setValue(self.name, self.value())
 
 	def clear(self):
 		self.uiTime.clear()
 
 	def showValue(self):
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if value:
 			self.uiTime.setText( timeToText( storageToTime( value ) ) )
 		else:
@@ -204,13 +204,13 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 		return timeToStorage( time )
 
 	def store(self):
-		self.model.setValue(self.name, textToFloatTime(unicode(self.uiTime.text())) )
+		self.record.setValue(self.name, textToFloatTime(unicode(self.uiTime.text())) )
 
 	def clear(self):
 		self.uiTime.setText('00:00')
 
 	def showValue(self):
-		value = self.model.value(self.name)
+		value = self.record.value(self.name)
 		if value:
 			self.uiTime.setText( floatTimeToText( value ) )
 		else:

@@ -54,13 +54,13 @@ class IntegerFieldWidget(AbstractFieldWidget):
 		return textToInteger( unicode(self.widget.text()) )
 
 	def store(self):
-		self.model.setValue(self.name, self.value() )
+		self.record.setValue(self.name, self.value() )
 
 	def clear(self):
 		self.widget.setText('0')
 
 	def showValue(self):
-		value = self.model.value( self.name )
+		value = self.record.value( self.name )
 		self.widget.setText( str(value) )
 
 	def setReadOnly(self, value):

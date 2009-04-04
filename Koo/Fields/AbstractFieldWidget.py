@@ -32,10 +32,6 @@ from FieldPreferencesDialog import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
-_attrs_boolean = {
-	'required': False,
-	'readonly': False
-}
 
 ## @brief AbstractFieldWidget is the base class for all widgets in Koo.
 # In order to create a new form widget, that is: a widget that appears in a 
@@ -43,7 +39,7 @@ _attrs_boolean = {
 # of it's functions.
 #
 # The Widget handles a field from a record. You can access the record
-# using the property 'model' and the field name using the property 'name'.
+# using the property 'record' and the field name using the property 'name'.
 #
 class AbstractFieldWidget(QWidget):
 
@@ -60,9 +56,14 @@ class AbstractFieldWidget(QWidget):
 		if 'visible' in self.attrs:
 			self.setVisible( bool(int(self.attrs['visible'])) )
 
-		for key,val in _attrs_boolean.items():
-			self.attrs[key] = self.attrs.get(key, False) not in ('False', '0', False)
-		self.defaultReadOnly= self.attrs.get('readonly', False)
+		# Required and readonly attributes are not directly linked to
+		# the field states because a widget might not have a record
+		# assigned. Also updating the attribute directly in the fields
+		# can cause some problems with stateAttributes.
+		self._required = self.attrs.get('required', False) not in ('False', '0', False)
+		self._readOnly = self.attrs.get('readonly', False) not in ('False', '0', False)
+
+		self.defaultReadOnly= self._readOnly
 		self.defaultMenuEntries = [
 			(_('Set to default value'), self.setToDefault, 1),
 		]
@@ -77,7 +78,7 @@ class AbstractFieldWidget(QWidget):
 
 		# self.name holds the name of the field the widget handles
 		self.name = self.attrs.get('name', 'unnamed')
-		self.model = None
+		self.record = None
 
 		# Some widgets might want to change their color set.
 		self.colors = {
@@ -92,9 +93,9 @@ class AbstractFieldWidget(QWidget):
 	# Note that this requires a call to the server.
 	def setToDefault(self):
 		try:
-			model = self.model.group.resource
+			model = self.record.group.resource
 			res = Rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
-			model = self.model.setValue(self.name, res.get(self.name, False))
+			self.record.setValue(self.name, res.get(self.name, False))
 			self.display()
 		except:
 			QMessageBox.warning(None, _('Operation not permited'), _('You can not set to the default value here !') )
@@ -108,10 +109,10 @@ class AbstractFieldWidget(QWidget):
 		wid = self.view.widgets
 		for wname, wview in self.view.widgets.items():
 			if wview.attrs.get('change_default', False):
-				value = wview.model.value(wview.name)
+				value = wview.record.value(wview.name)
 				deps.append((wname, wname, value, value))
-		value = self.model.default( self.name )
-		model = self.model.group.resource
+		value = self.record.default( self.name )
+		model = self.record.group.resource
 		dialog = FieldPreferencesDialog(self.attrs['name'], self.attrs.get('string', self.attrs['name']), model, value, deps)
 		dialog.exec_()
 
@@ -119,12 +120,12 @@ class AbstractFieldWidget(QWidget):
 	#
 	# Possible states are: invalid, readonly, required and normal.
 	def refresh(self):
-		self.setReadOnly(self.attrs.get('readonly', False))
-		if self.model and not self.model.isFieldValid( self.name ):
+		self.setReadOnly( self._readOnly )
+		if self.record and not self.record.isFieldValid( self.name ):
 			self.setColor('invalid')
-		elif self.attrs.get('readonly', False):
+		elif self._readOnly:
 			self.setColor('readonly')
-		elif self.attrs.get('required', False):
+		elif self._required:
 			self.setColor('required')
 		else:
 			self.setColor('normal')
@@ -138,7 +139,7 @@ class AbstractFieldWidget(QWidget):
 
 	## @brief This function returns True if the field is read-only. False otherwise.
 	def isReadOnly(self):
-		return self.attrs.get('readonly', False)
+		return self._readOnly
 
 	## @brief Use it in your widget to return the widget in which you want the color 
 	# indicating the obligatory, normal, ... etc flags to be set. 
@@ -172,18 +173,9 @@ class AbstractFieldWidget(QWidget):
 		palette.setColor(QPalette.Base, color)
 		widget.setPalette(palette);
 
-	## @brief Sets current widget state.
-	def setState(self, state):
-		state_changes = dict(self.attrs.get('states',{}).get(state,[]))
-		for key, value in state_changes.items():
-			self.attrs[key] = value
-		else:
-			if 'readonly' not in state_changes:
-				self.attrs['readonly'] = self.defaultReadOnly
-
 	## @brief Installs the eventFilter on the given widget so the popup
 	# menu will be shown on ContextMenu event. Also data on the widget will
-	# be stored in the model when the widget receives the FocusOut event.
+	# be stored in the record when the widget receives the FocusOut event.
 	def installPopupMenu( self, widget ):
 		widget.installEventFilter( self )
 
@@ -195,7 +187,7 @@ class AbstractFieldWidget(QWidget):
 			self.showPopupMenu( target, event.globalPos() )
 			return True
 		if event.type() == QEvent.FocusOut:
-			if self.model:
+			if self.record:
 				self.store()
 		return False
 
@@ -223,7 +215,7 @@ class AbstractFieldWidget(QWidget):
 	# server modules. Usually you'll call it on lostFocus if
 	# there's a TextBox or on selection, etc.
 	def modified(self):
-		if not self.model:
+		if not self.record:
 			return 
 		self.store()
 
@@ -237,29 +229,29 @@ class AbstractFieldWidget(QWidget):
 	def clear(self):
 		pass
 
-	## @brief This function displays the current value of the field in the model
+	## @brief This function displays the current value of the field in the record 
 	# in the widget.
 	#
 	# Do not reimplement this function, override clear() and showValue() instead
-	def display(self, state='draft'):
-		if not self.model:
-			self.attrs['readonly'] = True
+	def display(self):
+		if not self.record:
+			self._readOnly = True
 			self.clear()
 			self.refresh()
 			return
-		self.setState(state)
+		self._readOnly = self.record.isFieldReadOnly(self.name)
 		self.refresh()
 		self.showValue()
 	
 	def reset(self):
 		self.refresh()
 
-	## @brief Sets the current model for the widget.
-	def load(self, model, state = 'draft' ):
-		self.model = model
-		self.display(state)
+	## @brief Sets the current record for the widget.
+	def load(self, record ):
+		self.record = record
+		self.display()
 
-	## @brief Stores information in the widget to the model.
+	## @brief Stores information in the widget to the record.
 	# Reimplement this function in your widget.
 	def store(self):
 		pass

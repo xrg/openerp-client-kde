@@ -39,7 +39,6 @@ class StringField(QObject):
 		self.parent = parent
 		self.attrs = attrs
 		self.name = attrs['name']
-		self.internal = False
 
 	## This function is in charge of execting "on_change" and
 	# "change_defalt" events and setting the appropiate model 
@@ -75,8 +74,8 @@ class StringField(QObject):
 		# forms in which a readonly field is marked as required. For example,
 		# banks some fields inside partner change readonlyness depending on the 
 		# value of a selection field. 
-		if not self.stateAttributes(model).get('readonly', False):
-			if bool(int(self.stateAttributes(model).get('required', 0))):
+		if not model.isFieldReadOnly( self.name ):
+			if model.isFieldRequired( self.name ):
 				if not model.values[self.name]:
 					ok=False
 		model.setFieldValid( self.name, ok )
@@ -114,10 +113,7 @@ class StringField(QObject):
 	def create(self, model):
 		return False
 
-	def stateAttributes(self, model):
-		if self.name not in model.state_attrs:
-			model.state_attrs[self.name] = self.attrs.copy()
-		return model.state_attrs[self.name]
+
 
 class BinaryField(StringField):
 	def set(self, model, value, test_state=True, modified=False):
@@ -168,7 +164,7 @@ class FloatField(StringField):
 		# were python was considering the difference between 145,13 and 145,12 as 0,009999999 instead of 0,01
 		# Converting to string the numbers with the appropiate number of digits make it much easier.
 		if Numeric.floatToText( internal, digits ) != Numeric.floatToText( model.values[self.name], digits ):
-			if not self.stateAttributes(model).get('readonly', False):
+			if not self.model.isFieldReadOnly( self.name ):
 				self.changed(model)
 
 class IntegerField(StringField):
@@ -186,11 +182,6 @@ class IntegerField(StringField):
 
 class ManyToOneField(StringField):
 		
-	#internal = (id, name)
-
-	def create(self, model):
-		return False
-
 	def get(self, model, check_load=True, readonly=True, modified=False):
 		if model.values[self.name]:
 			return model.values[self.name][0] or False

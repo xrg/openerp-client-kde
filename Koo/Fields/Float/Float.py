@@ -61,14 +61,14 @@ class FloatFieldWidget(AbstractFieldWidget):
 		return textToFloat( str(self.widget.text()) )
 
 	def store(self):
-		self.model.setValue( self.name, self.value() )
+		self.record.setValue( self.name, self.value() )
 
 	def clear(self):
 		self.widget.setText('')
 		
 	def showValue(self):
-		if self.model.value(self.name):
-			self.widget.setText( floatToText( self.model.value(self.name), self.digits ) )
+		if self.record.value(self.name):
+			self.widget.setText( floatToText( self.record.value(self.name), self.digits ) )
 		else:
 			self.clear()
 

@@ -123,7 +123,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.screen.load(res_id)
 		else:
 			if len(view_type) and view_type[0]=='form':
-				self.new(autosave=False)
+				self.screen.new()
 
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
@@ -239,10 +239,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog = ExportDialog(self.model, self.screen.allIds(), self.screen.fields, fields)
 		dialog.exec_()
 
-	def new(self, autosave=True):
-		if autosave:
-			if not self.modifiedSave():
-				return
+	def new(self):
+		if not self.modifiedSave():
+			return
 		self.screen.new()
 	
 	def duplicate(self):
@@ -418,4 +417,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def actions(self):
 		return self.screen.actions
+
+	def __del__(self):
+		print "DEL FORMWIDGET"
+		self.group.__del__()
+		del self.group
 

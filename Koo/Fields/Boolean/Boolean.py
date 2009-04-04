@@ -55,13 +55,13 @@ class BooleanFieldWidget(AbstractFieldWidget):
 		self.widget.setEnabled( not value )
 
 	def store(self):
-		self.model.setValue(self.name, self.widget.isChecked())
+		self.record.setValue(self.name, self.widget.isChecked())
 
 	def clear(self):
 		self.widget.setChecked(False)
 
 	def showValue(self):
-		self.widget.setChecked(self.model.value(self.name))
+		self.widget.setChecked(self.record.value(self.name))
 
 	def colorWidget(self):
 		return self.widget

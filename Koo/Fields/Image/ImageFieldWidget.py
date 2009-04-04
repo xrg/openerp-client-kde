@@ -59,12 +59,12 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		self.pushRemove.setEnabled( not ro )
 
 	def menuEntries(self):
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			enableApplication = True
 		else:
 			enableApplication = False
 
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			enableImage = True
 		else:
 			enableImage = False
@@ -72,14 +72,14 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 			 ('&Show image...', self.showImage, enableImage) ]
 
 	def openApplication(self):
-		if not self.model.value(self.name):
+		if not self.record.value(self.name):
 			return
 		extension = ''
 		# Under windows platforms we need to create the temporary
 		# file with an appropiate extension, otherwise the system
 		# won't be able to know how to open it. So we let Qt guess
 		# what image format it is and use that as an extension.
-		byte = QByteArray( str(self.model.value(self.name) ) )
+		byte = QByteArray( str(self.record.value(self.name) ) )
 		buf = QBuffer( byte )
 		buf.open( QBuffer.ReadOnly )
 		reader = QImageReader( buf )
@@ -88,24 +88,24 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 
 		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb')
-		fp.write(self.model.value(self.name))
+		fp.write(self.record.value(self.name))
 		fp.close()
 		Common.openFile( fileName )
 
 	def showImage(self):
-		if not self.model.value(self.name):
+		if not self.record.value(self.name):
 			return
 		dialog = QDialog( self )
 		label = QLabel( dialog )
 		pix = QPixmap()
-		pix.loadFromData( self.model.value(self.name) )
+		pix.loadFromData( self.record.value(self.name) )
 		label.setPixmap( pix )
 		layout = QHBoxLayout( dialog )
 		layout.addWidget( label )
 		dialog.exec_()
 
 	def removeImage(self):
-		self.model.setValue(self.name, False)
+		self.record.setValue(self.name, False)
 		self.update()
 		self.modified()
 
@@ -115,7 +115,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 			return
 		try:
 			fp = file(unicode(name), 'wb')
-			fp.write(self.model.value(self.name))
+			fp.write(self.record.value(self.name))
 			fp.close()
 		except:
 			QMessageBox.warning( self, _('Error saving file'), _('Could not save the image with the given file name. Please check that you have permissions.') )
@@ -124,14 +124,14 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		name = QFileDialog.getOpenFileName( self, _('Open image file...') )
 		if not name.isNull():
 			image = file(unicode(name), 'rb').read()
-			self.model.setValue(self.name, image )
+			self.record.setValue(self.name, image )
 			self.update()
 			self.modified()
 
 	def update(self):
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			img = QImage()
-			img.loadFromData( self.model.value(self.name) )
+			img.loadFromData( self.record.value(self.name) )
 			pix = QPixmap.fromImage( img.scaled( self.width, self.height, Qt.KeepAspectRatio, Qt.SmoothTransformation ) )
 			self.uiImage.setPixmap( pix )
 		else:
@@ -141,7 +141,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		self.uiImage.setText( '(load an image)' )
 
 	def showValue(self):
-		if self.model.value(self.name):
+		if self.record.value(self.name):
 			self.pushSave.setEnabled( True )
 		else:
 			self.pushSave.setEnabled( False )
