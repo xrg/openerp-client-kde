@@ -414,7 +414,9 @@ class Session:
 				if Pyro.util.getPyroTraceback(err):
 					notified = True
 					faultCode = err.message
-					faultString = u''.join( Pyro.util.getPyroTraceback(err) )
+					faultString = u''
+					for x in Pyro.util.getPyroTraceback(err):
+						faultString += unicode( x, 'utf-8', errors='ignore' )
 					a = RpcException( faultCode, faultString )
 					if a.type in ('warning','UserError'):
 						if a.message in ('ConcurrencyException') and len(args) > 4:
