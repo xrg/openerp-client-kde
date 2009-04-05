@@ -107,11 +107,11 @@ class SearchView( QAbstractItemView ):
 		return idx
 
 	def keyboardSearch( self, search ):
-		search = self.keyboard + str(search).lower()
+		search = self.keyboard + unicode(search).lower()
 		found = False
 		start = max(self.selected, 0)
 		for x in range(start, len(self.items)):
-			if str(self.items[x].uiName.text()).lower().startswith( search ):
+			if unicode(self.items[x].uiName.text()).lower().startswith( search ):
 				found = True
 				break
 		if found:
