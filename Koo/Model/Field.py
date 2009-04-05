@@ -41,74 +41,74 @@ class StringField(QObject):
 		self.name = attrs['name']
 
 	## This function is in charge of execting "on_change" and
-	# "change_defalt" events and setting the appropiate model 
+	# "change_defalt" events and setting the appropiate record 
 	# as modified.
-	def changed(self, model):
-		model.modified = True
-		model.modified_fields.setdefault(self.name)
-		model.changed()
+	def changed(self, record):
+		record.modified = True
+		record.modified_fields.setdefault(self.name)
+		record.changed()
 		if self.attrs.get('on_change',False):
-			model.callOnChange(self.attrs['on_change'])
+			record.callOnChange(self.attrs['on_change'])
 		if self.attrs.get('change_default', False):
-			model.setConditionalDefaults(self.name, self.get(model))
+			record.setConditionalDefaults(self.name, self.get(record))
 
-	def domain(self, model):
+	def domain(self, record):
 		dom = self.attrs.get('domain', '[]')
-		return model.evaluateExpression(dom)
+		return record.evaluateExpression(dom)
 
-	def context(self, model, check_load=True, eval=True):
+	def context(self, record, check_load=True, eval=True):
 		context = {}
 		context.update( self.parent.context() )
 		field_context_str = self.attrs.get('context', '{}') or '{}'
 		if eval:
-			field_context = model.evaluateExpression('dict(%s)' % field_context_str, check_load=check_load)
+			field_context = record.evaluateExpression('dict(%s)' % field_context_str, check_load=check_load)
 			context.update(field_context)
 		return context
 
-	## Checks if the current value is valid and sets stateAttributes on the model.
+	## Checks if the current value is valid and sets stateAttributes on the record.
 	# 
 	# Here it's checked if the field is required but is empty.
-	def validate(self, model):
+	def validate(self, record):
 		ok = True
 		# We ensure that the field is read-write. In some cases there might be 
 		# forms in which a readonly field is marked as required. For example,
 		# banks some fields inside partner change readonlyness depending on the 
 		# value of a selection field. 
-		if not model.isFieldReadOnly( self.name ):
-			if model.isFieldRequired( self.name ):
-				if not model.values[self.name]:
+		if not record.isFieldReadOnly( self.name ):
+			if record.isFieldRequired( self.name ):
+				if not record.values[self.name]:
 					ok=False
-		model.setFieldValid( self.name, ok )
+		record.setFieldValid( self.name, ok )
 		return ok
 
 	## Stores the value from the server
-	def set(self, model, value, test_state=True, modified=False):
-		model.values[self.name] = value
+	def set(self, record, value, test_state=True, modified=False):
+		record.values[self.name] = value
 		if modified:
-			model.modified = True
-			model.modified_fields.setdefault(self.name)
+			record.modified = True
+			record.modified_fields.setdefault(self.name)
 		return True
 
 	## Return the value to write to the server
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		return model.values.get(self.name, False) 
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		return record.values.get(self.name, False) 
 
 	## Stores the value for the client widget
-	def set_client(self, model, value, test_state=True):
-		internal = model.values.get(self.name, False)
-		self.set(model, value, test_state)
-		if (internal or False) != (model.values.get(self.name,False) or False):
-			self.changed(model)
+	def set_client(self, record, value, test_state=True):
+		internal = record.values.get(self.name, False)
+		self.set(record, value, test_state)
+		if (internal or False) != (record.values.get(self.name,False) or False):
+			self.changed(record)
 
 	## Returns the value for the client widget
-	def get_client(self, model):
-		return model.values.get(self.name, False)
+	def get_client(self, record):
+		return record.values.get(self.name, False)
 
-	def setDefault(self, model, value):
-		return self.set(model, value)
+	def setDefault(self, record, value):
+		return self.set(record, value)
 
-	def default(self, model):
-		return self.get(model)
+	def default(self, record):
+		return self.get(record)
 
 	def create(self, model):
 		return False
@@ -116,83 +116,83 @@ class StringField(QObject):
 
 
 class BinaryField(StringField):
-	def set(self, model, value, test_state=True, modified=False):
-		model.values[self.name] = None
+	def set(self, record, value, test_state=True, modified=False):
+		record.values[self.name] = None
 		if value:
-			model.values[self.name] = base64.decodestring(value)
+			record.values[self.name] = base64.decodestring(value)
 		if modified:
-			model.modified = True
-			model.modified_fields.setdefault(self.name)
+			record.modified = True
+			record.modified_fields.setdefault(self.name)
 		return True
 
-	def set_client(self, model, value, test_state=True):
-		internal = model.values.get(self.name, False)
-		model.values[self.name] = value
-		if (internal or False) != model.values[self.name]:
-			self.changed(model)
+	def set_client(self, record, value, test_state=True):
+		internal = record.values.get(self.name, False)
+		record.values[self.name] = value
+		if (internal or False) != record.values[self.name]:
+			self.changed(record)
 
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		value = self.get_client(model)
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		value = self.get_client(record)
 		if value:
 			value = base64.encodestring(value)
 		return value
 
-	def get_client(self, model):
-		if model.values[self.name] is None and model.id:
+	def get_client(self, record):
+		if record.values[self.name] is None and record.id:
 			c = Rpc.session.context.copy()
-			c.update(model.context())
-			value = model.rpc.read([model.id], [self.name], c)[0][self.name]
+			c.update(record.context())
+			value = record.rpc.read([record.id], [self.name], c)[0][self.name]
 			if value:
-				model.values[self.name] = base64.decodestring(value)
-		return model.values[self.name]
+				record.values[self.name] = base64.decodestring(value)
+		return record.values[self.name]
 
 class SelectionField(StringField):
-	def set(self, model, value, test_state=True, modified=False):
+	def set(self, record, value, test_state=True, modified=False):
 		if value in [sel[0] for sel in self.attrs['selection']]:
-			super(SelectionField, self).set(model, value, test_state, modified)
+			super(SelectionField, self).set(record, value, test_state, modified)
 
 class FloatField(StringField):
-	def validate(self, model):
-		model.setFieldValid( self.name, True )
+	def validate(self, record):
+		record.setFieldValid( self.name, True )
 		return True
 
-	def set_client(self, model, value, test_state=True):
-		internal = model.values[self.name]
-		self.set(model, value, test_state)
+	def set_client(self, record, value, test_state=True):
+		internal = record.values[self.name]
+		self.set(record, value, test_state)
 		digits = self.attrs.get('digits', (12,4))
 		# Use floatToText as the comparison we inherited from the GTK client failed for us in some cases
 		# were python was considering the difference between 145,13 and 145,12 as 0,009999999 instead of 0,01
 		# Converting to string the numbers with the appropiate number of digits make it much easier.
-		if Numeric.floatToText( internal, digits ) != Numeric.floatToText( model.values[self.name], digits ):
-			if not self.model.isFieldReadOnly( self.name ):
-				self.changed(model)
+		if Numeric.floatToText( internal, digits ) != Numeric.floatToText( record.values[self.name], digits ):
+			if not record.isFieldReadOnly( self.name ):
+				self.changed(record)
 
 class IntegerField(StringField):
 
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		return model.values.get(self.name, 0) or 0
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		return record.values.get(self.name, 0) or 0
 
-	def get_client(self, model):
-		return model.values[self.name] or 0
+	def get_client(self, record):
+		return record.values[self.name] or 0
 
-	def validate(self, model):
-		model.setFieldValid( self.name, True )
+	def validate(self, record):
+		record.setFieldValid( self.name, True )
 		return True
 
 
 class ManyToOneField(StringField):
 		
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		if model.values[self.name]:
-			return model.values[self.name][0] or False
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		if record.values[self.name]:
+			return record.values[self.name][0] or False
 		return False
 
-	def get_client(self, model):
-		if model.values[self.name]:
-			return model.values[self.name][1]
+	def get_client(self, record):
+		if record.values[self.name]:
+			return record.values[self.name][1]
 		return False
 
-	def set(self, model, value, test_state=False, modified=False):
+	def set(self, record, value, test_state=False, modified=False):
 		if value and isinstance(value, (int, str, unicode, long)):
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			result = Rpc2.name_get([value], Rpc.session.context)
@@ -201,23 +201,23 @@ class ManyToOneField(StringField):
 			# list from the server so we just check it before
 			# trying to store result[0]
 			if result:
-				model.values[self.name] = result[0]
+				record.values[self.name] = result[0]
 		else:
-			model.values[self.name] = value
+			record.values[self.name] = value
 		if modified:
-			model.modified = True
-			model.modified_fields.setdefault(self.name)
+			record.modified = True
+			record.modified_fields.setdefault(self.name)
 
-	def set_client(self, model, value, test_state=False):
-		internal = model.values[self.name]
-		self.set(model, value, test_state)
-		if internal != model.values[self.name]:
-			self.changed(model)
+	def set_client(self, record, value, test_state=False):
+		internal = record.values[self.name]
+		self.set(record, value, test_state)
+		if internal != record.values[self.name]:
+			self.changed(record)
 
 # This is the base class for ManyToManyField and OneToManyField
 # The only difference between these classes is the 'get()' method.
 # In the case of ManyToMany we always return all elements because
-# it only stores the relation between two models which already exist.
+# it only stores the relation between two records which already exist.
 # In the case of OneToMany we only return those objects that have 
 # been modified because the pointed object stores the relation to the
 # parent.
@@ -233,69 +233,69 @@ class ToManyField(StringField):
 		p = self.sender().parent
 		self.changed( self.sender().parent )
 
-	def get_client(self, model):
-		return model.values[self.name]
+	def get_client(self, record):
+		return record.values[self.name]
 
-	def get(self, model, check_load=True, readonly=True, modified=False):
+	def get(self, record, check_load=True, readonly=True, modified=False):
 		pass
 
-	def set(self, model, value, test_state=False, modified=False):
+	def set(self, record, value, test_state=False, modified=False):
 		from Koo.Model.Group import RecordGroup
-		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, False))
+		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, False))
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.preload(value)
-		model.values[self.name] = group
+		record.values[self.name] = group
 
-	def set_client(self, model, value, test_state=False):
-		self.set(model, value, test_state=test_state)
-		self.changed(model)
+	def set_client(self, record, value, test_state=False):
+		self.set(record, value, test_state=test_state)
+		self.changed(record)
 
-	def setDefault(self, model, value):
+	def setDefault(self, record, value):
 		from Koo.Model.Group import RecordGroup
 		fields = {}
 		if value and len(value):
-			context = self.context(model)
+			context = self.context(record)
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			fields = Rpc2.fields_get(value[0].keys(), context)
 
-		model.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=model)
-		self.connect( model.values[self.name], SIGNAL('modified()'), self.groupModified )
+		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record)
+		self.connect( record.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):
 			# TODO: Fix with new Group behaviour. Has this ever really worked?
-			mod = model.values[self.name].model_new(default=False)
+			mod = record.values[self.name].model_new(default=False)
 			mod.setDefault(record)
-			model.values[self.name].model_add(mod)
+			record.values[self.name].model_add(mod)
 		return True
 
-	def default(self, model):
+	def default(self, record):
 		# TODO: Fix with new Group behaviour. Has this ever really worked?
-		return [ x.defaults() for x in model.values[self.name].records ]
+		return [ x.defaults() for x in record.values[self.name].records ]
 
-	def validate(self, model):
-		#for model2 in model.values[self.name].records:
+	def validate(self, record):
+		#for model2 in record.values[self.name].records:
 			#if not model2.validate():
 				#if not model2.isModified():
 					#model.values[self.name].records.remove(model2)
 				#else:
 					#ok = False
 		ok = True
-		for record in model.values[self.name].modifiedRecords():
+		for record in record.values[self.name].modifiedRecords():
 			if not record.validate():
 				ok = False
-		if not super(ToManyField, self).validate(model):
+		if not super(ToManyField, self).validate(record):
 			ok = False
-		model.setFieldValid( self.name, ok )
+		record.setFieldValid( self.name, ok )
 		return ok
 
 class OneToManyField(ToManyField):
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		if not model.values[self.name]:
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		if not record.values[self.name]:
 			return []
 		result = []
 		# TODO: Fix with new Group behaviour. Has this ever really worked?
-		group = model.values[self.name]
+		group = record.values[self.name]
 		for id in group.ids():
 			if (modified and not group.isRecordModified(id)) or (not id and not group.isRecordModified( id ) ):
 				continue
@@ -308,47 +308,47 @@ class OneToManyField(ToManyField):
 				# if 'modified' is False.
 				result.append((0, 0, group.modelById( id ).get(check_load=check_load, get_readonly=readonly)))
 				
-		for id in model.values[self.name].removedRecords:
+		for id in record.values[self.name].removedRecords:
 			result.append( (2, id, False) )
 		return result
 
 class ManyToManyField(ToManyField):
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		if not model.values[self.name]:
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		if not record.values[self.name]:
 			return []
-		return [(6, 0, model.values[self.name].ids())]
+		return [(6, 0, record.values[self.name].ids())]
 
 class ReferenceField(StringField):
-	def get_client(self, model):
-		if model.values[self.name]:
-			return model.values[self.name]
+	def get_client(self, record):
+		if record.values[self.name]:
+			return record.values[self.name]
 		return False
 
-	def get(self, model, check_load=True, readonly=True, modified=False):
-		if model.values[self.name]:
-			return '%s,%d' % (model.values[self.name][0], model.values[self.name][1][0])
+	def get(self, record, check_load=True, readonly=True, modified=False):
+		if record.values[self.name]:
+			return '%s,%d' % (record.values[self.name][0], record.values[self.name][1][0])
 		return False
 
-	def set_client(self, model, value):
-		internal = model.values[self.name]
-		model.values[self.name] = value
-		if (internal or False) != (model.values[self.name] or False):
-			self.changed(model)
+	def set_client(self, record, value):
+		internal = record.values[self.name]
+		record.values[self.name] = value
+		if (internal or False) != (record.values[self.name] or False):
+			self.changed(record)
 
-	def set(self, model, value, test_state=False, modified=False):
+	def set(self, record, value, test_state=False, modified=False):
 		if not value:
-			model.values[self.name] = False
+			record.values[self.name] = False
 			return
 		ref_model, id = value.split(',')
 		Rpc2 = RpcProxy(ref_model)
 		result = Rpc2.name_get([id], Rpc.session.context)
 		if result:
-			model.values[self.name] = ref_model, result[0]
+			record.values[self.name] = ref_model, result[0]
 		else:
-			model.values[self.name] = False
+			record.values[self.name] = False
 		if modified:
-			model.modified = True
-			model.modified_fields.setdefault(self.name)
+			record.modified = True
+			record.modified_fields.setdefault(self.name)
 
 
 ## @brief The FieldFactory class provides a means of creating the appropiate object
