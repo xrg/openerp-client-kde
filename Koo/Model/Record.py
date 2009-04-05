@@ -141,7 +141,10 @@ class Record(QObject):
 
 	def stateAttributes(self, fieldName):
 		if fieldName not in self._stateAttributes:
-			self._stateAttributes[fieldName] = self.group.fieldObjects[fieldName].attrs.copy()
+			if fieldName in self.group.fieldObjects:
+				self._stateAttributes[fieldName] = self.group.fieldObjects[fieldName].attrs.copy()
+			else:
+				self._stateAttributes[fieldName] = {}
 		return self._stateAttributes[fieldName]
 
 	def setStateAttributes(self, fieldName, state='draft'):
