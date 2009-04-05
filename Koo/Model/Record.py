@@ -164,7 +164,10 @@ class Record(QObject):
 			self.setStateAttributes( key, state )
 
 	def isFieldReadOnly(self, fieldName):
-		return self.stateAttributes( fieldName ).get('readonly', False)
+		readOnly = self.stateAttributes( fieldName ).get('readonly', False)
+		if isinstance(readOnly, bool):
+			return readOnly
+		return bool(int(readOnly))
 		
 	def isFieldRequired(self, fieldName):
 		required = self.stateAttributes( fieldName ).get('required', False)
