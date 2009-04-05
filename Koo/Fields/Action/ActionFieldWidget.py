@@ -134,7 +134,6 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.screen.currentView().store()
 
 	def showValue(self):
-		#self.recordGroup.update()
 		if self.screen:
-			self.screen.display()
+			self.screen.reload()
 
