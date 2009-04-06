@@ -34,7 +34,9 @@ from PyQt4.QtGui import *
 
 try:
 	from PyQt4.phonon import *
+	phononAvailable = True
 except:
+	phononAvailable = False
 	pass
 
 
@@ -45,6 +47,16 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 		AbstractFieldWidget.__init__(self, parent, view, attrs)
 		VideoFieldWidgetUi.__init__(self)
 		self.setupUi(self)
+		
+		if phononAvailable:
+			self.layout().removeWidget( self.uiVideo )
+			self.uiVideo.setParent( None )
+			self.uiVideo = Phonon.VideoPlayer( Phonon.VideoCategory, self )
+			self.uiVideo.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+			self.uiVideo.show()
+			self.layout().addWidget( self.uiVideo )
+			self.uiSlider = Phonon.SeekSlider( self )
+			self.layout().addWidget( self.uiSlider )
 
 		self.installPopupMenu( self.uiVideo )
 
@@ -60,9 +72,12 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 			filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'))
 			if filename.isNull():
 				return
-			filename = unicode(filename)
-			value = file(filename).read()
-			self.record.setValue( self.name, value )
+			if self.isBinary():
+				filename = unicode(filename)
+				value = file(filename).read()
+				self.record.setValue( self.name, value )
+			else:
+				self.record.setValue( self.name, unicode(filename) )
 		except:
 			QMessageBox.information(self, '', _('Error reading the file'))
 
@@ -76,42 +91,68 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 		except:
 			QMessageBox.information(self, '', _('Error writing the file!'))
 	def remove(self):
-		self.record.setValue( self.name, False )
 		self.clear()
+		self.record.setValue( self.name, False )
 		self.modified()
 
 	def play(self):
-		self.uiVideo.stop()
+		if self.uiVideo.isPaused():
+			self.uiVideo.play()
+			return
+
+		self.stop()
 		value = self.record.value( self.name )
 		if not value:
 			return
-		if self.isUrl( value ):
-			media = Phonon.MediaSource( value )
-		else:
+		if self.isBinary():
 			media = Phonon.MediaSource( QBuffer( QByteArray( value ) ) )
+		else:
+			media = Phonon.MediaSource( value )
+
 		self.uiVideo.play( media )
+		self.uiVideo.show()
+		self.uiSlider.setMediaObject( self.uiVideo.mediaObject() )
+		self.uiSlider.show()
 
 	def pause(self):
 		self.uiVideo.pause()
 
 	def stop(self):
 		self.uiVideo.stop()
+		self.uiVideo.hide()
+		self.uiSlider.hide()
 
 	def store(self):
 		pass
 
 	def clear(self):
-		self.widget.setText('')
+		self.stop()
+		self.updateButtons()
 	
 	def showValue(self):
-		pass
+		self.stop()
+		self.updateButtons()
 
 	def setReadOnly(self, value):
 		self.pushLoad.setEnabled( not value )
 
-	def isUrl(self, value):
-		if len(value) > 500:
+	def isBinary(self):
+		if self.attrs['type'] == 'binary':
+			return True
+		else:
 			return False
-		url = QUrl( value )
-		return url.isValid()
-
+			
+	def updateButtons(self):
+		if not self.isReadOnly() and self.record and self.record.value(self.name):
+			canPlay = True
+		else:
+			canPlay = False
+		self.pushPlay.setEnabled( canPlay )
+		self.pushStop.setEnabled( canPlay )
+		self.pushPause.setEnabled( canPlay )
+		self.pushSave.setEnabled( canPlay )
+		self.pushRemove.setEnabled( canPlay )
+		if self.isReadOnly():
+			self.pushLoad.setEnabled( False )
+		else:
+			self.pushLoad.setEnabled( True )
