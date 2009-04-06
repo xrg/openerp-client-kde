@@ -139,6 +139,12 @@ class RecordGroup(QObject):
 		#print "DELETE"
 		self.fieldObjects = {}
 
+	## @brief Returns a string with the name of the type of a given field. Such as 'char'.
+	def fieldType( self, fieldName ):
+		if not fieldName in self.fields:
+			return None
+		return self.fields[fieldName]['type']
+
 	# Creates the entries in 'fieldObjects' for each key of the 'fkeys' list.
 	def loadFieldObjects(self, fkeys):
 		for fname in fkeys:
