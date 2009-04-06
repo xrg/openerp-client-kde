@@ -84,6 +84,9 @@ class SearchFormParser(object):
 		elif name=='field':
 			if attrs.get('select', False) or self.fields[attrs['name']].get('select', False):
 				type = attrs.get('widget', self.fields[attrs['name']]['type'])
+				if not type in widgetTypes:
+					print "Search widget for type '%s' not implemented." % type
+					return
 				self.fields[attrs['name']].update(attrs)
 				self.fields[attrs['name']]['model']=self.model
 				widget_act = widgetTypes[ type ](attrs['name'], self.container, self.fields[attrs['name']])
