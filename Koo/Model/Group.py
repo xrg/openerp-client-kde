@@ -195,6 +195,8 @@ class RecordGroup(QObject):
 			# TODO: Should we reconsider this? Do we need/want to reload. Probably we
 			# only want to add the id to the list.
 			newmod = Record(id, self, parent=self.parent)
+			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 			newmod.reload()
 			if not result:
 				result = newmod
@@ -477,6 +479,8 @@ class RecordGroup(QObject):
 			elif record == id:
 				idx = self.records.index( id )
 				record = Record(id, self, parent=self.parent)
+				self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+				self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 				self.records[idx] = record 
 				return record
 
@@ -486,6 +490,8 @@ class RecordGroup(QObject):
 			return record
 		else:
 			record = Record(record, self, parent=self.parent)
+			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 			self.records[row] = record
 			return record
 		
