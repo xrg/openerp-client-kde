@@ -34,7 +34,6 @@ from Koo.Common import Notifier
 from Koo.Rpc import RpcProxy
 from Field import ToManyField
 import gettext
-import traceback
 
 from PyQt4.QtCore import *
 
@@ -70,10 +69,6 @@ class Record(QObject):
 		self.invalidFields = []
 		self.read_time = time.time()
 		self.new = new
-		#for key,val in self.group.fieldObjects.items():
-		#	self.values[key] = val.create(self)
-		#	if (new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
-		#		self.values[key].create()
 
 	def __del__(self):
 		#self.parent = None
@@ -155,8 +150,6 @@ class Record(QObject):
                                 self.stateAttributes(fieldName)[key] = stateChanges[key]
                         else:
                                 self.stateAttributes(fieldName)[key] = field.attrs.get(key, False)
-                #if 'value' in stateChanges:
-                        #field.set(model, value, test_state=False, modified=True)
 
 	def updateStateAttributes(self):
 		state = self.values.get('state', 'draft')
@@ -325,8 +318,7 @@ class Record(QObject):
 		for fieldname, value in later.items():
 			self.group.fieldObjects[fieldname].set(self, value, modified=modified)
 
-		if 'state' in val.keys():
-			self.updateStateAttributes()
+		self.updateStateAttributes()
 
 		self._loaded = True
 		self.modified = modified

@@ -509,7 +509,6 @@ class RecordGroup(QObject):
 
 		c = Rpc.session.context.copy()
 		c.update( self.context() )
-		#ids = [x.id for x in self.records]
 		ids = self.ids()
 		pos = ids.index(record.id) / self.limit
 
