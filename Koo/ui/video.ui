@@ -71,7 +71,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_6" >
+      <widget class="QPushButton" name="pushLoad" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -84,7 +84,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_7" >
+      <widget class="QPushButton" name="pushSave" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -97,7 +97,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2" >
+      <widget class="QPushButton" name="pushRemove" >
        <property name="text" >
         <string>&amp;Remove</string>
        </property>

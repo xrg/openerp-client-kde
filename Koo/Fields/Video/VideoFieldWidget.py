@@ -46,16 +46,16 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 		VideoFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		self.uiVideo.installPopupenu( self.widget )
+		self.installPopupMenu( self.uiVideo )
 
 		self.connect( self.pushPlay, SIGNAL('clicked()'), self.play )
 		self.connect( self.pushPause, SIGNAL('clicked()'), self.pause )
 		self.connect( self.pushStop, SIGNAL('clicked()'), self.stop )
-		self.connect( self.pushLoad, SIGNAL('clicked()'), self.load )
+		self.connect( self.pushLoad, SIGNAL('clicked()'), self.loadVideo )
 		self.connect( self.pushSave, SIGNAL('clicked()'), self.save )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self.remove )
 
-	def load(self):
+	def loadVideo(self):
 		try:
 			filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'))
 			if filename.isNull():
