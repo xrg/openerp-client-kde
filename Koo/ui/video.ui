@@ -29,7 +29,20 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout" >
      <item>
-      <widget class="QPushButton" name="pushPlay" >
+      <spacer name="horizontalSpacer_2" >
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushPlay" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
@@ -37,7 +50,7 @@
         </sizepolicy>
        </property>
        <property name="text" >
-        <string>&amp;Play</string>
+        <string/>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
@@ -46,15 +59,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushPause" >
+      <widget class="QToolButton" name="pushPause" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
-       </property>
-       <property name="text" >
-        <string>Pause</string>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
@@ -63,7 +73,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushStop" >
+      <widget class="QToolButton" name="pushStop" >
        <property name="enabled" >
         <bool>true</bool>
        </property>
@@ -73,9 +83,6 @@
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="text" >
-        <string>&amp;Stop</string>
-       </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
          <normaloff>:/images/images/stop.png</normaloff>:/images/images/stop.png</iconset>
@@ -83,15 +90,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushLoad" >
+      <widget class="QToolButton" name="pushLoad" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
-       </property>
-       <property name="text" >
-        <string>&amp;Load</string>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
@@ -100,15 +104,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushSave" >
+      <widget class="QToolButton" name="pushSave" >
        <property name="sizePolicy" >
         <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
-       </property>
-       <property name="text" >
-        <string>S&amp;ave</string>
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
@@ -117,15 +118,25 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushRemove" >
-       <property name="text" >
-        <string>&amp;Remove</string>
-       </property>
+      <widget class="QToolButton" name="pushRemove" >
        <property name="icon" >
         <iconset resource="common.qrc" >
          <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
        </property>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer" >
+       <property name="orientation" >
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0" >
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
