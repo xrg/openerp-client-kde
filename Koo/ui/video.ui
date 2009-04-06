@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>482</width>
-    <height>218</height>
+    <width>542</width>
+    <height>246</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -39,6 +39,10 @@
        <property name="text" >
         <string>&amp;Play</string>
        </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/play.png</normaloff>:/images/images/play.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
@@ -51,6 +55,10 @@
        </property>
        <property name="text" >
         <string>Pause</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/pause.png</normaloff>:/images/images/pause.png</iconset>
        </property>
       </widget>
      </item>
@@ -68,6 +76,10 @@
        <property name="text" >
         <string>&amp;Stop</string>
        </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/stop.png</normaloff>:/images/images/stop.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
@@ -80,6 +92,10 @@
        </property>
        <property name="text" >
         <string>&amp;Load</string>
+       </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
        </property>
       </widget>
      </item>
@@ -94,6 +110,10 @@
        <property name="text" >
         <string>S&amp;ave</string>
        </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
@@ -101,12 +121,18 @@
        <property name="text" >
         <string>&amp;Remove</string>
        </property>
+       <property name="icon" >
+        <iconset resource="common.qrc" >
+         <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="common.qrc" />
+ </resources>
  <connections/>
 </ui>
