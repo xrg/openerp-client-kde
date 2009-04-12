@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 <terp>
 <data>
+	<report string="Jasper Partners"
+		model="res.partner"
+		auto="True"
+		name="res.partner.jaspertest"
+		rml="jasper_reports/demo/partner.jrxml"
+		id="res_partner_jaspertest" 
+		menu="True"
+		header="False"
+		/>
 	<record model="ir.actions.wizard" id="jasper_create_data_template_action">
 		<field name="name">Create Data Template</field>
 		<field name="wiz_name">jasper_create_data_template</field>

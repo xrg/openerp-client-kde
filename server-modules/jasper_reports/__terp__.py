@@ -35,11 +35,9 @@
 	"category" : "Generic Modules/Jasper Reports",
 	"init_xml" : [],
 	"demo_xml" : [ 
-		'jasper_report.xml' 
+		'jasper_demo.xml' 
 	],
-	"update_xml" : [
-		'jasper_wizard.xml',
-	],
+	"update_xml" : [],
 	"active": False,
 	"installable": True
 }

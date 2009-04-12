@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="OPENERP_RELATIONS" value="[&apos;Attachments&apos;]"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
-		<defaultValueExpression><![CDATA["/home/albert/d/koo/server-modules/jasper_reports/"]]></defaultValueExpression>
+	<parameter name="STANDARD_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/albert/d/koo/server-modules/jasper_reports/report/"]]></defaultValueExpression>
 	</parameter>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
@@ -55,7 +55,7 @@
 		<groupExpression><![CDATA[$F{name}]]></groupExpression>
 		<groupHeader>
 			<band height="25">
-				<textField isBlankWhenNull="true" hyperlinkType="None">
+				<textField isBlankWhenNull="true">
 					<reportElement x="0" y="0" width="73" height="20"/>
 					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{ref}]]></textFieldExpression>
@@ -68,12 +68,12 @@
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{website}]]></textFieldExpression>
 					<hyperlinkReferenceExpression><![CDATA[$F{website}]]></hyperlinkReferenceExpression>
 				</textField>
-				<textField isBlankWhenNull="true" hyperlinkType="None">
+				<textField isBlankWhenNull="true">
 					<reportElement x="74" y="0" width="227" height="20"/>
 					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 				</textField>
-				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true" hyperlinkType="None">
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 					<reportElement x="485" y="0" width="70" height="20"/>
 					<textElement verticalAlignment="Middle"/>
 					<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
@@ -86,7 +86,7 @@
 					<reportElement x="18" y="144" width="506" height="1"/>
 				</line>
 				<barChart>
-					<chart isShowLegend="false" hyperlinkType="None">
+					<chart isShowLegend="false">
 						<reportElement x="118" y="0" width="266" height="129"/>
 						<chartTitle/>
 						<chartSubtitle/>
@@ -98,28 +98,28 @@
 							<categoryExpression><![CDATA["Credit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{credit}]]></valueExpression>
 							<labelExpression><![CDATA["Used"]]></labelExpression>
-							<itemHyperlink hyperlinkType="None"/>
+							<itemHyperlink/>
 						</categorySeries>
 						<categorySeries>
 							<seriesExpression><![CDATA["Limit"]]></seriesExpression>
 							<categoryExpression><![CDATA["Credit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{credit_limit}]]></valueExpression>
 							<labelExpression><![CDATA["Limit"]]></labelExpression>
-							<itemHyperlink hyperlinkType="None"/>
+							<itemHyperlink/>
 						</categorySeries>
 						<categorySeries>
 							<seriesExpression><![CDATA["Used"]]></seriesExpression>
 							<categoryExpression><![CDATA["Debit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{debit}]]></valueExpression>
 							<labelExpression><![CDATA["Used"]]></labelExpression>
-							<itemHyperlink hyperlinkType="None"/>
+							<itemHyperlink/>
 						</categorySeries>
 						<categorySeries>
 							<seriesExpression><![CDATA["Limit"]]></seriesExpression>
 							<categoryExpression><![CDATA["Debit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{debit_limit}]]></valueExpression>
 							<labelExpression><![CDATA["Limit"]]></labelExpression>
-							<itemHyperlink hyperlinkType="None"/>
+							<itemHyperlink/>
 						</categorySeries>
 					</categoryDataset>
 					<barPlot isShowLabels="false" isShowTickLabels="true" isShowTickMarks="true">
@@ -127,6 +127,18 @@
 							<seriesColor seriesOrder="0" color="#3333FF"/>
 							<seriesColor seriesOrder="1" color="#FF3333"/>
 						</plot>
+						<categoryAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</valueAxisFormat>
 					</barPlot>
 				</barChart>
 			</band>
@@ -139,17 +151,17 @@
 		<band height="81">
 			<subreport>
 				<reportElement x="0" y="0" width="555" height="79"/>
-				<subreportParameter name="comments">
-					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				<subreportParameter name="TITLE">
+					<subreportParameterExpression><![CDATA["Sample Partner Report"]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="title">
-					<subreportParameterExpression><![CDATA["title"]]></subreportParameterExpression>
+				<subreportParameter name="SUBTITLE">
+					<subreportParameterExpression><![CDATA["This is a sample JasperReports report"]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="subtitle">
-					<subreportParameterExpression><![CDATA[""]]></subreportParameterExpression>
+				<subreportParameter name="COMMENT">
+					<subreportParameterExpression><![CDATA["The report shows information of selected partners, including attachments with their image, if possible."]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "header.jasper"]]></subreportExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{STANDARD_DIR} + "report_header.jasper"]]></subreportExpression>
 			</subreport>
 		</band>
 	</title>
@@ -190,16 +202,16 @@
 	</columnHeader>
 	<detail>
 		<band height="168">
-			<textField isBlankWhenNull="true" hyperlinkType="None">
+			<textField isBlankWhenNull="true">
 				<reportElement x="340" y="7" width="100" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{datas_fname}]]></textFieldExpression>
 			</textField>
-			<image hAlign="Center" vAlign="Middle" onErrorType="Icon" hyperlinkType="None">
+			<image hAlign="Center" vAlign="Middle" onErrorType="Icon">
 				<reportElement x="47" y="46" width="393" height="113"/>
 				<imageExpression class="java.lang.String"><![CDATA[$F{datas}]]></imageExpression>
 			</image>
-			<textField isBlankWhenNull="true" hyperlinkType="None">
+			<textField isBlankWhenNull="true">
 				<reportElement x="118" y="6" width="116" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{attachment_name}]]></textFieldExpression>
@@ -235,7 +247,7 @@
 				</textElement>
 				<text><![CDATA[Number of attachments listed:]]></text>
 			</staticText>
-			<textField hyperlinkType="None">
+			<textField>
 				<reportElement x="301" y="3" width="100" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression class="java.lang.String"><![CDATA[$V{attachments}]]></textFieldExpression>

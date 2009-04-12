@@ -23,6 +23,7 @@ public class ReportCreator {
 	static String user;
 	static String password;
 	static String params;
+	static String standardDirectory;
 
 	public static void createReport()
 	{
@@ -42,6 +43,7 @@ public class ReportCreator {
 			index = reportFile.lastIndexOf('/');
 			if ( index != -1 )
 				parameters.put( "SUBREPORT_DIR", reportFile.substring( 0, index+1 ) );
+			parameters.put( "STANDARD_DIR", standardDirectory );
 
 			if( query.getLanguage().equalsIgnoreCase(  "XPATH")  ){
 				JRXmlDataSource dataSource = new JRXmlDataSource( xmlFile, "/data/record" );
@@ -95,9 +97,7 @@ public class ReportCreator {
 		for( int i=0;i< args.length; i++ )
 			System.out.println( "arguments:" + args[i]);
 
-		HashMap parameters;
-
-		if ( args.length < 7 ) {  
+		if ( args.length < 8 ) {
 			System.out.println( "Seven arguments needed." );
 			return;
 		}
@@ -109,6 +109,7 @@ public class ReportCreator {
 		user = args[4];
 		password = args[5];
 		params = args[6];
+		standardDirectory = args[7];
 		createReport();
 	}
 }

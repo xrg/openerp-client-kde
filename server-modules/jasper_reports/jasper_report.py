@@ -165,10 +165,12 @@ class Report:
 		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCompiler', inputFile, outputFile, env)
 
 	def executeReport(self, inputFile, xmlFile, outputFile, dsn, user, password,  params):
+		# Note that the STANDARD_DIR parameter is expected to end with a slash (or backslash)
+		standardDirectory = os.path.join( os.path.abspath(os.path.dirname(__file__)), 'report', '' )
 		env = {}
 		env.update( os.environ )
 		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
-		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCreator', inputFile, xmlFile, outputFile, dsn, user, password, params, env)
+		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCreator', inputFile, xmlFile, outputFile, dsn, user, password, params, standardDirectory, env)
 
 	# XML file generation using a list of dictionaries provided by the parser function.
 	def generate_xml_from_records(self, fileName):
