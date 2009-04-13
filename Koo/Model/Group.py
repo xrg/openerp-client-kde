@@ -430,6 +430,7 @@ class RecordGroup(QObject):
 					records.append( x )
 		return records
 
+	## @brief Returns a list with all ids.
 	def ids(self):
 		ids = []
 		for x in self.records:
@@ -469,6 +470,8 @@ class RecordGroup(QObject):
 	def indexOfRecord(self, record):
 		return self.records.index(record)
 		
+	## @brief Returns the row number of the given id.
+	# If the id doesn't exist it returns -1.
 	def indexOfId(self, id):
 		i = 0
 		for record in self.records:
@@ -499,6 +502,7 @@ class RecordGroup(QObject):
 				self.records[idx] = record 
 				return record
 
+	## @brief Returns a Record object for the given row.
 	def recordByIndex(self, row):
 		record = self.records[row]
 		if isinstance( record, Record ):
@@ -763,7 +767,7 @@ class RecordGroup(QObject):
 				if not record:
 					self.records.remove( record )
 
-	## @brief Returns True if any of the records in the group have been modified.
+	## @brief Returns True if any of the records in the group has been modified.
 	def isModified(self):
 		for record in self.records:
 			if isinstance( record, Record ):
