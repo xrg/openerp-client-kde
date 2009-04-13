@@ -421,6 +421,15 @@ class RecordGroup(QObject):
 				ids.append( x )
 		return ids
 
+	## @brief Returns the list of loaded records. The list won't include new records.
+	def loadedRecords(self):
+		records = []
+		for x in self.records:
+			if isinstance(x, Record):
+				if x.id and x._loaded:
+					records.append( x )
+		return records
+
 	def ids(self):
 		ids = []
 		for x in self.records:

@@ -80,7 +80,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setDomain( domain )
 
-		self.screen.setModelGroup( self.group )
+		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( False )
 		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
 		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )

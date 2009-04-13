@@ -49,7 +49,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.setWindowTitle( self.windowTitle() + " - " + attrs['string'])
 
 		self.screen = Screen( self )
-		self.screen.setModelGroup( modelGroup )
+		self.screen.setRecordGroup( modelGroup )
 		self.screen.setEmbedded( True )
 		if not model:
 			model = self.screen.new()
@@ -104,7 +104,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		group.setAllowRecordLoading( False )
 
 		self.screen = Screen( self )
-		self.screen.setModelGroup( group )
+		self.screen.setRecordGroup( group )
 		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
 		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
@@ -169,13 +169,13 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.uiLabel.setText( line )
 
 	def clear(self):
-		self.screen.setModelGroup( None )
+		self.screen.setRecordGroup( None )
 		self.screen.display()
 		
 	def showValue(self):
 		group = self.record.value(self.name)
 		if self.screen.group != group:
-			self.screen.setModelGroup(group)
+			self.screen.setRecordGroup(group)
 			if group.count():
 				self.screen.setCurrentRecord( group.modelByIndex(0) )
 		self.screen.display()

@@ -43,7 +43,7 @@ from Koo.Common import Numeric
 ## @brief The KooModel class provides a QAbstractItemModel wrapper around 
 # RecordGroup class.
 #
-# To use this class, simply call setModelGroup() to set the RecordGroup
+# To use this class, simply call setRecordGroup() to set the RecordGroup
 # instance to wrap, and setFields() with the fields to load.
 # Then it's ready to be used in any Qt model/view enabled widget such as 
 # QTreeView or QListView.
@@ -88,7 +88,7 @@ class KooModel(QAbstractItemModel):
 	#
 	# Fields should already be set and can't be added after this 
 	# call
-	def setModelGroup(self, group):
+	def setRecordGroup(self, group):
 		self.emit( SIGNAL('modelAboutToBeReset()') )
 		if self.group:
 			self.disconnect( self.group, SIGNAL('recordsInserted(int,int)'), self.recordsInserted )
@@ -105,6 +105,10 @@ class KooModel(QAbstractItemModel):
 		# they need to be updated
 		self.emit( SIGNAL('modelReset()') )
 		self.updateVisibleFields()
+
+	## @brief Returns the current RecordGroup associated with this Qt Model
+	def recordGroup(self):
+		return self.group
 
 	## @brief Sets the model as read-only.
 	def setReadOnly(self, value):

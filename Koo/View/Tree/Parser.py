@@ -120,7 +120,7 @@ class TreeParser(AbstractParser):
 
 		model = KooModel.KooModel( view )
 		model.setMode( KooModel.KooModel.ListMode )
-		model.setModelGroup( screen.group )
+		model.setRecordGroup( screen.group )
 		model.setFields( fields )
 		model.setFieldsOrder( [x['name'] for x in header] )
 		model.setColors( colors )

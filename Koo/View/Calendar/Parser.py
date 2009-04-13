@@ -59,7 +59,7 @@ class CalendarParser( AbstractParser ):
 
 		model = KooModel( view )
 		model.setMode( KooModel.ListMode )
-		model.setModelGroup( self.screen.group )
+		model.setRecordGroup( self.screen.group )
 		model.setFields( fields )
 		model.setFieldsOrder( header )
 		model.setReadOnly( not attrs.get('editable', False) )

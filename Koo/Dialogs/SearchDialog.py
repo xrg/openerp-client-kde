@@ -58,7 +58,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.modelGroup = RecordGroup( model )
 		self.modelGroup.setDomain( domain )
 
-		self.screen.setModelGroup( self.modelGroup )
+		self.screen.setRecordGroup( self.modelGroup )
 		self.screen.setViewTypes( ['tree'] )
 
 		self.view = self.screen.currentView()

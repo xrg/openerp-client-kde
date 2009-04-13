@@ -136,9 +136,9 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.group = RecordGroup( self.model, self.fields, context = self.context )
 		self.group.setDomain( domain )
 		if self.toolbar:
-			self.listModel.setModelGroup( self.group )
+			self.listModel.setRecordGroup( self.group )
 		else:
-			self.treeModel.setModelGroup( self.group )
+			self.treeModel.setRecordGroup( self.group )
 
 		self.uiTree.setModel( self.treeModel )
 		self.uiList.setModel( self.listModel )
@@ -167,7 +167,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.shortcutsModel.setMode( KooModel.ListMode )
 		self.shortcutsModel.setFields( scFields )
 		self.shortcutsModel.setFieldsOrder( ['name'] )
-		self.shortcutsModel.setModelGroup( self.shortcutsGroup )
+		self.shortcutsModel.setRecordGroup( self.shortcutsGroup )
 		self.shortcutsModel.setShowBackgroundColor( False )
 		self.uiShortcuts.setModel( self.shortcutsModel )
 		
@@ -190,7 +190,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		m = self.group[ id ]
 		group = m.value( self.childrenField )
 		group.addFields( self.group.fields )
-		self.treeModel.setModelGroup( group )
+		self.treeModel.setRecordGroup( group )
 		
 	def mainMenuClicked( self, currentItem, previousItem ):
 		self.updateTree()

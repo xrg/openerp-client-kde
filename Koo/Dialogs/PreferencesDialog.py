@@ -60,7 +60,7 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		arch+= '</form>'
 
 		self.screen = Screen( self )
-		self.screen.setModelGroup( RecordGroup( model ) )
+		self.screen.setRecordGroup( RecordGroup( model ) )
 		self.screen.new(default=False)
 		self.screen.addView(arch, fields, display=True)
 

@@ -53,7 +53,7 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setAllowRecordLoading( False )
 
-		self.screen.setModelGroup( self.group )
+		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( True )
 		self.screen.setupViews( ['form'], [False] )
 		self.screen.new()

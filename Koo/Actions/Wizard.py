@@ -71,7 +71,7 @@ class WizardPage(QDialog):
 		# won't exist in the server
 		self.group.setAllowRecordLoading( False )
 		self.screen = Screen( self )
-		self.screen.setModelGroup( self.group )
+		self.screen.setRecordGroup( self.group )
 		self.screen.new(default=False)
 		self.screen.addView(arch, fields, display=True)
 		# Set default values

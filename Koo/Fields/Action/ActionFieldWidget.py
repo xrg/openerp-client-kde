@@ -87,7 +87,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		#self.recordGroup.update()
 		self.screen = Screen( self )
-		self.screen.setModelGroup( self.recordGroup )
+		self.screen.setRecordGroup( self.recordGroup )
 		#self.screen.setDomain( self.domain )
 		self.screen.setEmbedded( True )
 		if int( self.attrs.get('show_toolbar','0') ):

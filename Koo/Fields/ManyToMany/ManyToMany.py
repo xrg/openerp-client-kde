@@ -60,7 +60,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		group.setAllowRecordLoading( False )
 		
 		self.screen = Screen( self )
-		self.screen.setModelGroup( group )
+		self.screen.setRecordGroup( group )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
@@ -122,12 +122,12 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 
 	def clear(self):
 		self.uiText.setText('')
-		self.screen.setModelGroup( None )	
+		self.screen.setRecordGroup( None )	
 		self.screen.display()
 
 	def showValue(self):
 		group = self.record.value(self.name)
-		self.screen.setModelGroup(group)
+		self.screen.setRecordGroup(group)
 		self.screen.display()
 
 	# We do not store anything here as elements are added and removed in the

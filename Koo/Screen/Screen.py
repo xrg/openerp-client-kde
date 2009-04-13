@@ -251,8 +251,8 @@ class Screen(QScrollArea):
 
 	## @brief Sets the RecordGroup this Screen should show.
 	# @param models RecordGroup object.
-	def setModelGroup(self, modelGroup):
-		if not modelGroup:
+	def setRecordGroup(self, group):
+		if not group:
 			self.group = None
 			# Call setCurrentRecord() after setting self.group
 			# because it will emit a signal with the count of elements
@@ -260,16 +260,16 @@ class Screen(QScrollArea):
 			self.setCurrentRecord( None )
 			return
 
-		self.name = modelGroup.resource
-		self.resource = modelGroup.resource
-		self.context = modelGroup.context()
+		self.name = group.resource
+		self.resource = group.resource
+		self.context = group.context()
 		self.rpc = RpcProxy(self.resource)
 
-		self.group = modelGroup
+		self.group = group
 		self._currentRecord = None
 
-		modelGroup.addFields(self.fields)
-		self.fields.update(modelGroup.fields)
+		group.addFields(self.fields)
+		self.fields.update(group.fields)
 
 	## @brief Returns a reference the current record (Record).
 	def currentRecord(self):
@@ -690,7 +690,7 @@ class Screen(QScrollArea):
 	#
 	# Note that this won't remove the records from the database. But clears
 	# the records from the model. It means that sometimes you might want to
-	# use setModelGroup( None ) instead of calling clear(). This is what
+	# use setRecordGroup( None ) instead of calling clear(). This is what
 	# OneToMany and ManyToMany widgets do, for example.
 	# @see remove()
 	def clear(self):

@@ -36,6 +36,26 @@ from Koo import Rpc
 
 class TinyTreeView(QTreeView):
 	
+	def sizeHintForColumn( self, column ):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		model = self.model()
+		# We expect a KooModel here!
+		group = model.recordGroup()
+		records = group.loadedRecords()
+		# If all records are loaded it's faster to use the C++ implementation
+		if len(records) == group.count():
+			QApplication.restoreOverrideCursor()
+			return QTreeView.sizeHintForColumn( self, column )
+		viewOptions = self.viewOptions()
+		delegate = self.itemDelegateForColumn( column )
+		hint = 0
+		for record in records:
+			index = model.indexFromId( record.id )
+			index = model.index( index.row(), column, index.parent() )
+			hint = max( hint, delegate.sizeHint( viewOptions, index ).width() )
+		QApplication.restoreOverrideCursor()
+		return hint
+
 	def moveCursor(	self, action, modifiers ):
 		index = self.currentIndex()
 		if not index.isValid():
@@ -229,7 +249,7 @@ class TreeView( AbstractView ):
 
 	def display(self, currentModel, models):
 		# TODO: Avoid setting the model group each time...
-		self.treeModel.setModelGroup( models )
+		self.treeModel.setRecordGroup( models )
 		if self._widgetType != 'tree':
 			self.treeModel.sort( 0, Qt.AscendingOrder )
 		self.updateAggregates()

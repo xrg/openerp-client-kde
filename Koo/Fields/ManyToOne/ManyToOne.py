@@ -64,7 +64,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		if self.screen:
 			return
 		self.screen = Screen(self)
-		self.screen.setModelGroup( RecordGroup( model ) )
+		self.screen.setRecordGroup( RecordGroup( model ) )
 		self.screen.setViewTypes( ['form'] )
 		if id:
 			self.screen.load([id])
