@@ -352,7 +352,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def updateStatus(self, message=''):
 		if self.model and self.screen.currentRecord() and self.screen.currentRecord().id:
 			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.currentRecord().id)])
-			message = ( _("(%s attachments) ") % len(ids) ) + message
+		else:
+			ids = []
+		message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 
 	def updateRecordStatus(self, position, count, value):
@@ -385,6 +387,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 				return True
 			else:
 				return False
+		else:
+			# If a new record was created but not modified, isModified() will return
+			# False but we want to cancel new records anyway.
+			# We call screen.cancel() directly as we don't want to trigger an updateStatus()
+			# which will result in a server request.
+			self.screen.cancel()
 		return True
 
 	def massiveUpdate(self):
