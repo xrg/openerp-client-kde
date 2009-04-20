@@ -94,6 +94,9 @@ try:
 except:
 	pass
 
+## @brief The PyroConnection class implements Connection for the Pyro RPC protocol.
+#
+# The Pyro protocol is usually opened at port 8071 on the server.
 class PyroConnection(Connection):
 	def __init__(self, url):
 		Connection.__init__(self, url)
@@ -281,7 +284,7 @@ class AsynchronousSessionCall(QThread):
 #
 # \code
 # from Koo import Rpc
-# Rpc.session.login('http://admin:admin@localhost:8069', 'database')
+# Rpc.session.login('http://admin:admin\@localhost:8069', 'database')
 # attached = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'read', [1,2,3])
 # Rpc.session.logout()
 # \endcode
@@ -323,6 +326,8 @@ class Session:
 	# a call id.
 	# If there is an error during the call it simply rises an exception. See 
 	# execute() if you want exceptions to be handled by the notification mechanism.
+	# @param callback Function that has to be called when the result returns from the server.
+	# @param exceptionCallback Function that has to be called when an exception returns from the server.
 	# @param obj Object name (string) that contains the method
 	# @param method Method name (string) to call 
 	# @param args Argument list for the given method
@@ -332,10 +337,10 @@ class Session:
 	# from Koo import Rpc
 	# def returned(self, value):
 	# 	print value
-	# Rpc.session.login('http://admin:admin@localhost:8069', 'database')
+	# Rpc.session.login('http://admin:admin\@localhost:8069', 'database')
 	# Rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
 	# Rpc.session.logout()
-	# \end
+	# \endcode
 	def callAsync( self, callback, exceptionCallback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.call( callback, obj, method, *args )
@@ -435,7 +440,7 @@ class Session:
 			
 
 	## @brief Logs in the given server with specified name and password.
-	# @param url url string such as 'http://admin:admin@localhost:8069'. 
+	# @param url url string such as 'http://admin:admin\@localhost:8069'. 
 	# Admited protocols are 'http', 'https' and 'socket'
 	# @param db string with the database name 
 	# Returns -1 if an exception occurred while trying to contact the server.

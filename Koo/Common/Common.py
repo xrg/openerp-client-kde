@@ -158,7 +158,7 @@ def warning(title, message):
 	QMessageBox.warning(None, title, message)
 	QApplication.restoreOverrideCursor()
 
-## @breif The ConcurrencyErrorDialog class provices a Dialog used when a 
+## @brief The ConcurrencyErrorDialog class provices a Dialog used when a 
 # concurrency error is received from the server.
 class ConcurrencyErrorDialog(QMessageBox):
 	def __init__(self, parent=None):

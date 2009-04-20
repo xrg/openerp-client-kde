@@ -40,8 +40,7 @@ class ViewSettings:
 	uid = None
 	hasSettingsModule = True
 
-	## @brief Gets a view and stores it's settings for the current user.
-	# @param view View object (should inherit AbstractView)
+	## @brief Stores settings for the given view id.
 	@staticmethod
 	def store( id, settings ):
 		if not id:

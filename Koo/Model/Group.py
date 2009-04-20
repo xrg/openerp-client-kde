@@ -75,6 +75,7 @@ class RecordGroup(QObject):
 	# @param fields Dictionary with the fields to load. This value typically comes from the server.
 	# @param ids Record identifiers to load in the group.
 	# @param parent Only used if this RecordGroup serves as a relation to another model. Otherwise it's None.
+	# @param context Context for RPC calls.
 	def __init__(self, resource, fields = None, ids=[], parent=None, context={}):
 		QObject.__init__(self)
 		self.parent = parent

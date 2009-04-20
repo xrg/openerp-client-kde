@@ -250,7 +250,7 @@ class Screen(QScrollArea):
 		self.emit( SIGNAL('currentChanged()') )
 
 	## @brief Sets the RecordGroup this Screen should show.
-	# @param models RecordGroup object.
+	# @param group RecordGroup object.
 	def setRecordGroup(self, group):
 		if not group:
 			self.group = None
@@ -340,7 +340,7 @@ class Screen(QScrollArea):
 		return True
 
 
-	## @briefs Adds a view given it's id and type.
+	## @brief Adds a view given it's id and type.
 	#
 	# This function is needed to resemble server's fields_view_get function. This 
 	# function wasn't necessary but accounting module needs it because it tries to
@@ -394,6 +394,7 @@ class Screen(QScrollArea):
 	# @param arch XML string: typically 'arch' field returned by model fields_view_get() function.
 	# @param fields Fields dictionary containing each field (widget) properties.
 	# @param display Whether you want the added view to be shown (True) or only loaded (False)
+	# @param toolbar Toolbar information as returned from fields_view_get server function.
 	# @param id View id. This parameter is used for storing and loading settings for the view. If id=False, no
 	#		settings will be stored/loaded.
 	# @return The view widget

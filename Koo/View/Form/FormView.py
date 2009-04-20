@@ -34,6 +34,8 @@ from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
+## @brief The FormContainer class is a widget with some functionalities to help
+# the parser construct a Form.
 class FormContainer( QWidget ):
 	def __init__(self, parent=None, maxColumns=4):
 		QWidget.__init__(self, parent)
@@ -118,6 +120,7 @@ class FormContainer( QWidget ):
 			return
 		self.layout.addItem( QSpacerItem( 0, 1, QSizePolicy.Fixed, QSizePolicy.Expanding ), self.row+1, 0 )
 
+## @brief The FormView class is an AbstractView capable of showing one in an read-write form.
 class FormView( AbstractView ):
 	def __init__(self, parent=None):
 		AbstractView.__init__( self, parent )
