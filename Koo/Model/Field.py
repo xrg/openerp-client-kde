@@ -303,11 +303,10 @@ class OneToManyField(ToManyField):
 				# Note that group.modelById() might force loading a model that wasn't yet loaded
 				# if 'modified' is False.
 				result.append((1, id, group.modelById( id ).get(check_load=check_load, get_readonly=readonly)))
-			else:
-				# Note that group.modelById() might force loading a model that wasn't yet loaded
-				# if 'modified' is False.
-				result.append((0, 0, group.modelById( id ).get(check_load=check_load, get_readonly=readonly)))
-				
+
+		for rec in group.newRecords():
+				result.append((0, 0, rec.get(check_load=check_load, get_readonly=readonly)))
+
 		for id in record.values[self.name].removedRecords:
 			result.append( (2, id, False) )
 		return result

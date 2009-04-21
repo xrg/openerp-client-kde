@@ -441,6 +441,17 @@ class RecordGroup(QObject):
 				ids.append( x )
 		return ids
 
+	## @brief Returns a list with all new records.
+	def newRecords(self):
+		records = []
+		for x in self.records:
+			if not isinstance(x, Record):
+				continue
+			if x.id:
+				continue
+			records.append( x )
+		return records
+
 	## @brief Returns the number of records in this group.
 	def count(self):
 		self.ensureUpdated()
