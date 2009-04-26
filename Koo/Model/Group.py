@@ -458,6 +458,7 @@ class RecordGroup(QObject):
 		return len(self.records)
 
 	def __iter__(self):
+		self.ensureUpdated()
 		self.ensureAllLoaded()
 		return iter(self.records)
 

@@ -47,10 +47,13 @@ class AbstractFieldDelegate(QStyledItemDelegate):
 			'required' : '#ddddff', 
 			'normal'   : 'white'
 		}
+		self.defaultMenuEntries = [
+			#(_('Set to default value'), self.setToDefault, 1),
+		]
 
 	def createEditor(self, parent, option, index):
 		# We expecte a KooModel here
-		model = index.model().modelFromIndex( index )
+		model = index.model().recordFromIndex( index )
 		if model and not model.isFieldValid( self.name ):
 			name = 'invalid'
 		elif self.attributes.get('readonly', False):
@@ -66,9 +69,48 @@ class AbstractFieldDelegate(QStyledItemDelegate):
 		editor.setPalette(palette);
 		return editor
 
-	## @brief Use this function to return the menuEntries your widget wants to show
+	## @brief Use this function to return the menu entries your delegate wants to show
 	# just before the context menu is shown. Return a list of tuples in the form:
 	# [ (_('Menu text'), function/slot to connect the entry, True (for enabled) or False (for disabled) )] 
-	def menuEntries(self):
+	def menuEntries(self, record):
 		return []
 
+	## @brief Shows a popup menu with default and widget specific
+	# entries.
+	def showPopupMenu(self, parent, position):
+		# parent is supposed to be a QAbstractItemView
+		index = parent.indexAt( parent.mapFromGlobal( position ) )
+		if not index or not index.isValid():
+			return
+		record = index.model().recordFromIndex( index )
+
+		entries = self.defaultMenuEntries[:]
+		new = self.menuEntries( record )
+		if len(new) > 0:
+			entries = entries + [(None, None, None)] + new
+		if not entries:
+			return
+		menu = QMenu( parent )
+		for title, slot, enabled in entries:
+			if title:
+				item = QAction( title, menu )
+				if slot:
+					self.connect( item, SIGNAL("triggered()"), slot )
+				item.setEnabled( enabled )
+				menu.addAction( item )
+			else:
+				menu.addSeparator()
+		menu.popup( position )
+
+	## @brief Sets the default value to the field.
+	#
+	# Note that this requires a call to the server.
+	def setToDefault(self):
+		try:
+			model = self.record.group.resource
+			res = Rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
+			self.record.setValue(self.name, res.get(self.name, False))
+			self.display()
+		except:
+			QMessageBox.warning(None, _('Operation not permited'), _('You can not set to the default value here !') )
+			return False

@@ -212,7 +212,7 @@ class KooModel(QAbstractItemModel):
 		if not index.isValid():
 			return 0
 
-		model = self.model( index.row(), index.internalPointer() )
+		model = self.record( index.row(), index.internalPointer() )
 		if model:
 			return model.id
 		else:
@@ -274,7 +274,7 @@ class KooModel(QAbstractItemModel):
 
 		if role != Qt.EditRole:
 			return True
-		model = self.model( index.row(), index.internalPointer() )
+		model = self.record( index.row(), index.internalPointer() )
 		field = self.field( index.column() )
 		fieldType = self.fieldType( index.column(), index.internalPointer() )
 
@@ -356,7 +356,7 @@ class KooModel(QAbstractItemModel):
 					return QVariant( unicode(value).replace('\n', ' ') )
 		elif role == Qt.DecorationRole:
 			if self.field( index.column() ) == self.iconField:
-				model = self.model( index.row(), index.internalPointer() )
+				model = self.record( index.row(), index.internalPointer() )
 				# Not all models necessarily have the icon so check that first
 				if self.icon in model.values:
 					return QVariant( Icons.kdeIcon( model.value( self.icon ) ) )
@@ -368,7 +368,7 @@ class KooModel(QAbstractItemModel):
 			if not self.showBackgroundColor:
 				return QVariant()
 			field = self.fields[self.field( index.column() )]
-			model = self.model( index.row(), index.internalPointer() )
+			model = self.record( index.row(), index.internalPointer() )
 			# Priorize readonly to required as if it's readonly the 
 			# user doesn't mind if it's required as she won't be able
 			# to change it anyway.
@@ -384,7 +384,7 @@ class KooModel(QAbstractItemModel):
 		elif role == Qt.ForegroundRole:
 			if not self.colors:
 				return QVariant()
-			model = self.model( index.row(), index.internalPointer() )
+			model = self.record( index.row(), index.internalPointer() )
 			palette = QPalette()
 			color = palette.color( QPalette.WindowText )
 			for (c, expression) in self.colors:
@@ -399,7 +399,7 @@ class KooModel(QAbstractItemModel):
 			else:
 				return QVariant( Qt.AlignLeft | Qt.AlignVCenter )
 		elif role == KooModel.IdRole:
-			model = self.model( index.row(), index.internalPointer() )
+			model = self.record( index.row(), index.internalPointer() )
 			return QVariant( model.id )
 		elif role == KooModel.ValueRole:
 			value = self.value( index.row(), index.column(), index.internalPointer() )
@@ -542,7 +542,7 @@ class KooModel(QAbstractItemModel):
 			return None
 
 	## @brief Returns a Record refered by row and group parameters
-	def model(self, row, group):
+	def record(self, row, group):
 		if not group:
 			return None
 		# We ensure the group has been loaded by checking if there
@@ -565,7 +565,7 @@ class KooModel(QAbstractItemModel):
 		# are any fields
 		if not group.fields:
 			group.addFields( self.fields )
-		model = self.model(row, group)
+		model = self.record(row, group)
 		field = self.field(column)
 		if not field or not model:
 			return None
@@ -577,7 +577,7 @@ class KooModel(QAbstractItemModel):
 		# are any fields
 		if not group.fields:
 			group.addFields( self.fields )
-		model = self.model(row, group)
+		model = self.record(row, group)
 		field = self.field(column)
 		if field and model:
 			model.setValue( field, value )
@@ -589,7 +589,7 @@ class KooModel(QAbstractItemModel):
 		if not group.fields:
 			group.addFields( self.fields )
 
-		model = self.model( row, group )
+		model = self.record( row, group )
 		if not model:
 			return None
 		else:
@@ -599,7 +599,7 @@ class KooModel(QAbstractItemModel):
 	#
 	# The index can point to any field of the model.
 	def id(self, index):
-		model = self.model( index.row(), index.internalPointer() )
+		model = self.record( index.row(), index.internalPointer() )
 		if model:
 			return model.id
 		else:
@@ -616,5 +616,5 @@ class KooModel(QAbstractItemModel):
 			return self.index( row, 0 )
 		return QModelIndex()
 
-	def modelFromIndex(self, index):
-		return self.model( index.row(), index.internalPointer() )
+	def recordFromIndex(self, index):
+		return self.record( index.row(), index.internalPointer() )

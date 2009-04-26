@@ -29,13 +29,20 @@
 
 from Koo.Model import KooModel
 from Koo.View.AbstractView import *
+from Koo.Fields.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from Koo.Common import Numeric
 from Koo import Rpc
 
 class TinyTreeView(QTreeView):
-	
+	def contextMenuEvent( self, event ):
+		index = self.indexAt( event.pos() )
+		delegate = self.itemDelegate( index )
+		if not isinstance(delegate, AbstractFieldDelegate):
+			return
+		delegate.showPopupMenu( self, self.mapToGlobal( event.pos() ) )
+
 	def sizeHintForColumn( self, column ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		model = self.model()
@@ -230,7 +237,7 @@ class TreeView( AbstractView ):
 		self.currentIndex = current
 		# We send the current model. Previously we sent only the id of the model, but
 		# new models have id=None
-		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.modelFromIndex(current) )
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.recordFromIndex(current) )
 		self.updateAggregates()
 
 	def store(self):

@@ -369,7 +369,7 @@ class GraphicsCalendarScene( QGraphicsScene ):
 				self._activeIndex = item.index()
 				break
 		self.setActiveIndex( True )
-		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(self._activeIndex) )
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().recordFromIndex(self._activeIndex) )
 
 	def setActiveIndex( self, active ):
 		if not self._activeIndex.isValid():
@@ -385,7 +385,7 @@ class GraphicsCalendarScene( QGraphicsScene ):
 				self._activeIndex = item.index()
 				break
 		self.setActiveIndex( True )
-		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().modelFromIndex(self._activeIndex) )
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self._calendar.model().recordFromIndex(self._activeIndex) )
 		self.emit( SIGNAL('activated()') )
 
 	def setSize(self, size):

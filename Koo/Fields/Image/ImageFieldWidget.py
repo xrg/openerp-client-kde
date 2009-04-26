@@ -162,7 +162,7 @@ class ImageFieldDelegate( AbstractFieldDelegate ):
 		if (option.state & QStyle.State_Selected):
 			painter.fillRect(option.rect, option.palette.highlight());
 
-		value = index.model().modelFromIndex( index ).value( self.name )
+		value = index.model().recordFromIndex( index ).value( self.name )
 		image = QImage()
 		image.loadFromData( value )
 		painter.drawImage( option.rect, image )

@@ -287,6 +287,42 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		self.currentIndex = None
 		self.currentEditor = None
 		self.currentValue = None
+ 		self.recordType = attributes['relation']	
+
+	def menuEntries(self, record):
+		newMenuEntries = []
+ 		newMenuEntries.append((_('Action'), lambda: self.executeAction(record, 'client_action_multi'), False))
+ 		newMenuEntries.append((_('Report'), lambda: self.executeAction(record, 'client_print_multi'), False))
+ 		newMenuEntries.append((None, None, None))
+		related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.recordType, False)], False, Rpc.session.context)
+		actions = [x[2] for x in related]
+		for action in actions:
+			f = lambda action: lambda: self.executeRelation(record, action)
+			newMenuEntries.append(('... '+ action['name'], f(action), False))
+
+		# Set enabled/disabled values
+		value = record.value(self.name)
+		if value:
+			value = True
+		else:
+			value = False
+		currentEntries = []
+		for x in newMenuEntries:
+			currentEntries.append( (x[0], x[1], value) )
+		return currentEntries
+
+	def executeRelation(self, record, action):
+		id = record.get()[self.name]
+		group = RecordGroup( self.attributes['relation'] )
+		group.load( [id] )
+		record = group.modelByIndex( 0 )
+		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
+		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
+		Api.instance.executeAction( action )
+
+	def executeAction(self, record, type):
+		id = record.id
+		Api.instance.executeKeyword(type, {'model':self.recordType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 
 	def createEditor(self, parent, option, index):
 		widget = AbstractFieldDelegate.createEditor(self, parent, option, index)
@@ -314,12 +350,12 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		if dialog.exec_() == QDialog.Accepted:
 			if self.currentIndex and self.currentIndex.isValid():
 				# We expect a KooModel here
-				model = index.model().modelFromIndex( index )
+				model = index.model().recordFromIndex( index )
 				model.setValue(self.name, dialog.model)
 
 	def setModelData(self, editor, kooModel, index):
 		# We expect a KooModel here
-		model = kooModel.modelFromIndex( index )
+		model = kooModel.recordFromIndex( index )
 
 		if not unicode(editor.text()):
 			model.setValue( self.name, False )

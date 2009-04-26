@@ -141,7 +141,7 @@ class ManyToManyFieldDelegate( AbstractFieldDelegate ):
 		if unicode( editor.text() ) == unicode( index.data( Qt.DisplayRole ).toString() ):
 			return
 		# We expecte a KooModel here
-		model = kooModel.modelFromIndex( index )
+		model = kooModel.recordFromIndex( index )
 
 		#model.setData( index, QVariant( editor.currentText() ), Qt.EditRole )
 		domain = model.domain( self.name )
