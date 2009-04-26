@@ -102,7 +102,6 @@ class RecordGroup(QObject):
 		self.toBeSortedOrder = None
 
 		self.sortedField = None
-		self.sortedRelatedIds = []
 		self.sortedOrder = None
 		self.updated = False
 		self._domain = []
@@ -252,54 +251,6 @@ class RecordGroup(QObject):
 			return True
 
 		self.preload( ids )
-		#if not self.fields:
-		#	self.preload( ids )
-		#	return True
-		return True
-
-		if self._sortMode == self.SortAllItems:
-			self.preload( ids )
-			queryIds = ids[0:self.limit]
-		else:
-			queryIds = ids
-
-		if None in queryIds:
-			queryIds.remove( None )
-		c = Rpc.session.context.copy()
-		c.update( self.context() )
-		values = self.rpc.read(queryIds, self.fields.keys(), c)
-		if not values:
-			return False
-
-		if self._sortMode == self.SortAllItems:
-			# If nothing else was loaded, we sort the fields in the order given
-			# by 'ids' or 'self.sortedRedlatedIds' when appropiate.
-			if self.sortedRelatedIds:
-				# This treats the case when the sorted field is a many2one
-				nulls = []
-				for y in values:
-					if type(y[self.sortedField]) != list:
-						nulls.append( y )
-				vals = []
-				for x in self.sortedRelatedIds:
-					for y in values:
-						value = y[self.sortedField]
-						if type(value) == list and y[self.sortedField][0] == x:
-							vals.append( y )
-							# Don't break, there can be duplicates
-				if self.sortedOrder == Qt.AscendingOrder:
-					vals = nulls + vals
-				else:
-					vals = vals + nulls
-			else:
-				# This treats the case when the sorted field is a non-relation field
-				#vals = sorted( values, key=lambda x: ids.index(x['id']) )
-				for v in values:
-					id = v['id']
-					record = self.recordById(id)
-					record.set(v, signal=False)
-		else:
-			self.loadFromValues(values)
 		return True
 
 	## @brief Clears the list of records. It doesn't remove them.
@@ -672,7 +623,6 @@ class RecordGroup(QObject):
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
 			ids = self.rpc.search( self._domain + self._filter )
-			self.sortedRelatedIds = []
 		else:
 			type = self.fields[field]['type']
 			if type == 'one2many' or type == 'many2many':
@@ -683,40 +633,19 @@ class RecordGroup(QObject):
 			# functions. This means this runs slower than it should due to network and
 			# serialization latency. Even more, we lack some information to make it 
 			# work well.
-
-			if type == 'many2one':
-				# In the many2one case, we sort all records in the related table 
-				# There's a bug here, as we consider 'name' the field that will be shown.
-				# in some cases this field doesn't exist.
-				orderby = 'name '
-				if order == Qt.AscendingOrder:
-					orderby += 'ASC'
-				else:
-					orderby += 'DESC'
-				try:
-					# Use call to catch exceptions
-					self.sortedRelatedIds = Rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0, orderby )
-				except:
-					# Maybe name field doesn't exist :(
-					# Use default order
-					self.sortedRelatedIds = Rpc.session.call('/object', 'execute', self.fields[field]['relation'], 'search', [], 0, 0 )
-					
-				ids = self.rpc.search( self._domain + self._filter )
+			orderby = field + " "
+			if order == Qt.AscendingOrder:
+				orderby += "ASC"
 			else:
-				orderby = field + " "
-				if order == Qt.AscendingOrder:
-					orderby += "ASC"
-				else:
-					orderby += "DESC"
-				try:
-					# Use call to catch exceptions
-					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby )
-				except:
-					# In functional fields not stored in the database this will
-					# cause an exceptioin :(
-					# Use default order
-					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0 )
-				self.sortedRelatedIds = []
+				orderby += "DESC"
+			try:
+				# Use call to catch exceptions
+				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby )
+			except:
+				# In functional fields not stored in the database this will
+				# cause an exceptioin :(
+				# Use default order
+				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0 )
 
 		# We set this fields in the end in case some exceptions where fired 
 		# in previous steps.
