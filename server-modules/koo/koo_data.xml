@@ -2,7 +2,7 @@
 <terp>
 <data>
 	<!-- View cache exceptions -->
-	<record model='nan.ktiny.cache.exception' id='exception0'>
+	<record model='nan.koo.cache.exception' id='exception0'>
 		<field name="name">product.pricelist</field>
 	</record>
 </data>

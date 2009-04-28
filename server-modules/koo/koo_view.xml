@@ -2,9 +2,9 @@
 <terp>
 	<data>
 		<!-- View cache exceptions -->
-		<record model='ir.ui.view' id='ktiny_cache_exception_form'>
-			<field name="name">nan.ktiny.cache_exception.form</field>
-			<field name="model">nan.ktiny.cache_exception</field>
+		<record model='ir.ui.view' id='koo_cache_exception_form'>
+			<field name="name">nan.koo.cache_exception.form</field>
+			<field name="model">nan.koo.cache_exception</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="View Cache Exceptions">
@@ -12,9 +12,9 @@
 				</form>
 			</field>
 		</record>
-		<record model='ir.ui.view' id='ktiny_cache_exception_tree'>
-			<field name="name">nan.ktiny.cache.exception.tree</field>
-			<field name="model">nan.ktiny.cache.exception</field>
+		<record model='ir.ui.view' id='koo_cache_exception_tree'>
+			<field name="name">nan.koo.cache.exception.tree</field>
+			<field name="model">nan.koo.cache.exception</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
 				<tree string="View Cache Exceptions">
@@ -22,22 +22,22 @@
 				</tree>
 			</field>
 		</record>
-		<record model="ir.actions.act_window" id="ktiny_cache_exception_action">
+		<record model="ir.actions.act_window" id="koo_cache_exception_action">
 			<field name="name">View Cache Exceptions</field>
-			<field name="res_model">nan.ktiny.cache.exception</field>
+			<field name="res_model">nan.koo.cache.exception</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Configuration/KTiny/View Cache Exceptions" 
-			action="ktiny_cache_exception_action" id="ktiny_cache_exception_menu"/>
+		<menuitem name="Administration/Configuration/Koo/View Cache Exceptions" 
+			action="koo_cache_exception_action" id="koo_cache_exception_menu"/>
 
-		<!-- KTiny Settings views -->
-		<record model='ir.ui.view' id='ktiny_settings_form'>
-			<field name="name">nan.ktiny.settings.form</field>
-			<field name="model">nan.ktiny.settings</field>
+		<!-- Koo Settings views -->
+		<record model='ir.ui.view' id='koo_settings_form'>
+			<field name="name">nan.koo.settings.form</field>
+			<field name="model">nan.koo.settings</field>
 			<field name="type">form</field>
 			<field name="arch" type="xml">
-				<form string="KTiny Settings">
+				<form string="Koo Settings">
 					<field name="name" colspan="4"/>
 					<separator colspan="4" string="Appearance"/>
 					<field name="tabs_position"/>
@@ -58,12 +58,12 @@
 				</form>
 			</field>
 		</record>
-		<record model='ir.ui.view' id='ktiny_settings_tree'>
-			<field name="name">nan.ktiny.settings.tree</field>
-			<field name="model">nan.ktiny.settings</field>
+		<record model='ir.ui.view' id='koo_settings_tree'>
+			<field name="name">nan.koo.settings.tree</field>
+			<field name="model">nan.koo.settings</field>
 			<field name="type">tree</field>
 			<field name="arch" type="xml">
-				<tree string="KTiny Settings">
+				<tree string="Koo Settings">
 					<field name="name"/>
 					<field name="show_toolbar"/>
 					<field name="tabs_position"/>
@@ -74,16 +74,16 @@
 				</tree>
 			</field>
 		</record>
-		<record model="ir.actions.act_window" id="ktiny_settings_action">
-			<field name="name">KTiny Settings</field>
-			<field name="res_model">nan.ktiny.settings</field>
+		<record model="ir.actions.act_window" id="koo_settings_action">
+			<field name="name">Koo Settings</field>
+			<field name="res_model">nan.koo.settings</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Configuration/KTiny/Settings" 
-			action="ktiny_settings_action" id="ktiny_settings_menu"/>
+		<menuitem name="Administration/Configuration/Koo/Settings" 
+			action="koo_settings_action" id="koo_settings_menu"/>
 
-		<!-- Attachment updates for KTiny -->
+		<!-- Attachment updates for Koo -->
 
 <!-- Replace "datas" field to attachment view form -->
 		<record model="ir.ui.view" id="attachment_form_datas">
@@ -110,6 +110,7 @@
 		</record>
 
 <!-- Replace "res_model" field to attachment view form -->
+		<!-- This (visible attribute) doesn't work with OpenERP 5.0
 		<record model="ir.ui.view" id="attachment_form_res_model">
 			<field name="name">ir.attachment.view</field>
 			<field name="model">ir.attachment</field>
@@ -120,8 +121,10 @@
 				</field>
 			</field>
 		</record>
+		-->
 
 <!-- Replace "res_id" field to attachment view form -->
+		<!-- This (visible attribute) doesn't work with OpenERP 5.0 
 		<record model="ir.ui.view" id="attachment_form_res_id">
 			<field name="name">ir.attachment.view</field>
 			<field name="model">ir.attachment</field>
@@ -132,6 +135,7 @@
 				</field>
 			</field>
 		</record>
+		-->
 
 <!-- Remove "res_model" field to attachment view tree -->
 		<record model="ir.ui.view" id="attachment_tree_res_model">

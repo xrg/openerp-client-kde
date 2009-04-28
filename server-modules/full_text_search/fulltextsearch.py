@@ -111,7 +111,7 @@ class fulltextsearch_services(netsvc.Service):
 				ir_model_fields f
 			WHERE
 				i.field_id = f.id AND
-				f.model_id=%d
+				f.model_id=%s
 			""", (model_id,) )
 		# We will concatenate all those fields just like the
 		# index does, so we can have the headline
@@ -133,12 +133,12 @@ class fulltextsearch_services(netsvc.Service):
 				ir_model_fields f
 			WHERE
 				f.name = 'name' AND
-				f.model_id=%d 
+				f.model_id=%s 
 			LIMIT 1
 			""", (model_id,) )
 		if cr.fetchone():
 			# If it has, fetch the name of the object 
-			cr.execute( "SELECT name FROM \"" + table + "\" WHERE id = %d", (id,) )
+			cr.execute( "SELECT name FROM \"" + table + "\" WHERE id = %s", (id,) )
 			name = cr.fetchone()[0]
 		else:
 			name = ""
@@ -151,7 +151,7 @@ class fulltextsearch_services(netsvc.Service):
 			FROM 
 				\"""" + table + """\"
 			WHERE
-				id = %d
+				id = %s
 			""", (text, id) )	
 
 		return { 'name': name, 'headline': cr.fetchone()[0] }
@@ -228,11 +228,11 @@ class fulltextsearch_services(netsvc.Service):
 		tsVector = []
 		for x in text.split(' '):
 			if isFloat(x):
-				tsVector.append( "to_tsvector( 'default', %f::TEXT )" % float(x) )
-				tsQuery.append( "to_tsquery( 'default', %f::TEXT )" % float(x) )
+				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % float(x) )
+				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % float(x) )
 			elif isInteger(x):
-				tsVector.append( "to_tsvector( 'default', %d::TEXT )" % long(x) )
-				tsQuery.append( "to_tsquery( 'default', %d::TEXT )" % long(x) )
+				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % long(x) )
+				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % long(x) )
 			#elif isDate(x):
 				#tsVector.append( "to_tsvector( 'default', %s::DATE )" % quote(date(x) )  
 				#tsQuery.append( "to_tsquery( 'default', %s::DATE )" % quote(date(x) )  
@@ -243,7 +243,7 @@ class fulltextsearch_services(netsvc.Service):
 		tsQuery = ' && '.join(tsQuery)
 
 		if model:
-			filterModel = ' AND m.id = %d ' % int(model)
+			filterModel = ' AND m.id = %s ' % int(model)
 		else:
 			filterModel = ''
 

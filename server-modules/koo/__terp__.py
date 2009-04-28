@@ -25,5 +25,21 @@
 #
 ##############################################################################
 
-import ktiny
-import subscription
+{
+	"name" : "Koo",
+	"version" : "0.1",
+	"description" : "This module prepares the server for properly handling attachments in Koo and allows server side client settings storage.",
+	"author" : "NaN",
+	"website" : "http://www.nan-tic.com",
+	"depends" : ["base"],
+	"category" : "Generic Modules/Koo",
+	"init_xml" : [],
+	"demo_xml" : [],
+	"update_xml" : [
+		"koo_view.xml",
+		"koo_data.xml"
+	],
+	"active": False,
+	"installable": True
+}
+

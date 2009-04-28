@@ -36,8 +36,8 @@ class ir_attachment(osv.osv):
 	}
 ir_attachment()
 
-class nan_ktiny_settings(osv.osv):
-	_name = 'nan.ktiny.settings'
+class nan_koo_settings(osv.osv):
+	_name = 'nan.koo.settings'
 
 	def _check_limit(self, cr, uid, ids, context={}):
 		for x in self.read(cr, uid, ids, ['limit']):
@@ -61,7 +61,7 @@ class nan_ktiny_settings(osv.osv):
 		'limit': fields.integer('Limit',help='Number of records to be fetched at once.'),
 		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)', help='Indicates the number of seconds to wait to check if new requests have been received by the current user.'),
 		'show_system_tray_icon': fields.boolean( 'Show Icon in System Tray', help='If checked, an icon is shown in the system tray to keep Koo accessible all the time.' ),
-		'roles_id': fields.many2many('res.roles', 'nan_ktiny_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.'),
+		'roles_id': fields.many2many('res.roles', 'nan_koo_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.'),
 		'print_directly': fields.boolean( 'Print directly', help='If set, sends the document directly to the printer. Otherwise the document is shown in a PDF viewer.' ),
 		'auto_reload': fields.boolean( 'Auto Reload', help='If set, all views will be reloaded when data changes in the server.' ),
 		'allow_massive_updates': fields.boolean( 'Allow Massive Updates', help='If set, the option to Modify all Selected Records is enabled in Form menu.' )
@@ -86,7 +86,7 @@ class nan_ktiny_settings(osv.osv):
 		if not ids:
 			return False
 		ids = str(ids).replace('[', '(').replace(']',')')
-		cr.execute( "SELECT setting_id FROM nan_ktiny_settings_roles_rel WHERE role_id IN %s" % ( ids ) )
+		cr.execute( "SELECT setting_id FROM nan_koo_settings_roles_rel WHERE role_id IN %s" % ( ids ) )
 		row = cr.fetchone()
 		if row:
 			return row[0]
@@ -94,9 +94,9 @@ class nan_ktiny_settings(osv.osv):
 			return False
 
 	def get_settings(self, cr, uid):
-		ids = self.pool.get('nan.ktiny.cache.exception').search(cr, uid, [])
+		ids = self.pool.get('nan.koo.cache.exception').search(cr, uid, [])
 		exceptions = []
-		for exception in self.pool.get('nan.ktiny.cache.exception').browse(cr, uid, ids):
+		for exception in self.pool.get('nan.koo.cache.exception').browse(cr, uid, ids):
 			exceptions.append( exception.name )
 
 		settings = {
@@ -107,20 +107,20 @@ class nan_ktiny_settings(osv.osv):
 			settings.update( self.read(cr, uid, [id])[0] )
 		return settings
 		
-nan_ktiny_settings()
+nan_koo_settings()
 
-class nan_ktiny_view_settings(osv.osv):
-	_name = 'nan.ktiny.view.settings'
+class nan_koo_view_settings(osv.osv):
+	_name = 'nan.koo.view.settings'
 	_columns = {
 		'user': fields.many2one('res.users', 'User'),
 		'view': fields.many2one('ir.ui.view', 'View'),
 		'data': fields.text('Data')
 	}
-nan_ktiny_view_settings()
+nan_koo_view_settings()
 
-class nan_ktiny_cache_exceptions(osv.osv):
-	_name = 'nan.ktiny.cache.exception'
+class nan_koo_cache_exceptions(osv.osv):
+	_name = 'nan.koo.cache.exception'
 	_columns = {
 		'name': fields.char('Model Name', size=64, required=True),
 	}
-nan_ktiny_cache_exceptions()
+nan_koo_cache_exceptions()
