@@ -106,7 +106,7 @@ class Screen(QScrollArea):
 		self.fields = {}
 		self.group = None
 		self._currentRecordPosition = None
-		#self._currentRecord = None
+		self._currentRecord = None
 		self._currentView = 0
 
 		self._viewQueue = ViewQueue()
@@ -254,6 +254,8 @@ class Screen(QScrollArea):
 	def setRecordGroup(self, group):
 		if not group:
 			self.group = None
+			self._currentRecord = None
+			self._currentRecordPosition = None
 			# Call setCurrentRecord() after setting self.group
 			# because it will emit a signal with the count of elements
 			# which must be 0.
@@ -267,6 +269,7 @@ class Screen(QScrollArea):
 
 		self.group = group
 		self._currentRecord = None
+		self._currentRecordPosition = None
 
 		group.addFields(self.fields)
 		self.fields.update(group.fields)
