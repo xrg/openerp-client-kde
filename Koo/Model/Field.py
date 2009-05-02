@@ -135,6 +135,9 @@ class BinaryField(StringField):
 		value = self.get_client(record)
 		if value:
 			value = base64.encodestring(value)
+		else:
+			# OpenERP 5.0 server doesn't like False as a value for Binary fields.
+			value = ''
 		return value
 
 	def get_client(self, record):
