@@ -242,6 +242,8 @@ class Screen(QScrollArea):
 		self.group.update()
 		if self.group.count() > 0:
 			self.setCurrentRecord( self.group.recordByIndex( 0 ) )
+		else:
+			self.setCurrentRecord( None )
 		self.display()
 
 	# Slot to recieve the signal from a view when the current item changes

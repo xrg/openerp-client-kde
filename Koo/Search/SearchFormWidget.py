@@ -77,27 +77,28 @@ class SearchFormParser(object):
 		self.container = container
 		self.model = model
 		self.focusable = None
-		
+		self.widgets = {}
+
 	def _psr_start(self, name, attrs):
 		if name in ('form','tree','svg'):
 			self.title = attrs.get('string','Form')
 		elif name=='field':
-			if attrs.get('select', False) or self.fields[attrs['name']].get('select', False):
-				type = attrs.get('widget', self.fields[attrs['name']]['type'])
+			select = attrs.get('select', False) or self.fields[attrs['name']].get('select', False)
+			if select:
+				name = attrs['name']
+				type = attrs.get('widget', self.fields[name]['type'])
 				if not type in widgetTypes:
 					print "Search widget for type '%s' not implemented." % type
 					return
-				self.fields[attrs['name']].update(attrs)
-				self.fields[attrs['name']]['model']=self.model
-				widget_act = widgetTypes[ type ](attrs['name'], self.container, self.fields[attrs['name']])
-				if 'string' in self.fields[attrs['name']]:
-					label = self.fields[attrs['name']]['string']+' :'
+				self.fields[name].update(attrs)
+				self.fields[name]['model']=self.model
+				widget = widgetTypes[ type ](name, self.container, self.fields[name])
+				self.widgetDict[str(name)] = widget
+				select = str(select)
+				if select in self.widgets:
+					self.widgets[ str(select) ].append( widget )
 				else:
-					label = None
-				self.dict_widget[str(attrs['name'])] = widget_act
-				if not self.focusable:
-					self.focusable = widget_act
-				self.container.addWidget(widget_act, label)
+					self.widgets[ select ] = [ widget ]
 
 	def _psr_end(self, name):
 		pass
@@ -108,9 +109,19 @@ class SearchFormParser(object):
 		psr.StartElementHandler = self._psr_start
 		psr.EndElementHandler = self._psr_end
 		psr.CharacterDataHandler = self._psr_char
-		self.dict_widget={}
+		self.widgetDict={}
 		psr.Parse(xml_data.encode('utf-8'))
-		return self.dict_widget
+
+		for line in sorted( self.widgets.keys() ):
+			for widget in self.widgets[ line ]:
+				if 'string' in self.fields[widget.name]:
+					label = self.fields[widget.name]['string']+' :'
+				else:
+					label = None
+				self.container.addWidget( widget, label )
+				if not self.focusable:
+					self.focusable = widget
+		return self.widgetDict
 
 (SearchFormWidgetUi, SearchFormWidgetBase) = loadUiType( Common.uiPath('searchform.ui') )
 
