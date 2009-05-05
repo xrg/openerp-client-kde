@@ -59,12 +59,16 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
 		self.record = None
 		self.screen = None
+		self._context = {}
+		self._domain = []
 
 	def setup(self, model, id=None):
 		if self.screen:
 			return
+		self.group = RecordGroup( model, context=self._context )
+		self.group.setDomain( self._domain )
 		self.screen = Screen(self)
-		self.screen.setRecordGroup( RecordGroup( model ) )
+		self.screen.setRecordGroup( self.group )
 		self.screen.setViewTypes( ['form'] )
 		if id:
 			self.screen.load([id])
@@ -77,6 +81,12 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 	def setAttributes(self, attrs):
 		if ('string' in attrs) and attrs['string']:
 			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
+
+	def setContext(self, context):
+		self._context = context
+
+	def setDomain(self, domain):
+		self._domain = domain
 
 	def accepted( self ):
 		self.screen.currentView().store()
@@ -221,6 +231,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 	def new(self):
 		dialog = ScreenDialog(self)
 		dialog.setAttributes( self.attrs )
+		dialog.setContext( self.record.fieldContext( self.name ) )
+		dialog.setDomain( self.record.domain(self.name) )
 		dialog.setup( self.attrs['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
 			self.record.setValue(self.name, dialog.model)
@@ -338,20 +350,59 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 			self.scSearch.setKey( Shortcuts.SearchInField )
 			self.connect( self.scSearch, SIGNAL('activated()'), self.open )
 		self.currentEditor = widget
+		# We expect a KooModel here
+		self.record = index.model().recordFromIndex( index )
 		return widget
 
 	def open(self):
-		pass
+		# As the 'open' button might modify the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
+		# the parent model could make us lose changes.
+		#self.view.store()
+
+		if self.record.value(self.name):
+			# If Control Key is pressed when the open button is clicked
+			# the record will be opened in a new tab. Otherwise it's opened
+			# in a new modal dialog.
+			if QApplication.keyboardModifiers() & Qt.ControlModifier:
+				model = self.attributes['relation']
+				id = self.record.get()[self.name]
+				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
+			else:	
+				dialog = ScreenDialog( self )
+				dialog.setAttributes( self.attributes )
+				dialog.setup( self.attributes['relation'], self.record.get()[self.name] )
+				if dialog.exec_() == QDialog.Accepted:
+					self.record.setValue(self.name, dialog.model)
+		else:
+			self.search('')
+
+	# This function searches the given name within the available records. If none or more than
+	# one possible name matches the search dialog is shown. If only one matches we set the
+	# value and don't even show the search dialog. This is also true if the function is called
+	# with "name=''" and only one record exists in the database (hence the call from open())
+	def search(self, name):
+		domain = self.record.domain( self.name )
+		context = self.record.context()
+		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', name, domain, 'ilike', context)
+		if ids and len(ids)==1:
+			self.record.setValue( self.name, ids[0] )
+		else:
+			dialog = SearchDialog(self.attributes['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
+			if dialog.exec_() == QDialog.Accepted and dialog.result:
+				id = dialog.result[0]
+				name = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_get', [id], Rpc.session.context)[0]
+				self.record.setValue(self.name, name)
 
 	def new(self):
 		dialog = ScreenDialog( self.currentEditor )
 		dialog.setAttributes( self.attributes )
+		dialog.setContext( self.record.fieldContext( self.name ) )
+		dialog.setDomain( self.record.domain(self.name) )
 		dialog.setup( self.attributes['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
 			if self.currentIndex and self.currentIndex.isValid():
-				# We expect a KooModel here
-				model = index.model().recordFromIndex( index )
-				model.setValue(self.name, dialog.model)
+				self.record.setValue(self.name, dialog.model)
 
 	def setModelData(self, editor, kooModel, index):
 		# We expect a KooModel here
