@@ -204,7 +204,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 				dialog.setAttributes( self.attrs )
 				dialog.setup( self.attrs['relation'], self.record.get()[self.name] )
 				if dialog.exec_() == QDialog.Accepted:
-					self.record.setValue(self.name, dialog.model)
+					self.record.setValue(self.name, dialog.record)
 					self.display()
 		else:
 			self.search('')
@@ -235,7 +235,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		dialog.setDomain( self.record.domain(self.name) )
 		dialog.setup( self.attrs['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
-			self.record.setValue(self.name, dialog.model)
+			self.record.setValue(self.name, dialog.record)
 			self.display()
 
 	def store(self):
@@ -369,11 +369,11 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 				id = self.record.get()[self.name]
 				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
 			else:	
-				dialog = ScreenDialog( self )
+				dialog = ScreenDialog( self.currentEditor )
 				dialog.setAttributes( self.attributes )
 				dialog.setup( self.attributes['relation'], self.record.get()[self.name] )
 				if dialog.exec_() == QDialog.Accepted:
-					self.record.setValue(self.name, dialog.model)
+					self.record.setValue(self.name, dialog.record)
 		else:
 			self.search('')
 
@@ -402,7 +402,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		dialog.setup( self.attributes['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
 			if self.currentIndex and self.currentIndex.isValid():
-				self.record.setValue(self.name, dialog.model)
+				self.record.setValue(self.name, dialog.record)
 
 	def setModelData(self, editor, kooModel, index):
 		# We expect a KooModel here
