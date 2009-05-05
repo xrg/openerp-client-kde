@@ -112,6 +112,7 @@ class SearchFormParser(object):
 		self.widgetDict={}
 		psr.Parse(xml_data.encode('utf-8'))
 
+		previousWidget = None
 		for line in sorted( self.widgets.keys() ):
 			for widget in self.widgets[ line ]:
 				if 'string' in self.fields[widget.name]:
@@ -119,6 +120,9 @@ class SearchFormParser(object):
 				else:
 					label = None
 				self.container.addWidget( widget, label )
+				if previousWidget:
+					QWidget.setTabOrder( previousWidget.focusWidget, widget.focusWidget )
+				previousWidget = widget
 				if not self.focusable:
 					self.focusable = widget
 		return self.widgetDict
