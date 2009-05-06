@@ -151,7 +151,8 @@ class ir_attachment(osv.osv):
 				# If so, that should apply to text/pdf/etc.. files too
 				#r['language']
 
-		metaInfo = unicode( metaInfo, 'utf-8', errors='ignore' )
+		if isinstance( metaInfo, str ):
+			metaInfo = unicode( metaInfo, 'utf-8', errors='ignore' )
 		shutil.rmtree( dir, True )
 		return metaInfo
 
