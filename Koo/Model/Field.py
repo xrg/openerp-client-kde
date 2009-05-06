@@ -254,23 +254,6 @@ class ToManyField(StringField):
 		self.set(record, value, test_state=test_state)
 		self.changed(record)
 
-	def setDefault(self, record, value):
-		from Koo.Model.Group import RecordGroup
-		fields = {}
-		if value and len(value):
-			context = self.context(record)
-			Rpc2 = RpcProxy(self.attrs['relation'])
-			fields = Rpc2.fields_get(value[0].keys(), context)
-
-		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record)
-		self.connect( record.values[self.name], SIGNAL('modified()'), self.groupModified )
-		mod=None
-		for record in (value or []):
-			# TODO: Fix with new Group behaviour. Has this ever really worked?
-			mod = record.values[self.name].model_new(default=False)
-			mod.setDefault(record)
-			record.values[self.name].model_add(mod)
-		return True
 
 	def default(self, record):
 		# TODO: Fix with new Group behaviour. Has this ever really worked?
@@ -313,6 +296,24 @@ class OneToManyField(ToManyField):
 		for id in record.values[self.name].removedRecords:
 			result.append( (2, id, False) )
 		return result
+
+	def setDefault(self, record, value):
+		from Koo.Model.Group import RecordGroup
+		fields = {}
+		if value and len(value):
+			context = self.context(record)
+			Rpc2 = RpcProxy(self.attrs['relation'])
+			fields = Rpc2.fields_get(value[0].keys(), context)
+
+		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record)
+		self.connect( record.values[self.name], SIGNAL('modified()'), self.groupModified )
+		mod=None
+		for record in (value or []):
+			# TODO: Fix with new Group behaviour. Has this ever really worked?
+			mod = record.values[self.name].model_new(default=False)
+			mod.setDefault(record)
+			record.values[self.name].model_add(mod)
+		return True
 
 class ManyToManyField(ToManyField):
 	def get(self, record, check_load=True, readonly=True, modified=False):

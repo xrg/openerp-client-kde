@@ -33,6 +33,7 @@ from Koo.Common import Notifier
 from Koo.Common import Icons
 from Koo.Common import Common
 from Koo.Common import Api
+from Koo.Rpc import Rpc
 
 class ButtonFieldWidget( AbstractFieldWidget ):
 	def __init__(self, parent, view, attributes) :
@@ -56,9 +57,9 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		if self.attrs.get('special', '') == 'cancel':
 			screen.close()
 			if 'name' in self.attrs.keys():
-				result = rpc.session.execute(
+				result = Rpc.session.execute(
 					'/object', 'execute', screen.name,
-					self.attrs['name'], [], model.context()
+					self.attrs['name'], [], self.record.context()
 				)
 				datas = {}
 				Api.instance.executeAction( result, datas, screen.context )

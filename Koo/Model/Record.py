@@ -361,6 +361,7 @@ class Record(QObject):
 		if check_load:
 			self.ensureIsLoaded()
 		d = {}
+		self.createMissingFields()
 		for name, mfield in self.group.fieldObjects.items():
 			d[name] = mfield.get(self, check_load=check_load)
 
