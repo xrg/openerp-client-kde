@@ -148,7 +148,11 @@ def textToFloatTime( text ):
 ## @brief Converts a Python string comming from the server into a QDate object
 def storageToDate( text ):
 	if text:
-		return QDate.fromString( text, 'yyyy-MM-dd' )
+		date = QDate.fromString( text, 'yyyy-MM-dd' )
+		if date.isValid():
+			return date
+		# Sometimes we want datetime fields to be shown in pure date widgets
+		return QDateTime.fromString( text, 'yyyy-MM-dd hh:mm:ss' ).date()
 	else:
 		return QDate()
 

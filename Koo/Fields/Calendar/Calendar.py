@@ -79,6 +79,14 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		return dateToStorage(date)
 
 	def store(self):
+		# We've found in account.reconcile model that the date widget
+		# is used to show a datetime field. The field is read-only, but when we
+		# call store() it's stored without time information and this causes the 
+		# record to be marked as modified. So we ensure the field is not stored
+		# if it's read-only. We do it in this field only to avoid regressions 
+		# with other models of the ERP.
+		if self.isReadOnly():
+			return
 		self.record.setValue(self.name, self.value())
 
 	def clear(self):
