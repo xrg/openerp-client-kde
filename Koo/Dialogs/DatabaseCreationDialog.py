@@ -91,6 +91,7 @@ class ProgressBar( QDialog, ProgressBarUi ):
 			self.timer.stop()
 			QMessageBox.warning(self,_("Error during database creation !"),_("The server crashed during installation.\nWe suggest you to drop this database."))
 			self.reject()
+			return
 
 		
 		# While progress will be 0.0 we'll keep the moving (undefined) progress bar.
