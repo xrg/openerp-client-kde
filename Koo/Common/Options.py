@@ -32,7 +32,7 @@ import os
 import sys
 import gettext
 from Koo import Rpc
-from PyQt4.QtCore import QDir
+from PyQt4.QtCore import QDir, QUrl
 
 ## @brief The ConfigurationManager class handles Koo settings information. 
 # Those settings can be specified in the command line, koo.rc configuration file
@@ -43,12 +43,8 @@ class ConfigurationManager(object):
 	# configuration. Otherwise, a standard location will be used.
 	def __init__(self, fileName=None):
 		self.options = {
-			'login.login': 'admin',
-			'login.server': 'localhost',
-			'login.port': '8069',
 			'login.db': 'test',
-			'login.protocol': 'http://',
-			'login.secure': False,
+			'login.url': 'http://admin@localhost:8069',
 			'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 			'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
 			'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
@@ -71,16 +67,23 @@ class ConfigurationManager(object):
 		parser.add_option("-v", "--verbose", action="store_true", default=False, dest="verbose", help=_("enable basic debugging"))
 		parser.add_option("-d", "--log", dest="log_logger", default='', help=_("specify channels to log"))
 		parser.add_option("-l", "--log-level", dest="log_level",default='ERROR', help=_("specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"))
-		parser.add_option("-u", "--user", dest="login", help=_("specify the user login"))
-		parser.add_option("-p", "--port", dest="port", help=_("specify the server port"))
-		parser.add_option("-s", "--server", dest="server", help=_("specify the server ip/name"))
+		parser.add_option("-u", "--url", dest="url", help=_("specify the server (ie. http://admin@localhost:8069)"))
 		parser.add_option("", "--stylesheet", dest="stylesheet", help=_("specify stylesheet to apply"))
 		parser.add_option("", "--pos-mode", action="store_true", default=False, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
 		(opt, args) = parser.parse_args()
 
-
 		self.rcfile = fileName or opt.config or os.environ.get('TERPRC') or os.path.join(self.homeDirectory(), 'koo.rc')
 		self.load()
+
+		if opt.url:
+			self.options['login.url'] = opt.url
+		if 'login.url' in self.options:
+			url = QUrl( self.options['login.url'] )
+			if url.isValid():
+				self.options['login.server'] = unicode( url.host() )
+				self.options['login.port'] = unicode( url.port() )
+				self.options['login.protocol'] = '%s://' % url.scheme() 
+				self.options['login.login'] = unicode( url.userName() )
 
 		if opt.verbose:
 			self.options['logging.verbose']=True
@@ -88,13 +91,9 @@ class ConfigurationManager(object):
 		self.options['logging.level'] = opt.log_level
 		self.options['stylesheet'] = opt.stylesheet
 		self.options['pos_mode'] = opt.pos_mode
-	
-		for arg in ('login', 'port', 'server'):
-			if getattr(opt, arg):
-				self.options['login.'+arg] = getattr(opt, arg)
 
 	def homeDirectory(self):
-		return str(QDir.toNativeSeparators(QDir.homePath()))
+		return unicode(QDir.toNativeSeparators(QDir.homePath()))
 
 	## @brief Stores current settings in the appropiate config file.
 	def save(self):
