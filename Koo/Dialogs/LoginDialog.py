@@ -34,6 +34,11 @@ import ServerConfigurationDialog
 
 (LoginDialogUi, LoginDialogBase) = loadUiType( Common.uiPath('login.ui') )
 
+## @brief The LoginDialog class shows a Dialog for logging into OpenObject server.
+#
+# The dialog will send the accept() signal if the user accepted or reject() if she
+# cancelled it or didn't provide a valid server. If accept() was sent, two properties
+# 'url' and 'databaseName' contain the information introduced by the user.
 class LoginDialog( QDialog, LoginDialogUi ):
 	defaultHost = ''
 	defaultPort = 0
@@ -57,21 +62,16 @@ class LoginDialog( QDialog, LoginDialogUi ):
 	def init(self):
 		uid = 0
 		self.uiNoConnection.hide()
-		#host = Options.options['login.server']
-		#port = Options.options['login.port']
-		#protocol = Options.options['login.protocol']
 		host = LoginDialog.defaultHost
 		port = LoginDialog.defaultPort
 		protocol = LoginDialog.defaultProtocol
 		url = '%s%s:%s' % (protocol, host, port)
 		self.uiServer.setText( url )
-		#self.uiUserName.setText( Options.options['login.login'] )
 		self.uiUserName.setText( LoginDialog.defaultUserName )
 		res = self.refreshList()
 
 	def refreshList(self):
 		res = ServerConfigurationDialog.refreshDatabaseList(self.uiDatabase, str( self.uiServer.text() ), self.databaseName )
-		print res
 		if res == -1:
 			self.uiNoConnection.setText('<b>'+_('Could not connect to server !')+'</b>')
 			self.uiNoConnection.show()

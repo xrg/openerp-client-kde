@@ -377,10 +377,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				# Start timer once settings have been loaded because
 				# the request interval can be configured
 				self.startRequestsTimer()
-				Options.options['login.server'] = unicode( url.host() )
-				Options.options['login.login'] = unicode( url.userName() )
-				Options.options['login.port'] = url.port()
-				Options.options['login.protocol'] = unicode( url.scheme() ) + '://'
+				# Remove password and store URL
+				url.setPassword( '' )
+				Options.options['login.url'] = unicode( url.toString() )
 				Options.options['login.db'] = databaseName
 				Options.options.save()
 			        self.openMenuTab()
