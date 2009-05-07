@@ -481,11 +481,7 @@ class Session:
 	#
 	# Useful when some user parameters such as language are changed.
 	def reloadContext(self):
-		self.context = {}
-		context = self.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [('res.users', self.uid or False)], False, {}, True, True, False)
-		for c in context:
-			if c[2]:
-				self.context[c[1]] = c[2]
+		self.context = self.execute('/object', 'execute', 'res.users', 'context_get') or {}
 
 	## @brief Returns whether the login function has been called and was successfull
 	def logged(self):
