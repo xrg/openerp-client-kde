@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+	<record model="ir.actions.wizard" id="jasper_create_data_template_action">
+		<field name="name">Create Data Template</field>
+		<field name="wiz_name">jasper_create_data_template</field>
+	</record>
+	<menuitem name="Administration/Customization/Jasper Reports/Create Data Template" 
+		action="jasper_create_data_template_action" id="jasper_create_data_template_menu"
+		type="wizard"/>
+</data>
+</openerp>

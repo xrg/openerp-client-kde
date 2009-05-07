@@ -622,7 +622,7 @@ class RecordGroup(QObject):
 		if not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
-			ids = self.rpc.search( self._domain + self._filter )
+			ids = self.rpc.search( self._domain + self._filter, 0, False, False, self._context )
 		else:
 			type = self.fields[field]['type']
 			if type == 'one2many' or type == 'many2many':
@@ -640,12 +640,12 @@ class RecordGroup(QObject):
 				orderby += "DESC"
 			try:
 				# Use call to catch exceptions
-				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby )
+				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )
 			except:
 				# In functional fields not stored in the database this will
 				# cause an exceptioin :(
 				# Use default order
-				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0 )
+				ids = self.rpc.search(self._domain + self._filter, 0, 0, context=Rpc.session.context )
 
 		# We set this fields in the end in case some exceptions where fired 
 		# in previous steps.
@@ -663,7 +663,7 @@ class RecordGroup(QObject):
 			return
 
 		if not self.updated:
-			ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, self.limit )
+			ids = self.rpc( self._domain + self._filter, 0, self.limit, False, self._context )
 			self.clear()
 			self.load( ids )
 		
