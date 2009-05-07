@@ -33,7 +33,9 @@
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
 	"category" : "Generic Modules/Jasper Reports",
-	"init_xml" : [],
+	"init_xml" : [
+		'jasper_wizard.xml'
+	],
 	"demo_xml" : [ 
 		'jasper_demo.xml' 
 	],

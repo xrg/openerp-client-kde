@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<terp>
+<openerp>
 <data>
 	<report string="Jasper Partners"
 		model="res.partner"
@@ -10,12 +10,5 @@
 		menu="True"
 		header="False"
 		/>
-	<record model="ir.actions.wizard" id="jasper_create_data_template_action">
-		<field name="name">Create Data Template</field>
-		<field name="wiz_name">jasper_create_data_template</field>
-	</record>
-	<menuitem name="Administration/Custom/Jasper Reports/Create Data Template" 
-		action="jasper_create_data_template_action" id="jasper_create_data_template_menu"
-		type="wizard"/>
 </data>
-</terp>
+</openerp>
