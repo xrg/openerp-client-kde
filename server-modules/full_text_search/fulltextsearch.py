@@ -46,6 +46,10 @@ def isInteger(value):
 		return False
 
 def isFloat(value):
+	# We'll always consider 'nan' as string and thus 
+	# not a valid float value.
+	if value.strip().lower() == 'nan':
+		return False
 	try:
 		float(value)
 		return True
@@ -233,9 +237,6 @@ class fulltextsearch_services(netsvc.Service):
 			elif isInteger(x):
 				tsVector.append( "to_tsvector( 'default', %d::TEXT )" % long(x) )
 				tsQuery.append( "to_tsquery( 'default', %d::TEXT )" % long(x) )
-			#elif isDate(x):
-				#tsVector.append( "to_tsvector( 'default', %s::DATE )" % quote(date(x) )  
-				#tsQuery.append( "to_tsquery( 'default', %s::DATE )" % quote(date(x) )  
 			else:
 				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % quote(x) )
 				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % quote(x) )
