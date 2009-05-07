@@ -55,6 +55,7 @@ mapIcons = {
 	'STOCK_NEW' : 'new.png',
 	'STOCK_PREFERENCES' : 'configure.png',
 	'STOCK_CONVERT' : 'convert.png',
+	'STOCK_PRINT' : 'print.png',
 	'terp-graph' : 'chart.png',
 	'terp-partner' : 'partner.png',
 	'terp-account' : 'account.png',
