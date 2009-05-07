@@ -377,10 +377,10 @@ def new_login(db, login, password):
 			path = record['report_rml']
 			if path and path.endswith('.jrxml'):
 				name = 'report.%s' % record['report_name']
-				if name in netsvc._service and not isinstance( netsvc._service[name], report_jasper ):
-					print "REMOVING"
-					del netsvc._service[name]
-				if not name in netsvc._service:
+				service = netsvc.service_exist( name )
+				if service and not isinstance( service, report_jasper ):
+					del netsvc.SERVICES[name]
+				if not service:
 					report_jasper( name, record['model'] )
 	return uid
 
