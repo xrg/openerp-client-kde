@@ -36,7 +36,7 @@ from operator import itemgetter
 
 
 def quote(value):
-	return sql_quote(value.encode('latin1')).getquoted()
+	return unicode( sql_quote(value.encode('utf-8')).getquoted(), 'utf-8' )
 
 def isInteger(value):
 	try:
@@ -98,11 +98,11 @@ class fulltextsearch_services(netsvc.Service):
 				self.hasIntegratedTs = False
 		
 			if self.hasIntegratedTs:
-				self.postgresKeyWords[ 'ts_rank' ] = 'ts_rank'
-				self.postgresKeyWords[ 'ts_headline' ] = 'ts_headline'
+				self.postgresKeyWords[ 'ts_rank' ] = u'ts_rank'
+				self.postgresKeyWords[ 'ts_headline' ] = u'ts_headline'
 			else:
-				self.postgresKeyWords[ 'ts_rank' ] = 'rank'
-				self.postgresKeyWords[ 'ts_headline' ] = 'headline'
+				self.postgresKeyWords[ 'ts_rank' ] = u'rank'
+				self.postgresKeyWords[ 'ts_headline' ] = u'headline'
 
 	# This method should not be exported
 	def headline( self, cr, pool, text, id, model_id, model_name ):
@@ -219,6 +219,11 @@ class fulltextsearch_services(netsvc.Service):
 
 		self.checkPostgresVersion(cr)
 
+		if isinstance( text, str ):
+			text = unicode( text, 'utf-8', 'ignore' )
+		elif not isinstance( text, unicode ):
+			text = unicode( text )
+
 		# If text is empty return nothing. Trying to continue makes PostgreSQL
 		# complain because GIN indexes don't support search with void query
 		# Note that this doesn't avoid the problem when you query for a word which
@@ -230,23 +235,23 @@ class fulltextsearch_services(netsvc.Service):
 		# types if necessary too.
 		tsQuery = []
 		tsVector = []
-		for x in text.split(' '):
+		for x in text.split(u' '):
 			if isFloat(x):
-				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % float(x) )
-				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % float(x) )
+				tsVector.append( u"to_tsvector( 'default', %s::TEXT )" % float(x) )
+				tsQuery.append( u"to_tsquery( 'default', %s::TEXT )" % float(x) )
 			elif isInteger(x):
-				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % long(x) )
-				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % long(x) )
+				tsVector.append( u"to_tsvector( 'default', %s::TEXT )" % long(x) )
+				tsQuery.append( u"to_tsquery( 'default', %s::TEXT )" % long(x) )
 			else:
-				tsVector.append( "to_tsvector( 'default', %s::TEXT )" % quote(x) )
-				tsQuery.append( "to_tsquery( 'default', %s::TEXT )" % quote(x) )
-		tsVector = ' || '.join(tsVector)
-		tsQuery = ' && '.join(tsQuery)
+				tsVector.append( u"to_tsvector( 'default', %s::TEXT )" % quote(x) )
+				tsQuery.append( u"to_tsquery( 'default', %s::TEXT )" % quote(x) )
+		tsVector = u' || '.join(tsVector)
+		tsQuery = u' && '.join(tsQuery)
 
 		if model:
-			filterModel = ' AND m.id = %s ' % int(model)
+			filterModel = u' AND m.id = %s ' % int(model)
 		else:
-			filterModel = ''
+			filterModel = u''
 
 		# Note on limit & offset: Given that we might restrict some models due
 		# to the user not having permissions to access them we can't use PostgreSQL
@@ -258,7 +263,7 @@ class fulltextsearch_services(netsvc.Service):
 		# we think it can bring a performance gain, but OFFSET specified by the user 
 		# can never be used in the query directly.
 		try:
-			cr.execute("""
+			cr.execute( u"""
 				SELECT
 					fts.model,
 					fts.reference,
