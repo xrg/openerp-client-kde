@@ -284,7 +284,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.tabWidget.setCurrentIndex( pn )
 
 	def userPreferences(self):
-		actions = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [('res.users',False)], True, Rpc.session.context, True)
 		win = PreferencesDialog(self)
 		win.exec_()
 
