@@ -338,8 +338,8 @@ class report_jasper(report.interface.report_int):
 		# exists to avoid report_int's assert. We want to keep the 
 		# automatic registration at login, but at the same time we 
 		# need modules to be able to use a parser for certain reports.
-		if name in netsvc._service:
-			del netsvc._service[name]
+		if name in netsvc.SERVICES:
+			del netsvc.SERVICES[name]
 		super(report_jasper, self).__init__(name)
 		self.model = model
 		self.parser = parser
@@ -378,10 +378,10 @@ def new_login(db, login, password):
 			if path and path.endswith('.jrxml'):
 				name = 'report.%s' % record['report_name']
 				service = netsvc.service_exist( name )
-				if service and not isinstance( service, report_jasper ):
-					del netsvc.SERVICES[name]
-				if not service:
-					report_jasper( name, record['model'] )
+				if service and isinstance( service, report_jasper ):
+					continue
+				del netsvc.SERVICES[name]
+				report_jasper( name, record['model'] )
 	return uid
 
 service.security.login = new_login
