@@ -2088,7 +2088,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="465"/>
         <source>&amp;Backup Database</source>
-        <translation type="obsolete">Fes  una còpia de seguretat de la &amp;base de dades</translation>
+        <translation type="obsolete">Fes una còpia de seguretat de la &amp;base de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="474"/>
