@@ -645,7 +645,7 @@ class RecordGroup(QObject):
 				# In functional fields not stored in the database this will
 				# cause an exceptioin :(
 				# Use default order
-				ids = self.rpc.search(self._domain + self._filter, 0, 0, context=Rpc.session.context )
+				ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
 
 		# We set this fields in the end in case some exceptions where fired 
 		# in previous steps.
