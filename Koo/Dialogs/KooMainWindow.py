@@ -285,10 +285,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 	def userPreferences(self):
 		actions = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [('res.users',False)], True, Rpc.session.context, True)
-		win = PreferencesDialog('res.users', Rpc.session.uid, actions, self)
-		if win.exec_() == QDialog.Rejected:
-			return
-		Rpc.session.reloadContext()
+		win = PreferencesDialog(self)
+		win.exec_()
 
 	def newRequest(self):
 		if not self.isVisible():

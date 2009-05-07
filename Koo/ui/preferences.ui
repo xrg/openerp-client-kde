@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>PreferencesDialog</class>
- <widget class="QDialog" name="PreferencesDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="PreferencesDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,18 +10,28 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Preferences</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" >
+    <widget class="Screen" name="screen" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -29,22 +40,24 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushAccept" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushAccept">
+       <property name="text">
         <string>&amp;Accept</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushCancel" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushCancel">
+       <property name="text">
         <string>&amp;Cancel</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
        </property>
       </widget>
      </item>
@@ -52,8 +65,16 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Screen</class>
+   <extends>QWidget</extends>
+   <header>Koo.Screen.Screen</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -62,11 +83,11 @@
    <receiver>PreferencesDialog</receiver>
    <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>336</x>
      <y>152</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>332</x>
      <y>171</y>
     </hint>

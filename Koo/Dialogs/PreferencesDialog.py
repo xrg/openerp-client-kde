@@ -43,48 +43,42 @@ from Koo.Model.Group import RecordGroup
 (PreferencesDialogUi, PreferencesDialogBase) = loadUiType( Common.uiPath('preferences.ui') )
 
 class PreferencesDialog(QDialog, PreferencesDialogUi):
-	def __init__(self, model, id, preferences, parent=None):
+	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
 		PreferencesDialogUi.__init__(self)
 		self.setupUi( self )
 
-		self.id = id
-		self.model = model
-		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
-		fields = {}
-		arch = '<?xml version="1.0"?><form string="%s">\n' % (_('Preferences'),)
-		for p in preferences:
-			arch+='<field name="%s" colspan="4"/>' % (p[1])
-			fields[p[1]] = p[3]
-		arch+= '</form>'
 
-		self.screen = Screen( self )
-		self.screen.setRecordGroup( RecordGroup( model ) )
-		self.screen.new(default=False)
-		self.screen.addView(arch, fields, display=True)
+		actionId = Rpc.session.execute('/object', 'execute', 'res.users', 'action_get', {})
+		action = Rpc.session.execute('/object', 'execute', 'ir.actions.act_window', 'read', [actionId], False, Rpc.session.context)[0]
 
-		default = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'meta', False, [(self.model,self.id)], False, Rpc.session.context, True, True, False)
-		default2 = {}
-		self.default = {}
-		for d in default:
-			default2[d[1]] = d[2]
-			self.default[d[1]] = d[0]
-		self.screen.currentRecord().set(default2)
+		viewIds=[]
+		if action.get('views', []):
+			viewIds=[x[0] for x in action['views']]
+		elif action.get('view_id', False):
+			viewIds=[action['view_id'][0]]
 
-		self.layout().insertWidget( 0, self.screen )
+		self.group = RecordGroup('res.users')
+		self.group.load( [Rpc.session.uid] )
+		self.screen.setRecordGroup( self.group )
+		self.screen.addViewByIdAndType( viewIds[0], 'form' )
+		self.screen.display( Rpc.session.uid )
 
-		self.setWindowTitle(_('Preference %s') % model )
+                # Set minimum and maximum dialog size
+		size = self.screen.sizeHint()
+		self.setMinimumSize( size.width()+100, min(600, size.height()+25) )
+		desktop = QDesktopWidget()
+		size = desktop.availableGeometry( self ).size()
+		size -= QSize( 50, 50 )
+		self.setMaximumSize( size )
+
+		self.setWindowTitle( _('User Preferences') )
 
 	def slotAccept(self):
 		if not self.screen.currentRecord().validate():
 			return
-		val = copy.copy(self.screen.get())
 
-		for key in val:
-			if val[key]:
-				Rpc.session.execute('/object', 'execute', 'ir.values', 'set', 'meta', key, key, [(self.model,self.id)], val[key])
-			elif self.default.get(key, False):
-				Rpc.session.execute('/common', 'ir_del', self.default[key])
+		Rpc.session.execute('/object', 'execute', 'res.users', 'write', [Rpc.session.uid], self.screen.get())
+		Rpc.session.reloadContext()
 		self.accept()
-		
