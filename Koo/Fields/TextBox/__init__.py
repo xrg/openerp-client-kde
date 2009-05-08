@@ -29,3 +29,4 @@ from TextBoxFieldWidget import *
 from Koo.Fields.FieldWidgetFactory import *
 
 FieldWidgetFactory.register( 'text', TextBoxFieldWidget )
+FieldWidgetFactory.register( 'text_wiki', TextBoxFieldWidget )
