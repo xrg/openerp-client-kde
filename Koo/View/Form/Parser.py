@@ -135,7 +135,7 @@ class FormParser(AbstractParser):
 			elif node.localName=='page':
 				widget, on_write = self.parse(node, fields, notebook )
 				widget.expand()
-				notebook.addTab( widget, attrs.get('string','No String Attr.') )
+				notebook.addTab( widget, Common.normalizeLabel( attrs.get('string', '') ) )
 
 			elif node.localName =='hpaned':
 				widget = QSplitter( Qt.Horizontal, container )
