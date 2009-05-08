@@ -271,6 +271,7 @@ widgetTypes = {
 	'char': CharSearchWidget,
 	'boolean': CheckBoxSearchWidget,
 	'text': CharSearchWidget,
+	'text_wiki': CharSearchWidget,
 	'email': CharSearchWidget,
 	'url': CharSearchWidget,
 	'many2one': CharSearchWidget,
