@@ -161,7 +161,6 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			self.name = p.title
 		
 		# Shortcuts
-
 		scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
 		self.shortcutsGroup = RecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
 		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
@@ -255,7 +254,12 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if not id:
 			return
 		m = self.shortcutsGroup[ id ]
-		id = m.value( 'res_id' )
+		# We need to get the value as if we were the server because we
+		# don't want the string that would be shown for the many2one field
+		# but the id.
+		id = self.shortcutsGroup.fieldObjects[ 'res_id' ].get( m )
+		if not id:
+			return
 		self.executeAction('tree_but_open', id)
 
 	def currentShortcutId(self):
