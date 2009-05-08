@@ -129,7 +129,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.listModel = KooModel( self )
 		self.listModel.setMode( KooModel.ListMode )
 		self.listModel.setFields( self.fields )
-		self.listModel.setFieldsOrder( p.fieldsOrder )
+		if 'name' in p.fieldsOrder:
+			self.listModel.setFieldsOrder( ['name'] )
+		else:
+			self.listModel.setFiledsOrder( p.fieldsOrder )
 		self.listModel.setIconForField( 'icon', 'name' )
 		self.listModel.setShowBackgroundColor( False )
 
