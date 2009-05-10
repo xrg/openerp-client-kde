@@ -109,7 +109,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 	def setReadOnly(self, value):
 		self.button.setEnabled( not value )
 
-	def display(self):
+	def showValue(self):
 		if not self.attrs.get('states', False):
 			self.show()
 			return
