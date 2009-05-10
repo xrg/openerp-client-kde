@@ -90,6 +90,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self._allowOpenInNewWindow = True
 
 		# Remove ids with False value
+		print "VIES: ", view_type
 		self.screen.setupViews( view_type, view_ids )
 
 		if name:

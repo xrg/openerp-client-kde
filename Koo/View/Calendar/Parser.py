@@ -46,7 +46,18 @@ class CalendarParser( AbstractParser ):
 		if not view.title:
  			view.title = attrs.get('string', _('Unknown'))
 
-		header = [ attrs['date_start'], attrs['date_delay'], attrs['color'] ]
+		startDate = attrs.get('date_start')
+		stopDate = attrs.get('date_stop')
+		dateDelay = attrs.get('date_delay')
+		color = attrs.get('color')
+
+		header = []
+		if startDate:
+			header.append( startDate )
+		if dateDelay:
+			header.append( dateDelay )
+		if color:
+			header.append( color )
 		for node in rootNode.childNodes:
 			node_attrs = Common.nodeAttributes(node)
  			if node.localName == 'field':
