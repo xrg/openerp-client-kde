@@ -103,7 +103,6 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		group = RecordGroup( attrs['relation'] )
 		group.setAllowRecordLoading( False )
 
-		self.screen = Screen( self )
 		self.screen.setRecordGroup( group )
 		self.screen.setPreloadedViews( attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
@@ -112,7 +111,6 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 		self.connect(self.screen, SIGNAL('activated()'), self.switchView)
 
-		self.layout().insertWidget( 1, self.screen )
 		self.uiTitle.setText( self.screen.currentView().title )
 		self.installPopupMenu( self.uiTitle )
 

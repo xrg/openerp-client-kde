@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>OneToManyWidget</class>
- <widget class="QWidget" name="OneToManyWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="OneToManyWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,67 +10,73 @@
     <height>362</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="layoutDirection" >
+  <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout">
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>5</number>
      </property>
      <item>
-      <widget class="QFrame" name="frame" >
-       <property name="frameShape" >
+      <widget class="QFrame" name="frame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="frameShape">
         <enum>QFrame::StyledPanel</enum>
        </property>
-       <property name="frameShadow" >
+       <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
+       <layout class="QHBoxLayout">
+        <property name="spacing">
          <number>6</number>
         </property>
-        <property name="leftMargin" >
+        <property name="leftMargin">
          <number>5</number>
         </property>
-        <property name="topMargin" >
+        <property name="topMargin">
          <number>0</number>
         </property>
-        <property name="rightMargin" >
+        <property name="rightMargin">
          <number>0</number>
         </property>
-        <property name="bottomMargin" >
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="label" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+         <widget class="QLabel" name="label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="text" >
+          <property name="text">
            <string/>
           </property>
-          <property name="pixmap" >
-           <pixmap resource="common.qrc" >:/images/images/relate.png</pixmap>
+          <property name="pixmap">
+           <pixmap resource="common.qrc">:/images/images/relate.png</pixmap>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="uiTitle" >
-          <property name="sizePolicy" >
-           <sizepolicy vsizetype="Fixed" hsizetype="Expanding" >
+         <widget class="QLabel" name="uiTitle">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="text" >
+          <property name="text">
            <string>TextLabel</string>
           </property>
          </widget>
@@ -78,171 +85,195 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pushNew" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+      <widget class="QToolButton" name="pushNew">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>New</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/new.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pushEdit" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+      <widget class="QToolButton" name="pushEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Edit</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/edit.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/images/edit.png</normaloff>:/images/images/edit.png</iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pushRemove" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+      <widget class="QToolButton" name="pushRemove">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Remove</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/delete.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="Line" name="line" >
-       <property name="orientation" >
+      <widget class="Line" name="line">
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="margin" >
+       <property name="margin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QToolButton" name="pushBack" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushBack">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Previous</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+         <property name="icon">
+          <iconset resource="common.qrc">
+           <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="uiLabel" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Minimum" hsizetype="Minimum" >
+        <widget class="QLabel" name="uiLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="sizeIncrement" >
+         <property name="sizeIncrement">
           <size>
            <width>0</width>
            <height>2</height>
           </size>
          </property>
-         <property name="text" >
+         <property name="text">
           <string>(0/0)</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushForward" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushForward">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Next</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+         <property name="icon">
+          <iconset resource="common.qrc">
+           <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="Line" name="line_2" >
-       <property name="orientation" >
+      <widget class="Line" name="line_2">
+       <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pushSwitchView" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+      <widget class="QToolButton" name="pushSwitchView">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Switch View</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/switch_view.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
        </property>
       </widget>
      </item>
     </layout>
    </item>
+   <item>
+    <widget class="Screen" name="screen" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Screen</class>
+   <extends>QWidget</extends>
+   <header>Koo.Screen.Screen</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections/>
 </ui>
