@@ -52,8 +52,7 @@ class CalendarParser( AbstractParser ):
 		color = attrs.get('color')
 
 		header = []
-		if startDate:
-			header.append( startDate )
+		header.append( startDate )
 		if dateDelay:
 			header.append( dateDelay )
 		if color:
@@ -79,9 +78,14 @@ class CalendarParser( AbstractParser ):
 		view.setReadOnly( not attrs.get('editable', False) )
 		view.setModel( model )
 		view.setModelDateColumn( 0 )
-		view.setModelDurationColumn( 1 )
-		view.setModelColorColumn( 2 )
-		view.setModelTitleColumn( 3 )
+		column = 1
+		if dateDelay:
+			view.setModelDurationColumn( column )
+			column += 1
+		if color:
+			view.setModelColorColumn( column )
+			column += 1
+		view.setModelTitleColumn( column )
 
 		return view, on_write
 
