@@ -132,7 +132,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if 'name' in p.fieldsOrder:
 			self.listModel.setFieldsOrder( ['name'] )
 		else:
-			self.listModel.setFiledsOrder( p.fieldsOrder )
+			self.listModel.setFieldsOrder( p.fieldsOrder )
 		self.listModel.setIconForField( 'icon', 'name' )
 		self.listModel.setShowBackgroundColor( False )
 
