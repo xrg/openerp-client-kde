@@ -5,5 +5,8 @@
 	<record model='nan.koo.cache.exception' id='exception0'>
 		<field name="name">product.pricelist</field>
 	</record>
+	<record model='nan.koo.cache.exception' id='exception1'>
+		<field name="name">res.users</field>
+	</record>
 </data>
 </terp>
