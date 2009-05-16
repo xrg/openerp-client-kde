@@ -27,10 +27,11 @@
 ##############################################################################
 
 import os
-#import base64 
+import base64 
 import tempfile
 
 from Koo.Common import Common
+from Koo.Common import Icons
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
@@ -54,17 +55,25 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self.removeImage )
 		self.pushSave.setEnabled( False )
 
+	# This function is overriden in picture widget
+	def getImage(self):
+		return self.record.value(self.name)
+
+	# This function is overriden in picture widget
+	def setImage(self, value):
+		self.record.setValue(self.name, value)
+
 	def setReadOnly(self, ro):
 		self.pushLoad.setEnabled( not ro )
 		self.pushRemove.setEnabled( not ro )
 
 	def menuEntries(self):
-		if self.record.value(self.name):
+		if self.getImage():
 			enableApplication = True
 		else:
 			enableApplication = False
 
-		if self.record.value(self.name):
+		if self.getImage():
 			enableImage = True
 		else:
 			enableImage = False
@@ -72,14 +81,14 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 			 ('&Show image...', self.showImage, enableImage) ]
 
 	def openApplication(self):
-		if not self.record.value(self.name):
+		if not self.getImage():
 			return
 		extension = ''
 		# Under windows platforms we need to create the temporary
 		# file with an appropiate extension, otherwise the system
 		# won't be able to know how to open it. So we let Qt guess
 		# what image format it is and use that as an extension.
-		byte = QByteArray( str(self.record.value(self.name) ) )
+		byte = QByteArray( str(self.getImage()) )
 		buf = QBuffer( byte )
 		buf.open( QBuffer.ReadOnly )
 		reader = QImageReader( buf )
@@ -88,24 +97,24 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 
 		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb')
-		fp.write(self.record.value(self.name))
+		fp.write(self.getImage())
 		fp.close()
 		Common.openFile( fileName )
 
 	def showImage(self):
-		if not self.record.value(self.name):
+		if not self.getImage():
 			return
 		dialog = QDialog( self )
 		label = QLabel( dialog )
 		pix = QPixmap()
-		pix.loadFromData( self.record.value(self.name) )
+		pix.loadFromData( self.getImage() )
 		label.setPixmap( pix )
 		layout = QHBoxLayout( dialog )
 		layout.addWidget( label )
 		dialog.exec_()
 
 	def removeImage(self):
-		self.record.setValue(self.name, False)
+		self.setImage(False)
 		self.update()
 		self.modified()
 
@@ -115,7 +124,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 			return
 		try:
 			fp = file(unicode(name), 'wb')
-			fp.write(self.record.value(self.name))
+			fp.write(self.getImage())
 			fp.close()
 		except:
 			QMessageBox.warning( self, _('Error saving file'), _('Could not save the image with the given file name. Please check that you have permissions.') )
@@ -124,24 +133,24 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		name = QFileDialog.getOpenFileName( self, _('Open image file...') )
 		if not name.isNull():
 			image = file(unicode(name), 'rb').read()
-			self.record.setValue(self.name, image )
+			self.setImage( image )
 			self.update()
 			self.modified()
 
 	def update(self):
-		if self.record.value(self.name):
+		if self.getImage():
 			img = QImage()
-			img.loadFromData( self.record.value(self.name) )
+			img.loadFromData( self.getImage() )
 			pix = QPixmap.fromImage( img.scaled( self.width, self.height, Qt.KeepAspectRatio, Qt.SmoothTransformation ) )
 			self.uiImage.setPixmap( pix )
 		else:
 			self.clear()
 
 	def clear(self):
-		self.uiImage.setText( '(load an image)' )
+		self.uiImage.setText( _('(no image)') )
 
 	def showValue(self):
-		if self.record.value(self.name):
+		if self.getImage():
 			self.pushSave.setEnabled( True )
 		else:
 			self.pushSave.setEnabled( False )
@@ -166,4 +175,37 @@ class ImageFieldDelegate( AbstractFieldDelegate ):
 		image = QImage()
 		image.loadFromData( value )
 		painter.drawImage( option.rect, image )
+
+class PictureFieldWidget( ImageFieldWidget ):
+	def __init__(self, parent, model, attrs={}):
+		ImageFieldWidget.__init__(self, parent, model, attrs)
+		self.pushLoad.hide()
+		self.pushSave.hide()
+		self.pushRemove.hide()
+
+	def getImage(self):
+		value = self.record.value(self.name)		
+
+		if (isinstance(value, tuple) or isinstance(value,list)) and len(value)==2:
+			type, data = value
+		else:
+			type, data = None, value
+
+		if not data:
+			return False
+
+		if type == 'stock':
+			stock, size = data
+			return self.pixmapToData( Icons.kdePixmap( stock ) )
+		else:
+			return base64.decodestring(data)
+
+	def pixmapToData(self, pixmap):
+		if pixmap.isNull():
+			return False
+		bytes = QByteArray()
+		buffer = QBuffer(bytes);
+		buffer.open(QIODevice.WriteOnly);
+		pixmap.save(buffer, "BMP")
+		return str(bytes)
 

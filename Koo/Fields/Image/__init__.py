@@ -29,3 +29,4 @@ from ImageFieldWidget import *
 from Koo.Fields.FieldWidgetFactory import *
 
 FieldWidgetFactory.register( 'image', ImageFieldWidget )
+FieldWidgetFactory.register( 'picture', PictureFieldWidget )
