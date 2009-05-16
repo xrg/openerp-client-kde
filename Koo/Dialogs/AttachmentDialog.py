@@ -50,11 +50,22 @@ class AttachmentDialog(QMainWindow, AttachmentDialogUi):
 		self.model = model
 		self.id = id
 
-		self.form = FormWidget.FormWidget( 'ir.attachment', view_type=['tree','form'], domain=[('res_model','=',self.model), ('res_id', '=', self.id)])
+		context = {
+			'default_res_model': self.model,
+			'default_res_id': self.id,
+		}
+		self.form = FormWidget.FormWidget( 'ir.attachment', view_type=['tree','form'], domain=[('res_model','=',self.model), ('res_id', '=', self.id)], context=context)
 		self.form.setAllowOpenInNewWindow( False )
 
 		self.layout = self.centralWidget().layout()
 		self.layout.addWidget( self.form )
+
+		# Set minimum and maximum dialog size
+		size = self.form.sizeHint()
+		self.setMinimumSize( size.width()+100, min(600, size.height()+25) ) 
+		size = QApplication.desktop().availableGeometry( self ).size()
+		size -= QSize( 50, 50 )
+		self.setMaximumSize( size )
 
 		# These actions are not handled by the Main Window but by the currently opened tab.
 		# What we do here, is connect all these actions to a single handler that will
