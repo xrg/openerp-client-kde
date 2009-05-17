@@ -90,7 +90,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		domain = self.record.domain( self.name )
 		context = self.record.fieldContext( self.name )
 
-		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context, False)
 		ids = [x[0] for x in ids] 
 		if len(ids) != 1:
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids)
@@ -147,7 +147,7 @@ class ManyToManyFieldDelegate( AbstractFieldDelegate ):
 		domain = model.domain( self.name )
 		context = model.fieldContext( self.name )
 
-		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context, False)
 		ids = [x[0] for x in ids] 
 		if len(ids) != 1:
 			dialog = SearchDialog(self.attributes['relation'], sel_multi=True, ids=ids)

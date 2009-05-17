@@ -135,7 +135,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
  		self.newMenuEntries.append((None, None, None))
 
  		if attrs.get('completion',False):
- 			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', {})
+ 			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', {}, False)
  			if ids:
 				self.loadCompletion( ids, attrs )
 
@@ -216,7 +216,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 	def search(self, name):
 		domain = self.record.domain( self.name )
 		context = self.record.context()
-		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context, False)
 		if ids and len(ids)==1:
 			self.record.setValue( self.name, ids[0] )
 			self.display()
@@ -384,7 +384,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 	def search(self, name):
 		domain = self.record.domain( self.name )
 		context = self.record.context()
-		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', name, domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', name, domain, 'ilike', context, False)
 		if ids and len(ids)==1:
 			self.record.setValue( self.name, ids[0] )
 		else:
@@ -417,7 +417,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 
 		domain = model.domain( self.name )
 		context = model.context()
-		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', self.attributes['relation'], 'name_search', unicode( editor.text() ), domain, 'ilike', context, False)
 		if ids and len(ids)==1:
 			model.setValue( self.name, ids[0] )
 		else:

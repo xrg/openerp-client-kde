@@ -120,7 +120,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		domain = self.record.domain(self.name)
 		context = self.record.fieldContext(self.name)
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-		ids = Rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context)
+		ids = Rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context, False)
 		
 		if len(ids)==1:
 			id, name = ids[0]
