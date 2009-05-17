@@ -531,13 +531,13 @@ class Screen(QScrollArea):
 			return
 
 		id = 0
-		idx = 0
+		idx = -1
 		if self.currentRecord():
 			id = self.currentId()
 			idx = self.group.indexOfRecord(self.currentRecord())
 			
 		self.group.update()
-		if idx:
+		if id:
 			record = self.group.modelById( id )
 			
 			if record:
@@ -550,16 +550,18 @@ class Screen(QScrollArea):
 					self.setCurrentRecord( self.group.recordByIndex( idx ) )
 				else:
 					self.setCurrentRecord( None )
+		else:
+			self.setCurrentRecord( None )
 		self.display()
 
 	## @brief Removes all new records and marks all modified ones as not loaded.
 	def cancel(self):
-		idx = 0
+		idx = -1
 		if self.currentRecord():
 			idx = self.group.indexOfRecord( self.currentRecord() )
 			
 		self.group.cancel()
-		if idx:
+		if idx != -1:
 			idx = min( idx, self.group.count() - 1 )
 			if idx >= 0:
 				self.setCurrentRecord( self.group.recordByIndex( idx ) )
