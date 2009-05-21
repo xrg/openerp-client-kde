@@ -514,8 +514,12 @@ class KooModel(QAbstractItemModel):
 		if role == Qt.DisplayRole:
 			field = self.fields[ self.field( section ) ]
 			return QVariant( unicode( field['string'] ) )
-		else:
-			return QVariant()
+		elif role == Qt.FontRole and not self._readOnly:
+			if self.group.isFieldRequired( self.field( section ) ):
+				font = QFont()
+				font.setBold( True )
+				return QVariant( font )
+		return QVariant()
 
 	## @brief Returns the field name for the given column 
 	def field(self, column):

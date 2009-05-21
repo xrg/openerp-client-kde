@@ -731,4 +731,19 @@ class RecordGroup(QObject):
 				return False
 		return False	
 
+	## @brief Returns True if the given field is required in the RecordGroup, otherwise returns False.
+	# Note that this is a flag for the whole group, but each record could have different values depending
+	# on its state.
+	def isFieldRequired(self, fieldName):
+		required = self.fields[ fieldName ].get('required', False)
+		if isinstance(required, bool):
+			return required
+		if isinstance(required, str) or isinstance(required, unicode):
+			if required.lower() == 'true':
+				return True
+			if required.lower() == 'false':
+				return False
+		return bool(int(required))
+		
+
 # vim:noexpandtab:
