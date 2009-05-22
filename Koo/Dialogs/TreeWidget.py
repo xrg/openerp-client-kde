@@ -151,7 +151,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 		self.connect(self.pushAddShortcut, SIGNAL('clicked()'), self.addShortcut)
 		self.connect(self.pushRemoveShortcut, SIGNAL('clicked()'), self.removeShortcut)
-		self.connect(self.pushGoToShortcut, SIGNAL('clicked()'), self.goToShortcut)
+		self.connect(self.pushExpand, SIGNAL('clicked()'), self.expand)
 		self.connect(self.uiShortcuts, SIGNAL('activated(QModelIndex)'), self.goToShortcut)
 		self.connect(self.uiList.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.mainMenuClicked)
 
@@ -193,7 +193,8 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		group = m.value( self.childrenField )
 		group.addFields( self.group.fields )
 		self.treeModel.setRecordGroup( group )
-		
+		self.pushExpand.setChecked( False )
+
 	def mainMenuClicked( self, currentItem, previousItem ):
 		self.updateTree()
 
@@ -261,6 +262,12 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if not id:
 			return
 		self.executeAction('tree_but_open', id)
+
+	def expand(self):
+		if self.pushExpand.isChecked():
+			self.uiTree.expandAll()
+		else:
+			self.uiTree.collapseAll()
 
 	def currentShortcutId(self):
 		item = self.uiShortcuts.currentIndex()
