@@ -121,7 +121,7 @@
              </sizepolicy>
             </property>
             <property name="toolTip">
-             <string>Expand/Collapse Tree</string>
+             <string>Expand/Collapse</string>
             </property>
             <property name="text">
              <string/>
