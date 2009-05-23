@@ -92,6 +92,7 @@ class FormParser(AbstractParser):
 							text += node.toxml()
 				label = QLabel( text, container )
 				label.setWordWrap( True )
+				label.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
 				container.addWidget(label, attrs)
 
 			elif node.localName=='newline':
@@ -168,7 +169,7 @@ class FormParser(AbstractParser):
 				del attrs['name']
 				type = attrs.get('widget', fields[name]['type'])
 				fields[name].update(attrs)
-				fields[name]['model']=self.viewModel
+				fields[name]['model'] = self.viewModel
 
 				# Create the appropiate widget for the given field type
 				widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
