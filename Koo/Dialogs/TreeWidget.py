@@ -194,6 +194,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		group.addFields( self.group.fields )
 		self.treeModel.setRecordGroup( group )
 		self.pushExpand.setChecked( False )
+		self.pushExpand.setIcon( QIcon( ':/images/images/down.png' ) )
 
 	def mainMenuClicked( self, currentItem, previousItem ):
 		self.updateTree()
@@ -266,8 +267,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 	def expand(self):
 		if self.pushExpand.isChecked():
 			self.uiTree.expandAll()
+			self.pushExpand.setIcon( QIcon( ':/images/images/up.png' ) )
 		else:
 			self.uiTree.collapseAll()
+			self.pushExpand.setIcon( QIcon( ':/images/images/down.png' ) )
 
 	def currentShortcutId(self):
 		item = self.uiShortcuts.currentIndex()
