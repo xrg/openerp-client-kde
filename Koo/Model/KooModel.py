@@ -528,20 +528,22 @@ class KooModel(QAbstractItemModel):
 		else:
 			return self.visibleFields[column]
 
+	# Note that in both fieldType() and fieldTypeByName() functions we ignore 
+	# the 'group' parameter and use 'self.group' instead as this improves performance
+	# as in some cases we won't force loading a record just to know a field type.
+
 	## @brief Returns the field type for the given column and group
 	def fieldType(self, column, group):
 		field = self.field(column)
 		if field:
-			if not group.fields:
-				group.addFields( self.fields )
-			return group.fields[ field ]['type']
+			return self.group.fields[ field ]['type']
 		else:
 			return None
 
 	## @brief Returns the field type for the given column and group
 	def fieldTypeByName(self, field, group):
-		if field in group.fields:
-			return group.fields[ field ]['type']
+		if field in self.group.fields:
+			return self.group.fields[ field ]['type']
 		else:
 			return None
 
