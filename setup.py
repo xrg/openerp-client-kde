@@ -36,7 +36,7 @@ except:
 opj = os.path.join
 
 name = 'koo'
-version = '1.0.0-beta2'
+version = '4.2.0'
 
 # get python short version
 py_short_version = '%s.%s' % sys.version_info[:2]
