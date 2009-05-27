@@ -31,6 +31,7 @@ from PyQt4.QtGui import *
 from Koo.Common import Icons
 from Koo.Common import Calendar
 from Koo.Common import Numeric
+from Koo.Common import Common
 
 #
 # We store the pointer to the Tiny ModelGroup on QModelIndex.internalPointer
@@ -513,7 +514,7 @@ class KooModel(QAbstractItemModel):
 			return QVariant()
 		if role == Qt.DisplayRole:
 			field = self.fields[ self.field( section ) ]
-			return QVariant( unicode( field['string'] ) )
+			return QVariant( Common.normalizeLabel( unicode( field['string'] ) ) )
 		elif role == Qt.FontRole and not self._readOnly:
 			if self.group.isFieldRequired( self.field( section ) ):
 				font = QFont()
