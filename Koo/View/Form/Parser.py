@@ -135,6 +135,12 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='page':
 				widget, on_write = self.parse(node, fields, notebook )
+				if 'attrs' in attrs:
+					self.view.stateWidgets.append({
+						'widget': widget,
+						'attributes': eval( attrs['attrs'] )
+					})
+
 				widget.expand()
 				notebook.addTab( widget, Common.normalizeLabel( attrs.get('string', '') ) )
 

@@ -135,6 +135,9 @@ class FormView( AbstractView ):
 
 		# The parser will include all the widgets here with {name: widget} structure
 		self.widgets = {}
+		# The parser will include here all widgets that can change their state (such as visibility).
+		# This can include field widgets but also tabs, and others.
+		self.stateWidgets = []
 
 	def setWidget(self, widget):
 		self.widget = widget
@@ -180,12 +183,25 @@ class FormView( AbstractView ):
 		self.updateDisplay(self.record)
 
 	def updateDisplay(self, record):
+		# Update data on widgets
 		for name in self.widgets:
 			if self.record:
 				self.widgets[name].load(self.record)
 			else:
 				self.widgets[name].load(None)
-		 
+		# Update state widgets
+		for widget in self.stateWidgets:
+			for attribute, condition in widget['attributes'].iteritems():
+				if attribute == 'invisible':
+					if self.record:
+						value = self.record.evaluateCondition( condition )
+					else:
+						value = False
+					if value:
+						widget['widget'].hide()
+					else:
+						widget['widget'].show()
+
 	def viewSettings(self):
 		splitters = self.findChildren( QSplitter )
 		data = QByteArray()

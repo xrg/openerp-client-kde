@@ -374,6 +374,52 @@ class Record(QObject):
 		val = Rpc.session.evaluateExpression(dom, d)
 		return val
 
+	# @brief Evaluates the given condition.
+	# The function will return a boolean, result of applying a condition of the form ('field','=','value') or
+	# [('field','=','value')]
+	def evaluateCondition(self, condition):
+		# Consider the case when 'condition' is a list
+		if isinstance(condition, list):
+			result = True
+			for c in condition:
+				result = result and self.evaluateCondition( c )
+			return result
+
+		if not (condition[0] in self.group.fields):
+			return False
+		print "CONTINUE"
+		self.createMissingFields()
+		value = self.value( condition[0] )
+		if condition[1] in ('=', '=='):
+			if value == condition[2]:
+				return True
+		elif condition[1] in ('!=', '<>'):
+			if value != condition[2]:
+				return True
+		elif condition[1] == '<':
+			if value < condition[2]:
+				return True
+		elif condition[1] == '>':
+			if value > condition[2]:
+				return True
+		elif condition[1] == '<=':
+			if value <= condition[2]:
+				return True
+		elif condition[1] == '>=':
+			if value >= condition[2]:
+				return True
+		elif condition[1].lower() == 'in':
+			for cond in condition[2]:
+				if value == cond:
+					return True
+		elif condition[1].lower() == 'not in':
+			for cond in condition[2]:
+				if value == cond:
+					return False
+			return True
+		return False
+
+
 	# This function is called by the field when it's changed
 	# and has a 'on_change' attribute. The 'callback' parameter
 	# is the function that has to be executed on the server.
