@@ -132,6 +132,11 @@ class TreeView( AbstractView ):
 			self.widget.setAlternatingRowColors( True )
 			self.widget.setVerticalScrollMode( QAbstractItemView.ScrollPerItem )
 			self.widget.sortByColumn( 0, Qt.AscendingOrder )
+			self.widget.setDragEnabled( True )
+			self.widget.setAcceptDrops( True )
+			self.widget.setDropIndicatorShown( True );
+			self.widget.setDragDropMode( QAbstractItemView.InternalMove )
+
 			# We set uniformRowHeights property to True because this allows some 
 			# optimizations. It makes a really big difference in models with thousands 
 			# of tuples because moving to the end of the list only requires to query

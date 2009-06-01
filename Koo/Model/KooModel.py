@@ -263,13 +263,17 @@ class KooModel(QAbstractItemModel):
 		return len(self.visibleFields)
 
 	def flags(self, index):
-		f = QAbstractItemModel.flags(self, index)	
+		defaultFlags = QAbstractItemModel.flags(self, index)
+		if 'sequence' in self.fields:
+			defaultFlags = defaultFlags | Qt.ItemIsDropEnabled
+			if index.isValid():
+				defaultFlags = defaultFlags | Qt.ItemIsDragEnabled
 
 		field = self.fields[self.field( index.column() )]
 		if self._readOnly or ( 'readonly' in field and field['readonly'] ):
-			return f
+			return defaultFlags
 		else:
-			return f | Qt.ItemIsEditable
+			return defaultFlags | Qt.ItemIsEditable
 
 	def setData(self, index, value, role):
 
@@ -503,6 +507,52 @@ class KooModel(QAbstractItemModel):
 			return self.createIndex( row, column, parent )	
 		else:
 			return QModelIndex()
+
+	def mimeTypes(self):
+		return QStringList( [ 'text/plain' ] )
+
+	def mimeData(self, indexes):
+		data = QMimeData()
+		d = []
+		for index in indexes:
+			if index.column() == 0:
+				d.append( self.id( index ) )
+		data.setText( str( d[0] ) )
+		return data
+
+	def dropMimeData(self, data, action, row, column, parent):
+		if action != Qt.MoveAction:
+			return False
+		if not parent.isValid():
+			return False
+		if row != -1 or column != -1:
+			return False
+		group = parent.internalPointer()
+		# Change record order only if the group is sorted by 'sequence' field.
+		# Otherwise don't even try to move it as group.sort() won't work due to
+		# the need to call the server and thus it'd lose changes.
+		# By now, when sortedField is None we consider as if it was 'sequence'
+		# because most views will have it as default sort field.
+		if group.sortedField and group.sortedField != 'sequence':
+			return False
+		record = self.recordFromIndex( parent )
+		seq = record.value( 'sequence' )
+		seq = seq or 0
+		if group.sortedOrder == Qt.AscendingOrder:
+			seq += 1
+		else:
+			seq -= 1
+
+		id = int( str( data.text() ) )
+		movedRecord = self.recordFromIndex( self.indexFromId( id ) )
+		movedRecord.setValue( 'sequence', seq )
+		group.records.remove( movedRecord )
+		group.records.insert( group.records.index(record), movedRecord )
+		self.reset()
+		return True
+
+	def supportedDropActions(self):
+		return Qt.CopyAction | Qt.MoveAction
 
 	# Plain virtual functions from QAbstractItemModel
 
