@@ -45,6 +45,7 @@ class FormParser(AbstractParser):
 		self.viewModel = viewModel
 		self.filter = filter
 		self.widgetList = []
+		self.context = parent.context
 		# Create the view
 		self.view = FormView( parent )
 		self.view.id = viewId
@@ -181,6 +182,10 @@ class FormParser(AbstractParser):
 				widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
 				if not widget:
 					continue
+				if attrs.get('invisible', False):
+					value = eval(attrs['invisible'], {'context':self.context})
+					if value:
+						continue
 
 				fields[name]['name'] = name
 				if self.filter:

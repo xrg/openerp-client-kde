@@ -45,7 +45,7 @@ class CharFieldWidget(AbstractFieldWidget):
 		if 'size' in attrs:
 			self.widget.setMaxLength( int( attrs['size'] ) )
 		self.installPopupMenu( self.widget )
-		if attrs.get( 'invisible', False ):
+		if 'password' in attrs:
 			self.widget.setEchoMode( QLineEdit.Password )
 
 		# As there's no sense in this widget to handle focus

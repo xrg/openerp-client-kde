@@ -182,7 +182,6 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 		AbstractFieldWidget.__init__(self, parent, model, attrs)
 		self.uiTime = QLineEdit( self )
 		self.uiTime.setMaxLength( 11 )
-		self.uiTime.setVisible(not attrs.get('invisible', False))
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiTime )

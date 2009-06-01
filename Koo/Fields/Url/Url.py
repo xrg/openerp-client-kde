@@ -49,10 +49,6 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		self.connect( self.scSearch, SIGNAL('activated()'), self.openUrl )
 
 		self.uiUrl.setMaxLength( int( attrs.get('size',16)))
-		if attrs.get('invisible',False):
-			self.uiUrl.hide()
-		else:
-			self.uiUrl.show()
 		self.connect( self.pushOpenUrl, SIGNAL('clicked()'), self.openUrl )
 		self.connect( self.uiUrl, SIGNAL('editingFinished()'), self.modified )
 		self.installPopupMenu( self.uiUrl )
