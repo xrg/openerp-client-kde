@@ -175,22 +175,22 @@ class GraphicsDayItem( QGraphicsItemGroup ):
 			model = index.model()
 			titleIdx = model.index( index.row(), self.parentItem()._modelTitleColumn )
 			dateIdx = model.index( index.row(), self.parentItem()._modelDateColumn )
-			colorIdx = model.index( index.row(), self.parentItem()._modelColorColumn )
 			task.setTitle( titleIdx.data().toString() )
 			task.setStart( dateIdx.data().toString() )
+
+			if self.parentItem()._modelColorColumn >= 0:
+				colorIdx = model.index( index.row(), self.parentItem()._modelColorColumn )
+				task.setBackgroundColor( GraphicsDayItem.colorManager.color( colorIdx.data().toInt()[0] ) )
+				task.setEdgeColor( GraphicsDayItem.colorManager.edgeColor( colorIdx.data().toInt()[0] ) )
 			if self.parentItem()._hasDurationColumn:
 				durationIdx = model.index( index.row(), self.parentItem()._modelDurationColumn )
 				task.setDuration( durationIdx.data().toString() )
-			else:
-				task.setDuration( '--' )
-			task.setBackgroundColor( GraphicsDayItem.colorManager.color( colorIdx.data().toInt()[0] ) )
-			task.setEdgeColor( GraphicsDayItem.colorManager.edgeColor( colorIdx.data().toInt()[0] ) )
-
-			startTime = self.parentItem().dateTimeFromIndex( dateIdx ).time()
-			if self.parentItem()._hasDurationColumn:
 				durationTime, ok = durationIdx.data( self.parentItem().ValueRole ).toDouble()
 			else:
+				task.setDuration( '--' )
 				durationTime = 1.0
+
+			startTime = self.parentItem().dateTimeFromIndex( dateIdx ).time()
 
 			height = self._size.height()
 
@@ -226,6 +226,7 @@ class GraphicsCalendarItem( QGraphicsItemGroup ):
 		self._modelDateColumn = 0
 		self._modelTitleColumn = 0
 		self._modelDurationColumn = 0
+		self._modelColorColumn = -1
 		self._hasDurationColumn = False
 
 	def setSize( self, size ):
