@@ -149,6 +149,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 		self.connect(self.uiTree,SIGNAL('activated( QModelIndex ) ' ), self.open )
 
+		self.connect(self.pushShortcuts, SIGNAL('clicked()'), self.editShortcuts)
 		self.connect(self.pushAddShortcut, SIGNAL('clicked()'), self.addShortcut)
 		self.connect(self.pushRemoveShortcut, SIGNAL('clicked()'), self.removeShortcut)
 		self.connect(self.pushExpand, SIGNAL('clicked()'), self.expand)
@@ -239,6 +240,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			return
 		Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id])
 		self.shortcutsGroup.update()
+
+	def editShortcuts(self):
+	        domain = [('user_id', '=', Rpc.session.uid), ('resource', '=', self.model)]
+		Api.instance.createWindow(None, 'ir.ui.view_sc', domain=domain, mode='tree,form')
 
 	def addShortcut(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
