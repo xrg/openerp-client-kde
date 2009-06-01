@@ -184,6 +184,7 @@ class FormView( AbstractView ):
 
 	def updateDisplay(self, record):
 		# Update data on widgets
+		self.record.updateAttributes()
 		for name in self.widgets:
 			if self.record:
 				self.widgets[name].load(self.record)
@@ -192,15 +193,24 @@ class FormView( AbstractView ):
 		# Update state widgets
 		for widget in self.stateWidgets:
 			for attribute, condition in widget['attributes'].iteritems():
+				if self.record:
+					value = self.record.evaluateCondition( condition )
+				else:
+					value = False
 				if attribute == 'invisible':
-					if self.record:
-						value = self.record.evaluateCondition( condition )
-					else:
-						value = False
-					if value:
-						widget['widget'].hide()
-					else:
-						widget['widget'].show()
+					# Use both setEnabled and setVisible so CustomTabWidget
+					# Can use enabled to know whether it has to enable the tab
+					# or not.
+					widget['widget'].setEnabled( not value )
+					widget['widget'].setVisible( not value )
+				elif attributes == 'readonly':
+					widget['widget'].setReadOnly( value )
+
+	def addStateWidget(self, widget, attributes):
+		self.stateWidgets.append({
+			'widget': widget,
+			'attributes': eval( attributes )
+		})
 
 	def viewSettings(self):
 		splitters = self.findChildren( QSplitter )

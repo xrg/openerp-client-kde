@@ -156,6 +156,24 @@ class Record(QObject):
 		for key in self.group.fieldObjects:
 			self.setStateAttributes( key, state )
 
+	def updateAttributes(self):
+		self.updateStateAttributes()
+		for fieldName in self.group.fieldObjects:
+			attributes = self.group.fieldObjects[fieldName].attrs.get( 'attrs', '{}' ) 
+			try:
+				attributeChanges = eval( attributes )
+			except:
+				attributeChanges = eval( attributes, self.value( fieldName ) )
+
+			for attribute, condition in attributeChanges.items():
+				for i in range(0, len(condition)):
+					if condition[i][2] and isinstance(condition[i][2], list):
+						attributeChanges[attribute][i] = (condition[i][0], condition[i][1], condition[i][2][0])
+			for attribute, condition in attributeChanges.iteritems():
+				value = self.evaluateCondition( condition )
+				if value:
+					self.stateAttributes( fieldName )[ attribute ] = value
+
 	def isFieldReadOnly(self, fieldName):
 		readOnly = self.stateAttributes( fieldName ).get('readonly', False)
 		if isinstance(readOnly, bool):
@@ -262,7 +280,7 @@ class Record(QObject):
 	def setValidate(self):
 		change = self.ensureIsLoaded()
 		self.invalidFields = []
-		for fname in self.group.fieldObjects:			
+		for fname in self.group.fieldObjects:
 			change = change or not self.isFieldValid( fname )
 			self.setFieldValid( fname, True )
 		if change:
@@ -387,7 +405,6 @@ class Record(QObject):
 
 		if not (condition[0] in self.group.fields):
 			return False
-		print "CONTINUE"
 		self.createMissingFields()
 		value = self.value( condition[0] )
 		if condition[1] in ('=', '=='):

@@ -39,6 +39,19 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 
+class CustomTabWidget(QTabWidget):
+	def addTab(self, page, label):
+		page.installEventFilter( self )
+		return QTabWidget.addTab(self, page, label)
+
+	def eventFilter(self, obj, event):
+		# We know whether we should allow the tab or not thanks to isEnabled()
+		# Otherwise each time a tab is changed the widget receives the Hide/Show
+		# event and this wouldn't be useful.
+		if event.type() == QEvent.Hide or event.type() == QEvent.Show:
+			self.setTabEnabled( self.indexOf( obj ), obj.isEnabled() )
+		return False
+
 class FormParser(AbstractParser):
 
 	def create(self, viewId, parent, viewModel, node, fields, filter=None):
@@ -106,7 +119,7 @@ class FormParser(AbstractParser):
 				container.addWidget(button, attrs)
 
 			elif node.localName=='notebook':
-				tab = QTabWidget( container )
+				tab = CustomTabWidget( container )
 				if attrs and 'tabpos' in attrs:
 					pos = { 
 						'up': QTabWidget.North,
@@ -137,10 +150,7 @@ class FormParser(AbstractParser):
 			elif node.localName=='page':
 				widget, on_write = self.parse(node, fields, notebook )
 				if 'attrs' in attrs:
-					self.view.stateWidgets.append({
-						'widget': widget,
-						'attributes': eval( attrs['attrs'] )
-					})
+					self.view.addStateWidget( widget, attrs['attrs'] )
 
 				widget.expand()
 				notebook.addTab( widget, Common.normalizeLabel( attrs.get('string', '') ) )

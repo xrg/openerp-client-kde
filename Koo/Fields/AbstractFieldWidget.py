@@ -240,6 +240,7 @@ class AbstractFieldWidget(QWidget):
 			self.refresh()
 			return
 		self._readOnly = self.record.isFieldReadOnly(self.name)
+		self._required = self.record.isFieldRequired(self.name)
 		self.refresh()
 		self.showValue()
 	
