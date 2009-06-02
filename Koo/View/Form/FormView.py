@@ -184,7 +184,6 @@ class FormView( AbstractView ):
 
 	def updateDisplay(self, record):
 		# Update data on widgets
-		self.record.updateAttributes()
 		for name in self.widgets:
 			if self.record:
 				self.widgets[name].load(self.record)

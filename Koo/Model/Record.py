@@ -255,7 +255,7 @@ class Record(QObject):
 				if d[0] in self.group.fields and d[1]=='=':
 					val[d[0]]=d[2]
 			self.setDefaults(val)
-			self.updateStateAttributes()
+			self.updateAttributes()
 
 	## @brief Obtains the value of the 'name' field for the record by calling model's
 	# name_get function in the server.
@@ -328,6 +328,7 @@ class Record(QObject):
 	# so they don't have to emit the signal, but relay in 
 	# model emiting it itself.
 	def changed(self):
+		self.updateAttributes()
 		self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
 		self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
 
@@ -346,7 +347,7 @@ class Record(QObject):
 		for fieldname, value in later.items():
 			self.group.fieldObjects[fieldname].set(self, value, modified=modified)
 
-		self.updateStateAttributes()
+		self.updateAttributes()
 
 		self._loaded = True
 		self.modified = modified
