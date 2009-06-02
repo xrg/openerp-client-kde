@@ -39,19 +39,6 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 
-class CustomTabWidget(QTabWidget):
-	def addTab(self, page, label):
-		page.installEventFilter( self )
-		return QTabWidget.addTab(self, page, label)
-
-	def eventFilter(self, obj, event):
-		# We know whether we should allow the tab or not thanks to isEnabled()
-		# Otherwise each time a tab is changed the widget receives the Hide/Show
-		# event and this wouldn't be useful.
-		if event.type() == QEvent.Hide or event.type() == QEvent.Show:
-			self.setTabEnabled( self.indexOf( obj ), obj.isEnabled() )
-		return False
-
 class FormParser(AbstractParser):
 
 	def create(self, viewId, parent, viewModel, node, fields, filter=None):
@@ -73,7 +60,13 @@ class FormParser(AbstractParser):
 		on_write = attrs.get('on_write', '')
 
 		if container == None :
-			container = FormContainer(self.view, int(attrs.get('col',4)) )
+			parent = self.view
+			if notebook:
+				parent = notebook
+			# We want FormContainer parent to be the notebook for the case
+			# when it's a QTabWidget. This way FormContainer can enable/disable
+			# the tab when necessary.
+			container = FormContainer( parent, int(attrs.get('col',4)) )
 		
 		if not self.view.title:
 			self.view.title = attrs.get('string', 'Unknown')
@@ -116,10 +109,11 @@ class FormParser(AbstractParser):
 				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
 				name = attrs.get('name', 'unnamed')
 				self.view.widgets[name] = button
+				self.view.addStateWidget( button, attrs.get('attrs') )
 				container.addWidget(button, attrs)
 
 			elif node.localName=='notebook':
-				tab = CustomTabWidget( container )
+				tab = QTabWidget( container )
 				if attrs and 'tabpos' in attrs:
 					pos = { 
 						'up': QTabWidget.North,
@@ -149,8 +143,10 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='page':
 				widget, on_write = self.parse(node, fields, notebook )
-				if 'attrs' in attrs:
-					self.view.addStateWidget( widget, attrs['attrs'] )
+				# Mark the container as the main widget in a Tab. This way
+				# we can enable/disable the whole tab easily.
+				widget.isTab = True
+				self.view.addStateWidget( widget, attrs.get('attrs') )
 
 				widget.expand()
 				notebook.addTab( widget, Common.normalizeLabel( attrs.get('string', '') ) )

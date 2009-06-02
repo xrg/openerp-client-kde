@@ -44,6 +44,11 @@ class FormContainer( QWidget ):
 		self.layout = QGridLayout( self )
 		self.maxColumns = maxColumns
 		self.hasExpanding = False
+		self.isTab = False
+		self.tabWidget = parent
+
+	def setTabEnabled(self, value):
+		self.tabWidget.setTabEnabled( self.tabWidget.indexOf( self ), value )
 
 	def showHelp(self, link):
 		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
@@ -197,15 +202,21 @@ class FormView( AbstractView ):
 				else:
 					value = False
 				if attribute == 'invisible':
-					# Use both setEnabled and setVisible so CustomTabWidget
-					# Can use enabled to know whether it has to enable the tab
-					# or not.
-					widget['widget'].setEnabled( not value )
-					widget['widget'].setVisible( not value )
+					# We need to know if the widget is a FormContainer and it's the
+					# main widget in a tab in which case we'll want to disable
+					# the whole tab (we can't hide it because Qt doesn't provide an
+					# easy way of doing it).
+					w = widget['widget']
+					if isinstance(w, FormContainer) and w.isTab:
+						w.setTabEnabled( not value )
+					else:
+						w.setVisible( not value )
 				elif attributes == 'readonly':
 					widget['widget'].setReadOnly( value )
 
 	def addStateWidget(self, widget, attributes):
+		if not attributes:
+			return
 		self.stateWidgets.append({
 			'widget': widget,
 			'attributes': eval( attributes )
