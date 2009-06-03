@@ -186,12 +186,12 @@ class Report:
 				# The rest of field types must be converted into str
 				if value == False:
 					value = ''
-				elif not isinstance(value, str):
-					value = str(value)
+				elif not isinstance(value, unicode):
+					value = unicode(value)
 				valueNode = self.document.createTextNode( value )
 				fieldNode.appendChild( valueNode )
 		# Once created, the only missing step is to store the XML into a file
-		f = open( fileName, 'wb+')
+		f = codecs.open( fileName, 'wb+', 'utf-8' )
 		topNode.writexml( f )
 		f.close()
 
@@ -217,7 +217,7 @@ class Report:
 			self.generate_record( records['root'], records, recordNode, '', self.reportProperties['fields'] )
 
 		# Once created, the only missing step is to store the XML into a file
-		f = open( fileName, 'wb+')
+		f = codecs.open( fileName, 'wb+', 'utf-8' )
 		topNode.writexml( f )
 		f.close()
 
@@ -325,8 +325,8 @@ class Report:
 					self.temporaryFiles.append( fileName )
 					self.imageFiles[ imageId ] = fileName
 				value = fileName
-			elif not isinstance(value, str):
-				value = str(value)
+			elif not isinstance(value, unicode):
+				value = unicode(value)
 
 			valueNode = self.document.createTextNode( value )
 			fieldNode.appendChild( valueNode )
