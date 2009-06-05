@@ -91,8 +91,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		KooMainWindowUi.__init__(self)
 		self.setupUi( self )
 
-		self.showMaximized()	
-
 		self.fixedWindowTitle = self.windowTitle()
 
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
