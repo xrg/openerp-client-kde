@@ -15,6 +15,11 @@ QPushButton {
 	qproperty-iconSize: 40px 40px;
 }
 
+QToolButton {
+	padding: 10px;
+	qproperty-iconSize: 30px 30px;
+}
+
 QToolBar {
 	padding-bottom: 10px;
 	padding-top: 10px;

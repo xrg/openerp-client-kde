@@ -115,7 +115,13 @@ class RecordGroup(QObject):
 
 		self.load(ids)
 		self.removedRecords = []
-		self.on_write = ''
+		self._onWriteFunction = ''
+
+	def setOnWriteFunction(self, value):
+		self._onWriteFunction = value
+
+	def onWriteFunction(self):
+		return self._onWriteFunction
 
 	def __del__(self):
 		#print "DEL..."
@@ -169,9 +175,9 @@ class RecordGroup(QObject):
 				modified.append( record )
 		return modified
 
-	## @brief This function executes the 'on_write' function in the server.
+	## @brief This function executes the 'onWriteFunction' function in the server.
 	#
-	# If there is a 'on_write' function associated with the model type handled by 
+	# If there is a 'onWriteFunction' function associated with the model type handled by 
 	# this record group it will be executed. 'editedId' should provide the 
 	# id of the just saved record.
 	#
@@ -179,11 +185,11 @@ class RecordGroup(QObject):
 	# the remote function might update some other records, and they need to
 	# be (re)loaded.
 	def written( self, editedId ):
-		if not self.on_write or not editedId:
+		if not self._onWriteFunction or not editedId:
 			return
-		# Execute the on_write function on the server.
+		# Execute the onWriteFunction function on the server.
 		# It's expected it'll return a list of ids to be loaded or reloaded.
-		new_ids = getattr(self.rpc, self.on_write)( editedId, self.context() )
+		new_ids = getattr(self.rpc, self._onWriteFunction)( editedId, self.context() )
 		record_idx = self.records.index( self.recordById( editedId ) )
 		result = False
 		indexes = []

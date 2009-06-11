@@ -41,7 +41,7 @@ class CalendarParser( AbstractParser ):
 		view.id = viewId
 
 		attrs = Common.nodeAttributes(rootNode)
- 		on_write = attrs.get('on_write', '')
+ 		view.setOnWriteFunction( attrs.get('on_write', '') )
 
 		if not view.title:
  			view.title = attrs.get('string', _('Unknown'))
@@ -87,7 +87,7 @@ class CalendarParser( AbstractParser ):
 			column += 1
 		view.setModelTitleColumn( column )
 
-		return view, on_write
+		return view
 
 # vim:noexpandtab:
 

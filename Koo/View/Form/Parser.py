@@ -50,14 +50,15 @@ class FormParser(AbstractParser):
 		self.view = FormView( parent )
 		self.view.id = viewId
 		# Parse and fill in the view
-		container, on_write = self.parse( node, fields )
+		container, onWriteFunction = self.parse( node, fields )
 		container.expand()
 		self.view.setWidget( container )
-		return self.view, on_write
+		self.view.setOnWriteFunction( onWriteFunction )
+		return self.view
 
 	def parse(self, root_node, fields, notebook=None, container=None):
 		attrs = Common.nodeAttributes(root_node)
-		on_write = attrs.get('on_write', '')
+		onWriteFunction = attrs.get('on_write', '')
 
 		if container == None :
 			parent = self.view
@@ -139,10 +140,10 @@ class FormParser(AbstractParser):
 				# be created by parse() and we don't want that because the tab
 				# itself doesn't have a container: it's each of it's pages
 				# that will have a container.
-				_ , on_write = self.parse(node, fields, tab, container)
+				_ , onWriteFunction = self.parse(node, fields, tab, container)
 
 			elif node.localName=='page':
-				widget, on_write = self.parse(node, fields, notebook )
+				widget, onWriteFunction = self.parse(node, fields, notebook )
 				# Mark the container as the main widget in a Tab. This way
 				# we can enable/disable the whole tab easily.
 				widget.isTab = True
@@ -164,11 +165,11 @@ class FormParser(AbstractParser):
 				self.parse( node, fields, widget, container)
 
 			elif node.localName == 'child1':
-				widget, on_write = self.parse( node, fields )
+				widget, onWriteFunction = self.parse( node, fields )
 				notebook.addWidget( widget )
 
 			elif node.localName == 'child2':
-				widget, on_write = self.parse( node, fields )
+				widget, onWriteFunction = self.parse( node, fields )
  				notebook.addWidget( widget )
 
 			elif node.localName =='action':
@@ -212,12 +213,12 @@ class FormParser(AbstractParser):
 				container.addWidget(widget, attrs, label)
 
 			elif node.localName=='group':
-				widget, on_write = self.parse( node, fields, notebook )
+				widget, onWriteFunction = self.parse( node, fields, notebook )
 				# We don't expand the widget in 'group' as it should be 
 				# automatically expanded when new rows are added to the grid.
 				# See FormContainer.newRow()
  				container.addWidget( widget, attrs )
 
-		return  container, on_write
+		return  container, onWriteFunction
 
 # vim:noexpandtab:

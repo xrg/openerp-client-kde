@@ -43,12 +43,7 @@ class AbstractParser(object):
 	#    fields:    The fields that we want to be shown.
 	#
 	#   RETURN
-	#      The function should return TWO parameters:
-	#         widget, on_write 
-	#
 	#    widget:    Will hold the View which will inherit AbstractView
-	#    on_write:  Will contain the on_write attribute that comes from the server
-	#               TODO: This parameter should be a property of the View ??
 	def create(self, viewId, parent, model, node, fields):
 		pass
 

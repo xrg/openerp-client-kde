@@ -59,8 +59,8 @@ class TreeParser(AbstractParser):
 			view.setGridWidth( int(attrs['gridwidth']) )
 		if 'gridheight' in attrs:
 			view.setGridWidth( int(attrs['gridheight']) )
-		
- 		on_write = attrs.get('on_write', '')
+
+		view.setOnWriteFunction( attrs.get('on_write', '') )
 
 		if not view.title:
  			view.title = attrs.get('string', 'Unknown' )
@@ -157,6 +157,6 @@ class TreeParser(AbstractParser):
 		view.setViewSettings( ViewSettings.load( view.id ) )
 		screen.group.setAllowRecordLoading( True )
 
-		return view, on_write
+		return view
 
 # vim:noexpandtab:

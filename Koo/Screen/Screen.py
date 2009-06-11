@@ -428,8 +428,8 @@ class Screen(QScrollArea):
 		self.fields = self.group.fields
 
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
-		view, on_write = ViewFactory.create(id, self, self.resource, dom, self.fields)
-		self.setOnWrite( on_write )
+		view = ViewFactory.create(id, self, self.resource, dom, self.fields)
+		self.setOnWriteFunction( view.onWriteFunction() )
 		# Load view settings
 		view.setViewSettings( ViewSettings.load( view.id ) )
 
@@ -485,8 +485,8 @@ class Screen(QScrollArea):
 		else:
 			return -1 
 
-	def setOnWrite(self, func_name):
-		self.group.on_write = func_name
+	def setOnWriteFunction(self, functionName):
+		self.group.setOnWriteFunction( functionName )
 
 	## @brief Stores all modified models.
 	def save(self):

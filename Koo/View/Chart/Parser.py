@@ -58,16 +58,17 @@ class ChartParser( AbstractParser ):
 		self.view.title = attrs.get('string', _('Unknown') )
 		self.view.model = self.parent.currentRecord()
 
-		widget, on_write = self.parse( self.parent.currentRecord(), node, fields , self.view )
+		widget, onWriteFunction = self.parse( self.parent.currentRecord(), node, fields , self.view )
 		self.view.setWidget( widget )
+		self.view.setOnWriteFunction( onWriteFunction )
 
-		return self.view, on_write
+		return self.view
 
 	def parse(self, model, root_node, fields, container):
 		attrs = Common.nodeAttributes(root_node)
 		self.title = attrs.get('string', 'Unknown')
 
-		on_write = '' 
+		onWriteFunction = '' 
 
 		axis = []
 		groups = []
@@ -97,7 +98,7 @@ class ChartParser( AbstractParser ):
 		else:
 			chart.setOrientation( Qt.Horizontal )
 
-		return chart, on_write
+		return chart, onWriteFunction
 
 
 # vim:noexpandtab:

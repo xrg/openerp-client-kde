@@ -41,9 +41,7 @@ class SvgParser(AbstractParser):
 		self.view = ViewSvg( parent )
 		self.view.id = viewId
 		self.view.setSvg( 'restaurant.svg' )
-		# Parse and fill in the view
-		#on_write = self.parse( node, fields )
-		return self.view, ''
+		return self.view
 
 
 # vim:noexpandtab:

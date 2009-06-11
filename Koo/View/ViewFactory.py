@@ -61,11 +61,9 @@ class ViewFactory:
 				continue
 			if node.localName in ViewFactory.parsers:
 				parser = ViewFactory.parsers[ node.localName ]()
-				view, on_write = parser.create(viewId, parent, model, node, fields)
-				return view, on_write
+				return parser.create(viewId, parent, model, node, fields)
 		return None
 
 	@staticmethod
 	def register(viewName, parser):
 		ViewFactory.parsers[viewName] = parser
-
