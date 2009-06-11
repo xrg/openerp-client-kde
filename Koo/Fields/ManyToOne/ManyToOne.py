@@ -176,6 +176,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		return self.uiText
 
 	def match(self):
+		if not self.record:
+			return
 		name = unicode( self.uiText.text() )
 		if name.strip() == '':
 			self.record.setValue( self.name, False )			
