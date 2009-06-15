@@ -48,7 +48,7 @@ from Paths import *
 import common_rc
 # When using loadUiType(), the generated (and executed) code will try to import
 # common_rc and it will crash if we don't ensure it's available in PYTHONPATH
-# so by no we have to add Koo/Common to sys.paht
+# so by no we have to add Koo/Common to sys.path
 sys.path.append( os.path.abspath(os.path.dirname(__file__)) )
 
 ## @brief Returns a dictionary with all the attributes found in a XML with their 
