@@ -214,6 +214,13 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='group':
 				widget, onWriteFunction = self.parse( node, fields, notebook )
+				if 'string' in attrs:
+					group = QGroupBox( notebook )
+					group.setTitle( attrs['string'] )
+					layout = QHBoxLayout( group )
+					layout.addWidget( widget )
+					widget = group
+
 				# We don't expand the widget in 'group' as it should be 
 				# automatically expanded when new rows are added to the grid.
 				# See FormContainer.newRow()
