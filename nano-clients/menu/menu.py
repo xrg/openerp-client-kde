@@ -43,20 +43,20 @@ class MenuDialog(QDialog):
 	def __init__(self,parent=None):
 		QDialog.__init__(self,parent)
 
-		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'agrutrans' )
+		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'nan' )
 
 		#model = 'account.account'
 		#visibleFields = ['name', 'code', 'debit', 'credit', 'balance', 'company_currency_id']
 		#domain = [('code', '=', '0')]
 
-		#model = 'ir.ui.menu'
-		#visibleFields = ['name']
-		#extraFields = ['child_id', 'icon']
-		#domain = [('parent_id','=',False)]
+		model = 'ir.ui.menu'
+		visibleFields = ['name']
+		extraFields = ['child_id', 'icon']
+		domain = [('parent_id','=',False)]
 
-		model = 'res.partner.address'
+		#model = 'res.partner.address'
 		#visibleFields = ['partner_id', 'name', 'zip', 'city', 'country_id']
-		visibleFields = ['street', 'name', 'zip', 'city', 'street2']
+		#visibleFields = ['street', 'name', 'zip', 'city', 'street2']
 		extraFields = []
 		domain = []
 
@@ -67,8 +67,9 @@ class MenuDialog(QDialog):
 		import sys
 		#from muppy import tracker
 
+		self.group = RecordGroup( model, self.fields, ids )
 		#mt = tracker.ObjectTracker()
-		iterations = 6
+		iterations = 0
 		for x in xrange(iterations):
 			#print "NUM OBJECTS: ", len(gc.get_objects())
 			self.group = RecordGroup( model, self.fields, ids )
@@ -118,12 +119,12 @@ class MenuDialog(QDialog):
 		self.model.setIconForField( 'icon', 'name')
 		self.model.setChildrenForField( 'child_id', 'name' )
 		self.model.setShowBackgroundColor( False )
-		self.model.setModelGroup( self.group )
+		self.model.setRecordGroup( self.group )
 
 		# Create GUI
 		layout = QVBoxLayout(self)
-		widget = QTreeView(self)
-		#widget = QColumnView(self)
+		#widget = QTreeView(self)
+		widget = QColumnView(self)
 		#widget = QListView(self)
 		#widget.setViewMode( QListView.IconMode )
 		#widget.setGridSize( QSize( 100, 100 ) )

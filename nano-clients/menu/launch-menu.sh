@@ -2,4 +2,4 @@
 
 export PYTHONPATH=../../:$PYTHONPATH
 
-python menu.py -stylesheet menu.qss
+python menu.py --stylesheet menu.qss
