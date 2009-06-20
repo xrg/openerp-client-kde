@@ -101,7 +101,31 @@ if imports['dbus']:
 			eval(f)
 
 ### Main application loop
-app = QApplication( sys.argv )
+if Common.isKdeAvailable:
+	print "KOO"
+	from PyKDE4.kdecore import ki18n, KAboutData, KCmdLineArgs
+	from PyKDE4.kdeui import KApplication
+
+	appName     = "Koo"
+	catalog     = ""
+	programName = ki18n ("Koo")
+	version     = "1.0"
+	description = ki18n ("KDE OpenObject Client")
+	license     = KAboutData.License_GPL
+	copyright   = ki18n ("(c) 2009 Albert Cervera i Areny")
+	text        = ki18n ("none")
+	homePage    = "www.nan-tic.com"
+	bugEmail    = "albert@nan-tic.com"
+	 
+	aboutData   = KAboutData (appName, catalog, programName, version, description,
+				license, copyright, text, homePage, bugEmail)
+
+	KCmdLineArgs.init (sys.argv, aboutData)
+	 
+	app = KApplication ()
+else:
+	app = QApplication( sys.argv )
+
 try:
 	app.setStyleSheet( file(Options.options['stylesheet']).read() )
 except:

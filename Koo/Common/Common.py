@@ -42,6 +42,11 @@ from PyQt4.uic import *
 
 from Paths import *
 
+try:
+	from PyKDE4.kdecore import ki18n
+	isKdeAvailable = True
+except:
+	isKdeAvailable = False
 
 
 # Load Resource

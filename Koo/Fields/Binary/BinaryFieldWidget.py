@@ -35,6 +35,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 
 from Koo.Common import Common
+from Koo.Common import Semantic
 
 (BinaryFieldWidgetUi, BinaryFieldWidgetBase) = loadUiType( Common.uiPath('binary.ui') ) 
 
@@ -127,14 +128,17 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			QMessageBox.information(self, '', _('Error reading the file'))
 
 	def slotSave(self):
+		filename = QFileDialog.getSaveFileName( self, _('Save as...') )
+		if not filename:
+			return
 		try:
-			filename = QFileDialog.getSaveFileName( self, _('Save as...') )
-			if filename:
-				fp = file(filename,'wb+')
-				fp.write( self.record.value(self.name) )
-				fp.close()
+			fp = file(filename,'wb+')
+			fp.write( self.record.value(self.name) )
+			fp.close()
 		except:
 			QMessageBox.information(self, '', _('Error writing the file!'))
+			return
+		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
 
 	def slotRemove(self):
 		self.record.setValue( self.name, False )

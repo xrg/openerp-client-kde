@@ -111,7 +111,7 @@ def executeReport(name, data, context={}):
 				QApplication.restoreOverrideCursor()
 				QMessageBox.information( None, '', _('Printing aborted, too long delay !'))
 				return False
-		Printer.printData(val)
+		Printer.printData(val, datas['model'], ids)
 	except Rpc.RpcException, e:
 		Common.error( _('Error: %s') % str(e.type), e.message, e.data )
 	QApplication.restoreOverrideCursor()

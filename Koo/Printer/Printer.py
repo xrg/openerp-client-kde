@@ -31,6 +31,7 @@ from PyQt4.QtCore  import *
 from Koo.Common import Notifier
 from Koo.Common import Options
 from Koo.Common import Common
+from Koo.Common import Semantic
 import os
 import base64
 import tempfile
@@ -67,7 +68,7 @@ class Printer(object):
 	## @brief Prints report information contained in the data parameter. Which will 
 	# typically be received from the server.
 	@staticmethod
-	def printData(data):
+	def printData(data, model, ids):
 		if 'result' not in data:
 			Notifier.notifyWarning( _('Report error'), _('There was an error trying to create the report.') )
 			return
@@ -85,16 +86,10 @@ class Printer(object):
 		if data['format']=='html' and os.name=='nt':
 			data['format']='doc'
 
-		f = QTemporaryFile( 'XXXXXXXX.%s' % data['format'] )
-		f.setAutoRemove( False )
-		f.open()
-		fileName = os.path.join( unicode( QDir.tempPath() ), unicode( f.fileName() ) )
-		f.write( content )
-		f.close()
-		
 		fp, fileName = tempfile.mkstemp( '.%s' % data['format'] )
 		fp = os.fdopen( fp, 'wb+' )
 		fp.write(content)
 		fp.close()
 		Printer.printFile( fileName, data['format'] )
+		Semantic.addInformationToFile( fileName, model, ids )
 

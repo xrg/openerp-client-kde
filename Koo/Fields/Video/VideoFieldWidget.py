@@ -82,14 +82,16 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 			QMessageBox.information(self, '', _('Error reading the file'))
 
 	def save(self):
+		filename = QFileDialog.getSaveFileName( self, _('Save as...') )
 		try:
-			filename = QFileDialog.getSaveFileName( self, _('Save as...') )
 			if filename:
 				fp = file(filename,'wb+')
 				fp.write( self.record.value(self.name) )
 				fp.close()
 		except:
 			QMessageBox.information(self, '', _('Error writing the file!'))
+		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
+
 	def remove(self):
 		self.clear()
 		self.record.setValue( self.name, False )
