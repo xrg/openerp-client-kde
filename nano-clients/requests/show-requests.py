@@ -51,7 +51,7 @@ class RequestsDialog(QDialog):
 		layout.setMargin( 0 )
 		self.resize(600, 300)
 
-		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'jornadas' )
+		Rpc.session.login( 'http://admin:admin@127.0.0.1:8069', 'semantic' )
 		
 		# Example of asynchronous call:
 		# The function 'called()' will be called twice in this example,
@@ -64,7 +64,7 @@ class RequestsDialog(QDialog):
 		ids = Rpc.session.execute('/object', 'execute', 'res.request', 'search', [])
 		self.group = RecordGroup( 'res.request', self.fields, ids )
 		treeModel = KooModel( self )
-		treeModel.setModelGroup( self.group )
+		treeModel.setRecordGroup( self.group )
 		treeModel.setFields( self.fields )
 		treeModel.setShowBackgroundColor( False )
 
