@@ -93,10 +93,14 @@ def addInformationToFile( fileName, model, ids, field = None ):
 		# Search if there are any contacts on user's addresses with these e-mails.
 		#iterator = model.executeQuery( "PREFIX nco: <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> SELECT ?name WHERE { ?contact nco:hasEmailAddress ?o. ?contact nco:fullname ?name }", Soprano.Query.QueryLanguageSparql )
 		iterator = model.executeQuery( "PREFIX nco: <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> SELECT ?contact WHERE { ?contact nco:hasEmailAddress %s. }" % emails, Soprano.Query.QueryLanguageSparql )
+		contacts = []
+		# First store all contacts we want the document to be related to because
+		# Soprano doesn't support adding resources while iterating.
 		while iterator.next():
 			x = iterator.binding('contact')
 			if x.isResource():
-				# Commented beacause it hangs Nepomuk when using sesame2 backend in my computer 
-				#resource.addIsRelated( Nepomuk.Resource( x.uri() ).pimoThing() )
-				pass
+				contacts.append( unicode( x.uri() ) )
+		# Add the relation to the corresponding PIMO of the resource.
+		for contact in contacts:
+			resource.addIsRelated( Nepomuk.Resource( x.uri() ).pimoThing() )
 
