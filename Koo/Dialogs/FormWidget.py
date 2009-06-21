@@ -91,6 +91,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		# Remove ids with False value
 		self.screen.setupViews( view_type, view_ids )
+		self.viewTypes = view_type
+		self.viewIds = view_ids
 
 		if name:
 			self.name = name
@@ -401,7 +403,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		dialog = MassiveUpdateDialog( self )
 		dialog.setIds( self.screen.selectedIds() )
-		dialog.setup( self.model, self.context )
+		dialog.setModel( self.model )
+		dialog.setContext( self.context )
+		dialog.setup( self.viewTypes, self.viewIds )
 		dialog.exec_()
 		self.reload()
 

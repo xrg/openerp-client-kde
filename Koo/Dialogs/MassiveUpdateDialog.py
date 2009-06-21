@@ -31,6 +31,7 @@ from PyQt4.uic import *
 from Koo import Rpc
 from Koo.Common import Common
 from Koo.Model.Group import RecordGroup
+from Koo.Screen.ViewQueue import *
 
 (MassiveUpdateDialogUi, MassiveUpdateDialogBase) = loadUiType( Common.uiPath('massiveupdate.ui') )
 
@@ -47,15 +48,27 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 	def setIds( self, ids ):
 		self.ids = ids
 
-	def setup( self, model, context ):
+	def setModel(self, model):
 		self.model = model
+
+	def setContext(self, context):
 		self.context = context
+
+	def setup( self, viewTypes, viewIds ):
 		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setAllowRecordLoading( False )
 
 		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( True )
-		self.screen.setupViews( ['form'], [False] )
+		if 'form' in viewTypes:
+			queue = ViewQueue()	
+			queue.setup( viewTypes, viewIds )	
+			type = ''
+			while type != 'form':
+				id, type = queue.next()
+			self.screen.setupViews( ['form'], [id] )
+		else:
+			self.screen.setupViews( ['form'], [False] )
 		self.screen.new()
 
 	def save( self ):
