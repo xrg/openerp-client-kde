@@ -595,6 +595,10 @@ class RecordGroup(QObject):
 
 	## @brief Reload the record group with current selected sort field, order, domain and filter
 	def update(self):
+		# Update context from Rpc.session.context as language
+		# (or other settings) might have changed.
+		self._context.update(Rpc.session.context)
+		self.rpc = RpcProxy(self.resource)
 		## Make it reload again
 		self.updated = False
 		self.sort( self.toBeSortedField, self.toBeSortedOrder )
