@@ -37,11 +37,17 @@ def addInformationToFile( fileName, model, ids, field = None ):
 	try:
 		# Obtain ratings 
 		ratings = Rpc.session.call( '/semantic', 'rating', model, ids, field, Rpc.session.context )
-		# Obtain tags
+		# Obtain all tags
 		allTags = Rpc.session.call( '/semantic', 'tags', model, ids, field, Rpc.session.context )
+		# Obtain all descriptions
+		allDescriptions = Rpc.session.call( '/semantic', 'description', model, ids, field, Rpc.session.context )
+		# Obtain all contacts
+		allContacts = Rpc.session.call( '/semantic', 'contacts', model, ids, field, Rpc.session.context )
 	except:
-		ratings = []
-		allTags = []
+		ratings = {}
+		allTags = {}
+		allDescriptions = {}
+		allContacts = {}
 
 	# Calculate average rating
 	rating = 0
@@ -54,17 +60,43 @@ def addInformationToFile( fileName, model, ids, field = None ):
 	for x in allTags.values():
 		tags += x
 	tags = list( set( tags ) )
+	# Pickup all descriptions and merge them into one
+	description = '\n--\n'.join( set(allDescriptions.values()) )
+	# Pickup all contacts 
+	contacts = []
+	for x in allContacts.values():
+		contacts += x
+	contacts = list( set( contacts ) )
 
 	from PyKDE4.nepomuk import Nepomuk
-	resource = Nepomuk.Resource( fileName )
+	from PyKDE4.soprano import Soprano 
+
+	resource = Nepomuk.Resource( 'file://%s' % fileName, Soprano.Vocabulary.Xesam.File() )
 	resource.setTags( [Nepomuk.Tag( tag ) for tag in tags] )
 	resource.setRating( max(rating,0) )
+	resource.setDescription( description )
+	if not resource.isValid():
+		return
 
-	#manager = Nepomuk.ResourceManager.instance()
-	#client = Soprano.Client.DBusClient('org.kde.NepomukStorage' )
-	#print "A:", [str(x) for x in client.allModels()]
-	#model = client.createModel( 'main' )
-	#iterator = model.executeQuery( "PREFIX nco: <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> SELECT ?name WHERE { ?contact nco:hasEmailAddress ?o. ?contact nco:fullname ?name }", Soprano.Query.QueryLanguageSparql )
-	#while iterator.next():
-	#	x = iterator.binding('name')
-	#	print "X: ", unicode( x.toString() )
+	manager = Nepomuk.ResourceManager.instance()
+	# We cannot use manager.mainModel() because bindings for that function do not exist yet.
+	# So Sebastian suggested this workaround.
+	client = Soprano.Client.DBusClient( 'org.kde.NepomukStorage' )
+	models = client.allModels()
+	if not models:
+		return
+	model = client.createModel( models[0] )
+
+	emails = [ '<mailto:%s>' % contact for contact in contacts ]
+	emails = ', '.join( emails )
+	if emails:
+		# Search if there are any contacts on user's addresses with these e-mails.
+		#iterator = model.executeQuery( "PREFIX nco: <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> SELECT ?name WHERE { ?contact nco:hasEmailAddress ?o. ?contact nco:fullname ?name }", Soprano.Query.QueryLanguageSparql )
+		iterator = model.executeQuery( "PREFIX nco: <http://www.semanticdesktop.org/ontologies/2007/03/22/nco#> SELECT ?contact WHERE { ?contact nco:hasEmailAddress %s. }" % emails, Soprano.Query.QueryLanguageSparql )
+		while iterator.next():
+			x = iterator.binding('contact')
+			if x.isResource():
+				# Commented beacause it hangs Nepomuk when using sesame2 backend in my computer 
+				#resource.addIsRelated( Nepomuk.Resource( x.uri() ).pimoThing() )
+				pass
+

@@ -38,7 +38,8 @@ def semantic(data):
 		'subject_model' : data['model'],
 		'subject_id' : data['id']
 	}
-	domain = [('subject_model','=',data['model']), ('subject_id','=', data['id'])]
+	model_id = Rpc.session.execute( '/object', 'execute', 'ir.model', 'search', [('model','=',data['model'])] )
+	domain = [('subject_model','=',model_id), ('subject_id','=', data['id'])]
 	Api.instance.createWindow( None, 'nan.semantic.triple', mode='tree,form', domain=domain, context=context )
 
 Plugins.register( 'Semantic', '.*', _('Semantic Info'), semantic )

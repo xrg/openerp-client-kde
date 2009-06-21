@@ -38,9 +38,8 @@ class nan_semantic_services(netsvc.Service):
 		self.exportMethod(self.setRating)
 		self.exportMethod(self.rating)
 		self.exportMethod(self.tags)
-		#self.exportMethod(self.setComment)
-		#self.exportMethod(self.addTag)
-		#self.exportMethod(self.getTriples)
+		self.exportMethod(self.description)
+		self.exportMethod(self.contacts)
 
 	def setRating(self, db, uid, passwd, model, ids, fields, rating, context={}):
 		self.setValue(db, uid, passwd, model, ids, fields, 'rating', rating, context)
@@ -50,7 +49,6 @@ class nan_semantic_services(netsvc.Service):
 		res = self.value(db, uid, passwd, model, ids, field, 'rating', context)
 		for key in res.keys():
 			res[str(key)] = int(res[key])
-		print "R: ", res
 		return res
 
 	def tags(self, db, uid, passwd, model, ids, field, context={}):
@@ -73,6 +71,73 @@ class nan_semantic_services(netsvc.Service):
 				modelName = pool.get('ir.model').read(cr, uid, mids, ['name'], context=context)[0]['name']
 				ts.append( modelName )
 			res[str(id)] = ts
+		return res
+
+	def description(self, db, uid, passwd, model, ids, field, context={}):
+		security.check(db, uid, passwd)
+		conn = sql_db.db_connect(db)
+		cr = conn.cursor()
+		pool = pooler.get_pool(db)
+		
+		descriptionField = None
+		columns = pool.get( model )._columns
+		possibleFields = ['description', 'notes', 'note', 'comment', 'comments']
+		for f in possibleFields:
+			if f in columns:
+				descriptionField = f
+		res = {}
+		data = pool.get( model ).read(cr, uid, ids, ['id', descriptionField], context=context)
+		for record in data:
+			if descriptionField and record[descriptionField]:
+				value = record[descriptionField]
+			else:
+				value = ''
+			res[ str(record['id']) ] = value
+		return res
+
+	def contacts(self, db, uid, passwd, model, ids, field, context={}):
+		security.check(db, uid, passwd)
+		conn = sql_db.db_connect(db)
+		cr = conn.cursor()
+		pool = pooler.get_pool(db)
+		
+		# Try to find if there's any relation with 'res.partner.address' (or 'res.partner')
+		# in the given model:
+		addressField = None
+		partnerField = None
+		columns = pool.get( model )._columns
+		for key, value in columns.iteritems():
+			if value._type == 'many2one':
+				if value._obj == 'res.partner.address':
+					addressField = key
+					break
+				elif value._obj == 'res.parnter':
+					partnerField = key
+			elif value._type == 'one2many' and value._obj == 'res.partner.address':
+					addressField = key
+			elif value._type == 'many2many' and value._obj == 'res.partner.address':
+					addressField = key
+
+		# Now that we have which field relates to 'res.partner.address' (or 'res.partner')
+		# browse all records and return a list of e-mails for each of them.
+		res = {}
+		for record in pool.get( model ).browse( cr, uid, ids, context=context ):
+			emails = []
+			if model == 'res.partner.address':
+				if r.email:	
+					emails = [r.email]
+			elif addressField:
+				value = record.__getattr__(addressField)
+				if value and isinstance(value, osv.orm.browse_record):
+					if value.email:
+						emails = [value.email]
+				elif value and isinstance(value, osv.orm.browse_record_list):
+					emails = [x.email for x in record.address if x.email]
+			elif partnerField:
+				value = record.__getattr__(partnerField)
+				if value:
+					emails = [x.email for x in value.address if x.email]
+			res[ str(record.id) ] = [ email.strip() for email in emails ]
 		return res
 
 	def setValue(self, db, uid, passwd, model, ids, fields, predicate, value, context={}):
