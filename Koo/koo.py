@@ -102,7 +102,6 @@ if imports['dbus']:
 
 ### Main application loop
 if Common.isKdeAvailable:
-	print "KOO"
 	from PyKDE4.kdecore import ki18n, KAboutData, KCmdLineArgs
 	from PyKDE4.kdeui import KApplication
 
