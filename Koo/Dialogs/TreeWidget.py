@@ -146,8 +146,14 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.uiTree.setModel( self.treeModel )
 		self.uiList.setModel( self.listModel )
 
-
 		self.connect(self.uiTree,SIGNAL('activated( QModelIndex ) ' ), self.open )
+
+		self.treeAllExpandedState = {}
+		self.treeState = {}
+		if self.toolbar:
+			# Save index states if we're showing uiList widget only, otherwise we don't need it.
+			self.connect(self.uiTree,SIGNAL('expanded( QModelIndex )'), self.saveIndexState )
+			self.connect(self.uiTree,SIGNAL('collapsed( QModelIndex )'), self.saveIndexState )
 
 		self.connect(self.pushShortcuts, SIGNAL('clicked()'), self.editShortcuts)
 		self.connect(self.pushAddShortcut, SIGNAL('clicked()'), self.addShortcut)
@@ -182,6 +188,21 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			self.updateTree()
 		self.restoreViewState()
 
+	def saveIndexState(self, index):
+		mainKey = self.uiList.currentIndex().row()
+		key = ( index.row(), index.column(), index.internalPointer() )
+		if not mainKey in self.treeState:
+			self.treeState[mainKey] = {}
+		self.treeState[mainKey][ key ] = self.uiTree.isExpanded( index )
+
+	def restoreIndexStates(self):
+		mainKey = self.uiList.currentIndex().row()
+		if not mainKey in self.treeState:
+			return
+		subtree = self.treeState[ mainKey ]
+		for key, value in subtree.iteritems():
+			index = self.treeModel.createIndex( key[0], key[1], key[2] )
+			self.uiTree.setExpanded( index, value )
 
 	def updateTree(self):
 		item = self.uiList.currentIndex()
@@ -194,16 +215,29 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		group = m.value( self.childrenField )
 		group.addFields( self.group.fields )
 		self.treeModel.setRecordGroup( group )
-		self.pushExpand.setChecked( False )
-		self.pushExpand.setIcon( QIcon( ':/images/images/down.png' ) )
-
-	def mainMenuClicked( self, currentItem, previousItem ):
+	
+	def mainMenuClicked( self, currentIndex, previousIndex ):
+		if self.toolbar:
+			self.treeAllExpandedState[ self.listModel.id( previousIndex ) ] = self.pushExpand.isChecked()
 		self.updateTree()
+		if self.toolbar:
+			self.setAllExpanded( self.treeAllExpandedState.get( self.listModel.id( currentIndex ), False ) )
+			self.restoreIndexStates()
+
+	def setAllExpanded(self, value):
+		self.pushExpand.setChecked( value )
+		if value:
+			self.uiTree.expandAll()
+			self.pushExpand.setIcon( QIcon( ':/images/images/up.png' ) )
+		else:
+			self.uiTree.collapseAll()
+			self.pushExpand.setIcon( QIcon( ':/images/images/down.png' ) )
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.group.update()
 		self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
+		self.treeState = {}
 		self.updateTree()
 		QApplication.restoreOverrideCursor()
 
@@ -270,6 +304,13 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.executeAction('tree_but_open', id)
 
 	def expand(self):
+		if self.toolbar:
+			# As expandAll() and collapseAll() do not emit 
+			# a signal for each item, remove all states stored
+			# for this list index.
+			mainKey = self.uiList.currentIndex().row()
+			if mainKey in self.treeState:
+				del self.treeState[ mainKey ]
 		if self.pushExpand.isChecked():
 			self.uiTree.expandAll()
 			self.pushExpand.setIcon( QIcon( ':/images/images/up.png' ) )
