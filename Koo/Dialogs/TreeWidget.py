@@ -237,6 +237,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.group.update()
 		self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
+		self.treeAllExpandedState = {}
 		self.treeState = {}
 		self.updateTree()
 		QApplication.restoreOverrideCursor()
