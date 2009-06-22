@@ -29,16 +29,12 @@ from PyQt4.QtCore import *
 from time import sleep
 
 class Subscriber(QThread):
-	hasSubscriptionModule = True
-
 	def __init__(self, session, parent=None):
 		QThread.__init__(self, parent)
 		self.session = session.copy()
 		self.slot = None
 
 	def subscribe(self, expression, slot = None):
-		if not Subscriber.hasSubscriptionModule:
-			return
 		self.expression = expression
 		self.slot = slot
 		if self.slot:
@@ -46,8 +42,6 @@ class Subscriber(QThread):
 		self.start()
 
 	def unsubscribe(self):
-		if not Subscriber.hasSubscriptionModule:
-			return
 		if self.slot:
 			self.disconnect( self, SIGNAL('published()'), self.slot )
 		self.terminate()

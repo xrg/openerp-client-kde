@@ -47,7 +47,9 @@ class Printer(object):
 	def open(fileName):
 		Common.openFile( fileName )
 
-	## @brief Sends the specified file directly to the printer. Windows only.
+	## @brief Sends the specified file directly to the printer.
+	#
+	# Note that on non-windows systems it will try to execute system's lpr application.
 	@staticmethod
 	def sendToPrinter(fileName):
 		if os.name == 'nt':
@@ -57,7 +59,7 @@ class Printer(object):
 			os.spawnlp(os.P_NOWAIT, 'lpr', 'lpr', fileName)
 
 	## @brief Sends the specified file to printer or opens it with the default
-	# application depending on operating system and user settings.
+	# application depending on user settings.
 	@staticmethod
 	def printFile(fileName, fileType):
 		if Options.options['print_directly']:
