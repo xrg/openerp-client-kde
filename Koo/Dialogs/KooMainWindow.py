@@ -162,9 +162,15 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# Stores the id of the menu action. This is to avoid opening two menus
 		# when 'action_id' returns the same as 'menu_id'
 		self.menuId = False
+
+		# Update the number of pending requests in the status bar using a timer but also
+		# subscribing to model changes if 'koo' module is installed in the server.
 		self.requestsTimer = QTimer()
 		self.connect( self.requestsTimer, SIGNAL('timeout()'), self.updateRequestsStatus )
 		self.pendingRequests = -1 
+		# Subscriber will be used to update requests status too. Only if 'koo' model is installed
+		# on the server.
+		self.subscriber = None
 
 		# System Tray
 		self.actionOpenPartnersTab = QAction( self )
@@ -222,7 +228,18 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# Every X minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
 		self.requestsTimer.start( Options.options.get( 'requests_refresh_interval', 5 * 60 ) * 1000 )
-		
+		# We always use the Subscriber as the class itself will handle
+		# whether the module exists on the server or not
+		self.subscriber = Rpc.Subscriber(Rpc.session, self)
+		# Subscribe to changes to res.request (if 'koo' module is installed in the server).
+		self.subscriber.subscribe( 'updated_model:res.request', self.updateRequestsStatus )
+
+	def stopRequestsTimer(self):
+		self.requestsTimer.stop()
+		if self.subscriber:
+			self.subscriber.unsubscribe()
+			self.subscriber = None
+
 	def formDesigner(self):
 		dialog = FormDesigner(self)
 		dialog.show()
@@ -355,11 +372,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	# @param databaseName name of the database to log into
 	def login(self, url, databaseName):
 		# Before connecting to the specified database
-		# we check each of the tabs for changes. If the user
-		# cancels in any of them we won't connect.
-		if not self.closeAllTabs():
+		# try to logout from the previous one. That will allow the
+		# user to cancel the operation if any of the tabs is modified
+		# and it will stop requests timer and subscription.
+		if not self.logout():
 			return
-
 		try:
 			log_response = Rpc.session.login(url, databaseName)
 			url = QUrl( url )
@@ -392,7 +409,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			Common.error(_('Connection Error !'),e1,e2)
 			Rpc.session.logout()
 
-		
+
 	## Closes all tabs smartly, that is using closeCurrentTab()
 	def closeAllTabs(self):
 		while self.tabWidget.count() > 0:
@@ -402,14 +419,16 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 	def logout(self):
 		if not self.closeAllTabs():
-			return
+			return False
 		self.uiRequests.clear()
+		self.stopRequestsTimer()
 		self.uiUserName.setText( _('Not logged !') )
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 		self.setWindowTitle( self.fixedWindowTitle )
 		self.updateEnabledActions()
 		Rpc.session.logout()
-		
+		return True
+
 	def openErpManual(self):
 		QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
 
