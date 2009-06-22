@@ -51,5 +51,5 @@ def printSimpleWorkflow(datas):
 	datas['nested'] = False
 	Api.instance.executeReport('workflow.instance.graph', datas)
 
-Plugins.register( 'workflow_print_simple', '.*', _('Print Workflow'), printSimpleWorkflow )
-Plugins.register( 'workflow_print', '.*', _('Print Workflow (Complex)'), printWorkflow )
+Plugins.register( 'SimpleWorkflowPrinter', '.*', _('Print Workflow'), printSimpleWorkflow )
+Plugins.register( 'WorkflowPrinter', '.*', _('Print Workflow (Complex)'), printWorkflow )
