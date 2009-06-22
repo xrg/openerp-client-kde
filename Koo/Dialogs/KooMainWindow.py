@@ -150,7 +150,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# call the current child/tab/form. This is handled this way instead of signals because we
 		# may have several windows opened at the same time and all children would receive
 		# the signal...
-		self.actions = [ 'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 'Open', 
+		self.actions = [ 'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 
 			'Reload', 'Switch', 'Attach', 'Export', 'Import', 'GoToResourceId', 
 			'Duplicate', 'AccessLog', 'MassiveUpdate' ]
 		for x in self.actions:

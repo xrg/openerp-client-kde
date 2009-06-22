@@ -21,6 +21,8 @@
     <file>images/crm.png</file>
     <file>images/delete.png</file>
     <file>images/disconnect.png</file>
+    <file>images/document-export.png</file>
+    <file>images/document-import.png</file>
     <file>images/down.png</file>
     <file>images/duplicate.png</file>
     <file>images/edit-user.png</file>
@@ -31,6 +33,7 @@
     <file>images/find.png</file>
     <file>images/folder.png</file>
     <file>images/full_text_search.png</file>
+    <file>images/gohome.png</file>
     <file>images/help.png</file>
     <file>images/hr.png</file>
     <file>images/import.png</file>

@@ -263,25 +263,15 @@
     <addaction name="actionDelete" />
     <addaction name="separator" />
     <addaction name="actionFind" />
-    <addaction name="actionFullTextSearch" />
     <addaction name="actionNext" />
     <addaction name="actionPrevious" />
     <addaction name="actionSwitch" />
-    <addaction name="separator" />
-    <addaction name="actionOpenMenuTab" />
-    <addaction name="actionOpenHomeTab" />
-    <addaction name="actionClose" />
-    <addaction name="actionNextTab" />
-    <addaction name="actionPreviousTab" />
-    <addaction name="separator" />
     <addaction name="separator" />
     <addaction name="actionAccessLog" />
     <addaction name="actionGoToResourceId" />
     <addaction name="separator" />
     <addaction name="actionAttach" />
-    <addaction name="actionOpen" />
     <addaction name="actionReload" />
-    <addaction name="separator" />
     <addaction name="separator" />
     <addaction name="actionExport" />
     <addaction name="actionImport" />
@@ -335,6 +325,19 @@
      <string>&amp;Browse</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuWindow" >
+    <property name="title" >
+     <string>&amp;Window</string>
+    </property>
+    <addaction name="actionFullTextSearch" />
+    <addaction name="separator" />
+    <addaction name="actionOpenMenuTab" />
+    <addaction name="actionOpenHomeTab" />
+    <addaction name="separator" />
+    <addaction name="actionNextTab" />
+    <addaction name="actionPreviousTab" />
+    <addaction name="actionClose" />
+   </widget>
    <addaction name="menuFile" />
    <addaction name="menuUser" />
    <addaction name="menuForm" />
@@ -342,6 +345,7 @@
    <addaction name="menuActions" />
    <addaction name="menuBrowse" />
    <addaction name="menuPlugins" />
+   <addaction name="menuWindow" />
    <addaction name="menuHelp" />
   </widget>
   <widget class="QToolBar" name="toolBar" >
@@ -524,8 +528,8 @@
   </action>
   <action name="actionDuplicate" >
    <property name="icon" >
-    <iconset>
-     <normaloff>../../../../../../../usr/share/icons/crystalclear/16x16/actions/save_all.png</normaloff>../../../../../../../usr/share/icons/crystalclear/16x16/actions/save_all.png</iconset>
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/duplicate.png</normaloff>:/images/images/duplicate.png</iconset>
    </property>
    <property name="text" >
     <string>D&amp;uplicate</string>
@@ -595,11 +599,19 @@
    </property>
   </action>
   <action name="actionOpenMenuTab" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/duplicate.png</normaloff>:/images/images/duplicate.png</iconset>
+   </property>
    <property name="text" >
     <string>Open &amp;Menu Tab</string>
    </property>
   </action>
   <action name="actionNextTab" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+   </property>
    <property name="text" >
     <string>Next Tab</string>
    </property>
@@ -608,6 +620,10 @@
    </property>
   </action>
   <action name="actionPreviousTab" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+   </property>
    <property name="text" >
     <string>Previous Tab</string>
    </property>
@@ -628,6 +644,10 @@
    </property>
   </action>
   <action name="actionAccessLog" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/text_block.png</normaloff>:/images/images/text_block.png</iconset>
+   </property>
    <property name="text" >
     <string>View Access Log</string>
    </property>
@@ -639,15 +659,6 @@
    </property>
    <property name="text" >
     <string>Go To Resource ID</string>
-   </property>
-  </action>
-  <action name="actionOpen" >
-   <property name="icon" >
-    <iconset resource="common.qrc" >
-     <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
-   </property>
-   <property name="text" >
-    <string>&amp;Open</string>
    </property>
   </action>
   <action name="actionReload" >
@@ -663,11 +674,19 @@
    </property>
   </action>
   <action name="actionExport" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/document-export.png</normaloff>:/images/images/document-export.png</iconset>
+   </property>
    <property name="text" >
     <string>E&amp;xport Data</string>
    </property>
   </action>
   <action name="actionImport" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/document-import.png</normaloff>:/images/images/document-import.png</iconset>
+   </property>
    <property name="text" >
     <string>&amp;Import Data</string>
    </property>
@@ -772,6 +791,10 @@
    </property>
   </action>
   <action name="actionOpenHomeTab" >
+   <property name="icon" >
+    <iconset resource="common.qrc" >
+     <normaloff>:/images/images/gohome.png</normaloff>:/images/images/gohome.png</iconset>
+   </property>
    <property name="text" >
     <string>Open Home Tab</string>
    </property>
