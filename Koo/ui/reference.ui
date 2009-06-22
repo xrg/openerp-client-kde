@@ -48,7 +48,7 @@
         <string>Clear</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/trash.png</iconset>
+        <iconset resource="common.qrc" >:/images/trash.png</iconset>
        </property>
       </widget>
      </item>
@@ -64,7 +64,7 @@
         <string>New</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/new.png</iconset>
+        <iconset resource="common.qrc" >:/images/new.png</iconset>
        </property>
       </widget>
      </item>
@@ -80,7 +80,7 @@
         <string>Open</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+        <iconset resource="common.qrc" >:/images/find.png</iconset>
        </property>
       </widget>
      </item>

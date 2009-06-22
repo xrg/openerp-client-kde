@@ -64,7 +64,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="common.qrc">:/images/images/relate.png</pixmap>
+           <pixmap resource="common.qrc">:/images/relate.png</pixmap>
           </property>
          </widget>
         </item>
@@ -100,7 +100,7 @@
        </property>
        <property name="icon">
         <iconset resource="common.qrc">
-         <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+         <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
        </property>
       </widget>
      </item>
@@ -120,7 +120,7 @@
        </property>
        <property name="icon">
         <iconset resource="common.qrc">
-         <normaloff>:/images/images/edit.png</normaloff>:/images/images/edit.png</iconset>
+         <normaloff>:/images/edit.png</normaloff>:/images/edit.png</iconset>
        </property>
       </widget>
      </item>
@@ -140,7 +140,7 @@
        </property>
        <property name="icon">
         <iconset resource="common.qrc">
-         <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
+         <normaloff>:/images/delete.png</normaloff>:/images/delete.png</iconset>
        </property>
       </widget>
      </item>
@@ -175,7 +175,7 @@
          </property>
          <property name="icon">
           <iconset resource="common.qrc">
-           <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+           <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
          </property>
         </widget>
        </item>
@@ -217,7 +217,7 @@
          </property>
          <property name="icon">
           <iconset resource="common.qrc">
-           <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+           <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
          </property>
         </widget>
        </item>
@@ -246,7 +246,7 @@
        </property>
        <property name="icon">
         <iconset resource="common.qrc">
-         <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
+         <normaloff>:/images/switch_view.png</normaloff>:/images/switch_view.png</iconset>
        </property>
       </widget>
      </item>

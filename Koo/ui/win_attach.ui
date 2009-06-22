@@ -68,7 +68,7 @@
   <action name="actionNew" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+     <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
    </property>
    <property name="text" >
     <string>New</string>
@@ -80,7 +80,7 @@
   <action name="actionDelete" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
+     <normaloff>:/images/delete.png</normaloff>:/images/delete.png</iconset>
    </property>
    <property name="text" >
     <string>Delete</string>
@@ -92,7 +92,7 @@
   <action name="actionNext" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+     <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
    </property>
    <property name="text" >
     <string>Next</string>
@@ -104,7 +104,7 @@
   <action name="actionPrevious" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+     <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
    </property>
    <property name="text" >
     <string>Previous</string>
@@ -116,7 +116,7 @@
   <action name="actionSwitch" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
+     <normaloff>:/images/switch_view.png</normaloff>:/images/switch_view.png</iconset>
    </property>
    <property name="text" >
     <string>Switch</string>
@@ -128,7 +128,7 @@
   <action name="actionClose" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
+     <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
    </property>
    <property name="text" >
     <string>Close</string>
@@ -140,7 +140,7 @@
   <action name="actionSave" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
+     <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
    </property>
    <property name="text" >
     <string>Save</string>

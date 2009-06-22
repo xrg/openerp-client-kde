@@ -71,7 +71,7 @@ this operation may take a while...</string>
     <string/>
    </property>
    <property name="pixmap" >
-    <pixmap resource="common.qrc" >:/images/images/info.png</pixmap>
+    <pixmap resource="common.qrc" >:/images/info.png</pixmap>
    </property>
   </widget>
  </widget>

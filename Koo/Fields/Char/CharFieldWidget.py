@@ -59,7 +59,7 @@ class CharFieldWidget(AbstractFieldWidget):
 
 		if attrs.get('translate', False):
 			pushTranslate = QToolButton( self )
-			pushTranslate.setIcon( QIcon( ':/images/images/locale.png' ) )
+			pushTranslate.setIcon( QIcon( ':/images/locale.png' ) )
 			layout.addWidget( pushTranslate )
 			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
 

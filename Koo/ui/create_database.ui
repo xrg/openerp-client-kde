@@ -93,7 +93,7 @@
           <string>C&amp;hange</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/configure.png</iconset>
+          <iconset resource="common.qrc" >:/images/configure.png</iconset>
          </property>
         </widget>
        </item>
@@ -300,7 +300,7 @@
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+        <iconset resource="common.qrc" >:/images/ok.png</iconset>
        </property>
        <property name="default" >
         <bool>true</bool>
@@ -313,7 +313,7 @@
         <string>&amp;Cancel</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/cancel.png</iconset>
+        <iconset resource="common.qrc" >:/images/cancel.png</iconset>
        </property>
       </widget>
      </item>

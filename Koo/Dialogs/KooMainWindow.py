@@ -100,7 +100,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.connect( self.tabWidget, SIGNAL("middleClicked(int)"), self.closeTab )
 
 		self.pushClose = QToolButton( self.tabWidget )
-		self.pushClose.setIcon( QIcon( ':/images/images/close_tab.png' ) )
+		self.pushClose.setIcon( QIcon( ':/images/close_tab.png' ) )
 		self.pushClose.setAutoRaise( True )
 		self.pushClose.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 		self.pushClose.setToolTip( _('Close tab') )
@@ -174,12 +174,12 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 		# System Tray
 		self.actionOpenPartnersTab = QAction( self )
-		self.actionOpenPartnersTab.setIcon( QIcon( ':/images/images/partner.png' ) )
+		self.actionOpenPartnersTab.setIcon( QIcon( ':/images/partner.png' ) )
 		self.actionOpenPartnersTab.setText( _('Open partners tab') )
 		self.connect( self.actionOpenPartnersTab, SIGNAL('triggered()'), self.openPartnersTab )
 
 		self.actionOpenProductsTab = QAction( self )
-		self.actionOpenProductsTab.setIcon( QIcon( ':/images/images/product.png' ) )
+		self.actionOpenProductsTab.setIcon( QIcon( ':/images/product.png' ) )
 		self.actionOpenProductsTab.setText( _('Open products tab') )
 		self.connect( self.actionOpenProductsTab, SIGNAL('triggered()'), self.openProductsTab )
 		
@@ -196,7 +196,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.systemTrayMenu.addAction( self.actionExit )
 
 		self.systemTrayIcon = QSystemTrayIcon( self )
-		self.systemTrayIcon.setIcon( QIcon(":/images/images/tinyerp-icon-32x32.png") )
+		self.systemTrayIcon.setIcon( QIcon(":/images/tinyerp-icon-32x32.png") )
 		self.systemTrayIcon.setContextMenu( self.systemTrayMenu )
 		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
 

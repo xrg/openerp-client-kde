@@ -47,7 +47,7 @@
      </property>
      <property name="icon" >
       <iconset resource="common.qrc" >
-       <normaloff>:/images/images/calendar.png</normaloff>:/images/images/calendar.png</iconset>
+       <normaloff>:/images/calendar.png</normaloff>:/images/calendar.png</iconset>
      </property>
     </widget>
    </item>

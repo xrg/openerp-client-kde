@@ -148,7 +148,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		if self.record:
 			self.record.setValue( self.name, False )
 		self.uiText.clear()
-		self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
+		self.pushOpen.setIcon( QIcon( ":/images/find.png"))
 
 	def loadCompletion(self,ids,attrs):
 		self.completion = QCompleter()
@@ -251,13 +251,13 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		res = self.record.value(self.name)
  		if res:
 			self.uiText.setText( res )
-			self.pushOpen.setIcon( QIcon( ":/images/images/folder.png"))
+			self.pushOpen.setIcon( QIcon( ":/images/folder.png"))
 			# pushOpen will always be enabled if it has to open an existing
 			# element
 			self.pushOpen.setEnabled( True )
  		else:
 			self.uiText.clear()
- 			self.pushOpen.setIcon( QIcon( ":/images/images/find.png"))
+ 			self.pushOpen.setIcon( QIcon( ":/images/find.png"))
 			# pushOpen won't be enabled if it is to find an element
 			self.pushOpen.setEnabled( not self.isReadOnly() )
 			

@@ -191,9 +191,9 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			if not name:
 				id, name = RpcProxy(model).name_get([id], Rpc.session.context)[0]
 			self.uiText.setText(name)
-			self.pushOpen.setIcon( QIcon(":/images/images/folder.png") )
+			self.pushOpen.setIcon( QIcon(":/images/folder.png") )
 		else:
 			self.uiText.clear()
 			self.uiModel.setCurrentIndex(-1)
-			self.pushOpen.setIcon( QIcon(":/images/images/find.png") )
+			self.pushOpen.setIcon( QIcon(":/images/find.png") )
 

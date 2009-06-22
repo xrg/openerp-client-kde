@@ -46,7 +46,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
+         <normaloff>:/images/delete.png</normaloff>:/images/delete.png</iconset>
        </property>
       </widget>
      </item>
@@ -116,7 +116,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+           <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
          </property>
         </widget>
        </item>
@@ -127,7 +127,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+           <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
          </property>
         </widget>
        </item>
@@ -138,7 +138,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+           <normaloff>:/images/trash.png</normaloff>:/images/trash.png</iconset>
          </property>
         </widget>
        </item>
@@ -162,7 +162,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
+           <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
          </property>
         </widget>
        </item>
@@ -240,7 +240,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
+         <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
        </property>
        <property name="default" >
         <bool>true</bool>
@@ -254,7 +254,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
+         <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
        </property>
       </widget>
      </item>

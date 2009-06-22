@@ -84,7 +84,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
+           <normaloff>:/images/find.png</normaloff>:/images/find.png</iconset>
          </property>
         </widget>
        </item>
@@ -101,7 +101,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
+           <normaloff>:/images/open.png</normaloff>:/images/open.png</iconset>
          </property>
         </widget>
        </item>
@@ -118,7 +118,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
+           <normaloff>:/images/switch_view.png</normaloff>:/images/switch_view.png</iconset>
          </property>
         </widget>
        </item>

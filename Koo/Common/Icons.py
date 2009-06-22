@@ -79,7 +79,7 @@ mapIcons = {
 # GTK or OpenERP name.
 def kdeIcon(icon):
 	if icon in mapIcons:
-		return QIcon( ':/images/images/' + mapIcons[icon] )
+		return QIcon( ':/images/' + mapIcons[icon] )
 	else:
 		if icon:
 			print "KDE ICON '%s' NOT FOUND" % icon
@@ -89,7 +89,7 @@ def kdeIcon(icon):
 # a GTK or OpenERP name.
 def kdePixmap(icon):
 	if icon in mapIcons:
-		return QPixmap( ':/images/images/' + mapIcons[icon] )
+		return QPixmap( ':/images/' + mapIcons[icon] )
 	else:
 		if icon:
 			print "KDE ICON '%s' NOT FOUND" % icon

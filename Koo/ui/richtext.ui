@@ -45,7 +45,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/text_bold.png</normaloff>:/images/images/text_bold.png</iconset>
+           <normaloff>:/images/text_bold.png</normaloff>:/images/text_bold.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -74,7 +74,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/text_italic.png</normaloff>:/images/images/text_italic.png</iconset>
+           <normaloff>:/images/text_italic.png</normaloff>:/images/text_italic.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -103,7 +103,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/text_under.png</normaloff>:/images/images/text_under.png</iconset>
+           <normaloff>:/images/text_under.png</normaloff>:/images/text_under.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -132,7 +132,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/text_strike.png</normaloff>:/images/images/text_strike.png</iconset>
+           <normaloff>:/images/text_strike.png</normaloff>:/images/text_strike.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -168,7 +168,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/leftjust.png</normaloff>:/images/images/leftjust.png</iconset>
+           <normaloff>:/images/leftjust.png</normaloff>:/images/leftjust.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -197,7 +197,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/text_center.png</normaloff>:/images/images/text_center.png</iconset>
+           <normaloff>:/images/text_center.png</normaloff>:/images/text_center.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -226,7 +226,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/rightjust.png</normaloff>:/images/images/rightjust.png</iconset>
+           <normaloff>:/images/rightjust.png</normaloff>:/images/rightjust.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>
@@ -255,7 +255,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/text_block.png</normaloff>:/images/images/text_block.png</iconset>
+           <normaloff>:/images/text_block.png</normaloff>:/images/text_block.png</iconset>
          </property>
          <property name="checkable" >
           <bool>true</bool>

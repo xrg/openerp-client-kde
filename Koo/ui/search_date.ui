@@ -58,7 +58,7 @@
         <string/>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/calendar.png</iconset>
+        <iconset resource="common.qrc" >:/images/calendar.png</iconset>
        </property>
       </widget>
      </item>
@@ -107,7 +107,7 @@
         <string/>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/calendar.png</iconset>
+        <iconset resource="common.qrc" >:/images/calendar.png</iconset>
        </property>
       </widget>
      </item>

@@ -40,7 +40,7 @@
      <item>
       <widget class="QPushButton" name="pushExpander" >
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/up.png</iconset>
+        <iconset resource="common.qrc" >:/images/up.png</iconset>
        </property>
       </widget>
      </item>
@@ -82,7 +82,7 @@
           <string>&amp;Clear</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/close.png</iconset>
+          <iconset resource="common.qrc" >:/images/close.png</iconset>
          </property>
         </widget>
        </item>
@@ -92,7 +92,7 @@
           <string>&amp;Search</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/find.png</iconset>
+          <iconset resource="common.qrc" >:/images/find.png</iconset>
          </property>
          <property name="autoDefault" >
           <bool>true</bool>

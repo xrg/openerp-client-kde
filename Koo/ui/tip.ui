@@ -25,7 +25,7 @@
       <string/>
      </property>
      <property name="pixmap" >
-      <pixmap resource="common.qrc" >:/images/images/tinyerp.png</pixmap>
+      <pixmap resource="common.qrc" >:/images/tinyerp.png</pixmap>
      </property>
      <property name="alignment" >
       <set>Qt::AlignCenter</set>
@@ -77,7 +77,7 @@
           <string>&amp;Previous Tip</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/previous.png</iconset>
+          <iconset resource="common.qrc" >:/images/previous.png</iconset>
          </property>
         </widget>
        </item>
@@ -87,7 +87,7 @@
           <string>&amp;Next Tip</string>
          </property>
          <property name="icon" >
-          <iconset resource="common.qrc" >:/images/images/next.png</iconset>
+          <iconset resource="common.qrc" >:/images/next.png</iconset>
          </property>
         </widget>
        </item>
@@ -112,7 +112,7 @@
         <string>&amp;Close</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/close.png</iconset>
+        <iconset resource="common.qrc" >:/images/close.png</iconset>
        </property>
       </widget>
      </item>

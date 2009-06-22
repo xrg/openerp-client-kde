@@ -26,7 +26,7 @@
   </property>
   <property name="windowIcon" >
    <iconset resource="common.qrc" >
-    <normaloff>:/images/images/tinyerp-icon-32x32.png</normaloff>:/images/images/tinyerp-icon-32x32.png</iconset>
+    <normaloff>:/images/tinyerp-icon-32x32.png</normaloff>:/images/tinyerp-icon-32x32.png</iconset>
   </property>
   <property name="accessibleName" >
    <string/>
@@ -190,7 +190,7 @@
              </property>
              <property name="icon" >
               <iconset resource="common.qrc" >
-               <normaloff>:/images/images/read-request.png</normaloff>:/images/images/read-request.png</iconset>
+               <normaloff>:/images/read-request.png</normaloff>:/images/read-request.png</iconset>
              </property>
             </widget>
            </item>
@@ -213,7 +213,7 @@
              </property>
              <property name="icon" >
               <iconset resource="common.qrc" >
-               <normaloff>:/images/images/send-request.png</normaloff>:/images/images/send-request.png</iconset>
+               <normaloff>:/images/send-request.png</normaloff>:/images/send-request.png</iconset>
              </property>
             </widget>
            </item>
@@ -388,7 +388,7 @@
   <action name="actionConnect" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/connect.png</normaloff>:/images/images/connect.png</iconset>
+     <normaloff>:/images/connect.png</normaloff>:/images/connect.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Connect</string>
@@ -406,7 +406,7 @@
   <action name="actionDisconnect" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/disconnect.png</normaloff>:/images/images/disconnect.png</iconset>
+     <normaloff>:/images/disconnect.png</normaloff>:/images/disconnect.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Disconnect</string>
@@ -415,7 +415,7 @@
   <action name="actionExit" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/exit.png</normaloff>:/images/images/exit.png</iconset>
+     <normaloff>:/images/exit.png</normaloff>:/images/exit.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Quit</string>
@@ -424,7 +424,7 @@
   <action name="actionNewDatabase" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+     <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;New Database</string>
@@ -433,7 +433,7 @@
   <action name="actionRestoreDatabase" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/redo.png</normaloff>:/images/images/redo.png</iconset>
+     <normaloff>:/images/redo.png</normaloff>:/images/redo.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Restore Database</string>
@@ -442,7 +442,7 @@
   <action name="actionBackupDatabase" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
+     <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Backup Database</string>
@@ -451,7 +451,7 @@
   <action name="actionDropDatabase" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+     <normaloff>:/images/trash.png</normaloff>:/images/trash.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Drop Database</string>
@@ -460,7 +460,7 @@
   <action name="actionAdminPassword" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/edit-user.png</normaloff>:/images/images/edit-user.png</iconset>
+     <normaloff>:/images/edit-user.png</normaloff>:/images/edit-user.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Administrator Password</string>
@@ -469,7 +469,7 @@
   <action name="actionPreferences" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/configure.png</normaloff>:/images/images/configure.png</iconset>
+     <normaloff>:/images/configure.png</normaloff>:/images/configure.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Preferences</string>
@@ -478,7 +478,7 @@
   <action name="actionSendRequest" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/send-request.png</normaloff>:/images/images/send-request.png</iconset>
+     <normaloff>:/images/send-request.png</normaloff>:/images/send-request.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Send Request</string>
@@ -487,7 +487,7 @@
   <action name="actionReadMyRequest" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/read-request.png</normaloff>:/images/images/read-request.png</iconset>
+     <normaloff>:/images/read-request.png</normaloff>:/images/read-request.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Read My Requests</string>
@@ -496,7 +496,7 @@
   <action name="actionWaitingRequests" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/read-request.png</normaloff>:/images/images/read-request.png</iconset>
+     <normaloff>:/images/read-request.png</normaloff>:/images/read-request.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Waiting Requests</string>
@@ -505,7 +505,7 @@
   <action name="actionNew" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+     <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;New</string>
@@ -517,7 +517,7 @@
   <action name="actionSave" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
+     <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Save</string>
@@ -529,7 +529,7 @@
   <action name="actionDuplicate" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/duplicate.png</normaloff>:/images/images/duplicate.png</iconset>
+     <normaloff>:/images/duplicate.png</normaloff>:/images/duplicate.png</iconset>
    </property>
    <property name="text" >
     <string>D&amp;uplicate</string>
@@ -541,7 +541,7 @@
   <action name="actionDelete" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/delete.png</normaloff>:/images/images/delete.png</iconset>
+     <normaloff>:/images/delete.png</normaloff>:/images/delete.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Delete</string>
@@ -553,7 +553,7 @@
   <action name="actionFind" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
+     <normaloff>:/images/find.png</normaloff>:/images/find.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Find</string>
@@ -565,7 +565,7 @@
   <action name="actionNext" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+     <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Next</string>
@@ -577,7 +577,7 @@
   <action name="actionPrevious" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+     <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Previous</string>
@@ -589,7 +589,7 @@
   <action name="actionSwitch" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
+     <normaloff>:/images/switch_view.png</normaloff>:/images/switch_view.png</iconset>
    </property>
    <property name="text" >
     <string>Switch &amp;View</string>
@@ -601,7 +601,7 @@
   <action name="actionOpenMenuTab" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/duplicate.png</normaloff>:/images/images/duplicate.png</iconset>
+     <normaloff>:/images/duplicate.png</normaloff>:/images/duplicate.png</iconset>
    </property>
    <property name="text" >
     <string>Open &amp;Menu Tab</string>
@@ -610,7 +610,7 @@
   <action name="actionNextTab" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+     <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
    </property>
    <property name="text" >
     <string>Next Tab</string>
@@ -622,7 +622,7 @@
   <action name="actionPreviousTab" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+     <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
    </property>
    <property name="text" >
     <string>Previous Tab</string>
@@ -634,7 +634,7 @@
   <action name="actionClose" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
+     <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Close</string>
@@ -646,7 +646,7 @@
   <action name="actionAccessLog" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/text_block.png</normaloff>:/images/images/text_block.png</iconset>
+     <normaloff>:/images/text_block.png</normaloff>:/images/text_block.png</iconset>
    </property>
    <property name="text" >
     <string>View Access Log</string>
@@ -655,7 +655,7 @@
   <action name="actionGoToResourceId" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/relate.png</normaloff>:/images/images/relate.png</iconset>
+     <normaloff>:/images/relate.png</normaloff>:/images/relate.png</iconset>
    </property>
    <property name="text" >
     <string>Go To Resource ID</string>
@@ -664,7 +664,7 @@
   <action name="actionReload" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/reload.png</normaloff>:/images/images/reload.png</iconset>
+     <normaloff>:/images/reload.png</normaloff>:/images/reload.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Reload/Undo</string>
@@ -676,7 +676,7 @@
   <action name="actionExport" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/document-export.png</normaloff>:/images/images/document-export.png</iconset>
+     <normaloff>:/images/document-export.png</normaloff>:/images/document-export.png</iconset>
    </property>
    <property name="text" >
     <string>E&amp;xport Data</string>
@@ -685,7 +685,7 @@
   <action name="actionImport" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/document-import.png</normaloff>:/images/images/document-import.png</iconset>
+     <normaloff>:/images/document-import.png</normaloff>:/images/document-import.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Import Data</string>
@@ -694,7 +694,7 @@
   <action name="actionPlugins" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/exec.png</normaloff>:/images/images/exec.png</iconset>
+     <normaloff>:/images/exec.png</normaloff>:/images/exec.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Execute Plugins</string>
@@ -703,7 +703,7 @@
   <action name="actionContextualHelp" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/help.png</normaloff>:/images/images/help.png</iconset>
+     <normaloff>:/images/help.png</normaloff>:/images/help.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Contextual Help</string>
@@ -717,7 +717,7 @@
   <action name="actionShortcuts" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/key_bindings.png</normaloff>:/images/images/key_bindings.png</iconset>
+     <normaloff>:/images/key_bindings.png</normaloff>:/images/key_bindings.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Keyboard Shortcut</string>
@@ -731,7 +731,7 @@
   <action name="actionAbout" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/tinyerp-icon-32x32.png</normaloff>:/images/images/tinyerp-icon-32x32.png</iconset>
+     <normaloff>:/images/tinyerp-icon-32x32.png</normaloff>:/images/tinyerp-icon-32x32.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;About</string>
@@ -740,7 +740,7 @@
   <action name="actionFullTextSearch" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/full_text_search.png</normaloff>:/images/images/full_text_search.png</iconset>
+     <normaloff>:/images/full_text_search.png</normaloff>:/images/full_text_search.png</iconset>
    </property>
    <property name="text" >
     <string>Full &amp;Text Search</string>
@@ -752,7 +752,7 @@
   <action name="actionAttach" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/attach.png</normaloff>:/images/images/attach.png</iconset>
+     <normaloff>:/images/attach.png</normaloff>:/images/attach.png</iconset>
    </property>
    <property name="text" >
     <string>Attachments</string>
@@ -764,7 +764,7 @@
   <action name="actionFormDesigner" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/switch_view.png</normaloff>:/images/images/switch_view.png</iconset>
+     <normaloff>:/images/switch_view.png</normaloff>:/images/switch_view.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Form designer</string>
@@ -793,7 +793,7 @@
   <action name="actionOpenHomeTab" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/gohome.png</normaloff>:/images/images/gohome.png</iconset>
+     <normaloff>:/images/gohome.png</normaloff>:/images/gohome.png</iconset>
    </property>
    <property name="text" >
     <string>Open Home Tab</string>
@@ -802,7 +802,7 @@
   <action name="actionClearCache" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+     <normaloff>:/images/trash.png</normaloff>:/images/trash.png</iconset>
    </property>
    <property name="text" >
     <string>&amp;Clear Cache</string>
@@ -811,7 +811,7 @@
   <action name="actionMassiveUpdate" >
    <property name="icon" >
     <iconset resource="common.qrc" >
-     <normaloff>:/images/images/edit.png</normaloff>:/images/images/edit.png</iconset>
+     <normaloff>:/images/edit.png</normaloff>:/images/edit.png</iconset>
    </property>
    <property name="text" >
     <string>Modify All Selected Records</string>

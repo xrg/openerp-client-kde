@@ -65,7 +65,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/configure.png</normaloff>:/images/images/configure.png</iconset>
+         <normaloff>:/images/configure.png</normaloff>:/images/configure.png</iconset>
        </property>
        <property name="autoDefault" >
         <bool>true</bool>
@@ -162,7 +162,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
+         <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
        </property>
        <property name="default" >
         <bool>true</bool>
@@ -176,7 +176,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
+         <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
        </property>
       </widget>
      </item>

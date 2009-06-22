@@ -42,7 +42,7 @@
         <string>&amp;Add</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/new.png</iconset>
+        <iconset resource="common.qrc" >:/images/new.png</iconset>
        </property>
       </widget>
      </item>
@@ -58,7 +58,7 @@
         <string>&amp;Remove</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/delete.png</iconset>
+        <iconset resource="common.qrc" >:/images/delete.png</iconset>
        </property>
       </widget>
      </item>

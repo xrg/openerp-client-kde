@@ -54,7 +54,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/play.png</normaloff>:/images/images/play.png</iconset>
+         <normaloff>:/images/play.png</normaloff>:/images/play.png</iconset>
        </property>
       </widget>
      </item>
@@ -68,7 +68,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/pause.png</normaloff>:/images/images/pause.png</iconset>
+         <normaloff>:/images/pause.png</normaloff>:/images/pause.png</iconset>
        </property>
       </widget>
      </item>
@@ -85,7 +85,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/stop.png</normaloff>:/images/images/stop.png</iconset>
+         <normaloff>:/images/stop.png</normaloff>:/images/stop.png</iconset>
        </property>
       </widget>
      </item>
@@ -99,7 +99,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
+         <normaloff>:/images/open.png</normaloff>:/images/open.png</iconset>
        </property>
       </widget>
      </item>
@@ -113,7 +113,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/save.png</normaloff>:/images/images/save.png</iconset>
+         <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
        </property>
       </widget>
      </item>
@@ -121,7 +121,7 @@
       <widget class="QToolButton" name="pushRemove" >
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+         <normaloff>:/images/trash.png</normaloff>:/images/trash.png</iconset>
        </property>
       </widget>
      </item>

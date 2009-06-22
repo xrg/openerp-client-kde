@@ -64,7 +64,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/next.png</normaloff>:/images/images/next.png</iconset>
+           <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
          </property>
         </widget>
        </item>
@@ -75,7 +75,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/previous.png</normaloff>:/images/images/previous.png</iconset>
+           <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
          </property>
         </widget>
        </item>
@@ -86,7 +86,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+           <normaloff>:/images/trash.png</normaloff>:/images/trash.png</iconset>
          </property>
         </widget>
        </item>
@@ -110,7 +110,7 @@
          </property>
          <property name="icon" >
           <iconset resource="common.qrc" >
-           <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
+           <normaloff>:/images/find.png</normaloff>:/images/find.png</iconset>
          </property>
         </widget>
        </item>
@@ -164,7 +164,7 @@
       <widget class="QPushButton" name="pushOpenFile" >
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/open.png</normaloff>:/images/images/open.png</iconset>
+         <normaloff>:/images/open.png</normaloff>:/images/open.png</iconset>
        </property>
       </widget>
      </item>
@@ -264,7 +264,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/ok.png</normaloff>:/images/images/ok.png</iconset>
+         <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
        </property>
       </widget>
      </item>
@@ -275,7 +275,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/cancel.png</normaloff>:/images/images/cancel.png</iconset>
+         <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
        </property>
       </widget>
      </item>

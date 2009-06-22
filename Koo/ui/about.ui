@@ -45,7 +45,7 @@ p, li { white-space: pre-wrap; }
        <string>&amp;OpenERP</string>
       </attribute>
       <attribute name="icon" >
-       <iconset resource="common.qrc" >:/images/images/tinyerp-icon-32x32.png</iconset>
+       <iconset resource="common.qrc" >:/images/tinyerp-icon-32x32.png</iconset>
       </attribute>
       <layout class="QVBoxLayout" >
        <item>
@@ -85,7 +85,7 @@ p, li { white-space: pre-wrap; }
        <string>&amp;Contact</string>
       </attribute>
       <attribute name="icon" >
-       <iconset resource="common.qrc" >:/images/images/read-request.png</iconset>
+       <iconset resource="common.qrc" >:/images/read-request.png</iconset>
       </attribute>
       <layout class="QVBoxLayout" >
        <item>
@@ -135,7 +135,7 @@ p, li { white-space: pre-wrap; }
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+        <iconset resource="common.qrc" >:/images/ok.png</iconset>
        </property>
       </widget>
      </item>

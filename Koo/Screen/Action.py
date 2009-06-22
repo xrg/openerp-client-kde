@@ -111,7 +111,7 @@ class ActionFactory:
 		for icontype in ( 'print','action','relate' ):
 			for tool in definition[icontype]:
 				action = Action( parent )
-				action.setIcon( QIcon( ":/images/images/%s.png" % icontype) )
+				action.setIcon( QIcon( ":/images/%s.png" % icontype) )
 				action.setText( tool['string'] )
 				action.setType( icontype )
 				action.setData( tool )
@@ -121,7 +121,7 @@ class ActionFactory:
 		plugs = Plugins.list(model)
 		for p in plugs:
 			action = Action( parent )
-			action.setIcon( QIcon( ":/images/images/exec.png" ) )
+			action.setIcon( QIcon( ":/images/exec.png" ) )
 			action.setText( unicode( plugs[p]['string'] ) )
 			action.setData( p )
 			action.setType( 'plugin' )

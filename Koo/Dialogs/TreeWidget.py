@@ -228,10 +228,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.pushExpand.setChecked( value )
 		if value:
 			self.uiTree.expandAll()
-			self.pushExpand.setIcon( QIcon( ':/images/images/up.png' ) )
+			self.pushExpand.setIcon( QIcon( ':/images/up.png' ) )
 		else:
 			self.uiTree.collapseAll()
-			self.pushExpand.setIcon( QIcon( ':/images/images/down.png' ) )
+			self.pushExpand.setIcon( QIcon( ':/images/down.png' ) )
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -314,10 +314,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 				del self.treeState[ mainKey ]
 		if self.pushExpand.isChecked():
 			self.uiTree.expandAll()
-			self.pushExpand.setIcon( QIcon( ':/images/images/up.png' ) )
+			self.pushExpand.setIcon( QIcon( ':/images/up.png' ) )
 		else:
 			self.uiTree.collapseAll()
-			self.pushExpand.setIcon( QIcon( ':/images/images/down.png' ) )
+			self.pushExpand.setIcon( QIcon( ':/images/down.png' ) )
 
 	def currentShortcutId(self):
 		item = self.uiShortcuts.currentIndex()

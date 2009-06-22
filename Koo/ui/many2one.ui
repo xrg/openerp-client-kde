@@ -55,7 +55,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/trash.png</normaloff>:/images/images/trash.png</iconset>
+         <normaloff>:/images/trash.png</normaloff>:/images/trash.png</iconset>
        </property>
       </widget>
      </item>
@@ -78,7 +78,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+         <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
        </property>
       </widget>
      </item>
@@ -101,7 +101,7 @@
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/find.png</normaloff>:/images/images/find.png</iconset>
+         <normaloff>:/images/find.png</normaloff>:/images/find.png</iconset>
        </property>
       </widget>
      </item>

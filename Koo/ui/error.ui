@@ -59,7 +59,7 @@
             <string/>
            </property>
            <property name="pixmap" >
-            <pixmap resource="common.qrc" >:/images/images/warning.png</pixmap>
+            <pixmap resource="common.qrc" >:/images/warning.png</pixmap>
            </property>
           </widget>
          </item>
@@ -152,7 +152,7 @@
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+        <iconset resource="common.qrc" >:/images/ok.png</iconset>
        </property>
       </widget>
      </item>

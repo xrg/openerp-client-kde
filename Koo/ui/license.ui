@@ -148,7 +148,7 @@ p, li { white-space: pre-wrap; }
         <string>&amp;Accept</string>
        </property>
        <property name="icon" >
-        <iconset resource="common.qrc" >:/images/images/ok.png</iconset>
+        <iconset resource="common.qrc" >:/images/ok.png</iconset>
        </property>
       </widget>
      </item>

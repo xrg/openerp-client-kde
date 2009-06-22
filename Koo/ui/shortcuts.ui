@@ -564,7 +564,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="icon" >
         <iconset resource="common.qrc" >
-         <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
+         <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
        </property>
       </widget>
      </item>

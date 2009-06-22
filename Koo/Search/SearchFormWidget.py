@@ -222,9 +222,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 					x.show()
 		self.expanded = not self.expanded
 		if self.expanded:
-			self.pushExpander.setIcon( QIcon(':/images/images/up.png') )
+			self.pushExpander.setIcon( QIcon(':/images/up.png') )
 		else:
-			self.pushExpander.setIcon( QIcon(':/images/images/down.png') )
+			self.pushExpander.setIcon( QIcon(':/images/down.png') )
 		
 	def setFocus(self):
 		if self.focusable:
