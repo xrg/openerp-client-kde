@@ -160,10 +160,12 @@ class XmlRpcConnection(Connection):
 			result = function( *args )
 		return result
 
-## Creates an instance of the appropiate Connection class (whether 
-# SocketConnection or XmlRpcConnection) given an url. If the scheme (or
-# protocol is socket:// opens SocketConnection. Otherwise (usually http)
-# opens a XmlRpcConnection.
+## @brief Creates an instance of the appropiate Connection class.
+#
+# These can be:
+# - SocketConnection if protocol (or scheme) is socket:// 
+# - PyroConnection if protocol 
+# - XmlRpcConnection otherwise (usually will be http or https)
 def createConnection(url):
 	qUrl = QUrl( url )
 	if qUrl.scheme() == 'socket':
@@ -173,7 +175,6 @@ def createConnection(url):
 	else:
 		con = XmlRpcConnection( url )
 	return con
-
 
 class AsynchronousSessionCall(QThread):
 	def __init__(self, session, parent=None):
