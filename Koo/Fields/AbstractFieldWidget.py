@@ -55,6 +55,8 @@ class AbstractFieldWidget(QWidget):
 
 		if 'visible' in self.attrs:
 			self.setVisible( bool(int(self.attrs['visible'])) )
+		if 'invisible' in self.attrs:
+			self.setVisible( not bool(int(self.attrs['invisible'])) )
 
 		# Required and readonly attributes are not directly linked to
 		# the field states because a widget might not have a record

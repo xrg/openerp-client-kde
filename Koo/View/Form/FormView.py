@@ -196,30 +196,49 @@ class FormView( AbstractView ):
 				self.widgets[name].load(None)
 		# Update state widgets
 		for widget in self.stateWidgets:
+			# Consider 'attrs' attribute
 			for attribute, condition in widget['attributes'].iteritems():
 				if self.record:
 					value = self.record.evaluateCondition( condition )
 				else:
 					value = False
 				if attribute == 'invisible':
-					# We need to know if the widget is a FormContainer and it's the
-					# main widget in a tab in which case we'll want to disable
-					# the whole tab (we can't hide it because Qt doesn't provide an
-					# easy way of doing it).
-					w = widget['widget']
-					if isinstance(w, FormContainer) and w.isTab:
-						w.setTabEnabled( not value )
-					else:
-						w.setVisible( not value )
+					self.setWidgetVisible( widget['widget'], not value )
 				elif attributes == 'readonly':
 					widget['widget'].setReadOnly( value )
+			# Consider 'states' attribute
+			if widget['states']:
+				if self.record and self.record.fieldExists('state'):
+					state = self.record.value('state')
+				else:
+					state = ''
+				if state in widget['states']:
+					self.setWidgetVisible( widget['widget'], True )
+				else:
+					self.setWidgetVisible( widget['widget'], False )
 
-	def addStateWidget(self, widget, attributes):
+	def setWidgetVisible(self, widget, value):
+		# We need to know if the widget is a FormContainer and it's the
+		# main widget in a tab in which case we'll want to disable
+		# the whole tab (we can't hide it because Qt doesn't provide an
+		# easy way of doing it).
+		if isinstance(widget, FormContainer) and widget.isTab:
+			widget.setTabEnabled( value )
+		else:
+			widget.setVisible( value )
+
+	def addStateWidget(self, widget, attributes, states):
 		if not attributes:
-			return
+			attributes = "{}"
+		attributes = eval( attributes )
+		if states:
+			states = states.split(',')
+		else:
+			states = []
 		self.stateWidgets.append({
 			'widget': widget,
-			'attributes': eval( attributes )
+			'attributes': attributes,
+			'states': states
 		})
 
 	def viewSettings(self):

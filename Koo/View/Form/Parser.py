@@ -82,12 +82,10 @@ class FormParser(AbstractParser):
 				container.addWidget(icon, attrs)
 
 			elif node.localName=='separator':
-			 	if 'string' in attrs:
- 					caption = attrs.get( 'string', '' )
- 				else:
- 					caption = ""
+				caption = attrs.get( 'string', '' )
 				label = QLabel( container )
 				label.setText( caption )
+				self.view.addStateWidget( label, attrs.get('attrs'), attrs.get('states') )
 				container.addWidget( label, attrs )
 
 			elif node.localName=='label':
@@ -110,7 +108,7 @@ class FormParser(AbstractParser):
 				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
 				name = attrs.get('name', 'unnamed')
 				self.view.widgets[name] = button
-				self.view.addStateWidget( button, attrs.get('attrs') )
+				self.view.addStateWidget( button, attrs.get('attrs'), attrs.get('states') )
 				container.addWidget(button, attrs)
 
 			elif node.localName=='notebook':
@@ -147,7 +145,7 @@ class FormParser(AbstractParser):
 				# Mark the container as the main widget in a Tab. This way
 				# we can enable/disable the whole tab easily.
 				widget.isTab = True
-				self.view.addStateWidget( widget, attrs.get('attrs') )
+				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
 
 				widget.expand()
 				notebook.addTab( widget, Common.normalizeLabel( attrs.get('string', '') ) )
@@ -220,7 +218,8 @@ class FormParser(AbstractParser):
 					layout = QHBoxLayout( group )
 					layout.addWidget( widget )
 					widget = group
-
+				
+				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
 				# We don't expand the widget in 'group' as it should be 
 				# automatically expanded when new rows are added to the grid.
 				# See FormContainer.newRow()
