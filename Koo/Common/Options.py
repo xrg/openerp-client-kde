@@ -60,7 +60,8 @@ class ConfigurationManager(object):
 			'tabs_position' : 'top',
 			'show_toolbar' : True,
 			'sort_mode' : 'all_items',
-			'pos_mode' : False
+			'pos_mode' : False,
+			'kde.enabled' : True
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))

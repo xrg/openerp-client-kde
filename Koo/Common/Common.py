@@ -43,8 +43,11 @@ from PyQt4.uic import *
 from Paths import *
 
 try:
-	from PyKDE4.kdecore import ki18n
-	isKdeAvailable = True
+	if Options.options['kde.enabled']:
+		from PyKDE4.kdecore import ki18n
+		isKdeAvailable = True
+	else:
+		isKdeAvailable = False
 except:
 	isKdeAvailable = False
 
