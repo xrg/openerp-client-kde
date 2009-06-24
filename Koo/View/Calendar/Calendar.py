@@ -480,10 +480,12 @@ class CalendarView( AbstractView, CalendarViewUi ):
 		self.connect( self.pushDailyView, SIGNAL('clicked()'), self.updateCalendarView )
 		self.setReadOnly( True )
 		self.title = ""
-		self.view_type = 'calendar'
 		self.updateCalendarView()
 		self.connect( self.calendarView.scene(), SIGNAL('currentChanged(PyQt_PyObject)'), self.currentChanged )
 		self.connect( self.calendarView.scene(), SIGNAL('activated()'), self.activated )
+
+	def viewType(self):
+		return 'calendar'
 
 	def setModel(self, model):
 		self.calendarView.setModel( model )

@@ -29,4 +29,4 @@ from SvgView import *
 from Parser import *
 from Koo.View.ViewFactory import *
 
-ViewFactory.register( 'svg', SvgParser )
+ViewFactory.register( SvgParser, 'svg', _('SVG View'), ':/images/convert.png' )

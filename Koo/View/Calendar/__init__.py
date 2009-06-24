@@ -28,4 +28,4 @@
 from Parser import *
 from Koo.View.ViewFactory import *
 
-ViewFactory.register( 'calendar', CalendarParser )
+ViewFactory.register( CalendarParser, 'calendar', _('Calendar View'), ':/images/calendar.png' )

@@ -72,10 +72,21 @@ class FormWidget( QWidget, FormWidgetUi ):
 				res_id = Rpc.session.execute('/object', 'execute', model, 'search', domain)
 		fields = {}
 		self.model = model
-		self.previous_action = None
+		self.previousAction = None
 		self.fields = fields
 		self.domain = domain
 		self.context = context
+		self.viewTypes = view_type
+		self.viewIds = view_ids
+
+		self._switchViewMenu = QMenu( self )
+		self._viewActionGroup = QActionGroup( self )
+		self._viewActionGroup.setExclusive( True )
+		for view in self.viewTypes:
+			action = ViewFactory.viewAction( view, self )
+			self.connect( action, SIGNAL('triggered()'), self.switchView )
+			self._switchViewMenu.addAction( action )
+			self._viewActionGroup.addAction( action )
 
 		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setDomain( domain )
@@ -91,16 +102,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		# Remove ids with False value
 		self.screen.setupViews( view_type, view_ids )
-		self.viewTypes = view_type
-		self.viewIds = view_ids
+
 
 		if name:
 			self.name = name
 		else:
 			self.name = self.screen.currentView().title
-
-		self.has_backup = False
-		self.backup = {}
 
 		self.handlers = {
 			'New': self.new,
@@ -119,6 +126,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'Duplicate': self.duplicate,
 			'MassiveUpdate': self.massiveUpdate
 		}
+
 		if res_id:
 			if isinstance(res_id, int):
 				res_id = [res_id]
@@ -126,6 +134,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		else:
 			if len(view_type) and view_type[0]=='form':
 				self.screen.new()
+
+		self.updateSwitchView()
 
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
@@ -192,9 +202,16 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
 			Api.instance.createWindow(None, self.model, self.screen.currentId(), view_type='form', mode='form,tree')
 		else:
-			self.screen.switchView()
+			sender = self.sender()
+			name = unicode( sender.objectName()  )
+			if isinstance(sender, QAction) and name != 'actionSwitch':
+				self.sender().setChecked( True )
+				self.screen.switchView( name )
+			else:
+				self.screen.switchView()
 		if self.pendingReload:
 			self.reload()
+		self.updateSwitchView()
 		QApplication.restoreOverrideCursor()
 
 	def showLogs(self):
@@ -331,12 +348,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 				return False
 			ids = [id]
 		if len(ids):
-			if previous and self.previous_action:
-				Api.instance.executeAction(self.previous_action[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
+			if previous and self.previousAction:
+				Api.instance.executeAction(self.previousAction[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
 			else:
 				res = Api.instance.executeKeyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
 				if res:
-					self.previous_action = res
+					self.previousAction = res
 			self.reload()
 		else:
 			self.updateStatus(_('No record selected!'))
@@ -358,6 +375,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 			ids = []
 		message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
+
+	def updateSwitchView(self):
+		for action in self._viewActionGroup.actions():
+			if action.objectName() == self.screen.currentView().viewType():
+				action.setChecked( True )
+				break
 
 	def updateRecordStatus(self, position, count, value):
 		if not count:
@@ -430,6 +453,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def actions(self):
 		return self.screen.actions
+
+	def switchViewMenu(self):
+		return self._switchViewMenu
 
 	def __del__(self):
 		print "DEL FORMWIDGET"

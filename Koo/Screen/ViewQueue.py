@@ -104,5 +104,25 @@ class ViewQueue:
 		self._views.pop(0)
 		return self._mixed.pop(0)
 
+	def viewFromType(self, type):
+		for view in self._mixed:
+			if view[1] == type:
+				return view
+		return None, None
+
+	def indexFromType(self, type):
+		index = 0
+		for view in self._mixed:
+			if view[1] == type:
+				return index
+			index += 1
+		return -1
+
+	def typeFromIndex(self, index):
+		return self._mixed[ index ][1]
+
+	def count(self):
+		return len(self._mixed)
+
 
 # vim:noexpandtab:

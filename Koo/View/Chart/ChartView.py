@@ -34,11 +34,13 @@ from Koo.View.AbstractView import *
 class ChartView( AbstractView ) :
 	def __init__(self, parent=None ):
 		AbstractView.__init__( self, parent )
-		self.view_type = 'graph'
 		self.widget = None 
 		layout = QVBoxLayout( self )
 		self.title= ''
 		self.model = None
+
+	def viewType(self):
+		return 'graph'
 
 	def setWidget( self, widget ):
 		self.widget = widget

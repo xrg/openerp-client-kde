@@ -32,13 +32,15 @@ class AbstractView(QWidget):
 		QWidget.__init__( self, parent )
 		# TODO: By now, needs the self.widget
 		self.widget = None
-		# Needs to set self.view_type (example: 'tree' or 'form')
-		self.view_type = 'none'
 		# The 'id' corresponds to the view id in the database. Not directly
 		# used by the view itself might be filled and used by other classes 
 		# such as Screen, which will use this id for storing/loading settings
 		self.id = False
 		self._onWrite = ''
+
+	## @brief This function should return the type of view the class handles. Such as 'tree' or 'from'.
+	def viewType(self):
+		return None
 
 	## @brief This function should store the information in the model
 	# The model used should be the one given by display()

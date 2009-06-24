@@ -118,7 +118,6 @@ class TreeView( AbstractView ):
 		AbstractView.__init__(self, parent)
 		self._widgetType = widgetType
 		self.treeModel = None
-		self.view_type = 'tree'
 		self.reload = False
 		self.title=""
 		self.selecting = False
@@ -177,6 +176,9 @@ class TreeView( AbstractView ):
 		layout.addWidget( self.aggregatesContainer )
 		self.setLayout( layout )
 		self.setReadOnly( True )
+	
+	def viewType(self):
+		return 'tree'
 
 	def setGridWidth( self, width ):
 		if self._widgetType == 'list':

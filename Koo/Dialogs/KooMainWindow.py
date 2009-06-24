@@ -57,6 +57,9 @@ from Koo.Common import Common
 from Koo.Common import Api
 from Koo.Common import ViewSettings
 from Koo.Common import Debug
+from Koo.Common import Icons
+
+from Koo.View.ViewFactory import *
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
@@ -156,6 +159,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		for x in self.actions:
 			action = eval('self.action'+ x)
 			self.connect( action, SIGNAL( 'triggered()' ), self.callChildView )
+
+
+		self.pushSwitchView = self.uiToolBar.widgetForAction( self.actionSwitch )
+		self.pushSwitchView.setPopupMode( QToolButton.MenuButtonPopup )
 
 		self.updateEnabledActions()
 
@@ -573,7 +580,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		browse = False
 		actions = False
 		plugins = False
-		if view and view.actions():
+		if view:
+			self.pushSwitchView.setMenu( view.switchViewMenu() )
 			for x in view.actions():
 				if x.type() == 'print':
 					self.menuReports.addAction( x )
@@ -610,6 +618,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.actionClose.setEnabled( value )
 		self.actionNextTab.setEnabled( value )
 		self.actionPreviousTab.setEnabled( value )
+
 
 	def callChildView( self ):
 		o = self.sender()

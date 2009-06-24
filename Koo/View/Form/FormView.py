@@ -131,7 +131,6 @@ class FormView( AbstractView ):
 		AbstractView.__init__( self, parent )
 		# We still depend on the parent being a screen because of ButtonFormWidget
 		self.screen = parent
-		self.view_type = 'form'
 		self.title = ""
 		self.record = None
 
@@ -143,6 +142,9 @@ class FormView( AbstractView ):
 		# The parser will include here all widgets that can change their state (such as visibility).
 		# This can include field widgets but also tabs, and others.
 		self.stateWidgets = []
+
+	def viewType(self):
+		return 'form'
 
 	def setWidget(self, widget):
 		self.widget = widget
@@ -204,8 +206,8 @@ class FormView( AbstractView ):
 					value = False
 				if attribute == 'invisible':
 					self.setWidgetVisible( widget['widget'], not value )
-				elif attributes == 'readonly':
-					widget['widget'].setReadOnly( value )
+				elif attribute == 'readonly':
+					self.setWidgetReadOnly( widget['widget'], value )
 			# Consider 'states' attribute
 			if widget['states']:
 				if self.record and self.record.fieldExists('state'):
@@ -226,6 +228,15 @@ class FormView( AbstractView ):
 			widget.setTabEnabled( value )
 		else:
 			widget.setVisible( value )
+
+	def setWidgetReadOnly(self, widget, value):
+		# We need to know if the widget is a FormContainer and it's the
+		# main widget in a tab in which case we'll want to disable
+		# the whole tab 
+		if isinstance(widget, FormContainer) and widget.isTab:
+			widget.setTabEnabled( not value )
+		else:
+			widget['widget'].setReadOnly( value )
 
 	def addStateWidget(self, widget, attributes, states):
 		if not attributes:

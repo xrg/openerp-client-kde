@@ -102,12 +102,13 @@ class Screen(QScrollArea):
 		self.views_preload = {}
 		self.rpc = None
 		self.name = None
-		self.views = []
+		self.views = {}
 		self.fields = {}
 		self.group = None
 		self._currentRecordPosition = None
 		self._currentRecord = None
-		self._currentView = 0
+		self._currentView = -1
+		self._previousView = -1
 
 		self._viewQueue = ViewQueue()
 
@@ -143,9 +144,6 @@ class Screen(QScrollArea):
 		# Try to load only if model group has been set
 		if self.name:
 			self.switchView()
-
-	def viewTypes(self):
-		return self._viewTypes
 
 	## @brief Sets whether the screen is embedded.
 	#
@@ -317,17 +315,27 @@ class Screen(QScrollArea):
 				self.currentView().setSelected(self._currentRecord.id)
 
 	## @brief Switches to the next view in the queue of views.
-	def switchView(self):
+	def switchView(self, viewType = None):
 		if self.currentView(): 
 			self.currentView().store()
 
 		if self.currentRecord() and ( not self.group.recordExists( self.currentRecord() ) ):
 			self.setCurrentRecord( None )
 
-		if self.loadNextView():
-			self._currentView = len(self.views) - 1
+		if viewType:
+			self._previousView = self._currentView
+			self._currentView = self._viewQueue.indexFromType( viewType )
 		else:
-			self._currentView = (self._currentView + 1) % len(self.views)
+			if self._currentView >= 0:
+				# Swap currentView and previousView values
+				self._currentView, self._previousView = self._previousView, self._currentView
+			else:
+				self._currentView = 0
+			# The second time switchView is executed, currentView might get -1
+			# and we want it in fact to be 1 ...
+			self._currentView = abs(self._currentView)
+			# ... unless there's only one view
+			self._currentView = min(self._currentView, self._viewQueue.count()-1)
 
 		self.setView( self.currentView() )
 	    	if self.currentRecord():
@@ -433,11 +441,11 @@ class Screen(QScrollArea):
 		# Load view settings
 		view.setViewSettings( ViewSettings.load( view.id ) )
 
-		self.views.append(view)
+		self.views[ view.viewType() ] = view
 		self.loadActions( toolbar )
 
 		if display:
-			self._currentView = len(self.views) - 1
+			self._currentView = self._viewQueue.indexFromType( view.viewType() )
 			self.currentView().display(self.currentRecord(), self.group)
 			self.setView(view)
 		return view
@@ -509,14 +517,6 @@ class Screen(QScrollArea):
 					self.setCurrentRecord( record )
 					self.display()
 					return False
-			#for model in self.group.records:
-				#if model.isModified():
-					#if model.validate():
-						#id = model.save(reload=True)
-					#else:
-						#self.setCurrentRecord( model )
-						#self.display()
-						#return False
 			self.display()
 
 		self.display()
@@ -571,9 +571,13 @@ class Screen(QScrollArea):
 
 	## @brief Returns a reference to the current view.
 	def currentView(self):
-		if not len(self.views):
+		if self._currentView < 0:
 			return None
-		return self.views[self._currentView]
+		type = self._viewQueue.typeFromIndex( self._currentView )
+		if not type in self.views:
+			(id, type) = self._viewQueue.viewFromType( type )
+			self.addViewByIdAndType( id, type )
+		return self.views[ type ]
 
 	## @brief Returns a dictionary with all field values for the current record. 
 	def get(self):
@@ -652,7 +656,6 @@ class Screen(QScrollArea):
 	def displayNext(self):
 		self.currentView().store()
 		if self.group.recordExists( self.currentRecord() ):
-			#idx = self.group.records.index(self.currentRecord())
 			idx = self.group.indexOfRecord(self.currentRecord())
 			idx = (idx+1) % self.group.count()
 			self.setCurrentRecord( self.group.modelByIndex(idx) )
@@ -707,7 +710,7 @@ class Screen(QScrollArea):
 
 	# Stores settings of all opened views
 	def storeViewSettings(self):
-		for view in self.views:
+		for view in self.views.values():
 			ViewSettings.store( view.id, view.viewSettings() )
 
 # vim:noexpandtab:

@@ -33,14 +33,17 @@
     <file>images/exit.png</file>
     <file>images/find.png</file>
     <file>images/folder.png</file>
+    <file>images/form.png</file>
     <file>images/full_text_search.png</file>
     <file>images/gohome.png</file>
     <file>images/help.png</file>
     <file>images/hr.png</file>
     <file>images/import.png</file>
+    <file>images/indent.png</file>
     <file>images/info.png</file>
     <file>images/key_bindings.png</file>
     <file>images/leftjust.png</file>
+    <file>images/list.png</file>
     <file>images/locale.png</file>
     <file>images/manual.png</file>
     <file>images/media_next.png</file>

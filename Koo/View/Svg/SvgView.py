@@ -33,12 +33,14 @@ from PyQt4.QtSvg import *
 class SvgView( AbstractView ):
 	def __init__(self, parent=None):
 		AbstractView.__init__( self, parent )
-		self.view_type = 'svg'
 		self.scene = QGraphicsScene( self )
 		self.view = QGraphicsView( self )
 		self.view.setScene( self.scene )
 		self.view.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing | QPainter.SmoothPixmapTransform);
 		self.svg = None
+
+	def viewType(self):
+		return 'svg'
 
 	def setSvg( self, file ):
 		t = self.view.transform()

@@ -351,3 +351,6 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 	def actions(self):
 		return []
 
+	def switchViewMenu(self):
+		return None
+

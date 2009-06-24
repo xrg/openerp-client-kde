@@ -27,26 +27,34 @@
 ##############################################################################
 
 import os
+from PyQt4.QtGui import *
 from Koo.Common import Plugins
 
 # The 'ViewFactory' class specializes in creating the appropiate views. Searches
 # for available views and calls the parser of the appropiate one.
 #
-# To add a new view, simply create a new directory and put a __terp__.py file.
-# The file should look like this:
-# {
-# 	'viewname' : ParserClass
-# }
 # Each directory could handle more than one view types.
-# Standard types are 'form', 'tree' and 'graph'. 
+# Standard types are 'form', 'tree', 'calendar' and 'graph'. 
 
 class ViewFactory:
-	parsers = {}
+	views = {}
+
+	@staticmethod
+	def viewAction(name, parent):
+		ViewFactory.scan()
+		action = QAction( parent )
+		if name in ViewFactory.views:
+			view = ViewFactory.views[name]
+			action.setObjectName( name )
+			action.setText( view['label'] )
+			action.setIcon( QIcon( view['icon'] ) )
+			action.setCheckable( True )
+		return action
 
 	@staticmethod
 	def scan():
 		# Scan only once
-		if ViewFactory.parsers:
+		if ViewFactory.views:
 			return
 		# Search for all available views
 		Plugins.scan( 'Koo.View', os.path.abspath(os.path.dirname(__file__)) )
@@ -59,11 +67,16 @@ class ViewFactory:
 		for node in root_node.childNodes:
 			if not node.nodeType == node.ELEMENT_NODE:
 				continue
-			if node.localName in ViewFactory.parsers:
-				parser = ViewFactory.parsers[ node.localName ]()
+			if node.localName in ViewFactory.views:
+				parser = ViewFactory.views[ node.localName ]['parser']()
 				return parser.create(viewId, parent, model, node, fields)
 		return None
 
 	@staticmethod
-	def register(viewName, parser):
-		ViewFactory.parsers[viewName] = parser
+	def register(parser, viewName, label, icon):
+		ViewFactory.views[viewName] = {
+			'parser': parser,
+			'label': label,
+			'icon': icon
+		}
+
