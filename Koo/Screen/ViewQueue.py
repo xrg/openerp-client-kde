@@ -42,6 +42,9 @@
 # 	useViewAsAType( queue.next() )
 
 class ViewQueue:
+	def __init__(self):
+		self._mixed = []
+		
 	## @brief Initializes the queue with types and ids view definitions
 	def setup(self, types, ids):
 		if types == None:
@@ -124,5 +127,10 @@ class ViewQueue:
 	def count(self):
 		return len(self._mixed)
 
+	def addViewType(self, type):
+		self._mixed.append( (False, type) )
+
+	def typeExists(self, type):
+		return self.indexFromType( type ) != -1
 
 # vim:noexpandtab:

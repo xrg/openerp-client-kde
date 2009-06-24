@@ -445,6 +445,8 @@ class Screen(QScrollArea):
 		self.loadActions( toolbar )
 
 		if display:
+			if not self._viewQueue.typeExists( view.viewType() ):
+				self._viewQueue.addViewType( view.viewType() )
 			self._currentView = self._viewQueue.indexFromType( view.viewType() )
 			self.currentView().display(self.currentRecord(), self.group)
 			self.setView(view)
