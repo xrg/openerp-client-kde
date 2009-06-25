@@ -109,34 +109,6 @@
 			</field>
 		</record>
 
-<!-- Replace "res_model" field to attachment view form -->
-		<!-- This (visible attribute) doesn't work with OpenERP 5.0
-		<record model="ir.ui.view" id="attachment_form_res_model">
-			<field name="name">ir.attachment.view</field>
-			<field name="model">ir.attachment</field>
-			<field name="inherit_id" ref="base.view_attachment_form"/>
-			<field name="arch" type="xml">
-				<field name="res_model" position="replace">
-					<field name="res_model" select="1" visible="0" nolabel="1"/>
-				</field>
-			</field>
-		</record>
-		-->
-
-<!-- Replace "res_id" field to attachment view form -->
-		<!-- This (visible attribute) doesn't work with OpenERP 5.0 
-		<record model="ir.ui.view" id="attachment_form_res_id">
-			<field name="name">ir.attachment.view</field>
-			<field name="model">ir.attachment</field>
-			<field name="inherit_id" ref="base.view_attachment_form"/>
-			<field name="arch" type="xml">
-				<field name="res_id" position="replace">
-					<field name="res_id" visible="0" nolabel="1"/>
-				</field>
-			</field>
-		</record>
-		-->
-
 <!-- Remove "res_model" field to attachment view tree -->
 		<record model="ir.ui.view" id="attachment_tree_res_model">
 			<field name="name">ir.attachment.view.tree</field>
