@@ -106,12 +106,16 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='button':
 				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
+				if not self.isWidgetVisible( attrs ):
+					continue
 				name = attrs.get('name', 'unnamed')
 				self.view.widgets[name] = button
 				self.view.addStateWidget( button, attrs.get('attrs'), attrs.get('states') )
 				container.addWidget(button, attrs)
 
 			elif node.localName=='notebook':
+				if not self.isWidgetVisible( attrs ):
+					continue
 				tab = QTabWidget( container )
 				if attrs and 'tabpos' in attrs:
 					pos = { 
@@ -141,6 +145,8 @@ class FormParser(AbstractParser):
 				_ , onWriteFunction = self.parse(node, fields, tab, container)
 
 			elif node.localName=='page':
+				if not self.isWidgetVisible( attrs ):
+					continue
 				widget, onWriteFunction = self.parse(node, fields, notebook )
 				# Mark the container as the main widget in a Tab. This way
 				# we can enable/disable the whole tab easily.
@@ -177,6 +183,8 @@ class FormParser(AbstractParser):
 				container.addWidget(widget, attrs)
 
 			elif node.localName=='field':
+				if not self.isWidgetVisible( attrs ):
+					continue
 				name = attrs['name']
 				del attrs['name']
 				type = attrs.get('widget', fields[name]['type'])
@@ -187,10 +195,6 @@ class FormParser(AbstractParser):
 				widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
 				if not widget:
 					continue
-				if attrs.get('invisible', False):
-					value = eval(attrs['invisible'], {'context':self.context})
-					if value:
-						continue
 
 				fields[name]['name'] = name
 				if self.filter:
@@ -211,6 +215,8 @@ class FormParser(AbstractParser):
 				container.addWidget(widget, attrs, label)
 
 			elif node.localName=='group':
+				if not self.isWidgetVisible( attrs ):
+					continue
 				widget, onWriteFunction = self.parse( node, fields, notebook )
 				if 'string' in attrs:
 					group = QGroupBox( notebook )
@@ -226,5 +232,11 @@ class FormParser(AbstractParser):
  				container.addWidget( widget, attrs )
 
 		return  container, onWriteFunction
+
+	def isWidgetVisible(self, attributes):
+		value = attributes.get('invisible')
+		if not value:
+			return True
+		return not eval(value, {'context':self.context})
 
 # vim:noexpandtab:
