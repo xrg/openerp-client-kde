@@ -42,4 +42,5 @@ def semantic(data):
 	domain = [('subject_model','=',model_id), ('subject_id','=', data['id'])]
 	Api.instance.createWindow( None, 'nan.semantic.triple', mode='tree,form', domain=domain, context=context )
 
-Plugins.register( 'Semantic', '.*', _('Semantic Info'), semantic )
+if Common.isKdeAvailable:
+	Plugins.register( 'Semantic', '.*', _('Semantic Info'), semantic )
