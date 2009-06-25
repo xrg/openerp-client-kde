@@ -227,6 +227,13 @@ class RecordGroup(QObject):
 	def preload(self, ids):
 		if not ids:
 			return 
+		# Discard from 'ids' those that are already loaded.
+		# If we didn't do that, some records could be repeated if the programmer
+		# doesn't verify that, and we'd end up in errors because when records are
+		# actually loaded they're only checked against a single appearance of the 
+		# id in the list of records.
+		ids = list( set(ids) - set( self.ids() ) )
+
 		start = len(self.records)
 		self.records += ids
 		end = len(self.records)-1
