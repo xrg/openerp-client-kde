@@ -253,7 +253,6 @@ class AbstractGraphicsChartItem(QGraphicsItemGroup):
 	def setLabels( self, labels ):
 		self._labels = labels
 		self._legend.setLabels( labels )
-		self.updateToolTips()
 		self.updateChart()
 
 	# To be implemented by subclasses
@@ -262,18 +261,6 @@ class AbstractGraphicsChartItem(QGraphicsItemGroup):
 
 	def setShowLegend( self, show ):
 		self._showLegend = show
-
-	def updateToolTips(self):
-		pass
-		#print "UPDATE TOOLTIPS: "
-		#print "ITEMS: ", self._items
-		#print "LABELS: ", self._labels
-		#if len(self._items) != len(self._labels):
-			#return
-		#print "YES!"
-		#if self._labels
-		#for item in self._items:
-			#item.setToolTip( self._labels[ item.labelId ] )
 
 	def clear(self):
 		for item in self._items:

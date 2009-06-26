@@ -61,7 +61,6 @@ class GraphicsPieChartItem(AbstractGraphicsChartItem):
 			self._items.append( item )
 
 			lastAngle += angle
-		self.updateToolTips()
 
 	def setData(self, data):
 		# Admited data structure:

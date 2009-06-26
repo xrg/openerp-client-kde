@@ -91,15 +91,15 @@ class ChartGraphicsView( QGraphicsView ):
 			self.chart.setSize( self.size() )
 			self.scene.addItem( self.chart )
 
-		# Put all values to be shown in the datas list
-		datas = []
+		# Put all values to be shown in the records list
+		records = []
 
 		print "AXIS DATA: ", self._axisData
 		# Models could be None
 		if models:
-			# Fill in datas with data from all models for all necessary fields.
-			# datas will be a list of dictionaries:
-			# datas = [
+			# Fill in records with data from all models for all necessary fields.
+			# records will be a list of dictionaries:
+			# records = [
 			#	{ 'field1': value, 'field2': value }, #record 1
 			#	{ 'field1': value, 'field2': value }  #record 2
 			#	...
@@ -128,7 +128,7 @@ class ChartGraphicsView( QGraphicsView ):
 						res[x] = time.strftime(locale.nl_langinfo(locale.D_FMT).replace('%y', '%Y')+' %H:%M:%S', date)
 					else:
 						res[x] = float(m.value(x))
-				datas.append(res)
+				records.append(res)
 
 		# Calculate the rest of values
 		operators = {
@@ -138,29 +138,34 @@ class ChartGraphicsView( QGraphicsView ):
 			'max': lambda x,y: max(x,y),
 			'**': lambda x,y: x**y
 		}
-		axis_group = {}
-		keys = {}
-		data_axis = []
-		#if self._groups:
+		# Fill in aggRecords (aggregated records). So it basically aggregates records
+		# appropiately. For example, a view may be defined:
+		#
+		# <graph string="Timesheet by user" type="bar">
+		#     <field name="name"/>
+		#     <field name="quantity" operator="+"/>
+		#     <field group="True" name="user_id"/>
+		# </graph>
+		#
+		# So here we "execute" the operator="+" attribute. And the group tag.
+		aggRecords = []
+		groups = {}
 		for field in self._axis[1:]:
 			data = {}
-			for d in datas:
-				group_eval = ','.join( [d[x] for x in self._groups] )
-				axis_group[group_eval] = 1
-
+			for d in records:
 				data.setdefault( d[self._axis[0]], {} )
 
-				if group_eval in  data[d[self._axis[0]]]:
+				groupEval = ','.join( [d[x] for x in self._groups] )
+				groups[groupEval] = 1
+
+				if groupEval in data[d[self._axis[0]]]:
 					oper = operators[self._axisData[field].get('operator', '+')]
 					data[d[self._axis[0]]][group_eval] = oper(data[d[self._axis[0]]][group_eval], d[field])
 				else:
 					data[d[self._axis[0]]][group_eval] = d[field]
-			data_axis.append(data)
-		print "DATAS: ", datas
-		print "DATA AXIS: ", data_axis
-		print "DATA: ", data
-		axis_group = axis_group.keys()
-		axis_group.sort()
+			aggRecords.append(data)
+		groups = groups.keys()
+		groups.sort()
 
 		fields = set()
 		for field in self._axis[1:]:
@@ -171,25 +176,23 @@ class ChartGraphicsView( QGraphicsView ):
 		labels = [self._fields[x]['string'] for x in self._axis[1:]]
 
 		categories = set()
-		for x in datas:
+		for x in records:
 			categories.add( x[ self._axis[0] ] or '' )
 		categories = list(categories)
 		categories.sort()
-		
+
 		if self._type == 'pie': 
 			values = [ reduce(lambda x,y=0: x+y, data[x].values(), 0) for x in categories ]
 			self.chart.setValues( values ) 
 			self.chart.setLabels( categories )
 		else:
+			# TODO: Note that we're not using groups here, and we should.
 			values = []
 			for x in categories:
-				for y in datas:
-					if y[self._axis[0]] == x:
-						break
 				value = []
-				for f in fields:
-					value.append( y[f] )
-				values.append( value )
+				for y in aggRecords:
+					value.append( y[ x ][''] )
+				values.append( value )	
 
 			self.chart.setValues( values )
 			self.chart.setLabels( labels )

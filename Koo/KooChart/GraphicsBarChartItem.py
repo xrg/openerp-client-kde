@@ -251,7 +251,6 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		else:
 			self.xAxisNegative.hide()
 
-		self.updateToolTips()
 		self._legend.place()
 
 	def setCategories( self, categories ):
