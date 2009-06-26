@@ -166,6 +166,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 		self.updateEnabledActions()
 
+		self.shortcutActions = []
+		self.shortcutsGroup = None
+
 		# Stores the id of the menu action. This is to avoid opening two menus
 		# when 'action_id' returns the same as 'menu_id'
 		self.menuId = False
@@ -405,6 +408,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				self.openHomeTab()
 
 				self.updateRequestsStatus()
+				self.updateUserShortcuts()
 
 			elif log_response==Rpc.session.Exception:
 				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
@@ -432,8 +436,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.uiUserName.setText( _('Not logged !') )
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 		self.setWindowTitle( self.fixedWindowTitle )
-		self.updateEnabledActions()
 		Rpc.session.logout()
+		self.updateEnabledActions()
+		self.updateUserShortcuts()
 		return True
 
 	def openErpManual(self):
@@ -459,6 +464,36 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		loadUi( Common.uiPath('shortcuts.ui'), dialog )
 		dialog.exec_()
 
+	def updateUserShortcuts(self):
+		# Remove previous actions
+		for action in self.shortcutActions:
+			self.menuWindow.removeAction( action )
+		self.shortcutActions = []
+
+		if not Rpc.session.logged():
+			return
+		fields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
+		self.shortcutsGroup = RecordGroup( 'ir.ui.view_sc', fields )
+		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=','ir.ui.menu')] )
+		self.shortcutActions.append( self.menuWindow.addSeparator() )
+		for record in self.shortcutsGroup:
+			action = QAction( self )
+			action.setObjectName( str( record.id ) )
+			action.setText( record.value('name') )
+			action.setIcon( QIcon( ':/images/relate.png' ) )
+			self.connect( action, SIGNAL('triggered()'), self.executeShortcut )
+			self.menuWindow.addAction( action )
+			self.shortcutActions.append( action )
+
+	def executeShortcut(self):
+		action = self.sender()
+		id = int( action.objectName() )
+		# We need to get the value as if we were the server because we
+		# don't want the string that would be shown for the many2one field
+		# but the id.
+		m = self.shortcutsGroup[ id ]
+		id = self.shortcutsGroup.fieldObjects[ 'res_id' ].get( m )
+		Api.instance.executeKeyword('tree_but_open', {'model':'ir.ui.menu', 'id':id, 'ids': [id]})
 
 	## @brief Opens the Menu Tab.
 	#

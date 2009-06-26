@@ -197,7 +197,6 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		zero = ( (0.0 - minimum) / diff * maximumHeight ) 
 		# Ensure it doesn't go beyond axis due to rounding errors
 		zero = min( max( 0.0, zero ), maximumHeight )
-		print "VALUES: ", self._values
 		for i in range(len(self._values)):
 			manager = ColorManager( len(self._values[i]) )
 			for j in range(len(self._values[i])):
@@ -207,7 +206,9 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 				height = min( max( 0.0, height ), maximumHeight )
 
 				item = BarChartBar( self )
-				item.labelId = i
+				#item.labelId = i
+				if j < len(self._labels):
+					item.setToolTip( '%s: %.2f' % (self._labels[j], value) )
 				item.setBrush( manager.brush(j) )
 				item.setPen( manager.pen(j) )
 				if value >= 0.0:

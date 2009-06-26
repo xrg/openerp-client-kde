@@ -94,8 +94,16 @@ class ChartGraphicsView( QGraphicsView ):
 		# Put all values to be shown in the datas list
 		datas = []
 
+		print "AXIS DATA: ", self._axisData
 		# Models could be None
 		if models:
+			# Fill in datas with data from all models for all necessary fields.
+			# datas will be a list of dictionaries:
+			# datas = [
+			#	{ 'field1': value, 'field2': value }, #record 1
+			#	{ 'field1': value, 'field2': value }  #record 2
+			#	...
+			# }
 			for m in models:
 				res = {}
 				for x in self._axisData.keys():
@@ -133,23 +141,26 @@ class ChartGraphicsView( QGraphicsView ):
 		axis_group = {}
 		keys = {}
 		data_axis = []
-		if self._groups:
-			for field in self._axis[1:]:
-				data = {}
-				for d in datas:
-					group_eval = ','.join( [d[x] for x in self._groups] )
-					axis_group[group_eval] = 1
+		#if self._groups:
+		for field in self._axis[1:]:
+			data = {}
+			for d in datas:
+				group_eval = ','.join( [d[x] for x in self._groups] )
+				axis_group[group_eval] = 1
 
-					data.setdefault( d[self._axis[0]], {} )
+				data.setdefault( d[self._axis[0]], {} )
 
-					if group_eval in  data[d[self._axis[0]]]:
-						oper = operators[self._axisData[field].get('operator', '+')]
-						data[d[self._axis[0]]][group_eval] = oper(data[d[self._axis[0]]][group_eval], d[field])
-					else:
-						data[d[self._axis[0]]][group_eval] = d[field]
-				data_axis.append(data)
-			axis_group = axis_group.keys()
-			axis_group.sort()
+				if group_eval in  data[d[self._axis[0]]]:
+					oper = operators[self._axisData[field].get('operator', '+')]
+					data[d[self._axis[0]]][group_eval] = oper(data[d[self._axis[0]]][group_eval], d[field])
+				else:
+					data[d[self._axis[0]]][group_eval] = d[field]
+			data_axis.append(data)
+		print "DATAS: ", datas
+		print "DATA AXIS: ", data_axis
+		print "DATA: ", data
+		axis_group = axis_group.keys()
+		axis_group.sort()
 
 		fields = set()
 		for field in self._axis[1:]:
@@ -166,10 +177,7 @@ class ChartGraphicsView( QGraphicsView ):
 		categories.sort()
 		
 		if self._type == 'pie': 
-			values = []
-			for x in datas:
-				values.append( x[self._axis[1]] )
-
+			values = [ reduce(lambda x,y=0: x+y, data[x].values(), 0) for x in categories ]
 			self.chart.setValues( values ) 
 			self.chart.setLabels( categories )
 		else:

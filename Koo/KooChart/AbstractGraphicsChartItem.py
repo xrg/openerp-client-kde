@@ -264,10 +264,16 @@ class AbstractGraphicsChartItem(QGraphicsItemGroup):
 		self._showLegend = show
 
 	def updateToolTips(self):
-		if len(self._items) != len(self._labels):
-			return
-		for x in range(len(self._items)):
-			self._items[x].setToolTip( self._labels[x] )
+		pass
+		#print "UPDATE TOOLTIPS: "
+		#print "ITEMS: ", self._items
+		#print "LABELS: ", self._labels
+		#if len(self._items) != len(self._labels):
+			#return
+		#print "YES!"
+		#if self._labels
+		#for item in self._items:
+			#item.setToolTip( self._labels[ item.labelId ] )
 
 	def clear(self):
 		for item in self._items:

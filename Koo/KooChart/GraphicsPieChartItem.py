@@ -22,7 +22,7 @@ from AbstractGraphicsChartItem import *
 class PieChartSector(QGraphicsEllipseItem):
 	def __init__(self, parent):
 		QGraphicsEllipseItem.__init__(self, parent)
-		self.label = None
+		self.labelId = None
 
 class GraphicsPieChartItem(AbstractGraphicsChartItem):
 	def __init__(self, parent=None):
@@ -45,9 +45,12 @@ class GraphicsPieChartItem(AbstractGraphicsChartItem):
 		for i in range(len(self._values)):
 			value = self._values[i]
 			angle = ( value / total ) * ( 360 * 16 )
+			
 
 			item = PieChartSector( self )
-			item.labelId = i
+			percent = 100 * ( value / total )
+			if i < len(self._labels):
+				item.setToolTip( '%s: %.2f (%.2f%%)' % (self._labels[i], value, percent ) )
 			item.setBrush( manager.brush(i) )
 			item.setPen( manager.pen(i) )
 			size = min( self._size.width(), self._size.height() )
