@@ -100,7 +100,7 @@ def generate():
     return output
 
 
-
+
 def make(filename, outfile):
     global MESSAGES
     MESSAGES = {}
