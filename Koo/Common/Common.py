@@ -172,13 +172,20 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 	def done(self, r):
 		QDialog.done(self, r)
 
-
+errorInError=False
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
 def error(title, message, details=''):
-	Debug.error( 'MSG %s: %s' % (unicode(message), unicode(details)) )
+	global errorInError
+	if errorInError:
+		print "Error in Error:", title, message
+		print "Details:", details
+		return
+	errorInError=True
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
+	Debug.error( 'MSG %s: %s' % (unicode(message), unicode(details)) )
 	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
+	errorInError=False
 	QApplication.restoreOverrideCursor()
 
 (ProgressDialogUi, ProgressDialogBase) = loadUiType( uiPath('progress.ui') )
