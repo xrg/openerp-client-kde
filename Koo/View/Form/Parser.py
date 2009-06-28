@@ -179,6 +179,7 @@ class FormParser(AbstractParser):
 			elif node.localName =='action':
 				name = str(attrs['name'])
 				widget = FieldWidgetFactory.create( 'action', container, self.view, attrs )
+				attrs['colspan'] = attrs.get('colspan', 3)
 				self.view.widgets[name] = widget 
 				container.addWidget(widget, attrs)
 
