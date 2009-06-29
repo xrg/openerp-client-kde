@@ -464,6 +464,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		loadUi( Common.uiPath('shortcuts.ui'), dialog )
 		dialog.exec_()
 
+	def shortcutsChanged(self, model):
+		if model == 'ir.ui.menu':
+			self.updateUserShortcuts()
+
 	def updateUserShortcuts(self):
 		# Remove previous actions
 		for action in self.shortcutActions:
@@ -573,6 +577,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def addWindow(self, win, target):
 		if target == 'current':
 			self.connect( win, SIGNAL('closed()'), self.closeTabForced )
+			self.connect( win, SIGNAL('shortcutsChanged'), self.shortcutsChanged )
 			self.tabWidget.addTab( win, win.name )
 			# If shift key is pressed do not show the added tab
 			if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):

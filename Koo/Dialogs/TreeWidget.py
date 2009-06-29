@@ -275,6 +275,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			return
 		Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id])
 		self.shortcutsGroup.update()
+		self.emit(SIGNAL('shortcutsChanged'), self.model)
 
 	def editShortcuts(self):
 	        domain = [('user_id', '=', Rpc.session.uid), ('resource', '=', self.model)]
@@ -290,6 +291,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			uid = Rpc.session.uid
 			Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name})
 		self.shortcutsGroup.update()
+		self.emit( SIGNAL('shortcutsChanged'), self.model )
 
 	def goToShortcut(self, index):
 		id = self.currentShortcutId()
