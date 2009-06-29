@@ -201,7 +201,7 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 			manager = ColorManager( len(self._values[i]) )
 			for j in range(len(self._values[i])):
 				value = self._values[i][j]
-				height = abs( ( value / diff ) * maximumHeight )
+				height = abs( ( (value-minimum) / diff ) * maximumHeight )
 				# Ensure it doesn't go beyond axis due to rounding errors
 				height = min( max( 0.0, height ), maximumHeight )
 
