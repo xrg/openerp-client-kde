@@ -240,6 +240,11 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.treeAllExpandedState = {}
 		self.treeState = {}
 		self.updateTree()
+		# Reload shortcuts and emit the shortcutsChanged
+		# signal so 'Window' menu and these shortcuts can be
+		# kept in sync.
+		self.shortcutsGroup.update()
+		self.emit( SIGNAL('shortcutsChanged'), self.model )
 		QApplication.restoreOverrideCursor()
 
 	# TODO: Look if for some menu entries this has any sense. Otherwise
