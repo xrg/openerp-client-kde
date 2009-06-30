@@ -22,7 +22,6 @@ from AbstractGraphicsChartItem import *
 class PieChartSector(QGraphicsEllipseItem):
 	def __init__(self, parent):
 		QGraphicsEllipseItem.__init__(self, parent)
-		self.labelId = None
 
 class GraphicsPieChartItem(AbstractGraphicsChartItem):
 	def __init__(self, parent=None):

@@ -23,7 +23,6 @@ from AbstractGraphicsChartItem import *
 class BarChartBar(QGraphicsRectItem):
 	def __init__(self, parent):
 		QGraphicsRectItem.__init__(self, parent)
-		self.labelId = None
 
 class AxisItem(QGraphicsPathItem):
 	def __init__(self, parent):
@@ -206,7 +205,6 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 				height = min( max( 0.0, height ), maximumHeight )
 
 				item = BarChartBar( self )
-				#item.labelId = i
 				if j < len(self._labels):
 					item.setToolTip( '%s: %.2f' % (self._labels[j], value) )
 				item.setBrush( manager.brush(j) )
