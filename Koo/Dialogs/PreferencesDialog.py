@@ -62,7 +62,7 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		self.group = RecordGroup('res.users')
 		self.group.load( [Rpc.session.uid] )
 		self.screen.setRecordGroup( self.group )
-		self.screen.addViewByIdAndType( viewIds[0], 'form' )
+		self.screen.setupViews( ['form'], [viewIds[0]] )
 		self.screen.display( Rpc.session.uid )
 
                 # Set minimum and maximum dialog size
