@@ -272,6 +272,20 @@ class FormWidget( QWidget, FormWidgetUi ):
 					self.screen.switchView( name )
 				else:
 					self.screen.switchView( viewType )
+		if self.pendingReload:
+			self.reload()
+		self.updateSwitchView()
+		QApplication.restoreOverrideCursor()
+
+	def switchNView(self,name):
+		if not self.modifiedSave():
+			return
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		import logging
+		log = logging.getLogger('view')
+		log.debug("SwitchNView"+name);
+		print "name:",name
+		self.screen.switchView( name )
 			if self.pendingReload:
 				self.reload()
 			self.updateSwitchView()
