@@ -62,7 +62,6 @@ Settings.loadFromRegistry()
 Localization.initializeTranslations(Settings.value('client.language'))
 
 arguments = CommandLine.parseArguments(sys.argv)
-
 Localization.initializeTranslations(Settings.value('client.language'))
 
 
@@ -155,6 +154,10 @@ class KooApi(Api.KooApi):
 		win.addWindow( window, target )
 
 Api.instance = KooApi()
+
+import logging
+log = logging.getLogger('view')
+log.debug('Starting main window')
 
 import logging
 log = logging.getLogger('koo.view')

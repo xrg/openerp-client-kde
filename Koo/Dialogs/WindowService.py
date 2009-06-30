@@ -39,9 +39,12 @@ from Koo import Rpc
 def createWindow(view_ids, model, res_id=False, domain=None,
 		view_type='form', window=None, context=None, mode=None, name=False, autoReload=False, target='current'):
 
+	import logging
+	log = logging.getLogger('view')
 	if context is None:
 		context = {}
 	context.update(Rpc.session.context)
+	log.debug("Creating a %s window"%view_type)
 
 	if view_type=='form':
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -79,5 +82,5 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		QApplication.restoreOverrideCursor()
 		Api.instance.windowCreated( win, target )
 	else:
-		Debug.error( 'unknown view type: ' + view_type )
+		log.warning('unknown view type: '+view_type)
 

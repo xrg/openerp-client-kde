@@ -97,6 +97,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			if view_type[0] in ['graph'] and not res_id:
 				res_id = Rpc.session.execute('/object', 'execute', model, 'search', domain)
 		fields = {}
+		view_type.append('svg')
 		self.model = model
 		self.previousAction = None
 		self.fields = fields

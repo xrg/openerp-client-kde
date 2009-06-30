@@ -1,1 +1,1 @@
-PYTHONPATH=$(pwd) python Koo/koo.py 
+PYTHONPATH=$(pwd) python Koo/koo.py "$@"
