@@ -709,7 +709,10 @@ class Screen(QScrollArea):
 	def cancel(self):
 		idx = -1
 		if self.currentRecord():
-			idx = self.group.indexOfRecord( self.currentRecord() )
+			try:
+				idx = self.group.indexOfRecord( self.currentRecord() )
+			except:
+				pass
 			
 		self.group.cancel()
 		if idx != -1:
