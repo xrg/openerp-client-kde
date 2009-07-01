@@ -123,6 +123,7 @@ class AxisItem(QGraphicsPathItem):
 class GraphicsBarChartItem(AbstractGraphicsChartItem):
 	def __init__(self, parent=None):
 		AbstractGraphicsChartItem.__init__(self, parent)
+		self._isAggregated = False
 		self.yAxis = AxisItem( self )
 		self.yAxis.hide()
 		self.xAxis = AxisItem( self )
@@ -131,13 +132,27 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		self.xAxisNegative = AxisItem( self )
 		self.xAxisNegative.hide()
 
+	def setAggregated(self, value):
+		self._isAggregated = value
+
+	def isAggregated(self):
+		return self._isAggregated
+
 	# Returns the total amount of bars 
 	def barCount( self ):
-		count = len(flatten(self._values))
-		if not count:
-			count = len(self._categories) * len(self._labels)
-		if not count:
-			count = 1
+		if self._isAggregated:
+			if self._values:
+				count = len(self._values)
+			else:
+				count = len(self._categories)
+			if not count:
+				count = 1
+		else:
+			count = len(flatten(self._values))
+			if not count:
+				count = len(self._categories) * len(self._labels)
+			if not count:
+				count = 1
 		return count
 
 	def separatorCount( self ):
@@ -155,12 +170,18 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 
 	def updateChart(self):
 		self.clear()
-		if len(flatten(self._values)):
-			maximum = max(flatten(self._values))
-			minimum = min(flatten(self._values))
+		if self._isAggregated:
+			vs = [sum(x) for x in self._values]
+		else:
+			vs = flatten(self._values)
+		if len(vs):
+			maximum = max(vs)
+			minimum = min(vs)
 		else:
 			maximum = 1.0
-			minimum = 0
+			minimum = 0.0
+		if self._isAggregated:
+			minimum = 0.0
 		diff = maximum - minimum
 		# If there's only one item or all of them have the same
 		# value diff will be zero
@@ -197,12 +218,23 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 		# Ensure it doesn't go beyond axis due to rounding errors
 		zero = min( max( 0.0, zero ), maximumHeight )
 		for i in range(len(self._values)):
+			aggValues = 0.0
+			lastYPosition = 0.0
 			manager = ColorManager( len(self._values[i]) )
 			for j in range(len(self._values[i])):
 				value = self._values[i][j]
-				height = abs( ( (value-minimum) / diff ) * maximumHeight )
-				# Ensure it doesn't go beyond axis due to rounding errors
-				height = min( max( 0.0, height ), maximumHeight )
+				if self._isAggregated:
+					if aggValues + value > minimum:
+						height = abs( ( (aggValues + value - minimum) / diff ) * maximumHeight ) 
+						# Ensure it doesn't go beyond axis due to rounding errors
+						height = min( max( 0.0, height ), maximumHeight )
+						height -= lastYPosition
+					else:
+						height = 0.0
+				else:
+					height = abs( ( (value-minimum) / diff ) * maximumHeight )
+					# Ensure it doesn't go beyond axis due to rounding errors
+					height = min( max( 0.0, height ), maximumHeight )
 
 				item = BarChartBar( self )
 				if j < len(self._labels):
@@ -210,15 +242,25 @@ class GraphicsBarChartItem(AbstractGraphicsChartItem):
 				item.setBrush( manager.brush(j) )
 				item.setPen( manager.pen(j) )
 				if value >= 0.0:
-					item.setRect( lastPosition, maximumHeight - height - zero, barWidth, height )
+					item.setRect( lastPosition, maximumHeight - lastYPosition - height - zero, barWidth, height )
 				else:
-					item.setRect( lastPosition, maximumHeight - zero, barWidth, height )
+					item.setRect( lastPosition, maximumHeight - lastYPosition - zero, barWidth, height )
+				# Hide item if height is 0. Otherwise it's shown as a single
+				# ugly line.
+				if height == 0.0:
+					item.hide()
 
 				self.addToGroup( item )
 				self._items.append( item )
 
-				lastPosition += barWidth
+				if self._isAggregated:
+					lastYPosition += height
+					aggValues += value
+				else:
+					lastPosition += barWidth
 			lastPosition += separatorWidth
+			if self._isAggregated:
+				lastPosition += barWidth
 
 		self.yAxis.setMinimum( minimum )
 		self.yAxis.setMaximum( maximum )

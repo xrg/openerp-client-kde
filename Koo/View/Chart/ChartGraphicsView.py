@@ -88,13 +88,14 @@ class ChartGraphicsView( QGraphicsView ):
 				self.chart = GraphicsPieChartItem()
 			else:
 				self.chart = GraphicsBarChartItem()
+				if self._orientation == Qt.Horizontal:
+					self.chart.setAggregated( True )
 			self.chart.setSize( self.size() )
 			self.scene.addItem( self.chart )
 
 		# Put all values to be shown in the records list
 		records = []
 
-		print "AXIS DATA: ", self._axisData
 		# Models could be None
 		if models:
 			# Fill in records with data from all models for all necessary fields.
@@ -107,12 +108,19 @@ class ChartGraphicsView( QGraphicsView ):
 			for m in models:
 				res = {}
 				for x in self._axisData.keys():
-					if self._fields[x]['type'] in ('many2one', 'char','time','text','selection'):
+					type = self._fields[x]['type']
+					if type in ('many2one', 'char','time','text'):
 						res[x] = m.value(x) 
-					elif self._fields[x]['type'] == 'date':
+					elif type == 'selection':
+						res[x] = ''
+						for y in self._fields[x]['selection']:
+							if y[0] == m.value(x):
+								res[x] = unicode(y[1])
+								break
+					elif type == 'date':
 						date = time.strptime(m.value(x), DT_FORMAT)
 						res[x] = time.strftime(locale.nl_langinfo(locale.D_FMT).replace('%y', '%Y'), date)
-					elif self._fields[x]['type'] == 'datetime':
+					elif type == 'datetime':
 						date = time.strptime(m.value(x), DHM_FORMAT)
 						if 'tz' in Rpc.session.context:
 							try:
@@ -160,9 +168,9 @@ class ChartGraphicsView( QGraphicsView ):
 
 				if groupEval in data[d[self._axis[0]]]:
 					oper = operators[self._axisData[field].get('operator', '+')]
-					data[d[self._axis[0]]][group_eval] = oper(data[d[self._axis[0]]][group_eval], d[field])
+					data[d[self._axis[0]]][groupEval] = oper(data[d[self._axis[0]]][groupEval], d[field])
 				else:
-					data[d[self._axis[0]]][group_eval] = d[field]
+					data[d[self._axis[0]]][groupEval] = d[field]
 			aggRecords.append(data)
 		groups = groups.keys()
 		groups.sort()
@@ -177,24 +185,45 @@ class ChartGraphicsView( QGraphicsView ):
 
 		categories = set()
 		for x in records:
-			categories.add( x[ self._axis[0] ] or '' )
+			categories.add( x[ self._axis[0] ] )
 		categories = list(categories)
 		categories.sort()
 
 		if self._type == 'pie': 
+			categories = data.keys()
 			values = [ reduce(lambda x,y=0: x+y, data[x].values(), 0) for x in categories ]
 			self.chart.setValues( values ) 
-			self.chart.setLabels( categories )
+			# Ensure all categories are strings
+			self.chart.setLabels( [unicode(x) for x in categories] )
 		else:
-			# TODO: Note that we're not using groups here, and we should.
-			values = []
-			for x in categories:
-				value = []
-				for y in aggRecords:
-					value.append( y[ x ][''] )
-				values.append( value )	
+			# Prepare values depending in different ways if there are 'group' tags in the
+			# view or not.
+			if groups and groups[0]:
+				# GTK client leaves only the last part with the following line:
+				#    groups = [x.split('/')[-1] for x in groups]
+				# However that may remove important information. For example, in product types:
+				#   'Class A / Subclass A' -> 'Subclass A'
+				#   'Class B / Subclass A' -> 'Subclass A'
+				values = []
+				for x in categories:
+					value = []
+					for y in groups:
+						for z in aggRecords:
+							value.append( z[ x ].get(y, 0.0) )
+					values.append( value )	
+				# If we're grouping we need to change the labels
+				labels = groups
+			else:
+				values = []
+				for x in categories:
+					value = []
+					for y in aggRecords:
+						value.append( y[ x ][''] )
+					values.append( value )	
 
 			self.chart.setValues( values )
-			self.chart.setLabels( labels )
-			self.chart.setCategories( categories )
+			# Ensure all labels are strings
+			self.chart.setLabels( [unicode(x) for x in labels] )
+			# Ensure all categories are strings
+			self.chart.setCategories( [unicode(x) for x in categories] )
 
