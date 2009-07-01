@@ -1,3 +1,5 @@
+*.qm
+*.po~
 /al
 /ca_ES
 /cs
