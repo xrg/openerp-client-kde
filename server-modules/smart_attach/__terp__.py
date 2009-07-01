@@ -28,7 +28,7 @@
 {
 	"name" : "Smart Attach",
 	"version" : "0.1",
-	"description" : "This module adds the hability to extract text from the attached files.",
+	"description" : "This module adds the ability to extract text from the attached files.",
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],

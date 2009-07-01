@@ -28,7 +28,7 @@
 {
 	"name" : "Maps",
 	"version" : "0.1",
-	"description" : "This module adds the hability to show maps of partner addresses.",
+	"description" : "This module adds the ability to show maps of partner addresses.",
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
