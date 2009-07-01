@@ -61,7 +61,7 @@ for x in $QT_LANGS; do
 	#utf="no"
 	#po2ts qt-koo-$x.po qt_$x.ts $utf
 	if [ -f $DIR/qt-koo-$x.po ]; then
-		msgmerge $DIR/qt-koo-$x.po $DIR/qt-koo.pot -o $DIR/qt_koo-$x.po
+		msgmerge -U $DIR/qt-koo-$x.po $DIR/qt-koo.pot -o $DIR/qt_koo-$x.po
 	else
 		cp $DIR/qt-koo.pot $DIR/qt-koo-$x.po
 	fi
