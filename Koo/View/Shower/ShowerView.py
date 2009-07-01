@@ -41,8 +41,6 @@ class ShowerView( AbstractView ):
 		self.view.setSizePolicy(QSizePolicy.MinimumExpanding,QSizePolicy.MinimumExpanding)
 		proj1 = KsmLinear(self.scene)
 		proj1.setFreeMove(True);
-		item1 = QGraphicsRectItem(-100,-100,100,100)
-		self.scene.addItem(item1)
 		proj2 = KsmLinear(self.scene)
 		proj2.setSpacing(0.0,10.0)
 		proj1.setChildProj(proj2)
@@ -50,10 +48,8 @@ class ShowerView( AbstractView ):
 		proj3 = KsmBox(self.scene)
 		proj2.setChildProj(proj3)
 		self.scene.setMainProjection(proj1)
-		print "set all kshview"
 		self.view.updateGeometry()
 		self.view.show()
-		print "Rect:",self.view.frameRect()
 
 	def viewType(self):
 		return 'diagram'
