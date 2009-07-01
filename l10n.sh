@@ -13,7 +13,7 @@ xgettext -k_ -kN_ -o $DIR/koo.pot $PYTHON_FILES
 echo "Merging..."
 for x in $LANGS; do
 	if [ -f $DIR/$x.po ]; then
-		msgmerge $DIR/$x.po $DIR/koo.pot -o $DIR/$x.po
+		msgmerge -U $DIR/$x.po $DIR/koo.pot
 	else
 		cp $DIR/koo.pot $DIR/$x.po
 	fi

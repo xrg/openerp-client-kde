@@ -2,10 +2,13 @@
 *.po~
 /al
 /ca
+/ca_ES
 /cs
 /de
+/de_DE
 /el
 /es
+/es_ES
 /fr
 /hu
 /it
