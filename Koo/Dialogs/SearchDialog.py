@@ -100,7 +100,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.screen.setFocus()
 
 	def find(self):
-		self.modelGroup.setFilter( self.form.getValue() )
+		self.modelGroup.setFilter( self.form.value() )
 		self.reload()
 
 	def reload(self):

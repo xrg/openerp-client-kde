@@ -1,6 +1,5 @@
 ##############################################################################
 #
-# Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -26,67 +25,41 @@
 #
 ##############################################################################
 
+from Koo.Search.AbstractSearchWidget import *
+from PyQt4.QtGui import *
+from PyQt4.uic import *
 from Koo.Common import Common
 
-from Koo.Common.Calendar import *
-from AbstractSearchWidget import *
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-from PyQt4.uic import *
+(ReferenceSearchWidgetUi, ReferenceSearchWidgetBase) = loadUiType( Common.uiPath('searchreference.ui') )
 
-(DateSearchWidgetUi, DateSearchWidgetBase) = loadUiType( Common.uiPath('search_date.ui') )
-
-class DateSearchWidget(AbstractSearchWidget, DateSearchWidgetUi):
+class ReferenceSearchWidget(AbstractSearchWidget, ReferenceSearchWidgetUi):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		DateSearchWidgetUi.__init__(self)
+		ReferenceSearchWidgetUi.__init__(self)
 		self.setupUi( self )
 
+		self.setPopdown( attrs.get('selection',[]) )
+		self.focusWidget = self.uiModel
 		# Catch keyDownPressed
-		self.uiStart.installEventFilter( self )
-		self.uiEnd.installEventFilter( self )
+		self.focusWidget.installEventFilter( self )
 
-		self.widget = self
-		self.focusWidget = self.uiStart
-		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )
-		self.connect( self.pushEnd, SIGNAL('clicked()'), self.slotEnd )
+	def setPopdown(self, selection):
+		self.invertedModels = {}
+		for (i,j) in selection:
+			self.uiModel.addItem( j, QVariant(i) )
+			self.invertedModels[i] = j
 
-	def slotStart(self):
-		PopupCalendarWidget( self.uiStart )
-
-	def slotEnd(self):
-		PopupCalendarWidget( self.uiEnd )
-
-	# converts from locale specific format to our internal format
-	def _getDate(self, text):
-		date = textToDate(text)
-		if date.isValid():
-			return str( date.toString( 'yyyy-MM-dd' ) )
+	def value(self):
+		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+		if resource:
+			return [(self.name, 'like', resource + ',')]
 		else:
-			return False
+			return []
 
-	def getValue(self):
-		res = []
-		val = self._getDate( str( self.uiStart.text() ) )
- 		if val:
-			res.append((self.name, '>=', val ))
-		else:
-			self.uiStart.clear()
-		val = self._getDate( str( self.uiEnd.text()) )
-	 	if val:
-			res.append((self.name, '<=', val ))
-		else:
-			self.uiEnd.clear()
-		return res
-
-	def setValue(self, value ):
-		pass
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
+	def setValue(self, value):
+		model, (id, name) = value
+		self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
 
 	def clear(self):
-		self.value = ''
-		self.uiStart.clear()
-		self.uiEnd.clear()
+		self.setValue( '' )
 

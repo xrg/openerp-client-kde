@@ -33,8 +33,8 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
 
-## @brief AbstractFieldWidget is the base class for all widgets in Koo.
-# In order to create a new form widget, that is: a widget that appears in a 
+## @brief AbstractFieldWidget is the base class for all field widgets in Koo.
+# In order to create a new field widget, that is: a widget that appears in a 
 # auto-generated form you need to inherit from this class and implement some
 # of it's functions.
 #

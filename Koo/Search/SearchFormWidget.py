@@ -32,6 +32,7 @@ from xml.parsers import expat
 import sys
 import gettext
 
+from SearchWidgetFactory import *
 from AbstractSearchWidget import *
 from Koo.Common import Common
 
@@ -87,13 +88,13 @@ class SearchFormParser(object):
 			if select:
 				name = attrs['name']
 				type = attrs.get('widget', self.fields[name]['type'])
-				if not type in widgetTypes:
-					print "Search widget for type '%s' not implemented." % type
-					return
 				self.fields[name].update(attrs)
 				self.fields[name]['model']=self.model
-				widget = widgetTypes[ type ](name, self.container, self.fields[name])
+				widget = SearchWidgetFactory.create(type, name, self.container, self.fields[name])
+				if not widget:
+					return
 				self.widgetDict[str(name)] = widget
+
 				select = str(select)
 				if select in self.widgets:
 					self.widgets[ str(select) ].append( widget )
@@ -236,10 +237,10 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		for x in self.widgets.values():
 			x.clear()
 
-	def getValue(self, domain=[]):
+	def value(self, domain=[]):
 		res = []
 		for x in self.widgets:
-			res+=self.widgets[x].value
+			res += self.widgets[x].value()
 		v_keys = [x[0] for x in res]
 		for f in domain:
 			if f[0] not in v_keys:
@@ -250,36 +251,4 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		for x in val:
 			if x in self.widgets:
 				self.widgets[x].value = val[x]
-
-from DateSearchWidget import *
-from TimeSearchWidget import *
-from IntegerSearchWidget import *
-from FloatSearchWidget import *
-from SelectionSearchWidget import *
-from CharSearchWidget import *
-from CheckBoxSearchWidget import *
-from ReferenceSearchWidget import *
-
-widgetTypes = {
-	'date': DateSearchWidget,
-	'time': TimeSearchWidget,
-	'datetime': DateSearchWidget,
-	'float': FloatSearchWidget,
-	'integer': IntegerSearchWidget,
-	'selection': SelectionSearchWidget,
-	'many2one_selection': SelectionSearchWidget,
-	'char': CharSearchWidget,
-	'boolean': CheckBoxSearchWidget,
-	'text': CharSearchWidget,
-	'text_wiki': CharSearchWidget,
-	'email': CharSearchWidget,
-	'url': CharSearchWidget,
-	'many2one': CharSearchWidget,
-	'one2many': CharSearchWidget,
-	'one2many_form': CharSearchWidget,
-	'one2many_list': CharSearchWidget,
-	'many2many_edit': CharSearchWidget,
-	'many2many': CharSearchWidget,
-	'reference': ReferenceSearchWidget
-}
 

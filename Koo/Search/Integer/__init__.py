@@ -25,45 +25,7 @@
 #
 ##############################################################################
 
-from AbstractSearchWidget import *
-from PyQt4.QtGui import *
-from PyQt4.uic import *
-from Koo.Common import Common
+from IntegerSearchWidget import *
+from Koo.Search.SearchWidgetFactory import *
 
-(ReferenceSearchWidgetUi, ReferenceSearchWidgetBase) = loadUiType( Common.uiPath('searchreference.ui') )
-
-class ReferenceSearchWidget(AbstractSearchWidget, ReferenceSearchWidgetUi):
-	def __init__(self, name, parent, attrs={}):
-		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		ReferenceSearchWidgetUi.__init__(self)
-		self.setupUi( self )
-
-		self.setPopdown( attrs.get('selection',[]) )
-		self.focusWidget = self.uiModel
-		# Catch keyDownPressed
-		self.focusWidget.installEventFilter( self )
-
-	def setPopdown(self, selection):
-		self.invertedModels = {}
-		for (i,j) in selection:
-			self.uiModel.addItem( j, QVariant(i) )
-			self.invertedModels[i] = j
-
-	def getValue(self):
-		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-		if resource:
-			return [(self.name, 'like', resource + ',')]
-		else:
-			return []
-
-
-	def setValue(self, value):
-		model, (id, name) = value
-		self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
-
-	def clear(self):
-		self.value = ''
-
+SearchWidgetFactory.register( 'integer', IntegerSearchWidget )

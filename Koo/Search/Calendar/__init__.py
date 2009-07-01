@@ -1,7 +1,5 @@
 ##############################################################################
 #
-# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -27,34 +25,11 @@
 #
 ##############################################################################
 
-from AbstractSearchWidget import *
-from PyQt4.QtGui import *
+from DateSearchWidget import *
+from TimeSearchWidget import *
+from Koo.Search.SearchWidgetFactory import *
 
-class CharSearchWidget(AbstractSearchWidget):
-	def __init__(self, name, parent, attrs={}):
-		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		self.layout = QHBoxLayout( self )
-		self.layout.setSpacing( 0 )
-		self.layout.setContentsMargins( 0, 0, 0, 0 )
-		self.uiText = QLineEdit( self )
-		self.layout.addWidget( self.uiText )
-		self.focusWidget = self.uiText
-		# Catch keyDownPressed
-		self.focusWidget.installEventFilter( self )
-
-	def getValue(self):
-		s = unicode(self.uiText.text())
-		if s:
-			return [(self.name,self.attrs.get('comparator','ilike'),s)]
-		else:
-			return []
-
-	def setValue(self, value):
-		self.uiText.setText(value)
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
-
-	def clear(self):
-		self.value = ''
+SearchWidgetFactory.register( 'date', DateSearchWidget )
+SearchWidgetFactory.register( 'datetime', DateSearchWidget )
+SearchWidgetFactory.register( 'time', TimeSearchWidget )
 

@@ -1,7 +1,5 @@
 ##############################################################################
 #
-# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -27,38 +25,7 @@
 #
 ##############################################################################
 
-from Koo.Common import Common
+from BooleanSearchWidget import *
+from Koo.Search.SearchWidgetFactory import *
 
-from AbstractSearchWidget import *
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-
-class CheckBoxSearchWidget(AbstractSearchWidget):
-	def __init__(self, name, parent, attrs={}):
-		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		self.uiCombo = QComboBox( self )
-		self.uiCombo.setEditable( False )
-		self.uiCombo.addItem( '', QVariant() )
-		self.uiCombo.addItem( _('Yes'), QVariant( True ) )
-		self.uiCombo.addItem( _('No'), QVariant( False ) )
-		layout = QVBoxLayout( self )
-		layout.addWidget( self.uiCombo )
-		layout.setSpacing( 0 )
-		layout.setContentsMargins( 0, 0, 0, 0 )
-		self.focusWidget = self.uiCombo
-
-	def getValue(self):
-		value = self.uiCombo.itemData( self.uiCombo.currentIndex() )
-		if value.type() == QVariant.Bool:
-			return [(self.name,'=',int(value.toBool()))]
-		return []
-
-	def setValue(self, value):
-		pass
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
-
-	def clear(self):
-		self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
-		self.value = ''
+SearchWidgetFactory.register( 'boolean', BooleanSearchWidget )

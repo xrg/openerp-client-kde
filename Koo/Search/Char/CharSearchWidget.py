@@ -27,53 +27,30 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
+from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
 
-## @brief AbstractFieldWidget is the base class for all search widgets in Koo.
-# In order to create a new search widget, that is: a widget that appears in a 
-# auto-generated search form you need to inherit from this class and implement some
-# of it's functions.
-class AbstractSearchWidget(QWidget):
-	## @brief Creates a new AbstractSearchWidget and receives the following parameters
-	#
-	# Note that a class that inherits AbstractSearchWidget should set self.focusWidget
-	# which by default equals 'self'.
-	#
-	#  name:       The name of the field
-	#  parent:     The QWidget parent of this QWidget
-	#  attributes: Holds some extra attributes 
-	#
+class CharSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
-		QWidget.__init__(self, parent)
-		self._value = None
-		self.name = name
-		self.model = attrs.get('model', None)
-		self.attrs = attrs
-		self.focusWidget = self
+		AbstractSearchWidget.__init__(self, name, parent, attrs)
+		self.layout = QHBoxLayout( self )
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
+		self.uiText = QLineEdit( self )
+		self.layout.addWidget( self.uiText )
+		self.focusWidget = self.uiText
+		# Catch keyDownPressed
+		self.focusWidget.installEventFilter( self )
 
-	def eventFilter( self, target, event ):
-		if event.type() == QEvent.KeyPress and event.key() == Qt.Key_Down:
-			self.emit( SIGNAL('keyDownPressed()') )
-			return True
-		return False
-
-	## @brief Sets the focus to the widget
-	def setFocus(self):
-		self.focusWidget.setFocus()
-
-	## @brief Clears the value of the widget
-	# New widgets should override this function.
-	def clear(self):
-		pass
-		
-	## @brief Returns a domain-like list for the current value in the widget. 
-	# New widgets should override this function.
 	def value(self):
-		return []
+		s = unicode(self.uiText.text())
+		if s:
+			return [(self.name,self.attrs.get('comparator','ilike'),s)]
+		else:
+			return []
 
-	## @brief Sets the given value in the search field.
-	# New widgets should override this function.
+	def clear(self):
+		self.uiText.clear()
+
 	def setValue(self, value):
-		pass
-
+		self.uiText.setText( value )

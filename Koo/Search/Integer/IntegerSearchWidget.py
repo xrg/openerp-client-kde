@@ -1,6 +1,7 @@
 ##############################################################################
 #
-# Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
+# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
+#                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -27,61 +28,58 @@
 ##############################################################################
 
 from Koo.Common import Common
+from Koo.Common.Numeric import *
 
-from Koo.Common.Calendar import *
-from AbstractSearchWidget import *
+from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
 
-class TimeSearchWidget(AbstractSearchWidget):
+class IntegerSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		self.uiStart = QLineEdit( self )
-		label = QLabel( "-", self)
-		self.uiEnd = QLineEdit( self )
 		layout = QHBoxLayout( self )
-		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.setSpacing( 0 )
-		layout.addWidget(self.uiStart)
-		layout.addWidget(label)
-		layout.addWidget(self.uiEnd)
-
-		# Catch keyDownPressed
-		self.uiStart.installEventFilter( self )
-		self.uiEnd.installEventFilter( self )
-
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		self.uiStart = QLineEdit( self )
+		label = QLabel( '-', self )
+		self.uiEnd = QLineEdit( self )
+		layout.addWidget( self.uiStart )
+		layout.addWidget( label )
+		layout.addWidget( self.uiEnd )
+		self.connect( self.uiStart, SIGNAL('returnPressed()'), self.calculate )
+		self.connect( self.uiEnd, SIGNAL('returnPressed()'), self.calculate )
 		self.focusWidget = self.uiStart
 
-	def _getTime(self, text):
-		time = textToTime( text )
-		if time.isValid():
-			return str( time.toString( 'hh:mm:ss' ) )
+	def calculate(self):
+		widget = self.sender()
+		val = textToInteger( str(widget.text() ) )
+		if val:
+			widget.setText( str(val) )
 		else:
-			return False
+			widget.clear()
 
-	def getValue(self):
+	def value(self):
 		res = []
-		val = self._getTime( str( self.uiStart.text() ) )
- 		if val:
-			res.append((self.name, '>=', val ))
-		else:
-			self.uiStart.clear()
-		val = self._getTime( str( self.uiEnd.text()) )
-	 	if val:
-			res.append((self.name, '<=', val ))
-		else:
-			self.uiEnd.clear()
+		start = textToInteger( str(self.uiStart.text()) )
+		end = textToInteger( str(self.uiEnd.text()) )
+		if start and not end:
+			res.append((self.name, '=', start))
+			return res
+		if start:
+			res.append((self.name, '>=', start))
+		if end:
+			res.append((self.name, '<=', end))
 		return res
 
-	def setValue(self, value ):
-		pass
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
-
 	def clear(self):
-		self.value = ''
 		self.uiStart.clear()
 		self.uiEnd.clear()
 
+	def setValue(self, value):
+		if value:
+			self.uiStart.setText( unicode(value) )
+			self.uiEnd.setText( unicode(value) )
+		else:
+			self.uiStart.clear()
+			self.uiEnd.clear()

@@ -235,7 +235,7 @@ class Screen(QScrollArea):
 	## @brief Searches with the current parameters of the search form and loads the
 	# models that fit the criteria.
 	def search( self ):
-		value = self.searchForm.getValue()
+		value = self.searchForm.value()
 		self.group.setFilter( value )
 		self.group.update()
 		if self.group.count() > 0:

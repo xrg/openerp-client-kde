@@ -27,66 +27,43 @@
 #
 ##############################################################################
 
-from Koo.Common import Common
-from Koo.Common.Numeric import *
-
-from AbstractSearchWidget import *
+from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.uic import *
 
-class IntegerSearchWidget(AbstractSearchWidget):
+class SelectionSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
 		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		layout = QHBoxLayout( self )
-		layout.setSpacing( 0 )
-		layout.setContentsMargins( 0, 0, 0, 0 )
-		self.uiStart = QLineEdit( self )
-		label = QLabel( '-', self )
-		self.uiEnd = QLineEdit( self )
-		layout.addWidget( self.uiStart )
-		layout.addWidget( label )
-		layout.addWidget( self.uiEnd )
-		self.connect( self.uiStart, SIGNAL('returnPressed()'), self.calculate )
-		self.connect( self.uiEnd, SIGNAL('returnPressed()'), self.calculate )
-		self.focusWidget = self.uiStart
+		self.uiCombo = QComboBox( self )
+		self.uiCombo.setEditable( False )
 
-	def calculate(self):
-		widget = self.sender()
-		val = textToInteger( str(widget.text() ) )
-		if val:
-			widget.setText( str(val) )
+		self.layout = QHBoxLayout( self )
+		self.layout.addWidget( self.uiCombo )
+		self.layout.setSpacing( 0 )
+		self.layout.setContentsMargins( 0, 0, 0, 0 )
+
+		self.fill( attrs.get('selection',[] ) )
+		self.focusWidget = self.uiCombo
+		
+	def fill(self, selection):
+		# The first is a blank element
+		self.uiCombo.addItem( '' )
+		for (id,name) in selection:
+			self.uiCombo.addItem( name, QVariant(id) )
+
+	def value( self ):
+		value = self.uiCombo.itemData( self.uiCombo.currentIndex() )
+		if value.isValid():
+			return [(self.name,'=',unicode( value.toString() ) )]
 		else:
-			widget.clear()
-
-	def getValue(self):
-		res = []
-		start = textToInteger( str(self.uiStart.text()) )
-		end = textToInteger( str(self.uiEnd.text()) )
-		if start and not end:
-			res.append((self.name, '=', start))
-			return res
-		if start:
-			res.append((self.name, '>=', start))
-		if end:
-			res.append((self.name, '<=', end))
-		return res
+			return []
 
 	def setValue(self, value):
-		if value:
-			self.uiStart.setText( str(value) )
+		if not value:
+			self.uiCombo.setCurrentIndex( self.uiCombo.findText('') )
 		else:
-			self.uiStart.clear()
-		if value:
-			self.uiEnd.setText( str(value) ) 
-		else:
-			self.uiEnd.clear()
-
-	value = property(getValue, setValue, None,
-	  'The content of the widget or ValueError if not valid')
+			self.uiCombo.setCurrentIndex( self.uiCombo.findData( QVariant(value) ) )
 
 	def clear(self):
-		self.value = False
-		self.uiStart.clear()
-		self.uiEnd.clear()
+		self.setValue( False )
 
