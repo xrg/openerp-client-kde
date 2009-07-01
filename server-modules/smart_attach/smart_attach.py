@@ -162,7 +162,7 @@ class ir_attachment(osv.osv):
 			# We use SQL directly to update metainfo so last modification time doesn't change.
 			# This avoids messages in the GUI telling that the object has been modified in the
 			# meanwhile. After all, the field is readonly in the GUI so no conflicts can occur.
-			cr.execute("UPDATE ir_attachment SET metainfo=%s WHERE id=%d", (metainfo, attachment.id) )
+			cr.execute("UPDATE ir_attachment SET metainfo=%s WHERE id=%s", (metainfo, attachment.id) )
 		cr.commit()
 
 ir_attachment()
