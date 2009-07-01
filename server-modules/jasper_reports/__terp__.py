@@ -33,13 +33,14 @@
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
 	"category" : "Generic Modules/Jasper Reports",
-	"init_xml" : [
-		'jasper_wizard.xml'
-	],
+	"init_xml" : [],
 	"demo_xml" : [ 
 		'jasper_demo.xml' 
 	],
-	"update_xml" : [],
+	"update_xml" : [
+		'jasper_wizard.xml',
+		'jasper_view.xml'
+	],
 	"active": False,
 	"installable": True
 }

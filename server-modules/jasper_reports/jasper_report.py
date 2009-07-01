@@ -33,7 +33,7 @@ import xml.xpath
 import xml.dom.minidom
 import report
 import pooler
-import osv
+from osv import orm, osv, fields
 import tools
 import tempfile 
 import codecs
@@ -170,7 +170,13 @@ class Report:
 		env = {}
 		env.update( os.environ )
 		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
-		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCreator', inputFile, xmlFile, outputFile, dsn, user, password, params, standardDirectory, env)
+		# Add report file directory to CLASSPATH so bundle (.properties) files can be found
+		# by JasperReports.
+		env['CLASSPATH'] += ':' + os.path.abspath( os.path.dirname( inputFile ) ) 
+		
+		locale = self.context.get('lang', 'en_US')
+		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCreator', inputFile, xmlFile, outputFile, locale, dsn, user, password, params, standardDirectory, env)
+
 
 	# XML file generation using a list of dictionaries provided by the parser function.
 	def generate_xml_from_records(self, fileName):
@@ -239,11 +245,11 @@ class Report:
 					print "Field '%s' does not exist in model '%s'." % (root, self.model)
 					continue
 
-				if isinstance(value, osv.orm.browse_record):
+				if isinstance(value, orm.browse_record):
 					relations2 = [ f.partition('/')[2] for f in relations if f.partition('/')[0] == root and f.partition('/')[2] ]
 					return self.generate_ids( value, relations2, currentPath, currentRecords )
 
-				if not isinstance(value, osv.orm.browse_record_list):
+				if not isinstance(value, orm.browse_record_list):
 					print "Field '%s' in model '%s' is not a relation." % (root, self.model)
 					return currentRecords
 
@@ -288,13 +294,13 @@ class Report:
 					print "Field '%s' does not exist in model" % root
 
 			# Check if it's a many2one
-			if isinstance(value, osv.orm.browse_record):
+			if isinstance(value, orm.browse_record):
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
 				self.generate_record(value, records, fieldNode, currentPath, fields2)
 				continue
 
 			# Check if it's a one2many or many2many
-			if isinstance(value, osv.orm.browse_record_list):
+			if isinstance(value, orm.browse_record_list):
 				if not value:
 					continue
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
@@ -359,30 +365,102 @@ class report_jasper(report.interface.report_int):
 		r = Report( name, cr, uid, ids, data, context )
 		return ( r.execute(), 'pdf' )
 
+# Inherit ir.actions.report.xml and add an action to be able to store .jrxml and .properties
+# files attached to the report so they can be used as reports in the application.
+class report_xml(osv.osv):
+	_name = 'ir.actions.report.xml'
+	_inherit = 'ir.actions.report.xml'
 
+	def update(self, cr, uid, ids, context={}):
+		for report in self.browse(cr, uid, ids):
+			attachmentIds = self.pool.get('ir.attachment').search( cr, uid, [('res_model','=','ir.actions.report.xml'),('res_id','=',report.id)], context=context)	
+			has_jrxml = False
+			# Browse attachments and store .jrxml and .properties into jasper_reports/custom_reports
+			# directory. Also add or update ir.values data so they're shown on model views.
+			for attachment in self.pool.get('ir.attachment').browse( cr, uid, attachmentIds ):
+				content = attachment.datas
+				fileName = attachment.datas_fname
+				if not fileName or not content:
+					continue
+				if '.jrxml' in fileName:
+					if has_jrxml:
+						raise osv.except_osv(_('Error'), _('There are two .jrxml files attached to this report.'))
+					has_jrxml = True
+					path = self.save_file( fileName, content )
+					# Update path into report_rml field.
+					self.write(cr, uid, [report.id], {
+						'report_rml': path
+					})
+					valuesId = self.pool.get('ir.values').search(cr, uid, [('value','=','ir.actions.report.xml,%s'% report.id)])
+					if not valuesId:
+						valuesId = self.pool.get('ir.values').create(cr, uid, {
+							'name': report.name,
+							'model': report.model,
+							'key': 'action',
+							'object': True,
+							'key2': 'client_print_multi',
+							'value': 'ir.actions.report.xml,%s'% report.id
+						}, context=context)
+					else:
+						self.pool.get('ir.values').write(cr, uid, valuesId, {
+							'name': report.name,
+							'model': report.model,
+							'key': 'action',
+							'object': True,
+							'key2': 'client_print_multi',
+							'value': 'ir.actions.report.xml,%s'% report.id
+						}, context=context)
+						valuesId = valuesId[0]
+				elif '.properties' in fileName:
+					self.save_file( fileName, content )
+
+				# Ensure the report is registered so it can be immediately used
+				register_jasper_report( report.report_name, report.model )
+		return True
+
+	def save_file(self, name, value):
+		path = os.path.abspath( os.path.dirname(__file__) )
+		path += '/custom_reports/%s' % name
+		f = open( path, 'wb+' )
+		f.write( base64.decodestring( value ) )
+		f.close()
+
+		path = 'jasper_reports/custom_reports/%s' % name
+		return path
+
+report_xml()
 
 # Ugly hack to avoid developers the need to register reports
-import service.security
+
 import pooler
+import report
 
-old_login = service.security.login 
-def new_login(db, login, password):
-	uid = old_login(db, login, password)
-	if uid:
-		pool = pooler.get_pool(db)
-		cr = pooler.get_db(db).cursor()
-		ids = pool.get('ir.actions.report.xml').search(cr, uid, [])
-		records = pool.get('ir.actions.report.xml').read(cr, uid, ids, ['report_name','report_rml','model'])
-		for record in records:
-			path = record['report_rml']
-			if path and path.endswith('.jrxml'):
-				name = 'report.%s' % record['report_name']
-				service = netsvc.service_exist( name )
-				if service and isinstance( service, report_jasper ):
-					continue
-				del netsvc.SERVICES[name]
-				report_jasper( name, record['model'] )
-	return uid
+def register_jasper_report(name, model):
+	name = 'report.%s' % name
+	service = netsvc.service_exist( name )
+	if service and isinstance( service, report_jasper ):
+		return
+	if service:
+		del netsvc.SERVICES[name]
+	report_jasper( name, model )
 
-service.security.login = new_login
+
+# This hack allows automatic registration of jrxml files without 
+# the need for developers to register them programatically.
+
+old_register_all = report.interface.register_all
+def new_register_all(db):
+	value = old_register_all(db)
+
+	cr = db.cursor()
+	cr.execute("SELECT * FROM ir_act_report_xml WHERE auto=true ORDER BY id")
+	records = cr.dictfetchall()
+	cr.close()
+	for record in records:
+		path = record['report_rml']
+		if path and path.endswith('.jrxml'):
+			register_jasper_report( record['report_name'], record['model'] )
+	return value
+
+report.interface.register_all = new_register_all
 
