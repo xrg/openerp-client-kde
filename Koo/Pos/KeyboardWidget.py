@@ -24,6 +24,7 @@ from AbstractKeyboardWidget import *
 
 (KeyboardWidgetUi, KeyboardWidgetBase) = loadUiType( Common.uiPath('keyboard.ui') )
 
+## @brief The KeyboardWidget class provides a virtual on-screen alphanumeric keyboard.
 class KeyboardWidget(AbstractKeyboardWidget, KeyboardWidgetUi):
 	## @brief Creates a KeyboardWidget that will send keyboard events to it's parent. It will
 	# also be positioned in the screen acording to its parent coordinates.

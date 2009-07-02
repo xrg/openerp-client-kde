@@ -19,6 +19,8 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
+## @brief The AbstactKeyboardWidget provides an abstract class for creating virtual
+# on-screen keyboards.
 class AbstractKeyboardWidget(QWidget):
 	## @brief Creates a KeyboardWidget that will send keyboard events to it's parent. It will
 	# also be positioned in the screen acording to its parent coordinates.

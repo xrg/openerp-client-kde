@@ -24,6 +24,7 @@ from AbstractKeyboardWidget import *
 
 (KeypadWidgetUi, KeypadWidgetBase) = loadUiType( Common.uiPath('keypad.ui') )
 
+## @brief The KeyboardWidget class provides a virtual on-screen numeric keyboard.
 class KeypadWidget(AbstractKeyboardWidget, KeypadWidgetUi):
 	## @brief Creates a KeypadWidget that will send keyboard events to it's parent. It will
 	# also be positioned in the screen acording to its parent coordinates.
