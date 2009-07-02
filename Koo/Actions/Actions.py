@@ -54,7 +54,7 @@ class ExecuteReportThread(QThread):
 		del self.datas['ids']
 		if not ids:
 			try:
-				ids =  self.session.call('/object', 'execute', self.datas['model'], 'search', [])
+				ids = self.session.call('/object', 'execute', self.datas['model'], 'search', [])
 			except Rpc.RpcException, e:
 				self.emit( SIGNAL('error'), ( _('Error: %s') % unicode(e.type), e.message, e.data ) )
 				return
