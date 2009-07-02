@@ -1,0 +1,4 @@
+<area shape="rect" href="$classKoo_1_1Rpc_1_1Rpc_1_1Connection.html" title="The Connection class provides an abstract interface for a RPC protocol." alt="" coords="5,59,184,88">
+<area shape="rect" href="$classKoo_1_1Rpc_1_1Rpc_1_1PyroConnection.html" title="The PyroConnection class implements Connection for the Pyro RPC protocol." alt="" coords="241,5,447,35">
+<area shape="rect" href="$classKoo_1_1Rpc_1_1Rpc_1_1SocketConnection.html" title="The SocketConnection class implements Connection for the OpenERP socket RPC protocol..." alt="" coords="235,59,453,88">
+<area shape="rect" href="$classKoo_1_1Rpc_1_1Rpc_1_1XmlRpcConnection.html" title="The XmlRpcConnection class implements Connection class for XML&#45;RPC." alt="" coords="232,112,456,141">
