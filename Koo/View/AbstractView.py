@@ -117,9 +117,16 @@ class AbstractView(QWidget):
 	def addOnTop(self):
 		return False
 
+	## @brief Returns the on_write function.
+	#
+	# This server side function can be configured in the view so it's called each 
+	# time a record is created or written.
 	def onWriteFunction(self):
 		return self._onWrite
 
+	## @brief Establishes the name of the on_write function.
+	#
+	# By default it's the empty string, so no function will be called on the server.
 	def setOnWriteFunction(self, value):
 		self._onWrite = value
 
