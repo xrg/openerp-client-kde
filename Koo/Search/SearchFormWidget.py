@@ -131,6 +131,9 @@ class SearchFormParser(object):
 (SearchFormWidgetUi, SearchFormWidgetBase) = loadUiType( Common.uiPath('searchform.ui') )
 
 ## @brief This class provides a form with the fields to search given a model.
+#
+# This class will emit the 'search()' signal each time the user pushes the 'search' button.
+# Then you can use the 'value()' function to obtain a domain-like list.
 class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	## @brief Constructs a new SearchFormWidget.
 	def __init__(self, parent=None):
@@ -153,18 +156,21 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushClear.setEnabled( False )
 		self.pushSearch.setEnabled( False )
 
-	# @brief Returns if it's been already loaded that is
-	# setup has been called.
+	## @brief Returns True if it's been already loaded. That is: setup has been called.
 	def isLoaded(self):
 		return self._loaded
 
-	# @brief Returns True if it has no widgets.
+	## @brief Returns True if it has no widgets.
 	def isEmpty(self):
 		if len(self.widgets):
 			return False
 		else:
 			return True
 
+	## @brief Initializes the widget with the appropiate widgets to search.
+	#
+	# Needed fields include XML view (usually 'form'), fields dictionary with information
+	# such as names and types, and the model parameter.
 	def setup(self, xml, fields, model):
 		# We allow one setup call only
 		if self._loaded:
@@ -203,10 +209,12 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	def search(self):
 		self.emit( SIGNAL('search()') )
 
+	## @brief Shows Search and Clear buttons.
 	def showButtons(self):
 		self.pushClear.setVisible( True )
 		self.pushSearch.setVisible( True )
 
+	## @brief Hides Search and Clear buttons.
 	def hideButtons(self):
 		self.pushClear.setVisible( False )
 		self.pushSearch.setVisible( False )
@@ -233,10 +241,17 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		else:
 			QWidget.setFocus(self)
 
+	## @brief Clears all search fields.
+	#
+	# Calling 'value()' after this function should return an empty list.
 	def clear(self):
 		for x in self.widgets.values():
 			x.clear()
 
+	## @brief Returns a domain-like list for the current search parameters.
+	#
+	# Note you can optionally give a 'domain' parameter which will be added to
+	# the filters the widget will return.
 	def value(self, domain=[]):
 		res = []
 		for x in self.widgets:
@@ -247,6 +262,15 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 				res.append(f)
 		return res
 
+	## @brief Allows setting filter values for all fields in the form.
+	#
+	# 'val' parameter should be a dictionary with field names as keys and
+	# field values as values. Example:
+	#
+	# form.setValue({
+	#	'name': 'enterprise',
+	#	'income': 24
+	# })
 	def setValue(self, val):
 		for x in val:
 			if x in self.widgets:
