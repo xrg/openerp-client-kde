@@ -31,31 +31,42 @@ from Koo.Common import Api
 from Koo.Plugins import *
 from Koo import Rpc
 
+## @brief The Action class is a QAction that can execute a model action. Such
+# as relate, print or wizard (on the server) and plugins (on the client).
 class Action(QAction):
+	## @brief Creates a new Action instance given a parent.
 	def __init__(self, parent):
 		QAction.__init__(self, parent)
 		self._data = None
 		self._type = None 
 		self._model = None
 
+	## @brief Sets the data associated with the action.
 	def setData(self, data):
 		self._data = data
 
+	## @brief Returns the data associated with the action.
 	def data(self):
 		return self._data
 
+	## @brief Sets the type of action (such as 'print' or 'plugin')
 	def setType(self, type):
 		self._type = type
 
+	## @brief Returns the type of action (such as 'print' or 'plugin')
 	def type(self):
 		return self._type
 
+	## @brief Sets the model the action refers to
 	def setModel(self, model):
 		self._model = model
 
+	## @brief Returns the model the action refers to
 	def model(self):
 		return self._model
 
+	## @brief Executes the action (depending on its type), given the current id
+	# and the selected ids.
 	def execute(self, currentId, selectedIds):
 		if self._type == 'relate':
 			self.executeRelate( currentId )
@@ -64,30 +75,40 @@ class Action(QAction):
 		else:
 			self.executePlugin( currentId, selectedIds )
 
+	# Executes the action as a 'relate' type
 	def executeRelate(self, currentId):
 		if not currentId:
 			QMessageBox.information( self, '', _('You must select a record to use the relate button !'))
 		Api.instance.executeAction(self._data, {'id': currentId})
 
-	def executeAction(self, currentId, ids):
-		if not currentId and not ids:
+	# Executes the action as a 'relate' or 'action' type
+	def executeAction(self, currentId, selectedIds):
+		if not currentId and not selectedIds:
 			QMessageBox.information(self, '', _('You must save this record to use the relate button !'))
 			return False
 			
 		if not currentId:
-			currentId = ids[0]
-		elif not ids:
-			ids = [currentId]
+			currentId = selectedIds[0]
+		elif not selectedIds:
+			selectedIds = [currentId]
 		if self._type == 'print':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
-		Api.instance.executeAction(self._data, { 'id': currentId, 'ids': ids, 'model': self._model } )
+		Api.instance.executeAction(self._data, { 'id': currentId, 'ids': selectedIds, 'model': self._model } )
 		if self._type == 'print':
 			QApplication.restoreOverrideCursor()
 
-	def executePlugin(self, currentId, ids):
-		Plugins.execute( self._data, self._model, currentId, ids )
+	# Executes the action as a plugin type
+	def executePlugin(self, currentId, selectedIds):
+		Plugins.execute( self._data, self._model, currentId, selectedIds )
 
+## @brief The ActionFactory class is a factory that creates Action objects to execute
+# actions on the server. Typically those shown in the toolbar and menus for an specific 
+# model
 class ActionFactory:
+	## @brief Creates a list of Action objects given a parent, model and definition.
+	#
+	# The 'definition' parameter is the 'toolbar' parameter returned by server function
+	# fields_view_get.
 	@staticmethod
 	def create(parent, definition, model):
 		if not definition:
@@ -127,6 +148,5 @@ class ActionFactory:
 			action.setType( 'plugin' )
 			action.setModel( model )
 			actions.append( action )
-
 		return actions
 

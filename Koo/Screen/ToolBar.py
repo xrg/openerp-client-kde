@@ -29,14 +29,23 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from Koo import Rpc
 
+## @brief The ToolBar class is a widget (which inherits QToolBar) and is used
+# as the toolbar in forms.
+#
+# The Toolbar will have Vertical orientation and ToolButtonTextBesideIcon.
 class ToolBar(QToolBar):
+	## @brief Creates a new ToolBar instance.
 	def __init__(self, parent=None):
 		QToolBar.__init__(self, parent)
 		self.setOrientation( Qt.Vertical )
 		self.setToolButtonStyle( Qt.ToolButtonTextBesideIcon )
-		self.actions = {}
 		self.loaded = False
 
+	## @brief Initializes the toolbar with a list of Action objects.
+	#
+	# Note that it automatically adds a separator between actions of different types
+	# such as between 'print' and 'action'. This function can only be called once. 
+	# Calling this function more times won't do anything.
 	def setup(self, actions):
 		if self.loaded:
 			return
@@ -47,4 +56,4 @@ class ToolBar(QToolBar):
 				self.addSeparator()
 			last = action.type()
 			self.addAction( action )
-		
+

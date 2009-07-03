@@ -61,6 +61,11 @@ from ViewQueue import *
 # When you add a new view by it's ID the type of the given view is removed from the list of
 # view types. (See: addViewById() )
 #
+# A Screen can emit four different signals:
+#   activated() -> Emited each time a record is activated (such as a double click on a list).
+#   closed() -> Emited when a view asks for the screen to be closed (such as a 'close' button on a form).
+#   currentChanged() -> Emited when the current record has been modified. 
+#   recordMessage(int,int,int) -> Emited each time the current record changes (such as moving to previous or next).
 class Screen(QScrollArea):
 
 	def __init__(self, parent=None):
@@ -112,6 +117,7 @@ class Screen(QScrollArea):
 
 		self._viewQueue = ViewQueue()
 
+	## @brief Sets the focus to current view.
 	def setFocusToView(self):
 		self.currentView().setFocus()
 
@@ -124,6 +130,11 @@ class Screen(QScrollArea):
 	def preloadedViews(self, views):
 		return self.views_preload
 		
+	## @brief Initializes the list of views using a types list and an ids list.
+	#
+	# Example: 
+	# 
+	# screen.setupViews( ['tree','form'], [False, False] )
 	def setupViews(self, types, ids):
 		self._viewQueue.setup( types, ids )
 		# Try to load only if model group has been set
@@ -158,10 +169,12 @@ class Screen(QScrollArea):
 	def embedded(self):
 		return self._embedded
 
+	## @brief Allows making the toolbar visible or hidden.
 	def setToolbarVisible(self, value):
 		self._toolbarVisible = value
 		self.toolBar.setVisible( value )
 
+	## @brief Allows making the search form visible or hidden.
 	def setSearchFormVisible(self, value):
 		self._searchFormVisible = value
 		self.searchForm.setVisible( value )
@@ -182,6 +195,8 @@ class Screen(QScrollArea):
 		else:
 			self.searchForm.hide()
 
+	## @brief This function is expected to be used as a slot for an Action trigger signal.
+	# (as it will check the sender). It will call the Action.execute(id,ids) function.
 	def triggerAction(self):
 		# We expect a Screen.Action here
 		action = self.sender()
@@ -314,7 +329,8 @@ class Screen(QScrollArea):
 			if self.currentView():
 				self.currentView().setSelected(self._currentRecord.id)
 
-	## @brief Switches to the next view in the queue of views.
+	## @brief Switches the current view to the previous one. If viewType (such as 'calendar') 
+	# is given it will switch to that view type.
 	def switchView(self, viewType = None):
 		if self.currentView(): 
 			self.currentView().store()
@@ -472,6 +488,8 @@ class Screen(QScrollArea):
 	def isReadOnly(self):
 		return self.currentView().isReadOnly()
 
+	## @brief Creates a new record in the current model. If the current view is not editable
+	# it will automatically switch to a view that allows editing.
 	def new(self, default=True):
 		if self.currentView() and self.currentView().showsMultipleRecords() \
 				and self.currentView().isReadOnly():
@@ -489,12 +507,16 @@ class Screen(QScrollArea):
 			self.currentView().startEditing()
 		return self.currentRecord()
 
+	## @brief Returns 0 or -1 depending on new records policy for the current view.
+	# If the view adds on top it will return 0, otherwise it will return -1
 	def newRecordPosition(self):
 		if self.currentView() and self.currentView().addOnTop():
 			return 0
 		else:
 			return -1 
 
+	## @brief Sets the on_write function. That is the function (in the server) that must
+	# be called after storing a record.
 	def setOnWriteFunction(self, functionName):
 		self.group.setOnWriteFunction( functionName )
 
@@ -524,7 +546,10 @@ class Screen(QScrollArea):
 		self.display()
 		return id
 
-	## @brief Reloads 
+	## @brief Reload current model and refreshes the view.
+	#
+	# If the current view only shows a single record, only the current one will
+	# be reloaded. If the view shows multiple records it will reload the whole model.
 	def reload(self):
 		if not self.currentView().showsMultipleRecords():
 			if self.currentRecord():
@@ -636,6 +661,7 @@ class Screen(QScrollArea):
 		else:
 			return False
 
+	## @brief Loads the given ids to the RecordGroup and refreshes the view.
 	def load(self, ids):
 		self.currentView().reset()
 		self.group.load( ids, display =True )
@@ -710,7 +736,7 @@ class Screen(QScrollArea):
 		self.group.clear()
 		self.display()
 
-	# Stores settings of all opened views
+	## @brief Stores settings of all opened views
 	def storeViewSettings(self):
 		for view in self.views.values():
 			ViewSettings.store( view.id, view.viewSettings() )
