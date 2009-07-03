@@ -108,7 +108,7 @@ def textToTime( text ):
 	if text == '=':
 		return QTime.currentTime()
 
-	inputFormats = ['h:m:s', 'h:m', 'hh:mm:ss', 'h.m.s', 'h.m']
+	inputFormats = ['h:m:s', 'h:m', 'hh:mm:ss', 'h.m.s', 'h.m', 'h']
 	for x in inputFormats:
 		time = QTime.fromString( text, x )
 		if time.isValid():
