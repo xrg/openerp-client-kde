@@ -75,6 +75,12 @@ def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr><td class="memItemLeft" nowrap align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKoo_1_1View_1_1AbstractView_1_1AbstractView.html#0f28bb9375797f11761a19eeb260aac8">addOnTop</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns True if new records should be added at the top of the list or False if they should be added at the bottom (the default).  <a href="#0f28bb9375797f11761a19eeb260aac8"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKoo_1_1View_1_1AbstractView_1_1AbstractView.html#4170704d7576cda505ba5a03e9880412">onWriteFunction</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the on_write function.  <a href="#4170704d7576cda505ba5a03e9880412"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classKoo_1_1View_1_1AbstractView_1_1AbstractView.html#79bde105d006beb9cd2724a6a0966150">setOnWriteFunction</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Establishes the name of the on_write function.  <a href="#79bde105d006beb9cd2724a6a0966150"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 The <a class="el" href="classKoo_1_1View_1_1AbstractView_1_1AbstractView.html" title="The AbstractView class describes the interface Views must implement.">AbstractView</a> class describes the interface Views must implement. 
@@ -104,6 +110,30 @@ Returns True if new records should be added at the top of the list or False if t
 
 </div>
 </div><p>
+<a class="anchor" name="4170704d7576cda505ba5a03e9880412"></a><!-- doxytag: member="Koo::View::AbstractView::AbstractView::onWriteFunction" ref="4170704d7576cda505ba5a03e9880412" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Koo::View::AbstractView::AbstractView::onWriteFunction           </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns the on_write function. 
+<p>
+This server side function can be configured in the view so it's called each time a record is created or written. 
+<p>Definition at line <a class="el" href="AbstractView_8py_source.html#l00124">124</a> of file <a class="el" href="AbstractView_8py_source.html">AbstractView.py</a>.</p>
+
+</div>
+</div><p>
 <a class="anchor" name="be0080a26834d1e171c98121c66d5b79"></a><!-- doxytag: member="Koo::View::AbstractView::AbstractView::selectedIds" ref="be0080a26834d1e171c98121c66d5b79" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -127,6 +157,39 @@ If the view is a form, for example, the current id is returned. If it's a tree w
 <p>Reimplemented in <a class="el" href="classKoo_1_1View_1_1Form_1_1FormView_1_1FormView.html#31bee734bb70f62a65d23fcda45d64e6">Koo::View::Form::FormView::FormView</a>.</p>
 
 <p>Definition at line <a class="el" href="AbstractView_8py_source.html#l00067">67</a> of file <a class="el" href="AbstractView_8py_source.html">AbstractView.py</a>.</p>
+
+</div>
+</div><p>
+<a class="anchor" name="79bde105d006beb9cd2724a6a0966150"></a><!-- doxytag: member="Koo::View::AbstractView::AbstractView::setOnWriteFunction" ref="79bde105d006beb9cd2724a6a0966150" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def Koo::View::AbstractView::AbstractView::setOnWriteFunction           </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>value</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Establishes the name of the on_write function. 
+<p>
+By default it's the empty string, so no function will be called on the server. 
+<p>Definition at line <a class="el" href="AbstractView_8py_source.html#l00130">130</a> of file <a class="el" href="AbstractView_8py_source.html">AbstractView.py</a>.</p>
 
 </div>
 </div><p>

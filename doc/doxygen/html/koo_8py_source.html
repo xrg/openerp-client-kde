@@ -110,7 +110,7 @@
 <a name="l00090"></a>00090 <span class="comment">#</span>
 <a name="l00091"></a>00091 <span class="keywordflow">if</span> imports[<span class="stringliteral">'dbus'</span>]:
 <a name="l00092"></a>00092         <span class="keyword">class </span>OpenErpInterface(dbus.service.Object):
-<a name="l00093"></a>00093                 <span class="keyword">def </span><a class="code" href="classKoo_1_1Model_1_1Group_1_1RecordGroup.html#66b46515607d2c0ff3b1cd8d72e4e63b" title="Creates a new RecordGroup object.">__init__</a>(self, path):
+<a name="l00093"></a>00093                 <span class="keyword">def </span><a class="code" href="classKoo_1_1Pos_1_1KeypadWidget_1_1KeypadWidget.html#e0083dd04f633471a955e9c9babaea99" title="Creates a KeypadWidget that will send keyboard events to it&amp;#39;s parent.">__init__</a>(self, path):
 <a name="l00094"></a>00094                         dbus.service.Object.__init__(self, dbus.SessionBus(), path)
 <a name="l00095"></a>00095 
 <a name="l00096"></a>00096                 <span class="comment"># This function lets execute any given function of any local service. See example above.</span>
@@ -151,7 +151,7 @@
 <a name="l00131"></a>00131         <span class="keywordflow">pass</span>
 <a name="l00132"></a>00132 
 <a name="l00133"></a>00133 <span class="keyword">class </span>KeyboardWidget(QWidget):
-<a name="l00134"></a>00134         <span class="keyword">def </span><a class="code" href="classKoo_1_1Model_1_1Group_1_1RecordGroup.html#66b46515607d2c0ff3b1cd8d72e4e63b" title="Creates a new RecordGroup object.">__init__</a>(self, parent=None):
+<a name="l00134"></a>00134         <span class="keyword">def </span><a class="code" href="classKoo_1_1Pos_1_1KeypadWidget_1_1KeypadWidget.html#e0083dd04f633471a955e9c9babaea99" title="Creates a KeypadWidget that will send keyboard events to it&amp;#39;s parent.">__init__</a>(self, parent=None):
 <a name="l00135"></a>00135                 QWidget.__init__(self, parent)
 <a name="l00136"></a>00136                 <span class="keyword">from</span> PyQt4.uic <span class="keyword">import</span> loadUi
 <a name="l00137"></a>00137                 loadUi( Common.uiPath(<span class="stringliteral">'keyboard.ui'</span>), self )
@@ -162,7 +162,7 @@
 <a name="l00142"></a>00142                 self.move( pos.x(), pos.y() + parent.height() )
 <a name="l00143"></a>00143                 self.show()
 <a name="l00144"></a>00144 
-<a name="l00145"></a>00145         <span class="keyword">def </span>escape(self):
+<a name="l00145"></a>00145         <span class="keyword">def </span><a class="code" href="classKoo_1_1Pos_1_1AbstractKeyboardWidget_1_1AbstractKeyboardWidget.html#befd8687b3547f7e610db4bbb6189382" title="Hides the keyboard.">escape</a>(self):
 <a name="l00146"></a>00146                 self.hide()
 <a name="l00147"></a>00147 
 <a name="l00148"></a>00148 
@@ -219,7 +219,7 @@
 <a name="l00199"></a>00199 <span class="comment"># click widgets below it. I'm leaving the code by now as it might be useful in the</span>
 <a name="l00200"></a>00200 <span class="comment"># future. Simply uncommenting the installEventFilter line will do.</span>
 <a name="l00201"></a>00201 <span class="keyword">class </span>DebugEventFilter(QObject):
-<a name="l00202"></a>00202         <span class="keyword">def </span><a class="code" href="classKoo_1_1Model_1_1Group_1_1RecordGroup.html#66b46515607d2c0ff3b1cd8d72e4e63b" title="Creates a new RecordGroup object.">__init__</a>(self, parent=None):
+<a name="l00202"></a>00202         <span class="keyword">def </span><a class="code" href="classKoo_1_1Pos_1_1KeypadWidget_1_1KeypadWidget.html#e0083dd04f633471a955e9c9babaea99" title="Creates a KeypadWidget that will send keyboard events to it&amp;#39;s parent.">__init__</a>(self, parent=None):
 <a name="l00203"></a>00203                 QObject.__init__(self, parent)
 <a name="l00204"></a>00204                 
 <a name="l00205"></a>00205         <span class="keyword">def </span>eventFilter(self, obj, event):

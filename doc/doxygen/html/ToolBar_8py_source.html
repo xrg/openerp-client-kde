@@ -49,25 +49,34 @@
 <a name="l00029"></a>00029 <span class="keyword">from</span> PyQt4.QtCore <span class="keyword">import</span> *
 <a name="l00030"></a>00030 <span class="keyword">from</span> Koo <span class="keyword">import</span> Rpc
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">class </span>ToolBar(QToolBar):
-<a name="l00033"></a>00033         <span class="keyword">def </span><a class="code" href="classKoo_1_1Rpc_1_1Subscriber_1_1Subscriber.html#4eb66dc5b1d825fe28c8c98b9f42878e" title="Creates a new Subscriber object from the given session and with &amp;#39;parent&amp;#39;...">__init__</a>(self, parent=None):
-<a name="l00034"></a>00034                 QToolBar.__init__(self, parent)
-<a name="l00035"></a>00035                 self.setOrientation( Qt.Vertical )
-<a name="l00036"></a>00036                 self.setToolButtonStyle( Qt.ToolButtonTextBesideIcon )
-<a name="l00037"></a>00037                 self.actions = {}
-<a name="l00038"></a>00038                 self.loaded = <span class="keyword">False</span>
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040         <span class="keyword">def </span>setup(self, actions):
-<a name="l00041"></a>00041                 <span class="keywordflow">if</span> self.loaded:
-<a name="l00042"></a>00042                         <span class="keywordflow">return</span>
-<a name="l00043"></a>00043                 self.loaded = <span class="keyword">True</span>
-<a name="l00044"></a>00044                 last = <span class="keywordtype">None</span>
-<a name="l00045"></a>00045                 <span class="keywordflow">for</span> action <span class="keywordflow">in</span> actions:
-<a name="l00046"></a>00046                         <span class="keywordflow">if</span> last <span class="keywordflow">and</span> last != action.type():
-<a name="l00047"></a>00047                                 self.addSeparator()
-<a name="l00048"></a>00048                         last = action.type()
-<a name="l00049"></a>00049                         self.addAction( action )
-<a name="l00050"></a>00050                 
+<a name="l00032"></a>00032 <span class="comment">## @brief The ToolBar class is a widget (which inherits QToolBar) and is used</span>
+<a name="l00033"></a>00033 <span class="comment"># as the toolbar in forms.</span>
+<a name="l00034"></a>00034 <span class="comment">#</span>
+<a name="l00035"></a>00035 <span class="comment"># The Toolbar will have Vertical orientation and ToolButtonTextBesideIcon.</span>
+<a name="l00036"></a><a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html">00036</a> <span class="keyword">class </span><a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html" title="The ToolBar class is a widget (which inherits QToolBar) and is used as the toolbar...">ToolBar</a>(QToolBar):
+<a name="l00037"></a>00037         <span class="comment">## @brief Creates a new ToolBar instance.</span>
+<a name="l00038"></a><a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#a47d5b6b79a3ab8b86e4761248a5ae71">00038</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#a47d5b6b79a3ab8b86e4761248a5ae71" title="Creates a new ToolBar instance.">__init__</a>(self, parent=None):
+<a name="l00039"></a>00039                 QToolBar.__init__(self, parent)
+<a name="l00040"></a>00040                 self.setOrientation( Qt.Vertical )
+<a name="l00041"></a>00041                 self.setToolButtonStyle( Qt.ToolButtonTextBesideIcon )
+<a name="l00042"></a>00042                 self.<a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#7830d1ed69e19a269f99f79f7e766611">loaded</a> = <span class="keyword">False</span>
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044         <span class="comment">## @brief Initializes the toolbar with a list of Action objects.</span>
+<a name="l00045"></a>00045         <span class="comment">#</span>
+<a name="l00046"></a>00046         <span class="comment"># Note that it automatically adds a separator between actions of different types</span>
+<a name="l00047"></a>00047         <span class="comment"># such as between 'print' and 'action'. This function can only be called once. </span>
+<a name="l00048"></a>00048         <span class="comment"># Calling this function more times won't do anything.</span>
+<a name="l00049"></a><a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#0c8892bb55b3561d4fcb89875286db49">00049</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#0c8892bb55b3561d4fcb89875286db49" title="Initializes the toolbar with a list of Action objects.">setup</a>(self, actions):
+<a name="l00050"></a>00050                 <span class="keywordflow">if</span> self.<a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#7830d1ed69e19a269f99f79f7e766611">loaded</a>:
+<a name="l00051"></a>00051                         <span class="keywordflow">return</span>
+<a name="l00052"></a>00052                 self.<a class="code" href="classKoo_1_1Screen_1_1ToolBar_1_1ToolBar.html#7830d1ed69e19a269f99f79f7e766611">loaded</a> = <span class="keyword">True</span>
+<a name="l00053"></a>00053                 last = <span class="keywordtype">None</span>
+<a name="l00054"></a>00054                 <span class="keywordflow">for</span> action <span class="keywordflow">in</span> actions:
+<a name="l00055"></a>00055                         <span class="keywordflow">if</span> last <span class="keywordflow">and</span> last != action.type():
+<a name="l00056"></a>00056                                 self.addSeparator()
+<a name="l00057"></a>00057                         last = action.type()
+<a name="l00058"></a>00058                         self.addAction( action )
+<a name="l00059"></a>00059 
 </pre></div></div>
 <address><small>Generated by <a target="_blank" href="http://www.doxygen.org/index.html">Doxygen</a></small></address>
 </body>

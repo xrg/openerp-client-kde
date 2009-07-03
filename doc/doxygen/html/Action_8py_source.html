@@ -51,105 +51,125 @@
 <a name="l00031"></a>00031 <span class="keyword">from</span> Koo.Plugins <span class="keyword">import</span> *
 <a name="l00032"></a>00032 <span class="keyword">from</span> Koo <span class="keyword">import</span> Rpc
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">class </span>Action(QAction):
-<a name="l00035"></a>00035         <span class="keyword">def </span>__init__(self, parent):
-<a name="l00036"></a>00036                 QAction.__init__(self, parent)
-<a name="l00037"></a>00037                 self._data = <span class="keywordtype">None</span>
-<a name="l00038"></a>00038                 self._type = <span class="keywordtype">None</span> 
-<a name="l00039"></a>00039                 self._model = <span class="keywordtype">None</span>
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041         <span class="keyword">def </span>setData(self, data):
-<a name="l00042"></a>00042                 self._data = data
+<a name="l00034"></a>00034 <span class="comment">## @brief The Action class is a QAction that can execute a model action. Such</span>
+<a name="l00035"></a>00035 <span class="comment"># as relate, print or wizard (on the server) and plugins (on the client).</span>
+<a name="l00036"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html">00036</a> <span class="keyword">class </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html" title="The Action class is a QAction that can execute a model action.">Action</a>(QAction):
+<a name="l00037"></a>00037         <span class="comment">## @brief Creates a new Action instance given a parent.</span>
+<a name="l00038"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#ec93cc5ad32a3e5c1857b1f3231ee8d2">00038</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#ec93cc5ad32a3e5c1857b1f3231ee8d2" title="Creates a new Action instance given a parent.">__init__</a>(self, parent):
+<a name="l00039"></a>00039                 QAction.__init__(self, parent)
+<a name="l00040"></a>00040                 self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb94b7b1d5c2fa3f26aafc1a462dd51d">_data</a> = <span class="keywordtype">None</span>
+<a name="l00041"></a>00041                 self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a> = <span class="keywordtype">None</span> 
+<a name="l00042"></a>00042                 self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#852688f07d5d47e5dfaf9692a26519f5">_model</a> = <span class="keywordtype">None</span>
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044         <span class="keyword">def </span>data(self):
-<a name="l00045"></a>00045                 <span class="keywordflow">return</span> self._data
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047         <span class="keyword">def </span>setType(self, type):
-<a name="l00048"></a>00048                 self._type = type
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         <span class="keyword">def </span>type(self):
-<a name="l00051"></a>00051                 <span class="keywordflow">return</span> self._type
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053         <span class="keyword">def </span>setModel(self, model):
-<a name="l00054"></a>00054                 self._model = model
+<a name="l00044"></a>00044         <span class="comment">## @brief Sets the data associated with the action.</span>
+<a name="l00045"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#1714b1437a3a43585cc8ace63d76c2dc">00045</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#1714b1437a3a43585cc8ace63d76c2dc" title="Sets the data associated with the action.">setData</a>(self, data):
+<a name="l00046"></a>00046                 self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb94b7b1d5c2fa3f26aafc1a462dd51d">_data</a> = data
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <span class="comment">## @brief Returns the data associated with the action.</span>
+<a name="l00049"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#3469ba4d9f0f688d0a5e030b6e3c9451">00049</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#3469ba4d9f0f688d0a5e030b6e3c9451" title="Returns the data associated with the action.">data</a>(self):
+<a name="l00050"></a>00050                 <span class="keywordflow">return</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb94b7b1d5c2fa3f26aafc1a462dd51d">_data</a>
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         <span class="comment">## @brief Sets the type of action (such as 'print' or 'plugin')</span>
+<a name="l00053"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fe67485d43b2e9e89cdeeefdbef3f852">00053</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fe67485d43b2e9e89cdeeefdbef3f852" title="Sets the type of action (such as &amp;#39;print&amp;#39; or &amp;#39;plugin&amp;#39;).">setType</a>(self, type):
+<a name="l00054"></a>00054                 self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a> = type
 <a name="l00055"></a>00055 
-<a name="l00056"></a>00056         <span class="keyword">def </span>model(self):
-<a name="l00057"></a>00057                 <span class="keywordflow">return</span> self._model
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059         <span class="keyword">def </span>execute(self, currentId, selectedIds):
-<a name="l00060"></a>00060                 <span class="keywordflow">if</span> self._type == <span class="stringliteral">'relate'</span>:
-<a name="l00061"></a>00061                         self.executeRelate( currentId )
-<a name="l00062"></a>00062                 <span class="keywordflow">elif</span> self._type <span class="keywordflow">in</span> ( <span class="stringliteral">'action'</span>, <span class="stringliteral">'print'</span> ):
-<a name="l00063"></a>00063                         self.executeAction( currentId, selectedIds )
-<a name="l00064"></a>00064                 <span class="keywordflow">else</span>:
-<a name="l00065"></a>00065                         self.executePlugin( currentId, selectedIds )
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067         <span class="keyword">def </span>executeRelate(self, currentId):
-<a name="l00068"></a>00068                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> currentId:
-<a name="l00069"></a>00069                         QMessageBox.information( self, <span class="stringliteral">''</span>, _(<span class="stringliteral">'You must select a record to use the relate button !'</span>))
-<a name="l00070"></a>00070                 Api.instance.executeAction(self._data, {<span class="stringliteral">'id'</span>: currentId})
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072         <span class="keyword">def </span>executeAction(self, currentId, ids):
-<a name="l00073"></a>00073                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> currentId <span class="keywordflow">and</span> <span class="keywordflow">not</span> ids:
-<a name="l00074"></a>00074                         QMessageBox.information(self, <span class="stringliteral">''</span>, _(<span class="stringliteral">'You must save this record to use the relate button !'</span>))
-<a name="l00075"></a>00075                         <span class="keywordflow">return</span> <span class="keyword">False</span>
-<a name="l00076"></a>00076                         
-<a name="l00077"></a>00077                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> currentId:
-<a name="l00078"></a>00078                         currentId = ids[0]
-<a name="l00079"></a>00079                 <span class="keywordflow">elif</span> <span class="keywordflow">not</span> ids:
-<a name="l00080"></a>00080                         ids = [currentId]
-<a name="l00081"></a>00081                 <span class="keywordflow">if</span> self._type == <span class="stringliteral">'print'</span>:
-<a name="l00082"></a>00082                         QApplication.setOverrideCursor( Qt.WaitCursor )
-<a name="l00083"></a>00083                 Api.instance.executeAction(self._data, { <span class="stringliteral">'id'</span>: currentId, <span class="stringliteral">'ids'</span>: ids, <span class="stringliteral">'model'</span>: self._model } )
-<a name="l00084"></a>00084                 <span class="keywordflow">if</span> self._type == <span class="stringliteral">'print'</span>:
-<a name="l00085"></a>00085                         QApplication.restoreOverrideCursor()
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087         <span class="keyword">def </span>executePlugin(self, currentId, ids):
-<a name="l00088"></a>00088                 Plugins.execute( self._data, self._model, currentId, ids )
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090 <span class="keyword">class </span>ActionFactory:
-<a name="l00091"></a>00091         @staticmethod
-<a name="l00092"></a>00092         <span class="keyword">def </span>create(parent, definition, model):
-<a name="l00093"></a>00093                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> definition:
-<a name="l00094"></a>00094                         <span class="comment"># If definition is not set we initialize it appropiately</span>
-<a name="l00095"></a>00095                         <span class="comment"># to be able to add the 'Print Screen' action.</span>
-<a name="l00096"></a>00096                         definition = {
-<a name="l00097"></a>00097                                 <span class="stringliteral">'print'</span>: [],
-<a name="l00098"></a>00098                                 <span class="stringliteral">'action'</span>: [],
-<a name="l00099"></a>00099                                 <span class="stringliteral">'relate'</span>: []
-<a name="l00100"></a>00100                         }
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102                 <span class="comment"># We always add the 'Print Screen' action.</span>
-<a name="l00103"></a>00103                 definition[<span class="stringliteral">'print'</span>].append({
-<a name="l00104"></a>00104                         <span class="stringliteral">'name'</span>: <span class="stringliteral">'Print Screen'</span>, 
-<a name="l00105"></a>00105                         <span class="stringliteral">'string'</span>: _(<span class="stringliteral">'Print Screen'</span>), 
-<a name="l00106"></a>00106                         <span class="stringliteral">'report_name'</span>: <span class="stringliteral">'printscreen.list'</span>, 
-<a name="l00107"></a>00107                         <span class="stringliteral">'type'</span>: <span class="stringliteral">'ir.actions.report.xml'</span> 
-<a name="l00108"></a>00108                 })
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110                 actions = []
-<a name="l00111"></a>00111                 <span class="keywordflow">for</span> icontype <span class="keywordflow">in</span> ( <span class="stringliteral">'print'</span>,<span class="stringliteral">'action'</span>,<span class="stringliteral">'relate'</span> ):
-<a name="l00112"></a>00112                         <span class="keywordflow">for</span> tool <span class="keywordflow">in</span> definition[icontype]:
-<a name="l00113"></a>00113                                 action = Action( parent )
-<a name="l00114"></a>00114                                 action.setIcon( QIcon( <span class="stringliteral">":/images/%s.png"</span> % icontype) )
-<a name="l00115"></a>00115                                 action.setText( tool[<span class="stringliteral">'string'</span>] )
-<a name="l00116"></a>00116                                 action.setType( icontype )
-<a name="l00117"></a>00117                                 action.setData( tool )
-<a name="l00118"></a>00118                                 action.setModel( model )
-<a name="l00119"></a>00119                                 actions.append( action )
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121                 plugs = Plugins.list(model)
-<a name="l00122"></a>00122                 <span class="keywordflow">for</span> p <span class="keywordflow">in</span> sorted( plugs.keys(), key=<span class="keyword">lambda</span> x:plugs[x].get(<span class="stringliteral">'string'</span>,<span class="stringliteral">''</span>) ) :
-<a name="l00123"></a>00123                         action = Action( parent )
-<a name="l00124"></a>00124                         action.setIcon( QIcon( <span class="stringliteral">":/images/exec.png"</span> ) )
-<a name="l00125"></a>00125                         action.setText( unicode( plugs[p][<span class="stringliteral">'string'</span>] ) )
-<a name="l00126"></a>00126                         action.setData( p )
-<a name="l00127"></a>00127                         action.setType( <span class="stringliteral">'plugin'</span> )
-<a name="l00128"></a>00128                         action.setModel( model )
-<a name="l00129"></a>00129                         actions.append( action )
+<a name="l00056"></a>00056         <span class="comment">## @brief Returns the type of action (such as 'print' or 'plugin')</span>
+<a name="l00057"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#39c06a562d214b2c3987e65fa30d279b">00057</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#39c06a562d214b2c3987e65fa30d279b" title="Returns the type of action (such as &amp;#39;print&amp;#39; or &amp;#39;plugin&amp;#39;).">type</a>(self):
+<a name="l00058"></a>00058                 <span class="keywordflow">return</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a>
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060         <span class="comment">## @brief Sets the model the action refers to</span>
+<a name="l00061"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb4ad4b4c501e39df1e2c17c9b0080bd">00061</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb4ad4b4c501e39df1e2c17c9b0080bd" title="Sets the model the action refers to.">setModel</a>(self, model):
+<a name="l00062"></a>00062                 self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#852688f07d5d47e5dfaf9692a26519f5">_model</a> = model
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064         <span class="comment">## @brief Returns the model the action refers to</span>
+<a name="l00065"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#959723a77067e770b69d0f6954aec69f">00065</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#959723a77067e770b69d0f6954aec69f" title="Returns the model the action refers to.">model</a>(self):
+<a name="l00066"></a>00066                 <span class="keywordflow">return</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#852688f07d5d47e5dfaf9692a26519f5">_model</a>
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068         <span class="comment">## @brief Executes the action (depending on its type), given the current id</span>
+<a name="l00069"></a>00069         <span class="comment"># and the selected ids.</span>
+<a name="l00070"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#e206aedd2a28049c3f8d9a795e46ac5f">00070</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#e206aedd2a28049c3f8d9a795e46ac5f" title="Executes the action (depending on its type), given the current id and the selected...">execute</a>(self, currentId, selectedIds):
+<a name="l00071"></a>00071                 <span class="keywordflow">if</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a> == <span class="stringliteral">'relate'</span>:
+<a name="l00072"></a>00072                         self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#a1a92563fa0165f72ecbbe4b70a5f638">executeRelate</a>( currentId )
+<a name="l00073"></a>00073                 <span class="keywordflow">elif</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a> <span class="keywordflow">in</span> ( <span class="stringliteral">'action'</span>, <span class="stringliteral">'print'</span> ):
+<a name="l00074"></a>00074                         self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#0c8d4a8e05f3f27379486baf59d353c1">executeAction</a>( currentId, selectedIds )
+<a name="l00075"></a>00075                 <span class="keywordflow">else</span>:
+<a name="l00076"></a>00076                         self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#5169840341ca8fd25467eabae2ee59e3">executePlugin</a>( currentId, selectedIds )
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078         <span class="comment"># Executes the action as a 'relate' type</span>
+<a name="l00079"></a>00079         <span class="keyword">def </span>executeRelate(self, currentId):
+<a name="l00080"></a>00080                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> currentId:
+<a name="l00081"></a>00081                         QMessageBox.information( self, <span class="stringliteral">''</span>, _(<span class="stringliteral">'You must select a record to use the relate button !'</span>))
+<a name="l00082"></a>00082                 Api.instance.executeAction(self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb94b7b1d5c2fa3f26aafc1a462dd51d">_data</a>, {<span class="stringliteral">'id'</span>: currentId})
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084         <span class="comment"># Executes the action as a 'relate' or 'action' type</span>
+<a name="l00085"></a>00085         <span class="keyword">def </span>executeAction(self, currentId, selectedIds):
+<a name="l00086"></a>00086                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> currentId <span class="keywordflow">and</span> <span class="keywordflow">not</span> selectedIds:
+<a name="l00087"></a>00087                         QMessageBox.information(self, <span class="stringliteral">''</span>, _(<span class="stringliteral">'You must save this record to use the relate button !'</span>))
+<a name="l00088"></a>00088                         <span class="keywordflow">return</span> <span class="keyword">False</span>
+<a name="l00089"></a>00089                         
+<a name="l00090"></a>00090                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> currentId:
+<a name="l00091"></a>00091                         currentId = selectedIds[0]
+<a name="l00092"></a>00092                 <span class="keywordflow">elif</span> <span class="keywordflow">not</span> selectedIds:
+<a name="l00093"></a>00093                         selectedIds = [currentId]
+<a name="l00094"></a>00094                 <span class="keywordflow">if</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a> == <span class="stringliteral">'print'</span>:
+<a name="l00095"></a>00095                         QApplication.setOverrideCursor( Qt.WaitCursor )
+<a name="l00096"></a>00096                 Api.instance.executeAction(self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb94b7b1d5c2fa3f26aafc1a462dd51d">_data</a>, { <span class="stringliteral">'id'</span>: currentId, <span class="stringliteral">'ids'</span>: selectedIds, <span class="stringliteral">'model'</span>: self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#852688f07d5d47e5dfaf9692a26519f5">_model</a> } )
+<a name="l00097"></a>00097                 <span class="keywordflow">if</span> self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#adbbb9f36566375ba18461283f9f8397">_type</a> == <span class="stringliteral">'print'</span>:
+<a name="l00098"></a>00098                         QApplication.restoreOverrideCursor()
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100         <span class="comment"># Executes the action as a plugin type</span>
+<a name="l00101"></a>00101         <span class="keyword">def </span>executePlugin(self, currentId, selectedIds):
+<a name="l00102"></a>00102                 Plugins.execute( self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#fb94b7b1d5c2fa3f26aafc1a462dd51d">_data</a>, self.<a class="code" href="classKoo_1_1Screen_1_1Action_1_1Action.html#852688f07d5d47e5dfaf9692a26519f5">_model</a>, currentId, selectedIds )
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <span class="comment">## @brief The ActionFactory class is a factory that creates Action objects to execute</span>
+<a name="l00105"></a>00105 <span class="comment"># actions on the server. Typically those shown in the toolbar and menus for an specific </span>
+<a name="l00106"></a>00106 <span class="comment"># model</span>
+<a name="l00107"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1ActionFactory.html">00107</a> <span class="keyword">class </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1ActionFactory.html" title="The ActionFactory class is a factory that creates Action objects to execute actions...">ActionFactory</a>:
+<a name="l00108"></a>00108         <span class="comment">## @brief Creates a list of Action objects given a parent, model and definition.</span>
+<a name="l00109"></a>00109         <span class="comment">#</span>
+<a name="l00110"></a>00110         <span class="comment"># The 'definition' parameter is the 'toolbar' parameter returned by server function</span>
+<a name="l00111"></a>00111         <span class="comment"># fields_view_get.</span>
+<a name="l00112"></a>00112         @staticmethod
+<a name="l00113"></a><a class="code" href="classKoo_1_1Screen_1_1Action_1_1ActionFactory.html#bbb55eace9990978376a69b7eb7b79df">00113</a>         <span class="keyword">def </span><a class="code" href="classKoo_1_1Screen_1_1Action_1_1ActionFactory.html#bbb55eace9990978376a69b7eb7b79df" title="Creates a list of Action objects given a parent, model and definition.">create</a>(parent, definition, model):
+<a name="l00114"></a>00114                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> definition:
+<a name="l00115"></a>00115                         <span class="comment"># If definition is not set we initialize it appropiately</span>
+<a name="l00116"></a>00116                         <span class="comment"># to be able to add the 'Print Screen' action.</span>
+<a name="l00117"></a>00117                         definition = {
+<a name="l00118"></a>00118                                 <span class="stringliteral">'print'</span>: [],
+<a name="l00119"></a>00119                                 <span class="stringliteral">'action'</span>: [],
+<a name="l00120"></a>00120                                 <span class="stringliteral">'relate'</span>: []
+<a name="l00121"></a>00121                         }
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123                 <span class="comment"># We always add the 'Print Screen' action.</span>
+<a name="l00124"></a>00124                 definition[<span class="stringliteral">'print'</span>].append({
+<a name="l00125"></a>00125                         <span class="stringliteral">'name'</span>: <span class="stringliteral">'Print Screen'</span>, 
+<a name="l00126"></a>00126                         <span class="stringliteral">'string'</span>: _(<span class="stringliteral">'Print Screen'</span>), 
+<a name="l00127"></a>00127                         <span class="stringliteral">'report_name'</span>: <span class="stringliteral">'printscreen.list'</span>, 
+<a name="l00128"></a>00128                         <span class="stringliteral">'type'</span>: <span class="stringliteral">'ir.actions.report.xml'</span> 
+<a name="l00129"></a>00129                 })
 <a name="l00130"></a>00130 
-<a name="l00131"></a>00131                 <span class="keywordflow">return</span> actions
-<a name="l00132"></a>00132 
+<a name="l00131"></a>00131                 actions = []
+<a name="l00132"></a>00132                 <span class="keywordflow">for</span> icontype <span class="keywordflow">in</span> ( <span class="stringliteral">'print'</span>,<span class="stringliteral">'action'</span>,<span class="stringliteral">'relate'</span> ):
+<a name="l00133"></a>00133                         <span class="keywordflow">for</span> tool <span class="keywordflow">in</span> definition[icontype]:
+<a name="l00134"></a>00134                                 action = Action( parent )
+<a name="l00135"></a>00135                                 action.setIcon( QIcon( <span class="stringliteral">":/images/%s.png"</span> % icontype) )
+<a name="l00136"></a>00136                                 action.setText( tool[<span class="stringliteral">'string'</span>] )
+<a name="l00137"></a>00137                                 action.setType( icontype )
+<a name="l00138"></a>00138                                 action.setData( tool )
+<a name="l00139"></a>00139                                 action.setModel( model )
+<a name="l00140"></a>00140                                 actions.append( action )
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142                 plugs = Plugins.list(model)
+<a name="l00143"></a>00143                 <span class="keywordflow">for</span> p <span class="keywordflow">in</span> sorted( plugs.keys(), key=<span class="keyword">lambda</span> x:plugs[x].get(<span class="stringliteral">'string'</span>,<span class="stringliteral">''</span>) ) :
+<a name="l00144"></a>00144                         action = Action( parent )
+<a name="l00145"></a>00145                         action.setIcon( QIcon( <span class="stringliteral">":/images/exec.png"</span> ) )
+<a name="l00146"></a>00146                         action.setText( unicode( plugs[p][<span class="stringliteral">'string'</span>] ) )
+<a name="l00147"></a>00147                         action.setData( p )
+<a name="l00148"></a>00148                         action.setType( <span class="stringliteral">'plugin'</span> )
+<a name="l00149"></a>00149                         action.setModel( model )
+<a name="l00150"></a>00150                         actions.append( action )
+<a name="l00151"></a>00151                 <span class="keywordflow">return</span> actions
+<a name="l00152"></a>00152 
 </pre></div></div>
 <address><small>Generated by <a target="_blank" href="http://www.doxygen.org/index.html">Doxygen</a></small></address>
 </body>

@@ -74,7 +74,7 @@
 <a name="l00054"></a>00054                 del self.datas[<span class="stringliteral">'ids'</span>]
 <a name="l00055"></a>00055                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> ids:
 <a name="l00056"></a>00056                         <span class="keywordflow">try</span>:
-<a name="l00057"></a>00057                                 ids =  self.session.call(<span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, self.datas[<span class="stringliteral">'model'</span>], <span class="stringliteral">'search'</span>, [])
+<a name="l00057"></a>00057                                 ids = self.session.call(<span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, self.datas[<span class="stringliteral">'model'</span>], <span class="stringliteral">'search'</span>, [])
 <a name="l00058"></a>00058                         <span class="keywordflow">except</span> Rpc.RpcException, e:
 <a name="l00059"></a>00059                                 self.emit( SIGNAL(<span class="stringliteral">'error'</span>), ( _(<span class="stringliteral">'Error: %s'</span>) % unicode(e.type), e.message, e.data ) )
 <a name="l00060"></a>00060                                 <span class="keywordflow">return</span>

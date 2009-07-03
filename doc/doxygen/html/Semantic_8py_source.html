@@ -48,82 +48,88 @@
 <a name="l00028"></a>00028 <span class="keyword">from</span> Koo.Common <span class="keyword">import</span> Common
 <a name="l00029"></a>00029 <span class="keyword">from</span> Koo <span class="keyword">import</span> Rpc
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">def </span>addInformationToFile( fileName, model, ids, field = None ):
-<a name="l00032"></a>00032         <span class="keywordflow">if</span> <span class="keywordflow">not</span> Common.isKdeAvailable:
-<a name="l00033"></a>00033                 <span class="keywordflow">return</span>
-<a name="l00034"></a>00034         <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(ids, list):
-<a name="l00035"></a>00035                 ids = [ids]
-<a name="l00036"></a>00036         field = <span class="keyword">False</span>
-<a name="l00037"></a>00037         <span class="keywordflow">try</span>:
-<a name="l00038"></a>00038                 <span class="comment"># Obtain ratings </span>
-<a name="l00039"></a>00039                 ratings = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'rating'</span>, model, ids, field, Rpc.session.context )
-<a name="l00040"></a>00040                 <span class="comment"># Obtain all tags</span>
-<a name="l00041"></a>00041                 allTags = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'tags'</span>, model, ids, field, Rpc.session.context )
-<a name="l00042"></a>00042                 <span class="comment"># Obtain all descriptions</span>
-<a name="l00043"></a>00043                 allDescriptions = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'description'</span>, model, ids, field, Rpc.session.context )
-<a name="l00044"></a>00044                 <span class="comment"># Obtain all contacts</span>
-<a name="l00045"></a>00045                 allContacts = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'contacts'</span>, model, ids, field, Rpc.session.context )
-<a name="l00046"></a>00046         <span class="keywordflow">except</span>:
-<a name="l00047"></a>00047                 ratings = {}
-<a name="l00048"></a>00048                 allTags = {}
-<a name="l00049"></a>00049                 allDescriptions = {}
-<a name="l00050"></a>00050                 allContacts = {}
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052         <span class="comment"># Calculate average rating</span>
-<a name="l00053"></a>00053         rating = 0
-<a name="l00054"></a>00054         <span class="keywordflow">if</span> ratings:
-<a name="l00055"></a>00055                 <span class="keywordflow">for</span> x <span class="keywordflow">in</span> ratings.values():
-<a name="l00056"></a>00056                         rating += x
-<a name="l00057"></a>00057                 rating = rating / len(ratings)
-<a name="l00058"></a>00058         <span class="comment"># Pickup all tags</span>
-<a name="l00059"></a>00059         tags = []
-<a name="l00060"></a>00060         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> allTags.values():
-<a name="l00061"></a>00061                 tags += x
-<a name="l00062"></a>00062         tags = list( set( tags ) )
-<a name="l00063"></a>00063         <span class="comment"># Pickup all descriptions and merge them into one</span>
-<a name="l00064"></a>00064         description = <span class="stringliteral">'\n--\n'</span>.join( set(allDescriptions.values()) )
-<a name="l00065"></a>00065         <span class="comment"># Pickup all contacts </span>
-<a name="l00066"></a>00066         contacts = []
-<a name="l00067"></a>00067         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> allContacts.values():
-<a name="l00068"></a>00068                 contacts += x
-<a name="l00069"></a>00069         contacts = list( set( contacts ) )
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071         <span class="keyword">from</span> PyKDE4.nepomuk <span class="keyword">import</span> Nepomuk
-<a name="l00072"></a>00072         <span class="keyword">from</span> PyKDE4.soprano <span class="keyword">import</span> Soprano 
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074         resource = Nepomuk.Resource( <span class="stringliteral">'file://%s'</span> % fileName, Soprano.Vocabulary.Xesam.File() )
-<a name="l00075"></a>00075         resource.setTags( [Nepomuk.Tag( tag ) <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> tags] )
-<a name="l00076"></a>00076         resource.setRating( max(rating,0) )
-<a name="l00077"></a>00077         resource.setDescription( description )
-<a name="l00078"></a>00078         <span class="keywordflow">if</span> <span class="keywordflow">not</span> resource.isValid():
-<a name="l00079"></a>00079                 <span class="keywordflow">return</span>
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081         manager = Nepomuk.ResourceManager.instance()
-<a name="l00082"></a>00082         <span class="comment"># We cannot use manager.mainModel() because bindings for that function do not exist yet.</span>
-<a name="l00083"></a>00083         <span class="comment"># So Sebastian suggested this workaround.</span>
-<a name="l00084"></a>00084         client = Soprano.Client.DBusClient( <span class="stringliteral">'org.kde.NepomukStorage'</span> )
-<a name="l00085"></a>00085         models = client.allModels()
-<a name="l00086"></a>00086         <span class="keywordflow">if</span> <span class="keywordflow">not</span> models:
-<a name="l00087"></a>00087                 <span class="keywordflow">return</span>
-<a name="l00088"></a>00088         model = client.createModel( models[0] )
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090         emails = [ <span class="stringliteral">'&lt;mailto:%s&gt;'</span> % contact <span class="keywordflow">for</span> contact <span class="keywordflow">in</span> contacts ]
-<a name="l00091"></a>00091         emails = <span class="stringliteral">', '</span>.join( emails )
-<a name="l00092"></a>00092         <span class="keywordflow">if</span> emails:
-<a name="l00093"></a>00093                 <span class="comment"># Search if there are any contacts on user's addresses with these e-mails.</span>
-<a name="l00094"></a>00094                 <span class="comment">#iterator = model.executeQuery( "PREFIX nco: &lt;http://www.semanticdesktop.org/ontologies/2007/03/22/nco#&gt; SELECT ?name WHERE { ?contact nco:hasEmailAddress ?o. ?contact nco:fullname ?name }", Soprano.Query.QueryLanguageSparql )</span>
-<a name="l00095"></a>00095                 iterator = model.executeQuery( <span class="stringliteral">"PREFIX nco: &lt;http://www.semanticdesktop.org/ontologies/2007/03/22/nco#&gt; SELECT ?contact WHERE { ?contact nco:hasEmailAddress %s. }"</span> % emails, Soprano.Query.QueryLanguageSparql )
-<a name="l00096"></a>00096                 contacts = []
-<a name="l00097"></a>00097                 <span class="comment"># First store all contacts we want the document to be related to because</span>
-<a name="l00098"></a>00098                 <span class="comment"># Soprano doesn't support adding resources while iterating.</span>
-<a name="l00099"></a>00099                 <span class="keywordflow">while</span> iterator.next():
-<a name="l00100"></a>00100                         x = iterator.binding(<span class="stringliteral">'contact'</span>)
-<a name="l00101"></a>00101                         <span class="keywordflow">if</span> x.isResource():
-<a name="l00102"></a>00102                                 contacts.append( unicode( x.uri() ) )
-<a name="l00103"></a>00103                 <span class="comment"># Add the relation to the corresponding PIMO of the resource.</span>
-<a name="l00104"></a>00104                 <span class="keywordflow">for</span> contact <span class="keywordflow">in</span> contacts:
-<a name="l00105"></a>00105                         resource.addIsRelated( Nepomuk.Resource( x.uri() ).pimoThing() )
-<a name="l00106"></a>00106 
+<a name="l00031"></a>00031 <span class="comment">## @brief The addInformationToFile function makes use of Nepomuk adds semantic information to the given file.</span>
+<a name="l00032"></a>00032 <span class="comment">#</span>
+<a name="l00033"></a>00033 <span class="comment"># Note you need to provide the model and ids this file was generated from. You can</span>
+<a name="l00034"></a>00034 <span class="comment"># optionally provide the fields too.</span>
+<a name="l00035"></a>00035 <span class="comment"># </span>
+<a name="l00036"></a>00036 <span class="comment"># If Nepomuk is not available (it doesn't work on Windows nor Mac) it just won't do anything.</span>
+<a name="l00037"></a>00037 <span class="keyword">def </span>addInformationToFile( fileName, model, ids, field = None ):
+<a name="l00038"></a>00038         <span class="keywordflow">if</span> <span class="keywordflow">not</span> Common.isKdeAvailable:
+<a name="l00039"></a>00039                 <span class="keywordflow">return</span>
+<a name="l00040"></a>00040         <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(ids, list):
+<a name="l00041"></a>00041                 ids = [ids]
+<a name="l00042"></a>00042         field = <span class="keyword">False</span>
+<a name="l00043"></a>00043         <span class="keywordflow">try</span>:
+<a name="l00044"></a>00044                 <span class="comment"># Obtain ratings </span>
+<a name="l00045"></a>00045                 ratings = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'rating'</span>, model, ids, field, Rpc.session.context )
+<a name="l00046"></a>00046                 <span class="comment"># Obtain all tags</span>
+<a name="l00047"></a>00047                 allTags = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'tags'</span>, model, ids, field, Rpc.session.context )
+<a name="l00048"></a>00048                 <span class="comment"># Obtain all descriptions</span>
+<a name="l00049"></a>00049                 allDescriptions = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'description'</span>, model, ids, field, Rpc.session.context )
+<a name="l00050"></a>00050                 <span class="comment"># Obtain all contacts</span>
+<a name="l00051"></a>00051                 allContacts = Rpc.session.call( <span class="stringliteral">'/semantic'</span>, <span class="stringliteral">'contacts'</span>, model, ids, field, Rpc.session.context )
+<a name="l00052"></a>00052         <span class="keywordflow">except</span>:
+<a name="l00053"></a>00053                 ratings = {}
+<a name="l00054"></a>00054                 allTags = {}
+<a name="l00055"></a>00055                 allDescriptions = {}
+<a name="l00056"></a>00056                 allContacts = {}
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058         <span class="comment"># Calculate average rating</span>
+<a name="l00059"></a>00059         rating = 0
+<a name="l00060"></a>00060         <span class="keywordflow">if</span> ratings:
+<a name="l00061"></a>00061                 <span class="keywordflow">for</span> x <span class="keywordflow">in</span> ratings.values():
+<a name="l00062"></a>00062                         rating += x
+<a name="l00063"></a>00063                 rating = rating / len(ratings)
+<a name="l00064"></a>00064         <span class="comment"># Pickup all tags</span>
+<a name="l00065"></a>00065         tags = []
+<a name="l00066"></a>00066         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> allTags.values():
+<a name="l00067"></a>00067                 tags += x
+<a name="l00068"></a>00068         tags = list( set( tags ) )
+<a name="l00069"></a>00069         <span class="comment"># Pickup all descriptions and merge them into one</span>
+<a name="l00070"></a>00070         description = <span class="stringliteral">'\n--\n'</span>.join( set(allDescriptions.values()) )
+<a name="l00071"></a>00071         <span class="comment"># Pickup all contacts </span>
+<a name="l00072"></a>00072         contacts = []
+<a name="l00073"></a>00073         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> allContacts.values():
+<a name="l00074"></a>00074                 contacts += x
+<a name="l00075"></a>00075         contacts = list( set( contacts ) )
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077         <span class="keyword">from</span> PyKDE4.nepomuk <span class="keyword">import</span> Nepomuk
+<a name="l00078"></a>00078         <span class="keyword">from</span> PyKDE4.soprano <span class="keyword">import</span> Soprano 
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080         resource = Nepomuk.Resource( <span class="stringliteral">'file://%s'</span> % fileName, Soprano.Vocabulary.Xesam.File() )
+<a name="l00081"></a>00081         resource.setTags( [Nepomuk.Tag( tag ) <span class="keywordflow">for</span> tag <span class="keywordflow">in</span> tags] )
+<a name="l00082"></a>00082         resource.setRating( max(rating,0) )
+<a name="l00083"></a>00083         resource.setDescription( description )
+<a name="l00084"></a>00084         <span class="keywordflow">if</span> <span class="keywordflow">not</span> resource.isValid():
+<a name="l00085"></a>00085                 <span class="keywordflow">return</span>
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087         manager = Nepomuk.ResourceManager.instance()
+<a name="l00088"></a>00088         <span class="comment"># We cannot use manager.mainModel() because bindings for that function do not exist yet.</span>
+<a name="l00089"></a>00089         <span class="comment"># So Sebastian suggested this workaround.</span>
+<a name="l00090"></a>00090         client = Soprano.Client.DBusClient( <span class="stringliteral">'org.kde.NepomukStorage'</span> )
+<a name="l00091"></a>00091         models = client.allModels()
+<a name="l00092"></a>00092         <span class="keywordflow">if</span> <span class="keywordflow">not</span> models:
+<a name="l00093"></a>00093                 <span class="keywordflow">return</span>
+<a name="l00094"></a>00094         model = client.createModel( models[0] )
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096         emails = [ <span class="stringliteral">'&lt;mailto:%s&gt;'</span> % contact <span class="keywordflow">for</span> contact <span class="keywordflow">in</span> contacts ]
+<a name="l00097"></a>00097         emails = <span class="stringliteral">', '</span>.join( emails )
+<a name="l00098"></a>00098         <span class="keywordflow">if</span> emails:
+<a name="l00099"></a>00099                 <span class="comment"># Search if there are any contacts on user's addresses with these e-mails.</span>
+<a name="l00100"></a>00100                 <span class="comment">#iterator = model.executeQuery( "PREFIX nco: &lt;http://www.semanticdesktop.org/ontologies/2007/03/22/nco#&gt; SELECT ?name WHERE { ?contact nco:hasEmailAddress ?o. ?contact nco:fullname ?name }", Soprano.Query.QueryLanguageSparql )</span>
+<a name="l00101"></a>00101                 iterator = model.executeQuery( <span class="stringliteral">"PREFIX nco: &lt;http://www.semanticdesktop.org/ontologies/2007/03/22/nco#&gt; SELECT ?contact WHERE { ?contact nco:hasEmailAddress %s. }"</span> % emails, Soprano.Query.QueryLanguageSparql )
+<a name="l00102"></a>00102                 contacts = []
+<a name="l00103"></a>00103                 <span class="comment"># First store all contacts we want the document to be related to because</span>
+<a name="l00104"></a>00104                 <span class="comment"># Soprano doesn't support adding resources while iterating.</span>
+<a name="l00105"></a>00105                 <span class="keywordflow">while</span> iterator.next():
+<a name="l00106"></a>00106                         x = iterator.binding(<span class="stringliteral">'contact'</span>)
+<a name="l00107"></a>00107                         <span class="keywordflow">if</span> x.isResource():
+<a name="l00108"></a>00108                                 contacts.append( unicode( x.uri() ) )
+<a name="l00109"></a>00109                 <span class="comment"># Add the relation to the corresponding PIMO of the resource.</span>
+<a name="l00110"></a>00110                 <span class="keywordflow">for</span> contact <span class="keywordflow">in</span> contacts:
+<a name="l00111"></a>00111                         resource.addIsRelated( Nepomuk.Resource( x.uri() ).pimoThing() )
+<a name="l00112"></a>00112 
 </pre></div></div>
 <address><small>Generated by <a target="_blank" href="http://www.doxygen.org/index.html">Doxygen</a></small></address>
 </body>
