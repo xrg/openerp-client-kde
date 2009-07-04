@@ -104,10 +104,8 @@ class nan_koo_settings(osv.osv):
 			'cache_exceptions': exceptions
 		}
 		id = self.get_settings_id(cr, uid)
-		print "ID: ", id
 		if id:
 			settings.update( self.read(cr, uid, [id])[0] )
-		print "SETTINGS: ", settings
 		return settings
 		
 nan_koo_settings()

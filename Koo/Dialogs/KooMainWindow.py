@@ -409,7 +409,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			        self.openMenuTab()
 				self.openHomeTab()
 
-				print "Options: ", Options.options['tabs_closable']
 				self.tabWidget.setTabsClosable( Options.options['tabs_closable'] )
 
 				self.updateRequestsStatus()
