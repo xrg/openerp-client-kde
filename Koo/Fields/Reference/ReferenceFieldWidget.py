@@ -73,14 +73,10 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 
 	def recordChanged(self, idx):
 		if idx < 0:
-			enabled = False
 			self.uiText.clear()
+			self.setReadOnly( True )
 		else:
-			enabled = True
-		self.uiText.setEnabled( enabled )
-		self.pushOpen.setEnabled( enabled )
-		self.pushNew.setEnabled( enabled )
-		self.pushClear.setEnabled( enabled )
+			self.setReadOnly( self.isReadOnly() )
 
 	def clear(self):
 		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
@@ -106,8 +102,11 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			value = True
 		self.uiText.setEnabled( not value )
 		self.pushNew.setEnabled( not value )
-		self.pushOpen.setEnabled( not value )
 		self.pushClear.setEnabled( not value )
+		if self.record and self.record.value(self.name):
+			self.pushOpen.setEnabled( True )
+		else:
+			self.pushOpen.setEnabled( False )
 
 	def colorWidget(self):
 		return self.uiText
