@@ -192,7 +192,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		else:
 			self.updateStatus(_('No resource selected !'))
 
-	def attachmentsClosed(self, obj=None):
+	def attachmentsClosed(self):
 		self.updateStatus()
 
 	def switchView(self):
