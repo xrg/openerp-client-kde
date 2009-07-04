@@ -41,6 +41,7 @@
 					<field name="name" colspan="4"/>
 					<separator colspan="4" string="Appearance"/>
 					<field name="tabs_position"/>
+					<field name="tabs_closable"/>
 					<field name="show_toolbar"/>
 					<newline/>
 					<separator colspan="4" string="Stylesheet"/>

@@ -36,7 +36,7 @@ from PyQt4.QtCore import QDir, QUrl
 
 ## @brief The ConfigurationManager class handles Koo settings information. 
 # Those settings can be specified in the command line, koo.rc configuration file
-# or ktiny server module.
+# or koo server module.
 class ConfigurationManager(object):
 	## @brief Constructs a ConfigurationManager object.
 	# If fileName is specified, the given file name will be used to store and retrive
@@ -58,6 +58,7 @@ class ConfigurationManager(object):
 			'client.default_path': os.path.expanduser('~'),
 			'stylesheet' : '',
 			'tabs_position' : 'top',
+			'tabs_closable' : True,
 			'show_toolbar' : True,
 			'sort_mode' : 'all_items',
 			'pos_mode' : False,
@@ -148,11 +149,11 @@ class ConfigurationManager(object):
 	def get(self, key, defaultValue):
 		return self.options.get(key, defaultValue)
 
-	## @brief Tries to load settings from ktiny server module.
+	## @brief Tries to load settings from koo server module.
 	# If the module is not installed, no exception or error is thrown.
 	def loadSettings(self):
 		try:
-			settings = Rpc.session.call( '/object', 'execute', 'nan.ktiny.settings', 'get_settings' )
+			settings = Rpc.session.call( '/object', 'execute', 'nan.koo.settings', 'get_settings' )
 		except:
 			settings = {}
 		self.options.update( settings )

@@ -57,7 +57,7 @@ class ViewSettings:
 		if id in ViewSettings.cache and ViewSettings.cache[id] == settings:
 			return
 
-		# Add settings in the cache. Note that even if the required ktiny
+		# Add settings in the cache. Note that even if the required koo
 		# module is not installed in the server view settings will be kept
 		# during user session.
 		ViewSettings.cache[id] = settings
@@ -66,22 +66,22 @@ class ViewSettings:
 			return
 			
 		try:
-			# We don't want to crash if the ktiny module is not installed on the server
+			# We don't want to crash if the koo module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
-			ids = Rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
+			ids = Rpc.session.call( '/object', 'execute', 'nan.koo.view.settings', 'search', [
 				('user','=',Rpc.session.uid),('view','=',id)
 			])
 		except:
 			ViewSettings.hasSettingsModule = False
 			return
-		# As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here. And we
+		# As 'nan.koo.view.settings' is proved to exist we don't need try-except here. And we
 		# can use execute() instead of call().
 		if ids:
-			Rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'write', ids, {
+			Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'write', ids, {
 				'data': settings 
 			})
 		else:
-			Rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'create', {
+			Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'create', {
 				'user': Rpc.session.uid, 
 				'view': id, 
 				'data': settings 
@@ -96,7 +96,7 @@ class ViewSettings:
 		ViewSettings.checkConnection()
 
 		if id in ViewSettings.cache:
-			# Restore settings from the cache. Note that even if the required ktiny
+			# Restore settings from the cache. Note that even if the required koo
 			# module is not installed in the server view settings will be kept
 			# during user session.
 			return ViewSettings.cache[id]
@@ -105,18 +105,18 @@ class ViewSettings:
 			return None
 
 		try:
-			# We don't want to crash if the ktiny module is not installed on the server
+			# We don't want to crash if the koo module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
-			ids = Rpc.session.call( '/object', 'execute', 'nan.ktiny.view.settings', 'search', [
+			ids = Rpc.session.call( '/object', 'execute', 'nan.koo.view.settings', 'search', [
 				('user','=',Rpc.session.uid),('view','=',id)
 			])
 		except:
 			ViewSettings.hasSettingsModule = False
 			return None
-		# As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here.
+		# As 'nan.koo.view.settings' is proved to exist we don't need try-except here.
 		if not ids:
 			return None
-		settings = Rpc.session.execute( '/object', 'execute', 'nan.ktiny.view.settings', 'read', ids, ['data'] )[0]['data']
+		settings = Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'read', ids, ['data'] )[0]['data']
 
 		if settings:
 			# Ensure it's a string and not unicode
@@ -132,7 +132,7 @@ class ViewSettings:
 		if ViewSettings.databaseName != Rpc.session.databaseName or ViewSettings.uid != Rpc.session.uid:
 			ViewSettings.clear()
 
-	## @brief Clears cache and resets state. This means that after installing the ktiny
+	## @brief Clears cache and resets state. This means that after installing the koo
 	# module you don't have to close session and login again because
 	# hasSettingsModule is reset to True.
 	@staticmethod

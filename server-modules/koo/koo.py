@@ -56,6 +56,7 @@ class nan_koo_settings(osv.osv):
 		'show_toolbar': fields.boolean( 'Show toolbar', help='Whether toolbar is shown on screens. Note the toolbar may be convenient but not necessary as all options are available from the Reports, Actions, Browse and Plugins menu entries.' ),
 		'tabs_position': fields.selection( [('left', 'Left'), ('top', 'Top'), 
 			('right', 'Right'), ('bottom', 'Bottom')], 'Default tabs position', help='Tabs can be on the left, top, right or bottom by default. Note that some screens may require an specific position which will override this default.' ),
+		'tabs_closable': fields.boolean( 'Show Close Button on Tabs', help="A close button will be shown in each tab."),
 		'stylesheet': fields.text( 'Stylesheet', help='A valid Qt Stylesheet can be provided to be applied once the user has logged in.' ),
 		'sort_mode': fields.selection( [('visible_items', 'Visible Items'), ('all_items', 'All Items')], 'Sorting Mode', help='If set to "Visible Items" only the "Limit" elements are loaded and sorting is done in the client side. If "All Items" is used, sorting is done in the server and all records are (virtually) loaded in chunks of size "Limit"'),
 		'limit': fields.integer('Limit',help='Number of records to be fetched at once.'),
@@ -103,8 +104,10 @@ class nan_koo_settings(osv.osv):
 			'cache_exceptions': exceptions
 		}
 		id = self.get_settings_id(cr, uid)
+		print "ID: ", id
 		if id:
 			settings.update( self.read(cr, uid, [id])[0] )
+		print "SETTINGS: ", settings
 		return settings
 		
 nan_koo_settings()

@@ -65,6 +65,7 @@ class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
 		QTabWidget.__init__(self, parent)
 		self.pressedAt = -1
+		self.setMovable( True )
 
 	def mousePressEvent(self, event):
 		if event.button() == Qt.MidButton:
@@ -101,6 +102,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.tabWidget = MainTabWidget( self. centralWidget() )
 		self.connect( self.tabWidget, SIGNAL("currentChanged(int)"), self.currentChanged )
 		self.connect( self.tabWidget, SIGNAL("middleClicked(int)"), self.closeTab )
+		self.connect( self.tabWidget, SIGNAL("tabCloseRequested(int)"), self.closeTab )
 
 		self.pushClose = QToolButton( self.tabWidget )
 		self.pushClose.setIcon( QIcon( ':/images/close_tab.png' ) )
@@ -406,6 +408,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				Options.options.save()
 			        self.openMenuTab()
 				self.openHomeTab()
+
+				print "Options: ", Options.options['tabs_closable']
+				self.tabWidget.setTabsClosable( Options.options['tabs_closable'] )
 
 				self.updateRequestsStatus()
 				self.updateUserShortcuts()

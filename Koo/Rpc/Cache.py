@@ -50,7 +50,7 @@ class ViewCache(AbstractCache):
 	def add(self, value, obj, method, *args):
 		if method != 'execute' or len(args) < 2 or args[1] != 'fields_view_get':
 			return
-		# Don't cache models configured in the exception list of the server module 'ktiny'.
+		# Don't cache models configured in the exception list of the server module 'koo'.
 		if args[0] in ViewCache.exceptions:
 			return False
 		self.cache[(obj,method,str(args))] = copy.deepcopy( value )
@@ -77,7 +77,7 @@ class ActionViewCache(AbstractCache):
 		
 	def add(self, value, obj, method, *args):
 		if method == 'execute' and len(args) >= 2 and args[1] == 'fields_view_get':
-			# Don't cache models configured in the exception list of the server module 'ktiny'.
+			# Don't cache models configured in the exception list of the server module 'koo'.
 			if args[0] in ViewCache.exceptions:
 				return 
 			self.cache[(obj,method,str(args))] = copy.deepcopy( value )

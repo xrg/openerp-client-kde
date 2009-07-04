@@ -305,7 +305,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def autoReload(self):
 		# Do not reload automatically if it's an editable list
 		# By explicitly disallowing this it makes the global 
-		# ktiny module auto_reload option to be usable.
+		# koo module auto_reload option to be usable.
 		if self.screen.currentView().showsMultipleRecords() and not self.screen.currentView().isReadOnly():
 			return
 		# Do not reload automatically if there are any modified records
