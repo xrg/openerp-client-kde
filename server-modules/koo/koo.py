@@ -78,7 +78,8 @@ class nan_koo_settings(osv.osv):
 		'roles_id': fields.many2many('res.roles', 'nan_koo_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.'),
 		'print_directly': fields.boolean( 'Print directly', help='If set, sends the document directly to the printer. Otherwise the document is shown in a PDF viewer.' ),
 		'auto_reload': fields.boolean( 'Auto Reload', help='If set, all views will be reloaded when data changes in the server.' ),
-		'allow_massive_updates': fields.boolean( 'Allow Massive Updates', help='If set, the option to Modify all Selected Records is enabled in Form menu.' )
+		'allow_massive_updates': fields.boolean( 'Allow Massive Updates', help='If set, the option to Modify all Selected Records is enabled in Form menu.' ),
+		'attachments_dialog': fields.boolean( 'Attachments in a Dialog', help="If set, pushing on attachments button will open them in a new blocking dialog. Otherwise they will be opened in a new tab" )
 
 	}
 	_defaults = {

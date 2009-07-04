@@ -184,11 +184,20 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def showAttachments(self):
 		id = self.screen.currentId()
 		if id:
-			QApplication.setOverrideCursor( Qt.WaitCursor )
-			window = AttachmentDialog(self.model, id, self)
-			self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )
-			QApplication.restoreOverrideCursor()
-			window.show()
+			if Options.options['attachments_dialog']:
+				QApplication.setOverrideCursor( Qt.WaitCursor )
+				window = AttachmentDialog(self.model, id, self)
+				self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )
+				QApplication.restoreOverrideCursor()
+				window.show()
+			else:
+				context = self.context.copy()
+				context.update(Rpc.session.context)
+				action = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'action_get', context)
+				action['domain'] = [('res_model', '=', self.model), ('res_id', '=', id)]
+				context['default_res_model'] = self.model
+				context['default_res_id'] = id
+				Api.instance.executeAction( action, {}, context )
 		else:
 			self.updateStatus(_('No resource selected !'))
 
