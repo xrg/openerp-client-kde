@@ -157,6 +157,11 @@ class ir_attachment(osv.osv):
 		return metaInfo
 
 	def updateMetaInfo(self, cr, uid, ids):
+		# Ensure all ids still exist when data is actually updated:
+		# Given this function is called by ir.cron there're chances
+		# the record might have been removed which would cause an 
+		# exception when browsing.
+		ids = self.search(cr, uid, [('id','in',ids)])
 		for attachment in self.browse(cr, uid, ids):
 			metainfo = self.extractMetaInfo( attachment.datas ) or ''
 			# We use SQL directly to update metainfo so last modification time doesn't change.
@@ -166,4 +171,3 @@ class ir_attachment(osv.osv):
 		cr.commit()
 
 ir_attachment()
-
