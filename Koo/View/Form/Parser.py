@@ -83,10 +83,23 @@ class FormParser(AbstractParser):
 
 			elif node.localName=='separator':
 				caption = attrs.get( 'string', '' )
-				label = QLabel( container )
+
+				separator = QWidget( container )
+				separator.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+				label = QLabel( separator )
 				label.setText( caption )
-				self.view.addStateWidget( label, attrs.get('attrs'), attrs.get('states') )
-				container.addWidget( label, attrs )
+				font = label.font()
+				font.setBold( True )
+				label.setFont( font )
+				line = QFrame( separator )
+				line.setFrameShape( QFrame.HLine )
+				line.setFrameShadow( QFrame.Plain )
+				layout = QVBoxLayout( separator )
+				layout.addWidget( label )
+				layout.addWidget( line )
+
+				self.view.addStateWidget( separator, attrs.get('attrs'), attrs.get('states') )
+				container.addWidget( separator, attrs )
 
 			elif node.localName=='label':
 				text = attrs.get('string', '')
