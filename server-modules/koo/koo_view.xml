@@ -86,48 +86,26 @@
 
 		<!-- Attachment updates for Koo -->
 
-<!-- Replace "datas" field to attachment view form -->
-		<record model="ir.ui.view" id="attachment_form_datas">
-			<field name="name">ir.attachment.view</field>
-			<field name="model">ir.attachment</field>
-			<field name="inherit_id" ref="base.view_attachment_form"/>
-			<field name="arch" type="xml">
-				<field name="datas" position="replace">
-					<field name="datas" colspan="4" filename="datas_fname"/>
-				</field>
-			</field>
-		</record>
-
-<!-- Add "link" field to attachment view form -->
+		<!-- Add "link" field to attachment view form -->
 		<record model="ir.ui.view" id="attachment_form_link">
 			<field name="name">ir.attachment.view</field>
 			<field name="model">ir.attachment</field>
 			<field name="inherit_id" ref="base.view_attachment_form"/>
 			<field name="arch" type="xml">
 				<field name="datas_fname" position="after">
-					<field name="link" widget="link" colspan="4"/>
+					<field name="link" widget="link"/>
 				</field>
 			</field>
 		</record>
 
-<!-- Remove "res_model" field to attachment view tree -->
-		<record model="ir.ui.view" id="attachment_tree_res_model">
-			<field name="name">ir.attachment.view.tree</field>
+		<!-- Add "record" field to attachment view form -->
+		<record model="ir.ui.view" id="attachment_form_record">
+			<field name="name">ir.attachment.view</field>
 			<field name="model">ir.attachment</field>
-			<field name="inherit_id" ref="base.view_attachment_tree"/>
+			<field name="inherit_id" ref="base.view_attachment_form"/>
 			<field name="arch" type="xml">
-				<field name="res_model" position="replace">
-				</field>
-			</field>
-		</record>
-
-<!-- Remove "res_id" field to attachment view tree -->
-		<record model="ir.ui.view" id="attachment_tree_res_id">
-			<field name="name">ir.attachment.view.tree</field>
-			<field name="model">ir.attachment</field>
-			<field name="inherit_id" ref="base.view_attachment_tree"/>
-			<field name="arch" type="xml">
-				<field name="res_id" position="replace">
+				<field name="res_id" position="after">
+					<field name="record"/>
 				</field>
 			</field>
 		</record>

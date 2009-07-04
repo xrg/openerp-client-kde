@@ -30,9 +30,22 @@ from osv import osv, fields
 class ir_attachment(osv.osv):
 	_name = 'ir.attachment'
 	_inherit = 'ir.attachment'
+
+	def _all_models(self, cr, uid, context={}):
+                ids = self.pool.get('ir.model').search(cr, uid, [], context=context)
+                data = self.pool.get('ir.model').read(cr, uid, ids, ['model','name'])
+                return [(x['model'], x['name']) for x in data]
+
+
+	def _record(self, cr, uid, ids, field_name, arg, context={}):
+		print "IDS: ", ids
+		res = {}
+		for record in self.browse(cr, uid, ids):
+			res[ record.id ] = '%s,%d' % (record.res_model, record.res_id)
+		return res
+
 	_columns = {
-		'res_model': fields.char('Resource Model', size=64, readonly=False),
-		'res_id': fields.integer('Resource ID', readonly=False),
+		'record': fields.function(_record, method=True, string='Record', type='reference', selection=_all_models)
 	}
 ir_attachment()
 
