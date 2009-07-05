@@ -1,0 +1,38 @@
+<openerp>
+<data>
+	<record model="ir.ui.view" id="fts_wizard_form">
+		<field name="name">fts.wizard.form</field>
+		<field name="model">fts.wizard</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Full Text Index Creation Wizard">
+				<label string="This wizard will recreate full text indexes." colspan="4" />
+				<newline/>
+				<field name="configuration"/>
+				<newline/>
+				<label string="Note that this operation may take a long time depending on the number of indexes and database size." colspan="4"/>
+				<newline/>
+				<button icon="gtk-cancel" special="cancel" string="Cancel" type="object"/>
+				<button icon="gtk-ok" name="action_update_index" string="Create Index" type="object"/>
+			</form>
+		</field>
+	</record>
+
+<!--
+	<record model="ir.actions.wizard" id="wizard_update_index">
+		<field name="name">Apply index configuration</field>
+		<field name="wiz_name">index_update</field>
+	</record>
+-->
+
+        <record id="action_fts_wizard" model="ir.actions.act_window">
+            <field name="name">Full Text Search Configuration Wizard</field>
+            <field name="res_model">fts.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+	<menuitem parent="fts_menu" name="Update Full Text Index" action="action_fts_wizard" id="menu_fts_wizard" />
+</data>
+</openerp>

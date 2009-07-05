@@ -1,5 +1,10 @@
-<terp>
+<openerp>
 	<data>
+		<menuitem
+			parent="base.menu_config"
+			name="Full Text Search"
+			id="fts_menu"
+			/>
 		<!--
 		Redefine ir.model.fields tree view as the default one doesn't list the
 		model name and it's unusable.
@@ -30,8 +35,6 @@
 					<field name="field_id"/>
 					<newline/>
 					<field name="priority"/>
-					<newline/>
-					<field name="configuration"/>
 				</form>
 			</field>
 		</record>
@@ -43,7 +46,6 @@
 				<tree string="Full Text Indexes">
 					<field name="field_id"/>
 					<field name="priority"/>
-					<field name="configuration"/>
 				</tree>
 			</field>
 		</record>
@@ -53,9 +55,11 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Configuration/Full Text Search/Indexes" 
-			  action="fts_full_text_index_action"
-			  id="fts_full_text_index_menu"/>
+		<menuitem 
+			parent="fts_menu" 
+			name="Indexes" 
+			action="fts_full_text_index_action" 
+			id="fts_full_text_index_menu"/>
 
 		<!-- 
 		===============
@@ -90,43 +94,10 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Configuration/Full Text Search/Priorities" 
-			  action="fts_priorities_action"
-			  id="fts_priorities_menu"/>
-
-		<!-- 
-		===============
-		Configuration	
-		===============
-		-->
-		<record model="ir.ui.view" id="fts_configuration_form">
-			<field name="name">fts.configuration.form</field>
-			<field name="model">fts.configuration</field>
-			<field name="type">form</field> 
-			<field name="arch" type="xml">
-				<form string="Full Text Index Configurations">
-					<field name="name"/>
-				</form>
-			</field>
-		</record>
-		<record model="ir.ui.view" id="fts_configuration_tree">
-			<field name="name">fts.configuration.tree</field>
-			<field name="model">fts.configuration</field>
-			<field name="type">form</field>
-			<field name="arch" type="xml">
-				<tree string="Full Text Indexes">
-					<field name="name"/>
-				</tree>
-			</field>
-		</record>
-		<record model="ir.actions.act_window" id="fts_configuration_action">
-			<field name="name">Full Text Index Configuration</field>
-			<field name="res_model">fts.configuration</field>
-			<field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
-		</record>
-		<menuitem name="Administration/Configuration/Full Text Search/Configurations" 
-			  action="fts_configuration_action"
-			  id="fts_configuration_menu"/>
+		<menuitem 
+			parent="fts_menu"
+			name="Priorities" 
+			action="fts_priorities_action"
+			id="fts_priorities_menu"/>
 	</data>
-</terp>
+</openerp>

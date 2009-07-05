@@ -27,4 +27,4 @@
 
 import full_text_index
 import fulltextsearch
-import wizard
+import fts_wizard

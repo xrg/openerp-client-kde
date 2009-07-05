@@ -27,6 +27,7 @@
 
 import wizard
 import pooler
+from osv import osv, fields
 
 view_form_end = """<?xml version="1.0"?>
 	<form string="Full text index update done">
@@ -48,19 +49,44 @@ view_field = {
 	"module_info": {'type':'text', 'string':'Modules', 'readonly':True}
 }
 
+class wizard_start(osv.osv_memory):
+	_name = 'fts.wizard'
 
-class wizard_info_get(wizard.interface):
-	def _get_install(self, cr, uid, data, context):
-		return {}
-#return {'module_info':'List of modules...'}
+	def _get_configs(self, cr, uid, context={}):
+		cr.execute( "SELECT cfgname FROM pg_catalog.pg_ts_config ORDER BY cfgname" )
+		result = []
+		for record in cr.fetchall():
+			result.append( (record[0], record[0]) )
+		return result
+			
+	_columns = {
+		'configuration': fields.selection(_get_configs, 'Configuration', method=True, required=True, help="Choose a PostgreSQL TS configuration"),
+	}
+
+	def start(self, cr, uid, ids, context={}):
+		pass	
 	
-	def _update_index(self, cr, uid, data, context):
+	def action_update_index(self, cr, uid, ids, context={}):
+		# Check FTS availability
 		cr.execute("SELECT 1 FROM pg_catalog.pg_type WHERE typname='tsvector'")
 		if cr.rowcount == 0:
 			print "It seems that TSearch2 is NOT installed"
 			return {}
+
+		# Check PL/PythonU
+		cr.execute("SELECT * FROM pg_catalog.pg_language WHERE lanname='plpythonu'")
+		if cr.rowcount == 0:
+			cr.execute("CREATE LANGUAGE plpythonu;")
+
+		# Set default FTS configuration
+		cr.execute( "SELECT cfgname FROM pg_catalog.pg_ts_config WHERE cfgname='default'" )
+		if cr.rowcount != 0:
+			cr.execute('DROP TEXT SEARCH CONFIGURATION "default"')
+
+		wizard = self.browse(cr, uid, ids, context)[0]
+		cr.execute( 'CREATE TEXT SEARCH CONFIGURATION "default" (COPY=%s)' % wizard['configuration'] )
+
 		self.recreate_core(cr)
-		#self.remove_indexes(cr)
 		self.create_indexes(cr)
 		cr.execute("DELETE FROM fts_current_full_text_index")
 		cr.execute("INSERT INTO fts_current_full_text_index SELECT * FROM fts_full_text_index")
@@ -91,9 +117,11 @@ class wizard_info_get(wizard.interface):
 				if TD["event"] == "INSERT" or TD["event"] == "UPDATE":
 					tsVector = []
 					for i in TD["args"][1].split(","):
-						value = TD["new"][i]
+						name = i.split('|')[0]
+						weight = i.split('|')[1]
+						value = TD["new"][name]
 						if value != None:
-							tsVector.append( "to_tsvector( 'default', %s::TEXT )" % sql_quote(value).getquoted() )
+							tsVector.append( "setweight( to_tsvector( 'default', %s::TEXT ), %s )" % (sql_quote(value).getquoted(),sql_quote(weight)) )
 					if tsVector:
 						tsVector = ' || '.join(tsVector)
 					else:
@@ -101,32 +129,15 @@ class wizard_info_get(wizard.interface):
 
 				if TD["event"] == "INSERT":
 					plpy.execute( "INSERT INTO fts_full_text_search(model, reference, message) \
-						VALUES (%d,%d,%s)" % (int(TD["args"][0]), int(TD["new"]["id"]), tsVector) )
+						VALUES (%s,%s,%s)" % (int(TD["args"][0]), int(TD["new"]["id"]), tsVector) )
 				elif TD["event"] == "UPDATE":
-					plpy.execute( "UPDATE fts_full_text_search SET message=%s WHERE model=%d \
-						AND reference=%d" % (tsVector, int(TD["args"][0]), int(TD["old"]["id"])) )
+					plpy.execute( "UPDATE fts_full_text_search SET message=%s WHERE model=%s \
+						AND reference=%s" % (tsVector, int(TD["args"][0]), int(TD["old"]["id"])) )
 				elif TD["event"] == "DELETE":
-					plpy.execute( "DELETE FROM fts_full_text_search WHERE model=%d \
-						AND reference=%d" % (int(TD["args"][0]), int(TD["old"]["id"])) )
+					plpy.execute( "DELETE FROM fts_full_text_search WHERE model=%s \
+						AND reference=%s" % (int(TD["args"][0]), int(TD["old"]["id"])) )
 			$$ LANGUAGE plpythonu;
 			""")
-
-	# As it's not trivial and I don't have much time ATM I will
-	# make it very unoptimal and remove all indexes and triggers
-	# and recreate the necessary ones. This means that no use of 
-	# the previous indexes is taken into account.
-	def remove_indexes(self, cr):
-		pool = pooler.get_pool(cr.dbname)
-
-		# Remove all triggers
-		cr.execute("SELECT DISTINCT f.model AS t FROM fts_current_full_text_index i, ir_model_fields f WHERE i.field_id= f.id")
-		for i in [x[0] for x in cr.fetchall()]:
-			table_name = pool.get(i)._table
-			cr.execute("DROP TRIGGER \"%s_fts_full_text_search\" ON \"%s\"" % (table_name, table_name) )
-
-		# Remove indexed information
-		cr.execute("DELETE FROM fts_full_text_search")
-		return
 
 	def create_indexes(self, cr):
 		cr.execute("SELECT DISTINCT model_id FROM fts_full_text_index i, ir_model_fields f WHERE i.field_id=f.id");
@@ -134,19 +145,21 @@ class wizard_info_get(wizard.interface):
 			self.create_index(cr, j)
 
 	def create_index(sself, cr, model_id):
-		cr.execute("SELECT model FROM ir_model WHERE id=%d", (model_id,) )
+		cr.execute("SELECT model FROM ir_model WHERE id=%s", (model_id,) )
 		tuple=cr.fetchone()
 		model_name=tuple[0]
 
 		pool = pooler.get_pool(cr.dbname)
 		table_name = pool.get(model_name)._table
 
-		cr.execute("SELECT f.name FROM fts_full_text_index i, ir_model_fields f WHERE i.field_id=f.id AND f.model_id=%d", (model_id,) )
+		cr.execute("SELECT f.name, p.name FROM fts_full_text_index i, fts_priority p, ir_model_fields f WHERE i.field_id=f.id AND i.priority=p.id AND f.model_id=%s", (model_id,) )
 		tsVector = []
 		fields = []
-		for k in [x[0] for x in cr.fetchall()]:
-			tsVector.append( "COALESCE(to_tsvector('default', %s::TEXT), to_tsvector('default',''))" % k )
-			fields.append( str(k) )
+		for record in cr.fetchall():
+			name = record[0]
+			weight = record[1]
+			tsVector.append( "setweight( to_tsvector('default', COALESCE(%s::TEXT,'')), '%s' )" % (name, weight) )
+			fields.append( '%s|%s' % ( str(name), weight ) )
 		tsVector = ' || '.join( tsVector )
 		fields = ','.join( fields )
 
@@ -174,17 +187,17 @@ class wizard_info_get(wizard.interface):
 			cr.execute("SELECT id FROM ir_model WHERE model=%s", (model_name,) )
 			cr.execute("DROP TRIGGER IF EXISTS \"%s_fts_full_text_search\" ON \"%s\"" % (table_name, table_name ) )
 			cr.commit()
-			cr.execute("CREATE TRIGGER \"" + table_name + "_fts_full_text_search\" BEFORE INSERT OR UPDATE OR DELETE ON \"" + table_name + "\" FOR EACH ROW EXECUTE PROCEDURE fts_full_text_search_trigger(%d,%s)", (model_id, fields) )
+			cr.execute("CREATE TRIGGER \"" + table_name + "_fts_full_text_search\" BEFORE INSERT OR UPDATE OR DELETE ON \"" + table_name + "\" FOR EACH ROW EXECUTE PROCEDURE fts_full_text_search_trigger(%s,%s)", (model_id, fields) )
 			cr.commit()
 	
-	states = {
-		'init': {
-			'actions': [_get_install],
-			'result': {'type':'form', 'arch':view_form, 'fields':{}, 'state':[('end','Cancel','gtk-cancel'),('start','Start Update','gtk-ok')]}
-		},
-		'start': {
-			'actions': [_update_index],
-			'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
-		}
-	}
-wizard_info_get('index_update')
+	#states = {
+	#	'init': {
+	#		'actions': [_get_install],
+	#		'result': {'type':'form', 'arch':view_form, 'fields':{}, 'state':[('end','Cancel','gtk-cancel'),('start','Start Update','gtk-ok')]}
+	#	},
+	#	'start': {
+	#		'actions': [_update_index],
+	#		'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
+	#	}
+	#}
+wizard_start()

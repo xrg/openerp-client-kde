@@ -29,6 +29,7 @@
 
 import gettext
 from Koo.Common import Common
+from Koo.Common import Numeric
 
 from Koo import Rpc
 
@@ -231,7 +232,7 @@ class SearchView( QAbstractItemView ):
 				# Otherwise let the user fill in the item
 				self.fillItemWidget( item )
 			self.items.append(item)
-			self.viewport().layout().insertWidget( self.viewport().layout().count() -1, item )
+			self.viewport().layout().addWidget( item )
 			self.updateViewport( item.height() )
 
 		if self.selected == -1:
@@ -404,9 +405,17 @@ class FullTextSearchModel( QStandardItemModel ):
 		if self.rowCount() > 0:
 			self.removeRows(0, self.rowCount())
 		for x in list:
-			# If name (for example) is False we just want to print it as empty text
-			# not as 'False' string.
-			l = [QStandardItem(unicode( x[y] or '' )) for y in self.serverOrder ]
+			l = []
+			for y in self.serverOrder:
+				item = QStandardItem()
+				value = x[y]
+				if isinstance( value, float ):
+					item.setText( Numeric.floatToText( value ) )
+				else:	
+					# If name (for example) is False we just want to print it as empty text
+					# not as 'False' string.
+					item.setText( unicode( x[y] or '' ) )
+				l.append( item )
 			self.rootItem.appendRow( l )
 		
 # vim:noexpandtab:

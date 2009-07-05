@@ -269,7 +269,7 @@ class fulltextsearch_services(netsvc.Service):
 					fts.reference,
 					m.name,
 					m.model,
-					to_char(%s(message, %s)*100, '990D99') AS ranking
+					%s(message, %s)*100 AS ranking
 				FROM
 					fts_full_text_search fts,
 					ir_model m
