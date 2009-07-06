@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tinyerp-client\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-06 01:54+0100\n"
+"POT-Creation-Date: 2009-07-06 18:48+0200\n"
 "PO-Revision-Date: 2006-01-25 11:54+0100\n"
 "Last-Translator: Dan Horák <dan@danny.cz>\n"
 "Language-Team: Czech <dan@danny.cz>\n"
@@ -17,195 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Czech\n"
 "X-Poedit-Country: CZECH REPUBLIC\n"
-
-#: Koo/koo.py:75
-msgid ""
-"Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with Koo."
-msgstr ""
-
-#: Koo/Fields/AbstractFieldWidget.py:68
-msgid "Set to default value"
-msgstr "Nastavit výchozí hodnotu"
-
-#: Koo/Fields/AbstractFieldWidget.py:74
-#, fuzzy
-msgid "Set as default value"
-msgstr "Nastavit výchozí hodnotu"
-
-#: Koo/Fields/AbstractFieldWidget.py:101
-#, fuzzy
-msgid "Operation not permited"
-msgstr ""
-"Operace selhala!\n"
-"Chyba I/O"
-
-#: Koo/Fields/AbstractFieldWidget.py:101
-#, fuzzy
-msgid "You can not set to the default value here !"
-msgstr "Nastavit výchozí hodnotu"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:73
-#: Koo/Fields/Image/ImageFieldWidget.py:71
-#: Koo/Fields/Link/LinkFieldWidget.py:61
-#, fuzzy
-msgid "Open..."
-msgstr "Otevřít"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:74
-msgid "Show &image..."
-msgstr ""
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:111
-#: Koo/Fields/Video/VideoFieldWidget.py:60
-msgid "Select the file to attach"
-msgstr "Vyberte soubor, který chcete přiložit"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:117
-#: Koo/Fields/Binary/BinaryFieldWidget.py:152 Koo/Model/KooModel.py:342
-#, python-format
-msgid "%d bytes"
-msgstr ""
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:127
-#: Koo/Fields/Video/VideoFieldWidget.py:67
-msgid "Error reading the file"
-msgstr "Chyba při čtení souboru"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:131
-#: Koo/Fields/Video/VideoFieldWidget.py:71
-#, fuzzy
-msgid "Save as..."
-msgstr "Uložit přílohu jako..."
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:137
-#: Koo/Fields/Video/VideoFieldWidget.py:77
-msgid "Error writing the file!"
-msgstr "Chyba při zapisování souboru!"
-
-#: Koo/Fields/Button/ButtonFieldWidget.py:70 Koo/Dialogs/FormWidget.py:223
-#: Koo/Dialogs/FormWidget.py:380
-#, fuzzy
-msgid "Question"
-msgstr "verze"
-
-#: Koo/Fields/Button/ButtonFieldWidget.py:99
-msgid "Error in Button"
-msgstr ""
-
-#: Koo/Fields/Button/ButtonFieldWidget.py:99
-msgid "Button type not allowed"
-msgstr ""
-
-#: Koo/Fields/Button/ButtonFieldWidget.py:105
-#, fuzzy
-msgid "Invalid Form, correct red fields!"
-msgstr "Chyba formuláře, opravte červená pole!"
-
-#: Koo/Fields/Calendar/Calendar.py:63
-msgid "Set current date"
-msgstr ""
-
-#: Koo/Fields/Calendar/Calendar.py:104
-msgid "Set current date and time"
-msgstr ""
-
-#: Koo/Fields/Calendar/Calendar.py:142 Koo/Fields/Calendar/Calendar.py:189
-msgid "Set current time"
-msgstr ""
-
-#: Koo/Fields/Char/CharFieldWidget.py:70
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
-msgid "Translation dialog"
-msgstr ""
-
-#: Koo/Fields/Char/CharFieldWidget.py:70
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
-msgid "You must save the resource before adding translations"
-msgstr ""
-
-#: Koo/Fields/Image/ImageFieldWidget.py:113
-#, fuzzy
-msgid "Save image as..."
-msgstr "Uložit přílohu jako..."
-
-#: Koo/Fields/Image/ImageFieldWidget.py:121
-#, fuzzy
-msgid "Error saving file"
-msgstr "Chyba při čtení souboru"
-
-#: Koo/Fields/Image/ImageFieldWidget.py:121
-msgid ""
-"Could not save the image with the given file name. Please check that you "
-"have permissions."
-msgstr ""
-
-#: Koo/Fields/Image/ImageFieldWidget.py:124
-msgid "Open image file..."
-msgstr ""
-
-#: Koo/Fields/Link/LinkFieldWidget.py:70
-#, fuzzy
-msgid "Select the file to link to"
-msgstr "Vyberte soubor, který chcete přiložit"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:123
-msgid "Action"
-msgstr "Akce"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:124
-msgid "Report"
-msgstr "Hlášení"
-
-#: Koo/Fields/FieldPreferencesDialog.py:64
-#, fuzzy
-msgid "<center>Always applicable!</center>"
-msgstr "Vždy použitelné!"
-
-#: Koo/Fields/TranslationDialog.py:51
-msgid "Translation Dialog"
-msgstr ""
-
-#: Koo/Printer/Printer.py:72
-#, fuzzy
-msgid "Report error"
-msgstr "Hlášení"
-
-#: Koo/Printer/Printer.py:72
-msgid "There was an error trying to create the report."
-msgstr ""
-
-#: Koo/Rpc/Rpc-copy.py:232 Koo/Rpc/Rpc-copy.py:365 Koo/Rpc/Rpc.py:243
-#: Koo/Rpc/Rpc.py:384
-#, fuzzy
-msgid "Connection Refused"
-msgstr "Spojení bylo odmítnuto."
-
-#: Koo/Rpc/Rpc-copy.py:239 Koo/Rpc/Rpc-copy.py:248 Koo/Rpc/Rpc-copy.py:252
-#: Koo/Rpc/Rpc-copy.py:377 Koo/Rpc/Rpc-copy.py:391 Koo/Rpc/Rpc-copy.py:394
-#: Koo/Rpc/Rpc.py:250 Koo/Rpc/Rpc.py:259 Koo/Rpc/Rpc.py:272 Koo/Rpc/Rpc.py:275
-#: Koo/Rpc/Rpc.py:396 Koo/Rpc/Rpc.py:410 Koo/Rpc/Rpc.py:430 Koo/Rpc/Rpc.py:434
-msgid "Application Error"
-msgstr "Chyba aplikace"
-
-#: Koo/Rpc/Rpc-copy.py:239 Koo/Rpc/Rpc-copy.py:248 Koo/Rpc/Rpc-copy.py:252
-#: Koo/Rpc/Rpc-copy.py:377 Koo/Rpc/Rpc-copy.py:391 Koo/Rpc/Rpc-copy.py:394
-#: Koo/Rpc/Rpc.py:250 Koo/Rpc/Rpc.py:259 Koo/Rpc/Rpc.py:272 Koo/Rpc/Rpc.py:275
-#: Koo/Rpc/Rpc.py:396 Koo/Rpc/Rpc.py:410 Koo/Rpc/Rpc.py:430 Koo/Rpc/Rpc.py:434
-msgid "View details"
-msgstr "Zobrazit detaily"
-
-#: Koo/Rpc/Rpc-copy.py:510 Koo/Rpc/Rpc.py:554
-msgid "Could not contact server!"
-msgstr ""
-
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:501
-msgid "Yes"
-msgstr "Ano"
-
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:501
-msgid "No"
-msgstr "Ne"
 
 #: Koo/Actions/Actions.py:59 Koo/Actions/Actions.py:83
 #: Koo/Actions/Actions.py:116
@@ -243,165 +54,57 @@ msgstr ""
 msgid "Select your action"
 msgstr "Vyberte akci"
 
-#: Koo/Screen/Action.py:69
-msgid "You must select a record to use the relate button !"
-msgstr ""
-
-#: Koo/Screen/Action.py:74
-msgid "You must save this record to use the relate button !"
-msgstr ""
-
-#: Koo/Screen/Action.py:105
-#, fuzzy
-msgid "Print Screen"
-msgstr "Tisknout dokumenty"
-
-#: Koo/Plugins/workflow_print/__init__.py:54
-msgid "Print Workflow"
-msgstr ""
-
-#: Koo/Plugins/workflow_print/__init__.py:55
-msgid "Print Workflow (Complex)"
-msgstr ""
-
-#: Koo/Common/Common.py:167
+#: Koo/Common/Common.py:175
 msgid "Concurrency warning"
 msgstr ""
 
-#: Koo/Common/Common.py:168
+#: Koo/Common/Common.py:176
 msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
 msgstr ""
 
-#: Koo/Common/Common.py:169
+#: Koo/Common/Common.py:177
 msgid "Save anyway"
 msgstr ""
 
-#: Koo/Common/Common.py:170
+#: Koo/Common/Common.py:178
 msgid "Compare"
 msgstr ""
 
-#: Koo/Common/Common.py:171
+#: Koo/Common/Common.py:179
 #, fuzzy
 msgid "Do not save"
 msgstr "Volby uloženy!"
 
-#: Koo/Common/Options.py:70
+#: Koo/Common/Options.py:69
 msgid "specify alternate config file"
 msgstr "zadejte alternativní konfigurační soubor"
 
-#: Koo/Common/Options.py:71
+#: Koo/Common/Options.py:70
 msgid "enable basic debugging"
 msgstr "povolit ladicí informace"
 
-#: Koo/Common/Options.py:72
+#: Koo/Common/Options.py:71
 msgid "specify channels to log"
 msgstr "zadejte kanály pro logování"
 
-#: Koo/Common/Options.py:73
+#: Koo/Common/Options.py:72
 msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 msgstr "určete logovací úroveň: INFO, DEBUG, WARNING, ERROR, CRITICAL"
 
-#: Koo/Common/Options.py:74
-msgid "specify the user login"
-msgstr "zadejte uživatelské jméno"
-
-#: Koo/Common/Options.py:75
-msgid "specify the server port"
-msgstr "zadejte číslo portu síťového serveru"
-
-#: Koo/Common/Options.py:76
-msgid "specify the server ip/name"
+#: Koo/Common/Options.py:73
+#, fuzzy
+msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "zadejte IP adresu serveru nebo DNS jméno"
 
-#: Koo/Common/Options.py:77
+#: Koo/Common/Options.py:74
 #, fuzzy
 msgid "specify stylesheet to apply"
 msgstr "zadejte kanály pro logování"
 
-#: Koo/Common/Options.py:78
+#: Koo/Common/Options.py:75
 msgid "use POS (Point of Sales) mode"
-msgstr ""
-
-#: Koo/View/Chart/Parser.py:58 Koo/View/Calendar/Parser.py:47
-#, fuzzy
-msgid "Unknown"
-msgstr "Neznámé okno"
-
-#: Koo/View/Tree/TreeView.py:186
-msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
-
-#: Koo/View/Calendar/Calendar.py:93
-#, python-format
-msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
-"s<br/>"
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:61
-#, fuzzy
-msgid "Validation Error"
-msgstr "Chyba aplikace"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:61
-msgid "Confirmation password does not match new password."
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:68
-msgid "Password changed successfully"
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:71
-#, fuzzy
-msgid "Error"
-msgstr "Chyba:"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:71
-msgid ""
-"Could not change administrator password. Please, check the server and "
-"password are correct."
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:48
-msgid "You can now connect to the database as an administrator."
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:48
-msgid ""
-"The following users have been installed on your database:\n"
-"\n"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:83
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
-msgid "Could not create database."
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:83 Koo/Dialogs/KooMainWindow.py:634
-msgid "Bad database administrator password !"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
-msgid "Error during database creation !"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
-msgid ""
-"The server crashed during installation.\n"
-"We suggest you to drop this database."
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:163
-msgid "Bad database name !"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:163
-msgid ""
-"The database name must contain only normal characters or \"_\".\n"
-"You must avoid all accents, space or special characters."
 msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:52
@@ -466,15 +169,435 @@ msgid ""
 "Field %s is unknown !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:74 Koo/Dialogs/LoginDialog.py:76
+#: Koo/Dialogs/AdministratorPasswordDialog.py:61
+#, fuzzy
+msgid "Validation Error"
+msgstr "Chyba aplikace"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:61
+msgid "Confirmation password does not match new password."
+msgstr ""
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:68
+msgid "Password changed successfully"
+msgstr ""
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:71
+#, fuzzy
+msgid "Error"
+msgstr "Chyba:"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:71
+msgid ""
+"Could not change administrator password. Please, check the server and "
+"password are correct."
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:202
+msgid "No resource selected !"
+msgstr "Žádný vybraný zdroj!"
+
+#: Koo/Dialogs/FormWidget.py:229
+#, fuzzy
+msgid "You have to select one resource!"
+msgstr "Musíte vybrat zdroj!"
+
+#: Koo/Dialogs/FormWidget.py:235 Koo/Dialogs/FullTextSearchDialog.py:393
+msgid "ID"
+msgstr "ID"
+
+#: Koo/Dialogs/FormWidget.py:236
+msgid "Creation User"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:237
+msgid "Creation Date"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:238
+msgid "Latest Modification by"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:239
+msgid "Latest Modification Date"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:240
+msgid "Owner"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:241
+msgid "Group Owner"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:242
+msgid "Access Level"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:251 Koo/Dialogs/FormWidget.py:416
+#: Koo/Fields/Button/ButtonFieldWidget.py:71
+#, fuzzy
+msgid "Question"
+msgstr "verze"
+
+#: Koo/Dialogs/FormWidget.py:251
+#, fuzzy
+msgid "Are you sure you want to remove these records?"
+msgstr "Opravdu chcete odstranit tento záznam?"
+
+#: Koo/Dialogs/FormWidget.py:255
+#, fuzzy
+msgid "Resource not removed !"
+msgstr "Zdroj odstraněn."
+
+#: Koo/Dialogs/FormWidget.py:257
+msgid "Resource removed."
+msgstr "Zdroj odstraněn."
+
+#: Koo/Dialogs/FormWidget.py:281
+msgid "Working now on the duplicated document !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:290
+#, fuzzy
+msgid "Document saved !"
+msgstr "Volby uloženy!"
+
+#: Koo/Dialogs/FormWidget.py:294
+msgid "Invalid form !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:368
+msgid "No record selected!"
+msgstr "Žádný záznam není vybrán!"
+
+#: Koo/Dialogs/FormWidget.py:385
+#, fuzzy, python-format
+msgid "(%s attachments) "
+msgstr "Příloha:"
+
+#: Koo/Dialogs/FormWidget.py:396
+#, fuzzy
+msgid "No records"
+msgstr "Další: Žádný záznam není vybrán!"
+
+#: Koo/Dialogs/FormWidget.py:403
+#, fuzzy
+msgid "No document selected"
+msgstr "Žádný vybraný zdroj!"
+
+#: Koo/Dialogs/FormWidget.py:407
+msgid "New document"
+msgstr "Nový dokument"
+
+#: Koo/Dialogs/FormWidget.py:409
+#, fuzzy, python-format
+msgid "Editing document (id: %s)"
+msgstr "Upravovaný dokument:"
+
+#: Koo/Dialogs/FormWidget.py:410
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:416
+msgid "This record has been modified do you want to save it?"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:434
+#, fuzzy
+msgid "No records selected"
+msgstr "Žádný záznam není vybrán!"
+
+#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:441
+msgid "Press Ctrl+O to login"
+msgstr "Stiskněte Ctrl+O pro přihlášení"
+
+#: Koo/Dialogs/KooMainWindow.py:111
+#, fuzzy
+msgid "Close tab"
+msgstr "Zavřít"
+
+#: Koo/Dialogs/KooMainWindow.py:190
+msgid "Open partners tab"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:195
+#, fuzzy
+msgid "Open products tab"
+msgstr "Open Source: "
+
+#: Koo/Dialogs/KooMainWindow.py:233
+#, fuzzy
+msgid "Products"
+msgstr "Předchozí"
+
+#: Koo/Dialogs/KooMainWindow.py:233
+msgid "Products module is not installed."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:349
+#, fuzzy, python-format
+msgid "%s request(s)"
+msgstr " požadavek(-ky)"
+
+#: Koo/Dialogs/KooMainWindow.py:351
+msgid "No request"
+msgstr "Žádný požadavek"
+
+#: Koo/Dialogs/KooMainWindow.py:353
+#, fuzzy, python-format
+msgid " - %s pending request(s)"
+msgstr "Čekající požadavek(-ky)"
+
+#: Koo/Dialogs/KooMainWindow.py:359
+#, fuzzy
+msgid "New Request"
+msgstr "Žádný požadavek"
+
+#: Koo/Dialogs/KooMainWindow.py:359
+#, fuzzy
+msgid "You've received a new request"
+msgstr "Odeslat nový požadavek"
+
+#: Koo/Dialogs/KooMainWindow.py:418 Koo/Dialogs/KooMainWindow.py:420
+#, fuzzy
+msgid "Connection error !"
+msgstr "Chyba ve spojení!"
+
+#: Koo/Dialogs/KooMainWindow.py:418
+#, fuzzy
+msgid "Unable to connect to the server !"
+msgstr ""
+"Chyba spojení!\n"
+"Nelze se připojit k serveru!"
+
+#: Koo/Dialogs/KooMainWindow.py:420
+#, fuzzy
+msgid "Bad username or password !"
+msgstr ""
+"Chyba při spojení!\n"
+"Špatné uživatelské jméno nebo heslo!"
+
+#: Koo/Dialogs/KooMainWindow.py:424
+msgid "Connection Error !"
+msgstr "Chyba ve spojení!"
+
+#: Koo/Dialogs/KooMainWindow.py:440
+msgid "Not logged !"
+msgstr "Nepřihlášen!"
+
+#: Koo/Dialogs/KooMainWindow.py:533
+msgid "Access denied"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:533
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:564
+msgid "Quit"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:564
+msgid "Do you really want to quit ?"
+msgstr "Skutečně chcete program ukončit?"
+
+#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42
+msgid "Yes"
+msgstr "Ano"
+
+#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+msgid "No"
+msgstr "Ne"
+
+#: Koo/Dialogs/KooMainWindow.py:687 Koo/Dialogs/KooMainWindow.py:708
+msgid "Delete a database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:696 Koo/Dialogs/KooMainWindow.py:702
+msgid "Database removal"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:696
+msgid "Database dropped successfully!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:700
+msgid "Could not drop database."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/DatabaseCreationDialog.py:83
+msgid "Bad database administrator password !"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:702
+msgid "Couldn't drop database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:719
+msgid "Database restored successfully!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:723 Koo/Dialogs/KooMainWindow.py:725
+msgid "Could not restore database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:723
+msgid "Bad database administrator password!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:725
+msgid "There was an error restoring the database!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:728
+msgid "Backup a database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:743
+msgid "Database backuped successfully!"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:746
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+
+#: Koo/Dialogs/TreeWidget.py:61
+msgid "Tree"
+msgstr "Strom"
+
+#: Koo/Dialogs/TreeWidget.py:263 Koo/Dialogs/TreeWidget.py:275
+msgid "No resource selected!"
+msgstr "Žádný vybraný zdroj!"
+
+#: Koo/Dialogs/TreeWidget.py:292
+#, fuzzy
+msgid "No item selected"
+msgstr "Žádný záznam není vybrán!"
+
+#: Koo/Dialogs/TreeWidget.py:292
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
+msgid "You can now connect to the database as an administrator."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/DatabaseCreationDialog.py:85
+msgid "Could not create database."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:92
+msgid "Error during database creation !"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:92
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:164
+msgid "Bad database name !"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:164
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:303
+msgid "(Everywhere)"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:307
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:309
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:311
+#, fuzzy
+msgid "Full Text Search"
+msgstr "Tiny ERP - Hledání"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:312
+#, fuzzy, python-format
+msgid "Full Text Search (%%d result(s))"
+msgstr "Tiny ERP - Hledání widgetů"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:394
+msgid "Model ID"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:395
+#, fuzzy
+msgid "Model Name"
+msgstr "Jméno pole:"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:397
+msgid "Type"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:398
+msgid "Name"
+msgstr "Jméno"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:399
+#, fuzzy
+msgid "Text"
+msgstr "Další"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:400
+msgid "Ranking"
+msgstr ""
+
+#: Koo/Dialogs/LoginDialog.py:76 Koo/Dialogs/DatabaseDialog.py:74
 #, fuzzy
 msgid "Could not connect to server !"
 msgstr ""
 "Chyba spojení!\n"
 "Nelze se připojit k serveru!"
 
-#: Koo/Dialogs/DatabaseDialog.py:80 Koo/Dialogs/LoginDialog.py:81
+#: Koo/Dialogs/LoginDialog.py:81 Koo/Dialogs/DatabaseDialog.py:80
 msgid "No database found, you must create one !"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:92
+msgid "Confirmation"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#, python-format
+msgid ""
+"<p>This process will update the following fields in %(number)d records:</p>%"
+"(records)s<p>Do you want to continue?</p>"
 msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:50
@@ -547,368 +670,9 @@ msgstr "Exportovat data"
 msgid "Exported fields"
 msgstr "Vyčistit pole"
 
-#: Koo/Dialogs/FormWidget.py:181
-msgid "No resource selected !"
-msgstr "Žádný vybraný zdroj!"
-
-#: Koo/Dialogs/FormWidget.py:201
+#: Koo/Dialogs/PreferencesDialog.py:76
 #, fuzzy
-msgid "You have to select one resource!"
-msgstr "Musíte vybrat zdroj!"
-
-#: Koo/Dialogs/FormWidget.py:207 Koo/Dialogs/FullTextSearchDialog.py:392
-msgid "ID"
-msgstr "ID"
-
-#: Koo/Dialogs/FormWidget.py:208
-msgid "Creation User"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:209
-msgid "Creation Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:210
-msgid "Latest Modification by"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:211
-msgid "Latest Modification Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:212
-msgid "Owner"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:213
-msgid "Group Owner"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:214
-msgid "Access Level"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:223
-#, fuzzy
-msgid "Are you sure you want to remove these records?"
-msgstr "Opravdu chcete odstranit tento záznam?"
-
-#: Koo/Dialogs/FormWidget.py:227
-#, fuzzy
-msgid "Resource not removed !"
-msgstr "Zdroj odstraněn."
-
-#: Koo/Dialogs/FormWidget.py:229
-msgid "Resource removed."
-msgstr "Zdroj odstraněn."
-
-#: Koo/Dialogs/FormWidget.py:253
-msgid "Working now on the duplicated document !"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:262
-#, fuzzy
-msgid "Document saved !"
-msgstr "Volby uloženy!"
-
-#: Koo/Dialogs/FormWidget.py:266
-msgid "Invalid form !"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:340
-msgid "No record selected!"
-msgstr "Žádný záznam není vybrán!"
-
-#: Koo/Dialogs/FormWidget.py:355
-#, fuzzy, python-format
-msgid "(%s attachments) "
-msgstr "Příloha:"
-
-#: Koo/Dialogs/FormWidget.py:360
-#, fuzzy
-msgid "No records"
-msgstr "Další: Žádný záznam není vybrán!"
-
-#: Koo/Dialogs/FormWidget.py:367
-#, fuzzy
-msgid "No document selected"
-msgstr "Žádný vybraný zdroj!"
-
-#: Koo/Dialogs/FormWidget.py:371
-msgid "New document"
-msgstr "Nový dokument"
-
-#: Koo/Dialogs/FormWidget.py:373
-#, fuzzy, python-format
-msgid "Editing document (id: %s)"
-msgstr "Upravovaný dokument:"
-
-#: Koo/Dialogs/FormWidget.py:374
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:380
-msgid "This record has been modified do you want to save it?"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:392
-#, fuzzy
-msgid "No records selected"
-msgstr "Žádný záznam není vybrán!"
-
-#: Koo/Dialogs/KooMainWindow.py:98 Koo/Dialogs/KooMainWindow.py:414
-msgid "Press Ctrl+O to login"
-msgstr "Stiskněte Ctrl+O pro přihlášení"
-
-#: Koo/Dialogs/KooMainWindow.py:108
-#, fuzzy
-msgid "Close tab"
-msgstr "Zavřít"
-
-#: Koo/Dialogs/KooMainWindow.py:174
-msgid "Open partners tab"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:179
-#, fuzzy
-msgid "Open products tab"
-msgstr "Open Source: "
-
-#: Koo/Dialogs/KooMainWindow.py:217
-#, fuzzy
-msgid "Products"
-msgstr "Předchozí"
-
-#: Koo/Dialogs/KooMainWindow.py:217
-msgid "Products module is not installed."
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:325
-#, fuzzy, python-format
-msgid "%s request(s)"
-msgstr " požadavek(-ky)"
-
-#: Koo/Dialogs/KooMainWindow.py:327
-msgid "No request"
-msgstr "Žádný požadavek"
-
-#: Koo/Dialogs/KooMainWindow.py:329
-#, fuzzy, python-format
-msgid " - %s pending request(s)"
-msgstr "Čekající požadavek(-ky)"
-
-#: Koo/Dialogs/KooMainWindow.py:335
-#, fuzzy
-msgid "New Request"
-msgstr "Žádný požadavek"
-
-#: Koo/Dialogs/KooMainWindow.py:335
-#, fuzzy
-msgid "You've received a new request"
-msgstr "Odeslat nový požadavek"
-
-#: Koo/Dialogs/KooMainWindow.py:392 Koo/Dialogs/KooMainWindow.py:394
-#, fuzzy
-msgid "Connection error !"
-msgstr "Chyba ve spojení!"
-
-#: Koo/Dialogs/KooMainWindow.py:392
-#, fuzzy
-msgid "Unable to connect to the server !"
-msgstr ""
-"Chyba spojení!\n"
-"Nelze se připojit k serveru!"
-
-#: Koo/Dialogs/KooMainWindow.py:394
-#, fuzzy
-msgid "Bad username or password !"
-msgstr ""
-"Chyba při spojení!\n"
-"Špatné uživatelské jméno nebo heslo!"
-
-#: Koo/Dialogs/KooMainWindow.py:398
-msgid "Connection Error !"
-msgstr "Chyba ve spojení!"
-
-#: Koo/Dialogs/KooMainWindow.py:413
-msgid "Not logged !"
-msgstr "Nepřihlášen!"
-
-#: Koo/Dialogs/KooMainWindow.py:470
-msgid "Access denied"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:470
-msgid ""
-"You can not log into the system !\n"
-"Ask the administrator to verify\n"
-"you have an action defined for your user."
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:501
-msgid "Quit"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:501
-msgid "Do you really want to quit ?"
-msgstr "Skutečně chcete program ukončit?"
-
-#: Koo/Dialogs/KooMainWindow.py:621 Koo/Dialogs/KooMainWindow.py:642
-msgid "Delete a database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:630 Koo/Dialogs/KooMainWindow.py:636
-msgid "Database removal"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:630
-msgid "Database dropped successfully!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:634
-msgid "Could not drop database."
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:636
-msgid "Couldn't drop database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:653
-msgid "Database restored successfully!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:657 Koo/Dialogs/KooMainWindow.py:659
-msgid "Could not restore database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:657
-msgid "Bad database administrator password!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:659
-msgid "There was an error restoring the database!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:662
-msgid "Backup a database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:677
-msgid "Database backuped successfully!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:680
-#, python-format
-msgid ""
-"Could not backup database.\n"
-"%s"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:79
-msgid "Confirmation"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:80
-#, python-format
-msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>%"
-"(records)s<p>Do you want to continue?</p>"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:302
-msgid "(Everywhere)"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:306
-msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:308
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:310
-#, fuzzy
-msgid "Full Text Search"
-msgstr "Tiny ERP - Hledání"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:311
-#, fuzzy, python-format
-msgid "Full Text Search (%%d result(s))"
-msgstr "Tiny ERP - Hledání widgetů"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:393
-msgid "Model ID"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:394
-#, fuzzy
-msgid "Model Name"
-msgstr "Jméno pole:"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:396
-msgid "Type"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:397
-msgid "Name"
-msgstr "Jméno"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:398
-#, fuzzy
-msgid "Text"
-msgstr "Další"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:399
-msgid "Ranking"
-msgstr ""
-
-#: Koo/Dialogs/SearchDialog.py:76
-#, fuzzy, python-format
-msgid "Search: %s"
-msgstr "Hl_edat:"
-
-#: Koo/Dialogs/SearchDialog.py:77
-#, fuzzy, python-format
-msgid "Search: %s (%%d result(s))"
-msgstr "Tiny ERP - Hledání widgetů"
-
-#: Koo/Dialogs/TreeWidget.py:61
-msgid "Tree"
-msgstr "Strom"
-
-#: Koo/Dialogs/TreeWidget.py:218 Koo/Dialogs/TreeWidget.py:230
-msgid "No resource selected!"
-msgstr "Žádný vybraný zdroj!"
-
-#: Koo/Dialogs/TreeWidget.py:242
-#, fuzzy
-msgid "No item selected"
-msgstr "Žádný záznam není vybrán!"
-
-#: Koo/Dialogs/TreeWidget.py:242
-msgid "Please select an element from the tree to add a shortcut to it."
-msgstr ""
-
-#: Koo/Dialogs/ImportExportCommon.py:37
-#, fuzzy
-msgid "Fields"
-msgstr "Jméno pole"
-
-#: Koo/Dialogs/PreferencesDialog.py:56
-msgid "Preferences"
-msgstr "Předvolby"
-
-#: Koo/Dialogs/PreferencesDialog.py:77
-#, fuzzy, python-format
-msgid "Preference %s"
+msgid "User Preferences"
 msgstr "Předvolby"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
@@ -926,6 +690,278 @@ msgstr ""
 #: Koo/Dialogs/ServerConfigurationDialog.py:67
 msgid "Pyro"
 msgstr ""
+
+#: Koo/Dialogs/SearchDialog.py:76
+#, fuzzy, python-format
+msgid "Search: %s"
+msgstr "Hl_edat:"
+
+#: Koo/Dialogs/SearchDialog.py:77
+#, fuzzy, python-format
+msgid "Search: %s (%%d result(s))"
+msgstr "Tiny ERP - Hledání widgetů"
+
+#: Koo/Dialogs/ImportExportCommon.py:37
+#, fuzzy
+msgid "Fields"
+msgstr "Jméno pole"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:74
+#: Koo/Fields/Image/ImageFieldWidget.py:80
+#: Koo/Fields/Link/LinkFieldWidget.py:61
+#, fuzzy
+msgid "Open..."
+msgstr "Otevřít"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:75
+msgid "Show &image..."
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:112
+#: Koo/Fields/Video/VideoFieldWidget.py:72
+msgid "Select the file to attach"
+msgstr "Vyberte soubor, který chcete přiložit"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:118
+#: Koo/Fields/Binary/BinaryFieldWidget.py:156 Koo/Model/KooModel.py:351
+#, python-format
+msgid "%d bytes"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:128
+#: Koo/Fields/Video/VideoFieldWidget.py:82
+msgid "Error reading the file"
+msgstr "Chyba při čtení souboru"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:131
+#: Koo/Fields/Video/VideoFieldWidget.py:85
+#, fuzzy
+msgid "Save as..."
+msgstr "Uložit přílohu jako..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:139
+#: Koo/Fields/Video/VideoFieldWidget.py:92
+msgid "Error writing the file!"
+msgstr "Chyba při zapisování souboru!"
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:100
+msgid "Error in Button"
+msgstr ""
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:100
+msgid "Button type not allowed"
+msgstr ""
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:106
+#, fuzzy
+msgid "Invalid Form, correct red fields!"
+msgstr "Chyba formuláře, opravte červená pole!"
+
+#: Koo/Fields/Calendar/Calendar.py:63
+msgid "Set current date"
+msgstr ""
+
+#: Koo/Fields/Calendar/Calendar.py:112
+msgid "Set current date and time"
+msgstr ""
+
+#: Koo/Fields/Calendar/Calendar.py:150 Koo/Fields/Calendar/Calendar.py:196
+msgid "Set current time"
+msgstr ""
+
+#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+msgid "Translation dialog"
+msgstr ""
+
+#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+msgid "You must save the resource before adding translations"
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:122
+#, fuzzy
+msgid "Save image as..."
+msgstr "Uložit přílohu jako..."
+
+#: Koo/Fields/Image/ImageFieldWidget.py:130
+#, fuzzy
+msgid "Error saving file"
+msgstr "Chyba při čtení souboru"
+
+#: Koo/Fields/Image/ImageFieldWidget.py:130
+msgid ""
+"Could not save the image with the given file name. Please check that you "
+"have permissions."
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:134
+msgid "Open image file..."
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:151
+#, fuzzy
+msgid "(no image)"
+msgstr "Smazat"
+
+#: Koo/Fields/Link/LinkFieldWidget.py:70
+#, fuzzy
+msgid "Select the file to link to"
+msgstr "Vyberte soubor, který chcete přiložit"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:133 Koo/Fields/ManyToOne/ManyToOne.py:308
+msgid "Action"
+msgstr "Akce"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:134 Koo/Fields/ManyToOne/ManyToOne.py:309
+msgid "Report"
+msgstr "Hlášení"
+
+#: Koo/Fields/FieldPreferencesDialog.py:64
+#, fuzzy
+msgid "<center>Always applicable!</center>"
+msgstr "Vždy použitelné!"
+
+#: Koo/Fields/TranslationDialog.py:51
+msgid "Translation Dialog"
+msgstr ""
+
+#: Koo/Fields/AbstractFieldWidget.py:65
+msgid "Set to default value"
+msgstr "Nastavit výchozí hodnotu"
+
+#: Koo/Fields/AbstractFieldWidget.py:71
+#, fuzzy
+msgid "Set as default value"
+msgstr "Nastavit výchozí hodnotu"
+
+#: Koo/Fields/AbstractFieldWidget.py:98
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#, fuzzy
+msgid "Operation not permited"
+msgstr ""
+"Operace selhala!\n"
+"Chyba I/O"
+
+#: Koo/Fields/AbstractFieldWidget.py:98
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#, fuzzy
+msgid "You can not set to the default value here !"
+msgstr "Nastavit výchozí hodnotu"
+
+#: Koo/Plugins/Semantic/__init__.py:46
+msgid "Semantic Info"
+msgstr ""
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+msgid "Print Workflow"
+msgstr ""
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+msgid "Print Workflow (Complex)"
+msgstr ""
+
+#: Koo/Plugins/ViewTranslator/__init__.py:40
+msgid "Translate View"
+msgstr ""
+
+#: Koo/Printer/Printer.py:75
+#, fuzzy
+msgid "Report error"
+msgstr "Hlášení"
+
+#: Koo/Printer/Printer.py:75
+msgid "There was an error trying to create the report."
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:247 Koo/Rpc/Rpc.py:390
+#, fuzzy
+msgid "Connection Refused"
+msgstr "Spojení bylo odmítnuto."
+
+#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
+#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+msgid "Application Error"
+msgstr "Chyba aplikace"
+
+#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
+#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+msgid "View details"
+msgstr "Zobrazit detaily"
+
+#: Koo/Rpc/Rpc.py:556
+msgid "Could not contact server!"
+msgstr ""
+
+#: Koo/Screen/Action.py:81
+msgid "You must select a record to use the relate button !"
+msgstr ""
+
+#: Koo/Screen/Action.py:87
+msgid "You must save this record to use the relate button !"
+msgstr ""
+
+#: Koo/Screen/Action.py:126
+#, fuzzy
+msgid "Print Screen"
+msgstr "Tisknout dokumenty"
+
+#: Koo/View/Calendar/Calendar.py:93
+#, python-format
+msgid ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
+"s<br/>"
+msgstr ""
+
+#: Koo/View/Calendar/__init__.py:31
+#, fuzzy
+msgid "Calendar View"
+msgstr "Jiný pohled"
+
+#: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
+#, fuzzy
+msgid "Unknown"
+msgstr "Neznámé okno"
+
+#: Koo/View/Chart/__init__.py:31
+#, fuzzy
+msgid "Chart View"
+msgstr "Jiný pohled"
+
+#: Koo/View/Form/__init__.py:32
+#, fuzzy
+msgid "Form View"
+msgstr "Jiný pohled"
+
+#: Koo/View/Svg/__init__.py:32
+#, fuzzy
+msgid "SVG View"
+msgstr "Jiný pohled"
+
+#: Koo/View/Tree/TreeView.py:220
+msgid "<a href=\"update\">Update totals</a>"
+msgstr ""
+
+#: Koo/View/Tree/__init__.py:32
+#, fuzzy
+msgid "List View"
+msgstr "Jiný pohled"
+
+#: Koo/koo.py:75
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with Koo."
+msgstr ""
+
+#~ msgid "specify the user login"
+#~ msgstr "zadejte uživatelské jméno"
+
+#~ msgid "specify the server port"
+#~ msgstr "zadejte číslo portu síťového serveru"
+
+#, fuzzy
+#~ msgid "Preference %s"
+#~ msgstr "Předvolby"
 
 #~ msgid "No available plugin for this resource !"
 #~ msgstr "Pro tento zdroj není dostupný žádný zásuvný modul!"
@@ -947,10 +983,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Error storing image"
 #~ msgstr "Chyba při čtení souboru"
-
-#, fuzzy
-#~ msgid "(no image)"
-#~ msgstr "Smazat"
 
 #~ msgid "Write Report to File"
 #~ msgstr "Uložit sestavu do souboru"
@@ -1047,10 +1079,6 @@ msgstr ""
 
 #~ msgid "Reload"
 #~ msgstr "Obnovit"
-
-#, fuzzy
-#~ msgid "Switch View"
-#~ msgstr "Jiný pohled"
 
 #~ msgid "Changt root"
 #~ msgstr "Změnit kořen"
@@ -1273,9 +1301,6 @@ msgstr ""
 
 #~ msgid "Go to next matched resource"
 #~ msgstr "Přejít na následující výsledek hledání"
-
-#~ msgid "Other View"
-#~ msgstr "Jiný pohled"
 
 #~ msgid "Launch actions about this resource"
 #~ msgstr "Spustit akce k tomuto zdroji"
