@@ -66,7 +66,7 @@ class SearchView( QAbstractItemView ):
 	def scrollBarChanged(self, value):
 		self.viewport().move( 0, - value )
 
-	## Map the label or widget of each item with 
+	## @brief Map the label or widget of each item with 
 	# the corresponding column of the model
 	#
 	# Example of a valid map:
@@ -77,7 +77,7 @@ class SearchView( QAbstractItemView ):
 	def setModelItemMap(self, map):
 		self.map = map
 
-	## Sets the .ui file that will be used to represent each item
+	## @brief Sets the .ui file that will be used to represent each item
 	#  int the list
 	#
 	# The .ui file should contain QLabels which will be mapped using
@@ -85,13 +85,13 @@ class SearchView( QAbstractItemView ):
 	def setItemUi(self, uiFile ):
 		self.uiFile = uiFile
 
-	## You may inherit this class and reimplement this function if your items,
+	## @brief You may inherit this class and reimplement this function if your items,
 	# aren't created from ui files or the file is not composed
 	# only of simple labels.
 	def createItemWidget(self, parent):
 		return SearchViewItem( self.uiFile, parent )
 
-	## Reimplement this function if you don't use the map to automatically
+	## @brief Reimplement this function if you don't use the map to automatically
 	# fill the item widget. Note that the index of the model is inside 
 	# 'item.index'.
 	def fillItemWidget( self, item ):
