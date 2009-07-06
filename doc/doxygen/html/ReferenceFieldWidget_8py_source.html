@@ -93,130 +93,129 @@
 <a name="l00073"></a>00073 
 <a name="l00074"></a>00074         <span class="keyword">def </span>recordChanged(self, idx):
 <a name="l00075"></a>00075                 <span class="keywordflow">if</span> idx &lt; 0:
-<a name="l00076"></a>00076                         enabled = <span class="keyword">False</span>
-<a name="l00077"></a>00077                         self.uiText.clear()
+<a name="l00076"></a>00076                         self.uiText.clear()
+<a name="l00077"></a>00077                         self.setReadOnly( <span class="keyword">True</span> )
 <a name="l00078"></a>00078                 <span class="keywordflow">else</span>:
-<a name="l00079"></a>00079                         enabled = <span class="keyword">True</span>
-<a name="l00080"></a>00080                 self.uiText.setEnabled( enabled )
-<a name="l00081"></a>00081                 self.pushOpen.setEnabled( enabled )
-<a name="l00082"></a>00082                 self.pushNew.setEnabled( enabled )
-<a name="l00083"></a>00083                 self.pushClear.setEnabled( enabled )
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085         <span class="keyword">def </span>clear(self):
-<a name="l00086"></a>00086                 <span class="comment"># As the 'clear' button might modify the model we need to be sure all other fields/widgets</span>
-<a name="l00087"></a>00087                 <span class="comment"># have been stored in the model. Otherwise the recordChanged() triggered by modifying</span>
-<a name="l00088"></a>00088                 <span class="comment"># the parent model could make us lose changes.</span>
-<a name="l00089"></a>00089                 self.view.store()
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091                 <span class="comment"># This automatically refreshes the widget and thus clears</span>
-<a name="l00092"></a>00092                 <span class="comment"># the uiModel combo and the uiText line edit</span>
-<a name="l00093"></a>00093                 <span class="keywordflow">if</span> self.record:
-<a name="l00094"></a>00094                         self.record.setValue(self.name, <span class="keyword">False</span>)
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096         <span class="keyword">def </span>setPopdown(self, selection):
-<a name="l00097"></a>00097                 self.invertedModels = {}
+<a name="l00079"></a>00079                         self.setReadOnly( self.isReadOnly() )
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081         <span class="keyword">def </span>clear(self):
+<a name="l00082"></a>00082                 <span class="comment"># As the 'clear' button might modify the model we need to be sure all other fields/widgets</span>
+<a name="l00083"></a>00083                 <span class="comment"># have been stored in the model. Otherwise the recordChanged() triggered by modifying</span>
+<a name="l00084"></a>00084                 <span class="comment"># the parent model could make us lose changes.</span>
+<a name="l00085"></a>00085                 self.view.store()
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087                 <span class="comment"># This automatically refreshes the widget and thus clears</span>
+<a name="l00088"></a>00088                 <span class="comment"># the uiModel combo and the uiText line edit</span>
+<a name="l00089"></a>00089                 <span class="keywordflow">if</span> self.record:
+<a name="l00090"></a>00090                         self.record.setValue(self.name, <span class="keyword">False</span>)
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092         <span class="keyword">def </span>setPopdown(self, selection):
+<a name="l00093"></a>00093                 self.invertedModels = {}
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095                 <span class="keywordflow">for</span> (i,j) <span class="keywordflow">in</span> selection:
+<a name="l00096"></a>00096                         self.uiModel.addItem( j, QVariant(i) )
+<a name="l00097"></a>00097                         self.invertedModels[i] = j
 <a name="l00098"></a>00098 
-<a name="l00099"></a>00099                 <span class="keywordflow">for</span> (i,j) <span class="keywordflow">in</span> selection:
-<a name="l00100"></a>00100                         self.uiModel.addItem( j, QVariant(i) )
-<a name="l00101"></a>00101                         self.invertedModels[i] = j
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103         <span class="keyword">def </span>setReadOnly(self, value):
-<a name="l00104"></a>00104                 self.uiModel.setEnabled( <span class="keywordflow">not</span> value )
-<a name="l00105"></a>00105                 <span class="keywordflow">if</span> self.uiModel.currentIndex() &lt; 0:
-<a name="l00106"></a>00106                         value = <span class="keyword">True</span>
-<a name="l00107"></a>00107                 self.uiText.setEnabled( <span class="keywordflow">not</span> value )
-<a name="l00108"></a>00108                 self.pushNew.setEnabled( <span class="keywordflow">not</span> value )
-<a name="l00109"></a>00109                 self.pushOpen.setEnabled( <span class="keywordflow">not</span> value )
-<a name="l00110"></a>00110                 self.pushClear.setEnabled( <span class="keywordflow">not</span> value )
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112         <span class="keyword">def </span>colorWidget(self):
-<a name="l00113"></a>00113                 <span class="keywordflow">return</span> self.uiText
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115         <span class="keyword">def </span>store(self):
-<a name="l00116"></a>00116                 <span class="comment"># No update of the model, the model is updated in real time </span>
-<a name="l00117"></a>00117                 <span class="keywordflow">pass</span>
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119         <span class="keyword">def </span>search(self):
-<a name="l00120"></a>00120                 domain = self.record.domain(self.name)
-<a name="l00121"></a>00121                 context = self.record.fieldContext(self.name)
-<a name="l00122"></a>00122                 resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-<a name="l00123"></a>00123                 ids = Rpc.session.execute(<span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, resource, <span class="stringliteral">'name_search'</span>, unicode(self.uiText.text()), domain, <span class="stringliteral">'ilike'</span>, context, <span class="keyword">False</span>)
-<a name="l00124"></a>00124                 
-<a name="l00125"></a>00125                 <span class="keywordflow">if</span> len(ids)==1:
-<a name="l00126"></a>00126                         id, name = ids[0]
-<a name="l00127"></a>00127                         self.record.setValue(self.name, (resource, (id, name)) ) 
-<a name="l00128"></a>00128                         self.display()
-<a name="l00129"></a>00129                         <span class="keywordflow">return</span>
-<a name="l00130"></a>00130 
-<a name="l00131"></a>00131                 dialog = SearchDialog(resource, sel_multi=<span class="keyword">False</span>, ids=[x[0] <span class="keywordflow">for</span> x <span class="keywordflow">in</span> ids], context=context, domain=domain)
-<a name="l00132"></a>00132                 <span class="keywordflow">if</span> dialog.exec_() == QDialog.Accepted <span class="keywordflow">and</span> dialog.result:
-<a name="l00133"></a>00133                         id = dialog.result[0]
-<a name="l00134"></a>00134                         id, name = Rpc.session.execute(<span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, resource, <span class="stringliteral">'name_get'</span>, [id], Rpc.session.context)[0]
-<a name="l00135"></a>00135                         self.record.setValue(self.name, (resource, (id, name)) )
-<a name="l00136"></a>00136                         self.display()
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138         <span class="keyword">def </span>match(self):
-<a name="l00139"></a>00139                 name = unicode(self.uiText.text())
-<a name="l00140"></a>00140                 <span class="keywordflow">if</span> name.strip() == <span class="stringliteral">''</span>:
-<a name="l00141"></a>00141                         self.record.setValue(self.name, <span class="keyword">False</span>)
-<a name="l00142"></a>00142                         <span class="keywordflow">return</span>
-<a name="l00143"></a>00143 
-<a name="l00144"></a>00144                 value = self.record.value(self.name)
-<a name="l00145"></a>00145                 <span class="keywordflow">if</span> value <span class="keywordflow">and</span> value[1][1] == name:
-<a name="l00146"></a>00146                         <span class="keywordflow">return</span>
-<a name="l00147"></a>00147                 self.search()
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149         <span class="keyword">def </span>new(self):
-<a name="l00150"></a>00150                 resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-<a name="l00151"></a>00151                 dialog = ScreenDialog( self )
-<a name="l00152"></a>00152                 dialog.setup( resource )
-<a name="l00153"></a>00153                 dialog.setAttributes( self.attrs )
-<a name="l00154"></a>00154                 <span class="keywordflow">if</span> dialog.exec_() == QDialog.Accepted:
-<a name="l00155"></a>00155                         resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-<a name="l00156"></a>00156                         self.record.setValue(self.name, (resource, dialog.model) )
-<a name="l00157"></a>00157 
-<a name="l00158"></a>00158         <span class="keyword">def </span><a class="code" href="classKoo_1_1Printer_1_1Printer_1_1Printer.html#f001986a0eda430f0c33cdd5e121018d" title="Opens the specified file with system&amp;#39;s default application.">open</a>(self):
-<a name="l00159"></a>00159                 <span class="comment"># As the 'open' button might modify the model we need to be sure all other fields/widgets</span>
-<a name="l00160"></a>00160                 <span class="comment"># have been stored in the model. Otherwise the recordChanged() triggered by modifying</span>
-<a name="l00161"></a>00161                 <span class="comment"># the parent model could make us lose changes.</span>
-<a name="l00162"></a>00162                 self.view.store()
-<a name="l00163"></a>00163 
-<a name="l00164"></a>00164                 value = self.record.value(self.name)
-<a name="l00165"></a>00165                 <span class="keywordflow">if</span> value:
-<a name="l00166"></a>00166                         model, (id, name) = value
-<a name="l00167"></a>00167                         <span class="comment"># If Control Key is pressed when the open button is clicked</span>
-<a name="l00168"></a>00168                         <span class="comment"># the record will be opened in a new tab. Otherwise it's opened</span>
-<a name="l00169"></a>00169                         <span class="comment"># in a new modal dialog.</span>
-<a name="l00170"></a>00170                         <span class="keywordflow">if</span> QApplication.keyboardModifiers() &amp; Qt.ControlModifier:
-<a name="l00171"></a>00171                                 Api.instance.createWindow(<span class="keyword">False</span>, model, id, [], <span class="stringliteral">'form'</span>, mode=<span class="stringliteral">'form,tree'</span>)
-<a name="l00172"></a>00172                         <span class="keywordflow">else</span>:   
-<a name="l00173"></a>00173                                 dialog = ScreenDialog( self )
-<a name="l00174"></a>00174                                 dialog.setup( model, id )
-<a name="l00175"></a>00175                                 dialog.setAttributes( self.attrs )
-<a name="l00176"></a>00176                                 dialog.exec_()
-<a name="l00177"></a>00177                 <span class="keywordflow">else</span>:
-<a name="l00178"></a>00178                         self.search()
-<a name="l00179"></a>00179 
-<a name="l00180"></a>00180         <span class="keyword">def </span>clear(self):
-<a name="l00181"></a>00181                 self.uiModel.setCurrentIndex(-1)
-<a name="l00182"></a>00182                 <span class="keywordflow">if</span> self.record:
-<a name="l00183"></a>00183                         self.record.setValue( self.name, <span class="keyword">False</span> )
-<a name="l00184"></a>00184                         self.display()
-<a name="l00185"></a>00185                 
-<a name="l00186"></a>00186         <span class="keyword">def </span>showValue(self):
-<a name="l00187"></a>00187                 value = self.record.value(self.name) 
-<a name="l00188"></a>00188                 <span class="keywordflow">if</span> value:
-<a name="l00189"></a>00189                         model, (id, name) = value
-<a name="l00190"></a>00190                         self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
-<a name="l00191"></a>00191                         <span class="keywordflow">if</span> <span class="keywordflow">not</span> name:
-<a name="l00192"></a>00192                                 id, name = RpcProxy(model).name_get([id], Rpc.session.context)[0]
-<a name="l00193"></a>00193                         self.uiText.setText(name)
-<a name="l00194"></a>00194                         self.pushOpen.setIcon( QIcon(<span class="stringliteral">":/images/folder.png"</span>) )
-<a name="l00195"></a>00195                 <span class="keywordflow">else</span>:
-<a name="l00196"></a>00196                         self.uiText.clear()
-<a name="l00197"></a>00197                         self.uiModel.setCurrentIndex(-1)
-<a name="l00198"></a>00198                         self.pushOpen.setIcon( QIcon(<span class="stringliteral">":/images/find.png"</span>) )
-<a name="l00199"></a>00199 
+<a name="l00099"></a>00099         <span class="keyword">def </span>setReadOnly(self, value):
+<a name="l00100"></a>00100                 self.uiModel.setEnabled( <span class="keywordflow">not</span> value )
+<a name="l00101"></a>00101                 <span class="keywordflow">if</span> self.uiModel.currentIndex() &lt; 0:
+<a name="l00102"></a>00102                         value = <span class="keyword">True</span>
+<a name="l00103"></a>00103                 self.uiText.setEnabled( <span class="keywordflow">not</span> value )
+<a name="l00104"></a>00104                 self.pushNew.setEnabled( <span class="keywordflow">not</span> value )
+<a name="l00105"></a>00105                 self.pushClear.setEnabled( <span class="keywordflow">not</span> value )
+<a name="l00106"></a>00106                 <span class="keywordflow">if</span> self.record <span class="keywordflow">and</span> self.record.value(self.name):
+<a name="l00107"></a>00107                         self.pushOpen.setEnabled( <span class="keyword">True</span> )
+<a name="l00108"></a>00108                 <span class="keywordflow">else</span>:
+<a name="l00109"></a>00109                         self.pushOpen.setEnabled( <span class="keyword">False</span> )
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111         <span class="keyword">def </span>colorWidget(self):
+<a name="l00112"></a>00112                 <span class="keywordflow">return</span> self.uiText
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114         <span class="keyword">def </span>store(self):
+<a name="l00115"></a>00115                 <span class="comment"># No update of the model, the model is updated in real time </span>
+<a name="l00116"></a>00116                 <span class="keywordflow">pass</span>
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118         <span class="keyword">def </span>search(self):
+<a name="l00119"></a>00119                 domain = self.record.domain(self.name)
+<a name="l00120"></a>00120                 context = self.record.fieldContext(self.name)
+<a name="l00121"></a>00121                 resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+<a name="l00122"></a>00122                 ids = Rpc.session.execute(<span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, resource, <span class="stringliteral">'name_search'</span>, unicode(self.uiText.text()), domain, <span class="stringliteral">'ilike'</span>, context, <span class="keyword">False</span>)
+<a name="l00123"></a>00123                 
+<a name="l00124"></a>00124                 <span class="keywordflow">if</span> len(ids)==1:
+<a name="l00125"></a>00125                         id, name = ids[0]
+<a name="l00126"></a>00126                         self.record.setValue(self.name, (resource, (id, name)) ) 
+<a name="l00127"></a>00127                         self.display()
+<a name="l00128"></a>00128                         <span class="keywordflow">return</span>
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130                 dialog = SearchDialog(resource, sel_multi=<span class="keyword">False</span>, ids=[x[0] <span class="keywordflow">for</span> x <span class="keywordflow">in</span> ids], context=context, domain=domain)
+<a name="l00131"></a>00131                 <span class="keywordflow">if</span> dialog.exec_() == QDialog.Accepted <span class="keywordflow">and</span> dialog.result:
+<a name="l00132"></a>00132                         id = dialog.result[0]
+<a name="l00133"></a>00133                         id, name = Rpc.session.execute(<span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, resource, <span class="stringliteral">'name_get'</span>, [id], Rpc.session.context)[0]
+<a name="l00134"></a>00134                         self.record.setValue(self.name, (resource, (id, name)) )
+<a name="l00135"></a>00135                         self.display()
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137         <span class="keyword">def </span>match(self):
+<a name="l00138"></a>00138                 name = unicode(self.uiText.text())
+<a name="l00139"></a>00139                 <span class="keywordflow">if</span> name.strip() == <span class="stringliteral">''</span>:
+<a name="l00140"></a>00140                         self.record.setValue(self.name, <span class="keyword">False</span>)
+<a name="l00141"></a>00141                         <span class="keywordflow">return</span>
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143                 value = self.record.value(self.name)
+<a name="l00144"></a>00144                 <span class="keywordflow">if</span> value <span class="keywordflow">and</span> value[1][1] == name:
+<a name="l00145"></a>00145                         <span class="keywordflow">return</span>
+<a name="l00146"></a>00146                 self.search()
+<a name="l00147"></a>00147 
+<a name="l00148"></a>00148         <span class="keyword">def </span>new(self):
+<a name="l00149"></a>00149                 resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+<a name="l00150"></a>00150                 dialog = ScreenDialog( self )
+<a name="l00151"></a>00151                 dialog.setup( resource )
+<a name="l00152"></a>00152                 dialog.setAttributes( self.attrs )
+<a name="l00153"></a>00153                 <span class="keywordflow">if</span> dialog.exec_() == QDialog.Accepted:
+<a name="l00154"></a>00154                         resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+<a name="l00155"></a>00155                         self.record.setValue(self.name, (resource, dialog.model) )
+<a name="l00156"></a>00156 
+<a name="l00157"></a>00157         <span class="keyword">def </span><a class="code" href="classKoo_1_1Printer_1_1Printer_1_1Printer.html#f001986a0eda430f0c33cdd5e121018d" title="Opens the specified file with system&amp;#39;s default application.">open</a>(self):
+<a name="l00158"></a>00158                 <span class="comment"># As the 'open' button might modify the model we need to be sure all other fields/widgets</span>
+<a name="l00159"></a>00159                 <span class="comment"># have been stored in the model. Otherwise the recordChanged() triggered by modifying</span>
+<a name="l00160"></a>00160                 <span class="comment"># the parent model could make us lose changes.</span>
+<a name="l00161"></a>00161                 self.view.store()
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163                 value = self.record.value(self.name)
+<a name="l00164"></a>00164                 <span class="keywordflow">if</span> value:
+<a name="l00165"></a>00165                         model, (id, name) = value
+<a name="l00166"></a>00166                         <span class="comment"># If Control Key is pressed when the open button is clicked</span>
+<a name="l00167"></a>00167                         <span class="comment"># the record will be opened in a new tab. Otherwise it's opened</span>
+<a name="l00168"></a>00168                         <span class="comment"># in a new modal dialog.</span>
+<a name="l00169"></a>00169                         <span class="keywordflow">if</span> QApplication.keyboardModifiers() &amp; Qt.ControlModifier:
+<a name="l00170"></a>00170                                 Api.instance.createWindow(<span class="keyword">False</span>, model, id, [], <span class="stringliteral">'form'</span>, mode=<span class="stringliteral">'form,tree'</span>)
+<a name="l00171"></a>00171                         <span class="keywordflow">else</span>:   
+<a name="l00172"></a>00172                                 dialog = ScreenDialog( self )
+<a name="l00173"></a>00173                                 dialog.setup( model, id )
+<a name="l00174"></a>00174                                 dialog.setAttributes( self.attrs )
+<a name="l00175"></a>00175                                 dialog.exec_()
+<a name="l00176"></a>00176                 <span class="keywordflow">else</span>:
+<a name="l00177"></a>00177                         self.search()
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179         <span class="keyword">def </span>clear(self):
+<a name="l00180"></a>00180                 self.uiModel.setCurrentIndex(-1)
+<a name="l00181"></a>00181                 <span class="keywordflow">if</span> self.record:
+<a name="l00182"></a>00182                         self.record.setValue( self.name, <span class="keyword">False</span> )
+<a name="l00183"></a>00183                         self.display()
+<a name="l00184"></a>00184                 
+<a name="l00185"></a>00185         <span class="keyword">def </span>showValue(self):
+<a name="l00186"></a>00186                 value = self.record.value(self.name) 
+<a name="l00187"></a>00187                 <span class="keywordflow">if</span> value:
+<a name="l00188"></a>00188                         model, (id, name) = value
+<a name="l00189"></a>00189                         self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
+<a name="l00190"></a>00190                         <span class="keywordflow">if</span> <span class="keywordflow">not</span> name:
+<a name="l00191"></a>00191                                 id, name = RpcProxy(model).name_get([id], Rpc.session.context)[0]
+<a name="l00192"></a>00192                         self.uiText.setText(name)
+<a name="l00193"></a>00193                         self.pushOpen.setIcon( QIcon(<span class="stringliteral">":/images/folder.png"</span>) )
+<a name="l00194"></a>00194                 <span class="keywordflow">else</span>:
+<a name="l00195"></a>00195                         self.uiText.clear()
+<a name="l00196"></a>00196                         self.uiModel.setCurrentIndex(-1)
+<a name="l00197"></a>00197                         self.pushOpen.setIcon( QIcon(<span class="stringliteral">":/images/find.png"</span>) )
+<a name="l00198"></a>00198 
 </pre></div></div>
 <address><small>Generated by <a target="_blank" href="http://www.doxygen.org/index.html">Doxygen</a></small></address>
 </body>

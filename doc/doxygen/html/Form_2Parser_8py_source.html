@@ -103,164 +103,177 @@
 <a name="l00083"></a>00083 
 <a name="l00084"></a>00084                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'separator'</span>:
 <a name="l00085"></a>00085                                 caption = attrs.get( <span class="stringliteral">'string'</span>, <span class="stringliteral">''</span> )
-<a name="l00086"></a>00086                                 label = QLabel( container )
-<a name="l00087"></a>00087                                 label.setText( caption )
-<a name="l00088"></a>00088                                 self.view.addStateWidget( label, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
-<a name="l00089"></a>00089                                 container.addWidget( label, attrs )
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'label'</span>:
-<a name="l00092"></a>00092                                 text = attrs.get(<span class="stringliteral">'string'</span>, <span class="stringliteral">''</span>)
-<a name="l00093"></a>00093                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> text:
-<a name="l00094"></a>00094                                         <span class="keywordflow">for</span> node <span class="keywordflow">in</span> node.childNodes:
-<a name="l00095"></a>00095                                                 <span class="keywordflow">if</span> node.nodeType == node.TEXT_NODE:
-<a name="l00096"></a>00096                                                         text += node.data
-<a name="l00097"></a>00097                                                 <span class="keywordflow">else</span>:
-<a name="l00098"></a>00098                                                         text += node.toxml()
-<a name="l00099"></a>00099                                 label = QLabel( text, container )
-<a name="l00100"></a>00100                                 label.setWordWrap( <span class="keyword">True</span> )
-<a name="l00101"></a>00101                                 label.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
-<a name="l00102"></a>00102                                 container.addWidget(label, attrs)
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087                                 separator = QWidget( container )
+<a name="l00088"></a>00088                                 separator.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+<a name="l00089"></a>00089                                 label = QLabel( separator )
+<a name="l00090"></a>00090                                 label.setText( caption )
+<a name="l00091"></a>00091                                 font = label.font()
+<a name="l00092"></a>00092                                 font.setBold( <span class="keyword">True</span> )
+<a name="l00093"></a>00093                                 label.setFont( font )
+<a name="l00094"></a>00094                                 line = QFrame( separator )
+<a name="l00095"></a>00095                                 line.setFrameShape( QFrame.HLine )
+<a name="l00096"></a>00096                                 line.setFrameShadow( QFrame.Plain )
+<a name="l00097"></a>00097                                 layout = QVBoxLayout( separator )
+<a name="l00098"></a>00098                                 layout.addWidget( label )
+<a name="l00099"></a>00099                                 layout.addWidget( line )
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101                                 self.view.addStateWidget( separator, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
+<a name="l00102"></a>00102                                 container.addWidget( separator, attrs )
 <a name="l00103"></a>00103 
-<a name="l00104"></a>00104                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'newline'</span>:
-<a name="l00105"></a>00105                                 container.newRow()
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'button'</span>:
-<a name="l00108"></a>00108                                 button = FieldWidgetFactory.create( <span class="stringliteral">'button'</span>, container, self.view, attrs )
-<a name="l00109"></a>00109                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
-<a name="l00110"></a>00110                                         <span class="keywordflow">continue</span>
-<a name="l00111"></a>00111                                 name = attrs.get(<span class="stringliteral">'name'</span>, <span class="stringliteral">'unnamed'</span>)
-<a name="l00112"></a>00112                                 self.view.widgets[name] = button
-<a name="l00113"></a>00113                                 self.view.addStateWidget( button, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
-<a name="l00114"></a>00114                                 container.addWidget(button, attrs)
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'notebook'</span>:
-<a name="l00117"></a>00117                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
-<a name="l00118"></a>00118                                         <span class="keywordflow">continue</span>
-<a name="l00119"></a>00119                                 tab = QTabWidget( container )
-<a name="l00120"></a>00120                                 <span class="keywordflow">if</span> attrs <span class="keywordflow">and</span> <span class="stringliteral">'tabpos'</span> <span class="keywordflow">in</span> attrs:
-<a name="l00121"></a>00121                                         pos = { 
-<a name="l00122"></a>00122                                                 <span class="stringliteral">'up'</span>: QTabWidget.North,
-<a name="l00123"></a>00123                                                 <span class="stringliteral">'down'</span>:QTabWidget.South,
-<a name="l00124"></a>00124                                                 <span class="stringliteral">'left'</span>:QTabWidget.West,
-<a name="l00125"></a>00125                                                 <span class="stringliteral">'right'</span>:QTabWidget.East
-<a name="l00126"></a>00126                                         } [attrs[<span class="stringliteral">'tabpos'</span>]]
-<a name="l00127"></a>00127                                 <span class="keywordflow">else</span>:
-<a name="l00128"></a>00128                                         pos = {
-<a name="l00129"></a>00129                                                 <span class="stringliteral">'left'</span>: QTabWidget.West,
-<a name="l00130"></a>00130                                                 <span class="stringliteral">'top'</span>: QTabWidget.North,
-<a name="l00131"></a>00131                                                 <span class="stringliteral">'right'</span>: QTabWidget.East,
-<a name="l00132"></a>00132                                                 <span class="stringliteral">'bottom'</span>: QTabWidget.South
-<a name="l00133"></a>00133                                         } [Options.options[<span class="stringliteral">'tabs_position'</span>]]
-<a name="l00134"></a>00134                                         
-<a name="l00135"></a>00135                                 tab.setTabPosition( pos )
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137                                 attrs[<span class="stringliteral">'colspan'</span>] = attrs.get(<span class="stringliteral">'colspan'</span>, 3)
-<a name="l00138"></a>00138                                 
-<a name="l00139"></a>00139                                 container.addWidget(tab, attrs)
-<a name="l00140"></a>00140                                 
-<a name="l00141"></a>00141                                 <span class="comment"># We pass a container because othewise a new container would </span>
-<a name="l00142"></a>00142                                 <span class="comment"># be created by parse() and we don't want that because the tab</span>
-<a name="l00143"></a>00143                                 <span class="comment"># itself doesn't have a container: it's each of it's pages</span>
-<a name="l00144"></a>00144                                 <span class="comment"># that will have a container.</span>
-<a name="l00145"></a>00145                                 _ , onWriteFunction = self.parse(node, fields, tab, container)
-<a name="l00146"></a>00146 
-<a name="l00147"></a>00147                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'page'</span>:
-<a name="l00148"></a>00148                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
-<a name="l00149"></a>00149                                         <span class="keywordflow">continue</span>
-<a name="l00150"></a>00150                                 widget, onWriteFunction = self.parse(node, fields, notebook )
-<a name="l00151"></a>00151                                 <span class="comment"># Mark the container as the main widget in a Tab. This way</span>
-<a name="l00152"></a>00152                                 <span class="comment"># we can enable/disable the whole tab easily.</span>
-<a name="l00153"></a>00153                                 widget.isTab = <span class="keyword">True</span>
-<a name="l00154"></a>00154                                 self.view.addStateWidget( widget, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156                                 widget.expand()
-<a name="l00157"></a>00157                                 notebook.addTab( widget, Common.normalizeLabel( attrs.get(<span class="stringliteral">'string'</span>, <span class="stringliteral">''</span>) ) )
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159                         <span class="keywordflow">elif</span> node.localName ==<span class="stringliteral">'hpaned'</span>:
-<a name="l00160"></a>00160                                 widget = QSplitter( Qt.Horizontal, container )
-<a name="l00161"></a>00161 
-<a name="l00162"></a>00162                                 container.addWidget(widget, attrs)
-<a name="l00163"></a>00163                                 self.parse( node, fields, widget, container)
-<a name="l00164"></a>00164 
-<a name="l00165"></a>00165                         <span class="keywordflow">elif</span> node.localName ==<span class="stringliteral">'vpaned'</span>:
-<a name="l00166"></a>00166                                 widget = QSplitter( Qt.Vertical, container )
-<a name="l00167"></a>00167 
-<a name="l00168"></a>00168                                 container.addWidget(widget, attrs)
-<a name="l00169"></a>00169                                 self.parse( node, fields, widget, container)
-<a name="l00170"></a>00170 
-<a name="l00171"></a>00171                         <span class="keywordflow">elif</span> node.localName == <span class="stringliteral">'child1'</span>:
-<a name="l00172"></a>00172                                 widget, onWriteFunction = self.parse( node, fields )
-<a name="l00173"></a>00173                                 notebook.addWidget( widget )
+<a name="l00104"></a>00104                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'label'</span>:
+<a name="l00105"></a>00105                                 text = attrs.get(<span class="stringliteral">'string'</span>, <span class="stringliteral">''</span>)
+<a name="l00106"></a>00106                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> text:
+<a name="l00107"></a>00107                                         <span class="keywordflow">for</span> node <span class="keywordflow">in</span> node.childNodes:
+<a name="l00108"></a>00108                                                 <span class="keywordflow">if</span> node.nodeType == node.TEXT_NODE:
+<a name="l00109"></a>00109                                                         text += node.data
+<a name="l00110"></a>00110                                                 <span class="keywordflow">else</span>:
+<a name="l00111"></a>00111                                                         text += node.toxml()
+<a name="l00112"></a>00112                                 label = QLabel( text, container )
+<a name="l00113"></a>00113                                 label.setWordWrap( <span class="keyword">True</span> )
+<a name="l00114"></a>00114                                 label.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+<a name="l00115"></a>00115                                 container.addWidget(label, attrs)
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'newline'</span>:
+<a name="l00118"></a>00118                                 container.newRow()
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'button'</span>:
+<a name="l00121"></a>00121                                 button = FieldWidgetFactory.create( <span class="stringliteral">'button'</span>, container, self.view, attrs )
+<a name="l00122"></a>00122                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
+<a name="l00123"></a>00123                                         <span class="keywordflow">continue</span>
+<a name="l00124"></a>00124                                 name = attrs.get(<span class="stringliteral">'name'</span>, <span class="stringliteral">'unnamed'</span>)
+<a name="l00125"></a>00125                                 self.view.widgets[name] = button
+<a name="l00126"></a>00126                                 self.view.addStateWidget( button, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
+<a name="l00127"></a>00127                                 container.addWidget(button, attrs)
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'notebook'</span>:
+<a name="l00130"></a>00130                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
+<a name="l00131"></a>00131                                         <span class="keywordflow">continue</span>
+<a name="l00132"></a>00132                                 tab = QTabWidget( container )
+<a name="l00133"></a>00133                                 <span class="keywordflow">if</span> attrs <span class="keywordflow">and</span> <span class="stringliteral">'tabpos'</span> <span class="keywordflow">in</span> attrs:
+<a name="l00134"></a>00134                                         pos = { 
+<a name="l00135"></a>00135                                                 <span class="stringliteral">'up'</span>: QTabWidget.North,
+<a name="l00136"></a>00136                                                 <span class="stringliteral">'down'</span>:QTabWidget.South,
+<a name="l00137"></a>00137                                                 <span class="stringliteral">'left'</span>:QTabWidget.West,
+<a name="l00138"></a>00138                                                 <span class="stringliteral">'right'</span>:QTabWidget.East
+<a name="l00139"></a>00139                                         } [attrs[<span class="stringliteral">'tabpos'</span>]]
+<a name="l00140"></a>00140                                 <span class="keywordflow">else</span>:
+<a name="l00141"></a>00141                                         pos = {
+<a name="l00142"></a>00142                                                 <span class="stringliteral">'left'</span>: QTabWidget.West,
+<a name="l00143"></a>00143                                                 <span class="stringliteral">'top'</span>: QTabWidget.North,
+<a name="l00144"></a>00144                                                 <span class="stringliteral">'right'</span>: QTabWidget.East,
+<a name="l00145"></a>00145                                                 <span class="stringliteral">'bottom'</span>: QTabWidget.South
+<a name="l00146"></a>00146                                         } [Options.options[<span class="stringliteral">'tabs_position'</span>]]
+<a name="l00147"></a>00147                                         
+<a name="l00148"></a>00148                                 tab.setTabPosition( pos )
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150                                 attrs[<span class="stringliteral">'colspan'</span>] = attrs.get(<span class="stringliteral">'colspan'</span>, 3)
+<a name="l00151"></a>00151                                 
+<a name="l00152"></a>00152                                 container.addWidget(tab, attrs)
+<a name="l00153"></a>00153                                 
+<a name="l00154"></a>00154                                 <span class="comment"># We pass a container because othewise a new container would </span>
+<a name="l00155"></a>00155                                 <span class="comment"># be created by parse() and we don't want that because the tab</span>
+<a name="l00156"></a>00156                                 <span class="comment"># itself doesn't have a container: it's each of it's pages</span>
+<a name="l00157"></a>00157                                 <span class="comment"># that will have a container.</span>
+<a name="l00158"></a>00158                                 _ , onWriteFunction = self.parse(node, fields, tab, container)
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'page'</span>:
+<a name="l00161"></a>00161                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
+<a name="l00162"></a>00162                                         <span class="keywordflow">continue</span>
+<a name="l00163"></a>00163                                 widget, onWriteFunction = self.parse(node, fields, notebook )
+<a name="l00164"></a>00164                                 <span class="comment"># Mark the container as the main widget in a Tab. This way</span>
+<a name="l00165"></a>00165                                 <span class="comment"># we can enable/disable the whole tab easily.</span>
+<a name="l00166"></a>00166                                 widget.isTab = <span class="keyword">True</span>
+<a name="l00167"></a>00167                                 self.view.addStateWidget( widget, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169                                 widget.expand()
+<a name="l00170"></a>00170                                 notebook.addTab( widget, Common.normalizeLabel( attrs.get(<span class="stringliteral">'string'</span>, <span class="stringliteral">''</span>) ) )
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172                         <span class="keywordflow">elif</span> node.localName ==<span class="stringliteral">'hpaned'</span>:
+<a name="l00173"></a>00173                                 widget = QSplitter( Qt.Horizontal, container )
 <a name="l00174"></a>00174 
-<a name="l00175"></a>00175                         <span class="keywordflow">elif</span> node.localName == <span class="stringliteral">'child2'</span>:
-<a name="l00176"></a>00176                                 widget, onWriteFunction = self.parse( node, fields )
-<a name="l00177"></a>00177                                 notebook.addWidget( widget )
-<a name="l00178"></a>00178 
-<a name="l00179"></a>00179                         <span class="keywordflow">elif</span> node.localName ==<span class="stringliteral">'action'</span>:
-<a name="l00180"></a>00180                                 name = str(attrs[<span class="stringliteral">'name'</span>])
-<a name="l00181"></a>00181                                 widget = FieldWidgetFactory.create( <span class="stringliteral">'action'</span>, container, self.view, attrs )
-<a name="l00182"></a>00182                                 attrs[<span class="stringliteral">'colspan'</span>] = attrs.get(<span class="stringliteral">'colspan'</span>, 3)
-<a name="l00183"></a>00183                                 self.view.widgets[name] = widget 
-<a name="l00184"></a>00184                                 container.addWidget(widget, attrs)
-<a name="l00185"></a>00185 
-<a name="l00186"></a>00186                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'field'</span>:
-<a name="l00187"></a>00187                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
-<a name="l00188"></a>00188                                         <span class="keywordflow">continue</span>
-<a name="l00189"></a>00189                                 name = attrs[<span class="stringliteral">'name'</span>]
-<a name="l00190"></a>00190                                 del attrs[<span class="stringliteral">'name'</span>]
-<a name="l00191"></a>00191                                 type = attrs.get(<span class="stringliteral">'widget'</span>, fields[name][<span class="stringliteral">'type'</span>])
-<a name="l00192"></a>00192                                 fields[name].update(attrs)
-<a name="l00193"></a>00193                                 fields[name][<span class="stringliteral">'model'</span>] = self.viewModel
-<a name="l00194"></a>00194 
-<a name="l00195"></a>00195                                 <span class="comment"># Create the appropiate widget for the given field type</span>
-<a name="l00196"></a>00196                                 widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
-<a name="l00197"></a>00197                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> widget:
-<a name="l00198"></a>00198                                         <span class="keywordflow">continue</span>
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200                                 fields[name][<span class="stringliteral">'name'</span>] = name
-<a name="l00201"></a>00201                                 <span class="keywordflow">if</span> self.filter:
-<a name="l00202"></a>00202                                         widget.node = node
-<a name="l00203"></a>00203                                         self.widgetList.append(widget)
-<a name="l00204"></a>00204 
-<a name="l00205"></a>00205 
-<a name="l00206"></a>00206                                 label = <span class="keywordtype">None</span>
-<a name="l00207"></a>00207                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> int(attrs.get(<span class="stringliteral">'nolabel'</span>, 0)):
-<a name="l00208"></a>00208                                         label = fields[name][<span class="stringliteral">'string'</span>]+<span class="stringliteral">' :'</span>
-<a name="l00209"></a>00209                                         
-<a name="l00210"></a>00210                                 self.view.widgets[name] = widget
-<a name="l00211"></a>00211                                 <span class="comment">#attrs['colspan'] = int(attrs.get('colspan', widgets_type[ type ][1]))</span>
+<a name="l00175"></a>00175                                 container.addWidget(widget, attrs)
+<a name="l00176"></a>00176                                 self.parse( node, fields, widget, container)
+<a name="l00177"></a>00177 
+<a name="l00178"></a>00178                         <span class="keywordflow">elif</span> node.localName ==<span class="stringliteral">'vpaned'</span>:
+<a name="l00179"></a>00179                                 widget = QSplitter( Qt.Vertical, container )
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181                                 container.addWidget(widget, attrs)
+<a name="l00182"></a>00182                                 self.parse( node, fields, widget, container)
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184                         <span class="keywordflow">elif</span> node.localName == <span class="stringliteral">'child1'</span>:
+<a name="l00185"></a>00185                                 widget, onWriteFunction = self.parse( node, fields )
+<a name="l00186"></a>00186                                 notebook.addWidget( widget )
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188                         <span class="keywordflow">elif</span> node.localName == <span class="stringliteral">'child2'</span>:
+<a name="l00189"></a>00189                                 widget, onWriteFunction = self.parse( node, fields )
+<a name="l00190"></a>00190                                 notebook.addWidget( widget )
+<a name="l00191"></a>00191 
+<a name="l00192"></a>00192                         <span class="keywordflow">elif</span> node.localName ==<span class="stringliteral">'action'</span>:
+<a name="l00193"></a>00193                                 name = str(attrs[<span class="stringliteral">'name'</span>])
+<a name="l00194"></a>00194                                 widget = FieldWidgetFactory.create( <span class="stringliteral">'action'</span>, container, self.view, attrs )
+<a name="l00195"></a>00195                                 attrs[<span class="stringliteral">'colspan'</span>] = attrs.get(<span class="stringliteral">'colspan'</span>, 3)
+<a name="l00196"></a>00196                                 self.view.widgets[name] = widget 
+<a name="l00197"></a>00197                                 container.addWidget(widget, attrs)
+<a name="l00198"></a>00198 
+<a name="l00199"></a>00199                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'field'</span>:
+<a name="l00200"></a>00200                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
+<a name="l00201"></a>00201                                         <span class="keywordflow">continue</span>
+<a name="l00202"></a>00202                                 name = attrs[<span class="stringliteral">'name'</span>]
+<a name="l00203"></a>00203                                 del attrs[<span class="stringliteral">'name'</span>]
+<a name="l00204"></a>00204                                 type = attrs.get(<span class="stringliteral">'widget'</span>, fields[name][<span class="stringliteral">'type'</span>])
+<a name="l00205"></a>00205                                 fields[name].update(attrs)
+<a name="l00206"></a>00206                                 fields[name][<span class="stringliteral">'model'</span>] = self.viewModel
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208                                 <span class="comment"># Create the appropiate widget for the given field type</span>
+<a name="l00209"></a>00209                                 widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
+<a name="l00210"></a>00210                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> widget:
+<a name="l00211"></a>00211                                         <span class="keywordflow">continue</span>
 <a name="l00212"></a>00212 
-<a name="l00213"></a>00213                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> <span class="stringliteral">'help'</span> <span class="keywordflow">in</span> attrs:
-<a name="l00214"></a>00214                                         attrs[<span class="stringliteral">'help'</span>] = fields[name].get(<span class="stringliteral">'help'</span>, <span class="keyword">False</span>)
-<a name="l00215"></a>00215 
-<a name="l00216"></a>00216                                 container.addWidget(widget, attrs, label)
+<a name="l00213"></a>00213                                 fields[name][<span class="stringliteral">'name'</span>] = name
+<a name="l00214"></a>00214                                 <span class="keywordflow">if</span> self.filter:
+<a name="l00215"></a>00215                                         widget.node = node
+<a name="l00216"></a>00216                                         self.widgetList.append(widget)
 <a name="l00217"></a>00217 
-<a name="l00218"></a>00218                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'group'</span>:
-<a name="l00219"></a>00219                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
-<a name="l00220"></a>00220                                         <span class="keywordflow">continue</span>
-<a name="l00221"></a>00221                                 widget, onWriteFunction = self.parse( node, fields, notebook )
-<a name="l00222"></a>00222                                 <span class="keywordflow">if</span> <span class="stringliteral">'string'</span> <span class="keywordflow">in</span> attrs:
-<a name="l00223"></a>00223                                         group = QGroupBox( notebook )
-<a name="l00224"></a>00224                                         group.setTitle( attrs[<span class="stringliteral">'string'</span>] )
-<a name="l00225"></a>00225                                         layout = QHBoxLayout( group )
-<a name="l00226"></a>00226                                         layout.addWidget( widget )
-<a name="l00227"></a>00227                                         widget = group
-<a name="l00228"></a>00228                                 
-<a name="l00229"></a>00229                                 self.view.addStateWidget( widget, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
-<a name="l00230"></a>00230                                 <span class="comment"># We don't expand the widget in 'group' as it should be </span>
-<a name="l00231"></a>00231                                 <span class="comment"># automatically expanded when new rows are added to the grid.</span>
-<a name="l00232"></a>00232                                 <span class="comment"># See FormContainer.newRow()</span>
-<a name="l00233"></a>00233                                 container.addWidget( widget, attrs )
-<a name="l00234"></a>00234 
-<a name="l00235"></a>00235                 <span class="keywordflow">return</span>  container, onWriteFunction
-<a name="l00236"></a>00236 
-<a name="l00237"></a>00237         <span class="keyword">def </span>isWidgetVisible(self, attributes):
-<a name="l00238"></a>00238                 value = attributes.get(<span class="stringliteral">'invisible'</span>)
-<a name="l00239"></a>00239                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> value:
-<a name="l00240"></a>00240                         <span class="keywordflow">return</span> <span class="keyword">True</span>
-<a name="l00241"></a>00241                 <span class="keywordflow">return</span> <span class="keywordflow">not</span> eval(value, {<span class="stringliteral">'context'</span>:self.context})
-<a name="l00242"></a>00242 
-<a name="l00243"></a>00243 <span class="comment"># vim:noexpandtab:</span>
+<a name="l00218"></a>00218 
+<a name="l00219"></a>00219                                 label = <span class="keywordtype">None</span>
+<a name="l00220"></a>00220                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> int(attrs.get(<span class="stringliteral">'nolabel'</span>, 0)):
+<a name="l00221"></a>00221                                         label = fields[name][<span class="stringliteral">'string'</span>]+<span class="stringliteral">' :'</span>
+<a name="l00222"></a>00222                                         
+<a name="l00223"></a>00223                                 self.view.widgets[name] = widget
+<a name="l00224"></a>00224                                 <span class="comment">#attrs['colspan'] = int(attrs.get('colspan', widgets_type[ type ][1]))</span>
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> <span class="stringliteral">'help'</span> <span class="keywordflow">in</span> attrs:
+<a name="l00227"></a>00227                                         attrs[<span class="stringliteral">'help'</span>] = fields[name].get(<span class="stringliteral">'help'</span>, <span class="keyword">False</span>)
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229                                 container.addWidget(widget, attrs, label)
+<a name="l00230"></a>00230 
+<a name="l00231"></a>00231                         <span class="keywordflow">elif</span> node.localName==<span class="stringliteral">'group'</span>:
+<a name="l00232"></a>00232                                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> self.isWidgetVisible( attrs ):
+<a name="l00233"></a>00233                                         <span class="keywordflow">continue</span>
+<a name="l00234"></a>00234                                 widget, onWriteFunction = self.parse( node, fields, notebook )
+<a name="l00235"></a>00235                                 <span class="keywordflow">if</span> <span class="stringliteral">'string'</span> <span class="keywordflow">in</span> attrs:
+<a name="l00236"></a>00236                                         group = QGroupBox( notebook )
+<a name="l00237"></a>00237                                         group.setTitle( attrs[<span class="stringliteral">'string'</span>] )
+<a name="l00238"></a>00238                                         layout = QHBoxLayout( group )
+<a name="l00239"></a>00239                                         layout.addWidget( widget )
+<a name="l00240"></a>00240                                         widget = group
+<a name="l00241"></a>00241                                 
+<a name="l00242"></a>00242                                 self.view.addStateWidget( widget, attrs.get(<span class="stringliteral">'attrs'</span>), attrs.get(<span class="stringliteral">'states'</span>) )
+<a name="l00243"></a>00243                                 <span class="comment"># We don't expand the widget in 'group' as it should be </span>
+<a name="l00244"></a>00244                                 <span class="comment"># automatically expanded when new rows are added to the grid.</span>
+<a name="l00245"></a>00245                                 <span class="comment"># See FormContainer.newRow()</span>
+<a name="l00246"></a>00246                                 container.addWidget( widget, attrs )
+<a name="l00247"></a>00247 
+<a name="l00248"></a>00248                 <span class="keywordflow">return</span>  container, onWriteFunction
+<a name="l00249"></a>00249 
+<a name="l00250"></a>00250         <span class="keyword">def </span>isWidgetVisible(self, attributes):
+<a name="l00251"></a>00251                 value = attributes.get(<span class="stringliteral">'invisible'</span>)
+<a name="l00252"></a>00252                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> value:
+<a name="l00253"></a>00253                         <span class="keywordflow">return</span> <span class="keyword">True</span>
+<a name="l00254"></a>00254                 <span class="keywordflow">return</span> <span class="keywordflow">not</span> eval(value, {<span class="stringliteral">'context'</span>:self.context})
+<a name="l00255"></a>00255 
+<a name="l00256"></a>00256 <span class="comment"># vim:noexpandtab:</span>
 </pre></div></div>
 <address><small>Generated by <a target="_blank" href="http://www.doxygen.org/index.html">Doxygen</a></small></address>
 </body>

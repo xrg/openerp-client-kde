@@ -70,7 +70,7 @@
 <a name="l00050"></a>00050         <span class="keyword">def </span>add(self, value, obj, method, *args):
 <a name="l00051"></a>00051                 <span class="keywordflow">if</span> method != <span class="stringliteral">'execute'</span> <span class="keywordflow">or</span> len(args) &lt; 2 <span class="keywordflow">or</span> args[1] != <span class="stringliteral">'fields_view_get'</span>:
 <a name="l00052"></a>00052                         <span class="keywordflow">return</span>
-<a name="l00053"></a>00053                 <span class="comment"># Don't cache models configured in the exception list of the server module 'ktiny'.</span>
+<a name="l00053"></a>00053                 <span class="comment"># Don't cache models configured in the exception list of the server module 'koo'.</span>
 <a name="l00054"></a>00054                 <span class="keywordflow">if</span> args[0] <span class="keywordflow">in</span> ViewCache.exceptions:
 <a name="l00055"></a>00055                         <span class="keywordflow">return</span> <span class="keyword">False</span>
 <a name="l00056"></a>00056                 self.cache[(obj,method,str(args))] = copy.deepcopy( value )
@@ -97,7 +97,7 @@
 <a name="l00077"></a>00077                 
 <a name="l00078"></a>00078         <span class="keyword">def </span>add(self, value, obj, method, *args):
 <a name="l00079"></a>00079                 <span class="keywordflow">if</span> method == <span class="stringliteral">'execute'</span> <span class="keywordflow">and</span> len(args) &gt;= 2 <span class="keywordflow">and</span> args[1] == <span class="stringliteral">'fields_view_get'</span>:
-<a name="l00080"></a>00080                         <span class="comment"># Don't cache models configured in the exception list of the server module 'ktiny'.</span>
+<a name="l00080"></a>00080                         <span class="comment"># Don't cache models configured in the exception list of the server module 'koo'.</span>
 <a name="l00081"></a>00081                         <span class="keywordflow">if</span> args[0] <span class="keywordflow">in</span> ViewCache.exceptions:
 <a name="l00082"></a>00082                                 <span class="keywordflow">return</span> 
 <a name="l00083"></a>00083                         self.cache[(obj,method,str(args))] = copy.deepcopy( value )

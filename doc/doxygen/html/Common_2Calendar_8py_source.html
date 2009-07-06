@@ -128,7 +128,7 @@
 <a name="l00108"></a>00108         <span class="keywordflow">if</span> text == <span class="stringliteral">'='</span>:
 <a name="l00109"></a>00109                 <span class="keywordflow">return</span> QTime.currentTime()
 <a name="l00110"></a>00110 
-<a name="l00111"></a>00111         inputFormats = [<span class="stringliteral">'h:m:s'</span>, <span class="stringliteral">'h:m'</span>, <span class="stringliteral">'hh:mm:ss'</span>, <span class="stringliteral">'h.m.s'</span>, <span class="stringliteral">'h.m'</span>]
+<a name="l00111"></a>00111         inputFormats = [<span class="stringliteral">'h:m:s'</span>, <span class="stringliteral">'h:m'</span>, <span class="stringliteral">'hh:mm:ss'</span>, <span class="stringliteral">'h.m.s'</span>, <span class="stringliteral">'h.m'</span>, <span class="stringliteral">'h'</span>]
 <a name="l00112"></a>00112         <span class="keywordflow">for</span> x <span class="keywordflow">in</span> inputFormats:
 <a name="l00113"></a>00113                 time = QTime.fromString( text, x )
 <a name="l00114"></a>00114                 <span class="keywordflow">if</span> time.isValid():

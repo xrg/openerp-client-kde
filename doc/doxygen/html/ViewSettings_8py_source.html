@@ -77,7 +77,7 @@
 <a name="l00057"></a>00057                 <span class="keywordflow">if</span> id <span class="keywordflow">in</span> ViewSettings.cache <span class="keywordflow">and</span> ViewSettings.cache[id] == settings:
 <a name="l00058"></a>00058                         <span class="keywordflow">return</span>
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060                 <span class="comment"># Add settings in the cache. Note that even if the required ktiny</span>
+<a name="l00060"></a>00060                 <span class="comment"># Add settings in the cache. Note that even if the required koo</span>
 <a name="l00061"></a>00061                 <span class="comment"># module is not installed in the server view settings will be kept</span>
 <a name="l00062"></a>00062                 <span class="comment"># during user session.</span>
 <a name="l00063"></a>00063                 ViewSettings.cache[id] = settings
@@ -86,22 +86,22 @@
 <a name="l00066"></a>00066                         <span class="keywordflow">return</span>
 <a name="l00067"></a>00067                         
 <a name="l00068"></a>00068                 <span class="keywordflow">try</span>:
-<a name="l00069"></a>00069                         <span class="comment"># We don't want to crash if the ktiny module is not installed on the server</span>
+<a name="l00069"></a>00069                         <span class="comment"># We don't want to crash if the koo module is not installed on the server</span>
 <a name="l00070"></a>00070                         <span class="comment"># but we do want to crash if there are mistakes in setViewSettings() code.</span>
-<a name="l00071"></a>00071                         ids = Rpc.session.call( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.ktiny.view.settings'</span>, <span class="stringliteral">'search'</span>, [
+<a name="l00071"></a>00071                         ids = Rpc.session.call( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.koo.view.settings'</span>, <span class="stringliteral">'search'</span>, [
 <a name="l00072"></a>00072                                 (<span class="stringliteral">'user'</span>,<span class="stringliteral">'='</span>,Rpc.session.uid),(<span class="stringliteral">'view'</span>,<span class="stringliteral">'='</span>,id)
 <a name="l00073"></a>00073                         ])
 <a name="l00074"></a>00074                 <span class="keywordflow">except</span>:
 <a name="l00075"></a>00075                         ViewSettings.hasSettingsModule = <span class="keyword">False</span>
 <a name="l00076"></a>00076                         <span class="keywordflow">return</span>
-<a name="l00077"></a>00077                 <span class="comment"># As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here. And we</span>
+<a name="l00077"></a>00077                 <span class="comment"># As 'nan.koo.view.settings' is proved to exist we don't need try-except here. And we</span>
 <a name="l00078"></a>00078                 <span class="comment"># can use execute() instead of call().</span>
 <a name="l00079"></a>00079                 <span class="keywordflow">if</span> ids:
-<a name="l00080"></a>00080                         Rpc.session.execute( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.ktiny.view.settings'</span>, <span class="stringliteral">'write'</span>, ids, {
+<a name="l00080"></a>00080                         Rpc.session.execute( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.koo.view.settings'</span>, <span class="stringliteral">'write'</span>, ids, {
 <a name="l00081"></a>00081                                 <span class="stringliteral">'data'</span>: settings 
 <a name="l00082"></a>00082                         })
 <a name="l00083"></a>00083                 <span class="keywordflow">else</span>:
-<a name="l00084"></a>00084                         Rpc.session.execute( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.ktiny.view.settings'</span>, <span class="stringliteral">'create'</span>, {
+<a name="l00084"></a>00084                         Rpc.session.execute( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.koo.view.settings'</span>, <span class="stringliteral">'create'</span>, {
 <a name="l00085"></a>00085                                 <span class="stringliteral">'user'</span>: Rpc.session.uid, 
 <a name="l00086"></a>00086                                 <span class="stringliteral">'view'</span>: id, 
 <a name="l00087"></a>00087                                 <span class="stringliteral">'data'</span>: settings 
@@ -116,7 +116,7 @@
 <a name="l00096"></a>00096                 ViewSettings.checkConnection()
 <a name="l00097"></a>00097 
 <a name="l00098"></a>00098                 <span class="keywordflow">if</span> id <span class="keywordflow">in</span> ViewSettings.cache:
-<a name="l00099"></a>00099                         <span class="comment"># Restore settings from the cache. Note that even if the required ktiny</span>
+<a name="l00099"></a>00099                         <span class="comment"># Restore settings from the cache. Note that even if the required koo</span>
 <a name="l00100"></a>00100                         <span class="comment"># module is not installed in the server view settings will be kept</span>
 <a name="l00101"></a>00101                         <span class="comment"># during user session.</span>
 <a name="l00102"></a>00102                         <span class="keywordflow">return</span> ViewSettings.cache[id]
@@ -125,18 +125,18 @@
 <a name="l00105"></a>00105                         <span class="keywordflow">return</span> <span class="keywordtype">None</span>
 <a name="l00106"></a>00106 
 <a name="l00107"></a>00107                 <span class="keywordflow">try</span>:
-<a name="l00108"></a>00108                         <span class="comment"># We don't want to crash if the ktiny module is not installed on the server</span>
+<a name="l00108"></a>00108                         <span class="comment"># We don't want to crash if the koo module is not installed on the server</span>
 <a name="l00109"></a>00109                         <span class="comment"># but we do want to crash if there are mistakes in setViewSettings() code.</span>
-<a name="l00110"></a>00110                         ids = Rpc.session.call( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.ktiny.view.settings'</span>, <span class="stringliteral">'search'</span>, [
+<a name="l00110"></a>00110                         ids = Rpc.session.call( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.koo.view.settings'</span>, <span class="stringliteral">'search'</span>, [
 <a name="l00111"></a>00111                                 (<span class="stringliteral">'user'</span>,<span class="stringliteral">'='</span>,Rpc.session.uid),(<span class="stringliteral">'view'</span>,<span class="stringliteral">'='</span>,id)
 <a name="l00112"></a>00112                         ])
 <a name="l00113"></a>00113                 <span class="keywordflow">except</span>:
 <a name="l00114"></a>00114                         ViewSettings.hasSettingsModule = <span class="keyword">False</span>
 <a name="l00115"></a>00115                         <span class="keywordflow">return</span> <span class="keywordtype">None</span>
-<a name="l00116"></a>00116                 <span class="comment"># As 'nan.ktiny.view.settings' is proved to exist we don't need try-except here.</span>
+<a name="l00116"></a>00116                 <span class="comment"># As 'nan.koo.view.settings' is proved to exist we don't need try-except here.</span>
 <a name="l00117"></a>00117                 <span class="keywordflow">if</span> <span class="keywordflow">not</span> ids:
 <a name="l00118"></a>00118                         <span class="keywordflow">return</span> <span class="keywordtype">None</span>
-<a name="l00119"></a>00119                 settings = Rpc.session.execute( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.ktiny.view.settings'</span>, <span class="stringliteral">'read'</span>, ids, [<span class="stringliteral">'data'</span>] )[0][<span class="stringliteral">'data'</span>]
+<a name="l00119"></a>00119                 settings = Rpc.session.execute( <span class="stringliteral">'/object'</span>, <span class="stringliteral">'execute'</span>, <span class="stringliteral">'nan.koo.view.settings'</span>, <span class="stringliteral">'read'</span>, ids, [<span class="stringliteral">'data'</span>] )[0][<span class="stringliteral">'data'</span>]
 <a name="l00120"></a>00120 
 <a name="l00121"></a>00121                 <span class="keywordflow">if</span> settings:
 <a name="l00122"></a>00122                         <span class="comment"># Ensure it's a string and not unicode</span>
@@ -152,7 +152,7 @@
 <a name="l00132"></a>00132                 <span class="keywordflow">if</span> ViewSettings.databaseName != Rpc.session.databaseName <span class="keywordflow">or</span> ViewSettings.uid != Rpc.session.uid:
 <a name="l00133"></a>00133                         ViewSettings.clear()
 <a name="l00134"></a>00134 
-<a name="l00135"></a>00135         <span class="comment">## @brief Clears cache and resets state. This means that after installing the ktiny</span>
+<a name="l00135"></a>00135         <span class="comment">## @brief Clears cache and resets state. This means that after installing the koo</span>
 <a name="l00136"></a>00136         <span class="comment"># module you don't have to close session and login again because</span>
 <a name="l00137"></a>00137         <span class="comment"># hasSettingsModule is reset to True.</span>
 <a name="l00138"></a>00138         @staticmethod
