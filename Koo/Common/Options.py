@@ -35,7 +35,7 @@ from Koo import Rpc
 from PyQt4.QtCore import QDir, QUrl
 
 ## @brief The ConfigurationManager class handles Koo settings information. 
-# Those settings can be specified in the command line, koo.rc configuration file
+# Those settings can be specified in the command line, .koorc configuration file
 # or koo server module.
 class ConfigurationManager(object):
 	## @brief Constructs a ConfigurationManager object.
@@ -75,7 +75,7 @@ class ConfigurationManager(object):
 		parser.add_option("", "--pos-mode", action="store_true", default=False, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
 		(opt, args) = parser.parse_args()
 
-		self.rcfile = fileName or opt.config or os.environ.get('TERPRC') or os.path.join(self.homeDirectory(), 'koo.rc')
+		self.rcfile = fileName or opt.config or os.environ.get('TERPRC') or os.path.join(self.homeDirectory(), '.koorc')
 		self.load()
 
 		if opt.url:
