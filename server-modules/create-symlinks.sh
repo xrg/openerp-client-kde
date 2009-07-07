@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Creates one symbolic link for each module to the specified directory.
+
 if [ -z "$1" ]; then
 	echo "Use create-symlinks.sh <directory>"
 	echo 
@@ -7,8 +9,9 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 
+list=$(find -iname "__terp__.py" | awk '{system("dirname "$1)}')
 
-for i in $(ls -1 | grep -v '*.sh'); do 
+for i in $list; do 
 	if [ -d "$i" ]; then
 		ln -s "$(pwd)/$i" "$1"
 	else

@@ -1,16 +1,11 @@
 #!/bin/sh
-for i in `echo \
-fts-indexes \
-full_text_search \
-ktiny \
-maps \
-jasper_reports \
-pyro \
-smart_attach`
 
-do 
-echo $i
-zip -r $i.zip $i
+# Creates one zip file for each module
 
+list=$(find $2 -iname "__terp__.py" | awk '{system("dirname "$1)}')
+
+for i in $list; do
+	echo $i
+	zip -r $i.zip $i
 done
 
