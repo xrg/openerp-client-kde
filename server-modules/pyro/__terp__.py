@@ -28,7 +28,13 @@
 {
 	"name" : "Pyro",
 	"version" : "0.1",
-	"description" : "This module a new protocol to OpenERP server.",
+	"description" : """This module adds new protocol to OpenERP server.
+
+In order to use the pyro (PYROLOC://) protocol you must install this module. Note that if you restart the
+server you'll need to ensure the module is started. That usually means logginng in using another protocol.
+
+Once installed try to log in again using Koo and choose the same server but with port 8071 and protocol Pyro.
+""",
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
