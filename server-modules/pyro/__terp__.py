@@ -30,12 +30,11 @@
 	"version" : "0.1",
 	"description" : """This module adds new protocol to OpenERP server.
 
-In order to use the pyro (PYROLOC://) protocol you must install this module. Note that if you restart the
-server you'll need to ensure the module is started. That usually means logginng in using another protocol.
+In order to use the pyro (PYROLOC://) protocol you must install this module. Once installed try to log in again using Koo and choose the same server but with port 8071 and protocol Pyro.
 
-Once installed try to log in again using Koo and choose the same server but with port 8071 and protocol Pyro.
+Note that if you restart the server you'll need to ensure the module is started. That can be done in two different ways. Either you start the server using "-d database_name" option or you log in using another protocol first.
 
-Needs pyro from http://sourceforge.net/projects/pyro/files/ on client and server.
+This module needs pyro from http://sourceforge.net/projects/pyro/files/ on client and server.
 """,
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
