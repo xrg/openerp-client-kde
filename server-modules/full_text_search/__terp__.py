@@ -35,7 +35,12 @@
 	"category" : "Generic Modules/Search",
 	"init_xml" : [],
 	"demo_xml" : [],
-	"update_xml" : ["fts_view.xml", "fts_wizard_view.xml", "fts_data.xml"],
+	"update_xml" : [
+		"fts_view.xml",
+		"fts_wizard_view.xml",
+		"fts_data.xml",
+		"security/ir.model.access.csv"
+	],
 	"active": False,
 	"installable": True
 }

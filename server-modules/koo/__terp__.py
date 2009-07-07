@@ -37,7 +37,8 @@
 	"demo_xml" : [],
 	"update_xml" : [
 		"koo_view.xml",
-		"koo_data.xml"
+		"koo_data.xml",
+		"security/ir.model.access.csv"
 	],
 	"active": False,
 	"installable": True

@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_fts_priority_system","fts.priority","model_fts_priority",base.group_system,1,1,1,1
+"access_fts_full_text_index_system","fts.full_text_index","model_fts_full_text_index",base.group_system,1,1,1,1
+"access_fts_current_full_text_index_system","fts.current_full_text_index","model_fts_current_full_text_index",base.group_system,1,1,1,1
+"access_fts_wizard_system","fts.wizard","model_fts_wizard",base.group_system,1,1,1,1
