@@ -100,7 +100,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		self.uiModel.setEnabled( not value )
 		if self.uiModel.currentIndex() < 0:
 			value = True
-		self.uiText.setEnabled( not value )
+		self.uiText.setReadOnly( value )
 		self.pushNew.setEnabled( not value )
 		self.pushClear.setEnabled( not value )
 		if self.record and self.record.value(self.name):

@@ -63,7 +63,7 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		self.uiUrl.setText(self.record.value(self.name) or '')
 
 	def setReadOnly(self, value):
-		self.uiUrl.setEnabled( not value )
+		self.uiUrl.setReadOnly( value )
 
 	def openUrl(self):
 		value =  unicode(self.uiUrl.text()).strip()

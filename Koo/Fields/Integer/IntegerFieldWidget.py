@@ -64,7 +64,7 @@ class IntegerFieldWidget(AbstractFieldWidget):
 		self.widget.setText( str(value) )
 
 	def setReadOnly(self, value):
-		self.widget.setEnabled( not value )
+		self.widget.setReadOnly( value )
 
 	def colorWidget(self):
 		return self.widget

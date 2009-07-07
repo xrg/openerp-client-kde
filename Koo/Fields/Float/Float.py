@@ -47,7 +47,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.digits = attrs.get('digits', None)
 
 	def setReadOnly(self, value):
-		self.widget.setEnabled( not value )
+		self.widget.setReadOnly( value )
 
 	def calculate(self):
 		val = textToFloat( str(self.widget.text() ) )

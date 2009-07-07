@@ -167,7 +167,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.completion.setCompletionColumn( 0 )
 
 	def setReadOnly(self, value):
-		self.uiText.setEnabled( not value )
+		self.uiText.setReadOnly( value )
 		self.pushNew.setEnabled( not value )
 		self.pushClear.setEnabled( not value )
 		self.pushOpen.setEnabled( not value )
