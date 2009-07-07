@@ -43,6 +43,7 @@ class full_text_index(osv.osv):
 	_columns = {
 		'field_id' : fields.many2one('ir.model.fields', 'Field', required=True),
 		'priority' : fields.many2one('fts.priority', 'Priority', required=True),
+		'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', readonly=True)
 	}
 full_text_index()
 
@@ -52,6 +53,7 @@ class current_full_text_index(osv.osv):
 	_columns = {
 		'field_id' : fields.many2one('ir.model.fields', 'Field', required=True),
 		'priority' : fields.many2one('fts.priority', 'Priority', required=True),
+		'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', reaonly=True)
 	}
 current_full_text_index()
 

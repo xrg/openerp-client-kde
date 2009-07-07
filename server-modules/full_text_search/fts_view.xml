@@ -33,6 +33,7 @@
 			<field name="arch" type="xml">
 				<form string="Full Text Indexes">
 					<field name="field_id"/>
+					<field name="model_id"/>
 					<newline/>
 					<field name="priority"/>
 				</form>
@@ -45,6 +46,7 @@
 			<field name="arch" type="xml">
 				<tree string="Full Text Indexes">
 					<field name="field_id"/>
+					<field name="model_id"/>
 					<field name="priority"/>
 				</tree>
 			</field>
