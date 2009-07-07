@@ -33,8 +33,8 @@ import Api
 from Koo import Rpc
 import os
 import sys
-import logging
 import Options
+import Debug
 
 from PyQt4.QtCore  import  *
 from PyQt4.QtGui import *
@@ -217,8 +217,7 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
 def error(title, message, details=''):
-	log = logging.getLogger('common.message')
-	log.error('MSG %s: %s' % (unicode(message),details))
+	Debug.error( 'MSG %s: %s' % (unicode(message), details) )
 	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
 

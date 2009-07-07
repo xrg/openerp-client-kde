@@ -32,6 +32,7 @@ import os
 import sys
 import gettext
 from Koo import Rpc
+import Debug
 from PyQt4.QtCore import QDir, QUrl
 
 ## @brief The ConfigurationManager class handles Koo settings information. 
@@ -51,10 +52,6 @@ class ConfigurationManager(object):
 			'tip.autostart': False,
 			'tip.position': 0,
 			'print_directly': False,
-			'logging.logger': '',
-			'logging.level': 'DEBUG',
-			'logging.output': 'stdout',
-			'logging.verbose': False,
 			'client.default_path': os.path.expanduser('~'),
 			'stylesheet' : '',
 			'tabs_position' : 'top',
@@ -67,9 +64,6 @@ class ConfigurationManager(object):
 		}
 		parser = optparse.OptionParser()
 		parser.add_option("-c", "--config", dest="config",help=_("specify alternate config file"))
-		parser.add_option("-v", "--verbose", action="store_true", default=False, dest="verbose", help=_("enable basic debugging"))
-		parser.add_option("-d", "--log", dest="log_logger", default='', help=_("specify channels to log"))
-		parser.add_option("-l", "--log-level", dest="log_level",default='ERROR', help=_("specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"))
 		parser.add_option("-u", "--url", dest="url", help=_("specify the server (ie. http://admin@localhost:8069)"))
 		parser.add_option("", "--stylesheet", dest="stylesheet", help=_("specify stylesheet to apply"))
 		parser.add_option("", "--pos-mode", action="store_true", default=False, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
@@ -88,10 +82,6 @@ class ConfigurationManager(object):
 				self.options['login.protocol'] = '%s://' % url.scheme() 
 				self.options['login.login'] = unicode( url.userName() )
 
-		if opt.verbose:
-			self.options['logging.verbose']=True
-		self.options['logging.logger'] = opt.log_logger
-		self.options['logging.level'] = opt.log_level
 		self.options['stylesheet'] = opt.stylesheet
 		self.options['pos_mode'] = opt.pos_mode
 
@@ -112,9 +102,7 @@ class ConfigurationManager(object):
 				p.set(osection,oname,self.options[o])
 			p.write(file(self.rcfile,'wb'))
 		except:
-			import logging
-			log = logging.getLogger('common.options')
-			log.warn('Unable to write config file %s !'% (self.rcfile,))
+			Debug.warning( 'Unable to write config file %s !' % self.rcfile )
 		return True
 
 	## @brief Loads settings from the appropiate config file.
@@ -136,9 +124,7 @@ class ConfigurationManager(object):
 						value = False
 					self.options[section+'.'+name] = value
 		except Exception, e:
-			import logging
-			log = logging.getLogger('common.options')
-			log.warn('Unable to read config file %s !'% (self.rcfile,))
+			Debug.warning( 'Unable to read config file %s !' % self.rcfile )
 		return True
 
 	def __setitem__(self, key, value):

@@ -29,6 +29,7 @@
 
 from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Common import Debug
 from FormWidget import *
 from TreeWidget import *
 
@@ -71,8 +72,5 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		QApplication.restoreOverrideCursor()
 		Api.instance.windowCreated( win, target )
 	else:
-		import logging
-		log = logging.getLogger('view')
-		log.error('unknown view type: '+view_type)
-		del log
+		Debug.error( 'unknown view type: ' + view_type )
 

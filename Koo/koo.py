@@ -33,9 +33,6 @@
 from xml.etree.ElementTree import parse, SubElement
 
 import sys, os
-import logging
-
-logging.basicConfig()
 
 if os.name == 'nt':
 	sys.path.append('.')
@@ -48,18 +45,6 @@ from Koo.Common import Localization
 Localization.initializeTranslations()
 
 from Koo.Common import Options
-
-
-for logger in Options.options['logging.logger'].split(','):
-	if len(logger):
-		loglevel = {'DEBUG':logging.DEBUG, 'INFO':logging.INFO, 'WARNING':logging.WARNING, 'ERROR':logging.ERROR, 'CRITICAL':logging.CRITICAL}
-		log = logging.getLogger(logger)
-		log.setLevel(loglevel[Options.options['logging.level'].upper()])
-if Options.options['logging.verbose']:
-	logging.getLogger().setLevel(logging.INFO)
-else:
-	logging.getLogger().setLevel(logging.ERROR)
-
 
 imports={}
 

@@ -33,9 +33,6 @@
 from xml.etree.ElementTree import parse, SubElement
 
 import sys, os
-import logging
-
-logging.basicConfig()
 
 if os.name == 'nt':
 	sys.path.append('.')

@@ -33,6 +33,7 @@ from xml.parsers import expat
 from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common import Options
+from Koo.Common import Debug
 from Koo.Common.ViewSettings import *
 from Koo import Rpc
 
@@ -65,10 +66,7 @@ class TreeParser:
 				self.fieldsOrder.append(str(attrs['icon']))
 			self.fieldsOrder.append(str(attrs['name']))
 		else:
-			import logging
-			log = logging.getLogger('view')
-			log.error('unknown tag: '+str(name))
-			del log
+			Debug.error( 'unknown tag: ' + str(name) )
 
 	## @brief This function parses the xml data provided as parameter.
 	# This function fills class member properties: title, toolbar and 

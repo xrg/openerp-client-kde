@@ -36,3 +36,8 @@ def printReferrers( obj ):
 def printList( l ):
 	print '\n'.join( [str(x) for x in l] )
 
+def info( text ):
+	print text
+
+def error( text ):
+	print text
