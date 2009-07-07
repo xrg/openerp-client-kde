@@ -34,6 +34,8 @@ In order to use the pyro (PYROLOC://) protocol you must install this module. Not
 server you'll need to ensure the module is started. That usually means logginng in using another protocol.
 
 Once installed try to log in again using Koo and choose the same server but with port 8071 and protocol Pyro.
+
+Needs pyro from http://sourceforge.net/projects/pyro/files/ on client and server.
 """,
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
