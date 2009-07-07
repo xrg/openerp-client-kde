@@ -157,7 +157,7 @@ packages = [
 	'Koo.Search',
 	'Koo.View',
 	'Koo.Fields',
-        ] + findPlugins('Plugins') + findPlugins('View') + findPlugins('Fields')
+        ] + findPlugins('Plugins') + findPlugins('View') + findPlugins('Fields') + findPlugins('Search')
 
 setup(name             = name,
       version          = version,
