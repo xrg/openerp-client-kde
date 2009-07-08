@@ -219,7 +219,7 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 	def showValue(self):
 		value = self.record.value(self.name)
 		if value:
-			self.uiTime.setText( floatTimeToText( value ) )
+			self.uiTime.setText( floatTimeToText( float( value ) ) )
 		else:
 			self.uiTime.setText( '00:00' )
 
