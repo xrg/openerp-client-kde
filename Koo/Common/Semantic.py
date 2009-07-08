@@ -37,6 +37,9 @@ from Koo import Rpc
 def addInformationToFile( fileName, model, ids, field = None ):
 	if not Common.isKdeAvailable:
 		return
+	from PyQt4 import QtCore
+	if QtCore.PYQT_VERSION_STR < '4.5.0' :
+		return
 	if not isinstance(ids, list):
 		ids = [ids]
 	field = False
