@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<terp>
+<openerp>
 	<data>
 <!-- Add "map" field to partner_address form -->
 		<record model="ir.ui.view" id="view_partner_address_map">
@@ -55,4 +55,4 @@
 			</field>
 		</record>
 	</data>
-</terp>
+</openerp>
