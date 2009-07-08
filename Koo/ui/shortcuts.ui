@@ -1,222 +1,223 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ShortcutsDialog</class>
- <widget class="QDialog" name="ShortcutsDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="ShortcutsDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>466</width>
-    <height>507</height>
+    <width>492</width>
+    <height>535</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Shortcuts</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout">
    <item>
-    <widget class="QTabWidget" name="tabWidget" >
-     <property name="currentIndex" >
-      <number>1</number>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <widget class="QWidget" name="tab" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
        <string>&amp;Main Shortcuts</string>
       </attribute>
-      <layout class="QVBoxLayout" >
+      <layout class="QVBoxLayout">
        <item>
-        <layout class="QGridLayout" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_15" >
-           <property name="text" >
-            <string>&lt;Ctrl> + O</string>
+        <layout class="QGridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + O</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_16" >
-           <property name="text" >
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_16">
+           <property name="text">
             <string>Connect</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_17" >
-           <property name="text" >
-            <string>&lt;Ctrl> + N</string>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + N</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="label_18" >
-           <property name="text" >
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_18">
+           <property name="text">
             <string>New</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="0" >
-          <widget class="QLabel" name="label_19" >
-           <property name="text" >
-            <string>&lt;Ctrl> + S</string>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + S</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1" >
-          <widget class="QLabel" name="label_20" >
-           <property name="text" >
+         <item row="3" column="1">
+          <widget class="QLabel" name="label_20">
+           <property name="text">
             <string>Save</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="0" >
-          <widget class="QLabel" name="label_21" >
-           <property name="text" >
-            <string>&lt;Ctrl> + D</string>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + D</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="1" >
-          <widget class="QLabel" name="label_22" >
-           <property name="text" >
+         <item row="4" column="1">
+          <widget class="QLabel" name="label_22">
+           <property name="text">
             <string>Delete</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="0" >
-          <widget class="QLabel" name="label_23" >
-           <property name="text" >
-            <string>&lt;Ctrl> + F</string>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_23">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + F</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1" >
-          <widget class="QLabel" name="label_24" >
-           <property name="text" >
+         <item row="5" column="1">
+          <widget class="QLabel" name="label_24">
+           <property name="text">
             <string>Find / Search</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="0" >
-          <widget class="QLabel" name="label_42" >
-           <property name="text" >
-            <string>&lt;Ctrl> + T</string>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_42">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + T</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="1" >
-          <widget class="QLabel" name="label_43" >
-           <property name="text" >
+         <item row="6" column="1">
+          <widget class="QLabel" name="label_43">
+           <property name="text">
             <string>Full Text Search</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="0" >
-          <widget class="QLabel" name="label_25" >
-           <property name="text" >
-            <string>&lt;Alt> + &lt;PgUp></string>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_25">
+           <property name="text">
+            <string>&lt;Alt&gt; + &lt;PgUp&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="1" >
-          <widget class="QLabel" name="label_26" >
-           <property name="text" >
+         <item row="7" column="1">
+          <widget class="QLabel" name="label_26">
+           <property name="text">
             <string>Previous Record</string>
            </property>
           </widget>
          </item>
-         <item row="8" column="0" >
-          <widget class="QLabel" name="label_27" >
-           <property name="text" >
-            <string>&lt;Alt> + &lt;PgDn></string>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_27">
+           <property name="text">
+            <string>&lt;Alt&gt; + &lt;PgDn&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="8" column="1" >
-          <widget class="QLabel" name="label_28" >
-           <property name="text" >
+         <item row="8" column="1">
+          <widget class="QLabel" name="label_28">
+           <property name="text">
             <string>Next record</string>
            </property>
           </widget>
          </item>
-         <item row="9" column="0" >
-          <widget class="QLabel" name="label_29" >
-           <property name="text" >
-            <string>&lt;Ctrl> + L</string>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_29">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + L</string>
            </property>
           </widget>
          </item>
-         <item row="9" column="1" >
-          <widget class="QLabel" name="label_30" >
-           <property name="text" >
+         <item row="9" column="1">
+          <widget class="QLabel" name="label_30">
+           <property name="text">
             <string>Switch view mode</string>
            </property>
           </widget>
          </item>
-         <item row="10" column="0" >
-          <widget class="QLabel" name="label_31" >
-           <property name="text" >
-            <string>&lt;Ctrl> + &lt;PgUp></string>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_31">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + &lt;PgUp&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="10" column="1" >
-          <widget class="QLabel" name="label_32" >
-           <property name="text" >
+         <item row="10" column="1">
+          <widget class="QLabel" name="label_32">
+           <property name="text">
             <string>Previous tab</string>
            </property>
           </widget>
          </item>
-         <item row="11" column="0" >
-          <widget class="QLabel" name="label_33" >
-           <property name="text" >
-            <string>&lt;Ctrl> + &lt;PgDn></string>
+         <item row="11" column="0">
+          <widget class="QLabel" name="label_33">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + &lt;PgDn&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="11" column="1" >
-          <widget class="QLabel" name="label_34" >
-           <property name="text" >
+         <item row="11" column="1">
+          <widget class="QLabel" name="label_34">
+           <property name="text">
             <string>Next tab</string>
            </property>
           </widget>
          </item>
-         <item row="12" column="0" >
-          <widget class="QLabel" name="label_35" >
-           <property name="text" >
-            <string>&lt;Ctrl> + W</string>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_35">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + W</string>
            </property>
           </widget>
          </item>
-         <item row="12" column="1" >
-          <widget class="QLabel" name="label_36" >
-           <property name="text" >
+         <item row="12" column="1">
+          <widget class="QLabel" name="label_36">
+           <property name="text">
             <string>Close tab</string>
            </property>
           </widget>
          </item>
-         <item row="13" column="0" >
-          <widget class="QLabel" name="label_44" >
-           <property name="text" >
+         <item row="13" column="0">
+          <widget class="QLabel" name="label_44">
+           <property name="text">
             <string>F5</string>
            </property>
           </widget>
          </item>
-         <item row="13" column="1" >
-          <widget class="QLabel" name="label_46" >
-           <property name="text" >
+         <item row="13" column="1">
+          <widget class="QLabel" name="label_46">
+           <property name="text">
             <string>Reload</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0" >
-          <widget class="QLabel" name="label_48" >
-           <property name="text" >
-            <string>&lt;Ctrl> + &lt;Shift> + D</string>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_48">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + &lt;Shift&gt; + D</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1" >
-          <widget class="QLabel" name="label_49" >
-           <property name="text" >
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_49">
+           <property name="text">
             <string>Duplicate Record</string>
            </property>
           </widget>
@@ -224,38 +225,38 @@
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_37" >
-         <property name="text" >
-          <string>&lt;center>&lt;i>When editing a resource in a popup window&lt;/i>&lt;/center></string>
+        <widget class="QLabel" name="label_37">
+         <property name="text">
+          <string>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QGridLayout" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_38" >
-           <property name="text" >
-            <string>&lt;Ctrl> + &lt;Enter></string>
+        <layout class="QGridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_38">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + &lt;Enter&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_39" >
-           <property name="text" >
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_39">
+           <property name="text">
             <string>Save and close window</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_40" >
-           <property name="text" >
-            <string>&lt;Ctrl> + &lt;Esc></string>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_40">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + &lt;Esc&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="label_41" >
-           <property name="text" >
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_41">
+           <property name="text">
             <string>Close window without saving</string>
            </property>
           </widget>
@@ -264,130 +265,130 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
        <string>&amp;Edition Shortcuts</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout" >
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="label" >
-         <property name="text" >
-          <string>&lt;b>Shortcuts in text entries&lt;/b></string>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QGridLayout" >
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_9" >
-           <property name="text" >
+        <layout class="QGridLayout">
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
             <string>Cut selected text</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="label_10" >
-           <property name="text" >
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
             <string>Copy selected text</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1" >
-          <widget class="QLabel" name="label_11" >
-           <property name="text" >
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_11">
+           <property name="text">
             <string>Paste selected text</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1" >
-          <widget class="QLabel" name="label_12" >
-           <property name="text" >
+         <item row="3" column="1">
+          <widget class="QLabel" name="label_12">
+           <property name="text">
             <string>Next editable widget</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="0" >
-          <widget class="QLabel" name="label_7" >
-           <property name="text" >
-            <string>&lt;Shift> + &lt;Tab></string>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>&lt;Shift&gt; + &lt;Tab&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="1" >
-          <widget class="QLabel" name="label_13" >
-           <property name="text" >
+         <item row="4" column="1">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
             <string>Previous editable widget</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="0" >
-          <widget class="QLabel" name="label_8" >
-           <property name="text" >
-            <string>&lt;Enter></string>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>&lt;Enter&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1" >
-          <widget class="QLabel" name="label_14" >
-           <property name="text" >
+         <item row="5" column="1">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
             <string>Auto-complete text field</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="0" >
-          <widget class="QLabel" name="label_6" >
-           <property name="text" >
-            <string>&lt;Tab></string>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>&lt;Tab&gt;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_4" >
-           <property name="text" >
-            <string>&lt;Ctrl> + C</string>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + C</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0" >
-          <widget class="QLabel" name="label_5" >
-           <property name="text" >
-            <string>&lt;Ctrl> + V</string>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + V</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_3" >
-           <property name="text" >
-            <string>&lt;Ctrl> + X</string>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + X</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_2" >
-         <property name="text" >
-          <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Numeric fields&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Numeric fields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_55" >
-           <property name="text" >
-            <string>Formula + &lt;Enter>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_55">
+           <property name="text">
+            <string>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_56" >
-           <property name="text" >
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_56">
+           <property name="text">
             <string>Calculates value
 (Example result: 7)</string>
            </property>
@@ -396,42 +397,42 @@ p, li { white-space: pre-wrap; }
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_59" >
-         <property name="text" >
-          <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+        <widget class="QLabel" name="label_59">
+         <property name="text">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Relation fields&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relation fields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QGridLayout" name="gridLayout_2" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_61" >
-           <property name="text" >
-            <string>&lt;Ctrl> + Open</string>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_61">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + Open</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_60" >
-           <property name="text" >
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_60">
+           <property name="text">
             <string>Opens the record in a new tab</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_62" >
-           <property name="text" >
-            <string>&lt;Ctrl> + &lt;Shift> + Open</string>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_62">
+           <property name="text">
+            <string>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="label_63" >
-           <property name="text" >
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_63">
+           <property name="text">
             <string>Opens the record in a new background tab</string>
            </property>
           </widget>
@@ -440,10 +441,10 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>320</width>
            <height>228</height>
@@ -453,72 +454,72 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3" >
-      <attribute name="title" >
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
        <string>&amp;Advanced</string>
       </attribute>
-      <layout class="QVBoxLayout" >
+      <layout class="QVBoxLayout">
        <item>
-        <widget class="QLabel" name="label_50" >
-         <property name="text" >
-          <string>&lt;b>Shortcuts in text entries&lt;/b></string>
+        <widget class="QLabel" name="label_50">
+         <property name="text">
+          <string>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</string>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QGridLayout" >
-         <item row="0" column="0" >
-          <widget class="QLabel" name="label_51" >
-           <property name="text" >
+        <layout class="QGridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_51">
+           <property name="text">
             <string>Middle mouse click on Tab</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" >
-          <widget class="QLabel" name="label_52" >
-           <property name="text" >
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_52">
+           <property name="text">
             <string>Close tab</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0" >
-          <widget class="QLabel" name="label_53" >
-           <property name="text" >
-            <string>&lt;Shift> + Switch View</string>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_53">
+           <property name="text">
+            <string>&lt;Shift&gt; + Switch View</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1" >
-          <widget class="QLabel" name="label_54" >
-           <property name="text" >
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_54">
+           <property name="text">
             <string>Open form view in new tab</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0" >
-          <widget class="QLabel" name="label_45" >
-           <property name="text" >
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_45">
+           <property name="text">
             <string>Mouse Wheel on Tab</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1" >
-          <widget class="QLabel" name="label_47" >
-           <property name="text" >
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_47">
+           <property name="text">
             <string>Change current tab</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="0" >
-          <widget class="QLabel" name="label_57" >
-           <property name="text" >
-            <string>&lt;Shift> + Open View</string>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_57">
+           <property name="text">
+            <string>&lt;Shift&gt; + Open View</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1" >
-          <widget class="QLabel" name="label_58" >
-           <property name="text" >
+         <item row="3" column="1">
+          <widget class="QLabel" name="label_58">
+           <property name="text">
             <string>Open view in a background tab</string>
            </property>
           </widget>
@@ -527,10 +528,10 @@ p, li { white-space: pre-wrap; }
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -543,13 +544,13 @@ p, li { white-space: pre-wrap; }
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
+    <layout class="QHBoxLayout">
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -558,12 +559,12 @@ p, li { white-space: pre-wrap; }
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
         <string>&amp;Close</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >
+       <property name="icon">
+        <iconset resource="common.qrc">
          <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
        </property>
       </widget>
@@ -573,7 +574,7 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -582,11 +583,11 @@ p, li { white-space: pre-wrap; }
    <receiver>ShortcutsDialog</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>318</x>
      <y>474</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>254</x>
      <y>493</y>
     </hint>

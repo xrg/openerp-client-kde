@@ -9,3 +9,5 @@ directory=$1
 rm -I $(ls *.jar | grep -v postgresql)
 
 cp $directory/ireport/modules/ext/*.jar .
+
+cp $directory/ireport/libs/xalan.jar .
