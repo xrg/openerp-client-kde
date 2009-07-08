@@ -28,11 +28,11 @@
 {
 	"name" : "Full Text Search",
 	"version" : "0.1",
-	"description" : "This module adds full text search capabilities to OpenERP if used in conjunction with the Koo client.
+	"description" : """This module adds full text search capabilities to OpenERP if used in conjunction with the Koo client.
 
 Note that this module requires the server to connect to an administrator user in PostgreSQL because it uses PL/PythonU. Be advised that this might be a security risk.
 
-The module will try to load PL/PythonU language if it doesn't already exist in the database.",
+The module will try to load PL/PythonU language if it doesn't already exist in the database.""",
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
