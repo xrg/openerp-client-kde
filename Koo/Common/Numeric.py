@@ -59,7 +59,9 @@ def textToFloat(text):
 ## @brief This function converts a float into text. By default the number
 # of decimal digits is 2.
 def floatToText(number, digits=None):
-	if not number:
+	if isinstance(number, int):
+		number = float(number)
+	if not isinstance(number, float):
 		number = 0.0
 	if digits:
 		# Digits might come from the server as a tuple, list or a string
