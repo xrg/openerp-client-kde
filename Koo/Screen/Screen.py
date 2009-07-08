@@ -380,13 +380,13 @@ class Screen(QScrollArea):
 	# @see AddViewByType
 	def addViewByIdAndType(self, id, type, display=False):
 		if type in self.views_preload:
-			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False))
+			return self.addView( self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False) )
 		else:
 			# By now we set toolbar to True always. Even when the Screen is embedded.
 			# This way we don't force setting the embedded option in the class constructor
 			# and can be set later.
 			view = self.rpc.fields_view_get(id, type, self.context, True)
-			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
+			return self.addView( view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view.get('view_id',False) )
 		
 	## @brief Adds a view given its id.
 	# @param id View id to load or False if you want to load given view_type.
@@ -411,13 +411,13 @@ class Screen(QScrollArea):
 	# @see AddViewByIdAndType
 	def addViewByType(self, type, display=False):
 		if type in self.views_preload:
-			return self.addView(self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False))
+			return self.addView( self.views_preload[type]['arch'], self.views_preload[type]['fields'], display, toolbar=self.views_preload[type].get('toolbar', False), id=self.views_preload[type].get('view_id',False) )
 		else:
 			# By now we set toolbar to True always. Even when the Screen is embedded.
 			# This way we don't force setting the embedded option in the class constructor
 			# and can be set later.
 			view = self.rpc.fields_view_get(False, type, self.context, True)
-			return self.addView(view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view['view_id'])
+			return self.addView( view['arch'], view['fields'], display, toolbar=view.get('toolbar', False), id=view.get('view_id',False) )
 		
 	## @brief Adds a view given it's XML description and fields
 	# @param arch XML string: typically 'arch' field returned by model fields_view_get() function.
