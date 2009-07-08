@@ -95,6 +95,8 @@ class FormParser(AbstractParser):
 				line.setFrameShape( QFrame.HLine )
 				line.setFrameShadow( QFrame.Plain )
 				layout = QVBoxLayout( separator )
+				layout.setContentsMargins( 0, 0, 0, 0 )
+				layout.setSpacing( 0 )
 				layout.addWidget( label )
 				layout.addWidget( line )
 
@@ -236,6 +238,8 @@ class FormParser(AbstractParser):
 					group = QGroupBox( notebook )
 					group.setTitle( attrs['string'] )
 					layout = QHBoxLayout( group )
+					layout.setContentsMargins( 0, 0, 0, 0 )
+					layout.setSpacing( 0 )
 					layout.addWidget( widget )
 					widget = group
 				
