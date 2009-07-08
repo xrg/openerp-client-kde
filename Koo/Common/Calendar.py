@@ -137,13 +137,10 @@ def textToDateTime( text ):
 
 ## @brief Converts a Python string into a float (floatTime) 
 def textToFloatTime( text ):
-	try:
-		if text and ':' in text:
-			return round(int(text.split(':')[0]) + int(text.split(':')[1]) / 60.0,2)
-		else:
-			return locale.atof(text)
-	except:
+	time = textToTime( text )
+	if not time.isValid():
 		return 0.0
+	return round( time.hour() + time.minute() / 60.0, 2 )
 
 ## @brief Converts a Python string comming from the server into a QDate object
 def storageToDate( text ):
