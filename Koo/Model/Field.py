@@ -329,6 +329,8 @@ class ReferenceField(StringField):
 
 	def get(self, record, check_load=True, readonly=True, modified=False):
 		if record.values[self.name]:
+			value = '%s,%d' % (record.values[self.name][0], record.values[self.name][1][0])
+			print "SENDING TO SERVER: ", value
 			return '%s,%d' % (record.values[self.name][0], record.values[self.name][1][0])
 		return False
 
@@ -343,6 +345,8 @@ class ReferenceField(StringField):
 			record.values[self.name] = False
 			return
 		ref_model, id = value.split(',')
+		# id must be an integer
+		id = int(id)
 		Rpc2 = RpcProxy(ref_model)
 		result = Rpc2.name_get([id], Rpc.session.context)
 		if result:
