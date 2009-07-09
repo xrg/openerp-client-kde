@@ -570,6 +570,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			if not wid.canClose():
 				event.ignore()
 				return
+		Rpc.session.logout()
 		self.systemTrayIcon.setVisible( False )
 
 	def closeTabForced(self):

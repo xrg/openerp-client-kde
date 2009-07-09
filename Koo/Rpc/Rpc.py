@@ -495,6 +495,7 @@ class Session:
 			self.userName = None
 			self.uid = None
 			self.password = None
+			self.connection = None
 			if self.cache:
 				self.cache.clear()
 
