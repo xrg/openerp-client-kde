@@ -74,9 +74,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 	def recordChanged(self, idx):
 		if idx < 0:
 			self.uiText.clear()
-			self.setReadOnly( True )
-		else:
-			self.setReadOnly( self.isReadOnly() )
+		self.updateStates()
 
 	def clear(self):
 		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
@@ -97,16 +95,26 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			self.invertedModels[i] = j
 
 	def setReadOnly(self, value):
-		self.uiModel.setEnabled( not value )
+		self.updateStates()
+
+	def updateStates(self):
+		readOnly = self.isReadOnly()
 		if self.uiModel.currentIndex() < 0:
-			value = True
-		self.uiText.setReadOnly( value )
-		self.pushNew.setEnabled( not value )
-		self.pushClear.setEnabled( not value )
+			validIndex = False
+		else:
+			validIndex = True
+
+		self.uiModel.setEnabled( not readOnly )
+		self.uiText.setReadOnly( validIndex and not readOnly )
+		self.pushNew.setEnabled( validIndex and not readOnly )
+		self.pushClear.setEnabled( validIndex and not readOnly )
 		if self.record and self.record.value(self.name):
+			self.pushOpen.setEnabled( True )
+		elif validIndex:
 			self.pushOpen.setEnabled( True )
 		else:
 			self.pushOpen.setEnabled( False )
+
 
 	def colorWidget(self):
 		return self.uiText
@@ -118,7 +126,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 	def search(self):
 		domain = self.record.domain(self.name)
 		context = self.record.fieldContext(self.name)
-		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+		resource = str(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 		ids = Rpc.session.execute('/object', 'execute', resource, 'name_search', unicode(self.uiText.text()), domain, 'ilike', context, False)
 		
 		if len(ids)==1:
@@ -151,7 +159,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		dialog.setup( resource )
 		dialog.setAttributes( self.attrs )
 		if dialog.exec_() == QDialog.Accepted:
-			resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+			resource = (self.uiModel.itemData(self.uiModel.currentIndex()).toString())
 			self.record.setValue(self.name, (resource, dialog.model) )
 
 	def open(self):
@@ -188,7 +196,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			model, (id, name) = value
 			self.uiModel.setCurrentIndex( self.uiModel.findText(self.invertedModels[model]) )
 			if not name:
-				id, name = RpcProxy(model).name_get([id], Rpc.session.context)[0]
+				id, name = RpcProxy(model).name_get([int(id)], Rpc.session.context)[0]
 			self.uiText.setText(name)
 			self.pushOpen.setIcon( QIcon(":/images/folder.png") )
 		else:
