@@ -1,78 +1,79 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ChangeServerDialog</class>
- <widget class="QDialog" name="ChangeServerDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="ChangeServerDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>282</width>
-    <height>202</height>
+    <width>280</width>
+    <height>224</height>
    </rect>
   </property>
-  <property name="sizePolicy" >
-   <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Server</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
+  <layout class="QVBoxLayout">
+   <property name="spacing">
     <number>6</number>
    </property>
-   <property name="margin" >
+   <property name="margin">
     <number>9</number>
    </property>
    <item>
-    <widget class="QGroupBox" name="groupBox" >
-     <property name="title" >
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
       <string>Connect to a OpenERP Server</string>
      </property>
-     <layout class="QVBoxLayout" >
-      <property name="spacing" >
+     <layout class="QVBoxLayout">
+      <property name="spacing">
        <number>6</number>
       </property>
-      <property name="margin" >
+      <property name="margin">
        <number>9</number>
       </property>
       <item>
-       <layout class="QGridLayout" >
-        <property name="margin" >
+       <layout class="QGridLayout">
+        <property name="margin">
          <number>0</number>
         </property>
-        <property name="spacing" >
+        <property name="spacing">
          <number>6</number>
         </property>
-        <item row="0" column="0" >
-         <widget class="QLabel" name="label" >
-          <property name="text" >
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
            <string>&amp;Server:</string>
           </property>
-          <property name="alignment" >
+          <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
-          <property name="buddy" >
+          <property name="buddy">
            <cstring>uiServer</cstring>
           </property>
          </widget>
         </item>
-        <item row="1" column="1" >
-         <widget class="QLineEdit" name="uiPort" />
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="uiPort"/>
         </item>
-        <item row="0" column="1" >
-         <widget class="QLineEdit" name="uiServer" />
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="uiServer"/>
         </item>
-        <item row="1" column="0" >
-         <widget class="QLabel" name="label_2" >
-          <property name="text" >
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
            <string>&amp;Port:</string>
           </property>
-          <property name="alignment" >
+          <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
-          <property name="buddy" >
+          <property name="buddy">
            <cstring>uiPort</cstring>
           </property>
          </widget>
@@ -80,25 +81,25 @@
        </layout>
       </item>
       <item>
-       <widget class="QComboBox" name="uiConnection" />
+       <widget class="QComboBox" name="uiConnection"/>
       </item>
      </layout>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -107,44 +108,32 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushAccept" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushAccept">
+       <property name="text">
         <string>&amp;Accept</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >
+       <property name="icon">
+        <iconset resource="common.qrc">
          <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
        </property>
-       <property name="default" >
+       <property name="default">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushCancel" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+      <widget class="QPushButton" name="pushCancel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="minimumSize" >
-        <size>
-         <width>75</width>
-         <height>29</height>
-        </size>
-       </property>
-       <property name="maximumSize" >
-        <size>
-         <width>75</width>
-         <height>29</height>
-        </size>
-       </property>
-       <property name="text" >
+       <property name="text">
         <string>&amp;Cancel</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >
+       <property name="icon">
+        <iconset resource="common.qrc">
          <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
        </property>
       </widget>
@@ -161,7 +150,7 @@
   <tabstop>pushCancel</tabstop>
  </tabstops>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections/>
 </ui>
