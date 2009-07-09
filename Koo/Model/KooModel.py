@@ -309,7 +309,7 @@ class KooModel(QAbstractItemModel):
 			m = model.value( field )
 			m.clear()
 			ids = [x.toInt()[0] for x in value.toList()]
-			m.preload( ids )
+			m.load( ids )
 		elif fieldType == 'many2one':
 			value = value.toList()
 			if value:

@@ -220,11 +220,26 @@ class RecordGroup(QObject):
 			self.emit( SIGNAL('recordsInserted(int,int)'), min(indexes), max(indexes) )
 		return result
 	
+	## @brief Adds a list of records as specified by 'values'.
+	#
+	# 'values' has to be a list of dictionaries, each of which containing fields
+	# names -> values. At least key 'id' needs to be in all dictionaries.
+	def loadFromValues(self, values):
+		start = len(self.records)
+		for value in values:
+			record = Record(value['id'], self, parent=self.parent)
+			record.set(value)
+			self.records.append(record)
+			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
+		end = len(self.records)-1
+		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
+	
 	## @brief Creates as many records as len(ids) with the ids[x] as id.
 	#
 	# 'ids' needs to be a list of identifiers. The addFields() function
 	# can be used later to load the necessary fields for each record.
-	def preload(self, ids):
+	def load(self, ids, display=True, addOnTop=False):
 		if not ids:
 			return 
 		start = len(self.records)
@@ -246,29 +261,6 @@ class RecordGroup(QObject):
 		# when we only want to know how many are there.
 		self.updated = True
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
-
-	## @brief Adds a list of records as specified by 'values'.
-	#
-	# 'values' has to be a list of dictionaries, each of which containing fields
-	# names -> values. At least key 'id' needs to be in all dictionaries.
-	def loadFromValues(self, values):
-		start = len(self.records)
-		for value in values:
-			record = Record(value['id'], self, parent=self.parent)
-			record.set(value)
-			self.records.append(record)
-			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
-			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
-		end = len(self.records)-1
-		self.emit( SIGNAL('recordsInserted(int,int)'), start, end )
-	
-	## @brief Loads the list of ids in this group.
-	def load(self, ids, display=True):
-		if not ids:
-			return True
-
-		self.preload( ids )
-		return True
 
 	## @brief Clears the list of records. It doesn't remove them.
 	def clear(self):

@@ -247,7 +247,7 @@ class ToManyField(StringField):
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, False))
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
-		group.preload(value)
+		group.load(value)
 		record.values[self.name] = group
 
 	def set_client(self, record, value, test_state=False):
