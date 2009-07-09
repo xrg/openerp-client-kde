@@ -79,6 +79,7 @@ class SearchFormParser(object):
 		self.model = model
 		self.focusable = None
 		self.widgets = {}
+		self.shortcuts = []
 
 	def _psr_start(self, name, attrs):
 		if name in ('form','tree','svg'):
@@ -95,6 +96,13 @@ class SearchFormParser(object):
 					self.widgets[ select ].append( name )
 				else:
 					self.widgets[ select ] = [ name ]
+		elif name == 'shortcut':
+			if not 'key' in attrs:
+				return
+			if not 'goto' in attrs:
+				return
+			#just insert the pairs into some list.
+			self.shortcuts.append( (attrs['key'],attrs['goto']) )
 
 	def _psr_end(self, name):
 		pass
@@ -151,6 +159,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.focusable = True
 		self.expanded = True
 		self._loaded = False
+		self.shortcuts = []
 
 		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
@@ -196,6 +205,15 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			if len(x) >= 2 and x[0] in self.widgets and x[1] == '=':
 				self.widgets[ x[0] ].setEnabled( False )
 
+		for skey, sgoto in parser.shortcuts:
+			# print "Trying to associate %s to widget %s at search form." % (skey, sgoto)
+			if not sgoto in self.widgets:
+				print "Cannot locate widget %s for shortcut." % sgoto
+				continue
+			scut = QShortcut(QKeySequence(skey),self)
+			self.widgets[sgoto].connect(scut,SIGNAL('activated()'),self.widgets[sgoto].setFocus)
+			self.shortcuts.append(scut)
+		
 		# Don't show expander button unless there are widgets in the
 		# second row
 		self.pushExpander.hide()

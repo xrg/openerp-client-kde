@@ -45,6 +45,7 @@ class FormParser(AbstractParser):
 		self.viewModel = viewModel
 		self.filter = filter
 		self.widgetList = []
+		self.shortcuts = []
 		self.context = parent.context
 		# Create the view
 		self.view = FormView( parent )
@@ -250,6 +251,23 @@ class FormParser(AbstractParser):
 				
 				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
  				container.addWidget( widget, attrs )
+			elif node.localName == 'shortcut':
+				if not 'key' in attrs:
+					continue
+				if not 'goto' in attrs:
+					continue
+				skey = attrs['key']
+				sgoto = attrs['goto']
+				# print "Creating shortcut %s for %s"%(skey,sgoto)
+				
+				scut = QShortcut(QKeySequence(skey),self.view)
+				# print "trying to associate the shortcut"
+				if not sgoto in self.view.widgets:
+					print "Cannot locate widget ", sgoto
+					continue
+				self.view.widgets[sgoto].connect(scut,SIGNAL('activated()'),self.view.widgets[sgoto].setFocus)
+				self.shortcuts.append(scut)
+				
 
 		return  container, onWriteFunction
 
