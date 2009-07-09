@@ -329,8 +329,6 @@ class ReferenceField(StringField):
 
 	def get(self, record, check_load=True, readonly=True, modified=False):
 		if record.values[self.name]:
-			value = '%s,%d' % (record.values[self.name][0], record.values[self.name][1][0])
-			print "SENDING TO SERVER: ", value
 			return '%s,%d' % (record.values[self.name][0], record.values[self.name][1][0])
 		return False
 
