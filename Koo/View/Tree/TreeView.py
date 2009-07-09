@@ -35,7 +35,7 @@ from PyQt4.QtGui import *
 from Koo.Common import Numeric
 from Koo import Rpc
 
-class TinyTreeView(QTreeView):
+class KooTreeView(QTreeView):
 	def contextMenuEvent( self, event ):
 		index = self.indexAt( event.pos() )
 		delegate = self.itemDelegate( index )
@@ -124,7 +124,7 @@ class TreeView( AbstractView ):
 		self.setAddOnTop( False )
 
 		if self._widgetType == 'tree':
-			self.widget = TinyTreeView( self )
+			self.widget = KooTreeView( self )
 			self.widget.setAllColumnsShowFocus( False )
 			self.widget.setSortingEnabled(True)
 			self.widget.setRootIsDecorated( False )
@@ -248,7 +248,13 @@ class TreeView( AbstractView ):
 		self.updateAggregates()
 
 	def store(self):
-		pass
+		# Ensure current editor is stored before saving:
+		# As closing the current editor doesn't store the info in the model
+		# we need to open a new one (so the old is closed smartly) and then
+		# close it again.
+		# We must close it again because we don't know if there was an editor.
+		self.widget.openPersistentEditor( self.widget.currentIndex() )
+		self.widget.closePersistentEditor( self.widget.currentIndex() )
 
 	def reset(self):
 		pass
