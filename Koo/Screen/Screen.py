@@ -515,6 +515,16 @@ class Screen(QScrollArea):
 		else:
 			return -1 
 
+	## @brief Returns whether new records will be added on top or on the bottom.
+	#
+	# Note that this is a property defined by the current view. If there's no current view
+	# it will return False.
+	def addOnTop(self):
+		if self.currentView():
+			return self.currentView().addOnTop()
+		else:
+			return False
+
 	## @brief Sets the on_write function. That is the function (in the server) that must
 	# be called after storing a record.
 	def setOnWriteFunction(self, functionName):
@@ -662,9 +672,9 @@ class Screen(QScrollArea):
 			return False
 
 	## @brief Loads the given ids to the RecordGroup and refreshes the view.
-	def load(self, ids):
+	def load(self, ids, addOnTop=False):
 		self.currentView().reset()
-		self.group.load( ids, display =True )
+		self.group.load( ids, addOnTop )
 		if ids:
 			self.display(ids[0])
 		else:

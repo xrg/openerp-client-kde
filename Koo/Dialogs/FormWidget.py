@@ -277,7 +277,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		res_id = self.screen.currentId()
 		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
-		self.screen.load([new_id])
+		self.screen.load( [new_id], self.screen.addOnTop() )
 		self.updateStatus(_('Working now on the duplicated document !'))
 
 	def save(self):

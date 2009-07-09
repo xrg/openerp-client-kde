@@ -239,23 +239,32 @@ class RecordGroup(QObject):
 	#
 	# 'ids' needs to be a list of identifiers. The addFields() function
 	# can be used later to load the necessary fields for each record.
-	def load(self, ids, display=True, addOnTop=False):
+	def load(self, ids, addOnTop=False):
 		if not ids:
 			return 
-		start = len(self.records)
-		# Discard from 'ids' those that are already loaded.
-		# If we didn't do that, some records could be repeated if the programmer
-		# doesn't verify that, and we'd end up in errors because when records are
-		# actually loaded they're only checked against a single appearance of the 
-		# id in the list of records.
-		#
-		# Note we don't use sets to discard ids, because we want to keep the order
-		# their order and because it can cause infinite recursion.
-		currentIds = self.ids()
-		for id in ids:
-			if id not in currentIds:
-				self.records.append( id )
-		end = len(self.records)-1
+		if addOnTop:
+			start = 0
+			# Discard from 'ids' those that are already loaded.
+			# If we didn't do that, some records could be repeated if the programmer
+			# doesn't verify that, and we'd end up in errors because when records are
+			# actually loaded they're only checked against a single appearance of the 
+			# id in the list of records.
+			#
+			# Note we don't use sets to discard ids, because we want to keep the order
+			# their order and because it can cause infinite recursion.
+			currentIds = self.ids()
+			for id in ids:
+				if id not in currentIds:
+					self.records.insert( 0, id )
+			end = len(ids)-1
+		else:
+			start = len(self.records)
+			# Discard from 'ids' those that are already loaded. Same as above.
+			currentIds = self.ids()
+			for id in ids:
+				if id not in currentIds:
+					self.records.append( id )
+			end = len(self.records)-1
 		# We consider the group is updated because otherwise calling count() would
 		# force an update() which would cause one2many relations to load elements
 		# when we only want to know how many are there.
