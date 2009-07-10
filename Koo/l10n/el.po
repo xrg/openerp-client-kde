@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-02 01:09+0300\n"
+"POT-Creation-Date: 2009-07-11 02:00+0300\n"
 "PO-Revision-Date: 2009-07-02 01:08+0300\n"
 "Last-Translator: P. Christeas <p_christ@hol.gr>\n"
 "Language-Team: Greek <nls@hellug.gr>\n"
@@ -16,23 +16,25 @@ msgstr ""
 "X-Generator: Lokalize 0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Koo/Screen/Action.py:69
+#: Koo/Screen/Action.py:81
 msgid "You must select a record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:74
+#: Koo/Screen/Action.py:87
 msgid "You must save this record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:105
+#: Koo/Screen/Action.py:126
 msgid "Print Screen"
 msgstr ""
 
-#: Koo/Search/CheckBoxSearchWidget.py:42 Koo/Dialogs/KooMainWindow.py:556
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42
+#: Koo/Dialogs/KooMainWindow.py:571
 msgid "Yes"
 msgstr "Ναι"
 
-#: Koo/Search/CheckBoxSearchWidget.py:43 Koo/Dialogs/KooMainWindow.py:556
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+#: Koo/Dialogs/KooMainWindow.py:571
 msgid "No"
 msgstr "Όχι"
 
@@ -40,140 +42,140 @@ msgstr "Όχι"
 msgid "Fields"
 msgstr "Πεδία"
 
-#: Koo/Dialogs/KooMainWindow.py:99 Koo/Dialogs/KooMainWindow.py:437
+#: Koo/Dialogs/KooMainWindow.py:104 Koo/Dialogs/KooMainWindow.py:448
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:109
+#: Koo/Dialogs/KooMainWindow.py:115
 msgid "Close tab"
 msgstr "Κλείσιμο καρτέλας"
 
-#: Koo/Dialogs/KooMainWindow.py:188
+#: Koo/Dialogs/KooMainWindow.py:194
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:193
+#: Koo/Dialogs/KooMainWindow.py:199
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:231
+#: Koo/Dialogs/KooMainWindow.py:237
 msgid "Products"
 msgstr "Προϊόντα"
 
-#: Koo/Dialogs/KooMainWindow.py:231
+#: Koo/Dialogs/KooMainWindow.py:237
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:347
+#: Koo/Dialogs/KooMainWindow.py:353
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:349
+#: Koo/Dialogs/KooMainWindow.py:355
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:351
+#: Koo/Dialogs/KooMainWindow.py:357
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:357
+#: Koo/Dialogs/KooMainWindow.py:363
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:357
+#: Koo/Dialogs/KooMainWindow.py:363
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:414 Koo/Dialogs/KooMainWindow.py:416
+#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:414
+#: Koo/Dialogs/KooMainWindow.py:425
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:416
+#: Koo/Dialogs/KooMainWindow.py:427
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:420
+#: Koo/Dialogs/KooMainWindow.py:431
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:436
+#: Koo/Dialogs/KooMainWindow.py:447
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:525
+#: Koo/Dialogs/KooMainWindow.py:540
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:525
+#: Koo/Dialogs/KooMainWindow.py:540
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:556
+#: Koo/Dialogs/KooMainWindow.py:571
 msgid "Quit"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:556
+#: Koo/Dialogs/KooMainWindow.py:571
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:678 Koo/Dialogs/KooMainWindow.py:699
+#: Koo/Dialogs/KooMainWindow.py:694 Koo/Dialogs/KooMainWindow.py:715
 msgid "Delete a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:687 Koo/Dialogs/KooMainWindow.py:693
+#: Koo/Dialogs/KooMainWindow.py:703 Koo/Dialogs/KooMainWindow.py:709
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:687
+#: Koo/Dialogs/KooMainWindow.py:703
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:691
+#: Koo/Dialogs/KooMainWindow.py:707
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:707 Koo/Dialogs/DatabaseCreationDialog.py:83
 msgid "Bad database administrator password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:693
+#: Koo/Dialogs/KooMainWindow.py:709
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:710
+#: Koo/Dialogs/KooMainWindow.py:726
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:714 Koo/Dialogs/KooMainWindow.py:716
+#: Koo/Dialogs/KooMainWindow.py:730 Koo/Dialogs/KooMainWindow.py:732
 msgid "Could not restore database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:714
+#: Koo/Dialogs/KooMainWindow.py:730
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:716
+#: Koo/Dialogs/KooMainWindow.py:732
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:719
+#: Koo/Dialogs/KooMainWindow.py:735
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:734
+#: Koo/Dialogs/KooMainWindow.py:750
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:737
+#: Koo/Dialogs/KooMainWindow.py:753
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -202,58 +204,58 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:302
+#: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:306
+#: Koo/Dialogs/FullTextSearchDialog.py:307
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:308
+#: Koo/Dialogs/FullTextSearchDialog.py:309
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:310
+#: Koo/Dialogs/FullTextSearchDialog.py:311
 msgid "Full Text Search"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:311
+#: Koo/Dialogs/FullTextSearchDialog.py:312
 #, python-format
 msgid "Full Text Search (%%d result(s))"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:392 Koo/Dialogs/FormWidget.py:243
+#: Koo/Dialogs/FullTextSearchDialog.py:393 Koo/Dialogs/FormWidget.py:252
 msgid "ID"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FullTextSearchDialog.py:394
 msgid "Model ID"
 msgstr "Κωδ. Μοντέλου"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:394
+#: Koo/Dialogs/FullTextSearchDialog.py:395
 msgid "Model Name"
 msgstr "Ονομασία Μοντέλου"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:396
+#: Koo/Dialogs/FullTextSearchDialog.py:397
 msgid "Type"
 msgstr "Τύπος"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:397
+#: Koo/Dialogs/FullTextSearchDialog.py:398
 msgid "Name"
 msgstr "Όνομα"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:398
+#: Koo/Dialogs/FullTextSearchDialog.py:399
 msgid "Text"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:399
+#: Koo/Dialogs/FullTextSearchDialog.py:400
 msgid "Ranking"
 msgstr ""
 
@@ -333,107 +335,107 @@ msgstr ""
 msgid "Exported fields"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:193
+#: Koo/Dialogs/FormWidget.py:202
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:237
+#: Koo/Dialogs/FormWidget.py:246
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:244
+#: Koo/Dialogs/FormWidget.py:253
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:245
+#: Koo/Dialogs/FormWidget.py:254
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:246
+#: Koo/Dialogs/FormWidget.py:255
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:247
+#: Koo/Dialogs/FormWidget.py:256
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:248
+#: Koo/Dialogs/FormWidget.py:257
 msgid "Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:249
+#: Koo/Dialogs/FormWidget.py:258
 msgid "Group Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:250
+#: Koo/Dialogs/FormWidget.py:259
 msgid "Access Level"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:259 Koo/Dialogs/FormWidget.py:424
+#: Koo/Dialogs/FormWidget.py:268 Koo/Dialogs/FormWidget.py:433
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 msgid "Question"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:259
+#: Koo/Dialogs/FormWidget.py:268
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:263
+#: Koo/Dialogs/FormWidget.py:272
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:265
+#: Koo/Dialogs/FormWidget.py:274
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:289
+#: Koo/Dialogs/FormWidget.py:298
 msgid "Working now on the duplicated document !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:307
 msgid "Document saved !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:302
+#: Koo/Dialogs/FormWidget.py:311
 msgid "Invalid form !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:376
+#: Koo/Dialogs/FormWidget.py:385
 msgid "No record selected!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:393
+#: Koo/Dialogs/FormWidget.py:402
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:404
+#: Koo/Dialogs/FormWidget.py:413
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:411
+#: Koo/Dialogs/FormWidget.py:420
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:415
+#: Koo/Dialogs/FormWidget.py:424
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:417
+#: Koo/Dialogs/FormWidget.py:426
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:418
+#: Koo/Dialogs/FormWidget.py:427
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:424
+#: Koo/Dialogs/FormWidget.py:433
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:442
+#: Koo/Dialogs/FormWidget.py:451
 msgid "No records selected"
 msgstr ""
 
@@ -505,19 +507,19 @@ msgstr ""
 msgid "Search: %s (%%d result(s))"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:61
+#: Koo/Dialogs/TreeWidget.py:62
 msgid "Tree"
 msgstr "Διάρθρωση"
 
-#: Koo/Dialogs/TreeWidget.py:258 Koo/Dialogs/TreeWidget.py:270
+#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
 msgid "No resource selected!"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:286
+#: Koo/Dialogs/TreeWidget.py:290
 msgid "No item selected"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:286
+#: Koo/Dialogs/TreeWidget.py:290
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
@@ -715,7 +717,7 @@ msgstr ""
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/koo.py:74
+#: Koo/koo.py:60
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with Koo."
@@ -793,31 +795,19 @@ msgstr ""
 msgid "Do not save"
 msgstr ""
 
-#: Koo/Common/Options.py:67
+#: Koo/Common/Options.py:66
 msgid "specify alternate config file"
 msgstr ""
 
-#: Koo/Common/Options.py:68
-msgid "enable basic debugging"
-msgstr ""
-
-#: Koo/Common/Options.py:69
-msgid "specify channels to log"
-msgstr ""
-
-#: Koo/Common/Options.py:70
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr ""
-
-#: Koo/Common/Options.py:71
+#: Koo/Common/Options.py:67
 msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr ""
 
-#: Koo/Common/Options.py:72
+#: Koo/Common/Options.py:68
 msgid "specify stylesheet to apply"
 msgstr ""
 
-#: Koo/Common/Options.py:73
+#: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
 msgstr ""
 
@@ -854,10 +844,6 @@ msgstr "Προβολή Φόρμας"
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
-msgstr ""
-
-#: Koo/View/Shower/__init__.py:31
-msgid "Diagram View"
 msgstr ""
 
 #: Koo/Rpc/Rpc.py:247 Koo/Rpc/Rpc.py:390
