@@ -43,7 +43,7 @@ class FormContainer( QWidget ):
 		self.column = 0
 		self.layout = QGridLayout( self )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
-		self.layout.setSpacing( 0 )
+		self.layout.setVerticalSpacing( 0 )
 		self.maxColumns = maxColumns
 		self.hasExpanding = False
 		self.isTab = False
