@@ -323,13 +323,6 @@ class KooModel(QAbstractItemModel):
 	def data(self, index, role=Qt.DisplayRole ):
 		if not self.group:
 			return QVariant()
-		# We need to ensure we're not being asked about a non existent row.
-		# This happens in some special cases (an editable tree in a one2many field,
-		# such as the case of fiscal year inside sequences).
-		# For some reason, in this case, QTreeView calls data() before calling 
-		# rowCount() and thus can query for non existent information.
-		if index.row() > self.rowCount()-1:
-			return QVariant()
 		if role == Qt.DisplayRole or role == Qt.EditRole:
 			value = self.value( index.row(), index.column(), index.internalPointer() )
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
@@ -381,6 +374,14 @@ class KooModel(QAbstractItemModel):
 				return QVariant()
 			field = self.fields[self.field( index.column() )]
 			model = self.record( index.row(), index.internalPointer() )
+			# We need to ensure we're not being asked about a non existent row.
+			# This happens in some special cases (an editable tree in a one2many field,
+			# such as the case of fiscal year inside sequences).
+			# Note that trying to avoid processing this function if index.row() > self.rowCount()-1 
+			# works to avoid this but has problems with some tree structures (such as the menu).
+			# So we need to make the check here.
+			if not model:
+				return QVariant()
 			# Priorize readonly to required as if it's readonly the 
 			# user doesn't mind if it's required as she won't be able
 			# to change it anyway.
