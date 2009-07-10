@@ -323,6 +323,13 @@ class KooModel(QAbstractItemModel):
 	def data(self, index, role=Qt.DisplayRole ):
 		if not self.group:
 			return QVariant()
+		# We need to ensure we're not being asked about a non existent row.
+		# This happens in some special cases (an editable tree in a one2many field,
+		# such as the case of fiscal year inside sequences).
+		# For some reason, in this case, QTreeView calls data() before calling 
+		# rowCount() and thus can query for non existent information.
+		if index.row() > self.rowCount()-1:
+			return QVariant()
 		if role == Qt.DisplayRole or role == Qt.EditRole:
 			value = self.value( index.row(), index.column(), index.internalPointer() )
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
