@@ -398,6 +398,14 @@ class KooModel(QAbstractItemModel):
 			if not self.colors:
 				return QVariant()
 			model = self.record( index.row(), index.internalPointer() )
+			# We need to ensure we're not being asked about a non existent row.
+			# This happens in some special cases (an editable tree in a one2many field,
+			# such as the case of fiscal year inside sequences).
+			# Note that trying to avoid processing this function if index.row() > self.rowCount()-1 
+			# works to avoid this but has problems with some tree structures (such as the menu).
+			# So we need to make the check here.
+			if not model:
+				return QVariant()
 			palette = QPalette()
 			color = palette.color( QPalette.WindowText )
 			for (c, expression) in self.colors:
