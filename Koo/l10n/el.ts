@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1" language="el_GR">
+<!DOCTYPE TS>
+<TS version="2.0" language="el_GR">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -57,8 +58,8 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;OpenERP is a product of Tiny sprl:&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tiny sprl&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;40 Chaussu&#xe9;e de Namur&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1367 G&#xe9;rompont&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;40 Chaussuée de Namur&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1367 Gérompont&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Belgium&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tel : (+32)81.81.37.00&lt;/p&gt;
@@ -182,7 +183,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_attach.ui" line="89"/>
         <source>Ctrl+D</source>
-        <translation>Ctrl D</translation>
+        <translation>Ctrl+D</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="98"/>
@@ -202,37 +203,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_attach.ui" line="113"/>
         <source>Alt+PgUp</source>
-        <translation type="unfinished">Alt</translation>
+        <translation>Alt+PgUp</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="122"/>
         <source>Switch</source>
-        <translation type="unfinished">Αλλαγή</translation>
+        <translation>Αλλαγή</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="125"/>
         <source>Ctrl+L</source>
-        <translation type="unfinished">Ctrl L</translation>
+        <translation>Ctrl+L</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished">Κλείσιμο</translation>
+        <translation>Κλείσιμο</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="137"/>
         <source>Esc</source>
-        <translation type="unfinished"></translation>
+        <translation>Esc</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="146"/>
         <source>Save</source>
-        <translation type="unfinished">Αποθήκευση</translation>
+        <translation>Αποθήκευση</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="149"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished">Ctrl+Θ</translation>
+        <translation>Ctrl+S</translation>
     </message>
 </context>
 <context>
@@ -240,17 +241,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="binary.ui" line="40"/>
         <source>Select file...</source>
-        <translation type="unfinished">Επιλογή αρχείο.</translation>
+        <translation>Επιλογή αρχείου...</translation>
     </message>
     <message>
         <location filename="binary.ui" line="53"/>
         <source>Save file...</source>
-        <translation type="unfinished">Αποθήκευση αρχείο.</translation>
+        <translation>Αποθήκευση αρχείου...</translation>
     </message>
     <message>
         <location filename="binary.ui" line="66"/>
         <source>Clear</source>
-        <translation type="unfinished">Καθαρισμός</translation>
+        <translation>Καθαρισμός</translation>
     </message>
 </context>
 <context>
@@ -913,12 +914,12 @@ p, li { white-space: pre-wrap; }
         <source>Intro</source>
         <translation type="unfinished">Εισαγωγή</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="keyboard.ui" line="225"/>
         <source>Ñ</source>
         <translation type="unfinished"></translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="keyboard.ui" line="631"/>
         <source>Ç</source>
         <translation type="unfinished"></translation>
@@ -952,7 +953,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="65"/>
         <source>TextLabel</source>
-        <translation type="unfinished">TextLabel</translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="96"/>
@@ -980,7 +981,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gotoid.ui" line="13"/>
         <source>Go To Id</source>
-        <translation type="unfinished">Πήγαινε Προς Id</translation>
+        <translation>Πήγαινε στο Id</translation>
     </message>
     <message>
         <location filename="gotoid.ui" line="21"/>
@@ -1028,7 +1029,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="109"/>
         <source>Auto-&amp;detect</source>
-        <translation type="unfinished">Αυτόματο</translation>
+        <translation>Αυτόματη ανί&amp;χνευση</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="130"/>
@@ -1038,7 +1039,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="153"/>
         <source>File to &amp;import:</source>
-        <translation>Αρχείο για εισαγωγή:</translation>
+        <translation>Αρχείο για ε&amp;ισαγωγή:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="178"/>
@@ -1053,7 +1054,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="195"/>
         <source>&amp;Text delimiter:</source>
-        <translation>Σήμανση Κειμένου:</translation>
+        <translation>Οριοθέ&amp;της Κειμένου:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="205"/>
@@ -1126,7 +1127,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="257"/>
         <source>F&amp;orm</source>
-        <translation>Φόρμα</translation>
+        <translation>Φ&amp;όρμα</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="282"/>
@@ -1136,7 +1137,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="286"/>
         <source>&amp;Databases</source>
-        <translation>Βάσεις δεδομένων</translation>
+        <translation>Βάσεις &amp;δεδομένων</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="304"/>
@@ -1323,17 +1324,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="620"/>
         <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+PgDown</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="629"/>
         <source>Previous Tab</source>
-        <translation type="unfinished">Προηγούμενη Καρτέλα</translation>
+        <translation>Προηγούμενη Καρτέλα</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="632"/>
         <source>Ctrl+PgUp</source>
-        <translation type="unfinished">Ctrl</translation>
+        <translation>Ctrl+PgUp</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="641"/>
@@ -1343,7 +1344,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="644"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished">Ctrl Δ</translation>
+        <translation>Ctrl+W</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="653"/>
@@ -1363,7 +1364,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="674"/>
         <source>F5</source>
-        <translation type="unfinished"></translation>
+        <translation>F5</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="683"/>
@@ -1373,7 +1374,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="692"/>
         <source>&amp;Import Data</source>
-        <translation>Εισαγωγή Δεδομένων</translation>
+        <translation>Ε&amp;ισαγωγή Δεδομένων</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="701"/>
@@ -1413,7 +1414,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="750"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished">Ctrl T</translation>
+        <translation>Ctrl+T</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="759"/>
@@ -1423,12 +1424,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="762"/>
         <source>Ctrl+J</source>
-        <translation type="unfinished">Ctrl</translation>
+        <translation>Ctrl+J</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="771"/>
         <source>&amp;Form designer</source>
-        <translation type="unfinished">Φόρμα</translation>
+        <translation>Σχεδιαστής &amp;Φόρμας</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="776"/>
@@ -1463,13 +1464,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="818"/>
         <source>Modify All Selected Records</source>
-        <translation type="unfinished">Τροποποίηση Όλα Επιλεγμένο Εγγραφές</translation>
+        <translation>Τροποποίηση Επιλεγμένων Εγγραφών</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="398"/>
         <source>Ctrl+O</source>
         <comment>Ctrl+O to Login</comment>
-        <translation type="unfinished">Ctrl+Α</translation>
+        <translation>Ctrl+O</translation>
     </message>
 </context>
 <context>
@@ -1884,7 +1885,7 @@ this operation may take a while...</source>
     <message>
         <location filename="richtext.ui" line="193"/>
         <source>Center</source>
-        <translation type="unfinished">Κεντρικό</translation>
+        <translation>Κεντράρισμα</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="222"/>
@@ -2040,37 +2041,37 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="23"/>
         <source>&amp;Main Shortcuts</source>
-        <translation type="unfinished">Κύριο Συντομεύσεις</translation>
+        <translation>Κύριες Συντομεύσεις</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="31"/>
         <source>&lt;Ctrl&gt; + O</source>
-        <translation type="unfinished">&lt;Ctrl&gt; O</translation>
+        <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="38"/>
         <source>Connect</source>
-        <translation type="unfinished">Σύνδεση</translation>
+        <translation>Σύνδεση</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="45"/>
         <source>&lt;Ctrl&gt; + N</source>
-        <translation type="unfinished">&lt;Ctrl&gt; Β</translation>
+        <translation>&lt;Ctrl&gt; + N</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="52"/>
         <source>New</source>
-        <translation type="unfinished">Νέο</translation>
+        <translation>Νέο</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="59"/>
         <source>&lt;Ctrl&gt; + S</source>
-        <translation type="unfinished">&lt;Ctrl&gt; Ν</translation>
+        <translation>&lt;Ctrl&gt; + S</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="66"/>
         <source>Save</source>
-        <translation type="unfinished">Αποθήκευση</translation>
+        <translation>Αποθήκευση</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="73"/>
