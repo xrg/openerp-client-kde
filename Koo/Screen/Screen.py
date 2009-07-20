@@ -223,6 +223,7 @@ class Screen(QScrollArea):
 		if self.containerView:
 			self.disconnect(self.containerView, SIGNAL("activated()"), self.activate )
 			self.disconnect(self.containerView, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
+			self.disconnect(self.containerView, SIGNAL("statusMessage(QString)"), self, SIGNAL("statusMessage(QString)") )
 			self.containerView.hide()
 
 		self.containerView = widget
@@ -233,6 +234,7 @@ class Screen(QScrollArea):
 		widget.show()
 		self.connect(widget, SIGNAL("activated()"), self.activate )
 		self.connect(widget, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
+		self.connect(widget, SIGNAL("statusMessage(QString)"), self, SIGNAL("statusMessage(QString)") )
 
 		# Set focus proxy so other widgets can try to setFocus to us
 		# and the focus is set to the expected widget.

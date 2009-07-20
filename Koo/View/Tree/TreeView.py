@@ -28,6 +28,7 @@
 ##############################################################################
 
 from Koo.Model import KooModel
+from Koo.Model.Group import RecordGroup
 from Koo.View.AbstractView import *
 from Koo.Fields.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
@@ -195,7 +196,15 @@ class TreeView( AbstractView ):
 		self.connect( self.treeModel, SIGNAL('rowsInserted(const QModelIndex &,int,int)'), self.updateAggregates )
 		self.connect( self.treeModel, SIGNAL('rowsRemoved(const QModelIndex &,int,int)'), self.updateAggregates )
 		self.connect( self.treeModel, SIGNAL('modelReset()'), self.updateAggregates )
+		self.connect( self.treeModel.recordGroup(), SIGNAL('sorting'), self.sorting )
 
+	def sorting(self, value):
+		if value == RecordGroup.SortingNotPossible:
+			self.emit( SIGNAL('statusMessage(QString)'), _("Sorting not possible.") )
+		elif value == RecordGroup.SortingOnlyGroups:
+			self.emit( SIGNAL('statusMessage(QString)'), _("Sorting only groups.") )
+		else:
+			self.emit( SIGNAL('statusMessage(QString)'), '' )
 
 	def addAggregate( self, name, label, bold, digits ):
 		aggLabel = QLabel( label + ':', self.aggregatesContainer )

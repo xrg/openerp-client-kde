@@ -99,6 +99,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )
 		self.connect( self.screen, SIGNAL('closed()'), self.closeWidget )
 		self.connect( self.screen, SIGNAL('recordMessage(int,int,int)'), self.updateRecordStatus )
+		self.connect( self.screen, SIGNAL('statusMessage(QString)'), self.updateStatus )
 
 		self._allowOpenInNewWindow = True
 

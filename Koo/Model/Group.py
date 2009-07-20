@@ -70,6 +70,10 @@ class RecordGroup(QObject):
 	SortVisibleItems = 1
 	SortAllItems = 2
 
+	SortingPossible = 0
+	SortingNotPossible = 1
+	SortingOnlyGroups = 2
+
 	## @brief Creates a new RecordGroup object.
 	# @param resource Name of the model to load. Such as 'res.partner'.
 	# @param fields Dictionary with the fields to load. This value typically comes from the server.
@@ -653,7 +657,13 @@ class RecordGroup(QObject):
 			type = self.fields[field]['type']
 			if type == 'one2many' or type == 'many2many':
 				# We're not able to sort 2many fields
+				self.emit( SIGNAL("sorting"), self.SortingNotPossible )
 				return
+			if type == 'many2one':
+				self.emit( SIGNAL("sorting"), self.SortingOnlyGroups )
+			else:
+				self.emit( SIGNAL("sorting"), self.SortingPossible )
+				
 
 			# A lot of the work done here should be done on the server by core OpenERP
 			# functions. This means this runs slower than it should due to network and
@@ -668,8 +678,9 @@ class RecordGroup(QObject):
 				# Use call to catch exceptions
 				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )
 			except:
+				self.emit( SIGNAL("sorting"), self.SortingNotPossible )
 				# In functional fields not stored in the database this will
-				# cause an exceptioin :(
+				# cause an exception :(
 				# Use default order
 				ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
 
