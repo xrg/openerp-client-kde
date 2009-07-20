@@ -45,13 +45,32 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		BinaryFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		# Versions prior to 5.0 used 'fname_widget' instead of 'filename'
-		# attribute.
-		if 'fname_widget' in self.attrs:
-			self.attrs['filename'] = self.attrs['fname_widget']
-		self.connect( self.pushNew, SIGNAL('clicked()'), self.slotNew )
-		self.connect( self.pushRemove, SIGNAL('clicked()'),self.slotRemove )
-		self.connect( self.pushSave, SIGNAL('clicked()'),self.slotSave )
+		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
+		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
+		self.connect( self.pushSave, SIGNAL('clicked()'),self.save )
+
+		self.actionSave = QAction(self)
+		self.actionSave.setText( _('&Save') )
+		self.actionSave.setIcon( QIcon( ':/images/save.png' ) )
+		self.actionOpen = QAction(self)
+		self.actionOpen.setText( _('&Open') )
+		self.actionOpen.setIcon( QIcon( ':/images/open.png' ) )
+		self.actionShowImage = QAction(self)
+		self.actionShowImage.setText( _('Show &image'), )
+		self.actionShowImage.setIcon( QIcon( ':/images/convert.png' ) )
+
+
+		self.menu = QMenu( self )
+		self.menu.addAction( self.actionSave )
+		self.menu.addAction( self.actionOpen )
+		self.menu.addAction( self.actionShowImage )
+		self.pushSave.setMenu( self.menu )
+		self.pushSave.setDefaultAction( self.actionSave )
+
+		self.connect( self.actionSave, SIGNAL('triggered()'), self.save )
+		self.connect( self.actionOpen, SIGNAL('triggered()'), self.open )
+		self.connect( self.actionShowImage, SIGNAL('triggered()'), self.showImage )
+		self.connect( self.menu, SIGNAL('aboutToShow()'), self.updateShowImageAction )
 
 		self.installPopupMenu( self.uiBinary )
 		
@@ -59,22 +78,39 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.uiBinary.setEnabled( not value )
 		self.pushNew.setEnabled( not value )
 		self.pushRemove.setEnabled( not value )
+		self.updateActions()
+
+	def updateShowImageAction(self):
+		pix = QPixmap()
+		if self.record and pix.loadFromData( self.record.value(self.name) ):
+			self.actionShowImage.setEnabled( True )
+		else:
+			self.actionShowImage.setEnabled( False )
+		
+	def updateActions(self):
+		if self.record and self.record.value(self.name):
+			enable = True
+		else:
+			enable = False
+		self.actionSave.setEnabled( enable )
+		self.actionOpen.setEnabled( enable )
+		self.actionShowImage.setEnabled( enable )
 
 	def menuEntries(self):
-		pix = QPixmap()
 		if self.record.value(self.name):
 			enableApplication = True
 		else:
 			enableApplication = False
 
+		pix = QPixmap()
 		if pix.loadFromData( self.record.value(self.name) ):
 			enableImage = True
 		else:
 			enableImage = False
-		return [ (_('Open...'), self.openApplication, enableApplication), 
+		return [ (_('Open...'), self.open, enableApplication), 
 			 (_('Show &image...'), self.showImage, enableImage) ]
 
-	def openApplication(self):
+	def open(self):
 		if not self.record.value(self.name):
 			return
 
@@ -107,7 +143,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		layout.addWidget( label )
 		dialog.exec_()
 
-	def slotNew(self):
+	def new(self):
 		try:
 			filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'))
 			if filename.isNull():
@@ -126,8 +162,9 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 					self.view.widgets[w].load(self.record)
 		except:
 			QMessageBox.information(self, '', _('Error reading the file'))
+		self.updateActions()
 
-	def slotSave(self):
+	def save(self):
 		filename = QFileDialog.getSaveFileName( self, _('Save as...') )
 		if not filename:
 			return
@@ -140,7 +177,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			return
 		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
 
-	def slotRemove(self):
+	def remove(self):
 		self.record.setValue( self.name, False )
 		self.clear()
 		self.modified()
@@ -156,12 +193,14 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			self.uiBinary.setText( _('%d bytes') % size ) 
 		else:
 			self.clear()
+		self.updateActions()
 
 	def clear(self):
 		self.uiBinary.clear()
+		self.updateActions()
 
 	# This widget is a bit special. We don't set the value
-	# here. We do it in the slotNew, so we don't have two copies
+	# here. We do it in the new(), so we don't have two copies
 	# of the file (which can be pretty big) in memory.
 	def store(self):
 		pass
