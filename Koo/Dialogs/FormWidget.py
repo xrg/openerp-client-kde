@@ -84,6 +84,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self._viewActionGroup.setExclusive( True )
 		for view in self.viewTypes:
 			action = ViewFactory.viewAction( view, self )
+			if not action:
+				continue
 			self.connect( action, SIGNAL('triggered()'), self.switchView )
 			self._switchViewMenu.addAction( action )
 			self._viewActionGroup.addAction( action )

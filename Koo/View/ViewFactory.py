@@ -42,13 +42,14 @@ class ViewFactory:
 	@staticmethod
 	def viewAction(name, parent):
 		ViewFactory.scan()
+		if not name in ViewFactory.views:
+			return None
 		action = QAction( parent )
-		if name in ViewFactory.views:
-			view = ViewFactory.views[name]
-			action.setObjectName( name )
-			action.setText( view['label'] )
-			action.setIcon( QIcon( view['icon'] ) )
-			action.setCheckable( True )
+		view = ViewFactory.views[name]
+		action.setObjectName( name )
+		action.setText( view['label'] )
+		action.setIcon( QIcon( view['icon'] ) )
+		action.setCheckable( True )
 		return action
 
 	@staticmethod
