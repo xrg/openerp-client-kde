@@ -37,8 +37,9 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		AbstractFieldWidget.__init__(self, parent, view, attrs)
 
 		self.widget =  QComboBox( self )
-		self.widget.setEditable( False )
-		self.widget.setInsertPolicy( QComboBox.InsertAtTop )
+		self.widget.setFrame( True )
+		self.widget.setEditable( True )
+		self.widget.setInsertPolicy( QComboBox.NoInsert )
 
 		# As there's no sense in this widget to handle focus
 		# we set QComboBox as the proxy widget. Without this
@@ -53,6 +54,12 @@ class SelectionFieldWidget(AbstractFieldWidget):
 
 		self.connect( self.widget, SIGNAL('activated(int)'), self.callModified )
 		self.fill(attrs.get('selection',[]))
+
+	def eventFilter( self, target, event ):
+		if event.type() == QEvent.FocusOut:
+			self.widget.completer().complete()
+			self.widget.setCurrentIndex( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
+		return AbstractFieldWidget.eventFilter(self, target, event)
 
 	def fill(self, selection):
 		for (id,name) in selection:
