@@ -33,8 +33,8 @@ from Koo.Common import Common
 from Koo import Rpc
 
 from Koo.Screen import Screen
+from Koo.Screen.ScreenDialog import ScreenDialog
 from Koo.Model.Group import RecordGroup
-
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -50,7 +50,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 
 		self.setModal( True )
 
-		self.result=None
+		self.result = None
 		self.context = context
 		self.context.update(Rpc.session.context)
 		self.allowMultipleSelection = sel_multi
@@ -62,13 +62,13 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.screen.setViewTypes( ['tree'] )
 
 		self.view = self.screen.currentView()
-		self.view.setAllowMultipleSelection( sel_multi )
+		self.view.setAllowMultipleSelection( self.allowMultipleSelection )
 		self.view.setReadOnly( True )
 		self.connect( self.view, SIGNAL('activated()'), self.accepted )
 
-		self.model_name = model
+		self.model = model
 
-		view_form = Rpc.session.execute('/object', 'execute', self.model_name, 'fields_view_get', False, 'form', self.context)
+		view_form = Rpc.session.execute('/object', 'execute', self.model, 'fields_view_get', False, 'form', self.context)
 		self.form.setup( view_form['arch'], view_form['fields'], model )
 		self.form.hideButtons()
 		self.connect( self.form, SIGNAL('keyDownPressed()'), self.setFocusToList )
@@ -91,6 +91,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 
 		self.form.setFocus()
 
+		self.connect( self.pushNew, SIGNAL( "clicked()"), self.new )
 		self.connect( self.pushAccept, SIGNAL( "clicked()"), self.accepted )
 		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
@@ -114,5 +115,17 @@ class SearchDialog( QDialog, SearchDialogUi ):
 	def accepted( self ):
 		self.result = self.screen.selectedIds() or self.ids
 		self.accept()
+
+	def new(self):
+		self.hide()
+		dialog = ScreenDialog( self )
+		dialog.setContext( self.context )
+		dialog.setDomain( self.modelGroup.domain() )
+		dialog.setup( self.model )
+		if dialog.exec_() == QDialog.Accepted:
+			self.result = [dialog.recordId]
+			self.accept()
+		else:
+			self.reject()
 
 # vim:noexpandtab:

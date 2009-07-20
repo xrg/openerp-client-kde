@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>SearchWidget</class>
- <widget class="QWidget" name="SearchWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="SearchWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,44 +10,50 @@
     <height>516</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Search</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
+  <layout class="QVBoxLayout">
+   <property name="spacing">
     <number>6</number>
    </property>
-   <property name="margin" >
+   <property name="margin">
     <number>9</number>
    </property>
    <item>
-    <widget class="SearchFormWidget" native="1" name="form" >
-     <property name="focusPolicy" >
+    <widget class="SearchFormWidget" name="form" native="true">
+     <property name="focusPolicy">
       <enum>Qt::TabFocus</enum>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="Screen" native="1" name="screen" >
-     <property name="focusPolicy" >
+    <widget class="Screen" name="screen" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="focusPolicy">
       <enum>Qt::TabFocus</enum>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -55,45 +62,56 @@
       </spacer>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <widget class="QPushButton" name="pushNew">
+       <property name="text">
+        <string>&amp;New</string>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="margin" >
+       <property name="margin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushFind" >
-         <property name="text" >
+        <widget class="QPushButton" name="pushFind">
+         <property name="text">
           <string>&amp;Find</string>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/find.png</normaloff>:/images/find.png</iconset>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushAccept" >
-         <property name="text" >
+        <widget class="QPushButton" name="pushAccept">
+         <property name="text">
           <string>&amp;Accept</string>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushCancel" >
-         <property name="text" >
+        <widget class="QPushButton" name="pushCancel">
+         <property name="text">
           <string>&amp;Cancel</string>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
          </property>
-         <property name="shortcut" >
+         <property name="shortcut">
           <string>Esc</string>
          </property>
         </widget>
@@ -119,7 +137,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections/>
 </ui>

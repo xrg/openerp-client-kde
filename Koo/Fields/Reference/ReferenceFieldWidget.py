@@ -36,7 +36,7 @@ from Koo.Common import Shortcuts
 from Koo.Dialogs.SearchDialog import SearchDialog
 
 from Koo.Fields.AbstractFieldWidget import *
-from Koo.Fields.ManyToOne import ScreenDialog
+from Koo.Screen.ScreenDialog import ScreenDialog
 
 from Koo import Rpc
 from Koo.Rpc import RpcProxy

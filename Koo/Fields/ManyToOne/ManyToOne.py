@@ -33,6 +33,7 @@ from Koo.Common import Common
 from Koo.Common import Shortcuts
 
 from Koo.Screen.Screen import Screen
+from Koo.Screen.ScreenDialog import ScreenDialog
 from Koo.Model.Group import RecordGroup
 
 from Koo.Dialogs.SearchDialog import SearchDialog
@@ -44,60 +45,6 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-(ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
-
-class ScreenDialog( QDialog, ScreenDialogUi ):
-	def __init__(self, parent):
-		QWidget.__init__( self, parent )
-		ScreenDialogUi.__init__( self )
-		self.setupUi( self )
-
-		self.setMinimumWidth( 800 )
-		self.setMinimumHeight( 600 )
-
-		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
-		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
-		self.record = None
-		self.screen = None
-		self._context = {}
-		self._domain = []
-
-	def setup(self, model, id=None):
-		if self.screen:
-			return
-		self.group = RecordGroup( model, context=self._context )
-		self.group.setDomain( self._domain )
-		self.screen = Screen(self)
-		self.screen.setRecordGroup( self.group )
-		self.screen.setViewTypes( ['form'] )
-		if id:
-			self.screen.load([id])
-		else:
-			self.screen.new()
-		self.screen.display()
-		self.layout().insertWidget( 0, self.screen  )
-		self.screen.show()
-		
-	def setAttributes(self, attrs):
-		if ('string' in attrs) and attrs['string']:
-			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
-
-	def setContext(self, context):
-		self._context = context
-
-	def setDomain(self, domain):
-		self._domain = domain
-
-	def accepted( self ):
-		self.screen.currentView().store()
-
-		if self.screen.currentRecord().validate():
-			self.accept()
-			self.screen.save()
-			self.record = self.screen.currentRecord().name()
-			self.close()
-		else:
-			self.reject()
 
 (ManyToOneFieldWidgetUi, ManyToOneFieldWidgetBase ) = loadUiType( Common.uiPath('many2one.ui') ) 
 
