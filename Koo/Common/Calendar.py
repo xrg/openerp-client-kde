@@ -55,6 +55,8 @@ def dateTimeToText( dateTime ):
 
 ## @brief Converts a float (type floatTime) into a Python string
 def floatTimeToText( value ):
+	# Ensure the value is a float. This way we also accept strings here.
+	value = float( value )
 	t = '%02d:%02d' % (math.floor(abs(value)),round(abs(value)%1+0.01,2) * 60)
 	if value<0:
 		t = '-'+t
@@ -62,6 +64,8 @@ def floatTimeToText( value ):
 
 ## @brief Converts a float (type floatTime) into a QTime
 def floatTimeToTime( value ):
+	# Ensure the value is a float. This way we also accept strings here.
+	value = float( value )
 	if value < 0:
 		return QTime( 0, 0 )
 	return QTime( math.floor(abs(value)), round(abs(value)%1+0.01,2) * 60 )
