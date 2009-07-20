@@ -240,6 +240,7 @@ class Screen(QScrollArea):
 
 		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
+		self.updateGeometry()
 
 	def activate( self ):
 		self.emit( SIGNAL('activated()') )
@@ -493,7 +494,7 @@ class Screen(QScrollArea):
 	def new(self, default=True):
 		if self.currentView() and self.currentView().showsMultipleRecords() \
 				and self.currentView().isReadOnly():
-			self.switchView()
+			self.switchView( 'form' )
 
 		record = self.group.create( default, self.newRecordPosition(), self.group.domain(), self.context )
 
