@@ -649,6 +649,8 @@ class RecordGroup(QObject):
 		if self.isModified():
 			return
 
+		sortingResult = self.SortingPossible
+
 		if not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
@@ -657,42 +659,50 @@ class RecordGroup(QObject):
 			type = self.fields[field]['type']
 			if type == 'one2many' or type == 'many2many':
 				# We're not able to sort 2many fields
-				self.emit( SIGNAL("sorting"), self.SortingNotPossible )
-				return
-			if type == 'many2one':
-				self.emit( SIGNAL("sorting"), self.SortingOnlyGroups )
-			else:
-				self.emit( SIGNAL("sorting"), self.SortingPossible )
-				
+				sortingResult = self.SortingNotPossible
+			elif type == 'many2one':
+				sortingResult = self.SortingOnlyGroups
 
-			# A lot of the work done here should be done on the server by core OpenERP
-			# functions. This means this runs slower than it should due to network and
-			# serialization latency. Even more, we lack some information to make it 
-			# work well.
-			orderby = field + " "
-			if order == Qt.AscendingOrder:
-				orderby += "ASC"
-			else:
-				orderby += "DESC"
-			try:
-				# Use call to catch exceptions
-				ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )
-			except:
-				self.emit( SIGNAL("sorting"), self.SortingNotPossible )
-				# In functional fields not stored in the database this will
-				# cause an exception :(
-				# Use default order
-				ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
+			if sortingResult != self.SortingNotPossible:
+				# A lot of the work done here should be done on the server by core OpenERP
+				# functions. This means this runs slower than it should due to network and
+				# serialization latency. Even more, we lack some information to make it 
+				# work well.
+				orderby = field + " "
+				if order == Qt.AscendingOrder:
+					orderby += "ASC"
+				else:
+					orderby += "DESC"
+				try:
+					# Use call to catch exceptions
+					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )
+				except:
+					# In functional fields not stored in the database this will
+					# cause an exception :(
+					sortingResult = self.SortingNotPossible
+					#ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
 
-		# We set this fields in the end in case some exceptions where fired 
-		# in previous steps.
-		self.sortedField = field
-		self.sortedOrder = order
+		if sortingResult == self.SortingNotPossible:
+			# If sorting is not possible we ensure the "to be sorted" field
+			# is not the one we're trying now.
+			self.toBeSortedField = self.sortedField
+			self.toBeSortedOrder = self.sortedOrder
+		else:
+			# We set this fields in the end in case some exceptions where fired 
+			# in previous steps.
+			self.sortedField = field
+			self.sortedOrder = order
 		self.updated = True
 
 		self.clear()
 		# The load function will be in charge of loading and sorting elements
 		self.load( ids )
+
+		# Send the signal at the very end because we don't want GUI applications to
+		# retry loading which could cause an infinite recursion. We need to exit
+		# this function with sortedField, toBeSortedField and updated flags properly
+		# set.
+		self.emit( SIGNAL("sorting"), sortingResult )
 
 	# Sorts the records of the group taking into account only loaded fields.
 	def sortVisible(self, field, order):
