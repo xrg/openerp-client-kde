@@ -39,7 +39,7 @@ from Koo.Model.Group import RecordGroup
 (ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
 
 class ScreenDialog( QDialog, ScreenDialogUi ):
-	def __init__(self, modelGroup, parent, model=None, attrs={}):
+	def __init__(self, modelGroup, parent, record=None, attrs={}):
 		QDialog.__init__( self, parent )
 		ScreenDialogUi.__init__( self )
 		self.setupUi( self )
@@ -51,9 +51,12 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.screen = Screen( self )
 		self.screen.setRecordGroup( modelGroup )
 		self.screen.setEmbedded( True )
-		if not model:
-			model = self.screen.new()
-		self.screen.setCurrentRecord( model )
+		if not record:
+			self._recordAdded = True
+			record = self.screen.new()
+		else:
+			self._recordAdded = False
+		self.screen.setCurrentRecord( record )
 		if ('views' in attrs) and ('form' in attrs['views']):
 			arch = attrs['views']['form']['arch']
 			fields = attrs['views']['form']['fields']
@@ -65,7 +68,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.layout().insertWidget( 0, self.screen )
 
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
-		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
+		self.connect( self.pushCancel, SIGNAL("clicked()"), self.rejected )
 		
 		# Make screen as big as needed but ensuring it's not bigger than
 		# the available space on screen (minus some pixels so they can be
@@ -76,6 +79,11 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.screen.setMinimumSize( size.boundedTo( available ) )
 
 		self.show()
+
+	def rejected( self ):
+		if self._recordAdded:
+			self.screen.remove()
+		self.reject()
 
 	def accepted( self ):
 		self.screen.currentView().store()
@@ -115,7 +123,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.installPopupMenu( self.uiTitle )
 
 	def sizeHint( self ):
-		return QSize( 200,800 )
+		return self.screen.sizeHint()
 	
 	def switchView(self):
 		self.screen.switchView()
@@ -125,7 +133,17 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
  		self.pushNew.setEnabled( not value )
  		self.pushEdit.setEnabled( not value )
  		self.pushRemove.setEnabled( not value )
-	
+		self.updateButtons()
+
+	def updateButtons(self):
+		if not self.screen.group:
+			value = False
+		else:
+			value = True
+		self.pushBack.setEnabled( value )
+		self.pushForward.setEnabled( value )
+		self.pushSwitchView.setEnabled( value )
+
 	def colorWidget(self):
 		return self.screen
 
@@ -142,7 +160,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 				self.screen.display()
 
 	def edit(self):
-		dialog = ScreenDialog( self.screen.group, parent=self, model=self.screen.currentRecord(), attrs=self.attrs)
+		dialog = ScreenDialog( self.screen.group, parent=self, record=self.screen.currentRecord(), attrs=self.attrs)
 		dialog.exec_()
 		self.screen.display()
 
@@ -177,6 +195,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			if group.count():
 				self.screen.setCurrentRecord( group.modelByIndex(0) )
 		self.screen.display()
+		self.updateButtons()
 
 	def store(self):
 		self.screen.currentView().store()
