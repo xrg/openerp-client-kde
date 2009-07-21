@@ -348,28 +348,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateStatus()
 		QApplication.restoreOverrideCursor()
 
-	def executeAction(self, keyword='client_action_multi', previous=False, report_type='pdf'):
-		ids = self.screen.allIds()
-		if self.screen.currentRecord():
-			id = self.screen.currentRecord().id
-		else:
-			id = False
-		if not self.screen.currentView().showsMultipleRecords():
-			id = self.screen.save()
-			if not id:
-				return False
-			ids = [id]
-		if len(ids):
-			if previous and self.previousAction:
-				Api.instance.executeAction(self.previousAction[1], {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
-			else:
-				res = Api.instance.executeKeyword(keyword, {'model':self.screen.resource, 'id': id or False, 'ids':ids, 'report_type': report_type})
-				if res:
-					self.previousAction = res
-			self.reload()
-		else:
-			self.updateStatus(_('No record selected!'))
-
 	def search(self):
 		if not self.modifiedSave():
 			return
