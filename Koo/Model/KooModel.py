@@ -573,7 +573,9 @@ class KooModel(QAbstractItemModel):
 	# Plain virtual functions from QAbstractItemModel
 
 	def sort(self, column, order):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.group.sort( self.field( column ), order )
+		QApplication.restoreOverrideCursor()
 
 	def headerData(self, section, orientation, role):
 		if orientation == Qt.Vertical:
