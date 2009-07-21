@@ -692,11 +692,11 @@ class RecordGroup(QObject):
 			# in previous steps.
 			self.sortedField = field
 			self.sortedOrder = order
-		self.updated = True
 
-		self.clear()
-		# The load function will be in charge of loading and sorting elements
-		self.load( ids )
+			self.clear()
+			# The load function will be in charge of loading and sorting elements
+			self.load( ids )
+		self.updated = True
 
 		# Send the signal at the very end because we don't want GUI applications to
 		# retry loading which could cause an infinite recursion. We need to exit
