@@ -37,7 +37,6 @@ from Koo.Printer import *
 
 from Koo.Common import Api
 from Koo.Common import Common
-from Koo.Common import Notifier
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
@@ -208,7 +207,6 @@ def executeKeyword(keyword, data={}, context={}):
 			return None
 
 	if not actions:
-		Notifier.notifyWarning( _('No actions defined'), _('There are no actions defined for this item.') )
 		return None
 
 	keyact = {}
