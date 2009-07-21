@@ -649,6 +649,12 @@ class RecordGroup(QObject):
 		if self.isModified():
 			return
 
+		# We set this fields in the very beggining in case some signals are cought
+		# and retry to sort again which would cause an infinite recursion.
+		self.sortedField = field
+		self.sortedOrder = order
+		self.updated = True
+
 		sortingResult = self.SortingPossible
 
 		if not field in self.fields.keys():
@@ -682,26 +688,11 @@ class RecordGroup(QObject):
 					sortingResult = self.SortingNotPossible
 					#ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
 
-		if sortingResult == self.SortingNotPossible:
-			# If sorting is not possible we ensure the "to be sorted" field
-			# is not the one we're trying now.
-			self.toBeSortedField = self.sortedField
-			self.toBeSortedOrder = self.sortedOrder
-		else:
-			# We set this fields in the end in case some exceptions where fired 
-			# in previous steps.
-			self.sortedField = field
-			self.sortedOrder = order
-
+		if sortingResult != self.SortingNotPossible:
 			self.clear()
 			# The load function will be in charge of loading and sorting elements
 			self.load( ids )
-		self.updated = True
 
-		# Send the signal at the very end because we don't want GUI applications to
-		# retry loading which could cause an infinite recursion. We need to exit
-		# this function with sortedField, toBeSortedField and updated flags properly
-		# set.
 		self.emit( SIGNAL("sorting"), sortingResult )
 
 	# Sorts the records of the group taking into account only loaded fields.
