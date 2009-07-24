@@ -588,7 +588,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
 				self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
 		else:
-			dialog = QDialog( self )	
+			parent = QApplication.activeModalWidget()
+			if not parent:
+				parent = self
+			dialog = QDialog( parent )
 			layout = QHBoxLayout(dialog)
 			layout.setContentsMargins( 0, 0, 0, 0 )
 			layout.addWidget( win )
