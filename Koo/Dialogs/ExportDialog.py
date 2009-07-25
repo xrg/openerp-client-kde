@@ -45,7 +45,7 @@ from ImportExportCommon import *
 
 def exportHtml(fname, fields, result, write_title=False):
 	try:
-		f = file(fname, 'wb+')
+		f = codecs.open( fname, 'wb+', 'utf8' )
 		f.write( '<html>' )
 		f.write( '<head><title>' + _('OpenERP exported information') + '</title></head>' )
 		f.write( '<table>' )
@@ -117,6 +117,32 @@ def openExcel(fields, fieldsType, result):
 	except:
 		QMessageBox.warning(None, '', _('Error opening Excel !'))
 
+# Code by Dukai Gabor posted in openobject-client bugs:
+# https://bugs.launchpad.net/openobject-client/+bug/399278 
+def openOpenOffice(fields, fieldsType, result):
+	try:
+		import time
+		from Common.OpenOffice import OpenOffice
+
+		OpenOffice.start()
+
+		for i in range(30):
+			ooo = OpenOffice()
+			if ooo and ooo.desktop:
+				break
+			time.sleep(1)
+		doc = ooo.desktop.loadComponentFromURL("private:factory/scalc",'_blank',0,())
+		sheet = doc.CurrentController.ActiveSheet
+		for col in xrange(len(fields)):
+			cell = sheet.getCellByPosition(col, 0)
+			cell.String = fields[col]
+
+		result = tuple( [tuple(x) for x in result] )
+		cellrange = sheet.getCellRangeByPosition(0, 1, len(fields) - 1, len(result))
+		cellrange.setDataArray(result)
+	except:
+		QMessageBox.warning(None, '', _('Error Opening OpenOffice.org!'))
+
 def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
 	return data
@@ -124,6 +150,8 @@ def exportData(ids, model, fields, prefix=''):
 (ExportDialogUi, ExportDialogBase) = loadUiType( Common.uiPath('win_export.ui') )
 
 class ExportDialog( QDialog, ExportDialogUi ):
+	exports = {}
+
 	def __init__(self, model, ids, fields, preload =[], parent=None):
 		QDialog.__init__(self, parent)
 		ExportDialogUi.__init__(self)
@@ -140,11 +168,8 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		self.connect( self.pushRemoveExport, SIGNAL('clicked()'), self.slotRemoveExport )
 		self.connect( self.uiPredefined, SIGNAL('activated(const QModelIndex&)'), self.loadCurrentStored )
 
-		if os.name == 'nt':
-			self.uiFormat.addItem( _("Open with Excel"), QVariant('excel') )
-
-		self.uiFormat.addItem( _("Save as CSV"), QVariant('csv') )
-		self.uiFormat.addItem( _("Save as HTML"), QVariant('html') )
+		for key, export in ExportDialog.exports.iteritems():
+			self.uiFormat.addItem( export['label'], QVariant( key ) )	
 
 		self.fieldsInfo = {}
 		self.allModel = FieldsModel()
@@ -163,6 +188,18 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		self.uiPredefined.hideColumn(0)
 		self.uiPredefined.hideColumn(1)
 
+	@staticmethod
+	def registerExport(key, label, requiresFileName, function):
+		ExportDialog.exports[ key ] = {
+			'label': label,
+			'requiresFileName': requiresFileName,
+			'function': function
+		}
+
+	@staticmethod
+	def unregisterExport(key):
+		del ExportDialog.exports[ key ]
+
 	def slotRemoveExport(self):
 		idx = self.uiPredefined.selectionModel().selectedRows(1)
 		if len(idx) != 1:
@@ -172,7 +209,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		ir_export = Rpc.RpcProxy('ir.exports')
 		ir_export.unlink([id])
 		self.storedModel.load( self.model, self.fieldsInfo )
-		
+
 	def loadCurrentStored(self):
 		idx = self.uiPredefined.selectionModel().selectedRows(0)
 		if len(idx) != 1:
@@ -195,17 +232,14 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			fields.append( unicode( self.selectedModel.item( x ).data().toString() ) )
 			fieldTitles.append( unicode( self.selectedModel.item( x ).text() ) )
 		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
-		result = exportData(self.ids, self.model, fields)
-		if action == 'excel':
-			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
-			openExcel(fieldTitles, fieldsType, result)
+		result = exportData(self.ids, self.model, fields)['datas']
+		export = ExportDialog.exports[action]
+		if export['requiresFileName']:
+			fileName = QFileDialog.getSaveFileName( self, _('Export Data') )
+			export['function'](fileName, fieldTitles, result, self.uiAddFieldNames.isChecked() )
 		else:
-			fname = QFileDialog.getSaveFileName( self, _('Export Data') )
-			if not fname.isNull():
-				if action == 'csv':
-					exportCsv(fname, fieldTitles, result, self.uiAddFieldNames.isChecked() )
-				else:
-					exportHtml(fname, fieldTitles, result, self.uiAddFieldNames.isChecked() )
+			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
+			export['function'](fieldTitles, fieldsType, result)
 
 	def slotAdd(self):
 		idx = self.uiAllFields.selectionModel().selectedRows()
@@ -254,6 +288,12 @@ class ExportDialog( QDialog, ExportDialogUi ):
 
 		ir_export.create({'name' : unicode(name), 'resource' : self.model, 'export_fields' : [(0, 0, {'name' : f}) for f in fields]})
 		self.storedModel.load( self.model, self.fieldsInfo )
+
+if os.name == 'nt':
+	ExportDialog.registerExport('excel', _('Open with Excel'), False, openExcel)
+ExportDialog.registerExport('openoffice', _('Open with OpenOffice.org'), False, openOpenOffice)
+ExportDialog.registerExport('csv', _('Save as CSV'), True, exportCsv)
+ExportDialog.registerExport('html', _('Save as HTML'), True, exportHtml)
 
 # This model holds the information of the predefined exports
 # For each item we store the fields list (with the internal name), the name of the export and
