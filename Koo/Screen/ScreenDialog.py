@@ -46,10 +46,11 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.setMinimumHeight( 600 )
 
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
-		self.connect( self.pushCancel, SIGNAL("clicked()"), self.reject )
+		self.connect( self.pushCancel, SIGNAL("clicked()"), self.rejected )
 		self.record = None
 		self.recordId = None
 		self.screen = None
+		self._recordAdded = False
 		self._context = {}
 		self._domain = []
 
@@ -62,13 +63,15 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.screen.setRecordGroup( self.group )
 		self.screen.setViewTypes( ['form'] )
 		if id:
+			self._recordAdded = False 
 			self.screen.load([id])
 		else:
+			self._recordAdded = True
 			self.screen.new()
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen  )
 		self.screen.show()
-		
+
 	def setAttributes(self, attrs):
 		if ('string' in attrs) and attrs['string']:
 			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
@@ -78,6 +81,11 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 	def setDomain(self, domain):
 		self._domain = domain
+
+	def rejected( self ):
+		if self._recordAdded:
+			self.screen.remove()
+		self.reject()
 
 	def accepted( self ):
 		self.screen.currentView().store()
