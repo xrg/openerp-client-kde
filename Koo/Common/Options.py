@@ -127,13 +127,17 @@ class ConfigurationManager(object):
 			Debug.warning( 'Unable to read config file %s !' % self.rcfile )
 		return True
 
+	## @brief Sets the value for the given key.
 	def __setitem__(self, key, value):
 		self.options[key]=value
 
+	## @brief Returns the value for the given key.
 	def __getitem__(self, key):
 		return self.options[key]
 
-	def get(self, key, defaultValue):
+	## @brief Returns the value associated with the given key. If the key has no valu
+	# returns defaultValue
+	def get(self, key, defaultValue=None):
 		return self.options.get(key, defaultValue)
 
 	## @brief Tries to load settings from koo server module.
