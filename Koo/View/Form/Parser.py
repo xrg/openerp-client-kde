@@ -73,7 +73,6 @@ class FormParser(AbstractParser):
 			self.view.title = attrs.get('string', 'Unknown')
 
 		for node in root_node.childNodes:
-			print "NODE: <%s>" % node.localName
 			if not node.nodeType==node.ELEMENT_NODE:
 				continue
 			attrs = Common.nodeAttributes(node)

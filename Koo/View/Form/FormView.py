@@ -126,7 +126,6 @@ class FormContainer( QWidget ):
 	def expand(self):
 		if self.hasExpanding:
 			return
-		#print "Adding Expanding Spacer"
 		# TODO: If we really find that it's no longer necessary due to the Top Alignment we should
 		# remove this expand functionality and calls.
 		#self.layout.addItem( QSpacerItem( 0, 1, QSizePolicy.Fixed, QSizePolicy.Expanding ), self.row+1, 0 )
