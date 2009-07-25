@@ -44,6 +44,7 @@ class FormContainer( QWidget ):
 		self.layout = QGridLayout( self )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
 		self.layout.setVerticalSpacing( 0 )
+		self.layout.setAlignment( Qt.AlignTop )
 		self.maxColumns = maxColumns
 		self.hasExpanding = False
 		self.isTab = False
@@ -125,7 +126,10 @@ class FormContainer( QWidget ):
 	def expand(self):
 		if self.hasExpanding:
 			return
-		self.layout.addItem( QSpacerItem( 0, 1, QSizePolicy.Fixed, QSizePolicy.Expanding ), self.row+1, 0 )
+		#print "Adding Expanding Spacer"
+		# TODO: If we really find that it's no longer necessary due to the Top Alignment we should
+		# remove this expand functionality and calls.
+		#self.layout.addItem( QSpacerItem( 0, 1, QSizePolicy.Fixed, QSizePolicy.Expanding ), self.row+1, 0 )
 
 ## @brief The FormView class is an AbstractView capable of showing one in an read-write form.
 class FormView( AbstractView ):
@@ -138,6 +142,7 @@ class FormView( AbstractView ):
 
 		self.layout = QHBoxLayout( self )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
+		self.layout.setAlignment( Qt.AlignTop )
 
 		# The parser will include all the widgets here with {name: widget} structure
 		self.widgets = {}

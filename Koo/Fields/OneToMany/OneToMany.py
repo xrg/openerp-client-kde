@@ -122,9 +122,6 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.uiTitle.setText( self.screen.currentView().title )
 		self.installPopupMenu( self.uiTitle )
 
-	def sizeHint( self ):
-		return self.screen.sizeHint()
-	
 	def switchView(self):
 		self.screen.switchView()
 

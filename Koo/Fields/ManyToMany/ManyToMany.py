@@ -78,9 +78,6 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 			return
 		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree')	
 	
-	def sizeHint( self ):
-		return QSize( 200,800 )
-
 	def add(self):
 		# As the 'add' button modifies the model we need to be sure all other fields/widgets
 		# have been stored in the model. Otherwise the recordChanged() triggered 

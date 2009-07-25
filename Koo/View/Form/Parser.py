@@ -73,6 +73,7 @@ class FormParser(AbstractParser):
 			self.view.title = attrs.get('string', 'Unknown')
 
 		for node in root_node.childNodes:
+			print "NODE: <%s>" % node.localName
 			if not node.nodeType==node.ELEMENT_NODE:
 				continue
 			attrs = Common.nodeAttributes(node)
@@ -95,6 +96,7 @@ class FormParser(AbstractParser):
 				line.setFrameShape( QFrame.HLine )
 				line.setFrameShadow( QFrame.Plain )
 				layout = QVBoxLayout( separator )
+				layout.setAlignment( Qt.AlignTop )
 				layout.setContentsMargins( 0, 0, 0, 0 )
 				layout.setSpacing( 0 )
 				layout.addWidget( label )
@@ -132,6 +134,7 @@ class FormParser(AbstractParser):
 				if not self.isWidgetVisible( attrs ):
 					continue
 				tab = QTabWidget( container )
+				tab.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 				if attrs and 'tabpos' in attrs:
 					pos = { 
 						'up': QTabWidget.North,
@@ -166,6 +169,7 @@ class FormParser(AbstractParser):
 				# Mark the container as the main widget in a Tab. This way
 				# we can enable/disable the whole tab easily.
 				widget.isTab = True
+				widget.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
 
 				widget.expand()
@@ -238,6 +242,7 @@ class FormParser(AbstractParser):
 					group = QGroupBox( notebook )
 					group.setTitle( attrs['string'] )
 					layout = QHBoxLayout( group )
+					layout.setAlignment( Qt.AlignTop )
 					layout.setContentsMargins( 0, 0, 0, 0 )
 					layout.setSpacing( 0 )
 					layout.addWidget( widget )
