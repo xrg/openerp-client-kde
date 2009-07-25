@@ -8,12 +8,8 @@
 			<field name="inherit_id" ref="base.view_attachment_form"/>
 			<field name="arch" type="xml">
 				<field name="description" position="after">
-					<!-- 
-					Don't use the separator because doesn't work and
-					TinyERP puts it in the end :(
-					-->
-					<field name="metainfo" nolabel="1" colspan="4" readonly="1"/>
 					<separator string="Extracted data" colspan="4"/>
+					<field name="metainfo" nolabel="1" colspan="4" readonly="1"/>
 				</field>
 			</field>
 		</record>
