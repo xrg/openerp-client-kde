@@ -244,6 +244,10 @@ class ToManyField(StringField):
 
 	def set(self, record, value, test_state=False, modified=False):
 		from Koo.Model.Group import RecordGroup
+		# We can't add the context here as it might cause an infinite loop in some cases where
+		# a field of the parent appears in the context, and the parent is just being loaded.
+		# This has crashed when switching view of the 'account.invoice.line' one2many field
+		# in 'account.invoice' view.
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record)
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
