@@ -277,9 +277,14 @@ class RecordGroup(QObject):
 
 	## @brief Clears the list of records. It doesn't remove them.
 	def clear(self):
-		self.emit( SIGNAL('recordsRemoved(int,int)'), 0, len(self.records)-1 )
+		for record in self.records:
+			if isinstance(record, Record):
+				self.disconnect( record, SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+				self.disconnect( record, SIGNAL('recordModified( PyQt_PyObject )'), self.recordModified )
+		last = len(self.records)-1
 		self.records = []
 		self.removedRecords = []
+		self.emit( SIGNAL('recordsRemoved(int,int)'), 0, last )
 	
 	## @brief Returns a copy of the current context
 	def context(self):
@@ -314,8 +319,6 @@ class RecordGroup(QObject):
 		self.ensureUpdated()
 
 		record = Record(None, self, parent=self.parent, new=True)
-		self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'),self.recordChanged)
-		self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 		if default:
 			ctx=context.copy()
 			ctx.update( self.context() )
@@ -353,9 +356,9 @@ class RecordGroup(QObject):
 		if isinstance( record, Record ):
 			if record.parent:
 				record.parent.modified = True
+		self.freeRecord( record )
 		self.emit( SIGNAL('modified()') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx )
-		self.records.remove( record )
 
 	## @brief Adds the specified fields to the record group
 	#
@@ -740,12 +743,21 @@ class RecordGroup(QObject):
 		for record in self.records[:]:
 			if isinstance( record, Record ):
 				if not record.id:
-					self.records.remove( record )
+					self.freeRecord( record )
 				elif record.isModified():
 					record.cancel()
 			else:
 				if not record:
-					self.records.remove( record )
+					self.freeRecord( record )
+
+	## @brief Removes a record from the list (but not the record from the database).
+	#
+	# This function is used to take care signals are disconnected.
+	def freeRecord(self, record):
+		self.records.remove( record )
+		if isinstance(record, Record):
+			self.disconnect( record, SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+			self.disconnect( record, SIGNAL('recordModified( PyQt_PyObject )'), self.recordModified )
 
 	## @brief Returns True if any of the records in the group has been modified.
 	def isModified(self):
