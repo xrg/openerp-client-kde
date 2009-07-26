@@ -253,6 +253,7 @@ class Screen(QScrollArea):
 	## @brief Searches with the current parameters of the search form and loads the
 	# models that fit the criteria.
 	def search( self ):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		value = self.searchForm.value()
 		self.group.setFilter( value )
 		self.group.update()
@@ -261,6 +262,7 @@ class Screen(QScrollArea):
 		else:
 			self.setCurrentRecord( None )
 		self.display()
+		QApplication.restoreOverrideCursor()
 
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):
