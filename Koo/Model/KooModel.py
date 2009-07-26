@@ -419,7 +419,7 @@ class KooModel(QAbstractItemModel):
 			return QVariant( QBrush( QColor( color ) ) )
 		elif role == Qt.TextAlignmentRole:
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
-			if fieldType in ['integer', 'float']:
+			if fieldType in ['integer', 'float', 'time', 'date', 'datetime']:
 				return QVariant( Qt.AlignRight | Qt.AlignVCenter )
 			else:
 				return QVariant( Qt.AlignLeft | Qt.AlignVCenter )
