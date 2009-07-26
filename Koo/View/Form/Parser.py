@@ -133,7 +133,6 @@ class FormParser(AbstractParser):
 				if not self.isWidgetVisible( attrs ):
 					continue
 				tab = QTabWidget( container )
-				tab.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 				if attrs and 'tabpos' in attrs:
 					pos = { 
 						'up': QTabWidget.North,
@@ -168,7 +167,6 @@ class FormParser(AbstractParser):
 				# Mark the container as the main widget in a Tab. This way
 				# we can enable/disable the whole tab easily.
 				widget.isTab = True
-				widget.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
 
 				widget.expand()
