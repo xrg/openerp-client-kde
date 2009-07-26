@@ -279,7 +279,11 @@ class KooModel(QAbstractItemModel):
 
 		if role != Qt.EditRole:
 			return True
+		if not index.isValid():
+			return True
 		model = self.record( index.row(), index.internalPointer() )
+		if not model:
+			return True
 		field = self.field( index.column() )
 		fieldType = self.fieldType( index.column(), index.internalPointer() )
 
