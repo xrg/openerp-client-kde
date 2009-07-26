@@ -57,22 +57,14 @@ class DateSearchWidget(AbstractSearchWidget, DateSearchWidgetUi):
 	def slotEnd(self):
 		PopupCalendarWidget( self.uiEnd )
 
-	# converts from locale specific format to our internal format
-	def _getDate(self, text):
-		date = textToDate(text)
-		if date.isValid():
-			return str( date.toString( 'yyyy-MM-dd' ) )
-		else:
-			return False
-
 	def value(self):
 		res = []
-		val = self._getDate( str( self.uiStart.text() ) )
+		val = dateToStorage( textToDate( self.uiStart.text() ) )
  		if val:
 			res.append((self.name, '>=', val ))
 		else:
 			self.uiStart.clear()
-		val = self._getDate( str( self.uiEnd.text()) )
+		val = dateToStorage( textToDate( self.uiEnd.text() ) )
 	 	if val:
 			res.append((self.name, '<=', val ))
 		else:
