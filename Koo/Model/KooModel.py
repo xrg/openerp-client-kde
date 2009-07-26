@@ -285,7 +285,7 @@ class KooModel(QAbstractItemModel):
 
 		if fieldType == 'boolean':
 			model.setValue( field, value.toBool() )
-		elif fieldType == 'float':
+		elif fieldType in ('float', 'float_time'):
 			model.setValue( field, value.toDouble()[0] )
 		elif fieldType == 'integer':
 			model.setValue( field, value.toInt()[0] )
@@ -302,8 +302,6 @@ class KooModel(QAbstractItemModel):
 		elif fieldType == 'datetime' and value:
 			model.setValue( field, Calendar.dateTimeToStorage( value.toDateTime() ) )
 		elif fieldType == 'time' and value:
-			model.setValue( field, Calendar.timeToStorage( value.toTime() ) )
-		elif fieldType == 'float_time' and value:
 			model.setValue( field, Calendar.timeToStorage( value.toTime() ) )
 		elif fieldType == 'many2many':
 			m = model.value( field )

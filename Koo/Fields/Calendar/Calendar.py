@@ -240,7 +240,5 @@ class DateTimeFieldDelegate( AbstractFieldDelegate ):
 
 class FloatTimeFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):
-		value = textToFloatTime( editor.text() )
-		value = floatTimeToTime( value )
+		value = textToFloatTime( unicode(editor.text()) )
 		model.setData( index, QVariant( value ), Qt.EditRole )
-
