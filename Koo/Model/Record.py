@@ -37,6 +37,8 @@ import gettext
 
 from PyQt4.QtCore import *
 
+ConcurrencyCheckField = '__last_update'
+
 class EvalEnvironment(object):
 	def __init__(self, parent):
 		self.parent = parent
@@ -236,7 +238,7 @@ class Record(QObject):
 			value = self.get(get_readonly=False, get_modifiedonly=True)
 			context= self.context()
 			context= context.copy()
-			context['read_delta']= time.time()-self.read_time
+			context[ConcurrencyCheckField]= time.time()-self.read_time
 			if not self.rpc.write([self.id], value, context):
 				return False
 		self._loaded = False

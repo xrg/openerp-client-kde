@@ -33,6 +33,8 @@ import socket
 import tiny_socket
 from Cache import *
 
+ConcurrencyCheckField = '__last_update'
+
 class RpcException(Exception):
 	def __init__(self, code, backtrace):
 
@@ -410,8 +412,8 @@ class Session:
 			if a.type in ('warning','UserError'):
 				if a.message in ('ConcurrencyException') and len(args) > 4:
 					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
-						if 'read_delta' in args[4]:
-							del args[4]['read_delta']
+						if ConcurrencyCheckField in args[4]:
+							del args[4][ConcurrencyCheckField]
 						return self.execute(obj, method, *args)
 				else:
 					Notifier.notifyWarning(a.message, a.data )
@@ -424,8 +426,8 @@ class Session:
 			if a.type in ('warning','UserError'):
 				if a.message in ('ConcurrencyException') and len(args) > 4:
 					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
-						if 'read_delta' in args[4]:
-							del args[4]['read_delta']
+						if ConcurrencyCheckField in args[4]:
+							del args[4][ConcurrencyCheckField]
 						return self.execute(obj, method, *args)
 				else:
 					Notifier.notifyWarning(a.message, a.data )
@@ -444,8 +446,8 @@ class Session:
 					if a.type in ('warning','UserError'):
 						if a.message in ('ConcurrencyException') and len(args) > 4:
 							if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
-								if 'read_delta' in args[4]:
-									del args[4]['read_delta']
+								if ConcurrencyCheckField in args[4]:
+									del args[4][ConcurrencyCheckField]
 								return self.execute(obj, method, *args)
 						else:
 							Notifier.notifyWarning(a.message, a.data )
