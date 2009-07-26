@@ -51,10 +51,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 
 	def calculate(self):
 		val = textToFloat( str(self.widget.text() ) )
-		if val:
-			self.widget.setText( floatToText( val, self.digits) )
-		else:
-			self.clear()
+		self.widget.setText( floatToText( val, self.digits) )
 		self.modified()
 
 	def value(self):
@@ -64,7 +61,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.record.setValue( self.name, self.value() )
 
 	def clear(self):
-		self.widget.setText('')
+		self.widget.setText( floatToText(0, self.digits) )
 		
 	def showValue(self):
 		if self.record.value(self.name):

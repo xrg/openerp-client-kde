@@ -44,10 +44,7 @@ class IntegerFieldWidget(AbstractFieldWidget):
 
 	def calculate(self):
 		val = textToInteger( unicode(self.widget.text() ) )
-		if val:
-			self.widget.setText( str(val) )
-		else:
-			self.widget.setText('')
+		self.widget.setText( integerToText(val) )
 		self.modified()
 
 	def value(self):

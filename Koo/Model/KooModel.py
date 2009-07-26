@@ -344,6 +344,8 @@ class KooModel(QAbstractItemModel):
 				# of decimal digits given by the server.
 				field = self.fields[self.field( index.column() )]
 				return QVariant( Numeric.floatToText(value, field.get('digits',None) ) )	
+			elif fieldType == 'integer':
+				return QVariant( Numeric.integerToText(value) )	
 			elif fieldType == 'float_time':
 				return QVariant( Calendar.floatTimeToText(value) )
 			elif fieldType == 'binary':

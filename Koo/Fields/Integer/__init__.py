@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-from IntegerFieldWidget import *
+from Integer import *
 from Koo.Fields.FieldWidgetFactory import *
 from Koo.Fields.FieldDelegateFactory import *
 

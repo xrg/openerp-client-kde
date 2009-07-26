@@ -74,6 +74,14 @@ def floatToText(number, digits=None):
 		d='2'
 	return ('%.' + d + 'f') % number
 
+## @brief This function converts an integer into text. 
+def integerToText(number):
+	if isinstance(number, float):
+		number = int(number)
+	if not isinstance(number, int):
+		number = 0
+	return '%d' % number
+
 ## @brief This function returns True if the given value can be converted into
 # a float number. Otherwise it returns False.
 def isNumeric(value):
