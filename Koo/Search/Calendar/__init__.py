@@ -27,9 +27,10 @@
 
 from DateSearchWidget import *
 from TimeSearchWidget import *
+from DateTimeSearchWidget import *
 from Koo.Search.SearchWidgetFactory import *
 
 SearchWidgetFactory.register( 'date', DateSearchWidget )
-SearchWidgetFactory.register( 'datetime', DateSearchWidget )
 SearchWidgetFactory.register( 'time', TimeSearchWidget )
+SearchWidgetFactory.register( 'datetime', DateTimeSearchWidget )
 
