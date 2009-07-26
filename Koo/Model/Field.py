@@ -244,7 +244,7 @@ class ToManyField(StringField):
 
 	def set(self, record, value, test_state=False, modified=False):
 		from Koo.Model.Group import RecordGroup
-		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, False))
+		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record)
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.load(value)
