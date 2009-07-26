@@ -37,7 +37,8 @@ import gettext
 
 from PyQt4.QtCore import *
 
-ConcurrencyCheckField = '__last_update'
+#ConcurrencyCheckField = '__last_update'
+ConcurrencyCheckField = 'read_delta'
 
 class EvalEnvironment(object):
 	def __init__(self, parent):
