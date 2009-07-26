@@ -695,6 +695,13 @@ class RecordGroup(QObject):
 			self.clear()
 			# The load function will be in charge of loading and sorting elements
 			self.load( ids )
+		elif not self.ids():
+			# If sorting is not possible, but no data was loaded yet, we load by model default field and order.
+			# Otherwise, a view might not load any data.
+			ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
+			self.clear()
+			# The load function will be in charge of loading and sorting elements
+			self.load( ids )
 
 		self.emit( SIGNAL("sorting"), sortingResult )
 
