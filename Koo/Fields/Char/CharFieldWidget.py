@@ -39,12 +39,8 @@ class CharFieldWidget(AbstractFieldWidget):
 		AbstractFieldWidget.__init__(self, parent, view, attrs)
 
 		self.widget = QLineEdit( self )
-		#self.widget.setMaxLength( int( attrs.get( 'size', 16 ) ) )
-		# In order to work properly with editable lists we don't set 
-		# a default maximum length
 		if 'size' in attrs:
 			self.widget.setMaxLength( int( attrs['size'] ) )
-		self.installPopupMenu( self.widget )
 		if 'password' in attrs:
 			self.widget.setEchoMode( QLineEdit.Password )
 
@@ -52,6 +48,7 @@ class CharFieldWidget(AbstractFieldWidget):
 		# we set QLineEdit as the proxy widget. Without this
 		# editable lists don't work properly.
 		self.setFocusProxy( self.widget )
+		self.installPopupMenu( self.widget )
 
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
