@@ -64,17 +64,32 @@ class Connection:
 		self.password = None
 		self.url = url
 
-	def convert(self, result): 
+	def stringToUnicode(self, result): 
 		if isinstance(result, str):
 			return unicode( result, 'utf-8' )
 		elif isinstance(result, list):
-			return map(self.convert, result)
+			return map(self.stringToUnicode, result)
 		elif isinstance(result, tuple):
-			return map(self.convert, result)
+			return map(self.stringToUnicode, result)
 		elif isinstance(result, dict):
 			newres = {}
 			for i in result.keys():
-				newres[i] = self.convert(result[i])
+				newres[i] = self.stringToUnicode(result[i])
+			return newres
+		else:
+			return result
+
+	def unicodeToString(self, result): 
+		if isinstance(result, unicode):
+			return result.encode( 'utf-8' )
+		elif isinstance(result, list):
+			return map(self.unicodeToString, result)
+		elif isinstance(result, tuple):
+			return map(self.unicodeToString, result)
+		elif isinstance(result, dict):
+			newres = {}
+			for i in result.keys():
+				newres[i] = self.unicodeToString(result[i])
 			return newres
 		else:
 			return result
@@ -104,11 +119,12 @@ class PyroConnection(Connection):
 		self.proxy = Pyro.core.getProxyForURI( self.url )
 
 	def singleCall(self, obj, method, *args):
+		encodedArgs = self.unicodeToString( args )
 		if self.authorized:
-			result = self.proxy.dispatch( obj[1:], method, self.databaseName, self.uid, self.password, *args )
+			result = self.proxy.dispatch( obj[1:], method, self.databaseName, self.uid, self.password, *encodedArgs )
 		else:
-			result = self.proxy.dispatch( obj[1:], method, *args )
-		return self.convert( result )
+			result = self.proxy.dispatch( obj[1:], method, *encodedArgs )
+		return self.stringToUnicode( result )
 
 	def call(self, obj, method, *args):
 		try:
@@ -135,13 +151,14 @@ class SocketConnection(Connection):
 		s.connect( self.url )
 		# Remove leading slash (ie. '/object' -> 'object')
 		obj = obj[1:]
+		encodedArgs = self.unicodeToString( args )
 		if self.authorized:
-			s.mysend((obj, method, self.databaseName, self.uid, self.password)+args)
+			s.mysend( (obj, method, self.databaseName, self.uid, self.password) + encodedArgs )
 		else:
-			s.mysend((obj, method)+args)
+			s.mysend( (obj, method) + encodedArgs )
 		result = s.myreceive()
 		s.disconnect()
-		return self.convert( result )
+		return self.stringToUnicode( result )
 
 ## @brief The XmlRpcConnection class implements Connection class for XML-RPC.
 #
