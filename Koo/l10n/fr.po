@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-06 18:48+0200\n"
+"POT-Creation-Date: 2009-07-27 17:11+0200\n"
 "PO-Revision-Date: 2008-08-14 14:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: fr <kde-i18n-doc@lists.kde.org>\n"
@@ -17,40 +17,31 @@ msgstr ""
 "X-Generator: KAider 0.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: Koo/Actions/Actions.py:59 Koo/Actions/Actions.py:83
-#: Koo/Actions/Actions.py:116
+#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
+#: Koo/Actions/Actions.py:115
 #, fuzzy, python-format
 msgid "Error: %s"
 msgstr "Erreur:"
 
-#: Koo/Actions/Actions.py:63
+#: Koo/Actions/Actions.py:62
 #, fuzzy
 msgid "Nothing to print."
 msgstr "Rien à imprimer !"
 
-#: Koo/Actions/Actions.py:79
+#: Koo/Actions/Actions.py:78
 #, fuzzy
 msgid "Printing aborted. Delay too long."
 msgstr "Impression interrompue, durée trop longue !"
 
-#: Koo/Actions/Actions.py:95
+#: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
 msgstr "Rien à imprimer !"
 
-#: Koo/Actions/Actions.py:112
+#: Koo/Actions/Actions.py:111
 msgid "Printing aborted, too long delay !"
 msgstr "Impression interrompue, durée trop longue !"
 
-#: Koo/Actions/Actions.py:211
-#, fuzzy
-msgid "No actions defined"
-msgstr "Pas d'action définie!"
-
-#: Koo/Actions/Actions.py:211
-msgid "There are no actions defined for this item."
-msgstr ""
-
-#: Koo/Actions/Actions.py:218
+#: Koo/Actions/Actions.py:216
 msgid "Select your action"
 msgstr "Sélectionnez votre action"
 
@@ -77,33 +68,21 @@ msgstr ""
 msgid "Do not save"
 msgstr "Document sauvé"
 
-#: Koo/Common/Options.py:69
+#: Koo/Common/Options.py:66
 msgid "specify alternate config file"
 msgstr "spécifier un fichier de configuration"
 
-#: Koo/Common/Options.py:70
-msgid "enable basic debugging"
-msgstr "activer le debogage de base"
-
-#: Koo/Common/Options.py:71
-msgid "specify channels to log"
-msgstr "spécifier un canal à logger"
-
-#: Koo/Common/Options.py:72
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr "spécifier le niveau de log: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#: Koo/Common/Options.py:73
+#: Koo/Common/Options.py:67
 #, fuzzy
 msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "spécifier l'adresse serveur (nom/IP)"
 
-#: Koo/Common/Options.py:74
+#: Koo/Common/Options.py:68
 #, fuzzy
 msgid "specify stylesheet to apply"
 msgstr "spécifier un canal à logger"
 
-#: Koo/Common/Options.py:75
+#: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
 msgstr ""
 
@@ -200,120 +179,116 @@ msgstr ""
 "Le mot de passe administrateur n'a pas pu être changé. Merci de vérifier que "
 "le serveur et le mot de passe soient correct."
 
-#: Koo/Dialogs/FormWidget.py:202
+#: Koo/Dialogs/FormWidget.py:205
 msgid "No resource selected !"
 msgstr "Pas de ressource sélectionnée"
 
-#: Koo/Dialogs/FormWidget.py:229
+#: Koo/Dialogs/FormWidget.py:232
 msgid "You have to select one resource!"
 msgstr "Vous devez sélectionner une ressource"
 
-#: Koo/Dialogs/FormWidget.py:235 Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:236
+#: Koo/Dialogs/FormWidget.py:239
 msgid "Creation User"
 msgstr "Créateur"
 
-#: Koo/Dialogs/FormWidget.py:237
+#: Koo/Dialogs/FormWidget.py:240
 msgid "Creation Date"
 msgstr "Date de création"
 
-#: Koo/Dialogs/FormWidget.py:238
+#: Koo/Dialogs/FormWidget.py:241
 msgid "Latest Modification by"
 msgstr "Modifié en dernier par"
 
-#: Koo/Dialogs/FormWidget.py:239
+#: Koo/Dialogs/FormWidget.py:242
 msgid "Latest Modification Date"
 msgstr "Date de la dernière modification"
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:243
 msgid "Owner"
 msgstr "Propriétaire"
 
-#: Koo/Dialogs/FormWidget.py:241
+#: Koo/Dialogs/FormWidget.py:244
 msgid "Group Owner"
 msgstr "Groupe propriétaire"
 
-#: Koo/Dialogs/FormWidget.py:242
+#: Koo/Dialogs/FormWidget.py:245
 msgid "Access Level"
 msgstr "Niveau d'accès"
 
-#: Koo/Dialogs/FormWidget.py:251 Koo/Dialogs/FormWidget.py:416
+#: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 #, fuzzy
 msgid "Question"
 msgstr "version"
 
-#: Koo/Dialogs/FormWidget.py:251
+#: Koo/Dialogs/FormWidget.py:254
 #, fuzzy
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 "Etes-vous certain de vouloir\n"
 "supprimer cet enregistrement ?"
 
-#: Koo/Dialogs/FormWidget.py:255
+#: Koo/Dialogs/FormWidget.py:258
 msgid "Resource not removed !"
 msgstr "Ressource non supprimée"
 
-#: Koo/Dialogs/FormWidget.py:257
+#: Koo/Dialogs/FormWidget.py:260
 msgid "Resource removed."
 msgstr "Ressource supprimée"
 
-#: Koo/Dialogs/FormWidget.py:281
+#: Koo/Dialogs/FormWidget.py:284
 msgid "Working now on the duplicated document !"
 msgstr "Vous travaillez maintenant sur le document dupliqué"
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:293
 msgid "Document saved !"
 msgstr "Document sauvé"
 
-#: Koo/Dialogs/FormWidget.py:294
+#: Koo/Dialogs/FormWidget.py:297
 msgid "Invalid form !"
 msgstr "Formulaire invalide"
 
-#: Koo/Dialogs/FormWidget.py:368
-msgid "No record selected!"
-msgstr "Pas d'enregistrement sélectionné!"
-
-#: Koo/Dialogs/FormWidget.py:385
+#: Koo/Dialogs/FormWidget.py:366
 #, fuzzy, python-format
 msgid "(%s attachments) "
 msgstr "Attachement"
 
-#: Koo/Dialogs/FormWidget.py:396
+#: Koo/Dialogs/FormWidget.py:377
 #, fuzzy
 msgid "No records"
 msgstr "Suivant"
 
-#: Koo/Dialogs/FormWidget.py:403
+#: Koo/Dialogs/FormWidget.py:384
 #, fuzzy
 msgid "No document selected"
 msgstr "Pas de ressource sélectionnée!"
 
-#: Koo/Dialogs/FormWidget.py:407
+#: Koo/Dialogs/FormWidget.py:388
 msgid "New document"
 msgstr "Nouveau document"
 
-#: Koo/Dialogs/FormWidget.py:409
+#: Koo/Dialogs/FormWidget.py:390
 #, fuzzy, python-format
 msgid "Editing document (id: %s)"
 msgstr "Document en cours d'édition: "
 
-#: Koo/Dialogs/FormWidget.py:410
+#: Koo/Dialogs/FormWidget.py:391
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Enregistrement: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:416
+#: Koo/Dialogs/FormWidget.py:397
 #, fuzzy
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 "Cet enregistrement a été modifié\n"
 "voulez-vous le sauver ?"
 
-#: Koo/Dialogs/FormWidget.py:434
+#: Koo/Dialogs/FormWidget.py:415
 #, fuzzy
 msgid "No records selected"
 msgstr "Pas d'enregistrement sélectionné!"
@@ -429,81 +404,81 @@ msgstr "Oui"
 msgid "No"
 msgstr "Non"
 
-#: Koo/Dialogs/KooMainWindow.py:687 Koo/Dialogs/KooMainWindow.py:708
+#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
 msgid "Delete a database"
 msgstr "Supprimer une base de données"
 
-#: Koo/Dialogs/KooMainWindow.py:696 Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/KooMainWindow.py:706
 #, fuzzy
 msgid "Database removal"
 msgstr "Creation de la base de données"
 
-#: Koo/Dialogs/KooMainWindow.py:696
+#: Koo/Dialogs/KooMainWindow.py:700
 #, fuzzy
 msgid "Database dropped successfully!"
 msgstr "La base de données a été supprimée avec succès !"
 
-#: Koo/Dialogs/KooMainWindow.py:700
+#: Koo/Dialogs/KooMainWindow.py:704
 msgid "Could not drop database."
 msgstr "Impossible de supprimer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
 msgid "Bad database administrator password !"
 msgstr "Le mot de passe administrateur est incorrect !"
 
-#: Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:706
 msgid "Couldn't drop database"
 msgstr "Impossible de supprimer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:719
+#: Koo/Dialogs/KooMainWindow.py:723
 #, fuzzy
 msgid "Database restored successfully!"
 msgstr "La base de données a été restaurée avec succès !"
 
-#: Koo/Dialogs/KooMainWindow.py:723 Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:727 Koo/Dialogs/KooMainWindow.py:729
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Impossible de restaurer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:723
+#: Koo/Dialogs/KooMainWindow.py:727
 #, fuzzy
 msgid "Bad database administrator password!"
 msgstr "Le mot de passe administrateur est incorrect !"
 
-#: Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:729
 msgid "There was an error restoring the database!"
 msgstr "Il y a eu des erreurs lors de la restauration de la base de données !"
 
-#: Koo/Dialogs/KooMainWindow.py:728
+#: Koo/Dialogs/KooMainWindow.py:732
 msgid "Backup a database"
 msgstr "Sauvegarder une base de données"
 
-#: Koo/Dialogs/KooMainWindow.py:743
+#: Koo/Dialogs/KooMainWindow.py:747
 #, fuzzy
 msgid "Database backuped successfully!"
 msgstr "La base de données a été sauvegardée avec succès !"
 
-#: Koo/Dialogs/KooMainWindow.py:746
+#: Koo/Dialogs/KooMainWindow.py:750
 #, fuzzy, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr "Impossible de sauvegarder la base de données."
 
-#: Koo/Dialogs/TreeWidget.py:61
+#: Koo/Dialogs/TreeWidget.py:62
 msgid "Tree"
 msgstr "Arbre"
 
-#: Koo/Dialogs/TreeWidget.py:263 Koo/Dialogs/TreeWidget.py:275
+#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
 msgid "No resource selected!"
 msgstr "Pas de ressource sélectionnée!"
 
-#: Koo/Dialogs/TreeWidget.py:292
+#: Koo/Dialogs/TreeWidget.py:290
 #, fuzzy
 msgid "No item selected"
 msgstr "Pas d'enregistrement sélectionné!"
 
-#: Koo/Dialogs/TreeWidget.py:292
+#: Koo/Dialogs/TreeWidget.py:290
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 "Merci de sélectionner un élément dans la vue arbre afin de l'ajouter dans "
@@ -670,36 +645,48 @@ msgstr "Erreur dans l'ouverture de Excel !"
 
 #: Koo/Dialogs/ExportDialog.py:144
 #, fuzzy
+msgid "Error Opening OpenOffice.org!"
+msgstr "Erreur dans l'ouverture de Excel !"
+
+#: Koo/Dialogs/ExportDialog.py:238
+msgid "Export Data"
+msgstr "Exporter données"
+
+#: Koo/Dialogs/ExportDialog.py:281
+msgid "What is the name of this export?"
+msgstr "Quel est le nom pour cette exportation ?"
+
+#: Koo/Dialogs/ExportDialog.py:293
+#, fuzzy
 msgid "Open with Excel"
 msgstr ""
 "Ouvrir dans Excel\n"
 "Enregistrer sous .CSV"
 
-#: Koo/Dialogs/ExportDialog.py:146
+#: Koo/Dialogs/ExportDialog.py:294
+#, fuzzy
+msgid "Open with OpenOffice.org"
+msgstr ""
+"Ouvrir dans Excel\n"
+"Enregistrer sous .CSV"
+
+#: Koo/Dialogs/ExportDialog.py:295
 #, fuzzy
 msgid "Save as CSV"
 msgstr ""
 "Ouvrir dans Excel\n"
 "Enregistrer sous .CSV"
 
-#: Koo/Dialogs/ExportDialog.py:147
+#: Koo/Dialogs/ExportDialog.py:296
 msgid "Save as HTML"
 msgstr "Enregistrer comme HTML"
 
-#: Koo/Dialogs/ExportDialog.py:203
-msgid "Export Data"
-msgstr "Exporter données"
-
-#: Koo/Dialogs/ExportDialog.py:247
-msgid "What is the name of this export?"
-msgstr "Quel est le nom pour cette exportation ?"
-
-#: Koo/Dialogs/ExportDialog.py:268
+#: Koo/Dialogs/ExportDialog.py:308
 #, fuzzy
 msgid "Export name"
 msgstr "Exporter données"
 
-#: Koo/Dialogs/ExportDialog.py:269
+#: Koo/Dialogs/ExportDialog.py:309
 #, fuzzy
 msgid "Exported fields"
 msgstr "Vider le champ"
@@ -740,40 +727,55 @@ msgstr "Tiny ERP - Widgets de recherche"
 msgid "Fields"
 msgstr "Nom du champ"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:74
+#: Koo/Fields/Binary/BinaryFieldWidget.py:53
+#, fuzzy
+msgid "&Save"
+msgstr "_Sauver"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:56
+#, fuzzy
+msgid "&Open"
+msgstr "_Ouvrir"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:59
+#, fuzzy
+msgid "Show &image"
+msgstr "Supprimer"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:110
 #: Koo/Fields/Image/ImageFieldWidget.py:80
 #: Koo/Fields/Link/LinkFieldWidget.py:61
 #, fuzzy
 msgid "Open..."
 msgstr "Ouvrir"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:75
+#: Koo/Fields/Binary/BinaryFieldWidget.py:111
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:112
+#: Koo/Fields/Binary/BinaryFieldWidget.py:148
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Sélectionner le fichier à attacher"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:118
-#: Koo/Fields/Binary/BinaryFieldWidget.py:156 Koo/Model/KooModel.py:351
+#: Koo/Fields/Binary/BinaryFieldWidget.py:154
+#: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
 #, python-format
 msgid "%d bytes"
 msgstr "%d bytes"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:128
+#: Koo/Fields/Binary/BinaryFieldWidget.py:164
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
 msgstr "Erreur de lecture du fichier"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:131
+#: Koo/Fields/Binary/BinaryFieldWidget.py:168
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 #, fuzzy
 msgid "Save as..."
 msgstr "Sauver sous ..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:139
+#: Koo/Fields/Binary/BinaryFieldWidget.py:176
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
 msgstr "Erreur d'écriture du fichier"
@@ -803,12 +805,12 @@ msgstr ""
 msgid "Set current time"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "Translation dialog"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "You must save the resource before adding translations"
 msgstr ""
@@ -844,11 +846,11 @@ msgstr "Supprimer"
 msgid "Select the file to link to"
 msgstr "Sélectionner le fichier à attacher"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:133 Koo/Fields/ManyToOne/ManyToOne.py:308
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
 msgid "Action"
 msgstr "Action"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:134 Koo/Fields/ManyToOne/ManyToOne.py:309
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
 msgid "Report"
 msgstr "Rapport"
 
@@ -908,22 +910,22 @@ msgstr "Rapport"
 msgid "There was an error trying to create the report."
 msgstr "Il y a eu des erreurs lors de la restauration de la base de données !"
 
-#: Koo/Rpc/Rpc.py:247 Koo/Rpc/Rpc.py:390
+#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
 #, fuzzy
 msgid "Connection Refused"
 msgstr "Connexion refusée !"
 
-#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
-#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "Application Error"
 msgstr "Erreur de l'application"
 
-#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
-#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "View details"
 msgstr "Voir les détails"
 
-#: Koo/Rpc/Rpc.py:556
+#: Koo/Rpc/Rpc.py:576
 #, fuzzy
 msgid "Could not contact server!"
 msgstr "Impossible de se connecter au serveur."
@@ -974,7 +976,15 @@ msgstr "Autre vue"
 msgid "SVG View"
 msgstr "Autre vue"
 
-#: Koo/View/Tree/TreeView.py:220
+#: Koo/View/Tree/TreeView.py:203
+msgid "Sorting not possible."
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:205
+msgid "Sorting only groups."
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:229
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -983,7 +993,7 @@ msgstr ""
 msgid "List View"
 msgstr "Autre vue"
 
-#: Koo/koo.py:75
+#: Koo/koo.py:60
 #, fuzzy
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
@@ -991,6 +1001,22 @@ msgid ""
 msgstr ""
 "Le module 'dbus' n'est pas installé. Veuillez l'installer afin de faciliter "
 "l'intéraction des autres applications avec KTiny."
+
+#, fuzzy
+#~ msgid "No actions defined"
+#~ msgstr "Pas d'action définie!"
+
+#~ msgid "enable basic debugging"
+#~ msgstr "activer le debogage de base"
+
+#~ msgid "specify channels to log"
+#~ msgstr "spécifier un canal à logger"
+
+#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+#~ msgstr "spécifier le niveau de log: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+
+#~ msgid "No record selected!"
+#~ msgstr "Pas d'enregistrement sélectionné!"
 
 #~ msgid "specify the user login"
 #~ msgstr "spécifier le login utilisateur"
@@ -1292,9 +1318,6 @@ msgstr ""
 
 #~ msgid "_Go to resource ID..."
 #~ msgstr "_Aller à la ressource ID..."
-
-#~ msgid "_Open"
-#~ msgstr "_Ouvrir"
 
 #~ msgid "Reloa_d / Undo"
 #~ msgstr "Rec_harger / Annuler"
@@ -1966,9 +1989,6 @@ msgstr ""
 
 #~ msgid "<Ctrl> + W"
 #~ msgstr "<Ctrl> + W"
-
-#~ msgid "Save"
-#~ msgstr "_Sauver"
 
 #~ msgid "<PgUp>"
 #~ msgstr "<PgUp>"

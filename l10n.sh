@@ -8,6 +8,8 @@ DIR="Koo/l10n"
 
 # Extract strings with get text from python files
 xgettext -k_ -kN_ -o $DIR/koo.pot $PYTHON_FILES
+pylupdate4 $UI_FILES -ts $DIR/koo.ts
+lconvert $DIR/koo.ts -o $DIR/qt-koo.pot
 
 # Merge template with existing translations
 echo "Merging..."
@@ -18,6 +20,7 @@ for x in $LANGS; do
 		cp $DIR/koo.pot $DIR/$x.po
 	fi
 	pylupdate4 $UI_FILES -ts $DIR/$x.ts
+	lconvert $DIR/$x.ts -o $DIR/qt-$x.po
 done
 rmdir $DIR/LC_MESSAGES 2>/dev/null
 

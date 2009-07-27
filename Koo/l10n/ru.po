@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-06 18:48+0200\n"
+"POT-Creation-Date: 2009-07-27 17:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,39 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Koo/Actions/Actions.py:59 Koo/Actions/Actions.py:83
-#: Koo/Actions/Actions.py:116
+#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
+#: Koo/Actions/Actions.py:115
 #, fuzzy, python-format
 msgid "Error: %s"
 msgstr "Ошибка: "
 
-#: Koo/Actions/Actions.py:63
+#: Koo/Actions/Actions.py:62
 msgid "Nothing to print."
 msgstr ""
 
-#: Koo/Actions/Actions.py:79
+#: Koo/Actions/Actions.py:78
 #, fuzzy
 msgid "Printing aborted. Delay too long."
 msgstr "Печать прервана, слишком большая задержка !"
 
-#: Koo/Actions/Actions.py:95
+#: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
 msgstr ""
 
-#: Koo/Actions/Actions.py:112
+#: Koo/Actions/Actions.py:111
 msgid "Printing aborted, too long delay !"
 msgstr "Печать прервана, слишком большая задержка !"
 
-#: Koo/Actions/Actions.py:211
-#, fuzzy
-msgid "No actions defined"
-msgstr "Ни какого действия не определено!"
-
-#: Koo/Actions/Actions.py:211
-msgid "There are no actions defined for this item."
-msgstr ""
-
-#: Koo/Actions/Actions.py:218
+#: Koo/Actions/Actions.py:216
 msgid "Select your action"
 msgstr "Выберете действие"
 
@@ -75,34 +66,21 @@ msgstr ""
 msgid "Do not save"
 msgstr "Опции сохранены!"
 
-#: Koo/Common/Options.py:69
+#: Koo/Common/Options.py:66
 msgid "specify alternate config file"
 msgstr "укажите другой конфигурационный файл"
 
-#: Koo/Common/Options.py:70
-msgid "enable basic debugging"
-msgstr "включить отладку"
-
-#: Koo/Common/Options.py:71
-msgid "specify channels to log"
-msgstr "определите что записывать в лог файл"
-
-#: Koo/Common/Options.py:72
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr ""
-"определите тип регистрируемых событий: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#: Koo/Common/Options.py:73
+#: Koo/Common/Options.py:67
 #, fuzzy
 msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "укажите имя сервера или ip адрес"
 
-#: Koo/Common/Options.py:74
+#: Koo/Common/Options.py:68
 #, fuzzy
 msgid "specify stylesheet to apply"
 msgstr "определите что записывать в лог файл"
 
-#: Koo/Common/Options.py:75
+#: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
 msgstr ""
 
@@ -192,120 +170,116 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:202
+#: Koo/Dialogs/FormWidget.py:205
 msgid "No resource selected !"
 msgstr "Ничего не выбрано!"
 
-#: Koo/Dialogs/FormWidget.py:229
+#: Koo/Dialogs/FormWidget.py:232
 #, fuzzy
 msgid "You have to select one resource!"
 msgstr "Выберете объект !"
 
-#: Koo/Dialogs/FormWidget.py:235 Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:236
+#: Koo/Dialogs/FormWidget.py:239
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:237
+#: Koo/Dialogs/FormWidget.py:240
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:238
+#: Koo/Dialogs/FormWidget.py:241
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:239
+#: Koo/Dialogs/FormWidget.py:242
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:243
 msgid "Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:241
+#: Koo/Dialogs/FormWidget.py:244
 msgid "Group Owner"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:242
+#: Koo/Dialogs/FormWidget.py:245
 msgid "Access Level"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:251 Koo/Dialogs/FormWidget.py:416
+#: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 #, fuzzy
 msgid "Question"
 msgstr "версия"
 
-#: Koo/Dialogs/FormWidget.py:251
+#: Koo/Dialogs/FormWidget.py:254
 #, fuzzy
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 "Вы уверены, что хотите\n"
 "удалить эту запись?"
 
-#: Koo/Dialogs/FormWidget.py:255
+#: Koo/Dialogs/FormWidget.py:258
 #, fuzzy
 msgid "Resource not removed !"
 msgstr "Объект удален."
 
-#: Koo/Dialogs/FormWidget.py:257
+#: Koo/Dialogs/FormWidget.py:260
 msgid "Resource removed."
 msgstr "Объект удален."
 
-#: Koo/Dialogs/FormWidget.py:281
+#: Koo/Dialogs/FormWidget.py:284
 msgid "Working now on the duplicated document !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:293
 #, fuzzy
 msgid "Document saved !"
 msgstr "Опции сохранены!"
 
-#: Koo/Dialogs/FormWidget.py:294
+#: Koo/Dialogs/FormWidget.py:297
 msgid "Invalid form !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:368
-msgid "No record selected!"
-msgstr "Запись не выбрана!"
-
-#: Koo/Dialogs/FormWidget.py:385
+#: Koo/Dialogs/FormWidget.py:366
 #, fuzzy, python-format
 msgid "(%s attachments) "
 msgstr "Прикрепленный файл: "
 
-#: Koo/Dialogs/FormWidget.py:396
+#: Koo/Dialogs/FormWidget.py:377
 #, fuzzy
 msgid "No records"
 msgstr "Далее: не выбрана запись!"
 
-#: Koo/Dialogs/FormWidget.py:403
+#: Koo/Dialogs/FormWidget.py:384
 #, fuzzy
 msgid "No document selected"
 msgstr "Объект не выбран!"
 
-#: Koo/Dialogs/FormWidget.py:407
+#: Koo/Dialogs/FormWidget.py:388
 msgid "New document"
 msgstr "Новый документ"
 
-#: Koo/Dialogs/FormWidget.py:409
+#: Koo/Dialogs/FormWidget.py:390
 #, fuzzy, python-format
 msgid "Editing document (id: %s)"
 msgstr "Редактирование документа: "
 
-#: Koo/Dialogs/FormWidget.py:410
+#: Koo/Dialogs/FormWidget.py:391
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:416
+#: Koo/Dialogs/FormWidget.py:397
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:434
+#: Koo/Dialogs/FormWidget.py:415
 #, fuzzy
 msgid "No records selected"
 msgstr "Запись не выбрана!"
@@ -416,77 +390,77 @@ msgstr "Да"
 msgid "No"
 msgstr "Нет"
 
-#: Koo/Dialogs/KooMainWindow.py:687 Koo/Dialogs/KooMainWindow.py:708
+#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
 #, fuzzy
 msgid "Delete a database"
 msgstr "Выберете дату"
 
-#: Koo/Dialogs/KooMainWindow.py:696 Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/KooMainWindow.py:706
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:696
+#: Koo/Dialogs/KooMainWindow.py:700
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:700
+#: Koo/Dialogs/KooMainWindow.py:704
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
 msgid "Bad database administrator password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:706
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:719
+#: Koo/Dialogs/KooMainWindow.py:723
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:723 Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:727 Koo/Dialogs/KooMainWindow.py:729
 #, fuzzy
 msgid "Could not restore database"
 msgstr "Выберете дату"
 
-#: Koo/Dialogs/KooMainWindow.py:723
+#: Koo/Dialogs/KooMainWindow.py:727
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:729
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:728
+#: Koo/Dialogs/KooMainWindow.py:732
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:743
+#: Koo/Dialogs/KooMainWindow.py:747
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:746
+#: Koo/Dialogs/KooMainWindow.py:750
 #, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:61
+#: Koo/Dialogs/TreeWidget.py:62
 msgid "Tree"
 msgstr "Дерево"
 
-#: Koo/Dialogs/TreeWidget.py:263 Koo/Dialogs/TreeWidget.py:275
+#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
 msgid "No resource selected!"
 msgstr "Объект не выбран!"
 
-#: Koo/Dialogs/TreeWidget.py:292
+#: Koo/Dialogs/TreeWidget.py:290
 #, fuzzy
 msgid "No item selected"
 msgstr "Запись не выбрана!"
 
-#: Koo/Dialogs/TreeWidget.py:292
+#: Koo/Dialogs/TreeWidget.py:290
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
@@ -638,36 +612,48 @@ msgstr "Ошибка запуска MS Excel!"
 
 #: Koo/Dialogs/ExportDialog.py:144
 #, fuzzy
+msgid "Error Opening OpenOffice.org!"
+msgstr "Ошибка запуска MS Excel!"
+
+#: Koo/Dialogs/ExportDialog.py:238
+msgid "Export Data"
+msgstr "Экспорт данных"
+
+#: Koo/Dialogs/ExportDialog.py:281
+msgid "What is the name of this export?"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:293
+#, fuzzy
 msgid "Open with Excel"
 msgstr ""
 "Открыть в Excel\n"
 "Сохранить в csv файле"
 
-#: Koo/Dialogs/ExportDialog.py:146
+#: Koo/Dialogs/ExportDialog.py:294
+#, fuzzy
+msgid "Open with OpenOffice.org"
+msgstr ""
+"Открыть в Excel\n"
+"Сохранить в csv файле"
+
+#: Koo/Dialogs/ExportDialog.py:295
 #, fuzzy
 msgid "Save as CSV"
 msgstr ""
 "Открыть в Excel\n"
 "Сохранить в csv файле"
 
-#: Koo/Dialogs/ExportDialog.py:147
+#: Koo/Dialogs/ExportDialog.py:296
 msgid "Save as HTML"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:203
-msgid "Export Data"
-msgstr "Экспорт данных"
-
-#: Koo/Dialogs/ExportDialog.py:247
-msgid "What is the name of this export?"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:268
+#: Koo/Dialogs/ExportDialog.py:308
 #, fuzzy
 msgid "Export name"
 msgstr "Экспорт данных"
 
-#: Koo/Dialogs/ExportDialog.py:269
+#: Koo/Dialogs/ExportDialog.py:309
 #, fuzzy
 msgid "Exported fields"
 msgstr "Очистить поле"
@@ -708,40 +694,55 @@ msgstr "Tiny ERP - Search Widgets"
 msgid "Fields"
 msgstr "Имя поля"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:74
+#: Koo/Fields/Binary/BinaryFieldWidget.py:53
+#, fuzzy
+msgid "&Save"
+msgstr "Сохранить"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:56
+#, fuzzy
+msgid "&Open"
+msgstr "Открыть"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:59
+#, fuzzy
+msgid "Show &image"
+msgstr "Удалить"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:110
 #: Koo/Fields/Image/ImageFieldWidget.py:80
 #: Koo/Fields/Link/LinkFieldWidget.py:61
 #, fuzzy
 msgid "Open..."
 msgstr "Открыть"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:75
+#: Koo/Fields/Binary/BinaryFieldWidget.py:111
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:112
+#: Koo/Fields/Binary/BinaryFieldWidget.py:148
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Выберете файл для прикрепления"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:118
-#: Koo/Fields/Binary/BinaryFieldWidget.py:156 Koo/Model/KooModel.py:351
+#: Koo/Fields/Binary/BinaryFieldWidget.py:154
+#: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
 #, python-format
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:128
+#: Koo/Fields/Binary/BinaryFieldWidget.py:164
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
 msgstr "Ошибка чтения файла"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:131
+#: Koo/Fields/Binary/BinaryFieldWidget.py:168
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 #, fuzzy
 msgid "Save as..."
 msgstr "Сохранить файл как .."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:139
+#: Koo/Fields/Binary/BinaryFieldWidget.py:176
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
 msgstr "Ошибка записи файла!"
@@ -771,12 +772,12 @@ msgstr ""
 msgid "Set current time"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "Translation dialog"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "You must save the resource before adding translations"
 msgstr ""
@@ -811,11 +812,11 @@ msgstr "Удалить"
 msgid "Select the file to link to"
 msgstr "Выберете файл для прикрепления"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:133 Koo/Fields/ManyToOne/ManyToOne.py:308
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
 msgid "Action"
 msgstr "Действие"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:134 Koo/Fields/ManyToOne/ManyToOne.py:309
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
 #, fuzzy
 msgid "Report"
 msgstr "Отчет / Печать"
@@ -877,22 +878,22 @@ msgstr "Отчет / Печать"
 msgid "There was an error trying to create the report."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:247 Koo/Rpc/Rpc.py:390
+#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
 #, fuzzy
 msgid "Connection Refused"
 msgstr "Подключение завершено!"
 
-#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
-#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "Application Error"
 msgstr "Ошибка приложения"
 
-#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
-#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "View details"
 msgstr "Посмотреть подробности"
 
-#: Koo/Rpc/Rpc.py:556
+#: Koo/Rpc/Rpc.py:576
 msgid "Could not contact server!"
 msgstr ""
 
@@ -941,7 +942,15 @@ msgstr "Другой вид"
 msgid "SVG View"
 msgstr "Другой вид"
 
-#: Koo/View/Tree/TreeView.py:220
+#: Koo/View/Tree/TreeView.py:203
+msgid "Sorting not possible."
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:205
+msgid "Sorting only groups."
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:229
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -950,11 +959,29 @@ msgstr ""
 msgid "List View"
 msgstr "Другой вид"
 
-#: Koo/koo.py:75
+#: Koo/koo.py:60
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with Koo."
 msgstr ""
+
+#, fuzzy
+#~ msgid "No actions defined"
+#~ msgstr "Ни какого действия не определено!"
+
+#~ msgid "enable basic debugging"
+#~ msgstr "включить отладку"
+
+#~ msgid "specify channels to log"
+#~ msgstr "определите что записывать в лог файл"
+
+#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+#~ msgstr ""
+#~ "определите тип регистрируемых событий: INFO, DEBUG, WARNING, ERROR, "
+#~ "CRITICAL"
+
+#~ msgid "No record selected!"
+#~ msgstr "Запись не выбрана!"
 
 #~ msgid "specify the user login"
 #~ msgstr "укажите логин пользователя"
@@ -1195,9 +1222,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "_Go to resource ID..."
 #~ msgstr "Найти ресурс ID ..."
-
-#~ msgid "_Open"
-#~ msgstr "Открыть"
 
 #, fuzzy
 #~ msgid "Reloa_d / Undo"
@@ -1728,10 +1752,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Previous tab"
 #~ msgstr "Предыдущий"
-
-#, fuzzy
-#~ msgid "Save"
-#~ msgstr "Сохранить"
 
 #, fuzzy
 #~ msgid "Previous record"

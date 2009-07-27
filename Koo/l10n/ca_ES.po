@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-06 18:48+0200\n"
+"POT-Creation-Date: 2009-07-27 17:11+0200\n"
 "PO-Revision-Date: 2008-11-30 21:02+0100\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
@@ -15,37 +15,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Koo/Actions/Actions.py:59 Koo/Actions/Actions.py:83
-#: Koo/Actions/Actions.py:116
+#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
+#: Koo/Actions/Actions.py:115
 #, python-format
 msgid "Error: %s"
 msgstr "Error: %s"
 
-#: Koo/Actions/Actions.py:63
+#: Koo/Actions/Actions.py:62
 msgid "Nothing to print."
 msgstr "No hi ha res per imprimir."
 
-#: Koo/Actions/Actions.py:79
+#: Koo/Actions/Actions.py:78
 msgid "Printing aborted. Delay too long."
 msgstr "Impressió abortada. Espera massa llarga."
 
-#: Koo/Actions/Actions.py:95
+#: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
 msgstr "No hi ha res a imprimir."
 
-#: Koo/Actions/Actions.py:112
+#: Koo/Actions/Actions.py:111
 msgid "Printing aborted, too long delay !"
 msgstr "Impressió abortada, espera massa llarga."
 
-#: Koo/Actions/Actions.py:211
-msgid "No actions defined"
-msgstr "No hi ha cap acció definida"
-
-#: Koo/Actions/Actions.py:211
-msgid "There are no actions defined for this item."
-msgstr "No hi ha cap acció definida per a aquest element."
-
-#: Koo/Actions/Actions.py:218
+#: Koo/Actions/Actions.py:216
 msgid "Select your action"
 msgstr "Seleccioneu l'acció"
 
@@ -73,33 +65,20 @@ msgstr "Compara'l"
 msgid "Do not save"
 msgstr "No el desis"
 
-#: Koo/Common/Options.py:69
+#: Koo/Common/Options.py:66
 msgid "specify alternate config file"
 msgstr "especificar un fitxer de configuració alternatiu"
 
-#: Koo/Common/Options.py:70
-msgid "enable basic debugging"
-msgstr "permetre informació de depuració bàsica"
-
-#: Koo/Common/Options.py:71
-msgid "specify channels to log"
-msgstr "especificar els canals per la traça"
-
-#: Koo/Common/Options.py:72
-msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-msgstr ""
-"especificar el nivell per les traces: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#: Koo/Common/Options.py:73
+#: Koo/Common/Options.py:67
 #, fuzzy
 msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "especificar la ip o el nom del servidor"
 
-#: Koo/Common/Options.py:74
+#: Koo/Common/Options.py:68
 msgid "specify stylesheet to apply"
 msgstr "especificar el full d'estil a aplicar"
 
-#: Koo/Common/Options.py:75
+#: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
 msgstr "utilitza el mode TPV (terminal punt de venda)"
 
@@ -193,111 +172,107 @@ msgstr ""
 "No s'ha pogut canviar la contrasenya d'administrador. Si us plau, comproveu "
 "que el servidor i la contrasenya són correctes."
 
-#: Koo/Dialogs/FormWidget.py:202
+#: Koo/Dialogs/FormWidget.py:205
 msgid "No resource selected !"
 msgstr "No hi ha cap recurs seleccionat."
 
-#: Koo/Dialogs/FormWidget.py:229
+#: Koo/Dialogs/FormWidget.py:232
 msgid "You have to select one resource!"
 msgstr "Heu de seleccionar un recurs."
 
-#: Koo/Dialogs/FormWidget.py:235 Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
 msgid "ID"
 msgstr "Id"
 
-#: Koo/Dialogs/FormWidget.py:236
+#: Koo/Dialogs/FormWidget.py:239
 msgid "Creation User"
 msgstr "Usuari que l'ha creat"
 
-#: Koo/Dialogs/FormWidget.py:237
+#: Koo/Dialogs/FormWidget.py:240
 msgid "Creation Date"
 msgstr "Data de creació"
 
-#: Koo/Dialogs/FormWidget.py:238
+#: Koo/Dialogs/FormWidget.py:241
 msgid "Latest Modification by"
 msgstr "Darrera modificació feta per"
 
-#: Koo/Dialogs/FormWidget.py:239
+#: Koo/Dialogs/FormWidget.py:242
 msgid "Latest Modification Date"
 msgstr "Última data de modificació"
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:243
 msgid "Owner"
 msgstr "Propietari"
 
-#: Koo/Dialogs/FormWidget.py:241
+#: Koo/Dialogs/FormWidget.py:244
 msgid "Group Owner"
 msgstr "Grup propietari"
 
-#: Koo/Dialogs/FormWidget.py:242
+#: Koo/Dialogs/FormWidget.py:245
 msgid "Access Level"
 msgstr "Nivell d'accés"
 
-#: Koo/Dialogs/FormWidget.py:251 Koo/Dialogs/FormWidget.py:416
+#: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 msgid "Question"
 msgstr "Pregunta"
 
-#: Koo/Dialogs/FormWidget.py:251
+#: Koo/Dialogs/FormWidget.py:254
 msgid "Are you sure you want to remove these records?"
 msgstr "Esteu segur que voleu eliminar aquests registres?"
 
-#: Koo/Dialogs/FormWidget.py:255
+#: Koo/Dialogs/FormWidget.py:258
 msgid "Resource not removed !"
 msgstr "Recursos eliminats."
 
-#: Koo/Dialogs/FormWidget.py:257
+#: Koo/Dialogs/FormWidget.py:260
 msgid "Resource removed."
 msgstr "Recursos eliminats."
 
-#: Koo/Dialogs/FormWidget.py:281
+#: Koo/Dialogs/FormWidget.py:284
 msgid "Working now on the duplicated document !"
 msgstr "Esteu treballant en el document duplicat."
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:293
 msgid "Document saved !"
 msgstr "Document desat."
 
-#: Koo/Dialogs/FormWidget.py:294
+#: Koo/Dialogs/FormWidget.py:297
 msgid "Invalid form !"
 msgstr "Formulari invàlid."
 
-#: Koo/Dialogs/FormWidget.py:368
-msgid "No record selected!"
-msgstr "No hi ha cap registre seleccionat."
-
-#: Koo/Dialogs/FormWidget.py:385
+#: Koo/Dialogs/FormWidget.py:366
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s adjunts) "
 
-#: Koo/Dialogs/FormWidget.py:396
+#: Koo/Dialogs/FormWidget.py:377
 msgid "No records"
 msgstr "No hi ha cap registre."
 
-#: Koo/Dialogs/FormWidget.py:403
+#: Koo/Dialogs/FormWidget.py:384
 msgid "No document selected"
 msgstr "No hi ha cap document seleccionat."
 
-#: Koo/Dialogs/FormWidget.py:407
+#: Koo/Dialogs/FormWidget.py:388
 msgid "New document"
 msgstr "Document nou"
 
-#: Koo/Dialogs/FormWidget.py:409
+#: Koo/Dialogs/FormWidget.py:390
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Editant el document amb id: %s"
 
-#: Koo/Dialogs/FormWidget.py:410
+#: Koo/Dialogs/FormWidget.py:391
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Registre: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:416
+#: Koo/Dialogs/FormWidget.py:397
 msgid "This record has been modified do you want to save it?"
 msgstr "Heu modificat aquest registre. Voleu desar-lo?"
 
-#: Koo/Dialogs/FormWidget.py:434
+#: Koo/Dialogs/FormWidget.py:415
 msgid "No records selected"
 msgstr "No hi ha cap registre seleccionat"
 
@@ -399,55 +374,55 @@ msgstr "Sí"
 msgid "No"
 msgstr "No"
 
-#: Koo/Dialogs/KooMainWindow.py:687 Koo/Dialogs/KooMainWindow.py:708
+#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
 msgid "Delete a database"
 msgstr "Eliminar una base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:696 Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/KooMainWindow.py:706
 msgid "Database removal"
 msgstr "Eliminació d'una base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:696
+#: Koo/Dialogs/KooMainWindow.py:700
 msgid "Database dropped successfully!"
 msgstr "Base de dades eliminada correctament."
 
-#: Koo/Dialogs/KooMainWindow.py:700
+#: Koo/Dialogs/KooMainWindow.py:704
 msgid "Could not drop database."
 msgstr "No s'ha pogut eliminar la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
 msgid "Bad database administrator password !"
 msgstr "Contrasenya d'administrador incorrecta."
 
-#: Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:706
 msgid "Couldn't drop database"
 msgstr "No s'ha pogut eliminar la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:719
+#: Koo/Dialogs/KooMainWindow.py:723
 msgid "Database restored successfully!"
 msgstr "Base de dades reestablerta correctament."
 
-#: Koo/Dialogs/KooMainWindow.py:723 Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:727 Koo/Dialogs/KooMainWindow.py:729
 msgid "Could not restore database"
 msgstr "No s'ha  pogut reestablir la base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:723
+#: Koo/Dialogs/KooMainWindow.py:727
 msgid "Bad database administrator password!"
 msgstr "Contrasenya d'administrador incorrecta."
 
-#: Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:729
 msgid "There was an error restoring the database!"
 msgstr "S'ha produït un error reestablint la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:728
+#: Koo/Dialogs/KooMainWindow.py:732
 msgid "Backup a database"
 msgstr "Còpia de seguretat d'una base de dades"
 
-#: Koo/Dialogs/KooMainWindow.py:743
+#: Koo/Dialogs/KooMainWindow.py:747
 msgid "Database backuped successfully!"
 msgstr "Base de dades copiada correctament."
 
-#: Koo/Dialogs/KooMainWindow.py:746
+#: Koo/Dialogs/KooMainWindow.py:750
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -456,19 +431,19 @@ msgstr ""
 "No s'ha pogut fer la còpia de seguretat de la base de dades.\n"
 "%s"
 
-#: Koo/Dialogs/TreeWidget.py:61
+#: Koo/Dialogs/TreeWidget.py:62
 msgid "Tree"
 msgstr "Arbre"
 
-#: Koo/Dialogs/TreeWidget.py:263 Koo/Dialogs/TreeWidget.py:275
+#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
 msgid "No resource selected!"
 msgstr "No hi ha cap recurs seleccionat."
 
-#: Koo/Dialogs/TreeWidget.py:292
+#: Koo/Dialogs/TreeWidget.py:290
 msgid "No item selected"
 msgstr "No hi ha cap element seleccionat"
 
-#: Koo/Dialogs/TreeWidget.py:292
+#: Koo/Dialogs/TreeWidget.py:290
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "Si us plau, seleccioneu un elment de l'arbre per crear-ne una drecera."
 
@@ -624,30 +599,40 @@ msgid "Error opening Excel !"
 msgstr "Error obrint l'Excel."
 
 #: Koo/Dialogs/ExportDialog.py:144
-msgid "Open with Excel"
-msgstr "Obrir amb l'Excel"
+#, fuzzy
+msgid "Error Opening OpenOffice.org!"
+msgstr "Error obrint l'Excel."
 
-#: Koo/Dialogs/ExportDialog.py:146
-msgid "Save as CSV"
-msgstr "Desar com a CSV"
-
-#: Koo/Dialogs/ExportDialog.py:147
-msgid "Save as HTML"
-msgstr "Desar com a HTML"
-
-#: Koo/Dialogs/ExportDialog.py:203
+#: Koo/Dialogs/ExportDialog.py:238
 msgid "Export Data"
 msgstr "Exportar dades"
 
-#: Koo/Dialogs/ExportDialog.py:247
+#: Koo/Dialogs/ExportDialog.py:281
 msgid "What is the name of this export?"
 msgstr "Quin ha de ser el nom de l'exportació?"
 
-#: Koo/Dialogs/ExportDialog.py:268
+#: Koo/Dialogs/ExportDialog.py:293
+msgid "Open with Excel"
+msgstr "Obrir amb l'Excel"
+
+#: Koo/Dialogs/ExportDialog.py:294
+#, fuzzy
+msgid "Open with OpenOffice.org"
+msgstr "Obrir amb l'Excel"
+
+#: Koo/Dialogs/ExportDialog.py:295
+msgid "Save as CSV"
+msgstr "Desar com a CSV"
+
+#: Koo/Dialogs/ExportDialog.py:296
+msgid "Save as HTML"
+msgstr "Desar com a HTML"
+
+#: Koo/Dialogs/ExportDialog.py:308
 msgid "Export name"
 msgstr "Nom de l'exportació"
 
-#: Koo/Dialogs/ExportDialog.py:269
+#: Koo/Dialogs/ExportDialog.py:309
 msgid "Exported fields"
 msgstr "Camps exportats"
 
@@ -686,38 +671,52 @@ msgstr "Cerca: %s (%%d resultat(s))"
 msgid "Fields"
 msgstr "Camps"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:74
+#: Koo/Fields/Binary/BinaryFieldWidget.py:53
+msgid "&Save"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:56
+#, fuzzy
+msgid "&Open"
+msgstr "Obre..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:59
+#, fuzzy
+msgid "Show &image"
+msgstr "Mostrar la &imatge..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:110
 #: Koo/Fields/Image/ImageFieldWidget.py:80
 #: Koo/Fields/Link/LinkFieldWidget.py:61
 msgid "Open..."
 msgstr "Obre..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:75
+#: Koo/Fields/Binary/BinaryFieldWidget.py:111
 msgid "Show &image..."
 msgstr "Mostrar la &imatge..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:112
+#: Koo/Fields/Binary/BinaryFieldWidget.py:148
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Seleccioneu el fitxer a adjuntar"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:118
-#: Koo/Fields/Binary/BinaryFieldWidget.py:156 Koo/Model/KooModel.py:351
+#: Koo/Fields/Binary/BinaryFieldWidget.py:154
+#: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
 #, python-format
 msgid "%d bytes"
 msgstr "%d bytes"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:128
+#: Koo/Fields/Binary/BinaryFieldWidget.py:164
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
 msgstr "Error llegint el fitxer"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:131
+#: Koo/Fields/Binary/BinaryFieldWidget.py:168
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "Desa com..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:139
+#: Koo/Fields/Binary/BinaryFieldWidget.py:176
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
 msgstr "Error escrivint el fitxer."
@@ -746,12 +745,12 @@ msgstr "Estableix la data i hora actuals"
 msgid "Set current time"
 msgstr "Estableix l'hora actual"
 
-#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "Translation dialog"
 msgstr "Diàleg de traducció"
 
-#: Koo/Fields/Char/CharFieldWidget.py:70
+#: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "You must save the resource before adding translations"
 msgstr "Heu de desar el recurs abans d'afegir traduccions"
@@ -784,11 +783,11 @@ msgstr ""
 msgid "Select the file to link to"
 msgstr "Seleccioneu el fitxer a enllaçar"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:133 Koo/Fields/ManyToOne/ManyToOne.py:308
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
 msgid "Action"
 msgstr "Acció"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:134 Koo/Fields/ManyToOne/ManyToOne.py:309
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
 msgid "Report"
 msgstr "Informe"
 
@@ -843,21 +842,21 @@ msgstr "Error en l'informe"
 msgid "There was an error trying to create the report."
 msgstr "S'ha produït un error intentant crear l'informe."
 
-#: Koo/Rpc/Rpc.py:247 Koo/Rpc/Rpc.py:390
+#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
 msgid "Connection Refused"
 msgstr "Connexió refusada"
 
-#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
-#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "Application Error"
 msgstr "Error en l'aplicació"
 
-#: Koo/Rpc/Rpc.py:254 Koo/Rpc/Rpc.py:263 Koo/Rpc/Rpc.py:276 Koo/Rpc/Rpc.py:279
-#: Koo/Rpc/Rpc.py:402 Koo/Rpc/Rpc.py:416 Koo/Rpc/Rpc.py:436 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "View details"
 msgstr "Veure els detalls"
 
-#: Koo/Rpc/Rpc.py:556
+#: Koo/Rpc/Rpc.py:576
 msgid "Could not contact server!"
 msgstr "No s'ha pogut contactar amb el servidor."
 
@@ -902,7 +901,15 @@ msgstr ""
 msgid "SVG View"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:220
+#: Koo/View/Tree/TreeView.py:203
+msgid "Sorting not possible."
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:205
+msgid "Sorting only groups."
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:229
 msgid "<a href=\"update\">Update totals</a>"
 msgstr "<a href=\"update\">Actualitza els totals</a>"
 
@@ -910,13 +917,33 @@ msgstr "<a href=\"update\">Actualitza els totals</a>"
 msgid "List View"
 msgstr ""
 
-#: Koo/koo.py:75
+#: Koo/koo.py:60
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with Koo."
 msgstr ""
 "El mòdul 'dbus' no està disponible. Considereu instal·lar-lo per tal que "
 "altres aplicacions puguin interactuar fàcilment amb el Koo."
+
+#~ msgid "No actions defined"
+#~ msgstr "No hi ha cap acció definida"
+
+#~ msgid "There are no actions defined for this item."
+#~ msgstr "No hi ha cap acció definida per a aquest element."
+
+#~ msgid "enable basic debugging"
+#~ msgstr "permetre informació de depuració bàsica"
+
+#~ msgid "specify channels to log"
+#~ msgstr "especificar els canals per la traça"
+
+#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+#~ msgstr ""
+#~ "especificar el nivell per les traces: INFO, DEBUG, WARNING, ERROR, "
+#~ "CRITICAL"
+
+#~ msgid "No record selected!"
+#~ msgstr "No hi ha cap registre seleccionat."
 
 #~ msgid "specify the user login"
 #~ msgstr "especificar el nom d'usuari"
