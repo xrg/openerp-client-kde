@@ -55,13 +55,8 @@ class PyroDaemon(Thread):
 		daemon.requestLoop()
 
 
-
-# We use the tools stuff to resemble netsvc way of doing things. No need for sure,
-# but who knows, maybe we want to integrate it into core one day.
-if not 'pyro' in tools.config:
-	tools.config['pyro'] = True
-if not 'pyroport' in tools.config:
-	tools.config['pyroport'] = 8071
+tools.config['pyro'] = tools.config.get('pyro', True)
+tools.config['pyroport'] = tools.config.get('pyroport', 8071)
 
 if tools.config['pyro']:
 	try:
