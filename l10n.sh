@@ -14,7 +14,7 @@ lconvert $DIR/koo.ts --output-format po -o $DIR/qt-koo.pot
 # Remove duplicates from qt-koo.pot
 ./remove-duplicates.pl
 # Change header of qt-koo.pot: otherwise launchpad tries to process it using UTF-8 and doesn't work
-perl -pi -e "s/X-Virgin-Header: remove this line if you change anything in the header./Content-Type: text\/plain; charset=iso-8859-1/" Koo/l10n/qt-koo.pot
+perl -pi -e "s/X-Virgin-Header: remove this line if you change anything in the header./Project-Id-Version: PACKAGE VERSION\\\nReport-Msgid-Bugs-To: \\\nPOT-Creation-Date: 2009-07-28 00:00+0200\\\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\\\nLanguage-Team: LANGUAGE <LL@li.org>\\\nMIME-Version: 1.0\\\nContent-Type: text\/plain; charset=iso-8859-1/" Koo/l10n/qt-koo.pot
 
 # Merge template with existing translations
 echo "Merging..."
