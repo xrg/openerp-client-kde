@@ -59,16 +59,16 @@ class RpcServerException(RpcException):
 			lines = code.split('\n')
 
 			self.type = lines[0].split(' -- ')[0]
-			self.info = ''
+			msg = ''
 			if len(lines[0].split(' -- ')) > 1:
-				self.info = lines[0].split(' -- ')[1]
+				msg = lines[0].split(' -- ')[1]
 	
-			self.data = '\n'.join(lines[2:])
+			self.args = ( msg, '\n'.join(lines[2:]))
 		else:
 			self.type = 'error'
-			self.info = backtrace
-			self.data = backtrace
+			self.args = (backtrace, backtrace)
 
+		self.backtrace = backtrace
 
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
