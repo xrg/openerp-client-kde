@@ -9,7 +9,7 @@ DIR="Koo/l10n"
 # Extract strings with get text from python files
 xgettext -k_ -kN_ -o $DIR/koo.pot $PYTHON_FILES
 pylupdate4 $UI_FILES -ts $DIR/koo.ts
-lconvert $DIR/koo.ts -o $DIR/qt-koo.pot
+lconvert $DIR/koo.ts --output-format po -o $DIR/qt-koo.pot
 
 # Merge template with existing translations
 echo "Merging..."
