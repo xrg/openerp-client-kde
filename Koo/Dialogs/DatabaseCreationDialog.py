@@ -70,19 +70,20 @@ class ProgressBar( QDialog, ProgressBarUi ):
 		self.demoData = ""
 		self.language = ""
 		self.password = ""
+		self.adminPassword = ""
 		self.progressBar.setMinimum( 0 )
 		self.progressBar.setMaximum( 0 )
 		self.show()
 
 	def start(self):
 		try:
-			self.id = Rpc.database.execute(self.url, 'create', self.password, self.databaseName, self.demoData, self.language)
+			self.id = Rpc.database.execute(self.url, 'create', self.password, self.databaseName, self.demoData, self.language, self.adminPassword)
 			self.timer.start( 1000 )
 		except Exception, e:
 			if e.faultString=='AccessDenied:None':
-				QMessageBox.warning(self,_("Could not create database."), _('Bad database administrator password !'))
+				QMessageBox.warning(self,_("Error during database creation"),_('Bad database administrator password !'))
 			else:
-				QMessageBox.warning(self, _('Error during database creation !'),_("Could not create database."))
+				QMessageBox.warning(self,_('Error during database creation'),_("Could not create database."))
 
 	def timeout(self):
 		try:
@@ -123,9 +124,9 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		DatabaseCreationDialogUi.__init__(self)
 		self.setupUi( self )
 
-		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
-		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
-		self.connect(self.pushChange,SIGNAL("clicked()"),self.slotChange )
+		self.connect(self.pushCancel,SIGNAL("clicked()"),self.cancelled )
+		self.connect(self.pushAccept,SIGNAL("clicked()"),self.accepted )
+		self.connect(self.pushChange,SIGNAL("clicked()"),self.changeServer )
 
 		url = '%s%s:%s' % (Options.options['login.protocol'], Options.options['login.server'], Options.options['login.port'])
 		self.uiServer.setText(url)
@@ -155,25 +156,31 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		self.uiLanguage.setEnabled( value )
 		self.pushAccept.setEnabled( value )
 
-	def slotCancel(self):
+	def cancelled(self):
 		self.close()
 	
-	def slotAccept(self):
+	def accepted(self):
 		databaseName = unicode( self.uiDatabase.text() )
 		if ((not databaseName) or (not re.match('^[a-zA-Z][a-zA-Z0-9_]+$', databaseName))):
 			QMessageBox.warning( self, _('Bad database name !'), _('The database name must contain only normal characters or "_".\nYou must avoid all accents, space or special characters.') )
+			return
+		if self.uiAdminPassword.text() != self.uiRepeatedAdminPassword.text():
+                        QMessageBox.warning( self, _('Wrong password'), _('Administrator passwords differ.') )
+                        return
 		demoData = self.uiDemoData.isChecked()
 
 		langreal = unicode( self.uiLanguage.itemData( self.uiLanguage.currentIndex() ).toString() )
-		passwd = unicode( self.uiPassword.text() )
+		password = unicode( self.uiPassword.text() )
 		url = unicode( self.uiServer.text() )
+		adminPassword = unicode( self.uiAdminPassword.text() )
 
 		progress = ProgressBar( self )
 		progress.url = url
 		progress.databaseName = databaseName
 		progress.demoData = demoData
 		progress.language = langreal 
-		progress.password = passwd 
+		progress.password = password
+		progress.adminPassword = adminPassword
 		progress.start()
 		r = progress.exec_()
 
@@ -185,7 +192,7 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 			self.databaseName = databaseName
 		self.done( r )
 
-	def slotChange(self):
+	def changeServer(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
 		dialog.setDefault( str( self.uiServer.text() ) )
 		ret = dialog.exec_()
@@ -193,4 +200,3 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 			url = dialog.url
 			self.uiServer.setText( url )
 			self.refreshLangList(url)
-
