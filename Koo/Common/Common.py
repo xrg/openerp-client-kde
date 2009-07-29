@@ -51,6 +51,8 @@ try:
 except:
 	isKdeAvailable = False
 
+def isQtVersion45():
+	return PYQT_VERSION >= 0x40500
 
 # Load Resource
 import common_rc

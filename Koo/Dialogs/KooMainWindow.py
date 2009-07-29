@@ -65,7 +65,8 @@ class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
 		QTabWidget.__init__(self, parent)
 		self.pressedAt = -1
-		self.setMovable( True )
+		if Common.isQtVersion45():
+			self.setMovable( True )
 
 	def mousePressEvent(self, event):
 		if event.button() == Qt.MidButton:
