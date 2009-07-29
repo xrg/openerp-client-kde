@@ -70,9 +70,9 @@ class Connection:
 		if isinstance(result, str):
 			return unicode( result, 'utf-8' )
 		elif isinstance(result, list):
-			return map(self.stringToUnicode, result)
+			return [self.stringToUnicode(x) for x in result]
 		elif isinstance(result, tuple):
-			return map(self.stringToUnicode, result)
+			return tuple([self.stringToUnicode(x) for x in result])
 		elif isinstance(result, dict):
 			newres = {}
 			for i in result.keys():
@@ -85,9 +85,9 @@ class Connection:
 		if isinstance(result, unicode):
 			return result.encode( 'utf-8' )
 		elif isinstance(result, list):
-			return map(self.unicodeToString, result)
+			return [self.unicodeToString(x) for x in result]
 		elif isinstance(result, tuple):
-			return map(self.unicodeToString, result)
+			return tuple([self.unicodeToString(x) for x in result])
 		elif isinstance(result, dict):
 			newres = {}
 			for i in result.keys():
