@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Tiny ERP V3.1.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-28 00:08+0200\n"
+"POT-Creation-Date: 2009-07-29 09:19+0200\n"
 "PO-Revision-Date: 2008-08-14 14:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: fr <kde-i18n-doc@lists.kde.org>\n"
@@ -422,7 +422,7 @@ msgstr "La base de données a été supprimée avec succès !"
 msgid "Could not drop database."
 msgstr "Impossible de supprimer la base de données."
 
-#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr "Le mot de passe administrateur est incorrect !"
 
@@ -501,17 +501,21 @@ msgstr ""
 "Cochez cette case si vous désirez installer les données démo dans la "
 "nouvellebase de données"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+#, fuzzy
+msgid "Error during database creation"
+msgstr "Une erreur est apparue pendant la création de la base de données !"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
 msgstr "Impossible de créer cette base de données."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
 msgstr "Une erreur est apparue pendant la création de la base de données !"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
@@ -519,17 +523,27 @@ msgstr ""
 "Une erreur est apparue pendant la création.\n"
 "Veuillez supprimer la base de données et recommencer."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid "Bad database name !"
 msgstr "Mauvais nom de base de données !"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 "Le nom de la base de donnée ne peut pas contenir de caractères spéciaux, "
 "accents, espaces ou \"_\""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#, fuzzy
+msgid "Wrong password"
+msgstr "Modifier le mot de passe"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#, fuzzy
+msgid "Administrator passwords differ."
+msgstr "Mot de passe administrateur"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"
@@ -1255,9 +1269,6 @@ msgstr ""
 
 #~ msgid "Dro_p database"
 #~ msgstr "Su_pprimer la base de données"
-
-#~ msgid "Administrator Password"
-#~ msgstr "Mot de passe administrateur"
 
 #~ msgid "_User"
 #~ msgstr "_Utilisateur"
@@ -2214,9 +2225,6 @@ msgstr ""
 
 #~ msgid "(must not contain any special character)"
 #~ msgstr "(ne doit pas contenir de caractères spéciaux)"
-
-#~ msgid "Change password"
-#~ msgstr "Modifier le mot de passe"
 
 #~ msgid "<b>Change your DB administration password</b>"
 #~ msgstr "<b>Modifier le mot de passe administrateur</b>"

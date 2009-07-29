@@ -310,63 +310,73 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>CreateDatabaseDialog</name>
     <message>
-        <location filename="create_database.ui" line="13"/>
+        <location filename="create_database.ui" line="14"/>
         <source>Create a new database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="25"/>
+        <location filename="create_database.ui" line="26"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="49"/>
+        <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="93"/>
+        <location filename="create_database.ui" line="94"/>
         <source>C&amp;hange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="111"/>
+        <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="121"/>
+        <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="150"/>
+        <location filename="create_database.ui" line="152"/>
         <source>&amp;Super admin password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="179"/>
+        <location filename="create_database.ui" line="181"/>
         <source>&amp;Default language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="195"/>
+        <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="231"/>
+        <location filename="create_database.ui" line="233"/>
         <source>&amp;OpenERP server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="300"/>
+        <location filename="create_database.ui" line="343"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="313"/>
+        <location filename="create_database.ui" line="357"/>
         <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="292"/>
+        <source>Admin password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="299"/>
+        <source>Repeat admin password</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

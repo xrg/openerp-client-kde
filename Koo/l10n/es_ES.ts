@@ -488,7 +488,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>CreateDatabaseDialog</name>
     <message>
-        <location filename="create_database.ui" line="13"/>
+        <location filename="create_database.ui" line="14"/>
         <source>Create a new database</source>
         <translation>Crear una base de datos nueva</translation>
     </message>
@@ -498,37 +498,37 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&lt;b&gt;No se pudo conectar con la </translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="49"/>
+        <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
         <translation>&amp;Nombre de la nueva base de datos:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="93"/>
+        <location filename="create_database.ui" line="94"/>
         <source>C&amp;hange</source>
         <translation>Cam&amp;biar</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="111"/>
+        <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
         <translation>(no puede contener caracteres especiales)</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="121"/>
+        <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
         <translation>(utilice &apos;admin&apos;, si no la ha cambiado)</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="150"/>
+        <location filename="create_database.ui" line="152"/>
         <source>&amp;Super admin password:</source>
         <translation>Contraseña de &amp;super administrador:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="179"/>
+        <location filename="create_database.ui" line="181"/>
         <source>&amp;Default language:</source>
         <translation>Idioma por &amp;defecto:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="195"/>
+        <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
         <translation>Cardar datos de d&amp;emostración</translation>
     </message>
@@ -538,24 +538,34 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Servidor &amp;TinyERP:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="300"/>
+        <location filename="create_database.ui" line="343"/>
         <source>&amp;Accept</source>
         <translation>&amp;Aceptar</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="313"/>
+        <location filename="create_database.ui" line="357"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Cancelar</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="25"/>
+        <location filename="create_database.ui" line="26"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
         <translation>&lt;b&gt;No se pudo conectar con la base de datos&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="231"/>
+        <location filename="create_database.ui" line="233"/>
         <source>&amp;OpenERP server:</source>
         <translation>Servidor &amp;OpenERP:</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="292"/>
+        <source>Admin password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="299"/>
+        <source>Repeat admin password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

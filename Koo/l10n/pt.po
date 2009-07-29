@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-28 00:08+0200\n"
+"POT-Creation-Date: 2009-07-29 09:19+0200\n"
 "PO-Revision-Date: 2009-02-23 15:13+0000\n"
 "Last-Translator: Paulino <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -393,7 +393,7 @@ msgstr "Base de dados eliminada com sucesso"
 msgid "Could not drop database."
 msgstr "Não foi possível eliminar a base de dados."
 
-#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr "Senha de administrador da base de dados errada!"
 
@@ -462,17 +462,21 @@ msgstr ""
 "Os seguintes utilizadores foram criados na sua base de dados\n"
 "\n"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+#, fuzzy
+msgid "Error during database creation"
+msgstr "Erro na criação da base de dados!"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
 msgstr "Não foi possivel criar a base de dados."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
 msgstr "Erro na criação da base de dados!"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
@@ -480,17 +484,26 @@ msgstr ""
 "O servidor estoirou durante a criação da base de dados.\n"
 "Sugerimos que elimine esta base de dados."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid "Bad database name !"
 msgstr "Nome da base de dados errado!"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 "O nome da base de dados deve conter só caracteres normais ou \"_\".\n"
 "Tem de evitar os acentos, cedilhas, espaços ou caracteres especiais."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Wrong password"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#, fuzzy
+msgid "Administrator passwords differ."
+msgstr "Senha de administrador da base de dados errada!"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"

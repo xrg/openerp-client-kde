@@ -5,17 +5,17 @@
     <message>
         <location filename="about.ui" line="73"/>
         <source>&amp;Contact</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kontaktadresse</translation>
     </message>
     <message>
         <location filename="about.ui" line="114"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="about.ui" line="14"/>
         <source>About OpenERP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Über OpenERP</translation>
     </message>
     <message>
         <location filename="about.ui" line="20"/>
@@ -24,12 +24,12 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;About OpenERP&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The most advanced Open Source ERP &amp;amp; CRM !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; OpenERP&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Öffnen Quelle&amp;amp;&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="42"/>
         <source>&amp;OpenERP</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;OpenERP</translation>
     </message>
     <message>
         <location filename="about.ui" line="48"/>
@@ -47,7 +47,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;the terms of the GNU Public Licence.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;More Info on &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt; Kunde&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt; OpenERP ist Öffnen Quelle&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt; ist&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt; Mehr Information&lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="79"/>
@@ -61,7 +61,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:sales@tiny.be&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt; ist&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/span&gt;&lt;a href=&quot;mailto:sales@tiny.be&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -79,37 +79,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="admin_passwd.ui" line="45"/>
         <source>C&amp;hange</source>
-        <translation type="unfinished"></translation>
+        <translation>Verändere</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="55"/>
         <source>&amp;Old password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Altes Passwort</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="72"/>
         <source>&amp;New password:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neues Passwort:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="89"/>
         <source>New password &amp;confirmation:</source>
-        <translation type="unfinished"></translation>
+        <translation>Neues Passwort und Bestätigung:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="136"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="146"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="19"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Verändere das Datenbank Admin Passwort&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -117,47 +117,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_attach.ui" line="16"/>
         <source>Attachments</source>
-        <translation type="unfinished"></translation>
+        <translation>Anhänge</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="49"/>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>Werkzeugleiste</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="74"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Neu</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="86"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Löschen</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="98"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächste</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="110"/>
         <source>Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Vorige</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="122"/>
         <source>Switch</source>
-        <translation type="unfinished"></translation>
+        <translation>Umschalten</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="134"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="146"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Speichern</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="77"/>
@@ -200,17 +200,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="binary.ui" line="41"/>
         <source>Select file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei Auswählen</translation>
     </message>
     <message>
         <location filename="binary.ui" line="55"/>
         <source>Save file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei Speichern</translation>
     </message>
     <message>
         <location filename="binary.ui" line="72"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurücksetzen</translation>
     </message>
 </context>
 <context>
@@ -218,12 +218,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="calendar.ui" line="19"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="calendar.ui" line="43"/>
         <source>Open Calendar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Öffnen Kalender</translation>
     </message>
 </context>
 <context>
@@ -246,17 +246,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="change_server.ui" line="113"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="change_server.ui" line="133"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
         <location filename="change_server.ui" line="32"/>
         <source>Connect to a OpenERP Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbinde zu OpenERP Server</translation>
     </message>
 </context>
 <context>
@@ -264,12 +264,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="13"/>
         <source>Choose database...</source>
-        <translation type="unfinished"></translation>
+        <translation>Wähle Datenbank</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="25"/>
         <source>Action here...</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktion hier</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="47"/>
@@ -279,94 +279,104 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="64"/>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Verändere</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="78"/>
         <source>&amp;Password:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Passwort:</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="95"/>
         <source>&amp;Database:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datenbank</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="123"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Textname</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="161"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annhemen</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="175"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
     <name>CreateDatabaseDialog</name>
     <message>
-        <location filename="create_database.ui" line="13"/>
+        <location filename="create_database.ui" line="14"/>
         <source>Create a new database</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstelle neue Datenbank</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="49"/>
+        <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neuer Datenbank Name:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="93"/>
+        <location filename="create_database.ui" line="94"/>
         <source>C&amp;hange</source>
-        <translation type="unfinished"></translation>
+        <translation>Verändere</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="111"/>
+        <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
-        <translation type="unfinished"></translation>
+        <translation>(darf keine Sonderzeichen enthalten)</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="121"/>
+        <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
-        <translation type="unfinished"></translation>
+        <translation>(verwende &apos;admin&apos;, wenn dies nicht verändert wurde)</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="150"/>
+        <location filename="create_database.ui" line="152"/>
         <source>&amp;Super admin password:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Super admin Passwort:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="179"/>
+        <location filename="create_database.ui" line="181"/>
         <source>&amp;Default language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprache Voreinstellung:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="195"/>
+        <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lade Demo Daten</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="300"/>
+        <location filename="create_database.ui" line="343"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="313"/>
+        <location filename="create_database.ui" line="357"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="25"/>
+        <location filename="create_database.ui" line="26"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Kann nicht mit Datenbank verbinden&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="233"/>
+        <source>&amp;OpenERP server:</source>
+        <translation>&amp;OpenERP Server:</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="292"/>
+        <source>Admin password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="231"/>
-        <source>&amp;OpenERP server:</source>
+        <location filename="create_database.ui" line="299"/>
+        <source>Repeat admin password</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -375,22 +385,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="56"/>
         <source>Database created successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenbank erfolgreich erzeugt!</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="98"/>
         <source>Connect &amp;now</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbi&amp;nde jetzt</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="112"/>
         <source>Connect &amp;later</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbinde später</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="13"/>
         <source>Database created</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenbank erzeugt</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="66"/>
@@ -401,7 +411,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -409,7 +419,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="datetime.ui" line="41"/>
         <source>Time:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeit:</translation>
     </message>
 </context>
 <context>
@@ -417,42 +427,42 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="13"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fehler</translation>
     </message>
     <message>
         <location filename="error.ui" line="19"/>
         <source>Application Error !</source>
-        <translation type="unfinished"></translation>
+        <translation>Anwednungs Fehler!</translation>
     </message>
     <message>
         <location filename="error.ui" line="41"/>
         <source>&amp;Description</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Beschreibung</translation>
     </message>
     <message>
         <location filename="error.ui" line="47"/>
         <source>Application Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Anwendungsfehler</translation>
     </message>
     <message>
         <location filename="error.ui" line="71"/>
         <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Fehler Code&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="error.ui" line="78"/>
         <source>View details</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Details anzeigen</translation>
     </message>
     <message>
         <location filename="error.ui" line="124"/>
         <source>De&amp;tails</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">De&amp;tails</translation>
     </message>
     <message>
         <location filename="error.ui" line="152"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
 </context>
 <context>
@@ -465,62 +475,62 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_export.ui" line="21"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Vorgegebene Exports&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="45"/>
         <source>Re&amp;move Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Entferne Exportdefinitionen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="115"/>
         <source>A&amp;dd</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="126"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Entfe&amp;rnen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="137"/>
         <source>Remo&amp;ve all</source>
-        <translation type="unfinished"></translation>
+        <translation>Entferne Alle</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="161"/>
         <source>&amp;Save list</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Speichere Liste</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="209"/>
         <source>Add &amp;field names</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Feldnamen hinzufügen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="239"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="253"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="75"/>
         <source>&lt;b&gt;All fields&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Alle Felder&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="176"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Felder zu exportieren&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="196"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;b&gt;Optionen&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -533,7 +543,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="21"/>
         <source>Field &amp;Name</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Feld &amp;Name</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="38"/>
@@ -543,37 +553,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="55"/>
         <source>Default &amp;value</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Voreinstellung</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="74"/>
         <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Wert anzuwenden für&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="83"/>
         <source>&amp;only for you</source>
-        <translation type="unfinished"></translation>
+        <translation>nur für Sie</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="93"/>
         <source>for all &amp;users</source>
-        <translation type="unfinished"></translation>
+        <translation>für alle Benutzer</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="134"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Annhemen</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="144"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="102"/>
         <source>&lt;b&gt;Value applicable if:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Wert anzuwenden, wenn:&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -581,22 +591,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="calendarview.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="calendarview.ui" line="34"/>
         <source>Monthly View</source>
-        <translation type="unfinished"></translation>
+        <translation>Monatsansicht</translation>
     </message>
     <message>
         <location filename="calendarview.ui" line="50"/>
         <source>Weekly View</source>
-        <translation type="unfinished"></translation>
+        <translation>Wochenansicht</translation>
     </message>
     <message>
         <location filename="calendarview.ui" line="63"/>
         <source>Daily View</source>
-        <translation type="unfinished"></translation>
+        <translation>Tagesansicht</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="43"/>
@@ -611,12 +621,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="69"/>
         <source>R</source>
-        <translation type="unfinished"></translation>
+        <translation>R</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="82"/>
         <source>T</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">T</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="95"/>
@@ -631,12 +641,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="121"/>
         <source>I</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">I</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="134"/>
         <source>O</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">O</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="147"/>
@@ -646,7 +656,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="160"/>
         <source>F</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">F</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="173"/>
@@ -661,16 +671,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="199"/>
         <source>A</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Neu</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="212"/>
         <source>L</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <location filename="keyboard.ui" line="225"/>
-        <source>Ñ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -726,12 +731,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="368"/>
         <source>X</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">X</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="381"/>
         <source>C</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">V</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="394"/>
@@ -741,7 +746,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="407"/>
         <source>Enter</source>
-        <translation type="unfinished"></translation>
+        <translation>Eingabe</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="420"/>
@@ -751,7 +756,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="433"/>
         <source>Caps</source>
-        <translation type="unfinished"></translation>
+        <translation>Hochstelltaste</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="449"/>
@@ -761,7 +766,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="462"/>
         <source>Space</source>
-        <translation type="unfinished"></translation>
+        <translation>Leertaste</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="475"/>
@@ -776,17 +781,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="501"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="514"/>
         <source>3</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">3</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="527"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="540"/>
@@ -806,12 +811,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="670"/>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">4</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="579"/>
         <source>Q</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Q</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="592"/>
@@ -826,17 +831,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="618"/>
         <source>+</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message encoding="UTF-8">
-        <location filename="keyboard.ui" line="631"/>
-        <source>Ç</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">+</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="644"/>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="657"/>
@@ -846,27 +846,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="image.ui" line="25"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Textname</translation>
     </message>
     <message>
         <location filename="image.ui" line="56"/>
         <source>Load Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Lade Bild</translation>
     </message>
     <message>
         <location filename="image.ui" line="73"/>
         <source>Save Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichere Bild</translation>
     </message>
     <message>
         <location filename="image.ui" line="90"/>
         <source>Remove Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Entferne Bild</translation>
     </message>
     <message>
         <location filename="calendarview.ui" line="83"/>
         <source>Color Legend</source>
-        <translation type="unfinished"></translation>
+        <translation>Farb Legende</translation>
     </message>
     <message>
         <location filename="keypad.ui" line="95"/>
@@ -881,6 +881,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keypad.ui" line="238"/>
         <source>Intro</source>
+        <translation>Einführung</translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="keyboard.ui" line="225"/>
+        <source>Ñ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="keyboard.ui" line="631"/>
+        <source>Ç</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -889,12 +899,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="formcontainer.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="formcontainer.ui" line="56"/>
         <source>State:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zustand:</translation>
     </message>
 </context>
 <context>
@@ -902,37 +912,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="13"/>
         <source>Full text search</source>
-        <translation type="unfinished"></translation>
+        <translation>Volltext Suche</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="39"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Finde</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="65"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Textname</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="96"/>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vorige</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="107"/>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Weiter</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="139"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="153"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -940,22 +950,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gotoid.ui" line="13"/>
         <source>Go To Id</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehe zu ID</translation>
     </message>
     <message>
         <location filename="gotoid.ui" line="21"/>
         <source>&amp;Search Id:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Suche ID:</translation>
     </message>
     <message>
         <location filename="gotoid.ui" line="71"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="gotoid.ui" line="82"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -963,47 +973,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="16"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Import</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="32"/>
         <source>All fields</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Felder</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="63"/>
         <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Hinzufügen</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="74"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Enfe&amp;rne</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="85"/>
         <source>Remo&amp;ve All</source>
-        <translation type="unfinished"></translation>
+        <translation>Enferne Alle</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="109"/>
         <source>Auto-&amp;detect</source>
-        <translation type="unfinished"></translation>
+        <translation>automatisch Erkennung</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="130"/>
         <source>Fields to import</source>
-        <translation type="unfinished"></translation>
+        <translation>Felder zu importieren</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="153"/>
         <source>File to &amp;import:</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei zu importieren</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="178"/>
         <source>&amp;Field separator</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Feldtrenner</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="188"/>
@@ -1013,7 +1023,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="195"/>
         <source>&amp;Text delimiter:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Text Begrenzer:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="205"/>
@@ -1023,12 +1033,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="212"/>
         <source>&amp;Encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Kodierung</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="219"/>
         <source>&amp;Lines to skip:</source>
-        <translation type="unfinished"></translation>
+        <translation>überspringe Zei&amp;len:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="233"/>
@@ -1043,12 +1053,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="263"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="274"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -1056,138 +1066,139 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="26"/>
         <source>Koo: OpenObject KDE Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Koo: OpenObject KDE Anwendung</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="144"/>
         <source>Requests:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anfragen:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="187"/>
         <source>Read My Requests</source>
-        <translation type="unfinished"></translation>
+        <translation>Lese meine Anfragen:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="210"/>
         <source>Send New Request</source>
-        <translation type="unfinished"></translation>
+        <translation>Sende neue Anfrage</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="241"/>
         <source>&amp;Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Plugins</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="246"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hilfe</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="257"/>
         <source>F&amp;orm</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">F&amp;ormular</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="282"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="286"/>
         <source>&amp;Databases</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datenbanken</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="304"/>
         <source>&amp;User</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ben&amp;utzer</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="316"/>
         <source>&amp;Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Aktionen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="321"/>
         <source>&amp;Reports</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Be&amp;richte</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="326"/>
         <source>&amp;Browse</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Durchsuchen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="395"/>
         <source>&amp;Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbinde</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="398"/>
+        <location filename="" line="140422864"/>
         <source>Ctrl+O</source>
-        <comment>Ctrl+O to Login</comment>
-        <translation type="unfinished"></translation>
+        <comment>Ctrl+O to Login
+</comment>
+        <translation type="obsolete">Ctrl+O</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="413"/>
         <source>&amp;Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Trenne</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="422"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Verlasse</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="431"/>
         <source>&amp;New Database</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neue Datenbank</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="440"/>
         <source>&amp;Restore Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Datenbank Wiederhe&amp;rstellen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="449"/>
         <source>&amp;Backup Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Daten&amp;bank Sichern</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="458"/>
         <source>&amp;Drop Database</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datenbank löschen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="467"/>
         <source>&amp;Administrator Password</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Administrator Passwort</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="476"/>
         <source>&amp;Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Einstellungen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="485"/>
         <source>&amp;Send Request</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sende Anfrage</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="494"/>
         <source>&amp;Read My Requests</source>
-        <translation type="unfinished"></translation>
+        <translation>Lese meine Anf&amp;ragen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="503"/>
         <source>&amp;Waiting Requests</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Wartende Anfragen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="512"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Neu</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="515"/>
@@ -1197,7 +1208,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="524"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Sichern</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="527"/>
@@ -1207,7 +1218,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="536"/>
         <source>D&amp;uplicate</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">D&amp;upliziere</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="539"/>
@@ -1217,7 +1228,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="548"/>
         <source>&amp;Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Löschen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="551"/>
@@ -1227,17 +1238,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="560"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="563"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">F</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="572"/>
         <source>&amp;Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Weiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="575"/>
@@ -1247,7 +1258,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="584"/>
         <source>&amp;Previous</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vorige</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="587"/>
@@ -1257,7 +1268,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="596"/>
         <source>Switch &amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansicht Umschalten</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="599"/>
@@ -1267,12 +1278,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="608"/>
         <source>Open &amp;Menu Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne Menü Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="617"/>
         <source>Next Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächster Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="620"/>
@@ -1282,7 +1293,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="629"/>
         <source>Previous Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Voriger Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="632"/>
@@ -1292,7 +1303,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="641"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">S&amp;chließen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="644"/>
@@ -1302,17 +1313,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="653"/>
         <source>View Access Log</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige Zugriffs Log</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="662"/>
         <source>Go To Resource ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehe zu Resource ID</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="671"/>
         <source>&amp;Reload/Undo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">E&amp;rneut laden</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="674"/>
@@ -1322,22 +1333,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="683"/>
         <source>E&amp;xport Data</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;xportiere Daten</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="692"/>
         <source>&amp;Import Data</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Importiere Daten</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="701"/>
         <source>&amp;Execute Plugins</source>
-        <translation type="unfinished"></translation>
+        <translation>Plugins ausführ&amp;en</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="710"/>
         <source>&amp;Contextual Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontext Hilfe</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="715"/>
@@ -1347,32 +1358,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="724"/>
         <source>&amp;Keyboard Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Tastatur &amp;Kürzel</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="729"/>
         <source>&amp;License</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lizenz</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="738"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>Über</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="747"/>
         <source>Full &amp;Text Search</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp; Volltext Suche</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="750"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">T</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="759"/>
         <source>Attachments</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Anhänge</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="762"/>
@@ -1382,17 +1393,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="771"/>
         <source>&amp;Form designer</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Formular Desinger</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="776"/>
         <source>&amp;Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Menü</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="781"/>
         <source>User Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzerhandbuch</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="791"/>
@@ -1402,27 +1413,33 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="800"/>
         <source>Open Home Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne persönlcihen Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="809"/>
         <source>&amp;Clear Cache</source>
-        <translation type="unfinished"></translation>
+        <translation>Zwioschensoeicher Zurü&amp;cksetzen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="786"/>
         <source>Documentation</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentation</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="818"/>
         <source>Modify All Selected Records</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle ausgewählten Daten speichern</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="331"/>
         <source>&amp;Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenster</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="398"/>
+        <source>Ctrl+O</source>
+        <comment>Ctrl+O to Login</comment>
+        <translation type="unfinished">Ctrl+O</translation>
     </message>
 </context>
 <context>
@@ -1527,17 +1544,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;             END OF TERMS AND CONDITIONS&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Version Juni&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; V&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist und&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und Allgemein ist und ist Allgemein und ist Allgemein&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Allgemein und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Bis&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und ist ist und ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist Bis&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; enthält Allgemein und ist und ist Laufzeit ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und ist und ist ist wahr&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und und und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; enthält ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und ist und und user ist ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und und ist und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; enthält und ist und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Alle ist und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist ist und ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist ist application ist ist und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und ist ist&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; und Allgemein&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ist und und&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Neu&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Neu&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="license.ui" line="148"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="license.ui" line="19"/>
         <source>OpenERP license</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenERP Lizenz</translation>
     </message>
 </context>
 <context>
@@ -1545,7 +1562,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="link.ui" line="36"/>
         <source>Select file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Datei Auswählen</translation>
     </message>
 </context>
 <context>
@@ -1553,17 +1570,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="22"/>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmelden</translation>
     </message>
     <message>
         <location filename="login.ui" line="88"/>
         <source>&amp;Database:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datenbank:</translation>
     </message>
     <message>
         <location filename="login.ui" line="101"/>
         <source>C&amp;hange</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verändere</translation>
     </message>
     <message>
         <location filename="login.ui" line="111"/>
@@ -1573,27 +1590,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="169"/>
         <source>&amp;Password:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Passwort:</translation>
     </message>
     <message>
         <location filename="login.ui" line="195"/>
         <source>&amp;User:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ben&amp;utzer:</translation>
     </message>
     <message>
         <location filename="login.ui" line="231"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="login.ui" line="244"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
         <location filename="login.ui" line="126"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kann nicht mit Server verbinden !&lt;/b&gt;</translation>
     </message>
 </context>
 <context>
@@ -1601,17 +1618,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="many2many.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="many2many.ui" line="42"/>
         <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Hinzufügen</translation>
     </message>
     <message>
         <location filename="many2many.ui" line="58"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Enfe&amp;rne</translation>
     </message>
 </context>
 <context>
@@ -1619,27 +1636,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="many2one.ui" line="19"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="many2one.ui" line="51"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Enferne</translation>
     </message>
     <message>
         <location filename="many2one.ui" line="74"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Neu</translation>
     </message>
     <message>
         <location filename="many2one.ui" line="97"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Suchen</translation>
     </message>
     <message>
         <location filename="dia_form_win_many2one.ui" line="14"/>
         <source>OpenERP - Link</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenERP - Link</translation>
     </message>
     <message>
         <location filename="dia_form_win_many2one.ui" line="55"/>
@@ -1649,7 +1666,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dia_form_win_many2one.ui" line="66"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -1657,17 +1674,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="massiveupdate.ui" line="13"/>
         <source>Massive Update Process</source>
-        <translation type="unfinished"></translation>
+        <translation>Mengen Aktualisierungs Prozess</translation>
     </message>
     <message>
         <location filename="massiveupdate.ui" line="44"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Annhemen</translation>
     </message>
     <message>
         <location filename="massiveupdate.ui" line="55"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -1675,17 +1692,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="one2many.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="80"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Textname</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="171"/>
         <source>Previous</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vorige</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="197"/>
@@ -1695,27 +1712,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="one2many.ui" line="213"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Nächste</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="242"/>
         <source>Switch View</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansicht Umschalten</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="96"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Neu</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="116"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bearbeiten</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="136"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Enfernen</translation>
     </message>
 </context>
 <context>
@@ -1723,22 +1740,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="paned.ui" line="19"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="paned.ui" line="83"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Suchen</translation>
     </message>
     <message>
         <location filename="paned.ui" line="100"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Öffnen</translation>
     </message>
     <message>
         <location filename="paned.ui" line="117"/>
         <source>Switch View</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansicht Umschalten</translation>
     </message>
 </context>
 <context>
@@ -1746,17 +1763,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Einstellungen</translation>
     </message>
     <message>
         <location filename="preferences.ui" line="45"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Annhemen</translation>
     </message>
     <message>
         <location filename="preferences.ui" line="56"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -1764,18 +1781,19 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="progress.ui" line="40"/>
         <source>Operation in progress</source>
-        <translation type="unfinished"></translation>
+        <translation>in Arbeit</translation>
     </message>
     <message>
         <location filename="progress.ui" line="53"/>
         <source>Please wait, 
 this operation may take a while...</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte warten, 
+dieser Vorgang kann einige Zeit dauern</translation>
     </message>
     <message>
         <location filename="progress.ui" line="14"/>
         <source>Progress...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Verlauf.</translation>
     </message>
 </context>
 <context>
@@ -1783,22 +1801,22 @@ this operation may take a while...</source>
     <message>
         <location filename="reference.ui" line="19"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="reference.ui" line="48"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <location filename="reference.ui" line="64"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Neu</translation>
     </message>
     <message>
         <location filename="reference.ui" line="80"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Öffnen</translation>
     </message>
 </context>
 <context>
@@ -1806,67 +1824,67 @@ this operation may take a while...</source>
     <message>
         <location filename="richtext.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="41"/>
         <source>Bold</source>
-        <translation type="unfinished"></translation>
+        <translation>Fett</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="70"/>
         <source>Italics</source>
-        <translation type="unfinished"></translation>
+        <translation>Kursiv</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="99"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Unterstrichen</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="128"/>
         <source>Strikethrough</source>
-        <translation type="unfinished"></translation>
+        <translation>Durchgestrichen</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="164"/>
         <source>Left Justify</source>
-        <translation type="unfinished"></translation>
+        <translation>Links justiert</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="193"/>
         <source>Center</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zentriert</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="222"/>
         <source>Right Justify</source>
-        <translation type="unfinished"></translation>
+        <translation>Rechts justiert</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="251"/>
         <source>Justify</source>
-        <translation type="unfinished"></translation>
+        <translation>Justiere</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="323"/>
         <source>Select font</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeichensatz Auswählen</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="336"/>
         <source>Select font size</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeichengröße auswählen</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="287"/>
         <source>Foreground Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Vordergrund Farbe</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="306"/>
         <source>Background color</source>
-        <translation type="unfinished"></translation>
+        <translation>Hintergrund Farbe</translation>
     </message>
 </context>
 <context>
@@ -1874,12 +1892,12 @@ this operation may take a while...</source>
     <message>
         <location filename="search_date.ui" line="25"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="search_date.ui" line="52"/>
         <source>Choose a date from a calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum vom Kalender wählen</translation>
     </message>
     <message>
         <location filename="search_date.ui" line="76"/>
@@ -1889,7 +1907,7 @@ this operation may take a while...</source>
     <message>
         <location filename="search_date.ui" line="104"/>
         <source>Choose the date from a calendar</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum vom Kalender wählen</translation>
     </message>
 </context>
 <context>
@@ -1897,17 +1915,17 @@ this operation may take a while...</source>
     <message>
         <location filename="searchform.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="searchform.ui" line="82"/>
         <source>&amp;Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Zurü&amp;cksetzen</translation>
     </message>
     <message>
         <location filename="searchform.ui" line="92"/>
         <source>&amp;Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Suchen</translation>
     </message>
 </context>
 <context>
@@ -1915,7 +1933,7 @@ this operation may take a while...</source>
     <message>
         <location filename="searchreference.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
 </context>
 <context>
@@ -1923,12 +1941,12 @@ this operation may take a while...</source>
     <message>
         <location filename="searchviewitem.ui" line="19"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="searchviewitem.ui" line="164"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Textname</translation>
     </message>
 </context>
 <context>
@@ -1936,22 +1954,22 @@ this operation may take a while...</source>
     <message>
         <location filename="win_search.ui" line="14"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Suchen</translation>
     </message>
     <message>
         <location filename="win_search.ui" line="86"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Suchen</translation>
     </message>
     <message>
         <location filename="win_search.ui" line="97"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="win_search.ui" line="108"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
     <message>
         <location filename="win_search.ui" line="115"/>
@@ -1961,7 +1979,7 @@ this operation may take a while...</source>
     <message>
         <location filename="win_search.ui" line="67"/>
         <source>&amp;New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&amp;Neu</translation>
     </message>
 </context>
 <context>
@@ -1974,17 +1992,17 @@ this operation may take a while...</source>
     <message>
         <location filename="win_selection.ui" line="19"/>
         <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;&lt;b&gt;Plugin auswählen&lt;/b&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="win_selection.ui" line="44"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="win_selection.ui" line="57"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -1992,22 +2010,22 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="14"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzel</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="24"/>
         <source>&amp;Main Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>wichtige Kürzel</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="32"/>
         <source>&lt;Ctrl&gt; + O</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="39"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbinde</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="46"/>
@@ -2017,7 +2035,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="53"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Neu</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="60"/>
@@ -2027,7 +2045,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="67"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Speichern</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="74"/>
@@ -2037,7 +2055,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="81"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Löschen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="88"/>
@@ -2047,7 +2065,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="95"/>
         <source>Find / Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Suchen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="102"/>
@@ -2057,7 +2075,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="109"/>
         <source>Full Text Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Volltext Suche</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="116"/>
@@ -2067,7 +2085,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="123"/>
         <source>Previous Record</source>
-        <translation type="unfinished"></translation>
+        <translation>Voriger datensatz</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="130"/>
@@ -2077,7 +2095,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="137"/>
         <source>Next record</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächster Datensatz</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="144"/>
@@ -2087,7 +2105,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="151"/>
         <source>Switch view mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansicht Umschalten</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="158"/>
@@ -2097,7 +2115,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="165"/>
         <source>Previous tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Voriger Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="172"/>
@@ -2107,7 +2125,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="179"/>
         <source>Next tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächster Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="186"/>
@@ -2117,7 +2135,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="531"/>
         <source>Close tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Reiter Schließen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="200"/>
@@ -2127,12 +2145,12 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="207"/>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Erneut laden</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="524"/>
         <source>Middle mouse click on Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Mittleree Mausklick auf Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="214"/>
@@ -2142,12 +2160,12 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="221"/>
         <source>Duplicate Record</source>
-        <translation type="unfinished"></translation>
+        <translation>Dupliziere Datensatz</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="230"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;center&gt;&lt;i&gt;Beim Ändern eines Datensatzes in eine PopUp fenster&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="239"/>
@@ -2157,7 +2175,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="246"/>
         <source>Save and close window</source>
-        <translation type="unfinished"></translation>
+        <translation>Speichern und Schliessen des Fensters</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="253"/>
@@ -2167,32 +2185,32 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="260"/>
         <source>Close window without saving</source>
-        <translation type="unfinished"></translation>
+        <translation>Schließen Fenster ohne zu speichern</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="270"/>
         <source>&amp;Edition Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzel für das Editieren</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="294"/>
         <source>Cut selected text</source>
-        <translation type="unfinished"></translation>
+        <translation>ausgewählten Text ausschneiden</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="301"/>
         <source>Copy selected text</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiere ausgewählten Text</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="308"/>
         <source>Paste selected text</source>
-        <translation type="unfinished"></translation>
+        <translation>ausgewählten Text einfügen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="315"/>
         <source>Next editable widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Nächstes veränderbare Eingabefeld</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="322"/>
@@ -2202,7 +2220,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="329"/>
         <source>Previous editable widget</source>
-        <translation type="unfinished"></translation>
+        <translation>Voriges veränderbares Eingabefeld</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="336"/>
@@ -2212,7 +2230,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="343"/>
         <source>Auto-complete text field</source>
-        <translation type="unfinished"></translation>
+        <translation>Feld automatisch vervollständigen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="350"/>
@@ -2237,99 +2255,101 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="614"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">S&amp;chließen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="509"/>
         <source>&amp;Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Fortgeschritten</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="515"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Kürzel in Text Eingaben&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="398"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Formel + &lt;Enter&gt;
+(Beispiel: 3+2*2)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="406"/>
         <source>Calculates value
 (Example result: 7)</source>
-        <translation type="unfinished"></translation>
+        <translation>Berechnet Wert
+(Beispiel Ergebnis: 7)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="538"/>
         <source>&lt;Shift&gt; + Switch View</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Shift&gt; + Umschalten Ansicht</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="552"/>
         <source>Mouse Wheel on Tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Mausrad am Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="559"/>
         <source>Change current tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Verändere aktuellen Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="434"/>
         <source>&lt;Ctrl&gt; + Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Ctrl&gt; + Öffnen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="441"/>
         <source>Opens the record in a new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnet Datensatz in neuem Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="448"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Ctrl&gt;+&lt;Shift&gt;+ Öffnen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="455"/>
         <source>Opens the record in a new background tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnet Datensatz in Hintergrund Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="545"/>
         <source>Open form view in new tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffnet Formular in neuem Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="566"/>
         <source>&lt;Shift&gt; + Open View</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Shift&gt; + Öffne Ansicht</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="573"/>
         <source>Open view in a background tab</source>
-        <translation type="unfinished"></translation>
+        <translation>Öffne Ansicht in Hintergrund Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="282"/>
         <source>Shortcuts in text entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzle in Text Eingaben</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="386"/>
         <source>Numeric fields</source>
-        <translation type="unfinished"></translation>
+        <translation>Numerische Felder</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="422"/>
         <source>Relation fields</source>
-        <translation type="unfinished"></translation>
+        <translation>Relationen Felder</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="470"/>
         <source>Lists</source>
-        <translation type="unfinished"></translation>
+        <translation>Listen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="479"/>
@@ -2339,7 +2359,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="486"/>
         <source>Selects all records</source>
-        <translation type="unfinished"></translation>
+        <translation>Wähle alle Datensätze</translation>
     </message>
 </context>
 <context>
@@ -2347,27 +2367,27 @@ this operation may take a while...</source>
     <message>
         <location filename="tip.ui" line="13"/>
         <source>Tip of the Day</source>
-        <translation type="unfinished"></translation>
+        <translation>Tip des Tages</translation>
     </message>
     <message>
         <location filename="tip.ui" line="51"/>
         <source>&amp;Display a new tip next time ?</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeige das nächste Mal einen neuen Tip?</translation>
     </message>
     <message>
         <location filename="tip.ui" line="77"/>
         <source>&amp;Previous Tip</source>
-        <translation type="unfinished"></translation>
+        <translation>Voriger Tip</translation>
     </message>
     <message>
         <location filename="tip.ui" line="87"/>
         <source>&amp;Next Tip</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nächster Tip</translation>
     </message>
     <message>
         <location filename="tip.ui" line="112"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">S&amp;chließen</translation>
     </message>
 </context>
 <context>
@@ -2375,17 +2395,17 @@ this operation may take a while...</source>
     <message>
         <location filename="translationdialog.ui" line="13"/>
         <source>Translation dialog</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Übersetzungsdialog</translation>
     </message>
     <message>
         <location filename="translationdialog.ui" line="47"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annehmen</translation>
     </message>
     <message>
         <location filename="translationdialog.ui" line="57"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abbre&amp;chen</translation>
     </message>
 </context>
 <context>
@@ -2393,27 +2413,27 @@ this operation may take a while...</source>
     <message>
         <location filename="tree.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="tree.ui" line="78"/>
         <source>Add Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzle hinzufügen</translation>
     </message>
     <message>
         <location filename="tree.ui" line="98"/>
         <source>Remove Shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzel entfernen</translation>
     </message>
     <message>
         <location filename="tree.ui" line="65"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Kürzel</translation>
     </message>
     <message>
         <location filename="tree.ui" line="118"/>
         <source>Expand/Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Auffalten/Zusammenfalten</translation>
     </message>
 </context>
 <context>
@@ -2421,12 +2441,12 @@ this operation may take a while...</source>
     <message>
         <location filename="url.ui" line="19"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="url.ui" line="43"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Öffnen</translation>
     </message>
 </context>
 <context>
@@ -2434,7 +2454,7 @@ this operation may take a while...</source>
     <message>
         <location filename="web.ui" line="13"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Formular</translation>
     </message>
     <message>
         <location filename="web.ui" line="23"/>

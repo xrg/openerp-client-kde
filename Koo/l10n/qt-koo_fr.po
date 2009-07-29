@@ -5,67 +5,128 @@
 #
 #, fuzzy
 msgid ""
-msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2009-07-28 00:00+0200\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL>\nLanguage-Team: LANGUAGE <LL.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=iso-8859-1\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2009-07-28 00:00+0200\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL>\nLanguage-Team: LANGUAGE <LL.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=iso-8859-1\n"
+"X-Language: fr_FR\n"
+
+#. ts-context DatabaseCreatedDialog
+#: dbcreateok.ui:66
+#~ msgid ""
+"#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ \"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ \"type=\"text/css\">\n"
+"\"#~ \"p, li { white-space: pre-wrap; }\n"
+"\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+"\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">You can connect \"#~ \"to the new database using one of the following accounts:</p>\n"
+"\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Administrator: \"#~ \"admin / admin</p></body></html>\""
+#~ msgstr "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ \"\"http://www.w3.org/TR/REC-html40/strict.dtd\"><html><head><meta \"#~ \"name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">p, li { \"#~ \"white-space: pre-wrap; }</style></head><body style=\" font-family:'Sans \"#~ \"Serif'; font-size:9pt; font-weight:400; font-style:normal;\"><p style=\" \"#~ \"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-indent:0px;\">Vous pouvez vous connecter à la \"#~ \"nouvelle base de données en utilisant un des comptes suivants :</p><p \"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Administrateur: admin / admin</p></body></html>\""
+
+#. ts-context AboutDialog
+#: about.ui:94
+#~ msgid ""
+"#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ \"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ \"type=\"text/css\">\n"
+"\"#~ \"p, li { white-space: pre-wrap; }\n"
+"\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+"\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">(c) 2003-TODAY - Tiny sprl</p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny ERP is a product of Tiny sprl:</p>\n"
+"\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny sprl</p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">40 Chaussuée de Namur</p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">1367 Gérompont</p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Belgium</p>\n"
+"\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tel : (+32)81.81.37.00</p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Mail: <a href=\"mailto:sales@tiny.be\"><span style=\" \"#~ \"text-decoration: underline; \"#~ \"color:#0000ff;\">sales@tiny.be</span></a></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Web: <a href=\"http://www.tinyerp.com\"><span style=\" \"#~ \"text-decoration: underline; \"#~ \"color:#0000ff;\">http://tiny.be</span></a></p></body></html>\""
+#~ msgstr "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ \"\"http://www.w3.org/TR/REC-html40/strict.dtd\"><html><head><meta \"#~ \"name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">p, li { \"#~ \"white-space: pre-wrap; }</style></head><body style=\" font-family:'Sans \"#~ \"Serif'; font-size:9pt; font-weight:400; font-style:normal;\"><p \"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">(c) 2003-Aujourd'hui - Tiny sprl</p><p \"#~ \"align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny ERP est un produit de Tiny sprl:</p><p \"#~ \"align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny sprl</p><p align=\"center\" style=\" \"#~ \"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-indent:0px;\">40 Chaussuée de Namur</p><p \"#~ \"align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">1367 Gérompont</p><p align=\"center\" style=\" \"#~ \"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-indent:0px;\">Belgique</p><p align=\"center\" \"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tel : (+32)81.81.37.00</p><p align=\"center\" style=\" \"#~ \"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-indent:0px;\">Mail: <a \"#~ \"href=\"mailto:sales@tiny.be\"><span style=\" text-decoration: underline; \"#~ \"color:#0000ff;\">sales@tiny.be</span></a></p><p align=\"center\" style=\" \"#~ \"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-indent:0px;\">Web: <a \"#~ \"href=\"http://www.tinyerp.com\"><span style=\" text-decoration: \"#~ \"underline; color:#0000ff;\">http://tiny.be</span></a></p></body></html>\""
+
+#. ts-context AboutDialog
+#: about.ui:54
+#~ msgid ""
+"#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ \"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ \"type=\"text/css\">\n"
+"\"#~ \"p, li { white-space: pre-wrap; }\n"
+"\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+"\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny ERP - KDE Client - %s</p>\n"
+"\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny ERP is an Open Source ERP+CRM</p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">for small to medium businesses.</p>\n"
+"\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">The whole source code is distributed under </p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">the terms of the GNU Public Licence.</p>\n"
+"\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">(c) 2003-TODAY, Tiny sprl</p>\n"
+"\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+"\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">More Info on <a href=\"http://www.tinyerp.com\"><span \"#~ \"style=\" text-decoration: underline; \"#~ \"color:#0000ff;\">www.TinyERP.com</span></a> !</p></body></html>\""
+#~ msgstr "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ \"\"http://www.w3.org/TR/REC-html40/strict.dtd\"><html><head><meta \"#~ \"name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">p, li { \"#~ \"white-space: pre-wrap; }</style></head><body style=\" font-family:'Sans \"#~ \"Serif'; font-size:9pt; font-weight:400; font-style:normal;\"><p \"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny ERP - Client KDE - %s</p><p align=\"center\" \"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Tiny ERP est un ERP+CRM Open Source</p><p \"#~ \"align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">pour petites et moyennes entreprises.</p><p \"#~ \"align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Le code source dans son intégralité est distribué sous \"#~ \"</p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">les termes de la licence GNU Public Licence.</p><p \"#~ \"align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">(c) 2003-Aujourd'hui, Tiny sprl</p><p align=\"center\" \"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p><p align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Plus d'info sur <a \"#~ \"href=\"http://www.openerp.com\"><span style=\" text-decoration: \"#~ \"underline; color:#0000ff;\">www.TinyERP.com</span></a> !</p></body></html>\""
+
+#. ts-context AboutDialog
+#: about.ui:19
+#~ msgid ""
+"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ \"type=\"text/css\">\n"
+"\"#~ \"p, li { white-space: pre-wrap; }\n"
+"\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+"\"#~ \"<center><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-weight:600;\">About Tiny ERP</span> </p>\n"
+"\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The most \"#~ \"advanced Open Source ERP &amp; CRM !</p></center></body></html>\""
+#~ msgstr "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ \"type=\"text/css\">p, li { white-space: pre-wrap; }</style></head><body \"#~ \"style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; \"#~ \"font-style:normal;\"><center><p style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"><span style=\" font-weight:600;\">About Tiny \"#~ \"ERP</span> </p><p style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">Le plus avancé ERP &amp; CRM Open Source  \"#~ \"!</p></center></body></html>\""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:738
 #, fuzzy
 msgid "&About"
-msgstr ""
+msgstr "&À propos"
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:47
-#, fuzzy
 msgid "&Accept"
-msgstr ""
+msgstr "&Accepter"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:316
 #, fuzzy
 msgid "&Actions"
-msgstr ""
+msgstr "&Actions"
 
 #. ts-context ManyToManyWidget
 #: many2many.ui:42
-#, fuzzy
 msgid "&Add"
-msgstr ""
+msgstr "&Ajouter"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:467
 #, fuzzy
 msgid "&Administrator Password"
-msgstr ""
+msgstr "Mot de passe &administrateur"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:509
-#, fuzzy
 msgid "&Advanced"
-msgstr ""
+msgstr "&Avancé"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:449
 #, fuzzy
 msgid "&Backup Database"
-msgstr ""
+msgstr "&Sauvegarder la base de données"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:326
 #, fuzzy
 msgid "&Browse"
-msgstr ""
+msgstr "&Parcourir"
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:57
-#, fuzzy
 msgid "&Cancel"
-msgstr ""
+msgstr "&Annuler"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:64
-#, fuzzy
 msgid "&Change"
-msgstr ""
+msgstr "&Changer"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:809
@@ -75,213 +136,195 @@ msgstr ""
 
 #. ts-context SearchFormWidget
 #: searchform.ui:82
-#, fuzzy
 msgid "&Clear"
-msgstr ""
+msgstr "Effa&cer"
 
 #. ts-context TipsDialog
 #: tip.ui:112
-#, fuzzy
 msgid "&Close"
-msgstr ""
+msgstr "&Fermer"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:395
 #, fuzzy
 msgid "&Connect"
-msgstr ""
+msgstr "&Connecter"
 
 #. ts-context AboutDialog
 #: about.ui:73
-#, fuzzy
 msgid "&Contact"
-msgstr ""
+msgstr "&Contact"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:710
 #, fuzzy
 msgid "&Contextual Help"
-msgstr ""
+msgstr "Aide &contextuelle"
 
 #. ts-context LoginDialog
 #: login.ui:88
-#, fuzzy
 msgid "&Database:"
-msgstr ""
+msgstr "Base de &données :"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:286
 #, fuzzy
 msgid "&Databases"
-msgstr ""
+msgstr "&base de données"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:181
-#, fuzzy
 msgid "&Default language:"
-msgstr ""
+msgstr "&Langage par défaut :"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:548
 #, fuzzy
 msgid "&Delete"
-msgstr ""
+msgstr "&Supprimer"
 
 #. ts-context ErrorDialog
 #: error.ui:41
-#, fuzzy
 msgid "&Description"
-msgstr ""
+msgstr "&Description"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:413
 #, fuzzy
 msgid "&Disconnect"
-msgstr ""
+msgstr "&Déconnecter"
 
 #. ts-context TipsDialog
 #: tip.ui:51
-#, fuzzy
 msgid "&Display a new tip next time ?"
-msgstr ""
+msgstr "&Affichage d'une nouvelle astuce la prochaine fois ?"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:38
-#, fuzzy
 msgid "&Domain"
-msgstr ""
+msgstr "&Filtre"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:458
 #, fuzzy
 msgid "&Drop Database"
-msgstr ""
+msgstr "&Supprimer la base de données"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:270
-#, fuzzy
 msgid "&Edition Shortcuts"
-msgstr ""
+msgstr "&Édition des widgets"
 
 #. ts-context ImportDialog
 #: win_import.ui:212
-#, fuzzy
 msgid "&Encoding"
-msgstr ""
+msgstr "&Encodage"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:701
 #, fuzzy
 msgid "&Execute Plugins"
-msgstr ""
+msgstr "&Exécuter un greffon"
 
 #. ts-context ImportDialog
 #: win_import.ui:178
-#, fuzzy
 msgid "&Field separator"
-msgstr ""
+msgstr "&Caractère de séparation"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:282
 #, fuzzy
 msgid "&File"
-msgstr ""
+msgstr "&Fichier"
 
 #. ts-context SearchWidget
 #: win_search.ui:86
-#, fuzzy
 msgid "&Find"
-msgstr ""
+msgstr "&Rechercher"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:771
 #, fuzzy
 msgid "&Form designer"
-msgstr ""
+msgstr "Concepteur de &formulaire"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:246
 #, fuzzy
 msgid "&Help"
-msgstr ""
+msgstr "&Aide"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:692
 #, fuzzy
 msgid "&Import Data"
-msgstr ""
+msgstr "&Importer données"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:724
 #, fuzzy
 msgid "&Keyboard Shortcut"
-msgstr ""
+msgstr "&Raccourcis clavier"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:729
 #, fuzzy
 msgid "&License"
-msgstr ""
+msgstr "&Licence"
 
 #. ts-context ImportDialog
 #: win_import.ui:219
-#, fuzzy
 msgid "&Lines to skip:"
-msgstr ""
+msgstr "&Lignes à ignorer :"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:197
-#, fuzzy
 msgid "&Load demonstration data"
-msgstr ""
+msgstr "&Charger les données de démonstrations"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:24
-#, fuzzy
 msgid "&Main Shortcuts"
-msgstr ""
+msgstr "&Principaux raccourcis"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:776
 #, fuzzy
 msgid "&Menu"
-msgstr ""
+msgstr "&Menu"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:431
 #, fuzzy
 msgid "&New Database"
-msgstr ""
+msgstr "&Nouvelle base de données"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:50
-#, fuzzy
 msgid "&New database name:"
-msgstr ""
+msgstr "&Nom de la nouvelle base de données :"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:72
-#, fuzzy
 msgid "&New password:"
-msgstr ""
+msgstr "&Nouveau mot de passe:"
 
 #. ts-context SearchWidget
 #: win_search.ui:67
 #, fuzzy
 msgid "&New"
-msgstr ""
+msgstr "&Nouveau"
 
 #. ts-context TipsDialog
 #: tip.ui:87
-#, fuzzy
 msgid "&Next Tip"
-msgstr ""
+msgstr "Astuce &suivante"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:572
 #, fuzzy
 msgid "&Next"
-msgstr ""
+msgstr "&Suivant"
 
 #. ts-context ManyToOneWidget
 #: dia_form_win_many2one.ui:55
@@ -291,9 +334,13 @@ msgstr ""
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:55
-#, fuzzy
 msgid "&Old password:"
-msgstr ""
+msgstr "&Ancien mot de passe:"
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:650
+#~ msgid "&Open"
+#~ msgstr "&Ouvrir"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
@@ -309,147 +356,146 @@ msgstr ""
 
 #. ts-context LoginDialog
 #: login.ui:169
-#, fuzzy
 msgid "&Password:"
-msgstr ""
+msgstr "Mot de &passe :"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:241
 #, fuzzy
 msgid "&Plugins"
-msgstr ""
+msgstr "&Greffons"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:71
-#, fuzzy
 msgid "&Port:"
-msgstr ""
+msgstr "&Port:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:476
 #, fuzzy
 msgid "&Preferences"
-msgstr ""
+msgstr "&Préférences"
 
 #. ts-context TipsDialog
 #: tip.ui:77
-#, fuzzy
 msgid "&Previous Tip"
-msgstr ""
+msgstr "Astuce &précédente"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:584
 #, fuzzy
 msgid "&Previous"
-msgstr ""
+msgstr "&Précédent"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:422
 #, fuzzy
 msgid "&Quit"
-msgstr ""
+msgstr "&Quitter"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:494
 #, fuzzy
 msgid "&Read My Requests"
-msgstr ""
+msgstr "&Lire mes requêtes"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:671
 #, fuzzy
 msgid "&Reload/Undo"
-msgstr ""
+msgstr "&Recharger/Annuler"
 
 #. ts-context ManyToManyWidget
 #: many2many.ui:58
-#, fuzzy
 msgid "&Remove"
-msgstr ""
+msgstr "&Supprimer"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:321
 #, fuzzy
 msgid "&Reports"
-msgstr ""
+msgstr "&Rapports"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:440
 #, fuzzy
 msgid "&Restore Database"
-msgstr ""
+msgstr "&Restaurer la base de données"
 
 #. ts-context ExportDialog
 #: win_export.ui:161
-#, fuzzy
 msgid "&Save list"
-msgstr ""
+msgstr "&Sauvegarder la liste"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:524
 #, fuzzy
 msgid "&Save"
-msgstr ""
+msgstr "&Sauvegarder"
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:21
-#, fuzzy
 msgid "&Search Id:"
-msgstr ""
+msgstr "&Rechercher Id:"
 
 #. ts-context SearchFormWidget
 #: searchform.ui:92
-#, fuzzy
 msgid "&Search"
-msgstr ""
+msgstr "&Rechercher"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:485
 #, fuzzy
 msgid "&Send Request"
-msgstr ""
+msgstr "&Envoyer une requête"
 
 #. ts-context LoginDialog
 #: login.ui:111
-#, fuzzy
 msgid "&Server:"
-msgstr ""
+msgstr "&Serveur :"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:152
-#, fuzzy
 msgid "&Super admin password:"
-msgstr ""
+msgstr "&Mot de passe super admin :"
 
 #. ts-context ImportDialog
 #: win_import.ui:195
-#, fuzzy
 msgid "&Text delimiter:"
-msgstr ""
+msgstr "&Texte délimité :"
+
+#. ts-context AboutDialog
+#: about.ui:45
+#~ msgid "&Tiny ERP"
+#~ msgstr "&Tiny ERP"
+
+#. ts-context CreateDatabaseDialog
+#: create_database.ui:231
+#~ msgid "&TinyERP server:"
+#~ msgstr "&Serveur TinyERP :"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:715
 #, fuzzy
 msgid "&Tips"
-msgstr ""
+msgstr "&Astuces"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:304
 #, fuzzy
 msgid "&User"
-msgstr ""
+msgstr "&Utilisateur"
 
 #. ts-context LoginDialog
 #: login.ui:195
-#, fuzzy
 msgid "&User:"
-msgstr ""
+msgstr "&Utilisateur :"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:503
 #, fuzzy
 msgid "&Waiting Requests"
-msgstr ""
+msgstr "&Requêtes en attente"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:331
@@ -459,9 +505,8 @@ msgstr ""
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:83
-#, fuzzy
 msgid "&only for you"
-msgstr ""
+msgstr "&seulement pour vous"
 
 #. ts-context Form
 #: keyboard.ui:605
@@ -471,21 +516,18 @@ msgstr ""
 
 #. ts-context OneToManyWidget
 #: one2many.ui:197
-#, fuzzy
 msgid "(0/0)"
-msgstr ""
+msgstr "(0/0)"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:113
-#, fuzzy
 msgid "(must not contain any special character)"
-msgstr ""
+msgstr "(ne doit pas contenir des caractères spéciaux)"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:123
-#, fuzzy
 msgid "(use 'admin', if you did not change it)"
-msgstr ""
+msgstr "(utiliser 'admin', si vous ne l'avez pas changé)"
 
 #. ts-context Form
 #: keypad.ui:95
@@ -501,15 +543,13 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:188
-#, fuzzy
 msgid ","
-msgstr ""
+msgstr ","
 
 #. ts-context SearchDateWidget
 #: search_date.ui:76
-#, fuzzy
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #. ts-context Form
 #: keyboard.ui:342
@@ -527,61 +567,61 @@ msgstr ""
 #: keyboard.ui:644
 #, fuzzy
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #. ts-context Form
 #: keyboard.ui:527
 #, fuzzy
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #. ts-context Form
 #: keyboard.ui:501
 #, fuzzy
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #. ts-context Form
 #: keyboard.ui:514
 #, fuzzy
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #. ts-context Form
 #: keyboard.ui:670
 #, fuzzy
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #. ts-context Form
 #: keyboard.ui:540
 #, fuzzy
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #. ts-context Form
 #: keyboard.ui:553
 #, fuzzy
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #. ts-context Form
 #: keyboard.ui:475
 #, fuzzy
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #. ts-context Form
 #: keyboard.ui:566
 #, fuzzy
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #. ts-context Form
 #: keyboard.ui:488
 #, fuzzy
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:66
@@ -744,45 +784,38 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:130
-#, fuzzy
 msgid "<Alt> + <PgDn>"
-msgstr ""
+msgstr "<Alt> + <PgDn>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:116
-#, fuzzy
 msgid "<Alt> + <PgUp>"
-msgstr ""
+msgstr "<Alt> + <PgUp>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:239
-#, fuzzy
 msgid "<Ctrl> + <Enter>"
-msgstr ""
+msgstr "<Ctrl> + <Enter>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:253
-#, fuzzy
 msgid "<Ctrl> + <Esc>"
-msgstr ""
+msgstr "<Ctrl> + <Esc>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:172
-#, fuzzy
 msgid "<Ctrl> + <PgDn>"
-msgstr ""
+msgstr "<Ctrl> + <PgDn>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
-#, fuzzy
 msgid "<Ctrl> + <PgUp>"
-msgstr ""
+msgstr "<Ctrl> + <PgUp>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:214
-#, fuzzy
 msgid "<Ctrl> + <Shift> + D"
-msgstr ""
+msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:448
@@ -798,39 +831,33 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:357
-#, fuzzy
 msgid "<Ctrl> + C"
-msgstr ""
+msgstr "<Ctrl> + C"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:74
-#, fuzzy
 msgid "<Ctrl> + D"
-msgstr ""
+msgstr "<Ctrl> + D"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:88
-#, fuzzy
 msgid "<Ctrl> + F"
-msgstr ""
+msgstr "<Ctrl> + F"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:144
-#, fuzzy
 msgid "<Ctrl> + L"
-msgstr ""
+msgstr "<Ctrl> + L"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:46
-#, fuzzy
 msgid "<Ctrl> + N"
-msgstr ""
+msgstr "<Ctrl> + N"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:32
-#, fuzzy
 msgid "<Ctrl> + O"
-msgstr ""
+msgstr "<Ctrl> + O"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:434
@@ -840,45 +867,43 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:60
-#, fuzzy
 msgid "<Ctrl> + S"
-msgstr ""
+msgstr "<Ctrl> + S"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:444
+#~ msgid "<Ctrl> + Switch View"
+#~ msgstr "<Ctrl> + Switch View"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:102
-#, fuzzy
 msgid "<Ctrl> + T"
-msgstr ""
+msgstr "<Ctrl> + T"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:364
-#, fuzzy
 msgid "<Ctrl> + V"
-msgstr ""
+msgstr "<Ctrl> + V"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:186
-#, fuzzy
 msgid "<Ctrl> + W"
-msgstr ""
+msgstr "<Ctrl> + W"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:371
-#, fuzzy
 msgid "<Ctrl> + X"
-msgstr ""
+msgstr "<Ctrl> + X"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:336
-#, fuzzy
 msgid "<Enter>"
-msgstr ""
+msgstr "<Enter>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:322
-#, fuzzy
 msgid "<Shift> + <Tab>"
-msgstr ""
+msgstr "<Shift> + <Tab>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:566
@@ -894,87 +919,83 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:350
-#, fuzzy
 msgid "<Tab>"
-msgstr ""
+msgstr "<Tab>"
 
 #. ts-context ExportDialog
 #: win_export.ui:75
-#, fuzzy
 msgid "<b>All fields</b>"
-msgstr ""
+msgstr "<b>Tous les champs</b>"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:19
-#, fuzzy
 msgid "<b>Change your database administration password</b>"
-msgstr ""
+msgstr "<b>Changer votre mot de passe d'administration de la base de données</b>"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:26
-#, fuzzy
 msgid "<b>Could not connect to database</b>"
-msgstr ""
+msgstr "<b>Impossibe de se connecter à la base de données</b>"
 
 #. ts-context LoginDialog
 #: login.ui:126
-#, fuzzy
 msgid "<b>Could not connect to server !</b>"
-msgstr ""
+msgstr "<b>Impossible de se connecter au serveur !</b>"
 
 #. ts-context ErrorDialog
 #: error.ui:71
-#, fuzzy
 msgid "<b>Error code:</b>"
-msgstr ""
+msgstr "<b>Code d'erreur :</b>"
 
 #. ts-context ExportDialog
 #: win_export.ui:176
-#, fuzzy
 msgid "<b>Fields to export</b>"
-msgstr ""
+msgstr "<b>Champs à exporter</b>"
 
 #. ts-context ExportDialog
 #: win_export.ui:196
-#, fuzzy
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Options</b>"
 
 #. ts-context ExportDialog
 #: win_export.ui:21
-#, fuzzy
 msgid "<b>Predefined exports</b>"
-msgstr ""
+msgstr "<b>Exportation prédifinie</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:515
-#, fuzzy
 msgid "<b>Shortcuts in text entries</b>"
-msgstr ""
+msgstr "<b>Raccourcis dans une entrée texte</b>"
+
+#. ts-context TreeWidget
+#: tree.ui:70
+#~ msgid "<b>Shortcuts</b>"
+#~ msgstr "<b>Raccourcis</b>"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:74
-#, fuzzy
 msgid "<b>Value applicable for:</b>"
-msgstr ""
+msgstr "<b>Valeur applicable pour :</b>"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:102
-#, fuzzy
 msgid "<b>Value applicable if:</b>"
-msgstr ""
+msgstr "<b>Valeur applicable si :</b>"
 
 #. ts-context SelectionDialog
 #: win_selection.ui:19
-#, fuzzy
 msgid "<center><b>Choose a plug-in</b></center>"
-msgstr ""
+msgstr "<center><b>Choisir un greffon</b></center>"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:37
+#~ msgid "<center><b>Shortcuts for TinyERP</b></center>"
+#~ msgstr "<center><b>Raccourcis pour TinyERP</b></center>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:230
-#, fuzzy
 msgid "<center><i>When editing a resource in a popup window</i></center>"
-msgstr ""
+msgstr "<center><i>Lorque vous éditez une ressource dans une fenêtre surgissant</i></center>"
 
 #. ts-context AboutDialog
 #: about.ui:20
@@ -995,15 +1016,19 @@ msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:115
-#, fuzzy
 msgid "A&dd"
-msgstr ""
+msgstr "A&jouter"
 
 #. ts-context AboutDialog
 #: about.ui:14
 #, fuzzy
 msgid "About OpenERP"
 msgstr ""
+
+#. ts-context AboutDialog
+#: about.ui:13
+#~ msgid "About Tiny ERP"
+#~ msgstr "À propos de Tiny ERP"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:25
@@ -1013,15 +1038,13 @@ msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:209
-#, fuzzy
 msgid "Add &field names"
-msgstr ""
+msgstr "Ajouter &champ noms"
 
 #. ts-context TreeWidget
 #: tree.ui:78
-#, fuzzy
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Ajout d'un raccourci"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
@@ -1031,9 +1054,8 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:32
-#, fuzzy
 msgid "All fields"
-msgstr ""
+msgstr "Tous les champs"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:575
@@ -1049,33 +1071,29 @@ msgstr ""
 
 #. ts-context ErrorDialog
 #: error.ui:19
-#, fuzzy
 msgid "Application Error !"
-msgstr ""
+msgstr "Erreur d'application !"
 
 #. ts-context ErrorDialog
 #: error.ui:47
-#, fuzzy
 msgid "Application Error"
-msgstr ""
+msgstr "Erreur d'application"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:759
 #, fuzzy
 msgid "Attachments"
-msgstr ""
+msgstr "Pièces jointes"
 
 #. ts-context ImportDialog
 #: win_import.ui:109
-#, fuzzy
 msgid "Auto-&detect"
-msgstr ""
+msgstr "&Détection automatique"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:343
-#, fuzzy
 msgid "Auto-complete text field"
-msgstr ""
+msgstr "Auto-complétion du champ texte"
 
 #. ts-context Form
 #: keyboard.ui:316
@@ -1085,15 +1103,13 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:306
-#, fuzzy
 msgid "Background color"
-msgstr ""
+msgstr "Couleur de fond"
 
 #. ts-context RichTextWidget
 #: richtext.ui:41
-#, fuzzy
 msgid "Bold"
-msgstr ""
+msgstr "Gras"
 
 #. ts-context Form
 #: keyboard.ui:381
@@ -1103,9 +1119,8 @@ msgstr ""
 
 #. ts-context LoginDialog
 #: login.ui:101
-#, fuzzy
 msgid "C&hange"
-msgstr ""
+msgstr "C&hanger"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:406
@@ -1115,6 +1130,11 @@ msgid ""
 "(Example result: 7)"
 msgstr ""
 
+#. ts-context ManyToOneWidget
+#: dia_form_win_many2one.ui:64
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
 #. ts-context Form
 #: keyboard.ui:433
 #, fuzzy
@@ -1123,9 +1143,8 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:193
-#, fuzzy
 msgid "Center"
-msgstr ""
+msgstr "Centrer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:559
@@ -1135,45 +1154,38 @@ msgstr ""
 
 #. ts-context SearchDateWidget
 #: search_date.ui:52
-#, fuzzy
 msgid "Choose a date from a calendar"
-msgstr ""
+msgstr "Choisir une date du calendrier"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:13
-#, fuzzy
 msgid "Choose database..."
-msgstr ""
+msgstr "Choisir une base de données ..."
 
 #. ts-context SearchDateWidget
 #: search_date.ui:104
-#, fuzzy
 msgid "Choose the date from a calendar"
-msgstr ""
+msgstr "Choisir la date du calendrier"
 
 #. ts-context ReferenceWidget
 #: reference.ui:48
-#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "Effacer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:531
-#, fuzzy
 msgid "Close tab"
-msgstr ""
+msgstr "Fermer onglet"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:260
-#, fuzzy
 msgid "Close window without saving"
-msgstr ""
+msgstr "Fermer la fenêtre sans sauvegarder"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:134
-#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #. ts-context Form
 #: calendarview.ui:83
@@ -1183,15 +1195,13 @@ msgstr ""
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:112
-#, fuzzy
 msgid "Connect &later"
-msgstr ""
+msgstr "Se connecter &plus tard"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:98
-#, fuzzy
 msgid "Connect &now"
-msgstr ""
+msgstr "Se connecter &maintenant"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:32
@@ -1199,23 +1209,25 @@ msgstr ""
 msgid "Connect to a OpenERP Server"
 msgstr ""
 
+#. ts-context ChangeServerDialog
+#: change_server.ui:31
+#~ msgid "Connect to a Tiny ERP Server"
+#~ msgstr "Se connecter sur le serveur TinyERP"
+
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:39
-#, fuzzy
 msgid "Connect"
-msgstr ""
+msgstr "Connecter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:301
-#, fuzzy
 msgid "Copy selected text"
-msgstr ""
+msgstr "Copier l'entrée sélectionnée"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
-#, fuzzy
 msgid "Create a new database"
-msgstr ""
+msgstr "Créer une nouvelle base de données"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:551
@@ -1298,9 +1310,8 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:294
-#, fuzzy
 msgid "Cut selected text"
-msgstr ""
+msgstr "Couper l'entrée sélectionnée"
 
 #. ts-context Form
 #: keyboard.ui:251
@@ -1312,7 +1323,7 @@ msgstr ""
 #: mainwindow.ui:536
 #, fuzzy
 msgid "D&uplicate"
-msgstr ""
+msgstr "D&upliquer"
 
 #. ts-context Form
 #: calendarview.ui:63
@@ -1322,9 +1333,8 @@ msgstr ""
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:56
-#, fuzzy
 msgid "Database created successfully!"
-msgstr ""
+msgstr "Base de données créée avec succès!"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:13
@@ -1334,27 +1344,23 @@ msgstr ""
 
 #. ts-context ErrorDialog
 #: error.ui:124
-#, fuzzy
 msgid "De&tails"
-msgstr ""
+msgstr "Dé&tails"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:55
-#, fuzzy
 msgid "Default &value"
-msgstr ""
+msgstr "&Valeur par défaut"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:81
-#, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #. ts-context SelectionDialog
 #: win_selection.ui:13
-#, fuzzy
 msgid "Dialog"
-msgstr ""
+msgstr "Dialogue"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:786
@@ -1364,9 +1370,8 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:221
-#, fuzzy
 msgid "Duplicate Record"
-msgstr ""
+msgstr "Dupliquer enregistrement"
 
 #. ts-context Form
 #: keyboard.ui:56
@@ -1378,13 +1383,12 @@ msgstr ""
 #: mainwindow.ui:683
 #, fuzzy
 msgid "E&xport Data"
-msgstr ""
+msgstr "E&xporter données"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:116
-#, fuzzy
 msgid "Edit"
-msgstr ""
+msgstr "Éditer"
 
 #. ts-context Form
 #: keyboard.ui:407
@@ -1394,9 +1398,8 @@ msgstr ""
 
 #. ts-context ErrorDialog
 #: error.ui:13
-#, fuzzy
 msgid "Error"
-msgstr ""
+msgstr "Erreur"
 
 #. ts-context SearchWidget
 #: win_search.ui:115
@@ -1420,49 +1423,42 @@ msgstr ""
 #: mainwindow.ui:257
 #, fuzzy
 msgid "F&orm"
-msgstr ""
+msgstr "F&ormulaire"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:200
-#, fuzzy
 msgid "F5"
-msgstr ""
+msgstr "F5"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:21
-#, fuzzy
 msgid "Field &Name"
-msgstr ""
+msgstr "Champ &Nom"
 
 #. ts-context ImportDialog
 #: win_import.ui:130
-#, fuzzy
 msgid "Fields to import"
-msgstr ""
+msgstr "Champs à importer"
 
 #. ts-context ImportDialog
 #: win_import.ui:153
-#, fuzzy
 msgid "File to &import:"
-msgstr ""
+msgstr "Fichier à &importer :"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:95
-#, fuzzy
 msgid "Find / Search"
-msgstr ""
+msgstr "Rechercher"
 
 #. ts-context RichTextWidget
 #: richtext.ui:287
-#, fuzzy
 msgid "Foreground Color"
-msgstr ""
+msgstr "Couleur de police"
 
 #. ts-context WebWidget
 #: web.ui:13
-#, fuzzy
 msgid "Form"
-msgstr ""
+msgstr "Formulaire"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:398
@@ -1476,19 +1472,17 @@ msgstr ""
 #: mainwindow.ui:747
 #, fuzzy
 msgid "Full &Text Search"
-msgstr ""
+msgstr "Recherche pleine &texte"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:109
-#, fuzzy
 msgid "Full Text Search"
-msgstr ""
+msgstr "Recherche pleine texte"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:13
-#, fuzzy
 msgid "Full text search"
-msgstr ""
+msgstr "Recherche pleine texte"
 
 #. ts-context Form
 #: keyboard.ui:186
@@ -1498,15 +1492,19 @@ msgstr ""
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:13
-#, fuzzy
 msgid "Go To Id"
-msgstr ""
+msgstr "Aller à l'Id"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:662
 #, fuzzy
 msgid "Go To Resource ID"
-msgstr ""
+msgstr "Aller la ressource ID"
+
+#. ts-context TreeWidget
+#: tree.ui:103
+#~ msgid "Go"
+#~ msgstr "Aller"
 
 #. ts-context Form
 #: keyboard.ui:264
@@ -1522,9 +1520,8 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:16
-#, fuzzy
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #. ts-context Form
 #: keypad.ui:238
@@ -1534,9 +1531,8 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:70
-#, fuzzy
 msgid "Italics"
-msgstr ""
+msgstr "Italique"
 
 #. ts-context Form
 #: keyboard.ui:147
@@ -1546,15 +1542,24 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:251
-#, fuzzy
 msgid "Justify"
-msgstr ""
+msgstr "Justifier"
 
 #. ts-context Form
 #: keyboard.ui:173
 #, fuzzy
 msgid "K"
 msgstr ""
+
+#. ts-context KTinyMainWindow
+#: mainwindow.ui:25
+#~ msgid "KTiny Erp Client"
+#~ msgstr "Client Ktiny ERP"
+
+#. ts-context KTinyMainWindow
+#: mainwindow.ui:777
+#~ msgid "KTiny"
+#~ msgstr "Ktiny"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:791
@@ -1576,15 +1581,13 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:238
-#, fuzzy
 msgid "Latin1"
-msgstr ""
+msgstr "Latin1"
 
 #. ts-context RichTextWidget
 #: richtext.ui:164
-#, fuzzy
 msgid "Left Justify"
-msgstr ""
+msgstr "Justifier à gauche"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:470
@@ -1600,9 +1603,8 @@ msgstr ""
 
 #. ts-context LoginDialog
 #: login.ui:22
-#, fuzzy
 msgid "Login"
-msgstr ""
+msgstr "Connection"
 
 #. ts-context Form
 #: keyboard.ui:277
@@ -1618,9 +1620,8 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:524
-#, fuzzy
 msgid "Middle mouse click on Tab"
-msgstr ""
+msgstr "Bouton central de la souris sur l'onglet"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:818
@@ -1648,45 +1649,39 @@ msgstr ""
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:89
-#, fuzzy
 msgid "New password &confirmation:"
-msgstr ""
+msgstr "Nouveau mot de passe &confirmation:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:53
-#, fuzzy
 msgid "New"
-msgstr ""
+msgstr "Nouveau"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:617
 #, fuzzy
 msgid "Next Tab"
-msgstr ""
+msgstr "Onglet suivant"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:315
-#, fuzzy
 msgid "Next editable widget"
-msgstr ""
+msgstr "Prochain widget éditable"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:137
-#, fuzzy
 msgid "Next record"
-msgstr ""
+msgstr "Enregistrement suivant"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:179
-#, fuzzy
 msgid "Next tab"
-msgstr ""
+msgstr "Onglet suivant"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:213
-#, fuzzy
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:386
@@ -1700,23 +1695,32 @@ msgstr ""
 msgid "O"
 msgstr ""
 
+#. ts-context ManyToOneWidget
+#: dia_form_win_many2one.ui:54
+#~ msgid "OK"
+#~ msgstr "OK"
+
 #. ts-context KooMainWindow
 #: mainwindow.ui:608
 #, fuzzy
 msgid "Open &Menu Tab"
-msgstr ""
+msgstr "Ouvrir l'onglet &Menu"
 
 #. ts-context CalendarWidget
 #: calendar.ui:43
-#, fuzzy
 msgid "Open Calendar"
-msgstr ""
+msgstr "Ouvrir Calendrier"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:475
+#~ msgid "Open Form View in new Tab"
+#~ msgstr "Ouvrir un formulaire dans un nouveau onglet"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:800
 #, fuzzy
 msgid "Open Home Tab"
-msgstr ""
+msgstr "Ouvrir l'onglet principal"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:545
@@ -1732,9 +1736,8 @@ msgstr ""
 
 #. ts-context UrlWidget
 #: url.ui:43
-#, fuzzy
 msgid "Open"
-msgstr ""
+msgstr "Ouvrir"
 
 #. ts-context ManyToOneWidget
 #: dia_form_win_many2one.ui:14
@@ -1762,9 +1765,8 @@ msgstr ""
 
 #. ts-context ProgressDialog
 #: progress.ui:40
-#, fuzzy
 msgid "Operation in progress"
-msgstr ""
+msgstr "Opération en cours"
 
 #. ts-context Form
 #: keyboard.ui:657
@@ -1774,53 +1776,56 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:308
-#, fuzzy
 msgid "Paste selected text"
-msgstr ""
+msgstr "Coller l'entrée sélectionnée"
 
 #. ts-context ProgressDialog
 #: progress.ui:53
-#, fuzzy
 msgid ""
 "Please wait, \n"
 "this operation may take a while..."
-msgstr ""
+msgstr "Veuillez patienter, cette opération prend un certain temps ..."
 
 #. ts-context PreferencesDialog
 #: preferences.ui:14
-#, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Préférences"
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:682
+#~ msgid "Preview in Editor"
+#~ msgstr "Prévisualiser dans l'éditeur"
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:673
+#~ msgid "Preview in PDF"
+#~ msgstr "Prévisualiser en PDF"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:123
-#, fuzzy
 msgid "Previous Record"
-msgstr ""
+msgstr "Enregistrement précédent"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:629
 #, fuzzy
 msgid "Previous Tab"
-msgstr ""
+msgstr "Onglet précédent"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:329
-#, fuzzy
 msgid "Previous editable widget"
-msgstr ""
+msgstr "Pécédent widget éditable"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:165
-#, fuzzy
 msgid "Previous tab"
-msgstr ""
+msgstr "Onglet précédent"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:171
-#, fuzzy
 msgid "Previous"
-msgstr ""
+msgstr "Précédent"
 
 #. ts-context ProgressDialog
 #: progress.ui:14
@@ -1842,15 +1847,14 @@ msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:45
-#, fuzzy
 msgid "Re&move Export"
-msgstr ""
+msgstr "Su&pprimer l'exportation"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:187
 #, fuzzy
 msgid "Read My Requests"
-msgstr ""
+msgstr "Lire mes requêtes"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:422
@@ -1860,21 +1864,18 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:207
-#, fuzzy
 msgid "Reload"
-msgstr ""
+msgstr "Recharger"
 
 #. ts-context ImportDialog
 #: win_import.ui:85
-#, fuzzy
 msgid "Remo&ve All"
-msgstr ""
+msgstr "Suppri&mer tout"
 
 #. ts-context ExportDialog
 #: win_export.ui:137
-#, fuzzy
 msgid "Remo&ve all"
-msgstr ""
+msgstr "Supprim&er tout"
 
 #. ts-context Form
 #: image.ui:90
@@ -1884,15 +1885,18 @@ msgstr ""
 
 #. ts-context TreeWidget
 #: tree.ui:98
-#, fuzzy
 msgid "Remove Shortcut"
-msgstr ""
+msgstr "Suppression d'un raccourci"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:136
-#, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
+
+#. ts-context KTinyMainWindow
+#: mainwindow.ui:625
+#~ msgid "Repeat Latest Action"
+#~ msgstr "Refaire dernière action"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:299
@@ -1904,13 +1908,12 @@ msgstr ""
 #: mainwindow.ui:144
 #, fuzzy
 msgid "Requests:"
-msgstr ""
+msgstr "Requêtes :"
 
 #. ts-context RichTextWidget
 #: richtext.ui:222
-#, fuzzy
 msgid "Right Justify"
-msgstr ""
+msgstr "Justifier à doite"
 
 #. ts-context Form
 #: keyboard.ui:238
@@ -1926,45 +1929,38 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:246
-#, fuzzy
 msgid "Save and close window"
-msgstr ""
+msgstr "Sauvegarder et fermer la fenêtre"
 
 #. ts-context BinaryWidget
 #: binary.ui:55
-#, fuzzy
 msgid "Save file..."
-msgstr ""
+msgstr "Sauvegarder le fichier ..."
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:67
-#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #. ts-context SearchWidget
 #: win_search.ui:14
-#, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #. ts-context LinkWidget
 #: link.ui:36
-#, fuzzy
 msgid "Select file..."
-msgstr ""
+msgstr "Sélectionner fichier ..."
 
 #. ts-context RichTextWidget
 #: richtext.ui:336
-#, fuzzy
 msgid "Select font size"
-msgstr ""
+msgstr "Sélectionner taille de la police"
 
 #. ts-context RichTextWidget
 #: richtext.ui:323
-#, fuzzy
 msgid "Select font"
-msgstr ""
+msgstr "Sélectionner police"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:486
@@ -1976,13 +1972,12 @@ msgstr ""
 #: mainwindow.ui:210
 #, fuzzy
 msgid "Send New Request"
-msgstr ""
+msgstr "Envoyer nouvelle requête"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:20
-#, fuzzy
 msgid "Server"
-msgstr ""
+msgstr "Serveur"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:282
@@ -1994,7 +1989,7 @@ msgstr ""
 #: tree.ui:65
 #, fuzzy
 msgid "Shortcuts"
-msgstr ""
+msgstr "Raccoucis"
 
 #. ts-context Form
 #: keyboard.ui:462
@@ -2004,39 +1999,39 @@ msgstr ""
 
 #. ts-context FormContainerWidget
 #: formcontainer.ui:56
-#, fuzzy
 msgid "State:"
-msgstr ""
+msgstr "État :"
 
 #. ts-context RichTextWidget
 #: richtext.ui:128
-#, fuzzy
 msgid "Strikethrough"
-msgstr ""
+msgstr "Barré"
+
+#. ts-context KTinyMainWindow
+#: mainwindow.ui:748
+#~ msgid "Support Request"
+#~ msgstr "Demande de support"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:596
 #, fuzzy
 msgid "Switch &View"
-msgstr ""
+msgstr "Basculer vers &liste/formulaire"
 
 #. ts-context PanedWidget
 #: paned.ui:117
-#, fuzzy
 msgid "Switch View"
-msgstr ""
+msgstr "Basculer liste/formulaire"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:151
-#, fuzzy
 msgid "Switch view mode"
-msgstr ""
+msgstr "Changer de mode de vue"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:122
-#, fuzzy
 msgid "Switch"
-msgstr ""
+msgstr "Basculer"
 
 #. ts-context Form
 #: keyboard.ui:82
@@ -2052,27 +2047,43 @@ msgstr ""
 
 #. ts-context SearchViewItemWidget
 #: searchviewitem.ui:164
-#, fuzzy
 msgid "TextLabel"
-msgstr ""
+msgstr "Libellé du texte"
 
 #. ts-context DateTimeWidget
 #: datetime.ui:41
-#, fuzzy
 msgid "Time:"
-msgstr ""
+msgstr "Heure:"
+
+#. ts-context ManyToOneWidget
+#: dia_form_win_many2one.ui:13
+#~ msgid "Tiny ERP - Link"
+#~ msgstr "Tiny ERp - Lien"
+
+#. ts-context LicenseDialog
+#: license.ui:19
+#~ msgid "Tiny ERP license"
+#~ msgstr "Licence Tiny ERP"
+
+#. ts-context KTinyMainWindow
+#: mainwindow.ui:772
+#~ msgid "TinyERP"
+#~ msgstr "TinyERP"
 
 #. ts-context TipsDialog
 #: tip.ui:13
-#, fuzzy
 msgid "Tip of the Day"
-msgstr ""
+msgstr "Astuce du jour"
+
+#. ts-context PanedWidget
+#: paned.ui:49
+#~ msgid "Title"
+#~ msgstr "Titre"
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:13
-#, fuzzy
 msgid "Translation dialog"
-msgstr ""
+msgstr "Dialogue de traduction"
 
 #. ts-context Form
 #: keyboard.ui:108
@@ -2082,21 +2093,24 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:233
-#, fuzzy
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #. ts-context RichTextWidget
 #: richtext.ui:99
-#, fuzzy
 msgid "Underline"
-msgstr ""
+msgstr "Souligner"
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:249
+#~ msgid "User &Manual"
+#~ msgstr "&Manuel utilisateur"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:781
 #, fuzzy
 msgid "User Manual"
-msgstr ""
+msgstr "Manuel utilisateur"
 
 #. ts-context Form
 #: keyboard.ui:290
@@ -2108,13 +2122,12 @@ msgstr ""
 #: mainwindow.ui:653
 #, fuzzy
 msgid "View Access Log"
-msgstr ""
+msgstr "Voir l'historique"
 
 #. ts-context ErrorDialog
 #: error.ui:78
-#, fuzzy
 msgid "View details"
-msgstr ""
+msgstr "Vue détaillée"
 
 #. ts-context Form
 #: keyboard.ui:43
@@ -2148,27 +2161,23 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:205
-#, fuzzy
 msgid "\""
-msgstr ""
+msgstr "\""
 
 #. ts-context WebWidget
 #: web.ui:23
-#, fuzzy
 msgid "about:blank"
-msgstr ""
+msgstr "about:blank"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:93
-#, fuzzy
 msgid "for all &users"
-msgstr ""
+msgstr "pour tous les &utilisateurs"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:49
-#, fuzzy
 msgid "toolBar"
-msgstr ""
+msgstr "Barre d'outils"
 
 #. ts-context Form
 #: keyboard.ui:631

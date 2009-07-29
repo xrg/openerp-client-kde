@@ -9,141 +9,126 @@ msgstr "Project-Id-Version: PACKAGE VERSION\nReport-Msgid-Bugs-To: \nPOT-Creatio
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:738
-#, fuzzy
 msgid "&About"
-msgstr ""
+msgstr "Über"
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:47
-#, fuzzy
 msgid "&Accept"
-msgstr ""
+msgstr "&Annehmen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:316
-#, fuzzy
 msgid "&Actions"
-msgstr ""
+msgstr "&Aktionen"
 
 #. ts-context ManyToManyWidget
 #: many2many.ui:42
 #, fuzzy
 msgid "&Add"
-msgstr ""
+msgstr "&Hinzufügen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:467
-#, fuzzy
 msgid "&Administrator Password"
-msgstr ""
+msgstr "&Administrator Passwort"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:509
-#, fuzzy
 msgid "&Advanced"
-msgstr ""
+msgstr "Fortgeschritten"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:449
-#, fuzzy
 msgid "&Backup Database"
-msgstr ""
+msgstr "Daten&bank Sichern"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:326
 #, fuzzy
 msgid "&Browse"
-msgstr ""
+msgstr "&Durchsuchen"
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:57
 #, fuzzy
 msgid "&Cancel"
-msgstr ""
+msgstr "Abbre&chen"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:64
-#, fuzzy
 msgid "&Change"
-msgstr ""
+msgstr "Verändere"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:809
-#, fuzzy
 msgid "&Clear Cache"
-msgstr ""
+msgstr "Zwioschensoeicher Zurü&cksetzen"
 
 #. ts-context SearchFormWidget
 #: searchform.ui:82
 #, fuzzy
 msgid "&Clear"
-msgstr ""
+msgstr "Zurü&cksetzen"
 
 #. ts-context TipsDialog
 #: tip.ui:112
 #, fuzzy
 msgid "&Close"
-msgstr ""
+msgstr "S&chließen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:395
-#, fuzzy
 msgid "&Connect"
-msgstr ""
+msgstr "Verbinde"
 
 #. ts-context AboutDialog
 #: about.ui:73
 #, fuzzy
 msgid "&Contact"
-msgstr ""
+msgstr "Kontaktadresse"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:710
-#, fuzzy
 msgid "&Contextual Help"
-msgstr ""
+msgstr "Kontext Hilfe"
 
 #. ts-context LoginDialog
 #: login.ui:88
-#, fuzzy
 msgid "&Database:"
-msgstr ""
+msgstr "&Datenbank:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:286
-#, fuzzy
 msgid "&Databases"
-msgstr ""
+msgstr "&Datenbanken"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:181
-#, fuzzy
 msgid "&Default language:"
-msgstr ""
+msgstr "Sprache Voreinstellung:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:548
 #, fuzzy
 msgid "&Delete"
-msgstr ""
+msgstr "Löschen"
 
 #. ts-context ErrorDialog
 #: error.ui:41
 #, fuzzy
 msgid "&Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:413
-#, fuzzy
 msgid "&Disconnect"
-msgstr ""
+msgstr "Trenne"
 
 #. ts-context TipsDialog
 #: tip.ui:51
-#, fuzzy
 msgid "&Display a new tip next time ?"
-msgstr ""
+msgstr "Zeige das nächste Mal einen neuen Tip?"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:38
@@ -153,135 +138,114 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:458
-#, fuzzy
 msgid "&Drop Database"
-msgstr ""
+msgstr "&Datenbank löschen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:270
-#, fuzzy
 msgid "&Edition Shortcuts"
-msgstr ""
+msgstr "Kürzel für das Editieren"
 
 #. ts-context ImportDialog
 #: win_import.ui:212
-#, fuzzy
 msgid "&Encoding"
-msgstr ""
+msgstr "Kodierung"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:701
-#, fuzzy
 msgid "&Execute Plugins"
-msgstr ""
+msgstr "Plugins ausführ&en"
 
 #. ts-context ImportDialog
 #: win_import.ui:178
-#, fuzzy
 msgid "&Field separator"
-msgstr ""
+msgstr "&Feldtrenner"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:282
-#, fuzzy
 msgid "&File"
-msgstr ""
+msgstr "Datei"
 
 #. ts-context SearchWidget
 #: win_search.ui:86
-#, fuzzy
 msgid "&Find"
-msgstr ""
+msgstr "Suchen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:771
-#, fuzzy
 msgid "&Form designer"
-msgstr ""
+msgstr "&Formular Desinger"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:246
-#, fuzzy
 msgid "&Help"
-msgstr ""
+msgstr "&Hilfe"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:692
-#, fuzzy
 msgid "&Import Data"
-msgstr ""
+msgstr "&Importiere Daten"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:724
-#, fuzzy
 msgid "&Keyboard Shortcut"
-msgstr ""
+msgstr "Tastatur &Kürzel"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:729
-#, fuzzy
 msgid "&License"
-msgstr ""
+msgstr "&Lizenz"
 
 #. ts-context ImportDialog
 #: win_import.ui:219
-#, fuzzy
 msgid "&Lines to skip:"
-msgstr ""
+msgstr "überspringe Zei&len:"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:197
-#, fuzzy
 msgid "&Load demonstration data"
-msgstr ""
+msgstr "&Lade Demo Daten"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:24
-#, fuzzy
 msgid "&Main Shortcuts"
-msgstr ""
+msgstr "wichtige Kürzel"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:776
-#, fuzzy
 msgid "&Menu"
-msgstr ""
+msgstr "&Menü"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:431
-#, fuzzy
 msgid "&New Database"
-msgstr ""
+msgstr "&Neue Datenbank"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:50
-#, fuzzy
 msgid "&New database name:"
-msgstr ""
+msgstr "&Neuer Datenbank Name:"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:72
-#, fuzzy
 msgid "&New password:"
-msgstr ""
+msgstr "&Neues Passwort:"
 
 #. ts-context SearchWidget
 #: win_search.ui:67
 #, fuzzy
 msgid "&New"
-msgstr ""
+msgstr "&Neu"
 
 #. ts-context TipsDialog
 #: tip.ui:87
-#, fuzzy
 msgid "&Next Tip"
-msgstr ""
+msgstr "&Nächster Tip"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:572
-#, fuzzy
 msgid "&Next"
-msgstr ""
+msgstr "Weiter"
 
 #. ts-context ManyToOneWidget
 #: dia_form_win_many2one.ui:55
@@ -291,33 +255,31 @@ msgstr ""
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:55
-#, fuzzy
 msgid "&Old password:"
-msgstr ""
+msgstr "Altes Passwort"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
-#, fuzzy
 msgid "&OpenERP server:"
-msgstr ""
+msgstr "&OpenERP Server:"
 
 #. ts-context AboutDialog
 #: about.ui:42
 #, fuzzy
 msgid "&OpenERP"
-msgstr ""
+msgstr "&OpenERP"
 
 #. ts-context LoginDialog
 #: login.ui:169
 #, fuzzy
 msgid "&Password:"
-msgstr ""
+msgstr "&Passwort:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:241
 #, fuzzy
 msgid "&Plugins"
-msgstr ""
+msgstr "&Plugins"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:71
@@ -329,85 +291,77 @@ msgstr ""
 #: mainwindow.ui:476
 #, fuzzy
 msgid "&Preferences"
-msgstr ""
+msgstr "Einstellungen"
 
 #. ts-context TipsDialog
 #: tip.ui:77
-#, fuzzy
 msgid "&Previous Tip"
-msgstr ""
+msgstr "Voriger Tip"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:584
 #, fuzzy
 msgid "&Previous"
-msgstr ""
+msgstr "Vorige"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:422
-#, fuzzy
 msgid "&Quit"
-msgstr ""
+msgstr "Verlasse"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:494
-#, fuzzy
 msgid "&Read My Requests"
-msgstr ""
+msgstr "Lese meine Anf&ragen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:671
 #, fuzzy
 msgid "&Reload/Undo"
-msgstr ""
+msgstr "E&rneut laden"
 
 #. ts-context ManyToManyWidget
 #: many2many.ui:58
-#, fuzzy
 msgid "&Remove"
-msgstr ""
+msgstr "Enfe&rne"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:321
 #, fuzzy
 msgid "&Reports"
-msgstr ""
+msgstr "Be&richte"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:440
-#, fuzzy
 msgid "&Restore Database"
-msgstr ""
+msgstr "Datenbank Wiederhe&rstellen"
 
 #. ts-context ExportDialog
 #: win_export.ui:161
-#, fuzzy
 msgid "&Save list"
-msgstr ""
+msgstr "&Speichere Liste"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:524
 #, fuzzy
 msgid "&Save"
-msgstr ""
+msgstr "&Sichern"
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:21
-#, fuzzy
 msgid "&Search Id:"
-msgstr ""
+msgstr "&Suche ID:"
 
 #. ts-context SearchFormWidget
 #: searchform.ui:92
 #, fuzzy
 msgid "&Search"
-msgstr ""
+msgstr "&Suchen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:485
-#, fuzzy
 msgid "&Send Request"
-msgstr ""
+msgstr "&Sende Anfrage"
 
 #. ts-context LoginDialog
 #: login.ui:111
@@ -417,15 +371,13 @@ msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:152
-#, fuzzy
 msgid "&Super admin password:"
-msgstr ""
+msgstr "&Super admin Passwort:"
 
 #. ts-context ImportDialog
 #: win_import.ui:195
-#, fuzzy
 msgid "&Text delimiter:"
-msgstr ""
+msgstr "&Text Begrenzer:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:715
@@ -437,31 +389,28 @@ msgstr ""
 #: mainwindow.ui:304
 #, fuzzy
 msgid "&User"
-msgstr ""
+msgstr "Ben&utzer"
 
 #. ts-context LoginDialog
 #: login.ui:195
 #, fuzzy
 msgid "&User:"
-msgstr ""
+msgstr "Ben&utzer:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:503
-#, fuzzy
 msgid "&Waiting Requests"
-msgstr ""
+msgstr "&Wartende Anfragen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:331
-#, fuzzy
 msgid "&Window"
-msgstr ""
+msgstr "Fenster"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:83
-#, fuzzy
 msgid "&only for you"
-msgstr ""
+msgstr "nur für Sie"
 
 #. ts-context Form
 #: keyboard.ui:605
@@ -477,15 +426,13 @@ msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:113
-#, fuzzy
 msgid "(must not contain any special character)"
-msgstr ""
+msgstr "(darf keine Sonderzeichen enthalten)"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:123
-#, fuzzy
 msgid "(use 'admin', if you did not change it)"
-msgstr ""
+msgstr "(verwende 'admin', wenn dies nicht verändert wurde)"
 
 #. ts-context Form
 #: keypad.ui:95
@@ -497,7 +444,7 @@ msgstr ""
 #: keyboard.ui:618
 #, fuzzy
 msgid "+"
-msgstr ""
+msgstr "+"
 
 #. ts-context ImportDialog
 #: win_import.ui:188
@@ -527,31 +474,31 @@ msgstr ""
 #: keyboard.ui:644
 #, fuzzy
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #. ts-context Form
 #: keyboard.ui:527
 #, fuzzy
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #. ts-context Form
 #: keyboard.ui:501
 #, fuzzy
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #. ts-context Form
 #: keyboard.ui:514
 #, fuzzy
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #. ts-context Form
 #: keyboard.ui:670
 #, fuzzy
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #. ts-context Form
 #: keyboard.ui:540
@@ -594,7 +541,7 @@ msgid ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\">You can connect to the new database using one of the following accounts:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\"></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\">Administrator: admin / admin</p></body></html>"
-msgstr ""
+msgstr "HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\"></style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;\"><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\"></p></body></html>"
 
 #. ts-context LicenseDialog
 #: license.ui:29
@@ -698,7 +645,7 @@ msgid ""
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">             END OF TERMS AND CONDITIONS</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p></body></html>"
-msgstr ""
+msgstr "HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\"></style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\"><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Version Juni</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> V</p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist und</p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und Allgemein ist und ist Allgemein und ist Allgemein</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Allgemein und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Bis</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und ist ist und ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist Bis</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> enthält Allgemein und ist und ist Laufzeit ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und ist und ist ist wahr</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und und und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> enthält ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und ist und und user ist ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und und ist und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> enthält und ist und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Alle ist und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und</p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist ist und ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist ist application ist ist und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und ist ist</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> und Allgemein</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> ist und und</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Neu</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Neu</p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p></body></html>"
 
 #. ts-context AboutDialog
 #: about.ui:79
@@ -714,7 +661,7 @@ msgid ""
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 18</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
-msgstr ""
+msgstr "HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\"></style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-weight:400; font-style:normal;\"><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"> ist</span></p><p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"></span></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"></span><a href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"></span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
 
 #. ts-context AboutDialog
 #: about.ui:48
@@ -734,7 +681,7 @@ msgid ""
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU Public Licence.</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-tic.com</span></a></p></body></html>"
-msgstr ""
+msgstr "HTML HTMLhttp://www.w3.org/TR/REC-html40/strict.dtd<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\"></style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-weight:400; font-style:normal;\"><p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"> Kunde</span></p><p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"> OpenERP ist Öffnen Quelle</span></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"></span></p><p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"> ist</span></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"></span></p><p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p><p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Sans Serif'; font-size:9pt;\"> Mehr Information</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\"></span></a></p></body></html>"
 
 #. ts-context Form
 #: keyboard.ui:592
@@ -786,9 +733,8 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:448
-#, fuzzy
 msgid "<Ctrl> + <Shift> + Open"
-msgstr ""
+msgstr "<Ctrl>+<Shift>+ Öffnen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:479
@@ -828,15 +774,13 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:32
-#, fuzzy
 msgid "<Ctrl> + O"
-msgstr ""
+msgstr "<Ctrl> + O"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:434
-#, fuzzy
 msgid "<Ctrl> + Open"
-msgstr ""
+msgstr "<Ctrl> + Öffnen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:60
@@ -882,15 +826,13 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:566
-#, fuzzy
 msgid "<Shift> + Open View"
-msgstr ""
+msgstr "<Shift> + Öffne Ansicht"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:538
-#, fuzzy
 msgid "<Shift> + Switch View"
-msgstr ""
+msgstr "<Shift> + Umschalten Ansicht"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:350
@@ -900,81 +842,69 @@ msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:75
-#, fuzzy
 msgid "<b>All fields</b>"
-msgstr ""
+msgstr "<b>Alle Felder</b>"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:19
-#, fuzzy
 msgid "<b>Change your database administration password</b>"
-msgstr ""
+msgstr "<b>Verändere das Datenbank Admin Passwort</b>"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:26
-#, fuzzy
 msgid "<b>Could not connect to database</b>"
-msgstr ""
+msgstr "<b>Kann nicht mit Datenbank verbinden</b>"
 
 #. ts-context LoginDialog
 #: login.ui:126
-#, fuzzy
 msgid "<b>Could not connect to server !</b>"
-msgstr ""
+msgstr "<b>Kann nicht mit Server verbinden !</b>"
 
 #. ts-context ErrorDialog
 #: error.ui:71
-#, fuzzy
 msgid "<b>Error code:</b>"
-msgstr ""
+msgstr "<b>Fehler Code</b>"
 
 #. ts-context ExportDialog
 #: win_export.ui:176
-#, fuzzy
 msgid "<b>Fields to export</b>"
-msgstr ""
+msgstr "<b>Felder zu exportieren</b>"
 
 #. ts-context ExportDialog
 #: win_export.ui:196
 #, fuzzy
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Optionen</b>"
 
 #. ts-context ExportDialog
 #: win_export.ui:21
-#, fuzzy
 msgid "<b>Predefined exports</b>"
-msgstr ""
+msgstr "<b>Vorgegebene Exports</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:515
-#, fuzzy
 msgid "<b>Shortcuts in text entries</b>"
-msgstr ""
+msgstr "<b>Kürzel in Text Eingaben</b>"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:74
-#, fuzzy
 msgid "<b>Value applicable for:</b>"
-msgstr ""
+msgstr "<b>Wert anzuwenden für</b>"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:102
-#, fuzzy
 msgid "<b>Value applicable if:</b>"
-msgstr ""
+msgstr "<b>Wert anzuwenden, wenn:</b>"
 
 #. ts-context SelectionDialog
 #: win_selection.ui:19
-#, fuzzy
 msgid "<center><b>Choose a plug-in</b></center>"
-msgstr ""
+msgstr "<center><b>Plugin auswählen</b></center>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:230
-#, fuzzy
 msgid "<center><i>When editing a resource in a popup window</i></center>"
-msgstr ""
+msgstr "<center><i>Beim Ändern eines Datensatzes in eine PopUp fenster</i></center>"
 
 #. ts-context AboutDialog
 #: about.ui:20
@@ -985,43 +915,39 @@ msgid ""
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<center><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">About OpenERP</span> </p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The most advanced Open Source ERP &amp; CRM !</p></center></body></html>"
-msgstr ""
+msgstr "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\"></style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\"><center><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\"> OpenERP</span></p><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"> Öffnen Quelle&amp;</p></center></body></html>"
 
 #. ts-context Form
 #: keyboard.ui:199
 #, fuzzy
 msgid "A"
-msgstr ""
+msgstr "Neu"
 
 #. ts-context ExportDialog
 #: win_export.ui:115
-#, fuzzy
 msgid "A&dd"
-msgstr ""
+msgstr "Hinzufügen"
 
 #. ts-context AboutDialog
 #: about.ui:14
 #, fuzzy
 msgid "About OpenERP"
-msgstr ""
+msgstr "Über OpenERP"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:25
-#, fuzzy
 msgid "Action here..."
-msgstr ""
+msgstr "Aktion hier"
 
 #. ts-context ExportDialog
 #: win_export.ui:209
-#, fuzzy
 msgid "Add &field names"
-msgstr ""
+msgstr "&Feldnamen hinzufügen"
 
 #. ts-context TreeWidget
 #: tree.ui:78
-#, fuzzy
 msgid "Add Shortcut"
-msgstr ""
+msgstr "Kürzle hinzufügen"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
@@ -1031,9 +957,8 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:32
-#, fuzzy
 msgid "All fields"
-msgstr ""
+msgstr "Alle Felder"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:575
@@ -1049,33 +974,30 @@ msgstr ""
 
 #. ts-context ErrorDialog
 #: error.ui:19
-#, fuzzy
 msgid "Application Error !"
-msgstr ""
+msgstr "Anwednungs Fehler!"
 
 #. ts-context ErrorDialog
 #: error.ui:47
 #, fuzzy
 msgid "Application Error"
-msgstr ""
+msgstr "Anwendungsfehler"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:759
 #, fuzzy
 msgid "Attachments"
-msgstr ""
+msgstr "Anhänge"
 
 #. ts-context ImportDialog
 #: win_import.ui:109
-#, fuzzy
 msgid "Auto-&detect"
-msgstr ""
+msgstr "automatisch Erkennung"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:343
-#, fuzzy
 msgid "Auto-complete text field"
-msgstr ""
+msgstr "Feld automatisch vervollständigen"
 
 #. ts-context Form
 #: keyboard.ui:316
@@ -1085,137 +1007,121 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:306
-#, fuzzy
 msgid "Background color"
-msgstr ""
+msgstr "Hintergrund Farbe"
 
 #. ts-context RichTextWidget
 #: richtext.ui:41
-#, fuzzy
 msgid "Bold"
-msgstr ""
+msgstr "Fett"
 
 #. ts-context Form
 #: keyboard.ui:381
 #, fuzzy
 msgid "C"
-msgstr ""
+msgstr "V"
 
 #. ts-context LoginDialog
 #: login.ui:101
 #, fuzzy
 msgid "C&hange"
-msgstr ""
+msgstr "Verändere"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:406
-#, fuzzy
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
 msgstr ""
+"Berechnet Wert\n"
+"(Beispiel Ergebnis: 7)"
 
 #. ts-context Form
 #: keyboard.ui:433
-#, fuzzy
 msgid "Caps"
-msgstr ""
+msgstr "Hochstelltaste"
 
 #. ts-context RichTextWidget
 #: richtext.ui:193
 #, fuzzy
 msgid "Center"
-msgstr ""
+msgstr "Zentriert"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:559
-#, fuzzy
 msgid "Change current tab"
-msgstr ""
+msgstr "Verändere aktuellen Reiter"
 
 #. ts-context SearchDateWidget
 #: search_date.ui:52
-#, fuzzy
 msgid "Choose a date from a calendar"
-msgstr ""
+msgstr "Datum vom Kalender wählen"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:13
-#, fuzzy
 msgid "Choose database..."
-msgstr ""
+msgstr "Wähle Datenbank"
 
 #. ts-context SearchDateWidget
 #: search_date.ui:104
-#, fuzzy
 msgid "Choose the date from a calendar"
-msgstr ""
+msgstr "Datum vom Kalender wählen"
 
 #. ts-context ReferenceWidget
 #: reference.ui:48
-#, fuzzy
 msgid "Clear"
-msgstr ""
+msgstr "Löschen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:531
 #, fuzzy
 msgid "Close tab"
-msgstr ""
+msgstr "Reiter Schließen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:260
-#, fuzzy
 msgid "Close window without saving"
-msgstr ""
+msgstr "Schließen Fenster ohne zu speichern"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:134
-#, fuzzy
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #. ts-context Form
 #: calendarview.ui:83
-#, fuzzy
 msgid "Color Legend"
-msgstr ""
+msgstr "Farb Legende"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:112
-#, fuzzy
 msgid "Connect &later"
-msgstr ""
+msgstr "Verbinde später"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:98
-#, fuzzy
 msgid "Connect &now"
-msgstr ""
+msgstr "Verbi&nde jetzt"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:32
-#, fuzzy
 msgid "Connect to a OpenERP Server"
-msgstr ""
+msgstr "Verbinde zu OpenERP Server"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:39
-#, fuzzy
 msgid "Connect"
-msgstr ""
+msgstr "Verbinde"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:301
-#, fuzzy
 msgid "Copy selected text"
-msgstr ""
+msgstr "Kopiere ausgewählten Text"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
-#, fuzzy
 msgid "Create a new database"
-msgstr ""
+msgstr "Erstelle neue Datenbank"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:551
@@ -1227,7 +1133,7 @@ msgstr ""
 #: mainwindow.ui:563
 #, fuzzy
 msgid "Ctrl+F"
-msgstr ""
+msgstr "F"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:762
@@ -1258,7 +1164,7 @@ msgstr ""
 #, fuzzy
 msgctxt "Ctrl+O to Login"
 msgid "Ctrl+O"
-msgstr ""
+msgstr "Ctrl+O"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:620
@@ -1288,7 +1194,7 @@ msgstr ""
 #: mainwindow.ui:750
 #, fuzzy
 msgid "Ctrl+T"
-msgstr ""
+msgstr "T"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:644
@@ -1298,9 +1204,8 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:294
-#, fuzzy
 msgid "Cut selected text"
-msgstr ""
+msgstr "ausgewählten Text ausschneiden"
 
 #. ts-context Form
 #: keyboard.ui:251
@@ -1312,43 +1217,40 @@ msgstr ""
 #: mainwindow.ui:536
 #, fuzzy
 msgid "D&uplicate"
-msgstr ""
+msgstr "D&upliziere"
 
 #. ts-context Form
 #: calendarview.ui:63
-#, fuzzy
 msgid "Daily View"
-msgstr ""
+msgstr "Tagesansicht"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:56
-#, fuzzy
 msgid "Database created successfully!"
-msgstr ""
+msgstr "Datenbank erfolgreich erzeugt!"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:13
-#, fuzzy
 msgid "Database created"
-msgstr ""
+msgstr "Datenbank erzeugt"
 
 #. ts-context ErrorDialog
 #: error.ui:124
 #, fuzzy
 msgid "De&tails"
-msgstr ""
+msgstr "De&tails"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:55
 #, fuzzy
 msgid "Default &value"
-msgstr ""
+msgstr "&Voreinstellung"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:81
 #, fuzzy
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #. ts-context SelectionDialog
 #: win_selection.ui:13
@@ -1358,15 +1260,13 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:786
-#, fuzzy
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:221
-#, fuzzy
 msgid "Duplicate Record"
-msgstr ""
+msgstr "Dupliziere Datensatz"
 
 #. ts-context Form
 #: keyboard.ui:56
@@ -1376,27 +1276,25 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:683
-#, fuzzy
 msgid "E&xport Data"
-msgstr ""
+msgstr "E&xportiere Daten"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:116
 #, fuzzy
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #. ts-context Form
 #: keyboard.ui:407
-#, fuzzy
 msgid "Enter"
-msgstr ""
+msgstr "Eingabe"
 
 #. ts-context ErrorDialog
 #: error.ui:13
 #, fuzzy
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #. ts-context SearchWidget
 #: win_search.ui:115
@@ -1406,21 +1304,20 @@ msgstr ""
 
 #. ts-context TreeWidget
 #: tree.ui:118
-#, fuzzy
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "Auffalten/Zusammenfalten"
 
 #. ts-context Form
 #: keyboard.ui:160
 #, fuzzy
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:257
 #, fuzzy
 msgid "F&orm"
-msgstr ""
+msgstr "F&ormular"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:200
@@ -1432,63 +1329,58 @@ msgstr ""
 #: field_preferences.ui:21
 #, fuzzy
 msgid "Field &Name"
-msgstr ""
+msgstr "Feld &Name"
 
 #. ts-context ImportDialog
 #: win_import.ui:130
-#, fuzzy
 msgid "Fields to import"
-msgstr ""
+msgstr "Felder zu importieren"
 
 #. ts-context ImportDialog
 #: win_import.ui:153
-#, fuzzy
 msgid "File to &import:"
-msgstr ""
+msgstr "Datei zu importieren"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:95
 #, fuzzy
 msgid "Find / Search"
-msgstr ""
+msgstr "Suchen"
 
 #. ts-context RichTextWidget
 #: richtext.ui:287
-#, fuzzy
 msgid "Foreground Color"
-msgstr ""
+msgstr "Vordergrund Farbe"
 
 #. ts-context WebWidget
 #: web.ui:13
 #, fuzzy
 msgid "Form"
-msgstr ""
+msgstr "Formular"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:398
-#, fuzzy
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
 msgstr ""
+"Formel + <Enter>\n"
+"(Beispiel: 3+2*2)"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:747
-#, fuzzy
 msgid "Full &Text Search"
-msgstr ""
+msgstr "& Volltext Suche"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:109
-#, fuzzy
 msgid "Full Text Search"
-msgstr ""
+msgstr "Volltext Suche"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:13
-#, fuzzy
 msgid "Full text search"
-msgstr ""
+msgstr "Volltext Suche"
 
 #. ts-context Form
 #: keyboard.ui:186
@@ -1498,15 +1390,13 @@ msgstr ""
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:13
-#, fuzzy
 msgid "Go To Id"
-msgstr ""
+msgstr "Gehe zu ID"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:662
-#, fuzzy
 msgid "Go To Resource ID"
-msgstr ""
+msgstr "Gehe zu Resource ID"
 
 #. ts-context Form
 #: keyboard.ui:264
@@ -1518,25 +1408,23 @@ msgstr ""
 #: keyboard.ui:121
 #, fuzzy
 msgid "I"
-msgstr ""
+msgstr "I"
 
 #. ts-context ImportDialog
 #: win_import.ui:16
 #, fuzzy
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #. ts-context Form
 #: keypad.ui:238
-#, fuzzy
 msgid "Intro"
-msgstr ""
+msgstr "Einführung"
 
 #. ts-context RichTextWidget
 #: richtext.ui:70
-#, fuzzy
 msgid "Italics"
-msgstr ""
+msgstr "Kursiv"
 
 #. ts-context Form
 #: keyboard.ui:147
@@ -1546,9 +1434,8 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:251
-#, fuzzy
 msgid "Justify"
-msgstr ""
+msgstr "Justiere"
 
 #. ts-context Form
 #: keyboard.ui:173
@@ -1564,9 +1451,8 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:26
-#, fuzzy
 msgid "Koo: OpenObject KDE Client"
-msgstr ""
+msgstr "Koo: OpenObject KDE Anwendung"
 
 #. ts-context Form
 #: keyboard.ui:212
@@ -1582,27 +1468,23 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:164
-#, fuzzy
 msgid "Left Justify"
-msgstr ""
+msgstr "Links justiert"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:470
-#, fuzzy
 msgid "Lists"
-msgstr ""
+msgstr "Listen"
 
 #. ts-context Form
 #: image.ui:56
-#, fuzzy
 msgid "Load Image"
-msgstr ""
+msgstr "Lade Bild"
 
 #. ts-context LoginDialog
 #: login.ui:22
-#, fuzzy
 msgid "Login"
-msgstr ""
+msgstr "Anmelden"
 
 #. ts-context Form
 #: keyboard.ui:277
@@ -1612,33 +1494,28 @@ msgstr ""
 
 #. ts-context MassiveUpdateDialog
 #: massiveupdate.ui:13
-#, fuzzy
 msgid "Massive Update Process"
-msgstr ""
+msgstr "Mengen Aktualisierungs Prozess"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:524
-#, fuzzy
 msgid "Middle mouse click on Tab"
-msgstr ""
+msgstr "Mittleree Mausklick auf Reiter"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:818
-#, fuzzy
 msgid "Modify All Selected Records"
-msgstr ""
+msgstr "Alle ausgewählten Daten speichern"
 
 #. ts-context Form
 #: calendarview.ui:34
-#, fuzzy
 msgid "Monthly View"
-msgstr ""
+msgstr "Monatsansicht"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:552
-#, fuzzy
 msgid "Mouse Wheel on Tab"
-msgstr ""
+msgstr "Mausrad am Reiter"
 
 #. ts-context Form
 #: keyboard.ui:394
@@ -1648,123 +1525,108 @@ msgstr ""
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:89
-#, fuzzy
 msgid "New password &confirmation:"
-msgstr ""
+msgstr "Neues Passwort und Bestätigung:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:53
 #, fuzzy
 msgid "New"
-msgstr ""
+msgstr "Neu"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:617
-#, fuzzy
 msgid "Next Tab"
-msgstr ""
+msgstr "Nächster Reiter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:315
-#, fuzzy
 msgid "Next editable widget"
-msgstr ""
+msgstr "Nächstes veränderbare Eingabefeld"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:137
-#, fuzzy
 msgid "Next record"
-msgstr ""
+msgstr "Nächster Datensatz"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:179
-#, fuzzy
 msgid "Next tab"
-msgstr ""
+msgstr "Nächster Reiter"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:213
 #, fuzzy
 msgid "Next"
-msgstr ""
+msgstr "Nächste"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:386
-#, fuzzy
 msgid "Numeric fields"
-msgstr ""
+msgstr "Numerische Felder"
 
 #. ts-context Form
 #: keyboard.ui:134
 #, fuzzy
 msgid "O"
-msgstr ""
+msgstr "O"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:608
-#, fuzzy
 msgid "Open &Menu Tab"
-msgstr ""
+msgstr "Öffne Menü Reiter"
 
 #. ts-context CalendarWidget
 #: calendar.ui:43
 #, fuzzy
 msgid "Open Calendar"
-msgstr ""
+msgstr "Öffnen Kalender"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:800
-#, fuzzy
 msgid "Open Home Tab"
-msgstr ""
+msgstr "Öffne persönlcihen Reiter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:545
-#, fuzzy
 msgid "Open form view in new tab"
-msgstr ""
+msgstr "Öffnet Formular in neuem Reiter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:573
-#, fuzzy
 msgid "Open view in a background tab"
-msgstr ""
+msgstr "Öffne Ansicht in Hintergrund Reiter"
 
 #. ts-context UrlWidget
 #: url.ui:43
 #, fuzzy
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
 
 #. ts-context ManyToOneWidget
 #: dia_form_win_many2one.ui:14
-#, fuzzy
 msgid "OpenERP - Link"
-msgstr ""
+msgstr "OpenERP - Link"
 
 #. ts-context LicenseDialog
 #: license.ui:19
-#, fuzzy
 msgid "OpenERP license"
-msgstr ""
+msgstr "OpenERP Lizenz"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:455
-#, fuzzy
 msgid "Opens the record in a new background tab"
-msgstr ""
+msgstr "Öffnet Datensatz in Hintergrund Reiter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:441
-#, fuzzy
 msgid "Opens the record in a new tab"
-msgstr ""
+msgstr "Öffnet Datensatz in neuem Reiter"
 
 #. ts-context ProgressDialog
 #: progress.ui:40
-#, fuzzy
 msgid "Operation in progress"
-msgstr ""
+msgstr "in Arbeit"
 
 #. ts-context Form
 #: keyboard.ui:657
@@ -1774,125 +1636,112 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:308
-#, fuzzy
 msgid "Paste selected text"
-msgstr ""
+msgstr "ausgewählten Text einfügen"
 
 #. ts-context ProgressDialog
 #: progress.ui:53
-#, fuzzy
 msgid ""
 "Please wait, \n"
 "this operation may take a while..."
 msgstr ""
+"Bitte warten, \n"
+"dieser Vorgang kann einige Zeit dauern"
 
 #. ts-context PreferencesDialog
 #: preferences.ui:14
 #, fuzzy
 msgid "Preferences"
-msgstr ""
+msgstr "Einstellungen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:123
-#, fuzzy
 msgid "Previous Record"
-msgstr ""
+msgstr "Voriger datensatz"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:629
-#, fuzzy
 msgid "Previous Tab"
-msgstr ""
+msgstr "Voriger Reiter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:329
-#, fuzzy
 msgid "Previous editable widget"
-msgstr ""
+msgstr "Voriges veränderbares Eingabefeld"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:165
-#, fuzzy
 msgid "Previous tab"
-msgstr ""
+msgstr "Voriger Reiter"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:171
 #, fuzzy
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 #. ts-context ProgressDialog
 #: progress.ui:14
 #, fuzzy
 msgid "Progress..."
-msgstr ""
+msgstr "Verlauf."
 
 #. ts-context Form
 #: keyboard.ui:579
 #, fuzzy
 msgid "Q"
-msgstr ""
+msgstr "Q"
 
 #. ts-context Form
 #: keyboard.ui:69
-#, fuzzy
 msgid "R"
-msgstr ""
+msgstr "R"
 
 #. ts-context ExportDialog
 #: win_export.ui:45
-#, fuzzy
 msgid "Re&move Export"
-msgstr ""
+msgstr "Entferne Exportdefinitionen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:187
-#, fuzzy
 msgid "Read My Requests"
-msgstr ""
+msgstr "Lese meine Anfragen:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:422
-#, fuzzy
 msgid "Relation fields"
-msgstr ""
+msgstr "Relationen Felder"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:207
 #, fuzzy
 msgid "Reload"
-msgstr ""
+msgstr "Erneut laden"
 
 #. ts-context ImportDialog
 #: win_import.ui:85
-#, fuzzy
 msgid "Remo&ve All"
-msgstr ""
+msgstr "Enferne Alle"
 
 #. ts-context ExportDialog
 #: win_export.ui:137
-#, fuzzy
 msgid "Remo&ve all"
-msgstr ""
+msgstr "Entferne Alle"
 
 #. ts-context Form
 #: image.ui:90
-#, fuzzy
 msgid "Remove Image"
-msgstr ""
+msgstr "Entferne Bild"
 
 #. ts-context TreeWidget
 #: tree.ui:98
-#, fuzzy
 msgid "Remove Shortcut"
-msgstr ""
+msgstr "Kürzel entfernen"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:136
-#, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "Enfernen"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:299
@@ -1902,15 +1751,13 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:144
-#, fuzzy
 msgid "Requests:"
-msgstr ""
+msgstr "Anfragen:"
 
 #. ts-context RichTextWidget
 #: richtext.ui:222
-#, fuzzy
 msgid "Right Justify"
-msgstr ""
+msgstr "Rechts justiert"
 
 #. ts-context Form
 #: keyboard.ui:238
@@ -1920,63 +1767,55 @@ msgstr ""
 
 #. ts-context Form
 #: image.ui:73
-#, fuzzy
 msgid "Save Image"
-msgstr ""
+msgstr "Speichere Bild"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:246
-#, fuzzy
 msgid "Save and close window"
-msgstr ""
+msgstr "Speichern und Schliessen des Fensters"
 
 #. ts-context BinaryWidget
 #: binary.ui:55
-#, fuzzy
 msgid "Save file..."
-msgstr ""
+msgstr "Datei Speichern"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:67
 #, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #. ts-context SearchWidget
 #: win_search.ui:14
 #, fuzzy
 msgid "Search"
-msgstr ""
+msgstr "Suchen"
 
 #. ts-context LinkWidget
 #: link.ui:36
-#, fuzzy
 msgid "Select file..."
-msgstr ""
+msgstr "Datei Auswählen"
 
 #. ts-context RichTextWidget
 #: richtext.ui:336
-#, fuzzy
 msgid "Select font size"
-msgstr ""
+msgstr "Zeichengröße auswählen"
 
 #. ts-context RichTextWidget
 #: richtext.ui:323
-#, fuzzy
 msgid "Select font"
-msgstr ""
+msgstr "Zeichensatz Auswählen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:486
-#, fuzzy
 msgid "Selects all records"
-msgstr ""
+msgstr "Wähle alle Datensätze"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:210
-#, fuzzy
 msgid "Send New Request"
-msgstr ""
+msgstr "Sende neue Anfrage"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:20
@@ -1986,63 +1825,55 @@ msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:282
-#, fuzzy
 msgid "Shortcuts in text entries"
-msgstr ""
+msgstr "Kürzle in Text Eingaben"
 
 #. ts-context TreeWidget
 #: tree.ui:65
-#, fuzzy
 msgid "Shortcuts"
-msgstr ""
+msgstr "Kürzel"
 
 #. ts-context Form
 #: keyboard.ui:462
-#, fuzzy
 msgid "Space"
-msgstr ""
+msgstr "Leertaste"
 
 #. ts-context FormContainerWidget
 #: formcontainer.ui:56
 #, fuzzy
 msgid "State:"
-msgstr ""
+msgstr "Zustand:"
 
 #. ts-context RichTextWidget
 #: richtext.ui:128
-#, fuzzy
 msgid "Strikethrough"
-msgstr ""
+msgstr "Durchgestrichen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:596
-#, fuzzy
 msgid "Switch &View"
-msgstr ""
+msgstr "Ansicht Umschalten"
 
 #. ts-context PanedWidget
 #: paned.ui:117
-#, fuzzy
 msgid "Switch View"
-msgstr ""
+msgstr "Ansicht Umschalten"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:151
-#, fuzzy
 msgid "Switch view mode"
-msgstr ""
+msgstr "Ansicht Umschalten"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:122
-#, fuzzy
 msgid "Switch"
-msgstr ""
+msgstr "Umschalten"
 
 #. ts-context Form
 #: keyboard.ui:82
 #, fuzzy
 msgid "T"
-msgstr ""
+msgstr "T"
 
 #. ts-context Form
 #: keyboard.ui:420
@@ -2054,25 +1885,23 @@ msgstr ""
 #: searchviewitem.ui:164
 #, fuzzy
 msgid "TextLabel"
-msgstr ""
+msgstr "Textname"
 
 #. ts-context DateTimeWidget
 #: datetime.ui:41
-#, fuzzy
 msgid "Time:"
-msgstr ""
+msgstr "Zeit:"
 
 #. ts-context TipsDialog
 #: tip.ui:13
-#, fuzzy
 msgid "Tip of the Day"
-msgstr ""
+msgstr "Tip des Tages"
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:13
 #, fuzzy
 msgid "Translation dialog"
-msgstr ""
+msgstr "Übersetzungsdialog"
 
 #. ts-context Form
 #: keyboard.ui:108
@@ -2088,15 +1917,13 @@ msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:99
-#, fuzzy
 msgid "Underline"
-msgstr ""
+msgstr "Unterstrichen"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:781
-#, fuzzy
 msgid "User Manual"
-msgstr ""
+msgstr "Benutzerhandbuch"
 
 #. ts-context Form
 #: keyboard.ui:290
@@ -2106,15 +1933,14 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:653
-#, fuzzy
 msgid "View Access Log"
-msgstr ""
+msgstr "Zeige Zugriffs Log"
 
 #. ts-context ErrorDialog
 #: error.ui:78
 #, fuzzy
 msgid "View details"
-msgstr ""
+msgstr "Details anzeigen"
 
 #. ts-context Form
 #: keyboard.ui:43
@@ -2124,15 +1950,14 @@ msgstr ""
 
 #. ts-context Form
 #: calendarview.ui:50
-#, fuzzy
 msgid "Weekly View"
-msgstr ""
+msgstr "Wochenansicht"
 
 #. ts-context Form
 #: keyboard.ui:368
 #, fuzzy
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #. ts-context Form
 #: keyboard.ui:95
@@ -2160,15 +1985,13 @@ msgstr ""
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:93
-#, fuzzy
 msgid "for all &users"
-msgstr ""
+msgstr "für alle Benutzer"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:49
-#, fuzzy
 msgid "toolBar"
-msgstr ""
+msgstr "Werkzeugleiste"
 
 #. ts-context Form
 #: keyboard.ui:631

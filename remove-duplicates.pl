@@ -7,5 +7,7 @@
 
 use Locale::PO;
 
-$href = Locale::PO->load_file_ashash('Koo/l10n/qt-koo.pot');
-Locale::PO->save_file_fromhash('Koo/l10n/qt-koo.pot',$href);
+$file = $ARGV[0];
+
+$href = Locale::PO->load_file_ashash($file);
+Locale::PO->save_file_fromhash($file,$href);

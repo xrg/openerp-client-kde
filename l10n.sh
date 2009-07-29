@@ -1,5 +1,18 @@
 #!/bin/bash
 
+function ts2po
+{
+	ts=$1
+	po=$2
+
+	lconvert $DIR/$ts --output-format po -o $DIR/$po
+
+	# Remove duplicates from qt-koo.pot
+	./remove-duplicates.pl $DIR/$po
+	# Change header of qt-koo.pot: otherwise launchpad tries to process it using UTF-8 and doesn't work
+	perl -pi -e "s/X-Virgin-Header: remove this line if you change anything in the header./Project-Id-Version: PACKAGE VERSION\\\nReport-Msgid-Bugs-To: \\\nPOT-Creation-Date: 2009-07-28 00:00+0200\\\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\\\nLanguage-Team: LANGUAGE <LL@li.org>\\\nMIME-Version: 1.0\\\nContent-Type: text\/plain; charset=iso-8859-1/" Koo/l10n/$po
+}
+
 UI_FILES=$(find Koo/ui -name "*.ui")
 PYTHON_FILES=$(find Koo -name "*py")
 PYTHONC_FILES=$(find -name "*pyc")
@@ -9,12 +22,14 @@ DIR="Koo/l10n"
 # Extract strings with get text from python files
 xgettext -k_ -kN_ -o $DIR/koo.pot $PYTHON_FILES
 pylupdate4 $UI_FILES -ts $DIR/koo.ts
-lconvert $DIR/koo.ts --output-format po -o $DIR/qt-koo.pot
 
-# Remove duplicates from qt-koo.pot
-./remove-duplicates.pl
-# Change header of qt-koo.pot: otherwise launchpad tries to process it using UTF-8 and doesn't work
-perl -pi -e "s/X-Virgin-Header: remove this line if you change anything in the header./Project-Id-Version: PACKAGE VERSION\\\nReport-Msgid-Bugs-To: \\\nPOT-Creation-Date: 2009-07-28 00:00+0200\\\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\\\nLanguage-Team: LANGUAGE <LL@li.org>\\\nMIME-Version: 1.0\\\nContent-Type: text\/plain; charset=iso-8859-1/" Koo/l10n/qt-koo.pot
+ts2po koo.ts qt-koo.pot
+#lconvert $DIR/koo.ts --output-format po -o $DIR/qt-koo.pot
+
+## Remove duplicates from qt-koo.pot
+#./remove-duplicates.pl
+## Change header of qt-koo.pot: otherwise launchpad tries to process it using UTF-8 and doesn't work
+#perl -pi -e "s/X-Virgin-Header: remove this line if you change anything in the header./Project-Id-Version: PACKAGE VERSION\\\nReport-Msgid-Bugs-To: \\\nPOT-Creation-Date: 2009-07-28 00:00+0200\\\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\\\nLanguage-Team: LANGUAGE <LL@li.org>\\\nMIME-Version: 1.0\\\nContent-Type: text\/plain; charset=iso-8859-1/" Koo/l10n/qt-koo.pot
 
 # Merge template with existing translations
 echo "Merging..."
@@ -25,7 +40,7 @@ for x in $LANGS; do
 		cp $DIR/koo.pot $DIR/$x.po
 	fi
 	pylupdate4 $UI_FILES -ts $DIR/$x.ts
-	lconvert $DIR/$x.ts -o $DIR/qt-$x.po
+	ts2po $x.ts qt-koo_$x.po
 done
 rmdir $DIR/LC_MESSAGES 2>/dev/null
 

@@ -5,14 +5,15 @@
 #
 # Hartmut Goebel <h.goebel@goebel-consult.de>, 2005.
 # Ferdinand Gassauer <translate-erp@chricar.at>, 2008.
+# Ferdinand Gassauer <f.gassauer@chricar.at>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: de_DE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-28 00:08+0200\n"
-"PO-Revision-Date: 2008-11-22 21:57+0100\n"
-"Last-Translator: Ferdinand Gassauer <translate-erp@chricar.at>\n"
-"Language-Team:\n"
+"POT-Creation-Date: 2009-07-29 09:19+0200\n"
+"PO-Revision-Date: 2009-07-28 20:45+0200\n"
+"Last-Translator: Ferdinand Gassauer <f.gassauer@chricar.at>\n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -84,7 +85,7 @@ msgstr "Style Sheet definieren"
 
 #: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
-msgstr ""
+msgstr "verwende POS (Point of Sales) Modues"
 
 #: Koo/Dialogs/ImportDialog.py:52
 #, python-format
@@ -394,7 +395,7 @@ msgstr "Datenbank wurde erfolgreich entfernt!"
 msgid "Could not drop database."
 msgstr "Kann Datenbank nicht entfernen!"
 
-#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr "Falsches Kennwort für den Datenbankverwalter!"
 
@@ -465,17 +466,21 @@ msgstr ""
 "Die folgenden Benutzer würden angelegt:\n"
 "\n"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+#, fuzzy
+msgid "Error during database creation"
+msgstr "Fehler beim Erstellen der Datenbank!"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
 msgstr "Kann Datenbank nicht erstellen."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
 msgstr "Fehler beim Erstellen der Datenbank!"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
@@ -484,17 +489,26 @@ msgstr ""
 "Bitte löschen sie die Datenbank und legen sie eine neue an.\n"
 " (drop database)"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid "Bad database name !"
 msgstr "Ungültiger Datenbankname!"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 "Der Datenbankname darf nur alphanumerische Zeichen enthalten und \"_\".\n"
 "Akzente, Umlaute, Leer- oder Sonderzeichen sind zu Vermeiden."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Wrong password"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#, fuzzy
+msgid "Administrator passwords differ."
+msgstr "Falsches Kennwort für den Datenbankverwalter!"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"
@@ -567,7 +581,7 @@ msgstr ""
 
 #: Koo/Dialogs/MassiveUpdateDialog.py:92
 msgid "Confirmation"
-msgstr ""
+msgstr "Bestätigung"
 
 #: Koo/Dialogs/MassiveUpdateDialog.py:93
 #, python-format
@@ -575,6 +589,8 @@ msgid ""
 "<p>This process will update the following fields in %(number)d records:</p>%"
 "(records)s<p>Do you want to continue?</p>"
 msgstr ""
+"<p>Dieser Prozess wird die folgenden Felder in %(number)d Datensätzen "
+"verändern:</p>%(records)s<p>Wollen Sie fortfahren?</p>"
 
 #: Koo/Dialogs/ExportDialog.py:50
 #, fuzzy
@@ -683,7 +699,7 @@ msgstr "Felder"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:53
 msgid "&Save"
-msgstr ""
+msgstr "&Sichern"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:56
 #, fuzzy
@@ -790,7 +806,7 @@ msgstr "Öffne Bilddatei"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:151
 msgid "(no image)"
-msgstr ""
+msgstr "(kein Bild)"
 
 #: Koo/Fields/Link/LinkFieldWidget.py:70
 msgid "Select the file to link to"
@@ -832,15 +848,15 @@ msgstr "Sie können hier nicht auf den Vorgabewert zurücksetzen!"
 
 #: Koo/Plugins/Semantic/__init__.py:46
 msgid "Semantic Info"
-msgstr ""
+msgstr "Sematische Information"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:54
 msgid "Print Workflow"
-msgstr ""
+msgstr "Drucke Arbeitsfluss"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:55
 msgid "Print Workflow (Complex)"
-msgstr ""
+msgstr "Drucke Arbeitsfluss (komplex)"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:40
 #, fuzzy
@@ -891,10 +907,12 @@ msgid ""
 "<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
 "s<br/>"
 msgstr ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Dauer:</b> %(duration)"
+"s<br/>"
 
 #: Koo/View/Calendar/__init__.py:31
 msgid "Calendar View"
-msgstr ""
+msgstr "Kalender Ansicht"
 
 #: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
 msgid "Unknown"
@@ -902,31 +920,31 @@ msgstr "Unbekannt"
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
-msgstr ""
+msgstr "Chart Ansicht"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
-msgstr ""
+msgstr "Form Ansicht"
 
 #: Koo/View/Svg/__init__.py:32
 msgid "SVG View"
-msgstr ""
+msgstr "SVG Ansicht"
 
 #: Koo/View/Tree/TreeView.py:203
 msgid "Sorting not possible."
-msgstr ""
+msgstr "Sortieren nicht möglich"
 
 #: Koo/View/Tree/TreeView.py:205
 msgid "Sorting only groups."
-msgstr ""
+msgstr "Sortiere nur Gruppen"
 
 #: Koo/View/Tree/TreeView.py:229
 msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
+msgstr "<a href=\"update\">Aktualisiere Summen</a>"
 
 #: Koo/View/Tree/__init__.py:32
 msgid "List View"
-msgstr ""
+msgstr "List Ansicht"
 
 #: Koo/koo.py:60
 msgid ""
@@ -935,37 +953,3 @@ msgid ""
 msgstr ""
 "Modul 'dbus' ist nicht installiert. Andere Applikationen können deshalb "
 "nicht mit KTiny interagieren."
-
-#, fuzzy
-#~ msgid "No actions defined"
-#~ msgstr "Keine Aktion festgelegt!"
-
-#~ msgid "enable basic debugging"
-#~ msgstr "Debugging aktivieren"
-
-#~ msgid "specify channels to log"
-#~ msgstr "Protokoll Kanal festlegen"
-
-#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-#~ msgstr "Protokoll-Level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#~ msgid "No record selected!"
-#~ msgstr "Kein Datensatz ausgewählt!"
-
-#~ msgid "specify the user login"
-#~ msgstr "user login definieren"
-
-#~ msgid "specify the server port"
-#~ msgstr "Server Port definieren"
-
-#~ msgid "Preference %s"
-#~ msgstr "Einstellung %s"
-
-#~ msgid "No available plugin for this resource !"
-#~ msgstr "Für diese Datensatz ist kein Plugin verfügbar!"
-
-#~ msgid "Choose a Plugin"
-#~ msgstr "Plugin auswählen"
-
-#~ msgid "Save attachment as..."
-#~ msgstr "Anhang speichern unter ..."

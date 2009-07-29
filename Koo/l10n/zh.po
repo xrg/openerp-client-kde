@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-28 00:08+0200\n"
+"POT-Creation-Date: 2009-07-29 09:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -407,7 +407,7 @@ msgstr ""
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:83
+#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr ""
 
@@ -474,30 +474,43 @@ msgid ""
 "\n"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:83
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+#, fuzzy
+msgid "Error during database creation"
+msgstr "写入文件出错！"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:85
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:92
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid "Bad database name !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:164
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#, fuzzy
+msgid "Wrong password"
+msgstr "密码："
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Administrator passwords differ."
 msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
@@ -1810,10 +1823,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Default language:"
 #~ msgstr "默认值："
-
-#, fuzzy
-#~ msgid "New password:"
-#~ msgstr "密码："
 
 #, fuzzy
 #~ msgid "Old password:"
