@@ -44,7 +44,7 @@ class SearchFormContainer( QWidget ):
 	def __init__(self, parent):
 		QWidget.__init__( self, parent )
 		layout = QGridLayout( self )
-		layout.setSpacing( 10 )
+		layout.setSpacing( 0 )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		# Maximum number of columns
 		self.col = 4
