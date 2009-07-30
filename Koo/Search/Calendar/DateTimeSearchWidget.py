@@ -65,14 +65,14 @@ class DateTimeSearchWidget(AbstractSearchWidget, DateTimeSearchWidgetUi):
 		else:
 			self.uiStart.clear()
 		# We add 1 day to the final date because this is a DateTimeWidget and default time is set to 00:00:00
-		val = dateToStorage( textToDate( self.uiEnd.text() ) )
+		val = textToDate( self.uiEnd.text() )
+		val.addDays( 1 )
+		val = dateToStorage( val )
 	 	if val:
 			# For the same reason we filter for strictly lower values
-			res.append((self.name, '<=', val ))
+			res.append((self.name, '<', val ))
 		else:
 			self.uiEnd.clear()
-		print "RES: ", res
-		return res
 
 	def clear(self):
 		self.uiStart.clear()
