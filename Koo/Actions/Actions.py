@@ -91,7 +91,7 @@ def executeReport(name, data, context={}):
 		ids =  Rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
 		if ids == []:
 			QApplication.restoreOverrideCursor()
-			QMessageBox.information( None, '', _('Nothing to print!'))
+			QMessageBox.information( None, _('Information'), _('Nothing to print!'))
 			return False
 		datas['id'] = ids[0]
 	try:
@@ -108,7 +108,7 @@ def executeReport(name, data, context={}):
 				attempt += 1
 			if attempt>200:
 				QApplication.restoreOverrideCursor()
-				QMessageBox.information( None, '', _('Printing aborted, too long delay !'))
+				QMessageBox.information( None, _('Error'), _('Printing aborted, too long delay !'))
 				return False
 		Printer.printData(val, datas['model'], ids)
 	except Rpc.RpcException, e:

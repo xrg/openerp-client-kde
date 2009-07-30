@@ -258,7 +258,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if id:
 			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id]})
 		else:
-			QMessageBox.information( self, '', _('No resource selected!'))
+			QMessageBox.information( self, _('Information'), _('No resource selected!'))
 
 	def open(self, idx):
 		id = self.treeModel.id( idx )
@@ -270,7 +270,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if id:
 			Api.instance.createWindow(None, self.model, id, self.domain)
 		else:
-			QMessageBox.information(self, '', _('No resource selected!'))
+			QMessageBox.information(self, _('Information'), _('No resource selected!'))
 
 	def removeShortcut(self):
 		id = self.currentShortcutId()

@@ -110,6 +110,10 @@ if Common.isKdeAvailable:
 else:
 	app = QApplication( sys.argv )
 
+app.setApplicationName( 'Koo' )
+app.setOrganizationDomain( 'www.nan-tic.com' )
+app.setOrganizationName( 'NaN' )
+
 try:
 	app.setStyleSheet( file(Options.options['stylesheet']).read() )
 except:

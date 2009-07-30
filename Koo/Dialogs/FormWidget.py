@@ -245,7 +245,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 				if line[key] and key in ('create_uid','write_uid'):
 					line[key] = line[key][1]
 				message += val + ': ' + str(line[key] or '-') + '\n'
-		QMessageBox.information(self, '', message)
+		QMessageBox.information(self, _('Record log'), message)
 
 	def remove(self):
 		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'),QMessageBox.Yes|QMessageBox.No)

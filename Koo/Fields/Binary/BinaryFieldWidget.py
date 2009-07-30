@@ -161,7 +161,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 				if self.view:
 					self.view.widgets[w].load(self.record)
 		except:
-			QMessageBox.information(self, '', _('Error reading the file'))
+			QMessageBox.information(self, _('Error'), _('Error reading the file'))
 		self.updateActions()
 
 	def save(self):
@@ -173,7 +173,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			fp.write( self.record.value(self.name) )
 			fp.close()
 		except:
-			QMessageBox.information(self, '', _('Error writing the file!'))
+			QMessageBox.information(self, _('Error'), _('Error writing the file!'))
 			return
 		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
 

@@ -722,7 +722,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			f.close()
 			Rpc.database.call(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
 			self.unsetCursor()
-			QMessageBox.information( self, '', _('Database restored successfully!') )
+			QMessageBox.information( self, _('Information'), _('Database restored successfully!') )
 		except Exception,e:
 			self.unsetCursor()
 			if e.message=='AccessDenied:None':
@@ -746,10 +746,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			f.write(dump)
 			f.close()
 			self.unsetCursor()
-			QMessageBox.information( self, '', _("Database backuped successfully!"))
+			QMessageBox.information( self, _('Information'), _("Database backuped successfully!"))
 		except Exception, e:
 			self.unsetCursor()
-			QMessageBox.warning( self, '', _('Could not backup database.\n%s') % (str(e)) )
+			QMessageBox.warning( self, _('Error'), _('Could not backup database.\n%s') % (str(e)) )
 
 	def changeAdministratorPassword(self):
 		dialog = AdministratorPasswordDialog( self )

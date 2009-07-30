@@ -49,7 +49,7 @@ def import_csv(csv_data, fields, model):
 		datas.append(map(lambda x:x.decode(csv_data['encoding']).encode('utf-8'), line))
 	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
 	if res[0]>=0:
-		QMessageBox.information( None, '', _('Imported %d objects !') % (res[0]))
+		QMessageBox.information( None, _('Information'), _('Imported %d objects !') % (res[0]))
 	else:
 		d = ''
 		for key,val in res[1].items():

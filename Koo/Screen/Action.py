@@ -78,13 +78,13 @@ class Action(QAction):
 	# Executes the action as a 'relate' type
 	def executeRelate(self, currentId):
 		if not currentId:
-			QMessageBox.information( self, '', _('You must select a record to use the relate button !'))
+			QMessageBox.information( self, _('Information'), _('You must select a record to use the relate button !'))
 		Api.instance.executeAction(self._data, {'id': currentId})
 
 	# Executes the action as a 'relate' or 'action' type
 	def executeAction(self, currentId, selectedIds):
 		if not currentId and not selectedIds:
-			QMessageBox.information(self, '', _('You must save this record to use the relate button !'))
+			QMessageBox.information(self, _('Information'), _('You must save this record to use the relate button !'))
 			return False
 			
 		if not currentId:

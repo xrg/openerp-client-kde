@@ -66,9 +66,9 @@ def exportHtml(fname, fields, result, write_title=False):
 			f.write( '<td>%s</td>' % ( '</td><td>'.join( row ) ) )
 			f.write( '</tr>' )
 		f.close()
-		QMessageBox.information( None, '', _('%s record(s) saved!') % (str(len(result))) )
+		QMessageBox.information( None, _('Information'), _('%s record(s) saved!') % (str(len(result))) )
 	except IOError, (errno, strerror):
-		QMessageBox.warning( None, '', _("Operation failed !\nI/O error (%s)") % (errno))
+		QMessageBox.warning( None, _('Error'), _("Operation failed !\nI/O error (%s)") % (errno))
 
 def exportCsv(fname, fields, result, write_title=False):
 	try:
@@ -115,7 +115,7 @@ def openExcel(fields, fieldsType, result):
 		
 		xlApp.Visible = 1
 	except:
-		QMessageBox.warning(None, '', _('Error opening Excel !'))
+		QMessageBox.warning(None, _('Error'), _('Error opening Excel !'))
 
 # Code by Dukai Gabor posted in openobject-client bugs:
 # https://bugs.launchpad.net/openobject-client/+bug/399278 
@@ -141,7 +141,7 @@ def openOpenOffice(fields, fieldsType, result):
 		cellrange = sheet.getCellRangeByPosition(0, 1, len(fields) - 1, len(result))
 		cellrange.setDataArray(result)
 	except:
-		QMessageBox.warning(None, '', _('Error Opening OpenOffice.org!'))
+		QMessageBox.warning(None, _('Error'), _('Error Opening OpenOffice.org!'))
 
 def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)

@@ -65,7 +65,7 @@ class AdministratorPasswordDialog( QDialog, AdministratorPasswordDialogUi ):
 			old = str(self.uiOldPassword.text())
 			new = str(self.uiNewPassword.text())
 			Rpc.database.call(url, 'change_admin_password', old, new)
-			QMessageBox.information(self, '', _('Password changed successfully') )
+			QMessageBox.information(self, _('Information'), _('Password changed successfully') )
 			self.accept()
 		except Exception,e:
 			QMessageBox.warning(self,_('Error'), _('Could not change administrator password. Please, check the server and password are correct.'))
