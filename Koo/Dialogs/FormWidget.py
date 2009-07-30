@@ -240,14 +240,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 				('create_date', _('Creation Date')),
 				('write_uid', _('Latest Modification by')),
 				('write_date', _('Latest Modification Date')),
-				('uid', _('Owner')),
-				('gid', _('Group Owner')),
-				('level', _('Access Level'))
 			]
 			for (key,val) in todo:
-				if line[key] and key in ('create_uid','write_uid','uid'):
+				if line[key] and key in ('create_uid','write_uid'):
 					line[key] = line[key][1]
-				message+=val+': '+str(line[key] or '/')+'\n'
+				message += val + ': ' + str(line[key] or '-') + '\n'
 		QMessageBox.information(self, '', message)
 
 	def remove(self):
