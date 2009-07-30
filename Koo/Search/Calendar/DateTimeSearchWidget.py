@@ -59,20 +59,22 @@ class DateTimeSearchWidget(AbstractSearchWidget, DateTimeSearchWidgetUi):
 
 	def value(self):
 		res = []
-		val = dateToStorage( textToDate( self.uiStart.text() ) )
+		val = QDateTime( textToDate( self.uiStart.text() ) )
+		val = dateTimeToStorage( val )
  		if val:
 			res.append((self.name, '>=', val ))
 		else:
 			self.uiStart.clear()
-		# We add 1 day to the final date because this is a DateTimeWidget and default time is set to 00:00:00
-		val = textToDate( self.uiEnd.text() )
-		val.addDays( 1 )
-		val = dateToStorage( val )
+		val = QDateTime( textToDate( self.uiEnd.text() ) )
+		if val.isValid():
+			val.setTime( QTime( 23, 59, 59, 99 ) )
+		val = dateTimeToStorage( val )
 	 	if val:
 			# For the same reason we filter for strictly lower values
-			res.append((self.name, '<', val ))
+			res.append((self.name, '<=', val ))
 		else:
 			self.uiEnd.clear()
+		return res
 
 	def clear(self):
 		self.uiStart.clear()
