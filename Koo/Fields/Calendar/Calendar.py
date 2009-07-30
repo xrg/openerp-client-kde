@@ -93,6 +93,10 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		self.uiDate.setText('')
 	
 	def showValue(self):
+		# Ensure record is valid given the function can be called from self.updateValue()
+		if not self.record:
+			self.clear()
+			return
 		value = self.record.value(self.name)
 		if value:
 			self.uiDate.setText( dateToText( storageToDate( value ) ) )
@@ -124,6 +128,10 @@ class DateTimeFieldWidget( DateFieldWidget ):
 		self.uiDate.setText('')
 
  	def showValue(self):
+		# Ensure record is valid given the function can be called from self.updateValue()
+		if not self.record:
+			self.clear()
+			return
  		value = self.record.value(self.name)
 		if value:
 			self.uiDate.setText( dateTimeToText( storageToDateTime(value) ) )
@@ -171,6 +179,10 @@ class TimeFieldWidget(AbstractFieldWidget):
 		self.uiTime.clear()
 
 	def showValue(self):
+		# Ensure record is valid given the function can be called from self.updateValue()
+		if not self.record:
+			self.clear()
+			return
 		value = self.record.value(self.name)
 		if value:
 			self.uiTime.setText( timeToText( storageToTime( value ) ) )
@@ -217,6 +229,10 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 		self.uiTime.setText('00:00')
 
 	def showValue(self):
+		# Ensure record is valid given the function can be called from self.updateValue()
+		if not self.record:
+			self.clear()
+			return
 		value = self.record.value(self.name)
 		if value:
 			self.uiTime.setText( floatTimeToText( float( value ) ) )
