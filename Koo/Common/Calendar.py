@@ -99,9 +99,9 @@ def textToDate( text ):
 	if unicode( QString( text ).trimmed() ) == '=':
 		return QDate.currentDate()
 
-	inputFormats = ["dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy']
+	inputFormats = ["dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy', 'dd.MM.yyyy', 'dd.MM.yy', 'ddMMyyyy', 'ddMMyy']
 	for x in inputFormats:
-		date  = QDate.fromString( text, x )
+		date = QDate.fromString( text, x )
 		if date.isValid():
 			break
 	return date
@@ -132,7 +132,7 @@ def textToDateTime( text ):
 	if unicode( QString( text ).trimmed() ) == '=':
 		return QDateTime.currentDateTime()
 
-	inputFormats = ['dd/MM/yyyy h:m:s', "dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy' ]
+	inputFormats = ['dd/MM/yyyy h:m:s', "dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy', 'ddMMyyyy', 'ddMMyy' ]
 	for x in inputFormats:
 		datetime = QDateTime.fromString( text, x )
 		if datetime.isValid():
