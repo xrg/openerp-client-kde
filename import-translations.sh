@@ -18,9 +18,19 @@ pushd $tmpdir
 wget $url
 tar zxvf *.tar.gz
 
-for file in $(find -iname "koo-*.po" | grep -v "koo-es" | grep -v "koo-ca"); do
+# Import translations of koo.pot
+for file in $(find -iname "koo-*.po"); do
 	lang=$(echo $file | cut -d "-" -f 2 | cut -d "." -f 1)
 	cp $file $appdir/$lang.po
+done
+
+# Import translations of qt-koo.pot
+for file in $(find -iname "qt-koo-*.po"); do
+	echo "IMPORTING: ", $file
+	lang=$(echo $file | cut -d "-" -f 3 | cut -d "." -f 1)
+	cp $file $appdir/qt-koo-$lang.po
+	lconvert $appdir/qt-koo-$lang.po -o $appdir/$lang.ts
+	echo "CREATED: " $appdir/$lang.ts
 done
 
 rm -r $tmpdir

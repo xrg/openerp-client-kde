@@ -1,35 +1,35 @@
-# FR translation of Tiny ERP.
-# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Fabien Pinckaers <fp@tiny.be>, 2005.
+# Swedish translation for openobject-client-kde
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Tiny ERP V2.0\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-07-29 09:19+0200\n"
-"PO-Revision-Date: 2005-04-08 19:55+0200\n"
-"Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
-"Language-Team: FR <i18n-info@tinyerp.org>\n"
+"PO-Revision-Date: 2009-06-16 11:33+0000\n"
+"Last-Translator: nairobie <samuel.ostman@gmail.com>\n"
+"Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-07-30 23:48+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
 #: Koo/Actions/Actions.py:115
-#, fuzzy, python-format
+#, python-format
 msgid "Error: %s"
-msgstr "Fel:"
+msgstr "Fel: %s"
 
 #: Koo/Actions/Actions.py:62
 msgid "Nothing to print."
 msgstr ""
 
 #: Koo/Actions/Actions.py:78
-#, fuzzy
 msgid "Printing aborted. Delay too long."
-msgstr "Utskrift avbruten, tid överskriden!"
+msgstr ""
 
 #: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
@@ -37,11 +37,11 @@ msgstr ""
 
 #: Koo/Actions/Actions.py:111
 msgid "Printing aborted, too long delay !"
-msgstr "Utskrift avbruten, tid överskriden!"
+msgstr ""
 
 #: Koo/Actions/Actions.py:216
 msgid "Select your action"
-msgstr "Välj aktivitet"
+msgstr ""
 
 #: Koo/Common/Common.py:175
 msgid "Concurrency warning"
@@ -55,29 +55,27 @@ msgstr ""
 
 #: Koo/Common/Common.py:177
 msgid "Save anyway"
-msgstr ""
+msgstr "Spara iallafall"
 
 #: Koo/Common/Common.py:178
 msgid "Compare"
-msgstr ""
+msgstr "Jämföra"
 
 #: Koo/Common/Common.py:179
-#, fuzzy
 msgid "Do not save"
-msgstr "Alternativ sparade"
+msgstr "Spara inte"
 
 #: Koo/Common/Options.py:66
 msgid "specify alternate config file"
-msgstr "ange alternativ konfigurationsfil"
+msgstr ""
 
 #: Koo/Common/Options.py:67
 msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr ""
 
 #: Koo/Common/Options.py:68
-#, fuzzy
 msgid "specify stylesheet to apply"
-msgstr "specifiera kanaler att logga"
+msgstr ""
 
 #: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
@@ -100,9 +98,8 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:62
-#, fuzzy
 msgid "Error importing data"
-msgstr "Fel vid skrivning till fil!"
+msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:97
 msgid "File to import"
@@ -110,14 +107,12 @@ msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:112 Koo/Dialogs/ImportDialog.py:115
 #: Koo/Dialogs/ImportDialog.py:118
-#, fuzzy
 msgid "Import error"
-msgstr "Import klar"
+msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:112
-#, fuzzy
 msgid "No file specified."
-msgstr "Ingen post vald!"
+msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:115 Koo/Dialogs/ImportDialog.py:175
 msgid "Separator must be a single character."
@@ -145,9 +140,8 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:61
-#, fuzzy
 msgid "Validation Error"
-msgstr "Applikationsfel"
+msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:61
 msgid "Confirmation password does not match new password."
@@ -158,9 +152,8 @@ msgid "Password changed successfully"
 msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:71
-#, fuzzy
 msgid "Error"
-msgstr "Fel:"
+msgstr "Fel"
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:71
 msgid ""
@@ -169,18 +162,16 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:205
-#, fuzzy
 msgid "No resource selected !"
-msgstr "Ingen vald resurs!"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:232
-#, fuzzy
 msgid "You have to select one resource!"
-msgstr "Välj en resurs!"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:239
 msgid "Creation User"
@@ -212,62 +203,54 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
-#, fuzzy
 msgid "Question"
-msgstr "Beskrivning"
+msgstr "Fråga"
 
 #: Koo/Dialogs/FormWidget.py:254
-#, fuzzy
 msgid "Are you sure you want to remove these records?"
 msgstr ""
-"Bekräfta borttagning\n"
-"av denna post!"
 
 #: Koo/Dialogs/FormWidget.py:258
-#, fuzzy
 msgid "Resource not removed !"
-msgstr "Resurs är borttagen"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:260
 msgid "Resource removed."
-msgstr "Resurs är borttagen"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:284
 msgid "Working now on the duplicated document !"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:293
-#, fuzzy
 msgid "Document saved !"
-msgstr "Alternativ sparade"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:297
 msgid "Invalid form !"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:366
-#, fuzzy, python-format
+#, python-format
 msgid "(%s attachments) "
-msgstr "Spara som.."
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:377
-#, fuzzy
 msgid "No records"
-msgstr "Nästa: Ingen post vald!"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:384
-#, fuzzy
 msgid "No document selected"
-msgstr "Ingen resurs vald!"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:388
 msgid "New document"
-msgstr "Nytt dokument"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:390
-#, fuzzy, python-format
+#, python-format
 msgid "Editing document (id: %s)"
-msgstr "Redigerar dokument:"
+msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:391
 #, python-format
@@ -279,18 +262,16 @@ msgid "This record has been modified do you want to save it?"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:415
-#, fuzzy
 msgid "No records selected"
-msgstr "Ingen post vald!"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:441
 msgid "Press Ctrl+O to login"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:111
-#, fuzzy
 msgid "Close tab"
-msgstr "Stäng"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:190
 msgid "Open partners tab"
@@ -309,50 +290,42 @@ msgid "Products module is not installed."
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:349
-#, fuzzy, python-format
+#, python-format
 msgid "%s request(s)"
-msgstr "anrop"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:351
 msgid "No request"
-msgstr "Inget anrop"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:353
-#, fuzzy, python-format
+#, python-format
 msgid " - %s pending request(s)"
-msgstr "köande anrop"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:359
-#, fuzzy
 msgid "New Request"
-msgstr "Inget anrop"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:359
 msgid "You've received a new request"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:418 Koo/Dialogs/KooMainWindow.py:420
-#, fuzzy
 msgid "Connection error !"
-msgstr "Anslutning misslyckades"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:418
-#, fuzzy
 msgid "Unable to connect to the server !"
 msgstr ""
-"Anslutning misslyckades!\n"
-"Felaktigt användarenamn eller lösenord!"
 
 #: Koo/Dialogs/KooMainWindow.py:420
-#, fuzzy
 msgid "Bad username or password !"
 msgstr ""
-"Anslutning misslyckades!\n"
-"Felaktigt användarenamn eller lösenord!"
 
 #: Koo/Dialogs/KooMainWindow.py:424
 msgid "Connection Error !"
-msgstr "Anslutning misslyckades"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:440
 msgid "Not logged !"
@@ -380,12 +353,12 @@ msgstr ""
 #: Koo/Dialogs/KooMainWindow.py:564
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: Koo/Dialogs/KooMainWindow.py:564
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43
 msgid "No"
-msgstr ""
+msgstr "Nej"
 
 #: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
 msgid "Delete a database"
@@ -405,7 +378,7 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
-msgstr ""
+msgstr "Fel administrativt lösenord för databas !"
 
 #: Koo/Dialogs/KooMainWindow.py:706
 msgid "Couldn't drop database"
@@ -444,16 +417,15 @@ msgstr ""
 
 #: Koo/Dialogs/TreeWidget.py:62
 msgid "Tree"
-msgstr "Träd"
+msgstr ""
 
 #: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
 msgid "No resource selected!"
-msgstr "Ingen resurs vald!"
+msgstr ""
 
 #: Koo/Dialogs/TreeWidget.py:290
-#, fuzzy
 msgid "No item selected"
-msgstr "Ingen post vald!"
+msgstr ""
 
 #: Koo/Dialogs/TreeWidget.py:290
 msgid "Please select an element from the tree to add a shortcut to it."
@@ -471,13 +443,12 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:84
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
-#, fuzzy
 msgid "Error during database creation"
-msgstr "Fel vid skrivning till fil!"
+msgstr ""
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
-msgstr ""
+msgstr "Kunde inte skapa databas."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
@@ -526,9 +497,8 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:311
-#, fuzzy
 msgid "Full Text Search"
-msgstr "Tiny ERP"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:312
 #, python-format
@@ -540,9 +510,8 @@ msgid "Model ID"
 msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:395
-#, fuzzy
 msgid "Model Name"
-msgstr "Fältnamn"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:397
 msgid "Type"
@@ -550,7 +519,7 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:398
 msgid "Name"
-msgstr "Namn"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:399
 msgid "Text"
@@ -561,11 +530,8 @@ msgid "Ranking"
 msgstr ""
 
 #: Koo/Dialogs/LoginDialog.py:76 Koo/Dialogs/DatabaseDialog.py:74
-#, fuzzy
 msgid "Could not connect to server !"
 msgstr ""
-"Anslutning misslyckades!\n"
-"Felaktigt användarenamn eller lösenord!"
 
 #: Koo/Dialogs/LoginDialog.py:81 Koo/Dialogs/DatabaseDialog.py:80
 msgid "No database found, you must create one !"
@@ -578,8 +544,8 @@ msgstr ""
 #: Koo/Dialogs/MassiveUpdateDialog.py:93
 #, python-format
 msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>%"
-"(records)s<p>Do you want to continue?</p>"
+"<p>This process will update the following fields in %(number)d "
+"records:</p>%(records)s<p>Do you want to continue?</p>"
 msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:50
@@ -587,18 +553,16 @@ msgid "OpenERP exported information"
 msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:69 Koo/Dialogs/ExportDialog.py:87
-#, fuzzy, python-format
+#, python-format
 msgid "%s record(s) saved!"
-msgstr "poster sparade!"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:89
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Operation failed !\n"
 "I/O error (%s)"
 msgstr ""
-"Operationen misslyckades! \n"
-"In/Ut fel"
 
 #: Koo/Dialogs/ExportDialog.py:87 Koo/Dialogs/ExportDialog.py:89
 #: Koo/Dialogs/ExportDialog.py:91
@@ -606,24 +570,20 @@ msgid "Data Export"
 msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:91
-#, fuzzy
 msgid "Error exporting data."
-msgstr "Fel vid skrivning till fil!"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:118
-#, fuzzy
 msgid "Error opening Excel !"
-msgstr "Fel vid öppnandet av Excel!"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:144
-#, fuzzy
 msgid "Error Opening OpenOffice.org!"
-msgstr "Fel vid öppnandet av Excel!"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:238
-#, fuzzy
 msgid "Export Data"
-msgstr "Exportera Data"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:281
 msgid "What is the name of this export?"
@@ -646,18 +606,16 @@ msgid "Save as HTML"
 msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:308
-#, fuzzy
 msgid "Export name"
-msgstr "Exportera Data"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:309
 msgid "Exported fields"
 msgstr ""
 
 #: Koo/Dialogs/PreferencesDialog.py:76
-#, fuzzy
 msgid "User Preferences"
-msgstr "Inställningar"
+msgstr ""
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
 msgid "NET-RPC (faster)"
@@ -676,9 +634,9 @@ msgid "Pyro"
 msgstr ""
 
 #: Koo/Dialogs/SearchDialog.py:76
-#, fuzzy, python-format
+#, python-format
 msgid "Search: %s"
-msgstr "Fel i sökning!"
+msgstr ""
 
 #: Koo/Dialogs/SearchDialog.py:77
 #, python-format
@@ -686,18 +644,16 @@ msgid "Search: %s (%%d result(s))"
 msgstr ""
 
 #: Koo/Dialogs/ImportExportCommon.py:37
-#, fuzzy
 msgid "Fields"
-msgstr "Fältnamn"
+msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:53
 msgid "&Save"
 msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:56
-#, fuzzy
 msgid "&Open"
-msgstr "Öppna"
+msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:59
 msgid "Show &image"
@@ -706,18 +662,17 @@ msgstr ""
 #: Koo/Fields/Binary/BinaryFieldWidget.py:110
 #: Koo/Fields/Image/ImageFieldWidget.py:80
 #: Koo/Fields/Link/LinkFieldWidget.py:61
-#, fuzzy
 msgid "Open..."
-msgstr "Öppna"
+msgstr "Öpna..."
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:111
 msgid "Show &image..."
-msgstr ""
+msgstr "Visa &bild"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:148
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
-msgstr "Välj fil att bifoga"
+msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:154
 #: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
@@ -728,18 +683,17 @@ msgstr ""
 #: Koo/Fields/Binary/BinaryFieldWidget.py:164
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
-msgstr "Fel vid läsning av fil"
+msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:168
 #: Koo/Fields/Video/VideoFieldWidget.py:85
-#, fuzzy
 msgid "Save as..."
-msgstr "Spara som.."
+msgstr "Spara som..."
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:176
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
-msgstr "Fel vid skrivning till fil!"
+msgstr ""
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:100
 msgid "Error in Button"
@@ -750,9 +704,8 @@ msgid "Button type not allowed"
 msgstr ""
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:106
-#, fuzzy
 msgid "Invalid Form, correct red fields!"
-msgstr "Ogiltligt formulär, korrigera röda fält!"
+msgstr ""
 
 #: Koo/Fields/Calendar/Calendar.py:63
 msgid "Set current date"
@@ -777,14 +730,12 @@ msgid "You must save the resource before adding translations"
 msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:122
-#, fuzzy
 msgid "Save image as..."
-msgstr "Spara som.."
+msgstr "Spara bild som..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:130
-#, fuzzy
 msgid "Error saving file"
-msgstr "Fel vid läsning av fil"
+msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:130
 msgid ""
@@ -794,16 +745,15 @@ msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid "Open image file..."
-msgstr ""
+msgstr "Öpna bild fil..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:151
 msgid "(no image)"
 msgstr ""
 
 #: Koo/Fields/Link/LinkFieldWidget.py:70
-#, fuzzy
 msgid "Select the file to link to"
-msgstr "Välj fil att bifoga"
+msgstr ""
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
 msgid "Action"
@@ -823,26 +773,21 @@ msgstr ""
 
 #: Koo/Fields/AbstractFieldWidget.py:65
 msgid "Set to default value"
-msgstr "Sätt till standardvärde"
+msgstr ""
 
 #: Koo/Fields/AbstractFieldWidget.py:71
-#, fuzzy
 msgid "Set as default value"
-msgstr "Sätt till standardvärde"
+msgstr ""
 
 #: Koo/Fields/AbstractFieldWidget.py:98
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#, fuzzy
 msgid "Operation not permited"
 msgstr ""
-"Operationen misslyckades! \n"
-"In/Ut fel"
 
 #: Koo/Fields/AbstractFieldWidget.py:98
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#, fuzzy
 msgid "You can not set to the default value here !"
-msgstr "Sätt till standardvärde"
+msgstr ""
 
 #: Koo/Plugins/Semantic/__init__.py:46
 msgid "Semantic Info"
@@ -862,21 +807,20 @@ msgstr ""
 
 #: Koo/Printer/Printer.py:75
 msgid "Report error"
-msgstr ""
+msgstr "Raportera fel"
 
 #: Koo/Printer/Printer.py:75
 msgid "There was an error trying to create the report."
 msgstr ""
 
 #: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
-#, fuzzy
 msgid "Connection Refused"
-msgstr "Anslutning vägrad!"
+msgstr ""
 
 #: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
 #: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
 msgid "Application Error"
-msgstr "Applikationsfel"
+msgstr "Applikations Fel"
 
 #: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
 #: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
@@ -902,8 +846,8 @@ msgstr ""
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
 msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
-"s<br/>"
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
+"%(duration)s<br/>"
 msgstr ""
 
 #: Koo/View/Calendar/__init__.py:31
@@ -911,9 +855,8 @@ msgid "Calendar View"
 msgstr ""
 
 #: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
-#, fuzzy
 msgid "Unknown"
-msgstr "Okänt fönster"
+msgstr ""
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
@@ -948,321 +891,3 @@ msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with Koo."
 msgstr ""
-
-#, fuzzy
-#~ msgid "No actions defined"
-#~ msgstr "Ingen aktivitet definierad!"
-
-#~ msgid "enable basic debugging"
-#~ msgstr "aktivera grundläggande debugging"
-
-#~ msgid "specify channels to log"
-#~ msgstr "specifiera kanaler att logga"
-
-#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-#~ msgstr "ange nivå för log: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#~ msgid "No record selected!"
-#~ msgstr "Ingen post vald!"
-
-#, fuzzy
-#~ msgid "specify the user login"
-#~ msgstr "specifiera kanaler att logga"
-
-#, fuzzy
-#~ msgid "Preference %s"
-#~ msgstr "Inställningar"
-
-#, fuzzy
-#~ msgid "No available plugin for this resource !"
-#~ msgstr "Ingen inställning tillgänglig för denna resurs!"
-
-#~ msgid "Save attachment as..."
-#~ msgstr "Spara som.."
-
-#, fuzzy
-#~ msgid "Saving image..."
-#~ msgstr "Spara som.."
-
-#, fuzzy
-#~ msgid "Error storing image"
-#~ msgstr "Fel vid läsning av fil"
-
-#, fuzzy
-#~ msgid "Can not generate graph !"
-#~ msgstr "Kan inte skriva fil!"
-
-#, fuzzy
-#~ msgid ""
-#~ "Function only available for MS Office !\n"
-#~ "Sorry, OOo users :("
-#~ msgstr ""
-#~ "Funktionen finns endast tillgänglig för Ms Office !\n"
-#~ "OpenOffice kan inte hantera detta ännu"
-
-#, fuzzy
-#~ msgid "True"
-#~ msgstr "Träd"
-
-#, fuzzy
-#~ msgid "False"
-#~ msgstr "Stäng"
-
-#, fuzzy
-#~ msgid "No preference available for this resource !"
-#~ msgstr "Ingen inställning tillgänglig för denna resurs!"
-
-#~ msgid "Connection refused !"
-#~ msgstr "Anslutning vägrad!"
-
-#~ msgid "Unable to chroot: no tree resource selected"
-#~ msgstr "Kan inte ändra root: ingen trädreurs vald"
-
-#, fuzzy
-#~ msgid "Tiny ERP Client %s"
-#~ msgstr "Tiny ERP Client v2.0"
-
-#~ msgid "Closing Tiny ERP, KeyboardInterrupt"
-#~ msgstr "Stänger ner Tiny ERP, Användareavbrott"
-
-#, fuzzy
-#~ msgid "Set default"
-#~ msgstr "Sätt till standardvärde"
-
-#~ msgid "Record: "
-#~ msgstr "Post:"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove this attachment ?"
-#~ msgstr ""
-#~ "Bekräfta borttagning\n"
-#~ "av denna post!"
-
-#~ msgid "Select the destination file"
-#~ msgstr "Välj destinations fil"
-
-#~ msgid "Can not open file !"
-#~ msgstr "Kan inte öppna fil!"
-
-#~ msgid "Can not write file !"
-#~ msgstr "Kan inte skriva fil!"
-
-#, fuzzy
-#~ msgid "Select a file"
-#~ msgstr "Välj destinations fil"
-
-#, fuzzy
-#~ msgid "You have to select a resource !"
-#~ msgstr "Välj en resurs!"
-
-#, fuzzy
-#~ msgid "Unable to launch this file !"
-#~ msgstr "Kan inte exekvera fil"
-
-#~ msgid "Unable to launch the application associated to this content !"
-#~ msgstr "Kan inte exekvera associerad applikation"
-
-#~ msgid "Preference"
-#~ msgstr "Inställning"
-
-#~ msgid "Reload"
-#~ msgstr "Uppdatera"
-
-#~ msgid "Print"
-#~ msgstr "Skriv ut"
-
-#~ msgid "Error removing resource!"
-#~ msgstr "Fel vid radering av resurs!"
-
-#~ msgid "Ressource Name"
-#~ msgstr "Resursnamn"
-
-#~ msgid "Names"
-#~ msgstr "Namn"
-
-#, fuzzy
-#~ msgid "Are you sure to remove this record ?"
-#~ msgstr ""
-#~ "Bekräfta borttagning\n"
-#~ "av denna post!"
-
-#~ msgid "localhost"
-#~ msgstr "localhost"
-
-#~ msgid "Server:"
-#~ msgstr "Server:"
-
-#~ msgid "demo"
-#~ msgstr "demo"
-
-#~ msgid "Tiny ERP"
-#~ msgstr "Tiny ERP"
-
-#~ msgid "_File"
-#~ msgstr "_Arkiv"
-
-#, fuzzy
-#~ msgid "_Preferences"
-#~ msgstr "Inställningar"
-
-#, fuzzy
-#~ msgid "_Send a request"
-#~ msgstr "köande anrop"
-
-#, fuzzy
-#~ msgid "_Read my requests"
-#~ msgstr "anrop"
-
-#, fuzzy
-#~ msgid "_Waiting Requests"
-#~ msgstr "köande anrop"
-
-#, fuzzy
-#~ msgid "_New"
-#~ msgstr "Ny"
-
-#, fuzzy
-#~ msgid "View _logs"
-#~ msgstr "Visa detaljer"
-
-#, fuzzy
-#~ msgid "Reloa_d / Undo"
-#~ msgstr "Uppdatera"
-
-#, fuzzy
-#~ msgid "Expor_t data..."
-#~ msgstr "Exportera Data"
-
-#, fuzzy
-#~ msgid "_Theme"
-#~ msgstr "Träd"
-
-#, fuzzy
-#~ msgid "_Print"
-#~ msgstr "Skriv ut"
-
-#, fuzzy
-#~ msgid "Support Request"
-#~ msgstr "Inget anrop"
-
-#, fuzzy
-#~ msgid "Find a resource"
-#~ msgstr "Välj en resurs!"
-
-#, fuzzy
-#~ msgid "_Tiny ERP"
-#~ msgstr "Tiny ERP"
-
-#, fuzzy
-#~ msgid "Search / Open a resource"
-#~ msgstr "Välj en resurs!"
-
-#, fuzzy
-#~ msgid "Set Default"
-#~ msgstr "Sätt till standardvärde"
-
-#~ msgid "Hello World!"
-#~ msgstr "Hello World"
-
-#, fuzzy
-#~ msgid "Filter: "
-#~ msgstr "_Arkiv"
-
-#, fuzzy
-#~ msgid "Default _value:"
-#~ msgstr "Sätt till standardvärde"
-
-#, fuzzy
-#~ msgid "Add _field names"
-#~ msgstr "Fältnamn"
-
-#, fuzzy
-#~ msgid "De_scription"
-#~ msgstr "Beskrivning"
-
-#, fuzzy
-#~ msgid "_Details"
-#~ msgstr "Visa detaljer"
-
-#, fuzzy
-#~ msgid "Others Comments: "
-#~ msgstr "Tillbehör:"
-
-#, fuzzy
-#~ msgid "Tiny ERP Survey"
-#~ msgstr "Tiny ERP"
-
-#, fuzzy
-#~ msgid "Find / Search"
-#~ msgstr "Slut sökning"
-
-#~ msgid "New"
-#~ msgstr "Ny"
-
-#, fuzzy
-#~ msgid "Edition Widgets"
-#~ msgstr "Redigerar dokument:"
-
-#, fuzzy
-#~ msgid "Server"
-#~ msgstr "Server:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "8069"
-#~ msgstr "8069"
-
-#, fuzzy
-#~ msgid "Secure connection:"
-#~ msgstr "Välj aktivitet"
-
-#, fuzzy
-#~ msgid "http://localhost:8069"
-#~ msgstr "localhost"
-
-#~ msgid "Welcome to Tiny Entreprise Resource Planing !"
-#~ msgstr "Välkommen till Tiny Enterprise's Resurs Planering"
-
-#~ msgid "You are already logged!"
-#~ msgstr "Ni är redan loggad"
-
-#~ msgid "you are logged out. ^l to login"
-#~ msgstr "ni är utloggad. ^l för att logga in på nytt"
-
-#~ msgid ""
-#~ "^N New   ^S Save   ^D Delete   ^F Search   ^X Next   ^W Previous   ^R "
-#~ "Repeat"
-#~ msgstr ""
-#~ "^N Ny    ^S spara  ^D Radera   ^F Search   ^X Nästa  ^W Föregående ^R "
-#~ "Repetera"
-
-#~ msgid "^L to login"
-#~ msgstr "^L för att logga in"
-
-#~ msgid "select field value:"
-#~ msgstr "välj fält värde"
-
-#~ msgid "No ressource selected!"
-#~ msgstr "Ingen vald resurs!"
-
-#~ msgid "None resource selected"
-#~ msgstr "Ingen vald resurs!"
-
-#~ msgid "New root"
-#~ msgstr "Ny root"
-
-#~ msgid "Import CSV File"
-#~ msgstr "Importera CSV fil"
-
-#~ msgid "View Create Error:"
-#~ msgstr "Fel vid skapad vy:"
-
-#~ msgid "Value preference"
-#~ msgstr "Föredraget värde"
-
-#~ msgid "Unable to read ressource"
-#~ msgstr "Kan inte läsa resurs"
-
-#~ msgid "This record did not exist !"
-#~ msgstr "Posten existerade inte!"

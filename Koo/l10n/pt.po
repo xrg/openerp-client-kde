@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-07-29 09:19+0200\n"
 "PO-Revision-Date: 2009-02-23 15:13+0000\n"
 "Last-Translator: Paulino <Unknown>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-07-27 07:36+0000\n"
+"X-Launchpad-Export-Date: 2009-07-30 23:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
@@ -71,18 +71,9 @@ msgstr "Não gravar"
 msgid "specify alternate config file"
 msgstr "Especifique um ficheiro de configuração alternativo"
 
-#: Koo/Common/Options.py:67
-#, fuzzy
-msgid "specify the server (ie. http://admin@localhost:8069)"
-msgstr "Especifique o IP/nome do servidor"
-
 #: Koo/Common/Options.py:68
 msgid "specify stylesheet to apply"
 msgstr "Especifique oa folha de estilos a aplicar"
-
-#: Koo/Common/Options.py:69
-msgid "use POS (Point of Sales) mode"
-msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:52
 #, python-format
@@ -274,11 +265,6 @@ msgstr "Registo: %(name)s / %(count)s - %(name2)s"
 msgid "This record has been modified do you want to save it?"
 msgstr "Este registo foi modificado quer gravá-lo?"
 
-#: Koo/Dialogs/FormWidget.py:415
-#, fuzzy
-msgid "No records selected"
-msgstr "Nenhum registo seleccionado!"
-
 #: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:441
 msgid "Press Ctrl+O to login"
 msgstr "Prima Ctrl+O para entrar"
@@ -462,12 +448,6 @@ msgstr ""
 "Os seguintes utilizadores foram criados na sua base de dados\n"
 "\n"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:84
-#: Koo/Dialogs/DatabaseCreationDialog.py:86
-#, fuzzy
-msgid "Error during database creation"
-msgstr "Erro na criação da base de dados!"
-
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
 msgstr "Não foi possivel criar a base de dados."
@@ -495,15 +475,6 @@ msgid ""
 msgstr ""
 "O nome da base de dados deve conter só caracteres normais ou \"_\".\n"
 "Tem de evitar os acentos, cedilhas, espaços ou caracteres especiais."
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
-msgid "Wrong password"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
-#, fuzzy
-msgid "Administrator passwords differ."
-msgstr "Senha de administrador da base de dados errada!"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"
@@ -570,22 +541,6 @@ msgstr "Não foi possivel ligar ao servidor !"
 msgid "No database found, you must create one !"
 msgstr "Nenhuma base de dados encontrada, tem de criar uma!"
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
-#, python-format
-msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>%"
-"(records)s<p>Do you want to continue?</p>"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:50
-#, fuzzy
-msgid "OpenERP exported information"
-msgstr "OpenERP informação exportada"
-
 #: Koo/Dialogs/ExportDialog.py:69 Koo/Dialogs/ExportDialog.py:87
 #, python-format
 msgid "%s record(s) saved!"
@@ -613,11 +568,6 @@ msgstr "Erro ao exportar dados"
 msgid "Error opening Excel !"
 msgstr "Erro ao abrir o Excell"
 
-#: Koo/Dialogs/ExportDialog.py:144
-#, fuzzy
-msgid "Error Opening OpenOffice.org!"
-msgstr "Erro ao abrir o Excell"
-
 #: Koo/Dialogs/ExportDialog.py:238
 msgid "Export Data"
 msgstr "Exportar Dados"
@@ -628,11 +578,6 @@ msgstr "Qual o nome desta exportação?"
 
 #: Koo/Dialogs/ExportDialog.py:293
 msgid "Open with Excel"
-msgstr "Abrir no Excell"
-
-#: Koo/Dialogs/ExportDialog.py:294
-#, fuzzy
-msgid "Open with OpenOffice.org"
 msgstr "Abrir no Excell"
 
 #: Koo/Dialogs/ExportDialog.py:295
@@ -651,11 +596,6 @@ msgstr "Nome a exportar"
 msgid "Exported fields"
 msgstr "Campos exportados"
 
-#: Koo/Dialogs/PreferencesDialog.py:76
-#, fuzzy
-msgid "User Preferences"
-msgstr "Preferências"
-
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
 msgid "NET-RPC (faster)"
 msgstr "NET-RPC (faster)"
@@ -667,10 +607,6 @@ msgstr "XML-RPC"
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "Secure XML-RPC"
 msgstr "XML-RPC seguro"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:67
-msgid "Pyro"
-msgstr ""
 
 #: Koo/Dialogs/SearchDialog.py:76
 #, python-format
@@ -685,20 +621,6 @@ msgstr "Pesquisa: %s (%%d resultado(s))"
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "Campos"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:53
-msgid "&Save"
-msgstr ""
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:56
-#, fuzzy
-msgid "&Open"
-msgstr "Abrir..."
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:59
-#, fuzzy
-msgid "Show &image"
-msgstr "Mostrar &imagem..."
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:110
 #: Koo/Fields/Image/ImageFieldWidget.py:80
@@ -790,10 +712,6 @@ msgstr ""
 msgid "Open image file..."
 msgstr "Abrir ficheiro de imagem..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:151
-msgid "(no image)"
-msgstr ""
-
 #: Koo/Fields/Link/LinkFieldWidget.py:70
 msgid "Select the file to link to"
 msgstr "Seleccione o ficheiro a ligar"
@@ -831,23 +749,6 @@ msgstr "Operação não permitida"
 #: Koo/Fields/AbstractFieldDelegate.py:115
 msgid "You can not set to the default value here !"
 msgstr "Não pode definir um valor padão aqui!"
-
-#: Koo/Plugins/Semantic/__init__.py:46
-msgid "Semantic Info"
-msgstr ""
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
-msgid "Print Workflow"
-msgstr ""
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
-msgid "Print Workflow (Complex)"
-msgstr ""
-
-#: Koo/Plugins/ViewTranslator/__init__.py:40
-#, fuzzy
-msgid "Translate View"
-msgstr "Dialogo de tradução"
 
 #: Koo/Printer/Printer.py:75
 msgid "Report error"
@@ -890,19 +791,115 @@ msgstr "Imprimir Ecrã"
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
 msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
-"s<br/>"
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
+"%(duration)s<br/>"
 msgstr ""
-"<b>%(title)s</b><br/><b>Início:</b> %(start)s<br/><b>Duração:</b> %(duration)"
-"s<br/>"
-
-#: Koo/View/Calendar/__init__.py:31
-msgid "Calendar View"
-msgstr ""
+"<b>%(title)s</b><br/><b>Início:</b> %(start)s<br/><b>Duração:</b> "
+"%(duration)s<br/>"
 
 #: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
 msgid "Unknown"
 msgstr "Desconhecido"
+
+#: Koo/koo.py:60
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with Koo."
+msgstr ""
+"O módulo 'dbus' não está disponível. Considere instalá-lo para que outras "
+"aplicações possam interagir facilmente com Koo."
+
+#: Koo/Common/Options.py:67
+msgid "specify the server (ie. http://admin@localhost:8069)"
+msgstr ""
+
+#: Koo/Common/Options.py:69
+msgid "use POS (Point of Sales) mode"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:415
+msgid "No records selected"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+msgid "Error during database creation"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Wrong password"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Administrator passwords differ."
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:92
+msgid "Confirmation"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#, python-format
+msgid ""
+"<p>This process will update the following fields in %(number)d "
+"records:</p>%(records)s<p>Do you want to continue?</p>"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:50
+msgid "OpenERP exported information"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:144
+msgid "Error Opening OpenOffice.org!"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:294
+msgid "Open with OpenOffice.org"
+msgstr ""
+
+#: Koo/Dialogs/PreferencesDialog.py:76
+msgid "User Preferences"
+msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
+msgid "Pyro"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:53
+msgid "&Save"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:56
+msgid "&Open"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:59
+msgid "Show &image"
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:151
+msgid "(no image)"
+msgstr ""
+
+#: Koo/Plugins/Semantic/__init__.py:46
+msgid "Semantic Info"
+msgstr ""
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+msgid "Print Workflow"
+msgstr ""
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+msgid "Print Workflow (Complex)"
+msgstr ""
+
+#: Koo/Plugins/ViewTranslator/__init__.py:40
+msgid "Translate View"
+msgstr ""
+
+#: Koo/View/Calendar/__init__.py:31
+msgid "Calendar View"
+msgstr ""
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
@@ -931,38 +928,3 @@ msgstr ""
 #: Koo/View/Tree/__init__.py:32
 msgid "List View"
 msgstr ""
-
-#: Koo/koo.py:60
-msgid ""
-"Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with Koo."
-msgstr ""
-"O módulo 'dbus' não está disponível. Considere instalá-lo para que outras "
-"aplicações possam interagir facilmente com Koo."
-
-#~ msgid "No action defined!"
-#~ msgstr "Nenhuma acção definida!"
-
-#~ msgid "No available plugin for this resource !"
-#~ msgstr "Plugin's não disponíveis para este recurso!"
-
-#~ msgid "Choose a Plugin"
-#~ msgstr "Escolha um plugin"
-
-#~ msgid "enable basic debugging"
-#~ msgstr "habilitar depuração básica"
-
-#~ msgid "specify channels to log"
-#~ msgstr "Especifique os canais para registar(log)"
-
-#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-#~ msgstr "Especifique o nível de 'log': INFO, DEBUG, AVISO, ERRO, CRITICO"
-
-#~ msgid "specify the user login"
-#~ msgstr "Especifique o nome de utilizador"
-
-#~ msgid "specify the server port"
-#~ msgstr "Especifique a porta do servidor"
-
-#~ msgid "Preference %s"
-#~ msgstr "Preferências %s"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-29 09:19+0200\n"
+"POT-Creation-Date: 2009-07-31 16:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,8 +30,27 @@ msgstr ""
 msgid "Printing aborted. Delay too long."
 msgstr ""
 
+#: Koo/Actions/Actions.py:94 Koo/Dialogs/ImportDialog.py:52
+#: Koo/Dialogs/AdministratorPasswordDialog.py:68
+#: Koo/Dialogs/KooMainWindow.py:725 Koo/Dialogs/KooMainWindow.py:749
+#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
+#: Koo/Dialogs/ExportDialog.py:69 Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:87
+msgid "Information"
+msgstr ""
+
 #: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
+msgstr ""
+
+#: Koo/Actions/Actions.py:111 Koo/Dialogs/AdministratorPasswordDialog.py:71
+#: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:71
+#: Koo/Dialogs/ExportDialog.py:118 Koo/Dialogs/ExportDialog.py:144
+#: Koo/Fields/Binary/BinaryFieldWidget.py:164
+#: Koo/Fields/Binary/BinaryFieldWidget.py:176
+#: Koo/Fields/Video/VideoFieldWidget.py:82
+#: Koo/Fields/Video/VideoFieldWidget.py:92
+msgid "Error"
 msgstr ""
 
 #: Koo/Actions/Actions.py:111
@@ -42,25 +61,25 @@ msgstr ""
 msgid "Select your action"
 msgstr ""
 
-#: Koo/Common/Common.py:175
+#: Koo/Common/Common.py:177
 msgid "Concurrency warning"
 msgstr ""
 
-#: Koo/Common/Common.py:176
+#: Koo/Common/Common.py:178
 msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
 msgstr ""
 
-#: Koo/Common/Common.py:177
+#: Koo/Common/Common.py:179
 msgid "Save anyway"
 msgstr ""
 
-#: Koo/Common/Common.py:178
+#: Koo/Common/Common.py:180
 msgid "Compare"
 msgstr ""
 
-#: Koo/Common/Common.py:179
+#: Koo/Common/Common.py:181
 msgid "Do not save"
 msgstr ""
 
@@ -151,10 +170,6 @@ msgid "Password changed successfully"
 msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:71
-msgid "Error"
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:71
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
@@ -188,226 +203,218 @@ msgstr ""
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:243
-msgid "Owner"
+#: Koo/Dialogs/FormWidget.py:248
+msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:244
-msgid "Group Owner"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:245
-msgid "Access Level"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
+#: Koo/Dialogs/FormWidget.py:251 Koo/Dialogs/FormWidget.py:394
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 msgid "Question"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:254
+#: Koo/Dialogs/FormWidget.py:251
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:258
+#: Koo/Dialogs/FormWidget.py:255
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:260
+#: Koo/Dialogs/FormWidget.py:257
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:284
+#: Koo/Dialogs/FormWidget.py:281
 msgid "Working now on the duplicated document !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:293
+#: Koo/Dialogs/FormWidget.py:290
 msgid "Document saved !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:297
+#: Koo/Dialogs/FormWidget.py:294
 msgid "Invalid form !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:366
+#: Koo/Dialogs/FormWidget.py:363
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:377
+#: Koo/Dialogs/FormWidget.py:374
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:384
+#: Koo/Dialogs/FormWidget.py:381
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:388
+#: Koo/Dialogs/FormWidget.py:385
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:390
+#: Koo/Dialogs/FormWidget.py:387
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:391
+#: Koo/Dialogs/FormWidget.py:388
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:397
+#: Koo/Dialogs/FormWidget.py:394
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:415
+#: Koo/Dialogs/FormWidget.py:412
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:441
+#: Koo/Dialogs/KooMainWindow.py:101 Koo/Dialogs/KooMainWindow.py:443
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:111
+#: Koo/Dialogs/KooMainWindow.py:112
 msgid "Close tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:190
+#: Koo/Dialogs/KooMainWindow.py:191
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:195
+#: Koo/Dialogs/KooMainWindow.py:196
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:233
+#: Koo/Dialogs/KooMainWindow.py:234
 msgid "Products"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:233
+#: Koo/Dialogs/KooMainWindow.py:234
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:349
+#: Koo/Dialogs/KooMainWindow.py:350
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:351
+#: Koo/Dialogs/KooMainWindow.py:352
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:353
+#: Koo/Dialogs/KooMainWindow.py:354
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:359
+#: Koo/Dialogs/KooMainWindow.py:360
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:359
+#: Koo/Dialogs/KooMainWindow.py:360
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:418 Koo/Dialogs/KooMainWindow.py:420
+#: Koo/Dialogs/KooMainWindow.py:420 Koo/Dialogs/KooMainWindow.py:422
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:418
+#: Koo/Dialogs/KooMainWindow.py:420
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:420
+#: Koo/Dialogs/KooMainWindow.py:422
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:424
+#: Koo/Dialogs/KooMainWindow.py:426
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:440
+#: Koo/Dialogs/KooMainWindow.py:442
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:533
+#: Koo/Dialogs/KooMainWindow.py:535
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:533
+#: Koo/Dialogs/KooMainWindow.py:535
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Dialogs/KooMainWindow.py:566
 msgid "Quit"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Dialogs/KooMainWindow.py:566
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Dialogs/KooMainWindow.py:566
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42
 msgid "Yes"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Dialogs/KooMainWindow.py:566
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43
 msgid "No"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
+#: Koo/Dialogs/KooMainWindow.py:693 Koo/Dialogs/KooMainWindow.py:714
 msgid "Delete a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/KooMainWindow.py:706
+#: Koo/Dialogs/KooMainWindow.py:702 Koo/Dialogs/KooMainWindow.py:708
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:700
+#: Koo/Dialogs/KooMainWindow.py:702
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:704
+#: Koo/Dialogs/KooMainWindow.py:706
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/KooMainWindow.py:706 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:706
+#: Koo/Dialogs/KooMainWindow.py:708
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:723
+#: Koo/Dialogs/KooMainWindow.py:725
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:727 Koo/Dialogs/KooMainWindow.py:729
+#: Koo/Dialogs/KooMainWindow.py:729 Koo/Dialogs/KooMainWindow.py:731
 msgid "Could not restore database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:727
+#: Koo/Dialogs/KooMainWindow.py:729
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:729
+#: Koo/Dialogs/KooMainWindow.py:731
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:732
+#: Koo/Dialogs/KooMainWindow.py:734
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:747
+#: Koo/Dialogs/KooMainWindow.py:749
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:750
+#: Koo/Dialogs/KooMainWindow.py:752
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -710,11 +717,11 @@ msgstr ""
 msgid "Set current date"
 msgstr ""
 
-#: Koo/Fields/Calendar/Calendar.py:112
+#: Koo/Fields/Calendar/Calendar.py:116
 msgid "Set current date and time"
 msgstr ""
 
-#: Koo/Fields/Calendar/Calendar.py:150 Koo/Fields/Calendar/Calendar.py:196
+#: Koo/Fields/Calendar/Calendar.py:158 Koo/Fields/Calendar/Calendar.py:208
 msgid "Set current time"
 msgstr ""
 

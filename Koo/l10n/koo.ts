@@ -360,16 +360,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="343"/>
-        <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="357"/>
-        <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="create_database.ui" line="292"/>
         <source>Admin password:</source>
         <translation type="unfinished"></translation>
@@ -377,6 +367,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="299"/>
         <source>Repeat admin password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="343"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="357"/>
+        <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1642,23 +1642,23 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="19"/>
+        <location filename="many2one.ui" line="20"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="51"/>
-        <source>Remove</source>
+        <location filename="many2one.ui" line="52"/>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="74"/>
+        <location filename="many2one.ui" line="75"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="97"/>
-        <source>Search</source>
+        <location filename="many2one.ui" line="98"/>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

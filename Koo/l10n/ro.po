@@ -1,47 +1,260 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Romanian translation for openobject-client-kde
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Tiny ERP V2.0\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-07-29 09:19+0200\n"
-"PO-Revision-Date: 2005-04-05 09:43+0200\n"
-"Last-Translator: Fabien Pinckaers <fp@tiny.be>\n"
-"Language-Team: FR <i18n-info@tinyerp.org>\n"
+"PO-Revision-Date: 2009-07-29 19:57+0000\n"
+"Last-Translator: filsys <office@filsystem.ro>\n"
+"Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2009-07-30 23:48+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
 #: Koo/Actions/Actions.py:115
-#, fuzzy, python-format
+#, python-format
 msgid "Error: %s"
-msgstr "Eroare: "
+msgstr "Eroare: %s"
 
 #: Koo/Actions/Actions.py:62
 msgid "Nothing to print."
-msgstr ""
-
-#: Koo/Actions/Actions.py:78
-#, fuzzy
-msgid "Printing aborted. Delay too long."
-msgstr "Imprimare intrerupta, timp mare de asteptare!"
+msgstr "Nimic de tipărit."
 
 #: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
-msgstr ""
+msgstr "Nimic de tipărit!"
+
+#: Koo/Common/Common.py:178
+msgid "Compare"
+msgstr "Compară"
+
+#: Koo/Dialogs/ImportDialog.py:52
+#, python-format
+msgid "Imported %d objects !"
+msgstr "%d obiecte importate!"
+
+#: Koo/Dialogs/ImportDialog.py:97
+msgid "File to import"
+msgstr "Fişier de importat"
+
+#: Koo/Dialogs/ImportDialog.py:112 Koo/Dialogs/ImportDialog.py:115
+#: Koo/Dialogs/ImportDialog.py:118
+msgid "Import error"
+msgstr "Eroare la importare"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:68
+msgid "Password changed successfully"
+msgstr "Parola a fost schimbată cu succes"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:71
+msgid "Error"
+msgstr "Eroare"
+
+#: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
+msgid "ID"
+msgstr "ID"
+
+#: Koo/Dialogs/FormWidget.py:239
+msgid "Creation User"
+msgstr "Crearea de utilizatori"
+
+#: Koo/Dialogs/FormWidget.py:240
+msgid "Creation Date"
+msgstr "Data creării"
+
+#: Koo/Dialogs/FormWidget.py:241
+msgid "Latest Modification by"
+msgstr "Ultima modificare de"
+
+#: Koo/Dialogs/FormWidget.py:242
+msgid "Latest Modification Date"
+msgstr "Data ultimei modificări"
+
+#: Koo/Dialogs/FormWidget.py:243
+msgid "Owner"
+msgstr "Proprietar"
+
+#: Koo/Dialogs/FormWidget.py:245
+msgid "Access Level"
+msgstr "Nivel de acces"
+
+#: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
+#: Koo/Fields/Button/ButtonFieldWidget.py:71
+msgid "Question"
+msgstr "Întrebare"
+
+#: Koo/Dialogs/FormWidget.py:384
+msgid "No document selected"
+msgstr "Nici un document selectat"
+
+#: Koo/Dialogs/FormWidget.py:388
+msgid "New document"
+msgstr "Document nou"
+
+#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:441
+msgid "Press Ctrl+O to login"
+msgstr "Apăsaţi Ctrl+O pentru logare"
+
+#: Koo/Dialogs/KooMainWindow.py:111
+msgid "Close tab"
+msgstr "Închide tabul"
+
+#: Koo/Dialogs/KooMainWindow.py:233
+msgid "Products"
+msgstr "Produse"
+
+#: Koo/Dialogs/KooMainWindow.py:349
+#, python-format
+msgid "%s request(s)"
+msgstr "%s cereri"
+
+#: Koo/Dialogs/KooMainWindow.py:351
+msgid "No request"
+msgstr "Zero cereri"
+
+#: Koo/Dialogs/KooMainWindow.py:533
+msgid "Access denied"
+msgstr "Acces interzis"
+
+#: Koo/Dialogs/KooMainWindow.py:564
+msgid "Quit"
+msgstr "Termină"
+
+#: Koo/Dialogs/KooMainWindow.py:564
+msgid "Do you really want to quit ?"
+msgstr "Doriţi întradevăr să terminaţi?"
+
+#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42
+msgid "Yes"
+msgstr "Da"
+
+#: Koo/Dialogs/KooMainWindow.py:564
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+msgid "No"
+msgstr "Nu"
+
+#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
+msgid "Delete a database"
+msgstr "Şterge o bază de date"
+
+#: Koo/Dialogs/KooMainWindow.py:732
+msgid "Backup a database"
+msgstr "Backup bază de date"
+
+#: Koo/Dialogs/TreeWidget.py:62
+msgid "Tree"
+msgstr "Arbore"
+
+#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
+msgid "No resource selected!"
+msgstr "Nici o resursă selectată!"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:165
+msgid "Bad database name !"
+msgstr "Nume bază de date greşit!"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:397
+msgid "Type"
+msgstr "Tip"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:398
+msgid "Name"
+msgstr "Nume"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:399
+msgid "Text"
+msgstr "Text"
+
+#: Koo/Dialogs/ExportDialog.py:238
+msgid "Export Data"
+msgstr "Exportă datele"
+
+#: Koo/Dialogs/ImportExportCommon.py:37
+msgid "Fields"
+msgstr "Câmpuri"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:110
+#: Koo/Fields/Image/ImageFieldWidget.py:80
+#: Koo/Fields/Link/LinkFieldWidget.py:61
+msgid "Open..."
+msgstr "Deschide..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:154
+#: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
+#, python-format
+msgid "%d bytes"
+msgstr "%d bytes"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:168
+#: Koo/Fields/Video/VideoFieldWidget.py:85
+msgid "Save as..."
+msgstr "Salvează ca..."
+
+#: Koo/Fields/Image/ImageFieldWidget.py:130
+msgid "Error saving file"
+msgstr "Eroare la salvarea fişierului"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
+msgid "Action"
+msgstr "Acțiune"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
+msgid "Report"
+msgstr "Raport"
+
+#: Koo/Fields/AbstractFieldWidget.py:65
+msgid "Set to default value"
+msgstr "Alege valoare implicită"
+
+#: Koo/Fields/AbstractFieldWidget.py:71
+msgid "Set as default value"
+msgstr "Setează ca valoare implictă"
+
+#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
+msgid "Connection Refused"
+msgstr "Conectare refuzată"
+
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
+msgid "Application Error"
+msgstr "Eroare Aplicaţie"
+
+#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
+#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
+msgid "View details"
+msgstr "Afişare detalii"
+
+#: Koo/Screen/Action.py:81
+msgid "You must select a record to use the relate button !"
+msgstr "Trebuie să selectaţi o înregistrare pentru a utiliza butonul!"
+
+#: Koo/Screen/Action.py:87
+msgid "You must save this record to use the relate button !"
+msgstr "Trebuie să salvaţi acestă înregistrare pentru a utiliza butonul!"
+
+#: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
+msgid "Unknown"
+msgstr "Necunoscut"
+
+#: Koo/Actions/Actions.py:78
+msgid "Printing aborted. Delay too long."
+msgstr "Tiparire intrerupta. Asteptare prea lunga."
 
 #: Koo/Actions/Actions.py:111
 msgid "Printing aborted, too long delay !"
-msgstr "Imprimare intrerupta, timp mare de asteptare!"
+msgstr "Tiparire intrerupta, asteptare prea lunga !"
 
 #: Koo/Actions/Actions.py:216
 msgid "Select your action"
-msgstr "Selectioneaza actiune"
+msgstr "Selectati actiunea"
 
 #: Koo/Common/Common.py:175
 msgid "Concurrency warning"
@@ -55,38 +268,27 @@ msgstr ""
 
 #: Koo/Common/Common.py:177
 msgid "Save anyway"
-msgstr ""
-
-#: Koo/Common/Common.py:178
-msgid "Compare"
-msgstr ""
+msgstr "Salveaza oricum"
 
 #: Koo/Common/Common.py:179
-#, fuzzy
 msgid "Do not save"
-msgstr "Optiuni salvate!"
+msgstr "Nu salva"
 
 #: Koo/Common/Options.py:66
 msgid "specify alternate config file"
-msgstr "specificati un fisier de configurare"
+msgstr "specificati un fisier de configurare alternativ"
 
 #: Koo/Common/Options.py:67
 msgid "specify the server (ie. http://admin@localhost:8069)"
-msgstr ""
+msgstr "specificati server-ul (ex. http://admin@localhost:8069)"
 
 #: Koo/Common/Options.py:68
-#, fuzzy
 msgid "specify stylesheet to apply"
-msgstr "specificati un canal pt. logger"
+msgstr ""
 
 #: Koo/Common/Options.py:69
 msgid "use POS (Point of Sales) mode"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:52
-#, python-format
-msgid "Imported %d objects !"
-msgstr ""
+msgstr "utilizati modul POS"
 
 #: Koo/Dialogs/ImportDialog.py:57
 #, python-format
@@ -98,45 +300,38 @@ msgid ""
 "\n"
 "%(error2)s"
 msgstr ""
+"Eroare la incercarea de import a acestei inregistrari:\n"
+"%(record)s\n"
+"Mesaj de eroare:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
 
 #: Koo/Dialogs/ImportDialog.py:62
-#, fuzzy
 msgid "Error importing data"
-msgstr "Erroare in scriere  fisier!"
-
-#: Koo/Dialogs/ImportDialog.py:97
-#, fuzzy
-msgid "File to import"
-msgstr "<b>Cimpuri pentru import</b>"
-
-#: Koo/Dialogs/ImportDialog.py:112 Koo/Dialogs/ImportDialog.py:115
-#: Koo/Dialogs/ImportDialog.py:118
-#, fuzzy
-msgid "Import error"
-msgstr "Erroare cautare!"
+msgstr "Eroare import date"
 
 #: Koo/Dialogs/ImportDialog.py:112
-#, fuzzy
 msgid "No file specified."
-msgstr "Nici o inregistrare selectionata!"
+msgstr "Nu ati specificat nici un fisier."
 
 #: Koo/Dialogs/ImportDialog.py:115 Koo/Dialogs/ImportDialog.py:175
 msgid "Separator must be a single character."
-msgstr ""
+msgstr "Separatorul trebuie sa fie un singur caracter."
 
 #: Koo/Dialogs/ImportDialog.py:118 Koo/Dialogs/ImportDialog.py:178
 msgid "Delimiter must be a single character."
-msgstr ""
+msgstr "Delimitatorul trebuie sa fie un singur caracter."
 
 #: Koo/Dialogs/ImportDialog.py:167 Koo/Dialogs/ImportDialog.py:175
 #: Koo/Dialogs/ImportDialog.py:178 Koo/Dialogs/ImportDialog.py:184
 #: Koo/Dialogs/ImportDialog.py:194
 msgid "Auto-detect error"
-msgstr ""
+msgstr "Auto-detectare eroare"
 
 #: Koo/Dialogs/ImportDialog.py:184
 msgid "Error opening .CSV file: Input Error."
-msgstr ""
+msgstr "Eroare la deschiderea fisierului .CSV: Eroare de intrare."
 
 #: Koo/Dialogs/ImportDialog.py:194
 #, python-format
@@ -144,226 +339,133 @@ msgid ""
 "Error processing your first line of the file.\n"
 "Field %s is unknown !"
 msgstr ""
+"Eroare la procesarea primei linii din fisier.\n"
+"Campul %s este necunoscut !"
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:61
-#, fuzzy
 msgid "Validation Error"
-msgstr "Eroare aplicatie"
+msgstr "Eroare la validare"
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:61
 msgid "Confirmation password does not match new password."
 msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:68
-msgid "Password changed successfully"
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:71
-#, fuzzy
-msgid "Error"
-msgstr "Eroare: "
+"Parola introdusa pentru confirmare este diferita de noua parola introdusa."
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:71
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
 msgstr ""
+"Parola administratorului nu poate fi modificata. Va rugam verificati daca "
+"parola si serverul sunt corecte."
 
 #: Koo/Dialogs/FormWidget.py:205
-#, fuzzy
 msgid "No resource selected !"
-msgstr "Nici o resursa selectionata !"
+msgstr "Nu ati selectat nici o resursa !"
 
 #: Koo/Dialogs/FormWidget.py:232
-#, fuzzy
 msgid "You have to select one resource!"
-msgstr "Selectiati o resursa !"
-
-#: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
-msgid "ID"
-msgstr "ID"
-
-#: Koo/Dialogs/FormWidget.py:239
-msgid "Creation User"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:240
-msgid "Creation Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:241
-msgid "Latest Modification by"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:242
-msgid "Latest Modification Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:243
-msgid "Owner"
-msgstr ""
+msgstr "Trebuie sa selectati o resursa !"
 
 #: Koo/Dialogs/FormWidget.py:244
 msgid "Group Owner"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:245
-msgid "Access Level"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:254 Koo/Dialogs/FormWidget.py:397
-#: Koo/Fields/Button/ButtonFieldWidget.py:71
-#, fuzzy
-msgid "Question"
-msgstr "Descriere"
+msgstr "Proprietar grup"
 
 #: Koo/Dialogs/FormWidget.py:254
-#, fuzzy
 msgid "Are you sure you want to remove these records?"
-msgstr ""
-"Sunteti sigur(a) ca vreti \n"
-"sa stergeti acest inregistrement?"
+msgstr "Sigur doriti sa stergeti aceste inregistrari ?"
 
 #: Koo/Dialogs/FormWidget.py:258
-#, fuzzy
 msgid "Resource not removed !"
-msgstr "Resursa stearsa"
+msgstr "Resursa nu a fost stearsa !"
 
 #: Koo/Dialogs/FormWidget.py:260
 msgid "Resource removed."
-msgstr "Resursa stearsa"
+msgstr "Resursa stearsa."
 
 #: Koo/Dialogs/FormWidget.py:284
 msgid "Working now on the duplicated document !"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:293
-#, fuzzy
 msgid "Document saved !"
-msgstr "Optiuni salvate!"
+msgstr "Document salvat !"
 
 #: Koo/Dialogs/FormWidget.py:297
 msgid "Invalid form !"
-msgstr ""
+msgstr "Formular invalid !"
 
 #: Koo/Dialogs/FormWidget.py:366
-#, fuzzy, python-format
+#, python-format
 msgid "(%s attachments) "
-msgstr "Atasare: "
+msgstr "(%s attachments) "
 
 #: Koo/Dialogs/FormWidget.py:377
-#, fuzzy
 msgid "No records"
-msgstr "Urmator: Nici o inregistrare selectionata"
-
-#: Koo/Dialogs/FormWidget.py:384
-#, fuzzy
-msgid "No document selected"
-msgstr "Nici o resursa selectionata"
-
-#: Koo/Dialogs/FormWidget.py:388
-msgid "New document"
-msgstr "Document nou"
+msgstr "Nici o inregistrare"
 
 #: Koo/Dialogs/FormWidget.py:390
-#, fuzzy, python-format
+#, python-format
 msgid "Editing document (id: %s)"
-msgstr "Document in cours de editare: "
+msgstr "Editare document (id: %s)"
 
 #: Koo/Dialogs/FormWidget.py:391
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
+msgstr "Inregistrare: %(name)s / %(count)s - %(name2)s"
 
 #: Koo/Dialogs/FormWidget.py:397
 msgid "This record has been modified do you want to save it?"
-msgstr ""
+msgstr "Aceasta inregistrare a fost modificata. Doriti sa o salvati ?"
 
 #: Koo/Dialogs/FormWidget.py:415
-#, fuzzy
 msgid "No records selected"
-msgstr "Nici o inregistrare selectionata!"
-
-#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:441
-msgid "Press Ctrl+O to login"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:111
-#, fuzzy
-msgid "Close tab"
-msgstr "Inchide"
+msgstr "Nu ati selectat nici o inregistrare"
 
 #: Koo/Dialogs/KooMainWindow.py:190
 msgid "Open partners tab"
-msgstr ""
+msgstr "Deschide tab-ul partener"
 
 #: Koo/Dialogs/KooMainWindow.py:195
 msgid "Open products tab"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:233
-#, fuzzy
-msgid "Products"
-msgstr "Precedent"
+msgstr "Deschide tab-ul produs"
 
 #: Koo/Dialogs/KooMainWindow.py:233
 msgid "Products module is not installed."
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:349
-#, fuzzy, python-format
-msgid "%s request(s)"
-msgstr "Cereri"
-
-#: Koo/Dialogs/KooMainWindow.py:351
-msgid "No request"
-msgstr "Nici o cerere"
+msgstr "Modulul produse nu este instalat"
 
 #: Koo/Dialogs/KooMainWindow.py:353
-#, fuzzy, python-format
+#, python-format
 msgid " - %s pending request(s)"
-msgstr "Cereri in asteptatre"
+msgstr " - %s cerere(i) in asteptare"
 
 #: Koo/Dialogs/KooMainWindow.py:359
-#, fuzzy
 msgid "New Request"
-msgstr "Nici o cerere"
+msgstr "Cerere noua"
 
 #: Koo/Dialogs/KooMainWindow.py:359
-#, fuzzy
 msgid "You've received a new request"
-msgstr "Trimite o noua cerere"
+msgstr "Ati primit o noua cerere"
 
 #: Koo/Dialogs/KooMainWindow.py:418 Koo/Dialogs/KooMainWindow.py:420
-#, fuzzy
 msgid "Connection error !"
-msgstr "Eroare de conectare!"
+msgstr "Eroare de conexiune !"
 
 #: Koo/Dialogs/KooMainWindow.py:418
-#, fuzzy
 msgid "Unable to connect to the server !"
-msgstr ""
-"Eroare de conectare !\n"
-"Nume gresit de utilisator sau parola gresita!"
+msgstr "Nu se poate face conexiunea la server !"
 
 #: Koo/Dialogs/KooMainWindow.py:420
-#, fuzzy
 msgid "Bad username or password !"
-msgstr ""
-"Eroare de conectare !\n"
-"Nume gresit de utilisator sau parola gresita!"
+msgstr "Utilizator sau parola incorecta !"
 
 #: Koo/Dialogs/KooMainWindow.py:424
 msgid "Connection Error !"
-msgstr "Eroare de conectare!"
+msgstr "Eroare de conexiune !"
 
 #: Koo/Dialogs/KooMainWindow.py:440
 msgid "Not logged !"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:533
-msgid "Access denied"
-msgstr ""
+msgstr "Nelogat!"
 
 #: Koo/Dialogs/KooMainWindow.py:533
 msgid ""
@@ -371,74 +473,49 @@ msgid ""
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:564
-msgid "Quit"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:564
-msgid "Do you really want to quit ?"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:564
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42
-msgid "Yes"
-msgstr "Da"
-
-#: Koo/Dialogs/KooMainWindow.py:564
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43
-msgid "No"
-msgstr "Nu"
-
-#: Koo/Dialogs/KooMainWindow.py:691 Koo/Dialogs/KooMainWindow.py:712
-#, fuzzy
-msgid "Delete a database"
-msgstr "Alege o data"
+"Nu va puteti log-a in sistem !\n"
+"Contactati administratorul pentru a\n"
+"verifica configurarea utilizatorului dvs."
 
 #: Koo/Dialogs/KooMainWindow.py:700 Koo/Dialogs/KooMainWindow.py:706
 msgid "Database removal"
-msgstr ""
+msgstr "Stergere baza de date"
 
 #: Koo/Dialogs/KooMainWindow.py:700
 msgid "Database dropped successfully!"
-msgstr ""
+msgstr "Stergerea bazei de date s-a incheiat cu succes !"
 
 #: Koo/Dialogs/KooMainWindow.py:704
 msgid "Could not drop database."
-msgstr ""
+msgstr "Nu se poate sterge definitiv baza de date."
 
 #: Koo/Dialogs/KooMainWindow.py:704 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
-msgstr ""
+msgstr "Baza de date sau parola administratorului eronata !"
 
 #: Koo/Dialogs/KooMainWindow.py:706
 msgid "Couldn't drop database"
-msgstr ""
+msgstr "Nu se poate sterge definitiv baza de date."
 
 #: Koo/Dialogs/KooMainWindow.py:723
 msgid "Database restored successfully!"
-msgstr ""
+msgstr "Baza de date a fost restaurata cu succes !"
 
 #: Koo/Dialogs/KooMainWindow.py:727 Koo/Dialogs/KooMainWindow.py:729
-#, fuzzy
 msgid "Could not restore database"
-msgstr "Alege o data"
+msgstr "Baza de date nu poate fi restaurata"
 
 #: Koo/Dialogs/KooMainWindow.py:727
 msgid "Bad database administrator password!"
-msgstr ""
+msgstr "Parola eronata pentru administratorul bazei de date!"
 
 #: Koo/Dialogs/KooMainWindow.py:729
 msgid "There was an error restoring the database!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:732
-msgid "Backup a database"
-msgstr ""
+msgstr "Restaurarea bazei de date s-a incheiat cu eroare!"
 
 #: Koo/Dialogs/KooMainWindow.py:747
 msgid "Database backuped successfully!"
-msgstr ""
+msgstr "Salvarea bazei de date s-a efectuat cu succes !"
 
 #: Koo/Dialogs/KooMainWindow.py:750
 #, python-format
@@ -446,68 +523,61 @@ msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr ""
-
-#: Koo/Dialogs/TreeWidget.py:62
-msgid "Tree"
-msgstr "Arbore"
-
-#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
-msgid "No resource selected!"
-msgstr "Nici o resursa selectionata"
+"Baza de date nu poate fi salvata.\n"
+"%s"
 
 #: Koo/Dialogs/TreeWidget.py:290
-#, fuzzy
 msgid "No item selected"
-msgstr "Nici o inregistrare selectionata!"
+msgstr "Nu ati selectat nici un  element"
 
 #: Koo/Dialogs/TreeWidget.py:290
 msgid "Please select an element from the tree to add a shortcut to it."
-msgstr ""
+msgstr "Selectati un element al arborelui pentru a-i adauga o scurtatura."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
-msgstr ""
+msgstr "Va puteti conecta acum la baza de date ca administrator."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid ""
 "The following users have been installed on your database:\n"
 "\n"
 msgstr ""
+"Urmatorii utilizatori au fost instalati in baza dvs. de date:\n"
+"\n"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:84
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
-#, fuzzy
 msgid "Error during database creation"
-msgstr "Erroare in scriere  fisier!"
+msgstr "Eroare in timpul crearii bazei de date"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
-msgstr ""
+msgstr "Baza de date nu poate fi creata."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
-msgstr ""
+msgstr "Eroare în timpul crearii bazei de date"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
 msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:165
-msgid "Bad database name !"
-msgstr ""
+"Serverul a generat erori pe parcursul instalarii.\n"
+"Vă sugeram sa stergeti definitiv aceasta baza de date."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:165
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
+"Numele bazei de date trebuie sa contina caractere obisnuite sau \"_\".\n"
+"Evitati folosirea caracterelor speciale sau a spatiilor."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:168
-#, fuzzy
 msgid "Wrong password"
-msgstr "Schimba radacina"
+msgstr "Parola eronata"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:168
 msgid "Administrator passwords differ."
@@ -515,7 +585,7 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"
-msgstr ""
+msgstr "(peste tot)"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:307
 msgid ""
@@ -532,417 +602,299 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:311
-#, fuzzy
 msgid "Full Text Search"
-msgstr "Tiny ERP - Cauta"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:312
-#, fuzzy, python-format
+#, python-format
 msgid "Full Text Search (%%d result(s))"
-msgstr "Tiny ERP - Cauta"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:394
 msgid "Model ID"
-msgstr ""
+msgstr "Id model"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:395
-#, fuzzy
 msgid "Model Name"
-msgstr "Nume cimp:"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:397
-msgid "Type"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:398
-msgid "Name"
-msgstr "Nume"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:399
-#, fuzzy
-msgid "Text"
-msgstr "Urmator"
+msgstr "Denumire model"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:400
 msgid "Ranking"
 msgstr ""
 
 #: Koo/Dialogs/LoginDialog.py:76 Koo/Dialogs/DatabaseDialog.py:74
-#, fuzzy
 msgid "Could not connect to server !"
-msgstr ""
-"Eroare de conectare !\n"
-"Nume gresit de utilisator sau parola gresita!"
+msgstr "Nu se poate face conexiunea cu server-ul !"
 
 #: Koo/Dialogs/LoginDialog.py:81 Koo/Dialogs/DatabaseDialog.py:80
 msgid "No database found, you must create one !"
-msgstr ""
+msgstr "Nu a fost gasita nici o baza de date, trebuie sa creati una !"
 
 #: Koo/Dialogs/MassiveUpdateDialog.py:92
 msgid "Confirmation"
-msgstr ""
+msgstr "Confirmare"
 
 #: Koo/Dialogs/MassiveUpdateDialog.py:93
 #, python-format
 msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>%"
-"(records)s<p>Do you want to continue?</p>"
+"<p>This process will update the following fields in %(number)d "
+"records:</p>%(records)s<p>Do you want to continue?</p>"
 msgstr ""
+"<p>Acest proces va actualiza urmatoarele campuri in %(number)d "
+"inregistrari:</p>%(records)s<p>Doriti sa continuati?</p>"
 
 #: Koo/Dialogs/ExportDialog.py:50
-#, fuzzy
 msgid "OpenERP exported information"
-msgstr "Tiny ERP - Confirmare"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:69 Koo/Dialogs/ExportDialog.py:87
-#, fuzzy, python-format
+#, python-format
 msgid "%s record(s) saved!"
-msgstr " inregistrare(i) salvata(e) !"
+msgstr "%s inregistrari salvate!"
 
 #: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:89
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Operation failed !\n"
 "I/O error (%s)"
 msgstr ""
-"Operatiune esuata !\n"
-"I/O erreur"
+"Operatie esuata !\n"
+"Eroare I/O (%s)"
 
 #: Koo/Dialogs/ExportDialog.py:87 Koo/Dialogs/ExportDialog.py:89
 #: Koo/Dialogs/ExportDialog.py:91
 msgid "Data Export"
-msgstr ""
+msgstr "Export date"
 
 #: Koo/Dialogs/ExportDialog.py:91
-#, fuzzy
 msgid "Error exporting data."
-msgstr "Erroare in scriere  fisier!"
+msgstr "Eroare export date."
 
 #: Koo/Dialogs/ExportDialog.py:118
-#, fuzzy
 msgid "Error opening Excel !"
-msgstr "Eroare la deschidere Excell !"
+msgstr "Eroare deschidere Excel !"
 
 #: Koo/Dialogs/ExportDialog.py:144
-#, fuzzy
 msgid "Error Opening OpenOffice.org!"
-msgstr "Eroare la deschidere Excell !"
-
-#: Koo/Dialogs/ExportDialog.py:238
-#, fuzzy
-msgid "Export Data"
-msgstr "Date exportate"
+msgstr "Eroare deschidere OpenOffice.org!"
 
 #: Koo/Dialogs/ExportDialog.py:281
 msgid "What is the name of this export?"
-msgstr ""
+msgstr "Care este denumirea acestui export ?"
 
 #: Koo/Dialogs/ExportDialog.py:293
-#, fuzzy
 msgid "Open with Excel"
-msgstr "Deschide in Excell"
+msgstr "Deschide cu Excel"
 
 #: Koo/Dialogs/ExportDialog.py:294
-#, fuzzy
 msgid "Open with OpenOffice.org"
-msgstr "Deschide in Excell"
+msgstr "Deschide cu OpenOffice.org"
 
 #: Koo/Dialogs/ExportDialog.py:295
-#, fuzzy
 msgid "Save as CSV"
-msgstr "Deschide in Excell"
+msgstr "Salveaza ca CSV"
 
 #: Koo/Dialogs/ExportDialog.py:296
 msgid "Save as HTML"
-msgstr ""
+msgstr "Salveaza ca HTML"
 
 #: Koo/Dialogs/ExportDialog.py:308
-#, fuzzy
 msgid "Export name"
-msgstr "Date exportate"
+msgstr "Denumire export"
 
 #: Koo/Dialogs/ExportDialog.py:309
-#, fuzzy
 msgid "Exported fields"
-msgstr "Sterge cimp"
+msgstr "Campuri exportate"
 
 #: Koo/Dialogs/PreferencesDialog.py:76
-#, fuzzy
 msgid "User Preferences"
-msgstr "Preferinte"
+msgstr "Preferinte utilizator"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
 msgid "NET-RPC (faster)"
-msgstr ""
+msgstr "NET-RPC (mai rapid)"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:65
 msgid "XML-RPC"
-msgstr ""
+msgstr "XML-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "Secure XML-RPC"
-msgstr ""
+msgstr "XML-RPC securizat"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:67
 msgid "Pyro"
 msgstr ""
 
 #: Koo/Dialogs/SearchDialog.py:76
-#, fuzzy, python-format
+#, python-format
 msgid "Search: %s"
-msgstr "Recherche:"
+msgstr "Cauta: %s"
 
 #: Koo/Dialogs/SearchDialog.py:77
-#, fuzzy, python-format
+#, python-format
 msgid "Search: %s (%%d result(s))"
-msgstr "Tiny ERP - Cauta"
-
-#: Koo/Dialogs/ImportExportCommon.py:37
-#, fuzzy
-msgid "Fields"
-msgstr "Nume cimp"
+msgstr "Cauta: %s (%%d rezultat(e))"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:53
-#, fuzzy
 msgid "&Save"
-msgstr "Salvare"
+msgstr "&Salvare"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:56
-#, fuzzy
 msgid "&Open"
-msgstr "Deschide"
+msgstr "&Deschide"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:59
-#, fuzzy
 msgid "Show &image"
-msgstr "Sterge aceasta intrare"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:110
-#: Koo/Fields/Image/ImageFieldWidget.py:80
-#: Koo/Fields/Link/LinkFieldWidget.py:61
-#, fuzzy
-msgid "Open..."
-msgstr "Deschide"
+msgstr "Arata &imagine"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:111
 msgid "Show &image..."
-msgstr ""
+msgstr "Arata &imagine..."
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:148
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
-msgstr "Selectionati le fisierul atasat"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:154
-#: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
-#, python-format
-msgid "%d bytes"
-msgstr ""
+msgstr "Selecteaza fisierul ce urmeaza a fi atasat"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:164
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
-msgstr "Eroare in citire fisier"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:168
-#: Koo/Fields/Video/VideoFieldWidget.py:85
-#, fuzzy
-msgid "Save as..."
-msgstr "Salavare atasare ..."
+msgstr "Eroare la citirea fisierului"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:176
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
-msgstr "Erroare in scriere  fisier!"
+msgstr "Eroare scriere fisier !"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:100
 msgid "Error in Button"
-msgstr ""
+msgstr "Eroare in buton"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:100
 msgid "Button type not allowed"
-msgstr ""
+msgstr "Tip buton nepermis"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:106
-#, fuzzy
 msgid "Invalid Form, correct red fields!"
-msgstr "Formular invalid, corectati cimpurile in rosu!"
+msgstr "Formular invalid, corectati campurile rosii !"
 
 #: Koo/Fields/Calendar/Calendar.py:63
 msgid "Set current date"
-msgstr ""
+msgstr "Setati data curenta"
 
 #: Koo/Fields/Calendar/Calendar.py:112
 msgid "Set current date and time"
-msgstr ""
+msgstr "Setati ora si data curenta"
 
 #: Koo/Fields/Calendar/Calendar.py:150 Koo/Fields/Calendar/Calendar.py:196
 msgid "Set current time"
-msgstr ""
+msgstr "Setati timpul curent"
 
 #: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "Translation dialog"
-msgstr ""
+msgstr "Dialog traducere"
 
 #: Koo/Fields/Char/CharFieldWidget.py:67
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "You must save the resource before adding translations"
-msgstr ""
+msgstr "Trebuie sa salvati resursa inainte sa faceti traduceri"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:122
-#, fuzzy
 msgid "Save image as..."
-msgstr "Salavare atasare ..."
-
-#: Koo/Fields/Image/ImageFieldWidget.py:130
-#, fuzzy
-msgid "Error saving file"
-msgstr "Eroare in citire fisier"
+msgstr "Salveaza imaginea ca..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:130
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
 msgstr ""
+"Imaginea nu poate fi salvata cu numele de fisier indicat. Verificati va rog "
+"daca aveti permisiunile necesare."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid "Open image file..."
-msgstr ""
+msgstr "Deschide fisier imagine..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:151
-#, fuzzy
 msgid "(no image)"
-msgstr "Sterge aceasta intrare"
+msgstr "(fara imagine)"
 
 #: Koo/Fields/Link/LinkFieldWidget.py:70
-#, fuzzy
 msgid "Select the file to link to"
-msgstr "Selectionati le fisierul atasat"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
-msgid "Action"
-msgstr "Actiune"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
-msgid "Report"
-msgstr ""
+msgstr "Selectati fisierul pe care trebuie sa-l legati la"
 
 #: Koo/Fields/FieldPreferencesDialog.py:64
-#, fuzzy
 msgid "<center>Always applicable!</center>"
-msgstr "Intotdeauna aplicabil(a)!"
+msgstr "<center>Aplicabil intotdeauna!</center>"
 
 #: Koo/Fields/TranslationDialog.py:51
 msgid "Translation Dialog"
-msgstr ""
-
-#: Koo/Fields/AbstractFieldWidget.py:65
-msgid "Set to default value"
-msgstr "Pune valoarea implicita"
-
-#: Koo/Fields/AbstractFieldWidget.py:71
-#, fuzzy
-msgid "Set as default value"
-msgstr "Pune valoarea implicita"
+msgstr "Dialog traducere"
 
 #: Koo/Fields/AbstractFieldWidget.py:98
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#, fuzzy
 msgid "Operation not permited"
-msgstr ""
-"Operatiune esuata !\n"
-"I/O erreur"
+msgstr "Operatie nepermisa"
 
 #: Koo/Fields/AbstractFieldWidget.py:98
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#, fuzzy
 msgid "You can not set to the default value here !"
-msgstr "Pune valoarea implicita"
+msgstr "Nu puteti schimba valoarea cu valoarea implicita, aici!"
 
 #: Koo/Plugins/Semantic/__init__.py:46
 msgid "Semantic Info"
-msgstr ""
+msgstr "Info semantice"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:54
 msgid "Print Workflow"
-msgstr ""
+msgstr "Tiparire Workflow"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:55
 msgid "Print Workflow (Complex)"
-msgstr ""
+msgstr "Tiparire Workflow (Complex)"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:40
 msgid "Translate View"
-msgstr ""
+msgstr "Traduce forma afisare"
 
 #: Koo/Printer/Printer.py:75
-#, fuzzy
 msgid "Report error"
-msgstr "Erroare cautare!"
+msgstr "Eroare raport"
 
 #: Koo/Printer/Printer.py:75
 msgid "There was an error trying to create the report."
-msgstr ""
-
-#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
-#, fuzzy
-msgid "Connection Refused"
-msgstr "Conectare refuzata!"
-
-#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
-#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
-msgid "Application Error"
-msgstr "Eroare aplicatie"
-
-#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
-#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
-msgid "View details"
-msgstr "Verifica detalii"
+msgstr "In incercarea de a crea acest raport a aparut o eroare."
 
 #: Koo/Rpc/Rpc.py:576
 msgid "Could not contact server!"
-msgstr ""
-
-#: Koo/Screen/Action.py:81
-msgid "You must select a record to use the relate button !"
-msgstr ""
-
-#: Koo/Screen/Action.py:87
-msgid "You must save this record to use the relate button !"
-msgstr ""
+msgstr "Serverul nu poate fi contactat!"
 
 #: Koo/Screen/Action.py:126
-#, fuzzy
 msgid "Print Screen"
-msgstr "Imprima documentele"
+msgstr "Tiparire ecran"
 
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
 msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
-"s<br/>"
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
+"%(duration)s<br/>"
 msgstr ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Durata:</b> "
+"%(duration)s<br/>"
 
 #: Koo/View/Calendar/__init__.py:31
-#, fuzzy
 msgid "Calendar View"
-msgstr "Alta vedere"
-
-#: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
-#, fuzzy
-msgid "Unknown"
-msgstr "Fereastra necunoscuta"
+msgstr "Forma afisare calendar"
 
 #: Koo/View/Chart/__init__.py:31
-#, fuzzy
 msgid "Chart View"
-msgstr "Alta vedere"
+msgstr ""
 
 #: Koo/View/Form/__init__.py:32
-#, fuzzy
 msgid "Form View"
-msgstr "Alta vedere"
+msgstr "Forma afisare"
 
 #: Koo/View/Svg/__init__.py:32
 msgid "SVG View"
@@ -950,1171 +902,24 @@ msgstr ""
 
 #: Koo/View/Tree/TreeView.py:203
 msgid "Sorting not possible."
-msgstr ""
+msgstr "Ordonarea nu este posibila."
 
 #: Koo/View/Tree/TreeView.py:205
 msgid "Sorting only groups."
-msgstr ""
+msgstr "Ordoneaza doar grupurile."
 
 #: Koo/View/Tree/TreeView.py:229
 msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
+msgstr "<a href=\"update\">Actualizare totaluri</a>"
 
 #: Koo/View/Tree/__init__.py:32
-#, fuzzy
 msgid "List View"
-msgstr "Alta vedere"
+msgstr "Forma de afisare tip Lista"
 
 #: Koo/koo.py:60
 msgid ""
 "Module 'dbus' not available. Consider installing it so other applications "
 "can easily interact with Koo."
 msgstr ""
-
-#, fuzzy
-#~ msgid "No actions defined"
-#~ msgstr "Nici o actiune definita!"
-
-#~ msgid "enable basic debugging"
-#~ msgstr "activare debbuger (depanator) implicit"
-
-#~ msgid "specify channels to log"
-#~ msgstr "specificati un canal pt. logger"
-
-#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-#~ msgstr "specificati nivelul de log: INFO, DEBUG, WARNING, ERROR, CRITICAL"
-
-#~ msgid "No record selected!"
-#~ msgstr "Nici o inregistrare selectionata!"
-
-#, fuzzy
-#~ msgid "specify the user login"
-#~ msgstr "specificati un canal pt. logger"
-
-#, fuzzy
-#~ msgid "Preference %s"
-#~ msgstr "Preferinte"
-
-#, fuzzy
-#~ msgid "No available plugin for this resource !"
-#~ msgstr "Plugin invalid pentru aceasta resursa!"
-
-#~ msgid "Choose a Plugin"
-#~ msgstr "Alege un plugin"
-
-#~ msgid "Save attachment as..."
-#~ msgstr "Salavare atasare ..."
-
-#, fuzzy
-#~ msgid "Tiny ERP Search: %s"
-#~ msgstr "Tiny ERP - Cauta"
-
-#, fuzzy
-#~ msgid "Saving image..."
-#~ msgstr "Salavare atasare ..."
-
-#, fuzzy
-#~ msgid "Error storing image"
-#~ msgstr "Eroare in citire fisier"
-
-#~ msgid "Write Report to File"
-#~ msgstr "Scrie raportul in fisier"
-
-#, fuzzy
-#~ msgid "Can not generate graph !"
-#~ msgstr "Imposibil de a scrie fisierul !"
-
-#, fuzzy
-#~ msgid "Could not resotre database"
-#~ msgstr "Alege o data"
-
-#, fuzzy
-#~ msgid ""
-#~ "Function only available for MS Office !\n"
-#~ "Sorry, OOo users :("
-#~ msgstr ""
-#~ "Fonctie disponibila numai in MS Office!\n"
-#~ "Cu parere de rau, OOo utilizatori :("
-
-#, fuzzy
-#~ msgid "True"
-#~ msgstr "Arbore"
-
-#, fuzzy
-#~ msgid "False"
-#~ msgstr "Inchide"
-
-#, fuzzy
-#~ msgid "&Save image"
-#~ msgstr "Salveaza optiuni"
-
-#, fuzzy
-#~ msgid "No preference available for this resource !"
-#~ msgstr "Nici o preferinta disponibila pentru aceasta  resursa!"
-
-#~ msgid "Connection refused !"
-#~ msgstr "Conectare refuzata!"
-
-#, fuzzy
-#~ msgid "Unable to chroot: no tree resource selected"
-#~ msgstr ""
-#~ "Imposibil de crea radacina arbore: nici o resursa in arbore selectionata"
-
-#, fuzzy
-#~ msgid "Tiny ERP Client %s"
-#~ msgstr "Tiny ERP Client v2.0"
-
-#~ msgid "Closing Tiny ERP, KeyboardInterrupt"
-#~ msgstr "Fermeture de Tiny ERP, Interruption Clavier"
-
-#, fuzzy
-#~ msgid "Set default"
-#~ msgstr "pune la _Default (implicit)"
-
-#~ msgid "Record: "
-#~ msgstr "Inregistare: "
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove this attachment ?"
-#~ msgstr ""
-#~ "Sunteti sigur(a) ca vreti \n"
-#~ "sa stergeti acest inregistrement?"
-
-#~ msgid "Select the destination file"
-#~ msgstr "Selectionati la fisa de destinatie"
-
-#~ msgid "Can not open file !"
-#~ msgstr "Imposibil de a deschide fisierul !"
-
-#~ msgid "Can not write file !"
-#~ msgstr "Imposibil de a scrie fisierul !"
-
-#, fuzzy
-#~ msgid "Select a file"
-#~ msgstr "Alege o data"
-
-#, fuzzy
-#~ msgid "You have to select a resource !"
-#~ msgstr "Selectiati o resursa !"
-
-#, fuzzy
-#~ msgid "Unable to launch this file !"
-#~ msgstr "Imposibil de a executa acest fisier !"
-
-#~ msgid "Unable to launch the application associated to this content !"
-#~ msgstr ""
-#~ "Impossible de a executa applicatia associta acestui content (continut)!"
-
-#, fuzzy
-#~ msgid "Support request sent !"
-#~ msgstr "Trimite cererea de suport"
-
-#~ msgid "Preference"
-#~ msgstr "Preferinte"
-
-#~ msgid "Reload"
-#~ msgstr "Reincarca"
-
-#, fuzzy
-#~ msgid "Changt root"
-#~ msgstr "Schimba radacina"
-
-#~ msgid "Print"
-#~ msgstr "Imprima"
-
-#~ msgid "Error removing resource!"
-#~ msgstr "O eroare atunci cond ati sters resursele!"
-
-#~ msgid "Ressource Name"
-#~ msgstr "Nume resursa"
-
-#~ msgid "Names"
-#~ msgstr "Nume"
-
-#, fuzzy
-#~ msgid "Are you sure to remove this record ?"
-#~ msgstr ""
-#~ "Sunteti sigur(a) ca vreti \n"
-#~ "sa stergeti acest inregistrement?"
-
-#, fuzzy
-#~ msgid "Default Theme"
-#~ msgstr "Valoare implicita:"
-
-#~ msgid "Tiny ERP - Login"
-#~ msgstr "Tiny ERP - Login"
-
-#~ msgid "User:"
-#~ msgstr "Utilisator:"
-
-#~ msgid "Password:"
-#~ msgstr "Parola:"
-
-#, fuzzy
-#~ msgid "Change"
-#~ msgstr "Schimba radacina"
-
-#~ msgid "localhost"
-#~ msgstr "localhost"
-
-#~ msgid "Server:"
-#~ msgstr "Server:"
-
-#~ msgid "demo"
-#~ msgstr "demo"
-
-#~ msgid "Tiny ERP"
-#~ msgstr "Tiny ERP"
-
-#~ msgid "_File"
-#~ msgstr "_Fisier"
-
-#, fuzzy
-#~ msgid "_Connect..."
-#~ msgstr "Conectare..."
-
-#, fuzzy
-#~ msgid "_Disconnect"
-#~ msgstr "Deconectare"
-
-#~ msgid "_User"
-#~ msgstr "_Utilisator"
-
-#, fuzzy
-#~ msgid "_Preferences"
-#~ msgstr "Preferinte"
-
-#, fuzzy
-#~ msgid "_Send a request"
-#~ msgstr "Trimite o cerere"
-
-#, fuzzy
-#~ msgid "_Read my requests"
-#~ msgstr "Citeste cererile mele"
-
-#, fuzzy
-#~ msgid "_Waiting Requests"
-#~ msgstr "Cereri:"
-
-#, fuzzy
-#~ msgid "For_m"
-#~ msgstr "_Formular"
-
-#, fuzzy
-#~ msgid "_New"
-#~ msgstr "Nou"
-
-#, fuzzy
-#~ msgid "_Save"
-#~ msgstr "Salvare"
-
-#, fuzzy
-#~ msgid "Copy this resource"
-#~ msgstr "Sterge aceasta resursa"
-
-#, fuzzy
-#~ msgid "_Delete"
-#~ msgstr "Sterge"
-
-#, fuzzy
-#~ msgid "Find"
-#~ msgstr "Cimp:"
-
-#, fuzzy
-#~ msgid "Ne_xt"
-#~ msgstr "Urmator"
-
-#, fuzzy
-#~ msgid "Pre_vious"
-#~ msgstr "Precedent"
-
-#, fuzzy
-#~ msgid "Previous Tab"
-#~ msgstr "Notita precedenta"
-
-#, fuzzy
-#~ msgid "Next Tab"
-#~ msgstr "Notita urmatoare"
-
-#, fuzzy
-#~ msgid "View _logs"
-#~ msgstr "Verifica detalii"
-
-#, fuzzy
-#~ msgid "Reloa_d / Undo"
-#~ msgstr "Reincarca"
-
-#, fuzzy
-#~ msgid "Repeat latest _action"
-#~ msgstr "Repeta ultima actiune"
-
-#, fuzzy
-#~ msgid "Expor_t data..."
-#~ msgstr "Exporta datele..."
-
-#, fuzzy
-#~ msgid "I_mport data..."
-#~ msgstr "Importa datele..."
-
-#~ msgid "_Options"
-#~ msgstr "_Optiuni"
-
-#, fuzzy
-#~ msgid "_Menubar"
-#~ msgstr "Bara meniu"
-
-#, fuzzy
-#~ msgid "Text _and Icons"
-#~ msgstr "Texte si Iconite"
-
-#, fuzzy
-#~ msgid "_Icons only"
-#~ msgstr "Numai iconite"
-
-#, fuzzy
-#~ msgid "_Text only"
-#~ msgstr "Numai texte"
-
-#, fuzzy
-#~ msgid "_Theme"
-#~ msgstr "Arbore"
-
-#, fuzzy
-#~ msgid "Tiny ERP Theme"
-#~ msgstr "Licenta de Tiny ERP"
-
-#, fuzzy
-#~ msgid "_Forms"
-#~ msgstr "_Formular"
-
-#, fuzzy
-#~ msgid "_Print"
-#~ msgstr "Imprima"
-
-#, fuzzy
-#~ msgid "Previe_w before print"
-#~ msgstr "Visualizare inainte imprimare"
-
-#, fuzzy
-#~ msgid "_Save options"
-#~ msgstr "Salveaza optiuni"
-
-#, fuzzy
-#~ msgid "_Plugins"
-#~ msgstr "Plugins"
-
-#, fuzzy
-#~ msgid "_Execute a plugin"
-#~ msgstr "Executa un plugin"
-
-#, fuzzy
-#~ msgid "_Help"
-#~ msgstr "Ajutor"
-
-#, fuzzy
-#~ msgid "Support Request"
-#~ msgstr "Trimite cererea de suport"
-
-#, fuzzy
-#~ msgid "_Tips"
-#~ msgstr "Note"
-
-#, fuzzy
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Scurtaturi"
-
-#, fuzzy
-#~ msgid "_Licence"
-#~ msgstr "Licenta"
-
-#, fuzzy
-#~ msgid "_About..."
-#~ msgstr "Despre ..."
-
-#~ msgid "Create a new resource"
-#~ msgstr "Creare resursa noua"
-
-#~ msgid "Edit / Save this resource"
-#~ msgstr "Editare / salvare acesta resursa"
-
-#~ msgid "Delete this resource"
-#~ msgstr "Sterge acesta resursa"
-
-#, fuzzy
-#~ msgid "Find a resource"
-#~ msgstr "Cauta o resursa"
-
-#~ msgid "Go to previous matched search"
-#~ msgstr "Mergi inapoi in cautari"
-
-#~ msgid "Go to next matched resource"
-#~ msgstr "Mergi inapoi in cautari"
-
-#~ msgid "Launch actions about this resource"
-#~ msgstr "Executa actiunile legate de aceasta resursa"
-
-#, fuzzy
-#~ msgid "Add an attachment to this resource"
-#~ msgstr "Executa actiunile legate de aceasta resursa"
-
-#, fuzzy
-#~ msgid "Attachement"
-#~ msgstr "Atasament"
-
-#~ msgid "Close this window"
-#~ msgstr "Inchide fereastra"
-
-#~ msgid "Requests:"
-#~ msgstr "Cereri:"
-
-#~ msgid "Read my Requests"
-#~ msgstr "Citeste cererile"
-
-#~ msgid "Tiny ERP - Tree Resources"
-#~ msgstr "Tiny ERP - Arborele cu resurse"
-
-#~ msgid "Shortcuts"
-#~ msgstr "Scurtaturi"
-
-#~ msgid "Tiny ERP - Forms"
-#~ msgstr "Tiny ERP - Formulare"
-
-#~ msgid "State:"
-#~ msgstr "Stare:"
-
-#~ msgid "Tiny ERP - About"
-#~ msgstr "Tiny ERP - Despre"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "Tiny ERP - GTK Client - v%s\n"
-#~ "\n"
-#~ "Tiny ERP is an Open Source ERP+CRM\n"
-#~ "for small to medium businesses.\n"
-#~ "\n"
-#~ "The whole source code is distributed under\n"
-#~ "the terms of the GNU Public Licence.\n"
-#~ "\n"
-#~ "(c) 2003-TODAY, Tiny sprl\n"
-#~ "\n"
-#~ "More Info on www.TinyERP.com !"
-#~ msgstr ""
-#~ "\n"
-#~ "Tiny ERP - Client GTK - v2.0\n"
-#~ "\n"
-#~ "Tiny ERP este un ERP+CRM Open Source pentru\n"
-#~ "firme mici si medii.\n"
-#~ "\n"
-#~ "Codul sursa este distribuit in acord cu \n"
-#~ "textul dat de GNU Public Licence.\n"
-#~ "\n"
-#~ "(c) 2003-TODAY, Tiny sprl\n"
-#~ "\n"
-#~ "Mai multe informatii la www.TinyERP.com !"
-
-#, fuzzy
-#~ msgid "_Tiny ERP"
-#~ msgstr "Tiny ERP"
-
-#, fuzzy
-#~ msgid ""
-#~ "\n"
-#~ "(c) 2003-TODAY - Tiny sprl\n"
-#~ "Tiny ERP is a product of Tiny sprl:\n"
-#~ "\n"
-#~ "Tiny sprl\n"
-#~ "21 Rue du Vieux Chateau\n"
-#~ "BE-1457 Walhain\n"
-#~ "Belgium\n"
-#~ "\n"
-#~ "Tel/Fax: +32.10.68.94.39\n"
-#~ "Mail: sales@tiny.be\n"
-#~ "Web: http://tiny.be"
-#~ msgstr ""
-#~ "\n"
-#~ "(c) 2003- - Tiny sprl\n"
-#~ "Tiny ERP este un produs al firmei Tiny sprl:\n"
-#~ "\n"
-#~ "Tiny sprl\n"
-#~ "21 Rue du Vieux Chateau\n"
-#~ "BE-1457 Walhain\n"
-#~ "Belgique\n"
-#~ "\n"
-#~ "Tel/Fax: +32.10.68.94.39\n"
-#~ "Mail: fp@tiny.be\n"
-#~ "Web: http://tiny.be"
-
-#, fuzzy
-#~ msgid "_Contact"
-#~ msgstr "Contact"
-
-#~ msgid "Tiny ERP - forms widget"
-#~ msgstr "Tiny ERP - Formulare"
-
-#~ msgid "Open the calendar widget"
-#~ msgstr "Deschide calendar"
-
-#, fuzzy
-#~ msgid "Search / Open a resource"
-#~ msgstr "Cauta o resursa"
-
-#, fuzzy
-#~ msgid "Titre"
-#~ msgstr "Titlu"
-
-#, fuzzy
-#~ msgid "Set Default"
-#~ msgstr "pune la _Default (implicit)"
-
-#~ msgid "Create a new entry"
-#~ msgstr "Creare unei noi intrari"
-
-#, fuzzy
-#~ msgid "Edit this entry"
-#~ msgstr "Sterge aceasta intrare"
-
-#, fuzzy
-#~ msgid "(0/0)"
-#~ msgstr "(1/1)"
-
-#~ msgid "Remove selected entry"
-#~ msgstr "Sterge intrarea selectionata"
-
-#~ msgid "label74"
-#~ msgstr "label74"
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Tiny ERP - Date selection"
-#~ msgstr "Tiny ERP - Selectie data"
-
-#~ msgid "Hello World!"
-#~ msgstr "Salut lume!"
-
-#~ msgid "Tiny ERP - selection"
-#~ msgstr "Tiny ERP - selectie"
-
-#~ msgid "Your selection:"
-#~ msgstr "Selectie dvs"
-
-#~ msgid "Tiny ERP - Filter"
-#~ msgstr "Tiny ERP - Filtru"
-
-#, fuzzy
-#~ msgid "on _field:"
-#~ msgstr "in cimpul:"
-
-#, fuzzy
-#~ msgid "_Select"
-#~ msgstr "Selectioaza"
-
-#, fuzzy
-#~ msgid "_Unselect"
-#~ msgstr "Deselectionaza"
-
-#~ msgid "Filter: "
-#~ msgstr "Filtru"
-
-#, fuzzy
-#~ msgid "AL_L"
-#~ msgstr "Toate"
-
-#, fuzzy
-#~ msgid "N_ONE"
-#~ msgstr "Nimic"
-
-#~ msgid "<b><u>Actions</u></b>"
-#~ msgstr "<b><u>Actiuni</u></b>"
-
-#~ msgid "Tiny ERP - Dialog"
-#~ msgstr "Tiny ERP - Dialog"
-
-#~ msgid "Set to _Default"
-#~ msgstr "pune la _Default (implicit)"
-
-#~ msgid "Value _Preference"
-#~ msgstr "Valeur _Preference (preferinte)"
-
-#~ msgid "Tiny ERP, Field Preference target"
-#~ msgstr "Tiny ERP, Preferinte cimp destinatie"
-
-#, fuzzy
-#~ msgid "Default _value:"
-#~ msgstr "Valoare implicita:"
-
-#, fuzzy
-#~ msgid "_Domain:"
-#~ msgstr "Domeniu:"
-
-#~ msgid "<b>Value applicable if:</b>"
-#~ msgstr "<b>Valoare aplicabila daca:</b>"
-
-#, fuzzy
-#~ msgid "_only for you"
-#~ msgstr "numai pentru dvs"
-
-#, fuzzy
-#~ msgid "for _all users"
-#~ msgstr "pentru toti utilizatorii"
-
-#~ msgid "<b>Value applicable for:</b>"
-#~ msgstr "<b>Valoare aplicabila pentru:</b>"
-
-#~ msgid "Tiny ERP - Export to CSV"
-#~ msgstr "Tiny ERP - Exporta CSV"
-
-#, fuzzy
-#~ msgid "<b>Predefined exports</b>"
-#~ msgstr "<b>Cimpuri pentru a fi exportate</b>"
-
-#~ msgid "<b>All fields</b>"
-#~ msgstr "<b>Toate cimpurile</b>"
-
-#, fuzzy
-#~ msgid "_Add"
-#~ msgstr "Adauga"
-
-#, fuzzy
-#~ msgid "_Remove"
-#~ msgstr "Sterge"
-
-#, fuzzy
-#~ msgid "_Nothing"
-#~ msgstr "Nimic"
-
-#~ msgid "<b>Fields to export</b>"
-#~ msgstr "<b>Cimpuri pentru a fi exportate</b>"
-
-#, fuzzy
-#~ msgid "Add _field names"
-#~ msgstr "Adauaga un cimp nou"
-
-#, fuzzy
-#~ msgid "<b>Opti_ons</b>"
-#~ msgstr "<b>Optiuni</b>"
-
-#, fuzzy
-#~ msgid "_Limit:"
-#~ msgstr "Limite:"
-
-#, fuzzy
-#~ msgid "Off_set:"
-#~ msgstr "Decalaj (offset):"
-
-#~ msgid "Tiny ERP - Search Widgets"
-#~ msgstr "Tiny ERP - Cauta"
-
-#~ msgid "Search with this name"
-#~ msgstr "Cauta cu acest nume"
-
-#~ msgid ""
-#~ "\n"
-#~ "Yes\n"
-#~ "No"
-#~ msgstr ""
-#~ "\n"
-#~ "Da\n"
-#~ "Nu"
-
-#~ msgid "Tiny ERP - Attachment"
-#~ msgstr "Tiny ERP - Attachement"
-
-#~ msgid "Filename:"
-#~ msgstr "Nume fisier:"
-
-#~ msgid "Description:"
-#~ msgstr "Descriere:"
-
-#, fuzzy
-#~ msgid "Save text"
-#~ msgstr "Salvare"
-
-#~ msgid "Tiny ERP - Error"
-#~ msgstr "Tiny ERP - Eroare"
-
-#~ msgid "Application Error !"
-#~ msgstr "Eroare aplicatie!"
-
-#~ msgid "Error 404"
-#~ msgstr "Eroare 404"
-
-#~ msgid "<b>Error code:</b>"
-#~ msgstr "<b>Eroare de cod:</b>"
-
-#~ msgid ""
-#~ "This Page does not exist !\n"
-#~ "Please retry"
-#~ msgstr ""
-#~ "Acesta pagina nu exista!\n"
-#~ "Veuillez réessayer"
-
-#~ msgid "<i>Click on the Support Request tab if you need more help !</i>"
-#~ msgstr "<i>Clic pe tabul support daca aveti nevoi de ajutor!</i>"
-
-#, fuzzy
-#~ msgid "De_scription"
-#~ msgstr "Descriere"
-
-#, fuzzy
-#~ msgid ""
-#~ "Error details\n"
-#~ "dqsdsqdqsdsd"
-#~ msgstr "Detalii eroare\n"
-
-#, fuzzy
-#~ msgid "_Details"
-#~ msgstr "Detali"
-
-#, fuzzy
-#~ msgid ""
-#~ "<b>Complete this form to submit your bug and/or request a support.</b>\n"
-#~ "<i>\n"
-#~ "Your request will be send to Tiny ERP and we will reply you shortly.\n"
-#~ "Note that we may not reply you if your Service Company is not a Tiny ERP "
-#~ "partner.\n"
-#~ "</i>"
-#~ msgstr ""
-#~ "<b>Completeaza acest formular pentru a trimite un bug si/sau o cerere de "
-#~ "support.</b>\n"
-#~ "<i>\n"
-#~ "Cererea va fi trimisa dezvoltatorilor (programatorilor) si un raspuns va "
-#~ "fi trimis in scurt timp.\n"
-#~ "Notati ca e posibil sa nu primiti nici un raspuns de support daca nu "
-#~ "sunteti partener Tiny ERP.\n"
-#~ "</i>"
-
-#~ msgid "<b>Your Company: </b>"
-#~ msgstr "<b>Societatea : </b>"
-
-#~ msgid "<b>Your Email: </b>"
-#~ msgstr "<b>Email: </b>"
-
-#~ msgid "Explain what you did: "
-#~ msgstr "Explicati ce ati facut: "
-
-#, fuzzy
-#~ msgid "Others Comments: "
-#~ msgstr "Alte remarci: "
-
-#~ msgid "Send Support Request"
-#~ msgstr "Trimite cererea de suport"
-
-#, fuzzy
-#~ msgid "<b>support contract id  </b>"
-#~ msgstr "<b>Cerere de support</b>"
-
-#~ msgid ""
-#~ "Not Urgent\n"
-#~ "Medium\n"
-#~ "Urgent\n"
-#~ "Very Urgent"
-#~ msgstr ""
-#~ "Fara urgenta\n"
-#~ "Mediu\n"
-#~ "Urgent\n"
-#~ "Foarte urgent"
-
-#, fuzzy
-#~ msgid "Emergency: "
-#~ msgstr "Urgent: "
-
-#~ msgid "Phone Number: "
-#~ msgstr "Numar de telefon: "
-
-#, fuzzy
-#~ msgid "<b>_Support Request</b>"
-#~ msgstr "<b>Cerere de support</b>"
-
-#~ msgid "Tiny ERP - Ressource Edit"
-#~ msgstr "Tiny ERP - Editare unei resurse"
-
-#~ msgid "Tiny ERP - Link"
-#~ msgstr "Tiny ERP - Legaturi (link)"
-
-#~ msgid "Tiny ERP - List"
-#~ msgstr "Tiny ERP - Liste"
-
-#~ msgid "Tiny ERP - Preferences"
-#~ msgstr "Tiny ERP - Preferinte"
-
-#, fuzzy
-#~ msgid "<b>Edit resource preferences</b>"
-#~ msgstr "<b>Editarea de preferinte</b>"
-
-#~ msgid "Tip of the Day"
-#~ msgstr "Notita Zilei"
-
-#, fuzzy
-#~ msgid "Pre_vious Tip"
-#~ msgstr "Notita precedenta"
-
-#, fuzzy
-#~ msgid "Ne_xt Tip"
-#~ msgstr "Notita urmatoare"
-
-#, fuzzy
-#~ msgid "_Display a new tip next time ?"
-#~ msgstr "Affiseaz o noua notita data viitoare ?"
-
-#~ msgid "Tiny ERP - Licence"
-#~ msgstr "Tiny ERP - Licenta"
-
-#~ msgid "Tiny ERP license"
-#~ msgstr "Licenta de Tiny ERP"
-
-#, fuzzy
-#~ msgid "Tiny ERP - Date & Time selection"
-#~ msgstr "Tiny ERP - Selectie data"
-
-#~ msgid "dialog1"
-#~ msgstr "dialog1"
-
-#, fuzzy
-#~ msgid "Search ID:"
-#~ msgstr "Recherche:"
-
-#, fuzzy
-#~ msgid "Tiny ERP Survey"
-#~ msgstr "Tiny ERP"
-
-#, fuzzy
-#~ msgid "Your Role:"
-#~ msgstr "Selectie dvs"
-
-#, fuzzy
-#~ msgid "System:"
-#~ msgstr "Stare:"
-
-#, fuzzy
-#~ msgid "<b>Your company</b>"
-#~ msgstr "<b>Societatea : </b>"
-
-#, fuzzy
-#~ msgid "<b>Your interrest</b>"
-#~ msgstr "<b>Note</b>"
-
-#, fuzzy
-#~ msgid ""
-#~ "<b>Complete this form to submit your bug and/or make a request for "
-#~ "support.</b>\n"
-#~ "<i>\n"
-#~ "Your request will be sent to the Tiny ERP team and we will reply "
-#~ "shortly.\n"
-#~ "Note that we may not reply if you do not have a support contract with "
-#~ "Tiny or an official partner.</i>"
-#~ msgstr ""
-#~ "<b>Completeaza acest formular pentru a trimite un bug si/sau o cerere de "
-#~ "support.</b>\n"
-#~ "<i>\n"
-#~ "Cererea va fi trimisa dezvoltatorilor (programatorilor) si un raspuns va "
-#~ "fi trimis in scurt timp.\n"
-#~ "Notati ca e posibil sa nu primiti nici un raspuns de support daca nu "
-#~ "sunteti partener Tiny ERP.\n"
-#~ "</i>"
-
-#, fuzzy
-#~ msgid "<b>Your name:</b>"
-#~ msgstr "<b>Email: </b>"
-
-#, fuzzy
-#~ msgid "<b>Your Company:</b>"
-#~ msgstr "<b>Societatea : </b>"
-
-#, fuzzy
-#~ msgid "<b>Your email:</b>"
-#~ msgstr "<b>Email: </b>"
-
-#, fuzzy
-#~ msgid "Explain your problem:"
-#~ msgstr "Explicati ce ati facut: "
-
-#, fuzzy
-#~ msgid "<b>Support contract id:</b>"
-#~ msgstr "<b>Cerere de support</b>"
-
-#, fuzzy
-#~ msgid "Phone number:"
-#~ msgstr "Numar de telefon: "
-
-#, fuzzy
-#~ msgid "Connect"
-#~ msgstr "Conectare..."
-
-#, fuzzy
-#~ msgid "Find / Search"
-#~ msgstr "Terminat cautare"
-
-#~ msgid "Delete"
-#~ msgstr "Sterge"
-
-#~ msgid "New"
-#~ msgstr "Nou"
-
-#, fuzzy
-#~ msgid "Previous tab"
-#~ msgstr "Precedent"
-
-#, fuzzy
-#~ msgid "Previous record"
-#~ msgstr "Precedent"
-
-#, fuzzy
-#~ msgid "Save and Close window"
-#~ msgstr "Inchde fereastra"
-
-#, fuzzy
-#~ msgid "Main Shortcuts"
-#~ msgstr "Scurtaturi"
-
-#, fuzzy
-#~ msgid "Cut selected text"
-#~ msgstr "Sterge intrarea selectionata"
-
-#, fuzzy
-#~ msgid "Copy selected text"
-#~ msgstr "Sterge intrarea selectionata"
-
-#, fuzzy
-#~ msgid "Paste selected text"
-#~ msgstr "Sterge intrarea selectionata"
-
-#, fuzzy
-#~ msgid "Auto-Complete text field"
-#~ msgstr "Sterge cimp"
-
-#, fuzzy
-#~ msgid "Edition Widgets"
-#~ msgstr "Document in cours de editare: "
-
-#, fuzzy
-#~ msgid "N_othing"
-#~ msgstr "Nimic"
-
-#~ msgid "<b>Fields to import</b>"
-#~ msgstr "<b>Cimpuri pentru import</b>"
-
-#, fuzzy
-#~ msgid "Server"
-#~ msgstr "Server:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgid "8069"
-#~ msgstr "8069"
-
-#, fuzzy
-#~ msgid "Secure connection:"
-#~ msgstr "Selectioneaza actiune"
-
-#, fuzzy
-#~ msgid "http://localhost:8069"
-#~ msgstr "localhost"
-
-#, fuzzy
-#~ msgid "Create a new database"
-#~ msgstr "Creare unei noi intrari"
-
-#, fuzzy
-#~ msgid "<b>Create a new database</b>"
-#~ msgstr "Creare resursa noua"
-
-#, fuzzy
-#~ msgid "Default language:"
-#~ msgstr "Valoare implicita:"
-
-#, fuzzy
-#~ msgid "New password:"
-#~ msgstr "Parola:"
-
-#, fuzzy
-#~ msgid "Old password:"
-#~ msgstr "Parola:"
-
-#~ msgid "Welcome to Tiny Entreprise Resource Planing !"
-#~ msgstr "Bine ati venit! - Tiny ERP "
-
-#~ msgid "You are already logged!"
-#~ msgstr "Sunteti deja conectact (logat)!"
-
-#~ msgid "you are logged out. ^l to login"
-#~ msgstr "Ati fost  deconectat. ^l pentru a se reconecta"
-
-#~ msgid ""
-#~ "^N New   ^S Save   ^D Delete   ^F Search   ^X Next   ^W Previous   ^R "
-#~ "Repeat"
-#~ msgstr ""
-#~ " N Nou   S Salveaza   D Sterge   F Cauta   X Urmator   W Precedent   R "
-#~ "Repeta"
-
-#~ msgid "^L to login"
-#~ msgstr "^L pentru a se conecta"
-
-#~ msgid "select field value:"
-#~ msgstr "sectioneaza valoare cimpului:"
-
-#~ msgid "No ressource selected!"
-#~ msgstr "Nici o resursa selectionata"
-
-#~ msgid "None resource selected"
-#~ msgstr "Nici o resursa selectionata"
-
-#~ msgid "New root"
-#~ msgstr "Radacina noua"
-
-#~ msgid "Import Done"
-#~ msgstr "Importare facuta"
-
-#~ msgid "Import CSV File"
-#~ msgstr "Importation du fichier CSV"
-
-#~ msgid "View Create Error:"
-#~ msgstr "Eroare de creare view (visualizare):"
-
-#~ msgid "Value preference"
-#~ msgstr "Valoare preferata "
-
-#~ msgid "Unable to read ressource"
-#~ msgstr "Incapabil de a citi resursa"
-
-#~ msgid "This record did not exist !"
-#~ msgstr "Aceasta inregistrare nu exista!"
-
-#~ msgid "unknown tag: "
-#~ msgstr "Eticheta necunoscuta: "
-
-#~ msgid "New Window"
-#~ msgstr "Fereastra noua"
-
-#~ msgid "Search"
-#~ msgstr "Cauta"
-
-#~ msgid "Filter"
-#~ msgstr "Filtrare"
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid "Autosave"
-#~ msgstr "Salvare automata"
-
-#~ msgid "Plugin Manager"
-#~ msgstr "Gestionare plugin"
-
-#~ msgid "About Tiny ERP"
-#~ msgstr "Despre Tiny ERP"
-
-#~ msgid ""
-#~ "\n"
-#~ "Main Tiny ERP developers;\n"
-#~ "\n"
-#~ "Server Development:\n"
-#~ "Fabien Pinckaers\n"
-#~ "Gaetan de Menten\n"
-#~ "Antony Lesuisse\n"
-#~ "Jerome\n"
-#~ "\n"
-#~ "Client Development:\n"
-#~ "Fabien Pinckaers\n"
-#~ "\n"
-#~ "Web Client Development:\n"
-#~ "Nicolas Di Pietro\n"
-#~ "\n"
-#~ "...we still have to write the list of all others contributors..."
-#~ msgstr ""
-#~ "\n"
-#~ "Developeri aplicatiei Tiny ERP;\n"
-#~ "\n"
-#~ "Dezvolatare  server:\n"
-#~ "Fabien Pinckaers\n"
-#~ "Gaetan de Menten\n"
-#~ "Antony Lesuisse\n"
-#~ "Jerome\n"
-#~ "\n"
-#~ "Dezvoltare client:\n"
-#~ "Fabien Pinckaers\n"
-#~ "\n"
-#~ "Dezvoltare client web:\n"
-#~ "Nicolas Di Pietro\n"
-#~ "\n"
-#~ "...va trebui sa scriem o lista cu toti cei care au contribuit..."
-
-#~ msgid "Credits"
-#~ msgstr "Credite"
-
-#~ msgid "Create a new ressource"
-#~ msgstr "Crearea unei noi resurse"
-
-#~ msgid "Modify/Open this resource"
-#~ msgstr "Modifica/Deschide aceasta resursa"
-
-#~ msgid "All"
-#~ msgstr "Toate"
-
-#~ msgid "Order:"
-#~ msgstr "Sortare:"
-
-#~ msgid "ascendent"
-#~ msgstr "ascendenta"
-
-#~ msgid "descentdent"
-#~ msgstr "descendenta"
-
-#~ msgid "Action:"
-#~ msgstr "Actiune:"
-
-#~ msgid "Save to file (.CSV)"
-#~ msgstr "Sauveaza in fisierul (.CSV)"
-
-#~ msgid "Date of begining"
-#~ msgstr "Data de inceput"
-
-#~ msgid "Preferred Langage: "
-#~ msgstr "Limba: "
-
-#~ msgid ""
-#~ "English\n"
-#~ "French"
-#~ msgstr ""
-#~ "Engleza\n"
-#~ "Franceza"
-
-#~ msgid "All Tiny ERP users"
-#~ msgstr "Toti utilizatori Tiny ERP"
-
-#~ msgid "Only for you"
-#~ msgstr "Numai pentru dvs"
-
-#~ msgid "<b>Preference active for:</b>"
-#~ msgstr "<b>Preferinta activa pentru:</b>"
-
-#~ msgid ""
-#~ "\n"
-#~ "This is the tip of the day.\n"
-#~ "Put Important stuff in bold\n"
-#~ "We should start a database of tips (using fortune ?)"
-#~ msgstr ""
-#~ "\n"
-#~ "Aceasta este nota Zilei.\n"
-#~ "Pune cuvinte importante ingrosate\n"
-#~ "Trebuie sa creem o baza de date cu Notitele"
-
-#~ msgid "Tiny ERP - Import a CSV"
-#~ msgstr "Tiny ERP - Importa un CSV"
-
-#~ msgid "The CSV file must be encoded in UTF-8 !"
-#~ msgstr "Fisierul CSV trebuie codat UTF-8!"
-
-#~ msgid "Be carefull with the fields order."
-#~ msgstr "Atentie cum ordinea cimpurilor."
-
-#~ msgid "Number: "
-#~ msgstr "Numar: "
-
-#~ msgid "Description : "
-#~ msgstr "Descriere :"
-
-#~ msgid "Next: left click - Previous : right click on the image"
-#~ msgstr "Urmatort: buton sting - Precendent : buton drept pe imagine"
+"Modulul 'dbus' nu este disponibil. Luati in considerare instalarea lui "
+"pentru ca alte aplicatii sa poata interactiona usor cu Koo."
