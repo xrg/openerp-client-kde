@@ -76,11 +76,16 @@ class AbstractKeyboardWidget(QWidget):
 		button = self.sender()
 		# We expect objectName to be filled with the appropiate name Qt gives
 		# to the Key the button should emulate.
+		print "OBJ: ", unicode( button.objectName() )
 		key = self.key( unicode( button.objectName() ) )
 		if not key:
 			print 'No key assigned to button "%s"' % unicode( button.text() )
 			return
-		event = QKeyEvent( QEvent.KeyPress, key, Qt.NoModifier, button.text() )
+		if key == Qt.Key_Space:
+			text = ' '
+		else:
+			text = button.text()
+		event = QKeyEvent( QEvent.KeyPress, key, Qt.NoModifier, text )
 		QApplication.sendEvent( self.parent(), event )
 	
 	## @brief Returns the value of "Qt.Key_" + text value.
