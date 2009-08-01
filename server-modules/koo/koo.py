@@ -26,6 +26,14 @@
 ##############################################################################
 
 from osv import osv, fields
+from osv import orm
+import SimpleXMLRPCServer
+import re
+from service import security
+import netsvc
+import sql_db
+import pooler
+import operator
 
 class ir_attachment(osv.osv):
 	_name = 'ir.attachment'
@@ -38,7 +46,6 @@ class ir_attachment(osv.osv):
 
 
 	def _record(self, cr, uid, ids, field_name, arg, context={}):
-		print "IDS: ", ids
 		res = {}
 		for record in self.browse(cr, uid, ids):
 			res[ record.id ] = '%s,%d' % (record.res_model, record.res_id)
@@ -48,6 +55,102 @@ class ir_attachment(osv.osv):
 		'record': fields.function(_record, method=True, string='Record', type='reference', selection=_all_models)
 	}
 ir_attachment()
+
+regex_order = re.compile('^(([a-z0-9_]+|"[a-z0-9_]+")( *desc| *asc)?( *, *|))+$', re.I)
+
+class koo_services(netsvc.Service):
+	def __init__(self, name='koo'):
+		netsvc.Service.__init__(self,name)
+		self.joinGroup('web-services')
+		self.exportMethod(self.search)
+
+	def search(self, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False):
+		security.check(db, uid, passwd)
+		conn = sql_db.db_connect(db)
+		cr = conn.cursor()
+		pool = pooler.get_pool(db)
+		if not context:
+			context = {}
+
+		# Check to avoid SQL injection later
+		model = pool.get(model)._name
+		table = pool.get(model)._table
+
+		# compute the where, order by, limit and offset clauses
+		(qu1, qu2, tables) = pool.get(model)._where_calc(cr, uid, filter, context=context)
+
+		if len(qu1):
+		    qu1 = ' where ' + ' and '.join(qu1)
+		else:
+		    qu1 = ''
+
+		resortField = False
+		resortOrder = False
+		if order:
+		    pool.get(model)._check_qorder(order)
+		    m = regex_order.match( order )
+		    field = m.group(2)
+		    if field in pool.get(model)._columns:
+		    	if isinstance( pool.get(model)._columns[field], fields.many2one ):
+				# USING STANDARD search() FUNCTION
+				#resortField = field
+				#if m.group(3).strip().upper() in ('ASC', 'DESC'):
+					#resortOrder = m.group(3)
+				
+				# DIRECT JOIN WITH NO TRANSLATION SUPPORT
+				obj = pool.get(model)._columns[field]._obj
+				rec_name = pool.get(obj)._rec_name
+				obj = pool.get(obj)._table
+				t = tables[0]
+				tables[0] = '(%s LEFT JOIN (SELECT id AS join_identifier, "%s" AS join_sort_field FROM "%s") AS left_join_subquery ON %s = join_identifier) AS %s' % (t, rec_name, obj, field, t) 
+				order = 'join_sort_field'
+				if m.group(3).strip().upper() in ('ASC', 'DESC'):
+					order += m.group(3)
+
+		order_by = order or pool.get(model)._order
+
+		limit_str = limit and ' limit %d' % limit or ''
+		offset_str = offset and ' offset %d' % offset or ''
+
+
+		# construct a clause for the rules :
+		d1, d2 = pool.get('ir.rule').domain_get(cr, uid, model)
+		if d1:
+		    qu1 = qu1 and qu1+' and '+d1 or ' where '+d1
+		    qu2 += d2
+
+		if count:
+		    cr.execute('select count(%s.id) from ' % table +
+			    ','.join(tables) +qu1 + limit_str + offset_str, qu2)
+		    res = cr.fetchall()
+		    return res[0][0]
+
+		# execute the "main" query to fetch the ids we were searching for
+		cr.execute('select %s.id from ' % table + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
+		res = [x[0] for x in cr.fetchall()]
+
+		#if resortField:
+		#	# This code tries to respect the order returned by standard search()
+		#	# The problem is that it currently doesn't sort correctly in translatable
+		#	# fields.
+		#	obj = pool.get(model)._columns[resortField]._obj
+		#	o = pool.get(obj)._rec_name or 'name'
+		#	if resortOrder:
+		#		o += resortOrder
+		#	ids = pool.get(obj).search(cr, uid, filter, order=o, context=context)
+		#	hash = {}
+		#	for x in xrange(len(ids)):
+		#		hash[ids[x]] = x
+		#	data = []
+		#	for record in pool.get(model).read(cr, uid, res, ['id', resortField], context=context):
+		#		data.append( (record['id'], hash.get(record[resortField][0])) )
+		#	data.sort(key=operator.itemgetter(1))
+		#	res = [x[0] for x in data]
+
+		return res
+koo_services()
+paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/koo' ]
+SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
 
 class nan_koo_settings(osv.osv):
 	_name = 'nan.koo.settings'

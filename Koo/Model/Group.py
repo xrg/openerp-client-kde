@@ -658,6 +658,7 @@ class RecordGroup(QObject):
 		self.sortedOrder = order
 		self.updated = True
 
+		sorted = False
 		sortingResult = self.SortingPossible
 
 		if not field in self.fields.keys():
@@ -671,15 +672,19 @@ class RecordGroup(QObject):
 				sortingResult = self.SortingNotPossible
 			elif type == 'many2one':
 				#orderby = '"%s"' % field 
-				#orderby = '%s' % field
-				#if order == Qt.AscendingOrder:
-					#orderby += " ASC"
-				#else:
-					#orderby += " DESC"
-				#Rpc.session.call('/koo', 'search', self.resource, self._domain + self._filter, 0, 0, orderby, self._context )
-				sortingResult = self.SortingOnlyGroups
+				orderby = '%s' % field
+				if order == Qt.AscendingOrder:
+					orderby += " ASC"
+				else:
+					orderby += " DESC"
+				try:
+					ids = Rpc.session.call('/koo', 'search', self.resource, self._domain + self._filter, 0, 0, orderby, self._context )
+					sortingResult = self.SortingPossible
+					sorted = True
+				except:
+					sortingResult = self.SortingOnlyGroups
 
-			if sortingResult != self.SortingNotPossible:
+			if not sorted and sortingResult != self.SortingNotPossible:
 				# A lot of the work done here should be done on the server by core OpenERP
 				# functions. This means this runs slower than it should due to network and
 				# serialization latency. Even more, we lack some information to make it 
