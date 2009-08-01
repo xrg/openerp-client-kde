@@ -677,11 +677,14 @@ class RecordGroup(QObject):
 				# functions. This means this runs slower than it should due to network and
 				# serialization latency. Even more, we lack some information to make it 
 				# work well.
-				orderby = field + " "
+
+				# Ensure the field is quoted, otherwise fields such as 'to' can't be sorted
+				# and return an exception.
+				orderby = '"%s"' % field 
 				if order == Qt.AscendingOrder:
-					orderby += "ASC"
+					orderby += " ASC"
 				else:
-					orderby += "DESC"
+					orderby += " DESC"
 				try:
 					# Use call to catch exceptions
 					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )
