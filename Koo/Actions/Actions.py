@@ -192,6 +192,8 @@ def executeAction(action, datas, context={}):
 			win=datas['window']
 			del datas['window']
 		Api.instance.executeReport(action['report_name'], datas)
+	elif action['type']=='ir.actions.act_url':
+		QDesktopServices.openUrl( QUrl( action.get('url','') ) )
 
 ## @brief Executes the given keyword action (it could be a report, wizard, etc).
 def executeKeyword(keyword, data={}, context={}):
