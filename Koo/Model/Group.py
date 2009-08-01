@@ -670,6 +670,13 @@ class RecordGroup(QObject):
 				# We're not able to sort 2many fields
 				sortingResult = self.SortingNotPossible
 			elif type == 'many2one':
+				#orderby = '"%s"' % field 
+				#orderby = '%s' % field
+				#if order == Qt.AscendingOrder:
+					#orderby += " ASC"
+				#else:
+					#orderby += " DESC"
+				#Rpc.session.call('/koo', 'search', self.resource, self._domain + self._filter, 0, 0, orderby, self._context )
 				sortingResult = self.SortingOnlyGroups
 
 			if sortingResult != self.SortingNotPossible:
@@ -680,7 +687,8 @@ class RecordGroup(QObject):
 
 				# Ensure the field is quoted, otherwise fields such as 'to' can't be sorted
 				# and return an exception.
-				orderby = '"%s"' % field 
+				#orderby = '"%s"' % field 
+				orderby = '%s' % field
 				if order == Qt.AscendingOrder:
 					orderby += " ASC"
 				else:
@@ -692,7 +700,6 @@ class RecordGroup(QObject):
 					# In functional fields not stored in the database this will
 					# cause an exception :(
 					sortingResult = self.SortingNotPossible
-					#ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
 
 		if sortingResult != self.SortingNotPossible:
 			self.clear()
