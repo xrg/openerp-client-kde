@@ -158,6 +158,7 @@ def openOpenOffice(fields, fieldsType, result):
 
 def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
+	# After 5.0 data is returned directly (no 'datas' key in a dictionary).
 	if isinstance(data, dict) and 'datas' in data:
 		data = data['datas']
 	return data
