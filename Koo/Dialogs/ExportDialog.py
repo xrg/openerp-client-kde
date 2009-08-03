@@ -95,7 +95,7 @@ def exportCsv(fname, fields, result, write_title=False):
 		QMessageBox.warning( None, _('Data Export'), _("Operation failed !\nI/O error (%s)") % (errno))
 	except Exception, e:
 		QApplication.restoreOverrideCursor()
-		QMessageBox.warning( None, _('Data Export'), _("Error exporting data:\n%s") % e.message )
+		QMessageBox.warning( None, _('Data Export'), _("Error exporting data:\n%s") % unicode(e.args) )
 
 def openExcel(fields, fieldsType, result):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -125,7 +125,7 @@ def openExcel(fields, fieldsType, result):
 		QApplication.restoreOverrideCursor()
 	except Exception, e:
 		QApplication.restoreOverrideCursor()
-		QMessageBox.warning(None, _('Error'), _('Error opening Excel:\n%s') % e.message )
+		QMessageBox.warning(None, _('Error'), _('Error opening Excel:\n%s') % unicode(e.args) )
 
 # Code by Dukai Gabor posted in openobject-client bugs:
 # https://bugs.launchpad.net/openobject-client/+bug/399278 
@@ -154,7 +154,7 @@ def openOpenOffice(fields, fieldsType, result):
 		QApplication.restoreOverrideCursor()
 	except Exception, e:
 		QApplication.restoreOverrideCursor()
-		QMessageBox.warning(None, _('Error'), _('Error Opening OpenOffice.org:\n%s') % e.message )
+		QMessageBox.warning(None, _('Error'), _('Error Opening OpenOffice.org:\n%s') % unicode(e.args) )
 
 def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
