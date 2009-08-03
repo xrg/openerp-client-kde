@@ -73,6 +73,7 @@ class RecordGroup(QObject):
 	SortingPossible = 0
 	SortingNotPossible = 1
 	SortingOnlyGroups = 2
+	SortingNotPossibleModified = 3
 
 	## @brief Creates a new RecordGroup object.
 	# @param resource Name of the model to load. Such as 'res.partner'.
@@ -650,6 +651,7 @@ class RecordGroup(QObject):
 		# we won't sort as it means reloading data from the server
 		# and we'd loose current changes.
 		if self.isModified():
+			self.emit( SIGNAL("sorting"), self.SortingNotPossibleModified )
 			return
 
 		# We set this fields in the very beggining in case some signals are cought

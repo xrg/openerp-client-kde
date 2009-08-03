@@ -200,9 +200,11 @@ class TreeView( AbstractView ):
 
 	def sorting(self, value):
 		if value == RecordGroup.SortingNotPossible:
-			self.emit( SIGNAL('statusMessage(QString)'), _("Sorting not possible.") )
+			self.emit( SIGNAL('statusMessage(QString)'), _("<font color='red'>Sorting not possible.</font>") )
 		elif value == RecordGroup.SortingOnlyGroups:
-			self.emit( SIGNAL('statusMessage(QString)'), _("Sorting only groups.") )
+			self.emit( SIGNAL('statusMessage(QString)'), _("<font color='red'>Sorting only groups.</font>") )
+		elif value == RecordGroup.SortingNotPossibleModified:
+			self.emit( SIGNAL('statusMessage(QString)'), _("<font color='red'>Save changes before sorting.</font>") )
 		else:
 			self.emit( SIGNAL('statusMessage(QString)'), '' )
 
