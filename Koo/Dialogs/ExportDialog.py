@@ -44,6 +44,7 @@ import codecs
 from ImportExportCommon import *
 
 def exportHtml(fname, fields, result, write_title=False):
+	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		f = codecs.open( fname, 'wb+', 'utf8' )
 		f.write( '<html>' )
@@ -66,11 +67,14 @@ def exportHtml(fname, fields, result, write_title=False):
 			f.write( '<td>%s</td>' % ( '</td><td>'.join( row ) ) )
 			f.write( '</tr>' )
 		f.close()
+		QApplication.restoreOverrideCursor()
 		QMessageBox.information( None, _('Information'), _('%s record(s) saved!') % (str(len(result))) )
 	except IOError, (errno, strerror):
+		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Error'), _("Operation failed !\nI/O error (%s)") % (errno))
 
 def exportCsv(fname, fields, result, write_title=False):
+	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		fp = codecs.open( fname, 'wb+', 'utf8' )
 		if write_title:
@@ -84,13 +88,17 @@ def exportCsv(fname, fields, result, write_title=False):
 					row.append(d)
 			fp.write( ','.join( row ) + '\n' )
 		fp.close()
+		QApplication.restoreOverrideCursor()
 		QMessageBox.information( None, _('Data Export'), _('%s record(s) saved!') % (str(len(result))) )
 	except IOError, (errno, strerror):
+		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Data Export'), _("Operation failed !\nI/O error (%s)") % (errno))
 	except Exception, e:
+		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Data Export'), _("Error exporting data:\n%s") % e.message )
 
 def openExcel(fields, fieldsType, result):
+	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		from win32com.client import Dispatch
 		xlApp = Dispatch("Excel.Application")
@@ -114,12 +122,15 @@ def openExcel(fields, fieldsType, result):
 		sht.Range(sht.Cells(2, 1), sht.Cells(len(result)+1, len(fields))).Value = result
 		
 		xlApp.Visible = 1
+		QApplication.restoreOverrideCursor()
 	except Exception, e:
+		QApplication.restoreOverrideCursor()
 		QMessageBox.warning(None, _('Error'), _('Error opening Excel:\n%s') % e.message )
 
 # Code by Dukai Gabor posted in openobject-client bugs:
 # https://bugs.launchpad.net/openobject-client/+bug/399278 
 def openOpenOffice(fields, fieldsType, result):
+	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		import time
 		from Common.OpenOffice import OpenOffice
@@ -140,7 +151,9 @@ def openOpenOffice(fields, fieldsType, result):
 		result = tuple( [tuple(x) for x in result] )
 		cellrange = sheet.getCellRangeByPosition(0, 1, len(fields) - 1, len(result))
 		cellrange.setDataArray(result)
+		QApplication.restoreOverrideCursor()
 	except Exception, e:
+		QApplication.restoreOverrideCursor()
 		QMessageBox.warning(None, _('Error'), _('Error Opening OpenOffice.org:\n%s') % e.message )
 
 def exportData(ids, model, fields, prefix=''):
@@ -232,7 +245,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			fields.append( unicode( self.selectedModel.item( x ).data().toString() ) )
 			fieldTitles.append( unicode( self.selectedModel.item( x ).text() ) )
 		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
-		result = exportData(self.ids, self.model, fields)['datas']
+		result = exportData(self.ids, self.model, fields)
 		export = ExportDialog.exports[action]
 		if export['requiresFileName']:
 			fileName = QFileDialog.getSaveFileName( self, _('Export Data') )
