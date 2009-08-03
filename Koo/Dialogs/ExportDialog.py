@@ -158,6 +158,8 @@ def openOpenOffice(fields, fieldsType, result):
 
 def exportData(ids, model, fields, prefix=''):
 	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
+	if isinstance(data, dict) and 'datas' in data:
+		data = data['datas']
 	return data
 
 (ExportDialogUi, ExportDialogBase) = loadUiType( Common.uiPath('win_export.ui') )
@@ -172,13 +174,13 @@ class ExportDialog( QDialog, ExportDialogUi ):
 
 		self.ids = ids
 		self.model = model
-		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
+		self.connect( self.pushAccept, SIGNAL('clicked()'), self.export )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
-		self.connect( self.pushAdd, SIGNAL('clicked()'), self.slotAdd )
-		self.connect( self.pushRemove, SIGNAL('clicked()'), self.slotRemove )
-		self.connect( self.pushRemoveAll, SIGNAL('clicked()'), self.slotRemoveAll )
-		self.connect( self.pushSave, SIGNAL('clicked()'), self.slotSave )
-		self.connect( self.pushRemoveExport, SIGNAL('clicked()'), self.slotRemoveExport )
+		self.connect( self.pushAdd, SIGNAL('clicked()'), self.add )
+		self.connect( self.pushRemove, SIGNAL('clicked()'), self.remove )
+		self.connect( self.pushRemoveAll, SIGNAL('clicked()'), self.removeAll )
+		self.connect( self.pushSave, SIGNAL('clicked()'), self.save )
+		self.connect( self.pushRemoveExport, SIGNAL('clicked()'), self.removeExport )
 		self.connect( self.uiPredefined, SIGNAL('activated(const QModelIndex&)'), self.loadCurrentStored )
 
 		for key, export in ExportDialog.exports.iteritems():
@@ -213,7 +215,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 	def unregisterExport(key):
 		del ExportDialog.exports[ key ]
 
-	def slotRemoveExport(self):
+	def removeExport(self):
 		idx = self.uiPredefined.selectionModel().selectedRows(1)
 		if len(idx) != 1:
 			return
@@ -238,7 +240,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			newItem.setData( QVariant(x) )
 			self.selectedModel.appendRow( newItem )
 
-	def slotAccept(self):
+	def export(self):
 		fields = []
 		fieldTitles = []
 		for x in range(0, self.selectedModel.rowCount() ):
@@ -254,7 +256,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
 			export['function'](fieldTitles, fieldsType, result)
 
-	def slotAdd(self):
+	def add(self):
 		idx = self.uiAllFields.selectionModel().selectedRows()
 		if len(idx) != 1:
 			return 
@@ -265,14 +267,14 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		newItem.setData( QVariant(self.fullPathData(item)) )
 		self.selectedModel.appendRow( newItem )
 
-	def slotRemove(self):
+	def remove(self):
 		idx = self.uiSelectedFields.selectedIndexes()
 		if len(idx) != 1:
 			return
 		idx = idx[0]
 		self.selectedModel.removeRows( idx.row(), 1 )
 
-	def slotRemoveAll(self):
+	def removeAll(self):
 		if self.selectedModel.rowCount() > 0:
 			self.selectedModel.removeRows(0, self.selectedModel.rowCount())
 
@@ -290,7 +292,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			path = item.data().toString() + "/" + path
 		return path
 
-	def slotSave(self):
+	def save(self):
 		name, ok = QInputDialog.getText(self, '', _('What is the name of this export?'))
 		if not ok:
 			return
@@ -299,7 +301,11 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		for x in range(0, self.selectedModel.rowCount() ):
 			fields.append( unicode( self.selectedModel.item(x).data().toString() ) )
 
-		ir_export.create({'name' : unicode(name), 'resource' : self.model, 'export_fields' : [(0, 0, {'name' : f}) for f in fields]})
+		ir_export.create({
+			'name' : unicode(name), 
+			'resource' : self.model,
+			'export_fields' : [(0, 0, {'name' : f}) for f in fields]
+		})
 		self.storedModel.load( self.model, self.fieldsInfo )
 
 if os.name == 'nt':
