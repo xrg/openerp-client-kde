@@ -39,22 +39,35 @@ class PosEventFilter(QObject):
 			if obj != self.currentWidget:
 				if obj.inherits( 'QLineEdit' ) or obj.inherits( 'QTextEdit' ):
 					self.currentWidget = obj
-					if self.keyboard:
-						try:
-							self.keyboard.setParent(None)
-							del self.keyboard
-						except:
-							pass
-						self.keyboard = None
-
-					if obj.parent() and ( obj.parent().inherits( 'FloatFieldWidget' ) or obj.parent().inherits( 'IntegerFieldWidget' ) ): 
-						self.keyboard = KeypadWidget( obj )
-					else:
-						self.keyboard = KeyboardWidget( obj )
-
+					self.openKeyboard( obj )
 		elif event.type() == QEvent.FocusOut:
 			if obj and obj == self.currentWidget and self.keyboard:
+				self.keyboard.hide()
 				self.keyboard = None
 				self.currentWidget = None
 		return QObject.eventFilter( self, obj, event )
+
+	def tabKeyPressed(self):
+		widget = QApplication.focusWidget()
+		if widget and ( widget.inherits( 'QLineEdit' ) or widget.inherits( 'QTextEdit' ) ):
+			self.openKeyboard( widget )
+		else:
+			self.closeKeyboard()
+
+	def openKeyboard(self, obj):
+		self.closeKeyboard()
+		if obj.parent() and ( obj.parent().inherits( 'FloatFieldWidget' ) or obj.parent().inherits( 'IntegerFieldWidget' ) ): 
+			self.keyboard = KeypadWidget( obj )
+		else:
+			self.keyboard = KeyboardWidget( obj )
+		self.connect( self.keyboard, SIGNAL( 'tabKeyPressed' ), self.tabKeyPressed )
+
+	def closeKeyboard(self):
+		if self.keyboard:
+			try:
+				self.keyboard.setParent(None)
+				del self.keyboard
+			except:
+				pass
+			self.keyboard = None
 

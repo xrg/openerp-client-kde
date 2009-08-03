@@ -76,7 +76,6 @@ class AbstractKeyboardWidget(QWidget):
 		button = self.sender()
 		# We expect objectName to be filled with the appropiate name Qt gives
 		# to the Key the button should emulate.
-		print "OBJ: ", unicode( button.objectName() )
 		key = self.key( unicode( button.objectName() ) )
 		if not key:
 			print 'No key assigned to button "%s"' % unicode( button.text() )
@@ -85,6 +84,11 @@ class AbstractKeyboardWidget(QWidget):
 			text = ' '
 		else:
 			text = button.text()
+		if key == Qt.Key_Tab:
+			event = QKeyEvent( QEvent.KeyPress, key, Qt.NoModifier, text )
+			QApplication.sendEvent( self.parent(), event )
+			self.emit(SIGNAL('tabKeyPressed'))
+			return
 		event = QKeyEvent( QEvent.KeyPress, key, Qt.NoModifier, text )
 		QApplication.sendEvent( self.parent(), event )
 	
