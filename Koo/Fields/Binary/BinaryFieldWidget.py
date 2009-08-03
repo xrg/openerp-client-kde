@@ -45,9 +45,15 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		BinaryFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
+		self.filters = attrs.get('filters', '')
+		self.filters = self.filters.split(',')
+		self.filters = _('Files (%s)') % ' '.join( self.filters )
+
+		self.fileNameField = attrs.get('filename')
+		self.dialogFileNameField = attrs.get('name')
+
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
-		self.connect( self.pushSave, SIGNAL('clicked()'),self.save )
 
 		self.actionSave = QAction(self)
 		self.actionSave.setText( _('&Save') )
@@ -58,7 +64,6 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.actionShowImage = QAction(self)
 		self.actionShowImage.setText( _('Show &image'), )
 		self.actionShowImage.setIcon( QIcon( ':/images/convert.png' ) )
-
 
 		self.menu = QMenu( self )
 		self.menu.addAction( self.actionSave )
@@ -120,10 +125,8 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		# to know what kind of file it is, is if the filename property
 		# was set, and pick up the extension from that field.
 		extension = ''
-		if 'filename' in self.attrs:
-			fileName = self.record.value( self.attrs['filename'] )
-			if fileName:
-				extension = '.%s' % fileName.rpartition('.')[2]
+		if self.fileName():
+			extension = '.%s' % self.fileName().rpartition('.')[2]
 
 		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb+')
@@ -144,36 +147,46 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		dialog.exec_()
 
 	def new(self):
+		filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'), QDir.homePath(), self.filters)
+		if filename.isNull():
+			return
+		filename = unicode(filename)
 		try:
-			filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'))
-			if filename.isNull():
-				return
-			filename = unicode(filename)
 			value = file(filename, 'rb').read()
-			self.record.setValue( self.name, value )
-			self.uiBinary.setText( _('%d bytes') % len(value) )
+		except Exception, e:
+			QMessageBox.information(self, _('Error'), _('Error reading the file:\n%s') % unicode(e.args) )
+			return
 
-			# The binary widget might have a 'filename' attribute
-			# that stores the file name in the field indicated by 'filename'
-			if 'filename' in self.attrs:
-				w = self.attrs['filename']
-				self.record.setValue( w, os.path.basename(filename) )
-				if self.view:
-					self.view.widgets[w].load(self.record)
-		except:
-			QMessageBox.information(self, _('Error'), _('Error reading the file'))
+		self.record.setValue( self.name, value )
+		self.uiBinary.setText( _('%d bytes') % len(value) )
+
+		# The binary widget might have a 'filename' attribute
+		# that stores the file name in the field indicated by 'filename'
+		if self.fileNameField:
+			self.record.setValue( self.fileNameField, os.path.basename(filename) )
+			if self.view:
+				self.view.widgets[self.fileNameField].load(self.record)
 		self.updateActions()
 
+	def fileName(self):
+		if self.fileNameField:
+			return self.record.value( self.fileNameField )
+		if self.dialogFileNameField:
+			return self.record.value( self.dialogFileNameField )
+		return ''
+		
 	def save(self):
-		filename = QFileDialog.getSaveFileName( self, _('Save as...') )
-		if not filename:
+		directory = '%s/%s' % (QDir.homePath(), self.fileName() )
+		filename = QFileDialog.getSaveFileName( self, _('Save as...'), directory, self.filters )
+		if filename.isNull():
 			return
+		filename = unicode(filename)
 		try:
 			fp = file(filename,'wb+')
 			fp.write( self.record.value(self.name) )
 			fp.close()
-		except:
-			QMessageBox.information(self, _('Error'), _('Error writing the file!'))
+		except Exception, e:
+			QMessageBox.information(self, _('Error'), _('Error writing the file:\n%s') % unicode(e.args) )
 			return
 		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
 

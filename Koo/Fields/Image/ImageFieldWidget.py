@@ -131,7 +131,9 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
 
 	def loadImage(self):
-		name = QFileDialog.getOpenFileName( self, _('Open image file...') )
+		fileTypes = "*.png *.jpg *.jpeg *.gif *.tif *.xpm *.bmp"
+		fileTypes = _('Image files (%s)') % fileTypes
+		name = QFileDialog.getOpenFileName( self, _('Open image file...'), QDir.homePath(), fileTypes )
 		if not name.isNull():
 			image = file(unicode(name), 'rb').read()
 			self.setImage( image )
