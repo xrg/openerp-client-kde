@@ -51,7 +51,6 @@ class FormParser(AbstractParser):
 		self.view.id = viewId
 		# Parse and fill in the view
 		container, onWriteFunction = self.parse( node, fields )
-		container.expand()
 		self.view.setWidget( container )
 		self.view.setOnWriteFunction( onWriteFunction )
 		return self.view
@@ -169,7 +168,6 @@ class FormParser(AbstractParser):
 				widget.isTab = True
 				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
 
-				widget.expand()
 				notebook.addTab( widget, Common.normalizeLabel( attrs.get('string', '') ) )
 
 			elif node.localName =='hpaned':
@@ -246,9 +244,6 @@ class FormParser(AbstractParser):
 					widget = group
 				
 				self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
-				# We don't expand the widget in 'group' as it should be 
-				# automatically expanded when new rows are added to the grid.
-				# See FormContainer.newRow()
  				container.addWidget( widget, attrs )
 
 		return  container, onWriteFunction
