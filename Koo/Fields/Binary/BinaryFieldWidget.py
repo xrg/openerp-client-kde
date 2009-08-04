@@ -45,7 +45,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		BinaryFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		self.filters = attrs.get('filters', '')
+		self.filters = attrs.get('filters', '*')
 		self.filters = self.filters.split(',')
 		self.filters = _('Files (%s)') % ' '.join( self.filters )
 
