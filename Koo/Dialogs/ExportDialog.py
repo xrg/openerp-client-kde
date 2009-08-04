@@ -133,7 +133,7 @@ def openOpenOffice(fields, fieldsType, result):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		import time
-		from Common.OpenOffice import OpenOffice
+		from Koo.Common.OpenOffice import OpenOffice
 
 		OpenOffice.start()
 
