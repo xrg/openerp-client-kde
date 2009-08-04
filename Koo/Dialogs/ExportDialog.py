@@ -98,6 +98,23 @@ def exportCsv(fname, fields, result, writeTitle):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Data Export'), _("Error exporting data:\n%s") % unicode(e.args) )
 
+## @brief Converts the given list of lists (data) into the appropiate type so Excel and OpenOffice.org
+# set the appropiate cell format.
+def convertTypes(data, fieldsType):
+	for a in data:
+		for b in range(len(a)):
+			if type(a[b]) == type(''):
+				a[b]=a[b].decode('utf-8','replace')
+			elif type(a[b]) == type([]):
+				if len(a[b])==2:
+					a[b] = a[b][1].decode('utf-8','replace')
+				else:
+					a[b] = ''
+			if fieldsType[b] in ('float', 'integer'):
+				if Numeric.isNumeric( a[b] ):
+					a[b] = float( a[b] )
+	return data
+
 def openExcel(fields, fieldsType, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
@@ -112,18 +129,7 @@ def openExcel(fields, fieldsType, result, writeTitle):
 				sheet.Cells( row, col + 1 ).Value = fields[col]
 			row += 1
 
-		for a in result:
-			for b in range(len(a)):
-				if type(a[b]) == type(''):
-					a[b]=a[b].decode('utf-8','replace')
-				elif type(a[b]) == type([]):
-					if len(a[b])==2:
-						a[b] = a[b][1].decode('utf-8','replace')
-					else:
-						a[b] = ''
-				if fieldsType[b] in ('float', 'integer'):
-					if Numeric.isNumeric( a[b] ):
-						a[b] = float( a[b] )
+		result = convertTypes( result, fieldsType )
 		sheet.Range(sheet.Cells(row, 1), sheet.Cells(row + len(result)-1, len(fields))).Value = result
 		
 		application.Visible = 1
@@ -132,7 +138,7 @@ def openExcel(fields, fieldsType, result, writeTitle):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning(None, _('Error'), _('Error opening Excel:\n%s') % unicode(e.args) )
 
-# Code by Dukai Gabor posted in openobject-client bugs:
+# Based on code by Dukai Gabor posted in openobject-client bugs:
 # https://bugs.launchpad.net/openobject-client/+bug/399278 
 def openOpenOffice(fields, fieldsType, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -156,7 +162,9 @@ def openOpenOffice(fields, fieldsType, result, writeTitle):
 				cell.String = fields[col]
 			row += 1
 
+		result = convertTypes( result, fieldsType )
 		result = tuple( [tuple(x) for x in result] )
+
 		cellrange = sheet.getCellRangeByPosition(0, row, len(fields) - 1, row + len(result) - 1)
 		cellrange.setDataArray(result)
 		QApplication.restoreOverrideCursor()
