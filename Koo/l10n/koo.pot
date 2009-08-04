@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-04 17:11+0200\n"
+"POT-Creation-Date: 2009-08-04 19:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: Koo/Dialogs/AdministratorPasswordDialog.py:68
 #: Koo/Dialogs/KooMainWindow.py:725 Koo/Dialogs/KooMainWindow.py:749
 #: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
-#: Koo/Dialogs/ExportDialog.py:71 Koo/Screen/Action.py:81
+#: Koo/Dialogs/ExportDialog.py:72 Koo/Screen/Action.py:81
 #: Koo/Screen/Action.py:87
 msgid "Information"
 msgstr ""
@@ -44,8 +44,8 @@ msgid "Nothing to print!"
 msgstr ""
 
 #: Koo/Actions/Actions.py:111 Koo/Dialogs/AdministratorPasswordDialog.py:71
-#: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:74
-#: Koo/Dialogs/ExportDialog.py:128 Koo/Dialogs/ExportDialog.py:157
+#: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:75
+#: Koo/Dialogs/ExportDialog.py:129 Koo/Dialogs/ExportDialog.py:157
 #: Koo/Fields/Binary/BinaryFieldWidget.py:157
 #: Koo/Fields/Binary/BinaryFieldWidget.py:189
 #: Koo/Fields/Video/VideoFieldWidget.py:82
@@ -554,35 +554,35 @@ msgid ""
 "(records)s<p>Do you want to continue?</p>"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:51
+#: Koo/Dialogs/ExportDialog.py:52
 msgid "OpenERP exported information"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:92
+#: Koo/Dialogs/ExportDialog.py:72 Koo/Dialogs/ExportDialog.py:93
 #, python-format
 msgid "%s record(s) saved!"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:74 Koo/Dialogs/ExportDialog.py:95
+#: Koo/Dialogs/ExportDialog.py:75 Koo/Dialogs/ExportDialog.py:96
 #, python-format
 msgid ""
 "Operation failed !\n"
 "I/O error (%s)"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:92 Koo/Dialogs/ExportDialog.py:95
-#: Koo/Dialogs/ExportDialog.py:98
+#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:96
+#: Koo/Dialogs/ExportDialog.py:99
 msgid "Data Export"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:98
+#: Koo/Dialogs/ExportDialog.py:99
 #, python-format
 msgid ""
 "Error exporting data:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:128
+#: Koo/Dialogs/ExportDialog.py:129
 #, python-format
 msgid ""
 "Error opening Excel:\n"
@@ -608,23 +608,23 @@ msgstr ""
 msgid "Open with Excel"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:314
+#: Koo/Dialogs/ExportDialog.py:316
 msgid "Open with OpenOffice.org"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:315
+#: Koo/Dialogs/ExportDialog.py:317
 msgid "Save as CSV"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:316
+#: Koo/Dialogs/ExportDialog.py:318
 msgid "Save as HTML"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:328
+#: Koo/Dialogs/ExportDialog.py:330
 msgid "Export name"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:329
+#: Koo/Dialogs/ExportDialog.py:331
 msgid "Exported fields"
 msgstr ""
 

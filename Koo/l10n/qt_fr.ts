@@ -20,7 +20,7 @@ Language-Team: French &lt;fr@li.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-07-30 23:48+0000
+X-Launchpad-Export-Date: 2009-08-04 16:56+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
