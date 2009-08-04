@@ -20,9 +20,13 @@
 """helper tools for using pyUNO"""
 
 import sys
-import uno, unohelper
-from com.sun.star.connection import NoConnectException
-from com.sun.star.beans import PropertyValue
+try:
+	import uno, unohelper
+	from com.sun.star.connection import NoConnectException
+	from com.sun.star.beans import PropertyValue
+	isOpenOfficeAvailable = True
+except:
+	isOpenOfficeAvailable = False
 
 class OpenOffice:
     """helper tools for using pyUNO"""

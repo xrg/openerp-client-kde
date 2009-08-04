@@ -264,7 +264,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def export(self):
 		fields = []
-		dialog = ExportDialog(self.model, self.screen.allIds(), self.screen.fields, fields)
+		dialog = ExportDialog(self.model, self.screen.selectedIds(), self.screen.fields, fields)
 		dialog.exec_()
 
 	def new(self):

@@ -34,6 +34,7 @@ from PyQt4.uic import *
 import gettext
 from Koo.Common import Common
 from Koo.Common import Numeric
+from Koo.Common import OpenOffice
 
 from Koo import Rpc
 
@@ -133,12 +134,11 @@ def openOpenOffice(fields, fieldsType, result):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		import time
-		from Koo.Common.OpenOffice import OpenOffice
 
-		OpenOffice.start()
+		OpenOffice.OpenOffice.start()
 
 		for i in range(30):
-			ooo = OpenOffice()
+			ooo = OpenOffice.OpenOffice()
 			if ooo and ooo.desktop:
 				break
 			time.sleep(1)
@@ -311,7 +311,9 @@ class ExportDialog( QDialog, ExportDialogUi ):
 
 if os.name == 'nt':
 	ExportDialog.registerExport('excel', _('Open with Excel'), False, openExcel)
-ExportDialog.registerExport('openoffice', _('Open with OpenOffice.org'), False, openOpenOffice)
+
+if OpenOffice.isOpenOfficeAvailable:
+	ExportDialog.registerExport('openoffice', _('Open with OpenOffice.org'), False, openOpenOffice)
 ExportDialog.registerExport('csv', _('Save as CSV'), True, exportCsv)
 ExportDialog.registerExport('html', _('Save as HTML'), True, exportHtml)
 
