@@ -24,6 +24,13 @@ try:
 	import uno, unohelper
 	from com.sun.star.connection import NoConnectException
 	from com.sun.star.beans import PropertyValue
+
+        # Uno component context
+        localoContext = uno.getComponentContext()
+        # create UnoUrlResolver
+        resolver = localoContext.ServiceManager.createInstanceWithContext(
+                                    "com.sun.star.bridge.UnoUrlResolver",
+                                    localoContext )
 	isOpenOfficeAvailable = True
 except:
 	isOpenOfficeAvailable = False
@@ -46,12 +53,6 @@ class OpenOffice:
     def connect(self):
         """Connection to OOo instance using pyUNO"""
  
-        # Uno component context
-        localoContext = uno.getComponentContext()
-        # create UnoUrlResolver
-        resolver = localoContext.ServiceManager.createInstanceWithContext(
-                                    "com.sun.star.bridge.UnoUrlResolver",
-                                    localoContext )
         # connection 
         try:
             oContext = resolver.resolve(
