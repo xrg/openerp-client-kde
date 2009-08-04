@@ -50,6 +50,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 
 		self.setModal( True )
 
+		self.ids = ids
 		self.result = None
 		self.context = context
 		self.context.update(Rpc.session.context)
@@ -57,6 +58,9 @@ class SearchDialog( QDialog, SearchDialogUi ):
 
 		self.modelGroup = RecordGroup( model )
 		self.modelGroup.setDomain( domain )
+		if self.ids:
+			self.modelGroup.setFilter( [('id','in',ids)] )
+			#self.reload()
 
 		self.screen.setRecordGroup( self.modelGroup )
 		self.screen.setViewTypes( ['tree'] )
@@ -74,15 +78,10 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.connect( self.form, SIGNAL('keyDownPressed()'), self.setFocusToList )
 
 		self.title = _('Search: %s') % self.form.name
-		self.title_results = _('Search: %s (%%d result(s))') % self.form.name
+		self.titleResults = _('Search: %s (%%d result(s))') % self.form.name
 
 		self.setWindowTitle( self.title )
 
-		self.ids = ids
-		if self.ids:
-			self.modelGroup.setFilter( [('id','in',ids)] )
-			self.reload()
-			model = self.view.widget.model()
 
 		# TODO: Use Designer Widget Promotion instead
 		layout = self.layout()
@@ -97,6 +96,9 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.form, SIGNAL( "search()" ), self.find )
 
+		# Selects all items
+		self.select()
+
 	def setFocusToList(self):
 		self.screen.setFocus()
 
@@ -106,11 +108,14 @@ class SearchDialog( QDialog, SearchDialogUi ):
 
 	def reload(self):
 		self.modelGroup.update()
+		self.select()
+
+	def select(self):
 		if self.allowMultipleSelection:
 			self.view.selectAll()
 		else:
 			self.view.selectFirst()
-		self.setWindowTitle( self.title_results % self.modelGroup.count() )
+		self.setWindowTitle( self.titleResults % self.modelGroup.count() )
 
 	def accepted( self ):
 		self.result = self.screen.selectedIds() or self.ids
