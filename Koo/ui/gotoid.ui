@@ -1,36 +1,37 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>GoToIdDialog</class>
- <widget class="QDialog" name="GoToIdDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="GoToIdDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>209</width>
+    <width>226</width>
     <height>86</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Go To Id</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout">
    <item>
-    <layout class="QHBoxLayout" >
+    <layout class="QHBoxLayout">
      <item>
-      <widget class="QLabel" name="label" >
-       <property name="text" >
+      <widget class="QLabel" name="label">
+       <property name="text">
         <string>&amp;Search Id:</string>
        </property>
-       <property name="buddy" >
+       <property name="buddy">
         <cstring>uiId</cstring>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QSpinBox" name="uiId" >
-       <property name="maximum" >
+      <widget class="QSpinBox" name="uiId">
+       <property name="maximum">
         <number>999999999</number>
        </property>
-       <property name="value" >
+       <property name="value">
         <number>1</number>
        </property>
       </widget>
@@ -39,10 +40,10 @@
    </item>
    <item>
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>40</height>
@@ -51,13 +52,13 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
+    <layout class="QHBoxLayout">
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -66,23 +67,23 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushAccept" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushAccept">
+       <property name="text">
         <string>&amp;Accept</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >
+       <property name="icon">
+        <iconset resource="common.qrc">
          <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushCancel" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushCancel">
+       <property name="text">
         <string>&amp;Cancel</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >
+       <property name="icon">
+        <iconset resource="common.qrc">
          <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
        </property>
       </widget>
@@ -97,22 +98,22 @@
   <tabstop>pushCancel</tabstop>
  </tabstops>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections>
   <connection>
    <sender>pushCancel</sender>
    <signal>clicked()</signal>
    <receiver>GoToIdDialog</receiver>
-   <slot>accept()</slot>
+   <slot>reject()</slot>
    <hints>
-    <hint type="sourcelabel" >
-     <x>155</x>
-     <y>68</y>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>56</y>
     </hint>
-    <hint type="destinationlabel" >
-     <x>199</x>
-     <y>82</y>
+    <hint type="destinationlabel">
+     <x>146</x>
+     <y>40</y>
     </hint>
    </hints>
   </connection>
