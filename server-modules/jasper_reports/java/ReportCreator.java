@@ -35,7 +35,6 @@ public class ReportCreator {
 			JasperReport report;
 			JRQuery query;
 			JasperPrint jasperPrint=null;
-			String subreportDir;
 			String language;
 			String[] locales;
 			int index;
@@ -45,7 +44,6 @@ public class ReportCreator {
 			
 			Map parameters = parsedParameters();
 
-			subreportDir = reportFile.substring( 0, reportFile.lastIndexOf('/') );
 			index = reportFile.lastIndexOf('/');
 			if ( index != -1 )
 				parameters.put( "SUBREPORT_DIR", reportFile.substring( 0, index+1 ) );
