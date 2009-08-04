@@ -44,14 +44,14 @@ import codecs
 
 from ImportExportCommon import *
 
-def exportHtml(fname, fields, result, write_title=False):
+def exportHtml(fname, fields, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		f = codecs.open( fname, 'wb+', 'utf8' )
 		f.write( '<html>' )
 		f.write( '<head><title>' + _('OpenERP exported information') + '</title></head>' )
 		f.write( '<table>' )
-		if write_title:
+		if writeTitle:
 			f.write( '<tr>' )
 			for x in fields:
 				x = unicode(x)
@@ -74,11 +74,11 @@ def exportHtml(fname, fields, result, write_title=False):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Error'), _("Operation failed !\nI/O error (%s)") % (errno))
 
-def exportCsv(fname, fields, result, write_title=False):
+def exportCsv(fname, fields, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		fp = codecs.open( fname, 'wb+', 'utf8' )
-		if write_title:
+		if writeTitle:
 			fp.write( ','.join( fields ) + '\n' )
 		for data in result:
 			row = []
@@ -98,15 +98,19 @@ def exportCsv(fname, fields, result, write_title=False):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Data Export'), _("Error exporting data:\n%s") % unicode(e.args) )
 
-def openExcel(fields, fieldsType, result):
+def openExcel(fields, fieldsType, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		from win32com.client import Dispatch
-		xlApp = Dispatch("Excel.Application")
-		xlApp.Workbooks.Add()
-		for col in range(len(fields)):
-			xlApp.ActiveSheet.Cells(1,col+1).Value = fields[col]
-		sht = xlApp.ActiveSheet
+		application = Dispatch("Excel.Application")
+		application.Workbooks.Add()
+
+		sheet = application.ActiveSheet
+		row = 1
+		if writeTitle:
+			for col in range(len(fields)):
+				sheet.Cells( row, col + 1 ).Value = fields[col]
+			row += 1
 
 		for a in result:
 			for b in range(len(a)):
@@ -120,9 +124,9 @@ def openExcel(fields, fieldsType, result):
 				if fieldsType[b] in ('float', 'integer'):
 					if Numeric.isNumeric( a[b] ):
 						a[b] = float( a[b] )
-		sht.Range(sht.Cells(2, 1), sht.Cells(len(result)+1, len(fields))).Value = result
+		sheet.Range(sheet.Cells(row, 1), sheet.Cells(row + len(result)-1, len(fields))).Value = result
 		
-		xlApp.Visible = 1
+		application.Visible = 1
 		QApplication.restoreOverrideCursor()
 	except Exception, e:
 		QApplication.restoreOverrideCursor()
@@ -130,7 +134,7 @@ def openExcel(fields, fieldsType, result):
 
 # Code by Dukai Gabor posted in openobject-client bugs:
 # https://bugs.launchpad.net/openobject-client/+bug/399278 
-def openOpenOffice(fields, fieldsType, result):
+def openOpenOffice(fields, fieldsType, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		import time
@@ -144,12 +148,16 @@ def openOpenOffice(fields, fieldsType, result):
 			time.sleep(1)
 		doc = ooo.desktop.loadComponentFromURL("private:factory/scalc",'_blank',0,())
 		sheet = doc.CurrentController.ActiveSheet
-		for col in xrange(len(fields)):
-			cell = sheet.getCellByPosition(col, 0)
-			cell.String = fields[col]
+
+		row = 0
+		if writeTitle:
+			for col in xrange(len(fields)):
+				cell = sheet.getCellByPosition(col, row)
+				cell.String = fields[col]
+			row += 1
 
 		result = tuple( [tuple(x) for x in result] )
-		cellrange = sheet.getCellRangeByPosition(0, 1, len(fields) - 1, len(result))
+		cellrange = sheet.getCellRangeByPosition(0, row, len(fields) - 1, row + len(result) - 1)
 		cellrange.setDataArray(result)
 		QApplication.restoreOverrideCursor()
 	except Exception, e:
@@ -255,7 +263,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			export['function'](fileName, fieldTitles, result, self.uiAddFieldNames.isChecked() )
 		else:
 			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
-			export['function'](fieldTitles, fieldsType, result)
+			export['function'](fieldTitles, fieldsType, result, self.uiAddFieldNames.isChecked() )
 
 	def add(self):
 		idx = self.uiAllFields.selectionModel().selectedRows()
