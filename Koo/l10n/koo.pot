@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-31 16:41+0200\n"
+"POT-Creation-Date: 2009-08-04 17:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: Koo/Dialogs/AdministratorPasswordDialog.py:68
 #: Koo/Dialogs/KooMainWindow.py:725 Koo/Dialogs/KooMainWindow.py:749
 #: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
-#: Koo/Dialogs/ExportDialog.py:69 Koo/Screen/Action.py:81
+#: Koo/Dialogs/ExportDialog.py:71 Koo/Screen/Action.py:81
 #: Koo/Screen/Action.py:87
 msgid "Information"
 msgstr ""
@@ -44,10 +44,10 @@ msgid "Nothing to print!"
 msgstr ""
 
 #: Koo/Actions/Actions.py:111 Koo/Dialogs/AdministratorPasswordDialog.py:71
-#: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:71
-#: Koo/Dialogs/ExportDialog.py:118 Koo/Dialogs/ExportDialog.py:144
-#: Koo/Fields/Binary/BinaryFieldWidget.py:164
-#: Koo/Fields/Binary/BinaryFieldWidget.py:176
+#: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:74
+#: Koo/Dialogs/ExportDialog.py:128 Koo/Dialogs/ExportDialog.py:157
+#: Koo/Fields/Binary/BinaryFieldWidget.py:157
+#: Koo/Fields/Binary/BinaryFieldWidget.py:189
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Printing aborted, too long delay !"
 msgstr ""
 
-#: Koo/Actions/Actions.py:216
+#: Koo/Actions/Actions.py:218
 msgid "Select your action"
 msgstr ""
 
@@ -554,68 +554,77 @@ msgid ""
 "(records)s<p>Do you want to continue?</p>"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:50
+#: Koo/Dialogs/ExportDialog.py:51
 msgid "OpenERP exported information"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:69 Koo/Dialogs/ExportDialog.py:87
+#: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:92
 #, python-format
 msgid "%s record(s) saved!"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:89
+#: Koo/Dialogs/ExportDialog.py:74 Koo/Dialogs/ExportDialog.py:95
 #, python-format
 msgid ""
 "Operation failed !\n"
 "I/O error (%s)"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:87 Koo/Dialogs/ExportDialog.py:89
-#: Koo/Dialogs/ExportDialog.py:91
+#: Koo/Dialogs/ExportDialog.py:92 Koo/Dialogs/ExportDialog.py:95
+#: Koo/Dialogs/ExportDialog.py:98
 msgid "Data Export"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:91
-msgid "Error exporting data."
+#: Koo/Dialogs/ExportDialog.py:98
+#, python-format
+msgid ""
+"Error exporting data:\n"
+"%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:118
-msgid "Error opening Excel !"
+#: Koo/Dialogs/ExportDialog.py:128
+#, python-format
+msgid ""
+"Error opening Excel:\n"
+"%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:144
-msgid "Error Opening OpenOffice.org!"
+#: Koo/Dialogs/ExportDialog.py:157
+#, python-format
+msgid ""
+"Error Opening OpenOffice.org:\n"
+"%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:238
+#: Koo/Dialogs/ExportDialog.py:254
 msgid "Export Data"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:281
+#: Koo/Dialogs/ExportDialog.py:297
 msgid "What is the name of this export?"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:293
+#: Koo/Dialogs/ExportDialog.py:313
 msgid "Open with Excel"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:294
+#: Koo/Dialogs/ExportDialog.py:314
 msgid "Open with OpenOffice.org"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:295
+#: Koo/Dialogs/ExportDialog.py:315
 msgid "Save as CSV"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:296
+#: Koo/Dialogs/ExportDialog.py:316
 msgid "Save as HTML"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:308
+#: Koo/Dialogs/ExportDialog.py:328
 msgid "Export name"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:309
+#: Koo/Dialogs/ExportDialog.py:329
 msgid "Exported fields"
 msgstr ""
 
@@ -653,52 +662,61 @@ msgstr ""
 msgid "Fields"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:53
-msgid "&Save"
-msgstr ""
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:56
-msgid "&Open"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:50
+#, python-format
+msgid "Files (%s)"
 msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:59
+msgid "&Save"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:62
+msgid "&Open"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:65
 msgid "Show &image"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:110
+#: Koo/Fields/Binary/BinaryFieldWidget.py:115
 #: Koo/Fields/Image/ImageFieldWidget.py:80
 #: Koo/Fields/Link/LinkFieldWidget.py:61
 msgid "Open..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:111
+#: Koo/Fields/Binary/BinaryFieldWidget.py:116
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:148
+#: Koo/Fields/Binary/BinaryFieldWidget.py:150
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:154
-#: Koo/Fields/Binary/BinaryFieldWidget.py:193 Koo/Model/KooModel.py:355
+#: Koo/Fields/Binary/BinaryFieldWidget.py:157
+#, python-format
+msgid ""
+"Error reading the file:\n"
+"%s"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:161
+#: Koo/Fields/Binary/BinaryFieldWidget.py:206 Koo/Model/KooModel.py:355
 #, python-format
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:164
-#: Koo/Fields/Video/VideoFieldWidget.py:82
-msgid "Error reading the file"
-msgstr ""
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:168
+#: Koo/Fields/Binary/BinaryFieldWidget.py:180
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:176
-#: Koo/Fields/Video/VideoFieldWidget.py:92
-msgid "Error writing the file!"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:189
+#, python-format
+msgid ""
+"Error writing the file:\n"
+"%s"
 msgstr ""
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:100
@@ -749,11 +767,16 @@ msgid ""
 "have permissions."
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:134
+#: Koo/Fields/Image/ImageFieldWidget.py:135
+#, python-format
+msgid "Image files (%s)"
+msgstr ""
+
+#: Koo/Fields/Image/ImageFieldWidget.py:136
 msgid "Open image file..."
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:151
+#: Koo/Fields/Image/ImageFieldWidget.py:153
 msgid "(no image)"
 msgstr ""
 
@@ -767,6 +790,14 @@ msgstr ""
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
 msgid "Report"
+msgstr ""
+
+#: Koo/Fields/Video/VideoFieldWidget.py:82
+msgid "Error reading the file"
+msgstr ""
+
+#: Koo/Fields/Video/VideoFieldWidget.py:92
+msgid "Error writing the file!"
 msgstr ""
 
 #: Koo/Fields/FieldPreferencesDialog.py:64
@@ -877,14 +908,18 @@ msgid "SVG View"
 msgstr ""
 
 #: Koo/View/Tree/TreeView.py:203
-msgid "Sorting not possible."
+msgid "<font color='red'>Sorting not possible.</font>"
 msgstr ""
 
 #: Koo/View/Tree/TreeView.py:205
-msgid "Sorting only groups."
+msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:229
+#: Koo/View/Tree/TreeView.py:207
+msgid "<font color='red'>Save changes before sorting.</font>"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:231
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
