@@ -98,28 +98,24 @@
 							<categoryExpression><![CDATA["Credit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{credit}]]></valueExpression>
 							<labelExpression><![CDATA["Used"]]></labelExpression>
-							<itemHyperlink/>
 						</categorySeries>
 						<categorySeries>
 							<seriesExpression><![CDATA["Limit"]]></seriesExpression>
 							<categoryExpression><![CDATA["Credit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{credit_limit}]]></valueExpression>
 							<labelExpression><![CDATA["Limit"]]></labelExpression>
-							<itemHyperlink/>
 						</categorySeries>
 						<categorySeries>
 							<seriesExpression><![CDATA["Used"]]></seriesExpression>
 							<categoryExpression><![CDATA["Debit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{debit}]]></valueExpression>
 							<labelExpression><![CDATA["Used"]]></labelExpression>
-							<itemHyperlink/>
 						</categorySeries>
 						<categorySeries>
 							<seriesExpression><![CDATA["Limit"]]></seriesExpression>
 							<categoryExpression><![CDATA["Debit"]]></categoryExpression>
 							<valueExpression><![CDATA[$F{debit_limit}]]></valueExpression>
 							<labelExpression><![CDATA["Limit"]]></labelExpression>
-							<itemHyperlink/>
 						</categorySeries>
 					</categoryDataset>
 					<barPlot isShowLabels="false" isShowTickLabels="true" isShowTickMarks="true">
@@ -219,7 +215,7 @@
 			<staticText>
 				<reportElement x="18" y="7" width="100" height="20"/>
 				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
+					<font isBold="true" isPdfEmbedded="false"/>
 				</textElement>
 				<text><![CDATA[Attachment:]]></text>
 			</staticText>

@@ -40,6 +40,8 @@ import codecs
 import sql_db
 import netsvc
 
+from jasper_server import JasperServer
+
 class Report:
 	def __init__(self, name, cr, uid, ids, data, context):
 		self.name = name
@@ -102,7 +104,7 @@ class Report:
 		properties = {
 			'language': 'SQL',
 			'relations': '',
-			'fields': []
+			'fields': {}
 		}
 
 		doc = xml.dom.minidom.parse( self.reportPath )
@@ -116,16 +118,20 @@ class Report:
 			# The second one evaluates the string without the "".
 			properties['relations'] = eval( relationTags[0].getAttribute('value') )
 
-		fields = []
-		fieldTags = xml.xpath.Evaluate( '/jasperReport/field/fieldDescription', doc )
+		fields = {}
+		fieldTags = xml.xpath.Evaluate( '/jasperReport/field', doc )
 		for tag in fieldTags:
-			path = tag.firstChild.data
+			type = tag.getAttribute('class')
+			print "TYPE: ", type
+			path = tag.getElementsByTagName('fieldDescription')[0].firstChild.data
+			print "FIELD DESC: ", path
+			#path = tag.firstChild.data
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = path[13:]
-			properties['fields'].append( path )
-
+			properties['fields'][ path ] = type
 		return properties
+
 	def userName(self):
 		if os.name == 'nt':
 			import win32api
@@ -158,13 +164,33 @@ class Report:
 			outputDate = os.stat(outputFile).st_mtime
 			if outputDate > inputDate:
 				return
-		
 		env = {}
 		env.update( os.environ )
 		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
 		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCompiler', inputFile, outputFile, env)
 
 	def executeReport(self, inputFile, xmlFile, outputFile, dsn, user, password,  params):
+		standardDirectory = os.path.join( os.path.abspath(os.path.dirname(__file__)), 'report', '' )
+		locale = self.context.get('lang', 'en_US')
+		
+		connectionParameters = {
+			'xml': xmlFile,
+			'dsn': dsn,
+			'user': user,
+			'password': password
+		}
+		parameters = {
+			'STANDARD_DIR': standardDirectory,
+			'REPORT_LOCALE': locale,
+		}
+		if 'parameters' in self.data:
+			parameters.update( self.data['parameters'] )
+
+		server = JasperServer()
+		server.execute( connectionParameters, inputFile, outputFile, parameters )
+
+		
+	def executeReport1(self, inputFile, xmlFile, outputFile, dsn, user, password,  params):
 		# Note that the STANDARD_DIR parameter is expected to end with a slash (or backslash)
 		standardDirectory = os.path.join( os.path.abspath(os.path.dirname(__file__)), 'report', '' )
 		env = {}
@@ -288,6 +314,8 @@ class Report:
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
 				try:
+					# Show all translations for a field
+					#if fields[field] == 'java.lang.object':
 					value = record.__getattr__(root)
 				except:
 					value = None
@@ -392,24 +420,18 @@ class report_xml(osv.osv):
 						'report_rml': path
 					})
 					valuesId = self.pool.get('ir.values').search(cr, uid, [('value','=','ir.actions.report.xml,%s'% report.id)])
+					data = {
+							'name': report.name,
+							'model': report.model,
+							'key': 'action',
+							'object': True,
+							'key2': 'client_print_multi',
+							'value': 'ir.actions.report.xml,%s'% report.id
+					}
 					if not valuesId:
-						valuesId = self.pool.get('ir.values').create(cr, uid, {
-							'name': report.name,
-							'model': report.model,
-							'key': 'action',
-							'object': True,
-							'key2': 'client_print_multi',
-							'value': 'ir.actions.report.xml,%s'% report.id
-						}, context=context)
+						valuesId = self.pool.get('ir.values').create(cr, uid, data, context=context)
 					else:
-						self.pool.get('ir.values').write(cr, uid, valuesId, {
-							'name': report.name,
-							'model': report.model,
-							'key': 'action',
-							'object': True,
-							'key2': 'client_print_multi',
-							'value': 'ir.actions.report.xml,%s'% report.id
-						}, context=context)
+						self.pool.get('ir.values').write(cr, uid, valuesId, data, context=context)
 						valuesId = valuesId[0]
 				elif '.properties' in fileName:
 					self.save_file( fileName, content )
