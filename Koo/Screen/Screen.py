@@ -736,10 +736,6 @@ class Screen(QScrollArea):
 		else:
 			return None
 
-	## @brief Returns a list with all loaded (or preloaded) record ids.
-	def allIds(self):
-		return [x.id for x in self.group if x.id]
-
 	## @brief Clears the list of records and refreshes the view.
 	#
 	# Note that this won't remove the records from the database. But clears
