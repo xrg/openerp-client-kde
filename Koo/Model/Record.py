@@ -83,10 +83,8 @@ class Record(QObject):
 				value.__del__()
 		self.values = {}
 		from Koo.Common import Debug
-		print "START RECORD"
 		if self.id == 2:
 			Debug.printReferrers( self )
-		print "END RECORD"
 		self.group = None
 
 	def _getModified(self):

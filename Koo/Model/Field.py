@@ -40,7 +40,7 @@ class StringField(QObject):
 		self.attrs = attrs
 		self.name = attrs['name']
 
-	## This function is in charge of execting "on_change" and
+	## This function is in charge of executing "on_change" and
 	# "change_defalt" events and setting the appropiate record 
 	# as modified.
 	def changed(self, record):
