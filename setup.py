@@ -17,21 +17,20 @@ from distutils.sysconfig import get_python_lib
 from distutils.core import setup
 
 try:
-  import py2exe
+	import py2exe
 
-  # Override the function in py2exe to determine if a dll should be included
-  dllList = ('mfc90.dll','msvcp90.dll')
-  origIsSystemDLL = py2exe.build_exe.isSystemDLL
-  def isSystemDLL(pathname):
-    if os.path.basename(pathname).lower() in dllList:
-      return 0
-    return origIsSystemDLL(pathname)
-  py2exe.build_exe.isSystemDLL = isSystemDLL
-  
-  using_py2exe = True
+	# Override the function in py2exe to determine if a dll should be included
+	dllList = ('mfc90.dll','msvcp90.dll')
+	origIsSystemDLL = py2exe.build_exe.isSystemDLL
+	def isSystemDLL(pathname):
+		if os.path.basename(pathname).lower() in dllList:
+			return 0
+		return origIsSystemDLL(pathname)
+	py2exe.build_exe.isSystemDLL = isSystemDLL
+	using_py2exe = True
 except:
-  using_py2exe = False
-  pass
+	using_py2exe = False
+	pass
 
 opj = os.path.join
 
@@ -71,13 +70,7 @@ def data_files():
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) )
 	]
 	if using_py2exe:
-		#trans = []
 		dest = opj('share','locale','%s','LC_MESSAGES')
-		#src = opj('Koo','l10n','%s','LC_MESSAGES','%s.mo')
-		#for po in glob.glob( opj('Koo','l10n','*.po') ):
-		    #lang = os.path.splitext(os.path.basename(po))[0]
-		    #files.append( (dest % (lang, name), src % (lang, name) ) )
-		    #print "ADDING: ", ( dest % (lang, name), src % (lang, name) )
 		for src in glob.glob( opj('Koo','l10n','*','LC_MESSAGES','koo.mo') ):
 			lang = src.split(os.sep)[2]
 			files.append( ( (dest % lang), [src] ) )
@@ -93,12 +86,12 @@ def findPlugins( module ):
 	return result
 
 def translations():
-    trans = []
-    dest = opj('share','locale','%s','LC_MESSAGES','%s.mo')
-    for po in glob.glob( opj('Koo','l10n','*.po') ):
-        lang = os.path.splitext(os.path.basename(po))[0]
-        trans.append((dest % (lang, name), po))
-    return trans
+	trans = []
+	dest = opj('share','locale','%s','LC_MESSAGES','%s.mo')
+	for po in glob.glob( opj('Koo','l10n','*.po') ):
+		lang = os.path.splitext(os.path.basename(po))[0]
+		trans.append((dest % (lang, name), po))
+	return trans
 
 
 
@@ -128,6 +121,13 @@ Operating System :: MacOS
 Topic :: Office/Business
 """
 
+
+if len(sys.argv) != 2:
+	print "Syntax: setup.py command"
+	sys.exit(2)
+
+command = sys.argv[1]
+
 check_modules()
 
 # create startup script
@@ -139,9 +139,6 @@ exec %s ./koo.py $@
 f = open('koo.py', 'w')
 f.write(start_script)
 f.close()
-
-# todo: use 
-command = sys.argv[1]
 
 packages = [
 	'Koo', 
@@ -159,27 +156,28 @@ packages = [
 	'Koo.Fields',
         ] + findPlugins('Plugins') + findPlugins('View') + findPlugins('Fields') + findPlugins('Search')
 
-setup(name             = name,
-      version          = version,
-      description      = "Koo Client",
-      long_description = long_desc,
-      url              = 'http://sf.net/projects/ktiny',
-      author           = 'NaN',
-      author_email     = 'info@nan-tic.com',
-      classifiers      = filter(None, classifiers.splitlines()),
-      license          = 'GPL',
-      data_files       = data_files(),
-      translations     = translations(),
-      pot_file         = opj('Koo','l10n','koo.pot'),
-      scripts          = ['koo.py'],
-      windows          = [{'script': opj('Koo','koo.py')}],
-      #console          = ['Koo/koo.py'],
-      packages         = packages ,
-      package_dir      = {'Koo': 'Koo'},
-      provides         = [ 'Koo' ],
-      options          = { 'py2exe': {
-                                'includes': ['sip', 'PyQt4.QtNetwork',
-					'PyQt4.QtWebKit'] + packages 
-                                }
-                         }
-      )
+setup (
+	name             = name,
+	version          = version,
+	description      = "Koo Client",
+	long_description = long_desc,
+	url              = 'http://sf.net/projects/ktiny',
+	author           = 'NaN',
+	author_email     = 'info@nan-tic.com',
+	classifiers      = filter(None, classifiers.splitlines()),
+	license          = 'GPL',
+	data_files       = data_files(),
+	translations     = translations(),
+	pot_file         = opj('Koo','l10n','koo.pot'),
+	scripts          = ['koo.py'],
+	windows          = [{'script': opj('Koo','koo.py')}],
+	#console          = ['Koo/koo.py'],
+	packages         = packages ,
+	package_dir      = {'Koo': 'Koo'},
+	provides         = [ 'Koo' ],
+	options          = { 
+		'py2exe': {
+			'includes': ['sip', 'PyQt4.QtNetwork', 'PyQt4.QtWebKit'] + packages 
+		}
+	}
+)
