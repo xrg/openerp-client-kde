@@ -229,9 +229,10 @@ class Report:
 		if self.data['records']:
 			row = self.data['records'][0]
 			csv.QUOTE_ALL = True
-			writer = csv.DictWriter( f, row.keys(), delimiter=',', quotechar='"' )
+			# JasperReports CSV reader requires an extra colon at the end of the line.
+			writer = csv.DictWriter( f, row.keys() + [''], delimiter=',', quotechar='"' )
 			header = {}
-			for field in row.keys():
+			for field in row.keys() + ['']:
 				header[ field ] = field
 			writer.writerow( field )
 			for record in self.data['records']:
@@ -240,8 +241,10 @@ class Report:
 					value = record[field]
 					if value == False:
 						value = ''
-					elif not isinstance(value, unicode):
-						value = unicode(value)
+					elif isinstance(value, unicode):
+						value = value.encode('utf-8')
+					elif not isinstance(value, str):
+						value = str(value)
 					row[field] = value
 				writer.writerow( row )
 		f.close()
