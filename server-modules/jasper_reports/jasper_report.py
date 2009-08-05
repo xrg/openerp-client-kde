@@ -27,6 +27,7 @@
 
 import os
 import csv
+import copy
 import base64
 import glob
 from xml.dom.minidom import getDOMImplementation
@@ -57,6 +58,7 @@ class Report:
 		self.report = None
 		self.temporaryFiles = []
 		self.imageFiles = {}
+		self._languages = []
 
 	def execute(self):
 		# Get the report path
@@ -160,8 +162,8 @@ class Report:
 		dsn= 'jdbc:postgresql://%s:%s/%s' % ( host, port, dbname )
 
 		jrxmlFile = os.path.join( self.addonsPath(), self.report )
-		jasperFile = os.path.join( self.addonsPath(), self.report[:-6] + '.jasper' )
-		self.executeReport( jasperFile, inputFile, outputFile, dsn, user, password )
+		#jasperFile = os.path.join( self.addonsPath(), self.report[:-6] + '.jasper' )
+		self.executeReport( jrxmlFile, inputFile, outputFile, dsn, user, password )
 
 	def executeReport(self, jrxmlFile, dataFile, outputFile, dsn, user, password):
 		standardDirectory = os.path.join( os.path.abspath(os.path.dirname(__file__)), 'report', '' )
@@ -348,6 +350,33 @@ class Report:
 				currentRecords = newRecords
 		return currentRecords
 
+	def languages(self):
+		if self._languages:
+			return self._languages
+		ids =self.pool.get('res.lang').search(self.cr, self.uid, [('translatable','=','1')])
+		self._languages = self.pool.get('res.lang').read(self.cr, self.uid, ids, ['code'] )
+		self._languages = [x['code'] for x in self._languages]
+		return self._languages
+
+	def valueInAllLanguages(self, model, id, field):
+		print "MODEL: ", model
+		print "ID: ", id
+		print "FIELD: ", field
+		context = copy.copy(self.context)
+		values = {}
+		for language in self.languages():
+			if language == 'en_US':
+				context['lang'] = False
+			else:
+				context['lang'] = language
+			value = model.read(self.cr, self.uid, [id], [field], context=context)
+			values[ language ] = value[0][field]
+
+		result = []
+		for key, value in values.iteritems():
+			result.append( '%s~%s' % (key, value) )
+		return '|'.join( result )
+
 	def generate_record_csv(self, record, records, row, path, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
 		# Process each "root" field only once by using a set.
@@ -363,8 +392,6 @@ class Report:
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
 				try:
-					# Show all translations for a field
-					#if fields[field] == 'java.lang.object':
 					value = record.__getattr__(root)
 				except:
 					value = None
@@ -387,6 +414,11 @@ class Report:
 					# If the field is not marked to be iterated use the first record only
 					self.generate_record_csv(value[0], records, row, currentPath, fields2)
 				continue
+
+			# Show all translations for a field
+			type = self.reportProperties['fields'][currentPath]['type']
+			if type == 'java.lang.Object':
+				value = self.valueInAllLanguages(record._table, record.id, root)
 
 			# The rest of field types must be converted into str
 			if field == 'id':

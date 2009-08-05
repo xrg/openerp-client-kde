@@ -7,7 +7,7 @@
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
-	<field name="name" class="java.lang.String">
+	<field name="name" class="java.lang.Object">
 		<fieldDescription><![CDATA[name]]></fieldDescription>
 	</field>
 	<field name="ref" class="java.lang.String">
@@ -71,7 +71,7 @@
 				<textField isBlankWhenNull="true">
 					<reportElement x="74" y="0" width="227" height="20"/>
 					<textElement verticalAlignment="Middle"/>
-					<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{name}.get( "abc")]]></textFieldExpression>
 				</textField>
 				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
 					<reportElement x="485" y="0" width="70" height="20"/>
@@ -123,6 +123,7 @@
 							<seriesColor seriesOrder="0" color="#3333FF"/>
 							<seriesColor seriesOrder="1" color="#FF3333"/>
 						</plot>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
 						<categoryAxisFormat>
 							<axisFormat>
 								<labelFont/>

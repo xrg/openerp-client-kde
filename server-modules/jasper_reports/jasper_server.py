@@ -24,7 +24,7 @@ class JasperServer:
 		except (xmlrpclib.ProtocolError, socket.error), e:
 			print "FIRST TRY DIDN'T WORK: ", str(e), str(e.args)
 			self.start()
-			for x in xrange(20):
+			for x in xrange(40):
 				time.sleep(1)
 				try:
 					print "TRYING"

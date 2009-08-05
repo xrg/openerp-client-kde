@@ -3,9 +3,10 @@ import org.apache.xmlrpc.webserver.WebServer;
 //import org.apache.xmlrpc.webserver.*;
 import org.apache.xmlrpc.*;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
-
 //import org.apache.xml.security.utils.Base64;
 
+import net.sf.jasperreports.engine.JRField;
+import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.JasperFillManager; 
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -32,7 +33,10 @@ import net.sf.jasperreports.engine.export.JRHtmlExporterParameter;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
 import net.sf.jasperreports.engine.export.oasis.JROdsExporter;
 
+import java.lang.Object;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.text.SimpleDateFormat;
 import java.util.Hashtable;
 import java.io.ByteArrayInputStream;
@@ -43,6 +47,64 @@ import java.math.BigDecimal;
 import java.io.InputStream;
 import java.util.Locale;
 
+/*
+This class overrides Hashtable's get() function to return 
+the default language when the language (key) doesn't exist.
+*/
+class LanguageTable extends Hashtable {
+	private String defaultLanguage;
+
+	public LanguageTable(String defaultLanguage) {
+		super();
+		this.defaultLanguage = defaultLanguage;
+	}
+	public Object get(Object key) {
+		if ( containsKey(key) )
+			return super.get(key);
+		else
+			return super.get(defaultLanguage);
+	}
+}
+
+/*
+This class overrides getFieldValue() from JRCsvDataSource to parse
+java.lang.Object fields that will come from Python coded with data
+for each language.
+*/
+class CsvMultiLanguageDataSource extends JRCsvDataSource {
+	public CsvMultiLanguageDataSource(File file, String charsetName) throws java.io.FileNotFoundException, java.io.UnsupportedEncodingException {
+		super(file, charsetName);
+	}
+
+	public Object getFieldValue(JRField jrField) throws net.sf.jasperreports.engine.JRException {
+		Object value;
+		System.out.println("ASKED: " + jrField.getValueClassName() );
+		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
+			JRDesignField fakeField = new JRDesignField();
+			fakeField.setName( jrField.getName() );
+			fakeField.setDescription( jrField.getDescription() );
+			fakeField.setValueClassName( "java.lang.String" );
+			fakeField.setValueClass( String.class );
+			value = super.getFieldValue( fakeField );
+
+			LanguageTable values = new LanguageTable("en_US");
+			String v = (String) value;
+			String[] p = v.split( "\\|" );
+			System.out.println( "SPLITTED: " + p );
+			for( int j=0; j < p.length ; j++ ) {
+				System.out.println( p[j] );
+				String[] map = p[j].split( "~" );
+				if ( map.length == 2 ) 
+					values.put( map[0], map[1] );
+			}
+			System.out.println("HASH: " + values);
+			value = (Object)values;
+		} else {
+			value = super.getFieldValue(jrField);
+		}
+		return value;
+	}
+}
 
 public class JasperServer { 
 
@@ -76,7 +138,9 @@ public class JasperServer {
 
 		jrxmlFile = new File( jrxmlPath );
 		jasperFile = new File( jasperPath );
-		if ( ! jasperFile.exists() || jrxmlFile.lastModified() > jasperFile.lastModified() ) {
+		System.out.println( "JRXML: " + jrxmlFile.lastModified() );
+		System.out.println( "JASPER: " + jasperFile.lastModified() );
+		if ( (! jasperFile.exists()) || (jrxmlFile.lastModified() > jasperFile.lastModified()) ) {
 			System.out.println( "Before compiling..") ;
 			JasperCompileManager.compileReportToFile( jrxmlPath, jasperPath );
 			System.out.println( "compiled...!");
@@ -137,7 +201,7 @@ public class JasperServer {
 				// If available, use a CSV file because it's faster to process.
 				// Otherwise we'll use an XML file.
 				if ( connectionParameters.containsKey("csv") ) {
-					JRCsvDataSource dataSource = new JRCsvDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
+					CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
 					dataSource.setUseFirstRowAsHeader( true );
 					dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd mm:hh:ss" ) );
 					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
