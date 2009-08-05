@@ -587,11 +587,10 @@ class RecordGroup(QObject):
 
 	## @brief Returns a Record object for the given row.
 	def recordByIndex(self, row):
-		if row < len(self.records):
-			record = self.records[row]
-		else:
-			record = None
-		if record and isinstance( record, Record ):
+		if row >= len(self.records):
+			raise IndexError('Request row %d when records are %d' %(row, len(self.records)))
+		record = self.records[row]
+		if isinstance( record, Record ):
 			return record
 		else:
 			record = Record(record, self, parent=self.parent)
