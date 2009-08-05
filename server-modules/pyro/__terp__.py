@@ -39,6 +39,7 @@ This module needs pyro from http://sourceforge.net/projects/pyro/files/ on clien
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
+	"ext_depends" : [ "python-pyro" ],
 	"category" : "Generic Modules/Pyro",
 	"init_xml" : [],
 	"demo_xml" : [],

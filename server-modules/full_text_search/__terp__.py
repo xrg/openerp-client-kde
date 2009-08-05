@@ -36,6 +36,8 @@ The module will try to load PL/PythonU language if it doesn't already exist in t
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
+	# "ext_depends" : ["postgresql-plpython" ] , 
+	# actually, not true: postgres server could be in other machine
 	"category" : "Generic Modules/Search",
 	"init_xml" : [],
 	"demo_xml" : [],

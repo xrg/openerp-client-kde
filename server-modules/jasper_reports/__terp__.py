@@ -32,6 +32,7 @@
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
+	"ext_depends" : [ ( "jre", '=', '1.6.0') ],
 	"category" : "Generic Modules/Jasper Reports",
 	"init_xml" : [],
 	"demo_xml" : [ 

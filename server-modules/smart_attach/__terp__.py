@@ -32,6 +32,8 @@
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
 	"depends" : ["base"],
+	"ext_depends" : [ "python-qt4", "antiword", "odt2txt", "strigi",
+		("tesseract", '>=','2.0'), "imagemagick", "poppler" ],
 	"category" : "Generic Modules/Attachments",
 	"init_xml" : [],
 	"demo_xml" : [],
