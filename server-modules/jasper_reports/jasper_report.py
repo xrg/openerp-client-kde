@@ -26,6 +26,7 @@
 ##############################################################################
 
 import os
+import csv
 import base64
 import glob
 from xml.dom.minidom import getDOMImplementation
@@ -72,15 +73,22 @@ class Report:
 		fd, outputFile = tempfile.mkstemp()
 		self.temporaryFiles.append( inputFile )
 		self.temporaryFiles.append( outputFile )
+		print "TEMP INPUT: ", inputFile
 
+		import time
+		start = time.time()
 		# If the language used is xpath create the xmlFile in inputFile.
 		if self.reportProperties['language'] == 'xpath':
 			if self.data.get('data_source','model') == 'records':
-				self.generate_xml_from_records( inputFile )
+				#self.generate_xml_from_records( inputFile )
+				self.generate_csv_from_records( inputFile )
 			else:
-				self.generate_xml( inputFile )
+				#self.generate_xml( inputFile )
+				self.generate_csv( inputFile )
 		# Call the external java application that will generate the PDF file in outputFile
 		self.createReport( inputFile, outputFile )
+		end = time.time()
+		print "ELAPSED: ", ( end - start ) / 60
 
 		# Read data from the generated file and return it
 		f = open( outputFile, 'rb')
@@ -104,7 +112,8 @@ class Report:
 		properties = {
 			'language': 'SQL',
 			'relations': '',
-			'fields': {}
+			'fields': {},
+			'fieldNames': []
 		}
 
 		doc = xml.dom.minidom.parse( self.reportPath )
@@ -121,15 +130,17 @@ class Report:
 		fields = {}
 		fieldTags = xml.xpath.Evaluate( '/jasperReport/field', doc )
 		for tag in fieldTags:
+			name = tag.getAttribute('name')
 			type = tag.getAttribute('class')
-			print "TYPE: ", type
 			path = tag.getElementsByTagName('fieldDescription')[0].firstChild.data
-			print "FIELD DESC: ", path
-			#path = tag.firstChild.data
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = path[13:]
-			properties['fields'][ path ] = type
+			properties['fields'][ path ] = {
+				'name': name,
+				'type': type,
+			}
+			properties['fieldNames'].append( name )
 		return properties
 
 	def userName(self):
@@ -140,7 +151,7 @@ class Report:
 			import pwd
 			return pwd.getpwuid(os.getuid())[0]
 
-	def createReport( self, inputFile, outputFile ):
+	def createReport( self, inputFile, outputFile,  ):
 		host = tools.config['db_host'] or 'localhost'
 		port = tools.config['db_port'] or '5432'
 		dbname = self.cr.dbname
@@ -148,33 +159,17 @@ class Report:
 		password = tools.config['db_password'] or ''
 		dsn= 'jdbc:postgresql://%s:%s/%s' % ( host, port, dbname )
 
-		idss=""
-		for id in self.ids:
-			idss += ' %s'%id
-
 		jrxmlFile = os.path.join( self.addonsPath(), self.report )
 		jasperFile = os.path.join( self.addonsPath(), self.report[:-6] + '.jasper' )
-		self.compileReport( jrxmlFile, jasperFile )
-		self.executeReport( jasperFile, inputFile, outputFile, dsn, user, password, 'ids:%s;' % idss )
+		self.executeReport( jasperFile, inputFile, outputFile, dsn, user, password )
 
-	def compileReport(self, inputFile, outputFile):
-		# Compile report only when the date of .jasper file is older than the one of the .jrxml file
-		if os.path.exists(outputFile):
-			inputDate = os.stat(inputFile).st_mtime
-			outputDate = os.stat(outputFile).st_mtime
-			if outputDate > inputDate:
-				return
-		env = {}
-		env.update( os.environ )
-		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
-		os.spawnlpe(os.P_WAIT, 'java', 'java', 'ReportCompiler', inputFile, outputFile, env)
-
-	def executeReport(self, inputFile, xmlFile, outputFile, dsn, user, password,  params):
+	def executeReport(self, jrxmlFile, dataFile, outputFile, dsn, user, password):
 		standardDirectory = os.path.join( os.path.abspath(os.path.dirname(__file__)), 'report', '' )
 		locale = self.context.get('lang', 'en_US')
 		
 		connectionParameters = {
-			'xml': xmlFile,
+			#'xml': xmlFile,
+			'csv': dataFile,
 			'dsn': dsn,
 			'user': user,
 			'password': password
@@ -182,12 +177,13 @@ class Report:
 		parameters = {
 			'STANDARD_DIR': standardDirectory,
 			'REPORT_LOCALE': locale,
+			'IDS': self.ids,
 		}
 		if 'parameters' in self.data:
 			parameters.update( self.data['parameters'] )
 
 		server = JasperServer()
-		server.execute( connectionParameters, inputFile, outputFile, parameters )
+		server.execute( connectionParameters, jrxmlFile, outputFile, parameters )
 
 		
 	def executeReport1(self, inputFile, xmlFile, outputFile, dsn, user, password,  params):
@@ -227,6 +223,29 @@ class Report:
 		topNode.writexml( f )
 		f.close()
 
+	# CSV file generation using a list of dictionaries provided by the parser function.
+	def generate_csv_from_records(self, fileName):
+		f = codecs.open( fileName, 'wb+', 'utf-8' )
+		if self.data['records']:
+			row = self.data['records'][0]
+			csv.QUOTE_ALL = True
+			writer = csv.DictWriter( f, row.keys(), delimiter=',', quotechar='"' )
+			header = {}
+			for field in row.keys():
+				header[ field ] = field
+			writer.writerow( field )
+			for record in self.data['records']:
+				row = []
+				for field in record:
+					value = record[field]
+					if value == False:
+						value = ''
+					elif not isinstance(value, unicode):
+						value = unicode(value)
+					row[field] = value
+				writer.writerow( row )
+		f.close()
+
 	# XML file generation works as follows:
 	# By default (if no OPENERP_RELATIONS property exists in the report) a record will be created
 	# for each model id we've been asked to show. If there are any elements in the OPENERP_RELATIONS
@@ -246,11 +265,40 @@ class Report:
 		for records in self.allRecords:
 			recordNode = self.document.createElement('record')
 			topNode.appendChild( recordNode )
-			self.generate_record( records['root'], records, recordNode, '', self.reportProperties['fields'] )
+			self.generate_record_xml( records['root'], records, recordNode, '', self.reportProperties['fields'] )
 
 		# Once created, the only missing step is to store the XML into a file
 		f = codecs.open( fileName, 'wb+', 'utf-8' )
 		topNode.writexml( f )
+		f.close()
+
+	# CSV file generation works as follows:
+	# By default (if no OPENERP_RELATIONS property exists in the report) a record will be created
+	# for each model id we've been asked to show. If there are any elements in the OPENERP_RELATIONS
+	# list, they will imply a LEFT JOIN like behaviour on the rows to be shown.
+	def generate_csv(self, fileName):
+		self.allRecords = []
+		relations = self.reportProperties['relations']
+		# The following loop generates one entry to allRecords list for each record
+		# that will be created. If there are any relations it acts like a
+		# LEFT JOIN against the main model/table.
+		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
+			self.allRecords += self.generate_ids( record, relations, '', [ { 'root': record } ] )
+
+		#f = codecs.open( fileName, 'wb+', 'utf-8' )
+		f = open( fileName, 'wb+' )
+		csv.QUOTE_ALL = True
+		# JasperReports CSV reader requires an extra colon at the end of the line.
+		writer = csv.DictWriter( f, self.reportProperties['fieldNames'] + [''], delimiter=",", quotechar='"' )
+		header = {}
+		for field in self.reportProperties['fieldNames'] + ['']:
+			header[ field ] = field
+		writer.writerow( header )
+		# Once all records have been calculated, create the CSV structure itself
+		for records in self.allRecords:
+			row = {}
+			self.generate_record_csv( records['root'], records, row, '', self.reportProperties['fields'] )
+			writer.writerow( row )
 		f.close()
 
 	def generate_ids(self, record, relations, path, currentRecords):
@@ -297,7 +345,73 @@ class Report:
 				currentRecords = newRecords
 		return currentRecords
 
-	def generate_record(self, record, records, recordNode, path, fields):
+	def generate_record_csv(self, record, records, row, path, fields):
+		# One field (many2one, many2many or one2many) can appear several times.
+		# Process each "root" field only once by using a set.
+		unrepeated = set( [field.partition('/')[0] for field in fields] )
+		for field in unrepeated:
+			root = field.partition('/')[0]
+			if path:
+				currentPath = '%s/%s' % (path,root)
+			else:
+				currentPath = root
+			if root == 'Attachments':
+				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
+				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
+			else:
+				try:
+					# Show all translations for a field
+					#if fields[field] == 'java.lang.object':
+					value = record.__getattr__(root)
+				except:
+					value = None
+					print "Field '%s' does not exist in model" % root
+
+			# Check if it's a many2one
+			if isinstance(value, orm.browse_record):
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
+				self.generate_record_csv(value, records, row, currentPath, fields2)
+				continue
+
+			# Check if it's a one2many or many2many
+			if isinstance(value, orm.browse_record_list):
+				if not value:
+					continue
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
+				if currentPath in records:
+					self.generate_record_csv(records[currentPath], records, row, currentPath, fields2)
+				else:
+					# If the field is not marked to be iterated use the first record only
+					self.generate_record_csv(value[0], records, row, currentPath, fields2)
+				continue
+
+			# The rest of field types must be converted into str
+			if field == 'id':
+				# Check for field 'id' because we can't find it's type in _columns
+				value = str(value)
+			elif value == False:
+				value = ''
+			elif record._table._columns[field]._type == 'date':
+				value = '%s 00:00:00' % str(value) 
+			elif record._table._columns[field]._type == 'binary':
+				imageId = (record.id, field)
+				if imageId in self.imageFiles:
+					fileName = self.imageFiles[ imageId ]
+				else:
+					fd, fileName = tempfile.mkstemp()
+					f = open( fileName, 'wb+' )
+					f.write( base64.decodestring( value ) )
+					f.close()
+					self.temporaryFiles.append( fileName )
+					self.imageFiles[ imageId ] = fileName
+				value = fileName
+			elif isinstance(value, unicode):
+				value = value.encode('utf-8')
+			elif not isinstance(value, str):
+				value = str(value)
+			row[ self.reportProperties['fields'][currentPath]['name'] ] = value
+
+	def generate_record_xml(self, record, records, recordNode, path, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
 		# Process each "root" field only once by using a set.
 		unrepeated = set( [field.partition('/')[0] for field in fields] )
@@ -324,7 +438,7 @@ class Report:
 			# Check if it's a many2one
 			if isinstance(value, orm.browse_record):
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				self.generate_record(value, records, fieldNode, currentPath, fields2)
+				self.generate_record_xml(value, records, fieldNode, currentPath, fields2)
 				continue
 
 			# Check if it's a one2many or many2many
@@ -333,10 +447,10 @@ class Report:
 					continue
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
 				if currentPath in records:
-					self.generate_record(records[currentPath], records, fieldNode, currentPath, fields2)
+					self.generate_record_xml(records[currentPath], records, fieldNode, currentPath, fields2)
 				else:
 					# If the field is not marked to be iterated use the first record only
-					self.generate_record(value[0], records, fieldNode, currentPath, fields2)
+					self.generate_record_xml(value[0], records, fieldNode, currentPath, fields2)
 				continue
 
 			# The rest of field types must be converted into str

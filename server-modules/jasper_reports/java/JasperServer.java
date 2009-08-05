@@ -16,6 +16,7 @@ import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.data.JRXmlDataSource;
+import net.sf.jasperreports.engine.data.JRCsvDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 
 // Exporters
@@ -32,6 +33,7 @@ import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
 import net.sf.jasperreports.engine.export.oasis.JROdsExporter;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Hashtable;
 import java.io.ByteArrayInputStream;
 import java.io.*;
@@ -131,14 +133,28 @@ public class JasperServer {
 			language = report.getQuery().getLanguage();
 
 		if( language.equalsIgnoreCase( "XPATH")  ){
-			System.out.println( "PREPARING..." );
-			JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
-			dataSource.setDatePattern( "yyyy-MM-dd mm:hh:ss" );
-			dataSource.setNumberPattern( "#######0.##" );
-			dataSource.setLocale( Locale.ENGLISH );
-			System.out.println( "PREPARED" );
-			jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
-			System.out.println( "FILLED" );
+			try {
+				// If available, use a CSV file because it's faster to process.
+				// Otherwise we'll use an XML file.
+				if ( connectionParameters.containsKey("csv") ) {
+					JRCsvDataSource dataSource = new JRCsvDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
+					dataSource.setUseFirstRowAsHeader( true );
+					dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd mm:hh:ss" ) );
+					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
+				} else {
+					JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
+					dataSource.setDatePattern( "yyyy-MM-dd mm:hh:ss" );
+					dataSource.setNumberPattern( "#######0.##" );
+					dataSource.setLocale( Locale.ENGLISH );
+					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+			} catch (Exception e){
+				e.printStackTrace();
+			}
 		} else if( language.equalsIgnoreCase( "SQL")  ) {
 			try {
 				Connection connection = getConnection( connectionParameters );
