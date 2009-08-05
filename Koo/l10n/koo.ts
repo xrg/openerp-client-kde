@@ -468,67 +468,67 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ExportDialog</name>
     <message>
-        <location filename="win_export.ui" line="13"/>
+        <location filename="win_export.ui" line="14"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="21"/>
+        <location filename="win_export.ui" line="22"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="45"/>
+        <location filename="win_export.ui" line="46"/>
         <source>Re&amp;move Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="75"/>
+        <location filename="win_export.ui" line="76"/>
         <source>&lt;b&gt;All fields&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="115"/>
+        <location filename="win_export.ui" line="116"/>
         <source>A&amp;dd</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="126"/>
+        <location filename="win_export.ui" line="127"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="137"/>
+        <location filename="win_export.ui" line="138"/>
         <source>Remo&amp;ve all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="161"/>
+        <location filename="win_export.ui" line="162"/>
         <source>&amp;Save list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="176"/>
+        <location filename="win_export.ui" line="177"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="196"/>
+        <location filename="win_export.ui" line="197"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="209"/>
+        <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="239"/>
+        <location filename="win_export.ui" line="243"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="253"/>
+        <location filename="win_export.ui" line="257"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -948,22 +948,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GoToIdDialog</name>
     <message>
-        <location filename="gotoid.ui" line="13"/>
+        <location filename="gotoid.ui" line="14"/>
         <source>Go To Id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="21"/>
+        <location filename="gotoid.ui" line="22"/>
         <source>&amp;Search Id:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="71"/>
+        <location filename="gotoid.ui" line="72"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="82"/>
+        <location filename="gotoid.ui" line="83"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>

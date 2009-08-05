@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-04 19:02+0200\n"
+"POT-Creation-Date: 2009-08-05 22:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,9 +43,10 @@ msgstr ""
 msgid "Nothing to print!"
 msgstr ""
 
-#: Koo/Actions/Actions.py:111 Koo/Dialogs/AdministratorPasswordDialog.py:71
+#: Koo/Actions/Actions.py:111 Koo/Actions/Actions.py:117
+#: Koo/Dialogs/AdministratorPasswordDialog.py:71
 #: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:75
-#: Koo/Dialogs/ExportDialog.py:129 Koo/Dialogs/ExportDialog.py:157
+#: Koo/Dialogs/ExportDialog.py:139 Koo/Dialogs/ExportDialog.py:173
 #: Koo/Fields/Binary/BinaryFieldWidget.py:157
 #: Koo/Fields/Binary/BinaryFieldWidget.py:189
 #: Koo/Fields/Video/VideoFieldWidget.py:82
@@ -57,7 +58,7 @@ msgstr ""
 msgid "Printing aborted, too long delay !"
 msgstr ""
 
-#: Koo/Actions/Actions.py:218
+#: Koo/Actions/Actions.py:220
 msgid "Select your action"
 msgstr ""
 
@@ -229,11 +230,11 @@ msgid "Working now on the duplicated document !"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:290
-msgid "Document saved !"
+msgid "<font color=\"green\">Document saved !</font>"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:294
-msgid "Invalid form !"
+msgid "<font color=\"red\">Invalid form !</font>"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:363
@@ -582,49 +583,49 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:129
+#: Koo/Dialogs/ExportDialog.py:139
 #, python-format
 msgid ""
 "Error opening Excel:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:157
+#: Koo/Dialogs/ExportDialog.py:173
 #, python-format
 msgid ""
 "Error Opening OpenOffice.org:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:254
+#: Koo/Dialogs/ExportDialog.py:270
 msgid "Export Data"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:297
+#: Koo/Dialogs/ExportDialog.py:313
 msgid "What is the name of this export?"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:313
+#: Koo/Dialogs/ExportDialog.py:329
 msgid "Open with Excel"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:316
+#: Koo/Dialogs/ExportDialog.py:332
 msgid "Open with OpenOffice.org"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:317
+#: Koo/Dialogs/ExportDialog.py:333
 msgid "Save as CSV"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:318
+#: Koo/Dialogs/ExportDialog.py:334
 msgid "Save as HTML"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:330
+#: Koo/Dialogs/ExportDialog.py:346
 msgid "Export name"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:331
+#: Koo/Dialogs/ExportDialog.py:347
 msgid "Exported fields"
 msgstr ""
 
@@ -648,12 +649,12 @@ msgstr ""
 msgid "Pyro"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:76
+#: Koo/Dialogs/SearchDialog.py:80
 #, python-format
 msgid "Search: %s"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:77
+#: Koo/Dialogs/SearchDialog.py:81
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr ""

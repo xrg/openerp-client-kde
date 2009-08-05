@@ -380,7 +380,7 @@ msgid "&Restore Database"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:161
+#: win_export.ui:162
 #, fuzzy
 msgid "&Save list"
 msgstr ""
@@ -392,7 +392,7 @@ msgid "&Save"
 msgstr ""
 
 #. ts-context GoToIdDialog
-#: gotoid.ui:21
+#: gotoid.ui:22
 #, fuzzy
 msgid "&Search Id:"
 msgstr ""
@@ -899,7 +899,7 @@ msgid "<Tab>"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:75
+#: win_export.ui:76
 #, fuzzy
 msgid "<b>All fields</b>"
 msgstr ""
@@ -929,19 +929,19 @@ msgid "<b>Error code:</b>"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:176
+#: win_export.ui:177
 #, fuzzy
 msgid "<b>Fields to export</b>"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:196
+#: win_export.ui:197
 #, fuzzy
 msgid "<b>Options</b>"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:21
+#: win_export.ui:22
 #, fuzzy
 msgid "<b>Predefined exports</b>"
 msgstr ""
@@ -994,7 +994,7 @@ msgid "A"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:115
+#: win_export.ui:116
 #, fuzzy
 msgid "A&dd"
 msgstr ""
@@ -1012,7 +1012,7 @@ msgid "Action here..."
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:209
+#: win_export.ui:210
 #, fuzzy
 msgid "Add &field names"
 msgstr ""
@@ -1497,7 +1497,7 @@ msgid "G"
 msgstr ""
 
 #. ts-context GoToIdDialog
-#: gotoid.ui:13
+#: gotoid.ui:14
 #, fuzzy
 msgid "Go To Id"
 msgstr ""
@@ -1841,7 +1841,7 @@ msgid "R"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:45
+#: win_export.ui:46
 #, fuzzy
 msgid "Re&move Export"
 msgstr ""
@@ -1871,7 +1871,7 @@ msgid "Remo&ve All"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:137
+#: win_export.ui:138
 #, fuzzy
 msgid "Remo&ve all"
 msgstr ""
