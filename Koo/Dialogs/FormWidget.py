@@ -287,11 +287,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		modification = self.screen.currentRecord().id
 		id = self.screen.save()
 		if id:
-			self.updateStatus(_('Document saved !'))
+			self.updateStatus(_('<font color="green">Document saved !</font>'))
 			if not modification:
 				self.screen.new()
 		else:
-			self.updateStatus(_('Invalid form !'))
+			self.updateStatus(_('<font color="red">Invalid form !</font>'))
 		QApplication.restoreOverrideCursor()
 		return bool(id)
 
