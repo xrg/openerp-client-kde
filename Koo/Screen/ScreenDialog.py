@@ -73,7 +73,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 	def setAttributes(self, attrs):
 		if ('string' in attrs) and attrs['string']:
-			self.setWindowTitle( self.windowTitle() + ' - ' + attrs['string'])
+			self.setWindowTitle( unicode(self.windowTitle()) + ' - ' + attrs['string'])
 
 	def setContext(self, context):
 		self._context = context

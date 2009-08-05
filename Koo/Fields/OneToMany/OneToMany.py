@@ -54,7 +54,7 @@ class OneToManyDialog( QDialog, OneToManyDialogUi ):
 
 		self.setModal(True)
 		if ('string' in attrs) and attrs['string']:
-			self.setWindowTitle( self.windowTitle() + " - " + attrs['string'])
+			self.setWindowTitle( unicode(self.windowTitle()) + " - " + attrs['string'])
 
 		self.screen.setRecordGroup( modelGroup )
 		self.screen.setEmbedded( True )
