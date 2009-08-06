@@ -43,11 +43,7 @@ class AdministratorPasswordDialog( QDialog, AdministratorPasswordDialogUi ):
 		self.connect( self.pushChange, SIGNAL('clicked()'), self.slotChange )	
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
-		host = Options.options['login.server']
-		port = Options.options['login.port']
-		secure = Options.options['login.secure']
-		protocol = secure and 'https' or 'http'
-		url = '%s://%s:%s' % (protocol, host, port)
+		url = '%s%s:%s' % (Options.options['login.protocol'], Options.options['login.server'], Options.options['login.port'])
 		self.uiServer.setText(url)
 
 	def slotChange(self):
