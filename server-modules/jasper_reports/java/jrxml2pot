@@ -9,15 +9,24 @@ if [ -z "$JAVA_HOME" ]; then
 	done
 fi
 
-rm lib/i18n.jar
-
 export PATH="$JAVA_HOME"/bin:/bin:/usr/bin
 export CLASSPATH=$(ls -1 lib/* | grep jar$ | awk '{printf "%s:", $1}')
 export CLASSPATH="$CLASSPATH":$scriptdir
 
-javac i18n.java I18nGetText.java I18nScriptlet.java I18nGroovyCompiler.java JasperServer.java || exit
-rm i18n.jar
-jar cvf i18n.jar i18n.class I18nGetText.java I18nGroovyCompiler.class I18nScriptlet.class
-cp i18n.jar lib
+function help()
+{
+	echo "Syntax: ./jrxml2pot file.jrxml file.pot"
+	exit
+}
 
-java JasperServer
+if [[ -z "$1" || -z "$2" ]]; then
+	help
+fi
+
+jrxml=$1	
+pot=$2
+
+tmp=$(mktemp)
+java I18nGetText $jrxml > $tmp
+xgettext -L Java -ktr -ktr:2 -ktrn:1,2 -ktrn:2,3 -o $pot $tmp
+rm $tmp

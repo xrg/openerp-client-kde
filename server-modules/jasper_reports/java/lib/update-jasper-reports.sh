@@ -6,7 +6,7 @@ if [ -z "$1" ]; then
 fi
 directory=$1
 
-rm -I $(ls *.jar | grep -v postgresql | grep -v xmlrpc | grep -v ws-commons-util)
+rm -I $(ls *.jar | grep -v postgresql | grep -v xmlrpc | grep -v ws-commons-util | grep -v gettext-commons)
 
 cp $directory/ireport/modules/ext/*.jar .
 

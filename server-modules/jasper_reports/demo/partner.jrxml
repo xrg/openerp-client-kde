@@ -145,7 +145,7 @@
 		<band/>
 	</background>
 	<title>
-		<band height="81">
+		<band height="127">
 			<subreport>
 				<reportElement x="0" y="0" width="555" height="79"/>
 				<subreportParameter name="TITLE">
@@ -160,6 +160,20 @@
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression class="java.lang.String"><![CDATA[$P{STANDARD_DIR} + "report_header.jasper"]]></subreportExpression>
 			</subreport>
+			<textField>
+				<reportElement x="0" y="84" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[tr("TESTING TRANSLATED TEXTS")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="104" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[tr(new Locale("es","ES"), "SECOND LOCALE TEST {0}", 1)]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>

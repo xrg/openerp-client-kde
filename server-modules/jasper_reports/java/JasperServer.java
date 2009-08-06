@@ -37,6 +37,7 @@ import java.lang.Object;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.ResourceBundle;
 import java.text.SimpleDateFormat;
 import java.util.Hashtable;
 import java.io.ByteArrayInputStream;
@@ -46,6 +47,8 @@ import java.lang.Class;
 import java.math.BigDecimal;
 import java.io.InputStream;
 import java.util.Locale;
+
+
 
 /*
 This class overrides Hashtable's get() function to return 
@@ -78,7 +81,6 @@ class CsvMultiLanguageDataSource extends JRCsvDataSource {
 
 	public Object getFieldValue(JRField jrField) throws net.sf.jasperreports.engine.JRException {
 		Object value;
-		System.out.println("ASKED: " + jrField.getValueClassName() );
 		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
 			JRDesignField fakeField = new JRDesignField();
 			fakeField.setName( jrField.getName() );
@@ -90,14 +92,12 @@ class CsvMultiLanguageDataSource extends JRCsvDataSource {
 			LanguageTable values = new LanguageTable("en_US");
 			String v = (String) value;
 			String[] p = v.split( "\\|" );
-			System.out.println( "SPLITTED: " + p );
 			for( int j=0; j < p.length ; j++ ) {
 				System.out.println( p[j] );
 				String[] map = p[j].split( "~" );
 				if ( map.length == 2 ) 
 					values.put( map[0], map[1] );
 			}
-			System.out.println("HASH: " + values);
 			value = (Object)values;
 		} else {
 			value = super.getFieldValue(jrField);
@@ -125,21 +125,22 @@ public class JasperServer {
 		JasperPrint jasperPrint = null;
 		InputStream in = null;
 		String jasperPath;
+		String bundlePath;
 		File jrxmlFile;
 		File jasperFile;
 		int index;
 
 		index = jrxmlPath.lastIndexOf('.');
 		if ( index != -1 )
-			jasperPath = jrxmlPath.substring( 0, index ) + ".jasper";
+			bundlePath = jrxmlPath.substring( 0, index );
 		else
-			jasperPath = jrxmlPath + ".jasper";
-		System.out.println( "JASPER FILE: " + jasperPath );
+			bundlePath = jrxmlPath;
+		jasperPath = bundlePath + ".jasper";
+
+		System.setProperty("jasper.reports.compiler.class", "I18nGroovyCompiler");
 
 		jrxmlFile = new File( jrxmlPath );
 		jasperFile = new File( jasperPath );
-		System.out.println( "JRXML: " + jrxmlFile.lastModified() );
-		System.out.println( "JASPER: " + jasperFile.lastModified() );
 		if ( (! jasperFile.exists()) || (jrxmlFile.lastModified() > jasperFile.lastModified()) ) {
 			System.out.println( "Before compiling..") ;
 			JasperCompileManager.compileReportToFile( jrxmlPath, jasperPath );
@@ -149,6 +150,8 @@ public class JasperServer {
 		System.out.println( parameters );
 
 		report = (JasperReport) JRLoader.loadObject( jasperPath );
+		//JRExpressionCollector col = new JRExpressionCollector();
+		//jasperReport = JasperReport( report, report.getCompilerClass(), report.getCompileData(), , report.compileNameSuffix() );
 
 		// Add SUBREPORT_DIR parameter
 		index = jrxmlPath.lastIndexOf('/');
@@ -159,10 +162,7 @@ public class JasperServer {
 		JRParameter[] reportParameters = report.getParameters();
 		System.out.println( "Parameters.length:"+ reportParameters.length );
 		for( int j=0; j < reportParameters.length; j++ ){
-			System.out.println( "EVAL: " + j );
-			//try{
 			JRParameter jparam = reportParameters[j];	
-			System.out.println( " PARAM:"+ jparam.getName() + " " + jparam.getValueClassName() );
 			if ( jparam.getValueClassName().equals( "java.util.Locale" ) ) {
 				// REPORT_LOCALE
 				if ( ! parameters.containsKey( jparam.getName() ) )
@@ -176,15 +176,15 @@ public class JasperServer {
 					locale = new Locale( locales[0], locales[1] );
 				parameters.put( jparam.getName(), locale );
 
+				// Initialize translation system
+				i18n.init( bundlePath, locale );
+
 			} else if( jparam.getValueClassName().equals( "java.lang.BigDecimal" )){
 				Object param = parameters.get( jparam.getName());
 				System.out.println( "1" + jparam.getValueClassName() ) ;
 				parameters.put( jparam.getName(), new BigDecimal( (Double) parameters.get(jparam.getName() ) ) );
 				System.out.println( "2" + jparam.getValueClassName() ) ;
 			}
-			//}catch(Exception e){
-					    //e.printStackTrace();
-			//}
 		}
 
 		System.out.println( "Before Filling report " );
@@ -279,7 +279,6 @@ public class JasperServer {
 		connection.setAutoCommit(true); 
 		return connection; 
 	}
-
 
 	public static void main (String [] args) {
 		try {
