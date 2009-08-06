@@ -81,32 +81,40 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 				uiText = QLineEdit(self)
 			else:
 				uiText = QTextEdit(self)
+				uiText.setTabChangesFocus( True )
+				uiText.setAcceptRichText( False )
 
 			row = layout.rowCount() + 1
 			layout.addWidget( uiLabel, row, 0 )
 			layout.addWidget( uiText, row, 1 )
 
 			if lang['code'] == self.currentCode:
-				uiText.setText( self.value )
-				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.getText(uiText) } )
+				self.setText( uiText, self.value )
+				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.text(uiText) } )
 				continue
 
 			context = copy.copy(Rpc.session.context)			
 			context['lang'] = self.adaptContext( lang['code'] )
 			val = Rpc.session.execute( '/object', 'execute', self.model, 'read', [self.id], [self.fieldName], context)
 			val = val[0]
-			uiText.setText( val[self.fieldName] or '' )
-			self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.getText(uiText) } )
+			self.setText( uiText, val[self.fieldName] or '' )
+			self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.text(uiText) } )
 
-	def getText(self, widget):
+	def setText(self, widget, text):
+		if self.type == TranslationDialog.LineEdit:
+			widget.setText( text )
+		else:
+			widget.setPlainText( text )
+
+	def text(self, widget):
 		if self.type == TranslationDialog.LineEdit:
 			return unicode(widget.text())
 		else:
-			return unicode(widget.document().toPlainText())
+			return unicode(widget.plainText())
 		
 	def slotAccept(self):
 		for lang in self.translations:
-			newValue = self.getText( lang['widget'] )
+			newValue = self.text( lang['widget'] )
 			# Don't update on the server the current text. This would cause information
 			# on the server to be updated after the form has been read causing possible
 			# conflits.
