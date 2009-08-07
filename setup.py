@@ -122,8 +122,8 @@ Topic :: Office/Business
 """
 
 
-if len(sys.argv) != 2:
-	print "Syntax: setup.py command"
+if len(sys.argv) < 2:
+	print "Syntax: setup.py command [options]"
 	sys.exit(2)
 
 command = sys.argv[1]
