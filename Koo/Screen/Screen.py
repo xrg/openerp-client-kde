@@ -661,15 +661,22 @@ class Screen(QScrollArea):
 				# been shown to the user.
 				if not unlinked:
 					return False
-		for x in ids:
-			model = self.group[x]
-			idx = self.group.indexOfRecord( model )
-			self.group.remove( model )
-			if self.group.count():
-				idx = min(idx, self.group.count() - 1)
-				self.setCurrentRecord( self.group.recordByIndex( idx ) )
-			else:
-				self.setCurrentRecord( None )
+
+		if ids:
+			# Set no current record, so refreshes in the middle of the removal process
+			# (caused by signals) do not crash.
+			# Note that we want to ensure there are ids to remove so we don't setCurrentRecord(None)
+			# if it's not strictly necessary.
+			self.setCurrentRecord( None )
+			for x in ids:
+				model = self.group[x]
+				idx = self.group.indexOfRecord( model )
+				self.group.remove( model )
+				if self.group.count():
+					idx = min(idx, self.group.count() - 1)
+					self.setCurrentRecord( self.group.recordByIndex( idx ) )
+				else:
+					self.setCurrentRecord( None )
 		self.display()
 		if ids:
 			return True
