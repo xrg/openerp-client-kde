@@ -590,17 +590,21 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
 				self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
 		else:
+			# When opening in a new window we make the dialog modal. This way, wizards
+			# that use this method and were called from a button, they return to the
+			# button code and it can refresh the view after the wizard has finished.
 			parent = QApplication.activeModalWidget()
 			if not parent:
 				parent = self
 			dialog = QDialog( parent )
+			dialog.setModal( True )
 			layout = QHBoxLayout(dialog)
 			layout.setContentsMargins( 0, 0, 0, 0 )
 			layout.addWidget( win )
 			win.setParent( dialog )
 			self.connect( win, SIGNAL('closed()'), dialog.accept )
 			win.show()
-			dialog.show()
+			dialog.exec_()
 
 	def updateEnabledActions(self):
 		view = self.tabWidget.currentWidget()
