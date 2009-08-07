@@ -166,17 +166,20 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			self.name = p.title
 		
 		# Shortcuts
-		scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
-		self.shortcutsGroup = RecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
-		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
-
-		self.shortcutsModel = KooModel( self )
-		self.shortcutsModel.setMode( KooModel.ListMode )
-		self.shortcutsModel.setFields( scFields )
-		self.shortcutsModel.setFieldsOrder( ['name'] )
-		self.shortcutsModel.setRecordGroup( self.shortcutsGroup )
-		self.shortcutsModel.setShowBackgroundColor( False )
-		self.uiShortcuts.setModel( self.shortcutsModel )
+		if self.model == 'ir.ui.menu':
+			scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
+			self.shortcutsGroup = RecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
+			self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
+			self.shortcutsModel = KooModel( self )
+			self.shortcutsModel.setMode( KooModel.ListMode )
+			self.shortcutsModel.setFields( scFields )
+			self.shortcutsModel.setFieldsOrder( ['name'] )
+			self.shortcutsModel.setRecordGroup( self.shortcutsGroup )
+			self.shortcutsModel.setShowBackgroundColor( False )
+			self.uiShortcuts.setModel( self.shortcutsModel )
+			self.uiShortcutsContainer.show()
+		else:
+			self.uiShortcutsContainer.hide()
 		
 		if not p.toolbar:
 			self.uiList.hide()
@@ -241,8 +244,9 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		# Reload shortcuts and emit the shortcutsChanged
 		# signal so 'Window' menu and these shortcuts can be
 		# kept in sync.
-		self.shortcutsGroup.update()
-		self.emit( SIGNAL('shortcutsChanged'), self.model )
+		if self.model == 'ir.ui.menu':
+			self.shortcutsGroup.update()
+			self.emit( SIGNAL('shortcutsChanged'), self.model )
 		QApplication.restoreOverrideCursor()
 
 	# TODO: Look if for some menu entries this has any sense. Otherwise
