@@ -41,10 +41,7 @@ class BooleanFieldWidget(AbstractFieldWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.setSpacing( 0 )
 		layout.addWidget( self.widget )
-		# Adding the stretch ensures the Widget will be placed on the left, just
-		# after the label while allowing other widgets in the same column of the grid
-		# occupy the space they need.
-		layout.addStretch()
+		layout.setAlignment( Qt.AlignLeft )
 		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('stateChanged(int)'), self.callModified )
 
