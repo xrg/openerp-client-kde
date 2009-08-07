@@ -97,6 +97,8 @@ class RecordGroup(QObject):
 		self.loadFieldObjects( self.fields.keys() )
 
 		self.records = []
+
+		self.enableSignals()
 		
 		# toBeSorted properties store information each time sort() function
 		# is called. If loading of records is not enabled, records won't be
@@ -331,12 +333,22 @@ class RecordGroup(QObject):
 			start = position
 		self.emit( SIGNAL('recordsInserted(int,int)'), start, start )
 		return record
+
+	def disableSignals(self):
+		self._signalsEnabled = False
+
+	def enableSignals(self):
+		self._signalsEnabled = True
 	
 	def recordChanged(self, record):
-		self.emit( SIGNAL('recordChanged(PyQt_PyObject)'), record )
+		#import traceback
+		#traceback.print_stack()
+		if self._signalsEnabled:
+			self.emit( SIGNAL('recordChanged(PyQt_PyObject)'), record )
 
 	def recordModified(self, record):
-		self.emit( SIGNAL('modified()') )
+		if self._signalsEnabled:
+			self.emit( SIGNAL('modified()') )
 
 	## @brief Removes a record from the record group but not from the server.
 	#
@@ -531,6 +543,7 @@ class RecordGroup(QObject):
 
 		missingFields = record.missingFields()
 
+		self.disableSignals()
 		# Load only non binary and image fields
 		binaries = [x for x in missingFields if self.fields[x]['type'] in ('binary','image')]
 		others = list( set(missingFields) - set(binaries) )
@@ -550,7 +563,9 @@ class RecordGroup(QObject):
 			for x in binaries:
 				data[x] = None
 			for x in queryIds:
+				self.disableSignals()
 				self.recordById(x).set( data )
+		self.enableSignals()
 		# TODO: Take a look if we need to set default values for new records!
 		## Set defaults
 		#if len(new) and len(to_add):
@@ -654,6 +669,8 @@ class RecordGroup(QObject):
 			self.emit( SIGNAL("sorting"), self.SortingNotPossibleModified )
 			return
 
+		oldSortedField = self.sortedField
+
 		# We set this fields in the very beggining in case some signals are cought
 		# and retry to sort again which would cause an infinite recursion.
 		self.sortedField = field
@@ -712,7 +729,9 @@ class RecordGroup(QObject):
 			self.clear()
 			# The load function will be in charge of loading and sorting elements
 			self.load( ids )
-		elif not self.ids():
+		elif oldSortedField == self.sortedField or not self.ids():
+			# If last sorted field was the same as the current one, possibly only filter crierias have changed
+			# so we might need to reload in this case. 
 			# If sorting is not possible, but no data was loaded yet, we load by model default field and order.
 			# Otherwise, a view might not load any data.
 			ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
