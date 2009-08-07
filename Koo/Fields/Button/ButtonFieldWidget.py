@@ -88,11 +88,11 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 					QApplication.setOverrideCursor( Qt.WaitCursor )
 
 					result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+					QApplication.restoreOverrideCursor()
 					if isinstance( result, dict ):
 						screen.close()
 						Api.instance.executeAction( result, {}, screen.context)
 
-					QApplication.restoreOverrideCursor()
 				elif type == 'action':
 					action_id = int(self.attrs['name'])
 					Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
