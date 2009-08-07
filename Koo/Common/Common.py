@@ -164,9 +164,9 @@ class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 
 ## @brief Shows a warning dialog. Function used by the notifier in the Koo application.
 def warning(title, message):
-	QApplication.setOverrideCursor( Qt.ArrowCursor )
+	if QApplication.overrideCursor() != Qt.ArrowCursor:
+		QApplication.changeOverrideCursor( Qt.ArrowCursor )
 	QMessageBox.warning(None, title, message)
-	QApplication.restoreOverrideCursor()
 
 ## @brief The ConcurrencyErrorDialog class provices a Dialog used when a 
 # concurrency error is received from the server.
@@ -182,10 +182,11 @@ class ConcurrencyErrorDialog(QMessageBox):
 	
 ## @brief Shows the ConcurrencyErrorDialog. Function used by the notifier in the Koo application.
 def concurrencyError(model, id, context):
-	QApplication.setOverrideCursor( Qt.ArrowCursor )
+	if QApplication.overrideCursor() != Qt.ArrowCursor:
+		QApplication.changeOverrideCursor( Qt.ArrowCursor )
 	dialog = ConcurrencyErrorDialog()
 	result = dialog.exec_()
-	QApplication.restoreOverrideCursor()
+	#QApplication.restoreOverrideCursor()
 	if result == 0:
 		return True
 	if result == 1:
@@ -210,10 +211,10 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
-		QApplication.changeOverrideCursor( Qt.ArrowCursor )
+		if QApplication.overrideCursor() != Qt.ArrowCursor:
+			QApplication.changeOverrideCursor( Qt.ArrowCursor )
 	
 	def done(self, r):
-		QApplication.restoreOverrideCursor()
 		QDialog.done(self, r)
 
 
