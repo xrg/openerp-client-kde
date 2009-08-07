@@ -363,17 +363,6 @@ class Screen(QScrollArea):
 			self.currentRecord().setValidate()
 		self.display()
 
-	## @brief Loads the next view pending to be loaded.
-	# If there is no view pending it returns False, otherwise returns True.
-	def loadNextView(self):
-		if self._viewQueue.isEmpty():
-			return False
-
-		(id, type) = self._viewQueue.next()
-		self.addViewByIdAndType( id, type )
-		return True
-
-
 	## @brief Adds a view given it's id and type.
 	#
 	# This function is needed to resemble server's fields_view_get function. This 
