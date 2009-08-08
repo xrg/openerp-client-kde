@@ -596,8 +596,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			parent = QApplication.activeModalWidget()
 			if not parent:
 				parent = self
-			dialog.setWindowTitle( _('Wizard') )
 			dialog = QDialog( parent )
+			dialog.setWindowTitle( _('Wizard') )
 			dialog.setModal( True )
 			layout = QHBoxLayout(dialog)
 			layout.setContentsMargins( 0, 0, 0, 0 )
