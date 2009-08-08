@@ -133,6 +133,10 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 	def store(self):
 		pass
 
+	def saveState(self):
+		self.screen.storeViewSettings()
+		return AbstractFieldWidget.saveState(self)
+
 class ManyToManyFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, kooModel, index):
 		if unicode( editor.text() ) == unicode( index.data( Qt.DisplayRole ).toString() ):

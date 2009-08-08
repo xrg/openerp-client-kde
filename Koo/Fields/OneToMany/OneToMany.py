@@ -197,6 +197,10 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 	def store(self):
 		self.screen.currentView().store()
 
+	def saveState(self):
+		self.screen.storeViewSettings()
+		return AbstractFieldWidget.saveState(self)
+
 # We don't allow modifying OneToMany fields but we allow creating the editor
 # because otherwise the view is no longer in edit mode and moving from one field
 # to another, if there's a OneToMany in the middle the user has to press F2 again

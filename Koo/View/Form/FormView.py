@@ -225,6 +225,8 @@ class FormView( AbstractView ):
 		stream = QDataStream( data, QIODevice.WriteOnly )
 		for x in splitters:
 			stream << x.saveState()
+		for x in sorted( self.widgets.keys() ):
+			stream << self.widgets[x].saveState()
 		return str( data.toBase64() )
 
 	def setViewSettings(self, settings):
@@ -239,6 +241,12 @@ class FormView( AbstractView ):
 			value = QByteArray()
 			stream >> value
 			x.restoreState( value )
+		for x in sorted( self.widgets.keys() ):
+			if stream.atEnd():
+				return
+			value = QByteArray()
+			stream >> value
+			self.widgets[x].restoreState( value )
 
 	def showsMultipleRecords(self):
 		return False

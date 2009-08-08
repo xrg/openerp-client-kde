@@ -254,3 +254,8 @@ class AbstractFieldWidget(QWidget):
 	def store(self):
 		pass
 
+	def saveState(self):
+		return QByteArray()
+
+	def restoreState(self, state):
+		pass
