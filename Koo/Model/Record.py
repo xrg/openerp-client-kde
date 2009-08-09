@@ -180,22 +180,24 @@ class Record(QObject):
 		if isinstance(readOnly, bool):
 			return readOnly
 		if isinstance(readOnly, str) or isinstance(readOnly, unicode):
-			if readOnly.lower() == 'true':
+			readOnly = readOnly.strip()
+			if readOnly.lower() == 'true' or readOnly == '1':
 				return True
-			if readOnly.lower() == 'false':
+			if readOnly.lower() == 'false' or readOnly == '0':
 				return False
-		return bool(int(readOnly))
+		return bool(readOnly)
 		
 	def isFieldRequired(self, fieldName):
 		required = self.stateAttributes( fieldName ).get('required', False)
 		if isinstance(required, bool):
 			return required
 		if isinstance(required, str) or isinstance(required, unicode):
-			if required.lower() == 'true':
+			required = required.strip()
+			if required.lower() == 'true' or required == '1':
 				return True
-			if required.lower() == 'false':
+			if required.lower() == 'false' or readOnly == '0':
 				return False
-		return bool(int(required))
+		return bool(required)
 
 	def fieldExists(self, fieldName):
 		return fieldName in self.group.fieldObjects
