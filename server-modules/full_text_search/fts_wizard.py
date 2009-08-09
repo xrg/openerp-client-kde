@@ -29,26 +29,6 @@ import wizard
 import pooler
 from osv import osv, fields
 
-view_form_end = """<?xml version="1.0"?>
-	<form string="Full text index update done">
-		<separator string="System upgrade done"/>
-		<label align="0.0" string="The full text index has been updated!" colspan="4"/>
-	</form>"""
-
-view_form = """<?xml version="1.0"?>
-	<form string="Full text index update">
-		<image name="gtk-info" size="64" colspan="2"/>
-		<group colspan="2" col="4">
-			<label align="0.0" string="The full text index will be updated." colspan="4"/>
-			<label align="0.0" string="Note that this operation may take a lot of time, depending on the amount of new indexes and the number of records in the database." colspan="4"/>
-			<separator string="Indexes to update"/>
-		</group>
-	</form>"""
-
-view_field = {
-	"module_info": {'type':'text', 'string':'Modules', 'readonly':True}
-}
-
 class wizard_start(osv.osv_memory):
 	_name = 'fts.wizard'
 
@@ -190,14 +170,4 @@ class wizard_start(osv.osv_memory):
 			cr.execute("CREATE TRIGGER \"" + table_name + "_fts_full_text_search\" BEFORE INSERT OR UPDATE OR DELETE ON \"" + table_name + "\" FOR EACH ROW EXECUTE PROCEDURE fts_full_text_search_trigger(%s,%s)", (model_id, fields) )
 			cr.commit()
 	
-	#states = {
-	#	'init': {
-	#		'actions': [_get_install],
-	#		'result': {'type':'form', 'arch':view_form, 'fields':{}, 'state':[('end','Cancel','gtk-cancel'),('start','Start Update','gtk-ok')]}
-	#	},
-	#	'start': {
-	#		'actions': [_update_index],
-	#		'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
-	#	}
-	#}
 wizard_start()
