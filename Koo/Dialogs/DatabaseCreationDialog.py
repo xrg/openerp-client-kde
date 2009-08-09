@@ -30,7 +30,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 import ServerConfigurationDialog
 from Koo.Common import Common
-from Koo.Common import Options
+from Koo.Common.Settings import *
 from Koo import Rpc
 import re
 
@@ -128,7 +128,7 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.accepted )
 		self.connect(self.pushChange,SIGNAL("clicked()"),self.changeServer )
 
-		url = '%s%s:%s' % (Options.options['login.protocol'], Options.options['login.server'], Options.options['login.port'])
+		url = '%s%s:%s' % (Settings.value('login.protocol'), Settings.value('login.server'), Settings.value('login.port'))
 		self.uiServer.setText(url)
 		self.refreshLangList(url) 
 	

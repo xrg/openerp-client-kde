@@ -28,7 +28,7 @@
 
 from Koo.Common import Common
 from Koo.Common import Icons
-from Koo.Common import Options
+from Koo.Common.Settings import *
 from Koo import Rpc
 
 from FormView import FormView, FormContainer
@@ -145,7 +145,7 @@ class FormParser(AbstractParser):
 						'top': QTabWidget.North,
 						'right': QTabWidget.East,
 						'bottom': QTabWidget.South
-					} [Options.options['tabs_position']]
+					} [Settings.value('tabs_position')]
 					
 			        tab.setTabPosition( pos )
 

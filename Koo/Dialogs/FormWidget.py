@@ -39,7 +39,7 @@ from MassiveUpdateDialog import *
 
 from Koo.Common import Api
 from Koo.Common import Common
-from Koo.Common import Options
+from Koo.Common.Settings import *
 import copy
 
 from Koo.Screen.Screen import *
@@ -147,7 +147,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
-		if Options.options.get('auto_reload', False):
+		if Settings.value('auto_reload'):
 			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
 
 	## @brief Establishes that every value seconds a reload should be scheduled.
@@ -162,7 +162,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			# but only when data is changed in the server.
 			if value > 0:
 				self.reloadTimer.start( int(value) * 1000 )
-			if not Options.options.get('auto_reload', False):
+			if not Settings.value('auto_reload'):
 				# Do not subscribe again if that was already done in the constructor
 				self.subscriber.subscribe( 'updated_model:%s' % self.model, self.autoReload )
 		else:
@@ -187,7 +187,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def showAttachments(self):
 		id = self.screen.currentId()
 		if id:
-			if Options.options['attachments_dialog']:
+			if Settings.value('attachments_dialog'):
 				QApplication.setOverrideCursor( Qt.WaitCursor )
 				window = AttachmentDialog(self.model, id, self)
 				self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )

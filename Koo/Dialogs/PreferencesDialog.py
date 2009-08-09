@@ -79,6 +79,9 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		if not self.screen.currentRecord().validate():
 			return
 
+		if self.screen.currentRecord().fieldExists( 'lang' ):
+			Options.options['language'] = self.screen.currentRecord().value( 'lang' )
+
 		Rpc.session.execute('/object', 'execute', 'res.users', 'write', [Rpc.session.uid], self.screen.get())
 		Rpc.session.reloadContext()
 		self.accept()

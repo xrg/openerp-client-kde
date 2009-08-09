@@ -29,7 +29,7 @@ import Paths
 import os
 
 ## @brief Initializes gettext translation system.
-def initializeTranslations():
+def initializeTranslations(language=None):
 	import locale
 	import gettext
 
@@ -42,9 +42,10 @@ def initializeTranslations():
 		print "Warning: Unsupported locale." 
 
 
-	language, encoding = locale.getdefaultlocale()
 	if not language:
-		language = 'C'
+		language, encoding = locale.getdefaultlocale()
+		if not language:
+			language = 'C'
 
 	# Set environment variables otherwise it doesn't properly
 	# work on windows
@@ -69,9 +70,10 @@ def initializeTranslations():
 	lang.install(unicode=1)
 
 ## @brief Initializes Qt translation system.
-def initializeQtTranslations():
+def initializeQtTranslations(language=None):
 	from PyQt4.QtCore import QTranslator, QCoreApplication, QLocale
-	language = str(QLocale.system().name())
+	if not language:
+		language = str(QLocale.system().name())
 
 	# First we try to load the file with the same system language name 
 	# Usually in $LANG and looks something like ca_ES, de_DE, etc.

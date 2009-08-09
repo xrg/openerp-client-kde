@@ -30,26 +30,26 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 import re
 from Koo.Common import Common
-from Koo.Common import Options
+from Koo.Common.Settings import *
 from Koo import Rpc
 
 # Searches the list of available databases in the server
-def refreshDatabaseList(db_widget, url, dbtoload=None):
+def refreshDatabaseList(widget, url, dbtoload=None):
 	if not dbtoload:
-		dbtoload = Options.options['login.db']
+		dbtoload = Settings.value('login.db')
 	index = 0
-	db_widget.clear()
+	widget.clear()
 		
 	result = Rpc.database.list(url)
 	if result == -1:
 		return -1
 	if result:
 		for db_num, db_name in enumerate(result):
-			db_widget.addItem( db_name )
+			widget.addItem( db_name )
 			if db_name == dbtoload:
 				index = db_num
-	db_widget.setCurrentIndex(index)
-	return db_widget.count()
+	widget.setCurrentIndex(index)
+	return widget.count()
 
 (ServerConfigurationDialogUi, ServerConfigurationDialogBase) = loadUiType( Common.uiPath('change_server.ui') )
 

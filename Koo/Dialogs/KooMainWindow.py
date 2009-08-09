@@ -52,7 +52,7 @@ from ServerConfigurationDialog import *
 from LoginDialog import * 
 from AdministratorPasswordDialog import *
 
-from Koo.Common import Options
+from Koo.Common.Settings import Settings
 from Koo.Common import Common
 from Koo.Common import Api
 from Koo.Common import ViewSettings
@@ -240,7 +240,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
-		self.requestsTimer.start( Options.options.get( 'requests_refresh_interval', 5 * 60 ) * 1000 )
+		self.requestsTimer.start( Settings.value( 'requests_refresh_interval', 5 * 60 ) * 1000 )
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
@@ -364,10 +364,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			return ([], [])
 
 	def showLoginDialog(self):
-		LoginDialog.defaultHost = Options.options['login.server']
-		LoginDialog.defaultPort = Options.options['login.port']
-		LoginDialog.defaultProtocol = Options.options['login.protocol']
-		LoginDialog.defaultUserName = Options.options['login.login']
+		LoginDialog.defaultHost = Settings.value('login.server')
+		LoginDialog.defaultPort = Settings.value('login.port')
+		LoginDialog.defaultProtocol = Settings.value('login.protocol')
+		LoginDialog.defaultUserName = Settings.value('login.login')
 		dialog = LoginDialog( self )
 		while dialog.exec_() == QDialog.Accepted:
 			self.login( dialog.url, dialog.databaseName )
@@ -394,9 +394,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			log_response = Rpc.session.login(url, databaseName)
 			url = QUrl( url )
 			if log_response==Rpc.session.LoggedIn:
-				Options.options.loadSettings()
+				Settings.loadFromServer()
 
-				iconVisible = Options.options.get( 'show_system_tray_icon', True )
+				iconVisible = Settings.value('show_system_tray_icon', True )
 				self.systemTrayIcon.setVisible( iconVisible )
 
 				# Start timer once settings have been loaded because
@@ -404,14 +404,15 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				self.startRequestsTimer()
 				# Remove password and store URL
 				url.setPassword( '' )
-				Options.options['login.url'] = unicode( url.toString() )
-				Options.options['login.db'] = databaseName
-				Options.options.save()
+				Settings.setValue('login.url', unicode( url.toString() ) )
+				Settings.setValue('login.db', databaseName )
+				Settings.saveToFile()
+
 			        self.openMenuTab()
 				self.openHomeTab()
 
 				if Common.isQtVersion45():
-					self.tabWidget.setTabsClosable( Options.options['tabs_closable'] )
+					self.tabWidget.setTabsClosable( Settings.value('tabs_closable') )
 
 				self.updateRequestsStatus()
 				self.updateUserShortcuts()
@@ -621,7 +622,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		else:
 			self.actionFullTextSearch.setEnabled( False )
 
-		if Options.options.get( 'allow_massive_updates', True ):
+		if Settings.value('allow_massive_updates', True):
 			self.actionMassiveUpdate.setVisible( True )
 		else:
 			self.actionMassiveUpdate.setVisible( False )

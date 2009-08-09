@@ -29,7 +29,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 from ServerConfigurationDialog import *
-from Koo.Common import Options
+from Koo.Common.Settings import *
 from Koo import Rpc
 
 (AdministratorPasswordDialogUi, AdministratorPasswordDialogBase) = loadUiType( Common.uiPath('admin_passwd.ui') )
@@ -43,7 +43,7 @@ class AdministratorPasswordDialog( QDialog, AdministratorPasswordDialogUi ):
 		self.connect( self.pushChange, SIGNAL('clicked()'), self.slotChange )	
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
-		url = '%s%s:%s' % (Options.options['login.protocol'], Options.options['login.server'], Options.options['login.port'])
+		url = '%s%s:%s' % (Settings.value('login.protocol'), Settings.value('login.server'), Settings.value('login.port'))
 		self.uiServer.setText(url)
 
 	def slotChange(self):

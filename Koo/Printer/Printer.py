@@ -29,9 +29,9 @@
 
 from PyQt4.QtCore  import *
 from Koo.Common import Notifier
-from Koo.Common import Options
 from Koo.Common import Common
 from Koo.Common import Semantic
+from Koo.Common.Settings import *
 import os
 import base64
 import tempfile
@@ -62,7 +62,7 @@ class Printer(object):
 	# application depending on user settings.
 	@staticmethod
 	def printFile(fileName, fileType):
-		if Options.options['print_directly']:
+		if Settings.value('print_directly'):
 			Printer.sendToPrinter( fileName )
 		else:
 			Printer.open( fileName )

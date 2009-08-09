@@ -28,7 +28,7 @@
 
 from Koo.Rpc import RpcProxy
 from Koo import Rpc
-from Koo.Common import Options
+from Koo.Common.Settings import *
 from Record import Record
 import Field 
 
@@ -87,7 +87,7 @@ class RecordGroup(QObject):
 		self._context = context
 		self._context.update(Rpc.session.context)
 		self.resource = resource
-		self.limit = Options.options.get( 'limit', 80 )
+		self.limit = Settings.value( 'limit', 80 )
 		self.rpc = RpcProxy(resource)
 		if fields == None:
 			self.fields = {}
@@ -115,7 +115,7 @@ class RecordGroup(QObject):
 		self._filter = []
 		self._allowRecordLoading = True
 
-		if Options.options['sort_mode'] == 'visible_items':
+		if Settings.value('sort_mode') == 'visible_items':
 			self._sortMode = self.SortVisibleItems
 		else:
 			self._sortMode = self.SortAllItems

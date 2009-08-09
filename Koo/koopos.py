@@ -44,7 +44,7 @@ sys.path.append(terp_path)
 from Koo.Common import Localization
 Localization.initializeTranslations()
 
-from Koo.Common import Options
+from Koo.Common.Settings import Settings
 
 
 from PyQt4.QtCore import *

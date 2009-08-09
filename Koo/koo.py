@@ -41,26 +41,20 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'Koo'])
 sys.path.append(terp_path)
 
+from Koo.Common.Settings import Settings
+from Koo.Common import CommandLine
 from Koo.Common import Localization
-Localization.initializeTranslations()
+Localization.initializeTranslations(Settings.value('language'))
 
-from Koo.Common import Options
+CommandLine.parseArguments(sys.argv)
+
 
 imports={}
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-try:
-	import dbus.mainloop.qt
-	import dbus.service
-	import dbus
-	imports['dbus'] = True 
-except:
-	imports['dbus'] = False
-	print _("Module 'dbus' not available. Consider installing it so other applications can easily interact with Koo.")
-imports['dbus'] = False
-
 from Koo.Common import Notifier, Common
+from Koo.Common import DBus
 
 # Declare notifier handlers for the whole application
 Notifier.errorHandler = Common.error
@@ -69,21 +63,6 @@ Notifier.concurrencyErrorHandler = Common.concurrencyError
 
 
 
-# The OpenErpInterface gives access from DBUS to local api.
-# To test it you may simply use the following command line: 
-# qdbus org.openerp.Interface /OpenERP org.openerp.Interface.call "gui.window" "create" "None, 'res.partner', False, [], 'form', mode='form,tree'"
-#
-if imports['dbus']:
-	class OpenErpInterface(dbus.service.Object):
-		def __init__(self, path):
-			dbus.service.Object.__init__(self, dbus.SessionBus(), path)
-
-		# This function lets execute any given function of any local service. See example above.
-		@dbus.service.method(dbus_interface='org.openerp.Interface', in_signature='sss', out_signature='')
-		def call(self, serviceName, function, parameters):
-			obj = service.LocalService(serviceName)
-			f = 'obj.%s(%s)' % (function, parameters) 
-			eval(f)
 
 ### Main application loop
 if Common.isKdeAvailable:
@@ -115,35 +94,14 @@ app.setOrganizationDomain( 'www.nan-tic.com' )
 app.setOrganizationName( 'NaN' )
 
 try:
-	app.setStyleSheet( file(Options.options['stylesheet']).read() )
+	app.setStyleSheet( file(Settings.value('stylesheet')).read() )
 except:
 	pass
 
-class KeyboardWidget(QWidget):
-	def __init__(self, parent=None):
-		QWidget.__init__(self, parent)
-		from PyQt4.uic import loadUi
-		loadUi( Common.uiPath('keyboard.ui'), self )
-		self.connect( self.pushEscape, SIGNAL('clicked()'), self.escape )
-		self.setWindowFlags( Qt.Popup )
-		self.setWindowModality( Qt.ApplicationModal )
-		pos = parent.mapToGlobal( parent.pos() )
-		self.move( pos.x(), pos.y() + parent.height() )
-		self.show()
+DBus.init()
 
-	def escape(self):
-		self.hide()
+Localization.initializeQtTranslations(Settings.value('language'))
 
-
-Localization.initializeQtTranslations()
-
-# Create DBUS interface if dbus modules are available.
-# Needs to go after creating QApplication
-if imports['dbus']:
-	dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
-	sessionBus = dbus.SessionBus()
-	name = dbus.service.BusName("org.openerp.Interface", sessionBus )
-	example = OpenErpInterface('/OpenERP')
 
 from Koo.Dialogs.KooMainWindow import *
 from Koo.Dialogs.WindowService import *
@@ -179,30 +137,13 @@ Api.instance = KooApi()
 
 win.show()
 
-if Options.options['pos_mode']:
+if Settings.value('pos_mode'):
         import Pos
 	app.installEventFilter( Pos.PosEventFilter(win) )
 
-# The DebugEventFilter class has been used to find a problem with an invisible
-# widget that was created, not inserted in any layout and that didn't allow to 
-# click widgets below it. I'm leaving the code by now as it might be useful in the
-# future. Simply uncommenting the installEventFilter line will do.
-class DebugEventFilter(QObject):
-	def __init__(self, parent=None):
-		QObject.__init__(self, parent)
-		
-	def eventFilter(self, obj, event):
-		print "EVENT %d THROWN ON OBJECT '%s' OF TYPE '%s'" % ( event.type(), unicode(obj.objectName() ), unicode(obj.staticMetaObject.className()) )
-		return QObject.eventFilter( self, obj, event )
-		
+if Settings.value('tip.autostart'):
+	dialog = Common.TipOfTheDayDialog()
+	dialog.exec_()
 
-#app.installEventFilter( DebugEventFilter(win) )
-
-if Options.options.rcexist:
-	if Options.options['tip.autostart']:
-		dialog = Common.TipOfTheDayDialog()
-		dialog.exec_()
-	else:
-		win.showLoginDialog()
+win.showLoginDialog()
 app.exec_()
-

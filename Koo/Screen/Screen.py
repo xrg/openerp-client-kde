@@ -36,7 +36,7 @@ from Koo.Model.Record import Record
 from Koo.View.ViewFactory import ViewFactory
 
 from Koo.Common import Common
-from Koo.Common import Options
+from Koo.Common.Settings import *
 from Koo.Common.ViewSettings import *
 
 from PyQt4.QtCore import *
@@ -475,7 +475,7 @@ class Screen(QScrollArea):
 			# This way dashboards won't show the toolbar, though the option will
 			# remain available in the menu for those screens that don't have any
 			# actions configured in the server, but Print Screen can be useful.
-			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Options.options['show_toolbar']:
+			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('show_toolbar'):
 				self.toolBar.setup( self.actions )
 
 	## @brief Returns True if the current view is read-only. Returns False if it's read-write.

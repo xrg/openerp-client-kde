@@ -30,7 +30,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 import ServerConfigurationDialog
 from Koo.Common import Common
-from Koo.Common import Options
+from Koo.Common.Settings import *
 
 (DatabaseDialogUi, DatabaseDialogBase) = loadUiType(  Common.uiPath('choosedb.ui') )
 
@@ -54,9 +54,9 @@ class DatabaseDialog( QDialog, DatabaseDialogUi ):
 			self.uiDatabaseSelector.setVisible( False )
 			self.uiDatabaseLabel.setBuddy( self.uiDatabaseEditor )
 
-		host = Options.options['login.server']
-		port = Options.options['login.port']
-		protocol = Options.options['login.protocol']
+		host = Settings.value('login.server')
+		port = Settings.value('login.port')
+		protocol = Settings.value('login.protocol')
 		url = '%s%s:%s' % (protocol, host, port)
 		self.uiServer.setText( url )
 

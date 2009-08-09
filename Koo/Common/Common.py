@@ -30,10 +30,11 @@
 import gettext
 
 import Api
+from Settings import *
 from Koo import Rpc
+
 import os
 import sys
-import Options
 import Debug
 
 from PyQt4.QtCore  import  *
@@ -43,7 +44,7 @@ from PyQt4.uic import *
 from Paths import *
 
 try:
-	if Options.options['kde.enabled']:
+	if Settings.value('kde.enabled'):
 		from PyKDE4.kdecore import ki18n
 		isKdeAvailable = True
 	else:

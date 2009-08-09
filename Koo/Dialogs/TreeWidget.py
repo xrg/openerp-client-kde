@@ -32,7 +32,6 @@ from xml.parsers import expat
 
 from Koo.Common import Api
 from Koo.Common import Common
-from Koo.Common import Options
 from Koo.Common import Debug
 from Koo.Common.ViewSettings import *
 from Koo import Rpc
