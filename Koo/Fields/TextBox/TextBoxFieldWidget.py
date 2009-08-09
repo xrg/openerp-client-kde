@@ -71,9 +71,17 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 		self.uiText.clear()
 
 	def showValue(self):
+		vScroll = self.uiText.verticalScrollBar().value()
+		hScroll = self.uiText.horizontalScrollBar().value()
+		position = self.uiText.textCursor().position()
 		value = self.record.value(self.name)
 		if not value:
 			self.uiText.clear()
 		else:
 			self.uiText.setPlainText( value )
+		cursor = self.uiText.textCursor()
+		cursor.setPosition( position )
+		self.uiText.setTextCursor( cursor )
+		self.uiText.verticalScrollBar().setValue( vScroll )
+		self.uiText.horizontalScrollBar().setValue( hScroll )
 
