@@ -26,6 +26,7 @@
 ##############################################################################
 
 from osv import osv, fields
+from osv.orm import except_orm
 
 # This class holds the different priorities available
 class priority(osv.osv):
@@ -45,6 +46,25 @@ class full_text_index(osv.osv):
 		'priority' : fields.many2one('fts.priority', 'Priority', required=True),
 		'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', readonly=True)
 	}
+	def create(self, cr, uid, vals, context=None):
+		id = vals['field_id']
+		field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
+		if field.name and field.model_id:
+			field = self.pool.get(field.model_id.model)._columns[field.name]
+			if isinstance( field, fields.function ) and not field.store: 
+				raise except_orm(_('Creation error'), _("Fields of type function can't be indexed"))
+		return super(full_text_index,self).create(cr, uid, vals, context)
+
+	def write(self, cr, uid, ids, vals, context=None):
+		if 'field_id' in vals:
+			id = vals['field_id']
+			field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
+			if field.name and field.model_id:
+				field = self.pool.get(field.model_id.model)._columns[field.name]
+				if isinstance( field, fields.function ) and not field.store: 
+					raise except_orm(_('Creation error'), _("Fields of type function can't be indexed"))
+		return super(full_text_index,self).write(cr, uid, ids, vals, context)
+
 full_text_index()
 
 # This class holds the indexes that are currently created
