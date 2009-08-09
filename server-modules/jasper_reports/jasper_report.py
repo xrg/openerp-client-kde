@@ -359,9 +359,6 @@ class Report:
 		return self._languages
 
 	def valueInAllLanguages(self, model, id, field):
-		print "MODEL: ", model
-		print "ID: ", id
-		print "FIELD: ", field
 		context = copy.copy(self.context)
 		values = {}
 		for language in self.languages():
