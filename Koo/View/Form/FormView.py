@@ -64,6 +64,8 @@ class FormContainer( QWidget ):
 			colspan = self.maxColumns
 			
 		a = labelText and 1 or 0
+		colspan -= a
+		colspan = max(colspan, 1)
 		if colspan + self.column + a  > self.maxColumns:
 			self.newRow()
 
