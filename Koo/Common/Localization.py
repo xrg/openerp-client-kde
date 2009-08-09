@@ -73,7 +73,6 @@ def initializeQtTranslations(language=None):
 	from PyQt4.QtCore import QTranslator, QCoreApplication, QLocale
 	if not language:
 		language = str(QLocale.system().name())
-	print "SETTING QT: ", language
 
 	# First we try to load the file with the same system language name 
 	# Usually in $LANG and looks something like ca_ES, de_DE, etc.
