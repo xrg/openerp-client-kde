@@ -50,7 +50,6 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.filters = _('Files (%s)') % ' '.join( self.filters )
 
 		self.fileNameField = attrs.get('filename')
-		self.dialogFileNameField = attrs.get('name')
 
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
@@ -138,6 +137,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		if not self.record.value(self.name): 
 			return
 		dialog = QDialog( self )
+		dialog.setWindowTitle( _('Image') )
 		label = QLabel( dialog )
 		pix = QPixmap()
 		pix.loadFromData( self.record.value(self.name) )
@@ -170,13 +170,15 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 
 	def fileName(self):
 		if self.fileNameField:
+			print "HERE!"
 			return self.record.value( self.fileNameField )
-		if self.dialogFileNameField:
-			return self.record.value( self.dialogFileNameField )
-		return ''
-		
+		if self.record.fieldExists( 'name' ):
+			return self.record.value( 'name' ) or self.name
+		return self.name
+
 	def save(self):
-		directory = '%s/%s' % (QDir.homePath(), self.fileName() )
+		print "UN: ", unicode(self.fileName(), 'utf-8')
+		directory = '%s/%s' % (unicode(QDir.homePath()), unicode(self.fileName()) )
 		filename = QFileDialog.getSaveFileName( self, _('Save as...'), directory, self.filters )
 		if filename.isNull():
 			return

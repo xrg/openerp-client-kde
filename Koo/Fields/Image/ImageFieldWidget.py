@@ -105,6 +105,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		if not self.getImage():
 			return
 		dialog = QDialog( self )
+		dialog.setWindowtitle( _('Image') )
 		label = QLabel( dialog )
 		pix = QPixmap()
 		pix.loadFromData( self.getImage() )
