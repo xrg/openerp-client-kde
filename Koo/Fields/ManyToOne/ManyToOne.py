@@ -188,8 +188,11 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.display()
 
 	def store(self):
-		# No update of the model, the model is updated in real time 
-		pass
+		if self.uiText.hasFocus():
+			# Ensure match() is executed. Otherwise clicking on save() while the cursor
+			# is on the widget doesn't behave as expected and returns the field to its 
+			# previous value.
+			self.match()
 
 	def reset(self):
 		self.uiText.clear()
