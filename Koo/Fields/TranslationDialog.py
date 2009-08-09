@@ -71,7 +71,6 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 
 		languageIds = Rpc.session.execute( '/object', 'execute', 'res.lang', 'search', [('translatable','=','1')])
 		languages = Rpc.session.execute( '/object', 'execute', 'res.lang', 'read', languageIds, ['code', 'name'] )
-		languages.append( {'code': 'en_US', 'name': 'English'} )
 
 		layout = QGridLayout()
 		self.layout().insertLayout(0, layout)
