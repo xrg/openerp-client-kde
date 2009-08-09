@@ -260,7 +260,7 @@ msgid "&New database name:"
 msgstr ""
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:72
+#: admin_passwd.ui:74
 #, fuzzy
 msgid "&New password:"
 msgstr ""
@@ -290,7 +290,7 @@ msgid "&OK"
 msgstr ""
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:55
+#: admin_passwd.ui:57
 #, fuzzy
 msgid "&Old password:"
 msgstr ""
@@ -905,7 +905,7 @@ msgid "<b>All fields</b>"
 msgstr ""
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:19
+#: admin_passwd.ui:20
 #, fuzzy
 msgid "<b>Change your database administration password</b>"
 msgstr ""
@@ -1018,7 +1018,7 @@ msgid "Add &field names"
 msgstr ""
 
 #. ts-context TreeWidget
-#: tree.ui:78
+#: tree.ui:71
 #, fuzzy
 msgid "Add Shortcut"
 msgstr ""
@@ -1405,7 +1405,7 @@ msgid "Esc"
 msgstr ""
 
 #. ts-context TreeWidget
-#: tree.ui:118
+#: tree.ui:111
 #, fuzzy
 msgid "Expand/Collapse"
 msgstr ""
@@ -1647,7 +1647,7 @@ msgid "N"
 msgstr ""
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:89
+#: admin_passwd.ui:91
 #, fuzzy
 msgid "New password &confirmation:"
 msgstr ""
@@ -1883,7 +1883,7 @@ msgid "Remove Image"
 msgstr ""
 
 #. ts-context TreeWidget
-#: tree.ui:98
+#: tree.ui:91
 #, fuzzy
 msgid "Remove Shortcut"
 msgstr ""
@@ -1991,7 +1991,7 @@ msgid "Shortcuts in text entries"
 msgstr ""
 
 #. ts-context TreeWidget
-#: tree.ui:65
+#: tree.ui:58
 #, fuzzy
 msgid "Shortcuts"
 msgstr ""

@@ -67,47 +67,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AdminPasswordDialog</name>
     <message>
-        <location filename="admin_passwd.ui" line="13"/>
+        <location filename="admin_passwd.ui" line="14"/>
         <source>Dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="19"/>
+        <location filename="admin_passwd.ui" line="20"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="28"/>
+        <location filename="admin_passwd.ui" line="29"/>
         <source>&amp;Server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="45"/>
+        <location filename="admin_passwd.ui" line="46"/>
         <source>C&amp;hange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="55"/>
+        <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="72"/>
+        <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="89"/>
+        <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="136"/>
+        <location filename="admin_passwd.ui" line="138"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="146"/>
+        <location filename="admin_passwd.ui" line="149"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2406,22 +2406,22 @@ this operation may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="65"/>
+        <location filename="tree.ui" line="58"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="78"/>
+        <location filename="tree.ui" line="71"/>
         <source>Add Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="98"/>
+        <location filename="tree.ui" line="91"/>
         <source>Remove Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="118"/>
+        <location filename="tree.ui" line="111"/>
         <source>Expand/Collapse</source>
         <translation type="unfinished"></translation>
     </message>
