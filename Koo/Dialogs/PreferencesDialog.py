@@ -35,6 +35,7 @@ from PyQt4.uic import *
 from Koo import Rpc
 
 from Koo.Common import Common
+from Koo.Common.Settings import *
 import copy
 
 from Koo.Screen.Screen import Screen
@@ -79,8 +80,9 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		if not self.screen.currentRecord().validate():
 			return
 
-		if self.screen.currentRecord().fieldExists( 'lang' ):
-			Options.options['language'] = self.screen.currentRecord().value( 'lang' )
+		if self.screen.currentRecord().fieldExists( 'context_lang' ):
+			Settings.setValue( 'client.language', self.screen.currentRecord().value( 'context_lang' ) )
+			Settings.saveToFile()
 
 		Rpc.session.execute('/object', 'execute', 'res.users', 'write', [Rpc.session.uid], self.screen.get())
 		Rpc.session.reloadContext()

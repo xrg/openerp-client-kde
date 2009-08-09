@@ -132,14 +132,14 @@ class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 		self.setupUi( self )
 
 		try:
-			self.number = int(Options.options['tip.position'])
+			self.number = int( Settings.value('tip.position') )
 		except:
 			self.number = 0
 	
 		self.connect( self.pushNext, SIGNAL('clicked()'), self.nextTip )
 		self.connect( self.pushPrevious, SIGNAL('clicked()'), self.previousTip )
 		self.connect( self.pushClose, SIGNAL('clicked()'), self.closeTip )
-		self.uiShowNextTime.setChecked( Options.options['tip.autostart'] )
+		self.uiShowNextTime.setChecked( Settings.value('tip.autostart') )
 		self.showTip()
 	
 	def showTip(self):
@@ -158,9 +158,9 @@ class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 		self.showTip()
 
 	def closeTip(self):
-		Options.options['tip.autostart'] = self.uiShowNextTime.isChecked()
-		Options.options['tip.position'] = self.number+1
-		Options.options.save()
+		Settings.setValue( 'tip.autostart', self.uiShowNextTime.isChecked() )
+		Settings.setValue( 'tip.position', self.number+1 )
+		Settings.saveToFile()
 		self.close()
 
 ## @brief Shows a warning dialog. Function used by the notifier in the Koo application.

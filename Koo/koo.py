@@ -44,9 +44,10 @@ sys.path.append(terp_path)
 from Koo.Common.Settings import Settings
 from Koo.Common import CommandLine
 from Koo.Common import Localization
-Localization.initializeTranslations(Settings.value('language'))
-
+Localization.initializeTranslations()
+#__builtins__._ = lambda x: x
 CommandLine.parseArguments(sys.argv)
+Localization.initializeTranslations(Settings.value('client.language'))
 
 
 imports={}
@@ -100,7 +101,7 @@ except:
 
 DBus.init()
 
-Localization.initializeQtTranslations(Settings.value('language'))
+Localization.initializeQtTranslations(Settings.value('client.language'))
 
 
 from Koo.Dialogs.KooMainWindow import *

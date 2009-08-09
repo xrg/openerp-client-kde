@@ -42,7 +42,6 @@ class Settings(object):
 	options = {
 		'login.db': 'test',
 		'login.url': 'http://admin@localhost:8069',
-		'language': False,
 		'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 		'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
 		'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
@@ -50,6 +49,7 @@ class Settings(object):
 		'tip.position': 0,
 		'print_directly': False,
 		'client.default_path': os.path.expanduser('~'),
+		'client.language': False,
 		'stylesheet' : '',
 		'tabs_position' : 'top',
 		'tabs_closable' : True,

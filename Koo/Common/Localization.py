@@ -41,7 +41,6 @@ def initializeTranslations(language=None):
 		# with default language
 		print "Warning: Unsupported locale." 
 
-
 	if not language:
 		language, encoding = locale.getdefaultlocale()
 		if not language:
@@ -60,7 +59,7 @@ def initializeTranslations(language=None):
 			lang = gettext.translation(name, directory, fallback=False)
 		except:
 			directory = None
-	
+
 	if not directory:
 		# If the first try didn't work try to search translation files
 		# in standard directories 'share/locale'
@@ -74,6 +73,7 @@ def initializeQtTranslations(language=None):
 	from PyQt4.QtCore import QTranslator, QCoreApplication, QLocale
 	if not language:
 		language = str(QLocale.system().name())
+	print "SETTING QT: ", language
 
 	# First we try to load the file with the same system language name 
 	# Usually in $LANG and looks something like ca_ES, de_DE, etc.

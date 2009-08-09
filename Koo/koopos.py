@@ -44,7 +44,7 @@ sys.path.append(terp_path)
 from Koo.Common import Localization
 Localization.initializeTranslations()
 
-from Koo.Common.Settings import Settings
+from Koo.Common.Settings import *
 
 
 from PyQt4.QtCore import *
@@ -60,7 +60,7 @@ Notifier.concurrencyErrorHandler = Common.concurrencyError
 ### Main application loop
 app = QApplication( sys.argv )
 try:
-	app.setStyleSheet( file(Options.options['stylesheet']).read() )
+	app.setStyleSheet( file(Settings.value('stylesheet')).read() )
 except:
 	pass
 
