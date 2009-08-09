@@ -325,11 +325,18 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		})
 		self.storedModel.load( self.model, self.fieldsInfo )
 
-if os.name == 'nt':
-	ExportDialog.registerExport('excel', _('Open with Excel'), False, openExcel)
 
+# Add OpenOffice.org export only if it's available.
 if OpenOffice.isOpenOfficeAvailable:
 	ExportDialog.registerExport('openoffice', _('Open with OpenOffice.org'), False, openOpenOffice)
+# Add Excel export only if it's available
+if os.name == 'nt':
+	try:
+		from win32com.client import Dispatch
+		application = Dispatch("Excel.Application")
+		ExportDialog.registerExport('excel', _('Open with Excel'), False, openExcel)
+	except:
+		pass
 ExportDialog.registerExport('csv', _('Save as CSV'), True, exportCsv)
 ExportDialog.registerExport('html', _('Save as HTML'), True, exportHtml)
 
