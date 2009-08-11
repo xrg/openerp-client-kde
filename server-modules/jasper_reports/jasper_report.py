@@ -216,6 +216,8 @@ class Report:
 				# The rest of field types must be converted into str
 				if value == False:
 					value = ''
+				elif isinstance(value, str):
+					value = unicode(value, 'utf-8')
 				elif not isinstance(value, unicode):
 					value = unicode(value)
 				valueNode = self.document.createTextNode( value )
@@ -505,6 +507,8 @@ class Report:
 					self.temporaryFiles.append( fileName )
 					self.imageFiles[ imageId ] = fileName
 				value = fileName
+			elif isinstance(value, str):
+				value = unicode(value, 'utf-8')
 			elif not isinstance(value, unicode):
 				value = unicode(value)
 
@@ -605,10 +609,13 @@ import report
 
 def register_jasper_report(name, model):
 	name = 'report.%s' % name
-	service = netsvc.service_exist( name )
-	if service and isinstance( service, report_jasper ):
-		return
-	if service:
+	# Register only if it didn't exist another "jasper_report" with the same name
+	# given that developers might prefer/need to register the reports themselves.
+	# For example, if they need their own parser.
+	if netsvc.service_exist( name ):
+		service = netsvc.SERVICES[name].parser
+		if isinstance( netsvc.SERVICES[name], report_jasper ):
+			return
 		del netsvc.SERVICES[name]
 	report_jasper( name, model )
 
