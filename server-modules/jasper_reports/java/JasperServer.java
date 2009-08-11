@@ -5,6 +5,7 @@ import org.apache.xmlrpc.*;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
 //import org.apache.xml.security.utils.Base64;
 
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
 import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.util.JRLoader;
@@ -77,6 +78,43 @@ for each language.
 class CsvMultiLanguageDataSource extends JRCsvDataSource {
 	public CsvMultiLanguageDataSource(File file, String charsetName) throws java.io.FileNotFoundException, java.io.UnsupportedEncodingException {
 		super(file, charsetName);
+	}
+
+	public Object getFieldValue(JRField jrField) throws net.sf.jasperreports.engine.JRException {
+		Object value;
+		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
+			JRDesignField fakeField = new JRDesignField();
+			fakeField.setName( jrField.getName() );
+			fakeField.setDescription( jrField.getDescription() );
+			fakeField.setValueClassName( "java.lang.String" );
+			fakeField.setValueClass( String.class );
+			value = super.getFieldValue( fakeField );
+
+			LanguageTable values = new LanguageTable("en_US");
+			String v = (String) value;
+			String[] p = v.split( "\\|" );
+			for( int j=0; j < p.length ; j++ ) {
+				System.out.println( p[j] );
+				String[] map = p[j].split( "~" );
+				if ( map.length == 2 ) 
+					values.put( map[0], map[1] );
+			}
+			value = (Object)values;
+		} else {
+			value = super.getFieldValue(jrField);
+		}
+		return value;
+	}
+}
+
+/*
+This class overrides getFieldValue() from JRCsvDataSource to parse
+java.lang.Object fields that will come from Python coded with data
+for each language.
+*/
+class XmlMultiLanguageDataSource extends JRXmlDataSource {
+	public XmlMultiLanguageDataSource(String uri, String selectExpression) throws JRException {
+		super(uri, selectExpression);
 	}
 
 	public Object getFieldValue(JRField jrField) throws net.sf.jasperreports.engine.JRException {
