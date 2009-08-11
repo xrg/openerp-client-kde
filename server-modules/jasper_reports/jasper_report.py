@@ -170,7 +170,7 @@ class Report:
 		locale = self.context.get('lang', 'en_US')
 		
 		connectionParameters = {
-			#'xml': xmlFile,
+			#'xml': dataFile,
 			'csv': dataFile,
 			'dsn': dsn,
 			'user': user,
@@ -229,28 +229,30 @@ class Report:
 
 	# CSV file generation using a list of dictionaries provided by the parser function.
 	def generate_csv_from_records(self, fileName):
-		f = codecs.open( fileName, 'wb+', 'utf-8' )
-		if self.data['records']:
-			row = self.data['records'][0]
-			csv.QUOTE_ALL = True
-			# JasperReports CSV reader requires an extra colon at the end of the line.
-			writer = csv.DictWriter( f, row.keys() + [''], delimiter=',', quotechar='"' )
-			header = {}
-			for field in row.keys() + ['']:
-				header[ field ] = field
-			writer.writerow( field )
-			for record in self.data['records']:
-				row = []
-				for field in record:
-					value = record[field]
-					if value == False:
-						value = ''
-					elif isinstance(value, unicode):
-						value = value.encode('utf-8')
-					elif not isinstance(value, str):
-						value = str(value)
-					row[field] = value
-				writer.writerow( row )
+		f = open( fileName, 'wb+' )
+		csv.QUOTE_ALL = True
+		fieldNames = self.reportProperties['fieldNames']
+		# JasperReports CSV reader requires an extra colon at the end of the line.
+		writer = csv.DictWriter( f, fieldNames + [''], delimiter=',', quotechar='"' )
+		header = {}
+		for field in fieldNames + ['']:
+			header[ field ] = field
+		writer.writerow( header )
+		for record in self.data['records']:
+			row = {}
+			for field in record:
+				if field not in self.reportProperties['fields']:
+					print "FIELD '%s' NOT FOUND IN REPORT." % field 
+					continue
+				value = record.get(field, False)
+				if value == False:
+					value = ''
+				elif isinstance(value, unicode):
+					value = value.encode('utf-8')
+				elif not isinstance(value, str):
+					value = str(value)
+				row[self.reportProperties['fields'][field]['name']] = value
+			writer.writerow( row )
 		f.close()
 
 	# XML file generation works as follows:
@@ -396,6 +398,16 @@ class Report:
 					value = None
 					print "Field '%s' does not exist in model" % root
 
+			# The field might not appear in the self.reportProperties['fields']
+			# only when the field is a many2one but in this case it's null. This
+			# will make the path to look like: "journal_id", when the field actually
+			# in the report is "journal_id/name", for example.
+			#
+			# In order not to change the way we detect many2one fields, we simply check
+			# that the field is in self.reportProperties['fields'] and that's it.
+			if not currentPath in self.reportProperties['fields']:
+				continue
+
 			# Check if it's a many2one
 			if isinstance(value, orm.browse_record):
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
@@ -462,8 +474,6 @@ class Report:
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
 				try:
-					# Show all translations for a field
-					#if fields[field] == 'java.lang.object':
 					value = record.__getattr__(root)
 				except:
 					value = None
@@ -540,6 +550,7 @@ class report_jasper(report.interface.report_int):
 			# data_source can be 'model' or 'records' and lets parser to return
 			# an empty 'records' parameter while still executing using 'records'
 			data['data_source'] = d.get( 'data_source', 'model' )
+			data['parameters'] = d.get( 'parameters', {} )
 		r = Report( name, cr, uid, ids, data, context )
 		return ( r.execute(), 'pdf' )
 
