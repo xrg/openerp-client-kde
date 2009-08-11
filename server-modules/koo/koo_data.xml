@@ -8,5 +8,8 @@
 	<record model='nan.koo.cache.exception' id='exception1'>
 		<field name="name">res.users</field>
 	</record>
+	<record model='nan.koo.cache.exception' id='exception1'>
+		<field name="name">res.partner</field>
+	</record>
 </data>
 </openerp>
