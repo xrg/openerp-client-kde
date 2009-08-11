@@ -38,38 +38,67 @@ class create_data_template(wizard.interface):
 			'depth': 1
 		}
 		return res
-		
-	def generate_xml(self, pool, name, parentNode, document, depth):
+
+	def normalize(self, text):
+		if isinstance( text, unicode ):
+			text = text.encode('utf-8')
+		return text
+
+	def unaccent(self, text):
+		if isinstance( text, unicode ):
+			text = text.encode('utf-8')
+		return text.replace(' ', '_').replace("'", '_').replace('(','_').replace(')','_').replace('/','_')
+
+	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth):
 		# First of all add "id" field
 		fieldNode = document.createElement('id')
 		parentNode.appendChild( fieldNode )
 		valueNode = document.createTextNode( '1' )
 		fieldNode.appendChild( valueNode )
+		language = context.get('lang')
+		if language == 'en_US':
+			language = False
 
 		# Then add all fields in alphabetical order
-		model = pool.get(name)
+		model = pool.get(modelName)
 		fields = model._columns.keys()
 		fields.sort()
 		for field in fields:
+			print "GEN!"
+			if language:
+				name = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'field', language)
+				#name = self.unaccent( name )
+				name = self.normalize( name )
+				help = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'help', language)
+				help = self.normalize( help )
+			else:
+				name = pool.get(modelName)._columns[field].string
+				help = pool.get(modelName)._columns[field].help
+
 			fieldNode = document.createElement(field)
+			if name:
+				fieldNode.setAttribute( 'name', name )
+			if help:
+				fieldNode.setAttribute( 'help', help )
+
 			parentNode.appendChild( fieldNode )
-			type = model._columns[field]._type
-			if type in ('many2one','one2many','many2many'):
+			fieldType = model._columns[field]._type
+			if fieldType in ('many2one','one2many','many2many'):
 				if depth <= 1:
 					continue
 				newName = model._columns[field]._obj
-				self.generate_xml(pool, newName, fieldNode, document, depth-1)
+				self.generate_xml(cr, uid, context, pool, newName, fieldNode, document, depth-1)
 				continue
 			
-			if type == 'float':
+			if fieldType == 'float':
 				value = '12345.67'
-			elif type == 'integer':
+			elif fieldType == 'integer':
 				value = '12345'
-			elif type == 'date':
+			elif fieldType == 'date':
 				value = '2009-12-31 00:00:00'
-			elif type == 'time':
+			elif fieldType == 'time':
 				value = '12:34:56'
-			elif type == 'datetime':
+			elif fieldType == 'datetime':
 				value = '2009-12-31 12:34:56'
 			else:
 				value = field
@@ -77,16 +106,16 @@ class create_data_template(wizard.interface):
 			valueNode = document.createTextNode( value )
 			fieldNode.appendChild( valueNode )
 
-		if depth > 1 and name != 'Attachments':
+		if depth > 1 and modelName != 'Attachments':
 			# Create relation with attachments
 			fieldNode = document.createElement( 'Attachments' )
 			parentNode.appendChild( fieldNode )
-			self.generate_xml(pool, 'ir.attachment', fieldNode, document, depth-1)
+			self.generate_xml(cr, uid, context, pool, 'ir.attachment', fieldNode, document, depth-1)
 
 	def _action_create_xml(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		form = data['form']
-		values = pool.get('ir.model').read(cr, uid, form['model'], ['name','model'])
+		values = pool.get('ir.model').read(cr, uid, form['model'], ['name','model'], context)
 		name = values['name']
 		model = values['model']
 
@@ -94,7 +123,7 @@ class create_data_template(wizard.interface):
 		topNode = document.documentElement
 		recordNode = document.createElement('record')
 		topNode.appendChild( recordNode )
-		self.generate_xml( pool, model, recordNode, document, form['depth'] )
+		self.generate_xml( cr, uid, context, pool, model, recordNode, document, form['depth'] )
 		topNode.toxml()
 
 		res = {
