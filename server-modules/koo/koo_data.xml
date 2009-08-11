@@ -8,7 +8,7 @@
 	<record model='nan.koo.cache.exception' id='exception1'>
 		<field name="name">res.users</field>
 	</record>
-	<record model='nan.koo.cache.exception' id='exception1'>
+	<record model='nan.koo.cache.exception' id='exception2'>
 		<field name="name">res.partner</field>
 	</record>
 </data>
