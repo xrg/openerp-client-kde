@@ -34,6 +34,7 @@ import net.sf.jasperreports.engine.export.JRHtmlExporterParameter;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
 import net.sf.jasperreports.engine.export.oasis.JROdsExporter;
 
+import java.text.NumberFormat;
 import java.lang.Object;
 import java.util.Date;
 import java.util.HashMap;
@@ -242,6 +243,7 @@ public class JasperServer {
 					CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
 					dataSource.setUseFirstRowAsHeader( true );
 					dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd mm:hh:ss" ) );
+					dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
 					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 				} else {
 					JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
