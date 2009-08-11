@@ -242,12 +242,12 @@ public class JasperServer {
 				if ( connectionParameters.containsKey("csv") ) {
 					CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
 					dataSource.setUseFirstRowAsHeader( true );
-					dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd mm:hh:ss" ) );
+					dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
 					dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
 					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 				} else {
 					JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
-					dataSource.setDatePattern( "yyyy-MM-dd mm:hh:ss" );
+					dataSource.setDatePattern( "yyyy-MM-dd HH:mm:ss" );
 					dataSource.setNumberPattern( "#######0.##" );
 					dataSource.setLocale( Locale.ENGLISH );
 					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
