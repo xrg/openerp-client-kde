@@ -55,6 +55,7 @@
 					<field name="auto_reload"/>
 					<field name="allow_massive_updates"/>
 					<field name="attachments_dialog"/>
+					<field name="use_cache"/>
 					<separator colspan="4" string="Roles"/>
 					<field name="roles_id" colspan="4" nolabel="1"/>
 				</form>

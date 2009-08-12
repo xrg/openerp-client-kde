@@ -395,6 +395,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			url = QUrl( url )
 			if log_response==Rpc.session.LoggedIn:
 				Settings.loadFromServer()
+				if Settings.value('use_cache'):
+					Rpc.session.cache = Rpc.Cache.ActionViewCache()
+				else:
+					Rpc.session.cache = None
 
 				iconVisible = Settings.value('show_system_tray_icon', True )
 				self.systemTrayIcon.setVisible( iconVisible )
