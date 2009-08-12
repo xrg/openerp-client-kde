@@ -21,13 +21,15 @@ view_form_end = """<?xml version="1.0"?>
 	<form string="Create Data Template">
 		<group colspan="2">
 			<field name="model"/>
-			<field name="data"/>
+			<field name="data" filename="filename"/>
+			<field name="filename" invisible="1"/>
 		</group>
 	</form>"""
 
 view_fields_end = {
 	'model': { 'string': 'Model', 'type': 'char', 'readonly': True },
-	'data': { 'string': 'XML', 'type': 'binary', 'relation': 'ir.model', 'readonly': True }
+	'data': { 'string': 'XML', 'type': 'binary', 'relation': 'ir.model', 'readonly': True },
+	'filename': { 'type': 'char' },
 }
 
 
@@ -47,7 +49,7 @@ class create_data_template(wizard.interface):
 	def unaccent(self, text):
 		if isinstance( text, unicode ):
 			text = text.encode('utf-8')
-		return text.replace(' ', '_').replace("'", '_').replace('(','_').replace(')','_').replace('/','_')
+		return text.replace(' ', '_').replace("'", '_').replace('(','_').replace(')','_').replace('/','_').replace('-','_')
 
 	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth):
 		# First of all add "id" field
@@ -65,20 +67,26 @@ class create_data_template(wizard.interface):
 		fields.sort()
 		for field in fields:
 			if language:
+				# Obtain field string for user's language.
 				name = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'field', language)
 				#name = self.unaccent( name )
-				name = self.normalize( name )
-				help = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'help', language)
-				help = self.normalize( help )
-			else:
+				#name = self.normalize( name )
+				#help = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'help', language)
+				#help = self.normalize( help )
+			if not name:
+				# If there's not description in user's language, use default (english) one.
 				name = pool.get(modelName)._columns[field].string
-				help = pool.get(modelName)._columns[field].help
+				#help = pool.get(modelName)._columns[field].help
 
-			fieldNode = document.createElement(field)
 			if name:
-				fieldNode.setAttribute( 'name', name )
-			if help:
-				fieldNode.setAttribute( 'help', help )
+				name = '%s-%s' % (self.unaccent( name ), field )
+			else:
+				name = field
+			fieldNode = document.createElement( name )
+			#if name:
+				#fieldNode.setAttribute( 'name', name )
+			#if help:
+				#fieldNode.setAttribute( 'help', help )
 
 			parentNode.appendChild( fieldNode )
 			fieldType = model._columns[field]._type
@@ -127,7 +135,8 @@ class create_data_template(wizard.interface):
 
 		res = {
 			'model': name,
-			'data': base64.encodestring( topNode.toxml() )
+			'data': base64.encodestring( topNode.toxml() ),
+			'filename': 'jasper.xml',
 		}
 		return res
 

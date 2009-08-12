@@ -138,6 +138,14 @@ class Report:
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = path[13:]
+			# Remove language specific data from the path so:
+			# Empresa-partner_id/Nom-name becomes partner_id/name
+			# We need to consider the fact that the name in user's language
+			# might not exist, hence the easiest thing to do is split and [-1]
+			newPath = []
+			for x in path.split('/'):
+				newPath.append( x.split('-')[-1] )
+			path = '/'.join( newPath )
 			properties['fields'][ path ] = {
 				'name': name,
 				'type': type,
@@ -398,15 +406,6 @@ class Report:
 					value = None
 					print "Field '%s' does not exist in model" % root
 
-			# The field might not appear in the self.reportProperties['fields']
-			# only when the field is a many2one but in this case it's null. This
-			# will make the path to look like: "journal_id", when the field actually
-			# in the report is "journal_id/name", for example.
-			#
-			# In order not to change the way we detect many2one fields, we simply check
-			# that the field is in self.reportProperties['fields'] and that's it.
-			if not currentPath in self.reportProperties['fields']:
-				continue
 
 			# Check if it's a many2one
 			if isinstance(value, orm.browse_record):
@@ -424,6 +423,16 @@ class Report:
 				else:
 					# If the field is not marked to be iterated use the first record only
 					self.generate_record_csv(value[0], records, row, currentPath, fields2)
+				continue
+
+			# The field might not appear in the self.reportProperties['fields']
+			# only when the field is a many2one but in this case it's null. This
+			# will make the path to look like: "journal_id", when the field actually
+			# in the report is "journal_id/name", for example.
+			#
+			# In order not to change the way we detect many2one fields, we simply check
+			# that the field is in self.reportProperties['fields'] and that's it.
+			if not currentPath in self.reportProperties['fields']:
 				continue
 
 			# Show all translations for a field
