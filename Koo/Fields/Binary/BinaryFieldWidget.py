@@ -170,14 +170,13 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 
 	def fileName(self):
 		if self.fileNameField:
-			print "HERE!"
-			return self.record.value( self.fileNameField )
+			if self.record.fieldExists( self.fileNameField ):
+				return self.record.value( self.fileNameField )
 		if self.record.fieldExists( 'name' ):
 			return self.record.value( 'name' ) or self.name
 		return self.name
 
 	def save(self):
-		print "UN: ", unicode(self.fileName(), 'utf-8')
 		directory = '%s/%s' % (unicode(QDir.homePath()), unicode(self.fileName()) )
 		filename = QFileDialog.getSaveFileName( self, _('Save as...'), directory, self.filters )
 		if filename.isNull():
