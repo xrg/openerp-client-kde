@@ -64,7 +64,6 @@ class create_data_template(wizard.interface):
 		fields = model._columns.keys()
 		fields.sort()
 		for field in fields:
-			print "GEN!"
 			if language:
 				name = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'field', language)
 				#name = self.unaccent( name )
