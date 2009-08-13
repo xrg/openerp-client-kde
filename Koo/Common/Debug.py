@@ -40,6 +40,9 @@ def printList( l ):
 def info( text ):
 	print text
 
+def warning( text ):
+	print text
+
 def error( text ):
 	print text
 

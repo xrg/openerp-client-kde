@@ -45,6 +45,8 @@ def parseArguments(args):
 	parser.add_option("-u", "--url", dest="url", help=_("specify the server (ie. http://admin@localhost:8069)"))
 	parser.add_option("", "--stylesheet", dest="stylesheet", help=_("specify stylesheet to apply"))
 	parser.add_option("", "--pos-mode", action="store_true", default=False, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
+	parser.add_option("", "--disable-kde", action="store_true", default=False, dest="disable_kde", help=_("disable usage of KDE libraries if they are available"))
+
 	(opt, args) = parser.parse_args()
 
 	Settings.rcFile = opt.config or os.environ.get('TERPRC') or os.path.join(homeDirectory(), '.koorc')
@@ -61,4 +63,6 @@ def parseArguments(args):
 			Settings.setValue('login.login', unicode( url.userName() ) )
 	Settings.setValue( 'stylesheet', opt.stylesheet )
 	Settings.setValue( 'pos_mode', opt.pos_mode )
+	if opt.disable_kde:
+		Settings.setValue( 'kde.enabled', False )
 

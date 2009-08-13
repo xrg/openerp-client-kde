@@ -47,6 +47,7 @@ from Koo.Common import Localization
 Localization.initializeTranslations()
 #__builtins__._ = lambda x: x
 CommandLine.parseArguments(sys.argv)
+
 Localization.initializeTranslations(Settings.value('client.language'))
 
 
