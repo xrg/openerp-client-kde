@@ -59,14 +59,11 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		group = RecordGroup( attrs['relation'] )
 		group.setAllowRecordLoading( False )
 		
-		self.screen = Screen( self )
 		self.screen.setRecordGroup( group )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
 
-		layout = self.layout()
-		layout.insertWidget( 1, self.screen )
 		self.installPopupMenu( self.uiText )
 		self.old = None
 

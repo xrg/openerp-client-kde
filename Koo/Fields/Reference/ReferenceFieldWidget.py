@@ -199,8 +199,10 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 				id, name = RpcProxy(model).name_get([int(id)], Rpc.session.context)[0]
 			self.uiText.setText(name)
 			self.pushOpen.setIcon( QIcon(":/images/folder.png") )
+			self.pushOpen.setToolTip( _("Open") )
 		else:
 			self.uiText.clear()
 			self.uiModel.setCurrentIndex(-1)
 			self.pushOpen.setIcon( QIcon(":/images/find.png") )
+			self.pushOpen.setToolTip( _("Search") )
 
