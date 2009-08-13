@@ -32,7 +32,7 @@ from Koo.Common import Common
 from Koo.Plugins import Plugins
 from Koo import Rpc
 
-## @brief Opens a new window with all labels to be translated for the current view.
+## @brief Opens a new window that allows setting the rating for the current document.
 def semantic(data):
 	context = { 
 		'subject_model' : data['model'],
