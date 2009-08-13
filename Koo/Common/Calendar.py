@@ -39,6 +39,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import * 
 from PyQt4.uic import *
 import math
+import locale
 import Common
 
 ## @brief Converts a QDate object into a Python string
@@ -61,14 +62,6 @@ def floatTimeToText( value ):
 	if value<0:
 		t = '-'+t
 	return t
-
-## @brief Converts a float (type floatTime) into a QTime
-def floatTimeToTime( value ):
-	# Ensure the value is a float. This way we also accept strings here.
-	value = float( value )
-	if value < 0:
-		return QTime( 0, 0 )
-	return QTime( math.floor(abs(value)), round(abs(value)%1+0.01,2) * 60 )
 
 ## @brief Converts a QDate object into a Python string ready to be sent to the 
 # server.
@@ -141,10 +134,14 @@ def textToDateTime( text ):
 
 ## @brief Converts a Python string into a float (floatTime) 
 def textToFloatTime( text ):
-	time = textToTime( text )
-	if not time.isValid():
+	try:
+		text = text.replace('.',':')
+		if text and ':' in text:
+			return round(int(text.split(':')[0]) + int(text.split(':')[1]) / 60.0,2)
+		else:
+			return locale.atof(text)
+	except:
 		return 0.0
-	return round( time.hour() + time.minute() / 60.0, 2 )
 
 ## @brief Converts a Python string comming from the server into a QDate object
 def storageToDate( text ):
