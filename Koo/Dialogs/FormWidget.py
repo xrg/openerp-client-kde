@@ -92,6 +92,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.group = RecordGroup( self.model, context=self.context )
 		self.group.setDomain( domain )
+		self.connect(self.group, SIGNAL('modified()'), self.notifyRecordModified)
 
 		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( False )
@@ -149,6 +150,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
 		if Settings.value('auto_reload'):
 			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
+
+	def notifyRecordModified(self):
+		self.updateStatus( _('<font color="blue">Document modified</font>') )
 
 	## @brief Establishes that every value seconds a reload should be scheduled.
 	# If value is < 0 only Subscription based reloads are executed. Note that if
