@@ -195,7 +195,7 @@ class Record(QObject):
 			required = required.strip()
 			if required.lower() == 'true' or required == '1':
 				return True
-			if required.lower() == 'false' or readOnly == '0':
+			if required.lower() == 'false' or required == '0':
 				return False
 		return bool(required)
 
