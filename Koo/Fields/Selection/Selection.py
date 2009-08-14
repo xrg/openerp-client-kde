@@ -52,14 +52,8 @@ class SelectionFieldWidget(AbstractFieldWidget):
 
 		self.installPopupMenu( self.widget )
 
-		self.connect( self.widget, SIGNAL('activated(int)'), self.callModified )
+		self.connect( self.widget, SIGNAL('activated(int)'), self.activated )
 		self.fill(attrs.get('selection',[]))
-
-	def eventFilter( self, target, event ):
-		if event.type() == QEvent.FocusOut:
-			self.widget.completer().complete()
-			self.widget.setCurrentIndex( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
-		return AbstractFieldWidget.eventFilter(self, target, event)
 
 	def fill(self, selection):
 		for (id,name) in selection:
@@ -91,7 +85,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		else:
 			self.widget.setCurrentIndex( self.widget.findData( QVariant(value) ) )
 
-	def callModified(self, idx):
+	def activated(self, idx):
 		self.store()
 
 	def colorWidget(self):
