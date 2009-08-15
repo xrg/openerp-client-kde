@@ -148,7 +148,11 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			if QApplication.keyboardModifiers() & Qt.ControlModifier:
 				model = self.attrs['relation']
 				id = self.record.get()[self.name]
-				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
+				if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+					target = 'background'
+				else:
+					target = 'current'
+				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree', target=target)
 			else:	
 				dialog = ScreenDialog( self )
 				dialog.setAttributes( self.attrs )

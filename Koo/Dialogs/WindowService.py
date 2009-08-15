@@ -49,7 +49,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		widget = FormWidget(model, res_id, domain, view_type=mode,
 				view_ids = (view_ids or []), 
 				context=context, name=name )
-		if target != 'current':
+		if target == 'new':
 			widget.setStatusBarVisible( False )
 		widget.setAutoReload( autoReload )
 		QApplication.restoreOverrideCursor()

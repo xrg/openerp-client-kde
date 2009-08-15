@@ -587,12 +587,14 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		#del self.sender()
 
 	def addWindow(self, win, target):
-		if target == 'current':
+		if target in ('current', 'background'):
 			self.connect( win, SIGNAL('closed()'), self.closeTabForced )
 			self.connect( win, SIGNAL('shortcutsChanged'), self.shortcutsChanged )
 			self.tabWidget.addTab( win, win.name )
 			# If shift key is pressed do not show the added tab
-			if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
+			#if not (QApplication.keyboardModifiers() & Qt.ShiftModifier):
+				#self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
+			if target != 'background':
 				self.tabWidget.setCurrentIndex( self.tabWidget.count()-1 )
 		else:
 			# When opening in a new window we make the dialog modal. This way, wizards

@@ -175,7 +175,11 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			# the record will be opened in a new tab. Otherwise it's opened
 			# in a new modal dialog.
 			if QApplication.keyboardModifiers() & Qt.ControlModifier:
-				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
+				if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+					target = 'background'
+				else:
+					target = 'current'
+				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree', target=target)
 			else:	
 				dialog = ScreenDialog( self )
 				dialog.setup( model, id )

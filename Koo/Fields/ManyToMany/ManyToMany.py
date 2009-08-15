@@ -68,12 +68,20 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.old = None
 
 	def open( self ):
+		if not ( QApplication.keyboardModifiers() & Qt.ControlModifier ):
+			return
+
 		if not self.screen.currentRecord():
 			return
 		id = self.screen.currentRecord().id 
 		if not id:
 			return
-		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree')	
+
+		if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+			target = 'background'
+		else:
+			target = 'current'
+		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree', target=target)	
 	
 	def add(self):
 		# As the 'add' button modifies the model we need to be sure all other fields/widgets

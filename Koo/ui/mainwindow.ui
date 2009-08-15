@@ -233,7 +233,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>30</height>
+     <height>28</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlugins">
@@ -596,7 +596,7 @@
     <string>Switch &amp;View</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+L, Ctrl+Shift+L</string>
+    <string>F6</string>
    </property>
   </action>
   <action name="actionOpenMenuTab">

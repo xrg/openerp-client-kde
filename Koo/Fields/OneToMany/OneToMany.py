@@ -32,6 +32,7 @@ from PyQt4.uic import *
 
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
+from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
@@ -123,7 +124,25 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.installPopupMenu( self.uiTitle )
 
 	def switchView(self):
-		self.screen.switchView()
+		# If Control Key is pressed when the open button is clicked
+		# the record will be opened in a new tab. Otherwise it switches
+		# view
+		if QApplication.keyboardModifiers() & Qt.ControlModifier:
+			if not self.screen.currentRecord():
+				return
+			id = self.screen.currentRecord().id 
+			if not id:
+				return
+
+			if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+				target = 'background'
+			else:
+				target = 'current'
+
+			Api.instance.createWindow( False, self.attrs['relation'], id, [], 'form', 
+				mode='form,tree', target=target )	
+		else:
+			self.screen.switchView()
 
 	def setReadOnly(self, value):
  		self.uiTitle.setEnabled( not value )

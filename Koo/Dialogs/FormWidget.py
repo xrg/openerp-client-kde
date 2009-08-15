@@ -215,8 +215,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ShiftModifier ) == Qt.ShiftModifier:
-			Api.instance.createWindow(None, self.model, self.screen.currentId(), view_type='form', mode='form,tree')
+		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
+			if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+				target = 'background'
+			else:
+				target = 'current'
+			Api.instance.createWindow( None, self.model, self.screen.currentId(), 
+				view_type='form', mode='form,tree', target=target)
 		else:
 			sender = self.sender()
 			name = unicode( sender.objectName()  )
