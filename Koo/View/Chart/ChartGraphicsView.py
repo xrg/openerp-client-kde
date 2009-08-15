@@ -81,6 +81,15 @@ class ChartGraphicsView( QGraphicsView ):
 		if self.chart:
 			self.chart.setSize( QSize( self.size().width() - 100, self.size().height() - 100 ) )
 
+	def replaceFalse(self, l):
+		newList = []
+		for x in l:
+			if isinstance(x, bool):
+				newList.append( '-' )
+			else:
+				newList.append( unicode(x) )
+		return newList
+
 	def display(self, models):
 		self._models = models
 		if not self.chart:
@@ -163,7 +172,7 @@ class ChartGraphicsView( QGraphicsView ):
 			for d in records:
 				data.setdefault( d[self._axis[0]], {} )
 
-				groupEval = ','.join( [d[x] for x in self._groups] )
+				groupEval = ','.join( self.replaceFalse([d[x] for x in self._groups]) )
 				groups[groupEval] = 1
 
 				if groupEval in data[d[self._axis[0]]]:
@@ -194,7 +203,7 @@ class ChartGraphicsView( QGraphicsView ):
 			values = [ reduce(lambda x,y=0: x+y, data[x].values(), 0) for x in categories ]
 			self.chart.setValues( values ) 
 			# Ensure all categories are strings
-			self.chart.setLabels( [unicode(x) for x in categories] )
+			self.chart.setLabels( self.replaceFalse(categories) )
 		else:
 			# Prepare values depending in different ways if there are 'group' tags in the
 			# view or not.
@@ -223,7 +232,7 @@ class ChartGraphicsView( QGraphicsView ):
 
 			self.chart.setValues( values )
 			# Ensure all labels are strings
-			self.chart.setLabels( [unicode(x) for x in labels] )
+			self.chart.setLabels( self.replaceFalse(labels) )
 			# Ensure all categories are strings
-			self.chart.setCategories( [unicode(x) for x in categories] )
+			self.chart.setCategories( self.replaceFalse(categories) )
 
