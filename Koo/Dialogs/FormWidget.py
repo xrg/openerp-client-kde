@@ -282,7 +282,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		res_id = self.screen.currentId()
 		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
 		self.screen.load( [new_id], self.screen.addOnTop() )
-		self.updateStatus(_('Working now on the duplicated document !'))
+		self.updateStatus(_('<font color="orange">Working now on the duplicated document</font>'))
 
 	def save(self):
 		if not self.screen.currentRecord():
@@ -291,11 +291,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		modification = self.screen.currentRecord().id
 		id = self.screen.save()
 		if id:
-			self.updateStatus(_('<font color="green">Document saved !</font>'))
-			if not modification:
+			self.updateStatus(_('<font color="green">Document saved</font>'))
+			if not modification and Settings.value('auto_new'):
 				self.screen.new()
 		else:
-			self.updateStatus(_('<font color="red">Invalid form !</font>'))
+			self.updateStatus(_('<font color="red">Invalid form</font>'))
 		QApplication.restoreOverrideCursor()
 		return bool(id)
 

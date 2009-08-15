@@ -184,7 +184,7 @@ class nan_koo_settings(osv.osv):
 		'allow_massive_updates': fields.boolean( 'Allow Massive Updates', help='If set, the option to Modify all Selected Records is enabled in Form menu.' ),
 		'attachments_dialog': fields.boolean( 'Attachments in a Dialog', help="If set, pushing on attachments button will open them in a new blocking dialog. Otherwise they will be opened in a new tab" ),
 		'use_cache': fields.boolean('Allow Client Caching', help="If set, it enables the caching mechanism of the client. Developers will often consider disabling this option so they avoid clicking Clear Cache after changing views and actions."),
-
+		'auto_new': fields.boolean('Automatically create new record', help="If set, it will put the user in a new document just after saving a new document. This eases creation of many records. Resembles old (4.2) behaviour of the application."),
 	}
 	_defaults = {
 		'limit': lambda *a: 80,
