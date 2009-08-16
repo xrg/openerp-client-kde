@@ -13,11 +13,19 @@ function ts2po
 	perl -pi -e "s/X-Virgin-Header: remove this line if you change anything in the header./Project-Id-Version: PACKAGE VERSION\\\nReport-Msgid-Bugs-To: \\\nPOT-Creation-Date: 2009-07-28 00:00+0200\\\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\\\nLanguage-Team: LANGUAGE <LL@li.org>\\\nMIME-Version: 1.0\\\nContent-Type: text\/plain; charset=iso-8859-1/" Koo/l10n/$po
 }
 
-function po2ts
+function po2ts 
 {
 	po=$1
 	ts=$2
-	lconvert $DIR/$po --output-format ts -o $DIR/$ts
+	utf=$3
+	if [ "$utf" == "yes" ]; then
+		tmp=$(mktemp)
+		uconv -f utf-8 -t iso-8859-1 $DIR/$po > $tmp
+		lconvert --input-format po $tmp --output-format ts -o $DIR/$ts
+		rm $tmp
+	else
+		lconvert $DIR/$po --output-format ts -o $DIR/$ts
+	fi
 }
 
 UI_FILES=$(find Koo/ui -name "*.ui")
@@ -38,7 +46,12 @@ ts2po koo.ts qt-koo.pot
 echo "Converting qt-koo*.po files to .ts and then compiling to .qm"
 echo $QT_LANGS
 for x in $QT_LANGS; do
-	po2ts qt-koo-$x.po qt_$x.ts
+	if [ "$x" == "fr" ]; then
+		utf="yes"
+	else
+		utf="no"
+	fi
+	po2ts qt-koo-$x.po qt_$x.ts $utf
 	lrelease $DIR/qt_$x.ts -qm $DIR/qt_$x.qm
 done
 

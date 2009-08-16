@@ -1275,11 +1275,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="599"/>
-        <source>Ctrl+L, Ctrl+Shift+L</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="608"/>
         <source>Open &amp;Menu Tab</source>
         <translation type="unfinished"></translation>
@@ -1432,6 +1427,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="818"/>
         <source>Modify All Selected Records</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="599"/>
+        <source>F6</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1609,17 +1609,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToManyWidget</name>
     <message>
-        <location filename="many2many.ui" line="13"/>
+        <location filename="many2many.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="42"/>
+        <location filename="many2many.ui" line="37"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="58"/>
+        <location filename="many2many.ui" line="54"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1791,22 +1791,22 @@ this operation may take a while...</source>
 <context>
     <name>ReferenceWidget</name>
     <message>
-        <location filename="reference.ui" line="19"/>
+        <location filename="reference.ui" line="20"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reference.ui" line="48"/>
+        <location filename="reference.ui" line="83"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reference.ui" line="64"/>
+        <location filename="reference.ui" line="66"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reference.ui" line="80"/>
+        <location filename="reference.ui" line="49"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>

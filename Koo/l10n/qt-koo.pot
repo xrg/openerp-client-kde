@@ -26,7 +26,7 @@ msgid "&Actions"
 msgstr ""
 
 #. ts-context ManyToManyWidget
-#: many2many.ui:42
+#: many2many.ui:37
 #, fuzzy
 msgid "&Add"
 msgstr ""
@@ -362,7 +362,7 @@ msgid "&Reload/Undo"
 msgstr ""
 
 #. ts-context ManyToManyWidget
-#: many2many.ui:58
+#: many2many.ui:54
 #, fuzzy
 msgid "&Remove"
 msgstr ""
@@ -1152,7 +1152,7 @@ msgid "Choose the date from a calendar"
 msgstr ""
 
 #. ts-context ReferenceWidget
-#: reference.ui:48
+#: reference.ui:83
 #, fuzzy
 msgid "Clear"
 msgstr ""
@@ -1239,12 +1239,6 @@ msgstr ""
 #: win_attach.ui:125
 #, fuzzy
 msgid "Ctrl+L"
-msgstr ""
-
-#. ts-context KooMainWindow
-#: mainwindow.ui:599
-#, fuzzy
-msgid "Ctrl+L, Ctrl+Shift+L"
 msgstr ""
 
 #. ts-context KooMainWindow
@@ -1426,6 +1420,12 @@ msgstr ""
 #: shortcuts.ui:200
 #, fuzzy
 msgid "F5"
+msgstr ""
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:599
+#, fuzzy
+msgid "F6"
 msgstr ""
 
 #. ts-context FieldDefaultsDialog

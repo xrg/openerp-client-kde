@@ -1,3 +1,4 @@
+# encoding: utf-8
 # French translation for openobject-client-kde
 # Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the openobject-client-kde package.
