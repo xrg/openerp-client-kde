@@ -703,6 +703,13 @@ class RecordGroup(QObject):
 				except:
 					sortingResult = self.SortingOnlyGroups
 
+			# We check whether the field is stored or not. In case the server 
+			# is not _ready_ we consider it's stored and we'll catch the exception
+			# later.
+			stored = self.fields[field].get('stored',True)
+			if not stored:
+				sortingResult = self.SortingNotPossible
+
 			if not sorted and sortingResult != self.SortingNotPossible:
 				# A lot of the work done here should be done on the server by core OpenERP
 				# functions. This means this runs slower than it should due to network and
@@ -717,6 +724,7 @@ class RecordGroup(QObject):
 					orderby += " ASC"
 				else:
 					orderby += " DESC"
+
 				try:
 					# Use call to catch exceptions
 					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )

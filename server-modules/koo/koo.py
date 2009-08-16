@@ -244,3 +244,32 @@ class nan_koo_cache_exceptions(osv.osv):
 		'name': fields.char('Model Name', size=64, required=True),
 	}
 nan_koo_cache_exceptions()
+
+
+# Workaround to 5.0 server regression. Since recent revisions they have introduced
+# a get_server_enviroment() function which takes a lot of time and thus we need to 
+# know on the client whether the field is sortable or not before trying.
+#
+# This function adds the 'stored' attribute to all fields, in case the server is
+# not ready to do so. A patch has been sent, but we already have this in case it's
+# not accepted or it takes a long time.
+
+import osv.orm
+
+old_fields_get = osv.orm.orm_template.fields_get
+
+def new_fields_get(self, cr, user, fields=None, context=None, read_access=True):
+	res = old_fields_get(self, cr, user, fields, context, read_access)
+	# Return wether the field is stored in the database or not,
+	# so the client can decide if it can be sorted.
+	for f in res.keys():
+		if hasattr(self._columns[f], 'store'):
+			if self._columns[f].store:
+				res[f]['stored'] = True
+			else:
+				res[f]['stored'] = False
+		else:
+			res[f]['stored'] = True
+	return res
+
+osv.orm.orm_template.fields_get = new_fields_get
