@@ -263,6 +263,8 @@ def new_fields_get(self, cr, user, fields=None, context=None, read_access=True):
 	# Return wether the field is stored in the database or not,
 	# so the client can decide if it can be sorted.
 	for f in res.keys():
+		if not f in self._columns:
+			continue
 		if hasattr(self._columns[f], 'store'):
 			if self._columns[f].store:
 				res[f]['stored'] = True
