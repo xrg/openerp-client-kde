@@ -309,7 +309,11 @@ class Report:
 		writer = csv.DictWriter( f, self.reportProperties['fieldNames'] + [''], delimiter=",", quotechar='"' )
 		header = {}
 		for field in self.reportProperties['fieldNames'] + ['']:
-			header[ field ] = field
+			if isinstance(field, unicode):
+				name = field.encode('utf-8')
+			else:
+				name = field
+			header[ field ] = name
 		writer.writerow( header )
 		# Once all records have been calculated, create the CSV structure itself
 		for records in self.allRecords:
