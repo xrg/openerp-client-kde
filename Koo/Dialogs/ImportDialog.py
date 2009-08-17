@@ -41,12 +41,22 @@ from ImportExportCommon import *
 
 def import_csv(csv_data, fields, model):
 	fname = csv_data['fname']
-	content = file(fname,'rb').read()
-	input=StringIO.StringIO(content)
-	data = list(csv.reader(input, quotechar=csv_data['del'], delimiter=csv_data['sep']))[int(csv_data['skip']):]
-	datas = []
-	for line in data:
-		datas.append(map(lambda x:x.decode(csv_data['encoding']).encode('utf-8'), line))
+	try:
+		content = file(fname,'rb').read()
+	except Exception, e:
+		QMessageBox.information( None, _('Error'), _('Error opening file: %s') % unicode(e.args) )
+		return False
+	try:
+		input=StringIO.StringIO(content)
+		data = list(csv.reader(input, quotechar=csv_data['del'], delimiter=csv_data['sep']))[int(csv_data['skip']):]
+		
+		datas = []
+		for line in data:
+			datas.append(map(lambda x:x.decode(csv_data['encoding']).encode('utf-8'), line))
+	except Exception, e:
+		QMessageBox.information( None, _('Error'), _('Error reading file: %s') % unicode(e.args) )
+		return False
+
 	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
 	if res[0]>=0:
 		QMessageBox.information( None, _('Information'), _('Imported %d objects !') % (res[0]))
@@ -60,6 +70,8 @@ def import_csv(csv_data, fields, model):
 			'error2': res[3]
 		}
 		QMessageBox.warning(None, _('Error importing data'), error )
+		return False
+	return True
 
 (ImportDialogUi, ImportDialogBase) = loadUiType( Common.uiPath('win_import.ui') )
 
@@ -122,7 +134,8 @@ class ImportDialog(QDialog, ImportDialogUi):
 			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
 
 		if csv['fname']:
-			import_csv(csv, fieldsData, self.model)
+			if not import_csv(csv, fieldsData, self.model):
+				return
 		self.accept()
 
 	def slotAdd(self):
