@@ -312,7 +312,12 @@ class TreeView( AbstractView ):
 		ids = []
 		selectedIndexes = self.widget.selectionModel().selectedRows()
 		for i in selectedIndexes:
-			ids.append( self.treeModel.id( i ) )
+			id = self.treeModel.id( i )
+			# Qt always returns at least one selected row (probably it's the root)
+			# so we discard those with ID = -1, otherwise we might try to remove it
+			# etc..
+			if id >= 0:
+				ids.append( id )
 		return ids
 
 	def setAllowMultipleSelection(self, value):
