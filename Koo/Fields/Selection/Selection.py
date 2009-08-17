@@ -40,6 +40,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		self.widget.setFrame( True )
 		self.widget.setEditable( True )
 		self.widget.setInsertPolicy( QComboBox.NoInsert )
+		self.widget.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 
 		# As there's no sense in this widget to handle focus
 		# we set QComboBox as the proxy widget. Without this

@@ -39,6 +39,7 @@ class CharFieldWidget(AbstractFieldWidget):
 		AbstractFieldWidget.__init__(self, parent, view, attrs)
 
 		self.widget = QLineEdit( self )
+		self.widget.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 		if 'size' in attrs:
 			self.widget.setMaxLength( int( attrs['size'] ) )
 		if 'password' in attrs:

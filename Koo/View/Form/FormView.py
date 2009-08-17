@@ -87,7 +87,7 @@ class FormContainer( QWidget ):
 
 		if stylesheet:
 			widget.setStyleSheet( stylesheet )
-		self.column = self.column + colspan
+		self.column += colspan
 
 	def newRow(self):
 		self.row = self.row + 1
