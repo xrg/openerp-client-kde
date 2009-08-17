@@ -50,9 +50,12 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
 
+		self._changed = False
+
 		self.installPopupMenu( self.widget )
 
 		self.connect( self.widget, SIGNAL('activated(int)'), self.activated )
+		self.connect( self.widget, SIGNAL('editTextChanged(QString)'), self.changed )
 		self.fill(attrs.get('selection',[]))
 
 	def fill(self, selection):
@@ -62,7 +65,13 @@ class SelectionFieldWidget(AbstractFieldWidget):
 	def setReadOnly(self, value):
 		self.widget.setEnabled(not value)
 
+	def changed(self, text):
+		self._changed = True
+
 	def value(self):
+		if not self._changed:
+			return self.record.value(self.name)
+
 		value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
 		if value.isValid():
 			if value.typeName() == 'QString':
@@ -84,6 +93,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 			self.widget.setCurrentIndex( self.widget.findText( '') )
 		else:
 			self.widget.setCurrentIndex( self.widget.findData( QVariant(value) ) )
+		self._changed = False
 
 	def activated(self, idx):
 		self.store()
