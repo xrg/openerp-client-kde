@@ -32,6 +32,7 @@ from Pyro.EventService.Clients import Publisher
 import netsvc
 import tools
 
+logger = netsvc.Logger()
 
 class PyroDaemon(Thread):
 	def __init__(self, port):
@@ -52,6 +53,7 @@ class PyroDaemon(Thread):
 		Pyro.core.initServer(storageCheck=0)
 		daemon=Pyro.core.Daemon(port=self.__port)
 		uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
+		logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro services, port %s" % self.__port)
 		daemon.requestLoop()
 
 
