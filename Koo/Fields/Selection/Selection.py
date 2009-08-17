@@ -63,7 +63,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		self.widget.setEnabled(not value)
 
 	def value(self):
-		value = self.widget.itemData( self.widget.currentIndex() )
+		value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
 		if value.isValid():
 			if value.typeName() == 'QString':
 				return unicode( value.toString() )
