@@ -318,6 +318,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.pushNext.setEnabled( False )
 		self.pushPrevious.setEnabled( False )
 
+		self.connect( self.uiHelp, SIGNAL('linkActivated(QString)'), self.showHelp )
 		self.connect( self.pushAccept, SIGNAL( "clicked( )"), self.open )
 		self.connect( self.uiItems, SIGNAL( "doubleClicked(QModelIndex)"), self.open )
 		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
@@ -325,6 +326,9 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
 		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
 		self.show()
+
+	def showHelp(self, link):
+		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
 
 	def disableQueries(self, text):
 		self.uiModel.setEnabled( False )

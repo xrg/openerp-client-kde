@@ -32,10 +32,10 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Full Text Indexes">
-					<field name="field_id"/>
-					<field name="model_id"/>
+					<field name="field_id" select="1"/>
+					<field name="model_id" select="1"/>
 					<newline/>
-					<field name="priority"/>
+					<field name="priority" select="1"/>
 				</form>
 			</field>
 		</record>
