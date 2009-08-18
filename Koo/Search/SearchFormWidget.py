@@ -87,19 +87,14 @@ class SearchFormParser(object):
 			select = attrs.get('select', False) or self.fields[attrs['name']].get('select', False)
 			if select:
 				name = attrs['name']
-				type = attrs.get('widget', self.fields[name]['type'])
-				self.fields[name].update(attrs)
-				self.fields[name]['model']=self.model
-				widget = SearchWidgetFactory.create(type, name, self.container, self.fields[name])
-				if not widget:
-					return
-				self.widgetDict[str(name)] = widget
+				self.fields[name].update( attrs )
+				self.fields[name]['model'] = self.model
 
 				select = str(select)
 				if select in self.widgets:
-					self.widgets[ str(select) ].append( widget )
+					self.widgets[ select ].append( name )
 				else:
-					self.widgets[ select ] = [ widget ]
+					self.widgets[ select ] = [ name ]
 
 	def _psr_end(self, name):
 		pass
@@ -113,17 +108,19 @@ class SearchFormParser(object):
 		self.widgetDict={}
 		psr.Parse(xml_data.encode('utf-8'))
 
-		previousWidget = None
 		for line in sorted( self.widgets.keys() ):
-			for widget in self.widgets[ line ]:
-				if 'string' in self.fields[widget.name]:
-					label = self.fields[widget.name]['string']+' :'
+			for name in self.widgets[ line ]:
+				attributes = self.fields[name]
+				type = attributes.get('widget', attributes['type'])
+				widget = SearchWidgetFactory.create( type, name, self.container, attributes )
+				if not widget:
+					continue
+				self.widgetDict[str(name)] = widget
+				if 'string' in attributes:
+					label = attributes['string']+' :'
 				else:
 					label = None
 				self.container.addWidget( widget, label )
-				if previousWidget:
-					QWidget.setTabOrder( previousWidget.focusWidget, widget.focusWidget )
-				previousWidget = widget
 				if not self.focusable:
 					self.focusable = widget
 		return self.widgetDict
