@@ -295,7 +295,7 @@ def normalizeLabel( text ):
 # Given that OpenERP has changed the way it handles booleans in view definitions
 # it's a bit complicated to properly evaluate it. At first only "1" and "0" were
 # used, for example.
-def stringToBool(self, text):
+def stringToBool(text):
 	if isinstance(text, str) or isinstance(text, unicode):
 		text = text.strip()
 		if text.lower() == 'true' or text == '1':
