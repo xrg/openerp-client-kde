@@ -334,7 +334,9 @@ class Report:
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids, self.context)
 			else:
-				if record.__hasattr__(root):
+				if root == 'id':
+					value = record._id
+				elif record.__hasattr__(root):
 					value = record.__getattr__(root)
 				else:
 					print "Field '%s' does not exist in model '%s'." % (root, record._table)
@@ -404,7 +406,9 @@ class Report:
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
-				if record.__hasattr__(root):
+				if root == 'id':
+					value = record._id
+				elif record.__hasattr__(root):
 					value = record.__getattr__(root)
 				else:
 					value = None
@@ -486,7 +490,9 @@ class Report:
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
-				if record.__hasattr__(root):
+				if root == 'id':
+					value = record._id
+				elif record.__hasattr__(root):
 					value = record.__getattr__(root)
 				else:
 					value = None
