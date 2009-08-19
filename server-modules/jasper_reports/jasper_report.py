@@ -448,7 +448,7 @@ class Report:
 			if field == 'id':
 				# Check for field 'id' because we can't find it's type in _columns
 				value = str(value)
-			elif value == False:
+			elif value in (False,None):
 				value = ''
 			elif record._table._columns[field]._type == 'date':
 				value = '%s 00:00:00' % str(value) 
