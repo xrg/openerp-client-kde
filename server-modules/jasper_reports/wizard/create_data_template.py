@@ -3,6 +3,7 @@ import wizard
 import pooler
 import base64
 import osv
+import string
 
 view_form_start = """<?xml version="1.0"?>
 	<form string="Create Data Template">
@@ -32,6 +33,9 @@ view_fields_end = {
 	'filename': { 'type': 'char' },
 }
 
+src_chars = """ '"()/-%?!&$[]{}#^:;<>=~\\""" 
+dst_chars = """_________________________"""
+char_translation = string.maketrans(src_chars, dst_chars)
 
 class create_data_template(wizard.interface):
 	
@@ -49,7 +53,7 @@ class create_data_template(wizard.interface):
 	def unaccent(self, text):
 		if isinstance( text, unicode ):
 			text = text.encode('utf-8')
-		return text.replace(' ', '_').replace("'", '_').replace('(','_').replace(')','_').replace('/','_').replace('-','_')
+		return text.translate(char_translation).strip('_')
 
 	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth):
 		# First of all add "id" field
@@ -78,6 +82,9 @@ class create_data_template(wizard.interface):
 				name = pool.get(modelName)._columns[field].string
 				#help = pool.get(modelName)._columns[field].help
 
+			if name:
+				name = self.unaccent( name )
+			# After unaccent the name might result in an empty string
 			if name:
 				name = '%s-%s' % (self.unaccent( name ), field )
 			else:
