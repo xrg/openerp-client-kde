@@ -236,36 +236,24 @@ public class JasperServer {
 			language = report.getQuery().getLanguage();
 
 		if( language.equalsIgnoreCase( "XPATH")  ){
-			try {
-				// If available, use a CSV file because it's faster to process.
-				// Otherwise we'll use an XML file.
-				if ( connectionParameters.containsKey("csv") ) {
-					CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
-					dataSource.setUseFirstRowAsHeader( true );
-					dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
-					dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
-					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
-				} else {
-					JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
-					dataSource.setDatePattern( "yyyy-MM-dd HH:mm:ss" );
-					dataSource.setNumberPattern( "#######0.##" );
-					dataSource.setLocale( Locale.ENGLISH );
-					jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			try {
-			} catch (Exception e){
-				e.printStackTrace();
+			// If available, use a CSV file because it's faster to process.
+			// Otherwise we'll use an XML file.
+			if ( connectionParameters.containsKey("csv") ) {
+				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
+				dataSource.setUseFirstRowAsHeader( true );
+				dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
+				dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
+				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
+			} else {
+				JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
+				dataSource.setDatePattern( "yyyy-MM-dd HH:mm:ss" );
+				dataSource.setNumberPattern( "#######0.##" );
+				dataSource.setLocale( Locale.ENGLISH );
+				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			}
 		} else if( language.equalsIgnoreCase( "SQL")  ) {
-			try {
-				Connection connection = getConnection( connectionParameters );
-				jasperPrint = JasperFillManager.fillReport( report, parameters, connection );
-			} catch( Exception e ){
-				e.printStackTrace();
-			}
+			Connection connection = getConnection( connectionParameters );
+			jasperPrint = JasperFillManager.fillReport( report, parameters, connection );
 		} else {
 			JREmptyDataSource dataSource = new JREmptyDataSource();
 			jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
