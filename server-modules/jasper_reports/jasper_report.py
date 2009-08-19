@@ -98,8 +98,8 @@ class Report:
 		f.close()
 
 		# Remove all temporary files created during the report
-		for file in self.temporaryFiles:
-			os.unlink( file )
+		#for file in self.temporaryFiles:
+		#	os.unlink( file )
 		self.temporaryFiles = []
 		return data
 
@@ -334,10 +334,10 @@ class Report:
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids, self.context)
 			else:
-				try:
+				if record.__hasattr__(root):
 					value = record.__getattr__(root)
-				except:
-					print "Field '%s' does not exist in model '%s'." % (root, self.model)
+				else:
+					print "Field '%s' does not exist in model '%s'." % (root, record._table)
 					continue
 
 				if isinstance(value, orm.browse_record):
@@ -404,11 +404,11 @@ class Report:
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
-				try:
+				if record.__hasattr__(root):
 					value = record.__getattr__(root)
-				except:
+				else:
 					value = None
-					print "Field '%s' does not exist in model" % root
+					print "Field '%s' does not exist in model '%s'." % (root, record._table)
 
 
 			# Check if it's a many2one
@@ -486,11 +486,11 @@ class Report:
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			else:
-				try:
+				if record.__hasattr__(root):
 					value = record.__getattr__(root)
-				except:
+				else:
 					value = None
-					print "Field '%s' does not exist in model" % root
+					print "Field '%s' does not exist in model '%s'." % (root, record._table)
 
 			# Check if it's a many2one
 			if isinstance(value, orm.browse_record):
