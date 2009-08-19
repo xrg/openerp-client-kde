@@ -2,6 +2,7 @@
   <qresource prefix="/" >
     <file>images/apply.png</file>
     <file>images/account.png</file>
+    <file>images/koo.png</file>
     <file>images/action.png</file>
     <file>images/administration.png</file>
     <file>images/play.png</file>
@@ -76,9 +77,8 @@
     <file>images/text_italic.png</file>
     <file>images/text_strike.png</file>
     <file>images/text_under.png</file>
-    <file>images/tinyerp-icon-32x32.png</file>
-    <file>images/tinyerp.png</file>
     <file>images/trash.png</file>
+    <file>images/koo-icon.png</file>
     <file>images/up.png</file>
     <file>images/warning.png</file>
   </qresource>

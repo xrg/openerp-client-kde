@@ -36,7 +36,7 @@ p, li { white-space: pre-wrap; }
      <widget class="QWidget" name="tab">
       <attribute name="icon">
        <iconset resource="common.qrc">
-        <normaloff>:/images/tinyerp-icon-32x32.png</normaloff>:/images/tinyerp-icon-32x32.png</iconset>
+        <normaloff>:/images/koo-icon.png</normaloff>:/images/koo-icon.png</iconset>
       </attribute>
       <attribute name="title">
        <string>&amp;OpenERP</string>

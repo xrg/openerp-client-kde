@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="common.qrc">
-    <normaloff>:/images/tinyerp-icon-32x32.png</normaloff>:/images/tinyerp-icon-32x32.png</iconset>
+    <normaloff>:/images/koo-icon.png</normaloff>:/images/koo-icon.png</iconset>
   </property>
   <property name="accessibleName">
    <string/>
@@ -731,8 +731,8 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="common.qrc">
-     <normaloff>:/images/tinyerp-icon-32x32.png</normaloff>:/images/tinyerp-icon-32x32.png</iconset>
+    <iconset>
+     <normaloff>:/images/koo-icon.png</normaloff>:/images/koo-icon.png</iconset>
    </property>
    <property name="text">
     <string>&amp;About</string>

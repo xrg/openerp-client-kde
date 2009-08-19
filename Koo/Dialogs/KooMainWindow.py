@@ -209,7 +209,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.systemTrayMenu.addAction( self.actionExit )
 
 		self.systemTrayIcon = QSystemTrayIcon( self )
-		self.systemTrayIcon.setIcon( QIcon(":/images/tinyerp-icon-32x32.png") )
+		self.systemTrayIcon.setIcon( QIcon(":/images/koo-icon.png") )
 		self.systemTrayIcon.setContextMenu( self.systemTrayMenu )
 		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
 
