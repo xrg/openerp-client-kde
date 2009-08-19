@@ -289,3 +289,17 @@ def normalizeLabel( text ):
 				res += x
 	return res
 
+
+## @brief This function converts a string into a boolean.
+# 
+# Given that OpenERP has changed the way it handles booleans in view definitions
+# it's a bit complicated to properly evaluate it. At first only "1" and "0" were
+# used, for example.
+def stringToBool(self, text):
+	if isinstance(text, str) or isinstance(text, unicode):
+		text = text.strip()
+		if text.lower() == 'true' or text == '1':
+			return True
+		if text.lower() == 'false' or text == '0':
+			return False
+	return bool(text)

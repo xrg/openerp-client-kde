@@ -45,7 +45,6 @@ from Koo.Common.Calendar import *
 from Koo.Common.ViewSettings import *
 
 
-
 class TreeParser(AbstractParser):
 	def create(self, viewId, parent, model, rootNode, fields):
 		# It's expected that parent will be a Screen
@@ -92,9 +91,9 @@ class TreeParser(AbstractParser):
 					visible = True
 
 				if 'readonly' in node_attrs:
-					fields[fname]['readonly'] = bool(int(node_attrs['readonly']))
+					fields[fname]['readonly'] = Common.stringToBool(node_attrs['readonly'])
 				if 'required' in node_attrs:
-					fields[fname]['required'] = bool(int(node_attrs['required']))
+					fields[fname]['required'] = Common.stringToBool(node_attrs['required'])
 
 				if 'sum' in node_attrs and fields[fname]['type'] in ('integer', 'float', 'float_time'):
 					bold = bool(int(node_attrs.get('sum_bold', 0)))
