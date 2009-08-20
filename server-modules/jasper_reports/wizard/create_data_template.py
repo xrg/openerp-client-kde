@@ -35,8 +35,9 @@ view_fields_end = {
 }
 
 src_chars = """àáäâÀÁÄÂèéëêÈÉËÊìíïîÌÍÏÎòóöôÒÓÖÔùúüûÙÚÜÛçñºª·¤ '"()/*-+%?!&$[]{}@#`'^:;<>=~\\""" 
+src_chars = unicode( src_chars, 'iso-8859-1' )
 dst_chars = """aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUcnoa.e______________________________"""
-char_translation = string.maketrans(src_chars, dst_chars)
+dst_chars = unicode( dst_chars, 'iso-8859-1' )
 
 class create_data_template(wizard.interface):
 	
@@ -52,9 +53,13 @@ class create_data_template(wizard.interface):
 		return text
 
 	def unaccent(self, text):
-		if isinstance( text, unicode ):
-			text = text.encode('utf-8')
-		return text.translate(char_translation).strip('_')
+		if isinstance( text, str ):
+			text = unicode( text, 'utf-8' )
+		output = text
+		for c in xrange(len(src_chars)):
+			output = output.replace( src_chars[c], dst_chars[c] )
+		return output.strip('_').encode( 'utf-8' )
+		
 
 	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth):
 		# First of all add "id" field
