@@ -28,5 +28,5 @@ pot=$2
 
 tmp=$(mktemp)
 java I18nGetText $jrxml > $tmp
-xgettext -L Java -ktr -ktr:2 -ktrn:1,2 -ktrn:2,3 -o $pot $tmp
+xgettext -L Java -ktrl:2 -ktr -ktr:2 -ktrn:1,2 -ktrn:2,3 -o $pot $tmp
 rm $tmp
