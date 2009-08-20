@@ -67,25 +67,43 @@ public class I18nGroovyCompiler extends JRGroovyCompiler {
 			"return i18n.tr(locale, text, pluralText, n, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n, Object[] objects) {\n" +
-			"return i18n.tr(locale, text, pluralText, n, objects);\n" +
+			"return i18n.trn(locale, text, pluralText, n, objects);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n) {\n" +
-			"return i18n.tr(text, pluralText, n);\n" +
+			"return i18n.trn(text, pluralText, n);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o) {\n" +
-			"return i18n.tr(text, pluralText, n, o);\n" +
+			"return i18n.trn(text, pluralText, n, o);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o1, Object o2) {\n" +
-			"return i18n.tr(text, pluralText, n, o1, o2);\n" +
+			"return i18n.trn(text, pluralText, n, o1, o2);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3) {\n" +
-			"return i18n.tr(text, pluralText, n, o1, o2, o3);\n" +
+			"return i18n.trn(text, pluralText, n, o1, o2, o3);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {\n" +
-			"return i18n.tr(text, pluralText, n, o1, o2, o3, o4);\n" +
+			"return i18n.trn(text, pluralText, n, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object[] objects) {\n" +
-			"return i18n.tr(text, pluralText, n, objects);\n" +
+			"return i18n.trn(text, pluralText, n, objects);\n" +
+		"}\n" +
+		"public String trl(String localeCode, String text) {\n" +
+			"return i18n.trl(localeCode, text);\n" +
+		"}\n" +
+		"public String trl(String localeCode, String text, Object o) {\n" +
+			"return i18n.trl(localeCode, text, o);\n" +
+		"}\n" +
+		"public String trl(String localeCode, String text, Object o1, Object o2) {\n" +
+			"return i18n.trl(localeCode, text, o1, o2);\n" +
+		"}\n" +
+		"public String trl(String localeCode, String text, Object o1, Object o2, Object o3) {\n" +
+			"return i18n.trl(localeCode, text, o1, o2, o3);\n" +
+		"}\n" +
+		"public String trl(String localeCode, String text, Object o1, Object o2, Object o3, Object o4) {\n" +
+			"return i18n.trl(localeCode, text, o1, o2, o3, o4);\n" +
+		"}\n" +
+		"public String trl(String localeCode, String text, Object[] objects) {\n" +
+			"return i18n.trl(localeCode, text, objects);\n" +
 		"}\n";
 
 	public I18nGroovyCompiler() {

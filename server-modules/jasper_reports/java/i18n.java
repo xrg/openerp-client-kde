@@ -39,8 +39,7 @@ public class i18n {
 		}
 		return true;
 	}
-	/* trl() */
-	public static String trl(String localeCode, String text) {
+	public static Locale stringToLocale(String localeCode) {
 		Locale locale;
 		String[] locales = localeCode.split( "_" );
 		if ( locales.length == 1 )
@@ -49,7 +48,7 @@ public class i18n {
 			locale = new Locale( locales[0], locales[1] );
 		else
 			locale = new Locale( locales[0], locales[1], locales[2] );
-		return tr(locale, text);
+		return locale;
 	}
 	/* tr(Locale..) and tr(Locale..Object) functions */
 	public static String tr(Locale locale, String text) {
@@ -81,6 +80,25 @@ public class i18n {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text, objects );
+	}
+	/* trl() and trl(..Object) functions */
+	public static String trl(String localeCode, String text) {
+		return tr(stringToLocale(localeCode), text);
+	}
+	public static String trl(String localeCode, String text, Object o) {
+		return tr(stringToLocale(localeCode), text, o);
+	}
+	public static String trl(String localeCode, String text, Object o1, Object o2) {
+		return tr(stringToLocale(localeCode), text, o1, o2);
+	}
+	public static String trl(String localeCode, String text, Object o1, Object o2, Object o3) {
+		return tr(stringToLocale(localeCode), text, o1, o2, o3);
+	}
+	public static String trl(String localeCode, String text, Object o1, Object o2, Object o3, Object o4) {
+		return tr(stringToLocale(localeCode), text, o1, o2, o3, o4);
+	}
+	public static String trl(String localeCode, String text, Object[] objects) {
+		return tr(stringToLocale(localeCode), text, objects);
 	}
 	/* tr(..) and tr(..Object) functions */
 	public static String tr(String text) {
