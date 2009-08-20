@@ -385,7 +385,7 @@ class Report:
 			else:
 				context['lang'] = language
 			value = model.read(self.cr, self.uid, [id], [field], context=context)
-			values[ language ] = value[0][field]
+			values[ language ] = value[0][field] or ''
 
 		result = []
 		for key, value in values.iteritems():
