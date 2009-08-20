@@ -12,6 +12,7 @@ public class i18n {
 	static Hashtable<Locale, I18n> resources = new Hashtable<Locale, I18n>();
 	static String baseName;
 	static Locale defaultLocale;
+	static Hashtable<Locale, Boolean> unavailableResources = new Hashtable<Locale, Boolean>();
 
 	public static void init(String baseName, Locale defaultLocale) {
 		i18n.baseName = baseName;
@@ -19,14 +20,20 @@ public class i18n {
 	}
 	/* Ensures the given locale is loaded */
 	protected static boolean loadLocale( Locale locale ) {
+		// If the resource wasn't available don't try to load it each time.
+		if ( unavailableResources.containsKey( locale ) )
+			return false;
 		if ( ! resources.containsKey( locale ) ) {
+			String fileName = baseName + "_" + locale.toString() + ".properties";
 			ResourceBundle bundle; 
 			try {
-				FileInputStream fis = new FileInputStream(baseName + "_" + locale.toString() + ".properties" );
+				FileInputStream fis = new FileInputStream( fileName );
 				bundle = new PropertyResourceBundle(fis);
 				resources.put( locale, new I18n( bundle ) );
 			} catch (Exception e) {
 				e.printStackTrace();
+				unavailableResources.put( locale, true );
+				System.out.println( "No bundle file named: " + fileName );
 				return false;
 			}
 		}
