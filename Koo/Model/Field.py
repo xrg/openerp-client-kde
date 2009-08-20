@@ -87,7 +87,6 @@ class StringField(QObject):
 		if modified:
 			record.modified = True
 			record.modified_fields.setdefault(self.name)
-		return True
 
 	## Return the value to write to the server
 	def get(self, record, check_load=True, readonly=True, modified=False):
@@ -105,7 +104,22 @@ class StringField(QObject):
 		return record.values.get(self.name, False)
 
 	def setDefault(self, record, value):
-		return self.set(record, value)
+		self.set(record, value)
+		# Setting defaults shouldn't by itself mark the field as changed 
+		# because it's usually used in form loading. However, we're required
+		# to trigger on_change events that are usually handled by the changed()
+		# function.
+		# 
+		# Note that, although setDefault() doesn't mark the field as modified, 
+		# any records that have an on_change on one of the fields filled by
+		# setDefault() and that the result of on_change means modifying some
+		# fields, those WILL be marked as modified.
+		#
+		# Maybe it would be better to set value normally (and trigger on_change
+		# events there) and let Record.fillWithDefaults() be responsible for 
+		# resetting all fields to not modified.
+		if self.attrs.get('on_change',False):
+			record.callOnChange(self.attrs['on_change'])
 
 	def default(self, record):
 		return self.get(record)
@@ -123,7 +137,6 @@ class BinaryField(StringField):
 		if modified:
 			record.modified = True
 			record.modified_fields.setdefault(self.name)
-		return True
 
 	def set_client(self, record, value, test_state=True):
 		internal = record.values.get(self.name, False)
