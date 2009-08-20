@@ -210,7 +210,10 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			self.screen.setRecordGroup(group)
 			if group.count():
 				self.screen.setCurrentRecord( group.modelByIndex(0) )
-		self.screen.display()
+			# Do NOT display if self.screen.group == group. Doing so
+			# causes a segmentation fault when storing the form if the one2many
+			# has an editable list and one item is being edited.
+			self.screen.display()
 		self.updateButtons()
 
 	def store(self):
