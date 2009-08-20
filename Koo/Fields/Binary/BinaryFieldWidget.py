@@ -50,6 +50,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.filters = _('Files (%s)') % ' '.join( self.filters )
 
 		self.fileNameField = attrs.get('filename')
+		self.baseDirectory = QDir.homePath()
 
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
@@ -147,10 +148,12 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		dialog.exec_()
 
 	def new(self):
-		filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'), QDir.homePath(), self.filters)
+		filename = QFileDialog.getOpenFileName(self, _('Select the file to attach'), self.baseDirectory, self.filters)
 		if filename.isNull():
 			return
 		filename = unicode(filename)
+		self.baseDirectory = os.path.dirname(filename)
+
 		try:
 			value = file(filename, 'rb').read()
 		except Exception, e:
@@ -177,11 +180,13 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		return self.name
 
 	def save(self):
-		directory = '%s/%s' % (unicode(QDir.homePath()), unicode(self.fileName()) )
+		directory = '%s/%s' % (self.baseDirectory, unicode(self.fileName()) )
 		filename = QFileDialog.getSaveFileName( self, _('Save as...'), directory, self.filters )
 		if filename.isNull():
 			return
 		filename = unicode(filename)
+		self.baseDirectory = os.path.dirname(filename)
+
 		try:
 			fp = file(filename,'wb+')
 			fp.write( self.record.value(self.name) )
@@ -222,3 +227,10 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 	def colorWidget(self):
 		return self.uiBinary
 
+	def saveState(self):
+		return QByteArray( self.baseDirectory.encode('utf-8') )
+
+	def restoreState(self, value):
+		if not value:
+			return
+		self.baseDirectory = unicode( str( value ), 'utf-8' )
