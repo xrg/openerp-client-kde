@@ -1,3 +1,4 @@
+# encoding: iso-8859-15
 from xml.dom.minidom import getDOMImplementation
 import wizard
 import pooler
@@ -33,8 +34,8 @@ view_fields_end = {
 	'filename': { 'type': 'char' },
 }
 
-src_chars = """ '"()/-%?!&$[]{}#^:;<>=~\\""" 
-dst_chars = """_________________________"""
+src_chars = """àáäâÀÁÄÂèéëêÈÉËÊìíïîÌÍÏÎòóöôÒÓÖÔùúüûÙÚÜÛçñºª·¤ '"()/*-+%?!&$[]{}@#`'^:;<>=~\\""" 
+dst_chars = """aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUcnoa.e______________________________"""
 char_translation = string.maketrans(src_chars, dst_chars)
 
 class create_data_template(wizard.interface):
