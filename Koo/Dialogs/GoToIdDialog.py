@@ -37,6 +37,7 @@ class GoToIdDialog( QDialog, GoToIdDialogUi ):
 		QDialog.__init__(self, parent)
 		GoToIdDialogUi.__init__(self)
 		self.setupUi( self )
+		self.uiId.selectAll()
 		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 
