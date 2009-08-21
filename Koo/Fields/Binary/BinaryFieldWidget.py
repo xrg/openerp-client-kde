@@ -50,7 +50,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.filters = _('Files (%s)') % ' '.join( self.filters )
 
 		self.fileNameField = attrs.get('filename')
-		self.baseDirectory = QDir.homePath()
+		self.baseDirectory = unicode( QDir.homePath() )
 
 		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
