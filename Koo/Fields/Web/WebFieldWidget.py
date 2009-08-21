@@ -79,9 +79,9 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 			raw.append( [
 				str(cookie.name().toBase64()), 
 				str(cookie.value().toBase64()), 
-				str(cookie.path()),
-				str(cookie.domain()),
-				str(cookie.expirationDate().toString()),
+				unicode(cookie.path()).encode('utf-8'),
+				unicode(cookie.domain()).encode('utf-8'),
+				unicode(cookie.expirationDate().toString()).encode('utf-8'),
 				str(cookie.isHttpOnly()),
 				str(cookie.isSecure()),
 			])
@@ -96,9 +96,9 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 			name = QByteArray.fromBase64( cookie[0] )
 			value = QByteArray.fromBase64( cookie[1] )
 			networkCookie = QNetworkCookie( name, value )
-			networkCookie.setPath( cookie[2] )
-			networkCookie.setDomain( cookie[3] )
-			networkCookie.setExpirationDate( QDateTime.fromString( cookie[4] ) )
+			networkCookie.setPath( unicode( cookie[2], 'utf-8' ) )
+			networkCookie.setDomain( unicode( cookie[3], 'utf-8' ) )
+			networkCookie.setExpirationDate( QDateTime.fromString( unicode( cookie[4], 'utf-8' ) ) )
 			networkCookie.setHttpOnly( eval(cookie[5]) )
 			networkCookie.setSecure( eval(cookie[6]) )
 			cookieList.append( networkCookie )
