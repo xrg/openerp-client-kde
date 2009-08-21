@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-04 17:11+0200\n"
-"PO-Revision-Date: 2009-08-04 15:51+0000\n"
+"POT-Creation-Date: 2009-08-21 08:19+0200\n"
+"PO-Revision-Date: 2009-08-21 13:57+0000\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-08-04 16:56+0000\n"
+"X-Launchpad-Export-Date: 2009-08-21 14:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
@@ -31,15 +31,26 @@ msgstr "Nada a imprimir."
 msgid "Printing aborted. Delay too long."
 msgstr "Impresión abortada. Espera demasiado larga."
 
+#: Koo/Actions/Actions.py:94 Koo/Dialogs/ImportDialog.py:62
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+#: Koo/Dialogs/KooMainWindow.py:735 Koo/Dialogs/KooMainWindow.py:759
+#: Koo/Dialogs/TreeWidget.py:264 Koo/Dialogs/TreeWidget.py:276
+#: Koo/Dialogs/ExportDialog.py:72 Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:87
+msgid "Information"
+msgstr "Información"
+
 #: Koo/Actions/Actions.py:94
 msgid "Nothing to print!"
 msgstr "Nada a imprimir!"
 
-#: Koo/Actions/Actions.py:111 Koo/Dialogs/AdministratorPasswordDialog.py:71
-#: Koo/Dialogs/KooMainWindow.py:752 Koo/Dialogs/ExportDialog.py:74
-#: Koo/Dialogs/ExportDialog.py:128 Koo/Dialogs/ExportDialog.py:157
-#: Koo/Fields/Binary/BinaryFieldWidget.py:157
-#: Koo/Fields/Binary/BinaryFieldWidget.py:189
+#: Koo/Actions/Actions.py:111 Koo/Actions/Actions.py:117
+#: Koo/Dialogs/ImportDialog.py:47 Koo/Dialogs/ImportDialog.py:57
+#: Koo/Dialogs/AdministratorPasswordDialog.py:67
+#: Koo/Dialogs/KooMainWindow.py:762 Koo/Dialogs/ExportDialog.py:75
+#: Koo/Dialogs/ExportDialog.py:139 Koo/Dialogs/ExportDialog.py:173
+#: Koo/Fields/Binary/BinaryFieldWidget.py:160
+#: Koo/Fields/Binary/BinaryFieldWidget.py:195
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -49,15 +60,15 @@ msgstr "Error"
 msgid "Printing aborted, too long delay !"
 msgstr "Impresión abortada, espera demasiado larga!"
 
-#: Koo/Actions/Actions.py:218
+#: Koo/Actions/Actions.py:220
 msgid "Select your action"
 msgstr "Seleccionar su acción"
 
-#: Koo/Common/Common.py:177
+#: Koo/Common/Common.py:178
 msgid "Concurrency warning"
 msgstr "Advertencia de concurrencia"
 
-#: Koo/Common/Common.py:178
+#: Koo/Common/Common.py:179
 msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
@@ -65,32 +76,62 @@ msgstr ""
 "<b>Advertencia de concurrencia en la escritura:</b><br/>Este documento ha "
 "sido modificado mientras lo editaba."
 
-#: Koo/Common/Common.py:179
+#: Koo/Common/Common.py:180
 msgid "Save anyway"
 msgstr "Guardar igualmente"
 
-#: Koo/Common/Common.py:180
+#: Koo/Common/Common.py:181
 msgid "Compare"
 msgstr "Comparar"
 
-#: Koo/Common/Common.py:181
+#: Koo/Common/Common.py:182
 msgid "Do not save"
 msgstr "No guardarlo"
 
-#: Koo/Common/Options.py:66
+#: Koo/Common/CommandLine.py:44
 msgid "specify alternate config file"
 msgstr "especifique un archivo alterno de configuración"
 
-#: Koo/Common/Options.py:68
+#: Koo/Common/CommandLine.py:45
+msgid "specify the server (ie. http://admin@localhost:8069)"
+msgstr "espificar el servidor (ej: http://admin@localhost:8069)"
+
+#: Koo/Common/CommandLine.py:46
 msgid "specify stylesheet to apply"
 msgstr "especifique la hoja de estilo a aplicar"
 
-#: Koo/Dialogs/ImportDialog.py:52
+#: Koo/Common/CommandLine.py:47
+msgid "use POS (Point of Sales) mode"
+msgstr "utilizar el modo TPV (Terminal Punto de Venta)"
+
+#: Koo/Common/CommandLine.py:48
+msgid "disable usage of KDE libraries if they are available"
+msgstr "deshabilitar el uso de las librerías de KDE si están disponibles"
+
+#: Koo/Common/DBus.py:10
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with Koo."
+msgstr ""
+"El módulo 'dbus' no está disponible. Considere instalarlo para que otras "
+"aplicaciones puedan interactuar fácilmente con Koo."
+
+#: Koo/Dialogs/ImportDialog.py:47
+#, python-format
+msgid "Error opening file: %s"
+msgstr "Error al abrir el archivo: %s"
+
+#: Koo/Dialogs/ImportDialog.py:57
+#, python-format
+msgid "Error reading file: %s"
+msgstr "Error leyendo el fichero: %s"
+
+#: Koo/Dialogs/ImportDialog.py:62
 #, python-format
 msgid "Imported %d objects !"
 msgstr "Se han importado %d objetos!"
 
-#: Koo/Dialogs/ImportDialog.py:57
+#: Koo/Dialogs/ImportDialog.py:67
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -107,42 +148,42 @@ msgstr ""
 "\n"
 "%(error2)s"
 
-#: Koo/Dialogs/ImportDialog.py:62
+#: Koo/Dialogs/ImportDialog.py:72
 msgid "Error importing data"
 msgstr "Error en la importación de los datos"
 
-#: Koo/Dialogs/ImportDialog.py:97
+#: Koo/Dialogs/ImportDialog.py:109
 msgid "File to import"
 msgstr "Fichero a importar"
 
-#: Koo/Dialogs/ImportDialog.py:112 Koo/Dialogs/ImportDialog.py:115
-#: Koo/Dialogs/ImportDialog.py:118
+#: Koo/Dialogs/ImportDialog.py:124 Koo/Dialogs/ImportDialog.py:127
+#: Koo/Dialogs/ImportDialog.py:130
 msgid "Import error"
 msgstr "Error de importación"
 
-#: Koo/Dialogs/ImportDialog.py:112
+#: Koo/Dialogs/ImportDialog.py:124
 msgid "No file specified."
 msgstr "No se ha especificado ningún fichero."
 
-#: Koo/Dialogs/ImportDialog.py:115 Koo/Dialogs/ImportDialog.py:175
+#: Koo/Dialogs/ImportDialog.py:127 Koo/Dialogs/ImportDialog.py:188
 msgid "Separator must be a single character."
 msgstr "El separador debe ser un único carácter."
 
-#: Koo/Dialogs/ImportDialog.py:118 Koo/Dialogs/ImportDialog.py:178
+#: Koo/Dialogs/ImportDialog.py:130 Koo/Dialogs/ImportDialog.py:191
 msgid "Delimiter must be a single character."
 msgstr "El delimitador debe ser un único carácter."
 
-#: Koo/Dialogs/ImportDialog.py:167 Koo/Dialogs/ImportDialog.py:175
-#: Koo/Dialogs/ImportDialog.py:178 Koo/Dialogs/ImportDialog.py:184
-#: Koo/Dialogs/ImportDialog.py:194
+#: Koo/Dialogs/ImportDialog.py:180 Koo/Dialogs/ImportDialog.py:188
+#: Koo/Dialogs/ImportDialog.py:191 Koo/Dialogs/ImportDialog.py:197
+#: Koo/Dialogs/ImportDialog.py:207
 msgid "Auto-detect error"
 msgstr "Error en la auto-detección"
 
-#: Koo/Dialogs/ImportDialog.py:184
+#: Koo/Dialogs/ImportDialog.py:197
 msgid "Error opening .CSV file: Input Error."
 msgstr "Error abriendo fichero .CSV: Error de entrada."
 
-#: Koo/Dialogs/ImportDialog.py:194
+#: Koo/Dialogs/ImportDialog.py:207
 #, python-format
 msgid ""
 "Error processing your first line of the file.\n"
@@ -151,19 +192,19 @@ msgstr ""
 "Error al procesar la primera linea del fichero.\n"
 "Campo %s desconocido."
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:61
+#: Koo/Dialogs/AdministratorPasswordDialog.py:57
 msgid "Validation Error"
 msgstr "Error de validación"
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:61
+#: Koo/Dialogs/AdministratorPasswordDialog.py:57
 msgid "Confirmation password does not match new password."
 msgstr "La contraseña de validación no concuerda con la nueva contraseña."
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:68
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64
 msgid "Password changed successfully"
 msgstr "Contraseña cambiada correctamente"
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:71
+#: Koo/Dialogs/AdministratorPasswordDialog.py:67
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
@@ -171,95 +212,107 @@ msgstr ""
 "No se pudo cambiar la contraseña de administrador. Por favor, compruebe que "
 "el servidor y la contraseña son correctos."
 
-#: Koo/Dialogs/FormWidget.py:205
+#: Koo/Dialogs/FormWidget.py:155
+msgid "<font color=\"blue\">Document modified</font>"
+msgstr "<font color=\"blue\">Documento modificado</font>"
+
+#: Koo/Dialogs/FormWidget.py:209
 msgid "No resource selected !"
 msgstr "No hay ningún recurso seleccionado."
 
-#: Koo/Dialogs/FormWidget.py:232
+#: Koo/Dialogs/FormWidget.py:241
 msgid "You have to select one resource!"
 msgstr "Debe seleccionar un recurso."
 
-#: Koo/Dialogs/FormWidget.py:238 Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FormWidget.py:247 Koo/Dialogs/FullTextSearchDialog.py:397
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:239
+#: Koo/Dialogs/FormWidget.py:248
 msgid "Creation User"
 msgstr "Usuario de Creación"
 
-#: Koo/Dialogs/FormWidget.py:240
+#: Koo/Dialogs/FormWidget.py:249
 msgid "Creation Date"
 msgstr "Fecha de Creación"
 
-#: Koo/Dialogs/FormWidget.py:241
+#: Koo/Dialogs/FormWidget.py:250
 msgid "Latest Modification by"
 msgstr "Última Modificación por"
 
-#: Koo/Dialogs/FormWidget.py:242
+#: Koo/Dialogs/FormWidget.py:251
 msgid "Latest Modification Date"
 msgstr "Fecha de Última Modificación"
 
-#: Koo/Dialogs/FormWidget.py:251 Koo/Dialogs/FormWidget.py:394
+#: Koo/Dialogs/FormWidget.py:257
+msgid "Record log"
+msgstr "Información del registro"
+
+#: Koo/Dialogs/FormWidget.py:260 Koo/Dialogs/FormWidget.py:403
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 msgid "Question"
 msgstr "Pregunta"
 
-#: Koo/Dialogs/FormWidget.py:251
+#: Koo/Dialogs/FormWidget.py:260
 msgid "Are you sure you want to remove these records?"
 msgstr "Está seguro que desea borrar este registro?"
 
-#: Koo/Dialogs/FormWidget.py:255
+#: Koo/Dialogs/FormWidget.py:264
 msgid "Resource not removed !"
 msgstr "No se ha podido borrar el recurso."
 
-#: Koo/Dialogs/FormWidget.py:257
+#: Koo/Dialogs/FormWidget.py:266
 msgid "Resource removed."
 msgstr "Recurso eliminado"
 
-#: Koo/Dialogs/FormWidget.py:281
-msgid "Working now on the duplicated document !"
-msgstr "Trabajando en el document duplicado!"
-
 #: Koo/Dialogs/FormWidget.py:290
-msgid "Document saved !"
-msgstr "Documento guardado"
+msgid "<font color=\"orange\">Working now on the duplicated document</font>"
+msgstr "<font color=\"orange\">Trabajando en el documento duplicado<font>"
 
-#: Koo/Dialogs/FormWidget.py:294
-msgid "Invalid form !"
-msgstr "Formulario no válido"
+#: Koo/Dialogs/FormWidget.py:299
+msgid "<font color=\"green\">Document saved</font>"
+msgstr "<font color=\"green\">Se ha guardado el documento</font>"
 
-#: Koo/Dialogs/FormWidget.py:363
+#: Koo/Dialogs/FormWidget.py:303
+msgid "<font color=\"red\">Invalid form</font>"
+msgstr "<font color=\"red\">Documento inválido</font>"
+
+#: Koo/Dialogs/FormWidget.py:372
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s adjuntos) "
 
-#: Koo/Dialogs/FormWidget.py:374
+#: Koo/Dialogs/FormWidget.py:383
 msgid "No records"
 msgstr "Sin registros"
 
-#: Koo/Dialogs/FormWidget.py:381
+#: Koo/Dialogs/FormWidget.py:390
 msgid "No document selected"
 msgstr "No hay ningún documento seleccionado"
 
-#: Koo/Dialogs/FormWidget.py:385
+#: Koo/Dialogs/FormWidget.py:394
 msgid "New document"
 msgstr "Nuevo documento"
 
-#: Koo/Dialogs/FormWidget.py:387
+#: Koo/Dialogs/FormWidget.py:396
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Editando documento (id: %s)"
 
-#: Koo/Dialogs/FormWidget.py:388
+#: Koo/Dialogs/FormWidget.py:397
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Registro: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:394
+#: Koo/Dialogs/FormWidget.py:403
 msgid "This record has been modified do you want to save it?"
 msgstr "El registro se ha modificado, desea guardarlo?"
 
-#: Koo/Dialogs/KooMainWindow.py:101 Koo/Dialogs/KooMainWindow.py:443
+#: Koo/Dialogs/FormWidget.py:421
+msgid "No records selected"
+msgstr "Ningún registro seleccionado"
+
+#: Koo/Dialogs/KooMainWindow.py:101 Koo/Dialogs/KooMainWindow.py:448
 msgid "Press Ctrl+O to login"
 msgstr "Pulse Ctrl+O para entrar"
 
@@ -305,31 +358,31 @@ msgstr "Petición Nueva"
 msgid "You've received a new request"
 msgstr "Ha recibido una petición nueva"
 
-#: Koo/Dialogs/KooMainWindow.py:420 Koo/Dialogs/KooMainWindow.py:422
+#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
 msgid "Connection error !"
 msgstr "Error de Conexión"
 
-#: Koo/Dialogs/KooMainWindow.py:420
+#: Koo/Dialogs/KooMainWindow.py:425
 msgid "Unable to connect to the server !"
 msgstr "No ha sido posible connectar con el servidor."
 
-#: Koo/Dialogs/KooMainWindow.py:422
+#: Koo/Dialogs/KooMainWindow.py:427
 msgid "Bad username or password !"
 msgstr "Usuario o contraseña incorrecto."
 
-#: Koo/Dialogs/KooMainWindow.py:426
+#: Koo/Dialogs/KooMainWindow.py:431
 msgid "Connection Error !"
 msgstr "Error de Conexión"
 
-#: Koo/Dialogs/KooMainWindow.py:442
+#: Koo/Dialogs/KooMainWindow.py:447
 msgid "Not logged !"
 msgstr "No conectado!"
 
-#: Koo/Dialogs/KooMainWindow.py:535
+#: Koo/Dialogs/KooMainWindow.py:540
 msgid "Access denied"
 msgstr "Acceso denegado"
 
-#: Koo/Dialogs/KooMainWindow.py:535
+#: Koo/Dialogs/KooMainWindow.py:540
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -339,75 +392,79 @@ msgstr ""
 "Pregunte al administrador y verifique\n"
 "que tiene una acción definida para su usuario."
 
-#: Koo/Dialogs/KooMainWindow.py:566
+#: Koo/Dialogs/KooMainWindow.py:571
 msgid "Quit"
 msgstr "Salir"
 
-#: Koo/Dialogs/KooMainWindow.py:566
+#: Koo/Dialogs/KooMainWindow.py:571
 msgid "Do you really want to quit ?"
 msgstr "Está seguro que quiere salir?"
 
-#: Koo/Dialogs/KooMainWindow.py:566
+#: Koo/Dialogs/KooMainWindow.py:571
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42
 msgid "Yes"
 msgstr "Si"
 
-#: Koo/Dialogs/KooMainWindow.py:566
+#: Koo/Dialogs/KooMainWindow.py:571
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43
 msgid "No"
 msgstr "No"
 
-#: Koo/Dialogs/KooMainWindow.py:693 Koo/Dialogs/KooMainWindow.py:714
+#: Koo/Dialogs/KooMainWindow.py:605
+msgid "Wizard"
+msgstr "Asistente"
+
+#: Koo/Dialogs/KooMainWindow.py:703 Koo/Dialogs/KooMainWindow.py:724
 msgid "Delete a database"
 msgstr "Borrar una base de datos"
 
-#: Koo/Dialogs/KooMainWindow.py:702 Koo/Dialogs/KooMainWindow.py:708
+#: Koo/Dialogs/KooMainWindow.py:712 Koo/Dialogs/KooMainWindow.py:718
 msgid "Database removal"
 msgstr "Borrado de base de datos"
 
-#: Koo/Dialogs/KooMainWindow.py:702
+#: Koo/Dialogs/KooMainWindow.py:712
 msgid "Database dropped successfully!"
 msgstr "Base"
 
-#: Koo/Dialogs/KooMainWindow.py:706
+#: Koo/Dialogs/KooMainWindow.py:716
 msgid "Could not drop database."
 msgstr "No se ha podido borrar la base de datos"
 
-#: Koo/Dialogs/KooMainWindow.py:706 Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/KooMainWindow.py:716 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr "Contraseña de administrador incorrecta!"
 
-#: Koo/Dialogs/KooMainWindow.py:708
+#: Koo/Dialogs/KooMainWindow.py:718
 msgid "Couldn't drop database"
 msgstr "No se ha podido borrar la base de datos"
 
-#: Koo/Dialogs/KooMainWindow.py:725
+#: Koo/Dialogs/KooMainWindow.py:735
 msgid "Database restored successfully!"
 msgstr "Base de datos restaurada correctamente!"
 
-#: Koo/Dialogs/KooMainWindow.py:729 Koo/Dialogs/KooMainWindow.py:731
+#: Koo/Dialogs/KooMainWindow.py:739 Koo/Dialogs/KooMainWindow.py:741
 msgid "Could not restore database"
 msgstr "No se ha podido restaurar la base de datos"
 
-#: Koo/Dialogs/KooMainWindow.py:729
+#: Koo/Dialogs/KooMainWindow.py:739
 msgid "Bad database administrator password!"
 msgstr "Contraseña de administrador incorrecto!"
 
-#: Koo/Dialogs/KooMainWindow.py:731
+#: Koo/Dialogs/KooMainWindow.py:741
 msgid "There was an error restoring the database!"
 msgstr "Se ha producido un error recuperando la base de datos!"
 
-#: Koo/Dialogs/KooMainWindow.py:734
+#: Koo/Dialogs/KooMainWindow.py:744
 msgid "Backup a database"
 msgstr "Copia de seguridad de base de datos"
 
-#: Koo/Dialogs/KooMainWindow.py:749
+#: Koo/Dialogs/KooMainWindow.py:759
 msgid "Database backuped successfully!"
 msgstr ""
 "La copia de seguridad de la base de datos se ha realizado "
 "correctamente!hecho corre"
 
-#: Koo/Dialogs/KooMainWindow.py:752
+#: Koo/Dialogs/KooMainWindow.py:762
 #, python-format
 msgid ""
 "Could not backup database.\n"
@@ -416,19 +473,19 @@ msgstr ""
 "No se ha podido hacer copia de seguridad de la base de datos.\n"
 "%s"
 
-#: Koo/Dialogs/TreeWidget.py:62
+#: Koo/Dialogs/TreeWidget.py:61
 msgid "Tree"
 msgstr "Árbol"
 
-#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
+#: Koo/Dialogs/TreeWidget.py:264 Koo/Dialogs/TreeWidget.py:276
 msgid "No resource selected!"
 msgstr "Ninguno recurso seleccionado"
 
-#: Koo/Dialogs/TreeWidget.py:290
+#: Koo/Dialogs/TreeWidget.py:293
 msgid "No item selected"
 msgstr "No hay ningún elemento seleccionado"
 
-#: Koo/Dialogs/TreeWidget.py:290
+#: Koo/Dialogs/TreeWidget.py:293
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 "Por favor, seleccione un elemento del árbol para añadir un acceso directo a "
@@ -445,6 +502,11 @@ msgid ""
 msgstr ""
 "Los siguientes usuarios se han instalado en la base de datos:\n"
 "\n"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+msgid "Error during database creation"
+msgstr "Error durante la creación de la base de datos"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
@@ -474,6 +536,14 @@ msgstr ""
 "El nombre de la base de datos tiene que contener sólo carácteres normales o "
 "\"_\".\n"
 "Tiene que evitar todos las tildes, espacios y carácteres especiales."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Wrong password"
+msgstr "Contraseña incorrecta."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:168
+msgid "Administrator passwords differ."
+msgstr "Las contraseñas de administrador difieren."
 
 #: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "(Everywhere)"
@@ -509,27 +579,27 @@ msgstr "Búsqueda de texto"
 msgid "Full Text Search (%%d result(s))"
 msgstr "Búsqueda de texto (%%d resultado(s))"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:394
+#: Koo/Dialogs/FullTextSearchDialog.py:398
 msgid "Model ID"
 msgstr "ID del modelo"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:395
+#: Koo/Dialogs/FullTextSearchDialog.py:399
 msgid "Model Name"
 msgstr "Nombre del modelo"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:397
+#: Koo/Dialogs/FullTextSearchDialog.py:401
 msgid "Type"
 msgstr "Tipo"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:398
+#: Koo/Dialogs/FullTextSearchDialog.py:402
 msgid "Name"
 msgstr "Nombre"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:399
+#: Koo/Dialogs/FullTextSearchDialog.py:403
 msgid "Text"
 msgstr "Texto"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:400
+#: Koo/Dialogs/FullTextSearchDialog.py:404
 msgid "Ranking"
 msgstr "Ránking"
 
@@ -541,12 +611,29 @@ msgstr "No se pudo conectar con el servidor!"
 msgid "No database found, you must create one !"
 msgstr "No se encontrón ninguna base de datos. Debe crear una."
 
-#: Koo/Dialogs/ExportDialog.py:71 Koo/Dialogs/ExportDialog.py:92
+#: Koo/Dialogs/MassiveUpdateDialog.py:92
+msgid "Confirmation"
+msgstr "Confirmación"
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#, python-format
+msgid ""
+"<p>This process will update the following fields in %(number)d "
+"records:</p>%(records)s<p>Do you want to continue?</p>"
+msgstr ""
+"<p>Este proceso actualizará los siguientes campos en %(number)d "
+"registros:</p>%(records)s<p>Desea continuar?</p>"
+
+#: Koo/Dialogs/ExportDialog.py:52
+msgid "OpenERP exported information"
+msgstr "Información exportada de OpenERP"
+
+#: Koo/Dialogs/ExportDialog.py:72 Koo/Dialogs/ExportDialog.py:93
 #, python-format
 msgid "%s record(s) saved!"
 msgstr "%s registro(s) guardado(s)"
 
-#: Koo/Dialogs/ExportDialog.py:74 Koo/Dialogs/ExportDialog.py:95
+#: Koo/Dialogs/ExportDialog.py:75 Koo/Dialogs/ExportDialog.py:96
 #, python-format
 msgid ""
 "Operation failed !\n"
@@ -555,38 +642,73 @@ msgstr ""
 "Operación fallida!\n"
 "Error de E/S (%s)"
 
-#: Koo/Dialogs/ExportDialog.py:92 Koo/Dialogs/ExportDialog.py:95
-#: Koo/Dialogs/ExportDialog.py:98
+#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:96
+#: Koo/Dialogs/ExportDialog.py:99
 msgid "Data Export"
 msgstr "Exportación de datos"
 
-#: Koo/Dialogs/ExportDialog.py:254
+#: Koo/Dialogs/ExportDialog.py:99
+#, python-format
+msgid ""
+"Error exporting data:\n"
+"%s"
+msgstr ""
+"Error en la exportación:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:139
+#, python-format
+msgid ""
+"Error opening Excel:\n"
+"%s"
+msgstr ""
+"Error al abrir el Excel:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:173
+#, python-format
+msgid ""
+"Error Opening OpenOffice.org:\n"
+"%s"
+msgstr ""
+"Error al abrir el OpenOffice.org:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:270
 msgid "Export Data"
 msgstr "Exportar Datos"
 
-#: Koo/Dialogs/ExportDialog.py:297
+#: Koo/Dialogs/ExportDialog.py:313
 msgid "What is the name of this export?"
 msgstr "Cual es el nombre de esta exportación?"
 
-#: Koo/Dialogs/ExportDialog.py:313
+#: Koo/Dialogs/ExportDialog.py:331
+msgid "Open with OpenOffice.org"
+msgstr "Abrir con OpenOffice.org"
+
+#: Koo/Dialogs/ExportDialog.py:337
 msgid "Open with Excel"
 msgstr "Abrir con el Excel"
 
-#: Koo/Dialogs/ExportDialog.py:315
+#: Koo/Dialogs/ExportDialog.py:340
 msgid "Save as CSV"
 msgstr "Guardar como CSV"
 
-#: Koo/Dialogs/ExportDialog.py:316
+#: Koo/Dialogs/ExportDialog.py:341
 msgid "Save as HTML"
 msgstr "Guardar como HTML"
 
-#: Koo/Dialogs/ExportDialog.py:328
+#: Koo/Dialogs/ExportDialog.py:353
 msgid "Export name"
 msgstr "Nombre de la exportación"
 
-#: Koo/Dialogs/ExportDialog.py:329
+#: Koo/Dialogs/ExportDialog.py:354
 msgid "Exported fields"
 msgstr "Campos a exportar"
+
+#: Koo/Dialogs/PreferencesDialog.py:77
+msgid "User Preferences"
+msgstr "Preferencias de Usuario"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:64
 msgid "NET-RPC (faster)"
@@ -600,12 +722,16 @@ msgstr "XML-RPC"
 msgid "Secure XML-RPC"
 msgstr "XML-RPC Seguro"
 
-#: Koo/Dialogs/SearchDialog.py:76
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
+msgid "Pyro"
+msgstr "Pyro"
+
+#: Koo/Dialogs/SearchDialog.py:80
 #, python-format
 msgid "Search: %s"
 msgstr "Búsqueda: %s"
 
-#: Koo/Dialogs/SearchDialog.py:77
+#: Koo/Dialogs/SearchDialog.py:81
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr "Búsqueda: %s (%%d resultado(s))"
@@ -613,6 +739,23 @@ msgstr "Búsqueda: %s (%%d resultado(s))"
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "Campos"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:50
+#, python-format
+msgid "Files (%s)"
+msgstr "Ficheros (%s)"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:59
+msgid "&Save"
+msgstr "&Guardar"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:62
+msgid "&Open"
+msgstr "&Abrir"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:65
+msgid "Show &image"
+msgstr "Mostrar la &imagen"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:115
 #: Koo/Fields/Image/ImageFieldWidget.py:80
@@ -624,21 +767,44 @@ msgstr "Abrir..."
 msgid "Show &image..."
 msgstr "Mostrar la &imagen..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:150
+#: Koo/Fields/Binary/BinaryFieldWidget.py:141
+#: Koo/Fields/Image/ImageFieldWidget.py:108
+msgid "Image"
+msgstr "Imagen"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:151
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Seleccione el archivo a anexar"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:161
-#: Koo/Fields/Binary/BinaryFieldWidget.py:206 Koo/Model/KooModel.py:355
+#: Koo/Fields/Binary/BinaryFieldWidget.py:160
+#, python-format
+msgid ""
+"Error reading the file:\n"
+"%s"
+msgstr ""
+"Error al leer el fichero:\n"
+"%s"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:164
+#: Koo/Fields/Binary/BinaryFieldWidget.py:212 Koo/Model/KooModel.py:355
 #, python-format
 msgid "%d bytes"
 msgstr "%d bytes"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:180
+#: Koo/Fields/Binary/BinaryFieldWidget.py:184
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "Guardar como..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:195
+#, python-format
+msgid ""
+"Error writing the file:\n"
+"%s"
+msgstr ""
+"Error al escribir el fichero:\n"
+"%s"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:100
 msgid "Error in Button"
@@ -664,25 +830,25 @@ msgstr "Establecer la fecha y hora actuales"
 msgid "Set current time"
 msgstr "Establecer la hora actual"
 
-#: Koo/Fields/Char/CharFieldWidget.py:67
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+#: Koo/Fields/Char/CharFieldWidget.py:68
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
 msgid "Translation dialog"
 msgstr "Diálogo de traducción"
 
-#: Koo/Fields/Char/CharFieldWidget.py:67
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+#: Koo/Fields/Char/CharFieldWidget.py:68
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
 msgid "You must save the resource before adding translations"
 msgstr "Tiene que guardar el recurso antes de añadir traducciones"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:122
+#: Koo/Fields/Image/ImageFieldWidget.py:123
 msgid "Save image as..."
 msgstr "Guardar imagen como..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:130
+#: Koo/Fields/Image/ImageFieldWidget.py:131
 msgid "Error saving file"
 msgstr "Error al guardar el archivo"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:130
+#: Koo/Fields/Image/ImageFieldWidget.py:131
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
@@ -691,20 +857,39 @@ msgstr ""
 "favor, compruebe que tiene permisos."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:136
+#, python-format
+msgid "Image files (%s)"
+msgstr "Ficheros de imagen (%s)"
+
+#: Koo/Fields/Image/ImageFieldWidget.py:137
 msgid "Open image file..."
 msgstr "Abrir fichero de imagen..."
+
+#: Koo/Fields/Image/ImageFieldWidget.py:154
+msgid "(no image)"
+msgstr "(sin imagen)"
 
 #: Koo/Fields/Link/LinkFieldWidget.py:70
 msgid "Select the file to link to"
 msgstr "Seleccione el fichero a enlazar"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:255
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:265
 msgid "Action"
 msgstr "Acción"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:256
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:266
 msgid "Report"
 msgstr "Informe"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:99 Koo/Fields/ManyToOne/ManyToOne.py:217
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:211
+msgid "Search"
+msgstr "Buscar"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:210
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:206
+msgid "Open"
+msgstr "Abrir"
 
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
@@ -739,6 +924,22 @@ msgstr "Operación no permitida"
 #: Koo/Fields/AbstractFieldDelegate.py:115
 msgid "You can not set to the default value here !"
 msgstr "No se puede establecer el valor por defecto aquí."
+
+#: Koo/Plugins/Semantic/__init__.py:46
+msgid "Semantic Info"
+msgstr "Info Semántica"
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+msgid "Print Workflow"
+msgstr "Imprimir Flujo de Trabajo"
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+msgid "Print Workflow (Complex)"
+msgstr "Imprimir Flujo de Trabajo (Completo)"
+
+#: Koo/Plugins/ViewTranslator/__init__.py:40
+msgid "Translate View"
+msgstr "Traducir la vista"
 
 #: Koo/Printer/Printer.py:75
 msgid "Report error"
@@ -788,17 +989,45 @@ msgstr ""
 "<b>%(title)s</b><br/><b>Inicio:</b> %(start)s<br/><b>Duración:</b> "
 "%(duration)s<br/>"
 
+#: Koo/View/Calendar/__init__.py:31
+msgid "Calendar View"
+msgstr "Vista de calendario"
+
 #: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: Koo/koo.py:60
-msgid ""
-"Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with Koo."
-msgstr ""
-"El módulo 'dbus' no está disponible. Considere instalarlo para que otras "
-"aplicaciones puedan interactuar fácilmente con Koo."
+#: Koo/View/Chart/__init__.py:31
+msgid "Chart View"
+msgstr "Vista de gráfico"
+
+#: Koo/View/Form/__init__.py:32
+msgid "Form View"
+msgstr "Vista de Formulario"
+
+#: Koo/View/Svg/__init__.py:32
+msgid "SVG View"
+msgstr "Vista SVG"
+
+#: Koo/View/Tree/TreeView.py:203
+msgid "<font color='red'>Sorting not possible.</font>"
+msgstr "<font color='red'>No se puede ordenar.</font>"
+
+#: Koo/View/Tree/TreeView.py:205
+msgid "<font color='red'>Sorting only groups.</font>"
+msgstr "<font color='red'>La ordenación sólo agrupa.</font>"
+
+#: Koo/View/Tree/TreeView.py:207
+msgid "<font color='red'>Save changes before sorting.</font>"
+msgstr "<font color='red'>Guarde los cambios antes de ordenar.</font>"
+
+#: Koo/View/Tree/TreeView.py:231
+msgid "<a href=\"update\">Update totals</a>"
+msgstr "<a href=\"update\">Actualizar totales</a>"
+
+#: Koo/View/Tree/__init__.py:32
+msgid "List View"
+msgstr "Vista de lista"
 
 #, python-format
 #~ msgid "Preference %s"
@@ -850,198 +1079,17 @@ msgstr ""
 #~ msgid "Access Level"
 #~ msgstr "Nivel de Acceso"
 
+#~ msgid "Working now on the duplicated document !"
+#~ msgstr "Trabajando en el document duplicado!"
+
+#~ msgid "Document saved !"
+#~ msgstr "Documento guardado"
+
+#~ msgid "Invalid form !"
+#~ msgstr "Formulario no válido"
+
 #~ msgid "No record selected!"
 #~ msgstr "Ningún registro seleccionado"
 
 #~ msgid "Preferences"
 #~ msgstr "Preferencias"
-
-#: Koo/Actions/Actions.py:94 Koo/Dialogs/ImportDialog.py:52
-#: Koo/Dialogs/AdministratorPasswordDialog.py:68
-#: Koo/Dialogs/KooMainWindow.py:725 Koo/Dialogs/KooMainWindow.py:749
-#: Koo/Dialogs/TreeWidget.py:261 Koo/Dialogs/TreeWidget.py:273
-#: Koo/Dialogs/ExportDialog.py:71 Koo/Screen/Action.py:81
-#: Koo/Screen/Action.py:87
-msgid "Information"
-msgstr "Información"
-
-#: Koo/Common/Options.py:67
-msgid "specify the server (ie. http://admin@localhost:8069)"
-msgstr "espificar el servidor (ej: http://admin@localhost:8069)"
-
-#: Koo/Common/Options.py:69
-msgid "use POS (Point of Sales) mode"
-msgstr "utilizar el modo TPV (Terminal Punto de Venta)"
-
-#: Koo/Dialogs/FormWidget.py:248
-msgid "Record log"
-msgstr "Información del registro"
-
-#: Koo/Dialogs/FormWidget.py:412
-msgid "No records selected"
-msgstr "Ningún registro seleccionado"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:84
-#: Koo/Dialogs/DatabaseCreationDialog.py:86
-msgid "Error during database creation"
-msgstr "Error durante la creación de la base de datos"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
-msgid "Wrong password"
-msgstr "Contraseña incorrecta."
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
-msgid "Administrator passwords differ."
-msgstr "Las contraseñas de administrador difieren."
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr "Confirmación"
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
-#, python-format
-msgid ""
-"<p>This process will update the following fields in %(number)d "
-"records:</p>%(records)s<p>Do you want to continue?</p>"
-msgstr ""
-"<p>Este proceso actualizará los siguientes campos en %(number)d "
-"registros:</p>%(records)s<p>Desea continuar?</p>"
-
-#: Koo/Dialogs/ExportDialog.py:51
-msgid "OpenERP exported information"
-msgstr "Información exportada de OpenERP"
-
-#: Koo/Dialogs/ExportDialog.py:98
-#, python-format
-msgid ""
-"Error exporting data:\n"
-"%s"
-msgstr ""
-"Error en la exportación:\n"
-"%s"
-
-#: Koo/Dialogs/ExportDialog.py:128
-#, python-format
-msgid ""
-"Error opening Excel:\n"
-"%s"
-msgstr ""
-"Error al abrir el Excel:\n"
-"%s"
-
-#: Koo/Dialogs/ExportDialog.py:157
-#, python-format
-msgid ""
-"Error Opening OpenOffice.org:\n"
-"%s"
-msgstr ""
-"Error al abrir el OpenOffice.org:\n"
-"%s"
-
-#: Koo/Dialogs/ExportDialog.py:314
-msgid "Open with OpenOffice.org"
-msgstr "Abrir con OpenOffice.org"
-
-#: Koo/Dialogs/PreferencesDialog.py:76
-msgid "User Preferences"
-msgstr "Preferencias de Usuario"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:67
-msgid "Pyro"
-msgstr "Pyro"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:50
-#, python-format
-msgid "Files (%s)"
-msgstr "Ficheros (%s)"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:59
-msgid "&Save"
-msgstr "&Guardar"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:62
-msgid "&Open"
-msgstr "&Abrir"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:65
-msgid "Show &image"
-msgstr "Mostrar la &imagen"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:157
-#, python-format
-msgid ""
-"Error reading the file:\n"
-"%s"
-msgstr ""
-"Error al leer el fichero:\n"
-"%s"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:189
-#, python-format
-msgid ""
-"Error writing the file:\n"
-"%s"
-msgstr ""
-"Error al escribir el fichero:\n"
-"%s"
-
-#: Koo/Fields/Image/ImageFieldWidget.py:135
-#, python-format
-msgid "Image files (%s)"
-msgstr "Ficheros de imagen (%s)"
-
-#: Koo/Fields/Image/ImageFieldWidget.py:153
-msgid "(no image)"
-msgstr "(sin imagen)"
-
-#: Koo/Plugins/Semantic/__init__.py:46
-msgid "Semantic Info"
-msgstr "Info Semántica"
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
-msgid "Print Workflow"
-msgstr "Imprimir Flujo de Trabajo"
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
-msgid "Print Workflow (Complex)"
-msgstr "Imprimir Flujo de Trabajo (Completo)"
-
-#: Koo/Plugins/ViewTranslator/__init__.py:40
-msgid "Translate View"
-msgstr "Traducir la vista"
-
-#: Koo/View/Calendar/__init__.py:31
-msgid "Calendar View"
-msgstr "Vista de calendario"
-
-#: Koo/View/Chart/__init__.py:31
-msgid "Chart View"
-msgstr "Vista de gráfico"
-
-#: Koo/View/Form/__init__.py:32
-msgid "Form View"
-msgstr "Vista de Formulario"
-
-#: Koo/View/Svg/__init__.py:32
-msgid "SVG View"
-msgstr "Vista SVG"
-
-#: Koo/View/Tree/TreeView.py:203
-msgid "<font color='red'>Sorting not possible.</font>"
-msgstr "<font color='red'>No se puede ordenar.</font>"
-
-#: Koo/View/Tree/TreeView.py:205
-msgid "<font color='red'>Sorting only groups.</font>"
-msgstr "<font color='red'>La ordenación sólo agrupa.</font>"
-
-#: Koo/View/Tree/TreeView.py:207
-msgid "<font color='red'>Save changes before sorting.</font>"
-msgstr "<font color='red'>Guarde los cambios antes de ordenar.</font>"
-
-#: Koo/View/Tree/TreeView.py:231
-msgid "<a href=\"update\">Update totals</a>"
-msgstr "<a href=\"update\">Actualizar totales</a>"
-
-#: Koo/View/Tree/__init__.py:32
-msgid "List View"
-msgstr "Vista de lista"

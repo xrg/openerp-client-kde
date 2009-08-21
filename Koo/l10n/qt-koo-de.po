@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-08-04 16:56+0000\n"
+"X-Launchpad-Export-Date: 2009-08-21 14:12+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context KooMainWindow
@@ -33,7 +33,7 @@ msgid "&Actions"
 msgstr "&Aktionen"
 
 #. ts-context ManyToManyWidget
-#: many2many.ui:42
+#: many2many.ui:37
 msgid "&Add"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgid "&Contextual Help"
 msgstr "Kontext Hilfe"
 
 #. ts-context LoginDialog
-#: login.ui:88
+#: login.ui:96
 msgid "&Database:"
 msgstr "&Datenbank:"
 
@@ -228,7 +228,7 @@ msgid "&New database name:"
 msgstr "&Neuer Datenbank Name:"
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:72
+#: admin_passwd.ui:74
 msgid "&New password:"
 msgstr "&Neues Passwort:"
 
@@ -253,9 +253,14 @@ msgid "&OK"
 msgstr ""
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:55
+#: admin_passwd.ui:57
 msgid "&Old password:"
 msgstr "Altes Passwort"
+
+#. ts-context FullTextSearchDialog
+#: full_text_search.ui:159
+msgid "&Open"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
@@ -268,7 +273,7 @@ msgid "&OpenERP"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:169
+#: login.ui:198
 msgid "&Password:"
 msgstr ""
 
@@ -313,7 +318,7 @@ msgid "&Reload/Undo"
 msgstr ""
 
 #. ts-context ManyToManyWidget
-#: many2many.ui:58
+#: many2many.ui:54
 msgid "&Remove"
 msgstr "Enfe&rne"
 
@@ -328,7 +333,7 @@ msgid "&Restore Database"
 msgstr "Datenbank Wiederhe&rstellen"
 
 #. ts-context ExportDialog
-#: win_export.ui:161
+#: win_export.ui:162
 msgid "&Save list"
 msgstr "&Speichere Liste"
 
@@ -338,7 +343,7 @@ msgid "&Save"
 msgstr ""
 
 #. ts-context GoToIdDialog
-#: gotoid.ui:21
+#: gotoid.ui:22
 msgid "&Search Id:"
 msgstr "&Suche ID:"
 
@@ -353,7 +358,7 @@ msgid "&Send Request"
 msgstr "&Sende Anfrage"
 
 #. ts-context LoginDialog
-#: login.ui:111
+#: login.ui:120
 msgid "&Server:"
 msgstr ""
 
@@ -378,7 +383,7 @@ msgid "&User"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:195
+#: login.ui:224
 msgid "&User:"
 msgstr ""
 
@@ -978,6 +983,22 @@ msgid ""
 "indent:0px;\"></p></body></html>"
 msgstr ""
 
+#. ts-context FullTextSearchDialog
+#: full_text_search.ui:42
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
+"style=\" text-decoration: underline; "
+"color:#0000ff;\">?</span></a></p></body></html>"
+msgstr ""
+
 #. ts-context AboutDialog
 #: about.ui:79
 msgid ""
@@ -1202,12 +1223,12 @@ msgid "<Tab>"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:75
+#: win_export.ui:76
 msgid "<b>All fields</b>"
 msgstr "<b>Alle Felder</b>"
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:19
+#: admin_passwd.ui:20
 msgid "<b>Change your database administration password</b>"
 msgstr "<b>Verändere das Datenbank Admin Passwort</b>"
 
@@ -1217,7 +1238,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr "<b>Kann nicht mit Datenbank verbinden</b>"
 
 #. ts-context LoginDialog
-#: login.ui:126
+#: login.ui:153
 msgid "<b>Could not connect to server !</b>"
 msgstr "<b>Kann nicht mit Server verbinden !</b>"
 
@@ -1227,17 +1248,17 @@ msgid "<b>Error code:</b>"
 msgstr "<b>Fehler Code</b>"
 
 #. ts-context ExportDialog
-#: win_export.ui:176
+#: win_export.ui:177
 msgid "<b>Fields to export</b>"
 msgstr "<b>Felder zu exportieren</b>"
 
 #. ts-context ExportDialog
-#: win_export.ui:196
+#: win_export.ui:197
 msgid "<b>Options</b>"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:21
+#: win_export.ui:22
 msgid "<b>Predefined exports</b>"
 msgstr "<b>Vorgegebene Exports</b>"
 
@@ -1289,7 +1310,7 @@ msgid "A"
 msgstr ""
 
 #. ts-context ExportDialog
-#: win_export.ui:115
+#: win_export.ui:116
 msgid "A&dd"
 msgstr "Hinzufügen"
 
@@ -1304,12 +1325,12 @@ msgid "Action here..."
 msgstr "Aktion hier"
 
 #. ts-context ExportDialog
-#: win_export.ui:209
+#: win_export.ui:210
 msgid "Add &field names"
 msgstr "&Feldnamen hinzufügen"
 
 #. ts-context TreeWidget
-#: tree.ui:78
+#: tree.ui:71
 msgid "Add Shortcut"
 msgstr "Kürzle hinzufügen"
 
@@ -1379,7 +1400,7 @@ msgid "C"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:101
+#: login.ui:109
 msgid "C&hange"
 msgstr ""
 
@@ -1423,7 +1444,7 @@ msgid "Choose the date from a calendar"
 msgstr "Datum vom Kalender wählen"
 
 #. ts-context ReferenceWidget
-#: reference.ui:48
+#: reference.ui:83
 msgid "Clear"
 msgstr "Löschen"
 
@@ -1495,11 +1516,6 @@ msgstr ""
 #. ts-context AttachmentWindow
 #: win_attach.ui:125
 msgid "Ctrl+L"
-msgstr ""
-
-#. ts-context KooMainWindow
-#: mainwindow.ui:599
-msgid "Ctrl+L, Ctrl+Shift+L"
 msgstr ""
 
 #. ts-context KooMainWindow
@@ -1634,7 +1650,7 @@ msgid "Esc"
 msgstr ""
 
 #. ts-context TreeWidget
-#: tree.ui:118
+#: tree.ui:111
 msgid "Expand/Collapse"
 msgstr "Auffalten/Zusammenfalten"
 
@@ -1651,6 +1667,11 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:200
 msgid "F5"
+msgstr ""
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:599
+msgid "F6"
 msgstr ""
 
 #. ts-context FieldDefaultsDialog
@@ -1703,7 +1724,7 @@ msgid "Full Text Search"
 msgstr "Volltext Suche"
 
 #. ts-context FullTextSearchDialog
-#: full_text_search.ui:13
+#: full_text_search.ui:14
 msgid "Full text search"
 msgstr "Volltext Suche"
 
@@ -1713,7 +1734,7 @@ msgid "G"
 msgstr ""
 
 #. ts-context GoToIdDialog
-#: gotoid.ui:13
+#: gotoid.ui:14
 msgid "Go To Id"
 msgstr "Gehe zu ID"
 
@@ -1725,6 +1746,19 @@ msgstr "Gehe zu Resource ID"
 #. ts-context Form
 #: keyboard.ui:264
 msgid "H"
+msgstr ""
+
+#. ts-context FullTextSearchDialog
+#: full_text_search.ui:37
+msgid ""
+"Here you can search for any term in the whole database as long as it has "
+"been indexed. If the words you're searching don't don't return any results "
+"and you know they exist, they're probably not indexed and you should ask the "
+"system administrator.\n"
+"\n"
+"Text search only searches for complete words but it will return words that "
+"contain the same root. For example, searching for \"build\", may return "
+"documents which contain the words \"built\", \"build\" or \"building\"."
 msgstr ""
 
 #. ts-context Form
@@ -1798,7 +1832,7 @@ msgid "Load Image"
 msgstr "Lade Bild"
 
 #. ts-context LoginDialog
-#: login.ui:22
+#: login.ui:23
 msgid "Login"
 msgstr "Anmelden"
 
@@ -1838,7 +1872,7 @@ msgid "N"
 msgstr ""
 
 #. ts-context AdminPasswordDialog
-#: admin_passwd.ui:89
+#: admin_passwd.ui:91
 msgid "New password &confirmation:"
 msgstr "Neues Passwort und Bestätigung:"
 
@@ -2002,7 +2036,7 @@ msgid "R"
 msgstr "R"
 
 #. ts-context ExportDialog
-#: win_export.ui:45
+#: win_export.ui:46
 msgid "Re&move Export"
 msgstr "Entferne Exportdefinitionen"
 
@@ -2027,7 +2061,7 @@ msgid "Remo&ve All"
 msgstr "Enferne Alle"
 
 #. ts-context ExportDialog
-#: win_export.ui:137
+#: win_export.ui:138
 msgid "Remo&ve all"
 msgstr "Entferne Alle"
 
@@ -2037,7 +2071,7 @@ msgid "Remove Image"
 msgstr "Entferne Bild"
 
 #. ts-context TreeWidget
-#: tree.ui:98
+#: tree.ui:91
 msgid "Remove Shortcut"
 msgstr "Kürzel entfernen"
 
@@ -2127,7 +2161,7 @@ msgid "Shortcuts in text entries"
 msgstr "Kürzle in Text Eingaben"
 
 #. ts-context TreeWidget
-#: tree.ui:65
+#: tree.ui:58
 msgid "Shortcuts"
 msgstr "Kürzel"
 

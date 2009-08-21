@@ -20,9 +20,14 @@ Language-Team: French &lt;fr@li.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-08-04 16:56+0000
+X-Launchpad-Export-Date: 2009-08-21 14:12+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
+    </message>
+    <message>
+        <location filename="Obsolete_PO_entries"/>
+        <source>Ctrl+L, Ctrl+Shift+L</source>
+        <translation type="obsolete">Ctrl+L, Ctrl+Shift+L</translation>
     </message>
 </context>
 <context>
@@ -238,11 +243,6 @@ X-Generator: Launchpad (build Unknown)
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="599"/>
-        <source>Ctrl+L, Ctrl+Shift+L</source>
-        <translation>Ctrl+L, Ctrl+Shift+L</translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="515"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
@@ -302,6 +302,11 @@ X-Generator: Launchpad (build Unknown)
         <location filename="mainwindow.ui" line="257"/>
         <source>F&amp;orm</source>
         <translation>F&amp;ormulaire</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="599"/>
+        <source>F6</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="747"/>
@@ -400,12 +405,12 @@ X-Generator: Launchpad (build Unknown)
 <context>
     <name>ManyToManyWidget</name>
     <message>
-        <location filename="many2many.ui" line="42"/>
+        <location filename="many2many.ui" line="37"/>
         <source>&amp;Add</source>
         <translation>&amp;Ajouter</translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="58"/>
+        <location filename="many2many.ui" line="54"/>
         <source>&amp;Remove</source>
         <translation>Supprimer</translation>
     </message>
@@ -904,37 +909,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="88"/>
+        <location filename="login.ui" line="96"/>
         <source>&amp;Database:</source>
         <translation>&amp;Base de donnÃ©es:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="169"/>
+        <location filename="login.ui" line="198"/>
         <source>&amp;Password:</source>
         <translation>Mot de &amp;passe:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="111"/>
+        <location filename="login.ui" line="120"/>
         <source>&amp;Server:</source>
         <translation>&amp;Serveur:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="195"/>
+        <location filename="login.ui" line="224"/>
         <source>&amp;User:</source>
         <translation>&amp;Utilisateur:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="126"/>
+        <location filename="login.ui" line="153"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;Impossible de se connecter au serveur !&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="101"/>
+        <location filename="login.ui" line="109"/>
         <source>C&amp;hange</source>
         <translation>C&amp;hanger</translation>
     </message>
     <message>
-        <location filename="login.ui" line="22"/>
+        <location filename="login.ui" line="23"/>
         <source>Login</source>
         <translation>Connexion</translation>
     </message>
@@ -1172,22 +1177,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AdminPasswordDialog</name>
     <message>
-        <location filename="admin_passwd.ui" line="72"/>
+        <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
         <translation>&amp;Nouveau mot de passe</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="55"/>
+        <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
         <translation>Ancien m&amp;ot de passe</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="19"/>
+        <location filename="admin_passwd.ui" line="20"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
         <translation>&lt;b&gt;Changer votre mot de passe administrateur&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="89"/>
+        <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
         <translation>&amp;confirmation du nouveau mot de passe:</translation>
     </message>
@@ -1203,6 +1208,35 @@ p, li { white-space: pre-wrap; }
         <location filename="dia_form_win_many2one.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation>OpenERP - Lien</translation>
+    </message>
+</context>
+<context>
+    <name>FullTextSearchDialog</name>
+    <message>
+        <location filename="full_text_search.ui" line="159"/>
+        <source>&amp;Open</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="14"/>
+        <source>Full text search</source>
+        <translation>Recherche texte intÃ©gral</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1226,47 +1260,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ExportDialog</name>
     <message>
-        <location filename="win_export.ui" line="161"/>
+        <location filename="win_export.ui" line="162"/>
         <source>&amp;Save list</source>
         <translation>&amp;Sauvegarder la liste</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="75"/>
+        <location filename="win_export.ui" line="76"/>
         <source>&lt;b&gt;All fields&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tous les champs&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="176"/>
+        <location filename="win_export.ui" line="177"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
         <translation>&lt;b&gt;Champ Ã  exporter&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="196"/>
+        <location filename="win_export.ui" line="197"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Options&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="21"/>
+        <location filename="win_export.ui" line="22"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
         <translation>&lt;b&gt;Exports prÃ©dÃ©finit&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="115"/>
+        <location filename="win_export.ui" line="116"/>
         <source>A&amp;dd</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="209"/>
+        <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
         <translation>Ajouter nom du champs</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="45"/>
+        <location filename="win_export.ui" line="46"/>
         <source>Re&amp;move Export</source>
         <translation>Supprimer l&apos;export</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="137"/>
+        <location filename="win_export.ui" line="138"/>
         <source>Remo&amp;ve all</source>
         <translation>Tous supprimer</translation>
     </message>
@@ -1274,12 +1308,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GoToIdDialog</name>
     <message>
-        <location filename="gotoid.ui" line="21"/>
+        <location filename="gotoid.ui" line="22"/>
         <source>&amp;Search Id:</source>
         <translation>Rechercher l&apos;Id:</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="13"/>
+        <location filename="gotoid.ui" line="14"/>
         <source>Go To Id</source>
         <translation>Aller Ã  l&apos;ID</translation>
     </message>
@@ -1876,22 +1910,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TreeWidget</name>
     <message>
-        <location filename="tree.ui" line="78"/>
+        <location filename="tree.ui" line="71"/>
         <source>Add Shortcut</source>
         <translation>Ajouter un raccourci</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="118"/>
+        <location filename="tree.ui" line="111"/>
         <source>Expand/Collapse</source>
         <translation>DÃ©plier/Plier</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="98"/>
+        <location filename="tree.ui" line="91"/>
         <source>Remove Shortcut</source>
         <translation>Supprimer un raccourci</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="65"/>
+        <location filename="tree.ui" line="58"/>
         <source>Shortcuts</source>
         <translation>Raccourcis</translation>
     </message>
@@ -1962,7 +1996,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ReferenceWidget</name>
     <message>
-        <location filename="reference.ui" line="48"/>
+        <location filename="reference.ui" line="83"/>
         <source>Clear</source>
         <translation>Effacer</translation>
     </message>
@@ -2001,14 +2035,6 @@ p, li { white-space: pre-wrap; }
         <location filename="web.ui" line="23"/>
         <source>about:blank</source>
         <translation>apropos:vide</translation>
-    </message>
-</context>
-<context>
-    <name>FullTextSearchDialog</name>
-    <message>
-        <location filename="full_text_search.ui" line="13"/>
-        <source>Full text search</source>
-        <translation>Recherche texte intÃ©gral</translation>
     </message>
 </context>
 <context>
