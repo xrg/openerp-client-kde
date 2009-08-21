@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-16 12:10+0200\n"
+"POT-Creation-Date: 2009-08-21 08:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid "Printing aborted. Delay too long."
 msgstr ""
 
-#: Koo/Actions/Actions.py:94 Koo/Dialogs/ImportDialog.py:52
+#: Koo/Actions/Actions.py:94 Koo/Dialogs/ImportDialog.py:62
 #: Koo/Dialogs/AdministratorPasswordDialog.py:64
 #: Koo/Dialogs/KooMainWindow.py:735 Koo/Dialogs/KooMainWindow.py:759
 #: Koo/Dialogs/TreeWidget.py:264 Koo/Dialogs/TreeWidget.py:276
@@ -44,11 +44,12 @@ msgid "Nothing to print!"
 msgstr ""
 
 #: Koo/Actions/Actions.py:111 Koo/Actions/Actions.py:117
+#: Koo/Dialogs/ImportDialog.py:47 Koo/Dialogs/ImportDialog.py:57
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
 #: Koo/Dialogs/KooMainWindow.py:762 Koo/Dialogs/ExportDialog.py:75
 #: Koo/Dialogs/ExportDialog.py:139 Koo/Dialogs/ExportDialog.py:173
-#: Koo/Fields/Binary/BinaryFieldWidget.py:157
-#: Koo/Fields/Binary/BinaryFieldWidget.py:190
+#: Koo/Fields/Binary/BinaryFieldWidget.py:160
+#: Koo/Fields/Binary/BinaryFieldWidget.py:195
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -110,12 +111,22 @@ msgid ""
 "can easily interact with Koo."
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:52
+#: Koo/Dialogs/ImportDialog.py:47
+#, python-format
+msgid "Error opening file: %s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:57
+#, python-format
+msgid "Error reading file: %s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:62
 #, python-format
 msgid "Imported %d objects !"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:57
+#: Koo/Dialogs/ImportDialog.py:67
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -126,42 +137,42 @@ msgid ""
 "%(error2)s"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:62
+#: Koo/Dialogs/ImportDialog.py:72
 msgid "Error importing data"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:97
+#: Koo/Dialogs/ImportDialog.py:109
 msgid "File to import"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:112 Koo/Dialogs/ImportDialog.py:115
-#: Koo/Dialogs/ImportDialog.py:118
+#: Koo/Dialogs/ImportDialog.py:124 Koo/Dialogs/ImportDialog.py:127
+#: Koo/Dialogs/ImportDialog.py:130
 msgid "Import error"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:112
+#: Koo/Dialogs/ImportDialog.py:124
 msgid "No file specified."
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:115 Koo/Dialogs/ImportDialog.py:175
+#: Koo/Dialogs/ImportDialog.py:127 Koo/Dialogs/ImportDialog.py:188
 msgid "Separator must be a single character."
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:118 Koo/Dialogs/ImportDialog.py:178
+#: Koo/Dialogs/ImportDialog.py:130 Koo/Dialogs/ImportDialog.py:191
 msgid "Delimiter must be a single character."
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:167 Koo/Dialogs/ImportDialog.py:175
-#: Koo/Dialogs/ImportDialog.py:178 Koo/Dialogs/ImportDialog.py:184
-#: Koo/Dialogs/ImportDialog.py:194
+#: Koo/Dialogs/ImportDialog.py:180 Koo/Dialogs/ImportDialog.py:188
+#: Koo/Dialogs/ImportDialog.py:191 Koo/Dialogs/ImportDialog.py:197
+#: Koo/Dialogs/ImportDialog.py:207
 msgid "Auto-detect error"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:184
+#: Koo/Dialogs/ImportDialog.py:197
 msgid "Error opening .CSV file: Input Error."
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:194
+#: Koo/Dialogs/ImportDialog.py:207
 #, python-format
 msgid ""
 "Error processing your first line of the file.\n"
@@ -198,7 +209,7 @@ msgstr ""
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:247 Koo/Dialogs/FullTextSearchDialog.py:393
+#: Koo/Dialogs/FormWidget.py:247 Koo/Dialogs/FullTextSearchDialog.py:397
 msgid "ID"
 msgstr ""
 
@@ -530,27 +541,27 @@ msgstr ""
 msgid "Full Text Search (%%d result(s))"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:394
+#: Koo/Dialogs/FullTextSearchDialog.py:398
 msgid "Model ID"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:395
+#: Koo/Dialogs/FullTextSearchDialog.py:399
 msgid "Model Name"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:397
+#: Koo/Dialogs/FullTextSearchDialog.py:401
 msgid "Type"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:398
+#: Koo/Dialogs/FullTextSearchDialog.py:402
 msgid "Name"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:399
+#: Koo/Dialogs/FullTextSearchDialog.py:403
 msgid "Text"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:400
+#: Koo/Dialogs/FullTextSearchDialog.py:404
 msgid "Ranking"
 msgstr ""
 
@@ -686,57 +697,57 @@ msgstr ""
 msgid "Files (%s)"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:58
+#: Koo/Fields/Binary/BinaryFieldWidget.py:59
 msgid "&Save"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:61
+#: Koo/Fields/Binary/BinaryFieldWidget.py:62
 msgid "&Open"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:64
+#: Koo/Fields/Binary/BinaryFieldWidget.py:65
 msgid "Show &image"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:114
+#: Koo/Fields/Binary/BinaryFieldWidget.py:115
 #: Koo/Fields/Image/ImageFieldWidget.py:80
 #: Koo/Fields/Link/LinkFieldWidget.py:61
 msgid "Open..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:115
+#: Koo/Fields/Binary/BinaryFieldWidget.py:116
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:140
+#: Koo/Fields/Binary/BinaryFieldWidget.py:141
 #: Koo/Fields/Image/ImageFieldWidget.py:108
 msgid "Image"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:150
+#: Koo/Fields/Binary/BinaryFieldWidget.py:151
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:157
+#: Koo/Fields/Binary/BinaryFieldWidget.py:160
 #, python-format
 msgid ""
 "Error reading the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:161
-#: Koo/Fields/Binary/BinaryFieldWidget.py:207 Koo/Model/KooModel.py:355
+#: Koo/Fields/Binary/BinaryFieldWidget.py:164
+#: Koo/Fields/Binary/BinaryFieldWidget.py:212 Koo/Model/KooModel.py:355
 #, python-format
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:181
+#: Koo/Fields/Binary/BinaryFieldWidget.py:184
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:190
+#: Koo/Fields/Binary/BinaryFieldWidget.py:195
 #, python-format
 msgid ""
 "Error writing the file:\n"
@@ -767,12 +778,12 @@ msgstr ""
 msgid "Set current time"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:67
+#: Koo/Fields/Char/CharFieldWidget.py:68
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
 msgid "Translation dialog"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:67
+#: Koo/Fields/Char/CharFieldWidget.py:68
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
 msgid "You must save the resource before adding translations"
 msgstr ""

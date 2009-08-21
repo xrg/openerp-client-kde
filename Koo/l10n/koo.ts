@@ -910,38 +910,54 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FullTextSearchDialog</name>
     <message>
-        <location filename="full_text_search.ui" line="13"/>
+        <location filename="full_text_search.ui" line="14"/>
         <source>Full text search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="39"/>
+        <location filename="full_text_search.ui" line="59"/>
         <source>&amp;Find</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="65"/>
+        <location filename="full_text_search.ui" line="85"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="96"/>
+        <location filename="full_text_search.ui" line="116"/>
         <source>&amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="107"/>
+        <location filename="full_text_search.ui" line="127"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="139"/>
-        <source>&amp;Accept</source>
+        <location filename="full_text_search.ui" line="173"/>
+        <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="153"/>
-        <source>&amp;Cancel</source>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="159"/>
+        <source>&amp;Open</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1561,47 +1577,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="22"/>
+        <location filename="login.ui" line="23"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="88"/>
+        <location filename="login.ui" line="96"/>
         <source>&amp;Database:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="101"/>
+        <location filename="login.ui" line="109"/>
         <source>C&amp;hange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="111"/>
+        <location filename="login.ui" line="120"/>
         <source>&amp;Server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="126"/>
+        <location filename="login.ui" line="153"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="169"/>
+        <location filename="login.ui" line="198"/>
         <source>&amp;Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="195"/>
+        <location filename="login.ui" line="224"/>
         <source>&amp;User:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="231"/>
+        <location filename="login.ui" line="260"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="244"/>
+        <location filename="login.ui" line="274"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>

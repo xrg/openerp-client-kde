@@ -104,7 +104,7 @@ msgid "&Contextual Help"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:88
+#: login.ui:96
 #, fuzzy
 msgid "&Database:"
 msgstr ""
@@ -295,6 +295,12 @@ msgstr ""
 msgid "&Old password:"
 msgstr ""
 
+#. ts-context FullTextSearchDialog
+#: full_text_search.ui:159
+#, fuzzy
+msgid "&Open"
+msgstr ""
+
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
 #, fuzzy
@@ -308,7 +314,7 @@ msgid "&OpenERP"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:169
+#: login.ui:198
 #, fuzzy
 msgid "&Password:"
 msgstr ""
@@ -410,7 +416,7 @@ msgid "&Send Request"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:111
+#: login.ui:120
 #, fuzzy
 msgid "&Server:"
 msgstr ""
@@ -440,7 +446,7 @@ msgid "&User"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:195
+#: login.ui:224
 #, fuzzy
 msgid "&User:"
 msgstr ""
@@ -700,6 +706,17 @@ msgid ""
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p></body></html>"
 msgstr ""
 
+#. ts-context FullTextSearchDialog
+#: full_text_search.ui:42
+#, fuzzy
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span style=\" text-decoration: underline; color:#0000ff;\">?</span></a></p></body></html>"
+msgstr ""
+
 #. ts-context AboutDialog
 #: about.ui:79
 #, fuzzy
@@ -917,7 +934,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:126
+#: login.ui:153
 #, fuzzy
 msgid "<b>Could not connect to server !</b>"
 msgstr ""
@@ -1102,7 +1119,7 @@ msgid "C"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:101
+#: login.ui:109
 #, fuzzy
 msgid "C&hange"
 msgstr ""
@@ -1485,7 +1502,7 @@ msgid "Full Text Search"
 msgstr ""
 
 #. ts-context FullTextSearchDialog
-#: full_text_search.ui:13
+#: full_text_search.ui:14
 #, fuzzy
 msgid "Full text search"
 msgstr ""
@@ -1512,6 +1529,15 @@ msgstr ""
 #: keyboard.ui:264
 #, fuzzy
 msgid "H"
+msgstr ""
+
+#. ts-context FullTextSearchDialog
+#: full_text_search.ui:37
+#, fuzzy
+msgid ""
+"Here you can search for any term in the whole database as long as it has been indexed. If the words you're searching don't don't return any results and you know they exist, they're probably not indexed and you should ask the system administrator.\n"
+"\n"
+"Text search only searches for complete words but it will return words that contain the same root. For example, searching for \"build\", may return documents which contain the words \"built\", \"build\" or \"building\"."
 msgstr ""
 
 #. ts-context Form
@@ -1599,7 +1625,7 @@ msgid "Load Image"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:22
+#: login.ui:23
 #, fuzzy
 msgid "Login"
 msgstr ""
