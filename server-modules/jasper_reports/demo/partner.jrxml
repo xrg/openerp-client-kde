@@ -4,6 +4,10 @@
 	<parameter name="STANDARD_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["/home/albert/d/koo/server-modules/jasper_reports/report/"]]></defaultValueExpression>
 	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/albert/d/git/nan-openerp/openobject-client-kde-5.0/server-modules/jasper_reports/demo/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="EVENTS_DATA_SOURCE" class="java.lang.Object"/>
 	<queryString language="xPath">
 		<![CDATA[/data/record]]>
 	</queryString>
@@ -80,9 +84,9 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="162">
+			<band height="281">
 				<line>
-					<reportElement x="18" y="144" width="506" height="1"/>
+					<reportElement x="18" y="274" width="506" height="1"/>
 				</line>
 				<barChart>
 					<chart isShowLegend="false">
@@ -137,6 +141,11 @@
 						</valueAxisFormat>
 					</barPlot>
 				</barChart>
+				<subreport>
+					<reportElement x="0" y="144" width="555" height="100"/>
+					<dataSourceExpression><![CDATA[$P{EVENTS_DATA_SOURCE}]]></dataSourceExpression>
+					<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "subpartner.jasper"]]></subreportExpression>
+				</subreport>
 			</band>
 		</groupFooter>
 	</group>
@@ -156,7 +165,7 @@
 				<subreportParameter name="COMMENT">
 					<subreportParameterExpression><![CDATA["The report shows information of selected partners, including attachments with their image, if possible."]]></subreportParameterExpression>
 				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>
 				<subreportExpression class="java.lang.String"><![CDATA[$P{STANDARD_DIR} + "report_header.jasper"]]></subreportExpression>
 			</subreport>
 			<textField>

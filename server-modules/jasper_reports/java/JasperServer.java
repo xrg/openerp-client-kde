@@ -38,6 +38,9 @@ import net.sf.jasperreports.engine.export.oasis.JROdsExporter;
 import java.text.NumberFormat;
 import java.lang.Object;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
@@ -148,14 +151,36 @@ class XmlMultiLanguageDataSource extends JRXmlDataSource {
 
 public class JasperServer { 
 
-	/* Compiles the given .jrxml (inputFile) into a .jasper (outputFile) */
-	public Boolean compile( String inputFile, String outputFile) {
-		try{
-			JasperCompileManager.compileReportToFile( inputFile, outputFile );
-		} catch( Exception e ){
-			return false;
+	/* Compiles the given .jrxml (inputFile) */
+	public Boolean compile( String jrxmlPath ) throws java.lang.Exception {
+		File jrxmlFile;
+		File jasperFile;
+
+		System.setProperty("jasper.reports.compiler.class", "I18nGroovyCompiler");
+
+		jrxmlFile = new File( jrxmlPath );
+		jasperFile = new File( jasperPath( jrxmlPath ) );
+		if ( (! jasperFile.exists()) || (jrxmlFile.lastModified() > jasperFile.lastModified()) ) {
+			System.out.println( "Before compiling..") ;
+			JasperCompileManager.compileReportToFile( jrxmlPath, jasperPath( jrxmlPath ) );
+			System.out.println( "compiled...!");
 		}
 		return true;
+	}
+
+	/* Returns path where bundle files are expected to be */
+	public String bundlePath( String jrxmlPath ) {
+		int index;
+		index = jrxmlPath.lastIndexOf('.');
+		if ( index != -1 )
+			return jrxmlPath.substring( 0, index );
+		else
+			return jrxmlPath;
+	}
+
+	/* Returns the path to the .jasper file for the given .jrxml */
+	public String jasperPath( String jrxmlPath ) {
+		return bundlePath( jrxmlPath ) + ".jasper";
 	}
 
 	public Boolean execute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
@@ -173,32 +198,14 @@ public class JasperServer {
 		byte[] result = null;
 		JasperPrint jasperPrint = null;
 		InputStream in = null;
-		String jasperPath;
-		String bundlePath;
-		File jrxmlFile;
-		File jasperFile;
 		int index;
 
-		index = jrxmlPath.lastIndexOf('.');
-		if ( index != -1 )
-			bundlePath = jrxmlPath.substring( 0, index );
-		else
-			bundlePath = jrxmlPath;
-		jasperPath = bundlePath + ".jasper";
+		// Ensure report is compiled
+		compile( jrxmlPath );
 
-		System.setProperty("jasper.reports.compiler.class", "I18nGroovyCompiler");
-
-		jrxmlFile = new File( jrxmlPath );
-		jasperFile = new File( jasperPath );
-		if ( (! jasperFile.exists()) || (jrxmlFile.lastModified() > jasperFile.lastModified()) ) {
-			System.out.println( "Before compiling..") ;
-			JasperCompileManager.compileReportToFile( jrxmlPath, jasperPath );
-			System.out.println( "compiled...!");
-		}
-			
 		System.out.println( parameters );
 
-		report = (JasperReport) JRLoader.loadObject( jasperPath );
+		report = (JasperReport) JRLoader.loadObject( jasperPath( jrxmlPath ) );
 
 		// Add SUBREPORT_DIR parameter
 		index = jrxmlPath.lastIndexOf('/');
@@ -224,13 +231,32 @@ public class JasperServer {
 				parameters.put( jparam.getName(), locale );
 
 				// Initialize translation system
-				i18n.init( bundlePath, locale );
+				i18n.init( bundlePath(jrxmlPath), locale );
 
 			} else if( jparam.getValueClassName().equals( "java.lang.BigDecimal" )){
 				Object param = parameters.get( jparam.getName());
 				System.out.println( "1" + jparam.getValueClassName() ) ;
 				parameters.put( jparam.getName(), new BigDecimal( (Double) parameters.get(jparam.getName() ) ) );
 				System.out.println( "2" + jparam.getValueClassName() ) ;
+			}
+		}
+
+		if ( connectionParameters.containsKey("subreports") ) {
+			Object[] subreports = (Object[]) connectionParameters.get("subreports");
+			for (int i = 0; i < subreports.length; i++ ) {
+				Map m = (Map)subreports[i];
+
+				// Ensure subreport is compiled
+				compile( (String)m.get("jrxmlFile") );
+
+				// Create DataSource for subreport
+				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)m.get("dataFile") ), "utf-8" );
+				dataSource.setUseFirstRowAsHeader( true );
+				dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
+				dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
+				System.out.println( "ADDING PARAMETER: " + ( (String)m.get("parameter") ) + " WITH DATASOURCE: " + ( (String)m.get("dataFile") ) );
+
+				parameters.put( m.get("parameter"), dataSource );
 			}
 		}
 

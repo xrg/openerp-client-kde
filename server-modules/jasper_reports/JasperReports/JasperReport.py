@@ -31,7 +31,7 @@ import xml.xpath
 import xml.dom.minidom
 import re
 
-connectionExpressionRegExp = re.compile( r"""\$P\{(\w+)\}""" )
+dataSourceExpressionRegExp = re.compile( r"""\$P\{(\w+)\}""" )
 
 class JasperReport:
 	def __init__(self, fileName):
@@ -111,33 +111,40 @@ class JasperReport:
 		# Subreports
 		# Here we expect the following structure in the .jrxml file:
 		#<subreport>
-		#  <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+		#  <dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>
 		#  <subreportExpression class="java.lang.String"><![CDATA[$P{STANDARD_DIR} + "report_header.jasper"]]></subreportExpression>
 		#</subreport>
-		subreportTags = xml.xpath.Evaluate( 'subreport', doc )
+		subreportTags = xml.xpath.Evaluate( '//subreport', doc )
 		for tag in subreportTags:
-			connectionExpression = tag.getElementsByTagName('connectionExpression')[0].firstChild.data
-			connectionExpression = connectionExpression.strip()
-			m = connectionExpressionRegExp.match( connectionExpression )
+			dataSourceExpression = tag.getElementsByTagName('dataSourceExpression')
+			if not dataSourceExpression:
+				continue
+			dataSourceExpression = dataSourceExpression[0].firstChild.data
+			dataSourceExpression = dataSourceExpression.strip()
+			m = dataSourceExpressionRegExp.match( dataSourceExpression )
 			if not m:
 				continue
-			connectionExpression = m.group(1)
-			if connectionExpression == 'REPORT_CONNECTION':
+			dataSourceExpression = m.group(1)
+			if dataSourceExpression == 'REPORT_DATA_SOURCE':
 				continue
 
-			subreportExpression = tag.getElementByTagName('subreportExpression')[0].firstChild.data
+			subreportExpression = tag.getElementsByTagName('subreportExpression')
+			if not subreportExpression:
+				continue
+			subreportExpression = subreportExpression[0].firstChild.data
 			subreportExpression = subreportExpression.strip()
-			subreportExpression = subreportExpression.replace('$P{STANDARD_DIR}', self.standardDirectory() )
-			subreportExpression = subreportExpression.replace('$P{SUBREPORT_DIR}', self.subreportDirectory(self.reportPath) )
+			subreportExpression = subreportExpression.replace('$P{STANDARD_DIR}', '"%s"' % self.standardDirectory() )
+			subreportExpression = subreportExpression.replace('$P{SUBREPORT_DIR}', '"%s"' % self.subreportDirectory() )
 			try:
 				subreportExpression = eval( subreportExpression )
 			except:
+				print "COULD NOT EVALUATE EXPRESSION: '%s'" % subreportExpression
 				# If we're not able to evaluate the expression go to next subreport
 				continue
 			if subreportExpression.endswith('.jasper'):
-				subreportExpression = subreportExpression[:-6] + '.jrxml'
+				subreportExpression = subreportExpression[:-6] + 'jrxml'
 			self._subreports.append({
-				'parameter': connectionExpression,
+				'parameter': dataSourceExpression,
 				'filename': subreportExpression
 			})
 

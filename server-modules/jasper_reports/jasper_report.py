@@ -77,6 +77,8 @@ class Report:
 
 		import time
 		start = time.time()
+
+		print "SUBREPORTS: ", self.report.subreports()
 		# If the language used is xpath create the xmlFile in dataFile.
 		if self.report.language() == 'xpath':
 			if self.data.get('data_source','model') == 'records':
@@ -87,9 +89,25 @@ class Report:
 				generator = CsvBrowseDataGenerator( self.report, self.model, self.pool, self.cr, self.uid, self.ids, self.context )
 			generator.generate( dataFile )
 			self.temporaryFiles += generator.temporaryFiles
+		
+		subreportDataFiles = []
+		for subreportInfo in self.report.subreports():
+			subreport = JasperReport( subreportInfo['filename'] )
+			if subreport.language() == 'xpath':
+				fd, subreportDataFile = tempfile.mkstemp()
+				subreportDataFiles.append({
+					'parameter': subreportInfo['parameter'],
+					'dataFile': subreportDataFile,
+					'jrxmlFile': subreportInfo['filename'],
+				})
+				self.temporaryFiles.append( subreportDataFile )
+
+				generator = CsvBrowseDataGenerator( subreport, self.model, self.pool, self.cr, self.uid, self.ids, self.context )
+				generator.generate( subreportDataFile )
+				
 
 		# Call the external java application that will generate the PDF file in outputFile
-		self.executeReport( dataFile, outputFile )
+		self.executeReport( dataFile, outputFile, subreportDataFiles )
 		end = time.time()
 		print "ELAPSED: ", ( end - start ) / 60
 
@@ -130,7 +148,7 @@ class Report:
 	def password(self):
 		return tools.config['db_password'] or ''
 
-	def executeReport(self, dataFile, outputFile):
+	def executeReport(self, dataFile, outputFile, subreportDataFiles):
 		locale = self.context.get('lang', 'en_US')
 		
 		connectionParameters = {
@@ -139,7 +157,8 @@ class Report:
 			'csv': dataFile,
 			'dsn': self.dsn(),
 			'user': self.userName(),
-			'password': self.password()
+			'password': self.password(),
+			'subreports': subreportDataFiles,
 		}
 		parameters = {
 			'STANDARD_DIR': self.report.standardDirectory(),
