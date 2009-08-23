@@ -46,7 +46,6 @@
 	<field name="attachment_id" class="java.lang.String">
 		<fieldDescription><![CDATA[Attachments/id]]></fieldDescription>
 	</field>
-	<sortField name="name"/>
 	<sortField name="attachment_name"/>
 	<variable name="attachments" class="java.lang.String" calculation="Count">
 		<variableExpression><![CDATA[$F{attachment_id}]]></variableExpression>

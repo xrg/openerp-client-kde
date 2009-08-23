@@ -29,6 +29,7 @@ import net.sf.jasperreports.engine.export.JRRtfExporter;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.engine.export.JRTextExporter;
+import net.sf.jasperreports.engine.export.JRTextExporterParameter;
 import net.sf.jasperreports.engine.export.JRHtmlExporter;
 import net.sf.jasperreports.engine.export.JRHtmlExporterParameter;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
@@ -158,6 +159,15 @@ public class JasperServer {
 	}
 
 	public Boolean execute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
+		try {
+			return privateExecute( connectionParameters, jrxmlPath, outputPath, parameters );
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw exception;
+		}
+	}
+
+	public Boolean privateExecute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
 
 		JasperReport report = null;
 		byte[] result = null;
@@ -189,8 +199,6 @@ public class JasperServer {
 		System.out.println( parameters );
 
 		report = (JasperReport) JRLoader.loadObject( jasperPath );
-		//JRExpressionCollector col = new JRExpressionCollector();
-		//jasperReport = JasperReport( report, report.getCompilerClass(), report.getCompileData(), , report.compileNameSuffix() );
 
 		// Add SUBREPORT_DIR parameter
 		index = jrxmlPath.lastIndexOf('/');
@@ -287,8 +295,10 @@ public class JasperServer {
 			exporter = new JROdtExporter();
 		} else if ( output.equalsIgnoreCase( "ods" ) ) {
 			exporter = new JROdsExporter();
-		} else if ( output.equalsIgnoreCase( "text" ) ) {
+		} else if ( output.equalsIgnoreCase( "txt" ) ) {
 			exporter = new JRTextExporter();
+			exporter.setParameter(JRTextExporterParameter.PAGE_WIDTH, new Integer(80));
+			exporter.setParameter(JRTextExporterParameter.PAGE_HEIGHT, new Integer(150));
 		} else {
 			exporter = new JRPdfExporter();
 		}

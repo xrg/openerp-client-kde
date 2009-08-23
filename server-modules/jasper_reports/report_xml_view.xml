@@ -7,7 +7,8 @@
 		<field name="type">form</field>
 		<field name="inherit_id" ref="base.act_report_xml_view"/>
 		<field name="arch" type="xml">
-			<field name="model" position="after">
+			<field name="report_name" position="after">
+				<field name="jasper_output"/>
 				<button string="Update from attachments" name="update" type="object" colspan="2"/>
 			</field>
 		</field>

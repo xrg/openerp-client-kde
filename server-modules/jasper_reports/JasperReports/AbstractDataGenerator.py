@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2009 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,23 +25,7 @@
 #
 ##############################################################################
 
-{
-	"name" : "Jasper Reports",
-	"version" : "0.1",
-	"description" : "This module integrates Jasper Reports with OpenERP.",
-	"author" : "NaN",
-	"website" : "http://www.nan-tic.com",
-	"depends" : ["base"],
-	"category" : "Generic Modules/Jasper Reports",
-	"init_xml" : [],
-	"demo_xml" : [ 
-		'jasper_demo.xml' 
-	],
-	"update_xml" : [
-		'jasper_wizard.xml',
-		'report_xml_view.xml'
-	],
-	"active": False,
-	"installable": True
-}
-
+class AbstractDataGenerator:
+	# Simple function all DataGenerators should implement
+	def generate(self, fileName):
+		pass
