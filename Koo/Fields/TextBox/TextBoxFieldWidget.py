@@ -35,9 +35,8 @@ from PyQt4.QtGui import *
 class TextBoxFieldWidget(AbstractFieldWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFieldWidget.__init__(self, parent, model, attrs)
-		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
 		self.uiText = QTextEdit( self )
-		self.uiText.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+		self.uiText.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 		self.uiText.setTabChangesFocus( True )
 		self.uiText.setAcceptRichText( False )
 		self.installPopupMenu( self.uiText )

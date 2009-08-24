@@ -98,7 +98,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		OneToManyFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
 		self.colors['normal'] = self.palette().color( self.backgroundRole() )
 

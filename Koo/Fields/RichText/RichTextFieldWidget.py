@@ -41,7 +41,7 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 		RichTextFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		self.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 		self.installPopupMenu( self.uiText )
 
 		self.connect( self.pushBold, SIGNAL('clicked()'), self.bold )

@@ -110,7 +110,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.connect( self.pushSwitchView, SIGNAL( 'clicked()'), self.switch )
 		self.connect( self.pushOpen, SIGNAL( 'clicked()' ), self.slotOpen )
 
-		self.setSizePolicy( QSizePolicy.Expanding , QSizePolicy.Expanding )
+		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 		QApplication.restoreOverrideCursor()
 
 

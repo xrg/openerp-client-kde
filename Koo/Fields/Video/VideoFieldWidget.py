@@ -52,7 +52,7 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 			self.layout().removeWidget( self.uiVideo )
 			self.uiVideo.setParent( None )
 			self.uiVideo = Phonon.VideoPlayer( Phonon.VideoCategory, self )
-			self.uiVideo.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Expanding )
+			self.uiVideo.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 			self.uiVideo.show()
 			self.layout().addWidget( self.uiVideo )
 			self.uiSlider = Phonon.SeekSlider( self )
