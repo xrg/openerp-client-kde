@@ -15,7 +15,8 @@ class JasperServer:
 	def start(self):
 		env = {}
 		env.update( os.environ )
-		env['CLASSPATH'] = os.path.join( self.path(), 'java:' ) + ':'.join( glob.glob( os.path.join( self.path(), 'java/lib/*.jar' ) ) ) 
+		libs = os.path.join( self.path(), '..', 'java', 'lib', '*.jar' )
+		env['CLASSPATH'] = os.path.join( self.path(), '..', 'java:' ) + ':'.join( glob.glob( libs ) ) 
 		os.spawnlpe(os.P_NOWAIT, 'java', 'java', 'JasperServer', env)
 
 	def execute(self, *args):
