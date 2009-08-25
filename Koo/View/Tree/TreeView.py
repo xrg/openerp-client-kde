@@ -308,17 +308,16 @@ class TreeView( AbstractView ):
 		selection = QItemSelection( start, end )
 		self.widget.selectionModel().select( selection, QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 
-	def selectedIds(self):
-		ids = []
+	def selectedRecords(self):
+		records = []
 		selectedIndexes = self.widget.selectionModel().selectedRows()
 		for i in selectedIndexes:
-			id = self.treeModel.id( i )
+			record = self.treeModel.recordFromIndex( i )
 			# Qt always returns at least one selected row (probably it's the root)
-			# so we discard those with ID = -1, otherwise we might try to remove it
-			# etc..
-			if id >= 0:
-				ids.append( id )
-		return ids
+			# so we need to check that record!=None
+			if record:
+				records.append( self.treeModel.recordFromIndex( i ) )
+		return records
 
 	def setAllowMultipleSelection(self, value):
 		if value:

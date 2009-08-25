@@ -52,6 +52,3 @@ class ChartView( AbstractView ) :
  	def display(self, currentModel, models):
 		self.widget.display(models)
 
-	def selectedIds(self):
-		return []
-

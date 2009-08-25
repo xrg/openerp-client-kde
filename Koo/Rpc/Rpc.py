@@ -38,25 +38,25 @@ ConcurrencyCheckField = '__last_update'
 class RpcException(Exception):
 	def __init__(self, message):
 		self.code = None
-		self.args = message
+		self.args = tuple(message)
 		self.message = message
 		self.backtrace = None
 
 class RpcProtocolException(RpcException):
 	def __init__(self, backtrace):
 		self.code = None
-		self.args = backtrace
+		self.args = tuple(backtrace)
 		self.message = unicode( str(backtrace), 'utf-8' )
 		self.backtrace = backtrace
 
 class RpcServerException(RpcException):
 	def __init__(self, code, backtrace):
 		self.code = code
-		self.args = backtrace
+		self.args = tuple(backtrace)
 		self.backtrace = backtrace
 		if hasattr(code, 'split'):
 			lines = code.split('\n')
-	
+
 			self.type = lines[0].split(' -- ')[0]
 			self.message = ''
 			if len(lines[0].split(' -- ')) > 1:

@@ -633,11 +633,11 @@ class Screen(QScrollArea):
 	# If unlink is False (the default) records are only removed from the list. If
 	# unlink is True records will be removed from the server too.
 	def remove(self, unlink = False):
-		ids = self.selectedIds()
-		if unlink and ids:
+		records = self.selectedRecords()
+		if unlink and records:
 			# Remove records with id None as they would cause an exception
 			# trying to remove from the server 
-			idsToUnlink = [x for x in ids if x != None]
+			idsToUnlink = [x.id for x in records if x.id != None]
 			# It could be that after removing records with id == None
 			# there are no records to remove from the database. That is,
 			# all records that should be removed are new and not stored yet.
@@ -651,23 +651,22 @@ class Screen(QScrollArea):
 				if not unlinked:
 					return False
 
-		if ids:
+		if records:
 			# Set no current record, so refreshes in the middle of the removal process
 			# (caused by signals) do not crash.
 			# Note that we want to ensure there are ids to remove so we don't setCurrentRecord(None)
 			# if it's not strictly necessary.
 			self.setCurrentRecord( None )
-			for x in ids:
-				model = self.group[x]
-				idx = self.group.indexOfRecord( model )
-				self.group.remove( model )
+			for record in records:
+				idx = self.group.indexOfRecord( record )
+				self.group.remove( record )
 				if self.group.count():
 					idx = min(idx, self.group.count() - 1)
 					self.setCurrentRecord( self.group.recordByIndex( idx ) )
 				else:
 					self.setCurrentRecord( None )
 		self.display()
-		if ids:
+		if records:
 			return True
 		else:
 			return False
@@ -722,8 +721,19 @@ class Screen(QScrollArea):
 		self.display()
 
 	## @brief Returns all selected record ids.
+	#
+	# Note that if there are new unsaved records, they might all have 
+	# ID=None. You're probably looking for selectedRecords() function.
+	#
+	# @see selectedRecords
 	def selectedIds(self):
-		return self.currentView().selectedIds()
+		records = self.currentView().selectedRecords()
+		ids = [record.id for record in records]
+		return ids
+
+	## @brief Returns all selected records
+	def selectedRecords(self):
+		return self.currentView().selectedRecords()
 
 	## @brief Returns the current record id.
 	def currentId(self):
@@ -731,6 +741,7 @@ class Screen(QScrollArea):
 			return self.currentRecord().id
 		else:
 			return None
+
 
 	## @brief Clears the list of records and refreshes the view.
 	#

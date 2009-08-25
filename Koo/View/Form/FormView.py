@@ -133,9 +133,9 @@ class FormView( AbstractView ):
 				# TODO: Why should this happen?
 				print "NO MODEL SET FOR WIDGET: ", name
 
-	def selectedIds(self):
+	def selectedRecords(self):
 		if self.record:
-			return [self.record.id]
+			return [self.record]
 		return []
 
 	def reset(self):

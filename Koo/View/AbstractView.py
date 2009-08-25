@@ -61,10 +61,10 @@ class AbstractView(QWidget):
 		pass
 
 	## @brief Should return a list with the currently selected 
-	# items in the view. If the view is a form, for example,
+	# records in the view. If the view is a form, for example,
 	# the current id is returned. If it's a tree with
-	# several items selected, returns them all.
-	def selectedIds(self):
+	# several items selected, returns all of them.
+	def selectedRecords(self):
 		return []
 
 	## @brief Selects the current modelId
