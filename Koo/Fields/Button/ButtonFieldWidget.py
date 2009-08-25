@@ -72,22 +72,28 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 				type = self.attrs.get('type', 'workflow')
 				if type == 'workflow':
 					QApplication.setOverrideCursor( Qt.WaitCursor )
-					result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
-					if isinstance( result, dict ):
-						if result['type'] == 'ir.actions.act_window_close':
-							screen.close()
-						else:
-							Api.instance.executeAction( result, {'ids': [id]} )
-					elif isinstance( result, list ):
-						for r in result:
-							Api.instance.executeAction( r, { 'ids': [id] } )
+					try:
+						result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
+						if isinstance( result, dict ):
+							if result['type'] == 'ir.actions.act_window_close':
+								screen.close()
+							else:
+								Api.instance.executeAction( result, {'ids': [id]} )
+						elif isinstance( result, list ):
+							for r in result:
+								Api.instance.executeAction( r, { 'ids': [id] } )
+					except Rpc.RpcException, e:
+						pass
 					QApplication.restoreOverrideCursor()
 				elif type == 'object':
 					if not id:
 						return
 					QApplication.setOverrideCursor( Qt.WaitCursor )
-
-					result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+					try:
+						result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+					except Rpc.RpcException, e:
+						QApplication.restoreOverrideCursor()
+						return
 					QApplication.restoreOverrideCursor()
 					if isinstance( result, dict ):
 						screen.close()
@@ -100,7 +106,10 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 					Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
 
 				QApplication.setOverrideCursor( Qt.WaitCursor )
-				screen.reload()
+				try:
+					screen.reload()
+				except Rpc.RpcException, e:
+					pass
 				QApplication.restoreOverrideCursor()
 		else:
 			Notifier.notifyWarning('',_('Invalid Form, correct red fields!'))

@@ -85,32 +85,34 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 
 	def createScreen(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		#self.recordGroup.update()
-		self.screen = Screen( self )
-		self.screen.setRecordGroup( self.recordGroup )
-		#self.screen.setDomain( self.domain )
-		self.screen.setEmbedded( True )
-		if int( self.attrs.get('show_toolbar','0') ):
-			self.screen.setToolbarVisible( True )
-		else:
-			self.screen.setToolbarVisible( False )
-		self.connect( self.screen, SIGNAL('activated()'), self.switch )
-		mode = (self.action['view_mode'] or 'form,tree').split(',')
-		#if self.view_id:
-			#self.screen.setViewIds( self.view_id )
-		#else:
-			#self.screen.setViewTypes( mode )
-		self.screen.setupViews( mode, self.view_id )
-		self.uiTitle.setText( QString( self.attrs['string'] or "" ))
-		layout = QVBoxLayout( self.uiGroup )
-		layout.setContentsMargins( 0, 0, 0 , 0 )
-		layout.addWidget( self.screen )
+		try:
+			self.screen = Screen( self )
+			self.screen.setRecordGroup( self.recordGroup )
+			#self.screen.setDomain( self.domain )
+			self.screen.setEmbedded( True )
+			if int( self.attrs.get('show_toolbar','0') ):
+				self.screen.setToolbarVisible( True )
+			else:
+				self.screen.setToolbarVisible( False )
+			self.connect( self.screen, SIGNAL('activated()'), self.switch )
+			mode = (self.action['view_mode'] or 'form,tree').split(',')
+			#if self.view_id:
+				#self.screen.setViewIds( self.view_id )
+			#else:
+				#self.screen.setViewTypes( mode )
+			self.screen.setupViews( mode, self.view_id )
+			self.uiTitle.setText( QString( self.attrs['string'] or "" ))
+			layout = QVBoxLayout( self.uiGroup )
+			layout.setContentsMargins( 0, 0, 0 , 0 )
+			layout.addWidget( self.screen )
 
-		self.connect( self.pushSearch, SIGNAL( 'clicked()' ), self.slotSearch )
-		self.connect( self.pushSwitchView, SIGNAL( 'clicked()'), self.switch )
-		self.connect( self.pushOpen, SIGNAL( 'clicked()' ), self.slotOpen )
+			self.connect( self.pushSearch, SIGNAL( 'clicked()' ), self.slotSearch )
+			self.connect( self.pushSwitchView, SIGNAL( 'clicked()'), self.switch )
+			self.connect( self.pushOpen, SIGNAL( 'clicked()' ), self.slotOpen )
 
-		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
+			self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 

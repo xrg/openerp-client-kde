@@ -93,7 +93,10 @@ class Action(QAction):
 			selectedIds = [currentId]
 		if self._type == 'print':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
-		Api.instance.executeAction(self._data, { 'id': currentId, 'ids': selectedIds, 'model': self._model } )
+		try:
+			Api.instance.executeAction(self._data, { 'id': currentId, 'ids': selectedIds, 'model': self._model } )
+		except Rpc.RpcException:
+			pass
 		if self._type == 'print':
 			QApplication.restoreOverrideCursor()
 

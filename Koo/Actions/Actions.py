@@ -87,14 +87,14 @@ def executeReport(name, data, context={}):
 	datas = data.copy()
 	ids = datas['ids']
 	del datas['ids']
-	if not ids:
-		ids = Rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
-		if ids == []:
-			QApplication.restoreOverrideCursor()
-			QMessageBox.information( None, _('Information'), _('Nothing to print!'))
-			return False
-		datas['id'] = ids[0]
 	try:
+		if not ids:
+			ids = Rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
+			if ids == []:
+				QApplication.restoreOverrideCursor()
+				QMessageBox.information( None, _('Information'), _('Nothing to print!'))
+				return False
+			datas['id'] = ids[0]
 		ctx = Rpc.session.context.copy()
 		ctx.update(context)
 		report_id = Rpc.session.execute('/report', 'report', name, ids, datas, ctx)
@@ -112,9 +112,8 @@ def executeReport(name, data, context={}):
 				return False
 		Printer.printData(val, datas['model'], ids)
 	except Rpc.RpcException, e:
-		Common.error( _('Error: %s') % str(e.type), e.message, e.data )
-	except Exception, e:
-		Common.error( _('Error'), '', str(e.args) ) 
+		QApplication.restoreOverrideCursor()
+		return False
 	QApplication.restoreOverrideCursor()
 	return True
 

@@ -235,17 +235,20 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.group.update()
-		self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
-		self.treeAllExpandedState = {}
-		self.treeState = {}
-		self.updateTree()
-		# Reload shortcuts and emit the shortcutsChanged
-		# signal so 'Window' menu and these shortcuts can be
-		# kept in sync.
-		if self.model == 'ir.ui.menu':
-			self.shortcutsGroup.update()
-			self.emit( SIGNAL('shortcutsChanged'), self.model )
+		try:
+			self.group.update()
+			self.uiList.setCurrentIndex( self.uiList.moveCursor( QAbstractItemView.MoveHome, Qt.NoModifier ) )
+			self.treeAllExpandedState = {}
+			self.treeState = {}
+			self.updateTree()
+			# Reload shortcuts and emit the shortcutsChanged
+			# signal so 'Window' menu and these shortcuts can be
+			# kept in sync.
+			if self.model == 'ir.ui.menu':
+				self.shortcutsGroup.update()
+				self.emit( SIGNAL('shortcutsChanged'), self.model )
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	# TODO: Look if for some menu entries this has any sense. Otherwise

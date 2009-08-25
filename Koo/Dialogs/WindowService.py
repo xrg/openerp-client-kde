@@ -46,9 +46,13 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 	if view_type=='form':
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		mode = (mode or 'form,tree').split(',')
-		widget = FormWidget(model, res_id, domain, view_type=mode,
-				view_ids = (view_ids or []), 
-				context=context, name=name )
+		try:
+			widget = FormWidget(model, res_id, domain, view_type=mode,
+					view_ids = (view_ids or []), 
+					context=context, name=name )
+		except Rpc.RpcException, e:
+			QApplication.restoreOverrideCursor()
+			return
 		if target == 'new':
 			widget.setStatusBarVisible( False )
 		widget.setAutoReload( autoReload )
@@ -56,19 +60,22 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		Api.instance.windowCreated( widget, target )
 	elif view_type=='tree':
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if view_ids and view_ids[0]:
-			view_base =  Rpc.session.execute('/object', 'execute',
-					'ir.ui.view', 'read', [view_ids[0]],
-					['model', 'type'], context)[0]
-			model = view_base['model']
-			view = Rpc.session.execute('/object', 'execute',
-					view_base['model'], 'fields_view_get', view_ids[0],
-					view_base['type'],context)
-		else:
-			view = Rpc.session.execute('/object', 'execute', model,
-					'fields_view_get', False, view_type, context)
-
-		win = TreeWidget(view, model, domain, context, name=name)
+		try:
+			if view_ids and view_ids[0]:
+				view_base =  Rpc.session.execute('/object', 'execute',
+						'ir.ui.view', 'read', [view_ids[0]],
+						['model', 'type'], context)[0]
+				model = view_base['model']
+				view = Rpc.session.execute('/object', 'execute',
+						view_base['model'], 'fields_view_get', view_ids[0],
+						view_base['type'],context)
+			else:
+				view = Rpc.session.execute('/object', 'execute', model,
+						'fields_view_get', False, view_type, context)
+			win = TreeWidget(view, model, domain, context, name=name)
+		except Rpc.RpcException, e:
+			QApplication.restoreOverrideCursor()
+			return
 		QApplication.restoreOverrideCursor()
 		Api.instance.windowCreated( win, target )
 	else:

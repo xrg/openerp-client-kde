@@ -578,7 +578,10 @@ class KooModel(QAbstractItemModel):
 
 	def sort(self, column, order):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.group.sort( self.field( column ), order )
+		try:
+			self.group.sort( self.field( column ), order )
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	def headerData(self, section, orientation, role):

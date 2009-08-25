@@ -165,9 +165,9 @@ class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
 
 ## @brief Shows a warning dialog. Function used by the notifier in the Koo application.
 def warning(title, message):
-	if QApplication.overrideCursor() != Qt.ArrowCursor:
-		QApplication.changeOverrideCursor( Qt.ArrowCursor )
+	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	QMessageBox.warning(None, title, message)
+	QApplication.restoreOverrideCursor()
 
 ## @brief The ConcurrencyErrorDialog class provices a Dialog used when a 
 # concurrency error is received from the server.
@@ -183,11 +183,10 @@ class ConcurrencyErrorDialog(QMessageBox):
 	
 ## @brief Shows the ConcurrencyErrorDialog. Function used by the notifier in the Koo application.
 def concurrencyError(model, id, context):
-	if QApplication.overrideCursor() != Qt.ArrowCursor:
-		QApplication.changeOverrideCursor( Qt.ArrowCursor )
+	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	dialog = ConcurrencyErrorDialog()
 	result = dialog.exec_()
-	#QApplication.restoreOverrideCursor()
+	QApplication.restoreOverrideCursor()
 	if result == 0:
 		return True
 	if result == 1:
@@ -212,8 +211,6 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
-		if QApplication.overrideCursor() != Qt.ArrowCursor:
-			QApplication.changeOverrideCursor( Qt.ArrowCursor )
 	
 	def done(self, r):
 		QDialog.done(self, r)
@@ -221,9 +218,11 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
 def error(title, message, details=''):
-	Debug.error( 'MSG %s: %s' % (unicode(message), details) )
+	Debug.error( 'MSG %s: %s' % (unicode(message), unicode(details)) )
+	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
+	QApplication.restoreOverrideCursor()
 
 (ProgressDialogUi, ProgressDialogBase) = loadUiType( uiPath('progress.ui') )
 		

@@ -193,8 +193,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if id:
 			if Settings.value('attachments_dialog'):
 				QApplication.setOverrideCursor( Qt.WaitCursor )
-				window = AttachmentDialog(self.model, id, self)
-				self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )
+				try:
+					window = AttachmentDialog(self.model, id, self)
+					self.connect( window, SIGNAL('destroyed()'), self.attachmentsClosed )
+				except Rpc.RpcException, e:
+					QApplication.restoreOverrideCursor()
+					return
 				QApplication.restoreOverrideCursor()
 				window.show()
 			else:
@@ -215,24 +219,27 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
-			if QApplication.keyboardModifiers() & Qt.ShiftModifier:
-				target = 'background'
+		try:
+			if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
+				if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+					target = 'background'
+				else:
+					target = 'current'
+				Api.instance.createWindow( None, self.model, self.screen.currentId(), 
+					view_type='form', mode='form,tree', target=target)
 			else:
-				target = 'current'
-			Api.instance.createWindow( None, self.model, self.screen.currentId(), 
-				view_type='form', mode='form,tree', target=target)
-		else:
-			sender = self.sender()
-			name = unicode( sender.objectName()  )
-			if isinstance(sender, QAction) and name != 'actionSwitch':
-				self.sender().setChecked( True )
-				self.screen.switchView( name )
-			else:
-				self.screen.switchView()
-		if self.pendingReload:
-			self.reload()
-		self.updateSwitchView()
+				sender = self.sender()
+				name = unicode( sender.objectName()  )
+				if isinstance(sender, QAction) and name != 'actionSwitch':
+					self.sender().setChecked( True )
+					self.screen.switchView( name )
+				else:
+					self.screen.switchView()
+			if self.pendingReload:
+				self.reload()
+			self.updateSwitchView()
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	def showLogs(self):
@@ -260,10 +267,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'),QMessageBox.Yes|QMessageBox.No)
 		if value == QMessageBox.Yes:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
-			if not self.screen.remove(unlink=True):
-				self.updateStatus(_('Resource not removed !'))
-			else:
-				self.updateStatus(_('Resource removed.'))
+			try: 
+				if not self.screen.remove(unlink=True):
+					self.updateStatus(_('Resource not removed !'))
+				else:
+					self.updateStatus(_('Resource removed.'))
+			except Rpc.RpcException, e:
+				pass
 			QApplication.restoreOverrideCursor()
 
 	def import_(self):
@@ -295,14 +305,17 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if not self.screen.currentRecord():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		modification = self.screen.currentRecord().id
-		id = self.screen.save()
-		if id:
-			self.updateStatus(_('<font color="green">Document saved</font>'))
-			if not modification and Settings.value('auto_new'):
-				self.screen.new()
-		else:
-			self.updateStatus(_('<font color="red">Invalid form</font>'))
+		try:
+			modification = self.screen.currentRecord().id
+			id = self.screen.save()
+			if id:
+				self.updateStatus(_('<font color="green">Document saved</font>'))
+				if not modification and Settings.value('auto_new'):
+					self.screen.new()
+			else:
+				self.updateStatus(_('<font color="red">Invalid form</font>'))
+		except Rpc.RpcException, e:
+			id = False
 		QApplication.restoreOverrideCursor()
 		return bool(id)
 
@@ -310,16 +323,22 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.displayPrevious()
-		self.updateStatus()
+		try:
+			self.screen.displayPrevious()
+			self.updateStatus()
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	def next(self):
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.displayNext()
-		self.updateStatus()
+		try:
+			self.screen.displayNext()
+			self.updateStatus()
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	def autoReload(self):
@@ -345,15 +364,21 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.reload()
-		self.updateStatus()
-		self.pendingReload = False
+		try:
+			self.screen.reload()
+			self.updateStatus()
+			self.pendingReload = False
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	def cancel(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.screen.cancel()
-		self.updateStatus()
+		try:
+			self.screen.cancel()
+			self.updateStatus()
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	def search(self):

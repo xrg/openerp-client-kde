@@ -254,14 +254,17 @@ class Screen(QScrollArea):
 	# models that fit the criteria.
 	def search( self ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		value = self.searchForm.value()
-		self.group.setFilter( value )
-		self.group.update()
-		if self.group.count() > 0:
-			self.setCurrentRecord( self.group.recordByIndex( 0 ) )
-		else:
-			self.setCurrentRecord( None )
-		self.display()
+		try:
+			value = self.searchForm.value()
+			self.group.setFilter( value )
+			self.group.update()
+			if self.group.count() > 0:
+				self.setCurrentRecord( self.group.recordByIndex( 0 ) )
+			else:
+				self.setCurrentRecord( None )
+			self.display()
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	# Slot to recieve the signal from a view when the current item changes

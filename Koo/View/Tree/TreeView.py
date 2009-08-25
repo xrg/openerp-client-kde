@@ -46,21 +46,24 @@ class KooTreeView(QTreeView):
 
 	def sizeHintForColumn( self, column ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		model = self.model()
-		# We expect a KooModel here!
-		group = model.recordGroup()
-		records = group.loadedRecords()
-		# If all records are loaded it's faster to use the C++ implementation
-		if len(records) == group.count():
-			QApplication.restoreOverrideCursor()
-			return QTreeView.sizeHintForColumn( self, column )
-		viewOptions = self.viewOptions()
-		delegate = self.itemDelegateForColumn( column )
-		hint = 0
-		for record in records:
-			index = model.indexFromId( record.id )
-			index = model.index( index.row(), column, index.parent() )
-			hint = max( hint, delegate.sizeHint( viewOptions, index ).width() )
+		try:
+			model = self.model()
+			# We expect a KooModel here!
+			group = model.recordGroup()
+			records = group.loadedRecords()
+			# If all records are loaded it's faster to use the C++ implementation
+			if len(records) == group.count():
+				QApplication.restoreOverrideCursor()
+				return QTreeView.sizeHintForColumn( self, column )
+			viewOptions = self.viewOptions()
+			delegate = self.itemDelegateForColumn( column )
+			hint = 0
+			for record in records:
+				index = model.indexFromId( record.id )
+				index = model.index( index.row(), column, index.parent() )
+				hint = max( hint, delegate.sizeHint( viewOptions, index ).width() )
+		except Rpc.RpcException, e:
+			hint = 100
 		QApplication.restoreOverrideCursor()
 		return hint
 
@@ -237,8 +240,11 @@ class TreeView( AbstractView ):
 	## @brief Forces calculation of aggregates, even if not all records in the group have been loaded yet.
 	def forceAggregatesUpdate(self, url):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.treeModel.group.ensureAllLoaded()
-		self.updateAggregates()
+		try:
+			self.treeModel.group.ensureAllLoaded()
+			self.updateAggregates()
+		except Rpc.RpcException, e:
+			pass
 		QApplication.restoreOverrideCursor()
 
 	# This signal is emited when a list item is double clicked
