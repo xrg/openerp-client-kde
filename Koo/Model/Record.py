@@ -390,7 +390,9 @@ class Record(QObject):
 		d['current_date'] = time.strftime('%Y-%m-%d')
 		d['time'] = time
 		d['context'] = self.context()
-		d['active_id'] = self.id
+		# Avoid setting None in the context as it might be sent to 
+		# the server and RPC doesn't support None
+		d['active_id'] = self.id or False
 		if self.parent:
 			d['parent'] = EvalEnvironment(self.parent)
 		val = Rpc.session.evaluateExpression(dom, d)
