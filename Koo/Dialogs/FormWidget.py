@@ -270,6 +270,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		fields = []
 		dialog = ImportDialog(self.model, self.screen.fields, fields)
 		dialog.exec_()
+		if not self.screen.isModified():
+			self.reload()
 
 	def export(self):
 		fields = []
