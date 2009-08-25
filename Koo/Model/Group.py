@@ -295,6 +295,10 @@ class RecordGroup(QObject):
 		ctx.update(self._context)
 		return ctx
 
+	def setContext(self, context):
+		self._context = {}
+		self._context.update( context )
+
 	## @brief Adds a record to the list
 	def add(self, record, position=-1):
 		if not record.group is self:
