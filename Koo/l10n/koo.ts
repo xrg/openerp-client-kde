@@ -1663,17 +1663,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="52"/>
+        <location filename="many2one.ui" line="59"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="75"/>
+        <location filename="many2one.ui" line="82"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="98"/>
+        <location filename="many2one.ui" line="105"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2445,12 +2445,12 @@ this operation may take a while...</source>
 <context>
     <name>UrlWidget</name>
     <message>
-        <location filename="url.ui" line="19"/>
+        <location filename="url.ui" line="20"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="url.ui" line="43"/>
+        <location filename="url.ui" line="51"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>

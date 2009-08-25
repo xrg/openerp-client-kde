@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-21 16:14+0200\n"
+"POT-Creation-Date: 2009-08-26 01:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:260 Koo/Dialogs/FormWidget.py:403
+#: Koo/Dialogs/FormWidget.py:260 Koo/Dialogs/FormWidget.py:405
 #: Koo/Fields/Button/ButtonFieldWidget.py:71
 msgid "Question"
 msgstr ""
@@ -250,50 +250,50 @@ msgstr ""
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:292
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:299
+#: Koo/Dialogs/FormWidget.py:301
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:303
+#: Koo/Dialogs/FormWidget.py:305
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:372
+#: Koo/Dialogs/FormWidget.py:374
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:383
+#: Koo/Dialogs/FormWidget.py:385
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:390
+#: Koo/Dialogs/FormWidget.py:392
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:394
+#: Koo/Dialogs/FormWidget.py:396
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:396
+#: Koo/Dialogs/FormWidget.py:398
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:397
+#: Koo/Dialogs/FormWidget.py:399
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:403
+#: Koo/Dialogs/FormWidget.py:405
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:421
+#: Koo/Dialogs/FormWidget.py:423
 msgid "No records selected"
 msgstr ""
 
@@ -779,12 +779,12 @@ msgid "Set current time"
 msgstr ""
 
 #: Koo/Fields/Char/CharFieldWidget.py:68
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "Translation dialog"
 msgstr ""
 
 #: Koo/Fields/Char/CharFieldWidget.py:68
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
 msgid "You must save the resource before adding translations"
 msgstr ""
 
@@ -895,21 +895,23 @@ msgstr ""
 msgid "There was an error trying to create the report."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
+#: Koo/Rpc/Rpc.py:305 Koo/Rpc/Rpc.py:421
 msgid "Connection Refused"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
-#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
+#: Koo/Rpc/Rpc.py:310 Koo/Rpc/Rpc.py:433
 msgid "Application Error"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
-#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
+#: Koo/Rpc/Rpc.py:310 Koo/Rpc/Rpc.py:433
 msgid "View details"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:576
+#: Koo/Rpc/Rpc.py:403
+msgid "Not logged in"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:551
 msgid "Could not contact server!"
 msgstr ""
 

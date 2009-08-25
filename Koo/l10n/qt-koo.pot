@@ -1757,7 +1757,7 @@ msgid "Open view in a background tab"
 msgstr ""
 
 #. ts-context UrlWidget
-#: url.ui:43
+#: url.ui:51
 #, fuzzy
 msgid "Open"
 msgstr ""
