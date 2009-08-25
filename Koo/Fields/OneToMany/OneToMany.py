@@ -52,18 +52,21 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.screen = Screen( self )
 		self.screen.setRecordGroup( modelGroup )
 		self.screen.setEmbedded( True )
-		if not record:
-			self._recordAdded = True
-			record = self.screen.new()
-		else:
-			self._recordAdded = False
-		self.screen.setCurrentRecord( record )
+		# Set the view first otherwise, default values created by self.screen.new()
+		# would only be set for those values handled by the current view.
 		if ('views' in attrs) and ('form' in attrs['views']):
 			arch = attrs['views']['form']['arch']
 			fields = attrs['views']['form']['fields']
 			self.screen.addView(arch, fields, display=True)
 		else:
 			self.screen.addViewByType('form', display=True)
+
+		if not record:
+			self._recordAdded = True
+			record = self.screen.new()
+		else:
+			self._recordAdded = False
+		self.screen.setCurrentRecord( record )
 
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen )
@@ -206,6 +209,11 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		
 	def showValue(self):
 		group = self.record.value(self.name)
+		# Update context
+		context = {}
+		context.update( Rpc.session.context )
+		context.update( self.record.evaluateExpression('dict(%s)' % self.attrs.get('context', '') ) )
+		group.setContext( context )
 		if self.screen.group != group:
 			self.screen.setRecordGroup(group)
 			if group.count():
