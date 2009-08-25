@@ -169,7 +169,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 	# with "name=''" and only one record exists in the database (hence the call from open())
 	def search(self, name):
 		domain = self.record.domain( self.name )
-		context = self.record.context()
+		context = self.record.fieldContext( self.name )
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', name, domain, 'ilike', context, False)
 		if ids and len(ids)==1:
 			self.record.setValue( self.name, ids[0] )
@@ -178,7 +178,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
 			if dialog.exec_() == QDialog.Accepted and dialog.result:
 				id = dialog.result[0]
-				name = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], Rpc.session.context)[0]
+				name = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], context)[0]
 				self.record.setValue(self.name, name)
 				self.display()
 
