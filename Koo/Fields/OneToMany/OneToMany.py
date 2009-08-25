@@ -210,10 +210,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 	def showValue(self):
 		group = self.record.value(self.name)
 		# Update context
-		context = {}
-		context.update( Rpc.session.context )
-		context.update( self.record.evaluateExpression('dict(%s)' % self.attrs.get('context', '') ) )
-		group.setContext( context )
+		group.setContext( self.record.fieldContext( self.name ) )
 		if self.screen.group != group:
 			self.screen.setRecordGroup(group)
 			if group.count():
