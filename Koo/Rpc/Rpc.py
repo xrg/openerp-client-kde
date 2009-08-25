@@ -36,10 +36,24 @@ from Cache import *
 ConcurrencyCheckField = '__last_update'
 
 class RpcException(Exception):
-	def __init__(self, code, backtrace):
+	def __init__(self, message):
+		self.code = None
+		self.args = message
+		self.message = message
+		self.backtrace = None
 
+class RpcProtocolException(RpcException):
+	def __init__(self, backtrace):
+		self.code = None
+		self.args = backtrace
+		self.message = unicode( str(backtrace), 'utf-8' )
+		self.backtrace = backtrace
+
+class RpcServerException(RpcException):
+	def __init__(self, code, backtrace):
 		self.code = code
 		self.args = backtrace
+		self.backtrace = backtrace
 		if hasattr(code, 'split'):
 			lines = code.split('\n')
 	
@@ -54,7 +68,6 @@ class RpcException(Exception):
 			self.message = backtrace
 			self.data = backtrace
 
-		self.backtrace = backtrace
 
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
@@ -130,18 +143,29 @@ class PyroConnection(Connection):
 
 	def call(self, obj, method, *args):
 		try:
-			#import traceback
-			#traceback.print_stack()
-			#print "CALLING: ", obj, method, args
-			result = self.singleCall( obj, method, *args )
-		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), x:
-			# As Pyro is a statefull protocol, network errors
-			# or server reestarts will cause errors even if the server
-			# is running and available again. So if remote call failed 
-			# due to network error or server restart, try to bind 
-			# and make the call again.
-			self.proxy = Pyro.core.getProxyForURI( self.url )
-			result = self.singleCall( obj, method, *args )
+			try:
+				#import traceback
+				#traceback.print_stack()
+				#print "CALLING: ", obj, method, args
+				result = self.singleCall( obj, method, *args )
+			except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), x:
+				# As Pyro is a statefull protocol, network errors
+				# or server reestarts will cause errors even if the server
+				# is running and available again. So if remote call failed 
+				# due to network error or server restart, try to bind 
+				# and make the call again.
+				self.proxy = Pyro.core.getProxyForURI( self.url )
+				result = self.singleCall( obj, method, *args )
+		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
+			raise RpcProtocolException( unicode( err ) )
+		except Exception, err:
+			if Pyro.util.getPyroTraceback(err):
+				faultCode = err.message
+				faultString = u''
+				for x in Pyro.util.getPyroTraceback(err):
+					faultString += unicode( x, 'utf-8', errors='ignore' )
+				raise RpcServerException( faultCode, faultString )
+			raise
 		return result
 
 ## @brief The SocketConnection class implements Connection for the OpenERP socket RPC protocol.
@@ -149,17 +173,25 @@ class PyroConnection(Connection):
 # The socket RPC protocol is usually opened at port 8070 on the server.
 class SocketConnection(Connection):
 	def call(self, obj, method, *args):
-		s = tiny_socket.mysocket()
-		s.connect( self.url )
-		# Remove leading slash (ie. '/object' -> 'object')
-		obj = obj[1:]
-		encodedArgs = self.unicodeToString( args )
-		if self.authorized:
-			s.mysend( (obj, method, self.databaseName, self.uid, self.password) + encodedArgs )
-		else:
-			s.mysend( (obj, method) + encodedArgs )
-		result = s.myreceive()
-		s.disconnect()
+		try:
+			s = tiny_socket.mysocket()
+			s.connect( self.url )
+			# Remove leading slash (ie. '/object' -> 'object')
+			obj = obj[1:]
+			encodedArgs = self.unicodeToString( args )
+			if self.authorized:
+				s.mysend( (obj, method, self.databaseName, self.uid, self.password) + encodedArgs )
+			else:
+				s.mysend( (obj, method) + encodedArgs )
+			result = s.myreceive()
+			s.disconnect()
+		except socket.error, err:
+			raise RpcProtocolException( unicode(err) )
+		except tiny_socket.Myexception, err:
+			faultCode = unicode( err.faultCode, 'utf-8' )
+			faultString = unicode( err.faultString, 'utf-8' )
+			raise RpcServerException( faultCode, faultString )
+
 		return self.stringToUnicode( result )
 
 ## @brief The XmlRpcConnection class implements Connection class for XML-RPC.
@@ -173,11 +205,18 @@ class XmlRpcConnection(Connection):
 	def call(self, obj, method, *args ):
 		remote = xmlrpclib.ServerProxy(self.url + obj)
 		function = getattr(remote, method)
-		if self.authorized:
-			result = function(self.databaseName, self.uid, self.password, *args)
-		else:
-			result = function( *args )
+		try:
+			if self.authorized:
+				result = function(self.databaseName, self.uid, self.password, *args)
+			else:
+				result = function( *args )
+		except socket.error, err:
+			print "XMLRPC CONNECTION: ", unicode(err)
+			raise RpcProtocolException( err )
+		except xmlrpclib.Fault, err:
+			raise RpcServerException( err.faultCode, err.faultString )
 		return result
+
 
 ## @brief Creates an instance of the appropiate Connection class.
 #
@@ -261,41 +300,14 @@ class AsynchronousSessionCall(QThread):
 		else:
 			try:
 				self.result = self.session.call( self.obj, self.method, *self.args )
-			except socket.error, err:
+			except RpcProtocolException, err:
 				self.exception = err
-				self.error = (_('Connection Refused'), unicode(err), unicode(err))
-			except xmlrpclib.Fault, err:
-				self.exception = err
-				a = RpcException(err.faultCode, err.faultString)
-				if a.type in ('warning','UserError'):
-					self.warning = (a.message, a.data)
+				self.error = (_('Connection Refused'), err.message, err.message)
+			except RpcServerException, err:
+				if err.type in ('warning','UserError'):
+					self.warning = (err.message, err.data)
 				else:
-					self.error = (_('Application Error'), _('View details'), err.faultString)
-			except tiny_socket.Myexception, err:
-				self.exception = err
-				faultCode = unicode( err.faultCode, 'utf-8' )
-				faultString = unicode( err.faultString, 'utf-8' )
-				a = RpcException( faultCode, faultString )
-				if a.type in ('warning','UserError'):
-					self.warning = (a.message, a.data)
-				else:
-					self.error = (_('Application Error'), _('View details'), faultString)
-			except Exception, err:
-				self.exception = err
-				notified = False
-				if 'pyro' in modules:
-					if Pyro.util.getPyroTraceback(err):
-						notified = True
-						faultCode = err.message
-						faultString = u''.join( Pyro.util.getPyroTraceback(err) )
-						a = RpcException( faultCode, faultString )
-						if a.type in ('warning','UserError'):
-							self.warning = (a.message, a.data)
-						else:
-							self.error = (_('Application Error'), _('View details'), faultString)
-				if not notified:
-					faultString = unicode( err )
-					self.error = (_('Application Error'), _('View details'), faultString)
+					self.error = (_('Application Error'), _('View details'), err.backtrace )
 
 
 ## @brief The Session class provides a simple way of login and executing function in a server
@@ -387,6 +399,8 @@ class Session:
 	# @param method Method name (string) to call 
 	# @param args Argument list for the given method
 	def call(self, obj, method, *args):
+		if not self.open:
+			raise RpcException(_('Not logged in'))
 		if self.cache:
 			if self.cache.exists( obj, method, *args ):
 				return self.cache.get( obj, method, *args )
@@ -401,63 +415,24 @@ class Session:
 	# Note that you'll need to bind gettext as texts sent to
 	# the notify module are localized.
 	def execute(self, obj, method, *args):
-		if not self.open:
-			raise RpcException(1, 'not logged')
 		try:
 			return self.call(obj, method, *args)
-		except socket.error, err:
-			Notifier.notifyError(_('Connection Refused'), unicode(err), unicode(err) )
-		except xmlrpclib.Fault, err:
-			a = RpcException(err.faultCode, err.faultString)
-			if a.type in ('warning','UserError'):
-				if a.message in ('ConcurrencyException') and len(args) > 4:
+		except RpcProtocolException, err:
+			Notifier.notifyError(_('Connection Refused'), err.message, err.message )
+			raise
+		except RpcServerException, err:
+			if err.type in ('warning','UserError'):
+				if err.message in ('ConcurrencyException') and len(args) > 4:
 					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
 						if ConcurrencyCheckField in args[4]:
 							del args[4][ConcurrencyCheckField]
 						return self.execute(obj, method, *args)
 				else:
-					Notifier.notifyWarning(a.message, a.data )
+					Notifier.notifyWarning(err.message, err.data )
 			else:
-				Notifier.notifyError(_('Application Error'), _('View details'), err.faultString)
-		except tiny_socket.Myexception, err:
-			faultCode = unicode( err.faultCode, 'utf-8' )
-			faultString = unicode( err.faultString, 'utf-8' )
-			a = RpcException( faultCode, faultString )
-			if a.type in ('warning','UserError'):
-				if a.message in ('ConcurrencyException') and len(args) > 4:
-					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
-						if ConcurrencyCheckField in args[4]:
-							del args[4][ConcurrencyCheckField]
-						return self.execute(obj, method, *args)
-				else:
-					Notifier.notifyWarning(a.message, a.data )
-			else:
-				Notifier.notifyError(_('Application Error'), _('View details'), faultString)
-		except Exception, err:
-			notified = False
-			if 'pyro' in modules:
-				if Pyro.util.getPyroTraceback(err):
-					notified = True
-					faultCode = err.message
-					faultString = u''
-					for x in Pyro.util.getPyroTraceback(err):
-						faultString += unicode( x, 'utf-8', errors='ignore' )
-					a = RpcException( faultCode, faultString )
-					if a.type in ('warning','UserError'):
-						if a.message in ('ConcurrencyException') and len(args) > 4:
-							if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
-								if ConcurrencyCheckField in args[4]:
-									del args[4][ConcurrencyCheckField]
-								return self.execute(obj, method, *args)
-						else:
-							Notifier.notifyWarning(a.message, a.data )
-					else:
-						Notifier.notifyError(_('Application Error'), _('View details'), faultString)
+				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
+			raise
 
-			if not notified:
-				faultString = unicode( err )
-				Notifier.notifyError(_('Application Error'), _('View details'), faultString)
-			
 
 	## @brief Logs in the given server with specified name and password.
 	# @param url url string such as 'http://admin:admin\@localhost:8069'. 
