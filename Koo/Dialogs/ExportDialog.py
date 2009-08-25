@@ -173,7 +173,7 @@ def openOpenOffice(fields, fieldsType, result, writeTitle):
 		QMessageBox.warning(None, _('Error'), _('Error Opening OpenOffice.org:\n%s') % unicode(e.args) )
 
 def exportData(ids, model, fields, prefix=''):
-	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields)
+	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields, Rpc.session.context)
 	# After 5.0 data is returned directly (no 'datas' key in a dictionary).
 	if isinstance(data, dict) and 'datas' in data:
 		data = data['datas']
