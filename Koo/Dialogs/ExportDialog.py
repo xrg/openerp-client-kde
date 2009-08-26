@@ -86,8 +86,10 @@ def exportCsv(fname, fields, result, writeTitle):
 			for d in data:
 				if type(d)==types.StringType:
 					row.append('"' + d.replace('\n',' ').replace('\t',' ').replace('"',"\\\"") + '"')
+				elif not isinstance( d, unicode ):
+					row.append( unicode( d ) )
 				else:
-					row.append(d)
+					row.append( d )
 			fp.write( ','.join( row ) + '\n' )
 		fp.close()
 		QApplication.restoreOverrideCursor()
