@@ -32,6 +32,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 import gettext
 from Koo.Common import Common
+from Koo.Screen.ViewQueue import *
 
 from Koo import Rpc
 
@@ -76,13 +77,13 @@ def import_csv(csv_data, fields, model):
 (ImportDialogUi, ImportDialogBase) = loadUiType( Common.uiPath('win_import.ui') )
 
 class ImportDialog(QDialog, ImportDialogUi):
-	def __init__(self, model, fields, preload = [], parent=None):
+	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
 		ImportDialogUi.__init__(self)
 		self.setupUi( self )
 
-		self.model = model
-		self.fields = fields
+		self.model = None
+		self.fields = None
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
 		self.connect( self.pushAdd, SIGNAL('clicked()'), self.slotAdd )
@@ -90,20 +91,40 @@ class ImportDialog(QDialog, ImportDialogUi):
 		self.connect( self.pushRemoveAll, SIGNAL('clicked()'), self.slotRemoveAll )
 		self.connect( self.pushAutoDetect, SIGNAL('clicked()'), self.slotAutoDetect )
 		self.connect( self.pushOpenFile, SIGNAL('clicked()'), self.slotOpenFile )
+
+	def setModel(self, model):
+		self.model = model
+
+	def setup( self, viewTypes, viewIds ):
+		self.viewTypes = viewTypes
+		self.viewIds = viewIds
 		QTimer.singleShot( 0, self.initGui )
 
 	def initGui(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		# Pick up information of all available fields in all current views.
+		try:
+			self.fields = {}
+			queue = ViewQueue()
+			queue.setup( self.viewTypes, self.viewIds )
+			while not queue.isEmpty():
+				id, type = queue.next()
+				view = Rpc.session.execute('/object', 'execute', self.model, 'fields_view_get', id, type, Rpc.session.context)
+				self.fields.update( view['fields'] )
+		except Rpc.RpcException, e:
+			QApplication.restoreOverrideCursor()
+			return
+
 		self.fieldsInfo = {}
 		self.fieldsInvertedInfo = {}
 		self.allModel = FieldsModel()
-		self.setCursor( Qt.WaitCursor )
 		self.allModel.load( self.fields, self.fieldsInfo, self.fieldsInvertedInfo )
-		self.setCursor( Qt.ArrowCursor )
 		self.uiAllFields.setModel( self.allModel )
 		self.uiAllFields.sortByColumn( 0, Qt.AscendingOrder )
 
 		self.selectedModel = FieldsModel()
 		self.uiSelectedFields.setModel( self.selectedModel )
+		QApplication.restoreOverrideCursor()
 
 	def slotOpenFile(self):
 		file = QFileDialog.getOpenFileName(self, _('File to import'))

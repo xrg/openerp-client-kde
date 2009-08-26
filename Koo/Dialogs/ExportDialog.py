@@ -35,6 +35,7 @@ import gettext
 from Koo.Common import Common
 from Koo.Common import Numeric
 from Koo.Common import OpenOffice
+from Koo.Screen.ViewQueue import *
 
 from Koo import Rpc
 
@@ -184,13 +185,14 @@ def exportData(ids, model, fields, prefix=''):
 class ExportDialog( QDialog, ExportDialogUi ):
 	exports = {}
 
-	def __init__(self, model, ids, fields, preload =[], parent=None):
+	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
 		ExportDialogUi.__init__(self)
 		self.setupUi( self )
 
-		self.ids = ids
-		self.model = model
+		self.ids = []
+		self.model = None
+		self.fields = None
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.export )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
 		self.connect( self.pushAdd, SIGNAL('clicked()'), self.add )
@@ -200,14 +202,38 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		self.connect( self.pushRemoveExport, SIGNAL('clicked()'), self.removeExport )
 		self.connect( self.uiPredefined, SIGNAL('activated(const QModelIndex&)'), self.loadCurrentStored )
 
+	def setModel( self, model ):
+		self.model = model
+
+	def setIds( self, ids ):
+		self.ids = ids
+
+	def setup( self, viewTypes, viewIds ):
+		self.viewTypes = viewTypes
+		self.viewIds = viewIds
+		QTimer.singleShot( 0, self.initGui )
+
+	def initGui(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		# Pick up information of all available fields in all current views.
+		try:
+			self.fields = {}
+			queue = ViewQueue()
+			queue.setup( self.viewTypes, self.viewIds )
+			while not queue.isEmpty():
+				id, type = queue.next()
+				view = Rpc.session.execute('/object', 'execute', self.model, 'fields_view_get', id, type, Rpc.session.context)
+				self.fields.update( view['fields'] )
+		except Rpc.RpcException, e:
+			QApplication.restoreOverrideCursor()
+			return
+
 		for key, export in ExportDialog.exports.iteritems():
 			self.uiFormat.addItem( export['label'], QVariant( key ) )	
 
 		self.fieldsInfo = {}
 		self.allModel = FieldsModel()
-		self.setCursor( Qt.WaitCursor )
-		self.allModel.load( fields, self.fieldsInfo )
-		self.setCursor( Qt.ArrowCursor )
+		self.allModel.load( self.fields, self.fieldsInfo )
 		self.uiAllFields.setModel( self.allModel )
 		self.uiAllFields.sortByColumn( 0, Qt.AscendingOrder )
 
@@ -219,6 +245,8 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		self.uiPredefined.setModel( self.storedModel )
 		self.uiPredefined.hideColumn(0)
 		self.uiPredefined.hideColumn(1)
+
+		QApplication.restoreOverrideCursor()
 
 	@staticmethod
 	def registerExport(key, label, requiresFileName, function):

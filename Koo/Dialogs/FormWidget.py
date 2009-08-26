@@ -277,15 +277,18 @@ class FormWidget( QWidget, FormWidgetUi ):
 			QApplication.restoreOverrideCursor()
 
 	def import_(self):
-		fields = []
-		dialog = ImportDialog(self.model, self.screen.fields, fields)
+		dialog = ImportDialog(self)
+		dialog.setModel( self.model )
+		dialog.setup( self.viewTypes, self.viewIds )
 		dialog.exec_()
 		if not self.screen.isModified():
 			self.reload()
 
 	def export(self):
-		fields = []
-		dialog = ExportDialog(self.model, self.screen.selectedIds(), self.screen.fields, fields)
+		dialog = ExportDialog(self)
+		dialog.setModel( self.model )
+		dialog.setIds( self.screen.selectedIds() )
+		dialog.setup( self.viewTypes, self.viewIds )
 		dialog.exec_()
 
 	def new(self):
