@@ -48,7 +48,8 @@ def parseArguments(args):
 	parser.add_option("", "--disable-kde", action="store_true", default=False, dest="disable_kde", help=_("disable usage of KDE libraries if they are available"))
 	parser.add_option("", "--debug", action="store_true", default=False, dest="debug", help=_("enable debug mode. Will show the crash dialog in all exceptions"))
 
-	(opt, args) = parser.parse_args()
+	#print "ARG: ", sys.argv
+	(opt, args) = parser.parse_args(args)
 
 	Settings.rcFile = opt.config or os.environ.get('TERPRC') or os.path.join(homeDirectory(), '.koorc')
 	Settings.loadFromFile()
@@ -67,4 +68,6 @@ def parseArguments(args):
 	Settings.setValue( 'debug', opt.debug )
 	if opt.disable_kde:
 		Settings.setValue( 'kde.enabled', False )
+
+	return args
 

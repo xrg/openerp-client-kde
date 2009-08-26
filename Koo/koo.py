@@ -46,7 +46,7 @@ from Koo.Common import CommandLine
 from Koo.Common import Localization
 Localization.initializeTranslations()
 #__builtins__._ = lambda x: x
-CommandLine.parseArguments(sys.argv)
+arguments = CommandLine.parseArguments(sys.argv)
 
 Localization.initializeTranslations(Settings.value('client.language'))
 
@@ -85,11 +85,11 @@ if Common.isKdeAvailable:
 	aboutData   = KAboutData (appName, catalog, programName, version, description,
 				license, copyright, text, homePage, bugEmail)
 
-	KCmdLineArgs.init (sys.argv, aboutData)
+	KCmdLineArgs.init (arguments, aboutData)
 	 
 	app = KApplication ()
 else:
-	app = QApplication( sys.argv )
+	app = QApplication( arguments )
 
 app.setApplicationName( 'Koo' )
 app.setOrganizationDomain( 'www.nan-tic.com' )
