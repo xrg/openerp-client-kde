@@ -36,36 +36,36 @@ from Cache import *
 ConcurrencyCheckField = '__last_update'
 
 class RpcException(Exception):
-	def __init__(self, message):
+	def __init__(self, info):
 		self.code = None
-		self.args = tuple(message)
-		self.message = message
+		self.args = (info,)
+		self.info = info
 		self.backtrace = None
 
 class RpcProtocolException(RpcException):
 	def __init__(self, backtrace):
 		self.code = None
-		self.args = tuple(backtrace)
-		self.message = unicode( str(backtrace), 'utf-8' )
+		self.args = (backtrace,)
+		self.info = unicode( str(backtrace), 'utf-8' )
 		self.backtrace = backtrace
 
 class RpcServerException(RpcException):
 	def __init__(self, code, backtrace):
 		self.code = code
-		self.args = tuple(backtrace)
+		self.args = (backtrace,)
 		self.backtrace = backtrace
 		if hasattr(code, 'split'):
 			lines = code.split('\n')
 
 			self.type = lines[0].split(' -- ')[0]
-			self.message = ''
+			self.info = ''
 			if len(lines[0].split(' -- ')) > 1:
-				self.message = lines[0].split(' -- ')[1]
+				self.info = lines[0].split(' -- ')[1]
 	
 			self.data = '\n'.join(lines[2:])
 		else:
 			self.type = 'error'
-			self.message = backtrace
+			self.info = backtrace
 			self.data = backtrace
 
 
@@ -160,7 +160,7 @@ class PyroConnection(Connection):
 			raise RpcProtocolException( unicode( err ) )
 		except Exception, err:
 			if Pyro.util.getPyroTraceback(err):
-				faultCode = err.message
+				faultCode = err.info
 				faultString = u''
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
@@ -301,10 +301,10 @@ class AsynchronousSessionCall(QThread):
 				self.result = self.session.call( self.obj, self.method, *self.args )
 			except RpcProtocolException, err:
 				self.exception = err
-				self.error = (_('Connection Refused'), err.message, err.message)
+				self.error = (_('Connection Refused'), err.info, err.info)
 			except RpcServerException, err:
 				if err.type in ('warning','UserError'):
-					self.warning = (err.message, err.data)
+					self.warning = (err.info, err.data)
 				else:
 					self.error = (_('Application Error'), _('View details'), err.backtrace )
 
@@ -417,17 +417,17 @@ class Session:
 		try:
 			return self.call(obj, method, *args)
 		except RpcProtocolException, err:
-			Notifier.notifyError(_('Connection Refused'), err.message, err.message )
+			Notifier.notifyError(_('Connection Refused'), err.info, err.info )
 			raise
 		except RpcServerException, err:
 			if err.type in ('warning','UserError'):
-				if err.message in ('ConcurrencyException') and len(args) > 4:
+				if err.info in ('ConcurrencyException') and len(args) > 4:
 					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
 						if ConcurrencyCheckField in args[4]:
 							del args[4][ConcurrencyCheckField]
 						return self.execute(obj, method, *args)
 				else:
-					Notifier.notifyWarning(err.message, err.data )
+					Notifier.notifyWarning(err.info, err.data )
 			else:
 				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
 			raise
