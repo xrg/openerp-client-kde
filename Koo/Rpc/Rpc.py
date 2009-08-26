@@ -211,7 +211,6 @@ class XmlRpcConnection(Connection):
 			else:
 				result = function( *args )
 		except socket.error, err:
-			print "XMLRPC CONNECTION: ", unicode(err)
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
 			raise RpcServerException( err.faultCode, err.faultString )
