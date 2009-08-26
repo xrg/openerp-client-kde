@@ -148,4 +148,12 @@ if Settings.value('tip.autostart'):
 	dialog.exec_()
 
 win.showLoginDialog()
+
+if Settings.value('debug'):
+	def excepthook(type, value, backtrace):
+		import traceback
+		Notifier.notifyError( type, value, ''.join( traceback.format_tb( backtrace ) ) )
+
+	sys.excepthook = excepthook
+
 app.exec_()

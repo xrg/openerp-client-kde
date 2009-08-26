@@ -58,6 +58,7 @@ class Settings(object):
 		'pos_mode' : False,
 		'kde.enabled' : True,
 		'attachments_dialog' : False,
+		'debug': False,
 	}
 
 	## @brief Stores current settings in the appropiate config file.
