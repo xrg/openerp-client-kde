@@ -32,6 +32,7 @@ from PyQt4.uic import *
 
 from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 from Koo import Rpc
 
 from Koo.Screen.Screen import Screen
@@ -55,6 +56,11 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
+
+		self.scSearch = QShortcut( self.uiText )
+		self.scSearch.setKey( Shortcuts.SearchInField )
+		self.scSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scSearch, SIGNAL('activated()'), self.add )
 
 		group = RecordGroup( attrs['relation'] )
 		group.setAllowRecordLoading( False )
