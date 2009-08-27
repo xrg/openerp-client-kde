@@ -121,7 +121,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
 
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
-		self.connect(self.screen, SIGNAL('activated()'), self.switchView)
+		self.connect(self.screen, SIGNAL('activated()'), self.edit)
 
 		self.uiTitle.setText( self.screen.currentView().title )
 		self.installPopupMenu( self.uiTitle )
@@ -150,7 +150,6 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 	def setReadOnly(self, value):
  		self.uiTitle.setEnabled( not value )
  		self.pushNew.setEnabled( not value )
- 		self.pushEdit.setEnabled( not value )
  		self.pushRemove.setEnabled( not value )
 		self.updateButtons()
 
@@ -159,6 +158,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			value = False
 		else:
 			value = True
+ 		self.pushEdit.setEnabled( value )
 		self.pushBack.setEnabled( value )
 		self.pushForward.setEnabled( value )
 		self.pushSwitchView.setEnabled( value )
@@ -179,6 +179,9 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 				self.screen.display()
 
 	def edit(self):
+		if not self.screen.currentRecord():
+			QMessageBox.information(self, _('Information'), _('No record selected'))
+			return
 		dialog = ScreenDialog( self.screen.group, parent=self, record=self.screen.currentRecord(), attrs=self.attrs)
 		dialog.exec_()
 		self.screen.display()
