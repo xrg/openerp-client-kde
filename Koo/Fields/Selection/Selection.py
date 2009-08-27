@@ -73,7 +73,13 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		if not self._changed:
 			return self.record.value(self.name)
 
-		value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
+		# If we checked with MatchContains directly, we might find incorrect values when 
+		# the user clicked the item instead of writting it.
+		value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchExactly | Qt.MatchCaseSensitive) )
+		if not value.isValid():
+			value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchExactly ) )
+		if not value.isValid():	
+			value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
 		if value.isValid():
 			if value.typeName() == 'QString':
 				return unicode( value.toString() )
