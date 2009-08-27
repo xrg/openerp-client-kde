@@ -160,7 +160,7 @@ class PyroConnection(Connection):
 			raise RpcProtocolException( unicode( err ) )
 		except Exception, err:
 			if Pyro.util.getPyroTraceback(err):
-				faultCode = err.info
+				faultCode = err.message
 				faultString = u''
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
