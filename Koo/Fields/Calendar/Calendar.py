@@ -90,7 +90,7 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		self.record.setValue(self.name, self.value())
 
 	def clear(self):
-		self.uiDate.setText('')
+		self.uiDate.clear()
 	
 	def showValue(self):
 		# Ensure record is valid given the function can be called from self.updateValue()
@@ -99,13 +99,17 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 			return
 		value = self.record.value(self.name)
 		if value:
-			self.uiDate.setText( dateToText( storageToDate( value ) ) )
+			self.setText( dateToText( storageToDate( value ) ) )
 		else:
 			self.clear()
 
 	def showCalendar(self):
 		popup = PopupCalendarWidget( self.uiDate, self.dateTime )
 		self.connect( popup, SIGNAL('selected()'), self.store )
+
+	def setText(self, text):
+		self.uiDate.setText( text )
+		self.uiDate.setCursorPosition( 0 )
 
 class DateTimeFieldWidget( DateFieldWidget ):
 	def __init__(self, parent, model, attrs={}):
@@ -125,7 +129,7 @@ class DateTimeFieldWidget( DateFieldWidget ):
 		return  str(dateTimeToStorage( datetime ))
 	
 	def clear(self):
-		self.uiDate.setText('')
+		self.uiDate.clear()
 
  	def showValue(self):
 		# Ensure record is valid given the function can be called from self.updateValue()
@@ -134,7 +138,7 @@ class DateTimeFieldWidget( DateFieldWidget ):
 			return
  		value = self.record.value(self.name)
 		if value:
-			self.uiDate.setText( dateTimeToText( storageToDateTime(value) ) )
+			self.setText( dateTimeToText( storageToDateTime(value) ) )
 		else:
 			self.clear()
 
@@ -158,7 +162,7 @@ class TimeFieldWidget(AbstractFieldWidget):
 		return [ (_('Set current time'), self.setCurrentTime, True ) ]
 
 	def setCurrentTime( self ):
-		self.uiTime.setText( timeToText( QTime.currentTime() ) )
+		self.setText( timeToText( QTime.currentTime() ) )
 
 	def setReadOnly(self, value):
 		self.uiTime.setReadOnly(value)
@@ -185,9 +189,13 @@ class TimeFieldWidget(AbstractFieldWidget):
 			return
 		value = self.record.value(self.name)
 		if value:
-			self.uiTime.setText( timeToText( storageToTime( value ) ) )
+			self.setText( timeToText( storageToTime( value ) ) )
 		else:
 			self.clear()
+
+	def setText(self, text):
+		self.uiTime.setText( text )
+		self.uiTime.setCursorPosition( 0 )
 
 class FloatTimeFieldWidget(AbstractFieldWidget):
 	def __init__(self, parent, model, attrs={}):
@@ -208,7 +216,7 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 		return [ (_('Set current time'), self.setCurrentTime, True ) ]
 
 	def setCurrentTime( self ):
-		self.uiTime.setText( timeToText( QTime.currentTime() ) )
+		self.setText( timeToText( QTime.currentTime() ) )
 
 	def setReadOnly(self, value):
 		self.uiTime.setReadOnly(value)
@@ -226,7 +234,7 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 		self.record.setValue(self.name, textToFloatTime(unicode(self.uiTime.text())) )
 
 	def clear(self):
-		self.uiTime.setText('00:00')
+		self.setText('00:00')
 
 	def showValue(self):
 		# Ensure record is valid given the function can be called from self.updateValue()
@@ -235,9 +243,13 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 			return
 		value = self.record.value(self.name)
 		if value:
-			self.uiTime.setText( floatTimeToText( float( value ) ) )
+			self.setText( floatTimeToText( float( value ) ) )
 		else:
-			self.uiTime.setText( '00:00' )
+			self.setText( '00:00' )
+
+	def setText(self, text):
+		self.uiTime.setText( text )
+		self.uiTime.setCursorPosition( 0 )
 
 class DateFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):

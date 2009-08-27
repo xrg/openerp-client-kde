@@ -57,10 +57,11 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		return self.record.setValue(self.name, unicode( self.uiUrl.text() ) or False)
 
 	def clear( self ):
-		self.uiUrl.setText('')
+		self.uiUrl.clear()
 
 	def showValue(self):
 		self.uiUrl.setText(self.record.value(self.name) or '')
+		self.uiUrl.setCursorPosition( 0 )
 
 	def setReadOnly(self, value):
 		self.uiUrl.setReadOnly( value )

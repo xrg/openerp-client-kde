@@ -161,7 +161,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			return
 
 		self.record.setValue( self.name, value )
-		self.uiBinary.setText( _('%d bytes') % len(value) )
+		self.setText( _('%d bytes') % len(value) )
 
 		# The binary widget might have a 'filename' attribute
 		# that stores the file name in the field indicated by 'filename'
@@ -209,7 +209,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 	def showValue(self):
 		if self.record.value( self.name ):
 			size = len( self.record.value( self.name ) )
-			self.uiBinary.setText( _('%d bytes') % size ) 
+			self.setText( _('%d bytes') % size ) 
 		else:
 			self.clear()
 		self.updateActions()
@@ -217,6 +217,10 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 	def clear(self):
 		self.uiBinary.clear()
 		self.updateActions()
+
+	def setText(self, text):
+		self.uiBinary.setText( text )
+		self.uiBinary.setCursorPosition( 0 )
 
 	# This widget is a bit special. We don't set the value
 	# here. We do it in the new(), so we don't have two copies

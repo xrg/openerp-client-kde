@@ -206,6 +206,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		res = self.record.value(self.name)
  		if res:
 			self.uiText.setText( res )
+			self.uiText.setCursorPosition( 0 )
 			self.pushOpen.setIcon( QIcon( ":/images/folder.png"))
 			self.pushOpen.setToolTip( _("Open") )
 			# pushOpen will always be enabled if it has to open an existing
@@ -217,7 +218,6 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.pushOpen.setToolTip( _("Search") )
 			# pushOpen won't be enabled if it is to find an element
 			self.pushOpen.setEnabled( not self.isReadOnly() )
-			
 
 	def menuEntries(self):
 		if not self.menuLoaded:

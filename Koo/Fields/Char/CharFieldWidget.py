@@ -69,7 +69,7 @@ class CharFieldWidget(AbstractFieldWidget):
 			return
 		dialog = TranslationDialog( self.record.id, self.record.group.resource, self.attrs['name'], unicode(self.widget.text()), TranslationDialog.LineEdit, self )
 		if dialog.exec_() == QDialog.Accepted:
-			self.widget.setText( dialog.result )
+			self.setText( dialog.result )
 
 	def store(self):
 		# The function might be called by 'editingFinished()' signal when no
@@ -79,10 +79,14 @@ class CharFieldWidget(AbstractFieldWidget):
 		self.record.setValue( self.name, unicode(self.widget.text()) or False )
 
 	def clear(self):
-		self.widget.setText('')
+		self.widget.clear()
 	
 	def showValue(self):
-		self.widget.setText( self.record.value(self.name) or '' )
+		self.setText( self.record.value(self.name) or '' )
+
+	def setText(self, text):
+		self.widget.setText( text )
+		self.widget.setCursorPosition( 0 )
 
 	def setReadOnly(self, value):
 		self.widget.setReadOnly( value )

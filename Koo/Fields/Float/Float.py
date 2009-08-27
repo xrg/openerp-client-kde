@@ -52,7 +52,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 
 	def calculate(self):
 		val = textToFloat( str(self.widget.text() ) )
-		self.widget.setText( floatToText( val, self.digits) )
+		self.setText( floatToText( val, self.digits) )
 		self.modified()
 
 	def value(self):
@@ -62,16 +62,20 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.record.setValue( self.name, self.value() )
 
 	def clear(self):
-		self.widget.setText( floatToText(0, self.digits) )
+		self.setText( floatToText(0, self.digits) )
 		
 	def showValue(self):
 		if self.record.value(self.name):
-			self.widget.setText( floatToText( self.record.value(self.name), self.digits ) )
+			self.setText( floatToText( self.record.value(self.name), self.digits ) )
 		else:
 			self.clear()
 
 	def colorWidget(self):
 		return self.widget
+
+	def setText(self, text):
+		self.widget.setText( text )
+		self.widget.setCursorPosition( 0 )
 
 class FloatFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):

@@ -45,7 +45,7 @@ class IntegerFieldWidget(AbstractFieldWidget):
 
 	def calculate(self):
 		val = textToInteger( unicode(self.widget.text() ) )
-		self.widget.setText( integerToText(val) )
+		self.setText( integerToText(val) )
 		self.modified()
 
 	def value(self):
@@ -55,17 +55,21 @@ class IntegerFieldWidget(AbstractFieldWidget):
 		self.record.setValue(self.name, self.value() )
 
 	def clear(self):
-		self.widget.setText('0')
+		self.setText('0')
 
 	def showValue(self):
 		value = self.record.value( self.name )
-		self.widget.setText( str(value) )
+		self.setText( str(value) )
 
 	def setReadOnly(self, value):
 		self.widget.setReadOnly( value )
 
 	def colorWidget(self):
 		return self.widget
+
+	def setText(self, text):
+		self.widget.setText( text )
+		self.widget.setCursorPosition( 0 )
 
 class IntegerFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):
