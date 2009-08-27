@@ -244,8 +244,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		group = RecordGroup( self.attrs['relation'] )
 		group.load( [id] )
 		record = group.modelByIndex( 0 )
-		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
-		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
+		action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
+		action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
 		Api.instance.executeAction( action )
 
 	def executeAction(self, type):
@@ -287,8 +287,8 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		group = RecordGroup( self.attributes['relation'] )
 		group.load( [id] )
 		record = group.modelByIndex( 0 )
-		action['domain'] = record.evaluateExpression( action['domain'], check_load=False)
-		action['context'] = str( record.evaluateExpression( action['context'], check_load=False) )
+		action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
+		action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
 		Api.instance.executeAction( action )
 
 	def executeAction(self, record, type):

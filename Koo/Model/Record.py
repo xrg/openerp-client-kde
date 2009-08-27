@@ -126,7 +126,10 @@ class Record(QObject):
 
 	## @brief Obtains the context of the given field
 	def fieldContext(self, fieldName):
-		return self.group.fieldObjects[fieldName].context(self)
+		# Do not checkLoad because current record is already loaded and using it
+		# would cause all related (one2many and many2many) fields to be completely
+		# loaded too, causing performance issues.
+		return self.group.fieldObjects[fieldName].context(self, checkLoad=False)
 
 	## @brief Returns whether the record has been modified or not
 	def isModified(self):
@@ -209,8 +212,8 @@ class Record(QObject):
 			return True
 		return False
 
-	def get(self, get_readonly=True, includeid=False, check_load=True, get_modifiedonly=False):
-		if check_load:
+	def get(self, get_readonly=True, includeid=False, checkLoad=True, get_modifiedonly=False):
+		if checkLoad:
 			self.ensureIsLoaded()
 		value = []
 		for name, field in self.group.fieldObjects.items():
@@ -377,15 +380,15 @@ class Record(QObject):
 	# Before passing the dom expression to Rpc.session.evaluateExpression
 	# a context with 'current_date', 'time', 'context', 'active_id' and
 	# 'parent' (if applies) is prepared.
-	def evaluateExpression(self, dom, check_load=True):
+	def evaluateExpression(self, dom, checkLoad=True):
 		if not isinstance(dom, basestring):
 			return dom
-		if check_load:
+		if checkLoad:
 			self.ensureIsLoaded()
 		d = {}
 		self.createMissingFields()
 		for name, mfield in self.group.fieldObjects.items():
-			d[name] = mfield.get(self, check_load=check_load)
+			d[name] = mfield.get(self, checkLoad=checkLoad)
 
 		d['current_date'] = time.strftime('%Y-%m-%d')
 		d['time'] = time

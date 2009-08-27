@@ -413,7 +413,7 @@ class KooModel(QAbstractItemModel):
 			palette = QPalette()
 			color = palette.color( QPalette.WindowText )
 			for (c, expression) in self.colors:
-				if model.evaluateExpression( expression, check_load=False ):
+				if model.evaluateExpression( expression, checkLoad=False ):
 					color = c
 					break
 			return QVariant( QBrush( QColor( color ) ) )

@@ -56,13 +56,13 @@ class StringField(QObject):
 		dom = self.attrs.get('domain', '[]')
 		return record.evaluateExpression(dom)
 
-	def context(self, record, check_load=True, eval=True):
+	def context(self, record, checkLoad=True, eval=True):
 		context = {}
 		context.update( self.parent.context() )
-		field_context_str = self.attrs.get('context', '{}') or '{}'
 		if eval:
-			field_context = record.evaluateExpression('dict(%s)' % field_context_str, check_load=check_load)
-			context.update(field_context)
+			fieldContext = self.attrs.get('context') or '{}'
+			fieldContext = record.evaluateExpression('dict(%s)' % fieldContext, checkLoad=checkLoad)
+			context.update(fieldContext)
 		return context
 
 	## Checks if the current value is valid and sets stateAttributes on the record.
@@ -89,7 +89,7 @@ class StringField(QObject):
 			record.modified_fields.setdefault(self.name)
 
 	## Return the value to write to the server
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		return record.values.get(self.name, False) 
 
 	## Stores the value for the client widget
@@ -144,7 +144,7 @@ class BinaryField(StringField):
 		if (internal or False) != record.values[self.name]:
 			self.changed(record)
 
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		value = self.get_client(record)
 		if value:
 			value = base64.encodestring(value)
@@ -185,7 +185,7 @@ class FloatField(StringField):
 
 class IntegerField(StringField):
 
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		return record.values.get(self.name, 0) or 0
 
 	def get_client(self, record):
@@ -198,7 +198,7 @@ class IntegerField(StringField):
 
 class ManyToOneField(StringField):
 		
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		if record.values[self.name]:
 			return record.values[self.name][0] or False
 		return False
@@ -252,7 +252,7 @@ class ToManyField(StringField):
 	def get_client(self, record):
 		return record.values[self.name]
 
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		pass
 
 	def set(self, record, value, test_state=False, modified=False):
@@ -293,7 +293,7 @@ class ToManyField(StringField):
 		return ok
 
 class OneToManyField(ToManyField):
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		if not record.values[self.name]:
 			return []
 		result = []
@@ -305,10 +305,10 @@ class OneToManyField(ToManyField):
 			if id:
 				# Note that group.modelById() might force loading a model that wasn't yet loaded
 				# if 'modified' is False.
-				result.append((1, id, group.modelById( id ).get(check_load=check_load, get_readonly=readonly)))
+				result.append((1, id, group.modelById( id ).get(checkLoad=checkLoad, get_readonly=readonly)))
 
 		for rec in group.newRecords():
-				result.append((0, 0, rec.get(check_load=check_load, get_readonly=readonly)))
+				result.append((0, 0, rec.get(checkLoad=checkLoad, get_readonly=readonly)))
 
 		for id in record.values[self.name].removedRecords:
 			result.append( (2, id, False) )
@@ -333,7 +333,7 @@ class OneToManyField(ToManyField):
 		return True
 
 class ManyToManyField(ToManyField):
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		if not record.values[self.name]:
 			return []
 		return [(6, 0, record.values[self.name].ids())]
@@ -344,7 +344,7 @@ class ReferenceField(StringField):
 			return record.values[self.name]
 		return False
 
-	def get(self, record, check_load=True, readonly=True, modified=False):
+	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		if record.values[self.name]:
 			return '%s,%d' % (record.values[self.name][0], record.values[self.name][1][0])
 		return False
