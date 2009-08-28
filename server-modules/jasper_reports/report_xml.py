@@ -37,6 +37,7 @@ import tempfile
 import codecs
 import sql_db
 import netsvc
+import jasper_report
 
 # Inherit ir.actions.report.xml and add an action to be able to store .jrxml and .properties
 # files attached to the report so they can be used as reports in the application.
@@ -88,7 +89,7 @@ class report_xml(osv.osv):
 					self.save_file( fileName, content )
 
 				# Ensure the report is registered so it can be immediately used
-				register_jasper_report( report.report_name, report.model )
+				jasper_report.register_jasper_report( report.report_name, report.model )
 		return True
 
 	def save_file(self, name, value):
