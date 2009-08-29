@@ -76,6 +76,7 @@ class create_data_template(wizard.interface):
 		fields = model._columns.keys()
 		fields.sort()
 		for field in fields:
+			name = False
 			if language:
 				# Obtain field string for user's language.
 				name = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'field', language)
