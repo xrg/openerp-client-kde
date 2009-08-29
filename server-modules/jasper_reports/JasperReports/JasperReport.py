@@ -37,7 +37,7 @@ class JasperReport:
 	def __init__(self, fileName):
 		self._reportPath = fileName
 		self._language = 'SQL'
-		self._relations = None
+		self._relations = []
 		self._fields = {}
 		self._fieldNames = []
 		self._subreports = []
