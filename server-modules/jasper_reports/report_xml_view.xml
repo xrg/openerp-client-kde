@@ -20,9 +20,9 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Jasper Reports File">
-			<field name="file" filename="filename"/>
-			<field name="default"/>
-			<field name="filename"/>
+			<field name="file" filename="filename" colspan="4"/>
+			<field name="filename" colspan="4"/>
+			<field name="default" colspan="4"/>
 		</form>
 	    </field>
 	</record>
@@ -32,7 +32,6 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Jasper Reports File">
-			<field name="file"/>
 			<field name="default"/>
 			<field name="filename"/>
 		</tree>
