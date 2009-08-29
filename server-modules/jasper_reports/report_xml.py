@@ -39,6 +39,27 @@ import sql_db
 import netsvc
 import jasper_report
 
+class report_xml_file(osv.osv):
+	_name = 'ir.actions.report.xml.file'
+	_columns = {
+		'file': fields.binary('File', required=True, filters=['*.jrxml','*.properties'], help=''),
+		'filename': fields.char('File Name', size=256, required=False, help=''),
+		'report_id': fields.many2one('ir.actions.report.xml', 'Report', required=True, ondelete='cascade', help=''),
+		'default': fields.boolean('Default', help=''),
+	}
+	def create(self, cr, uid, vals, context=None):
+		result = super(report_xml_file,self).create(cr, uid, vals, context)
+		self.pool.get('ir.actions.report.xml').update(cr, uid, [vals['report_id']], context)
+		return result
+
+	def write(self, cr, uid, ids, vals, context=None):
+		result = super(report_xml_file,self).write(cr, uid, ids, vals, context)
+		for attachment in self.browse(cr, uid, ids, context):
+			self.pool.get('ir.actions.report.xml').update(cr, uid, [attachment.report_id.id], context)
+		return result
+
+report_xml_file()
+
 # Inherit ir.actions.report.xml and add an action to be able to store .jrxml and .properties
 # files attached to the report so they can be used as reports in the application.
 class report_xml(osv.osv):
@@ -46,50 +67,76 @@ class report_xml(osv.osv):
 	_inherit = 'ir.actions.report.xml'
 	_columns = {
 		'jasper_output': fields.selection([('html','HTML'),('csv','CSV'),('xls','XLS'),('rtf','RTF'),('odt','ODT'),('ods','ODS'),('txt','Text'),('pdf','PDF')], 'Jasper Output'),
+		'file_ids': fields.one2many('ir.actions.report.xml.file', 'report_id', 'Files', help=''),
+		'model_id': fields.many2one('ir.model', 'Model', required=True, help=''),
+		'jasper_report': fields.boolean('Is Jasper Report?', help=''),
 	}
 	_defaults = {
-		'jasper_output': lambda *a: 'pdf',
+		'jasper_output': lambda self, cr, uid, context: context.get('jasper_report') and 'pdf',
 	}
+
+	def create(self, cr, uid, vals, context=None):
+		print "CONTEXT: ", context
+		print "VALS: ", vals
+		if context and context.get('jasper_report'):
+			vals['model'] = self.pool.get('ir.model').browse(cr, uid, vals['model_id'], context).model
+			vals['type'] = 'ir.actions.report.xml'
+			vals['report_type'] = 'pdf'
+			vals['jasper_report'] = True
+		return super(report_xml,self).create(cr, uid, vals, context)
+
+	def write(self, cr, uid, ids, vals, context=None):
+		if context and context.get('jasper_report'):
+			if 'model_id' in vals:
+				vals['model'] = self.pool.get('ir.model').browse(cr, uid, vals['model_id'], context).model
+			vals['type'] = 'ir.actions.report.xml'
+			vals['report_type'] = 'pdf'
+			vals['jasper_report'] = True
+		return super(report_xml,self).write(cr, uid, ids, vals, context)
 
 	def update(self, cr, uid, ids, context={}):
 		for report in self.browse(cr, uid, ids):
-			attachmentIds = self.pool.get('ir.attachment').search( cr, uid, [('res_model','=','ir.actions.report.xml'),('res_id','=',report.id)], context=context)	
-			has_jrxml = False
+			has_default = False
 			# Browse attachments and store .jrxml and .properties into jasper_reports/custom_reports
 			# directory. Also add or update ir.values data so they're shown on model views.
-			for attachment in self.pool.get('ir.attachment').browse( cr, uid, attachmentIds ):
-				content = attachment.datas
-				fileName = attachment.datas_fname
+			#for attachment in self.pool.get('ir.attachment').browse( cr, uid, attachmentIds ):
+			for attachment in report.file_ids:
+				content = attachment.file
+				fileName = attachment.filename
 				if not fileName or not content:
 					continue
 				if '.jrxml' in fileName:
-					if has_jrxml:
-						raise osv.except_osv(_('Error'), _('There are two .jrxml files attached to this report.'))
-					has_jrxml = True
 					path = self.save_file( fileName, content )
-					# Update path into report_rml field.
-					self.write(cr, uid, [report.id], {
-						'report_rml': path
-					})
-					valuesId = self.pool.get('ir.values').search(cr, uid, [('value','=','ir.actions.report.xml,%s'% report.id)])
-					data = {
-						'name': report.name,
-						'model': report.model,
-						'key': 'action',
-						'object': True,
-						'key2': 'client_print_multi',
-						'value': 'ir.actions.report.xml,%s'% report.id
-					}
-					if not valuesId:
-						valuesId = self.pool.get('ir.values').create(cr, uid, data, context=context)
-					else:
-						self.pool.get('ir.values').write(cr, uid, valuesId, data, context=context)
-						valuesId = valuesId[0]
+					if attachment.default:
+						if has_default:
+							raise osv.except_osv(_('Error'), _('There is more than one report marked as default'))
+						has_default = True
+						# Update path into report_rml field.
+						self.write(cr, uid, [report.id], {
+							'report_rml': path
+						})
+						valuesId = self.pool.get('ir.values').search(cr, uid, [('value','=','ir.actions.report.xml,%s'% report.id)])
+						data = {
+							'name': report.name,
+							'model': report.model,
+							'key': 'action',
+							'object': True,
+							'key2': 'client_print_multi',
+							'value': 'ir.actions.report.xml,%s'% report.id
+						}
+						if not valuesId:
+							valuesId = self.pool.get('ir.values').create(cr, uid, data, context=context)
+						else:
+							self.pool.get('ir.values').write(cr, uid, valuesId, data, context=context)
+							valuesId = valuesId[0]
 				elif '.properties' in fileName:
 					self.save_file( fileName, content )
 
-				# Ensure the report is registered so it can be immediately used
-				jasper_report.register_jasper_report( report.report_name, report.model )
+			if not has_default:
+				raise osv.except_osv(_('Error'), _('No report has been marked as default.'))
+
+			# Ensure the report is registered so it can be used immediately
+			jasper_report.register_jasper_report( report.report_name, report.model )
 		return True
 
 	def save_file(self, name, value):
