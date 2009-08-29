@@ -46,7 +46,8 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.setupUi(self)
 
 		self.filters = attrs.get('filters', '*')
-		self.filters = self.filters.split(',')
+		if isinstance( self.filters, basestring ):
+			self.filters = self.filters.split(',')
 		self.filters = _('Files (%s)') % ' '.join( self.filters )
 
 		self.fileNameField = attrs.get('filename')
