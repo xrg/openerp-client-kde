@@ -96,6 +96,6 @@
 	    <field name="view_id" ref="act_report_jasper_form"/>
 	    <field name="sequence">1</field>
 	</record>
-        <menuitem action="ir_action_report_jasper" id="menu_ir_action_report_jasper" parent="base.next_id_6"/>
+        <menuitem action="ir_action_report_jasper" id="menu_ir_action_report_jasper" parent="jasper_reports_menu"/> 
 </data>
 </openerp>
