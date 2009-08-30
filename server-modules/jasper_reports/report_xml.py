@@ -68,7 +68,7 @@ class report_xml(osv.osv):
 	_columns = {
 		'jasper_output': fields.selection([('html','HTML'),('csv','CSV'),('xls','XLS'),('rtf','RTF'),('odt','ODT'),('ods','ODS'),('txt','Text'),('pdf','PDF')], 'Jasper Output'),
 		'file_ids': fields.one2many('ir.actions.report.xml.file', 'report_id', 'Files', help=''),
-		'model_id': fields.many2one('ir.model', 'Model', required=True, help=''),
+		'model_id': fields.many2one('ir.model', 'Model', help=''),
 		'jasper_report': fields.boolean('Is Jasper Report?', help=''),
 	}
 	_defaults = {

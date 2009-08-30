@@ -46,7 +46,7 @@
             <field name="arch" type="xml">
                 <form string="Jasper Reports">
                     <field name="name" select="1"/>
-                    <field name="model_id" select="1"/>
+                    <field name="model_id" required="True" select="1"/>
                     <field name="report_name" select="1"/>
 		    <field name="jasper_output" required="True" select="1"/>
                     <field name="attachment"/>
