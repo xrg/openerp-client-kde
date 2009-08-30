@@ -32,8 +32,8 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Jasper Reports File">
-			<field name="default"/>
 			<field name="filename"/>
+			<field name="default"/>
 		</tree>
 	    </field>
 	</record>
