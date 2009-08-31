@@ -228,13 +228,12 @@ def new_register_all(db):
 	value = old_register_all(db)
 
 	cr = db.cursor()
-	cr.execute("SELECT * FROM ir_act_report_xml WHERE auto=true ORDER BY id")
+	# Originally we had auto=true in the SQL filter but we will register all reports.
+	cr.execute("SELECT * FROM ir_act_report_xml WHERE report_rml ilike '%.jrxml' ORDER BY id")
 	records = cr.dictfetchall()
 	cr.close()
 	for record in records:
-		path = record['report_rml']
-		if path and path.endswith('.jrxml'):
-			register_jasper_report( record['report_name'], record['model'] )
+		register_jasper_report( record['report_name'], record['model'] )
 	return value
 
 report.interface.register_all = new_register_all
