@@ -271,18 +271,7 @@ class ToManyField(StringField):
 		self.set(record, value, test_state=test_state)
 		self.changed(record)
 
-
-	def default(self, record):
-		# TODO: Fix with new Group behaviour. Has this ever really worked?
-		return [ x.defaults() for x in record.values[self.name].records ]
-
 	def validate(self, record):
-		#for model2 in record.values[self.name].records:
-			#if not model2.validate():
-				#if not model2.isModified():
-					#model.values[self.name].records.remove(model2)
-				#else:
-					#ok = False
 		ok = True
 		for record in record.values[self.name].modifiedRecords():
 			if not record.validate():
@@ -297,7 +286,6 @@ class OneToManyField(ToManyField):
 		if not record.values[self.name]:
 			return []
 		result = []
-		# TODO: Fix with new Group behaviour. Has this ever really worked?
 		group = record.values[self.name]
 		for id in group.ids():
 			if (modified and not group.isRecordModified(id)) or (not id and not group.isRecordModified( id ) ):
@@ -332,11 +320,20 @@ class OneToManyField(ToManyField):
 			record.values[self.name].model_add(mod)
 		return True
 
+	def default(self, record):
+		# TODO: Fix with new Group behaviour. Has this ever really worked?
+		return [ x.defaults() for x in record.values[self.name].records ]
+
 class ManyToManyField(ToManyField):
 	def get(self, record, checkLoad=True, readonly=True, modified=False):
 		if not record.values[self.name]:
 			return []
 		return [(6, 0, record.values[self.name].ids())]
+
+	def default(self, record):
+		if not record.values[self.name]:
+			return []
+		return record.values[self.name].ids()
 
 class ReferenceField(StringField):
 	def get_client(self, record):
