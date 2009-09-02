@@ -5,6 +5,7 @@ import org.apache.xmlrpc.*;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
 //import org.apache.xml.security.utils.Base64;
 
+import net.sf.jasperreports.engine.JRRewindableDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRField;
 import net.sf.jasperreports.engine.design.JRDesignField;
@@ -80,12 +81,39 @@ This class overrides getFieldValue() from JRCsvDataSource to parse
 java.lang.Object fields that will come from Python coded with data
 for each language.
 */
-class CsvMultiLanguageDataSource extends JRCsvDataSource {
-	public CsvMultiLanguageDataSource(File file, String charsetName) throws java.io.FileNotFoundException, java.io.UnsupportedEncodingException {
-		super(file, charsetName);
+class CsvMultiLanguageDataSource implements JRRewindableDataSource {
+	private JRCsvDataSource csvDataSource;
+	private String fileName;
+	private String charsetName;
+	private java.text.DateFormat dateFormat;
+	private char fieldDelimiter;
+	private java.text.NumberFormat numberFormat;
+	private String recordDelimiter;
+	private String[] columnNames;
+	private boolean useFirstRowAsHeader;
+
+	public CsvMultiLanguageDataSource(String fileName, String charsetName) throws java.io.FileNotFoundException, java.io.UnsupportedEncodingException {
+
+		this.fileName = fileName;
+		this.charsetName = charsetName;
+		csvDataSource = new JRCsvDataSource( new File( fileName ), "utf-8");
+		csvDataSource.setUseFirstRowAsHeader( true );
+		csvDataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
+		csvDataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
+	}
+	public void moveFirst() throws JRException {
+		csvDataSource.close();
+		try {
+			csvDataSource = new JRCsvDataSource( new File( fileName ), "utf-8" );
+			csvDataSource.setUseFirstRowAsHeader( true );
+			csvDataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
+			csvDataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
+		} catch ( Exception exception ) {
+			throw new JRException( exception );
+		}
 	}
 
-	public Object getFieldValue(JRField jrField) throws net.sf.jasperreports.engine.JRException {
+	public Object getFieldValue(JRField jrField) throws JRException {
 		Object value;
 		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
 			JRDesignField fakeField = new JRDesignField();
@@ -93,7 +121,7 @@ class CsvMultiLanguageDataSource extends JRCsvDataSource {
 			fakeField.setDescription( jrField.getDescription() );
 			fakeField.setValueClassName( "java.lang.String" );
 			fakeField.setValueClass( String.class );
-			value = super.getFieldValue( fakeField );
+			value = csvDataSource.getFieldValue( fakeField );
 
 			LanguageTable values = new LanguageTable("en_US");
 			String v = (String) value;
@@ -106,14 +134,21 @@ class CsvMultiLanguageDataSource extends JRCsvDataSource {
 			}
 			value = (Object)values;
 		} else {
-			value = super.getFieldValue(jrField);
+			value = csvDataSource.getFieldValue(jrField);
 		}
 		return value;
 	}
+	public void close() {
+		csvDataSource.close();
+	}
+	public boolean next() throws JRException {
+		return csvDataSource.next();
+	}
+	
 }
 
 /*
-This class overrides getFieldValue() from JRCsvDataSource to parse
+This class overrides getFieldValue() from JRXmlDataSource to parse
 java.lang.Object fields that will come from Python coded with data
 for each language.
 */
@@ -122,7 +157,7 @@ class XmlMultiLanguageDataSource extends JRXmlDataSource {
 		super(uri, selectExpression);
 	}
 
-	public Object getFieldValue(JRField jrField) throws net.sf.jasperreports.engine.JRException {
+	public Object getFieldValue(JRField jrField) throws JRException {
 		Object value;
 		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
 			JRDesignField fakeField = new JRDesignField();
@@ -250,10 +285,7 @@ public class JasperServer {
 				compile( (String)m.get("jrxmlFile") );
 
 				// Create DataSource for subreport
-				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)m.get("dataFile") ), "utf-8" );
-				dataSource.setUseFirstRowAsHeader( true );
-				dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
-				dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
+				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)m.get("dataFile"), "utf-8" );
 				System.out.println( "ADDING PARAMETER: " + ( (String)m.get("parameter") ) + " WITH DATASOURCE: " + ( (String)m.get("dataFile") ) );
 
 				parameters.put( m.get("parameter"), dataSource );
@@ -273,10 +305,7 @@ public class JasperServer {
 			// If available, use a CSV file because it's faster to process.
 			// Otherwise we'll use an XML file.
 			if ( connectionParameters.containsKey("csv") ) {
-				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( new File( (String)connectionParameters.get("csv") ), "utf-8" );
-				dataSource.setUseFirstRowAsHeader( true );
-				dataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
-				dataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
+				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)connectionParameters.get("csv"), "utf-8" );
 				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else {
 				JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );
