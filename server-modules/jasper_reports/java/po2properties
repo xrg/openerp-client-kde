@@ -15,15 +15,20 @@ export CLASSPATH="$CLASSPATH":$scriptdir
 
 function help()
 {
-	echo "Syntax: ./po2properties file.po file.properties"
+	echo "Syntax: ./po2properties file.po [file.properties]"
 	exit
 }
 
-if [[ -z "$1" || -z "$2" ]]; then
+if [[ -z "$1" ]]; then
 	help
 fi
 
 po=$1	
-properties=$2
+
+if [[ -z "$2" ]]; then
+	properties=$(dirname "$1")/$(basename "$1" .po).properties
+else
+	properties="$2"
+fi
 
 msgmerge -p $po $po > $properties

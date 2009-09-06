@@ -42,7 +42,7 @@ import jasper_report
 class report_xml_file(osv.osv):
 	_name = 'ir.actions.report.xml.file'
 	_columns = {
-		'file': fields.binary('File', required=True, filters=['*.jrxml','*.properties'], help=''),
+		'file': fields.binary('File', required=True, filters="*.jrxml,*.properties", help=''),
 		'filename': fields.char('File Name', size=256, required=False, help=''),
 		'report_id': fields.many2one('ir.actions.report.xml', 'Report', required=True, ondelete='cascade', help=''),
 		'default': fields.boolean('Default', help=''),

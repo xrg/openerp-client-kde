@@ -18,6 +18,6 @@ export CLASSPATH="$CLASSPATH":$scriptdir
 javac i18n.java I18nGetText.java I18nScriptlet.java I18nGroovyCompiler.java JasperServer.java || exit
 rm i18n.jar
 jar cvf i18n.jar i18n.class I18nGetText.java I18nGroovyCompiler.class I18nScriptlet.class
-cp i18n.jar lib
+mv i18n.jar lib
 
 java JasperServer
