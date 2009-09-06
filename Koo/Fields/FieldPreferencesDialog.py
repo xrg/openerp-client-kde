@@ -57,7 +57,7 @@ class FieldPreferencesDialog( QDialog, FieldPreferencesDialogUi ):
 		self.widgets = {}
 		for (fname, fvalue, rname, rvalue) in dependance:
 			w = QCheckBox(self)
-			w.setText( fname + ' = ' + str(rname) )
+			w.setText( fname + ' = ' + unicode(rname) )
 			self.widgets[(fvalue,rvalue)] = w
 			frameLayout.addWidget( w )
 		if not len(dependance):
