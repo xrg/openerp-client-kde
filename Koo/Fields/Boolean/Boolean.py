@@ -76,7 +76,9 @@ class BooleanFieldDelegate( AbstractFieldDelegate ):
 	def paint(self, painter, option, index):
 		# Paint background
 		itemOption = QStyleOptionViewItemV4(option)
-		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter)
+		# Last parameter (None) shouldn't be necessary but we put it to workaround a bug in
+		# KStyle which expects always four parameters, wheareas QStyle makes it optional.
+		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter, None)
 
 		# Paint CheckBox
 		op = QStyleOptionButton()
@@ -86,5 +88,7 @@ class BooleanFieldDelegate( AbstractFieldDelegate ):
 			op.state = QStyle.State_On
 		else:
 			op.state = QStyle.State_Off
-		QApplication.style().drawControl(QStyle.CE_CheckBox, op, painter)
+		# Last parameter (None) shouldn't be necessary but we put it to workaround a bug in
+		# KStyle which expects always four parameters, wheareas QStyle makes it optional.
+		QApplication.style().drawControl(QStyle.CE_CheckBox, op, painter, None)
 

@@ -64,7 +64,9 @@ class ProgressBarFieldDelegate( AbstractFieldDelegate ):
 	def paint(self, painter, option, index):
 		# Paint background
 		itemOption = QStyleOptionViewItemV4(option)
-		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter)
+		# Last parameter (None) shouldn't be necessary but we put it to workaround a bug in
+		# KStyle which expects always four parameters, wheareas QStyle makes it optional.
+		QApplication.style().drawControl(QStyle.CE_ItemViewItem, itemOption, painter, None)
 
 		# Paint ProgressBar
 		opts = QStyleOptionProgressBarV2()
@@ -76,5 +78,7 @@ class ProgressBarFieldDelegate( AbstractFieldDelegate ):
 		percent = max( min( percent, 100 ), 0 )
 		opts.progress = percent
 		opts.text = QString( '%d%%' % percent )
-		QApplication.style().drawControl(QStyle.CE_ProgressBar, opts, painter)
+		# Last parameter (None) shouldn't be necessary but we put it to workaround a bug in
+		# KStyle which expects always four parameters, wheareas QStyle makes it optional.
+		QApplication.style().drawControl(QStyle.CE_ProgressBar, opts, painter, None)
 
