@@ -124,7 +124,9 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect(self.screen, SIGNAL('activated()'), self.edit)
 
 		self.uiTitle.setText( self.screen.currentView().title )
-		self.installPopupMenu( self.uiTitle )
+		# Do not install Popup Menu because setting and getting default values
+		# is not supported for OneToMany fields.
+		#self.installPopupMenu( self.uiTitle )
 
 	def switchView(self):
 		# If Control Key is pressed when the open button is clicked
