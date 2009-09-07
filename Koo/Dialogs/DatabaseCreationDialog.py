@@ -80,7 +80,7 @@ class ProgressBar( QDialog, ProgressBarUi ):
 			self.id = Rpc.database.execute(self.url, 'create', self.password, self.databaseName, self.demoData, self.language, self.adminPassword)
 			self.timer.start( 1000 )
 		except Exception, e:
-			if e.faultString=='AccessDenied:None':
+			if e.code == 'AccessDenied':
 				QMessageBox.warning(self,_("Error during database creation"),_('Bad database administrator password !'))
 			else:
 				QMessageBox.warning(self,_('Error during database creation'),_("Could not create database."))
