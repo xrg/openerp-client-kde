@@ -73,6 +73,9 @@ class JasperReport:
 		doc = xml.dom.minidom.parse( self._reportPath )
 
 		# Language
+		
+		# Not that if either queryString or language do not exist the default (from the constructor)
+		# is SQL.
 		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
 		if langTags:
 			if langTags[0].getAttribute('language'):
