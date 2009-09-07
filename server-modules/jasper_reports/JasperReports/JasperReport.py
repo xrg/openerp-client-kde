@@ -75,7 +75,8 @@ class JasperReport:
 		# Language
 		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
 		if langTags:
-			self._language = langTags[0].getAttribute('language').lower()
+			if langTags[0].getAttribute('language'):
+				self._language = langTags[0].getAttribute('language').lower()
 		
 		# Relations
 		relationTags = xml.xpath.Evaluate( '/jasperReport/property[@name="OPENERP_RELATIONS"]', doc )
@@ -90,7 +91,10 @@ class JasperReport:
 		for tag in fieldTags:
 			name = tag.getAttribute('name')
 			type = tag.getAttribute('class')
-			path = tag.getElementsByTagName('fieldDescription')[0].firstChild.data
+			if tag.getElementsByTagName('fieldDescription'):
+				path = tag.getElementsByTagName('fieldDescription')[0].firstChild.data
+			else:
+				path = ''
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = path[13:]
