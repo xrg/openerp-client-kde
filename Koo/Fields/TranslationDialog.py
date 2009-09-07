@@ -109,7 +109,7 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 		if self.type == TranslationDialog.LineEdit:
 			return unicode(widget.text())
 		else:
-			return unicode(widget.plainText())
+			return unicode(widget.toPlainText())
 		
 	def slotAccept(self):
 		for lang in self.translations:
