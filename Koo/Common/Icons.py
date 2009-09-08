@@ -52,6 +52,7 @@ mapIcons = {
 	'gtk-media-pause' : 'pause.png',
 	'gtk-media-previous' : 'media_previous.png',
 	'gtk-ok' : 'ok.png',
+	'gtk-open' : 'open.png',
 	'gtk-print' : 'print.png',
 	'STOCK_CONVERT' : 'convert.png',
 	'STOCK_EXECUTE' : 'action.png',
