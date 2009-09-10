@@ -527,19 +527,24 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				return 
 
 		# If no menu tab exists query the server and open it
-		id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], [ 'menu_id','name'], Rpc.session.context)
-		self.uiUserName.setText( id[0]['name'] or '' )
+		data = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], ['menu_id','name','company_id'], Rpc.session.context)
+		record = data[0]
+		user = record['name'] or ''
+		company = record['company_id'][1]
+		self.uiUserName.setText( '%s (%s)' % (user, company)  )
 		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
 		self.setWindowTitle( self.fixedWindowTitle + " - [%s]" % Rpc.session.databaseName )
 
-		# Store the menuId so we ensure we don't open the menu twice when
-		# calling openHomeTab()
-		self.menuId = id[0]['menu_id'][0]
 
- 		if not id[0]['menu_id']:
+ 		if not record['menu_id']:
 			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
  			Rpc.session.logout()
+			self.menuId = False
 			return 
+
+		# Store the menuId so we ensure we don't open the menu twice when
+		# calling openHomeTab()
+		self.menuId = record['menu_id'][0]
 
 		Api.instance.execute(self.menuId, {'window':self })
 
