@@ -213,14 +213,14 @@ class RecordGroup(QObject):
 				continue
 			# TODO: Should we reconsider this? Do we need/want to reload. Probably we
 			# only want to add the id to the list.
-			newmod = Record(id, self, parent=self.parent)
+			record = Record(id, self, parent=self.parent)
 			self.connect(record,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
 			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
-			newmod.reload()
+			record.reload()
 			if not result:
-				result = newmod
+				result = record
 			newIndex = min(record_idx, len(self.records)-1)
-			self.add(newmod, newIndex)
+			self.add(record, newIndex)
 			indexes.append(newIndex)
 
 		if indexes:
