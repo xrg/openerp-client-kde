@@ -65,6 +65,17 @@ class FormWidget( QWidget, FormWidgetUi ):
 		FormWidgetUi.__init__(self)
 		self.setupUi( self )
 
+		# Workaround: In some cases (detected in some CRM actions) view_type and view_ids
+		# may contain duplicate entries. Here we remove duplicates (ensuring lists order is kept).
+		new_view_ids = []
+		new_view_type = []
+		for i in xrange(len(view_type)):
+			if not view_type[i] in new_view_type:
+				new_view_ids.append( view_ids[i] )
+				new_view_type.append( view_type[i] )
+		view_ids = new_view_ids
+		view_type = new_view_type
+
 		if not view_type:
 			view_type = ['form','tree']
 		else:
