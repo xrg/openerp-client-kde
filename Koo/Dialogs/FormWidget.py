@@ -96,7 +96,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( False )
-		self.connect( self.screen, SIGNAL('activated()'), self.switchView )
+		self.connect( self.screen, SIGNAL('activated()'), self.switchToForm )
 		self.connect( self.screen, SIGNAL('currentChanged()'), self.updateStatus )
 		self.connect( self.screen, SIGNAL('closed()'), self.closeWidget )
 		self.connect( self.screen, SIGNAL('recordMessage(int,int,int)'), self.updateRecordStatus )
@@ -215,7 +215,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def attachmentsClosed(self):
 		self.updateStatus()
 
-	def switchView(self):
+	def switchToForm(self):
+		if 'form' in self.viewTypes:
+			self.switchView( 'form' )
+		else:
+			self.switchView()
+
+	def switchView(self, viewType=None):
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -234,7 +240,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 					self.sender().setChecked( True )
 					self.screen.switchView( name )
 				else:
-					self.screen.switchView()
+					self.screen.switchView( viewType )
 			if self.pendingReload:
 				self.reload()
 			self.updateSwitchView()
