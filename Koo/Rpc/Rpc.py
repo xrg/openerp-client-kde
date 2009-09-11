@@ -303,6 +303,7 @@ class AsynchronousSessionCall(QThread):
 				self.exception = err
 				self.error = (_('Connection Refused'), err.info, err.info)
 			except RpcServerException, err:
+				self.exception = err
 				if err.type in ('warning','UserError'):
 					self.warning = (err.info, err.data)
 				else:
