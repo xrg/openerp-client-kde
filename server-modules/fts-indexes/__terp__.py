@@ -29,7 +29,7 @@
 		"name" : "fts-indexes",
 		"version" : "1.0",
 		"author" : "NaN",
-		"website" : "http://ktiny.sf.net",
+		"website" : "http://www.NaN-tic.com",
 		"category" : "Vertical Modules/Parametrization",
 		"description": """This module adds some indexes for the full text search module.""",
 		"depends" : ["base", "product", "full_text_search", "smart_attach"],
