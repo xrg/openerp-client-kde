@@ -29,6 +29,7 @@
 import os
 from PyQt4.QtGui import *
 from Koo.Common import Plugins
+from DummyView import *
 
 # The 'ViewFactory' class specializes in creating the appropiate views. Searches
 # for available views and calls the parser of the appropiate one.
@@ -71,7 +72,9 @@ class ViewFactory:
 			if node.localName in ViewFactory.views:
 				parser = ViewFactory.views[ node.localName ]['parser']()
 				return parser.create(viewId, parent, model, node, fields)
-		return None
+		dummy = DummyView()
+		dummy.setViewType( node.localName )
+		return dummy
 
 	@staticmethod
 	def register(parser, viewName, label, icon):
