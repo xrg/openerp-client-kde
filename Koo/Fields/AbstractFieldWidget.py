@@ -163,12 +163,11 @@ class AbstractFieldWidget(QWidget):
 		self.setProperty('normal', QVariant(False))
 		self.setProperty(name, QVariant(True))
 
-		widget = self.colorWidget()
 		color = QColor( self.colors.get( name, 'white' ) )
-
 		palette = QPalette()
 		palette.setColor(QPalette.Base, color)
-		widget.setPalette(palette);
+
+		self.colorWidget().setPalette(palette);
 
 	## @brief Installs the eventFilter on the given widget so the popup
 	# menu will be shown on ContextMenu event. Also data on the widget will

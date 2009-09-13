@@ -52,7 +52,7 @@ class AbstractFieldDelegate(QStyledItemDelegate):
 		]
 
 	def createEditor(self, parent, option, index):
-		# We expecte a KooModel here
+		# We expect a KooModel here
 		model = index.model().recordFromIndex( index )
 		if model and not model.isFieldValid( self.name ):
 			name = 'invalid'
