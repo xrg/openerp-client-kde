@@ -51,8 +51,6 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
-		self.colors['normal'] = self.palette().color( self.backgroundRole() )	
-		
 		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
