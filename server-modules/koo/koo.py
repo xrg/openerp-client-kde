@@ -275,3 +275,46 @@ def new_fields_get(self, cr, user, fields=None, context=None, read_access=True):
 	return res
 
 osv.orm.orm_template.fields_get = new_fields_get
+
+
+# Hack to return all actions in fields_view_get
+
+old_fields_view_get = osv.orm.orm_template.fields_view_get
+
+def new_fields_view_get(self, cr, user, view_id=None, view_type='form', context=None, toolbar=False):
+	result = old_fields_view_get( self, cr, user, view_id, view_type, context, toolbar )
+	if toolbar:
+		def clean(x):
+			x = x[2]
+			for key in ('report_sxw_content', 'report_rml_content',
+				'report_sxw', 'report_rml',
+				'report_sxw_content_data', 'report_rml_content_data'):
+				if key in x:
+					del x[key]
+			return x
+
+		ir_values_obj = self.pool.get('ir.values')
+		resprint = ir_values_obj.get(cr, user, 'action', 'client_print_multi', 
+			[(self._name, False)], False, context)
+		resaction = ir_values_obj.get(cr, user, 'action', 'client_action_multi', 
+			[(self._name, False)], False, context)
+		resrelate = ir_values_obj.get(cr, user, 'action', 'client_action_relate', 
+			[(self._name, False)], False, context)
+		resprint = map(clean, resprint)
+		resaction = map(clean, resaction)
+		# Standard fields_view_get function returns only those actions with multi==False.
+		#resaction = filter(lambda x: not x.get('multi', False), resaction)
+		#resprint = filter(lambda x: not x.get('multi', False), resprint)
+		resrelate = [x[2] for x in resrelate]
+
+		for x in resprint + resaction + resrelate:
+			x['string'] = x['name']
+
+		result['toolbar'] = {
+			'print': resprint,
+			'action': resaction,
+			'relate': resrelate
+		}
+	return result
+
+osv.orm.orm_template.fields_view_get = new_fields_view_get
