@@ -76,13 +76,17 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 				continue
 			# Store cookies in a list as a dict would occupy
 			# more space and we want to minimize network bandwidth
+			if Common.isQtVersion45():
+				isHttpOnly = str(cookie.isHttpOnly())
+			else:
+				isHttpOnly = True
 			raw.append( [
 				str(cookie.name().toBase64()), 
 				str(cookie.value().toBase64()), 
 				unicode(cookie.path()).encode('utf-8'),
 				unicode(cookie.domain()).encode('utf-8'),
 				unicode(cookie.expirationDate().toString()).encode('utf-8'),
-				str(cookie.isHttpOnly()),
+				str(isHttpOnly),
 				str(cookie.isSecure()),
 			])
 		return QByteArray( str( raw ) )
@@ -99,7 +103,8 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 			networkCookie.setPath( unicode( cookie[2], 'utf-8' ) )
 			networkCookie.setDomain( unicode( cookie[3], 'utf-8' ) )
 			networkCookie.setExpirationDate( QDateTime.fromString( unicode( cookie[4], 'utf-8' ) ) )
-			networkCookie.setHttpOnly( eval(cookie[5]) )
+			if Common.isQtVersion45():
+				networkCookie.setHttpOnly( eval(cookie[5]) )
 			networkCookie.setSecure( eval(cookie[6]) )
 			cookieList.append( networkCookie )
 		self.cookieJar.setAllCookies( cookieList )
