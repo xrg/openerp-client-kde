@@ -29,3 +29,4 @@ from RichTextFieldWidget import *
 from Koo.Fields.FieldWidgetFactory import *
 
 FieldWidgetFactory.register( 'text_tag', RichTextFieldWidget )
+FieldWidgetFactory.register( 'text_html', RichTextFieldWidget )
