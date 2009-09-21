@@ -82,7 +82,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
  		self.newMenuEntries.append((None, None, None))
 
  		if attrs.get('completion',False):
- 			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', {}, False)
+ 			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', Rpc.session.context, False)
  			if ids:
 				self.loadCompletion( ids, attrs )
 
