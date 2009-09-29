@@ -236,7 +236,10 @@ class KooModel(QAbstractItemModel):
 				fieldType = self.fieldTypeByName(self.child, parent.internalPointer())
 				if fieldType in ['one2many', 'many2many']:
 					value = self.valueByName(parent.row(), self.child, parent.internalPointer())
-					return value.count()
+					if value:
+						return value.count()
+					else:
+						return 0
 				else:
 					return 0
 
@@ -367,7 +370,7 @@ class KooModel(QAbstractItemModel):
 			if self.field( index.column() ) == self.iconField:
 				model = self.record( index.row(), index.internalPointer() )
 				# Not all models necessarily have the icon so check that first
-				if self.icon in model.values:
+				if model and self.icon in model.values:
 					return QVariant( Icons.kdeIcon( model.value( self.icon ) ) )
 				else:
 					return QVariant()
