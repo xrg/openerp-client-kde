@@ -51,6 +51,9 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		self.connect( self.button, SIGNAL('clicked()'), self.click)
 
 	def click( self ): 
+		if not self.record:
+			return
+
 		# TODO: Remove screen dependency and thus ViewForm.screen
 		screen = self.view.screen
 		self.view.store()
