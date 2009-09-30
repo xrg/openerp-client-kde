@@ -221,7 +221,7 @@ class ImportDialog(QDialog, ImportDialogUi):
 		try:
 			for line in data:
 				for word in line:
-					word=word.decode(csvcode).encode('utf-8')
+					word=unicode(word, csvcode, errors='replace') 
 					self.selectedModel.addField( word, self.fieldsInvertedInfo[word] )
 				break
 		except:
