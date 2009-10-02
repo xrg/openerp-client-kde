@@ -198,6 +198,7 @@ class SocketConnection(Connection):
 			s.disconnect()
 		return self.stringToUnicode( result )
 
+session_counter = 0
 ## @brief The XmlRpcConnection class implements Connection class for XML-RPC.
 #
 # The XML-RPC communication protocol is usually opened at port 8069 on the server.
@@ -205,9 +206,23 @@ class XmlRpcConnection(Connection):
 	def __init__(self, url):
 		Connection.__init__(self, url)
 		self.url += '/xmlrpc'
+		self._ogws = {}
+		
+	def gw(self,obj):
+		""" Return the persistent gateway for some object
+		"""
+		global session_counter
+		if not self._ogws.has_key(obj):
+			self._ogws[obj] = xmlrpclib.ServerProxy(self.url + obj, allow_none=1)
+			
+			session_counter = session_counter + 1
+			if (session_counter % 100) == 0:
+				print "Sessions:", session_counter
+		
+		return self._ogws[obj]
 
 	def call(self, obj, method, *args ):
-		remote = xmlrpclib.ServerProxy(self.url + obj)
+		remote = self.gw(obj)
 		function = getattr(remote, method)
 		try:
 			if self.authorized:
@@ -215,9 +230,13 @@ class XmlRpcConnection(Connection):
 			else:
 				result = function( *args )
 		except socket.error, err:
+			print "socket.error",err
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
 			raise RpcServerException( err.faultCode, err.faultString )
+		except Exception,e:
+			print "Exception:",e
+			raise
 		return result
 
 
