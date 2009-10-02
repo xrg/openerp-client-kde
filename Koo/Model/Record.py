@@ -258,8 +258,11 @@ class Record(QObject):
 		if len(self.group.fields):
 			val = self.rpc.default_get(self.group.fields.keys(), context)
 			for d in domain:
-				if d[0] in self.group.fields and d[1]=='=':
-					val[d[0]]=d[2]
+				if d[0] in self.group.fields:
+					if d[1] == '=':
+						val[d[0]] = d[2]
+					elif d[1] == 'in' and len(d[2]) == 1:
+						val[d[0]] = d[2][0]
 			self.setDefaults(val)
 			self.updateAttributes()
 
