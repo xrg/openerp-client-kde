@@ -213,7 +213,13 @@ class XmlRpcConnection(Connection):
 		"""
 		global session_counter
 		if not self._ogws.has_key(obj):
-			self._ogws[obj] = xmlrpclib.ServerProxy(self.url + obj, allow_none=1)
+			if self.url.startswith("https"):
+				transport = tiny_socket.SafePersistentTransport()
+			elif self.url.startswith("http"):
+				transport = tiny_socket.PersistentTransport()
+			else:
+				transport = None
+			self._ogws[obj] = xmlrpclib.ServerProxy(self.url + obj, transport= transport, allow_none=1)
 			
 			session_counter = session_counter + 1
 			if (session_counter % 100) == 0:
@@ -556,7 +562,8 @@ class Database:
 	def list(self, url):
 		try:
 			return self.call( url, 'list' )
-		except:
+		except Exception,e:
+			print "db list exc:", e
 			return -1
 
 	## @brief Calls the specified method
