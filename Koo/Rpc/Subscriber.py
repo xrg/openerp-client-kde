@@ -74,7 +74,11 @@ class Subscriber(QThread):
 		while True:
 			try:
 				self.result = self.session.call( '/subscription', 'wait', self.expression )
-				self.emit( SIGNAL('published()') )
+				if self.result:
+					self.emit( SIGNAL('published()') )
+				else:
+					print "cannot subscribe to %s, waiting 5min" % (self.expression)
+					sleep(300)
 			except Exception, err:
 				sleep( 60 )
 
