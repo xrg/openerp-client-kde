@@ -30,6 +30,7 @@ import netsvc
 import time
 from workflow.wkf_service import workflow_service
 import SimpleXMLRPCServer
+from service import security
 
 class new_workflow_service(workflow_service):
 	def __init__(self, name='workflow', audience='*'):
@@ -46,21 +47,31 @@ class new_workflow_service(workflow_service):
 	def trg_delete(self, uid, res_type, res_id, cr):
 		netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
 		return workflow_service.trg_delete(self, uid, res_type, res_id, cr)
-new_workflow_service()
+# new_workflow_service()
 
-class subscription_services(netsvc.Service):
+class subscription_services(netsvc.ExportService):
 	def __init__(self, name="subscription"):
-		netsvc.Service.__init__(self,name)
+		netsvc.ExportService.__init__(self,name)
 		self.joinGroup('web-services')
-		self.exportMethod(self.wait)
-		self.exportMethod(self.publish)
+		#self.exportMethod(self.wait)
+		#self.exportMethod(self.publish)
 		self.subscriptions = []
 		self.connections = {}
 		self.lock = Lock()
 		self.queue = []
 		self.waits = []
+		
+	def dispatch(self, method, auth, params):
+		(db, uid, passwd ) = params[0:3]
+		params = params[3:]
+		if method not in ['wait']:
+			raise KeyError("Method not supported %s" % method)
+		security.check(db,uid,passwd)
+		fn = getattr(self, 'exp_'+method)
+		res = fn(db, uid, *params)
+		return res
 
-	def wait(self, db, uid, passwd, expression):
+	def exp_wait(self, db, uid, expression):
 		self.lock.acquire()
 		currentLock = Semaphore(0)
 		self.waits.append( {'expression': expression, 'lock': currentLock } )
@@ -88,7 +99,4 @@ class subscription_services(netsvc.Service):
 		
 		
 subscription_services()
-
-paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/subscription' ]
-SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
 

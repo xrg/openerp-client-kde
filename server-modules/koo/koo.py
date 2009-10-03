@@ -58,14 +58,23 @@ ir_attachment()
 
 regex_order = re.compile('^(([a-z0-9_]+|"[a-z0-9_]+")( *desc| *asc)?( *, *|))+$', re.I)
 
-class koo_services(netsvc.Service):
+class koo_services(netsvc.ExportService):
 	def __init__(self, name='koo'):
-		netsvc.Service.__init__(self,name)
+		netsvc.ExportService.__init__(self,name)
 		self.joinGroup('web-services')
-		self.exportMethod(self.search)
+		#self.exportMethod(self.search)
+		
+	def dispatch(self, method, auth, params):
+		(db, uid, passwd ) = params[0:3]
+		params = params[3:]
+		if method not in ['search']:
+			raise KeyError("Method not supported %s" % method)
+		security.check(db,uid,passwd)
+		fn = getattr(self, 'exp_'+method)
+		res = fn(db, uid, *params)
+		return res
 
-	def search(self, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
-		security.check(db, uid, passwd)
+	def exp_search(self, db, uid, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
 		pool = pooler.get_pool(db)
@@ -162,8 +171,6 @@ class koo_services(netsvc.Service):
 		cr.close()
 		return res
 koo_services()
-paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/koo' ]
-SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
 
 class nan_koo_settings(osv.osv):
 	_name = 'nan.koo.settings'
