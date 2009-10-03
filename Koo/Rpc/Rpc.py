@@ -219,7 +219,7 @@ class XmlRpcConnection(Connection):
 				transport = tiny_socket.PersistentTransport()
 			else:
 				transport = None
-			self._ogws[obj] = xmlrpclib.ServerProxy(self.url + obj, transport= transport, allow_none=1)
+			self._ogws[obj] = xmlrpclib.ServerProxy(self.url + obj, transport=transport)
 			
 			session_counter = session_counter + 1
 			if (session_counter % 100) == 0:
