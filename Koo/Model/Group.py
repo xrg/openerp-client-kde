@@ -88,8 +88,9 @@ class RecordGroup(QObject):
 		if context is None:
 			context = {}
 		self.parent = parent
-		self._context = context
-		self._context.update(Rpc.session.context)
+		self._context = Rpc.session.context
+		if context:
+			self._context.update(context)
 		self.resource = resource
 		self.limit = Settings.value( 'koo.limit', 80, int )
 		self.maximumLimit = self.limit
@@ -315,8 +316,7 @@ class RecordGroup(QObject):
 	
 	## @brief Returns a copy of the current context
 	def context(self):
-		ctx = {}
-		ctx.update(self._context)
+		ctx = self._context.copy()
 		return ctx
 
 	## @brief Sets the context that will be used for RPC calls.

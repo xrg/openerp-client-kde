@@ -282,6 +282,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def executeAction(self, type):
 		id = self.record.id
+			# TODO: context?
 		Api.instance.executeKeyword(type, {'model':self.recordType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 
 class ManyToOneFieldDelegate( AbstractFieldDelegate ):
@@ -324,6 +325,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 
 	def executeAction(self, record, type):
 		id = record.id
+		   # TODO: context?
 		Api.instance.executeKeyword(type, {'model':self.recordType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
 
 	def createEditor(self, parent, option, index):

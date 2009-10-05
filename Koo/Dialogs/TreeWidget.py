@@ -96,7 +96,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.uiSplitter.setStretchFactor( 0, 0 )
 		self.uiSplitter.setStretchFactor( 1, 2 )
 
-		self.context = context
+		self.context = context or {}
 		self.model = view['model']
 		if view.get('field_parent', False):
 			self.domain = []
