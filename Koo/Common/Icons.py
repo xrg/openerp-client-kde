@@ -63,6 +63,7 @@ mapIcons = {
 	'STOCK_PREFERENCES' : 'configure.png',
 	'STOCK_PRINT' : 'print.png',
 	'STOCK_SELECT_COLOR' : 'colorpicker.png',
+	'STOCK_PRINT_PREVIEW' : 'print.png',
 	'terp-graph' : 'chart.png',
 	'terp-partner' : 'partner.png',
 	'terp-account' : 'account.png',
