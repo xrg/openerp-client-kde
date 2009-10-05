@@ -308,7 +308,7 @@ class AsynchronousSessionCall(QThread):
 					Notifier.notifyError(*self.error)
 				elif self.warning:
 					Notifier.notifyWarning(*self.warning)
-				else: 
+				else:
 					raise self.exception
 			self.emit( SIGNAL('exception(PyQt_PyObject)'), self.exception )
 		else:
@@ -416,6 +416,7 @@ class Session:
 	def executeAsync( self, callback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.execute( callback, obj, method, *args )
+		#print "exec async args:", args
 		self.appendThread( caller )
 		return caller
 
@@ -451,13 +452,13 @@ class Session:
 			raise
 		except RpcServerException, err:
 			if err.type in ('warning','UserError'):
-				if err.info in ('ConcurrencyException') and len(args) > 4:
+				if err.args[0] in ('ConcurrencyException') and len(args) > 4:
 					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
 						if ConcurrencyCheckField in args[4]:
 							del args[4][ConcurrencyCheckField]
 						return self.execute(obj, method, *args)
 				else:
-					Notifier.notifyWarning(err.info, err.data )
+					Notifier.notifyWarning(err.args[0], err.args[1])
 			else:
 				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
 			raise
