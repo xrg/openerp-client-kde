@@ -34,6 +34,7 @@ from Koo.Common import Notifier
 from Koo.Rpc import RpcProxy
 from Field import ToManyField
 import gettext
+from Koo.Common.safe_eval import safe_eval
 
 from PyQt4.QtCore import *
 
@@ -168,9 +169,9 @@ class Record(QObject):
 		for fieldName in self.group.fieldObjects:
 			attributes = self.group.fieldObjects[fieldName].attrs.get( 'attrs', '{}' ) 
 			try:
-				attributeChanges = eval( attributes )
+				attributeChanges = safe_eval( attributes, {})
 			except:
-				attributeChanges = eval( attributes, self.value( fieldName ) )
+				attributeChanges = safe_eval( attributes, self.value( fieldName ) )
 
 			for attribute, condition in attributeChanges.items():
 				for i in range(0, len(condition)):
