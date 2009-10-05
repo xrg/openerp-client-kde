@@ -120,6 +120,7 @@ class Wizard( QObject ):
 		self.finished = False
 		self.progress = Common.ProgressDialog( QApplication.activeWindow() )
 		self.thread = None
+		self.context = context or {}
 
 	def step(self):
 		if self.state == 'end':
@@ -166,10 +167,10 @@ class Wizard( QObject ):
 			if res.get('get_id_from_action', False):
 				backup_ids = self.datas['ids']
 				self.datas['ids'] = self.datas['form']['ids']
-				win = Api.instance.executeReport(res['report'], self.datas)
+				win = Api.instance.executeReport(res['report'], self.datas, ctx)
 				self.datas['ids'] = backup_ids
 			else:
-				win = Api.instance.executeReport(res['report'], self.datas)
+				win = Api.instance.executeReport(res['report'], self.datas, ctx)
 			self.state = res['state']
 		elif res['type']=='state':
 			self.state = res['state']

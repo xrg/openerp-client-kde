@@ -133,13 +133,13 @@ win = KooMainWindow()
 from Koo.Common import Api
 
 class KooApi(Api.KooApi):
-	def execute(self, actionId, data={}, type=None, context={}):
+	def execute(self, actionId, data={}, type=None, context=None):
 		Koo.Actions.execute( actionId, data, type, context )
 
 	def executeReport(self, name, data={}, context={}):
 		return Koo.Actions.executeReport( name, data, context )
 
-	def executeAction(self, action, data={}, context={}):
+	def executeAction(self, action, data=None, context=None):
 		Koo.Actions.executeAction( action, data, context )
 		
 	def executeKeyword(self, keyword, data={}, context={}):

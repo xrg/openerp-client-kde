@@ -127,7 +127,8 @@ def execute(act_id, datas, type=None, context=None):
 	if context is None:
 		context = {}
 	ctx = Rpc.session.context.copy()
-	ctx.update(context)
+	if context:
+		ctx.update(context)
 	if type==None:
 		res = Rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [act_id], ['type'], ctx)
 		if not len(res):

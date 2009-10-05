@@ -289,12 +289,12 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 	def open(self, idx):
 		id = self.treeModel.id( idx )
 		if id:
-			self.executeAction( 'tree_but_open', id )
+			self.executeAction( 'tree_but_open', id, self.context )
 
 	def editCurrentItem(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
 		if id:
-			Api.instance.createWindow(None, self.model, id, self.domain)
+			Api.instance.createWindow(None, self.model, id, self.domain, context=self.context)
 		else:
 			QMessageBox.information(self, _('Information'), _('No resource selected!'))
 
@@ -333,7 +333,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		id = self.shortcutsGroup.fieldObjects[ 'res_id' ].get( m )
 		if not id:
 			return
-		self.executeAction('tree_but_open', id)
+		self.executeAction('tree_but_open', id, self.context)
 
 	def expand(self):
 		if self.toolbar:
