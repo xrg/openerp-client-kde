@@ -56,6 +56,7 @@ class Settings(object):
 		'show_toolbar' : True,
 		'sort_mode' : 'all_items',
 		'pos_mode' : False,
+		'enter_as_tab' : False,
 		'kde.enabled' : True,
 		'attachments_dialog' : False,
 		'debug': False,

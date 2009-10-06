@@ -143,6 +143,10 @@ if Settings.value('pos_mode'):
         import Pos
 	app.installEventFilter( Pos.PosEventFilter(win) )
 
+if Settings.value('enter_as_tab'):
+	from Common import EnterEventFilter
+	app.installEventFilter( EnterEventFilter.EnterEventFilter(win) )
+
 if Settings.value('tip.autostart'):
 	dialog = Common.TipOfTheDayDialog()
 	dialog.exec_()
