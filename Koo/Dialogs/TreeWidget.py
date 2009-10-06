@@ -282,13 +282,13 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		id = self.currentShortcutId()
 		if not id:
 			return
-		Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id])
+		Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'unlink', [id], self.context)
 		self.shortcutsGroup.update()
 		self.emit(SIGNAL('shortcutsChanged'), self.model)
 
 	def editShortcuts(self):
 	        domain = [('user_id', '=', Rpc.session.uid), ('resource', '=', self.model)]
-		Api.instance.createWindow(None, 'ir.ui.view_sc', domain=domain, mode='tree,form')
+		Api.instance.createWindow(None, 'ir.ui.view_sc', domain=domain, context=self.context, mode='tree,form')
 
 	def addShortcut(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
@@ -298,7 +298,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		res = Rpc.session.execute('/object', 'execute', self.model, 'name_get', [id], Rpc.session.context)
 		for (id,name) in res:
 			uid = Rpc.session.uid
-			Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name})
+			Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name}, self.context)
 		self.shortcutsGroup.update()
 		self.emit( SIGNAL('shortcutsChanged'), self.model )
 

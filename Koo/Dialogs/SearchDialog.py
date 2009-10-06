@@ -56,7 +56,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.context.update(Rpc.session.context)
 		self.allowMultipleSelection = sel_multi
 
-		self.modelGroup = RecordGroup( model )
+		self.modelGroup = RecordGroup( model, context=self.context )
 		self.modelGroup.setDomain( domain )
 		if self.ids:
 			self.modelGroup.setFilter( [('id','in',ids)] )
