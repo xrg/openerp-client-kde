@@ -61,7 +61,6 @@ class AbstractFieldWidget(QWidget):
 		self._readOnly = self.attrs.get('readonly', False) not in ('False', '0', False)
 		
 		# Find Koo specific attributes that OpenObject's Relax NG doesn't allow
-		self._autoJump = eval(self.attrs.get('use', '{}')).get('auto_jump',False)
 		self.setStyleSheet( eval(self.attrs.get('use', '{}')).get('stylesheet','') )
 
 		self.defaultReadOnly= self._readOnly
@@ -231,11 +230,6 @@ class AbstractFieldWidget(QWidget):
 	#
 	# Do not reimplement this function, override clear() and showValue() instead
 	def display(self):
-		if self._autoJump:
-			next = self.view.widgets.get(self._autoJump)
-			if next:
-				next.setFocus()
-
 		if not self.record:
 			self._readOnly = True
 			self.clear()
