@@ -47,6 +47,12 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
 		self.digits = attrs.get('digits', None)
 
+	# Using focus proxy doesn't select the text when the focus is passed with the
+	# auto_jump functionality of AbstractFieldWidget
+	def setFocus(self):
+		self.widget.setFocus()
+		self.widget.selectAll()
+
 	def setReadOnly(self, value):
 		self.widget.setReadOnly( value )
 

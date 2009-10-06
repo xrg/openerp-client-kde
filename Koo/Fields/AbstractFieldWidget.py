@@ -59,6 +59,10 @@ class AbstractFieldWidget(QWidget):
 		# can cause some problems with stateAttributes.
 		self._required = self.attrs.get('required', False) not in ('False', '0', False)
 		self._readOnly = self.attrs.get('readonly', False) not in ('False', '0', False)
+		
+		# Find Koo specific attributes that OpenObject's Relax NG doesn't allow
+		self._autoJump = eval(self.attrs.get('use', '{}')).get('auto_jump',False)
+		self.setStyleSheet( eval(self.attrs.get('use', '{}')).get('stylesheet','') )
 
 		self.defaultReadOnly= self._readOnly
 		self.defaultMenuEntries = [
@@ -69,9 +73,6 @@ class AbstractFieldWidget(QWidget):
 		# only in form views.
 		if self.view:
 			self.defaultMenuEntries.append( (_('Set as default value'), self.setAsDefault, 1) )
-
-		if 'stylesheet' in self.attrs:
-			self.setStyleSheet( self.attrs['stylesheet'] )
 
 		# self.name holds the name of the field the widget handles
 		self.name = self.attrs.get('name', 'unnamed')
@@ -230,6 +231,11 @@ class AbstractFieldWidget(QWidget):
 	#
 	# Do not reimplement this function, override clear() and showValue() instead
 	def display(self):
+		if self._autoJump:
+			next = self.view.widgets.get(self._autoJump)
+			if next:
+				next.setFocus()
+
 		if not self.record:
 			self._readOnly = True
 			self.clear()
