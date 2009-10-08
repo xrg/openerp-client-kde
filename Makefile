@@ -43,14 +43,10 @@ ${TSFILES}: ${UI_FILES}
 ${DIR}/%.qm: ${DIR}/%.ts
 	lrelease $< -qm $@
 
-# Merge template with existing translations
-# echo "Merging..."
-# for x in $LANGS; do
-# 	if [ -f $DIR/$x.po ]; then
-# 		msgmerge -U $DIR/$x.po $DIR/koo.pot
-# 	else
-# 		cp $DIR/koo.pot $DIR/$x.po
-# 	fi
-# 	pylupdate4 $UI_FILES -ts $DIR/$x.ts
-# done
-# rmdir $DIR/LC_MESSAGES 2>/dev/null
+clean:
+	rm -f ${LANGS:%=${DIR}/%.qm}
+	rm -f ${LANGS:%=${DIR}/%.mo}
+	find ${DIR} -name '*.mo' -delete
+	find ${DIR} -type d -empty -delete
+
+#eof
