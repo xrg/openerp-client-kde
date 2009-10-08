@@ -1,36 +1,56 @@
-PYTHON=`which python`
-DESTDIR=/
-BUILDIR=$(CURDIR)/debian/koo
-PROJECT=koo
-VERSION=5.0
+# Makefile for language
 
-all:
-	@echo "make source - Create source package"
-	@echo "make install - Install on local system"
-	@echo "make buildrpm - Generate a rpm package"
-	@echo "make builddeb - Generate a deb package"
-	@echo "make clean - Get rid of scratch and byte files"
+UI_FILES:=$(shell find Koo/ui -name "*.ui")
+PYTHON_FILES:=$(shell find Koo -name "*.py")
+PYTHONC_FILES:=$(shell find Koo -name "*.pyc")
+LANGS = ca_ES de_DE es_ES fr hu it pt ro ru sv uk zh al cs el
+DIR := Koo/l10n
 
-source:
-	$(PYTHON) setup.py sdist $(COMPILE)
+ALL_MOFILES = ${LANGS:%=${DIR}/%/LC_MESSAGES/koo.mo}
+TSFILES = ${LANGS:%=${DIR}/%.ts}
 
-install:
-	$(PYTHON) setup.py install --root $(DESTDIR) $(COMPILE)
+all: mofiles qmfiles
+	echo "Message catalogs compiled!"
+	
 
-buildrpm:
-	$(PYTHON) setup.py bdist_rpm --post-install=rpm/postinstall --pre-uninstall=rpm/preuninstall
+${DIR}/koo.pot: ${PYTHON_FILES}
+	# Extract strings with get text from python files
+	@xgettext -k_ -kN_ -o $@ $^
 
-builddeb:
-	# build the source package in the parent directory
-	# then rename it to project_version.orig.tar.gz
-	$(PYTHON) setup.py sdist $(COMPILE) --dist-dir=../ --prune
-	rename -f 's/$(PROJECT)-(.*)\.tar\.gz/$(PROJECT)_$$1\.orig\.tar\.gz/' ../*
-	# build the package
-	dpkg-buildpackage -i -I -rfakeroot
+mofiles: pofiles ${ALL_MOFILES}
 
-clean::
-	$(PYTHON) setup.py clean
-	$(MAKE) -f $(CURDIR)/debian/rules clean
-	rm -rf build/ MANIFEST
-	find . -name '*.pyc' -delete
+pofiles: ${LANGS:%=${DIR}/%.po}
 
+qmfiles: ${TSFILES} ${LANGS:%=${DIR}/%.qm}
+
+${DIR}/%.po: ${DIR}/koo.pot
+	if [ -e $@ ] ; then \
+		msgmerge -U $@ $< ;\
+	else \
+		msginit --no-translator --no-wrap \
+			-l $(shell basename $@ .po) -o $@ -i $< ;\
+	fi
+
+${DIR}/%/LC_MESSAGES/koo.mo: ${DIR}/%.po
+	[ -d $(dir $@) ] || mkdir -p $(dir $@)
+	@msgfmt -o $@ $<
+
+
+# Run lupdate only once and produce all langs
+${TSFILES}: ${UI_FILES}
+	@pylupdate4 ${UI_FILES} -ts ${TSFILES}
+
+${DIR}/%.qm: ${DIR}/%.ts
+	lrelease $< -qm $@
+
+# Merge template with existing translations
+# echo "Merging..."
+# for x in $LANGS; do
+# 	if [ -f $DIR/$x.po ]; then
+# 		msgmerge -U $DIR/$x.po $DIR/koo.pot
+# 	else
+# 		cp $DIR/koo.pot $DIR/$x.po
+# 	fi
+# 	pylupdate4 $UI_FILES -ts $DIR/$x.ts
+# done
+# rmdir $DIR/LC_MESSAGES 2>/dev/null
