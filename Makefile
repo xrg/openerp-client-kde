@@ -4,10 +4,11 @@ UI_FILES:=$(shell find Koo/ui -name "*.ui")
 PYTHON_FILES:=$(shell find Koo -name "*.py")
 PYTHONC_FILES:=$(shell find Koo -name "*.pyc")
 LANGS = ca_ES de_DE es_ES fr hu it pt ro ru sv uk zh al cs el
+QT_LANGS = ca de el es fr
 DIR := Koo/l10n
 
 ALL_MOFILES = ${LANGS:%=${DIR}/%/LC_MESSAGES/koo.mo}
-TSFILES = ${LANGS:%=${DIR}/%.ts}
+TSFILES = ${QT_LANGS:%=${DIR}/%.ts}
 
 all: mofiles qmfiles
 	echo "Message catalogs compiled!"
@@ -21,7 +22,7 @@ mofiles: pofiles ${ALL_MOFILES}
 
 pofiles: ${LANGS:%=${DIR}/%.po}
 
-qmfiles: ${TSFILES} ${LANGS:%=${DIR}/%.qm}
+qmfiles: ${TSFILES} ${QT_LANGS:%=${DIR}/%.qm}
 
 ${DIR}/%.po: ${DIR}/koo.pot
 	if [ -e $@ ] ; then \
@@ -44,7 +45,7 @@ ${DIR}/%.qm: ${DIR}/%.ts
 	lrelease $< -qm $@
 
 clean:
-	rm -f ${LANGS:%=${DIR}/%.qm}
+	rm -f ${QT_LANGS:%=${DIR}/%.qm}
 	rm -f ${LANGS:%=${DIR}/%.mo}
 	find ${DIR} -name '*.mo' -delete
 	find ${DIR} -type d -empty -delete
