@@ -334,7 +334,7 @@ class AsynchronousSessionCall(QThread):
 			except RpcServerException, err:
 				self.exception = err
 				if err.type in ('warning','UserError'):
-					self.warning = (err.info, err.data)
+					self.warning = tuple(err.args[0:2])
 				else:
 					self.error = (_('Application Error'), _('View details'), err.backtrace )
 
