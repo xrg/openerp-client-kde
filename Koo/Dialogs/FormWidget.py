@@ -244,7 +244,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 					target = 'background'
 				else:
 					target = 'current'
-				Api.instance.createWindow( None, self.model, self.screen.currentId(), 
+				Api.instance.createWindow( None, self.model, [self.screen.currentId()], 
 					view_type='form', mode='form,tree', target=target)
 			else:
 				sender = self.sender()
