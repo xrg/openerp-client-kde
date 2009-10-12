@@ -102,6 +102,7 @@ class Action(QAction):
 				'model': self._model 
 			}, context )
 		except Rpc.RpcException:
+		        print "RpcException at executeAction", e # FIXME
 			pass
 		if self._type == 'print':
 			QApplication.restoreOverrideCursor()
