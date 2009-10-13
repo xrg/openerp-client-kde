@@ -35,10 +35,14 @@ class ShowerView( AbstractView ):
 		AbstractView.__init__( self, parent )
 		self.scene = KShowerScene(model, self )
 		self.projections = [] # A dummy list, so that proj objects are preserved
-		self.view = kshowerView(self.scene, self )
-		self.view.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing | QPainter.SmoothPixmapTransform);
-		self.view.setMinimumSize(600,300)
-		self.view.setSizePolicy(QSizePolicy.Expanding,QSizePolicy.Expanding)
+		self.widget = kshowerView(self.scene, self )
+		self.widget.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing | QPainter.SmoothPixmapTransform);
+		self.widget.setMinimumSize(600,300)
+		layout = QVBoxLayout()
+		layout.setContentsMargins(0, 0, 0, 0)
+		layout.addWidget( self.widget )
+		#layout.addWidget( self. ... )
+		self.setLayout( layout )
 
 	def viewType(self):
 		return 'diagram'
@@ -53,6 +57,6 @@ class ShowerView( AbstractView ):
 	def setMainProjection(self, proj):
 		assert isinstance(proj, KsmProjection)
 		self.scene.setMainProjection(proj)
-		self.view.updateGeometry()
-		self.view.show()
+		self.widget.updateGeometry()
+		self.widget.show()
 		
