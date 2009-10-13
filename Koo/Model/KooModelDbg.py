@@ -27,6 +27,20 @@
 
 from KooModel import *
 
+from PyQt4.QtCore import QModelIndex
+
+def printMI(qmi, do_parent = True):
+	if not isinstance(qmi, QModelIndex):
+		return str(qmi)
+
+	if not qmi.isValid():
+		return "<null>"
+	elif do_parent:
+		return "(%d, %d)  @%s" % (qmi.row(), qmi.column(), printMI(qmi.parent()))
+	else:
+		return "(%d, %d)" % (qmi.row(), qmi.column())
+
+
 ## @ Brief Debugging version of KooModel, prints notifications
 class KooModelDbg(KooModel):
 	
@@ -35,13 +49,21 @@ class KooModelDbg(KooModel):
 		return KooModel.__call__(self,method, *params)
 
 	def id(self, index):
-		print "id"
+		print "id", printMI(index)
 		return KooModel.id(self,index)
 	
 	def rowCount(self, parent = QModelIndex()):
-		print "Rowcount for",parent
-		return KooModel.rowCount(self,parent)
-		
+		rc = KooModel.rowCount(self,parent)
+		print "Rowcount for",printMI(parent), rc
+		return rc
+
+	def columnCount(self, parent = QModelIndex()):
+		rc = KooModel.columnCount(self,parent)
+		print "Columncount for",printMI(parent), rc
+		return rc
+
 	def data(self, index, role=Qt.DisplayRole ):
-		print "date for ",index
-		return KooModel.data(self,index,role)
+		print "data for ",printMI(index), role ,':',
+		da = KooModel.data(self,index,role)
+		print da
+		return da
