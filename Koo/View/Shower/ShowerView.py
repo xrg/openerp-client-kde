@@ -37,8 +37,8 @@ class ShowerView( AbstractView ):
 		self.projections = [] # A dummy list, so that proj objects are preserved
 		self.view = kshowerView(self.scene, self )
 		self.view.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing | QPainter.SmoothPixmapTransform);
-		self.view.setMinimumSize(200,200)
-		self.view.setSizePolicy(QSizePolicy.MinimumExpanding,QSizePolicy.Expanding)
+		self.view.setMinimumSize(600,300)
+		self.view.setSizePolicy(QSizePolicy.Expanding,QSizePolicy.Expanding)
 
 	def viewType(self):
 		return 'diagram'
