@@ -538,7 +538,7 @@ class Screen(QScrollArea):
 					except:
 						print "-"*30,"\n malformed tag for :", attrs
 						print "-"*30
-						raise						
+						raise
 			for node2 in node.childNodes:
 				_parse_fields(node2, fields)
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
