@@ -125,22 +125,11 @@ class ShowerParser(AbstractParser):
 		model.setFieldsOrder( [x['name'] for x in self.header] )
 		model.setColors( colors )
 
-
-		#proj2 = KsmLinear(self.scene)
-		#proj2.setSpacing(0.0,10.0)
-		#proj1.setChildProj(proj2)
-		
-		#proj3 = KsmBox(self.scene)
-		#proj2.setChildProj(proj3)
-	
-
-		# Create the view
 		self.view = view
 		self.view.id = viewId
 		screen.group.setAllowRecordLoading( True )
 		print "Allow record loading = true"
 		view.setMainProjection(rootProj)
-		#self.view.setSvg( 'restaurant.svg' )
 		self.view.redraw()
 		return self.view
 
@@ -149,7 +138,6 @@ class ShowerParser(AbstractParser):
 		mainNod = None
 		for node in rootNode.childNodes:
 			if node.nodeType != xml.dom.Node.ELEMENT_NODE:
-				print "Skipping",node.localName,node
 				continue
 			natrs = Common.nodeAttributes(node)
 			itno = None
@@ -178,7 +166,6 @@ class ShowerParser(AbstractParser):
 					raise Exception("Two unnamed nodes found in diagram")
 				mainNod = itno
 			
-		print "main node is a ", mainNod
 		return mainNod
 
 	def _parseDiaNode(self, model, view, dNode):
@@ -186,13 +173,19 @@ class ShowerParser(AbstractParser):
 		for node in dNode.childNodes:
 			itno = None
 			if node.nodeType != ELEMENT_NODE:
-				print "Skipping",node.localName,node
 				continue
 			
 			natrs = Common.nodeAttributes(node)
 			if node.localName == 'lincols':
 				itno = KsmColumns(view.scene) # FIXME
+				try:
+					dx,dy = _dxy2deltas(natrs.get('dxy','right'))
+					itno.setSpacing(dx,dy)
+				except:
+					pass
+				#itno.setDrawBox(True)
 				pbox = KsmBox(view.scene)
+				pbox.setDrawBox(False)
 				view.projections.append(pbox)
 				itno.setChildProj(pbox)
 				for chn in node.childNodes:
@@ -208,7 +201,6 @@ class ShowerParser(AbstractParser):
 			
 			if itno: # TODO
 				view.projections.append(itno)
-				print "return dianode:",itno
 				return itno
 		return None
 
