@@ -173,7 +173,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_attach.ui" line="77"/>
         <source>Ctrl+N</source>
-        <translation>Ctrl+Ν</translation>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="86"/>
@@ -416,7 +416,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="13"/>
         <source>Database created</source>
-        <translation type="unfinished">Βάση δεδομένων</translation>
+        <translation>Δημιουργήθηκε Βάση δεδομένων</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="56"/>
@@ -437,12 +437,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="98"/>
         <source>Connect &amp;now</source>
-        <translation type="unfinished">Σύνδεση</translation>
+        <translation>Σύνδεση τώρα</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="112"/>
         <source>Connect &amp;later</source>
-        <translation type="unfinished">Σύνδεση</translation>
+        <translation>Σύνδεση αργότερα</translation>
     </message>
 </context>
 <context>
@@ -450,7 +450,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="datetime.ui" line="41"/>
         <source>Time:</source>
-        <translation type="unfinished">Χρόνος:</translation>
+        <translation>Χρόνος:</translation>
     </message>
 </context>
 <context>
@@ -506,47 +506,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_export.ui" line="21"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt; Προκαθορισμένο&lt;/b&gt;</translation>
+        <translation>&lt;b&gt; Προκαθορισμένες εξαγωγές&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="45"/>
         <source>Re&amp;move Export</source>
-        <translation type="unfinished">Αφαίρεση Εξαγωγή</translation>
+        <translation>Αφαίρεση Εξαγωγής</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="75"/>
         <source>&lt;b&gt;All fields&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt; Όλα&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Όλα τα πεδία&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="115"/>
         <source>A&amp;dd</source>
-        <translation type="unfinished">&amp;Προσθήκη</translation>
+        <translation>&amp;Προσθήκη</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="126"/>
         <source>&amp;Remove</source>
-        <translation type="unfinished">Α&amp;φαίρεση</translation>
+        <translation>Α&amp;φαίρεση</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="137"/>
         <source>Remo&amp;ve all</source>
-        <translation type="unfinished">Αφαίρεση όλα</translation>
+        <translation>Αφαίρεση όλων</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="161"/>
         <source>&amp;Save list</source>
-        <translation type="unfinished">Αποθήκευση λίστα</translation>
+        <translation>Αποθήκευση λίστας</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="176"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt; Πεδία στο&lt;/b&gt;</translation>
+        <translation>&lt;b&gt; Πεδία προς εξαγωγή&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="196"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
-        <translation type="unfinished">&lt;b&gt;Επιλογές&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Επιλογές&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="209"/>
@@ -647,7 +647,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="43"/>
         <source>W</source>
-        <translation type="unfinished">Δ</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="56"/>
@@ -657,7 +657,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="69"/>
         <source>R</source>
-        <translation type="unfinished">R</translation>
+        <translation>R</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="82"/>
@@ -897,7 +897,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="calendarview.ui" line="83"/>
         <source>Color Legend</source>
-        <translation type="unfinished">Χρώμα Λεζάντα</translation>
+        <translation type="unfinished">Λεζάντα Χρωμάτων</translation>
     </message>
     <message>
         <location filename="keypad.ui" line="95"/>
@@ -907,12 +907,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keypad.ui" line="147"/>
         <source>/</source>
-        <translation type="unfinished"></translation>
+        <translation>/</translation>
     </message>
     <message>
         <location filename="keypad.ui" line="238"/>
         <source>Intro</source>
-        <translation type="unfinished">Εισαγωγή</translation>
+        <translation>Εισαγωγή</translation>
     </message>
     <message utf8="true">
         <location filename="keyboard.ui" line="225"/>
@@ -1239,7 +1239,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="515"/>
         <source>Ctrl+N</source>
-        <translation>Ctrl+Ν</translation>
+        <translation>Ctrl+N</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="524"/>
@@ -1249,7 +1249,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="527"/>
         <source>Ctrl+S</source>
-        <translation>Ctrl+Θ</translation>
+        <translation>Ctrl+S</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="536"/>
@@ -1259,7 +1259,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="539"/>
         <source>Ctrl+Shift+D</source>
-        <translation>Ctrl Shift D</translation>
+        <translation>Ctrl+Shift+D</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="548"/>
@@ -2251,7 +2251,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="326"/>
         <source>&lt;Enter&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;Enter&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="333"/>
@@ -2261,7 +2261,7 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="340"/>
         <source>&lt;Tab&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;Tab&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="347"/>
@@ -2389,7 +2389,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tip.ui" line="77"/>
         <source>&amp;Previous Tip</source>
-        <translation>Προηγούμενη Συμβουλή</translation>
+        <translation>Προη&amp;γούμενη Συμβουλή</translation>
     </message>
     <message>
         <location filename="tip.ui" line="87"/>
