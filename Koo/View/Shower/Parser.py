@@ -39,13 +39,28 @@ from Koo.Common.ViewSettings import *
 from kshowerview import *
 import xml.dom
 
+def _dxy2deltas(dxy):
+	if dxy == 'left':
+		dx, dy = -10.0, 0.0
+	elif dxy == 'right':
+		dx, dy = 10.0, 0.0
+	elif dxy == 'up':
+		dx, dy = 0.0, -10.0
+	elif  dxy == 'down':
+		dx, dy = 0.0, 10.0
+	else:
+		dx, dy = map(lambda x: float(x), dxy.split(',',1))
+	return (dx, dy)
+
+ELEMENT_NODE = xml.dom.Node.ELEMENT_NODE
+
 class ShowerParser(AbstractParser):
 
 	def create(self, viewId, parent, viewModel, rootNode, fields, filter=None):
 		self.viewModel = viewModel
 		self.filter = filter
 
-		header = [ {'name': 'name'} ]
+		self.header = [ {'name': 'name'} ]
 		# It's expected that parent will be a Screen
 		screen = parent
 		attrs = Common.nodeAttributes(rootNode)
@@ -62,8 +77,8 @@ class ShowerParser(AbstractParser):
 		else:
 			model = KooModel.KooModel( parent )
 
-		#model.setMode( KooModel.KooModel.ListMode )
-		model.setMode( KooModel.KooModel.TreeMode )
+		model.setMode( KooModel.KooModel.ListMode )
+		#model.setMode( KooModel.KooModel.TreeMode )
 		model.setReadOnly( not attrs.get('editable', False) )
 		screen.group.setAllowRecordLoading( False )
 		model.setRecordGroup( screen.group )
@@ -76,16 +91,15 @@ class ShowerParser(AbstractParser):
 		#if attrs.get('editable', False) == 'top':
 		#	view.setAddOnTop( True )
 
-		rootProj = self._parseDiagram(model, view, rootNode, header)
+		rootProj = self._parseDiagram(model, view, rootNode)
 		assert rootProj, "No main projection found in <diagram>"
 
 		print "Diagram fields:", fields.keys()
-		print "Diagram header:", header
+		print "Diagram header:", self.header
 		model.setFields( fields )
-		model.setFieldsOrder( [x['name'] for x in header] )
 		try:
 			pfields = []
-			for n in header:
+			for n in self.header:
 				if not fields.has_key(n['name']):
 					pfields.append(n['name'])
 			
@@ -96,7 +110,7 @@ class ShowerParser(AbstractParser):
 					pfields, screen.group.context) )
 				# print "Brought extra fields:", afields
 
-			for h in header:
+			for h in self.header:
 				for k in h.keys():
 				    if k in ('type', 'string', 'width' ):
 					afields[h['name']][k] = h[k]
@@ -107,6 +121,8 @@ class ShowerParser(AbstractParser):
 		except Exception, e:
 			print "Sth went wrong", e
 			pass
+
+		model.setFieldsOrder( [x['name'] for x in self.header] )
 		model.setColors( colors )
 
 
@@ -128,7 +144,7 @@ class ShowerParser(AbstractParser):
 		self.view.redraw()
 		return self.view
 
-	def _parseDiagram(self, model, view, rootNode, fields):
+	def _parseDiagram(self, model, view, rootNode):
 		# The parsing part:
 		mainNod = None
 		for node in rootNode.childNodes:
@@ -139,22 +155,15 @@ class ShowerParser(AbstractParser):
 			itno = None
 			if node.localName == 'linear':
 				itno = KsmLinear(view.scene)
-				dxy = natrs.get('dxy','right')
-				if dxy == 'left':
-					dx, dy = -10.0, 0.0
-				elif dxy == 'right':
-					dx, dy = 10.0, 0.0
-				elif dxy == 'up':
-					dx, dy = 0.0, -10.0
-				elif  dxy == 'down':
-					dx, dy = 0.0, 10.0
-				else:
-					dx, dy = map(lambda x: float(x), dxy.split(',',1))
-				itno.setSpacing(dx,dy)
+				try:
+					dx,dy = _dxy2deltas(natrs.get('dxy','right'))
+					itno.setSpacing(dx,dy)
+				except:
+					pass
 				
 				itno.setFreeMove(True)
 				
-				chnod = self._parseDiaNode(model, view, node, fields)
+				chnod = self._parseDiaNode(model, view, node)
 				itno.setChildProj(chnod)
 				
 			#elif node.localName == 'main':
@@ -172,11 +181,11 @@ class ShowerParser(AbstractParser):
 		print "main node is a ", mainNod
 		return mainNod
 
-	def _parseDiaNode(self, model, view, dNode, fields):
+	def _parseDiaNode(self, model, view, dNode):
 		# The parsing part:
 		for node in dNode.childNodes:
 			itno = None
-			if node.nodeType != xml.dom.Node.ELEMENT_NODE:
+			if node.nodeType != ELEMENT_NODE:
 				print "Skipping",node.localName,node
 				continue
 			
@@ -186,6 +195,13 @@ class ShowerParser(AbstractParser):
 				pbox = KsmBox(view.scene)
 				view.projections.append(pbox)
 				itno.setChildProj(pbox)
+				for chn in node.childNodes:
+					if chn.nodeType != ELEMENT_NODE:
+						continue
+					if chn.localName == 'field':
+						chnat = Common.nodeAttributes(chn)
+						self.header.append({ 'name': chnat['name']})
+					
 			elif node.localName == 'box':
 				itno = KsmBox(view.scene)
 			else: print "Unknown node in projection:", node.localName
