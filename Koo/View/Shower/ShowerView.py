@@ -33,23 +33,12 @@ from kshowerview import *
 class ShowerView( AbstractView ):
 	def __init__(self,model, parent=None):
 		AbstractView.__init__( self, parent )
-		print "Model:",model
 		self.scene = KShowerScene(model, self )
+		self.projections = [] # A dummy list, so that proj objects are preserved
 		self.view = kshowerView(self.scene, self )
 		self.view.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing | QPainter.SmoothPixmapTransform);
 		self.view.setMinimumSize(200,200)
-		self.view.setSizePolicy(QSizePolicy.MinimumExpanding,QSizePolicy.MinimumExpanding)
-		proj1 = KsmLinear(self.scene)
-		proj1.setFreeMove(True);
-		proj2 = KsmLinear(self.scene)
-		proj2.setSpacing(0.0,10.0)
-		proj1.setChildProj(proj2)
-		
-		proj3 = KsmBox(self.scene)
-		proj2.setChildProj(proj3)
-		self.scene.setMainProjection(proj1)
-		self.view.updateGeometry()
-		self.view.show()
+		self.view.setSizePolicy(QSizePolicy.MinimumExpanding,QSizePolicy.Expanding)
 
 	def viewType(self):
 		return 'diagram'
@@ -60,3 +49,10 @@ class ShowerView( AbstractView ):
 	def redraw(self):
 		pass
 		#self.view.show()
+		
+	def setMainProjection(self, proj):
+		assert isinstance(proj, KsmProjection)
+		self.scene.setMainProjection(proj)
+		self.view.updateGeometry()
+		self.view.show()
+		

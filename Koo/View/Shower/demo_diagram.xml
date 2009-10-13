@@ -1,0 +1,32 @@
+<diagram>
+
+<!-- Here we declare and define a named list of projections,
+that can be used (referenced) below -->
+<projection name="main">
+	<linear field="name" dxy="right" drawRoot="False" >
+		<root />
+		<line>
+			<!-- A sub-projection can be defined inline
+			or referenced -->
+			<box />
+		</line>
+	</linear>
+</projection>
+
+<main projection="main">
+	<!-- these elements should resemble the "tree" syntax -->
+	<field name="name" />
+</main>
+
+</diagram>
+
+
+<!-- A diagram for res.partner.address -->
+
+<diagram>
+<linear dxy="down">
+	<lincols name="name">
+		<field name="phone"/>
+	</lincols>
+</linear>
+</diagram>
