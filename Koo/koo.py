@@ -156,6 +156,12 @@ class KooApi(Api.KooApi):
 
 Api.instance = KooApi()
 
+import logging
+log = logging.getLogger('koo.view')
+if Settings.value('debug'):
+	logging.basicConfig(level=logging.DEBUG)
+log.debug('Starting main window')
+
 win.show()
 
 if Settings.value('koo.pos_mode'):
@@ -185,5 +191,6 @@ if Settings.value('client.debug'):
 		Notifier.notifyError( type, value, ''.join( traceback.format_tb( backtrace ) ) )
 
 	sys.excepthook = excepthook
+
 
 app.exec_()
