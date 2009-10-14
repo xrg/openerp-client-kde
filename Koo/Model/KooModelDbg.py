@@ -28,6 +28,7 @@
 from KooModel import *
 
 from PyQt4.QtCore import QModelIndex
+import logging
 
 def printMI(qmi, do_parent = True):
 	if not isinstance(qmi, QModelIndex):
@@ -43,27 +44,32 @@ def printMI(qmi, do_parent = True):
 
 ## @ Brief Debugging version of KooModel, prints notifications
 class KooModelDbg(KooModel):
-	
+	def __init__(self, *args,**kwargs):
+		KooModel.__init__(self,*args,**kwargs)
+		self.__logger = logging.getLogger('koo.model')
+		
 	def __call__(self, method, *params):
-		print "Calling KooModel.%s"%(str(method))
+		self.__logger.debug("call km.%s"%(str(method)))
 		return KooModel.__call__(self,method, *params)
 
 	def id(self, index):
-		print "id", printMI(index)
+		self.__logger.debug("id: %s", printMI(index))
 		return KooModel.id(self,index)
 	
 	def rowCount(self, parent = QModelIndex()):
 		rc = KooModel.rowCount(self,parent)
-		print "Rowcount for",printMI(parent), rc
+		self.__logger.debug("Rowcount for %s: %d",printMI(parent), rc)
 		return rc
 
 	def columnCount(self, parent = QModelIndex()):
 		rc = KooModel.columnCount(self,parent)
-		print "Columncount for",printMI(parent), rc
+		self.__logger.debug("Columncount for %s: %d",printMI(parent), rc)
 		return rc
 
 	def data(self, index, role=Qt.DisplayRole ):
-		print "data for ",printMI(index), role ,':',
-		da = KooModel.data(self,index,role)
-		print da
+		da = None
+		try:
+			da = KooModel.data(self,index,role)
+		finally:
+			self.__logger.debug("data for %s{%s} = %s",printMI(index), role , str(da))
 		return da
