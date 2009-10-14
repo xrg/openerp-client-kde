@@ -15,7 +15,12 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;About OpenERP&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The most advanced Open Source ERP &amp;amp; CRM !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Περί&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Άνοιγμα Πηγή&amp;amp; CRM&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;
+&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;
+&lt;/head&gt;
+&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Περί του OpenERP&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Το πιό προηγμένο ERP &amp;amp; CRM Ανοιχτού Κώδικα&lt;/p&gt;&lt;/center&gt;
+&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="42"/>
@@ -108,47 +113,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AdminPasswordDialog</name>
     <message>
-        <location filename="admin_passwd.ui" line="13"/>
+        <location filename="admin_passwd.ui" line="14"/>
         <source>Dialog</source>
         <translation>Διάλογος</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="19"/>
+        <location filename="admin_passwd.ui" line="20"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
         <translation type="unfinished">&lt;b&gt; Αλλαγή βάση δεδομένων κωδικός πρόσβασης&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="28"/>
+        <location filename="admin_passwd.ui" line="29"/>
         <source>&amp;Server:</source>
         <translation>Εξυπηρετητή&amp;ς:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="45"/>
+        <location filename="admin_passwd.ui" line="46"/>
         <source>C&amp;hange</source>
         <translation>Α&amp;λλαγή</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="55"/>
+        <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
         <translation type="unfinished">κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="72"/>
+        <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
         <translation type="unfinished">Νέο κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="89"/>
+        <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
         <translation type="unfinished">Νέο κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="136"/>
+        <location filename="admin_passwd.ui" line="138"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="146"/>
+        <location filename="admin_passwd.ui" line="149"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
     </message>
@@ -239,17 +244,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BinaryWidget</name>
     <message>
-        <location filename="binary.ui" line="40"/>
+        <location filename="binary.ui" line="41"/>
         <source>Select file...</source>
         <translation>Επιλογή αρχείου...</translation>
     </message>
     <message>
-        <location filename="binary.ui" line="53"/>
+        <location filename="binary.ui" line="55"/>
         <source>Save file...</source>
         <translation>Αποθήκευση αρχείου...</translation>
     </message>
     <message>
-        <location filename="binary.ui" line="66"/>
+        <location filename="binary.ui" line="72"/>
         <source>Clear</source>
         <translation>Καθαρισμός</translation>
     </message>
@@ -257,12 +262,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>CalendarWidget</name>
     <message>
-        <location filename="calendar.ui" line="19"/>
+        <location filename="calendar.ui" line="20"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="calendar.ui" line="43"/>
+        <location filename="calendar.ui" line="51"/>
         <source>Open Calendar</source>
         <translation>Άνοιγμα Ημερολογίου</translation>
     </message>
@@ -270,34 +275,34 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ChangeServerDialog</name>
     <message>
-        <location filename="change_server.ui" line="19"/>
+        <location filename="change_server.ui" line="20"/>
         <source>Server</source>
         <translation>Εξυπηρετητής</translation>
     </message>
     <message>
-        <location filename="change_server.ui" line="31"/>
+        <location filename="change_server.ui" line="32"/>
         <source>Connect to a OpenERP Server</source>
-        <translation type="unfinished">Σύνδεση στο a Εξυπηρετητής</translation>
+        <translation>Σύνδεση σε Εξυπηρετητή OpenERP</translation>
     </message>
     <message>
-        <location filename="change_server.ui" line="51"/>
+        <location filename="change_server.ui" line="52"/>
         <source>&amp;Server:</source>
-        <translation type="unfinished">Εξυπηρετητή&amp;ς:</translation>
+        <translation>Εξυπηρετητή&amp;ς:</translation>
     </message>
     <message>
-        <location filename="change_server.ui" line="70"/>
+        <location filename="change_server.ui" line="71"/>
         <source>&amp;Port:</source>
-        <translation type="unfinished">&amp;Θύρα:</translation>
+        <translation>&amp;Θύρα:</translation>
     </message>
     <message>
-        <location filename="change_server.ui" line="112"/>
+        <location filename="change_server.ui" line="113"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished">&amp;Αποδοχή</translation>
+        <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="change_server.ui" line="144"/>
+        <location filename="change_server.ui" line="133"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Ακύρωση</translation>
+        <translation>&amp;Ακύρωση</translation>
     </message>
 </context>
 <context>
@@ -310,7 +315,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="25"/>
         <source>Action here...</source>
-        <translation type="unfinished">Ενέργεια εδώ.</translation>
+        <translation>Ενέργεια εδώ...</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="47"/>
@@ -330,7 +335,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="95"/>
         <source>&amp;Database:</source>
-        <translation type="unfinished">Βάση δεδομένων:</translation>
+        <translation>Βάση &amp;δεδομένων:</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="123"/>
@@ -340,75 +345,85 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="161"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished">&amp;Αποδοχή</translation>
+        <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="175"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Ακύρωση</translation>
+        <translation>&amp;Ακύρωση</translation>
     </message>
 </context>
 <context>
     <name>CreateDatabaseDialog</name>
     <message>
-        <location filename="create_database.ui" line="13"/>
+        <location filename="create_database.ui" line="14"/>
         <source>Create a new database</source>
         <translation type="unfinished">Δημιουργία a νέο βάση δεδομένων</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="25"/>
+        <location filename="create_database.ui" line="26"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
         <translation type="unfinished">&lt;b&gt; όχι σύνδεση στο βάση δεδομένων&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="49"/>
+        <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
         <translation type="unfinished">Νέο βάση δεδομένων όνομα:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="93"/>
+        <location filename="create_database.ui" line="94"/>
         <source>C&amp;hange</source>
         <translation type="unfinished">Αλλαγή</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="111"/>
+        <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
         <translation type="unfinished">όχι κάθε</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="121"/>
+        <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
         <translation type="unfinished">όχι αλλαγή</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="150"/>
+        <location filename="create_database.ui" line="152"/>
         <source>&amp;Super admin password:</source>
         <translation type="unfinished">κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="179"/>
+        <location filename="create_database.ui" line="181"/>
         <source>&amp;Default language:</source>
         <translation type="unfinished">Εξ ορισμού:</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="195"/>
+        <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
         <translation type="unfinished">Φόρτωμα</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="231"/>
+        <location filename="create_database.ui" line="233"/>
         <source>&amp;OpenERP server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="300"/>
+        <location filename="create_database.ui" line="343"/>
         <source>&amp;Accept</source>
         <translation type="unfinished">&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="313"/>
+        <location filename="create_database.ui" line="357"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished">&amp;Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="292"/>
+        <source>Admin password:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="299"/>
+        <source>Repeat admin password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -499,67 +514,67 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ExportDialog</name>
     <message>
-        <location filename="win_export.ui" line="13"/>
+        <location filename="win_export.ui" line="14"/>
         <source>Dialog</source>
         <translation>Διάλογος</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="21"/>
+        <location filename="win_export.ui" line="22"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
         <translation>&lt;b&gt; Προκαθορισμένες εξαγωγές&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="45"/>
+        <location filename="win_export.ui" line="46"/>
         <source>Re&amp;move Export</source>
         <translation>Αφαίρεση Εξαγωγής</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="75"/>
+        <location filename="win_export.ui" line="76"/>
         <source>&lt;b&gt;All fields&lt;/b&gt;</source>
         <translation>&lt;b&gt;Όλα τα πεδία&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="115"/>
+        <location filename="win_export.ui" line="116"/>
         <source>A&amp;dd</source>
         <translation>&amp;Προσθήκη</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="126"/>
+        <location filename="win_export.ui" line="127"/>
         <source>&amp;Remove</source>
         <translation>Α&amp;φαίρεση</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="137"/>
+        <location filename="win_export.ui" line="138"/>
         <source>Remo&amp;ve all</source>
         <translation>Αφαίρεση όλων</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="161"/>
+        <location filename="win_export.ui" line="162"/>
         <source>&amp;Save list</source>
         <translation>Αποθήκευση λίστας</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="176"/>
+        <location filename="win_export.ui" line="177"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
         <translation>&lt;b&gt; Πεδία προς εξαγωγή&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="196"/>
+        <location filename="win_export.ui" line="197"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Επιλογές&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="209"/>
+        <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
         <translation type="unfinished">Προσθήκη</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="239"/>
+        <location filename="win_export.ui" line="243"/>
         <source>&amp;Accept</source>
         <translation type="unfinished">&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="253"/>
+        <location filename="win_export.ui" line="257"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished">&amp;Ακύρωση</translation>
     </message>
@@ -941,60 +956,81 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FullTextSearchDialog</name>
     <message>
-        <location filename="full_text_search.ui" line="13"/>
+        <location filename="full_text_search.ui" line="14"/>
         <source>Full text search</source>
         <translation>Πλήρης αναζήτηση</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="39"/>
+        <location filename="full_text_search.ui" line="59"/>
         <source>&amp;Find</source>
         <translation>&amp;Εύρεση</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="65"/>
+        <location filename="full_text_search.ui" line="85"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="96"/>
+        <location filename="full_text_search.ui" line="116"/>
         <source>&amp;Previous</source>
         <translation>Προηγού&amp;μενο</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="107"/>
+        <location filename="full_text_search.ui" line="127"/>
         <source>&amp;Next</source>
         <translation>Επόμε&amp;νο</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="139"/>
         <source>&amp;Accept</source>
-        <translation>&amp;Αποδοχή</translation>
+        <translation type="obsolete">&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="153"/>
+        <location filename="full_text_search.ui" line="173"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="159"/>
+        <source>&amp;Open</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GoToIdDialog</name>
     <message>
-        <location filename="gotoid.ui" line="13"/>
+        <location filename="gotoid.ui" line="14"/>
         <source>Go To Id</source>
         <translation>Πήγαινε στο Id</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="21"/>
+        <location filename="gotoid.ui" line="22"/>
         <source>&amp;Search Id:</source>
         <translation>Αναζήτηση Id:</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="71"/>
+        <location filename="gotoid.ui" line="72"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="82"/>
+        <location filename="gotoid.ui" line="83"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
     </message>
@@ -1309,7 +1345,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="599"/>
         <source>Ctrl+L, Ctrl+Shift+L</source>
-        <translation>Ctrl+L, Ctrl+Shift+L</translation>
+        <translation type="obsolete">Ctrl+L, Ctrl+Shift+L</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="608"/>
@@ -1472,6 +1508,11 @@ p, li { white-space: pre-wrap; }
         <comment>Ctrl+O to Login</comment>
         <translation>Ctrl+O</translation>
     </message>
+    <message>
+        <location filename="mainwindow.ui" line="599"/>
+        <source>F6</source>
+        <translation type="unfinished">F6</translation>
+    </message>
 </context>
 <context>
     <name>LicenseDialog</name>
@@ -1580,7 +1621,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;             END OF TERMS AND CONDITIONS&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; GNU&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Έκδοση Ιούνιος&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Πνευματικά δικαιώματα C Ελεύθερος Λογισμικό&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Τοποθέτηση ΗΠΑ&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; είναι στο αντιγραφή και&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; από είναι όχι&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Προοίμιο&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; για στο στο και αλλαγή Κατά αντίθεση GNU Γενικά Δημόσιο Άδεια είναι στο στο και αλλαγή στο είναι για όλα Γενικά Δημόσιο Άδεια στο από Ελεύθερος Λογισμικό s και στο κάθε άλλο πρόγραμμα στο Κάποια προβλήματα άλλο Ελεύθερος Λογισμικό είναι ~κατά GNU Βιβλιοθήκη Γενικά Δημόσιο Άδεια Εσείς στο&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Πότε/Ότανmsgid &quot;When &amp;brandShortName; starts up, open&quot;&quot;;&quot;msgstr &quot;Κατά την εκκίνηση του &amp;brandShortName; να ανοίγει&quot; από στο όχι Γενικά Δημόσιο στο στο από και για πηγαίος κώδικας ή λήψη αλλαγή ή από σε νέο και&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Προς στο στο Απόρριψη ή στο ερώτηση στο στο για από ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Για παράδειγμα από a πρόγραμμα ή για a όλα Εσείς ή λήψη πηγαίος κώδικας&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Τε(τάρτη) με δύο πνευματικά δικαιώματα και στο αντιγραφή και ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; για συγγραφέας s και στο είναι όχι για είναι τροποποιήθηκε ~κατά και στο είναι όχι αρχικό κάθε ~κατά όχι αρχικό&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; κάθε πρόγραμμα είναι ~κατά Τε(τάρτη) στο από a πρόγραμμα σε πρόγραμμα Προς καθαρισμός κάθε για s ή όχι σε όλα&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; και για διανομή και&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; GNU&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ΚΑΙ ΚΑΙ&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Άδεια στο κάθε πρόγραμμα ή άλλο περιέχει a σημείωση ~κατά πνευματικά δικαιώματα Μάιος από Γενικά Δημόσιο Άδεια Πρόγραμμα στο κάθε πρόγραμμα ή και a Πρόγραμμα Πρόγραμμα ή κάθε πνευματικά δικαιώματα είναι στο a Πρόγραμμα ή a από ή με και ή είναι σε είναι&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Δραστηριότητες άλλο διανομή και όχι ~κατά Άδεια από Πρόγραμμα είναι όχι και έξοδος από Πρόγραμμα είναι a Πρόγραμμα από ~κατά Πρόγραμμα είναι αληθές εξαρτάται Πρόγραμμα&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς Μάιος αντιγραφή και από Πρόγραμμα s πηγαίος κώδικας σε κάθε μεσαίο και αντιγραφή πνευματικά δικαιώματα σημείωση και από όλα στο Άδεια και στο από κάθε και κάθε άλλο από Πρόγραμμα a αντιγραφή από Άδεια με Πρόγραμμα&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς Μάιος a για από μεταφορά a αντιγραφή και Μάιος σε επιλογή σε για a&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς Μάιος αντιγραφή ή από Πρόγραμμα ή κάθε από a Πρόγραμμα και αντιγραφή και ή από Ενότητα όλα από&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; a Εσείς τροποποιήθηκε στο και ημερομηνία από κάθε αλλαγή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς κάθε ή σε ή σε τμήμα περιέχει ή είναι από Πρόγραμμα ή κάθε τμήμα στο a σε όχι στο όλα από Άδεια&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; τροποποιήθηκε πρόγραμμα για αλληλεπιδραστικός σε στο ή πνευματικά δικαιώματα σημείωση και a σημείωση είναι όχι ή a και Μάιος πρόγραμμα και στο a αντιγραφή από Άδεια Εξαίρεση Πρόγραμμα εαυτό του είναι αλληλεπιδραστικός όχι Πρόγραμμα είναι όχι προαπαιτούμενο στο&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; στο τροποποιήθηκε a από όχι από Πρόγραμμα και και σε Άδεια και όχι στο τμήμα από a είναι a Πρόγραμμα διανομή από από Άδεια δικαιώματα για άλλο στο και στο και κάθε τμήμα από&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; είναι όχι από τμήμα στο ή στο ~κατά είναι στο δεξιά στο διανομή από ή Πρόγραμμα&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Μέσα από όχι Πρόγραμμα με Πρόγραμμα ή με a Πρόγραμμα a από a ή διανομή μεσαίο όχι άλλο από Άδεια&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς Μάιος αντιγραφή και Πρόγραμμα ή a Ενότητα σε ή από Τμήματα και από&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; a με Ολοκληρωμένο πηγαίος κώδικας από Τμήματα και a μεσαίο για ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; με a για σε τρία χρόνια στο κάθε για a όχι από πηγαίος κώδικας διανομή a Ολοκληρωμένο αντιγραφή από πηγαίος κώδικας στο από Τμήματα και a μεσαίο για ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; με πληροφορίες στο στο πηγαίος κώδικας είναι για διανομή και πρόγραμμα σε ή με σε με&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; πηγαίος κώδικας για a από για στο Για Ολοκληρωμένο πηγαίος κώδικας όλα πηγαίος κώδικας για όλα Επιλογές - δυνατότητες - λειτουργίες περιέχει κάθε στο Μεταγλώττιση και από Πάντως a πηγαίος κώδικας όχι περιλαμβάνω είναι σε πηγαίος κώδικας ή με συστατικά και από συστατικό εαυτό του&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; διανομή από ή είναι ~κατά στο αντιγραφή από a στο αντιγραφή πηγαίος κώδικας από διανομή από πηγαίος κώδικας όχι στο αντιγραφή πηγαίος κώδικας με&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς Μάιος όχι αντιγραφή ή Πρόγραμμα Άδεια Οποιοδήποτε στο αντιγραφή ή Πρόγραμμα είναι και Άδεια Πάντως ή από Άδεια όχι σε&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Εσείς όχι προαπαιτούμενο στο Άδεια από όχι Πάντως τίποτα στο ή Πρόγραμμα ή ~κατά όχι Άδεια ~κατά ή Πρόγραμμα ή κάθε Πρόγραμμα δείχνω από Άδεια στο και όλα και για ή&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Πρόγραμμα ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; διάρκεια Πρόγραμμα ή κάθε Πρόγραμμα a από αρχικό στο αντιγραφή ή Πρόγραμμα θέμα στο και Εσείς Μάιος όχι κάθε από Εσείς όχι για ~κατά στο Άδεια&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; a από a ή από ή για κάθε άλλο όχι περιορισμένο στο ~κατά ή από Άδεια όχι από από Άδεια στο Άδεια και κάθε άλλο a Μάιος όχι Πρόγραμμα σε όλα Για παράδειγμα a όχι από Πρόγραμμα ~κατά όλα ή και Άδεια στο από διανομή από Πρόγραμμα&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; κάθε από τμήμα είναι μη έγκυρο ή κάθε από τμήμα είναι στο και τμήμα a είναι στο σε άλλο&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; είναι όχι από τμήμα στο στο κάθε ή άλλο ιδιότητα δεξιά ή στο από κάθε τμήμα από από διανομή είναι ~κατά στο από σε από είναι πάνω στο συγγραφέας στο ή είναι στο κάθε άλλο και a&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; τμήμα είναι στο καθαρισμός είναι στο a από από Άδεια&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; διανομή και ή από Πρόγραμμα είναι σε ~κατά ή ~κατά αρχικό πνευματικά δικαιώματα Πρόγραμμα Άδεια Μάιος διανομή διανομή είναι σε ή όχι Μέσα Άδεια σε κυρίως κείμενο από Άδεια&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Ελεύθερος Λογισμικό Μάιος και ή νέο από Γενικά Δημόσιο Άδεια από διάρκεια στο διάρκεια νέο σε στο έκδοση Μάιος σε στο διεύθυνση νέο ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; έκδοση είναι a έκδοση Πρόγραμμα a έκδοση από Άδεια στο και κάθε έκδοση επιλογή από και από έκδοση ή από κάθε έκδοση ~κατά Ελεύθερος Λογισμικό Πρόγραμμα όχι a έκδοση από Άδεια Μάιος κάθε έκδοση ~κατά Ελεύθερος Λογισμικό&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; στο από Πρόγραμμα άλλο διανομή στο συγγραφέας στο ερώτηση για Για είναι ~κατά Ελεύθερος Λογισμικό στο Ελεύθερος Λογισμικό για ~κατά δύο από κατάσταση από όλα από και από και από&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ΕΛΕΥΘΕΡΟ ΧΡΕΩΣΗ ΕΩΣ ΕΣΟΔΑ ΚΑΙ Ή ΑΛΛΟ Ή ΟΧΙ ΕΩΣ ΚΑΙ A ΕΩΣ ΚΑΙ Ή&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ΕΣΟΔΑ Ή ΕΩΣ ΕΣΟΔΑ Ή ΑΛΛΟ ΜΑΪΟΣ ΚΑΙ Ή ΕΩΣ Ή ΕΞΟΔΑ Ή ΕΩΣ ΟΧΙ ΕΩΣ Ή Ή Ή Ή A ΕΩΣ ΑΛΛΟ Ή ΑΛΛΟ&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; ΚΑΙ&lt;/p&gt;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="license.ui" line="148"/>
@@ -1599,47 +1640,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="22"/>
+        <location filename="login.ui" line="23"/>
         <source>Login</source>
         <translation>Σύνδεση</translation>
     </message>
     <message>
-        <location filename="login.ui" line="88"/>
+        <location filename="login.ui" line="96"/>
         <source>&amp;Database:</source>
         <translation>Βάση &amp;δεδομένων:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="101"/>
+        <location filename="login.ui" line="109"/>
         <source>C&amp;hange</source>
         <translation>Αλ&amp;λαγή</translation>
     </message>
     <message>
-        <location filename="login.ui" line="111"/>
+        <location filename="login.ui" line="120"/>
         <source>&amp;Server:</source>
         <translation>Εξυπηρετητή&amp;ς:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="126"/>
+        <location filename="login.ui" line="153"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;Δεν είναι δυνατή η σύνδεση στον εξυπηρετητή!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="169"/>
+        <location filename="login.ui" line="198"/>
         <source>&amp;Password:</source>
         <translation>&amp;Κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="195"/>
+        <location filename="login.ui" line="224"/>
         <source>&amp;User:</source>
         <translation>&amp;Χρήστης:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="231"/>
+        <location filename="login.ui" line="260"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="login.ui" line="244"/>
+        <location filename="login.ui" line="274"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
     </message>
@@ -1647,17 +1688,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToManyWidget</name>
     <message>
-        <location filename="many2many.ui" line="13"/>
+        <location filename="many2many.ui" line="14"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="42"/>
+        <location filename="many2many.ui" line="37"/>
         <source>&amp;Add</source>
         <translation>&amp;Προσθήκη</translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="58"/>
+        <location filename="many2many.ui" line="54"/>
         <source>&amp;Remove</source>
         <translation>Α&amp;φαίρεση</translation>
     </message>
@@ -1665,39 +1706,49 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToOneWidget</name>
     <message>
-        <location filename="many2one.ui" line="19"/>
+        <location filename="many2one.ui" line="20"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="51"/>
+        <location filename="many2one.ui" line="105"/>
         <source>Remove</source>
         <translation>Αφαίρεση</translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="74"/>
+        <location filename="many2one.ui" line="82"/>
         <source>New</source>
         <translation>Νέο</translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="97"/>
+        <location filename="many2one.ui" line="59"/>
         <source>Search</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="13"/>
+        <location filename="dia_form_win_many2one.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation>OpenERP - Δεσμός</translation>
     </message>
     <message>
         <location filename="dia_form_win_many2one.ui" line="54"/>
         <source>OK</source>
-        <translation>Εντάξει</translation>
+        <translation type="obsolete">Εντάξει</translation>
     </message>
     <message>
         <location filename="dia_form_win_many2one.ui" line="64"/>
         <source>Cancel</source>
-        <translation>Ακύρωση</translation>
+        <translation type="obsolete">Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="dia_form_win_many2one.ui" line="55"/>
+        <source>&amp;OK</source>
+        <translation>&amp;ΟΚ</translation>
+    </message>
+    <message>
+        <location filename="dia_form_win_many2one.ui" line="66"/>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Ακύρωση</translation>
     </message>
 </context>
 <context>
@@ -1810,17 +1861,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ProgressDialog</name>
     <message>
-        <location filename="progress.ui" line="13"/>
+        <location filename="progress.ui" line="14"/>
         <source>Progress...</source>
         <translation>Πρόοδος...</translation>
     </message>
     <message>
-        <location filename="progress.ui" line="44"/>
+        <location filename="progress.ui" line="40"/>
         <source>Operation in progress</source>
         <translation>Λειτουργία σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="progress.ui" line="57"/>
+        <location filename="progress.ui" line="53"/>
         <source>Please wait, 
 this operation may take a while...</source>
         <translation>Παρακαλώ περιμένετε,
@@ -1830,22 +1881,22 @@ this operation may take a while...</source>
 <context>
     <name>ReferenceWidget</name>
     <message>
-        <location filename="reference.ui" line="19"/>
+        <location filename="reference.ui" line="20"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="reference.ui" line="48"/>
+        <location filename="reference.ui" line="83"/>
         <source>Clear</source>
         <translation>Καθαρισμός</translation>
     </message>
     <message>
-        <location filename="reference.ui" line="64"/>
+        <location filename="reference.ui" line="66"/>
         <source>New</source>
         <translation>Νέο</translation>
     </message>
     <message>
-        <location filename="reference.ui" line="80"/>
+        <location filename="reference.ui" line="49"/>
         <source>Open</source>
         <translation>Άνοιγμα</translation>
     </message>
@@ -1983,29 +2034,34 @@ this operation may take a while...</source>
 <context>
     <name>SearchWidget</name>
     <message>
-        <location filename="win_search.ui" line="13"/>
+        <location filename="win_search.ui" line="14"/>
         <source>Search</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="win_search.ui" line="68"/>
+        <location filename="win_search.ui" line="86"/>
         <source>&amp;Find</source>
         <translation>&amp;Εύρεση</translation>
     </message>
     <message>
-        <location filename="win_search.ui" line="79"/>
+        <location filename="win_search.ui" line="97"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="win_search.ui" line="90"/>
+        <location filename="win_search.ui" line="108"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
     </message>
     <message>
-        <location filename="win_search.ui" line="97"/>
+        <location filename="win_search.ui" line="115"/>
         <source>Esc</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="67"/>
+        <source>&amp;New</source>
+        <translation>&amp;Νέο</translation>
     </message>
 </context>
 <context>
@@ -2034,247 +2090,247 @@ this operation may take a while...</source>
 <context>
     <name>ShortcutsDialog</name>
     <message>
-        <location filename="shortcuts.ui" line="13"/>
+        <location filename="shortcuts.ui" line="14"/>
         <source>Shortcuts</source>
         <translation>Συντομεύσεις</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="23"/>
+        <location filename="shortcuts.ui" line="24"/>
         <source>&amp;Main Shortcuts</source>
         <translation>&amp;Κύριες Συντομεύσεις</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="31"/>
+        <location filename="shortcuts.ui" line="32"/>
         <source>&lt;Ctrl&gt; + O</source>
         <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="38"/>
+        <location filename="shortcuts.ui" line="39"/>
         <source>Connect</source>
         <translation>Σύνδεση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="45"/>
+        <location filename="shortcuts.ui" line="46"/>
         <source>&lt;Ctrl&gt; + N</source>
         <translation>&lt;Ctrl&gt; + N</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="52"/>
+        <location filename="shortcuts.ui" line="53"/>
         <source>New</source>
         <translation>Νέο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="59"/>
+        <location filename="shortcuts.ui" line="60"/>
         <source>&lt;Ctrl&gt; + S</source>
         <translation>&lt;Ctrl&gt; + S</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="66"/>
+        <location filename="shortcuts.ui" line="67"/>
         <source>Save</source>
         <translation>Αποθήκευση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="73"/>
+        <location filename="shortcuts.ui" line="74"/>
         <source>&lt;Ctrl&gt; + D</source>
         <translation>&lt;Ctrl&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="80"/>
+        <location filename="shortcuts.ui" line="81"/>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="87"/>
+        <location filename="shortcuts.ui" line="88"/>
         <source>&lt;Ctrl&gt; + F</source>
         <translation>&lt;Ctrl&gt; + F</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="94"/>
+        <location filename="shortcuts.ui" line="95"/>
         <source>Find / Search</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="101"/>
+        <location filename="shortcuts.ui" line="102"/>
         <source>&lt;Ctrl&gt; + T</source>
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="108"/>
+        <location filename="shortcuts.ui" line="109"/>
         <source>Full Text Search</source>
         <translation>Αναζήτηση στο Κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="115"/>
+        <location filename="shortcuts.ui" line="116"/>
         <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="122"/>
+        <location filename="shortcuts.ui" line="123"/>
         <source>Previous Record</source>
         <translation>Προηγούμενη εγγραφή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="129"/>
+        <location filename="shortcuts.ui" line="130"/>
         <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="136"/>
+        <location filename="shortcuts.ui" line="137"/>
         <source>Next record</source>
         <translation>Επόμενη εγγραφή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="143"/>
+        <location filename="shortcuts.ui" line="144"/>
         <source>&lt;Ctrl&gt; + L</source>
         <translation>&lt;Ctrl&gt; + L</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="150"/>
+        <location filename="shortcuts.ui" line="151"/>
         <source>Switch view mode</source>
         <translation>Αλλαγή προβολής</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="157"/>
+        <location filename="shortcuts.ui" line="158"/>
         <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="164"/>
+        <location filename="shortcuts.ui" line="165"/>
         <source>Previous tab</source>
         <translation>Προηγούμενη καρτέλα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="171"/>
+        <location filename="shortcuts.ui" line="172"/>
         <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="178"/>
+        <location filename="shortcuts.ui" line="179"/>
         <source>Next tab</source>
         <translation>Επόμενη καρτέλλα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="185"/>
+        <location filename="shortcuts.ui" line="186"/>
         <source>&lt;Ctrl&gt; + W</source>
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="480"/>
+        <location filename="shortcuts.ui" line="531"/>
         <source>Close tab</source>
         <translation>Κλείσιμο καρτέλας</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="199"/>
+        <location filename="shortcuts.ui" line="200"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="206"/>
+        <location filename="shortcuts.ui" line="207"/>
         <source>Reload</source>
         <translation>Επαναφόρτωση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="213"/>
+        <location filename="shortcuts.ui" line="214"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="220"/>
+        <location filename="shortcuts.ui" line="221"/>
         <source>Duplicate Record</source>
-        <translation type="unfinished">Διπλότυπος Ηχογράφηση</translation>
+        <translation>Διπλασιασμός</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="229"/>
+        <location filename="shortcuts.ui" line="230"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;i&gt; Όταν διορθώνονται στοιχεία σε αναδυόμενο παράθυρο&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="238"/>
+        <location filename="shortcuts.ui" line="239"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="245"/>
+        <location filename="shortcuts.ui" line="246"/>
         <source>Save and close window</source>
         <translation>Αποθήκευση και κλείσιμο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="252"/>
+        <location filename="shortcuts.ui" line="253"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="259"/>
+        <location filename="shortcuts.ui" line="260"/>
         <source>Close window without saving</source>
         <translation>Κλείσιμο χωρίς αποθήκευση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="269"/>
+        <location filename="shortcuts.ui" line="270"/>
         <source>&amp;Edition Shortcuts</source>
         <translation type="unfinished">Συντομεύσεις</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="464"/>
+        <location filename="shortcuts.ui" line="515"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation type="unfinished">&lt;b&gt; Συντομεύσεις σε κείμενο&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="284"/>
+        <location filename="shortcuts.ui" line="294"/>
         <source>Cut selected text</source>
         <translation type="unfinished">Αποκοπή κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="291"/>
+        <location filename="shortcuts.ui" line="301"/>
         <source>Copy selected text</source>
         <translation type="unfinished">Αντιγραφή κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="298"/>
+        <location filename="shortcuts.ui" line="308"/>
         <source>Paste selected text</source>
         <translation type="unfinished">Επικόλληση κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="305"/>
+        <location filename="shortcuts.ui" line="315"/>
         <source>Next editable widget</source>
         <translation type="unfinished">Επόμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="312"/>
+        <location filename="shortcuts.ui" line="322"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="319"/>
+        <location filename="shortcuts.ui" line="329"/>
         <source>Previous editable widget</source>
         <translation type="unfinished">Προηγούμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="326"/>
+        <location filename="shortcuts.ui" line="336"/>
         <source>&lt;Enter&gt;</source>
         <translation type="unfinished">&lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="333"/>
+        <location filename="shortcuts.ui" line="343"/>
         <source>Auto-complete text field</source>
         <translation type="unfinished">Αυτόματο Ολοκληρωμένο κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="340"/>
+        <location filename="shortcuts.ui" line="350"/>
         <source>&lt;Tab&gt;</source>
         <translation type="unfinished">&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="347"/>
+        <location filename="shortcuts.ui" line="357"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="354"/>
+        <location filename="shortcuts.ui" line="364"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="361"/>
+        <location filename="shortcuts.ui" line="371"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
@@ -2285,16 +2341,16 @@ this operation may take a while...</source>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Numeric fields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Αριθμητικό&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Αριθμητικό&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="383"/>
+        <location filename="shortcuts.ui" line="398"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation type="unfinished">Μαθηματικός τύπος&lt;Enter&gt; Παράδειγμα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="391"/>
+        <location filename="shortcuts.ui" line="406"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation type="unfinished">τιμή Παράδειγμα</translation>
@@ -2306,72 +2362,102 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relation fields&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Σχέση, Πίνακας&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="obsolete">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Σχέση, Πίνακας&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="414"/>
+        <location filename="shortcuts.ui" line="434"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation type="unfinished">&lt;Ctrl&gt; Άνοιγμα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="421"/>
+        <location filename="shortcuts.ui" line="441"/>
         <source>Opens the record in a new tab</source>
         <translation type="unfinished">εγγραφή σε a νέο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="428"/>
+        <location filename="shortcuts.ui" line="448"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation type="unfinished">&lt;Ctrl&gt;&lt;Shift&gt; Άνοιγμα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="435"/>
+        <location filename="shortcuts.ui" line="455"/>
         <source>Opens the record in a new background tab</source>
         <translation type="unfinished">εγγραφή σε a νέο φόντο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="458"/>
+        <location filename="shortcuts.ui" line="509"/>
         <source>&amp;Advanced</source>
         <translation>Για &amp;προχωρημένους</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="473"/>
+        <location filename="shortcuts.ui" line="524"/>
         <source>Middle mouse click on Tab</source>
         <translation type="unfinished">Μεσαίο ιχνοθέτης, ποντίκι κλικ Στηλοθέτης</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="487"/>
+        <location filename="shortcuts.ui" line="538"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation type="unfinished">&lt;Shift&gt; Αλλαγή Προβολή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="494"/>
+        <location filename="shortcuts.ui" line="545"/>
         <source>Open form view in new tab</source>
         <translation type="unfinished">Άνοιγμα σε νέο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="501"/>
+        <location filename="shortcuts.ui" line="552"/>
         <source>Mouse Wheel on Tab</source>
         <translation type="unfinished">Ποντίκι Τροχός Στηλοθέτης</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="508"/>
+        <location filename="shortcuts.ui" line="559"/>
         <source>Change current tab</source>
         <translation type="unfinished">Αλλαγή στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="515"/>
+        <location filename="shortcuts.ui" line="566"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation type="unfinished">&lt;Shift&gt; Άνοιγμα Προβολή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="522"/>
+        <location filename="shortcuts.ui" line="573"/>
         <source>Open view in a background tab</source>
         <translation type="unfinished">Άνοιγμα σε a φόντο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="563"/>
+        <location filename="shortcuts.ui" line="614"/>
         <source>&amp;Close</source>
         <translation type="unfinished">&amp;Κλείσιμο</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="282"/>
+        <source>Shortcuts in text entries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="386"/>
+        <source>Numeric fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="422"/>
+        <source>Relation fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="470"/>
+        <source>Lists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="479"/>
+        <source>&lt;Ctrl&gt; + A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="486"/>
+        <source>Selects all records</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2428,22 +2514,22 @@ p, li { white-space: pre-wrap; }
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="65"/>
+        <location filename="tree.ui" line="58"/>
         <source>Shortcuts</source>
         <translation>Συντομεύσεις</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="78"/>
+        <location filename="tree.ui" line="71"/>
         <source>Add Shortcut</source>
         <translation>Προσθήκη Συντόμευσης</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="98"/>
+        <location filename="tree.ui" line="91"/>
         <source>Remove Shortcut</source>
         <translation>Αφαίρεση Συντόμευσης</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="118"/>
+        <location filename="tree.ui" line="111"/>
         <source>Expand/Collapse</source>
         <translation>Ανάπτυξη/Σύμπτυξη</translation>
     </message>
@@ -2451,12 +2537,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UrlWidget</name>
     <message>
-        <location filename="url.ui" line="19"/>
+        <location filename="url.ui" line="20"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="url.ui" line="43"/>
+        <location filename="url.ui" line="51"/>
         <source>Open</source>
         <translation>Άνοιγμα</translation>
     </message>
