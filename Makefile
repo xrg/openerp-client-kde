@@ -25,12 +25,21 @@ pofiles: ${LANGS:%=${DIR}/%.po}
 qmfiles: ${TSFILES} ${QT_LANGS:%=${DIR}/%.qm}
 
 ${DIR}/%.po: ${DIR}/koo.pot
-	if [ -e $@ ] ; then \
+	@if [ -e $@ ] ; then \
 		msgmerge -U $@ $< ;\
-	else \
-		msginit --no-translator --no-wrap \
-			-l $(shell basename $@ .po) -o $@ -i $< ;\
+	else echo "Catalog $@ is missing." ;\
+	     echo "Please create, or 'make initpofiles' ." ;\
 	fi
+
+# Initialize missing po files
+initpofiles: ${DIR}/koo.pot
+	@pushd ${DIR} ;\
+	for LANG in ${LANGS} ; do \
+		[ -e $$LANG.po ] && continue ; \
+		msginit --no-translator --no-wrap \
+			-l $$LANG \
+			-o $$LANG.po -i koo.pot ;\
+	done ; popd
 
 ${DIR}/%/LC_MESSAGES/koo.mo: ${DIR}/%.po
 	[ -d $(dir $@) ] || mkdir -p $(dir $@)
