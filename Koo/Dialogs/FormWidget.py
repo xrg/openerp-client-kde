@@ -257,6 +257,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
+			import logging
+			log = logging.getLogger('koo.view')
+			log.debug("SwitchView");
 			if ( self._allowOpenInNewWindow and QApplication.keyboardModifiers() & Qt.ControlModifier ) == Qt.ControlModifier:
 				if QApplication.keyboardModifiers() & Qt.ShiftModifier:
 					target = 'background'
@@ -267,6 +270,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			else:
 				sender = self.sender()
 				name = unicode( sender.objectName()  )
+				log.debug("View name: %s",name)
 				if isinstance(sender, QAction) and name != 'actionSwitch':
 					self.sender().setChecked( True )
 					self.screen.switchView( name )
@@ -277,22 +281,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.updateSwitchView()
 		QApplication.restoreOverrideCursor()
 
-	def switchNView(self,name):
-		if not self.modifiedSave():
-			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
-		import logging
-		log = logging.getLogger('view')
-		log.debug("SwitchNView"+name);
-		print "name:",name
-		self.screen.switchView( name )
 			if self.pendingReload:
 				self.reload()
 			self.updateSwitchView()
 		except Rpc.RpcException, e:
 			pass
 		QApplication.restoreOverrideCursor()
-
 	def showLogs(self):
 		id = self.screen.currentId()
 		if not id:
