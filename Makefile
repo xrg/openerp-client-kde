@@ -3,7 +3,7 @@
 UI_FILES:=$(shell find Koo/ui -name "*.ui")
 PYTHON_FILES:=$(shell find Koo -name "*.py")
 PYTHONC_FILES:=$(shell find Koo -name "*.pyc")
-LANGS = ca_ES de_DE es_ES fr hu it pt ro ru sv uk zh al cs el
+LANGS = ca de el es fr hu it pt ro ru sv uk zh al cs
 QT_LANGS = ca de el es fr
 DIR := Koo/l10n
 
