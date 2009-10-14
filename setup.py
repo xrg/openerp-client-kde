@@ -71,7 +71,7 @@ def data_files():
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) ),
 		(opj('share', 'Koo', 'ui'), [ opj('nsis','koo-icon.png') ] ),
 	]
-	if using_py2exe:
+	if using_py2exe or os.name == 'posix':
                 # Add NanScan files
                 files.append( (opj('share','NanScan'), ['c:\\python26\\lib\\site-packages\\NanScan\\ScanDialog.ui']) )
                 files.append( (opj('share','NanScan'), ['c:\\python26\\lib\\site-packages\\NanScan\\Common.rcc']) )
