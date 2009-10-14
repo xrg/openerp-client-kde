@@ -48,6 +48,8 @@ from ToolBar import ToolBar
 from Action import *
 from ViewQueue import *
 
+import logging
+
 
 ## @brief The Screen class is a widget that provides an easy way of handling multiple views.
 #
@@ -79,6 +81,8 @@ class Screen(QScrollArea):
 		self.setWidget( self.container )
 
 		self.container.show()
+
+		self._log = logging.getLogger('koo.screen')
 
 		self.searchForm = SearchFormWidget(self.container)
 		self.connect( self.searchForm, SIGNAL('search()'), self.search )
@@ -163,6 +167,7 @@ class Screen(QScrollArea):
 	# 
 	# screen.setupViews( ['tree','form'], [False, False] )
 	def setupViews(self, types, ids):
+		self._log.debug('setupViews(%s)',str(types))
 		self._viewQueue.setup( types, ids )
 		# Try to load only if model group has been set
 		if self.name:
@@ -256,6 +261,7 @@ class Screen(QScrollArea):
 	def triggerAction(self):
 		# We expect a Screen.Action here
 		action = self.sender()
+		self._log.debug('triggerAction(%s)',str(action))
 
 		# Do not trigger action if there is no record selected. This is
 		# only permitted for plugins.
@@ -281,6 +287,7 @@ class Screen(QScrollArea):
 
 	## @brief Sets the current widget of the Screen
 	def setView(self, widget):
+		self._log.debug('setView(%s)',str(widget))
 		if self.containerView:
 			self.disconnect(self.containerView, SIGNAL("activated()"), self.activate )
 			self.disconnect(self.containerView, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
@@ -303,8 +310,10 @@ class Screen(QScrollArea):
 
 		self.ensureWidgetVisible( widget )
 		self.updateGeometry()
+		self._log.debug('setView end')
 
 	def activate( self ):
+		self._log.debug('activate()')
 		self.emit( SIGNAL('activated()') )
 
 	def close( self ):
@@ -669,6 +678,7 @@ class Screen(QScrollArea):
 	# If the current view only shows a single record, only the current one will
 	# be reloaded. If the view shows multiple records it will reload the whole model.
 	def reload(self):
+		self._log.debug('reload()')
 		if not self.currentView().showsMultipleRecords():
 			if self.currentRecord():
 				self.currentRecord().reload()

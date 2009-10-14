@@ -254,7 +254,11 @@ class TreeView( AbstractView ):
 	# Screen to switch view
 	def activated(self, index):
 		if self._readOnly:
+			import logging
+			log = logging.getLogger('koo.treeview')
+			log.debug('activated(%s)', str(index))
 			self.emit( SIGNAL('activated()') )
+			log.debug('finish activated()')
 
 	def currentChanged(self, current, previous):
 		if self.selecting:

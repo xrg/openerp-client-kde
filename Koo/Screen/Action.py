@@ -30,6 +30,7 @@ from PyQt4.QtCore import *
 from Koo.Common import Api
 from Koo.Plugins import *
 from Koo import Rpc
+import logging
 
 ## @brief The Action class is a QAction that can execute a model action. Such
 # as relate, print or wizard (on the server) and plugins (on the client).
@@ -68,6 +69,8 @@ class Action(QAction):
 	## @brief Executes the action (depending on its type), given the current id
 	# and the selected ids.
 	def execute(self, currentId, selectedIds, context):
+		log = logging.getLogger('koo.action')
+		log.debug('execute<%s>(%s,..)', self._type, str(currentId))
 		if self._type == 'relate':
 			self.executeRelate( currentId, context )
 		elif self._type in ( 'action', 'print' ):

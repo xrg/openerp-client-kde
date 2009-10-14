@@ -41,6 +41,10 @@ class AbstractView(QWidget):
 	## @brief This function should return the type of view the class handles. Such as 'tree' or 'from'.
 	def viewType(self):
 		return None
+		
+	def __del__(self):
+		import logging
+		logging.getLogger('koo.view').debug("View being deleted %s, %s", self.id, str(self))
 
 	## @brief This function should store the information in the model
 	# The model used should be the one given by display()
