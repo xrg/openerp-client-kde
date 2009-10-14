@@ -156,7 +156,9 @@ class KooApi(Api.KooApi):
 Api.instance = KooApi()
 
 import logging
-log = logging.getLogger('view')
+log = logging.getLogger('koo.view')
+if Settings.value('debug'):
+	logging.basicConfig(level=logging.DEBUG)
 log.debug('Starting main window')
 
 import logging
