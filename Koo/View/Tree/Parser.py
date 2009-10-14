@@ -85,10 +85,7 @@ class TreeParser(AbstractParser):
 					'char': 140,
 					'one2many': 50,
 				}
-				if 'invisible' in node_attrs:
-					visible = False
-				else:
-					visible = True
+
 
 				if 'readonly' in node_attrs:
 					fields[fname]['readonly'] = Common.stringToBool(node_attrs['readonly'])
@@ -102,6 +99,8 @@ class TreeParser(AbstractParser):
 					view.addAggregate( fname, label, bold, digits ) 
 
 				node_attrs.update(fields[fname])
+
+				visible = not eval(fields[fname].get('invisible', 'False'), {'context': screen.context})
 
 				if 'width' in fields[fname]:
 					width = int(fields[fname]['width'])
