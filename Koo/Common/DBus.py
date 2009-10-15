@@ -27,8 +27,11 @@ if isDBusAvailable:
 def init():
 	if not isDBusAvailable:
 		return
-	dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
-	sessionBus = dbus.SessionBus()
-	name = dbus.service.BusName("org.openerp.Interface", sessionBus )
-	example = OpenErpInterface('/OpenERP')
+	try:
+		dbus.mainloop.qt.DBusQtMainLoop(set_as_default=True)
+		sessionBus = dbus.SessionBus()
+		name = dbus.service.BusName("org.openerp.Interface", sessionBus )
+		example = OpenErpInterface('/OpenERP')
+	except:
+		Debug.warning( _("DBus initialization failed.") )
 
