@@ -495,7 +495,9 @@ class Session:
 
 	## @brief Uses eval to evaluate the expression, using the defined context
 	# plus the appropiate 'uid' in it.
-	def evaluateExpression(self, expression, context={}):
+	def evaluateExpression(self, expression, context=None):
+		if context is None:
+			context = {}
 		context['uid'] = self.uid
 		if isinstance(expression, basestring):
 			return eval(expression, context)

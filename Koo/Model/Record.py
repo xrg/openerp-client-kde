@@ -254,7 +254,11 @@ class Record(QObject):
 
 	# Used only by group.py
 	# Fills the record with the corresponding default values.
-	def fillWithDefaults(self, domain=[], context={}):
+	def fillWithDefaults(self, domain=None, context=None):
+		if domain is None:
+			domain = []
+		if context is None:
+			context = {}
 		if len(self.group.fields):
 			val = self.rpc.default_get(self.group.fields.keys(), context)
 			for d in domain:

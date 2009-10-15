@@ -81,8 +81,12 @@ class RecordGroup(QObject):
 	# @param ids Record identifiers to load in the group.
 	# @param parent Only used if this RecordGroup serves as a relation to another model. Otherwise it's None.
 	# @param context Context for RPC calls.
-	def __init__(self, resource, fields = None, ids=[], parent=None, context={}):
+	def __init__(self, resource, fields = None, ids=None, parent=None, context=None):
 		QObject.__init__(self)
+		if ids is None:
+			ids = []
+		if context is None:
+			context = {}
 		self.parent = parent
 		self._context = context
 		self._context.update(Rpc.session.context)
@@ -322,7 +326,11 @@ class RecordGroup(QObject):
 	#
 	# If 'default' is true, the record is filled in with default values. 
 	# 'domain' and 'context' are only used if default is true.
-	def create(self, default=True, position=-1, domain=[], context={}):
+	def create(self, default=True, position=-1, domain=None, context=None):
+		if domain is None:
+			domain = []
+		if context is None:
+			context = {}
 		self.ensureUpdated()
 
 		record = Record(None, self, parent=self.parent, new=True)
