@@ -43,10 +43,17 @@ from PyQt4.uic import *
 (SearchDialogUi, SearchDialogBase) = loadUiType( Common.uiPath('win_search.ui') )
 
 class SearchDialog( QDialog, SearchDialogUi ):
-	def __init__(self, model, sel_multi=True, ids=[], context={}, domain = [], parent = None):
+	def __init__(self, model, sel_multi=True, ids=None, context=None, domain = None, parent = None):
 		QDialog.__init__( self, parent )
 		SearchDialogUi.__init__( self )
 		self.setupUi( self )
+
+		if ids is None:
+			ids = []
+		if context is None:
+			context = {}
+		if domain is None:
+			domain = []
 
 		self.setModal( True )
 

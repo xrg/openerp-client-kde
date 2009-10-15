@@ -41,10 +41,13 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 class ExecuteReportThread(QThread):
-	def __init__(self, name, data, context={}, parent=None):
+	def __init__(self, name, data, context=None, parent=None):
 		QThread.__init__(self, parent)
+		if context is None:
+			context = {}
 		self.name = name
 		self.datas = data.copy()
+		self.context = context
 		self.status = ''
 		self.session = Rpc.session.copy()
 
@@ -64,7 +67,7 @@ class ExecuteReportThread(QThread):
 			self.datas['id'] = ids[0]
 		try:
 			ctx = self.session.context.copy()
-			ctx.update(context)
+			ctx.update(self.context)
 			report_id = self.session.call('/report', 'report', self.name, ids, self.datas, ctx)
 			state = False
 			attempt = 0
@@ -82,7 +85,9 @@ class ExecuteReportThread(QThread):
 			self.emit( SIGNAL('error'), ( _('Error: %s') % unicode(e.type), e.message, e.data ) )
 		
 ## @brief Executes the given report.
-def executeReport(name, data, context={}):
+def executeReport(name, data, context=None):
+	if context is None:
+		context = {}
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	datas = data.copy()
 	ids = datas['ids']
@@ -118,7 +123,9 @@ def executeReport(name, data, context={}):
 	return True
 
 ## @brief Executes the given action id (it could be a report, wizard, etc).
-def execute(act_id, datas, type=None, context={}):
+def execute(act_id, datas, type=None, context=None):
+	if context is None:
+		context = {}
 	ctx = Rpc.session.context.copy()
 	ctx.update(context)
 	if type==None:
@@ -130,7 +137,9 @@ def execute(act_id, datas, type=None, context={}):
 	Api.instance.executeAction(res,datas)
 
 ## @brief Executes the given action (it could be a report, wizard, etc).
-def executeAction(action, datas, context={}):
+def executeAction(action, datas, context=None):
+	if context is None:
+		context = {}
 	if 'type' not in action:
 		return
 	if action['type']=='ir.actions.act_window':
@@ -197,7 +206,11 @@ def executeAction(action, datas, context={}):
 		QDesktopServices.openUrl( QUrl( action.get('url','') ) )
 
 ## @brief Executes the given keyword action (it could be a report, wizard, etc).
-def executeKeyword(keyword, data={}, context={}):
+def executeKeyword(keyword, data=None, context=None):
+	if data is None:
+		data = {}
+	if context is None:
+		context = {}
 	actions = None
 	if 'id' in data:
 		try:

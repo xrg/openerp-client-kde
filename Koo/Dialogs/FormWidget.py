@@ -60,10 +60,17 @@ class FormWidget( QWidget, FormWidgetUi ):
 	# context -> Context for the current data set
 	# parent -> Parent widget of the form
 	# name -> User visible title of the form
-	def __init__(self, model, res_id=False, domain=[], view_type=None, view_ids=[], context={}, parent=None, name=False):
+	def __init__(self, model, res_id=False, domain=None, view_type=None, view_ids=None, context=None, parent=None, name=False):
 		QWidget.__init__(self,parent)
 		FormWidgetUi.__init__(self)
 		self.setupUi( self )
+
+		if domain is None:
+			domain = []
+		if view_ids is None:
+			view_ids = []
+		if context is None:
+			context = {}
 
 		# Workaround: In some cases (detected in some CRM actions) view_type and view_ids
 		# may contain duplicate entries. Here we remove duplicates (ensuring lists order is kept).

@@ -41,7 +41,11 @@ class FieldsModel( QStandardItemModel ):
 		item.setData( QVariant(data) )
 		self.rootItem.appendRow( item )
 
-	def load(self, fields, fieldsInfo = {}, fieldsInvertedInfo = {}):
+	def load(self, fields, fieldsInfo = None, fieldsInvertedInfo = None):
+		if fieldsInfo is None:
+			fieldsInfo = {}
+		if fieldsInvertedInfo is None:
+			fieldsInvertedInfo = {}
 		self.fieldsInfo = fieldsInfo
 		self.fieldsInvertedInfo = fieldsInvertedInfo
 		self.populate(fields)

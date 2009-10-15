@@ -106,8 +106,10 @@ class WizardPage(QDialog):
 
 ## @brief The Wizard class shows a step by step wizard with the provided information.
 class Wizard( QObject ):
-	def __init__(self, action, datas, state='init', parent=None, context={}):
+	def __init__(self, action, datas, state='init', parent=None, context=None):
 		QObject.__init__(self, parent)
+		if context is None:
+			context = {}
 		if not 'form' in datas:
 			datas['form'] = {}
 		self.action = action
@@ -171,7 +173,9 @@ class Wizard( QObject ):
 		self.step()
 
 ## @brief Executes the wizard with the provided information.
-def execute(action, datas, state='init', parent=None, context={}):
+def execute(action, datas, state='init', parent=None, context=None):
+	if context is None:
+		context = {}
 	w = Wizard(action, datas, state, parent, context)
 	w.step()
 	while not w.finished:
