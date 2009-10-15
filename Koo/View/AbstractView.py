@@ -76,7 +76,7 @@ class AbstractView(QWidget):
 	def isReadOnly(self):
 		return True
 
-	## @brief This function should be implemented if the function can be
+	## @brief This function should be implemented if the view can be
 	# configured to be read-only or read-write.
 	def setReadOnly(self, value):
 		return 
