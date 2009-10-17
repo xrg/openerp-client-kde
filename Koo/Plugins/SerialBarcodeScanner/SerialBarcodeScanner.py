@@ -44,9 +44,18 @@ class SerialBarcodeScanner(QThread):
 		QThread.__init__(self, parent)
 
 	def run(self):
-		device = serial.Serial(0)
+		try:
+			device = serial.Serial(0)
+		except:
+			Debug.info('Could not open Serial device. Serial Barcode Scanners will not be available.')
+			return
+
 		while True:
-			data = device.read()
+			try:
+				data = device.read()
+			except:
+				Debug.error('Could not read from serial device. Serial Barcode Scanner stopped.')
+				return
 			if data:
 				char = data[0]
 				try:
@@ -54,7 +63,10 @@ class SerialBarcodeScanner(QThread):
 				except:
 					Debug.warning('Could not find key for char "%s".' % char )
 					pass
+				# Send Key Press
 				event = QKeyEvent( QEvent.KeyPress, key, QApplication.keyboardModifiers(), char )
 				QApplication.postEvent( QApplication.focusWidget(), event )
+				# Send Key Release
 				event = QKeyEvent( QEvent.KeyRelease, key, QApplication.keyboardModifiers(), char )
 				QApplication.postEvent( QApplication.focusWidget(), event )
+
