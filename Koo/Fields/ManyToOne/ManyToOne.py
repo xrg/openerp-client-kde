@@ -115,10 +115,14 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.completion.setCompletionColumn( 0 )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiText.setReadOnly( value )
 		self.pushNew.setEnabled( not value )
 		self.pushClear.setEnabled( not value )
-		self.pushOpen.setEnabled( not value )
+		if self.record and self.record.value(self.name):
+			self.pushOpen.setEnabled( True )
+		else:
+			self.pushOpen.setEnabled( not value )
 
 	def colorWidget(self):
 		return self.uiText
@@ -175,7 +179,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.record.setValue( self.name, ids[0] )
 			self.display()
 		else:
-			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain)
+			dialog = SearchDialog(self.attrs['relation'], sel_multi=False, ids=[x[0] for x in ids], context=context, domain=domain, parent=self)
 			if dialog.exec_() == QDialog.Accepted and dialog.result:
 				id = dialog.result[0]
 				name = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], context)[0]
@@ -255,7 +259,6 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 	def __init__(self, parent, attributes):
 		AbstractFieldDelegate.__init__(self, parent, attributes)
-		self.currentIndex = None
 		self.currentEditor = None
 		self.currentValue = None
  		self.recordType = attributes['relation']	
@@ -360,8 +363,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		dialog.setDomain( self.record.domain(self.name) )
 		dialog.setup( self.attributes['relation'] )
 		if dialog.exec_() == QDialog.Accepted:
-			if self.currentIndex and self.currentIndex.isValid():
-				self.record.setValue(self.name, dialog.record)
+			self.record.setValue(self.name, dialog.record)
 
 	def setModelData(self, editor, kooModel, index):
 		# We expect a KooModel here
