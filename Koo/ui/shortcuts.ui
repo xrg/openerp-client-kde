@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>492</width>
+    <width>507</width>
     <height>535</height>
    </rect>
   </property>
@@ -38,6 +38,9 @@
            <property name="text">
             <string>Connect</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -51,6 +54,9 @@
           <widget class="QLabel" name="label_18">
            <property name="text">
             <string>New</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -66,6 +72,9 @@
            <property name="text">
             <string>Save</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="4" column="0">
@@ -79,6 +88,9 @@
           <widget class="QLabel" name="label_22">
            <property name="text">
             <string>Delete</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -94,6 +106,9 @@
            <property name="text">
             <string>Find / Search</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="6" column="0">
@@ -107,6 +122,9 @@
           <widget class="QLabel" name="label_43">
            <property name="text">
             <string>Full Text Search</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -122,6 +140,9 @@
            <property name="text">
             <string>Previous Record</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="8" column="0">
@@ -135,6 +156,9 @@
           <widget class="QLabel" name="label_28">
            <property name="text">
             <string>Next record</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -150,6 +174,9 @@
            <property name="text">
             <string>Switch view mode</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="10" column="0">
@@ -163,6 +190,9 @@
           <widget class="QLabel" name="label_32">
            <property name="text">
             <string>Previous tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -178,6 +208,9 @@
            <property name="text">
             <string>Next tab</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="12" column="0">
@@ -191,6 +224,9 @@
           <widget class="QLabel" name="label_36">
            <property name="text">
             <string>Close tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -206,6 +242,9 @@
            <property name="text">
             <string>Reload</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="2" column="0">
@@ -219,6 +258,9 @@
           <widget class="QLabel" name="label_49">
            <property name="text">
             <string>Duplicate Record</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -245,6 +287,9 @@
            <property name="text">
             <string>Save and close window</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -258,6 +303,9 @@
           <widget class="QLabel" name="label_41">
            <property name="text">
             <string>Close window without saving</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -293,12 +341,18 @@
            <property name="text">
             <string>Cut selected text</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QLabel" name="label_10">
            <property name="text">
             <string>Copy selected text</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -307,12 +361,18 @@
            <property name="text">
             <string>Paste selected text</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="3" column="1">
           <widget class="QLabel" name="label_12">
            <property name="text">
             <string>Next editable widget</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -328,6 +388,9 @@
            <property name="text">
             <string>Previous editable widget</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="5" column="0">
@@ -341,6 +404,9 @@
           <widget class="QLabel" name="label_14">
            <property name="text">
             <string>Auto-complete text field</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -406,6 +472,9 @@
             <string>Calculates value
 (Example result: 7)</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
@@ -440,6 +509,9 @@
            <property name="text">
             <string>Opens the record in a new tab</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
@@ -453,6 +525,9 @@
           <widget class="QLabel" name="label_63">
            <property name="text">
             <string>Opens the record in a new background tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -485,6 +560,9 @@
            <property name="text">
             <string>Selects all records</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
@@ -508,7 +586,7 @@
       <attribute name="title">
        <string>&amp;Advanced</string>
       </attribute>
-      <layout class="QVBoxLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="label_50">
          <property name="text">
@@ -523,12 +601,18 @@
            <property name="text">
             <string>Middle mouse click on Tab</string>
            </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item row="0" column="1">
           <widget class="QLabel" name="label_52">
            <property name="text">
             <string>Close tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -537,12 +621,18 @@
            <property name="text">
             <string>&lt;Shift&gt; + Switch View</string>
            </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
           <widget class="QLabel" name="label_54">
            <property name="text">
             <string>Open form view in new tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -551,12 +641,18 @@
            <property name="text">
             <string>Mouse Wheel on Tab</string>
            </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QLabel" name="label_47">
            <property name="text">
             <string>Change current tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -565,12 +661,89 @@
            <property name="text">
             <string>&lt;Shift&gt; + Open View</string>
            </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
           </widget>
          </item>
          <item row="3" column="1">
           <widget class="QLabel" name="label_58">
            <property name="text">
             <string>Open view in a background tab</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_73">
+         <property name="text">
+          <string>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_67">
+           <property name="text">
+            <string>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="label_68">
+           <property name="text">
+            <string>Set focus to nearest widget</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_70">
+           <property name="text">
+            <string>Set focus to current widget's container</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_69">
+           <property name="text">
+            <string>&lt;Alt&gt; + Minus</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_71">
+           <property name="text">
+            <string>&lt;Alt&gt; + Plus</string>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="label_72">
+           <property name="text">
+            <string>Set focus to one of the widgets in the container</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
