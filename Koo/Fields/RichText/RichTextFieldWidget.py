@@ -195,6 +195,7 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 		self.uiText.setFocus()
 		
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiText.setReadOnly( value )
 
 	def colorWidget(self):

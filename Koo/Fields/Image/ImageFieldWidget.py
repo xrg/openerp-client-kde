@@ -63,9 +63,10 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 	def setImage(self, value):
 		self.record.setValue(self.name, value)
 
-	def setReadOnly(self, ro):
-		self.pushLoad.setEnabled( not ro )
-		self.pushRemove.setEnabled( not ro )
+	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
+		self.pushLoad.setEnabled( not value )
+		self.pushRemove.setEnabled( not value )
 
 	def menuEntries(self):
 		if self.getImage():

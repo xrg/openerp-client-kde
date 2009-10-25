@@ -58,6 +58,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 			self.uiText.setPlainText( dialog.result )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiText.setReadOnly( value )
 
 	def colorWidget(self):

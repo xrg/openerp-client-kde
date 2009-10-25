@@ -49,6 +49,7 @@ class BooleanFieldWidget(AbstractFieldWidget):
 		self.modified()
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.widget.setEnabled( not value )
 
 	def store(self):

@@ -84,14 +84,20 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 		self.show()
 
+	def setReadOnly(self, value):
+		self.screen.setReadOnly( value )
+
 	def rejected( self ):
 		if self._recordAdded:
 			self.screen.remove()
 		self.reject()
 
 	def accepted( self ):
-		self.screen.currentView().store()
-		self.accept()
+		if self._recordAdded:
+			self.screen.currentView().store()
+			self.screen.new()
+		else:
+			self.accept()
 
 (OneToManyFieldWidgetUi, OneToManyFieldWidgetBase ) = loadUiType( Common.uiPath('one2many.ui') ) 
 
@@ -150,6 +156,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			self.screen.switchView()
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
  		self.uiTitle.setEnabled( not value )
  		self.pushNew.setEnabled( not value )
  		self.pushRemove.setEnabled( not value )
@@ -173,18 +180,19 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		# have been stored in the model. Otherwise the recordChanged() triggered by calling new
 		# in the parent model could make us lose changes.
 		self.view.store()
-                if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.isReadOnly():
+                if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.currentView().isReadOnly():
 			self.screen.new()
 		else:
 			dialog = ScreenDialog(self.screen.group, parent=self, attrs=self.attrs)
-			if dialog.exec_() == QDialog.Accepted:
-				self.screen.display()
+			dialog.exec_()
+			self.screen.display()
 
 	def edit(self):
 		if not self.screen.currentRecord():
 			QMessageBox.information(self, _('Information'), _('No record selected'))
 			return
 		dialog = ScreenDialog( self.screen.group, parent=self, record=self.screen.currentRecord(), attrs=self.attrs)
+		dialog.setReadOnly( self.isReadOnly() )
 		dialog.exec_()
 		self.screen.display()
 

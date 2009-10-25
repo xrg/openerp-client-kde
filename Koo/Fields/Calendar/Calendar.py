@@ -69,6 +69,7 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		return self.uiDate
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiDate.setReadOnly( value )
 		self.pushCalendar.setEnabled( not value )
 
@@ -165,6 +166,7 @@ class TimeFieldWidget(AbstractFieldWidget):
 		self.setText( timeToText( QTime.currentTime() ) )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiTime.setReadOnly(value)
 
 	def colorWidget(self):
@@ -219,6 +221,7 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 		self.setText( timeToText( QTime.currentTime() ) )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiTime.setReadOnly(value)
 
 	def colorWidget(self):

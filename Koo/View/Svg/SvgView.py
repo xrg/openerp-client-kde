@@ -37,52 +37,65 @@ class SvgView( AbstractView ):
 		self.view = QGraphicsView( self )
 		self.view.setScene( self.scene )
 		self.view.setRenderHints(QPainter.Antialiasing | QPainter.TextAntialiasing | QPainter.SmoothPixmapTransform);
+		self.view.setHorizontalScrollBarPolicy( Qt.ScrollBarAlwaysOff )
+		self.view.setVerticalScrollBarPolicy( Qt.ScrollBarAlwaysOff )
 		self.svg = None
+		self.widgets = {}
+		self.fields = {}
+		self.record = None
+
+		layout = QVBoxLayout(self)
+		layout.addWidget( self.view )
 
 	def viewType(self):
-		return 'svg'
+		return 'gantt'
+
+	def showsMultipleRecords(self):
+		return False
 
 	def setSvg( self, file ):
-		t = self.view.transform()
-		t.scale( 2, 2 )
-		self.view.setTransform( t )
+		#t = self.view.transform()
+		#t.scale( 2, 2 )
+		#self.view.setTransform( t )
 
 		self.svg = QGraphicsSvgItem( file )
 		self.scene.addItem( self.svg )
 
-		#self.scene.addRect( self.svg.renderer().boundsOnElement( 'contacts' ) )
+		for name in self.widgets.keys():
+			if not self.svg.renderer().elementExists( name ):
+				continue
+			r = self.svg.renderer().boundsOnElement( name )
+			#matrix = self.svg.renderer().matrixForElement( name )
+			widget = self.widgets[name]
+			widget.resize( r.size().width(), r.size().height() )
+			proxy = self.scene.addWidget( widget )
+			proxy.resize( r.size() )
+			#proxy.setTransform( QTransform( matrix ) )
+			proxy.moveBy( r.x(), r.y() )
+			proxy.setZValue( 1 )
 
-		#self.scene.addRect( self.svg.renderer().boundsOnElement( 'name' ) )
+		#self.view.fitInView( self.svg, Qt.KeepAspectRatio )
 
-		
-		r = self.svg.renderer().boundsOnElement( 'name' )
-		#rect = QGraphicsRectItem( 0, 0, r.width(), r.height() )
-		#rect = QGraphicsRectItem( r )
-		matrix =  self.svg.renderer().matrixForElement( 'name' )
-		#rect.setTransform( QTransform( matrix ) )
-		#rect.moveBy( r.x(), r.y() )
-		#self.scene.addItem( rect )
+	def display(self, currentRecord, records):
+		# Though it might seem it's not necessary to connect FormView to recordChanged signal it
+		# actually is. This is due to possible 'on_change' events triggered by the modification of
+		# a field. This forces those widgets that might change the record before a 'lostfocus' has been
+		# triggered to ensure the view has saved all its fields. As an example, modifying a char field
+		# and pressing the new button of a OneToMany widget might trigger a recordChanged before 
+		# char field has actually changed the value in the record. After updateDisplay, char field will
+		# be reset to its previous state. Take a look at OneToMany implementation to see what's needed
+		# in such buttons.
+		if self.record:
+			self.disconnect(self.record,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+		self.record = currentRecord
+		if self.record:
+			self.connect(self.record, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+		self.updateDisplay(self.record)
 
-		# W: 91.067, H: 18.522, Rx: 0, Ry: 0.312
-		widget = QLineEdit()
-		proxy = self.scene.addWidget( widget )
-		proxy.resize( QSizeF( 91.067024, 18.522 ) )
-		proxy.setTransform( QTransform( matrix ) )
-		proxy.moveBy( r.x(), r.y() )
-		proxy.setZValue( 1 )
-
-		# W: 156.92343, H: 121.93722
-		r = self.svg.renderer().boundsOnElement( 'contacts' )
-		matrix =  self.svg.renderer().matrixForElement( 'contacts' )
-		widget = QListWidget()
-		widget.addItem( 'Hamburguesa       3.20' )
-		widget.addItem( 'Coca-cola         1.85' )
-		proxy = self.scene.addWidget( widget )
-		proxy.resize( QSizeF( 156.92343, 121.93722 ) )
-		proxy.setTransform( QTransform( matrix ) )
-		print "X: %s, Y: %s" % ( r.x(), r.y() )
-		#proxy.moveBy( r.x(), r.y() )
-		# X: 343.92468 Y: 177.09489"
-		proxy.moveBy( 313.92468, r.y() )
-		proxy.setZValue( 1 )
-
+	def updateDisplay(self, record):
+		# Update data on widgets
+		for name in self.widgets:
+			if self.record:
+				self.widgets[name].load(self.record)
+			else:
+				self.widgets[name].load(None)

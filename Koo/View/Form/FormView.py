@@ -101,6 +101,7 @@ class FormView( AbstractView ):
 		self.screen = parent
 		self.title = ""
 		self.record = None
+		self._readOnly = False
 
 		self.layout = QHBoxLayout( self )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
@@ -159,12 +160,15 @@ class FormView( AbstractView ):
 		self.updateDisplay(self.record)
 
 	def updateDisplay(self, record):
+
 		# Update data on widgets
 		for name in self.widgets:
+			self.widgets[name].setReadOnly( False )
 			if self.record:
 				self.widgets[name].load(self.record)
 			else:
 				self.widgets[name].load(None)
+
 		# Update state widgets
 		for widget in self.stateWidgets:
 			# Consider 'attrs' attribute
@@ -187,6 +191,10 @@ class FormView( AbstractView ):
 					self.setWidgetVisible( widget['widget'], True )
 				else:
 					self.setWidgetVisible( widget['widget'], False )
+
+		if self._readOnly:
+			for name in self.widgets:
+				self.widgets[name].setReadOnly( True )
 
 	def setWidgetVisible(self, widget, value):
 		# We need to know if the widget is a FormContainer and it's the
@@ -220,6 +228,9 @@ class FormView( AbstractView ):
 			'attributes': attributes,
 			'states': states
 		})
+
+	def setReadOnly(self, value):
+		self._readOnly = value
 
 	def viewSettings(self):
 		splitters = self.findChildren( QSplitter )

@@ -375,8 +375,10 @@ class Record(QObject):
 			return
 		c= Rpc.session.context.copy()
 		c.update(self.context())
-		res = self.rpc.read([self.id], self.group.fieldObjects.keys(), c)
+		c['bin_size'] = True
+		res = self.rpc.read([self.id], self.group.allFieldNames(), c)
 		if res:
+
 			value = res[0]
 			self.read_time= time.time()
 			# Set signal=False as we don't want the record to be considered
@@ -499,22 +501,26 @@ class Record(QObject):
 	def isFullyLoaded(self):
 		if not self._loaded:
 			return False
-		if set(self.values.keys()) == set(self.group.fields.keys()):
+		if set(self.values.keys()) == set(self.group.fieldObjects.keys()):
 			return True
 		else:
 			return False
 
+	## @brief Returns True if the Record handles information of a wizard.
+	def isWizard(self):
+		return self.group.isWizard()
+
 	## @brief Returns the list of field names the record should have (according to 
 	# group requirements) but it doesn't.
 	def missingFields(self):
-		return list( set(self.group.fields.keys()) - set(self.values.keys()) )
+		return list( set(self.group.fieldObjects.keys()) - set(self.values.keys()) )
 
 	## @brief Creates entries in the values dictionary for fields
 	# returned by missingFields()
 	def createMissingFields(self):
 		# Try to avoid some CPU cycles because this function is called in value()
 		# function which will be called lots of times.
-		if len(self.group.fields) == len(self.values):
+		if len(self.group.fieldObjects) == len(self.values):
 			return
 		for key in self.missingFields():
 			val = self.group.fieldObjects[key]

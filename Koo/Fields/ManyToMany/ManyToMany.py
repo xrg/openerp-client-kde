@@ -121,10 +121,11 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.screen.remove()
 		self.screen.display()
 
-	def setReadOnly(self, ro):
-		self.uiText.setEnabled( not ro )
-		self.pushAdd.setEnabled( not ro )
-		self.pushRemove.setEnabled( not ro )
+	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
+		self.uiText.setEnabled( not value )
+		self.pushAdd.setEnabled( not value )
+		self.pushRemove.setEnabled( not value )
 
 	def clear(self):
 		self.uiText.setText('')

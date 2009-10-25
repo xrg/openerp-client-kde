@@ -116,7 +116,7 @@ class KooModel(QAbstractItemModel):
 		self._readOnly = value
 
 	## @brief Returns whether the model is read-only or read-write.
-	def readOnly(self):
+	def isReadOnly(self):
 		return self._readOnly
 
 	def recordsInserted(self, start, end):

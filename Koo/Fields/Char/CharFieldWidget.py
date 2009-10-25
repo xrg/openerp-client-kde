@@ -89,6 +89,7 @@ class CharFieldWidget(AbstractFieldWidget):
 		self.widget.setCursorPosition( 0 )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.widget.setReadOnly( value )
 
 	def colorWidget(self):

@@ -64,6 +64,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 			self.widget.addItem( name, QVariant(id) )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.widget.setEnabled(not value)
 
 	def changed(self, text):

@@ -130,18 +130,35 @@ class StringField(QObject):
 
 
 class BinaryField(StringField):
+	def __init__(self, parent, attrs):
+		StringField.__init__(self, parent, attrs)
+		self.sizeName = '%s.size' % self.name
+
 	def set(self, record, value, test_state=True, modified=False):
 		record.values[self.name] = None
+		record.values[self.sizeName] = False
 		if value:
-			record.values[self.name] = base64.decodestring(value)
+			if record.isWizard():
+				value = base64.decodestring(value)
+				record.values[self.name] = value
+				if value:
+					record.values[ self.sizeName ] = Numeric.bytesToText( len(value) )
+				else:
+					record.values[ self.sizeName ] = ''
+			else:
+				record.values[ self.sizeName ] = value
 		if modified:
 			record.modified = True
 			record.modified_fields.setdefault(self.name)
 
 	def set_client(self, record, value, test_state=True):
-		internal = record.values.get(self.name, False)
+		internal = record.values.get(self.name, None)
 		record.values[self.name] = value
-		if (internal or False) != record.values[self.name]:
+		if value:
+			record.values[self.sizeName] = Numeric.bytesToText( len(value or '') )
+		else:
+			record.values[self.sizeName] = ''
+		if internal != record.values[self.name]:
 			self.changed(record)
 
 	def get(self, record, checkLoad=True, readonly=True, modified=False):
@@ -161,6 +178,16 @@ class BinaryField(StringField):
 			if value:
 				record.values[self.name] = base64.decodestring(value)
 		return record.values[self.name]
+
+class BinarySizeField(StringField):
+	def __init__(self, parent, attrs):
+		StringField.__init__(self, parent, attrs)
+		self.name = '%s.size' % attrs['name']
+
+	def set(self, record, value, test_state=True, modified=False):
+		record.values[self.name] = value
+		# Do not mark as modified
+
 
 class SelectionField(StringField):
 	def set(self, record, value, test_state=True, modified=False):
@@ -384,6 +411,7 @@ class FieldFactory:
 	types = {
 		'char' : StringField,
 		'binary' : BinaryField,
+		'binary-size': BinarySizeField,
 		'image' : BinaryField,
 		'float_time': FloatField,
 		'integer' : IntegerField,

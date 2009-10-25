@@ -113,11 +113,8 @@ class AbstractFieldWidget(QWidget):
 		dialog = FieldPreferencesDialog(self.attrs['name'], self.attrs.get('string', self.attrs['name']), model, value, deps)
 		dialog.exec_()
 
-	## @brief Updates the background color depending on widget state.
-	#
-	# Possible states are: invalid, readonly, required and normal.
-	def refresh(self):
-		self.setReadOnly( self._readOnly )
+
+	def updateColor(self):
 		if self.record and not self.record.isFieldValid( self.name ):
 			self.setColor('invalid')
 		elif self._readOnly:
@@ -132,11 +129,18 @@ class AbstractFieldWidget(QWidget):
 	# of read-only. The gray color gives information to the user so she knows 
 	# the field can't be modified
 	def setReadOnly(self, ro):
-		pass
+		self._readOnly = ro
+		self.updateColor()
 
 	## @brief This function returns True if the field is read-only. False otherwise.
 	def isReadOnly(self):
 		return self._readOnly
+
+	## @brief Updates the background color depending on widget state.
+	#
+	# Possible states are: invalid, readonly, required and normal.
+	def refresh(self):
+		self.setReadOnly( self._readOnly )
 
 	## @brief Use it in your widget to return the widget in which you want the color 
 	# indicating the obligatory, normal, ... etc flags to be set. 
@@ -155,14 +159,6 @@ class AbstractFieldWidget(QWidget):
 	#
 	# The appropiate color for each state is stored in self.colors dictionary.
 	def setColor(self, name):
-		# Set the appropiate property so it can be used
-		# in stylesheets
-		self.setProperty('invalid', QVariant(False))
-		self.setProperty('readonly', QVariant(False))
-		self.setProperty('required', QVariant(False))
-		self.setProperty('normal', QVariant(False))
-		self.setProperty(name, QVariant(True))
-
 		color = QColor( self.colors.get( name, 'white' ) )
 		palette = QPalette()
 		palette.setColor(QPalette.Base, color)

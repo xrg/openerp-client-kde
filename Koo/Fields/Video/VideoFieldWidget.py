@@ -136,6 +136,7 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 		self.updateButtons()
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.pushLoad.setEnabled( not value )
 
 	def isBinary(self):

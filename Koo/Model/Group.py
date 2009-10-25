@@ -135,7 +135,6 @@ class RecordGroup(QObject):
 		return self._onWriteFunction
 
 	def __del__(self):
-		#print "DEL..."
 		self.rpc = None
 		self.parent = None
 		self.resource = None
@@ -146,14 +145,12 @@ class RecordGroup(QObject):
 				continue
 			r.__del__()
 		self.records = []
-		#print "F: ", self.fieldObjects
 		for f in self.fieldObjects:
 			self.fieldObjects[f].parent = None
 			self.fieldObjects[f].setParent( None )
 			#self.disconnect( self.fieldObjects[f], None, 0, 0 )
 			#self.fieldObjects[f] = None
 			#del self.fieldObjects[f]
-		#print "DELETE"
 		self.fieldObjects = {}
 
 	## @brief Returns a string with the name of the type of a given field. Such as 'char'.
@@ -168,6 +165,8 @@ class RecordGroup(QObject):
 			fvalue = self.fields[fname]
 			fvalue['name'] = fname
 			self.fieldObjects[fname] = Field.FieldFactory.create( fvalue['type'], self, fvalue )
+			if fvalue['type'] in ('binary','image'):
+				self.fieldObjects['%s.size' % fname] = Field.FieldFactory.create( 'binary-size', self, fvalue )
 
 	## @brief Saves all the records. 
 	#
@@ -353,8 +352,6 @@ class RecordGroup(QObject):
 		self._signalsEnabled = True
 	
 	def recordChanged(self, record):
-		#import traceback
-		#traceback.print_stack()
 		if self._signalsEnabled:
 			self.emit( SIGNAL('recordChanged(PyQt_PyObject)'), record )
 
@@ -385,6 +382,12 @@ class RecordGroup(QObject):
 		self.emit( SIGNAL('modified()') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx )
 
+	def binaryFieldNames(self):
+		return [x[:-5] for x in self.fieldObjects.keys() if x.endswith('.size')]
+
+	def allFieldNames(self):
+		return [x for x in self.fieldObjects.keys() if not x.endswith('.size')]
+
 	## @brief Adds the specified fields to the record group
 	#
 	# Note that it updates 'fields' and 'fieldObjects' in the group.
@@ -408,6 +411,7 @@ class RecordGroup(QObject):
 		ids = self.unloadedIds()
 		c = Rpc.session.context.copy()
 		c.update( self.context() )
+		c['bin_size'] = True
 		values = self.rpc.read( ids, self.fields.keys(), c )
 		if values:
 			for v in values:
@@ -531,7 +535,10 @@ class RecordGroup(QObject):
 			self.connect(record,SIGNAL('recordModified( PyQt_PyObject )'),self.recordModified)
 			self.records[row] = record
 			return record
-		
+	
+	## @brief Returns True if the RecordGroup handles information of a wizard.
+	def isWizard(self):
+		return self.resource.startswith('wizard.')
 
 	## @brief Checks whether the specified record is fully loaded and loads
 	# it if necessary.
@@ -556,27 +563,14 @@ class RecordGroup(QObject):
 		missingFields = record.missingFields()
 
 		self.disableSignals()
-		# Load only non binary and image fields
-		binaries = [x for x in missingFields if self.fields[x]['type'] in ('binary','image')]
-		others = list( set(missingFields) - set(binaries) )
-		if others:
-			values = self.rpc.read(queryIds, others, c)
-			if values:
-				for v in values:
-					id = v['id']
-					if 'id' not in others:
-						del v['id']
-					self.recordById(id).set(v, signal=False)
-		if binaries:
-			# We set binaries to the special value None so
-			# the field will know it hasn't been loaded and thus
-			# load data on demand when get() is called.
-			data = {}
-			for x in binaries:
-				data[x] = None
-			for x in queryIds:
-				self.disableSignals()
-				self.recordById(x).set( data )
+		c['bin_size'] = True
+		values = self.rpc.read(queryIds, missingFields, c)
+		if values:
+			for v in values:
+				id = v['id']
+				if 'id' not in missingFields:
+					del v['id']
+				self.recordById(id).set(v, signal=False)
 		self.enableSignals()
 		# TODO: Take a look if we need to set default values for new records!
 		## Set defaults
@@ -767,7 +761,7 @@ class RecordGroup(QObject):
 			return
 
 		if not self.updated:
-			ids = self.rpc( self._domain + self._filter, 0, self.limit, False, self._context )
+			ids = self.rpc.search( self._domain + self._filter, 0, self.limit, False, self._context )
 			self.clear()
 			self.load( ids )
 		

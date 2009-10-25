@@ -89,3 +89,14 @@ def isNumeric(value):
 		return float(value) or True
 	except (ValueError, TypeError), e:
 		return False
+
+## @brief This function converts the given paramter (which should be a number) into
+# a human readable storage value, ie. bytes, Kb, Mb, Gb, Tb.
+def bytesToText(number):
+	number = float(number)
+	texts = [ _('%d bytes'), _('%.2f Kb'), _('%.2f Mb'), _('%.2f Gb'), _('%.2f Tb') ]
+	i = 0
+	while number >= 1024 and i < len(texts) - 1:
+		number = number / 1024
+		i += 1
+	return texts[i] % number

@@ -76,6 +76,8 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 				if type == 'workflow':
 					QApplication.setOverrideCursor( Qt.WaitCursor )
 					try:
+						# TODO: Uncomment when our patch will be applied in the server
+						#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, self.record.context())
 						result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
 						if isinstance( result, dict ):
 							if result['type'] == 'ir.actions.act_window_close':
@@ -119,6 +121,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 			screen.display()
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.button.setEnabled( not value )
 
 	def showValue(self):

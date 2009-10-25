@@ -64,6 +64,7 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 		self.uiWeb.setUrl(QUrl(self.record.value(self.name) or ''))
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		# We always enable the browser so the user can use links.
 		self.uiWeb.setEnabled( True )
 

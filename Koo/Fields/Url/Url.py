@@ -64,6 +64,7 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		self.uiUrl.setCursorPosition( 0 )
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiUrl.setReadOnly( value )
 
 	def openUrl(self):

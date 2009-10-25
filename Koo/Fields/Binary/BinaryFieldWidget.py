@@ -36,6 +36,7 @@ from PyQt4.uic import *
 
 from Koo.Common import Common
 from Koo.Common import Semantic
+from Koo.Common import Numeric
 
 (BinaryFieldWidgetUi, BinaryFieldWidgetBase) = loadUiType( Common.uiPath('binary.ui') ) 
 
@@ -78,9 +79,25 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.connect( self.actionShowImage, SIGNAL('triggered()'), self.showImage )
 		self.connect( self.menu, SIGNAL('aboutToShow()'), self.updateShowImageAction )
 
+		self.uiBinary.setAcceptDrops( True )
 		self.installPopupMenu( self.uiBinary )
+
+		self.sizeName = '%s.size' % self.name 
 		
+	def eventFilter(self, target, event):
+		if not event.type() in (QEvent.Drop, QEvent.DragEnter, QEvent.DragMove):
+			return AbstractFieldWidget.eventFilter(self, target, event)
+		if not event.mimeData().hasText():
+			return AbstractFieldWidget.eventFilter(self, target, event)
+		if event.type() in (QEvent.DragMove, QEvent.DragEnter):
+			event.accept()
+			return True
+		path = unicode( event.mimeData().text() ).replace( 'file://', '' )
+		self.setBinaryFile( path )
+		return True
+
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiBinary.setEnabled( not value )
 		self.pushNew.setEnabled( not value )
 		self.pushRemove.setEnabled( not value )
@@ -94,7 +111,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			self.actionShowImage.setEnabled( False )
 		
 	def updateActions(self):
-		if self.record and self.record.value(self.name):
+		if self.record and self.record.value(self.sizeName):
 			enable = True
 		else:
 			enable = False
@@ -103,16 +120,14 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.actionShowImage.setEnabled( enable )
 
 	def menuEntries(self):
+		enableApplication = False
+		enableImage = False
 		if self.record.value(self.name):
 			enableApplication = True
-		else:
-			enableApplication = False
+			pix = QPixmap()
+			if pix.loadFromData( self.record.value(self.name) ):
+				enableImage = True
 
-		pix = QPixmap()
-		if pix.loadFromData( self.record.value(self.name) ):
-			enableImage = True
-		else:
-			enableImage = False
 		return [ (_('Open...'), self.open, enableApplication), 
 			 (_('Show &image...'), self.showImage, enableImage) ]
 
@@ -154,7 +169,9 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			return
 		filename = unicode(filename)
 		self.baseDirectory = os.path.dirname(filename)
+		self.setBinaryFile( filename )
 
+	def setBinaryFile(self, filename):
 		try:
 			value = file(filename, 'rb').read()
 		except Exception, e:
@@ -162,7 +179,6 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			return
 
 		self.record.setValue( self.name, value )
-		self.setText( _('%d bytes') % len(value) )
 
 		# The binary widget might have a 'filename' attribute
 		# that stores the file name in the field indicated by 'filename'
@@ -170,7 +186,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 			self.record.setValue( self.fileNameField, os.path.basename(filename) )
 			if self.view:
 				self.view.widgets[self.fileNameField].load(self.record)
-		self.updateActions()
+		self.showValue()
 
 	def fileName(self):
 		if self.fileNameField:
@@ -208,9 +224,8 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 				self.view.widgets[w].load(self.record)
 
 	def showValue(self):
-		if self.record.value( self.name ):
-			size = len( self.record.value( self.name ) )
-			self.setText( _('%d bytes') % size ) 
+		if self.record.value( self.sizeName ):
+			self.setText( self.record.value( self.sizeName ) )
 		else:
 			self.clear()
 		self.updateActions()
@@ -220,7 +235,10 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.updateActions()
 
 	def setText(self, text):
-		self.uiBinary.setText( text )
+		if text:
+			self.uiBinary.setText( text )
+		else:
+			self.uiBinary.clear()
 		self.uiBinary.setCursorPosition( 0 )
 
 	# This widget is a bit special. We don't set the value

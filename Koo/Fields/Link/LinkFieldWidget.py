@@ -48,6 +48,7 @@ class LinkFieldWidget(AbstractFieldWidget, LinkFieldWidgetUi):
 		self.installPopupMenu( self.uiText )
 		
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiText.setReadOnly( value )
 		self.pushOpen.setEnabled( not value )
 

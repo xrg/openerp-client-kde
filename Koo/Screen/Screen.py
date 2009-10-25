@@ -116,6 +116,7 @@ class Screen(QScrollArea):
 		self._previousView = -1
 
 		self._viewQueue = ViewQueue()
+		self._readOnly = False
 
 	## @brief Sets the focus to current view.
 	def setFocusToView(self):
@@ -194,6 +195,13 @@ class Screen(QScrollArea):
 				self.searchForm.show()
 		else:
 			self.searchForm.hide()
+
+	def setReadOnly(self, value):
+		self._readOnly = value
+		self.display()
+
+	def isReadOnly(self):
+		return self._readOnly
 
 	## @brief This function is expected to be used as a slot for an Action trigger signal.
 	# (as it will check the sender). It will call the Action.execute(id,ids) function.
@@ -424,7 +432,9 @@ class Screen(QScrollArea):
 	# @param id View id. This parameter is used for storing and loading settings for the view. If id=False, no
 	#		settings will be stored/loaded.
 	# @return The view widget
-	def addView(self, arch, fields, display=False, toolbar={}, id=False):
+	def addView(self, arch, fields, display=False, toolbar=None, id=False):
+		if toolbar is None:
+			toolbar = {}
 		def _parse_fields(node, fields):
 			if node.nodeType == node.ELEMENT_NODE:
 				if node.localName=='field':
@@ -480,10 +490,6 @@ class Screen(QScrollArea):
 			# actions configured in the server, but Print Screen can be useful.
 			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('show_toolbar'):
 				self.toolBar.setup( self.actions )
-
-	## @brief Returns True if the current view is read-only. Returns False if it's read-write.
-	def isReadOnly(self):
-		return self.currentView().isReadOnly()
 
 	## @brief Creates a new record in the current model. If the current view is not editable
 	# it will automatically switch to a view that allows editing.
@@ -690,6 +696,7 @@ class Screen(QScrollArea):
 		if id:
 			self.setCurrentRecord( self.group[id] )
 		if self.views:
+			self.currentView().setReadOnly( self.isReadOnly() )
 			self.currentView().display(self.currentRecord(), self.group)
 
 	## @brief Moves current record to the next one in the list and displays it in the 

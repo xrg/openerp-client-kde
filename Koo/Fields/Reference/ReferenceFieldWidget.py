@@ -95,6 +95,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			self.invertedModels[i] = j
 
 	def setReadOnly(self, value):
+		AbstractFieldWidget.setReadOnly(self, value)
 		self.updateStates()
 
 	def updateStates(self):

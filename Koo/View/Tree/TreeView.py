@@ -179,7 +179,7 @@ class TreeView( AbstractView ):
 		layout.addWidget( self.widget )
 		layout.addWidget( self.aggregatesContainer )
 		self.setLayout( layout )
-		self.setReadOnly( True )
+		self._readOnly = True
 	
 	def viewType(self):
 		return 'tree'
@@ -332,10 +332,12 @@ class TreeView( AbstractView ):
 			self.widget.setSelectionMode( QAbstractItemView.SingleSelection )
 
 	def setReadOnly(self, value):
+		# We only allow readOnly property to be set if recordGroup is read-write.
+		if not self.treeModel:
+			return
+		if self.treeModel.isReadOnly():
+			return
 		self._readOnly = value
-		# We only allow changing sort order when the view is read only
-		# TODO: Uncomment this
-		#self.widget.setSortingEnabled( value )
 		if self._readOnly:
 			self.widget.setEditTriggers( QAbstractItemView.NoEditTriggers ) 
 			self.widget.setTabKeyNavigation( False )
