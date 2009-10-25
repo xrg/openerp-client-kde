@@ -36,7 +36,7 @@ class EnterEventFilter(QObject):
 				event = QKeyEvent( event.type(), Qt.Key_Space, event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
 				QApplication.sendEvent( obj, event )
 				return True
-			elif not isinstance(obj, QTextEdit):
+			elif type(obj) in (QLineEdit, QComboBox, QCheckBox):
 				event = QKeyEvent( event.type(), Qt.Key_Tab, event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
 				QApplication.sendEvent( obj, event )
 				return True
