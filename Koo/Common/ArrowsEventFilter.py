@@ -33,8 +33,12 @@ class ArrowsEventFilter(QObject):
 		if not object.isWidgetType():
 			return []
 		result = []
-		if object.isVisible() and object.focusPolicy() != Qt.NoFocus:
-			result += [ object ]
+		if object.isVisible() and object.focusPolicy() != Qt.NoFocus and object.isEnabled():
+			if object.inherits('QLineEdit'):
+				if not object.isReadOnly():
+					result += [ object ]
+			else:
+				result += [ object ]
 		for child in object.children():
 			result += self.allWidgets( child )
 		return result
