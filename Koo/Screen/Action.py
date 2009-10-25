@@ -1,4 +1,4 @@
-##############################################################################
+#############################################################################
 #
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
@@ -140,6 +140,17 @@ class ActionFactory:
 				action.setType( icontype )
 				action.setData( tool )
 				action.setModel( model )
+
+				number = len(actions)
+				shortcut = 'Ctrl+'
+				if number > 9:
+					shortcut += 'Shift+'
+					number -= 10
+				if number < 10:
+					shortcut += str(number)
+					action.setShortcut( QKeySequence( shortcut ) )
+					action.setToolTip( action.text() + ' (%s)' % shortcut )
+
 				actions.append( action )
 
 		plugs = Plugins.list(model)
