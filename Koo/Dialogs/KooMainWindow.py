@@ -271,8 +271,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			if not widget.canClose():
 				return False
 		self.tabWidget.removeTab( tab ) 
-		widget.setParent( None )
-		del widget
+		if widget:
+			widget.setParent( None )
+			del widget
 		self.updateEnabledActions()
 		return True
 
