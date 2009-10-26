@@ -37,8 +37,9 @@ class EnterEventFilter(QObject):
 				QApplication.sendEvent( obj, event )
 				return True
 			elif type(obj) in (QLineEdit, QComboBox, QCheckBox):
-				event = QKeyEvent( event.type(), Qt.Key_Tab, event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
-				QApplication.sendEvent( obj, event )
-				return True
+				if obj.parent() and obj.parent().inherits( 'AbstractFieldWidget' ):
+					event = QKeyEvent( event.type(), Qt.Key_Tab, event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
+					QApplication.sendEvent( obj, event )
+					return True
 		return QObject.eventFilter( self, obj, event )	
 
