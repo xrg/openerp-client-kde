@@ -177,11 +177,22 @@ class Wizard( QObject ):
 		self.step()
 
 ## @brief Executes the wizard with the provided information.
+## 
+## We assume the Wizard object will behave as a thread, all its long operations
+## will be done asynchronously. Thus, we install a timer in our event loop to
+## check for wizard finish
 def execute(action, datas, state='init', parent=None, context=None):
 	if context is None:
 		context = {}
 	w = Wizard(action, datas, state, parent, context)
 	w.step()
+	timer = QTimer(QCoreApplication.instance())
+	timer.setSingleShot(False)
+	# this timer won't call anything! Just cause the event loop to have
+	# events every 0.5 sec
+	timer.start(500)
 	while not w.finished:
 		QCoreApplication.processEvents(QEventLoop.WaitForMoreEvents)
+	timer.stop()
+	
 
