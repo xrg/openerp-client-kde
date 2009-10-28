@@ -44,7 +44,10 @@ class mysocket:
 			socket.AF_INET, socket.SOCK_STREAM)
 		else:
 			self.sock = sock
-		self.sock.settimeout(120)
+		# self.sock.settimeout(120)
+		# prepare this socket for long operations: it may block for infinite
+		# time, but should exit as soon as the net is down
+                self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
 	def connect(self, host, port=False):
 		if not port:
 			protocol, buf = host.split('//')
@@ -74,7 +77,7 @@ class mysocket:
 		buf=''
 		while len(buf) < 8:
 			chunk = self.sock.recv(8 - len(buf))
-			if chunk == '':
+			if not chunk:
 				raise RuntimeError, "socket connection broken"
 			buf += chunk
 		size = int(buf)
@@ -86,7 +89,7 @@ class mysocket:
 		msg = ''
 		while len(msg) < size:
 			chunk = self.sock.recv(size-len(msg))
-			if chunk == '':
+			if not chunk :
 				raise RuntimeError, "socket connection broken"
 			msg = msg + chunk
 		res = cPickle.loads(msg)

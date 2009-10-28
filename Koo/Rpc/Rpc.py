@@ -189,7 +189,8 @@ class SocketConnection(Connection):
 				s.mysend( (obj, method) + encodedArgs )
 			result = s.myreceive()
 		except socket.error, err:
-			raise RpcProtocolException( unicode(err) )
+			# print err.strerror
+			raise RpcProtocolException( err.strerror )
 		except tiny_socket.Myexception, err:
 			faultCode = unicode( err.faultCode, 'utf-8' )
 			faultString = unicode( err.faultString, 'utf-8' )
@@ -462,6 +463,9 @@ class Session:
 			else:
 				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
 			raise
+		except Exception,e:
+			print "Unhandled exception in execute", e
+			pass
 
 
 	## @brief Logs in the given server with specified name and password.
