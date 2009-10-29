@@ -124,7 +124,7 @@ class StringField(QObject):
 	def default(self, record):
 		return self.get(record)
 
-	def create(self, model):
+	def create(self, record):
 		return False
 
 
@@ -265,9 +265,9 @@ class ManyToOneField(StringField):
 # been modified because the pointed object stores the relation to the
 # parent.
 class ToManyField(StringField):
-	def create(self, model):
+	def create(self, record):
 		from Koo.Model.Group import RecordGroup
-		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=model, context=self.context(model, eval=False))
+		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
 		group.setAllowRecordLoading( False )
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		return group
@@ -288,7 +288,7 @@ class ToManyField(StringField):
 		# a field of the parent appears in the context, and the parent is just being loaded.
 		# This has crashed when switching view of the 'account.invoice.line' one2many field
 		# in 'account.invoice' view.
-		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record)
+		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.load(value)
@@ -337,7 +337,7 @@ class OneToManyField(ToManyField):
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			fields = Rpc2.fields_get(value[0].keys(), context)
 
-		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record)
+		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record, context=self.context(record, eval=False))
 		self.connect( record.values[self.name], SIGNAL('modified()'), self.groupModified )
 		mod=None
 		for record in (value or []):
