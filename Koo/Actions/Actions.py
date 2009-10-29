@@ -134,7 +134,7 @@ def execute(act_id, datas, type=None, context=None):
 			raise Exception, 'ActionNotFound'
 		type=res[0]['type']
 	res = Rpc.session.execute('/object', 'execute', type, 'read', [act_id], False, ctx)[0]
-	Api.instance.executeAction(res,datas)
+	Api.instance.executeAction(res,datas,context)
 
 ## @brief Executes the given action (it could be a report, wizard, etc).
 def executeAction(action, datas, context=None):
@@ -160,9 +160,10 @@ def executeAction(action, datas, context=None):
 
 		if not action.get('domain', False):
 			action['domain']='[]'
-		ctx = {'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])}
+
+		ctx = context.copy()
+		ctx.update( {'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])} )
 		ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
-		ctx.update(context)
 
 		a = ctx.copy()
 		a['time'] = time
@@ -183,6 +184,13 @@ def executeAction(action, datas, context=None):
 		#for key in tools.expr_eval(action.get('context', '{}')).keys():
 		#	del Rpc.session.context[key]
 
+	elif action['type']=='ir.actions.server':
+		ctx = context.copy()
+		ctx.update({'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])})
+		res = Rpc.session.execute('/object', 'execute', 'ir.actions.server', 'run', [action['id']], ctx)
+		if res:
+			self.executeAction( res, datas, context )
+
 	elif action['type']=='ir.actions.wizard':
 		win=None
 		if 'window' in datas:
@@ -195,13 +203,13 @@ def executeAction(action, datas, context=None):
 			win=datas['window']
 			del datas['window']
 		datas['report_id'] = action['report_id']
-		Api.instance.executeReport('custom', datas)
+		Api.instance.executeReport('custom', datas, context)
 
 	elif action['type']=='ir.actions.report.xml':
 		if 'window' in datas:
 			win=datas['window']
 			del datas['window']
-		Api.instance.executeReport(action['report_name'], datas)
+		Api.instance.executeReport(action['report_name'], datas, context)
 	elif action['type']=='ir.actions.act_url':
 		QDesktopServices.openUrl( QUrl( action.get('url','') ) )
 
