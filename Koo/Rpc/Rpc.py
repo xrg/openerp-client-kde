@@ -33,6 +33,7 @@ import xmlrpclib
 import socket
 import tiny_socket
 from Cache import *
+from Koo.Common.safe_eval import safe_eval
 
 ConcurrencyCheckField = '__last_update'
 
@@ -464,7 +465,9 @@ class Session:
 				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
 			raise
 		except Exception,e:
-			print "Unhandled exception in execute", e
+			import traceback
+			print "Unhandled exception in execute", e, type(e)
+			traceback.print_exc()
 			pass
 
 
@@ -530,13 +533,15 @@ class Session:
 	# plus the appropiate 'uid' in it.
 	def evaluateExpression(self, expression, context=None):
 		if context is None:
-			context = {}
-		context['uid'] = self.uid
+			ctx = {}
+		else:
+			ctx = context.copy()
+		ctx['uid'] = self.uid
 		if isinstance(expression, basestring):
 			expression = expression.replace("'active_id'","active_id")
-			return eval(expression, context)
+			return safe_eval(expression, ctx)
 		else:
-			return expression 
+			return expression
 
 	def copy(self):
 		new = Session()

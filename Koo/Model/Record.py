@@ -52,7 +52,13 @@ class EvalEnvironment(object):
 			return time.strftime('%Y-%m-%d')
 		if item=="time":
 			return time
-		return self.parent.get(includeid=True)[item]
+		if item=="__getstate__":
+			return lambda : None
+		try:
+		    return self.parent.get(includeid=True)[item]
+		except KeyError, e:
+		    # the proper exc for __getattr__ is AttributeError!
+		    raise AttributeError(e)
 
 	def __del__(self):
 		self.parent = None
