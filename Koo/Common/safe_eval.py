@@ -28,11 +28,17 @@
 __export_bis = {}
 import sys
 
+def __safe_globals(copy_ob):
+    slocs = copy_ob.copy()
+    if slocs.has_key('__builtins__'):
+        del slocs['__builtins__']
+    return slocs
+
 def __init_ebis():
 	global __export_bis
 	
 	_evars = [ 'abs', 'all', 'any', 'basestring' , 'bool', 
-		'chr', 'cmp','complex', 'dict', 'divmod', 'enumerate',
+		'chr', 'cmp','complex', 'dict', 'divmod', 'dir', 'enumerate',
 		'float', 'frozenset', 'getattr', 'hasattr', 'hash',
 		'hex', 'id','int', 'iter', 'len', 'list', 'long', 'map', 'max',
 		'min', 'oct', 'ord','pow', 'range', 'reduce', 'repr',
@@ -44,7 +50,6 @@ def __init_ebis():
 		_evars.extend(['bin', 'format', 'next'])
 	for v in _evars:
 		__export_bis[v] = __builtins__[v]
-	
 
 __init_ebis()
 
@@ -60,7 +65,7 @@ def safe_eval(expr,sglobals,slocals = None):
 		# we copy, because we wouldn't want successive calls to safe_eval
 		# to be able to alter the builtins.
 		sglobals['__builtins__'] = __export_bis.copy()
-		
+		sglobals['__builtins__']['globals'] = lambda : __safe_globals(sglobals)
 	return eval(expr,sglobals,slocals)
 	
 #eof
