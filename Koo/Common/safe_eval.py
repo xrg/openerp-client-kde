@@ -32,6 +32,9 @@ def __safe_globals(copy_ob):
     slocs = copy_ob.copy()
     if slocs.has_key('__builtins__'):
         del slocs['__builtins__']
+    for k in slocs.keys():
+        if type(slocs[k]) == type(sys):
+            del slocs[k]
     return slocs
 
 def __init_ebis():
