@@ -204,6 +204,16 @@ class PopupCalendarWidget(QWidget, PopupCalendarUi):
 		self.setWindowModality( Qt.ApplicationModal )
 		pos = parent.parent().mapToGlobal( parent.pos() )
 		self.move( pos.x(), pos.y() + parent.height() )
+
+		# Check if the widget falls out of the available screen space
+		newX = self.x()
+		newY = self.y()
+		if self.frameGeometry().right() > QApplication.desktop().availableGeometry().right():
+			newX = QApplication.desktop().availableGeometry().right() - self.width()
+		if self.frameGeometry().bottom() > QApplication.desktop().availableGeometry().bottom():
+			newY = QApplication.desktop().availableGeometry().bottom() - self.height()
+		self.move( newX, newY )
+
 		self.connect( self.uiCalendar, SIGNAL('activated(QDate)'), self.storeOnParent )
 		if self.showTime:
 			self.uiCalendar.setSelectedDate( textToDateTime( parent.text() ).date() )
