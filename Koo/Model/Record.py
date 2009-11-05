@@ -228,6 +228,7 @@ class Record(QObject):
 
 	## @brief Marks the current record as not loaded.
 	def cancel(self):
+		self._modified = False
 		self._loaded = False
 
 	## @brief Save the record to the database. It doesn't matter if the record is new or already exists.

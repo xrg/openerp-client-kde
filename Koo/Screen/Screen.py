@@ -576,6 +576,12 @@ class Screen(QScrollArea):
 			id = self.currentId()
 			idx = self.group.indexOfRecord(self.currentRecord())
 			
+
+		# If we didn't cancel before updating, update may not work if there were modified
+		# records. So we first ensure the group is not set as modified and then update/reload
+		# it. Note that not cancelling here has other side effects such as that group.sortAll
+		# may send a "could not sort" signal and cause an infinite recursion exception.
+		self.cancel()
 		self.group.update()
 		if id:
 			record = self.group.modelById( id )
