@@ -26,6 +26,7 @@
 #
 ##############################################################################
 
+from Koo.Common import Shortcuts
 
 from Koo.Fields.TranslationDialog import *
 from Koo.Fields.AbstractFieldWidget import *
@@ -48,6 +49,11 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 			pushTranslate.setIcon( QIcon( ':/images/locale.png' ) )
 			layout.addWidget( pushTranslate )
 			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
+
+			self.scTranslate = QShortcut( self.widget )
+			self.scTranslate.setKey( Shortcuts.SearchInField )
+			self.scTranslate.setContext( Qt.WidgetShortcut )
+			self.connect( self.scTranslate, SIGNAL('activated()'), self.translate )
 
 	def translate(self):
 		if not self.record.id:
