@@ -150,6 +150,9 @@ if Settings.value('enter_as_tab'):
 from Common import ArrowsEventFilter
 app.installEventFilter( ArrowsEventFilter.ArrowsEventFilter(win) )
 
+from Common import WhatsThisEventFilter
+app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(win) )
+
 if Settings.value('tip.autostart'):
 	dialog = Common.TipOfTheDayDialog()
 	dialog.exec_()

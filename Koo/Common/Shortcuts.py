@@ -31,4 +31,5 @@ from PyQt4.QtCore import *
 
 CreateInField = Qt.Key_F1
 SearchInField = Qt.Key_F2
+WhatsThis = Qt.Key_F10
 

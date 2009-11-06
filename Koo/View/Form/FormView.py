@@ -75,9 +75,11 @@ class FormContainer( QWidget ):
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 			if helpText:
+				helpText = '<b>%s</b><br/>%s' % (labelText, helpText)
 				label.setText( unicode( '<small><a href="help">?</a></small> ' + labelText ) )
-				label.setToolTip( '<b>%s</b><br/>%s' % (labelText, helpText) )
+				label.setToolTip( helpText )
 				label.setWhatsThis( helpText )
+				widget.setWhatsThis( helpText )
 				self.connect( label, SIGNAL('linkActivated(QString)'), self.showHelp )
 
 			self.layout.addWidget( label, self.row, self.column )
