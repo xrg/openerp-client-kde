@@ -135,17 +135,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
-        <translation type="unfinished">κωδικός πρόσβασης:</translation>
+        <translation>Πα&amp;λιός Κωδικός:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
-        <translation type="unfinished">Νέο κωδικός πρόσβασης:</translation>
+        <translation type="unfinished">&amp;Νέο κωδικός:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
-        <translation type="unfinished">Νέο κωδικός πρόσβασης:</translation>
+        <translation>Επιβεβαίωση νέου &amp;κωδικού:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="138"/>
@@ -340,7 +340,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="123"/>
         <source>TextLabel</source>
-        <translation type="unfinished">TextLabel</translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="161"/>
@@ -408,22 +408,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="343"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished">&amp;Αποδοχή</translation>
+        <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="357"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Ακύρωση</translation>
+        <translation>&amp;Ακύρωση</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="292"/>
         <source>Admin password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Κωδικός διαχειριστή:</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="299"/>
         <source>Repeat admin password</source>
-        <translation type="unfinished"></translation>
+        <translation>Επανάληψη κωδικού</translation>
     </message>
 </context>
 <context>
@@ -436,7 +436,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="56"/>
         <source>Database created successfully!</source>
-        <translation type="unfinished">Βάση δεδομένων!</translation>
+        <translation>Η βάση δεδομένων δημιουργήθηκε!</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="66"/>
@@ -452,7 +452,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="98"/>
         <source>Connect &amp;now</source>
-        <translation>Σύνδεση τώρα</translation>
+        <translation>Σύνδεση τώ&amp;ρα</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="112"/>
@@ -546,7 +546,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_export.ui" line="138"/>
         <source>Remo&amp;ve all</source>
-        <translation>Αφαίρεση όλων</translation>
+        <translation>Αφαίρεση όλ&amp;ων</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="162"/>
@@ -624,7 +624,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="134"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished">&amp;Αποδοχή</translation>
+        <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="144"/>
@@ -642,7 +642,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="image.ui" line="25"/>
         <source>TextLabel</source>
-        <translation type="unfinished">TextLabel</translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="image.ui" line="56"/>
@@ -667,7 +667,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="56"/>
         <source>E</source>
-        <translation type="unfinished">Α</translation>
+        <translation>E</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="69"/>
@@ -677,132 +677,132 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="keyboard.ui" line="82"/>
         <source>T</source>
-        <translation type="unfinished">T</translation>
+        <translation>T</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="95"/>
         <source>Y</source>
-        <translation type="unfinished">Ψ</translation>
+        <translation>Y</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="108"/>
         <source>U</source>
-        <translation type="unfinished">U</translation>
+        <translation>U</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="121"/>
         <source>I</source>
-        <translation type="unfinished">I</translation>
+        <translation>I</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="134"/>
         <source>O</source>
-        <translation type="unfinished">O</translation>
+        <translation>O</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="147"/>
         <source>J</source>
-        <translation type="unfinished"></translation>
+        <translation>J</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="160"/>
         <source>F</source>
-        <translation type="unfinished">F</translation>
+        <translation>F</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="173"/>
         <source>K</source>
-        <translation type="unfinished"></translation>
+        <translation>K</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="186"/>
         <source>G</source>
-        <translation type="unfinished">G</translation>
+        <translation>G</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="199"/>
         <source>A</source>
-        <translation type="unfinished">A</translation>
+        <translation>A</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="212"/>
         <source>L</source>
-        <translation type="unfinished">L</translation>
+        <translation>L</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="238"/>
         <source>S</source>
-        <translation type="unfinished">Ν</translation>
+        <translation>Ν</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="251"/>
         <source>D</source>
-        <translation type="unfinished">D</translation>
+        <translation>D</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="264"/>
         <source>H</source>
-        <translation type="unfinished">H</translation>
+        <translation>H</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="277"/>
         <source>M</source>
-        <translation type="unfinished">M</translation>
+        <translation>M</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="290"/>
         <source>V</source>
-        <translation type="unfinished">V</translation>
+        <translation>V</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="303"/>
         <source>,</source>
-        <translation type="unfinished">,</translation>
+        <translation>,</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="316"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="329"/>
         <source>Z</source>
-        <translation type="unfinished">Z</translation>
+        <translation>Z</translation>
     </message>
     <message>
         <location filename="keypad.ui" line="225"/>
         <source>.</source>
-        <translation type="unfinished"></translation>
+        <translation>.</translation>
     </message>
     <message>
         <location filename="keypad.ui" line="56"/>
         <source>-</source>
-        <translation type="unfinished">-</translation>
+        <translation>-</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="368"/>
         <source>X</source>
-        <translation type="unfinished">Χ</translation>
+        <translation>Χ</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="381"/>
         <source>C</source>
-        <translation type="unfinished">C</translation>
+        <translation>C</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="394"/>
         <source>N</source>
-        <translation type="unfinished">Β</translation>
+        <translation>N</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="407"/>
         <source>Enter</source>
-        <translation type="unfinished">Εισαγωγή</translation>
+        <translation>Enter</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="420"/>
         <source>Tab</source>
-        <translation type="unfinished">Στηλοθέτης</translation>
+        <translation>Tab</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="433"/>
@@ -1080,7 +1080,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="178"/>
         <source>&amp;Field separator</source>
-        <translation type="unfinished">Πεδίο</translation>
+        <translation>Διαχωριστής Πεδίων</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="188"/>
@@ -1405,7 +1405,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="683"/>
         <source>E&amp;xport Data</source>
-        <translation>Εξαγωγή Δεδομένων</translation>
+        <translation>Ε&amp;ξαγωγή Δεδομένων</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="692"/>
@@ -1511,7 +1511,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="599"/>
         <source>F6</source>
-        <translation type="unfinished">F6</translation>
+        <translation>F6</translation>
     </message>
 </context>
 <context>
