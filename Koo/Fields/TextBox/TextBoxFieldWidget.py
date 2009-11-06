@@ -50,7 +50,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 			layout.addWidget( pushTranslate )
 			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
 
-			self.scTranslate = QShortcut( self.widget )
+			self.scTranslate = QShortcut( self.uiText )
 			self.scTranslate.setKey( Shortcuts.SearchInField )
 			self.scTranslate.setContext( Qt.WidgetShortcut )
 			self.connect( self.scTranslate, SIGNAL('activated()'), self.translate )
