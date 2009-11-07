@@ -36,6 +36,8 @@ from Koo.Common import Debug
 from Koo.Common.ViewSettings import *
 from Koo import Rpc
 
+from Koo.Fields.FieldDelegateFactory import *
+
 from Koo.Model.KooModel import KooModel
 from Koo.Model.Group import *
 
@@ -114,27 +116,27 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			'Reload': self.reload,
 		}
 
-		p = TreeParser()
-		p.parse( view['arch'] )
-		self.toolbar = p.toolbar
+		parser = TreeParser()
+		parser.parse( view['arch'] )
+		self.toolbar = parser.toolbar
 
 		# Get all visible fields + parent field description
-		self.fields = Rpc.session.execute('/object', 'execute', self.model, 'fields_get', p.fieldsOrder + [self.childrenField], self.context)
+		self.fields = Rpc.session.execute('/object', 'execute', self.model, 'fields_get', parser.fieldsOrder + [self.childrenField], self.context)
 
 		self.treeModel = KooModel( self )
 		self.treeModel.setFields( self.fields )
-		self.treeModel.setFieldsOrder( p.fieldsOrder )
+		self.treeModel.setFieldsOrder( parser.fieldsOrder )
 		self.treeModel.setIconForField( 'icon', 'name')
-		self.treeModel.setChildrenForField( self.childrenField, p.fieldsOrder[0] )
+		self.treeModel.setChildrenForField( self.childrenField, parser.fieldsOrder[0] )
 		self.treeModel.setShowBackgroundColor( False )
 
 		self.listModel = KooModel( self )
 		self.listModel.setMode( KooModel.ListMode )
 		self.listModel.setFields( self.fields )
-		if 'name' in p.fieldsOrder:
+		if 'name' in parser.fieldsOrder:
 			self.listModel.setFieldsOrder( ['name'] )
 		else:
-			self.listModel.setFieldsOrder( p.fieldsOrder )
+			self.listModel.setFieldsOrder( parser.fieldsOrder )
 		self.listModel.setIconForField( 'icon', 'name' )
 		self.listModel.setShowBackgroundColor( False )
 
@@ -145,10 +147,22 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		else:
 			self.treeModel.setRecordGroup( self.group )
 
+		self.listModelProxy = QSortFilterProxyModel( self )
+		self.listModelProxy.setSourceModel( self.listModel )
+		self.listModelProxy.setFilterKeyColumn( 0 )
+		self.listModelProxy.setFilterCaseSensitivity( Qt.CaseInsensitive )
+		self.listModelProxy.setFilterFixedString( "partner" )
+
 		self.uiTree.setModel( self.treeModel )
 		self.uiList.setModel( self.listModel )
 
-		self.connect(self.uiTree,SIGNAL('activated( QModelIndex ) ' ), self.open )
+		self.connect(self.uiTree, SIGNAL('activated( QModelIndex )'), self.open )
+
+		for column in xrange(len(parser.fieldsOrder)):
+			fieldName = parser.fieldsOrder[column]
+			delegate = FieldDelegateFactory.create( self.fields[fieldName]['type'], self.uiTree, self.fields[fieldName] )
+			self.uiTree.setItemDelegateForColumn( column, delegate )
+
 
 		self.treeAllExpandedState = {}
 		self.treeState = {}
@@ -167,7 +181,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if name:
 			self.name = name
 		else:
-			self.name = p.title
+			self.name = parser.title
 		
 		# Shortcuts
 		if self.model == 'ir.ui.menu':
@@ -185,7 +199,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		else:
 			self.uiShortcutsContainer.hide()
 		
-		if not p.toolbar:
+		if not parser.toolbar:
 			self.uiList.hide()
 		else:
 			# Highlight the first element of the list and update the tree
@@ -267,7 +281,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 	def executeAction(self, keyword='tree_but_action', id=None, report_type='pdf'):
 		if id:
-			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id]})
+			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id]}, self.context)
 		else:
 			QMessageBox.information( self, _('Information'), _('No resource selected!'))
 
