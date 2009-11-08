@@ -182,5 +182,5 @@ def execute(action, datas, state='init', parent=None, context=None):
 	w = Wizard(action, datas, state, parent, context)
 	w.step()
 	while not w.finished:
-		QCoreApplication.processEvents()
+		QCoreApplication.processEvents(QEventLoop.WaitForMoreEvents)
 
