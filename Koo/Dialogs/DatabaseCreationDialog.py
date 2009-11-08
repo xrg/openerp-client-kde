@@ -155,6 +155,8 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		self.uiDemoData.setEnabled( value )
 		self.uiLanguage.setEnabled( value )
 		self.pushAccept.setEnabled( value )
+		self.uiAdminPassword.setEnabled( value )
+		self.uiRepeatedAdminPassword.setEnabled( value )
 
 	def cancelled(self):
 		self.close()
