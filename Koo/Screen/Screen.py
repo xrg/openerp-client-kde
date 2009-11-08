@@ -493,12 +493,17 @@ class Screen(QScrollArea):
 
 	## @brief Creates a new record in the current model. If the current view is not editable
 	# it will automatically switch to a view that allows editing.
-	def new(self, default=True):
+	def new(self, default=True, context=None):
+		if context is None:
+			context = {}
+
 		if self.currentView() and self.currentView().showsMultipleRecords() \
 				and self.currentView().isReadOnly():
 			self.switchView( 'form' )
 
-		record = self.group.create( default, self.newRecordPosition(), self.group.domain(), self.context )
+		ctx = self.context.copy()
+		ctx.update( context )
+		record = self.group.create( default, self.newRecordPosition(), self.group.domain(), ctx )
 
 		if self.currentView():
 			self.currentView().reset()

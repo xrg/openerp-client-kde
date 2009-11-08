@@ -40,10 +40,17 @@ from Koo.Model.Group import RecordGroup
 (ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
 
 class ScreenDialog( QDialog, ScreenDialogUi ):
-	def __init__(self, modelGroup, parent, record=None, attrs={}):
+	def __init__(self, modelGroup, parent, record=None, attrs=None, creationContext=None):
 		QDialog.__init__( self, parent )
 		ScreenDialogUi.__init__( self )
 		self.setupUi( self )
+
+		if attrs is None:
+			attrs = {}
+		if creationContext is None:
+			creationContext = {}
+
+		self.creationContext = creationContext
 
 		self.setModal(True)
 		if ('string' in attrs) and attrs['string']:
@@ -63,7 +70,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 		if not record:
 			self._recordAdded = True
-			record = self.screen.new()
+			record = self.screen.new(context=creationContext)
 		else:
 			self._recordAdded = False
 		self.screen.setCurrentRecord( record )
@@ -95,7 +102,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 	def accepted( self ):
 		if self._recordAdded:
 			self.screen.currentView().store()
-			self.screen.new()
+			self.screen.new(context=creationContext)
 		else:
 			self.accept()
 
@@ -180,10 +187,14 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		# have been stored in the model. Otherwise the recordChanged() triggered by calling new
 		# in the parent model could make us lose changes.
 		self.view.store()
+		
+		ctx = self.record.evaluateExpression(self.attrs.get('default_get', {}))
+		ctx.update(self.record.evaluateExpression( 'dict(%s)' % self.attrs.get('context', '')))
+
                 if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.currentView().isReadOnly():
-			self.screen.new()
+			self.screen.new(context=ctx)
 		else:
-			dialog = ScreenDialog(self.screen.group, parent=self, attrs=self.attrs)
+			dialog = ScreenDialog(self.screen.group, parent=self, attrs=self.attrs, creationContext=ctx)
 			dialog.exec_()
 			self.screen.display()
 
