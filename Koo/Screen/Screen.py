@@ -89,9 +89,12 @@ class Screen(QScrollArea):
 		self.toolBar = ToolBar(self)
 		self.toolBar.hide()
 
+		self.viewLayout = QVBoxLayout()
+
 		self.layout = QHBoxLayout()
 		self.layout.setSpacing( 0 )
 		self.layout.setContentsMargins( 0, 0, 0, 0 )
+		self.layout.addLayout( self.viewLayout )
 		self.layout.addWidget( self.toolBar )
 
 		vLay = QVBoxLayout( self.container )
@@ -239,7 +242,7 @@ class Screen(QScrollArea):
 		# it looks better to the user. If we show the widget and then hide the search
 		# form it produces an ugly flickering.
 		self.loadSearchForm()
-		widget.show()
+		self.containerView.show()
 		self.connect(widget, SIGNAL("activated()"), self.activate )
 		self.connect(widget, SIGNAL("currentChanged(PyQt_PyObject)"), self.currentChanged)
 		self.connect(widget, SIGNAL("statusMessage(QString)"), self, SIGNAL("statusMessage(QString)") )
@@ -248,7 +251,6 @@ class Screen(QScrollArea):
 		# and the focus is set to the expected widget.
 		self.setFocusProxy( self.containerView )
 
-		self.layout.insertWidget( 0, widget )
 		self.ensureWidgetVisible( widget )
 		self.updateGeometry()
 
@@ -460,6 +462,7 @@ class Screen(QScrollArea):
 
 		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
 		view = ViewFactory.create(id, self, self.resource, dom, self.fields)
+		self.viewLayout.addWidget( view )
 		self.setOnWriteFunction( view.onWriteFunction() )
 		# Load view settings
 		view.setViewSettings( ViewSettings.load( view.id ) )
