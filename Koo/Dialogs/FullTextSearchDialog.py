@@ -297,16 +297,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.uiItems.setModel( self.model )
 		self.layout().insertWidget( 1, self.uiItems )
 
-		self.uiErrorMessage.hide()
-		try:
-			answer = Rpc.session.call('/fulltextsearch', 'indexedModels', Rpc.session.context )
-			self.uiModel.addItem( _('(Everywhere)'), QVariant( False ) )	
-			for x in answer:
-				self.uiModel.addItem( x['name'], QVariant( x['id'] ) )
-			if len(answer) == 0:
-				self.disableQueries( _('<b>Full text search is not configured.</b><br/>Go to <i>Administration - Configuration - Full Text Search - Indexes</i>. Then add the fields you want to be indexed and finally use <i>Update Full Text Search</i>.') )
-		except:
-			self.disableQueries( _('<b>Full text search module not installed.</b><br/>Go to <i>Administration - Modules administration - Uninstalled Modules</i> and add the <i>full_text_search</i> module.') )
+		self.setQueriesEnabled( False, _('Loading...') )
 
 		self.title = _('Full Text Search')
 		self.title_results = _('Full Text Search (%%d result(s))')
@@ -327,40 +318,61 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
 		self.show()
 
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		QTimer.singleShot( 0, self.initGui )
+
 	def showHelp(self, link):
 		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
 
-	def disableQueries(self, text):
-		self.uiModel.setEnabled( False )
-		self.pushFind.setEnabled( False )
-		self.pushAccept.setEnabled( False )
-		self.uiText.setEnabled( False )
-		self.uiItems.hide()
+	def initGui(self):
+		try:
+			answer = Rpc.session.call('/fulltextsearch', 'indexedModels', Rpc.session.context )
+			self.uiModel.addItem( _('(Everywhere)'), QVariant( False ) )	
+			for x in answer:
+				self.uiModel.addItem( x['name'], QVariant( x['id'] ) )
+			if len(answer) == 0:
+				self.setQueriesEnabled( False, _('<b>Full text search is not configured.</b><br/>Go to <i>Administration - Configuration - Full Text Search - Indexes</i>. Then add the fields you want to be indexed and finally use <i>Update Full Text Search</i>.') )
+				QApplication.restoreOverrideCursor()
+				return
+		except:
+			self.setQueriesEnabled( False, _('<b>Full text search module not installed.</b><br/>Go to <i>Administration - Modules administration - Uninstalled Modules</i> and add the <i>full_text_search</i> module.') )
+			QApplication.restoreOverrideCursor()
+			return
+		self.setQueriesEnabled( True )
+		self.uiText.setFocus()
+		QApplication.restoreOverrideCursor()
+
+	def setQueriesEnabled(self, value, text = ''): 
+		self.uiModel.setEnabled( value )
+		self.pushFind.setEnabled( value )
+		self.pushAccept.setEnabled( value )
+		self.uiText.setEnabled( value )
+		self.uiItems.setVisible( value )
 		self.uiErrorMessage.setText( text )
-		self.uiErrorMessage.show()
+		self.uiErrorMessage.setVisible( not value )
 
 	def textToQuery(self):
 		q = unicode( self.uiText.text() ).strip()
-		while q != q.replace( '  ', ' ' ):
-			q = q.replace( '  ', ' ' )
-		q = q.replace(' ', '|')
-		return q
+		return re.sub(' +', '|', q)
 
 	def query(self):
 		if self.uiModel.currentIndex() == 0:
 			model = False
 		else:
 			model = unicode( self.uiModel.itemData( self.uiModel.currentIndex() ).toString() )
-		answer = Rpc.session.execute('/fulltextsearch', 'search', self.textToQuery(), self.limit, self.offset , model, Rpc.session.context)
-		self.model.setList( answer )
+		# We always query for limit+1 items so we can know if there will be more records in the next page
+		answer = Rpc.session.execute('/fulltextsearch', 'search', self.textToQuery(), self.limit+1, self.offset , model, Rpc.session.context)
 		if len(answer) < self.limit:
 			self.pushNext.setEnabled( False )
 		else:
+			# If there are more pages, we just show 'limit' items.
+			answer = answer[:-1]
 			self.pushNext.setEnabled( True )
 		if self.offset == 0:
 			self.pushPrevious.setEnabled( False )
 		else:
 			self.pushPrevious.setEnabled( True )
+		self.model.setList( answer )
 		
 	def previous(self):
 		self.offset = max(0, self.offset - self.limit )
