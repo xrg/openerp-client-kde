@@ -51,6 +51,11 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 
+		self.setWindowTitle( _('User Preferences') )
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		QTimer.singleShot( 0, self.initGui )
+
+	def initGui(self):
 		actionId = Rpc.session.execute('/object', 'execute', 'res.users', 'action_get', {})
 		action = Rpc.session.execute('/object', 'execute', 'ir.actions.act_window', 'read', [actionId], False, Rpc.session.context)[0]
 
@@ -66,15 +71,16 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		self.screen.setupViews( ['form'], [viewIds[0]] )
 		self.screen.display( Rpc.session.uid )
 
-                # Set minimum and maximum dialog size
-		size = self.screen.sizeHint()
-		self.setMinimumSize( size.width()+100, min(600, size.height()+25) )
-		desktop = QDesktopWidget()
-		size = desktop.availableGeometry( self ).size()
-		size -= QSize( 50, 50 )
-		self.setMaximumSize( size )
+		# Adjust size and center the dialog
+		self.adjustSize()
+		if self.parent():
+			rect = self.parent().geometry()
+		else:
+			rect = QApplication.desktop().availableGeometry( self )
+		self.move( rect.x() + (rect.width() / 2) - (self.width() / 2), 
+				rect.y() + (rect.height() / 2) - (self.height() / 2) )
 
-		self.setWindowTitle( _('User Preferences') )
+		QApplication.restoreOverrideCursor()
 
 	def slotAccept(self):
 		if not self.screen.currentRecord().validate():
