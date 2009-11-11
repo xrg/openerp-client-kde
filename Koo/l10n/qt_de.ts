@@ -30,7 +30,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="738"/>
         <source>&amp;About</source>
-        <translation>Über</translation>
+        <translation>�ber</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="316"/>
@@ -55,7 +55,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="809"/>
         <source>&amp;Clear Cache</source>
-        <translation>Zwioschensoeicher Zurü&amp;cksetzen</translation>
+        <translation>Zwioschensoeicher Zur�&amp;cksetzen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="395"/>
@@ -85,12 +85,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="458"/>
         <source>&amp;Drop Database</source>
-        <translation>&amp;Datenbank löschen</translation>
+        <translation>&amp;Datenbank l�schen</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="701"/>
         <source>&amp;Execute Plugins</source>
-        <translation>Plugins ausführ&amp;en</translation>
+        <translation>Plugins ausf�hr&amp;en</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="282"/>
@@ -115,7 +115,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="724"/>
         <source>&amp;Keyboard Shortcut</source>
-        <translation>Tastatur &amp;Kürzel</translation>
+        <translation>Tastatur &amp;K�rzel</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="729"/>
@@ -125,7 +125,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="776"/>
         <source>&amp;Menu</source>
-        <translation>&amp;Menü</translation>
+        <translation>&amp;Men�</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="431"/>
@@ -326,22 +326,22 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="818"/>
         <source>Modify All Selected Records</source>
-        <translation>Alle ausgewählten Daten speichern</translation>
+        <translation>Alle ausgew�hlten Daten speichern</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="617"/>
         <source>Next Tab</source>
-        <translation>Nächster Reiter</translation>
+        <translation>N�chster Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="608"/>
         <source>Open &amp;Menu Tab</source>
-        <translation>Öffne Menü Reiter</translation>
+        <translation>�ffne Men� Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="800"/>
         <source>Open Home Tab</source>
-        <translation>Öffne persönlcihen Reiter</translation>
+        <translation>�ffne pers�nlcihen Reiter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="629"/>
@@ -420,12 +420,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="270"/>
         <source>&amp;Edition Shortcuts</source>
-        <translation>Kürzel für das Editieren</translation>
+        <translation>K�rzel f�r das Editieren</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="24"/>
         <source>&amp;Main Shortcuts</source>
-        <translation>wichtige Kürzel</translation>
+        <translation>wichtige K�rzel</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="130"/>
@@ -465,7 +465,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="448"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
-        <translation>&lt;Ctrl&gt;+&lt;Shift&gt;+ Öffnen</translation>
+        <translation>&lt;Ctrl&gt;+&lt;Shift&gt;+ �ffnen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="479"/>
@@ -505,7 +505,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="434"/>
         <source>&lt;Ctrl&gt; + Open</source>
-        <translation>&lt;Ctrl&gt; + Öffnen</translation>
+        <translation>&lt;Ctrl&gt; + �ffnen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="60"/>
@@ -545,7 +545,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="566"/>
         <source>&lt;Shift&gt; + Open View</source>
-        <translation>&lt;Shift&gt; + Öffne Ansicht</translation>
+        <translation>&lt;Shift&gt; + �ffne Ansicht</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="538"/>
@@ -560,17 +560,17 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="515"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Kürzel in Text Eingaben&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;K�rzel in Text Eingaben&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="230"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;i&gt;Beim Ändern eines Datensatzes in eine PopUp fenster&lt;/i&gt;&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;&lt;i&gt;Beim �ndern eines Datensatzes in eine PopUp fenster&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="343"/>
         <source>Auto-complete text field</source>
-        <translation>Feld automatisch vervollständigen</translation>
+        <translation>Feld automatisch vervollst�ndigen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="406"/>
@@ -582,7 +582,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="559"/>
         <source>Change current tab</source>
-        <translation>Verändere aktuellen Reiter</translation>
+        <translation>Ver�ndere aktuellen Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="531"/>
@@ -592,7 +592,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="260"/>
         <source>Close window without saving</source>
-        <translation>Schließen Fenster ohne zu speichern</translation>
+        <translation>Schlie�en Fenster ohne zu speichern</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="39"/>
@@ -602,12 +602,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="301"/>
         <source>Copy selected text</source>
-        <translation>Kopiere ausgewählten Text</translation>
+        <translation>Kopiere ausgew�hlten Text</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="294"/>
         <source>Cut selected text</source>
-        <translation>ausgewählten Text ausschneiden</translation>
+        <translation>ausgew�hlten Text ausschneiden</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="81"/>
@@ -664,17 +664,17 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="315"/>
         <source>Next editable widget</source>
-        <translation>Nächstes veränderbare Eingabefeld</translation>
+        <translation>N�chstes ver�nderbare Eingabefeld</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="137"/>
         <source>Next record</source>
-        <translation>Nächster Datensatz</translation>
+        <translation>N�chster Datensatz</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="179"/>
         <source>Next tab</source>
-        <translation>Nächster Reiter</translation>
+        <translation>N�chster Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="386"/>
@@ -684,27 +684,27 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="545"/>
         <source>Open form view in new tab</source>
-        <translation>Öffnet Formular in neuem Reiter</translation>
+        <translation>�ffnet Formular in neuem Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="573"/>
         <source>Open view in a background tab</source>
-        <translation>Öffne Ansicht in Hintergrund Reiter</translation>
+        <translation>�ffne Ansicht in Hintergrund Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="455"/>
         <source>Opens the record in a new background tab</source>
-        <translation>Öffnet Datensatz in Hintergrund Reiter</translation>
+        <translation>�ffnet Datensatz in Hintergrund Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="441"/>
         <source>Opens the record in a new tab</source>
-        <translation>Öffnet Datensatz in neuem Reiter</translation>
+        <translation>�ffnet Datensatz in neuem Reiter</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="308"/>
         <source>Paste selected text</source>
-        <translation>ausgewählten Text einfügen</translation>
+        <translation>ausgew�hlten Text einf�gen</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="123"/>
@@ -714,7 +714,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="329"/>
         <source>Previous editable widget</source>
-        <translation>Voriges veränderbares Eingabefeld</translation>
+        <translation>Voriges ver�nderbares Eingabefeld</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="165"/>
@@ -744,12 +744,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="486"/>
         <source>Selects all records</source>
-        <translation>Wähle alle Datensätze</translation>
+        <translation>W�hle alle Datens�tze</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="282"/>
         <source>Shortcuts in text entries</source>
-        <translation>Kürzle in Text Eingaben</translation>
+        <translation>K�rzle in Text Eingaben</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="151"/>
@@ -762,7 +762,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="choosedb.ui" line="64"/>
         <source>&amp;Change</source>
-        <translation>Verändere</translation>
+        <translation>Ver�ndere</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="25"/>
@@ -772,7 +772,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="choosedb.ui" line="13"/>
         <source>Choose database...</source>
-        <translation>Wähle Datenbank</translation>
+        <translation>W�hle Datenbank</translation>
     </message>
 </context>
 <context>
@@ -798,12 +798,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="tip.ui" line="51"/>
         <source>&amp;Display a new tip next time ?</source>
-        <translation>Zeige das nächste Mal einen neuen Tip?</translation>
+        <translation>Zeige das n�chste Mal einen neuen Tip?</translation>
     </message>
     <message>
         <location filename="tip.ui" line="87"/>
         <source>&amp;Next Tip</source>
-        <translation>&amp;Nächster Tip</translation>
+        <translation>&amp;N�chster Tip</translation>
     </message>
     <message>
         <location filename="tip.ui" line="77"/>
@@ -948,7 +948,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
-        <translation>(verwende &apos;admin&apos;, wenn dies nicht verändert wurde)</translation>
+        <translation>(verwende &apos;admin&apos;, wenn dies nicht ver�ndert wurde)</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="26"/>
@@ -1019,12 +1019,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="83"/>
         <source>&amp;only for you</source>
-        <translation>nur für Sie</translation>
+        <translation>nur f�r Sie</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="74"/>
         <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Wert anzuwenden für&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Wert anzuwenden f�r&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="102"/>
@@ -1044,7 +1044,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="93"/>
         <source>for all &amp;users</source>
-        <translation>für alle Benutzer</translation>
+        <translation>f�r alle Benutzer</translation>
     </message>
 </context>
 <context>
@@ -1062,7 +1062,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="219"/>
         <source>&amp;Lines to skip:</source>
-        <translation>überspringe Zei&amp;len:</translation>
+        <translation>�berspringe Zei&amp;len:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="195"/>
@@ -1158,12 +1158,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="admin_passwd.ui" line="20"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Verändere das Datenbank Admin Passwort&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Ver�ndere das Datenbank Admin Passwort&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
-        <translation>Neues Passwort und Bestätigung:</translation>
+        <translation>Neues Passwort und Best�tigung:</translation>
     </message>
 </context>
 <context>
@@ -1256,12 +1256,12 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="win_export.ui" line="116"/>
         <source>A&amp;dd</source>
-        <translation>Hinzufügen</translation>
+        <translation>Hinzuf�gen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
-        <translation>&amp;Feldnamen hinzufügen</translation>
+        <translation>&amp;Feldnamen hinzuf�gen</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="46"/>
@@ -1437,7 +1437,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="keypad.ui" line="238"/>
         <source>Intro</source>
-        <translation>Einführung</translation>
+        <translation>Einf�hrung</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="147"/>
@@ -1561,12 +1561,7 @@ Text search only searches for complete words but it will return words that conta
     </message>
     <message>
         <location filename="keyboard.ui" line="631"/>
-        <source>Ç</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="225"/>
-        <source>Ñ</source>
+        <source>�</source>
         <translation></translation>
     </message>
 </context>
@@ -1608,12 +1603,12 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="search_date.ui" line="52"/>
         <source>Choose a date from a calendar</source>
-        <translation>Datum vom Kalender wählen</translation>
+        <translation>Datum vom Kalender w�hlen</translation>
     </message>
     <message>
         <location filename="search_date.ui" line="104"/>
         <source>Choose the date from a calendar</source>
-        <translation>Datum vom Kalender wählen</translation>
+        <translation>Datum vom Kalender w�hlen</translation>
     </message>
 </context>
 <context>
@@ -1632,7 +1627,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="112"/>
         <source>Connect &amp;later</source>
-        <translation>Verbinde später</translation>
+        <translation>Verbinde sp�ter</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="98"/>
@@ -1765,7 +1760,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_selection.ui" line="19"/>
         <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;b&gt;Plugin auswählen&lt;/b&gt;&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;&lt;b&gt;Plugin ausw�hlen&lt;/b&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="win_selection.ui" line="13"/>
@@ -1778,7 +1773,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tree.ui" line="71"/>
         <source>Add Shortcut</source>
-        <translation>Kürzle hinzufügen</translation>
+        <translation>K�rzle hinzuf�gen</translation>
     </message>
     <message>
         <location filename="tree.ui" line="111"/>
@@ -1788,12 +1783,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tree.ui" line="91"/>
         <source>Remove Shortcut</source>
-        <translation>Kürzel entfernen</translation>
+        <translation>K�rzel entfernen</translation>
     </message>
     <message>
         <location filename="tree.ui" line="58"/>
         <source>Shortcuts</source>
-        <translation>Kürzel</translation>
+        <translation>K�rzel</translation>
     </message>
 </context>
 <context>
@@ -1841,12 +1836,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="336"/>
         <source>Select font size</source>
-        <translation>Zeichengröße auswählen</translation>
+        <translation>Zeichengr��e ausw�hlen</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="323"/>
         <source>Select font</source>
-        <translation>Zeichensatz Auswählen</translation>
+        <translation>Zeichensatz Ausw�hlen</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="128"/>
@@ -1864,7 +1859,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="reference.ui" line="83"/>
         <source>Clear</source>
-        <translation>Löschen</translation>
+        <translation>L�schen</translation>
     </message>
 </context>
 <context>
@@ -1872,7 +1867,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_attach.ui" line="134"/>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>Schlie�en</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="125"/>
@@ -1968,7 +1963,7 @@ dieser Vorgang kann einige Zeit dauern</translation>
     <message>
         <location filename="link.ui" line="36"/>
         <source>Select file...</source>
-        <translation>Datei Auswählen</translation>
+        <translation>Datei Ausw�hlen</translation>
     </message>
 </context>
 <context>

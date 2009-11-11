@@ -40,7 +40,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="467"/>
         <source>&amp;Administrator Password</source>
-        <translation>&amp;Contraseña del Administrador</translation>
+        <translation>&amp;Contrase�a del Administrador</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="449"/>
@@ -100,7 +100,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="771"/>
         <source>&amp;Form designer</source>
-        <translation>&amp;Diseñador de Formularios</translation>
+        <translation>&amp;Dise�ador de Formularios</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="246"/>
@@ -125,7 +125,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="776"/>
         <source>&amp;Menu</source>
-        <translation>&amp;Menú</translation>
+        <translation>&amp;Men�</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="431"/>
@@ -185,7 +185,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="485"/>
         <source>&amp;Send Request</source>
-        <translation>&amp;Enviar una Petición</translation>
+        <translation>&amp;Enviar una Petici�n</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="715"/>
@@ -286,7 +286,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="786"/>
         <source>Documentation</source>
-        <translation>Documentación</translation>
+        <translation>Documentaci�n</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="683"/>
@@ -306,7 +306,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="747"/>
         <source>Full &amp;Text Search</source>
-        <translation>Búsqueda de &amp;Texto</translation>
+        <translation>B�squeda de &amp;Texto</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="662"/>
@@ -331,22 +331,22 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="617"/>
         <source>Next Tab</source>
-        <translation>Pestaña Siguiente</translation>
+        <translation>Pesta�a Siguiente</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="608"/>
         <source>Open &amp;Menu Tab</source>
-        <translation>Abrir la Pestaña de &amp;Menú</translation>
+        <translation>Abrir la Pesta�a de &amp;Men�</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="800"/>
         <source>Open Home Tab</source>
-        <translation>Abrir la Pestaña Principal</translation>
+        <translation>Abrir la Pesta�a Principal</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="629"/>
         <source>Previous Tab</source>
-        <translation>Pestaña Anterior</translation>
+        <translation>Pesta�a Anterior</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="187"/>
@@ -361,7 +361,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="210"/>
         <source>Send New Request</source>
-        <translation>Enviar una Nueva Petición</translation>
+        <translation>Enviar una Nueva Petici�n</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="596"/>
@@ -376,7 +376,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="653"/>
         <source>View Access Log</source>
-        <translation>Ver el Histórico de Accesos</translation>
+        <translation>Ver el Hist�rico de Accesos</translation>
     </message>
 </context>
 <context>
@@ -394,7 +394,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="translationdialog.ui" line="13"/>
         <source>Translation dialog</source>
-        <translation>Diálogo de traducción</translation>
+        <translation>Di�logo de traducci�n</translation>
     </message>
 </context>
 <context>
@@ -402,7 +402,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="many2many.ui" line="37"/>
         <source>&amp;Add</source>
-        <translation>A&amp;ñadir</translation>
+        <translation>A&amp;�adir</translation>
     </message>
     <message>
         <location filename="many2many.ui" line="54"/>
@@ -420,7 +420,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="270"/>
         <source>&amp;Edition Shortcuts</source>
-        <translation>Teclas de acceso de &amp;Edición</translation>
+        <translation>Teclas de acceso de &amp;Edici�n</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="24"/>
@@ -582,12 +582,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="559"/>
         <source>Change current tab</source>
-        <translation>Cambia la pestaña actual</translation>
+        <translation>Cambia la pesta�a actual</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="531"/>
         <source>Close tab</source>
-        <translation>Cerrar la pestaña</translation>
+        <translation>Cerrar la pesta�a</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="260"/>
@@ -633,13 +633,13 @@ X-Generator: Launchpad (build Unknown)
         <location filename="shortcuts.ui" line="398"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
-        <translation>Fórmula + &lt;Enter&gt;
+        <translation>F�rmula + &lt;Enter&gt;
 (Ejemplo: 3+2*2)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="109"/>
         <source>Full Text Search</source>
-        <translation>Búsqueda de texto</translation>
+        <translation>B�squeda de texto</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="470"/>
@@ -649,12 +649,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="524"/>
         <source>Middle mouse click on Tab</source>
-        <translation>Clic con el botón del medio en una pestaña</translation>
+        <translation>Clic con el bot�n del medio en una pesta�a</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="552"/>
         <source>Mouse Wheel on Tab</source>
-        <translation>Rueda del ratón en las pestañas</translation>
+        <translation>Rueda del rat�n en las pesta�as</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="53"/>
@@ -674,32 +674,32 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="179"/>
         <source>Next tab</source>
-        <translation>Pestaña siguiente</translation>
+        <translation>Pesta�a siguiente</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="386"/>
         <source>Numeric fields</source>
-        <translation>Campos numéricos</translation>
+        <translation>Campos num�ricos</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="545"/>
         <source>Open form view in new tab</source>
-        <translation>Abre el formulario en una nueva pestaña</translation>
+        <translation>Abre el formulario en una nueva pesta�a</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="573"/>
         <source>Open view in a background tab</source>
-        <translation>Abre la vista en una pestaña de fondo</translation>
+        <translation>Abre la vista en una pesta�a de fondo</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="455"/>
         <source>Opens the record in a new background tab</source>
-        <translation>Abre el registro en una nueva pestaña de fondo</translation>
+        <translation>Abre el registro en una nueva pesta�a de fondo</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="441"/>
         <source>Opens the record in a new tab</source>
-        <translation>Abre el registro en una nueva pestaña</translation>
+        <translation>Abre el registro en una nueva pesta�a</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="308"/>
@@ -719,12 +719,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="165"/>
         <source>Previous tab</source>
-        <translation>Pestaña anterior</translation>
+        <translation>Pesta�a anterior</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="422"/>
         <source>Relation fields</source>
-        <translation>Campos de relación</translation>
+        <translation>Campos de relaci�n</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="207"/>
@@ -767,7 +767,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="choosedb.ui" line="25"/>
         <source>Action here...</source>
-        <translation>Acción aquí...</translation>
+        <translation>Acci�n aqu�...</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="13"/>
@@ -798,7 +798,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="tip.ui" line="51"/>
         <source>&amp;Display a new tip next time ?</source>
-        <translation>&amp;Mostrar un consejo la próxima vez?</translation>
+        <translation>&amp;Mostrar un consejo la pr�xima vez?</translation>
     </message>
     <message>
         <location filename="tip.ui" line="87"/>
@@ -813,7 +813,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="tip.ui" line="13"/>
         <source>Tip of the Day</source>
-        <translation>Consejo del Día</translation>
+        <translation>Consejo del D�a</translation>
     </message>
 </context>
 <context>
@@ -874,13 +874,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenObject - KDE Client - %s&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenERP es un ERP+CRM de código abierto&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;para pequeñas y medianas empresas.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenERP es un ERP+CRM de c�digo abierto&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;para peque�as y medianas empresas.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Todo el código está distribuido bajo licencia &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Todo el c�digo est� distribuido bajo licencia &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;GNU Public Licence (GPL).&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Más información en &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;M�s informaci�n en &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="20"/>
@@ -893,7 +893,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Acerca de OpenERP&lt;/span&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;El ERP &amp;amp; CRM Open Source más avanzado !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;El ERP &amp;amp; CRM Open Source m�s avanzado !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="14"/>
@@ -911,7 +911,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="198"/>
         <source>&amp;Password:</source>
-        <translation>C&amp;ontraseña:</translation>
+        <translation>C&amp;ontrase�a:</translation>
     </message>
     <message>
         <location filename="login.ui" line="120"/>
@@ -949,7 +949,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
-        <translation>Cardar datos de d&amp;emostración</translation>
+        <translation>Cardar datos de d&amp;emostraci�n</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="50"/>
@@ -964,7 +964,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="152"/>
         <source>&amp;Super admin password:</source>
-        <translation>Contraseña de &amp;super administrador:</translation>
+        <translation>Contrase�a de &amp;super administrador:</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="113"/>
@@ -984,7 +984,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="292"/>
         <source>Admin password:</source>
-        <translation>Contraseña de admin:</translation>
+        <translation>Contrase�a de admin:</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="14"/>
@@ -994,7 +994,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="299"/>
         <source>Repeat admin password</source>
-        <translation>Repita la contraseña de admin</translation>
+        <translation>Repita la contrase�a de admin</translation>
     </message>
 </context>
 <context>
@@ -1002,22 +1002,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="41"/>
         <source>&amp;Description</source>
-        <translation>&amp;Descripción</translation>
+        <translation>&amp;Descripci�n</translation>
     </message>
     <message>
         <location filename="error.ui" line="71"/>
         <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Código de error:&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;C�digo de error:&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="error.ui" line="19"/>
         <source>Application Error !</source>
-        <translation>Error de la Aplicación !</translation>
+        <translation>Error de la Aplicaci�n !</translation>
     </message>
     <message>
         <location filename="error.ui" line="47"/>
         <source>Application Error</source>
-        <translation>Error de la Aplicación</translation>
+        <translation>Error de la Aplicaci�n</translation>
     </message>
     <message>
         <location filename="error.ui" line="124"/>
@@ -1045,7 +1045,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="83"/>
         <source>&amp;only for you</source>
-        <translation>&amp;Sólo a usted</translation>
+        <translation>&amp;S�lo a usted</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="74"/>
@@ -1078,7 +1078,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="212"/>
         <source>&amp;Encoding</source>
-        <translation>&amp;Codificación</translation>
+        <translation>&amp;Codificaci�n</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="178"/>
@@ -1088,7 +1088,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="219"/>
         <source>&amp;Lines to skip:</source>
-        <translation>&amp;Líneas a saltar:</translation>
+        <translation>&amp;L�neas a saltar:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="195"/>
@@ -1174,22 +1174,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
-        <translation>Contraseña &amp;nueva:</translation>
+        <translation>Contrase�a &amp;nueva:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
-        <translation>Contraseña &amp;anterior:</translation>
+        <translation>Contrase�a &amp;anterior:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="20"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Cambie la contraseña de administrador&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Cambie la contrase�a de administrador&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
-        <translation>C&amp;onfirmación de contraseña nueva:</translation>
+        <translation>C&amp;onfirmaci�n de contrase�a nueva:</translation>
     </message>
 </context>
 <context>
@@ -1228,16 +1228,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="14"/>
         <source>Full text search</source>
-        <translation>Búsqueda de texto</translation>
+        <translation>B�squeda de texto</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="37"/>
         <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
 
 Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
-        <translation>Aquí puede buscar por cualquier término en toda la base de datos siempre y cuando esté indexado. Si las palabras que busca no devuelven ningún resultado y usted sabe que existen, probablemente no estén indexadas y debe preguntar al administrador.
+        <translation>Aqu� puede buscar por cualquier t�rmino en toda la base de datos siempre y cuando est� indexado. Si las palabras que busca no devuelven ning�n resultado y usted sabe que existen, probablemente no est�n indexadas y debe preguntar al administrador.
 
-La búsqueda de texto sólo busca palabras completas pero devolverá palabras que contengan la misma raíz. Por ejemplo, buscar &quot;construir&quot; le puede devolver documentos que contengan las palabras &quot;construido&quot;, &quot;construir&quot; o &quot;construcción&quot;.</translation>
+La b�squeda de texto s�lo busca palabras completas pero devolver� palabras que contengan la misma ra�z. Por ejemplo, buscar &quot;construir&quot; le puede devolver documentos que contengan las palabras &quot;construido&quot;, &quot;construir&quot; o &quot;construcci�n&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1288,17 +1288,17 @@ La búsqueda de texto sólo busca palabras completas pero devolverá palabras qu
     <message>
         <location filename="win_export.ui" line="116"/>
         <source>A&amp;dd</source>
-        <translation>Aña&amp;dir</translation>
+        <translation>A�a&amp;dir</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
-        <translation>Añadir los &amp;nombres de campos</translation>
+        <translation>A�adir los &amp;nombres de campos</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="46"/>
         <source>Re&amp;move Export</source>
-        <translation>B&amp;orrar la exportación predefinida</translation>
+        <translation>B&amp;orrar la exportaci�n predefinida</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="138"/>
@@ -1593,13 +1593,8 @@ La búsqueda de texto sólo busca palabras completas pero devolverá palabras qu
     </message>
     <message>
         <location filename="keyboard.ui" line="631"/>
-        <source>Ç</source>
-        <translation>Ç</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="225"/>
-        <source>Ñ</source>
-        <translation>Ñ</translation>
+        <source>�</source>
+        <translation>�</translation>
     </message>
 </context>
 <context>
@@ -1670,7 +1665,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="112"/>
         <source>Connect &amp;later</source>
-        <translation>Conectar &amp;más tarde</translation>
+        <translation>Conectar &amp;m�s tarde</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="98"/>
@@ -1808,7 +1803,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_selection.ui" line="13"/>
         <source>Dialog</source>
-        <translation>Diálogo</translation>
+        <translation>Di�logo</translation>
     </message>
 </context>
 <context>
@@ -1816,7 +1811,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tree.ui" line="71"/>
         <source>Add Shortcut</source>
-        <translation>Añadir acceso directo</translation>
+        <translation>A�adir acceso directo</translation>
     </message>
     <message>
         <location filename="tree.ui" line="111"/>
@@ -1879,7 +1874,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="336"/>
         <source>Select font size</source>
-        <translation>Tamaño de la letra</translation>
+        <translation>Tama�o de la letra</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="323"/>
@@ -1946,7 +1941,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="massiveupdate.ui" line="13"/>
         <source>Massive Update Process</source>
-        <translation>Proceso de actualización masiva</translation>
+        <translation>Proceso de actualizaci�n masiva</translation>
     </message>
 </context>
 <context>
@@ -1970,14 +1965,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="progress.ui" line="40"/>
         <source>Operation in progress</source>
-        <translation>Operación en progreso</translation>
+        <translation>Operaci�n en progreso</translation>
     </message>
     <message>
         <location filename="progress.ui" line="53"/>
         <source>Please wait, 
 this operation may take a while...</source>
         <translation>Por favor, espere
-esta operación puede tardar unos minutos...</translation>
+esta operaci�n puede tardar unos minutos...</translation>
     </message>
     <message>
         <location filename="progress.ui" line="14"/>
