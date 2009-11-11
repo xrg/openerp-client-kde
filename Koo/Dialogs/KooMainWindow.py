@@ -41,7 +41,6 @@ from PreferencesDialog import *
 from FullTextSearchDialog import *
 from DatabaseCreationDialog import DatabaseCreationDialog
 from DatabaseDialog import DatabaseDialog 
-import re
 import base64
 
 from PyQt4.QtCore import *
