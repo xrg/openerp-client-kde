@@ -533,7 +533,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		company = record['company_id'][1]
 		self.uiUserName.setText( '%s (%s)' % (user, company)  )
 		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
-		self.setWindowTitle( self.fixedWindowTitle + " - [%s]" % Rpc.session.databaseName )
+		self.setWindowTitle( "[%s] - %s" % (Rpc.session.databaseName, self.fixedWindowTitle) )
 
 
  		if not record['menu_id']:
