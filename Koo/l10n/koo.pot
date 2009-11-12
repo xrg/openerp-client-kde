@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-11 03:03+0100\n"
+"POT-Creation-Date: 2009-11-12 09:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,62 +151,62 @@ msgstr ""
 msgid "User Preferences"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:300
+#: Koo/Dialogs/FullTextSearchDialog.py:301
 msgid "Loading..."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:302
+#: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "Full Text Search"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:303
+#: Koo/Dialogs/FullTextSearchDialog.py:304
 #, python-format
 msgid "Full Text Search (%%d result(s))"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:330
+#: Koo/Dialogs/FullTextSearchDialog.py:331
 msgid "(Everywhere)"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:334
+#: Koo/Dialogs/FullTextSearchDialog.py:335
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:338
+#: Koo/Dialogs/FullTextSearchDialog.py:339
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:409 Koo/Dialogs/FormWidget.py:280
+#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:280
 msgid "ID"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:410
+#: Koo/Dialogs/FullTextSearchDialog.py:411
 msgid "Model ID"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:411
+#: Koo/Dialogs/FullTextSearchDialog.py:412
 msgid "Model Name"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:413
+#: Koo/Dialogs/FullTextSearchDialog.py:414
 msgid "Type"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:414
+#: Koo/Dialogs/FullTextSearchDialog.py:415
 msgid "Name"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:415
+#: Koo/Dialogs/FullTextSearchDialog.py:416
 msgid "Text"
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:416
+#: Koo/Dialogs/FullTextSearchDialog.py:417
 msgid "Ranking"
 msgstr ""
 

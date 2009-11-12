@@ -7,62 +7,126 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-08-21 08:19+0200\n"
-"PO-Revision-Date: 2009-02-18 11:23+0000\n"
+"POT-Creation-Date: 2009-11-11 03:03+0100\n"
+"PO-Revision-Date: 2009-08-30 21:25+0000\n"
 "Last-Translator: Eugene Babiy <eugene.babiy@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-08-21 14:12+0000\n"
+"X-Launchpad-Export-Date: 2009-11-12 08:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
-#: Koo/Actions/Actions.py:115
+#: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
 msgid "Error: %s"
 msgstr "Помилка: %s"
 
-#: Koo/Actions/Actions.py:62
+#: Koo/Actions/Actions.py:65
 msgid "Nothing to print."
 msgstr "Нема що друкувати."
 
-#: Koo/Actions/Actions.py:78
+#: Koo/Actions/Actions.py:81
 msgid "Printing aborted. Delay too long."
 msgstr "Друк відмінено. Затримка надто довга."
 
-#: Koo/Actions/Actions.py:94 Koo/Dialogs/ImportDialog.py:62
+#: Koo/Actions/Actions.py:100 Koo/Dialogs/TreeWidget.py:286
+#: Koo/Dialogs/TreeWidget.py:298 Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:64
-#: Koo/Dialogs/KooMainWindow.py:735 Koo/Dialogs/KooMainWindow.py:759
-#: Koo/Dialogs/TreeWidget.py:264 Koo/Dialogs/TreeWidget.py:276
-#: Koo/Dialogs/ExportDialog.py:72 Koo/Screen/Action.py:81
-#: Koo/Screen/Action.py:87
+#: Koo/Dialogs/KooMainWindow.py:740 Koo/Dialogs/KooMainWindow.py:764
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Fields/OneToMany/OneToMany.py:203
+#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
 msgid "Information"
-msgstr ""
+msgstr "Інформація"
 
-#: Koo/Actions/Actions.py:94
+#: Koo/Actions/Actions.py:100
 msgid "Nothing to print!"
 msgstr "Нема що друкувати!"
 
-#: Koo/Actions/Actions.py:111 Koo/Actions/Actions.py:117
-#: Koo/Dialogs/ImportDialog.py:47 Koo/Dialogs/ImportDialog.py:57
+#: Koo/Actions/Actions.py:116 Koo/Dialogs/ImportDialog.py:48
+#: Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/KooMainWindow.py:762 Koo/Dialogs/ExportDialog.py:75
-#: Koo/Dialogs/ExportDialog.py:139 Koo/Dialogs/ExportDialog.py:173
-#: Koo/Fields/Binary/BinaryFieldWidget.py:160
-#: Koo/Fields/Binary/BinaryFieldWidget.py:195
+#: Koo/Dialogs/KooMainWindow.py:767 Koo/Dialogs/ExportDialog.py:76
+#: Koo/Dialogs/ExportDialog.py:142 Koo/Dialogs/ExportDialog.py:176
+#: Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Fields/Binary/BinaryFieldWidget.py:212
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
 msgstr "Помилка"
 
-#: Koo/Actions/Actions.py:111
+#: Koo/Actions/Actions.py:116
 msgid "Printing aborted, too long delay !"
 msgstr "Друк скасовано, надто довга затримка!"
 
-#: Koo/Actions/Actions.py:220
+#: Koo/Actions/Actions.py:240
 msgid "Select your action"
 msgstr "Оберіть Вашу дію"
+
+#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:358
+#, python-format
+msgid "%d bytes"
+msgstr "%d байтів"
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Kb"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Mb"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Gb"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Tb"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:44
+msgid "specify alternate config file"
+msgstr "Вкажіть альтернативний файл конфігурації"
+
+#: Koo/Common/CommandLine.py:45
+msgid "specify the server (ie. http://admin@localhost:8069)"
+msgstr "вкажіть сервер (напр. http://admin@localhost:8069)"
+
+#: Koo/Common/CommandLine.py:46
+msgid "specify stylesheet to apply"
+msgstr "вкажіть тему для застосування"
+
+#: Koo/Common/CommandLine.py:47
+msgid "use POS (Point of Sales) mode"
+msgstr "використовувати режим POS (Point of Sales - Точка Продажів)"
+
+#: Koo/Common/CommandLine.py:48
+msgid "replace enter/return keys with tab hits"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:49
+msgid "disable usage of KDE libraries if they are available"
+msgstr "заборонити використання бібліотек KDE якщо вони доступні"
+
+#: Koo/Common/CommandLine.py:50
+msgid "enable debug mode. Will show the crash dialog in all exceptions"
+msgstr ""
+
+#: Koo/Common/DBus.py:10
+msgid ""
+"Module 'dbus' not available. Consider installing it so other applications "
+"can easily interact with Koo."
+msgstr ""
+"Модуль 'dbus' не доступний. Встановіть його щоб інші програми могли "
+"взаємодіяти з Koo."
+
+#: Koo/Common/DBus.py:36
+msgid "DBus initialization failed."
+msgstr ""
 
 #: Koo/Common/Common.py:178
 msgid "Concurrency warning"
@@ -88,48 +152,203 @@ msgstr "Порівняти"
 msgid "Do not save"
 msgstr "Не зберігати"
 
-#: Koo/Common/CommandLine.py:44
-msgid "specify alternate config file"
-msgstr "Вкажіть альтернативний файл конфігурації"
+#: Koo/Dialogs/PreferencesDialog.py:54
+msgid "User Preferences"
+msgstr "Параметри Користувача"
 
-#: Koo/Common/CommandLine.py:45
-msgid "specify the server (ie. http://admin@localhost:8069)"
+#: Koo/Dialogs/FullTextSearchDialog.py:300
+msgid "Loading..."
 msgstr ""
 
-#: Koo/Common/CommandLine.py:46
-msgid "specify stylesheet to apply"
-msgstr ""
+#: Koo/Dialogs/FullTextSearchDialog.py:302
+msgid "Full Text Search"
+msgstr "Повнотекстний Пошук"
 
-#: Koo/Common/CommandLine.py:47
-msgid "use POS (Point of Sales) mode"
-msgstr ""
+#: Koo/Dialogs/FullTextSearchDialog.py:303
+#, python-format
+msgid "Full Text Search (%%d result(s))"
+msgstr "Повнотекстний Пошук (%%d result(s))"
 
-#: Koo/Common/CommandLine.py:48
-msgid "disable usage of KDE libraries if they are available"
-msgstr ""
+#: Koo/Dialogs/FullTextSearchDialog.py:330
+msgid "(Everywhere)"
+msgstr "(Скрізь)"
 
-#: Koo/Common/DBus.py:10
+#: Koo/Dialogs/FullTextSearchDialog.py:334
 msgid ""
-"Module 'dbus' not available. Consider installing it so other applications "
-"can easily interact with Koo."
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
+"<b>Повнотекстний пошук не налаштовано.</b><br/>Перейти до <i>Адміністрування "
+"- Налаштування - Повнотекстний Пошук - Індекси</i>. Потім додайте поля для "
+"індексування та використайте <i>Оновити Повнотекстний Пошук</i>."
 
-#: Koo/Dialogs/ImportDialog.py:47
+#: Koo/Dialogs/FullTextSearchDialog.py:338
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+"<b>Модуль повнотекстного пошуку не встановлено.</b><br/>Перейдіть до "
+"<i>Адміністрування - Управління модулями - Деінстальовані модулі</i> та "
+"додайте модуль <i>full_text_search</i>."
+
+#: Koo/Dialogs/FullTextSearchDialog.py:409 Koo/Dialogs/FormWidget.py:280
+msgid "ID"
+msgstr "№"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:410
+msgid "Model ID"
+msgstr "№ Моделі"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:411
+msgid "Model Name"
+msgstr "Назва Моделі"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:413
+msgid "Type"
+msgstr "Тип"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:414
+msgid "Name"
+msgstr "Назва"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:415
+msgid "Text"
+msgstr "Текст"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:416
+msgid "Ranking"
+msgstr "Категорія"
+
+#: Koo/Dialogs/FormWidget.py:175
+msgid "<font color=\"blue\">Document modified</font>"
+msgstr "<font color=\"blue\">Документ змінено</font>"
+
+#: Koo/Dialogs/FormWidget.py:233
+msgid "No resource selected !"
+msgstr "Не вибрано ресурс !"
+
+#: Koo/Dialogs/FormWidget.py:274
+msgid "You have to select one resource!"
+msgstr "Ви повинні вибрати один ресурс !"
+
+#: Koo/Dialogs/FormWidget.py:281
+msgid "Creation User"
+msgstr "Створив Користувач"
+
+#: Koo/Dialogs/FormWidget.py:282
+msgid "Creation Date"
+msgstr "Дата Створення"
+
+#: Koo/Dialogs/FormWidget.py:283
+msgid "Latest Modification by"
+msgstr "Останнім Змінив"
+
+#: Koo/Dialogs/FormWidget.py:284
+msgid "Latest Modification Date"
+msgstr "Дата Останньої Зміни"
+
+#: Koo/Dialogs/FormWidget.py:290
+msgid "Record log"
+msgstr "Журнал Записів"
+
+#: Koo/Dialogs/FormWidget.py:293 Koo/Dialogs/FormWidget.py:459
+#: Koo/Fields/Button/ButtonFieldWidget.py:74
+msgid "Question"
+msgstr "Питання"
+
+#: Koo/Dialogs/FormWidget.py:293
+msgid "Are you sure you want to remove these records?"
+msgstr "Ви впевнені що хочете вилучити цей запис?"
+
+#: Koo/Dialogs/FormWidget.py:298
+msgid "Resource not removed !"
+msgstr "Ресурс не  вилучено !"
+
+#: Koo/Dialogs/FormWidget.py:300
+msgid "Resource removed."
+msgstr "Ресурс вилучено."
+
+#: Koo/Dialogs/FormWidget.py:331
+msgid "<font color=\"orange\">Working now on the duplicated document</font>"
+msgstr "<font color=\"orange\">Робота над дублікатом документу</font>"
+
+#: Koo/Dialogs/FormWidget.py:341
+msgid "<font color=\"green\">Document saved</font>"
+msgstr "<font color=\"green\">Документ збережено</font>"
+
+#: Koo/Dialogs/FormWidget.py:345
+msgid "<font color=\"red\">Invalid form</font>"
+msgstr "<font color=\"red\">Невірна форма</font>"
+
+#: Koo/Dialogs/FormWidget.py:428
+#, python-format
+msgid "(%s attachments) "
+msgstr "(%s вкладення) "
+
+#: Koo/Dialogs/FormWidget.py:439
+msgid "No records"
+msgstr "Немає записів"
+
+#: Koo/Dialogs/FormWidget.py:446
+msgid "No document selected"
+msgstr "Документ не вибрано"
+
+#: Koo/Dialogs/FormWidget.py:450
+msgid "New document"
+msgstr "Новий документ"
+
+#: Koo/Dialogs/FormWidget.py:452
+#, python-format
+msgid "Editing document (id: %s)"
+msgstr "Редагування документу (назва: %s)"
+
+#: Koo/Dialogs/FormWidget.py:453
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr "Запис: %(name)s / %(count)s - %(name2)s"
+
+#: Koo/Dialogs/FormWidget.py:459
+msgid "This record has been modified do you want to save it?"
+msgstr "Запис було змінено, Ви бажаєте зберегти його?"
+
+#: Koo/Dialogs/FormWidget.py:477
+msgid "No records selected"
+msgstr "Записи не вибрано"
+
+#: Koo/Dialogs/TreeWidget.py:63
+msgid "Tree"
+msgstr "Дерево"
+
+#: Koo/Dialogs/TreeWidget.py:286 Koo/Dialogs/TreeWidget.py:298
+msgid "No resource selected!"
+msgstr "Не вибрано ресурс!"
+
+#: Koo/Dialogs/TreeWidget.py:315
+msgid "No item selected"
+msgstr "Нічого не вибрано"
+
+#: Koo/Dialogs/TreeWidget.py:315
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr "Будьласка виберіть елемент з дерева щоб додати посилання на нього."
+
+#: Koo/Dialogs/ImportDialog.py:48
 #, python-format
 msgid "Error opening file: %s"
-msgstr ""
+msgstr "Помилка при відкриванні файлу: %s"
 
-#: Koo/Dialogs/ImportDialog.py:57
+#: Koo/Dialogs/ImportDialog.py:58
 #, python-format
 msgid "Error reading file: %s"
-msgstr ""
+msgstr "Помилка читання: %s"
 
-#: Koo/Dialogs/ImportDialog.py:62
+#: Koo/Dialogs/ImportDialog.py:63
 #, python-format
 msgid "Imported %d objects !"
 msgstr "Імпортовано %d об'єктів!"
 
-#: Koo/Dialogs/ImportDialog.py:67
+#: Koo/Dialogs/ImportDialog.py:68
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -139,43 +358,49 @@ msgid ""
 "\n"
 "%(error2)s"
 msgstr ""
+"Помилка при спробі імпортувати цей запис:\n"
+"%(record)s\n"
+"Повідомлення Помилки:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
 
-#: Koo/Dialogs/ImportDialog.py:72
+#: Koo/Dialogs/ImportDialog.py:73
 msgid "Error importing data"
 msgstr "Помилка імпорту даних"
 
-#: Koo/Dialogs/ImportDialog.py:109
+#: Koo/Dialogs/ImportDialog.py:130
 msgid "File to import"
 msgstr "Файл для імпорту"
 
-#: Koo/Dialogs/ImportDialog.py:124 Koo/Dialogs/ImportDialog.py:127
-#: Koo/Dialogs/ImportDialog.py:130
+#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
+#: Koo/Dialogs/ImportDialog.py:151
 msgid "Import error"
 msgstr "Помилка імпорту"
 
-#: Koo/Dialogs/ImportDialog.py:124
+#: Koo/Dialogs/ImportDialog.py:145
 msgid "No file specified."
 msgstr "Не вказано файл."
 
-#: Koo/Dialogs/ImportDialog.py:127 Koo/Dialogs/ImportDialog.py:188
+#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
 msgid "Separator must be a single character."
 msgstr "Розділювач повинен бути одиночним символом."
 
-#: Koo/Dialogs/ImportDialog.py:130 Koo/Dialogs/ImportDialog.py:191
+#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
 msgid "Delimiter must be a single character."
 msgstr "Розділювач повинен бути односимвольним."
 
-#: Koo/Dialogs/ImportDialog.py:180 Koo/Dialogs/ImportDialog.py:188
-#: Koo/Dialogs/ImportDialog.py:191 Koo/Dialogs/ImportDialog.py:197
-#: Koo/Dialogs/ImportDialog.py:207
+#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
+#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
+#: Koo/Dialogs/ImportDialog.py:228
 msgid "Auto-detect error"
 msgstr "Помилка автовизначення"
 
-#: Koo/Dialogs/ImportDialog.py:197
+#: Koo/Dialogs/ImportDialog.py:218
 msgid "Error opening .CSV file: Input Error."
 msgstr "Помилка відкриття файла .CSV: Помилка Входу."
 
-#: Koo/Dialogs/ImportDialog.py:207
+#: Koo/Dialogs/ImportDialog.py:228
 #, python-format
 msgid ""
 "Error processing your first line of the file.\n"
@@ -183,6 +408,22 @@ msgid ""
 msgstr ""
 "Помилка обробки першого рядка файлу.\n"
 "Поле %s невідоме !"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:64
+msgid "NET-RPC (faster)"
+msgstr "NET-RPC (швидше)"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:65
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "Secure XML-RPC"
+msgstr "Безпечно XML-RPC"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
+msgid "Pyro"
+msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:57
 msgid "Validation Error"
@@ -204,175 +445,75 @@ msgstr ""
 "Неможливо змінити пароль адміністратора. Будьласка переконайтесь, що сервер "
 "та пароль вірні."
 
-#: Koo/Dialogs/FormWidget.py:155
-msgid "<font color=\"blue\">Document modified</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:209
-msgid "No resource selected !"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:241
-msgid "You have to select one resource!"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:247 Koo/Dialogs/FullTextSearchDialog.py:397
-msgid "ID"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:248
-msgid "Creation User"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:249
-msgid "Creation Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:250
-msgid "Latest Modification by"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:251
-msgid "Latest Modification Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:257
-msgid "Record log"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:260 Koo/Dialogs/FormWidget.py:403
-#: Koo/Fields/Button/ButtonFieldWidget.py:71
-msgid "Question"
-msgstr "Питання"
-
-#: Koo/Dialogs/FormWidget.py:260
-msgid "Are you sure you want to remove these records?"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:264
-msgid "Resource not removed !"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:266
-msgid "Resource removed."
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:290
-msgid "<font color=\"orange\">Working now on the duplicated document</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:299
-msgid "<font color=\"green\">Document saved</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:303
-msgid "<font color=\"red\">Invalid form</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:372
-#, python-format
-msgid "(%s attachments) "
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:383
-msgid "No records"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:390
-msgid "No document selected"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:394
-msgid "New document"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:396
-#, python-format
-msgid "Editing document (id: %s)"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:397
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:403
-msgid "This record has been modified do you want to save it?"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:421
-msgid "No records selected"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:101 Koo/Dialogs/KooMainWindow.py:448
+#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:448
 msgid "Press Ctrl+O to login"
-msgstr ""
+msgstr "Натисніть Ctrl+O для входу"
 
-#: Koo/Dialogs/KooMainWindow.py:112
+#: Koo/Dialogs/KooMainWindow.py:111
 msgid "Close tab"
-msgstr ""
+msgstr "Закрити вкладку"
 
-#: Koo/Dialogs/KooMainWindow.py:191
+#: Koo/Dialogs/KooMainWindow.py:190
 msgid "Open partners tab"
-msgstr ""
+msgstr "Відкрити вкладку Партнерів"
 
-#: Koo/Dialogs/KooMainWindow.py:196
+#: Koo/Dialogs/KooMainWindow.py:195
 msgid "Open products tab"
-msgstr ""
+msgstr "Відкрити вкладку Партнерів"
 
-#: Koo/Dialogs/KooMainWindow.py:234
+#: Koo/Dialogs/KooMainWindow.py:233
 msgid "Products"
-msgstr ""
+msgstr "Продукти"
 
-#: Koo/Dialogs/KooMainWindow.py:234
+#: Koo/Dialogs/KooMainWindow.py:233
 msgid "Products module is not installed."
-msgstr ""
+msgstr "Модуль Продукти не встановлено."
 
 #: Koo/Dialogs/KooMainWindow.py:350
 #, python-format
 msgid "%s request(s)"
-msgstr ""
+msgstr "%s запит(и)"
 
 #: Koo/Dialogs/KooMainWindow.py:352
 msgid "No request"
-msgstr ""
+msgstr "Немає запиту"
 
 #: Koo/Dialogs/KooMainWindow.py:354
 #, python-format
 msgid " - %s pending request(s)"
-msgstr ""
+msgstr " - %s запитів в очікуванні"
 
 #: Koo/Dialogs/KooMainWindow.py:360
 msgid "New Request"
-msgstr ""
+msgstr "Новий Запит"
 
 #: Koo/Dialogs/KooMainWindow.py:360
 msgid "You've received a new request"
-msgstr ""
+msgstr "Ви отримали новий запит"
 
 #: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
 msgid "Connection error !"
-msgstr ""
+msgstr "Помилка з’єднання !"
 
 #: Koo/Dialogs/KooMainWindow.py:425
 msgid "Unable to connect to the server !"
-msgstr ""
+msgstr "Неможливо з’єднатись з сервером !"
 
 #: Koo/Dialogs/KooMainWindow.py:427
 msgid "Bad username or password !"
-msgstr ""
+msgstr "Невірне ім’я користувача або пароль !"
 
 #: Koo/Dialogs/KooMainWindow.py:431
 msgid "Connection Error !"
-msgstr ""
+msgstr "Помилка З’єднання !"
 
 #: Koo/Dialogs/KooMainWindow.py:447
 msgid "Not logged !"
-msgstr ""
+msgstr "Не в системі!"
 
 #: Koo/Dialogs/KooMainWindow.py:540
 msgid "Access denied"
-msgstr ""
+msgstr "Доступ заборонено"
 
 #: Koo/Dialogs/KooMainWindow.py:540
 msgid ""
@@ -380,99 +521,188 @@ msgid ""
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
+"Ви не можете увійти до системи!\n"
+"Зверніться до адміністратора, щоб перевірити\n"
+"чи Ви маєте дії визначені для свого користувача."
 
-#: Koo/Dialogs/KooMainWindow.py:571
+#: Koo/Dialogs/KooMainWindow.py:576
 msgid "Quit"
-msgstr ""
+msgstr "Вийти"
 
-#: Koo/Dialogs/KooMainWindow.py:571
+#: Koo/Dialogs/KooMainWindow.py:576
 msgid "Do you really want to quit ?"
-msgstr ""
+msgstr "Ви дійсно бажаєте вийти?"
 
-#: Koo/Dialogs/KooMainWindow.py:571
+#: Koo/Dialogs/KooMainWindow.py:576
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42
 msgid "Yes"
 msgstr "Так"
 
-#: Koo/Dialogs/KooMainWindow.py:571
+#: Koo/Dialogs/KooMainWindow.py:576
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43
 msgid "No"
 msgstr "Ні"
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:610
 msgid "Wizard"
-msgstr ""
+msgstr "Майстер"
 
-#: Koo/Dialogs/KooMainWindow.py:703 Koo/Dialogs/KooMainWindow.py:724
+#: Koo/Dialogs/KooMainWindow.py:708 Koo/Dialogs/KooMainWindow.py:729
 msgid "Delete a database"
-msgstr ""
+msgstr "Видалити базу даних"
 
-#: Koo/Dialogs/KooMainWindow.py:712 Koo/Dialogs/KooMainWindow.py:718
+#: Koo/Dialogs/KooMainWindow.py:717 Koo/Dialogs/KooMainWindow.py:723
 msgid "Database removal"
-msgstr ""
+msgstr "Вилучення бази даних"
 
-#: Koo/Dialogs/KooMainWindow.py:712
+#: Koo/Dialogs/KooMainWindow.py:717
 msgid "Database dropped successfully!"
-msgstr ""
+msgstr "Базу даних видалено успішно!"
 
-#: Koo/Dialogs/KooMainWindow.py:716
+#: Koo/Dialogs/KooMainWindow.py:721
 msgid "Could not drop database."
-msgstr ""
+msgstr "Неможливо видалити базу даних."
 
-#: Koo/Dialogs/KooMainWindow.py:716 Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/KooMainWindow.py:721 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr "Невірний пароль адміністратора бази даних!"
 
-#: Koo/Dialogs/KooMainWindow.py:718
+#: Koo/Dialogs/KooMainWindow.py:723
 msgid "Couldn't drop database"
-msgstr ""
+msgstr "Неможливо видалити базу даних."
 
-#: Koo/Dialogs/KooMainWindow.py:735
+#: Koo/Dialogs/KooMainWindow.py:740
 msgid "Database restored successfully!"
-msgstr ""
+msgstr "Базу даних відновлено успішно!"
 
-#: Koo/Dialogs/KooMainWindow.py:739 Koo/Dialogs/KooMainWindow.py:741
+#: Koo/Dialogs/KooMainWindow.py:744 Koo/Dialogs/KooMainWindow.py:746
 msgid "Could not restore database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:739
-msgid "Bad database administrator password!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:741
-msgid "There was an error restoring the database!"
-msgstr ""
+msgstr "Неможливо відновити базу даних"
 
 #: Koo/Dialogs/KooMainWindow.py:744
+msgid "Bad database administrator password!"
+msgstr "Невірний пароль адміністратора бази даних!"
+
+#: Koo/Dialogs/KooMainWindow.py:746
+msgid "There was an error restoring the database!"
+msgstr "Виникла помилка при відновленні бази даних!"
+
+#: Koo/Dialogs/KooMainWindow.py:749
 msgid "Backup a database"
-msgstr ""
+msgstr "Резервувати базу даних"
 
-#: Koo/Dialogs/KooMainWindow.py:759
+#: Koo/Dialogs/KooMainWindow.py:764
 msgid "Database backuped successfully!"
-msgstr ""
+msgstr "Базу даних зарезервовано успішно!"
 
-#: Koo/Dialogs/KooMainWindow.py:762
+#: Koo/Dialogs/KooMainWindow.py:767
 #, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr ""
+"Неможливо зарезервувати базу даних.\n"
+"%s"
 
-#: Koo/Dialogs/TreeWidget.py:61
-msgid "Tree"
-msgstr ""
+#: Koo/Dialogs/ExportDialog.py:53
+msgid "OpenERP exported information"
+msgstr "Експортована інформація OpenERP"
 
-#: Koo/Dialogs/TreeWidget.py:264 Koo/Dialogs/TreeWidget.py:276
-msgid "No resource selected!"
-msgstr ""
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:96
+#, python-format
+msgid "%s record(s) saved!"
+msgstr "%s запис(и) збережено!"
 
-#: Koo/Dialogs/TreeWidget.py:293
-msgid "No item selected"
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:99
+#, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
 msgstr ""
+"Операція невдала !\n"
+"I/O помилка (%s)"
 
-#: Koo/Dialogs/TreeWidget.py:293
-msgid "Please select an element from the tree to add a shortcut to it."
+#: Koo/Dialogs/ExportDialog.py:96 Koo/Dialogs/ExportDialog.py:99
+#: Koo/Dialogs/ExportDialog.py:102
+msgid "Data Export"
+msgstr "Експорт Даних"
+
+#: Koo/Dialogs/ExportDialog.py:102
+#, python-format
+msgid ""
+"Error exporting data:\n"
+"%s"
 msgstr ""
+"Помилка експорту даних:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:142
+#, python-format
+msgid ""
+"Error opening Excel:\n"
+"%s"
+msgstr ""
+"Помилка запуску Excel:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:176
+#, python-format
+msgid ""
+"Error Opening OpenOffice.org:\n"
+"%s"
+msgstr ""
+"Помилка запуску OpenOffice.org:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:300
+msgid "Export Data"
+msgstr "Експорт Даних"
+
+#: Koo/Dialogs/ExportDialog.py:343
+msgid "What is the name of this export?"
+msgstr "Яка назва цього експорту?"
+
+#: Koo/Dialogs/ExportDialog.py:361
+msgid "Open with OpenOffice.org"
+msgstr "Відкрити в OpenOffice.org"
+
+#: Koo/Dialogs/ExportDialog.py:367
+msgid "Open with Excel"
+msgstr "Відкрити в Excel"
+
+#: Koo/Dialogs/ExportDialog.py:370
+msgid "Save as CSV"
+msgstr "Зберегти як CSV"
+
+#: Koo/Dialogs/ExportDialog.py:371
+msgid "Save as HTML"
+msgstr "Зберегти як HTML"
+
+#: Koo/Dialogs/ExportDialog.py:383
+msgid "Export name"
+msgstr "Назва експорту"
+
+#: Koo/Dialogs/ExportDialog.py:384
+msgid "Exported fields"
+msgstr "Експортовані поля"
+
+#: Koo/Dialogs/SearchDialog.py:87
+#, python-format
+msgid "Search: %s"
+msgstr "Пошук: %s"
+
+#: Koo/Dialogs/SearchDialog.py:88
+#, python-format
+msgid "Search: %s (%%d result(s))"
+msgstr "Пошук: %s (%%d результат(и))"
+
+#: Koo/Dialogs/DatabaseDialog.py:74 Koo/Dialogs/LoginDialog.py:76
+msgid "Could not connect to server !"
+msgstr "Неможливо з'єднатися з сервером!"
+
+#: Koo/Dialogs/DatabaseDialog.py:80 Koo/Dialogs/LoginDialog.py:81
+msgid "No database found, you must create one !"
+msgstr "Не знайдено бази даних, потрібно створити її!"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
@@ -489,7 +719,7 @@ msgstr ""
 #: Koo/Dialogs/DatabaseCreationDialog.py:84
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Error during database creation"
-msgstr ""
+msgstr "Помилка при створенні бази даних"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
@@ -507,11 +737,11 @@ msgstr ""
 "Виникла помилка сервера під час інсталяції.\n"
 "Ми радимо Вам видалити цю базу даних."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:165
+#: Koo/Dialogs/DatabaseCreationDialog.py:167
 msgid "Bad database name !"
 msgstr "Невірне ім'я бази даних!"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:165
+#: Koo/Dialogs/DatabaseCreationDialog.py:167
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
@@ -519,76 +749,17 @@ msgstr ""
 "Ім'я бази даних має складатися з алфавітно-цифрових символів або \"_\".\n"
 "Уникайте апострофів, пробілів чи спецсимволів."
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#: Koo/Dialogs/DatabaseCreationDialog.py:170
 msgid "Wrong password"
-msgstr ""
+msgstr "Невірний пароль"
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#: Koo/Dialogs/DatabaseCreationDialog.py:170
 msgid "Administrator passwords differ."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:303
-msgid "(Everywhere)"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:307
-msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:309
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:311
-msgid "Full Text Search"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:312
-#, python-format
-msgid "Full Text Search (%%d result(s))"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:398
-msgid "Model ID"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:399
-msgid "Model Name"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:401
-msgid "Type"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:402
-msgid "Name"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:403
-msgid "Text"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:404
-msgid "Ranking"
-msgstr ""
-
-#: Koo/Dialogs/LoginDialog.py:76 Koo/Dialogs/DatabaseDialog.py:74
-msgid "Could not connect to server !"
-msgstr ""
-
-#: Koo/Dialogs/LoginDialog.py:81 Koo/Dialogs/DatabaseDialog.py:80
-msgid "No database found, you must create one !"
-msgstr ""
+msgstr "Пароль Адміністратора різниться."
 
 #: Koo/Dialogs/MassiveUpdateDialog.py:92
 msgid "Confirmation"
-msgstr ""
+msgstr "Підтвердження"
 
 #: Koo/Dialogs/MassiveUpdateDialog.py:93
 #, python-format
@@ -596,186 +767,82 @@ msgid ""
 "<p>This process will update the following fields in %(number)d "
 "records:</p>%(records)s<p>Do you want to continue?</p>"
 msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:52
-msgid "OpenERP exported information"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:72 Koo/Dialogs/ExportDialog.py:93
-#, python-format
-msgid "%s record(s) saved!"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:75 Koo/Dialogs/ExportDialog.py:96
-#, python-format
-msgid ""
-"Operation failed !\n"
-"I/O error (%s)"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:96
-#: Koo/Dialogs/ExportDialog.py:99
-msgid "Data Export"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:99
-#, python-format
-msgid ""
-"Error exporting data:\n"
-"%s"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:139
-#, python-format
-msgid ""
-"Error opening Excel:\n"
-"%s"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:173
-#, python-format
-msgid ""
-"Error Opening OpenOffice.org:\n"
-"%s"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:270
-msgid "Export Data"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:313
-msgid "What is the name of this export?"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:331
-msgid "Open with OpenOffice.org"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:337
-msgid "Open with Excel"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:340
-msgid "Save as CSV"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:341
-msgid "Save as HTML"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:353
-msgid "Export name"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:354
-msgid "Exported fields"
-msgstr ""
-
-#: Koo/Dialogs/PreferencesDialog.py:77
-msgid "User Preferences"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:64
-msgid "NET-RPC (faster)"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:65
-msgid "XML-RPC"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "Secure XML-RPC"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:67
-msgid "Pyro"
-msgstr ""
-
-#: Koo/Dialogs/SearchDialog.py:80
-#, python-format
-msgid "Search: %s"
-msgstr ""
-
-#: Koo/Dialogs/SearchDialog.py:81
-#, python-format
-msgid "Search: %s (%%d result(s))"
-msgstr ""
+"<p>Цей процес оновить наступні поля в %(number)d "
+"записах:</p>%(records)s<p>Ви бажаєте продовжити?</p>"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
-msgstr ""
+msgstr "Поля"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:50
+#: Koo/Fields/Binary/BinaryFieldWidget.py:52
 #, python-format
 msgid "Files (%s)"
-msgstr ""
+msgstr "Файли (%s)"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:59
+#: Koo/Fields/Binary/BinaryFieldWidget.py:61
 msgid "&Save"
-msgstr ""
+msgstr "&Зберегти"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:62
+#: Koo/Fields/Binary/BinaryFieldWidget.py:64
 msgid "&Open"
-msgstr ""
+msgstr "&Відкрити"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:65
+#: Koo/Fields/Binary/BinaryFieldWidget.py:67
 msgid "Show &image"
-msgstr ""
+msgstr "Показати &зображення"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:115
-#: Koo/Fields/Image/ImageFieldWidget.py:80
-#: Koo/Fields/Link/LinkFieldWidget.py:61
+#: Koo/Fields/Binary/BinaryFieldWidget.py:131
+#: Koo/Fields/Image/ImageFieldWidget.py:81
+#: Koo/Fields/Link/LinkFieldWidget.py:62
 msgid "Open..."
 msgstr "Відкрити…"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:116
+#: Koo/Fields/Binary/BinaryFieldWidget.py:132
 msgid "Show &image..."
 msgstr "Показати &зображення..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:141
-#: Koo/Fields/Image/ImageFieldWidget.py:108
+#: Koo/Fields/Binary/BinaryFieldWidget.py:157
+#: Koo/Fields/Image/ImageFieldWidget.py:109
 msgid "Image"
-msgstr ""
+msgstr "Зображення"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:151
+#: Koo/Fields/Binary/BinaryFieldWidget.py:167
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Вибрати файл для приєднання"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:160
+#: Koo/Fields/Binary/BinaryFieldWidget.py:178
 #, python-format
 msgid ""
 "Error reading the file:\n"
 "%s"
 msgstr ""
+"Помилка читання файлу:\n"
+"%s"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:164
-#: Koo/Fields/Binary/BinaryFieldWidget.py:212 Koo/Model/KooModel.py:355
-#, python-format
-msgid "%d bytes"
-msgstr "%d байтів"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:184
+#: Koo/Fields/Binary/BinaryFieldWidget.py:201
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "Зберегти як..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:195
+#: Koo/Fields/Binary/BinaryFieldWidget.py:212
 #, python-format
 msgid ""
 "Error writing the file:\n"
 "%s"
 msgstr ""
+"Помилка запису файлу:\n"
+"%s"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:100
+#: Koo/Fields/Button/ButtonFieldWidget.py:111
 msgid "Error in Button"
 msgstr "Помилка в Клавіші"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:100
+#: Koo/Fields/Button/ButtonFieldWidget.py:111
 msgid "Button type not allowed"
 msgstr "Тип Клавіші не дозволено"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:106
+#: Koo/Fields/Button/ButtonFieldWidget.py:120
 msgid "Invalid Form, correct red fields!"
 msgstr "Невірна Форма, виправіть червоні поля!"
 
@@ -783,33 +850,33 @@ msgstr "Невірна Форма, виправіть червоні поля!"
 msgid "Set current date"
 msgstr "Встановити поточну дату"
 
-#: Koo/Fields/Calendar/Calendar.py:116
+#: Koo/Fields/Calendar/Calendar.py:121
 msgid "Set current date and time"
 msgstr "Встановити поточну дату та час"
 
-#: Koo/Fields/Calendar/Calendar.py:158 Koo/Fields/Calendar/Calendar.py:208
+#: Koo/Fields/Calendar/Calendar.py:163 Koo/Fields/Calendar/Calendar.py:218
 msgid "Set current time"
 msgstr "Встановити поточний час"
 
-#: Koo/Fields/Char/CharFieldWidget.py:68
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
+#: Koo/Fields/Char/CharFieldWidget.py:74
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:60
 msgid "Translation dialog"
 msgstr "Діалог перекладу"
 
-#: Koo/Fields/Char/CharFieldWidget.py:68
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:55
+#: Koo/Fields/Char/CharFieldWidget.py:74
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:60
 msgid "You must save the resource before adding translations"
 msgstr "Ви повинні зберегти джерело перед додаванням перекладів"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:123
+#: Koo/Fields/Image/ImageFieldWidget.py:124
 msgid "Save image as..."
 msgstr "Зберегти зображення як..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:131
+#: Koo/Fields/Image/ImageFieldWidget.py:132
 msgid "Error saving file"
 msgstr "Помилка зберігання файла"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:131
+#: Koo/Fields/Image/ImageFieldWidget.py:132
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
@@ -817,39 +884,43 @@ msgstr ""
 "Неможливо зберегти зображення з вказаною назвою. Будьласка перевірте, що у "
 "Вас є прав запису."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:136
+#: Koo/Fields/Image/ImageFieldWidget.py:137
 #, python-format
 msgid "Image files (%s)"
-msgstr ""
+msgstr "Файли зображень (%s)"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:137
+#: Koo/Fields/Image/ImageFieldWidget.py:138
 msgid "Open image file..."
 msgstr "Відкрити файл зображення..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:154
+#: Koo/Fields/Image/ImageFieldWidget.py:155
 msgid "(no image)"
-msgstr ""
+msgstr "(немає зображень)"
 
-#: Koo/Fields/Link/LinkFieldWidget.py:70
+#: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
 msgstr "Вибрати файл з посиланням на"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:265
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:268
 msgid "Action"
 msgstr "Дія"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:266
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:269
 msgid "Report"
 msgstr "Звіт"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:99 Koo/Fields/ManyToOne/ManyToOne.py:217
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:211
+#: Koo/Fields/ManyToOne/ManyToOne.py:99 Koo/Fields/ManyToOne/ManyToOne.py:222
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:210
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:206
+#: Koo/Fields/ManyToOne/ManyToOne.py:215
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
+msgstr "Відкрити"
+
+#: Koo/Fields/OneToMany/OneToMany.py:203
+msgid "No record selected"
 msgstr ""
 
 #: Koo/Fields/Video/VideoFieldWidget.py:82
@@ -864,42 +935,46 @@ msgstr "Помилка запису у файл!"
 msgid "<center>Always applicable!</center>"
 msgstr "<center>Застосовується завжди!</center>"
 
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:98
+msgid "Operation not permited"
+msgstr "Операція не дозволена"
+
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:98
+msgid "You can not set to the default value here !"
+msgstr "Ви не можете встановити типове значення тут !"
+
+#: Koo/Fields/AbstractFieldWidget.py:68
+msgid "Set to default value"
+msgstr "Встановити типове значення"
+
+#: Koo/Fields/AbstractFieldWidget.py:74
+msgid "Set as default value"
+msgstr "Встановити як типове значення"
+
 #: Koo/Fields/TranslationDialog.py:51
 msgid "Translation Dialog"
 msgstr "Діалог Перекладу"
 
-#: Koo/Fields/AbstractFieldWidget.py:65
-msgid "Set to default value"
-msgstr "Встановити типове значення"
-
-#: Koo/Fields/AbstractFieldWidget.py:71
-msgid "Set as default value"
-msgstr "Встановити як типове значення"
-
-#: Koo/Fields/AbstractFieldWidget.py:98
-#: Koo/Fields/AbstractFieldDelegate.py:115
-msgid "Operation not permited"
-msgstr "Операція не дозволена"
-
-#: Koo/Fields/AbstractFieldWidget.py:98
-#: Koo/Fields/AbstractFieldDelegate.py:115
-msgid "You can not set to the default value here !"
-msgstr "Ви не можете встановити типове значення тут !"
-
 #: Koo/Plugins/Semantic/__init__.py:46
 msgid "Semantic Info"
-msgstr ""
+msgstr "Семантична Інформація"
+
+#: Koo/Plugins/ViewTranslator/__init__.py:38
+msgid "Translate View"
+msgstr "Вигляд Перекладу"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:54
 msgid "Print Workflow"
-msgstr ""
+msgstr "Друк Процесу"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:55
 msgid "Print Workflow (Complex)"
-msgstr ""
+msgstr "Друк Процесу (Складний)"
 
-#: Koo/Plugins/ViewTranslator/__init__.py:40
-msgid "Translate View"
+#: Koo/Plugins/ViewEditor/__init__.py:38
+msgid "Edit View"
 msgstr ""
 
 #: Koo/Printer/Printer.py:75
@@ -910,21 +985,23 @@ msgstr "Помилка звіту"
 msgid "There was an error trying to create the report."
 msgstr "Виникла помилка при спробі створити звіт."
 
-#: Koo/Rpc/Rpc.py:266 Koo/Rpc/Rpc.py:409
+#: Koo/Rpc/Rpc.py:304 Koo/Rpc/Rpc.py:421
 msgid "Connection Refused"
 msgstr "В з'єднанні відмовлено"
 
-#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
-#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
+#: Koo/Rpc/Rpc.py:310 Koo/Rpc/Rpc.py:433
 msgid "Application Error"
 msgstr "Помилка Программи"
 
-#: Koo/Rpc/Rpc.py:273 Koo/Rpc/Rpc.py:282 Koo/Rpc/Rpc.py:295 Koo/Rpc/Rpc.py:298
-#: Koo/Rpc/Rpc.py:421 Koo/Rpc/Rpc.py:435 Koo/Rpc/Rpc.py:455 Koo/Rpc/Rpc.py:459
+#: Koo/Rpc/Rpc.py:310 Koo/Rpc/Rpc.py:433
 msgid "View details"
 msgstr "Показати подробиці"
 
-#: Koo/Rpc/Rpc.py:576
+#: Koo/Rpc/Rpc.py:403
+msgid "Not logged in"
+msgstr "Не підключено"
+
+#: Koo/Rpc/Rpc.py:553
 msgid "Could not contact server!"
 msgstr "Неможливо з'єднатись з сервером!"
 
@@ -936,7 +1013,7 @@ msgstr "Виберіть запис для використання відпов
 msgid "You must save this record to use the relate button !"
 msgstr "Треба зберегти запис для використання відповідної кнопки!"
 
-#: Koo/Screen/Action.py:126
+#: Koo/Screen/Action.py:129
 msgid "Print Screen"
 msgstr "Друк екрану"
 
@@ -946,43 +1023,50 @@ msgid ""
 "<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
 "%(duration)s<br/>"
 msgstr ""
-
-#: Koo/View/Calendar/__init__.py:31
-msgid "Calendar View"
-msgstr ""
+"<b>%(title)s</b><br/><b>Старт:</b> %(start)s<br/><b>Тривалість:</b> "
+"%(duration)s<br/>"
 
 #: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
 msgid "Unknown"
 msgstr "Невідомо"
 
+#: Koo/View/Calendar/__init__.py:31
+msgid "Calendar View"
+msgstr "Вигляд Календаря"
+
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
-msgstr ""
+msgstr "Вигляд Графіка"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
-msgstr ""
+msgstr "Вигляд Форми"
 
-#: Koo/View/Svg/__init__.py:32
+#: Koo/View/Svg/__init__.py:33
 msgid "SVG View"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:203
-msgid "<font color='red'>Sorting not possible.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:205
-msgid "<font color='red'>Sorting only groups.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:207
-msgid "<font color='red'>Save changes before sorting.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:231
-msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
+msgstr "Вигляд SVG"
 
 #: Koo/View/Tree/__init__.py:32
 msgid "List View"
+msgstr "Вигляд Списку"
+
+#: Koo/View/Tree/TreeView.py:206
+msgid "<font color='red'>Sorting not possible.</font>"
+msgstr "<font color='red'>Сортування не можливе.</font>"
+
+#: Koo/View/Tree/TreeView.py:208
+msgid "<font color='red'>Sorting only groups.</font>"
+msgstr "<font color='red'>Сортування тільки груп.</font>"
+
+#: Koo/View/Tree/TreeView.py:210
+msgid "<font color='red'>Save changes before sorting.</font>"
+msgstr "<font color='red'>Збережіть зміни перед сортуванням.</font>"
+
+#: Koo/View/Tree/TreeView.py:234
+msgid "<a href=\"update\">Update totals</a>"
+msgstr "<a href=\"update\">Оновити підсумки</a>"
+
+#: Koo/View/DummyView.py:44
+#, python-format
+msgid "Views of type %s not available in Koo."
 msgstr ""

@@ -14,13 +14,13 @@ FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
         <translation>Project-Id-Version: PACKAGE VERSION
 Report-Msgid-Bugs-To: 
 POT-Creation-Date: 2009-07-28 00:00+0200
-PO-Revision-Date: 2009-07-30 16:39+0000
+PO-Revision-Date: 2009-11-12 08:49+0000
 Last-Translator: Albert Cervera i Areny &lt;albert@nan-tic.com&gt;
 Language-Team: LANGUAGE &lt;LL.org&gt;
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-08-04 16:56+0000
+X-Launchpad-Export-Date: 2009-11-12 08:56+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -45,7 +45,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="449"/>
         <source>&amp;Backup Database</source>
-        <translation>Fes  una còpia de seguretat de la &amp;base de dades</translation>
+        <translation>Fes una còpia de seguretat de la &amp;base de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="326"/>
@@ -238,11 +238,6 @@ X-Generator: Launchpad (build Unknown)
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="599"/>
-        <source>Ctrl+L, Ctrl+Shift+L</source>
-        <translation>Ctrl+L, Ctrl+Shift+L</translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="515"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
@@ -302,6 +297,11 @@ X-Generator: Launchpad (build Unknown)
         <location filename="mainwindow.ui" line="257"/>
         <source>F&amp;orm</source>
         <translation>F&amp;ormulari</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="599"/>
+        <source>F6</source>
+        <translation>F6</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="747"/>
@@ -400,12 +400,12 @@ X-Generator: Launchpad (build Unknown)
 <context>
     <name>ManyToManyWidget</name>
     <message>
-        <location filename="many2many.ui" line="42"/>
+        <location filename="many2many.ui" line="40"/>
         <source>&amp;Add</source>
         <translation>&amp;Afegeix</translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="58"/>
+        <location filename="many2many.ui" line="60"/>
         <source>&amp;Remove</source>
         <translation>&amp;Elimina</translation>
     </message>
@@ -413,12 +413,12 @@ X-Generator: Launchpad (build Unknown)
 <context>
     <name>ShortcutsDialog</name>
     <message>
-        <location filename="shortcuts.ui" line="509"/>
+        <location filename="shortcuts.ui" line="646"/>
         <source>&amp;Advanced</source>
         <translation>&amp;Avançat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="270"/>
+        <location filename="shortcuts.ui" line="318"/>
         <source>&amp;Edition Shortcuts</source>
         <translation>Dreceres d&apos;&amp;edició</translation>
     </message>
@@ -428,72 +428,87 @@ X-Generator: Launchpad (build Unknown)
         <translation>Dreceres &amp;Principals</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="130"/>
+        <location filename="shortcuts.ui" line="151"/>
         <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="116"/>
+        <location filename="shortcuts.ui" line="134"/>
         <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="239"/>
+        <location filename="shortcuts.ui" line="752"/>
+        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
+        <translation>&lt;Alt&gt; + Fletxa (Esquerra, dreta, amunt, avall)</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="782"/>
+        <source>&lt;Alt&gt; + Minus</source>
+        <translation>&lt;Alt&gt; + Menys</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="792"/>
+        <source>&lt;Alt&gt; + Plus</source>
+        <translation>&lt;Alt&gt; + Més</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="281"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="253"/>
+        <location filename="shortcuts.ui" line="298"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="172"/>
+        <location filename="shortcuts.ui" line="202"/>
         <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="158"/>
+        <location filename="shortcuts.ui" line="185"/>
         <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="214"/>
+        <location filename="shortcuts.ui" line="253"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="448"/>
+        <location filename="shortcuts.ui" line="582"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + Obre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="479"/>
+        <location filename="shortcuts.ui" line="613"/>
         <source>&lt;Ctrl&gt; + A</source>
         <translation>&lt;Ctrl&gt; + A</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="357"/>
+        <location filename="shortcuts.ui" line="454"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="74"/>
+        <location filename="shortcuts.ui" line="83"/>
         <source>&lt;Ctrl&gt; + D</source>
         <translation>&lt;Ctrl&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="88"/>
+        <location filename="shortcuts.ui" line="100"/>
         <source>&lt;Ctrl&gt; + F</source>
         <translation>&lt;Ctrl&gt; + F</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="144"/>
+        <location filename="shortcuts.ui" line="168"/>
         <source>&lt;Ctrl&gt; + L</source>
         <translation>&lt;Ctrl&gt; + L</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="46"/>
+        <location filename="shortcuts.ui" line="49"/>
         <source>&lt;Ctrl&gt; + N</source>
         <translation>&lt;Ctrl&gt; + N</translation>
     </message>
@@ -503,94 +518,94 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="434"/>
+        <location filename="shortcuts.ui" line="568"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + Open</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="60"/>
+        <location filename="shortcuts.ui" line="66"/>
         <source>&lt;Ctrl&gt; + S</source>
         <translation>&lt;Ctrl&gt; + S</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="102"/>
+        <location filename="shortcuts.ui" line="117"/>
         <source>&lt;Ctrl&gt; + T</source>
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="364"/>
+        <location filename="shortcuts.ui" line="461"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="186"/>
+        <location filename="shortcuts.ui" line="219"/>
         <source>&lt;Ctrl&gt; + W</source>
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="371"/>
+        <location filename="shortcuts.ui" line="468"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="336"/>
+        <location filename="shortcuts.ui" line="430"/>
         <source>&lt;Enter&gt;</source>
         <translation>&lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="322"/>
+        <location filename="shortcuts.ui" line="413"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation>&lt;Shift&gt; + &lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="566"/>
+        <location filename="shortcuts.ui" line="721"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation>&lt;Shift&gt; + Obre la vista</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="538"/>
+        <location filename="shortcuts.ui" line="681"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation>&lt;Shift&gt; + Canvia la vista</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="350"/>
+        <location filename="shortcuts.ui" line="447"/>
         <source>&lt;Tab&gt;</source>
         <translation>&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="515"/>
+        <location filename="shortcuts.ui" line="743"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation>&lt;b&gt;Dreceres en camps de text&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="230"/>
+        <location filename="shortcuts.ui" line="272"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;i&gt;Quan s&apos;edita un recurs en una finestra emergent&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="343"/>
+        <location filename="shortcuts.ui" line="437"/>
         <source>Auto-complete text field</source>
         <translation>Auto-completa el camp de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="406"/>
+        <location filename="shortcuts.ui" line="503"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation>Calcula el valor
 (Resultat de l&apos;exemple: 7)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="559"/>
+        <location filename="shortcuts.ui" line="711"/>
         <source>Change current tab</source>
         <translation>Canvia la pestanya actual</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="531"/>
+        <location filename="shortcuts.ui" line="671"/>
         <source>Close tab</source>
         <translation>Tanca la pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="260"/>
+        <location filename="shortcuts.ui" line="305"/>
         <source>Close window without saving</source>
         <translation>Tanca la finestra sense desar</translation>
     </message>
@@ -600,159 +615,209 @@ X-Generator: Launchpad (build Unknown)
         <translation>Connecta</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="301"/>
+        <location filename="shortcuts.ui" line="383"/>
         <source>Copy selected text</source>
         <translation>Copia el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="294"/>
+        <location filename="shortcuts.ui" line="554"/>
+        <source>Create a new record</source>
+        <translation>Crea un nou registre</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="373"/>
         <source>Cut selected text</source>
         <translation>Talla el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="81"/>
+        <location filename="shortcuts.ui" line="90"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="221"/>
+        <location filename="shortcuts.ui" line="260"/>
         <source>Duplicate Record</source>
         <translation>Duplica el registre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="200"/>
+        <location filename="shortcuts.ui" line="575"/>
+        <source>F1</source>
+        <translation>F1</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="339"/>
+        <source>F10</source>
+        <translation>F10</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="589"/>
+        <source>F2</source>
+        <translation>F2</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="236"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="95"/>
+        <location filename="shortcuts.ui" line="107"/>
         <source>Find / Search</source>
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="398"/>
+        <location filename="shortcuts.ui" line="495"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation>Fórmula + &lt;Enter&gt;
 (Exemple: 3+2*2)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="109"/>
+        <location filename="shortcuts.ui" line="124"/>
         <source>Full Text Search</source>
         <translation>Cerca de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="470"/>
+        <location filename="shortcuts.ui" line="330"/>
+        <source>General</source>
+        <translation>General</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="604"/>
         <source>Lists</source>
         <translation>Llistes</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="524"/>
+        <location filename="shortcuts.ui" line="661"/>
         <source>Middle mouse click on Tab</source>
         <translation>Clic amb el botó del mig en una pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="552"/>
+        <location filename="shortcuts.ui" line="701"/>
         <source>Mouse Wheel on Tab</source>
         <translation>Rodeta del ratolí en les pestanyes</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="53"/>
+        <location filename="shortcuts.ui" line="56"/>
         <source>New</source>
         <translation>Nou</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="315"/>
+        <location filename="shortcuts.ui" line="403"/>
         <source>Next editable widget</source>
         <translation>Següent camp editable</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="137"/>
+        <location filename="shortcuts.ui" line="158"/>
         <source>Next record</source>
         <translation>Registre següent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="179"/>
+        <location filename="shortcuts.ui" line="209"/>
         <source>Next tab</source>
         <translation>Pestanya següent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="386"/>
+        <location filename="shortcuts.ui" line="483"/>
         <source>Numeric fields</source>
         <translation>Camps numèrics</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="545"/>
+        <location filename="shortcuts.ui" line="691"/>
         <source>Open form view in new tab</source>
         <translation>Obre la vista de formulari en una nova pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="573"/>
+        <location filename="shortcuts.ui" line="731"/>
         <source>Open view in a background tab</source>
         <translation>Obre la vista en una pestanya de fons</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="455"/>
+        <location filename="shortcuts.ui" line="544"/>
         <source>Opens the record in a new background tab</source>
         <translation>Obre el registre en una nova pestanya de fons</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="441"/>
+        <location filename="shortcuts.ui" line="534"/>
         <source>Opens the record in a new tab</source>
         <translation>Obre el regsitre en una nova pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="308"/>
+        <location filename="shortcuts.ui" line="393"/>
         <source>Paste selected text</source>
         <translation>Enganxa el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="123"/>
+        <location filename="shortcuts.ui" line="141"/>
         <source>Previous Record</source>
         <translation>Registre anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="329"/>
+        <location filename="shortcuts.ui" line="420"/>
         <source>Previous editable widget</source>
         <translation>Camp editable anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="165"/>
+        <location filename="shortcuts.ui" line="192"/>
         <source>Previous tab</source>
         <translation>Pestanya anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="422"/>
+        <location filename="shortcuts.ui" line="522"/>
         <source>Relation fields</source>
         <translation>Camps de relació</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="207"/>
+        <location filename="shortcuts.ui" line="243"/>
         <source>Reload</source>
         <translation>Recarrega</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="246"/>
+        <location filename="shortcuts.ui" line="288"/>
         <source>Save and close window</source>
         <translation>Desa i tanca la finestra</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="67"/>
+        <location filename="shortcuts.ui" line="73"/>
         <source>Save</source>
         <translation>Desa</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="486"/>
+        <location filename="shortcuts.ui" line="561"/>
+        <source>Search/edit existing records</source>
+        <translation>Cerca/edita els registres existents</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="620"/>
         <source>Selects all records</source>
         <translation>Selecciona tots els registres</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="282"/>
+        <location filename="shortcuts.ui" line="772"/>
+        <source>Set focus to current widget&apos;s container</source>
+        <translation>Estableix el cursor al contenidor del camp actual</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="762"/>
+        <source>Set focus to nearest widget</source>
+        <translation>Estableix el cursor al camp més proper</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="802"/>
+        <source>Set focus to one of the widgets in the container</source>
+        <translation>Estableix el cursor a un dels camps del contenidor</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="361"/>
         <source>Shortcuts in text entries</source>
         <translation>Dreceres en camps de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="151"/>
+        <location filename="shortcuts.ui" line="346"/>
+        <source>Show field&apos;s help information</source>
+        <translation>Mostra l&apos;ajuda del camp</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="175"/>
         <source>Switch view mode</source>
         <translation>Canvia la vista</translation>
     </message>
@@ -904,37 +969,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="88"/>
+        <location filename="login.ui" line="96"/>
         <source>&amp;Database:</source>
         <translation>&amp;Base de dades:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="169"/>
+        <location filename="login.ui" line="198"/>
         <source>&amp;Password:</source>
         <translation>C&amp;ontrasenya:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="111"/>
+        <location filename="login.ui" line="120"/>
         <source>&amp;Server:</source>
         <translation>&amp;Servidor:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="195"/>
+        <location filename="login.ui" line="224"/>
         <source>&amp;User:</source>
         <translation>&amp;Usuari:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="126"/>
+        <location filename="login.ui" line="153"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;No s&apos;ha pogut connectar al servidor !&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="101"/>
+        <location filename="login.ui" line="109"/>
         <source>C&amp;hange</source>
         <translation>Can&amp;via</translation>
     </message>
     <message>
-        <location filename="login.ui" line="22"/>
+        <location filename="login.ui" line="23"/>
         <source>Login</source>
         <translation>Autenticació</translation>
     </message>
@@ -1172,22 +1237,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AdminPasswordDialog</name>
     <message>
-        <location filename="admin_passwd.ui" line="72"/>
+        <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
         <translation>Contrasenya &amp;nova:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="55"/>
+        <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
         <translation>&amp;Contrasenya anterior:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="19"/>
+        <location filename="admin_passwd.ui" line="20"/>
         <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
         <translation>&lt;b&gt;Canvia la contrasenya de l&apos;administrador&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="89"/>
+        <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
         <translation>&amp;Confirmació de la contrasenya nova:</translation>
     </message>
@@ -1203,6 +1268,41 @@ p, li { white-space: pre-wrap; }
         <location filename="dia_form_win_many2one.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation>Enllaç - OpenERP</translation>
+    </message>
+</context>
+<context>
+    <name>FullTextSearchDialog</name>
+    <message>
+        <location filename="full_text_search.ui" line="159"/>
+        <source>&amp;Open</source>
+        <translation>&amp;Obre</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="14"/>
+        <source>Full text search</source>
+        <translation>Cerca de text</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
+        <translation>Aquí pot cercar qualsevol terme en tota la base de dades mentres estigui indexat. Si les paraules que cerca no li retornen cap resultat i sap que existeixen, probablement no estiguin indexades i hauria de posar-se en contacte amb l&apos;administrador del sistema.
+
+La cerca de text només busca paraules completes però retornarà paraules que continguin la mateixa arrel. Per exmple, cercar &quot;construir&quot;, pot retornar documents que continguin les paraules &quot;construït&quot;, &quot;construir&quot; o &quot;construcció&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1226,47 +1326,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ExportDialog</name>
     <message>
-        <location filename="win_export.ui" line="161"/>
+        <location filename="win_export.ui" line="162"/>
         <source>&amp;Save list</source>
         <translation>&amp;Desa la llista</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="75"/>
+        <location filename="win_export.ui" line="76"/>
         <source>&lt;b&gt;All fields&lt;/b&gt;</source>
         <translation>&lt;b&gt;Tots els camps&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="176"/>
+        <location filename="win_export.ui" line="177"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
         <translation>&lt;b&gt;Camps a exportar&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="196"/>
+        <location filename="win_export.ui" line="197"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
         <translation>&lt;b&gt;Opcions&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="21"/>
+        <location filename="win_export.ui" line="22"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
         <translation>&lt;b&gt;Exportacions predefinides&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="115"/>
+        <location filename="win_export.ui" line="116"/>
         <source>A&amp;dd</source>
         <translation>&amp;Afegeix</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="209"/>
+        <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
         <translation>Afegeix els noms dels &amp;camps</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="45"/>
+        <location filename="win_export.ui" line="46"/>
         <source>Re&amp;move Export</source>
         <translation>&amp;Elimina l&apos;Exportació</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="137"/>
+        <location filename="win_export.ui" line="138"/>
         <source>Remo&amp;ve all</source>
         <translation>&amp;Elimina&apos;ls tots</translation>
     </message>
@@ -1274,12 +1374,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GoToIdDialog</name>
     <message>
-        <location filename="gotoid.ui" line="21"/>
+        <location filename="gotoid.ui" line="22"/>
         <source>&amp;Search Id:</source>
         <translation>&amp;Cerca l&apos;id:</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="13"/>
+        <location filename="gotoid.ui" line="14"/>
         <source>Go To Id</source>
         <translation>Vés a l&apos;Id</translation>
     </message>
@@ -1558,13 +1658,13 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="keyboard.ui" line="631"/>
-        <source>Ç</source>
-        <translation>Ç</translation>
+        <source>Ã</source>
+        <translation>Ã‡</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="225"/>
-        <source>Ñ</source>
-        <translation>Ñ</translation>
+        <source>Ã</source>
+        <translation>Ã‘</translation>
     </message>
 </context>
 <context>
@@ -1779,22 +1879,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TreeWidget</name>
     <message>
-        <location filename="tree.ui" line="78"/>
+        <location filename="tree.ui" line="71"/>
         <source>Add Shortcut</source>
         <translation>Afegeix l&apos;accés directe</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="118"/>
+        <location filename="tree.ui" line="111"/>
         <source>Expand/Collapse</source>
         <translation>Expandeix/Col·lapsa</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="98"/>
+        <location filename="tree.ui" line="91"/>
         <source>Remove Shortcut</source>
         <translation>Elimina l&apos;accés directe</translation>
     </message>
     <message>
-        <location filename="tree.ui" line="65"/>
+        <location filename="tree.ui" line="58"/>
         <source>Shortcuts</source>
         <translation>Dreceres de teclat</translation>
     </message>
@@ -1865,7 +1965,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ReferenceWidget</name>
     <message>
-        <location filename="reference.ui" line="48"/>
+        <location filename="reference.ui" line="83"/>
         <source>Clear</source>
         <translation>Elimina</translation>
     </message>
@@ -1907,14 +2007,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>FullTextSearchDialog</name>
-    <message>
-        <location filename="full_text_search.ui" line="13"/>
-        <source>Full text search</source>
-        <translation>Cerca de text</translation>
-    </message>
-</context>
-<context>
     <name>MassiveUpdateDialog</name>
     <message>
         <location filename="massiveupdate.ui" line="13"/>
@@ -1925,7 +2017,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>CalendarWidget</name>
     <message>
-        <location filename="calendar.ui" line="43"/>
+        <location filename="calendar.ui" line="51"/>
         <source>Open Calendar</source>
         <translation>Obre un calendari</translation>
     </message>
@@ -1933,7 +2025,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UrlWidget</name>
     <message>
-        <location filename="url.ui" line="43"/>
+        <location filename="url.ui" line="51"/>
         <source>Open</source>
         <translation>Obre</translation>
     </message>

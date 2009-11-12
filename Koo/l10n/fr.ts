@@ -14,13 +14,13 @@ FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, 2009.
         <translation>Project-Id-Version: openobject-client-kde
 Report-Msgid-Bugs-To: FULL NAME &lt;EMAIL@ADDRESS&gt;
 POT-Creation-Date: 2009-07-28 00:00+0200
-PO-Revision-Date: 2009-07-30 18:04+0000
+PO-Revision-Date: 2009-09-28 07:56+0000
 Last-Translator: Christophe Chauvet - http://www.syleam.fr/ &lt;Unknown&gt;
 Language-Team: French &lt;fr@li.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-08-21 14:12+0000
+X-Launchpad-Export-Date: 2009-11-12 08:56+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -28,6 +28,16 @@ X-Generator: Launchpad (build Unknown)
         <location filename="Obsolete_PO_entries"/>
         <source>Ctrl+L, Ctrl+Shift+L</source>
         <translation type="obsolete">Ctrl+L, Ctrl+Shift+L</translation>
+    </message>
+    <message>
+        <location filename="Obsolete_PO_entries"/>
+        <source>Ç</source>
+        <translation type="obsolete">Ç</translation>
+    </message>
+    <message>
+        <location filename="Obsolete_PO_entries"/>
+        <source>Ñ</source>
+        <translation type="obsolete">Ñ</translation>
     </message>
 </context>
 <context>
@@ -50,7 +60,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="449"/>
         <source>&amp;Backup Database</source>
-        <translation>Sauvegarder la &amp;Base de donnÃ©es</translation>
+        <translation>Sauvegarder la &amp;Base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="326"/>
@@ -75,7 +85,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="286"/>
         <source>&amp;Databases</source>
-        <translation>&amp;Bases de donnÃ©es</translation>
+        <translation>&amp;Bases de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="548"/>
@@ -85,17 +95,17 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="413"/>
         <source>&amp;Disconnect</source>
-        <translation>&amp;DÃ©connecter</translation>
+        <translation>&amp;Déconnecter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="458"/>
         <source>&amp;Drop Database</source>
-        <translation>Supprimer les base de &amp;donnÃ©es</translation>
+        <translation>Supprimer les base de &amp;données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="701"/>
         <source>&amp;Execute Plugins</source>
-        <translation>&amp;Executer le greffons</translation>
+        <translation>&amp;Executer les greffons</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="282"/>
@@ -115,7 +125,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="692"/>
         <source>&amp;Import Data</source>
-        <translation>&amp;Importer des donnÃ©es</translation>
+        <translation>&amp;Importer des données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="724"/>
@@ -135,7 +145,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="431"/>
         <source>&amp;New Database</source>
-        <translation>&amp;Nouvelle base de donnÃ©es</translation>
+        <translation>&amp;Nouvelle base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="572"/>
@@ -150,12 +160,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="476"/>
         <source>&amp;Preferences</source>
-        <translation>&amp;PrÃ©fÃ©rences</translation>
+        <translation>&amp;Préférences</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="584"/>
         <source>&amp;Previous</source>
-        <translation>&amp;PrÃ©cÃ©dent</translation>
+        <translation>&amp;Précédent</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="422"/>
@@ -165,7 +175,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="494"/>
         <source>&amp;Read My Requests</source>
-        <translation>Li&amp;re mes requÃªtes</translation>
+        <translation>Li&amp;re mes requêtes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="671"/>
@@ -180,7 +190,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="440"/>
         <source>&amp;Restore Database</source>
-        <translation>&amp;Restaurer la base de donnÃ©es</translation>
+        <translation>&amp;Restaurer la base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="524"/>
@@ -190,7 +200,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="485"/>
         <source>&amp;Send Request</source>
-        <translation>Envoyer une requÃªte</translation>
+        <translation>Envoyer une requête</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="715"/>
@@ -205,12 +215,12 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="503"/>
         <source>&amp;Waiting Requests</source>
-        <translation>RequÃªtes en attentes</translation>
+        <translation>Requêtes en attentes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="331"/>
         <source>&amp;Window</source>
-        <translation>FenÃªtre</translation>
+        <translation>Fenêtre</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="575"/>
@@ -225,7 +235,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="759"/>
         <source>Attachments</source>
-        <translation>PiÃšce jointe</translation>
+        <translation>Pièce jointe</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="551"/>
@@ -296,7 +306,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="683"/>
         <source>E&amp;xport Data</source>
-        <translation>E&amp;xporter les donnÃ©es</translation>
+        <translation>E&amp;xporter les données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="257"/>
@@ -306,17 +316,17 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="599"/>
         <source>F6</source>
-        <translation></translation>
+        <translation>F6</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="747"/>
         <source>Full &amp;Text Search</source>
-        <translation>Recherche Texte IntÃ©grale</translation>
+        <translation>Recherche Texte Intégrale</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="662"/>
         <source>Go To Resource ID</source>
-        <translation>Aller Ã  l&apos;ID de ressource</translation>
+        <translation>Aller à l&apos;ID de ressource</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="791"/>
@@ -331,7 +341,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="818"/>
         <source>Modify All Selected Records</source>
-        <translation>Modifier tous les enregistrements sÃ©lectionnÃ©s</translation>
+        <translation>Modifier tous les enregistrements sélectionnés</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="617"/>
@@ -351,27 +361,27 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="629"/>
         <source>Previous Tab</source>
-        <translation>Onglet prÃ©cÃ©dent</translation>
+        <translation>Onglet précédent</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="187"/>
         <source>Read My Requests</source>
-        <translation>Lire toutes mes requÃªtes</translation>
+        <translation>Lire toutes mes requêtes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="144"/>
         <source>Requests:</source>
-        <translation>RquÃªtes:</translation>
+        <translation>Rquêtes:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="210"/>
         <source>Send New Request</source>
-        <translation>Envoyer une nouvelle requÃªte</translation>
+        <translation>Envoyer une nouvelle requête</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="596"/>
         <source>Switch &amp;View</source>
-        <translation>Basculer en &amp;Vue</translation>
+        <translation>Basculer de &amp;Vue</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="781"/>
@@ -381,7 +391,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="mainwindow.ui" line="653"/>
         <source>View Access Log</source>
-        <translation>Vue du journal des accÃšs</translation>
+        <translation>Vue du journal des accès</translation>
     </message>
 </context>
 <context>
@@ -399,18 +409,18 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="translationdialog.ui" line="13"/>
         <source>Translation dialog</source>
-        <translation>FenÃªtre de traduction</translation>
+        <translation>Fenêtre de traduction</translation>
     </message>
 </context>
 <context>
     <name>ManyToManyWidget</name>
     <message>
-        <location filename="many2many.ui" line="37"/>
+        <location filename="many2many.ui" line="40"/>
         <source>&amp;Add</source>
         <translation>&amp;Ajouter</translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="54"/>
+        <location filename="many2many.ui" line="60"/>
         <source>&amp;Remove</source>
         <translation>Supprimer</translation>
     </message>
@@ -418,87 +428,102 @@ X-Generator: Launchpad (build Unknown)
 <context>
     <name>ShortcutsDialog</name>
     <message>
-        <location filename="shortcuts.ui" line="509"/>
+        <location filename="shortcuts.ui" line="646"/>
         <source>&amp;Advanced</source>
-        <translation>&amp;AvancÃ©</translation>
+        <translation>&amp;Avancé</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="270"/>
+        <location filename="shortcuts.ui" line="318"/>
         <source>&amp;Edition Shortcuts</source>
         <translation>&amp;Editer les raccourcis</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="24"/>
         <source>&amp;Main Shortcuts</source>
-        <translation>Raccourcis principale</translation>
+        <translation>Raccourcis principaux</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="130"/>
+        <location filename="shortcuts.ui" line="151"/>
         <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="116"/>
+        <location filename="shortcuts.ui" line="134"/>
         <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="239"/>
+        <location filename="shortcuts.ui" line="752"/>
+        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="782"/>
+        <source>&lt;Alt&gt; + Minus</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="792"/>
+        <source>&lt;Alt&gt; + Plus</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="281"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="253"/>
+        <location filename="shortcuts.ui" line="298"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="172"/>
+        <location filename="shortcuts.ui" line="202"/>
         <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="158"/>
+        <location filename="shortcuts.ui" line="185"/>
         <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="214"/>
+        <location filename="shortcuts.ui" line="253"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="448"/>
+        <location filename="shortcuts.ui" line="582"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="479"/>
+        <location filename="shortcuts.ui" line="613"/>
         <source>&lt;Ctrl&gt; + A</source>
         <translation>&lt;Ctrl&gt; + A</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="357"/>
+        <location filename="shortcuts.ui" line="454"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="74"/>
+        <location filename="shortcuts.ui" line="83"/>
         <source>&lt;Ctrl&gt; + D</source>
         <translation>&lt;Ctrl&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="88"/>
+        <location filename="shortcuts.ui" line="100"/>
         <source>&lt;Ctrl&gt; + F</source>
         <translation>&lt;Ctrl&gt; + F</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="144"/>
+        <location filename="shortcuts.ui" line="168"/>
         <source>&lt;Ctrl&gt; + L</source>
         <translation>&lt;Ctrl&gt; + L</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="46"/>
+        <location filename="shortcuts.ui" line="49"/>
         <source>&lt;Ctrl&gt; + N</source>
         <translation>&lt;Ctrl&gt; + N</translation>
     </message>
@@ -508,96 +533,96 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="434"/>
+        <location filename="shortcuts.ui" line="568"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + Ouvrir</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="60"/>
+        <location filename="shortcuts.ui" line="66"/>
         <source>&lt;Ctrl&gt; + S</source>
         <translation>&lt;Ctrl&gt; + S</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="102"/>
+        <location filename="shortcuts.ui" line="117"/>
         <source>&lt;Ctrl&gt; + T</source>
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="364"/>
+        <location filename="shortcuts.ui" line="461"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="186"/>
+        <location filename="shortcuts.ui" line="219"/>
         <source>&lt;Ctrl&gt; + W</source>
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="371"/>
+        <location filename="shortcuts.ui" line="468"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="336"/>
+        <location filename="shortcuts.ui" line="430"/>
         <source>&lt;Enter&gt;</source>
         <translation>&lt;Entrer&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="322"/>
+        <location filename="shortcuts.ui" line="413"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation>&lt;Shift&gt; + &lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="566"/>
+        <location filename="shortcuts.ui" line="721"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation>&lt;Shift&gt; + Ouvrir la vue</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="538"/>
+        <location filename="shortcuts.ui" line="681"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation>&lt;Shift&gt; + Basculer de vue</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="350"/>
+        <location filename="shortcuts.ui" line="447"/>
         <source>&lt;Tab&gt;</source>
         <translation>&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="515"/>
+        <location filename="shortcuts.ui" line="743"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation>&lt;b&gt;Raccourci dans le texte saisi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="230"/>
+        <location filename="shortcuts.ui" line="272"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;i&gt;Lors de l&apos;Ã©dition d&apos;une ressource dans le menu contextuel&lt;/i&gt;&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;&lt;i&gt;Lors de l&apos;édition d&apos;une ressource dans le menu contextuel&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="343"/>
+        <location filename="shortcuts.ui" line="437"/>
         <source>Auto-complete text field</source>
-        <translation>Champ text auto-complÃ©tÃ©</translation>
+        <translation>Champ texte auto-complété</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="406"/>
+        <location filename="shortcuts.ui" line="503"/>
         <source>Calculates value
 (Example result: 7)</source>
-        <translation>Valeur calculÃ©e
+        <translation>Valeur calculée
 (Exemple de resultat: 7)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="559"/>
+        <location filename="shortcuts.ui" line="711"/>
         <source>Change current tab</source>
         <translation>Changer l&apos;onglet courant</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="531"/>
+        <location filename="shortcuts.ui" line="671"/>
         <source>Close tab</source>
         <translation>Fermer l&apos;onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="260"/>
+        <location filename="shortcuts.ui" line="305"/>
         <source>Close window without saving</source>
-        <translation>Fermer la fenÃªtre sans sauvegarder</translation>
+        <translation>Fermer la fenêtre sans sauvegarder</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="39"/>
@@ -605,159 +630,209 @@ X-Generator: Launchpad (build Unknown)
         <translation>Connecter</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="301"/>
+        <location filename="shortcuts.ui" line="383"/>
         <source>Copy selected text</source>
-        <translation>Copier le texte sÃ©lectionnÃ©</translation>
+        <translation>Copier le texte sélectionné</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="294"/>
+        <location filename="shortcuts.ui" line="554"/>
+        <source>Create a new record</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="373"/>
         <source>Cut selected text</source>
-        <translation>Couper le texte sÃ©lectionnÃ©</translation>
+        <translation>Couper le texte sélectionné</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="81"/>
+        <location filename="shortcuts.ui" line="90"/>
         <source>Delete</source>
         <translation>Supprimer</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="221"/>
+        <location filename="shortcuts.ui" line="260"/>
         <source>Duplicate Record</source>
-        <translation>Dupliquer l&apos;enregsitrement</translation>
+        <translation>Dupliquer l&apos;enregistrement</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="200"/>
+        <location filename="shortcuts.ui" line="575"/>
+        <source>F1</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="339"/>
+        <source>F10</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="589"/>
+        <source>F2</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="236"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="95"/>
+        <location filename="shortcuts.ui" line="107"/>
         <source>Find / Search</source>
         <translation>Trouver / Rechercher</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="398"/>
+        <location filename="shortcuts.ui" line="495"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation>Formule + &lt;Entrer&gt;
 (Exemple: 3+2*2)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="109"/>
+        <location filename="shortcuts.ui" line="124"/>
         <source>Full Text Search</source>
-        <translation>Recherche texte intÃ©gral</translation>
+        <translation>Recherche texte intégral</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="470"/>
+        <location filename="shortcuts.ui" line="330"/>
+        <source>General</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="604"/>
         <source>Lists</source>
         <translation>Listes</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="524"/>
+        <location filename="shortcuts.ui" line="661"/>
         <source>Middle mouse click on Tab</source>
         <translation>Clic du milieu sur l&apos;onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="552"/>
+        <location filename="shortcuts.ui" line="701"/>
         <source>Mouse Wheel on Tab</source>
         <translation>Molette de la souris sur les onglets</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="53"/>
+        <location filename="shortcuts.ui" line="56"/>
         <source>New</source>
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="315"/>
+        <location filename="shortcuts.ui" line="403"/>
         <source>Next editable widget</source>
-        <translation>Compasant modifiable suivant</translation>
+        <translation>Prochain composant modifiable</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="137"/>
+        <location filename="shortcuts.ui" line="158"/>
         <source>Next record</source>
         <translation>Enregistrement suivant</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="179"/>
+        <location filename="shortcuts.ui" line="209"/>
         <source>Next tab</source>
         <translation>Onglet suivant</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="386"/>
+        <location filename="shortcuts.ui" line="483"/>
         <source>Numeric fields</source>
-        <translation>Champs numÃ©riques</translation>
+        <translation>Champs numériques</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="545"/>
+        <location filename="shortcuts.ui" line="691"/>
         <source>Open form view in new tab</source>
         <translation>Ouvrir la vue formulaire dans un nouvel onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="573"/>
+        <location filename="shortcuts.ui" line="731"/>
         <source>Open view in a background tab</source>
-        <translation>Ouvrir la vue dans un onglet en arriÃšre plan</translation>
+        <translation>Ouvrir la vue dans un onglet en arrière plan</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="455"/>
+        <location filename="shortcuts.ui" line="544"/>
         <source>Opens the record in a new background tab</source>
-        <translation>Ouvrir l&apos;enregistrement dans une nouvel onglet en arriÃšre plan</translation>
+        <translation>Ouvrir l&apos;enregistrement dans une nouvel onglet en arrière plan</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="441"/>
+        <location filename="shortcuts.ui" line="534"/>
         <source>Opens the record in a new tab</source>
         <translation>Ouvrir l&apos;enregistrement dans un nouvel onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="308"/>
+        <location filename="shortcuts.ui" line="393"/>
         <source>Paste selected text</source>
-        <translation>Coller le texte sÃ©lectionnÃ©</translation>
+        <translation>Coller le texte sélectionné</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="123"/>
+        <location filename="shortcuts.ui" line="141"/>
         <source>Previous Record</source>
-        <translation>Enregistrement prÃ©cÃ©dent</translation>
+        <translation>Enregistrement précédent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="329"/>
+        <location filename="shortcuts.ui" line="420"/>
         <source>Previous editable widget</source>
-        <translation>Composan modifiable prÃ©cÃ©dent</translation>
+        <translation>Précedent composant modifiable</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="165"/>
+        <location filename="shortcuts.ui" line="192"/>
         <source>Previous tab</source>
-        <translation>Onglet prÃ©cÃ©dent</translation>
+        <translation>Onglet précédent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="422"/>
+        <location filename="shortcuts.ui" line="522"/>
         <source>Relation fields</source>
         <translation>Champs relation</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="207"/>
+        <location filename="shortcuts.ui" line="243"/>
         <source>Reload</source>
         <translation>Recharger</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="246"/>
+        <location filename="shortcuts.ui" line="288"/>
         <source>Save and close window</source>
-        <translation>Sauvegarder et fermer la fenÃªtre</translation>
+        <translation>Sauvegarder et fermer la fenêtre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="67"/>
+        <location filename="shortcuts.ui" line="73"/>
         <source>Save</source>
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="486"/>
+        <location filename="shortcuts.ui" line="561"/>
+        <source>Search/edit existing records</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="620"/>
         <source>Selects all records</source>
         <translation>Choisir tous les enregistrements</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="282"/>
-        <source>Shortcuts in text entries</source>
-        <translation>Raccourcis dans les textes saisies</translation>
+        <location filename="shortcuts.ui" line="772"/>
+        <source>Set focus to current widget&apos;s container</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="151"/>
+        <location filename="shortcuts.ui" line="762"/>
+        <source>Set focus to nearest widget</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="802"/>
+        <source>Set focus to one of the widgets in the container</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="361"/>
+        <source>Shortcuts in text entries</source>
+        <translation>Raccourcis dans les textes saisis</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="346"/>
+        <source>Show field&apos;s help information</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="175"/>
         <source>Switch view mode</source>
         <translation>Basculer le mode de vue</translation>
     </message>
@@ -777,7 +852,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="choosedb.ui" line="13"/>
         <source>Choose database...</source>
-        <translation>Choisir une base de donnÃ©es</translation>
+        <translation>Choisir une base de données</translation>
     </message>
 </context>
 <context>
@@ -813,7 +888,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="tip.ui" line="77"/>
         <source>&amp;Previous Tip</source>
-        <translation>Astuces &amp;prÃ©cÃ©dente</translation>
+        <translation>Astuce &amp;précédente</translation>
     </message>
     <message>
         <location filename="tip.ui" line="13"/>
@@ -898,7 +973,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;A propos d&apos;OpenERP&lt;/span&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;ERP &amp;amp; CRM Open Source le plus avancÃ© !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;ERP &amp;amp; CRM Open Source le plus avancé !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="14"/>
@@ -911,7 +986,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="96"/>
         <source>&amp;Database:</source>
-        <translation>&amp;Base de donnÃ©es:</translation>
+        <translation>&amp;Base de données:</translation>
     </message>
     <message>
         <location filename="login.ui" line="198"/>
@@ -949,17 +1024,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="181"/>
         <source>&amp;Default language:</source>
-        <translation>Langage par &amp;dÃ©faut</translation>
+        <translation>Langage par &amp;défaut</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
-        <translation>Charger &amp;les donnÃ©es de dÃ©monstrations</translation>
+        <translation>Charger &amp;les données de démonstrations</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
-        <translation>&amp;Nouveau nom de base de donnÃ©es</translation>
+        <translation>&amp;Nouveau nom de base de données</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="233"/>
@@ -974,17 +1049,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
-        <translation>(ne doit pas contenir de caractÃšre spÃ©ciaux)</translation>
+        <translation>(ne doit pas contenir de caractères spéciaux)</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
-        <translation>(utiliser &apos;admin&apos;, si vous ne l&apos;avez pas changer)</translation>
+        <translation>(utiliser &apos;admin&apos;, si vous ne l&apos;avez pas changé)</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="26"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Impossible de se connecter Ã  la base de donnÃ©es&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Impossible de se connecter à la base de données&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="292"/>
@@ -994,12 +1069,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="14"/>
         <source>Create a new database</source>
-        <translation>CrÃ©er une nouvelle base de donnÃ©es</translation>
+        <translation>Créer une nouvelle base de données</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="299"/>
         <source>Repeat admin password</source>
-        <translation>RÃ©pÃ©ter le mot de passe administrateur</translation>
+        <translation>Répéter le mot de passe administrateur</translation>
     </message>
 </context>
 <context>
@@ -1017,7 +1092,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="19"/>
         <source>Application Error !</source>
-        <translation>Erreur application !</translation>
+        <translation>Erreur de l&apos;application</translation>
     </message>
     <message>
         <location filename="error.ui" line="47"/>
@@ -1027,7 +1102,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="124"/>
         <source>De&amp;tails</source>
-        <translation>DÃ©&amp;tail</translation>
+        <translation>Dé&amp;tail</translation>
     </message>
     <message>
         <location filename="error.ui" line="13"/>
@@ -1037,7 +1112,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="78"/>
         <source>View details</source>
-        <translation>Vue dÃ©tails</translation>
+        <translation>Vue détails</translation>
     </message>
 </context>
 <context>
@@ -1065,7 +1140,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="55"/>
         <source>Default &amp;value</source>
-        <translation>&amp;Valeur par dÃ©faut</translation>
+        <translation>&amp;Valeur par défaut</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="21"/>
@@ -1088,17 +1163,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="178"/>
         <source>&amp;Field separator</source>
-        <translation>SÃ©parateur de champ</translation>
+        <translation>Séparateur de champ</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="219"/>
         <source>&amp;Lines to skip:</source>
-        <translation>&amp;Lignes Ã  ignaurÃ©s</translation>
+        <translation>&amp;Lignes à ignorer</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="195"/>
         <source>&amp;Text delimiter:</source>
-        <translation>DÃ©limiteur de &amp;texte:</translation>
+        <translation>Délimiteur de &amp;texte:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="188"/>
@@ -1113,17 +1188,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="109"/>
         <source>Auto-&amp;detect</source>
-        <translation>Auto-&amp;dÃ©tection</translation>
+        <translation>Auto-&amp;détection</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="130"/>
         <source>Fields to import</source>
-        <translation>Champs Ã  importer</translation>
+        <translation>Champs à importer</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="153"/>
         <source>File to &amp;import:</source>
-        <translation>Fichier Ã  &amp;importer</translation>
+        <translation>Fichier à &amp;importer</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="16"/>
@@ -1229,7 +1304,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="14"/>
         <source>Full text search</source>
-        <translation>Recherche texte intÃ©gral</translation>
+        <translation>Recherche texte intégral</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="37"/>
@@ -1272,7 +1347,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="win_export.ui" line="177"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Champ Ã  exporter&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Champ à exporter&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="197"/>
@@ -1282,7 +1357,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="win_export.ui" line="22"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Exports prÃ©dÃ©finit&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Exports prédéfinis&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="116"/>
@@ -1292,7 +1367,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
-        <translation>Ajouter nom du champs</translation>
+        <translation>Ajouter nom du champ</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="46"/>
@@ -1302,7 +1377,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="win_export.ui" line="138"/>
         <source>Remo&amp;ve all</source>
-        <translation>Tous supprimer</translation>
+        <translation>Tout supprimer</translation>
     </message>
 </context>
 <context>
@@ -1315,7 +1390,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="gotoid.ui" line="14"/>
         <source>Go To Id</source>
-        <translation>Aller Ã  l&apos;ID</translation>
+        <translation>Aller à l&apos;ID</translation>
     </message>
 </context>
 <context>
@@ -1423,7 +1498,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="calendarview.ui" line="83"/>
         <source>Color Legend</source>
-        <translation>Couleur de la lÃ©gende</translation>
+        <translation>Couleur de la légende</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="251"/>
@@ -1433,7 +1508,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="calendarview.ui" line="63"/>
         <source>Daily View</source>
-        <translation>Vue journaliÃšre</translation>
+        <translation>Vue journalière</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="56"/>
@@ -1593,12 +1668,12 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="keyboard.ui" line="631"/>
         <source>Ã</source>
-        <translation>Ã</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="225"/>
         <source>Ã</source>
-        <translation>Ã</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1621,7 +1696,7 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="one2many.ui" line="171"/>
         <source>Previous</source>
-        <translation>PrÃ©cÃ©dent</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="136"/>
@@ -1662,7 +1737,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Vous pouvez vous connecter Ã  la nouvelle base de donnÃ©es avec les comptes suivants:&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Vous pouvez vous connecter à la nouvelle base de données avec les comptes suivants:&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrateur: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1679,12 +1754,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="56"/>
         <source>Database created successfully!</source>
-        <translation>Base de donnÃ©es crÃ©e avec succÃšs</translation>
+        <translation>Base de données crée avec succès</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="13"/>
         <source>Database created</source>
-        <translation>Base de donnÃ©es crÃ©e</translation>
+        <translation>Base de données créée</translation>
     </message>
 </context>
 <context>
@@ -1904,7 +1979,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_selection.ui" line="13"/>
         <source>Dialog</source>
-        <translation>FenÃªtre</translation>
+        <translation>Fenêtre</translation>
     </message>
 </context>
 <context>
@@ -1917,7 +1992,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tree.ui" line="111"/>
         <source>Expand/Collapse</source>
-        <translation>DÃ©plier/Plier</translation>
+        <translation>Déplier/Plier</translation>
     </message>
     <message>
         <location filename="tree.ui" line="91"/>
@@ -1935,7 +2010,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="306"/>
         <source>Background color</source>
-        <translation>Couleur d&apos;arriÃšre plan</translation>
+        <translation>Couleur d&apos;arrière plan</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="41"/>
@@ -1965,22 +2040,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="164"/>
         <source>Left Justify</source>
-        <translation>Aligenr Ã  gauche</translation>
+        <translation>Aligner à gauche</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="222"/>
         <source>Right Justify</source>
-        <translation>Aligner Ã  droite</translation>
+        <translation>Aligner à droite</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="336"/>
         <source>Select font size</source>
-        <translation>SÃ©lectionner la taille de la police</translation>
+        <translation>Sélectionner la taille de la police</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="323"/>
         <source>Select font</source>
-        <translation>SÃ©lectionner une police</translation>
+        <translation>Sélectionner une police</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="128"/>
@@ -1990,7 +2065,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="99"/>
         <source>Underline</source>
-        <translation>SoulignÃ©</translation>
+        <translation>Souligné</translation>
     </message>
 </context>
 <context>
@@ -2042,13 +2117,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="massiveupdate.ui" line="13"/>
         <source>Massive Update Process</source>
-        <translation>Processus de mise Ã  jour massif</translation>
+        <translation>Processus de mise à jour massif</translation>
     </message>
 </context>
 <context>
     <name>CalendarWidget</name>
     <message>
-        <location filename="calendar.ui" line="43"/>
+        <location filename="calendar.ui" line="51"/>
         <source>Open Calendar</source>
         <translation>Ouvrir le calendrier</translation>
     </message>
@@ -2056,7 +2131,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UrlWidget</name>
     <message>
-        <location filename="url.ui" line="43"/>
+        <location filename="url.ui" line="51"/>
         <source>Open</source>
         <translation>Ouvrir</translation>
     </message>
@@ -2066,14 +2141,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="progress.ui" line="40"/>
         <source>Operation in progress</source>
-        <translation>OpÃ©ration en cours</translation>
+        <translation>Opération en cours</translation>
     </message>
     <message>
         <location filename="progress.ui" line="53"/>
         <source>Please wait, 
 this operation may take a while...</source>
         <translation>Veuillez patienter, 
-cette opÃ©ration peut prendre du temps...</translation>
+cette opération peut prendre du temps...</translation>
     </message>
     <message>
         <location filename="progress.ui" line="14"/>
@@ -2086,7 +2161,7 @@ cette opÃ©ration peut prendre du temps...</translation>
     <message>
         <location filename="preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>PrÃ©fÃ©rences</translation>
+        <translation>Préférences</translation>
     </message>
 </context>
 <context>
@@ -2102,7 +2177,7 @@ cette opÃ©ration peut prendre du temps...</translation>
     <message>
         <location filename="link.ui" line="36"/>
         <source>Select file...</source>
-        <translation>SÃ©lectionner un fichier...</translation>
+        <translation>Sélectionner un fichier...</translation>
     </message>
 </context>
 <context>
@@ -2110,7 +2185,7 @@ cette opÃ©ration peut prendre du temps...</translation>
     <message>
         <location filename="formcontainer.ui" line="56"/>
         <source>State:</source>
-        <translation>Ãtat:</translation>
+        <translation>État:</translation>
     </message>
 </context>
 <context>
