@@ -215,13 +215,11 @@ class Record(QObject):
 	def get(self, get_readonly=True, includeid=False, checkLoad=True, get_modifiedonly=False):
 		if checkLoad:
 			self.ensureIsLoaded()
-		value = []
+		value = {}
 		for name, field in self.group.fieldObjects.items():
 			if (get_readonly or not self.isFieldReadOnly(name)) \
 				and (not get_modifiedonly or field.name in self.modified_fields):
-					value.append((name, field.get(self, readonly=get_readonly,
-						modified=get_modifiedonly)))
-		value = dict(value)
+					value[name] = field.get(self, readonly=get_readonly, modified=get_modifiedonly)
 		if includeid:
 			value['id'] = self.id
 		return value
