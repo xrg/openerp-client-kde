@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-11-11 03:03+0100\n"
+"POT-Creation-Date: 2009-11-12 09:57+0100\n"
 "PO-Revision-Date: 2009-08-30 21:25+0000\n"
 "Last-Translator: Eugene Babiy <eugene.babiy@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-12 08:56+0000\n"
+"X-Launchpad-Export-Date: 2009-11-12 12:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
@@ -156,24 +156,24 @@ msgstr "Не зберігати"
 msgid "User Preferences"
 msgstr "Параметри Користувача"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:300
+#: Koo/Dialogs/FullTextSearchDialog.py:301
 msgid "Loading..."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:302
+#: Koo/Dialogs/FullTextSearchDialog.py:303
 msgid "Full Text Search"
 msgstr "Повнотекстний Пошук"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:303
+#: Koo/Dialogs/FullTextSearchDialog.py:304
 #, python-format
 msgid "Full Text Search (%%d result(s))"
 msgstr "Повнотекстний Пошук (%%d result(s))"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:330
+#: Koo/Dialogs/FullTextSearchDialog.py:331
 msgid "(Everywhere)"
 msgstr "(Скрізь)"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:334
+#: Koo/Dialogs/FullTextSearchDialog.py:335
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
@@ -183,7 +183,7 @@ msgstr ""
 "- Налаштування - Повнотекстний Пошук - Індекси</i>. Потім додайте поля для "
 "індексування та використайте <i>Оновити Повнотекстний Пошук</i>."
 
-#: Koo/Dialogs/FullTextSearchDialog.py:338
+#: Koo/Dialogs/FullTextSearchDialog.py:339
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "
@@ -193,31 +193,31 @@ msgstr ""
 "<i>Адміністрування - Управління модулями - Деінстальовані модулі</i> та "
 "додайте модуль <i>full_text_search</i>."
 
-#: Koo/Dialogs/FullTextSearchDialog.py:409 Koo/Dialogs/FormWidget.py:280
+#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:280
 msgid "ID"
 msgstr "№"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:410
+#: Koo/Dialogs/FullTextSearchDialog.py:411
 msgid "Model ID"
 msgstr "№ Моделі"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:411
+#: Koo/Dialogs/FullTextSearchDialog.py:412
 msgid "Model Name"
 msgstr "Назва Моделі"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:413
+#: Koo/Dialogs/FullTextSearchDialog.py:414
 msgid "Type"
 msgstr "Тип"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:414
+#: Koo/Dialogs/FullTextSearchDialog.py:415
 msgid "Name"
 msgstr "Назва"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:415
+#: Koo/Dialogs/FullTextSearchDialog.py:416
 msgid "Text"
 msgstr "Текст"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:416
+#: Koo/Dialogs/FullTextSearchDialog.py:417
 msgid "Ranking"
 msgstr "Категорія"
 

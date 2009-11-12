@@ -20,7 +20,7 @@ Language-Team: LANGUAGE &lt;LL.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-11-12 08:56+0000
+X-Launchpad-Export-Date: 2009-11-12 12:24+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>

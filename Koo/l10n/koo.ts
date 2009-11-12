@@ -1921,17 +1921,17 @@ this operation may take a while...</source>
 <context>
     <name>SearchFormWidget</name>
     <message>
-        <location filename="searchform.ui" line="13"/>
+        <location filename="searchform.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="82"/>
+        <location filename="searchform.ui" line="84"/>
         <source>&amp;Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="92"/>
+        <location filename="searchform.ui" line="95"/>
         <source>&amp;Search</source>
         <translation type="unfinished"></translation>
     </message>

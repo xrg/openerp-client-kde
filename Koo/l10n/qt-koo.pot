@@ -74,7 +74,7 @@ msgid "&Clear Cache"
 msgstr ""
 
 #. ts-context SearchFormWidget
-#: searchform.ui:82
+#: searchform.ui:84
 #, fuzzy
 msgid "&Clear"
 msgstr ""
@@ -404,7 +404,7 @@ msgid "&Search Id:"
 msgstr ""
 
 #. ts-context SearchFormWidget
-#: searchform.ui:92
+#: searchform.ui:95
 #, fuzzy
 msgid "&Search"
 msgstr ""
