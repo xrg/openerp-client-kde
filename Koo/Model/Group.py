@@ -123,10 +123,17 @@ class RecordGroup(QObject):
 			self._sortMode = self.SortVisibleItems
 		else:
 			self._sortMode = self.SortAllItems
+		self._sortMode = self.SortAllItems
 
 		self.load(ids)
 		self.removedRecords = []
 		self._onWriteFunction = ''
+
+	def setSortMode(self, mode):
+		self._sortMode = mode
+
+	def sortMode(self):
+		return self._sortMode
 
 	def setOnWriteFunction(self, value):
 		self._onWriteFunction = value
@@ -768,6 +775,8 @@ class RecordGroup(QObject):
 		if not field in self.fields:
 			return
 
+		self.ensureAllLoaded()
+
 		if field != self.sortedField:
 			# Sort only if last sorted field was different than current
 
@@ -794,6 +803,11 @@ class RecordGroup(QObject):
 		self.sortedField = field
 		self.sortedOrder = order
 		self.updated = True
+
+		# Emit recordsInserted() to ensure KooModel is updated.
+		self.emit( SIGNAL('recordsInserted(int,int)'), 0, len(self.records)-1 )
+
+		self.emit( SIGNAL("sorting"), self.SortingPossible )
 		
 	## @brief Removes all new records and marks all modified ones as not loaded.
 	def cancel(self):

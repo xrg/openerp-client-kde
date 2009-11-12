@@ -29,6 +29,7 @@
 
 import gettext
 from Koo.Common import Common
+from Koo.Common.Settings import *
 
 from Koo import Rpc
 
@@ -64,6 +65,8 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.allowMultipleSelection = sel_multi
 
 		self.modelGroup = RecordGroup( model, context=self.context )
+		if Settings.value('sort_mode') == 'visible_items':
+			self.modelGroup.setSortMode( RecordGroup.SortVisibleItems )
 		self.modelGroup.setDomain( domain )
 		if self.ids:
 			self.modelGroup.setFilter( [('id','in',ids)] )

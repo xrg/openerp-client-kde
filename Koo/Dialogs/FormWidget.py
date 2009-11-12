@@ -111,6 +111,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self._viewActionGroup.addAction( action )
 
 		self.group = RecordGroup( self.model, context=self.context )
+		if Settings.value('sort_mode') == 'visible_items':
+			self.group.setSortMode( RecordGroup.SortVisibleItems )
 		self.group.setDomain( domain )
 		self.connect(self.group, SIGNAL('modified()'), self.notifyRecordModified)
 
