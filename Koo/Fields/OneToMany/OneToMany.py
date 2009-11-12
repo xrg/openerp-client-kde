@@ -70,7 +70,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 		if not record:
 			self._recordAdded = True
-			record = self.screen.new(context=creationContext)
+			record = self.screen.new(context=self.creationContext)
 		else:
 			self._recordAdded = False
 		self.screen.setCurrentRecord( record )
@@ -102,7 +102,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 	def accepted( self ):
 		if self._recordAdded:
 			self.screen.currentView().store()
-			self.screen.new(context=creationContext)
+			self.screen.new(context=self.creationContext)
 		else:
 			self.accept()
 
