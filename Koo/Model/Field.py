@@ -314,17 +314,17 @@ class OneToManyField(ToManyField):
 			return []
 		result = []
 		group = record.values[self.name]
-		for id in group.ids():
-			if (modified and not group.isRecordModified(id)) or (not id and not group.isRecordModified( id ) ):
-				continue
-			if id:
-				# Note that group.modelById() might force loading a model that wasn't yet loaded
-				# if 'modified' is False.
-				result.append((1, id, group.modelById( id ).get(checkLoad=checkLoad, get_readonly=readonly)))
+		# Update modified records
+		for modifiedRecord in group.modifiedRecords():
+			# New records are also returned by the modifiedRecords() function
+			if modifiedRecord.id:
+				result.append((1, modifiedRecord.id, modifiedRecord.get(checkLoad=checkLoad, get_readonly=readonly)))
 
+		# Add new records
 		for rec in group.newRecords():
-				result.append((0, 0, rec.get(checkLoad=checkLoad, get_readonly=readonly)))
+			result.append((0, 0, rec.get(checkLoad=checkLoad, get_readonly=readonly)))
 
+		# Remove removed records
 		for id in record.values[self.name].removedRecords:
 			result.append( (2, id, False) )
 		return result
