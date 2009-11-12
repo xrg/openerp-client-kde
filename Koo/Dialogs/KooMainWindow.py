@@ -468,7 +468,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		dialog = QDialog( self )
 		loadUi( Common.uiPath('about.ui'), dialog )
 		from Koo.Common import Version
-		dialog.uiTiny.setHtml( unicode(dialog.uiTiny.toHtml()) % Version.Version )
+		dialog.uiOpenErp.setHtml( unicode(dialog.uiOpenErp.toHtml()) % Version.Version )
 		dialog.exec_()
 
 	def showShortcuts(self):
