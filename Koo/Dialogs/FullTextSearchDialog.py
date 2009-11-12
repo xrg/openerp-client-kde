@@ -28,6 +28,7 @@
 ##############################################################################
 
 import gettext
+import re
 from Koo.Common import Common
 from Koo.Common import Numeric
 
