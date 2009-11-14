@@ -120,7 +120,6 @@ class Screen(QScrollArea):
 
 		self._viewQueue = ViewQueue()
 		self._readOnly = False
-		self._currentLimit = None
 
 	## @brief Sets the focus to current view.
 	def setFocusToView(self):
