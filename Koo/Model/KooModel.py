@@ -562,15 +562,22 @@ class KooModel(QAbstractItemModel):
 		seq = record.value( 'sequence' )
 		seq = seq or 0
 		if group.sortedOrder == Qt.AscendingOrder:
-			seq += 1
+			increment = -1
 		else:
-			seq -= 1
-
+			increment = 1
+		seq = seq + increment
 		id = int( str( data.text() ) )
 		movedRecord = self.recordFromIndex( self.indexFromId( id ) )
 		movedRecord.setValue( 'sequence', seq )
 		group.records.remove( movedRecord )
 		group.records.insert( group.records.index(record), movedRecord )
+
+		if group.count():
+			idx = group.indexOfId( id )
+			idx -= 1
+			while idx >= 0 and group.records[idx].value('sequence') == seq:
+				group.records[idx].setValue('sequence', seq + increment)
+				idx -= 1
 		self.reset()
 		return True
 
