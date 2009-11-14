@@ -680,14 +680,12 @@ class Screen(QScrollArea):
 			# Note that we want to ensure there are ids to remove so we don't setCurrentRecord(None)
 			# if it's not strictly necessary.
 			self.setCurrentRecord( None )
-			for record in records:
-				idx = self.group.indexOfRecord( record )
-				self.group.remove( record )
-				if self.group.count():
-					idx = min(idx, self.group.count() - 1)
-					self.setCurrentRecord( self.group.recordByIndex( idx ) )
-				else:
-					self.setCurrentRecord( None )
+			self.group.remove( records )
+			if self.group.count():
+				idx = min(idx, self.group.count() - 1)
+				self.setCurrentRecord( self.group.recordByIndex( idx ) )
+			else:
+				self.setCurrentRecord( None )
 		self.display()
 		if records:
 			return True

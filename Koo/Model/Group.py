@@ -369,9 +369,7 @@ class RecordGroup(QObject):
 	## @brief Removes a record from the record group but not from the server.
 	#
 	# If the record doesn't exist it will ignore it silently.
-	def remove(self, record):
-		if not record in self.records:
-			return
+	def removeRecord(self, record):
 		idx = self.records.index(record)
 		if isinstance( record, Record ):
 			id = record.id
@@ -388,6 +386,46 @@ class RecordGroup(QObject):
 		self.freeRecord( record )
 		self.emit( SIGNAL('modified()') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx )
+
+	## @brief Remove a list of records from the record group but not from the server.
+	#
+	# If a record doesn't exist it will ignore it silently.
+	def removeRecords(self, records):
+		firstIdx = -1
+		lastIdx = -1
+		toRemove = []
+		for record in records:
+			if not record in records:
+				continue
+			idx = self.records.index(record)
+			if firstIdx < 0 or idx < firstIdx:
+				firstIdx = idx
+			if lastIdx < 0 or idx > lastIdx:
+				lastIdx = idx
+			if isinstance( record, Record ):
+				id = record.id
+			else:
+				id = record
+			if id:
+				# Only store removedRecords if they have a valid Id.
+				# Otherwise we don't need them because they don't have 
+				# to be removed in the server.
+				self.removedRecords.append( id )
+			if isinstance( record, Record ):
+				if record.parent:
+					record.parent.modified = True
+			self.freeRecord( record )
+		self.emit( SIGNAL('modified()') )
+		self.emit( SIGNAL('recordsRemoved(int,int)'), firstIdx, lastIdx )
+
+	## @brief Removes a record from the record group but not from the server.
+	#
+	# If the record doesn't exist it will ignore it silently.
+	def remove(self, record):
+		if isinstance(record, list):
+			self.removeRecords( record )
+		else:
+			self.removeRecord( record )	
 
 	def binaryFieldNames(self):
 		return [x[:-5] for x in self.fieldObjects.keys() if x.endswith('.size')]
