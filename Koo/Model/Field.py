@@ -177,6 +177,8 @@ class BinaryField(StringField):
 			value = record.rpc.read([record.id], [self.name], c)[0][self.name]
 			if value:
 				record.values[self.name] = base64.decodestring(value)
+			else:
+				record.values[self.name] = ''
 		return record.values[self.name]
 
 class BinarySizeField(StringField):
