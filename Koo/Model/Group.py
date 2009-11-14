@@ -92,6 +92,7 @@ class RecordGroup(QObject):
 		self._context.update(Rpc.session.context)
 		self.resource = resource
 		self.limit = Settings.value( 'limit', 80 )
+		self.maximumLimit = self.limit
 		self.rpc = RpcProxy(resource)
 		if fields == None:
 			self.fields = {}
@@ -128,6 +129,20 @@ class RecordGroup(QObject):
 		self.load(ids)
 		self.removedRecords = []
 		self._onWriteFunction = ''
+
+	## @brief Sets wether data loading should be done on record chunks or one by one.
+	#
+	# Setting value to True, will make the RecordGroup ignore the current 'limit' property,
+	# and load records by one by, instead. If set to False (the default) it will load records
+	# in groups of 'limit' (80, by default).
+	#
+	# In some cases (widgets that show multiple records) it's better to load in chunks, in other
+	# cases, it's better to load one by one.
+	def setLoadOneByOne(self, value):
+		if value:
+			self.limit = 1
+		else:
+			self.limit = self.maximumLimit
 
 	def setSortMode(self, mode):
 		self._sortMode = mode
@@ -305,9 +320,9 @@ class RecordGroup(QObject):
 		ctx.update(self._context)
 		return ctx
 
+	## @brief Sets the context that will be used for RPC calls.
 	def setContext(self, context):
-		self._context = {}
-		self._context.update( context )
+		self._context = context.copy()
 
 	## @brief Adds a record to the list
 	def add(self, record, position=-1):

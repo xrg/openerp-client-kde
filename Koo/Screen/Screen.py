@@ -120,6 +120,7 @@ class Screen(QScrollArea):
 
 		self._viewQueue = ViewQueue()
 		self._readOnly = False
+		self._currentLimit = None
 
 	## @brief Sets the focus to current view.
 	def setFocusToView(self):
@@ -370,6 +371,15 @@ class Screen(QScrollArea):
 			self._currentView = abs(self._currentView)
 			# ... unless there's only one view
 			self._currentView = min(self._currentView, self._viewQueue.count()-1)
+
+		# If the view can show multiple records we set the default loading method in the
+		# record group, otherwise we set the load one-by-one mode, so only the current record
+		# is loaded. This improves performance on switching views from list to form with forms
+		# that contain a lot of fields.
+		if self.currentView().showsMultipleRecords():
+			self.group.setLoadOneByOne( False )
+		else:
+			self.group.setLoadOneByOne( True )
 
 		self.setView( self.currentView() )
 	    	if self.currentRecord():
