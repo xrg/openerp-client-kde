@@ -157,7 +157,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# the signal...
 		self.actions = [ 'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 
 			'Reload', 'Switch', 'Attach', 'Export', 'Import', 'GoToResourceId', 
-			'Duplicate', 'AccessLog', 'MassiveUpdate' ]
+			'Duplicate', 'AccessLog', 'MassiveUpdate', 'StoreViewSettings' ]
 		for x in self.actions:
 			action = eval('self.action'+ x)
 			self.connect( action, SIGNAL( 'triggered()' ), self.callChildView )

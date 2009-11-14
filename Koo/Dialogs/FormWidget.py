@@ -150,7 +150,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'Switch': self.switchView,
 			'Attach': self.showAttachments,
 			'Duplicate': self.duplicate,
-			'MassiveUpdate': self.massiveUpdate
+			'MassiveUpdate': self.massiveUpdate,
+			'StoreViewSettings': self.storeViewSettings,
 		}
 
 		if res_id:
@@ -485,6 +486,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog.setup( self.viewTypes, self.viewIds )
 		dialog.exec_()
 		self.reload()
+
+	def storeViewSettings(self):
+		self.screen.storeViewSettings()
 
 	def closeWidget(self):
 		self.screen.storeViewSettings()

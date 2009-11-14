@@ -114,6 +114,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			'Print': self.printCurrent,
 			'PrintHtml': self.printHtmlCurrent,
 			'Reload': self.reload,
+			'StoreViewSettings': self.storeViewState,
 		}
 
 		parser = TreeParser()

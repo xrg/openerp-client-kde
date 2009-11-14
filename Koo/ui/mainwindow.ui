@@ -268,6 +268,7 @@
     <addaction name="actionPrevious"/>
     <addaction name="actionSwitch"/>
     <addaction name="separator"/>
+    <addaction name="actionStoreViewSettings"/>
     <addaction name="actionAccessLog"/>
     <addaction name="actionGoToResourceId"/>
     <addaction name="separator"/>
@@ -277,9 +278,9 @@
     <addaction name="actionExport"/>
     <addaction name="actionImport"/>
    </widget>
-   <widget class="QMenu" name="menuFile">
+   <widget class="QMenu" name="menuDatabase">
     <property name="title">
-     <string>&amp;File</string>
+     <string>&amp;Database</string>
     </property>
     <widget class="QMenu" name="menuDatabases">
      <property name="title">
@@ -339,7 +340,7 @@
     <addaction name="actionPreviousTab"/>
     <addaction name="actionClose"/>
    </widget>
-   <addaction name="menuFile"/>
+   <addaction name="menuDatabase"/>
    <addaction name="menuUser"/>
    <addaction name="menuForm"/>
    <addaction name="menuReports"/>
@@ -651,6 +652,15 @@
    </property>
    <property name="text">
     <string>View Access Log</string>
+   </property>
+  </action>
+  <action name="actionStoreViewSettings">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/save.png</normaloff>:/images/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Store View Settings</string>
    </property>
   </action>
   <action name="actionGoToResourceId">
