@@ -679,6 +679,7 @@ class Screen(QScrollArea):
 			# (caused by signals) do not crash.
 			# Note that we want to ensure there are ids to remove so we don't setCurrentRecord(None)
 			# if it's not strictly necessary.
+			idx = self._currentRecordPosition
 			self.setCurrentRecord( None )
 			self.group.remove( records )
 			if self.group.count():
