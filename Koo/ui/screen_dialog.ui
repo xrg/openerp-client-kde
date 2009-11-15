@@ -39,6 +39,23 @@
       <number>0</number>
      </property>
      <item>
+      <widget class="QPushButton" name="pushDevInfo">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Item ?</string>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/action.png</normaloff>:/images/action.png</iconset>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>

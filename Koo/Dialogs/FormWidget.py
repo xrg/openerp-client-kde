@@ -104,6 +104,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.context = context
 		self.viewTypes = view_type
 		self.viewIds = view_ids
+		self.devel_mode = Settings.value("client.devel_mode", False)
 
 		self._switchViewMenu = QMenu( self )
 		self._viewActionGroup = QActionGroup( self )
@@ -295,6 +296,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return False
 		res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
 		message = ''
+		if self.devel_mode:
+			message = "Object: %s, form: %s\n" %(self.model, self.viewIds)
+			message += "Domain: %s\nContext: %s\n" %(self.domain, self.context)
+			message += "Scr context: %s\n" % (self.screen.context)
+			message += "\n"
 		for line in res:
 			todo = [
 				('id', _('ID')),

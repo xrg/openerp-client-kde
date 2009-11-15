@@ -29,7 +29,9 @@ from PyQt4.uic import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
+from Koo import Rpc
 from Koo.Common import Common
+from Koo.Common.Settings import Settings
 
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
@@ -50,14 +52,21 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.group = None
 		self.record = None
 		self.recordId = None
+		self.model = None
 		self._recordAdded = False
 		self._context = {}
 		self._domain = []
+		self.devel_mode = Settings.value("client.devel_mode", False)
+		if self.devel_mode:
+			self.connect( self.pushDevInfo, SIGNAL("clicked()"),self.showLogs)
+		else:
+			self.pushDevInfo.hide()
 
 	def setup(self, model, id=None):
 		if self.group:
 			return
 		self.group = RecordGroup( model, context=self._context )
+		self.model = model
 		self.group.setDomain( self._domain )
 		self.screen.setRecordGroup( self.group )
 		self.screen.setViewTypes( ['form'] )
@@ -69,6 +78,8 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.screen.new()
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen  )
+		if not self.devel_mode:
+			self
 		self.screen.show()
 
 	def setAttributes(self, attrs):
@@ -93,4 +104,31 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.record = self.screen.currentRecord().name()
 			self.recordId = self.screen.currentRecord().id
 			self.accept()
+	
+	def showLogs(self):
+		id = self.screen.currentId()
+		if not id:
+			self.updateStatus(_('You have to select one resource!'))
+			return False
+		res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+		message = ''
+		devel_mode = True
+		if devel_mode:
+			message = "Object: %s\n" %(self.model)
+			message += "Domain: %s\nContext: %s\n" %(self._domain, self._context)
+			message += "Scr context: %s\n" % (self.screen.context)
+			message += "\n"
+		for line in res:
+			todo = [
+				('id', _('ID')),
+				('create_uid', _('Creation User')),
+				('create_date', _('Creation Date')),
+				('write_uid', _('Latest Modification by')),
+				('write_date', _('Latest Modification Date')),
+			]
+			for (key,val) in todo:
+				if line[key] and key in ('create_uid','write_uid'):
+					line[key] = line[key][1]
+				message += val + ': ' + str(line[key] or '-') + '\n'
+		QMessageBox.information(self, _('Record log'), message)
 
