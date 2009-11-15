@@ -404,6 +404,10 @@ class Record(QObject):
 		# Avoid setting None in the context as it might be sent to 
 		# the server and RPC doesn't support None
 		d['active_id'] = self.id or False
+		# It seems that some modules depend on the existance of 'id'
+		# instead of 'active_id'. It has solved, for example, a problem
+		# with the c2c_budget module.
+		d['id'] = self.id or False
 		if self.parent:
 			d['parent'] = EvalEnvironment(self.parent)
 		val = Rpc.session.evaluateExpression(dom, d)
