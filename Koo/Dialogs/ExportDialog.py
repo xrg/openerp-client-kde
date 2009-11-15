@@ -75,21 +75,24 @@ def exportHtml(fname, fields, result, writeTitle):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Error'), _("Operation failed !\nI/O error (%s)") % (errno))
 
+def textToCsv(text):
+	return '"%s"' % text.replace('\n',' ').replace('\t', ' ').replace('"','\\"')
+
 def exportCsv(fname, fields, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		fp = codecs.open( fname, 'wb+', 'utf8' )
 		if writeTitle:
-			fp.write( ','.join( fields ) + '\n' )
+			fp.write( ','.join( [textToCsv(x) for x in fields] ) + '\n' )
 		for data in result:
 			row = []
 			for d in data:
-				if type(d)==types.StringType:
-					row.append('"' + d.replace('\n',' ').replace('\t',' ').replace('"',"\\\"") + '"')
+				if isinstance(d, str):
+					row.append( textToCsv(d) )
 				elif not isinstance( d, unicode ):
-					row.append( unicode( d ) )
+					row.append( textToCsv(unicode(d)) )
 				else:
-					row.append( d )
+					row.append( textToCsv(d) )
 			fp.write( ','.join( row ) + '\n' )
 		fp.close()
 		QApplication.restoreOverrideCursor()
