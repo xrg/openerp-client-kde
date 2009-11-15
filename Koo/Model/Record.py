@@ -216,7 +216,10 @@ class Record(QObject):
 		if checkLoad:
 			self.ensureIsLoaded()
 		value = {}
-		for name, field in self.group.fieldObjects.items():
+		# Iterate over self.group.fields to avoid objects of type BinarySizeField
+		# which shouldn't be treated as a normal field.
+		for name in self.group.fields:
+			field = self.group.fieldObjects[ name ]
 			if (get_readonly or not self.isFieldReadOnly(name)) \
 				and (not get_modifiedonly or field.name in self.modified_fields):
 					value[name] = field.get(self, readonly=get_readonly, modified=get_modifiedonly)
