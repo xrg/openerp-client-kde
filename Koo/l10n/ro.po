@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-11-12 09:57+0100\n"
+"POT-Creation-Date: 2009-11-14 20:11+0100\n"
 "PO-Revision-Date: 2009-10-07 06:12+0000\n"
 "Last-Translator: Cristi Nistor <cristian.marius.nistor@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-12 12:24+0000\n"
+"X-Launchpad-Export-Date: 2009-11-15 00:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
@@ -30,12 +30,12 @@ msgstr "Nimic de tipărit."
 msgid "Printing aborted. Delay too long."
 msgstr "Tiparire intrerupta. Asteptare prea lunga."
 
-#: Koo/Actions/Actions.py:100 Koo/Dialogs/TreeWidget.py:286
-#: Koo/Dialogs/TreeWidget.py:298 Koo/Dialogs/ImportDialog.py:63
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-#: Koo/Dialogs/KooMainWindow.py:740 Koo/Dialogs/KooMainWindow.py:764
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Fields/OneToMany/OneToMany.py:203
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
+#: Koo/Actions/Actions.py:100 Koo/Dialogs/KooMainWindow.py:741
+#: Koo/Dialogs/KooMainWindow.py:765 Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64 Koo/Dialogs/TreeWidget.py:287
+#: Koo/Dialogs/TreeWidget.py:299 Koo/Dialogs/ExportDialog.py:73
+#: Koo/Fields/OneToMany/OneToMany.py:203 Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:87
 msgid "Information"
 msgstr "Informaţii"
 
@@ -43,12 +43,11 @@ msgstr "Informaţii"
 msgid "Nothing to print!"
 msgstr "Nimic de tipărit!"
 
-#: Koo/Actions/Actions.py:116 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Actions/Actions.py:116 Koo/Dialogs/KooMainWindow.py:768
+#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/KooMainWindow.py:767 Koo/Dialogs/ExportDialog.py:76
-#: Koo/Dialogs/ExportDialog.py:142 Koo/Dialogs/ExportDialog.py:176
-#: Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:142
+#: Koo/Dialogs/ExportDialog.py:176 Koo/Fields/Binary/BinaryFieldWidget.py:178
 #: Koo/Fields/Binary/BinaryFieldWidget.py:212
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
@@ -194,7 +193,7 @@ msgstr ""
 "<i>Administrare - Administrare module - Module neinstalate</i> şi adaugă "
 "modulul <i>full_text_search</i>"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:280
+#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:283
 msgid "ID"
 msgstr "ID"
 
@@ -222,118 +221,261 @@ msgstr "Text"
 msgid "Ranking"
 msgstr "Rang"
 
-#: Koo/Dialogs/FormWidget.py:175
+#: Koo/Dialogs/FormWidget.py:178
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr "<font color=\"blue\">Document modificat</font>"
 
-#: Koo/Dialogs/FormWidget.py:233
+#: Koo/Dialogs/FormWidget.py:236
 msgid "No resource selected !"
 msgstr "Nu ati selectat nici o resursa !"
 
-#: Koo/Dialogs/FormWidget.py:274
+#: Koo/Dialogs/FormWidget.py:277
 msgid "You have to select one resource!"
 msgstr "Trebuie sa selectati o resursa !"
 
-#: Koo/Dialogs/FormWidget.py:281
+#: Koo/Dialogs/FormWidget.py:284
 msgid "Creation User"
 msgstr "Crearea de utilizatori"
 
-#: Koo/Dialogs/FormWidget.py:282
+#: Koo/Dialogs/FormWidget.py:285
 msgid "Creation Date"
 msgstr "Data creării"
 
-#: Koo/Dialogs/FormWidget.py:283
+#: Koo/Dialogs/FormWidget.py:286
 msgid "Latest Modification by"
 msgstr "Ultima modificare de"
 
-#: Koo/Dialogs/FormWidget.py:284
+#: Koo/Dialogs/FormWidget.py:287
 msgid "Latest Modification Date"
 msgstr "Data ultimei modificări"
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:293
 msgid "Record log"
 msgstr "Înregistrare jurmal"
 
-#: Koo/Dialogs/FormWidget.py:293 Koo/Dialogs/FormWidget.py:459
+#: Koo/Dialogs/FormWidget.py:296 Koo/Dialogs/FormWidget.py:462
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "Question"
 msgstr "Întrebare"
 
-#: Koo/Dialogs/FormWidget.py:293
+#: Koo/Dialogs/FormWidget.py:296
 msgid "Are you sure you want to remove these records?"
 msgstr "Sigur doriti sa stergeti aceste inregistrari ?"
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:301
 msgid "Resource not removed !"
 msgstr "Resursa nu a fost stearsa !"
 
-#: Koo/Dialogs/FormWidget.py:300
+#: Koo/Dialogs/FormWidget.py:303
 msgid "Resource removed."
 msgstr "Resursa stearsa."
 
-#: Koo/Dialogs/FormWidget.py:331
+#: Koo/Dialogs/FormWidget.py:334
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 "<font color=\"orange\">Se lucrează acum la documentul duplicat</font>"
 
-#: Koo/Dialogs/FormWidget.py:341
+#: Koo/Dialogs/FormWidget.py:344
 msgid "<font color=\"green\">Document saved</font>"
 msgstr "<font color=\"gree\">Document salvat</font>"
 
-#: Koo/Dialogs/FormWidget.py:345
+#: Koo/Dialogs/FormWidget.py:348
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr "<font color=\"red\">Formular invalid</font>"
 
-#: Koo/Dialogs/FormWidget.py:428
+#: Koo/Dialogs/FormWidget.py:431
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s attachments) "
 
-#: Koo/Dialogs/FormWidget.py:439
+#: Koo/Dialogs/FormWidget.py:442
 msgid "No records"
 msgstr "Nici o inregistrare"
 
-#: Koo/Dialogs/FormWidget.py:446
+#: Koo/Dialogs/FormWidget.py:449
 msgid "No document selected"
 msgstr "Nici un document selectat"
 
-#: Koo/Dialogs/FormWidget.py:450
+#: Koo/Dialogs/FormWidget.py:453
 msgid "New document"
 msgstr "Document nou"
 
-#: Koo/Dialogs/FormWidget.py:452
+#: Koo/Dialogs/FormWidget.py:455
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Editare document (id: %s)"
 
-#: Koo/Dialogs/FormWidget.py:453
+#: Koo/Dialogs/FormWidget.py:456
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Inregistrare: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:459
+#: Koo/Dialogs/FormWidget.py:462
 msgid "This record has been modified do you want to save it?"
 msgstr "Aceasta inregistrare a fost modificata. Doriti sa o salvati ?"
 
-#: Koo/Dialogs/FormWidget.py:477
+#: Koo/Dialogs/FormWidget.py:480
 msgid "No records selected"
 msgstr "Nu ati selectat nici o inregistrare"
 
-#: Koo/Dialogs/TreeWidget.py:63
-msgid "Tree"
-msgstr "Arbore"
+#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:448
+msgid "Press Ctrl+O to login"
+msgstr "Apăsaţi Ctrl+O pentru logare"
 
-#: Koo/Dialogs/TreeWidget.py:286 Koo/Dialogs/TreeWidget.py:298
-msgid "No resource selected!"
-msgstr "Nici o resursă selectată!"
+#: Koo/Dialogs/KooMainWindow.py:111
+msgid "Close tab"
+msgstr "Închide tabul"
 
-#: Koo/Dialogs/TreeWidget.py:315
-msgid "No item selected"
-msgstr "Nu ati selectat nici un  element"
+#: Koo/Dialogs/KooMainWindow.py:190
+msgid "Open partners tab"
+msgstr "Deschide tab-ul partener"
 
-#: Koo/Dialogs/TreeWidget.py:315
-msgid "Please select an element from the tree to add a shortcut to it."
-msgstr "Selectati un element al arborelui pentru a-i adauga o scurtatura."
+#: Koo/Dialogs/KooMainWindow.py:195
+msgid "Open products tab"
+msgstr "Deschide tab-ul produs"
+
+#: Koo/Dialogs/KooMainWindow.py:233
+msgid "Products"
+msgstr "Produse"
+
+#: Koo/Dialogs/KooMainWindow.py:233
+msgid "Products module is not installed."
+msgstr "Modulul produse nu este instalat"
+
+#: Koo/Dialogs/KooMainWindow.py:350
+#, python-format
+msgid "%s request(s)"
+msgstr "%s cereri"
+
+#: Koo/Dialogs/KooMainWindow.py:352
+msgid "No request"
+msgstr "Zero cereri"
+
+#: Koo/Dialogs/KooMainWindow.py:354
+#, python-format
+msgid " - %s pending request(s)"
+msgstr " - %s cerere(i) in asteptare"
+
+#: Koo/Dialogs/KooMainWindow.py:360
+msgid "New Request"
+msgstr "Cerere noua"
+
+#: Koo/Dialogs/KooMainWindow.py:360
+msgid "You've received a new request"
+msgstr "Ati primit o noua cerere"
+
+#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
+msgid "Connection error !"
+msgstr "Eroare de conexiune !"
+
+#: Koo/Dialogs/KooMainWindow.py:425
+msgid "Unable to connect to the server !"
+msgstr "Nu se poate face conexiunea la server !"
+
+#: Koo/Dialogs/KooMainWindow.py:427
+msgid "Bad username or password !"
+msgstr "Utilizator sau parola incorecta !"
+
+#: Koo/Dialogs/KooMainWindow.py:431
+msgid "Connection Error !"
+msgstr "Eroare de conexiune !"
+
+#: Koo/Dialogs/KooMainWindow.py:447
+msgid "Not logged !"
+msgstr "Nelogat!"
+
+#: Koo/Dialogs/KooMainWindow.py:541
+msgid "Access denied"
+msgstr "Acces interzis"
+
+#: Koo/Dialogs/KooMainWindow.py:541
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+"Nu va puteti log-a in sistem !\n"
+"Contactati administratorul pentru a\n"
+"verifica configurarea utilizatorului dvs."
+
+#: Koo/Dialogs/KooMainWindow.py:577
+msgid "Quit"
+msgstr "Termină"
+
+#: Koo/Dialogs/KooMainWindow.py:577
+msgid "Do you really want to quit ?"
+msgstr "Doriţi întradevăr să terminaţi?"
+
+#: Koo/Dialogs/KooMainWindow.py:577
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42
+msgid "Yes"
+msgstr "Da"
+
+#: Koo/Dialogs/KooMainWindow.py:577
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+msgid "No"
+msgstr "Nu"
+
+#: Koo/Dialogs/KooMainWindow.py:611
+msgid "Wizard"
+msgstr "Asistent"
+
+#: Koo/Dialogs/KooMainWindow.py:709 Koo/Dialogs/KooMainWindow.py:730
+msgid "Delete a database"
+msgstr "Şterge o bază de date"
+
+#: Koo/Dialogs/KooMainWindow.py:718 Koo/Dialogs/KooMainWindow.py:724
+msgid "Database removal"
+msgstr "Stergere baza de date"
+
+#: Koo/Dialogs/KooMainWindow.py:718
+msgid "Database dropped successfully!"
+msgstr "Stergerea bazei de date s-a incheiat cu succes !"
+
+#: Koo/Dialogs/KooMainWindow.py:722
+msgid "Could not drop database."
+msgstr "Nu se poate sterge definitiv baza de date."
+
+#: Koo/Dialogs/KooMainWindow.py:722 Koo/Dialogs/DatabaseCreationDialog.py:84
+msgid "Bad database administrator password !"
+msgstr "Baza de date sau parola administratorului eronata !"
+
+#: Koo/Dialogs/KooMainWindow.py:724
+msgid "Couldn't drop database"
+msgstr "Nu se poate sterge definitiv baza de date."
+
+#: Koo/Dialogs/KooMainWindow.py:741
+msgid "Database restored successfully!"
+msgstr "Baza de date a fost restaurata cu succes !"
+
+#: Koo/Dialogs/KooMainWindow.py:745 Koo/Dialogs/KooMainWindow.py:747
+msgid "Could not restore database"
+msgstr "Baza de date nu poate fi restaurata"
+
+#: Koo/Dialogs/KooMainWindow.py:745
+msgid "Bad database administrator password!"
+msgstr "Parola eronata pentru administratorul bazei de date!"
+
+#: Koo/Dialogs/KooMainWindow.py:747
+msgid "There was an error restoring the database!"
+msgstr "Restaurarea bazei de date s-a incheiat cu eroare!"
+
+#: Koo/Dialogs/KooMainWindow.py:750
+msgid "Backup a database"
+msgstr "Backup bază de date"
+
+#: Koo/Dialogs/KooMainWindow.py:765
+msgid "Database backuped successfully!"
+msgstr "Salvarea bazei de date s-a efectuat cu succes !"
+
+#: Koo/Dialogs/KooMainWindow.py:768
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+"Baza de date nu poate fi salvata.\n"
+"%s"
 
 #: Koo/Dialogs/ImportDialog.py:48
 #, python-format
@@ -448,164 +590,21 @@ msgstr ""
 "Parola administratorului nu poate fi modificata. Va rugam verificati daca "
 "parola si serverul sunt corecte."
 
-#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:448
-msgid "Press Ctrl+O to login"
-msgstr "Apăsaţi Ctrl+O pentru logare"
+#: Koo/Dialogs/TreeWidget.py:63
+msgid "Tree"
+msgstr "Arbore"
 
-#: Koo/Dialogs/KooMainWindow.py:111
-msgid "Close tab"
-msgstr "Închide tabul"
+#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+msgid "No resource selected!"
+msgstr "Nici o resursă selectată!"
 
-#: Koo/Dialogs/KooMainWindow.py:190
-msgid "Open partners tab"
-msgstr "Deschide tab-ul partener"
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "No item selected"
+msgstr "Nu ati selectat nici un  element"
 
-#: Koo/Dialogs/KooMainWindow.py:195
-msgid "Open products tab"
-msgstr "Deschide tab-ul produs"
-
-#: Koo/Dialogs/KooMainWindow.py:233
-msgid "Products"
-msgstr "Produse"
-
-#: Koo/Dialogs/KooMainWindow.py:233
-msgid "Products module is not installed."
-msgstr "Modulul produse nu este instalat"
-
-#: Koo/Dialogs/KooMainWindow.py:350
-#, python-format
-msgid "%s request(s)"
-msgstr "%s cereri"
-
-#: Koo/Dialogs/KooMainWindow.py:352
-msgid "No request"
-msgstr "Zero cereri"
-
-#: Koo/Dialogs/KooMainWindow.py:354
-#, python-format
-msgid " - %s pending request(s)"
-msgstr " - %s cerere(i) in asteptare"
-
-#: Koo/Dialogs/KooMainWindow.py:360
-msgid "New Request"
-msgstr "Cerere noua"
-
-#: Koo/Dialogs/KooMainWindow.py:360
-msgid "You've received a new request"
-msgstr "Ati primit o noua cerere"
-
-#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
-msgid "Connection error !"
-msgstr "Eroare de conexiune !"
-
-#: Koo/Dialogs/KooMainWindow.py:425
-msgid "Unable to connect to the server !"
-msgstr "Nu se poate face conexiunea la server !"
-
-#: Koo/Dialogs/KooMainWindow.py:427
-msgid "Bad username or password !"
-msgstr "Utilizator sau parola incorecta !"
-
-#: Koo/Dialogs/KooMainWindow.py:431
-msgid "Connection Error !"
-msgstr "Eroare de conexiune !"
-
-#: Koo/Dialogs/KooMainWindow.py:447
-msgid "Not logged !"
-msgstr "Nelogat!"
-
-#: Koo/Dialogs/KooMainWindow.py:540
-msgid "Access denied"
-msgstr "Acces interzis"
-
-#: Koo/Dialogs/KooMainWindow.py:540
-msgid ""
-"You can not log into the system !\n"
-"Ask the administrator to verify\n"
-"you have an action defined for your user."
-msgstr ""
-"Nu va puteti log-a in sistem !\n"
-"Contactati administratorul pentru a\n"
-"verifica configurarea utilizatorului dvs."
-
-#: Koo/Dialogs/KooMainWindow.py:576
-msgid "Quit"
-msgstr "Termină"
-
-#: Koo/Dialogs/KooMainWindow.py:576
-msgid "Do you really want to quit ?"
-msgstr "Doriţi întradevăr să terminaţi?"
-
-#: Koo/Dialogs/KooMainWindow.py:576
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42
-msgid "Yes"
-msgstr "Da"
-
-#: Koo/Dialogs/KooMainWindow.py:576
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43
-msgid "No"
-msgstr "Nu"
-
-#: Koo/Dialogs/KooMainWindow.py:610
-msgid "Wizard"
-msgstr "Asistent"
-
-#: Koo/Dialogs/KooMainWindow.py:708 Koo/Dialogs/KooMainWindow.py:729
-msgid "Delete a database"
-msgstr "Şterge o bază de date"
-
-#: Koo/Dialogs/KooMainWindow.py:717 Koo/Dialogs/KooMainWindow.py:723
-msgid "Database removal"
-msgstr "Stergere baza de date"
-
-#: Koo/Dialogs/KooMainWindow.py:717
-msgid "Database dropped successfully!"
-msgstr "Stergerea bazei de date s-a incheiat cu succes !"
-
-#: Koo/Dialogs/KooMainWindow.py:721
-msgid "Could not drop database."
-msgstr "Nu se poate sterge definitiv baza de date."
-
-#: Koo/Dialogs/KooMainWindow.py:721 Koo/Dialogs/DatabaseCreationDialog.py:84
-msgid "Bad database administrator password !"
-msgstr "Baza de date sau parola administratorului eronata !"
-
-#: Koo/Dialogs/KooMainWindow.py:723
-msgid "Couldn't drop database"
-msgstr "Nu se poate sterge definitiv baza de date."
-
-#: Koo/Dialogs/KooMainWindow.py:740
-msgid "Database restored successfully!"
-msgstr "Baza de date a fost restaurata cu succes !"
-
-#: Koo/Dialogs/KooMainWindow.py:744 Koo/Dialogs/KooMainWindow.py:746
-msgid "Could not restore database"
-msgstr "Baza de date nu poate fi restaurata"
-
-#: Koo/Dialogs/KooMainWindow.py:744
-msgid "Bad database administrator password!"
-msgstr "Parola eronata pentru administratorul bazei de date!"
-
-#: Koo/Dialogs/KooMainWindow.py:746
-msgid "There was an error restoring the database!"
-msgstr "Restaurarea bazei de date s-a incheiat cu eroare!"
-
-#: Koo/Dialogs/KooMainWindow.py:749
-msgid "Backup a database"
-msgstr "Backup bază de date"
-
-#: Koo/Dialogs/KooMainWindow.py:764
-msgid "Database backuped successfully!"
-msgstr "Salvarea bazei de date s-a efectuat cu succes !"
-
-#: Koo/Dialogs/KooMainWindow.py:767
-#, python-format
-msgid ""
-"Could not backup database.\n"
-"%s"
-msgstr ""
-"Baza de date nu poate fi salvata.\n"
-"%s"
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr "Selectati un element al arborelui pentru a-i adauga o scurtatura."
 
 #: Koo/Dialogs/ExportDialog.py:53
 msgid "OpenERP exported information"
@@ -689,12 +688,12 @@ msgstr "Denumire export"
 msgid "Exported fields"
 msgstr "Campuri exportate"
 
-#: Koo/Dialogs/SearchDialog.py:87
+#: Koo/Dialogs/SearchDialog.py:90
 #, python-format
 msgid "Search: %s"
 msgstr "Cauta: %s"
 
-#: Koo/Dialogs/SearchDialog.py:88
+#: Koo/Dialogs/SearchDialog.py:91
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr "Cauta: %s (%%d rezultat(e))"

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-11-12 09:57+0100\n"
+"POT-Creation-Date: 2009-11-14 20:11+0100\n"
 "PO-Revision-Date: 2009-08-30 21:25+0000\n"
 "Last-Translator: Eugene Babiy <eugene.babiy@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-12 12:24+0000\n"
+"X-Launchpad-Export-Date: 2009-11-15 00:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
@@ -30,12 +30,12 @@ msgstr "Нема що друкувати."
 msgid "Printing aborted. Delay too long."
 msgstr "Друк відмінено. Затримка надто довга."
 
-#: Koo/Actions/Actions.py:100 Koo/Dialogs/TreeWidget.py:286
-#: Koo/Dialogs/TreeWidget.py:298 Koo/Dialogs/ImportDialog.py:63
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-#: Koo/Dialogs/KooMainWindow.py:740 Koo/Dialogs/KooMainWindow.py:764
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Fields/OneToMany/OneToMany.py:203
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
+#: Koo/Actions/Actions.py:100 Koo/Dialogs/KooMainWindow.py:741
+#: Koo/Dialogs/KooMainWindow.py:765 Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64 Koo/Dialogs/TreeWidget.py:287
+#: Koo/Dialogs/TreeWidget.py:299 Koo/Dialogs/ExportDialog.py:73
+#: Koo/Fields/OneToMany/OneToMany.py:203 Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:87
 msgid "Information"
 msgstr "Інформація"
 
@@ -43,12 +43,11 @@ msgstr "Інформація"
 msgid "Nothing to print!"
 msgstr "Нема що друкувати!"
 
-#: Koo/Actions/Actions.py:116 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Actions/Actions.py:116 Koo/Dialogs/KooMainWindow.py:768
+#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/KooMainWindow.py:767 Koo/Dialogs/ExportDialog.py:76
-#: Koo/Dialogs/ExportDialog.py:142 Koo/Dialogs/ExportDialog.py:176
-#: Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:142
+#: Koo/Dialogs/ExportDialog.py:176 Koo/Fields/Binary/BinaryFieldWidget.py:178
 #: Koo/Fields/Binary/BinaryFieldWidget.py:212
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
@@ -193,7 +192,7 @@ msgstr ""
 "<i>Адміністрування - Управління модулями - Деінстальовані модулі</i> та "
 "додайте модуль <i>full_text_search</i>."
 
-#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:280
+#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:283
 msgid "ID"
 msgstr "№"
 
@@ -221,117 +220,260 @@ msgstr "Текст"
 msgid "Ranking"
 msgstr "Категорія"
 
-#: Koo/Dialogs/FormWidget.py:175
+#: Koo/Dialogs/FormWidget.py:178
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr "<font color=\"blue\">Документ змінено</font>"
 
-#: Koo/Dialogs/FormWidget.py:233
+#: Koo/Dialogs/FormWidget.py:236
 msgid "No resource selected !"
 msgstr "Не вибрано ресурс !"
 
-#: Koo/Dialogs/FormWidget.py:274
+#: Koo/Dialogs/FormWidget.py:277
 msgid "You have to select one resource!"
 msgstr "Ви повинні вибрати один ресурс !"
 
-#: Koo/Dialogs/FormWidget.py:281
+#: Koo/Dialogs/FormWidget.py:284
 msgid "Creation User"
 msgstr "Створив Користувач"
 
-#: Koo/Dialogs/FormWidget.py:282
+#: Koo/Dialogs/FormWidget.py:285
 msgid "Creation Date"
 msgstr "Дата Створення"
 
-#: Koo/Dialogs/FormWidget.py:283
+#: Koo/Dialogs/FormWidget.py:286
 msgid "Latest Modification by"
 msgstr "Останнім Змінив"
 
-#: Koo/Dialogs/FormWidget.py:284
+#: Koo/Dialogs/FormWidget.py:287
 msgid "Latest Modification Date"
 msgstr "Дата Останньої Зміни"
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:293
 msgid "Record log"
 msgstr "Журнал Записів"
 
-#: Koo/Dialogs/FormWidget.py:293 Koo/Dialogs/FormWidget.py:459
+#: Koo/Dialogs/FormWidget.py:296 Koo/Dialogs/FormWidget.py:462
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "Question"
 msgstr "Питання"
 
-#: Koo/Dialogs/FormWidget.py:293
+#: Koo/Dialogs/FormWidget.py:296
 msgid "Are you sure you want to remove these records?"
 msgstr "Ви впевнені що хочете вилучити цей запис?"
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:301
 msgid "Resource not removed !"
 msgstr "Ресурс не  вилучено !"
 
-#: Koo/Dialogs/FormWidget.py:300
+#: Koo/Dialogs/FormWidget.py:303
 msgid "Resource removed."
 msgstr "Ресурс вилучено."
 
-#: Koo/Dialogs/FormWidget.py:331
+#: Koo/Dialogs/FormWidget.py:334
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr "<font color=\"orange\">Робота над дублікатом документу</font>"
 
-#: Koo/Dialogs/FormWidget.py:341
+#: Koo/Dialogs/FormWidget.py:344
 msgid "<font color=\"green\">Document saved</font>"
 msgstr "<font color=\"green\">Документ збережено</font>"
 
-#: Koo/Dialogs/FormWidget.py:345
+#: Koo/Dialogs/FormWidget.py:348
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr "<font color=\"red\">Невірна форма</font>"
 
-#: Koo/Dialogs/FormWidget.py:428
+#: Koo/Dialogs/FormWidget.py:431
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s вкладення) "
 
-#: Koo/Dialogs/FormWidget.py:439
+#: Koo/Dialogs/FormWidget.py:442
 msgid "No records"
 msgstr "Немає записів"
 
-#: Koo/Dialogs/FormWidget.py:446
+#: Koo/Dialogs/FormWidget.py:449
 msgid "No document selected"
 msgstr "Документ не вибрано"
 
-#: Koo/Dialogs/FormWidget.py:450
+#: Koo/Dialogs/FormWidget.py:453
 msgid "New document"
 msgstr "Новий документ"
 
-#: Koo/Dialogs/FormWidget.py:452
+#: Koo/Dialogs/FormWidget.py:455
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Редагування документу (назва: %s)"
 
-#: Koo/Dialogs/FormWidget.py:453
+#: Koo/Dialogs/FormWidget.py:456
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Запис: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:459
+#: Koo/Dialogs/FormWidget.py:462
 msgid "This record has been modified do you want to save it?"
 msgstr "Запис було змінено, Ви бажаєте зберегти його?"
 
-#: Koo/Dialogs/FormWidget.py:477
+#: Koo/Dialogs/FormWidget.py:480
 msgid "No records selected"
 msgstr "Записи не вибрано"
 
-#: Koo/Dialogs/TreeWidget.py:63
-msgid "Tree"
-msgstr "Дерево"
+#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:448
+msgid "Press Ctrl+O to login"
+msgstr "Натисніть Ctrl+O для входу"
 
-#: Koo/Dialogs/TreeWidget.py:286 Koo/Dialogs/TreeWidget.py:298
-msgid "No resource selected!"
-msgstr "Не вибрано ресурс!"
+#: Koo/Dialogs/KooMainWindow.py:111
+msgid "Close tab"
+msgstr "Закрити вкладку"
 
-#: Koo/Dialogs/TreeWidget.py:315
-msgid "No item selected"
-msgstr "Нічого не вибрано"
+#: Koo/Dialogs/KooMainWindow.py:190
+msgid "Open partners tab"
+msgstr "Відкрити вкладку Партнерів"
 
-#: Koo/Dialogs/TreeWidget.py:315
-msgid "Please select an element from the tree to add a shortcut to it."
-msgstr "Будьласка виберіть елемент з дерева щоб додати посилання на нього."
+#: Koo/Dialogs/KooMainWindow.py:195
+msgid "Open products tab"
+msgstr "Відкрити вкладку Партнерів"
+
+#: Koo/Dialogs/KooMainWindow.py:233
+msgid "Products"
+msgstr "Продукти"
+
+#: Koo/Dialogs/KooMainWindow.py:233
+msgid "Products module is not installed."
+msgstr "Модуль Продукти не встановлено."
+
+#: Koo/Dialogs/KooMainWindow.py:350
+#, python-format
+msgid "%s request(s)"
+msgstr "%s запит(и)"
+
+#: Koo/Dialogs/KooMainWindow.py:352
+msgid "No request"
+msgstr "Немає запиту"
+
+#: Koo/Dialogs/KooMainWindow.py:354
+#, python-format
+msgid " - %s pending request(s)"
+msgstr " - %s запитів в очікуванні"
+
+#: Koo/Dialogs/KooMainWindow.py:360
+msgid "New Request"
+msgstr "Новий Запит"
+
+#: Koo/Dialogs/KooMainWindow.py:360
+msgid "You've received a new request"
+msgstr "Ви отримали новий запит"
+
+#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
+msgid "Connection error !"
+msgstr "Помилка з’єднання !"
+
+#: Koo/Dialogs/KooMainWindow.py:425
+msgid "Unable to connect to the server !"
+msgstr "Неможливо з’єднатись з сервером !"
+
+#: Koo/Dialogs/KooMainWindow.py:427
+msgid "Bad username or password !"
+msgstr "Невірне ім’я користувача або пароль !"
+
+#: Koo/Dialogs/KooMainWindow.py:431
+msgid "Connection Error !"
+msgstr "Помилка З’єднання !"
+
+#: Koo/Dialogs/KooMainWindow.py:447
+msgid "Not logged !"
+msgstr "Не в системі!"
+
+#: Koo/Dialogs/KooMainWindow.py:541
+msgid "Access denied"
+msgstr "Доступ заборонено"
+
+#: Koo/Dialogs/KooMainWindow.py:541
+msgid ""
+"You can not log into the system !\n"
+"Ask the administrator to verify\n"
+"you have an action defined for your user."
+msgstr ""
+"Ви не можете увійти до системи!\n"
+"Зверніться до адміністратора, щоб перевірити\n"
+"чи Ви маєте дії визначені для свого користувача."
+
+#: Koo/Dialogs/KooMainWindow.py:577
+msgid "Quit"
+msgstr "Вийти"
+
+#: Koo/Dialogs/KooMainWindow.py:577
+msgid "Do you really want to quit ?"
+msgstr "Ви дійсно бажаєте вийти?"
+
+#: Koo/Dialogs/KooMainWindow.py:577
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42
+msgid "Yes"
+msgstr "Так"
+
+#: Koo/Dialogs/KooMainWindow.py:577
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+msgid "No"
+msgstr "Ні"
+
+#: Koo/Dialogs/KooMainWindow.py:611
+msgid "Wizard"
+msgstr "Майстер"
+
+#: Koo/Dialogs/KooMainWindow.py:709 Koo/Dialogs/KooMainWindow.py:730
+msgid "Delete a database"
+msgstr "Видалити базу даних"
+
+#: Koo/Dialogs/KooMainWindow.py:718 Koo/Dialogs/KooMainWindow.py:724
+msgid "Database removal"
+msgstr "Вилучення бази даних"
+
+#: Koo/Dialogs/KooMainWindow.py:718
+msgid "Database dropped successfully!"
+msgstr "Базу даних видалено успішно!"
+
+#: Koo/Dialogs/KooMainWindow.py:722
+msgid "Could not drop database."
+msgstr "Неможливо видалити базу даних."
+
+#: Koo/Dialogs/KooMainWindow.py:722 Koo/Dialogs/DatabaseCreationDialog.py:84
+msgid "Bad database administrator password !"
+msgstr "Невірний пароль адміністратора бази даних!"
+
+#: Koo/Dialogs/KooMainWindow.py:724
+msgid "Couldn't drop database"
+msgstr "Неможливо видалити базу даних."
+
+#: Koo/Dialogs/KooMainWindow.py:741
+msgid "Database restored successfully!"
+msgstr "Базу даних відновлено успішно!"
+
+#: Koo/Dialogs/KooMainWindow.py:745 Koo/Dialogs/KooMainWindow.py:747
+msgid "Could not restore database"
+msgstr "Неможливо відновити базу даних"
+
+#: Koo/Dialogs/KooMainWindow.py:745
+msgid "Bad database administrator password!"
+msgstr "Невірний пароль адміністратора бази даних!"
+
+#: Koo/Dialogs/KooMainWindow.py:747
+msgid "There was an error restoring the database!"
+msgstr "Виникла помилка при відновленні бази даних!"
+
+#: Koo/Dialogs/KooMainWindow.py:750
+msgid "Backup a database"
+msgstr "Резервувати базу даних"
+
+#: Koo/Dialogs/KooMainWindow.py:765
+msgid "Database backuped successfully!"
+msgstr "Базу даних зарезервовано успішно!"
+
+#: Koo/Dialogs/KooMainWindow.py:768
+#, python-format
+msgid ""
+"Could not backup database.\n"
+"%s"
+msgstr ""
+"Неможливо зарезервувати базу даних.\n"
+"%s"
 
 #: Koo/Dialogs/ImportDialog.py:48
 #, python-format
@@ -445,164 +587,21 @@ msgstr ""
 "Неможливо змінити пароль адміністратора. Будьласка переконайтесь, що сервер "
 "та пароль вірні."
 
-#: Koo/Dialogs/KooMainWindow.py:100 Koo/Dialogs/KooMainWindow.py:448
-msgid "Press Ctrl+O to login"
-msgstr "Натисніть Ctrl+O для входу"
+#: Koo/Dialogs/TreeWidget.py:63
+msgid "Tree"
+msgstr "Дерево"
 
-#: Koo/Dialogs/KooMainWindow.py:111
-msgid "Close tab"
-msgstr "Закрити вкладку"
+#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+msgid "No resource selected!"
+msgstr "Не вибрано ресурс!"
 
-#: Koo/Dialogs/KooMainWindow.py:190
-msgid "Open partners tab"
-msgstr "Відкрити вкладку Партнерів"
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "No item selected"
+msgstr "Нічого не вибрано"
 
-#: Koo/Dialogs/KooMainWindow.py:195
-msgid "Open products tab"
-msgstr "Відкрити вкладку Партнерів"
-
-#: Koo/Dialogs/KooMainWindow.py:233
-msgid "Products"
-msgstr "Продукти"
-
-#: Koo/Dialogs/KooMainWindow.py:233
-msgid "Products module is not installed."
-msgstr "Модуль Продукти не встановлено."
-
-#: Koo/Dialogs/KooMainWindow.py:350
-#, python-format
-msgid "%s request(s)"
-msgstr "%s запит(и)"
-
-#: Koo/Dialogs/KooMainWindow.py:352
-msgid "No request"
-msgstr "Немає запиту"
-
-#: Koo/Dialogs/KooMainWindow.py:354
-#, python-format
-msgid " - %s pending request(s)"
-msgstr " - %s запитів в очікуванні"
-
-#: Koo/Dialogs/KooMainWindow.py:360
-msgid "New Request"
-msgstr "Новий Запит"
-
-#: Koo/Dialogs/KooMainWindow.py:360
-msgid "You've received a new request"
-msgstr "Ви отримали новий запит"
-
-#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
-msgid "Connection error !"
-msgstr "Помилка з’єднання !"
-
-#: Koo/Dialogs/KooMainWindow.py:425
-msgid "Unable to connect to the server !"
-msgstr "Неможливо з’єднатись з сервером !"
-
-#: Koo/Dialogs/KooMainWindow.py:427
-msgid "Bad username or password !"
-msgstr "Невірне ім’я користувача або пароль !"
-
-#: Koo/Dialogs/KooMainWindow.py:431
-msgid "Connection Error !"
-msgstr "Помилка З’єднання !"
-
-#: Koo/Dialogs/KooMainWindow.py:447
-msgid "Not logged !"
-msgstr "Не в системі!"
-
-#: Koo/Dialogs/KooMainWindow.py:540
-msgid "Access denied"
-msgstr "Доступ заборонено"
-
-#: Koo/Dialogs/KooMainWindow.py:540
-msgid ""
-"You can not log into the system !\n"
-"Ask the administrator to verify\n"
-"you have an action defined for your user."
-msgstr ""
-"Ви не можете увійти до системи!\n"
-"Зверніться до адміністратора, щоб перевірити\n"
-"чи Ви маєте дії визначені для свого користувача."
-
-#: Koo/Dialogs/KooMainWindow.py:576
-msgid "Quit"
-msgstr "Вийти"
-
-#: Koo/Dialogs/KooMainWindow.py:576
-msgid "Do you really want to quit ?"
-msgstr "Ви дійсно бажаєте вийти?"
-
-#: Koo/Dialogs/KooMainWindow.py:576
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42
-msgid "Yes"
-msgstr "Так"
-
-#: Koo/Dialogs/KooMainWindow.py:576
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43
-msgid "No"
-msgstr "Ні"
-
-#: Koo/Dialogs/KooMainWindow.py:610
-msgid "Wizard"
-msgstr "Майстер"
-
-#: Koo/Dialogs/KooMainWindow.py:708 Koo/Dialogs/KooMainWindow.py:729
-msgid "Delete a database"
-msgstr "Видалити базу даних"
-
-#: Koo/Dialogs/KooMainWindow.py:717 Koo/Dialogs/KooMainWindow.py:723
-msgid "Database removal"
-msgstr "Вилучення бази даних"
-
-#: Koo/Dialogs/KooMainWindow.py:717
-msgid "Database dropped successfully!"
-msgstr "Базу даних видалено успішно!"
-
-#: Koo/Dialogs/KooMainWindow.py:721
-msgid "Could not drop database."
-msgstr "Неможливо видалити базу даних."
-
-#: Koo/Dialogs/KooMainWindow.py:721 Koo/Dialogs/DatabaseCreationDialog.py:84
-msgid "Bad database administrator password !"
-msgstr "Невірний пароль адміністратора бази даних!"
-
-#: Koo/Dialogs/KooMainWindow.py:723
-msgid "Couldn't drop database"
-msgstr "Неможливо видалити базу даних."
-
-#: Koo/Dialogs/KooMainWindow.py:740
-msgid "Database restored successfully!"
-msgstr "Базу даних відновлено успішно!"
-
-#: Koo/Dialogs/KooMainWindow.py:744 Koo/Dialogs/KooMainWindow.py:746
-msgid "Could not restore database"
-msgstr "Неможливо відновити базу даних"
-
-#: Koo/Dialogs/KooMainWindow.py:744
-msgid "Bad database administrator password!"
-msgstr "Невірний пароль адміністратора бази даних!"
-
-#: Koo/Dialogs/KooMainWindow.py:746
-msgid "There was an error restoring the database!"
-msgstr "Виникла помилка при відновленні бази даних!"
-
-#: Koo/Dialogs/KooMainWindow.py:749
-msgid "Backup a database"
-msgstr "Резервувати базу даних"
-
-#: Koo/Dialogs/KooMainWindow.py:764
-msgid "Database backuped successfully!"
-msgstr "Базу даних зарезервовано успішно!"
-
-#: Koo/Dialogs/KooMainWindow.py:767
-#, python-format
-msgid ""
-"Could not backup database.\n"
-"%s"
-msgstr ""
-"Неможливо зарезервувати базу даних.\n"
-"%s"
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr "Будьласка виберіть елемент з дерева щоб додати посилання на нього."
 
 #: Koo/Dialogs/ExportDialog.py:53
 msgid "OpenERP exported information"
@@ -686,12 +685,12 @@ msgstr "Назва експорту"
 msgid "Exported fields"
 msgstr "Експортовані поля"
 
-#: Koo/Dialogs/SearchDialog.py:87
+#: Koo/Dialogs/SearchDialog.py:90
 #, python-format
 msgid "Search: %s"
 msgstr "Пошук: %s"
 
-#: Koo/Dialogs/SearchDialog.py:88
+#: Koo/Dialogs/SearchDialog.py:91
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr "Пошук: %s (%%d результат(и))"

@@ -14,11 +14,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-12 12:24+0000\n"
+"X-Launchpad-Export-Date: 2009-11-15 00:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:738
+#: mainwindow.ui:748
 msgid "&About"
 msgstr "&A propos"
 
@@ -28,7 +28,7 @@ msgid "&Accept"
 msgstr "&Accepter"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:316
+#: mainwindow.ui:317
 msgid "&Actions"
 msgstr "&Actions"
 
@@ -38,7 +38,7 @@ msgid "&Add"
 msgstr "&Ajouter"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:467
+#: mainwindow.ui:468
 msgid "&Administrator Password"
 msgstr "Mot de passe &Administrateur"
 
@@ -48,12 +48,12 @@ msgid "&Advanced"
 msgstr "&Avancé"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:449
+#: mainwindow.ui:450
 msgid "&Backup Database"
 msgstr "Sauvegarder la &Base de données"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:326
+#: mainwindow.ui:327
 msgid "&Browse"
 msgstr "Parcourirs"
 
@@ -68,12 +68,12 @@ msgid "&Change"
 msgstr "Remplacer"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:809
+#: mainwindow.ui:819
 msgid "&Clear Cache"
 msgstr "Effacer le cache"
 
 #. ts-context SearchFormWidget
-#: searchform.ui:82
+#: searchform.ui:84
 msgid "&Clear"
 msgstr "Effacer"
 
@@ -83,19 +83,24 @@ msgid "&Close"
 msgstr "Fermer"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:395
+#: mainwindow.ui:396
 msgid "&Connect"
 msgstr "&Connecter"
 
 #. ts-context AboutDialog
-#: about.ui:73
+#: about.ui:76
 msgid "&Contact"
 msgstr "&Contact"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:710
+#: mainwindow.ui:720
 msgid "&Contextual Help"
 msgstr "Aide contextuelle"
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:283
+msgid "&Database"
+msgstr ""
 
 #. ts-context LoginDialog
 #: login.ui:96
@@ -103,7 +108,7 @@ msgid "&Database:"
 msgstr "&Base de données:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:286
+#: mainwindow.ui:287
 msgid "&Databases"
 msgstr "&Bases de données"
 
@@ -113,7 +118,7 @@ msgid "&Default language:"
 msgstr "Langage par &défaut"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:548
+#: mainwindow.ui:549
 msgid "&Delete"
 msgstr "Supprimer"
 
@@ -123,7 +128,7 @@ msgid "&Description"
 msgstr "&Description"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:413
+#: mainwindow.ui:414
 msgid "&Disconnect"
 msgstr "&Déconnecter"
 
@@ -138,7 +143,7 @@ msgid "&Domain"
 msgstr "&Domaine"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:458
+#: mainwindow.ui:459
 msgid "&Drop Database"
 msgstr "Supprimer les base de &données"
 
@@ -153,7 +158,7 @@ msgid "&Encoding"
 msgstr "&Encodage"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:701
+#: mainwindow.ui:711
 msgid "&Execute Plugins"
 msgstr "&Executer les greffons"
 
@@ -162,18 +167,13 @@ msgstr "&Executer les greffons"
 msgid "&Field separator"
 msgstr "Séparateur de champ"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:282
-msgid "&File"
-msgstr "&Fichier"
-
 #. ts-context SearchWidget
 #: win_search.ui:86
 msgid "&Find"
 msgstr "Rechercher"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:771
+#: mainwindow.ui:781
 msgid "&Form designer"
 msgstr "Concepteur de &Formulaire"
 
@@ -183,17 +183,17 @@ msgid "&Help"
 msgstr "Aide"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:692
+#: mainwindow.ui:702
 msgid "&Import Data"
 msgstr "&Importer des données"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:724
+#: mainwindow.ui:734
 msgid "&Keyboard Shortcut"
 msgstr "Raccourci clavier"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:729
+#: mainwindow.ui:739
 msgid "&License"
 msgstr "&Licence"
 
@@ -213,12 +213,12 @@ msgid "&Main Shortcuts"
 msgstr "Raccourcis principaux"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:776
+#: mainwindow.ui:786
 msgid "&Menu"
 msgstr "&Menu"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:431
+#: mainwindow.ui:432
 msgid "&New Database"
 msgstr "&Nouvelle base de données"
 
@@ -243,7 +243,7 @@ msgid "&Next Tip"
 msgstr "Astuce suiva&nte"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:572
+#: mainwindow.ui:573
 msgid "&Next"
 msgstr "Suiva&nt"
 
@@ -288,7 +288,7 @@ msgid "&Port:"
 msgstr "&Port:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:476
+#: mainwindow.ui:477
 msgid "&Preferences"
 msgstr "&Préférences"
 
@@ -298,22 +298,22 @@ msgid "&Previous Tip"
 msgstr "Astuce &précédente"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:584
+#: mainwindow.ui:585
 msgid "&Previous"
 msgstr "&Précédent"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:422
+#: mainwindow.ui:423
 msgid "&Quit"
 msgstr "&Quitter"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:494
+#: mainwindow.ui:495
 msgid "&Read My Requests"
 msgstr "Li&re mes requêtes"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:671
+#: mainwindow.ui:681
 msgid "&Reload/Undo"
 msgstr "&Recharger/Annuler"
 
@@ -323,12 +323,12 @@ msgid "&Remove"
 msgstr "Supprimer"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:321
+#: mainwindow.ui:322
 msgid "&Reports"
 msgstr "&Rapports"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:440
+#: mainwindow.ui:441
 msgid "&Restore Database"
 msgstr "&Restaurer la base de données"
 
@@ -338,7 +338,7 @@ msgid "&Save list"
 msgstr "&Sauvegarder la liste"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:524
+#: mainwindow.ui:525
 msgid "&Save"
 msgstr "&Sauvagarder"
 
@@ -348,12 +348,12 @@ msgid "&Search Id:"
 msgstr "Rechercher l'Id:"
 
 #. ts-context SearchFormWidget
-#: searchform.ui:92
+#: searchform.ui:95
 msgid "&Search"
 msgstr "&Rechercher"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:485
+#: mainwindow.ui:486
 msgid "&Send Request"
 msgstr "Envoyer une requête"
 
@@ -373,12 +373,12 @@ msgid "&Text delimiter:"
 msgstr "Délimiteur de &texte:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:715
+#: mainwindow.ui:725
 msgid "&Tips"
 msgstr "Asctuces"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:304
+#: mainwindow.ui:305
 msgid "&User"
 msgstr "&Utilisateur"
 
@@ -388,12 +388,12 @@ msgid "&User:"
 msgstr "&Utilisateur:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:503
+#: mainwindow.ui:504
 msgid "&Waiting Requests"
 msgstr "Requêtes en attentes"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:331
+#: mainwindow.ui:332
 msgid "&Window"
 msgstr "Fenêtre"
 
@@ -1471,7 +1471,7 @@ msgid ""
 msgstr ""
 
 #. ts-context AboutDialog
-#: about.ui:79
+#: about.ui:82
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
 "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -1497,9 +1497,8 @@ msgid ""
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
-"size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
-"tic.com</span></a></p>\n"
+"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
+"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
@@ -1507,39 +1506,6 @@ msgid ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
-"NaN:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
-"18</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
-"size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
-"tic.com</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
 
 #. ts-context AboutDialog
 #: about.ui:48
@@ -1587,54 +1553,9 @@ msgid ""
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
 "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
-" %s</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP est un ERP+CRM "
-"Open Source</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">pour les petites et "
-"moyennes entreprises.</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code is "
-"distributed under </span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
-"Public Licence.</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
-"tic.com</span></a></p></body></html>"
 
 #. ts-context Form
 #: keyboard.ui:592
@@ -1921,12 +1842,12 @@ msgid "All fields"
 msgstr "Tous les champs"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:575
+#: mainwindow.ui:576
 msgid "Alt+PgDown"
 msgstr "Alt+PgDown"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:587
+#: mainwindow.ui:588
 msgid "Alt+PgUp"
 msgstr "Alt+PgUp"
 
@@ -1941,7 +1862,7 @@ msgid "Application Error"
 msgstr "Erreur application"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:759
+#: mainwindow.ui:769
 msgid "Attachments"
 msgstr "Pièce jointe"
 
@@ -2080,17 +2001,17 @@ msgid "Create a new record"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:551
+#: mainwindow.ui:552
 msgid "Ctrl+D"
 msgstr "Ctrl+D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:563
+#: mainwindow.ui:564
 msgid "Ctrl+F"
 msgstr "Ctrl+F"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:762
+#: mainwindow.ui:772
 msgid "Ctrl+J"
 msgstr "Ctrl+J"
 
@@ -2100,43 +2021,43 @@ msgid "Ctrl+L"
 msgstr "Ctrl+L"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:515
+#: mainwindow.ui:516
 msgid "Ctrl+N"
 msgstr "Ctrl+N"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:398
+#: mainwindow.ui:399
 msgctxt "Ctrl+O to Login"
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:620
+#: mainwindow.ui:621
 msgid "Ctrl+PgDown"
 msgstr "Ctrl+PgDown"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:632
+#: mainwindow.ui:633
 msgid "Ctrl+PgUp"
 msgstr "Ctrl+PgUp"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:527
+#: mainwindow.ui:528
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:539
+#: mainwindow.ui:540
 msgid "Ctrl+Shift+D"
 msgstr "Ctrl+Shift+D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:750
+#: mainwindow.ui:760
 msgid "Ctrl+T"
 msgstr "Ctrl+T"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:644
+#: mainwindow.ui:645
 msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
@@ -2151,7 +2072,7 @@ msgid "D"
 msgstr "D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:536
+#: mainwindow.ui:537
 msgid "D&uplicate"
 msgstr "D&upliquer"
 
@@ -2191,7 +2112,7 @@ msgid "Dialog"
 msgstr "Fenêtre"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:786
+#: mainwindow.ui:796
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -2206,7 +2127,7 @@ msgid "E"
 msgstr "E"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:683
+#: mainwindow.ui:693
 msgid "E&xport Data"
 msgstr "E&xporter les données"
 
@@ -2266,7 +2187,7 @@ msgid "F5"
 msgstr "F5"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:599
+#: mainwindow.ui:600
 msgid "F6"
 msgstr "F6"
 
@@ -2310,7 +2231,7 @@ msgstr ""
 "(Exemple: 3+2*2)"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:747
+#: mainwindow.ui:757
 msgid "Full &Text Search"
 msgstr "Recherche Texte Intégrale"
 
@@ -2340,7 +2261,7 @@ msgid "Go To Id"
 msgstr "Aller à l'ID"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:662
+#: mainwindow.ui:672
 msgid "Go To Resource ID"
 msgstr "Aller à l'ID de ressource"
 
@@ -2398,7 +2319,7 @@ msgid "K"
 msgstr "K"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:791
+#: mainwindow.ui:801
 msgid "Koo"
 msgstr "Koo"
 
@@ -2453,7 +2374,7 @@ msgid "Middle mouse click on Tab"
 msgstr "Clic du milieu sur l'onglet"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:818
+#: mainwindow.ui:828
 msgid "Modify All Selected Records"
 msgstr "Modifier tous les enregistrements sélectionnés"
 
@@ -2483,7 +2404,7 @@ msgid "New"
 msgstr "Nouveau"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:617
+#: mainwindow.ui:618
 msgid "Next Tab"
 msgstr "Onglet suivant"
 
@@ -2518,7 +2439,7 @@ msgid "O"
 msgstr "O"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:608
+#: mainwindow.ui:609
 msgid "Open &Menu Tab"
 msgstr "Ouvrir l'onglet &Menu"
 
@@ -2528,7 +2449,7 @@ msgid "Open Calendar"
 msgstr "Ouvrir le calendrier"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:800
+#: mainwindow.ui:810
 msgid "Open Home Tab"
 msgstr "Ouvir l'onglet d'accueil"
 
@@ -2602,7 +2523,7 @@ msgid "Previous Record"
 msgstr "Enregistrement précédent"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:629
+#: mainwindow.ui:630
 msgid "Previous Tab"
 msgstr "Onglet précédent"
 
@@ -2801,13 +2722,18 @@ msgstr "Espace"
 msgid "State:"
 msgstr "État:"
 
+#. ts-context KooMainWindow
+#: mainwindow.ui:663
+msgid "Store View Settings"
+msgstr ""
+
 #. ts-context RichTextWidget
 #: richtext.ui:128
 msgid "Strikethrough"
 msgstr "Frappe au clavier"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:596
+#: mainwindow.ui:597
 msgid "Switch &View"
 msgstr "Basculer de &Vue"
 
@@ -2872,7 +2798,7 @@ msgid "Underline"
 msgstr "Souligné"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:781
+#: mainwindow.ui:791
 msgid "User Manual"
 msgstr "Manuel utilisateur"
 
@@ -2882,7 +2808,7 @@ msgid "V"
 msgstr "V"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:653
+#: mainwindow.ui:654
 msgid "View Access Log"
 msgstr "Vue du journal des accès"
 
@@ -2945,6 +2871,171 @@ msgstr ""
 #: keyboard.ui:225
 msgid "Ã"
 msgstr ""
+
+#~ msgid "&File"
+#~ msgstr "&Fichier"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+#~ "href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
+#~ "tic.com</span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+#~ "href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
+#~ "tic.com</span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
+#~ " %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
+#~ "Source ERP+CRM</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+#~ "businesses.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code is "
+#~ "distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
+#~ " %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP est un ERP+CRM "
+#~ "Open Source</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">pour les petites et "
+#~ "moyennes entreprises.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code is "
+#~ "distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
+#~ "tic.com</span></a></p></body></html>"
 
 #~ msgid "Ctrl+L, Ctrl+Shift+L"
 #~ msgstr "Ctrl+L, Ctrl+Shift+L"

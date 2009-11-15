@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-28 00:00+0200\n"
-"PO-Revision-Date: 2009-11-12 08:46+0000\n"
+"PO-Revision-Date: 2009-11-15 00:25+0000\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-12 12:24+0000\n"
+"X-Launchpad-Export-Date: 2009-11-15 00:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:738
+#: mainwindow.ui:748
 msgid "&About"
 msgstr "&Acerca de"
 
@@ -29,7 +29,7 @@ msgid "&Accept"
 msgstr "&Aceptar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:316
+#: mainwindow.ui:317
 msgid "&Actions"
 msgstr "&Acciones"
 
@@ -39,7 +39,7 @@ msgid "&Add"
 msgstr "A&ñadir"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:467
+#: mainwindow.ui:468
 msgid "&Administrator Password"
 msgstr "&Contraseña del Administrador"
 
@@ -49,12 +49,12 @@ msgid "&Advanced"
 msgstr "&Avanzadas"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:449
+#: mainwindow.ui:450
 msgid "&Backup Database"
 msgstr "&Copia de Seguridad"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:326
+#: mainwindow.ui:327
 msgid "&Browse"
 msgstr "&Navegar"
 
@@ -69,12 +69,12 @@ msgid "&Change"
 msgstr "Cam&biar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:809
+#: mainwindow.ui:819
 msgid "&Clear Cache"
 msgstr "&Limpiar cache"
 
 #. ts-context SearchFormWidget
-#: searchform.ui:82
+#: searchform.ui:84
 msgid "&Clear"
 msgstr "&Borrar"
 
@@ -84,19 +84,24 @@ msgid "&Close"
 msgstr "&Cerrar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:395
+#: mainwindow.ui:396
 msgid "&Connect"
 msgstr "&Conectar"
 
 #. ts-context AboutDialog
-#: about.ui:73
+#: about.ui:76
 msgid "&Contact"
 msgstr "&Contacto"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:710
+#: mainwindow.ui:720
 msgid "&Contextual Help"
 msgstr "&Ayuda Contextual"
+
+#. ts-context KooMainWindow
+#: mainwindow.ui:283
+msgid "&Database"
+msgstr "&Base de datos"
 
 #. ts-context LoginDialog
 #: login.ui:96
@@ -104,7 +109,7 @@ msgid "&Database:"
 msgstr "&Base de datos:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:286
+#: mainwindow.ui:287
 msgid "&Databases"
 msgstr "&Bases de datos"
 
@@ -114,7 +119,7 @@ msgid "&Default language:"
 msgstr "Idioma por &defecto:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:548
+#: mainwindow.ui:549
 msgid "&Delete"
 msgstr "&Borrar"
 
@@ -124,7 +129,7 @@ msgid "&Description"
 msgstr "&Descripción"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:413
+#: mainwindow.ui:414
 msgid "&Disconnect"
 msgstr "&Desconectar"
 
@@ -139,7 +144,7 @@ msgid "&Domain"
 msgstr "&Dominio"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:458
+#: mainwindow.ui:459
 msgid "&Drop Database"
 msgstr "&Eliminar una Base de Datos"
 
@@ -154,7 +159,7 @@ msgid "&Encoding"
 msgstr "&Codificación"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:701
+#: mainwindow.ui:711
 msgid "&Execute Plugins"
 msgstr "&Ejectuar un Conector"
 
@@ -163,18 +168,13 @@ msgstr "&Ejectuar un Conector"
 msgid "&Field separator"
 msgstr "S&eparador de campos"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:282
-msgid "&File"
-msgstr "&Fichero"
-
 #. ts-context SearchWidget
 #: win_search.ui:86
 msgid "&Find"
 msgstr "&Buscar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:771
+#: mainwindow.ui:781
 msgid "&Form designer"
 msgstr "&Diseñador de Formularios"
 
@@ -184,17 +184,17 @@ msgid "&Help"
 msgstr "&Ayuda"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:692
+#: mainwindow.ui:702
 msgid "&Import Data"
 msgstr "&Importar Datos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:724
+#: mainwindow.ui:734
 msgid "&Keyboard Shortcut"
 msgstr "&Accesos de Teclado"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:729
+#: mainwindow.ui:739
 msgid "&License"
 msgstr "&Licencia"
 
@@ -214,12 +214,12 @@ msgid "&Main Shortcuts"
 msgstr "&Teclas de acceso principales"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:776
+#: mainwindow.ui:786
 msgid "&Menu"
 msgstr "&Menú"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:431
+#: mainwindow.ui:432
 msgid "&New Database"
 msgstr "&Nueva base de datos"
 
@@ -244,7 +244,7 @@ msgid "&Next Tip"
 msgstr "Consejo &Siguiente"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:572
+#: mainwindow.ui:573
 msgid "&Next"
 msgstr "&Siguiente"
 
@@ -289,7 +289,7 @@ msgid "&Port:"
 msgstr "&Puerto:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:476
+#: mainwindow.ui:477
 msgid "&Preferences"
 msgstr "&Preferencias"
 
@@ -299,22 +299,22 @@ msgid "&Previous Tip"
 msgstr "Consejo &Anterior"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:584
+#: mainwindow.ui:585
 msgid "&Previous"
 msgstr "&Anterior"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:422
+#: mainwindow.ui:423
 msgid "&Quit"
 msgstr "&Salir"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:494
+#: mainwindow.ui:495
 msgid "&Read My Requests"
 msgstr "&Leer Mis Peticiones"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:671
+#: mainwindow.ui:681
 msgid "&Reload/Undo"
 msgstr "&Recardar/Deshacer"
 
@@ -324,12 +324,12 @@ msgid "&Remove"
 msgstr "&Borrar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:321
+#: mainwindow.ui:322
 msgid "&Reports"
 msgstr "&Informes"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:440
+#: mainwindow.ui:441
 msgid "&Restore Database"
 msgstr "&Restaurar una Base de Datos"
 
@@ -339,7 +339,7 @@ msgid "&Save list"
 msgstr "&Guardar la lista"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:524
+#: mainwindow.ui:525
 msgid "&Save"
 msgstr "&Guardar"
 
@@ -349,12 +349,12 @@ msgid "&Search Id:"
 msgstr "&Buscar id:"
 
 #. ts-context SearchFormWidget
-#: searchform.ui:92
+#: searchform.ui:95
 msgid "&Search"
 msgstr "&Buscar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:485
+#: mainwindow.ui:486
 msgid "&Send Request"
 msgstr "&Enviar una Petición"
 
@@ -374,12 +374,12 @@ msgid "&Text delimiter:"
 msgstr "Delimitador de &texto:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:715
+#: mainwindow.ui:725
 msgid "&Tips"
 msgstr "&Consejos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:304
+#: mainwindow.ui:305
 msgid "&User"
 msgstr "&Usuario"
 
@@ -389,12 +389,12 @@ msgid "&User:"
 msgstr "&Usuario:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:503
+#: mainwindow.ui:504
 msgid "&Waiting Requests"
 msgstr "&Peticiones en Espera"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:331
+#: mainwindow.ui:332
 msgid "&Window"
 msgstr "&Ventana"
 
@@ -1414,7 +1414,7 @@ msgstr ""
 "color:#0000ff;\">?</span></a></p></body></html>"
 
 #. ts-context AboutDialog
-#: about.ui:79
+#: about.ui:82
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
 "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
@@ -1440,9 +1440,8 @@ msgid ""
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
-"size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
-"tic.com</span></a></p>\n"
+"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
+"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
@@ -1462,7 +1461,7 @@ msgstr ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo es un producto de "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo és un producte de "
 "NaN:</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
@@ -1473,10 +1472,9 @@ msgstr ""
 "18</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Correo: </span><a "
-"href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
-"size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
-"tic.com</span></a></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
+"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
@@ -1530,7 +1528,7 @@ msgid ""
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
 "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
@@ -1563,12 +1561,12 @@ msgstr ""
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Todo el código está "
-"distribuido bajo licencia </span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Todo el código se "
+"distribuye bajo </span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">GNU Public Licence "
-"(GPL).</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">las condiciones de la "
+"Licencia Pública de GNU (GPL).</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
@@ -1576,8 +1574,8 @@ msgstr ""
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">Más información en "
 "</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
-"Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
-"tic.com</span></a></p></body></html>"
+"Serif'; font-size:9pt; text-decoration: underline; "
+"color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
 
 #. ts-context Form
 #: keyboard.ui:592
@@ -1863,12 +1861,12 @@ msgid "All fields"
 msgstr "Todos los campos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:575
+#: mainwindow.ui:576
 msgid "Alt+PgDown"
 msgstr "Alt+PgDown"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:587
+#: mainwindow.ui:588
 msgid "Alt+PgUp"
 msgstr "Alt+PgUp"
 
@@ -1883,7 +1881,7 @@ msgid "Application Error"
 msgstr "Error de la Aplicación"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:759
+#: mainwindow.ui:769
 msgid "Attachments"
 msgstr "Adjuntos"
 
@@ -2022,17 +2020,17 @@ msgid "Create a new record"
 msgstr "Crear un nuevo registro"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:551
+#: mainwindow.ui:552
 msgid "Ctrl+D"
 msgstr "Ctrl+D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:563
+#: mainwindow.ui:564
 msgid "Ctrl+F"
 msgstr "Ctrl+F"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:762
+#: mainwindow.ui:772
 msgid "Ctrl+J"
 msgstr "Ctrl+J"
 
@@ -2042,43 +2040,43 @@ msgid "Ctrl+L"
 msgstr "Ctrl+L"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:515
+#: mainwindow.ui:516
 msgid "Ctrl+N"
 msgstr "Ctrl+N"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:398
+#: mainwindow.ui:399
 msgctxt "Ctrl+O to Login"
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:620
+#: mainwindow.ui:621
 msgid "Ctrl+PgDown"
 msgstr "Ctrl+PgDown"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:632
+#: mainwindow.ui:633
 msgid "Ctrl+PgUp"
 msgstr "Ctrl+PgUp"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:527
+#: mainwindow.ui:528
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:539
+#: mainwindow.ui:540
 msgid "Ctrl+Shift+D"
 msgstr "Ctrl+Shift+D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:750
+#: mainwindow.ui:760
 msgid "Ctrl+T"
 msgstr "Ctrl+T"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:644
+#: mainwindow.ui:645
 msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
@@ -2093,7 +2091,7 @@ msgid "D"
 msgstr "D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:536
+#: mainwindow.ui:537
 msgid "D&uplicate"
 msgstr "D&uplicar"
 
@@ -2133,7 +2131,7 @@ msgid "Dialog"
 msgstr "Diálogo"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:786
+#: mainwindow.ui:796
 msgid "Documentation"
 msgstr "Documentación"
 
@@ -2148,7 +2146,7 @@ msgid "E"
 msgstr "E"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:683
+#: mainwindow.ui:693
 msgid "E&xport Data"
 msgstr "E&xportar Datos"
 
@@ -2208,7 +2206,7 @@ msgid "F5"
 msgstr "F5"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:599
+#: mainwindow.ui:600
 msgid "F6"
 msgstr "F6"
 
@@ -2252,7 +2250,7 @@ msgstr ""
 "(Ejemplo: 3+2*2)"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:747
+#: mainwindow.ui:757
 msgid "Full &Text Search"
 msgstr "Búsqueda de &Texto"
 
@@ -2282,7 +2280,7 @@ msgid "Go To Id"
 msgstr "Ir al id"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:662
+#: mainwindow.ui:672
 msgid "Go To Resource ID"
 msgstr "Ir al recurso con ID"
 
@@ -2349,7 +2347,7 @@ msgid "K"
 msgstr "K"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:791
+#: mainwindow.ui:801
 msgid "Koo"
 msgstr "Koo"
 
@@ -2404,7 +2402,7 @@ msgid "Middle mouse click on Tab"
 msgstr "Clic con el botón del medio en una pestaña"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:818
+#: mainwindow.ui:828
 msgid "Modify All Selected Records"
 msgstr "Modificar todos los registros seleccionados"
 
@@ -2434,7 +2432,7 @@ msgid "New"
 msgstr "Nuevo"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:617
+#: mainwindow.ui:618
 msgid "Next Tab"
 msgstr "Pestaña Siguiente"
 
@@ -2469,7 +2467,7 @@ msgid "O"
 msgstr "O"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:608
+#: mainwindow.ui:609
 msgid "Open &Menu Tab"
 msgstr "Abrir la Pestaña de &Menú"
 
@@ -2479,7 +2477,7 @@ msgid "Open Calendar"
 msgstr "Abrir Calendario"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:800
+#: mainwindow.ui:810
 msgid "Open Home Tab"
 msgstr "Abrir la Pestaña Principal"
 
@@ -2553,7 +2551,7 @@ msgid "Previous Record"
 msgstr "Registro Anterior"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:629
+#: mainwindow.ui:630
 msgid "Previous Tab"
 msgstr "Pestaña Anterior"
 
@@ -2752,13 +2750,18 @@ msgstr "Space"
 msgid "State:"
 msgstr "Estado:"
 
+#. ts-context KooMainWindow
+#: mainwindow.ui:663
+msgid "Store View Settings"
+msgstr "Guardar la configuración de la vista"
+
 #. ts-context RichTextWidget
 #: richtext.ui:128
 msgid "Strikethrough"
 msgstr "Tachado"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:596
+#: mainwindow.ui:597
 msgid "Switch &View"
 msgstr "Cambiar &Vista"
 
@@ -2823,7 +2826,7 @@ msgid "Underline"
 msgstr "Subrayado"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:781
+#: mainwindow.ui:791
 msgid "User Manual"
 msgstr "Manual de Usuario"
 
@@ -2833,7 +2836,7 @@ msgid "V"
 msgstr "V"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:653
+#: mainwindow.ui:654
 msgid "View Access Log"
 msgstr "Ver el Histórico de Accesos"
 
