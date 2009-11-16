@@ -1,1 +1,5 @@
-<area shape="rect" href="$classKoo_1_1Rpc_1_1Rpc_1_1Session.html" title="The Session class provides a simple way of login and executing function in a server..." alt="" coords="5,5,165,35">
+<map id="G" name="G">
+<area shape="rect" href="$classKoo_1_1Pos_1_1AbstractKeyboardWidget_1_1AbstractKeyboardWidget.html" title="The AbstactKeyboardWidget provides an abstract class for creating virtual on&#45;screen..." alt="" coords="5,32,381,61"/>
+<area shape="rect" href="$classKoo_1_1Pos_1_1KeyboardWidget_1_1KeyboardWidget.html" title="The KeyboardWidget class provides a virtual on&#45;screen alphanumeric keyboard." alt="" coords="429,5,707,35"/>
+<area shape="rect" href="$classKoo_1_1Pos_1_1KeypadWidget_1_1KeypadWidget.html" title="The KeyboardWidget class provides a virtual on&#45;screen numeric keyboard." alt="" coords="440,59,696,88"/>
+</map>
