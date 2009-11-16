@@ -32,6 +32,7 @@ from Koo.Common import Icons
 from Koo.Common import Calendar
 from Koo.Common import Numeric
 from Koo.Common import Common
+from Koo.Rpc import Rpc
 
 #
 # We store the pointer to the Tiny ModelGroup on QModelIndex.internalPointer

@@ -140,17 +140,17 @@ Api.instance = KooApi()
 win.show()
 
 if Settings.value('pos_mode'):
-        import Pos
+        import Koo.Pos
 	app.installEventFilter( Pos.PosEventFilter(win) )
 
 if Settings.value('enter_as_tab'):
-	from Common import EnterEventFilter
+	from Koo.Common import EnterEventFilter
 	app.installEventFilter( EnterEventFilter.EnterEventFilter(win) )
 
-from Common import ArrowsEventFilter
+from Koo.Common import ArrowsEventFilter
 app.installEventFilter( ArrowsEventFilter.ArrowsEventFilter(win) )
 
-from Common import WhatsThisEventFilter
+from Koo.Common import WhatsThisEventFilter
 app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(win) )
 
 if Settings.value('tip.autostart'):

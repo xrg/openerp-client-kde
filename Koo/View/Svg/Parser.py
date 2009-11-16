@@ -31,7 +31,7 @@ from Koo.Fields.FieldWidgetFactory import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
-from Common import Common
+from Koo.Common import Common
 
 import os
 
