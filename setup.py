@@ -123,7 +123,7 @@ Operating System :: MacOS
 Topic :: Office/Business
 """
 
-
+                                                      
 if len(sys.argv) < 2:
 	print "Syntax: setup.py command [options]"
 	sys.exit(2)
@@ -172,7 +172,10 @@ setup (
 	translations     = translations(),
 	pot_file         = opj('Koo','l10n','koo.pot'),
 	scripts          = ['koo.py'],
-	windows          = [{'script': opj('Koo','koo.py')}],
+	windows          = [{
+                                'script': opj('Koo','koo.py'),
+                                'icon_resources': [(1, opj("nsis", "koo.ico"))],
+                            }],
 	#console          = ['Koo/koo.py'],
 	packages         = packages ,
 	package_dir      = {'Koo': 'Koo'},

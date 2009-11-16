@@ -53,6 +53,7 @@
 ;--------------------------------
 ;Pages
 
+  !define MUI_ICON "koo.ico"
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE "..\doc\LICENCE.txt"
  # !insertmacro MUI_PAGE_COMPONENTS
@@ -72,8 +73,8 @@
   !define MUI_FINISHPAGE_RUN_CHECKED
   !define MUI_FINISHPAGE_RUN_TEXT "Start Koo"
   !define MUI_FINISHPAGE_RUN_FUNCTION "LaunchLink"
-  !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
-  !define MUI_FINISHPAGE_SHOWREADME $INSTDIR\README.txt
+  ;!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+  ;!define MUI_FINISHPAGE_SHOWREADME $INSTDIR\README.txt
   !insertmacro MUI_PAGE_FINISH
 
   
