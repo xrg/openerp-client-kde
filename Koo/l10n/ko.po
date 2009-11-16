@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-11-14 20:11+0100\n"
+"POT-Creation-Date: 2009-11-15 01:29+0100\n"
 "PO-Revision-Date: 2009-05-09 12:09+0000\n"
 "Last-Translator: ekodaq <ceo@ekosdaq.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-15 00:28+0000\n"
+"X-Launchpad-Export-Date: 2009-11-16 16:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
@@ -46,8 +46,8 @@ msgstr "출력할 내용이 없음!"
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/KooMainWindow.py:768
 #: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:142
-#: Koo/Dialogs/ExportDialog.py:176 Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:145
+#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:178
 #: Koo/Fields/Binary/BinaryFieldWidget.py:212
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
@@ -599,12 +599,12 @@ msgstr "단축키를 추가하려면, 트리에서 원소를 선택하십시오.
 msgid "OpenERP exported information"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:96
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
 #, python-format
 msgid "%s record(s) saved!"
 msgstr "%s 레코드가 저장됨 !"
 
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:99
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
 #, python-format
 msgid ""
 "Operation failed !\n"
@@ -613,61 +613,61 @@ msgstr ""
 "동작 실패 !\n"
 "I/O error (%s)"
 
-#: Koo/Dialogs/ExportDialog.py:96 Koo/Dialogs/ExportDialog.py:99
-#: Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:105
 msgid "Data Export"
 msgstr "데이터 내보내기"
 
-#: Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:105
 #, python-format
 msgid ""
 "Error exporting data:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:142
+#: Koo/Dialogs/ExportDialog.py:145
 #, python-format
 msgid ""
 "Error opening Excel:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:176
+#: Koo/Dialogs/ExportDialog.py:179
 #, python-format
 msgid ""
 "Error Opening OpenOffice.org:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:300
+#: Koo/Dialogs/ExportDialog.py:303
 msgid "Export Data"
 msgstr "데이터 내보내기"
 
-#: Koo/Dialogs/ExportDialog.py:343
+#: Koo/Dialogs/ExportDialog.py:346
 msgid "What is the name of this export?"
 msgstr "이 내보내기의 이름은?"
 
-#: Koo/Dialogs/ExportDialog.py:361
+#: Koo/Dialogs/ExportDialog.py:364
 msgid "Open with OpenOffice.org"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:367
+#: Koo/Dialogs/ExportDialog.py:370
 msgid "Open with Excel"
 msgstr "엑셀로 열기"
 
-#: Koo/Dialogs/ExportDialog.py:370
+#: Koo/Dialogs/ExportDialog.py:373
 msgid "Save as CSV"
 msgstr "CSV로 저장"
 
-#: Koo/Dialogs/ExportDialog.py:371
+#: Koo/Dialogs/ExportDialog.py:374
 msgid "Save as HTML"
 msgstr "HTML로 저장"
 
-#: Koo/Dialogs/ExportDialog.py:383
+#: Koo/Dialogs/ExportDialog.py:386
 msgid "Export name"
 msgstr "이름 내보내기"
 
-#: Koo/Dialogs/ExportDialog.py:384
+#: Koo/Dialogs/ExportDialog.py:387
 msgid "Exported fields"
 msgstr "내보낸 필드들"
 

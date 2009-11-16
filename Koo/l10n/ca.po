@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-14 20:11+0100\n"
+"POT-Creation-Date: 2009-11-15 01:29+0100\n"
 "PO-Revision-Date: 2009-11-12 12:19+0000\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-15 00:28+0000\n"
+"X-Launchpad-Export-Date: 2009-11-16 16:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
@@ -46,8 +46,8 @@ msgstr "No hi ha res a imprimir."
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/KooMainWindow.py:768
 #: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:142
-#: Koo/Dialogs/ExportDialog.py:176 Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:145
+#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:178
 #: Koo/Fields/Binary/BinaryFieldWidget.py:212
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
@@ -612,12 +612,12 @@ msgstr ""
 msgid "OpenERP exported information"
 msgstr "Informació exportadad d'OpenERP"
 
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:96
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
 #, python-format
 msgid "%s record(s) saved!"
 msgstr "%s registre(s) desat(s)!"
 
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:99
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
 #, python-format
 msgid ""
 "Operation failed !\n"
@@ -626,12 +626,12 @@ msgstr ""
 "L'operació ha fallat.\n"
 " Error d'E/S (%s)"
 
-#: Koo/Dialogs/ExportDialog.py:96 Koo/Dialogs/ExportDialog.py:99
-#: Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:105
 msgid "Data Export"
 msgstr "Exportació de dades"
 
-#: Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:105
 #, python-format
 msgid ""
 "Error exporting data:\n"
@@ -640,7 +640,7 @@ msgstr ""
 "Error en l'exportació:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:142
+#: Koo/Dialogs/ExportDialog.py:145
 #, python-format
 msgid ""
 "Error opening Excel:\n"
@@ -649,7 +649,7 @@ msgstr ""
 "Error en obrir l'Excel:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:176
+#: Koo/Dialogs/ExportDialog.py:179
 #, python-format
 msgid ""
 "Error Opening OpenOffice.org:\n"
@@ -658,35 +658,35 @@ msgstr ""
 "Error en obrir l'OpenOffice.org\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:300
+#: Koo/Dialogs/ExportDialog.py:303
 msgid "Export Data"
 msgstr "Exportar dades"
 
-#: Koo/Dialogs/ExportDialog.py:343
+#: Koo/Dialogs/ExportDialog.py:346
 msgid "What is the name of this export?"
 msgstr "Quin ha de ser el nom de l'exportació?"
 
-#: Koo/Dialogs/ExportDialog.py:361
+#: Koo/Dialogs/ExportDialog.py:364
 msgid "Open with OpenOffice.org"
 msgstr "Obre amb OpenOffice.org"
 
-#: Koo/Dialogs/ExportDialog.py:367
+#: Koo/Dialogs/ExportDialog.py:370
 msgid "Open with Excel"
 msgstr "Obrir amb l'Excel"
 
-#: Koo/Dialogs/ExportDialog.py:370
+#: Koo/Dialogs/ExportDialog.py:373
 msgid "Save as CSV"
 msgstr "Desar com a CSV"
 
-#: Koo/Dialogs/ExportDialog.py:371
+#: Koo/Dialogs/ExportDialog.py:374
 msgid "Save as HTML"
 msgstr "Desar com a HTML"
 
-#: Koo/Dialogs/ExportDialog.py:383
+#: Koo/Dialogs/ExportDialog.py:386
 msgid "Export name"
 msgstr "Nom de l'exportació"
 
-#: Koo/Dialogs/ExportDialog.py:384
+#: Koo/Dialogs/ExportDialog.py:387
 msgid "Exported fields"
 msgstr "Camps exportats"
 

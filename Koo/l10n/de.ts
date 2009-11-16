@@ -20,7 +20,7 @@ Language-Team: Deutsch
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-11-15 00:28+0000
+X-Launchpad-Export-Date: 2009-11-16 16:24+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
