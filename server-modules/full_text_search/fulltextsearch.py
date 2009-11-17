@@ -315,6 +315,12 @@ class fulltextsearch_services(netsvc.Service):
 			# Check security permissions using search
 			if not pool.get(model_name).search(cr, uid, [('id','=',id)], context=context):
 				continue
+			if model_name == 'ir.attachment':
+				attachment = pool.get(model_name).browse(cr, uid, id, context)
+				if attachment.res_model and attachment.res_id:
+					if not pool.get(attachment.res_model).search(cr, uid, [('id','=',attachment.res_id)], context=context):
+						continue
+
 
 			d = self.headline( cr, pool, text, id, model_id, model_name )
 			d['id'] = id
