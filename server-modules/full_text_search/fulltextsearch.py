@@ -312,12 +312,8 @@ class fulltextsearch_services(netsvc.Service):
 				model_label = x[2]
 
 
-			# Check security permissions
-			# If the user doesn't have access for this model we discard
-			# this item.
-			try:
-				pool.get('ir.model.access').check(cr, uid, model_name, 'read')
-			except except_orm, e:
+			# Check security permissions using search
+			if not pool.get(model_name).search(cr, uid, [('id','=',id)], context=context):
 				continue
 
 			d = self.headline( cr, pool, text, id, model_id, model_name )
