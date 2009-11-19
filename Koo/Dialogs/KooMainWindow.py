@@ -727,7 +727,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		fileName = QFileDialog.getOpenFileName(self, 'Open backup file...')
 		if fileName.isNull():
 			return
-		dialog = DatabaseDialog( DatabaseDialog.TypeEdit, _('Delete a database'), self )
+		dialog = DatabaseDialog( DatabaseDialog.TypeEdit, _('Restore a database'), self )
 		r = dialog.exec_()
 		if r == QDialog.Rejected:
 			return
