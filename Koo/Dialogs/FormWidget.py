@@ -72,6 +72,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if context is None:
 			context = {}
 
+		# This variable holds the id used to update status (and show number of attachments)
+		# If it doesn't change we won't update the number of attachments, avoiding some server
+		# calls.
+		self.previousId = False
+		self.previousAttachments = False
+
 		# Workaround: In some cases (detected in some CRM actions) view_type and view_ids
 		# may contain duplicate entries. Here we remove duplicates (ensuring lists order is kept).
 		if view_type:
@@ -167,11 +173,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
 		self.pendingReload = False
-		# This variable holds the id used to update status (and show number of attachments)
-		# If it doesn't change we won't update the number of attachments, avoiding some server
-		# calls.
-		self.previousId = False
-		self.previousAttachments = False
 
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
