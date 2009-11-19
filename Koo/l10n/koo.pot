@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-16 17:32+0100\n"
+"POT-Creation-Date: 2009-11-19 19:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -181,7 +181,7 @@ msgid ""
 "<i>full_text_search</i> module."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:283
+#: Koo/Dialogs/FullTextSearchDialog.py:410 Koo/Dialogs/FormWidget.py:289
 msgid "ID"
 msgstr ""
 
@@ -209,99 +209,99 @@ msgstr ""
 msgid "Ranking"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:178
+#: Koo/Dialogs/FormWidget.py:184
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:236
+#: Koo/Dialogs/FormWidget.py:242
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:277
+#: Koo/Dialogs/FormWidget.py:283
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:284
+#: Koo/Dialogs/FormWidget.py:290
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:285
+#: Koo/Dialogs/FormWidget.py:291
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:286
+#: Koo/Dialogs/FormWidget.py:292
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:287
+#: Koo/Dialogs/FormWidget.py:293
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:293
+#: Koo/Dialogs/FormWidget.py:299
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:296 Koo/Dialogs/FormWidget.py:462
+#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/FormWidget.py:480
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "Question"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:296
+#: Koo/Dialogs/FormWidget.py:302
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:301
+#: Koo/Dialogs/FormWidget.py:307
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:303
+#: Koo/Dialogs/FormWidget.py:309
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:334
+#: Koo/Dialogs/FormWidget.py:340
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:344
+#: Koo/Dialogs/FormWidget.py:350
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:348
+#: Koo/Dialogs/FormWidget.py:354
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:431
+#: Koo/Dialogs/FormWidget.py:449
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:442
+#: Koo/Dialogs/FormWidget.py:460
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:449
+#: Koo/Dialogs/FormWidget.py:467
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:453
+#: Koo/Dialogs/FormWidget.py:471
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:455
+#: Koo/Dialogs/FormWidget.py:473
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:456
+#: Koo/Dialogs/FormWidget.py:474
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:462
+#: Koo/Dialogs/FormWidget.py:480
 msgid "This record has been modified do you want to save it?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:480
+#: Koo/Dialogs/FormWidget.py:498
 msgid "No records selected"
 msgstr ""
 
@@ -404,7 +404,7 @@ msgstr ""
 msgid "Wizard"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:709 Koo/Dialogs/KooMainWindow.py:730
+#: Koo/Dialogs/KooMainWindow.py:709
 msgid "Delete a database"
 msgstr ""
 
@@ -426,6 +426,10 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:724
 msgid "Couldn't drop database"
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:730
+msgid "Restore a database"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:741
@@ -936,23 +940,23 @@ msgstr ""
 msgid "There was an error trying to create the report."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:304 Koo/Rpc/Rpc.py:421
+#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:428
 msgid "Connection Refused"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:310 Koo/Rpc/Rpc.py:433
+#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:440
 msgid "Application Error"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:310 Koo/Rpc/Rpc.py:433
+#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:440
 msgid "View details"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:403
+#: Koo/Rpc/Rpc.py:410
 msgid "Not logged in"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:553
+#: Koo/Rpc/Rpc.py:560
 msgid "Could not contact server!"
 msgstr ""
 
