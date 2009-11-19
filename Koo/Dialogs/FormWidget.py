@@ -167,6 +167,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
 		self.pendingReload = False
+		# This variable holds the id used to update status (and show number of attachments)
+		# If it doesn't change we won't update the number of attachments, avoiding some server
+		# calls.
+		self.previousId = False
+		self.previousAttachments = False
 
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
@@ -397,6 +402,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def reload(self):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
+			# Ensure attachments are updated by initializing previousId
+			self.previousId = False
 			self.screen.reload()
 			self.updateStatus()
 			self.pendingReload = False
@@ -425,9 +432,19 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def updateStatus(self, message=''):
 		if self.model and self.screen.currentRecord() and self.screen.currentRecord().id:
-			ids=Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',self.screen.currentRecord().id)])
+			# We don't need to query the server for the number of attachments if current record
+			# has not changed since list update.
+			id = self.screen.currentRecord().id
+			if id != self.previousId:
+				ids = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',id)])
+				self.previousAttachments = ids
+				self.previousId = id
+			else:
+				ids = self.previousAttachments
 		else:
 			ids = []
+			self.previousId = False
+			self.previousAttachments = ids
 		message = ( _("(%s attachments) ") % len(ids) ) + message
 		self.uiStatus.setText( message )
 
