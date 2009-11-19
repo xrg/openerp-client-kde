@@ -173,6 +173,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.reloadTimer = QTimer(self)
 		self.connect( self.reloadTimer, SIGNAL('timeout()'), self.autoReload )
 		self.pendingReload = False
+		# This variable holds the id used to update status (and show number of attachments)
+		# If it doesn't change we won't update the number of attachments, avoiding some server
+		# calls.
+		self.previousId = False
+		self.previousAttachments = False
 
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
