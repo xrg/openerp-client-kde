@@ -130,11 +130,13 @@ public class I18nGroovyCompiler extends JRGroovyCompiler {
 			ee.setValueClassName( e.getValueClassName() );
 			ee.setText( e.getText().replaceAll( "_\\(", "a(" ) );
 			ee.setId( e.getId() );
-			for (Object chunk : e.getChunks() ) {
-				JRDesignExpressionChunk newChunk = new JRDesignExpressionChunk();
-				newChunk.setType( ((JRExpressionChunk)chunk).getType() );
-				newChunk.setText( ((JRExpressionChunk)chunk).getText() );
-				ee.addChunk( newChunk );
+			if ( e.getChunks() != null ) {
+				for (Object chunk : e.getChunks() ) {
+					JRDesignExpressionChunk newChunk = new JRDesignExpressionChunk();
+					newChunk.setType( ((JRExpressionChunk)chunk).getType() );
+					newChunk.setText( ((JRExpressionChunk)chunk).getText() );
+					ee.addChunk( newChunk );
+				}
 			}
 			expressions[i] = ee;
 		}
