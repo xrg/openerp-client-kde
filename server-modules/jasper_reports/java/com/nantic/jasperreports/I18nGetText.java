@@ -1,3 +1,5 @@
+package com.nantic.jasperreports;
+
 import java.io.PrintStream;
 import net.sf.jasperreports.engine.JasperCompileManager;
 

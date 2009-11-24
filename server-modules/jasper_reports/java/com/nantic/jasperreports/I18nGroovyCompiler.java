@@ -1,3 +1,5 @@
+package com.nantic.jasperreports;
+
 import net.sf.jasperreports.engine.JRDefaultScriptlet;
 import net.sf.jasperreports.engine.design.JRCompilationUnit;
 import net.sf.jasperreports.compilers.JRGroovyCompiler;
@@ -9,6 +11,7 @@ import net.sf.jasperreports.engine.design.JRDefaultCompilationSourceCode;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
 import net.sf.jasperreports.engine.JRExpressionChunk;
 import net.sf.jasperreports.engine.design.JRDesignExpressionChunk;
+import net.sf.jasperreports.engine.JRReport;
 
 import java.util.ArrayList;
 
@@ -114,7 +117,7 @@ public class I18nGroovyCompiler extends JRGroovyCompiler {
 		JRCompilationSourceCode superCode = super.generateSourceCode(sourceTask);
 		String code = superCode.getCode();
 
-		String newImport = "import i18n;";
+		String newImport = "import com.nantic.jasperreports.i18n;";
 
 		code = code.replace( "import java.net", newImport + "\nimport java.net" );
 		code = code.replace( "void customizedInit", newFunction + "\n\nvoid customizedInit" );
@@ -144,5 +147,20 @@ public class I18nGroovyCompiler extends JRGroovyCompiler {
 		// Store last generated source code so it can be extracted
 		lastGeneratedSourceCode = code;
 		return newCode;
+	}
+
+	protected void checkLanguage(String language) throws JRException {
+		if ( 
+			!JRReport.LANGUAGE_GROOVY.equals(language)
+			&& !JRReport.LANGUAGE_JAVA.equals(language) 
+			&& !language.equals("i18ngroovy") 
+			)
+		{
+			throw new JRException(
+				"Language \"" + language
+				+ "\" not supported by this report compiler.\n"
+				+ "Expecting \"i18ngroovy\", \"groovy\" or \"java\" instead."
+			);
+		}
 	}
 }

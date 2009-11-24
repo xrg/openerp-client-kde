@@ -1,3 +1,5 @@
+package com.nantic.jasperreports;
+
 import java.io.FileInputStream;
 import java.util.PropertyResourceBundle;
 import java.util.Hashtable;

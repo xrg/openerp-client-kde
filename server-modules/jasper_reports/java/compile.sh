@@ -9,15 +9,18 @@ if [ -z "$JAVA_HOME" ]; then
 	done
 fi
 
-rm lib/i18n.jar
 
 export PATH="$JAVA_HOME"/bin:/bin:/usr/bin
 export CLASSPATH=$(ls -1 lib/* | grep jar$ | awk '{printf "%s:", $1}')
 export CLASSPATH="$CLASSPATH":$scriptdir
 
-javac i18n.java I18nGetText.java I18nScriptlet.java I18nGroovyCompiler.java JasperServer.java || exit
-rm i18n.jar
-jar cvf i18n.jar i18n.class I18nGetText.java I18nGroovyCompiler.class I18nScriptlet.class
+FILES=$(find com -iname "*.java")
+
+javac $FILES || exit
+
+rm -f lib/i18n.jar
+rm -f i18n.jar
+jar cvf i18n.jar com
 mv i18n.jar lib
 
-java JasperServer
+java com.nantic.jasperreports.JasperServer

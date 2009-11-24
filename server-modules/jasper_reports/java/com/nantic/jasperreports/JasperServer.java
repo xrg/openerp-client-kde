@@ -1,3 +1,5 @@
+package com.nantic.jasperreports;
+
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.webserver.WebServer;
 //import org.apache.xmlrpc.webserver.*;
@@ -191,7 +193,7 @@ public class JasperServer {
 		File jrxmlFile;
 		File jasperFile;
 
-		System.setProperty("jasper.reports.compiler.class", "I18nGroovyCompiler");
+		System.setProperty("jasper.reports.compiler.class", "com.nantic.jasperreports.I18nGroovyCompiler");
 
 		jrxmlFile = new File( jrxmlPath );
 		jasperFile = new File( jasperPath( jrxmlPath ) );

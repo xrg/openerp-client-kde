@@ -1,3 +1,5 @@
+package com.nantic.jasperreports;
+
 import net.sf.jasperreports.engine.JasperCompileManager;
 import java.util.*;
 
