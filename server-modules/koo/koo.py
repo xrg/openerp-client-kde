@@ -170,8 +170,9 @@ class nan_koo_settings(osv.osv):
 	_columns = {
 		'name': fields.char( 'Settings Name', 50, required=True, help='Name to be given to these settings.' ),
 		'show_toolbar': fields.boolean( 'Show toolbar', help='Whether toolbar is shown on screens. Note the toolbar may be convenient but not necessary as all options are available from the Reports, Actions, Browse and Plugins menu entries.' ),
-		'tabs_position': fields.selection( [('left', 'Left'), ('top', 'Top'), required=True,
-			('right', 'Right'), ('bottom', 'Bottom')], 'Default tabs position', help='Tabs can be on the left, top, right or bottom by default. Note that some screens may require an specific position which will override this default.' ),
+		'tabs_position': fields.selection( [('left', 'Left'), ('top', 'Top'), 
+			('right', 'Right'), ('bottom', 'Bottom')], required=True, 'Default tabs position', 
+			help='Tabs can be on the left, top, right or bottom by default. Note that some screens may require an specific position which will override this default.' ),
 		'tabs_closable': fields.boolean( 'Show Close Button on Tabs', help="A close button will be shown in each tab."),
 		'stylesheet': fields.text( 'Stylesheet', help='A valid Qt Stylesheet can be provided to be applied once the user has logged in.' ),
 		'sort_mode': fields.selection( [('visible_items', 'Visible Items'), ('all_items', 'All Items')], 'Sorting Mode', help='If set to "Visible Items" only the "Limit" elements are loaded and sorting is done in the client side. If "All Items" is used, sorting is done in the server and all records are (virtually) loaded in chunks of size "Limit"'),
