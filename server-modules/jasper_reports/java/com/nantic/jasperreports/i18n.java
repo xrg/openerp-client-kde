@@ -12,8 +12,8 @@ import org.xnap.commons.i18n.I18n;
 
 public class i18n {
 	static Hashtable<Locale, I18n> resources = new Hashtable<Locale, I18n>();
-	static String baseName;
-	static Locale defaultLocale;
+	static String baseName = null;
+	static Locale defaultLocale = null;
 	static Hashtable<Locale, Boolean> unavailableResources = new Hashtable<Locale, Boolean>();
 
 	public static void init(String baseName, Locale defaultLocale) {
@@ -23,6 +23,8 @@ public class i18n {
 	/* Ensures the given locale is loaded */
 	protected static boolean loadLocale( Locale locale ) {
 		// If the resource wasn't available don't try to load it each time.
+		if ( baseName == null || locale == null )
+			return false;
 		if ( unavailableResources.containsKey( locale ) )
 			return false;
 		if ( ! resources.containsKey( locale ) ) {
