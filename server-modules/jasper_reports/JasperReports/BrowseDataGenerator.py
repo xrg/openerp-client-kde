@@ -87,6 +87,8 @@ class BrowseDataGenerator(AbstractDataGenerator):
 			if root == 'Attachments':
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids, self.context)
+			elif root == 'User':
+				value = self.pool.get('res.users').browse(self.cr, self.uid, [self.uid], self.context)
 			else:
 				if root == 'id':
 					value = record._id
@@ -164,6 +166,8 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 			if root == 'Attachments':
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
+			elif root == 'User':
+				value = self.pool.get('res.users').browse(self.cr, self.uid, self.uid, self.context)
 			else:
 				if root == 'id':
 					value = record._id
@@ -266,6 +270,8 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 			if root == 'Attachments':
 				ids = self.pool.get('ir.attachment').search(self.cr, self.uid, [('res_model','=',record._table_name),('res_id','=',record.id)])
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
+			elif root == 'User':
+				value = self.pool.get('res.users').browse(self.cr, self.uid, self.uid, self.context)
 			else:
 				if root == 'id':
 					value = record._id

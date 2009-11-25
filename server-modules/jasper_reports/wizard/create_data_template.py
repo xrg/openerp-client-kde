@@ -61,7 +61,7 @@ class create_data_template(wizard.interface):
 		return output.strip('_').encode( 'utf-8' )
 		
 
-	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth):
+	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth, first_call):
 		# First of all add "id" field
 		fieldNode = document.createElement('id')
 		parentNode.appendChild( fieldNode )
@@ -108,7 +108,7 @@ class create_data_template(wizard.interface):
 				if depth <= 1:
 					continue
 				newName = model._columns[field]._obj
-				self.generate_xml(cr, uid, context, pool, newName, fieldNode, document, depth-1)
+				self.generate_xml(cr, uid, context, pool, newName, fieldNode, document, depth-1, False)
 				continue
 			
 			if fieldType == 'float':
@@ -129,9 +129,16 @@ class create_data_template(wizard.interface):
 
 		if depth > 1 and modelName != 'Attachments':
 			# Create relation with attachments
-			fieldNode = document.createElement( 'Attachments' )
+			fieldNode = document.createElement( '%s-Attachments' % _('Attachments') )
 			parentNode.appendChild( fieldNode )
-			self.generate_xml(cr, uid, context, pool, 'ir.attachment', fieldNode, document, depth-1)
+			self.generate_xml(cr, uid, context, pool, 'ir.attachment', fieldNode, document, depth-1, False)
+
+		if first_call:
+			# Create relation with user
+			fieldNode = document.createElement( '%s-User' % _('User') )
+			parentNode.appendChild( fieldNode )
+			self.generate_xml(cr, uid, context, pool, 'res.users', fieldNode, document, depth-1, False)
+			
 
 	def _action_create_xml(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
@@ -144,7 +151,7 @@ class create_data_template(wizard.interface):
 		topNode = document.documentElement
 		recordNode = document.createElement('record')
 		topNode.appendChild( recordNode )
-		self.generate_xml( cr, uid, context, pool, model, recordNode, document, form['depth'] )
+		self.generate_xml( cr, uid, context, pool, model, recordNode, document, form['depth'], True )
 		topNode.toxml()
 
 		res = {
