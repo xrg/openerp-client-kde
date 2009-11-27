@@ -11,7 +11,7 @@ public class I18nGetText {
 		}
 		String fileName = args[0];
 
-		System.setProperty("jasper.reports.compiler.class", "I18nGroovyCompiler");
+		System.setProperty("jasper.reports.compiler.class", "com.nantic.jasperreports.I18nGroovyCompiler");
 
 		try {
 			JasperCompileManager.compileReport( fileName );

@@ -31,8 +31,10 @@ else
 	pot="$2"
 fi
 
+
 tmp=$(mktemp)
-echo $tmp
-java I18nGetText $jrxml > $tmp
+echo "JAVA: $tmp"
+java com.nantic.jasperreports.I18nGetText $jrxml > $tmp
+echo "POT: $pot"
 xgettext --from-code=utf-8 -L Java -ktrl:2 -ktr -ktr:2 -ktrn:1,2 -ktrn:2,3 -o $pot $tmp
-rm $tmp
+#rm $tmp
