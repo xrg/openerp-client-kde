@@ -1,7 +1,7 @@
 
 QTreeView#uiTree {
-	background: url('../nano-clients/requests/imgs/nan.png');
-	selection-background-color: rgba(80,80,80,200);
+	background: url('../nano-clients/requests/imgs/nan2.png');
+	selection-background-color: rgba(255,20,20,80);
 	background-attachment: fixed;
 }
 
