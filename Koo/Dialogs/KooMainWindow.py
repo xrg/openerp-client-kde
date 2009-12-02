@@ -353,6 +353,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			if len(ids2):
 				message += _(' - %s pending request(s)') % len(ids2)
 			self.uiRequests.setText( message )
+			message = "%s - [%s]" % (message, Rpc.session.databaseName)
 			self.systemTrayIcon.setToolTip( message )
 			if self.pendingRequests != -1 and self.pendingRequests < len(ids):
 				QApplication.alert( self )
