@@ -41,6 +41,7 @@ from PyQt4.uic import *
 import math
 import locale
 import Common
+import re
 
 ## @brief Converts a QDate object into a Python string
 def dateToText( date ):
@@ -132,8 +133,7 @@ def textToDateTime( text ):
 			break
 	return datetime
 
-## @brief Converts a Python string into a float (floatTime) 
-def textToFloatTime( text ):
+def internalTextToFloatTime( text ):
 	try:
 		text = text.replace('.',':')
 		if text and ':' in text:
@@ -142,6 +142,25 @@ def textToFloatTime( text ):
 			return locale.atof(text)
 	except:
 		return 0.0
+
+## @brief Converts a Python string into a float (floatTime) 
+def textToFloatTime( text ):
+	text = unicode( text ).strip()
+	time = 0.0
+	last_operation = None
+	texts = re.split('(\+|-+)', text)
+	for text in texts:
+		if text in ('+','-'):
+			last_operation = text
+			continue
+		value = internalTextToFloatTime( text )
+		if last_operation == '+':
+			time += value
+		elif last_operation == '-':
+			time -= value
+		else:
+			time = value
+	return time
 
 ## @brief Converts a Python string comming from the server into a QDate object
 def storageToDate( text ):
