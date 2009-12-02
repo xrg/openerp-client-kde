@@ -136,7 +136,13 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 		# that will be created. If there are any relations it acts like a
 		# LEFT JOIN against the main model/table.
 		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
-			self.allRecords += self.generateIds( record, relations, '', [ { 'root': record } ] )
+			newRecords = self.generateIds( record, relations, '', [ { 'root': record } ] )
+			copies = 1
+			if self.report.copiesField() and record.__hasattr__(self.report.copiesField()):
+				copies = int( record.__getattr__(self.report.copiesField()) )
+			for new in newRecords:
+				for x in xrange(copies):
+					self.allRecords.append( new )
 
 		# Once all records have been calculated, create the XML structure itself
 		self.document = getDOMImplementation().createDocument(None, 'data', None)
@@ -235,7 +241,13 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 		# that will be created. If there are any relations it acts like a
 		# LEFT JOIN against the main model/table.
 		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
-			self.allRecords += self.generateIds( record, relations, '', [ { 'root': record } ] )
+			newRecords = self.generateIds( record, relations, '', [ { 'root': record } ] )
+			copies = 1
+			if self.report.copiesField() and record.__hasattr__(self.report.copiesField()):
+				copies = int( record.__getattr__(self.report.copiesField()) )
+			for new in newRecords:
+				for x in xrange(copies):
+					self.allRecords.append( new )
 
 		#f = codecs.open( fileName, 'wb+', 'utf-8' )
 		f = open( fileName, 'wb+' )

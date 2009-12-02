@@ -41,6 +41,7 @@ class JasperReport:
 		self._fields = {}
 		self._fieldNames = []
 		self._subreports = []
+		self._copiesField = False
 		self.extractProperties()
 
 	def language(self):
@@ -57,6 +58,9 @@ class JasperReport:
 
 	def relations(self):
 		return self._relations
+
+	def copiesField(self):
+		return self._copiesField
 
 	def path(self):
 		return self._reportPath
@@ -87,6 +91,11 @@ class JasperReport:
 			# Evaluate twice as the first one extracts the "" and returns a plain string.
 			# The second one evaluates the string without the "".
 			self._relations = eval( relationTags[0].getAttribute('value') )
+
+		# Repeat field
+		copiesFieldTags = xml.xpath.Evaluate( '/jasperReport/property[@name="OPENERP_COPIES_FIELD"]', doc )
+		if copiesFieldTags and copiesFieldTags[0].hasAttribute('value'):
+			self._copiesField = copiesFieldTags[0].getAttribute('value')
 
 		# fields and fieldNames
 		fields = {}
