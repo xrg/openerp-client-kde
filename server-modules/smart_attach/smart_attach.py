@@ -34,6 +34,7 @@ import os
 import shutil
 import codecs
 import re
+import threading
 
 import ocr
 from PyQt4.QtCore import *
@@ -51,7 +52,7 @@ class ir_attachment(osv.osv):
 	}
 
 	# This is standard create but extracting meta information first
-	def create(self, cr, uid, vals, context={}):
+	def create(self, cr, uid, vals, context=None):
 		if 'datas' in vals:
 			if vals['datas']:
 				vals['metainfo'] = 'Processing document...'
@@ -59,17 +60,13 @@ class ir_attachment(osv.osv):
 				vals['metainfo'] = ''
 		id = super(ir_attachment, self).create(cr, uid, vals, context)
 		if vals.get('datas',False):
-			self.pool.get('ir.cron').create(cr, uid, {
-				'name': 'Update attachment metainformation',
-				'user_id': uid,
-				'model': 'ir.attachment',
-				'function': 'updateMetaInfo',
-				'args': repr([ [id] ])
-			})
+			ctx = context and context.copy() or None
+			thread = threading.Thread(target=updateMetaInfo, args=(cr.dbname, uid, [id]))
+			thread.start()
 		return id
 
 	# This is standard write but extracting meta information first
-	def write(self, cr, uid, ids, vals, context={}):
+	def write(self, cr, uid, ids, vals, context=None):
 		if 'datas' in vals:
 			if vals['datas']:
 				vals['metainfo'] = 'Processing document...'
@@ -77,13 +74,9 @@ class ir_attachment(osv.osv):
 				vals['metainfo'] = ''
 		ret = super(ir_attachment, self).write(cr, uid, ids, vals, context)
 		if vals.get('datas', False):
-			self.pool.get('ir.cron').create(cr, uid, {
-				'name': 'Update attachment metainformation',
-				'user_id': uid,
-				'model': 'ir.attachment',
-				'function': 'updateMetaInfo',
-				'args': repr([ ids ])
-			})
+			ctx = context and context.copy() or None
+			thread = threading.Thread(target=updateMetaInfo, args=(cr.dbname, uid, [ids]))
+			thread.start()
 		return ret
 
 	# Extracts data from text nodes of an XML node list
@@ -156,18 +149,23 @@ class ir_attachment(osv.osv):
 		shutil.rmtree( dir, True )
 		return metaInfo
 
-	def updateMetaInfo(self, cr, uid, ids):
-		# Ensure all ids still exist when data is actually updated:
-		# Given this function is called by ir.cron there're chances
-		# the record might have been removed which would cause an 
-		# exception when browsing.
-		ids = self.search(cr, uid, [('id','in',ids)])
-		for attachment in self.browse(cr, uid, ids):
-			metainfo = self.extractMetaInfo( attachment.datas ) or ''
-			# We use SQL directly to update metainfo so last modification time doesn't change.
-			# This avoids messages in the GUI telling that the object has been modified in the
-			# meanwhile. After all, the field is readonly in the GUI so no conflicts can occur.
-			cr.execute("UPDATE ir_attachment SET metainfo=%s WHERE id=%s", (metainfo, attachment.id) )
-		cr.commit()
 
 ir_attachment()
+
+def updateMetaInfo(db_name, uid, ids):
+	db, pool = pooler.get_db_and_pool(db_name)
+	cr = db.cursor()
+
+	# Ensure all ids still exist when data is actually updated:
+	# Given this function is called in another process there're chances
+	# the record might have been removed which would cause an 
+	# exception when browsing.
+	ids = pool.get('ir.attachment').search(cr, uid, [('id','in',ids)])
+	for attachment in pool.get('ir.attachment').browse(cr, uid, ids):
+		metainfo = pool.get('ir.attachment').extractMetaInfo( attachment.datas ) or ''
+		# We use SQL directly to update metainfo so last modification time doesn't change.
+		# This avoids messages in the GUI telling that the object has been modified in the
+		# meanwhile. After all, the field is readonly in the GUI so no conflicts can occur.
+		cr.execute("UPDATE ir_attachment SET metainfo=%s WHERE id=%s", (metainfo, attachment.id) )
+	cr.commit()
+
