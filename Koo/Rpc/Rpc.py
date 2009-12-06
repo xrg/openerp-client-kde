@@ -28,6 +28,7 @@
 
 from PyQt4.QtCore import *
 from Koo.Common import Notifier
+from Koo.Common import Url
 import xmlrpclib
 import socket
 import tiny_socket
@@ -438,14 +439,13 @@ class Session:
 	# @param url url string such as 'http://admin:admin\@localhost:8069'. 
 	# Admited protocols are 'http', 'https' and 'socket'
 	# @param db string with the database name 
-	# Returns -1 if an exception occurred while trying to contact the server.
-	# Returns -2 if the login information was refused by the server.
+	# Returns Session.Exception, Session.InvalidCredentials or Session.LoggedIn
 	def login(self, url, db):
 		url = QUrl( url )
 		_url = str( url.scheme() ) + '://' + str( url.host() ) + ':' + str( url.port() ) 
 		self.connection = createConnection( _url )
-		user = unicode( url.userName() )
-		password = unicode( url.password() )
+		user = Url.decodeFromUrl( unicode( url.userName() ) )
+		password = Url.decodeFromUrl( unicode( url.password() ) )
 		try:
 			res = self.connection.call( '/common', 'login', db, user, password )
 		except socket.error, e:

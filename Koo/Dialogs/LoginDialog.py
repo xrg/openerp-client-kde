@@ -30,6 +30,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 #import options
 from Koo.Common import Common
+from Koo.Common import Url
 import ServerConfigurationDialog
 
 (LoginDialogUi, LoginDialogBase) = loadUiType( Common.uiPath('login.ui') )
@@ -99,8 +100,8 @@ class LoginDialog( QDialog, LoginDialogUi ):
 
 	def slotAccept( self ):
 		m = QUrl( self.uiServer.text() )
-		m.setUserName( self.uiUserName.text() )
-		m.setPassword( self.uiPassword.text() )
+		m.setUserName( Url.encodeForUrl( self.uiUserName.text() ) )
+		m.setPassword( Url.encodeForUrl( self.uiPassword.text() ) )
 		if m.isValid():	
 			self.url = unicode( m.toString() )
 			self.databaseName = unicode( self.uiDatabase.currentText() )
