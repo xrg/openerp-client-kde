@@ -139,10 +139,20 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		except:
 			self.setDialogEnabled( False )
 			return
+		
+		# Add all available languages to the combo and put koo's
+		# language as default
+		appLanguage = Settings.value('client.language')
+		currentLanguage = False
 		lang_list.append( ('en_US','English') )
 		for key,val in lang_list:
+			if appLanguage and key.startswith( appLanguage ):
+				currentLanguage = val
 			self.uiLanguage.addItem( val, QVariant( key ) )
-		self.uiLanguage.setCurrentIndex( self.uiLanguage.count() - 1 )
+		if currentLanguage:
+			self.uiLanguage.setCurrentIndex( self.uiLanguage.findText( currentLanguage ) )
+		else:
+			self.uiLanguage.setCurrentIndex( self.uiLanguage.count() - 1 )
 		self.setDialogEnabled( True )
 
 	def setDialogEnabled(self, value):
