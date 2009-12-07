@@ -87,8 +87,9 @@ class Settings(object):
 	@staticmethod
 	def loadFromFile():
 		if not Settings.rcFile:
-			Debug.warning( 'No rc file specified.' )
-			return False
+			# If no file was specified we try to read it from environment 
+			# variable o standard path
+			Settings.rcFile = os.environ.get('TERPRC') or os.path.join(unicode(QDir.toNativeSeparators(QDir.homePath())), '.koorc')
 		try:
 			if not os.path.isfile(Settings.rcFile):
 				Settings.save()
@@ -106,6 +107,23 @@ class Settings(object):
 		except Exception, e:
 			Debug.warning( 'Unable to read config file %s !' % Settings.rcFile )
 		return True
+
+	## @brief Loads settings from Windows registry.
+	@staticmethod
+	def loadFromRegistry():
+		if os.name != 'nt':
+			return
+
+		languages = {
+			'1027': 'ca',
+			'1033': 'en',
+			'1034': 'es',
+		}
+			
+		import _winreg
+		key = _winreg.OpenKey(_winreg.HKEY_CURRENT_USER, r"Software\Koo")
+		value, value_type = _winreg.QueryValueEx(key, "Language")
+		Settings.options['client.language'] = languages.get(value, False)
 
 	## @brief Sets the value for the given key.
 	@staticmethod

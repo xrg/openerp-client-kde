@@ -44,8 +44,23 @@ sys.path.append(terp_path)
 from Koo.Common.Settings import Settings
 from Koo.Common import CommandLine
 from Koo.Common import Localization
-Localization.initializeTranslations()
-#__builtins__._ = lambda x: x
+
+# Note that we need translations in order to parse command line arguments
+# because we might have to print information to the user. However, koo's
+# language configuration is stored in the .rc file users might provide in 
+# the command line.
+#
+# To solve this problem we load translations twice: one before command line
+# parsing and another one after, with the definitive language.
+#
+# Under windows, loading language twice doesn't work, and the first one loaded
+# will be the one used so we first load settings from default file and registre,
+# then load translations based on that file, then parse command line arguments
+# and eventually load definitive translations (which windows will ignore silently).
+Settings.loadFromFile()
+Settings.loadFromRegistry()
+Localization.initializeTranslations(Settings.value('client.language'))
+
 arguments = CommandLine.parseArguments(sys.argv)
 
 Localization.initializeTranslations(Settings.value('client.language'))

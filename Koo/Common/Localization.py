@@ -51,6 +51,7 @@ def initializeTranslations(language=None):
 	os.environ.setdefault('LANG', language)
 	os.environ.setdefault('LANGUAGE', language)
 
+
 	# First of all search the files in the l10n directory (in case Koo was
 	# not installed in the system).
 	directory = Paths.searchFile( 'l10n' )

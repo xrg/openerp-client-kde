@@ -54,6 +54,8 @@ def parseArguments(args):
 
 	Settings.rcFile = opt.config or os.environ.get('TERPRC') or os.path.join(homeDirectory(), '.koorc')
 	Settings.loadFromFile()
+	Settings.loadFromRegistry()
+
 
 	if opt.url:
 		Settings.setValue( 'login.url', opt.url )
