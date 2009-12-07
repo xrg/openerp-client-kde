@@ -8,13 +8,16 @@
 ; c) python win32 extensions (.exe): download latest form pywin32 website
 ; d) pyqt installer (.exe): download latest from pyqt website
 ; All these files should be placed in the 'nsis' directory. If versions
-; have changed you might need to modify 'SecTinyERPClient' with the
+; have changed you might need to modify 'SecKoo' with the
 ; appropiate filenames.
 ;
 ; Once compiled you should get a file called 'koo-setup.exe' in the 'nsis' 
 ; directory.
 ;
 ; Enjoy!
+;!ifndef VERSION
+;    !error "Do not forget to specify Koo's version - /DVERSION=<VERSION>"
+;!endif 
 
 ;--------------------------------
 ;Include Modern UI
@@ -36,6 +39,8 @@
 
   ;Vista redirects $SMPROGRAMS to all users without this
   RequestExecutionLevel admin
+  
+  ;BrandingText "Koo ${VERSION}"
 
 ;--------------------------------
 ;Variables
@@ -86,9 +91,37 @@
 ;Languages
  
   !insertmacro MUI_LANGUAGE "English"
+  !insertmacro MUI_LANGUAGE "Catalan"
+  !insertmacro MUI_LANGUAGE "Spanish"
 
 ;--------------------------------
 ;Installer Sections
+Function .onInit
+    IfSilent +20
+        Push ""
+        Push ${LANG_ENGLISH}
+        Push English
+        Push ${LANG_CATALAN}
+        Push "Catalan"
+        Push ${LANG_SPANISH}
+        Push "Spanish"
+        Push A ; A means auto count languages
+        ; for the auto count to work the first empty push (Push "") must remain
+        LangDLL::LangDialog "$(SelectLanguageTitleText)"  "$(SelectLanguageText)"
+        Pop $LANGUAGE
+        StrCmp $LANGUAGE "cancel" 0 +2
+            Abort
+    ClearErrors
+    ReadRegStr $0 HKLM "Software\Koo" ""
+    IfErrors DoInstall 0
+        MessageBox MB_OK "$(CannotInstallText)"
+        Quit
+    DoInstall:
+    WriteRegStr HKCU "Software\Koo" "Language" $LANGUAGE
+    ; 1034 - Spanish
+    ; 1027 - Catalan
+    ; 1033 - English
+FunctionEnd
 
 Section "Koo" SecKoo
 
@@ -121,13 +154,10 @@ SectionEnd
 
 ;Descriptions
 
-  ;Language strings
-  LangString DESC_SecKoo ${LANG_ENGLISH} "Koo."
-
-  ;Assign language strings to sections
-  !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-    !insertmacro MUI_DESCRIPTION_TEXT ${SecKoo} $(DESC_SecKoo)
-  !insertmacro MUI_FUNCTION_DESCRIPTION_END
+;Assign language strings to sections
+!insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+!insertmacro MUI_DESCRIPTION_TEXT ${SecKoo} $(DESC_SecKoo)
+!insertmacro MUI_FUNCTION_DESCRIPTION_END
  
 ;--------------------------------
 ;Uninstaller Section
@@ -162,3 +192,33 @@ SectionEnd
 Function LaunchLink
   ExecShell "" "$INSTDIR\koo.exe"
 FunctionEnd
+
+;; TRANSLATION STRINGS
+
+;LangString LicenseText ${LANG_ENGLISH} "Usually, a proprietary license is provided with the software: limited number of users, limited in time usage, etc. This Open Source license is the opposite: it garantees you the right to use, copy, study, distribute and modify Open ERP for free."
+;LangString LicenseText ${LANG_FRENCH} "Normalement, une licence propri�taire est fournie avec le logiciel: limitation du nombre d'utilisateurs, limitation dans le temps, etc. Cette licence Open Source est l'oppos�: Elle vous garantie le droit d'utiliser, de copier, d'�tudier, de distribuer et de modifier Open ERP librement."
+
+;LangString LicenseNext ${LANG_ENGLISH} "Next >"
+;LangString LicenseNext ${LANG_CATALAN} "Següent >"
+;LangString LicenseNext ${LANG_SPANISH} "Siguiente >"
+
+LangString SelectLanguageText ${LANG_ENGLISH} "Please, select installer language."
+LangString SelectLanguageText ${LANG_CATALAN} "Si us plau, seleccioneu l'idioma per l'instal·lador."
+LangString SelectLanguageText ${LANG_SPANISH} "Por favor, seleccione el idioma para el instalador."
+
+LangString SelectLanguageTitleText ${LANG_ENGLISH} "Installer Language"
+LangString SelectLanguageTitleText ${LANG_CATALAN} "Idioma de l'instal·ador"
+LangString SelectLanguageTitleText ${LANG_SPANISH} "Idioma del instalador"
+
+LangString FinishPageText ${LANG_ENGLISH} "Start Koo"
+LangString FinishPageText ${LANG_CATALAN} "Inicia el Koo"
+LangString FinishPageText ${LANG_SPANISH} "Iniciar Koo"
+
+LangString DESC_SecKoo ${LANG_ENGLISH} "Koo."
+LangString DESC_SecKoo ${LANG_CATALAN} "Koo."
+LangString DESC_SecKoo ${LANG_SPANISH} "Koo."
+
+LangString CannotInstallText ${LANG_ENGLISH} "Can not install the Open ERP Client because a previous installation already exists on this system. Please uninstall your current installation and relaunch this setup wizard."
+LangString CannotInstallText ${LANG_CATALAN} "No es pot instal·lar el Koo perquè ja hi ha instal·lada una versió anterior. Si us plau, desinstal·leu la versió actual i reinicieu aquest instal·lador."
+LangString CannotInstallText ${LANG_SPANISH} "No se puede instalar Koo porqué ya hay instalada un versión anterior. Por favor, desinstale la versión actual y reinicie este instalador."
+
