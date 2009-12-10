@@ -741,7 +741,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset>
+    <iconset resource="common.qrc">
      <normaloff>:/images/koo-icon.png</normaloff>:/images/koo-icon.png</iconset>
    </property>
    <property name="text">

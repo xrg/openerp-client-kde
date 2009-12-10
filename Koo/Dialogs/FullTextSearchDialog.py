@@ -200,6 +200,10 @@ class SearchView( QAbstractItemView ):
 			self.highlightSelected()
 		return self.items[self.selected].index
 
+	def wheelEvent(self, event):
+		newEvent = QWheelEvent(event.pos(), event.globalPos(), event.delta()*2, event.buttons(), event.modifiers(), event.orientation())
+		return QAbstractItemView.wheelEvent(self, newEvent)
+
 	def setSelection( self, rect, flags ):
 		self.selected = -1
 		for x in range(len(self.items)):
@@ -287,7 +291,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		
 		self.setModal( True )
 
-		self.result=None
+		self.result = None
 
 		self.model = FullTextSearchModel(self)
 		#self.uiItems = SearchView( self )
@@ -341,6 +345,16 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 			return
 		self.setQueriesEnabled( True )
 		self.uiText.setFocus()
+		if QApplication.keyboardModifiers() & Qt.AltModifier:
+			clipboard = QApplication.clipboard()
+			if clipboard.supportsFindBuffer():
+				text = clipboard.text( QClipboard.FindBuffer )
+			elif clipboard.supportsSelection():
+				text = clipboard.text( QClipboard.Selection )
+			else:
+				text = clipboard.text( QClipboard.Clipboard )
+			self.uiText.setText( text )
+			self.find()
 		QApplication.restoreOverrideCursor()
 
 	def setQueriesEnabled(self, value, text = ''): 
@@ -357,6 +371,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		return re.sub(' +', '|', q)
 
 	def query(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if self.uiModel.currentIndex() == 0:
 			model = False
 		else:
@@ -374,6 +389,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		else:
 			self.pushPrevious.setEnabled( True )
 		self.model.setList( answer )
+		QApplication.restoreOverrideCursor()
 		
 	def previous(self):
 		self.offset = max(0, self.offset - self.limit )
@@ -399,7 +415,10 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		if idx.isValid():
 			id = self.model.item( idx.row(), 0 ).text()
 			model = self.model.item( idx.row(), 2 ).text()
-			self.result = ( int(str(id)), unicode(model) )
+			self.result = {
+				'id': int(str(id)), 
+				'model': unicode(model)
+			}
 			self.accept()
 
 class FullTextSearchModel( QStandardItemModel ):

@@ -117,6 +117,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.layout.setSpacing( 2 )
 		self.layout.addWidget( self.tabWidget )
 		self.layout.addWidget( self.frame )	
+
+		self.actionFullTextSearch.setShortcuts( ['Ctrl+T', 'Ctrl+Alt+T'] )
 		
 		self.connect( self.actionClose, SIGNAL("triggered()"), self.closeCurrentTab )
 		self.connect( self.actionConnect ,SIGNAL("triggered()"), self.showLoginDialog )
@@ -292,7 +294,15 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			return
 		self.setCursor( Qt.WaitCursor )
 		res = win.result
-		Api.instance.createWindow(None, res[1], res[0], view_type='form', mode='form,tree')
+		if res['model'] == 'ir.ui.menu':
+			Api.instance.executeKeyword('tree_but_open', {
+				'model': res['model'], 
+				'id': res['id'], 
+				'report_type': 'pdf', 
+				'ids': [res['id']]
+			}, Rpc.session.context)
+		else:
+			Api.instance.createWindow(None, res['model'], res['id'], view_type='form', mode='form,tree')
 		self.unsetCursor()
 
 	def nextTab(self):
