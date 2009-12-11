@@ -302,8 +302,8 @@ osv.orm.orm_template.fields_get = new_fields_get
 
 old_fields_view_get = osv.orm.orm_template.fields_view_get
 
-def new_fields_view_get(self, cr, user, view_id=None, view_type='form', context=None, toolbar=False):
-	result = old_fields_view_get( self, cr, user, view_id, view_type, context, toolbar )
+def new_fields_view_get(self, cr, user, view_id=None, view_type='form', context=None, toolbar=False, submenu=False):
+	result = old_fields_view_get( self, cr, user, view_id, view_type, context, toolbar, submenu )
 	if toolbar:
 		def clean(x):
 			x = x[2]
