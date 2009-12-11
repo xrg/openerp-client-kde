@@ -242,7 +242,7 @@ class XmlRpcConnection(Connection):
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
 			raise RpcServerException( err.faultCode, err.faultString )
-		except Exception,e:
+		except Exception, e:
 			print "Exception:",e
 			raise
 		return result
