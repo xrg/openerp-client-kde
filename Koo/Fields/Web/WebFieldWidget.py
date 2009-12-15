@@ -61,7 +61,12 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 		self.uiWeb.setUrl(QUrl(''))
 
 	def showValue(self):
-		self.uiWeb.setUrl(QUrl(self.record.value(self.name) or ''))
+		value = self.record.value(self.name) or ''
+		url = QUrl(value)
+		if not value or unicode(url.scheme()):
+			self.uiWeb.setUrl( url )
+		else:
+			self.uiWeb.setHtml( value )
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
