@@ -1,0 +1,1 @@
+?package(koo):needs="X11" section="Applications/Office" title="KDE OpenERP Client (Koo)" command="/usr/bin/koo" icon="/usr/share/Koo/ui/koo-icon.png"

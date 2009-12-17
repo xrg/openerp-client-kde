@@ -69,7 +69,8 @@ def data_files():
 		(opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob(opj('doc','doxygen','html','*')) if os.path.isfile(f)]),
 		(opj('share', 'Koo'), [ opj('Koo','kootips.txt')]),
 		(opj('share', 'Koo', 'ui'), glob.glob( opj('Koo','ui','*.ui') ) ),
-		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) )
+		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) ),
+		(opj('share', 'Koo', 'ui'), [ opj('nsis','koo-icon.png') ] ),
 	]
 	if using_py2exe:
 		dest = opj('share','locale','%s','LC_MESSAGES')
@@ -138,7 +139,7 @@ cd %s/Koo
 exec %s ./koo.py $@
 """ % ( get_python_lib(), sys.executable)
 # write script
-f = open('koo.py', 'w')
+f = open('koo', 'w')
 f.write(start_script)
 f.close()
 
@@ -171,7 +172,7 @@ setup (
 	data_files       = data_files(),
 	translations     = translations(),
 	pot_file         = opj('Koo','l10n','koo.pot'),
-	scripts          = ['koo.py'],
+	scripts          = ['koo'],
 	windows          = [{
                                 'script': opj('Koo','koo.py'),
                                 'icon_resources': [(1, opj("nsis", "koo.ico"))],
