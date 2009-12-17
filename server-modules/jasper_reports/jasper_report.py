@@ -213,7 +213,6 @@ def register_jasper_report(name, model):
 	# given that developers might prefer/need to register the reports themselves.
 	# For example, if they need their own parser.
 	if netsvc.service_exist( name ):
-		service = netsvc.SERVICES[name].parser
 		if isinstance( netsvc.SERVICES[name], report_jasper ):
 			return
 		del netsvc.SERVICES[name]
