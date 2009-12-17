@@ -25,6 +25,12 @@
 #
 ##############################################################################
 
+
+from Common import Debug
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+
+
 try:
 	import serial
 	isSerialAvailable = True
@@ -32,10 +38,6 @@ except:
 	isSerialAvailable = False
 	Debug.info('PySerial not found. Serial Barcode Scanners will not be available.')
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-
-from Common import Debug
 
 ## @brief This class reads from a Barcode Scanner connected to the serial port and sends
 # its input as key events to the application.
