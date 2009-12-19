@@ -160,8 +160,8 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 		dialog.setup( resource )
 		dialog.setAttributes( self.attrs )
 		if dialog.exec_() == QDialog.Accepted:
-			resource = (self.uiModel.itemData(self.uiModel.currentIndex()).toString())
-			self.record.setValue(self.name, (resource, dialog.model) )
+			resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
+			self.record.setValue(self.name, (resource, dialog.record) )
 
 	def open(self):
 		# As the 'open' button might modify the model we need to be sure all other fields/widgets
