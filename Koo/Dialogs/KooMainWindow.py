@@ -241,7 +241,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
-		self.requestsTimer.start( Settings.value( 'requests_refresh_interval', 5 * 60 ) * 1000 )
+		frequency = Settings.value( 'requests_refresh_interval', 5 * 60 ) * 1000
+		if frequency > 0:
+			self.requestsTimer.start( Settings.value( 'requests_refresh_interval', 5 * 60 ) * 1000 )
+		else:
+			self.requestsTimer.stop()
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
