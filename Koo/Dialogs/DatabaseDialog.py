@@ -25,6 +25,7 @@
 #
 ##############################################################################
 
+import base64
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
@@ -104,4 +105,69 @@ class DatabaseDialog( QDialog, DatabaseDialogUi ):
 		if dialog.exec_() == QDialog.Accepted:
 			self.uiServer.setText( dialog.url )
 			self.refreshList()
+
+def restoreDatabase(parent):
+	fileName = QFileDialog.getOpenFileName(parent, _('Open backup file...') )
+	if fileName.isNull():
+		return
+	dialog = DatabaseDialog( DatabaseDialog.TypeEdit, _('Restore a database'), parent)
+	r = dialog.exec_()
+	if r == QDialog.Rejected:
+		return
+	parent.setCursor( Qt.WaitCursor )
+	try:
+		f = file(fileName, 'rb')
+		data = base64.encodestring(f.read())
+		f.close()
+		Rpc.database.call(dialog.url, 'restore', dialog.password, dialog.databaseName, data)
+	except Exception,e:
+		parent.unsetCursor()
+		if e.message=='AccessDenied:None':
+			QMessageBox.warning( parent, _('Could not restore database'), _('Bad database administrator password!') )
+		else:
+			QMessageBox.warning( parent, _('Could not restore database'), _('There was an error restoring the database!') )
+		return
+	parent.unsetCursor()
+	QMessageBox.information( parent, _('Information'), _('Database restored successfully!') )
+
+def backupDatabase(parent):
+	dialog = DatabaseDialog( DatabaseDialog.TypeSelect, _('Backup a database'), parent )
+	r = dialog.exec_()
+	if r == QDialog.Rejected:
+		return
+	fileName = QFileDialog.getSaveFileName( parent, _('Save as...') )
+	if fileName.isNull():
+		return
+	parent.setCursor( Qt.WaitCursor )
+	try:
+		dump_b64 = Rpc.database.execute(dialog.url, 'dump', dialog.password, dialog.databaseName)
+		dump = base64.decodestring(dump_b64)
+		f = file(fileName, 'wb')
+		f.write(dump)
+		f.close()
+	except Exception, e:
+		parent.unsetCursor()
+		QMessageBox.warning( parent, _('Error'), _('Could not backup database.\n%s') % (str(e)) )
+		return
+	parent.unsetCursor()
+	QMessageBox.information( parent, _('Information'), _("Database backuped successfully!"))
+
+def dropDatabase(parent):
+	dialog = DatabaseDialog( DatabaseDialog.TypeSelect, _('Delete a database'), parent )
+	r = dialog.exec_()
+
+	if r == QDialog.Rejected:
+		return
+	parent.setCursor( Qt.WaitCursor )
+	try:
+		Rpc.database.call(dialog.url, 'drop', dialog.password, dialog.databaseName )
+	except Exception, e:
+		parent.unsetCursor()
+		if e.message=='AccessDenied:None':
+			QMessageBox.warning( parent, _("Could not drop database."), _('Bad database administrator password !') )
+		else:
+			QMessageBox.warning( parent, _("Database removal"), _("Couldn't drop database") )
+		return
+	parent.unsetCursor()
+	QMessageBox.information( parent, _('Database removal'), _('Database dropped successfully!') )
 

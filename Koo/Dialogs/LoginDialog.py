@@ -31,7 +31,9 @@ from PyQt4.uic import *
 #import options
 from Koo.Common import Common
 from Koo.Common import Url
+from DatabaseDialog import *
 import ServerConfigurationDialog
+from DatabaseCreationDialog import DatabaseCreationDialog
 
 (LoginDialogUi, LoginDialogBase) = loadUiType( Common.uiPath('login.ui') )
 
@@ -51,16 +53,22 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		LoginDialogUi.__init__(self)
 		self.setupUi( self )
 
+		self.pushCreateDatabase.hide()
+		self.pushRestoreDatabase.hide()
+		self.uiTextDatabase.hide()
 		self.databaseName = ''
-		self.connect(self.pushCancel,SIGNAL("clicked()"),self.slotCancel )
-		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
-		self.connect(self.pushChange,SIGNAL("clicked()"),self.slotChange )
 		self.init()
 	
 	def setDatabaseName( self, name ):
 		self.databaseName = name
 
 	def init(self):
+		self.connect( self.pushCancel, SIGNAL("clicked()"), self.slotCancel )
+		self.connect( self.pushAccept, SIGNAL("clicked()"), self.slotAccept )
+		self.connect( self.pushChange, SIGNAL("clicked()"), self.slotChange )
+		self.connect( self.pushCreateDatabase, SIGNAL("clicked()"), self.createDatabase )
+		self.connect( self.pushRestoreDatabase, SIGNAL("clicked()"), self.restoreDatabase )
+
 		uid = 0
 		self.uiNoConnection.hide()
 		host = LoginDialog.defaultHost
@@ -77,15 +85,28 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			self.uiNoConnection.setText('<b>'+_('Could not connect to server !')+'</b>')
 			self.uiNoConnection.show()
 			self.uiDatabase.hide()
+			self.uiTextDatabase.hide()
+			self.pushCreateDatabase.hide()
+			self.pushRestoreDatabase.hide()
 			self.pushAccept.setEnabled(False)
-		elif res==0:
+		elif res == 0:
 			self.uiNoConnection.setText('<b>'+_('No database found, you must create one !')+'</b>')
 			self.uiNoConnection.show()
 			self.uiDatabase.hide()
+			self.uiTextDatabase.hide()
+			self.pushCreateDatabase.show()
+			self.pushRestoreDatabase.show()
 			self.pushAccept.setEnabled(False)
 		else:
 			self.uiNoConnection.hide()
-			self.uiDatabase.show()
+			if res == -2:
+				self.uiDatabase.hide()
+				self.uiTextDatabase.show()
+			else:
+				self.uiDatabase.show()
+				self.uiTextDatabase.hide()
+			self.pushCreateDatabase.hide()
+			self.pushRestoreDatabase.hide()
 			self.pushAccept.setEnabled(True)
 		return res
 
@@ -104,11 +125,27 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		m.setPassword( Url.encodeForUrl( self.uiPassword.text() ) )
 		if m.isValid():	
 			self.url = unicode( m.toString() )
-			self.databaseName = unicode( self.uiDatabase.currentText() )
+			if self.uiDatabase.isVisible():
+				self.databaseName = unicode( self.uiDatabase.currentText() )
+			else:
+				self.databaseName = unicode( self.uiTextDatabase.text() )
 			self.accept()
 		else:
 			self.reject()
 
 	def slotCancel(self):
 		self.reject()
+
+	def createDatabase(self):
+		dialog = DatabaseCreationDialog(self)
+		if dialog.exec_() == QDialog.Accepted:
+			self.url = dialog.url
+			self.databaseName = dialog.databaseName
+			self.accept()
+
+	def restoreDatabase(self):
+		restoreDatabase( self )
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		self.refreshList()
+		QApplication.restoreOverrideCursor()
 

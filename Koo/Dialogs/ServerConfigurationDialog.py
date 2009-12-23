@@ -41,6 +41,8 @@ def refreshDatabaseList(widget, url, dbtoload=None):
 	widget.clear()
 		
 	result = Rpc.database.list(url)
+	if result == False:
+		return -2
 	if result == -1:
 		return -1
 	if result:
