@@ -98,7 +98,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 
 		ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', unicode( self.uiText.text()), domain, 'ilike', context, False)
 		ids = [x[0] for x in ids] 
-		if len(ids) != 1:
+		if unicode( self.uiText.text() ) == '' or len(ids) != 1:
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids, domain=domain, context=context)
 			if dialog.exec_() == QDialog.Rejected:
 				return
