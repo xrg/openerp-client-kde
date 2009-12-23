@@ -31,7 +31,7 @@ view_form_end = """<?xml version="1.0"?>
 view_fields_end = {
 	'model': { 'string': 'Model', 'type': 'char', 'readonly': True },
 	'data': { 'string': 'XML', 'type': 'binary', 'relation': 'ir.model', 'readonly': True },
-	'filename': { 'type': 'char' },
+	'filename': { 'string': 'File Name', 'type': 'char' },
 }
 
 src_chars = """àáäâÀÁÄÂèéëêÈÉËÊìíïîÌÍÏÎòóöôÒÓÖÔùúüûÙÚÜÛçñºª·¤ '"()/*-+?!&$[]{}@#`'^:;<>=~%\\""" 
