@@ -1,3 +1,0 @@
-
-cd /usr/lib/python2.5/site-packages/Koo
-exec /usr/bin/python ./koo.py $@
