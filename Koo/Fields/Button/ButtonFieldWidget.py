@@ -71,7 +71,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		if self.record.validate():
 			id = screen.save()
 			if not self.attrs.get('confirm',False) or \
-					QMessageBox.question(self,_('Question'),self.attrs['confirm'],QMessageBox.Yes|QMessageBox.No) == QMessageBox.Yes:
+					QMessageBox.question(self,_('Question'),self.attrs['confirm'], _("Yes"), _("No")) == 0:
 				type = self.attrs.get('type', 'workflow')
 				if type == 'workflow':
 					QApplication.setOverrideCursor( Qt.WaitCursor )

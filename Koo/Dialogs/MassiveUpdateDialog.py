@@ -93,8 +93,8 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 				_('<p>This process will update the following fields in %(number)d records:</p>%(records)s<p>Do you want to continue?</p>') % { 
 				'number': len(self.ids), 
 				'records': fields 
-				}, QMessageBox.Yes | QMessageBox.No )
-			if answer == QMessageBox.No:
+				}, _("Yes"), _("No") )
+			if answer == 1:
 				return
                         Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, values, self.context)
 		self.accept()

@@ -299,8 +299,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QMessageBox.information(self, _('Record log'), message)
 
 	def remove(self):
-		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'),QMessageBox.Yes|QMessageBox.No)
-		if value == QMessageBox.Yes:
+		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'), _("Yes"), _("No"))
+		if value == 0:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try: 
 				if not self.screen.remove(unlink=True):
@@ -477,10 +477,10 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def modifiedSave(self):
 		if self.screen.isModified():
-			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel )
-			if value == QMessageBox.Save:
+			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), _('Save'), _('Discard'), _('Cancel'), 2, 2 )
+			if value == 0:
 				return self.save()
-			elif value == QMessageBox.Discard:
+			elif value == 1:
 				self.cancel()
 				return True
 			else:
