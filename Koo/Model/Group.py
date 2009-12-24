@@ -644,7 +644,10 @@ class RecordGroup(QObject):
 
 	## @brief Allows setting the domain for this group of records.
 	def setDomain(self, value):
-		if value == None:
+		# In some (rare) cases we receive {} as domain. So let's just test
+		# 'not value', and that should work in all cases, not only when value
+		# is None.
+		if not value:
 			self._domain = []
 		else:
 			self._domain = value
