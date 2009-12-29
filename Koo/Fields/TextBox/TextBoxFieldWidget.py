@@ -47,6 +47,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 		if attrs.get('translate', False):
 			pushTranslate = QToolButton( self )
 			pushTranslate.setIcon( QIcon( ':/images/locale.png' ) )
+			pushTranslate.setFocusPolicy( Qt.NoFocus )
 			layout.addWidget( pushTranslate )
 			self.connect( pushTranslate, SIGNAL('clicked()'), self.translate )
 
