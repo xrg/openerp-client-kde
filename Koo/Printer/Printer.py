@@ -92,6 +92,8 @@ class Printer(object):
 		fp = os.fdopen( fp, 'wb+' )
 		fp.write(content)
 		fp.close()
-		Printer.printFile( fileName, data['format'] )
+		# Add semantic information before printing file because otherwise
+		# it raises an exception in some systems.
 		Semantic.addInformationToFile( fileName, model, ids )
+		Printer.printFile( fileName, data['format'] )
 
