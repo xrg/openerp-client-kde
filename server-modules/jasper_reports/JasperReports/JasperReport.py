@@ -88,8 +88,6 @@ class JasperReport:
 		# Relations
 		relationTags = xml.xpath.Evaluate( '/jasperReport/property[@name="OPENERP_RELATIONS"]', doc )
 		if relationTags and relationTags[0].hasAttribute('value'):
-			# Evaluate twice as the first one extracts the "" and returns a plain string.
-			# The second one evaluates the string without the "".
 			self._relations = eval( relationTags[0].getAttribute('value') )
 
 		# Repeat field
