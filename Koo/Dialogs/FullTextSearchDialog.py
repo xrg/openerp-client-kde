@@ -201,7 +201,7 @@ class SearchView( QAbstractItemView ):
 		return self.items[self.selected].index
 
 	def wheelEvent(self, event):
-		newEvent = QWheelEvent(event.pos(), event.globalPos(), event.delta()*2, event.buttons(), event.modifiers(), event.orientation())
+		newEvent = QWheelEvent(event.pos(), event.globalPos(), event.delta()*6, event.buttons(), event.modifiers(), event.orientation())
 		return QAbstractItemView.wheelEvent(self, newEvent)
 
 	def setSelection( self, rect, flags ):
