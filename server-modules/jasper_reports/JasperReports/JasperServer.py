@@ -17,9 +17,7 @@ class JasperServer:
 		env.update( os.environ )
 		libs = os.path.join( self.path(), '..', 'java', 'lib', '*.jar' )
 		env['CLASSPATH'] = os.path.join( self.path(), '..', 'java:' ) + ':'.join( glob.glob( libs ) ) + ':' + os.path.join( self.path(), '..', 'custom_reports' )
-		#os.spawnlpe(os.P_NOWAIT, 'java', 'java', 'com.nantic.jasperreports.JasperServer', env)
 		cwd = os.path.join( self.path(), '..', 'java' )
-		print "CWD: ", cwd
 		subprocess.Popen(['java', 'com.nantic.jasperreports.JasperServer'], env=env, cwd=cwd)
 
 	def execute(self, *args):
