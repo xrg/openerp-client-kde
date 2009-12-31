@@ -58,7 +58,14 @@ class Report:
 	def execute(self):
 		# Get the report path
 		reports = self.pool.get( 'ir.actions.report.xml' )
-		ids = reports.search(self.cr, self.uid, [('report_name', '=', self.name[7:])], context=self.context)
+
+		# Not only do we search the report by name but also ensure that 'report_rml' field
+		# has the '.jrxml' postfix. This is needed because adding reports using the <report/>
+		# tag, doesn't remove the old report record if the id already existed (ie. we're trying
+		# to override the 'purchase.order' report in a new module). As the previous record is
+		# not removed, we end up with two records named 'purchase.order' so we need to destinguish
+		# between the two by searching '.jrxml' in report_rml.
+		ids = reports.search(self.cr, self.uid, [('report_name', '=', self.name[7:]),('report_rml','ilike','.jrxml')], context=self.context)
 		data = reports.read(self.cr, self.uid, ids[0], ['report_rml','jasper_output'])
 		if data['jasper_output']:
 			self.outputFormat = data['jasper_output']
