@@ -101,7 +101,7 @@ class JasperReport:
 		for tag in fieldTags:
 			name = tag.getAttribute('name')
 			type = tag.getAttribute('class')
-			if tag.getElementsByTagName('fieldDescription') ) and tag.getElementsByTagName('fieldDescription')[0].firstChild:
+			if tag.getElementsByTagName('fieldDescription') and tag.getElementsByTagName('fieldDescription')[0].firstChild:
 				path = tag.getElementsByTagName('fieldDescription')[0].firstChild.data
 			else:
 				path = ''
