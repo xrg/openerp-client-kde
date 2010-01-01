@@ -9,7 +9,7 @@ if [ -z "$JAVA_HOME" ]; then
 	done
 fi
 
-
+echo "JAVA_HOME=$JAVA_HOME"
 export PATH="$JAVA_HOME"/bin:/bin:/usr/bin
 export CLASSPATH=$(ls -1 lib/* | grep jar$ | awk '{printf "%s:", $1}')
 export CLASSPATH="$CLASSPATH":$scriptdir
