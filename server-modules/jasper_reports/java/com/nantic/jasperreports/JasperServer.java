@@ -381,8 +381,8 @@ public class JasperServer {
 			if ( args.length > 0 ) {
 				port = java.lang.Integer.parseInt( args[0] );
 			}
-			System.out.println("Attempting to start XML-RPC Server at port " + port + "...");
 			java.net.InetAddress localhost = java.net.Inet4Address.getByName("localhost");
+			System.out.println("Attempting to start XML-RPC Server at " + localhost.toString() + ":" + port + "...");
 			WebServer server = new WebServer( port, localhost );
 			XmlRpcServer xmlRpcServer = server.getXmlRpcServer();
 
