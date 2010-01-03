@@ -300,7 +300,7 @@ class ExportDialog( QDialog, ExportDialogUi ):
 		result = exportData(self.ids, self.model, fields)
 		export = ExportDialog.exports[action]
 		if export['requiresFileName']:
-			fileName = QFileDialog.getSaveFileName( self, _('Export Data') )
+			fileName = unicode( QFileDialog.getSaveFileName( self, _('Export Data') ) )
 			export['function'](fileName, fieldTitles, result, self.uiAddFieldNames.isChecked() )
 		else:
 			fieldsType = [self.fieldsInfo[x]['type'] for x in fields]
