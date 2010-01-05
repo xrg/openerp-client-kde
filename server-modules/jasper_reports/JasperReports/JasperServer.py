@@ -6,11 +6,17 @@ import subprocess
 import xmlrpclib
 
 class JasperServer:
-	def __init__(self):
-		self.proxy = xmlrpclib.ServerProxy( 'http://localhost:8090', allow_none = True )
+	def __init__(self, port=8090):
+		self.port = port
+		self.pidfile = None
+		url = 'http://localhost:%d' % port
+		self.proxy = xmlrpclib.ServerProxy( url, allow_none = True )
 
 	def path(self):
 		return os.path.abspath(os.path.dirname(__file__))
+
+	def setPidFile(self, pidfile):
+		self.pidfile = pidfile
 
 	def start(self):
 		env = {}
@@ -18,7 +24,10 @@ class JasperServer:
 		libs = os.path.join( self.path(), '..', 'java', 'lib', '*.jar' )
 		env['CLASSPATH'] = os.path.join( self.path(), '..', 'java:' ) + ':'.join( glob.glob( libs ) ) + ':' + os.path.join( self.path(), '..', 'custom_reports' )
 		cwd = os.path.join( self.path(), '..', 'java' )
-		subprocess.Popen(['java', 'com.nantic.jasperreports.JasperServer'], env=env, cwd=cwd)
+		process = subprocess.Popen(['java', 'com.nantic.jasperreports.JasperServer', unicode(self.port)], env=env, cwd=cwd)
+		f = open( self.pidfile, 'w')
+		f.write( str( process.pid ) ) 
+		f.close()
 
 	def execute(self, *args):
 		try: 

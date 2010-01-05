@@ -40,6 +40,9 @@ import netsvc
 
 from JasperReports import *
 
+tools.config['jasperport'] = tools.config.get('jasperport', 8090)
+tools.config['jasperpid'] = tools.config.get('jasperpid', False)
+
 class Report:
 	def __init__(self, name, cr, uid, ids, data, context):
 		self.name = name
@@ -175,7 +178,8 @@ class Report:
 		if 'parameters' in self.data:
 			parameters.update( self.data['parameters'] )
 
-		server = JasperServer()
+		server = JasperServer( int( tools.config['jasperport'] ) )
+		server.setPidFile( tools.config['jasperpid'] )
 		server.execute( connectionParameters, self.reportPath, outputFile, parameters )
 
 
