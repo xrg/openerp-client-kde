@@ -25,9 +25,10 @@ class JasperServer:
 		env['CLASSPATH'] = os.path.join( self.path(), '..', 'java:' ) + ':'.join( glob.glob( libs ) ) + ':' + os.path.join( self.path(), '..', 'custom_reports' )
 		cwd = os.path.join( self.path(), '..', 'java' )
 		process = subprocess.Popen(['java', 'com.nantic.jasperreports.JasperServer', unicode(self.port)], env=env, cwd=cwd)
-		f = open( self.pidfile, 'w')
-		f.write( str( process.pid ) ) 
-		f.close()
+		if self.pidfile:
+			f = open( self.pidfile, 'w')
+			f.write( str( process.pid ) ) 
+			f.close()
 
 	def execute(self, *args):
 		try: 
