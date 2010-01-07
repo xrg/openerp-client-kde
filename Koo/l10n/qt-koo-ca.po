@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-28 00:00+0200\n"
-"PO-Revision-Date: 2009-11-15 00:23+0000\n"
+"PO-Revision-Date: 2010-01-07 22:34+0000\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-16 16:24+0000\n"
+"X-Launchpad-Export-Date: 2010-01-07 22:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: ca_ES\n"
 
@@ -44,7 +44,7 @@ msgid "&Administrator Password"
 msgstr "&Contrasenya de l'administrador"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:646
+#: shortcuts.ui:660
 msgid "&Advanced"
 msgstr "&Avançat"
 
@@ -104,7 +104,7 @@ msgid "&Database"
 msgstr "&Base de dades"
 
 #. ts-context LoginDialog
-#: login.ui:96
+#: login.ui:115
 msgid "&Database:"
 msgstr "&Base de dades:"
 
@@ -149,7 +149,7 @@ msgid "&Drop Database"
 msgstr "&Elimina la base de dades"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:318
+#: shortcuts.ui:332
 msgid "&Edition Shortcuts"
 msgstr "Dreceres d'&edició"
 
@@ -274,7 +274,7 @@ msgid "&OpenERP"
 msgstr "&OpenERP"
 
 #. ts-context LoginDialog
-#: login.ui:198
+#: login.ui:225
 msgid "&Password:"
 msgstr "C&ontrasenya:"
 
@@ -328,8 +328,8 @@ msgstr "&Elimina"
 msgid "&Reports"
 msgstr "&Informes"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:441
+#. ts-context LoginDialog
+#: login.ui:147
 msgid "&Restore Database"
 msgstr "&Restaura una base de dades"
 
@@ -359,7 +359,7 @@ msgid "&Send Request"
 msgstr "&Envia una petició"
 
 #. ts-context LoginDialog
-#: login.ui:120
+#: login.ui:74
 msgid "&Server:"
 msgstr "&Servidor:"
 
@@ -384,7 +384,7 @@ msgid "&User"
 msgstr "&Usuari"
 
 #. ts-context LoginDialog
-#: login.ui:224
+#: login.ui:251
 msgid "&User:"
 msgstr "&Usuari:"
 
@@ -1461,7 +1461,7 @@ msgstr ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo és un producte de "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">El Koo és un producte de "
 "NaN:</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
@@ -1472,7 +1472,7 @@ msgstr ""
 "18</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Correu: </span><a "
 "href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
 "decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
@@ -1550,12 +1550,12 @@ msgstr ""
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
-"Source ERP+CRM</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP és un ERP+CRM de "
+"codi obert</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
-"businesses.</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">per a petites i mitjanes "
+"empreses.</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
@@ -1572,10 +1572,10 @@ msgstr ""
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Més informació a "
+"</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
+"Serif'; font-size:9pt; text-decoration: underline; "
+"color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
 
 #. ts-context Form
 #: keyboard.ui:592
@@ -1593,27 +1593,32 @@ msgid "<Alt> + <PgUp>"
 msgstr "<Alt> + <PgUp>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:752
+#: shortcuts.ui:766
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr "<Alt> + Fletxa (Esquerra, dreta, amunt, avall)"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:782
+#: shortcuts.ui:796
 msgid "<Alt> + Minus"
 msgstr "<Alt> + Menys"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:792
+#: shortcuts.ui:806
 msgid "<Alt> + Plus"
 msgstr "<Alt> + Més"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:281
+#: shortcuts.ui:270
+msgid "<Ctrl> + <Alt> + T"
+msgstr "<Ctrl> + <Alt> + T"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
 msgstr "<Ctrl> + <Enter>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:298
+#: shortcuts.ui:312
 msgid "<Ctrl> + <Esc>"
 msgstr "<Ctrl> + <Esc>"
 
@@ -1633,17 +1638,17 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:582
+#: shortcuts.ui:596
 msgid "<Ctrl> + <Shift> + Open"
 msgstr "<Ctrl> + <Shift> + Obre"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:613
+#: shortcuts.ui:627
 msgid "<Ctrl> + A"
 msgstr "<Ctrl> + A"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:454
+#: shortcuts.ui:468
 msgid "<Ctrl> + C"
 msgstr "<Ctrl> + C"
 
@@ -1673,7 +1678,7 @@ msgid "<Ctrl> + O"
 msgstr "<Ctrl> + O"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:568
+#: shortcuts.ui:582
 msgid "<Ctrl> + Open"
 msgstr "<Ctrl> + Open"
 
@@ -1688,7 +1693,7 @@ msgid "<Ctrl> + T"
 msgstr "<Ctrl> + T"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:461
+#: shortcuts.ui:475
 msgid "<Ctrl> + V"
 msgstr "<Ctrl> + V"
 
@@ -1698,32 +1703,32 @@ msgid "<Ctrl> + W"
 msgstr "<Ctrl> + W"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:468
+#: shortcuts.ui:482
 msgid "<Ctrl> + X"
 msgstr "<Ctrl> + X"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:430
+#: shortcuts.ui:444
 msgid "<Enter>"
 msgstr "<Enter>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:413
+#: shortcuts.ui:427
 msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:721
+#: shortcuts.ui:735
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Obre la vista"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:681
+#: shortcuts.ui:695
 msgid "<Shift> + Switch View"
 msgstr "<Shift> + Canvia la vista"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:447
+#: shortcuts.ui:461
 msgid "<Tab>"
 msgstr "<Tab>"
 
@@ -1743,7 +1748,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr "<b>No s'ha pogut connectar amb la base de dades</b>"
 
 #. ts-context LoginDialog
-#: login.ui:153
+#: login.ui:180
 msgid "<b>Could not connect to server !</b>"
 msgstr "<b>No s'ha pogut connectar al servidor !</b>"
 
@@ -1768,7 +1773,7 @@ msgid "<b>Predefined exports</b>"
 msgstr "<b>Exportacions predefinides</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:743
+#: shortcuts.ui:757
 msgid "<b>Shortcuts in text entries</b>"
 msgstr "<b>Dreceres en camps de text</b>"
 
@@ -1788,7 +1793,7 @@ msgid "<center><b>Choose a plug-in</b></center>"
 msgstr "<center><b>Escull un connector</b></center>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:272
+#: shortcuts.ui:286
 msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
 "<center><i>Quan s'edita un recurs en una finestra emergent</i></center>"
@@ -1891,7 +1896,7 @@ msgid "Auto-&detect"
 msgstr "Auto-&detecta"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:437
+#: shortcuts.ui:451
 msgid "Auto-complete text field"
 msgstr "Auto-completa el camp de text"
 
@@ -1916,12 +1921,12 @@ msgid "C"
 msgstr "C"
 
 #. ts-context LoginDialog
-#: login.ui:109
+#: login.ui:102
 msgid "C&hange"
 msgstr "Can&via"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:503
+#: shortcuts.ui:517
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
@@ -1940,7 +1945,7 @@ msgid "Center"
 msgstr "Centrat"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:711
+#: shortcuts.ui:725
 msgid "Change current tab"
 msgstr "Canvia la pestanya actual"
 
@@ -1965,12 +1970,12 @@ msgid "Clear"
 msgstr "Elimina"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:671
+#: shortcuts.ui:685
 msgid "Close tab"
 msgstr "Tanca la pestanya"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:305
+#: shortcuts.ui:319
 msgid "Close window without saving"
 msgstr "Tanca la finestra sense desar"
 
@@ -2005,9 +2010,14 @@ msgid "Connect"
 msgstr "Connecta"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:383
+#: shortcuts.ui:397
 msgid "Copy selected text"
 msgstr "Copia el text seleccionat"
+
+#. ts-context LoginDialog
+#: login.ui:136
+msgid "Create &Database"
+msgstr "Crea una base de &dades"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
@@ -2015,7 +2025,7 @@ msgid "Create a new database"
 msgstr "Crea una base de dades nova"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:554
+#: shortcuts.ui:568
 msgid "Create a new record"
 msgstr "Crea un nou registre"
 
@@ -2081,7 +2091,7 @@ msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:373
+#: shortcuts.ui:387
 msgid "Cut selected text"
 msgstr "Talla el text seleccionat"
 
@@ -2186,17 +2196,17 @@ msgid "F&orm"
 msgstr "F&ormulari"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:575
+#: shortcuts.ui:589
 msgid "F1"
 msgstr "F1"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:339
+#: shortcuts.ui:353
 msgid "F10"
 msgstr "F10"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:589
+#: shortcuts.ui:603
 msgid "F2"
 msgstr "F2"
 
@@ -2241,7 +2251,7 @@ msgid "Form"
 msgstr "Formulari"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:495
+#: shortcuts.ui:509
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
@@ -2253,6 +2263,11 @@ msgstr ""
 #: mainwindow.ui:757
 msgid "Full &Text Search"
 msgstr "Cerca de &Text"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:277
+msgid "Full Text Search current selection"
+msgstr "Cerca la selecció actual mitjançant la cerca de text"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:124
@@ -2270,7 +2285,7 @@ msgid "G"
 msgstr "G"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:330
+#: shortcuts.ui:344
 msgid "General"
 msgstr "General"
 
@@ -2372,7 +2387,7 @@ msgid "Left Justify"
 msgstr "Alineat a l'esquerra"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:604
+#: shortcuts.ui:618
 msgid "Lists"
 msgstr "Llistes"
 
@@ -2397,7 +2412,7 @@ msgid "Massive Update Process"
 msgstr "Procés d'actualització massiva"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:661
+#: shortcuts.ui:675
 msgid "Middle mouse click on Tab"
 msgstr "Clic amb el botó del mig en una pestanya"
 
@@ -2412,7 +2427,7 @@ msgid "Monthly View"
 msgstr "Vista mensual"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:701
+#: shortcuts.ui:715
 msgid "Mouse Wheel on Tab"
 msgstr "Rodeta del ratolí en les pestanyes"
 
@@ -2437,7 +2452,7 @@ msgid "Next Tab"
 msgstr "Vés a la pestanya següent"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:403
+#: shortcuts.ui:417
 msgid "Next editable widget"
 msgstr "Següent camp editable"
 
@@ -2457,7 +2472,7 @@ msgid "Next"
 msgstr "Següent"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:483
+#: shortcuts.ui:497
 msgid "Numeric fields"
 msgstr "Camps numèrics"
 
@@ -2482,12 +2497,12 @@ msgid "Open Home Tab"
 msgstr "Obre la pestanya inicial"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:691
+#: shortcuts.ui:705
 msgid "Open form view in new tab"
 msgstr "Obre la vista de formulari en una nova pestanya"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:731
+#: shortcuts.ui:745
 msgid "Open view in a background tab"
 msgstr "Obre la vista en una pestanya de fons"
 
@@ -2507,12 +2522,12 @@ msgid "OpenERP license"
 msgstr "Llicència d'OpenERP"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:544
+#: shortcuts.ui:558
 msgid "Opens the record in a new background tab"
 msgstr "Obre el registre en una nova pestanya de fons"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:534
+#: shortcuts.ui:548
 msgid "Opens the record in a new tab"
 msgstr "Obre el regsitre en una nova pestanya"
 
@@ -2527,7 +2542,7 @@ msgid "P"
 msgstr "P"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:393
+#: shortcuts.ui:407
 msgid "Paste selected text"
 msgstr "Enganxa el text seleccionat"
 
@@ -2556,7 +2571,7 @@ msgid "Previous Tab"
 msgstr "Vés a la pestanya anterior"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:420
+#: shortcuts.ui:434
 msgid "Previous editable widget"
 msgstr "Camp editable anterior"
 
@@ -2596,7 +2611,7 @@ msgid "Read My Requests"
 msgstr "Llegeix les meves peticions"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:522
+#: shortcuts.ui:536
 msgid "Relation fields"
 msgstr "Camps de relació"
 
@@ -2656,7 +2671,7 @@ msgid "Save Image"
 msgstr "Desa la imatge"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:288
+#: shortcuts.ui:302
 msgid "Save and close window"
 msgstr "Desa i tanca la finestra"
 
@@ -2676,7 +2691,7 @@ msgid "Search"
 msgstr "Cerca"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:561
+#: shortcuts.ui:575
 msgid "Search/edit existing records"
 msgstr "Cerca/edita els registres existents"
 
@@ -2696,7 +2711,7 @@ msgid "Select font"
 msgstr "Seleccioneu el tipus de lletra"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:620
+#: shortcuts.ui:634
 msgid "Selects all records"
 msgstr "Selecciona tots els registres"
 
@@ -2711,22 +2726,22 @@ msgid "Server"
 msgstr "Servidor"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:772
+#: shortcuts.ui:786
 msgid "Set focus to current widget's container"
 msgstr "Estableix el cursor al contenidor del camp actual"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:762
+#: shortcuts.ui:776
 msgid "Set focus to nearest widget"
 msgstr "Estableix el cursor al camp més proper"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:802
+#: shortcuts.ui:816
 msgid "Set focus to one of the widgets in the container"
 msgstr "Estableix el cursor a un dels camps del contenidor"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:361
+#: shortcuts.ui:375
 msgid "Shortcuts in text entries"
 msgstr "Dreceres en camps de text"
 
@@ -2736,7 +2751,7 @@ msgid "Shortcuts"
 msgstr "Dreceres de teclat"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:346
+#: shortcuts.ui:360
 msgid "Show field's help information"
 msgstr "Mostra l'ajuda del camp"
 

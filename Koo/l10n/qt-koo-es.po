@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-28 00:00+0200\n"
-"PO-Revision-Date: 2009-11-16 16:10+0000\n"
+"PO-Revision-Date: 2010-01-07 22:33+0000\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-16 16:24+0000\n"
+"X-Launchpad-Export-Date: 2010-01-07 22:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 
@@ -44,7 +44,7 @@ msgid "&Administrator Password"
 msgstr "&Contraseña del Administrador"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:646
+#: shortcuts.ui:660
 msgid "&Advanced"
 msgstr "&Avanzadas"
 
@@ -104,7 +104,7 @@ msgid "&Database"
 msgstr "&Base de datos"
 
 #. ts-context LoginDialog
-#: login.ui:96
+#: login.ui:115
 msgid "&Database:"
 msgstr "&Base de datos:"
 
@@ -149,7 +149,7 @@ msgid "&Drop Database"
 msgstr "&Eliminar una Base de Datos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:318
+#: shortcuts.ui:332
 msgid "&Edition Shortcuts"
 msgstr "Teclas de acceso de &Edición"
 
@@ -274,7 +274,7 @@ msgid "&OpenERP"
 msgstr "&OpenERP"
 
 #. ts-context LoginDialog
-#: login.ui:198
+#: login.ui:225
 msgid "&Password:"
 msgstr "C&ontraseña:"
 
@@ -328,8 +328,8 @@ msgstr "&Borrar"
 msgid "&Reports"
 msgstr "&Informes"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:441
+#. ts-context LoginDialog
+#: login.ui:147
 msgid "&Restore Database"
 msgstr "&Restaurar una Base de Datos"
 
@@ -359,7 +359,7 @@ msgid "&Send Request"
 msgstr "&Enviar una Petición"
 
 #. ts-context LoginDialog
-#: login.ui:120
+#: login.ui:74
 msgid "&Server:"
 msgstr "&Servidor:"
 
@@ -384,7 +384,7 @@ msgid "&User"
 msgstr "&Usuario"
 
 #. ts-context LoginDialog
-#: login.ui:224
+#: login.ui:251
 msgid "&User:"
 msgstr "&Usuario:"
 
@@ -1593,27 +1593,32 @@ msgid "<Alt> + <PgUp>"
 msgstr "<Alt> + <PgUp>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:752
+#: shortcuts.ui:766
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr "<Alt> + Flecha (Izquierda, derecha, arriba, abajo)"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:782
+#: shortcuts.ui:796
 msgid "<Alt> + Minus"
 msgstr "<Alt> + Menos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:792
+#: shortcuts.ui:806
 msgid "<Alt> + Plus"
 msgstr "<Alt> + Más"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:281
+#: shortcuts.ui:270
+msgid "<Ctrl> + <Alt> + T"
+msgstr "<Ctrl> + <Alt> + T"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
 msgstr "<Ctrl> + <Enter>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:298
+#: shortcuts.ui:312
 msgid "<Ctrl> + <Esc>"
 msgstr "<Ctrl> + <Esc>"
 
@@ -1633,17 +1638,17 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:582
+#: shortcuts.ui:596
 msgid "<Ctrl> + <Shift> + Open"
 msgstr "<Ctrl> + <Shift> + Abrir"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:613
+#: shortcuts.ui:627
 msgid "<Ctrl> + A"
 msgstr "<Ctrl> + A"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:454
+#: shortcuts.ui:468
 msgid "<Ctrl> + C"
 msgstr "<Ctrl> + C"
 
@@ -1673,7 +1678,7 @@ msgid "<Ctrl> + O"
 msgstr "<Ctrl> + O"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:568
+#: shortcuts.ui:582
 msgid "<Ctrl> + Open"
 msgstr "<Ctrl> + Abrir"
 
@@ -1688,7 +1693,7 @@ msgid "<Ctrl> + T"
 msgstr "<Ctrl> + T"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:461
+#: shortcuts.ui:475
 msgid "<Ctrl> + V"
 msgstr "<Ctrl> + V"
 
@@ -1698,32 +1703,32 @@ msgid "<Ctrl> + W"
 msgstr "<Ctrl> + W"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:468
+#: shortcuts.ui:482
 msgid "<Ctrl> + X"
 msgstr "<Ctrl> + X"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:430
+#: shortcuts.ui:444
 msgid "<Enter>"
 msgstr "<Enter>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:413
+#: shortcuts.ui:427
 msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:721
+#: shortcuts.ui:735
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Abrir la vista"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:681
+#: shortcuts.ui:695
 msgid "<Shift> + Switch View"
 msgstr "<Shift> + Cambio de vista"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:447
+#: shortcuts.ui:461
 msgid "<Tab>"
 msgstr "<Tab>"
 
@@ -1743,7 +1748,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr "<b>No se pudo conectar con la base de datos</b>"
 
 #. ts-context LoginDialog
-#: login.ui:153
+#: login.ui:180
 msgid "<b>Could not connect to server !</b>"
 msgstr "<b>No se ha podido conectar con el servidor !</b>"
 
@@ -1768,7 +1773,7 @@ msgid "<b>Predefined exports</b>"
 msgstr "<b>Exportaciones predefinidas</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:743
+#: shortcuts.ui:757
 msgid "<b>Shortcuts in text entries</b>"
 msgstr "<b>Teclas de acceso en campos de texto</b>"
 
@@ -1788,7 +1793,7 @@ msgid "<center><b>Choose a plug-in</b></center>"
 msgstr "<center><b>Seleccione un conetor</b></center>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:272
+#: shortcuts.ui:286
 msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
 "<center><i>Cuando se edita un recurso en una ventana popup</i></center>"
@@ -1891,7 +1896,7 @@ msgid "Auto-&detect"
 msgstr "Auto-&detectar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:437
+#: shortcuts.ui:451
 msgid "Auto-complete text field"
 msgstr "Auto-completar el campo de texto"
 
@@ -1916,12 +1921,12 @@ msgid "C"
 msgstr "C"
 
 #. ts-context LoginDialog
-#: login.ui:109
+#: login.ui:102
 msgid "C&hange"
 msgstr "Cam&biar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:503
+#: shortcuts.ui:517
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
@@ -1940,7 +1945,7 @@ msgid "Center"
 msgstr "Centrado"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:711
+#: shortcuts.ui:725
 msgid "Change current tab"
 msgstr "Cambia la pestaña actual"
 
@@ -1965,12 +1970,12 @@ msgid "Clear"
 msgstr "Borrar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:671
+#: shortcuts.ui:685
 msgid "Close tab"
 msgstr "Cerrar la pestaña"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:305
+#: shortcuts.ui:319
 msgid "Close window without saving"
 msgstr "Cerrar la ventana sin guardar"
 
@@ -2005,9 +2010,14 @@ msgid "Connect"
 msgstr "Conectar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:383
+#: shortcuts.ui:397
 msgid "Copy selected text"
 msgstr "Copiar el texto seleccionado"
+
+#. ts-context LoginDialog
+#: login.ui:136
+msgid "Create &Database"
+msgstr "Crear una base de &datos"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
@@ -2015,7 +2025,7 @@ msgid "Create a new database"
 msgstr "Crear una base de datos nueva"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:554
+#: shortcuts.ui:568
 msgid "Create a new record"
 msgstr "Crear un nuevo registro"
 
@@ -2081,7 +2091,7 @@ msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:373
+#: shortcuts.ui:387
 msgid "Cut selected text"
 msgstr "Cortar el texto seleccionado"
 
@@ -2186,17 +2196,17 @@ msgid "F&orm"
 msgstr "F&ormulario"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:575
+#: shortcuts.ui:589
 msgid "F1"
 msgstr "F1"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:339
+#: shortcuts.ui:353
 msgid "F10"
 msgstr "F10"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:589
+#: shortcuts.ui:603
 msgid "F2"
 msgstr "F2"
 
@@ -2241,7 +2251,7 @@ msgid "Form"
 msgstr "Formulario"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:495
+#: shortcuts.ui:509
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
@@ -2253,6 +2263,11 @@ msgstr ""
 #: mainwindow.ui:757
 msgid "Full &Text Search"
 msgstr "Búsqueda de &Texto"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:277
+msgid "Full Text Search current selection"
+msgstr "Buscar con la búsqueda de texto la selección actual"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:124
@@ -2270,7 +2285,7 @@ msgid "G"
 msgstr "G"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:330
+#: shortcuts.ui:344
 msgid "General"
 msgstr "General"
 
@@ -2372,7 +2387,7 @@ msgid "Left Justify"
 msgstr "Alineado a la izquierda"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:604
+#: shortcuts.ui:618
 msgid "Lists"
 msgstr "Listas"
 
@@ -2397,7 +2412,7 @@ msgid "Massive Update Process"
 msgstr "Proceso de actualización masiva"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:661
+#: shortcuts.ui:675
 msgid "Middle mouse click on Tab"
 msgstr "Clic con el botón del medio en una pestaña"
 
@@ -2412,7 +2427,7 @@ msgid "Monthly View"
 msgstr "Vista mensual"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:701
+#: shortcuts.ui:715
 msgid "Mouse Wheel on Tab"
 msgstr "Rueda del ratón en las pestañas"
 
@@ -2437,7 +2452,7 @@ msgid "Next Tab"
 msgstr "Pestaña Siguiente"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:403
+#: shortcuts.ui:417
 msgid "Next editable widget"
 msgstr "Campo editable siguiente"
 
@@ -2457,7 +2472,7 @@ msgid "Next"
 msgstr "Siguiente"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:483
+#: shortcuts.ui:497
 msgid "Numeric fields"
 msgstr "Campos numéricos"
 
@@ -2482,12 +2497,12 @@ msgid "Open Home Tab"
 msgstr "Abrir la Pestaña Principal"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:691
+#: shortcuts.ui:705
 msgid "Open form view in new tab"
 msgstr "Abre el formulario en una nueva pestaña"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:731
+#: shortcuts.ui:745
 msgid "Open view in a background tab"
 msgstr "Abre la vista en una pestaña de fondo"
 
@@ -2507,12 +2522,12 @@ msgid "OpenERP license"
 msgstr "Licencia OpenERP"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:544
+#: shortcuts.ui:558
 msgid "Opens the record in a new background tab"
 msgstr "Abre el registro en una nueva pestaña de fondo"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:534
+#: shortcuts.ui:548
 msgid "Opens the record in a new tab"
 msgstr "Abre el registro en una nueva pestaña"
 
@@ -2527,7 +2542,7 @@ msgid "P"
 msgstr "P"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:393
+#: shortcuts.ui:407
 msgid "Paste selected text"
 msgstr "Pegar el texto seleccionado"
 
@@ -2556,7 +2571,7 @@ msgid "Previous Tab"
 msgstr "Pestaña Anterior"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:420
+#: shortcuts.ui:434
 msgid "Previous editable widget"
 msgstr "Campo editable anterior"
 
@@ -2596,7 +2611,7 @@ msgid "Read My Requests"
 msgstr "Leer Mis Peticiones"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:522
+#: shortcuts.ui:536
 msgid "Relation fields"
 msgstr "Campos de relación"
 
@@ -2656,7 +2671,7 @@ msgid "Save Image"
 msgstr "Guardar la imagen"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:288
+#: shortcuts.ui:302
 msgid "Save and close window"
 msgstr "Guardar y cerrar la ventana"
 
@@ -2676,7 +2691,7 @@ msgid "Search"
 msgstr "Buscar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:561
+#: shortcuts.ui:575
 msgid "Search/edit existing records"
 msgstr "Buscar/editar registros existentes"
 
@@ -2696,7 +2711,7 @@ msgid "Select font"
 msgstr "Tipo de letra"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:620
+#: shortcuts.ui:634
 msgid "Selects all records"
 msgstr "Selecciona todos los registros"
 
@@ -2711,22 +2726,22 @@ msgid "Server"
 msgstr "Servidor"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:772
+#: shortcuts.ui:786
 msgid "Set focus to current widget's container"
 msgstr "Establecer el cursor en el contenedor del campo actual"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:762
+#: shortcuts.ui:776
 msgid "Set focus to nearest widget"
 msgstr "Establecer el cursor en el campo más cercano"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:802
+#: shortcuts.ui:816
 msgid "Set focus to one of the widgets in the container"
 msgstr "Establecer el cursor en uno de los campos del contenedor"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:361
+#: shortcuts.ui:375
 msgid "Shortcuts in text entries"
 msgstr "Teclas de acceso en campos de texto"
 
@@ -2736,7 +2751,7 @@ msgid "Shortcuts"
 msgstr "Accesos Directos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:346
+#: shortcuts.ui:360
 msgid "Show field's help information"
 msgstr "Mostrar la ayuda del campo"
 

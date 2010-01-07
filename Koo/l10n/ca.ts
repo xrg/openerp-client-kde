@@ -14,13 +14,13 @@ FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
         <translation>Project-Id-Version: PACKAGE VERSION
 Report-Msgid-Bugs-To: 
 POT-Creation-Date: 2009-07-28 00:00+0200
-PO-Revision-Date: 2009-11-15 00:23+0000
+PO-Revision-Date: 2010-01-07 22:34+0000
 Last-Translator: Albert Cervera i Areny &lt;albert@nan-tic.com&gt;
 Language-Team: LANGUAGE &lt;LL.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-11-16 16:24+0000
+X-Launchpad-Export-Date: 2010-01-07 22:36+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -171,11 +171,6 @@ X-Generator: Launchpad (build Unknown)
         <location filename="mainwindow.ui" line="322"/>
         <source>&amp;Reports</source>
         <translation>&amp;Informes</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="441"/>
-        <source>&amp;Restore Database</source>
-        <translation>&amp;Restaura una base de dades</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="525"/>
@@ -418,12 +413,12 @@ X-Generator: Launchpad (build Unknown)
 <context>
     <name>ShortcutsDialog</name>
     <message>
-        <location filename="shortcuts.ui" line="646"/>
+        <location filename="shortcuts.ui" line="660"/>
         <source>&amp;Advanced</source>
         <translation>&amp;Avançat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="318"/>
+        <location filename="shortcuts.ui" line="332"/>
         <source>&amp;Edition Shortcuts</source>
         <translation>Dreceres d&apos;&amp;edició</translation>
     </message>
@@ -443,27 +438,32 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="752"/>
+        <location filename="shortcuts.ui" line="766"/>
         <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
         <translation>&lt;Alt&gt; + Fletxa (Esquerra, dreta, amunt, avall)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="782"/>
+        <location filename="shortcuts.ui" line="796"/>
         <source>&lt;Alt&gt; + Minus</source>
         <translation>&lt;Alt&gt; + Menys</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="792"/>
+        <location filename="shortcuts.ui" line="806"/>
         <source>&lt;Alt&gt; + Plus</source>
         <translation>&lt;Alt&gt; + Més</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="281"/>
+        <location filename="shortcuts.ui" line="270"/>
+        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
+        <translation>&lt;Ctrl&gt; + &lt;Alt&gt; + T</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="295"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="298"/>
+        <location filename="shortcuts.ui" line="312"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
@@ -483,17 +483,17 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="582"/>
+        <location filename="shortcuts.ui" line="596"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + Obre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="613"/>
+        <location filename="shortcuts.ui" line="627"/>
         <source>&lt;Ctrl&gt; + A</source>
         <translation>&lt;Ctrl&gt; + A</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="454"/>
+        <location filename="shortcuts.ui" line="468"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
@@ -523,7 +523,7 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="568"/>
+        <location filename="shortcuts.ui" line="582"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + Open</translation>
     </message>
@@ -538,7 +538,7 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="461"/>
+        <location filename="shortcuts.ui" line="475"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
@@ -548,69 +548,69 @@ X-Generator: Launchpad (build Unknown)
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="468"/>
+        <location filename="shortcuts.ui" line="482"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="430"/>
+        <location filename="shortcuts.ui" line="444"/>
         <source>&lt;Enter&gt;</source>
         <translation>&lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="413"/>
+        <location filename="shortcuts.ui" line="427"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation>&lt;Shift&gt; + &lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="721"/>
+        <location filename="shortcuts.ui" line="735"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation>&lt;Shift&gt; + Obre la vista</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="681"/>
+        <location filename="shortcuts.ui" line="695"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation>&lt;Shift&gt; + Canvia la vista</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="447"/>
+        <location filename="shortcuts.ui" line="461"/>
         <source>&lt;Tab&gt;</source>
         <translation>&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="743"/>
+        <location filename="shortcuts.ui" line="757"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation>&lt;b&gt;Dreceres en camps de text&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="272"/>
+        <location filename="shortcuts.ui" line="286"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;i&gt;Quan s&apos;edita un recurs en una finestra emergent&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="437"/>
+        <location filename="shortcuts.ui" line="451"/>
         <source>Auto-complete text field</source>
         <translation>Auto-completa el camp de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="503"/>
+        <location filename="shortcuts.ui" line="517"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation>Calcula el valor
 (Resultat de l&apos;exemple: 7)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="711"/>
+        <location filename="shortcuts.ui" line="725"/>
         <source>Change current tab</source>
         <translation>Canvia la pestanya actual</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="671"/>
+        <location filename="shortcuts.ui" line="685"/>
         <source>Close tab</source>
         <translation>Tanca la pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="305"/>
+        <location filename="shortcuts.ui" line="319"/>
         <source>Close window without saving</source>
         <translation>Tanca la finestra sense desar</translation>
     </message>
@@ -620,17 +620,17 @@ X-Generator: Launchpad (build Unknown)
         <translation>Connecta</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="383"/>
+        <location filename="shortcuts.ui" line="397"/>
         <source>Copy selected text</source>
         <translation>Copia el text seleccionat</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="554"/>
+        <location filename="shortcuts.ui" line="568"/>
         <source>Create a new record</source>
         <translation>Crea un nou registre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="373"/>
+        <location filename="shortcuts.ui" line="387"/>
         <source>Cut selected text</source>
         <translation>Talla el text seleccionat</translation>
     </message>
@@ -645,17 +645,17 @@ X-Generator: Launchpad (build Unknown)
         <translation>Duplica el registre</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="575"/>
+        <location filename="shortcuts.ui" line="589"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="339"/>
+        <location filename="shortcuts.ui" line="353"/>
         <source>F10</source>
         <translation>F10</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="589"/>
+        <location filename="shortcuts.ui" line="603"/>
         <source>F2</source>
         <translation>F2</translation>
     </message>
@@ -670,11 +670,16 @@ X-Generator: Launchpad (build Unknown)
         <translation>Cerca</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="495"/>
+        <location filename="shortcuts.ui" line="509"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation>Fórmula + &lt;Enter&gt;
 (Exemple: 3+2*2)</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="277"/>
+        <source>Full Text Search current selection</source>
+        <translation>Cerca la selecció actual mitjançant la cerca de text</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="124"/>
@@ -682,22 +687,22 @@ X-Generator: Launchpad (build Unknown)
         <translation>Cerca de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="330"/>
+        <location filename="shortcuts.ui" line="344"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="604"/>
+        <location filename="shortcuts.ui" line="618"/>
         <source>Lists</source>
         <translation>Llistes</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="661"/>
+        <location filename="shortcuts.ui" line="675"/>
         <source>Middle mouse click on Tab</source>
         <translation>Clic amb el botó del mig en una pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="701"/>
+        <location filename="shortcuts.ui" line="715"/>
         <source>Mouse Wheel on Tab</source>
         <translation>Rodeta del ratolí en les pestanyes</translation>
     </message>
@@ -707,7 +712,7 @@ X-Generator: Launchpad (build Unknown)
         <translation>Nou</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="403"/>
+        <location filename="shortcuts.ui" line="417"/>
         <source>Next editable widget</source>
         <translation>Següent camp editable</translation>
     </message>
@@ -722,32 +727,32 @@ X-Generator: Launchpad (build Unknown)
         <translation>Pestanya següent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="483"/>
+        <location filename="shortcuts.ui" line="497"/>
         <source>Numeric fields</source>
         <translation>Camps numèrics</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="691"/>
+        <location filename="shortcuts.ui" line="705"/>
         <source>Open form view in new tab</source>
         <translation>Obre la vista de formulari en una nova pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="731"/>
+        <location filename="shortcuts.ui" line="745"/>
         <source>Open view in a background tab</source>
         <translation>Obre la vista en una pestanya de fons</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="544"/>
+        <location filename="shortcuts.ui" line="558"/>
         <source>Opens the record in a new background tab</source>
         <translation>Obre el registre en una nova pestanya de fons</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="534"/>
+        <location filename="shortcuts.ui" line="548"/>
         <source>Opens the record in a new tab</source>
         <translation>Obre el regsitre en una nova pestanya</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="393"/>
+        <location filename="shortcuts.ui" line="407"/>
         <source>Paste selected text</source>
         <translation>Enganxa el text seleccionat</translation>
     </message>
@@ -757,7 +762,7 @@ X-Generator: Launchpad (build Unknown)
         <translation>Registre anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="420"/>
+        <location filename="shortcuts.ui" line="434"/>
         <source>Previous editable widget</source>
         <translation>Camp editable anterior</translation>
     </message>
@@ -767,7 +772,7 @@ X-Generator: Launchpad (build Unknown)
         <translation>Pestanya anterior</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="522"/>
+        <location filename="shortcuts.ui" line="536"/>
         <source>Relation fields</source>
         <translation>Camps de relació</translation>
     </message>
@@ -777,7 +782,7 @@ X-Generator: Launchpad (build Unknown)
         <translation>Recarrega</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="288"/>
+        <location filename="shortcuts.ui" line="302"/>
         <source>Save and close window</source>
         <translation>Desa i tanca la finestra</translation>
     </message>
@@ -787,37 +792,37 @@ X-Generator: Launchpad (build Unknown)
         <translation>Desa</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="561"/>
+        <location filename="shortcuts.ui" line="575"/>
         <source>Search/edit existing records</source>
         <translation>Cerca/edita els registres existents</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="620"/>
+        <location filename="shortcuts.ui" line="634"/>
         <source>Selects all records</source>
         <translation>Selecciona tots els registres</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="772"/>
+        <location filename="shortcuts.ui" line="786"/>
         <source>Set focus to current widget&apos;s container</source>
         <translation>Estableix el cursor al contenidor del camp actual</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="762"/>
+        <location filename="shortcuts.ui" line="776"/>
         <source>Set focus to nearest widget</source>
         <translation>Estableix el cursor al camp més proper</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="802"/>
+        <location filename="shortcuts.ui" line="816"/>
         <source>Set focus to one of the widgets in the container</source>
         <translation>Estableix el cursor a un dels camps del contenidor</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="361"/>
+        <location filename="shortcuts.ui" line="375"/>
         <source>Shortcuts in text entries</source>
         <translation>Dreceres en camps de text</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="346"/>
+        <location filename="shortcuts.ui" line="360"/>
         <source>Show field&apos;s help information</source>
         <translation>Mostra l&apos;ajuda del camp</translation>
     </message>
@@ -915,10 +920,10 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo és un producte de NaN:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;El Koo és un producte de NaN:&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Correu: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
@@ -944,13 +949,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenObject - KDE Client - %s&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenERP is an Open Source ERP+CRM&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;for small to medium businesses.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenERP és un ERP+CRM de codi obert&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;per a petites i mitjanes empreses.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tot el codi es distribueix sota &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;les condicions de la Llicència Pública de GNU (GPL).&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;More Info on &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Més informació a &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="20"/>
@@ -974,34 +979,44 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="96"/>
+        <location filename="login.ui" line="115"/>
         <source>&amp;Database:</source>
         <translation>&amp;Base de dades:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="198"/>
+        <location filename="login.ui" line="225"/>
         <source>&amp;Password:</source>
         <translation>C&amp;ontrasenya:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="120"/>
+        <location filename="login.ui" line="147"/>
+        <source>&amp;Restore Database</source>
+        <translation>&amp;Restaura una base de dades</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="74"/>
         <source>&amp;Server:</source>
         <translation>&amp;Servidor:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="224"/>
+        <location filename="login.ui" line="251"/>
         <source>&amp;User:</source>
         <translation>&amp;Usuari:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="153"/>
+        <location filename="login.ui" line="180"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;No s&apos;ha pogut connectar al servidor !&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="109"/>
+        <location filename="login.ui" line="102"/>
         <source>C&amp;hange</source>
         <translation>Can&amp;via</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="136"/>
+        <source>Create &amp;Database</source>
+        <translation>Crea una base de &amp;dades</translation>
     </message>
     <message>
         <location filename="login.ui" line="23"/>

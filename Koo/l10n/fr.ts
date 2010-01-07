@@ -14,13 +14,13 @@ FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, 2009.
         <translation>Project-Id-Version: openobject-client-kde
 Report-Msgid-Bugs-To: FULL NAME &lt;EMAIL@ADDRESS&gt;
 POT-Creation-Date: 2009-07-28 00:00+0200
-PO-Revision-Date: 2009-09-28 07:56+0000
+PO-Revision-Date: 2010-01-07 10:05+0000
 Last-Translator: Christophe Chauvet - http://www.syleam.fr/ &lt;Unknown&gt;
 Language-Team: French &lt;fr@li.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2009-11-16 16:24+0000
+X-Launchpad-Export-Date: 2010-01-07 22:36+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -144,7 +144,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="283"/>
         <source>&amp;Database</source>
-        <translation></translation>
+        <translation>&amp;Base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="287"/>
@@ -245,11 +245,6 @@ p, li { white-space: pre-wrap; }
         <location filename="mainwindow.ui" line="322"/>
         <source>&amp;Reports</source>
         <translation>&amp;Rapports</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="441"/>
-        <source>&amp;Restore Database</source>
-        <translation>&amp;Restaurer la base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="525"/>
@@ -440,7 +435,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="663"/>
         <source>Store View Settings</source>
-        <translation></translation>
+        <translation>Conserver les paramètres de la vue</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="597"/>
@@ -492,12 +487,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ShortcutsDialog</name>
     <message>
-        <location filename="shortcuts.ui" line="646"/>
+        <location filename="shortcuts.ui" line="660"/>
         <source>&amp;Advanced</source>
         <translation>&amp;Avancé</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="318"/>
+        <location filename="shortcuts.ui" line="332"/>
         <source>&amp;Edition Shortcuts</source>
         <translation>&amp;Editer les raccourcis</translation>
     </message>
@@ -517,27 +512,32 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="752"/>
+        <location filename="shortcuts.ui" line="766"/>
         <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
-        <translation></translation>
+        <translation>&lt;Alt&gt; + Flèche (Gauche, Droite, Haut, Bas)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="782"/>
+        <location filename="shortcuts.ui" line="796"/>
         <source>&lt;Alt&gt; + Minus</source>
-        <translation></translation>
+        <translation>&lt;Alt&gt; + Moins</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="792"/>
+        <location filename="shortcuts.ui" line="806"/>
         <source>&lt;Alt&gt; + Plus</source>
+        <translation>&lt;Alt&gt; + Plus</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="270"/>
+        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="281"/>
+        <location filename="shortcuts.ui" line="295"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="298"/>
+        <location filename="shortcuts.ui" line="312"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
@@ -557,17 +557,17 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="582"/>
+        <location filename="shortcuts.ui" line="596"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="613"/>
+        <location filename="shortcuts.ui" line="627"/>
         <source>&lt;Ctrl&gt; + A</source>
         <translation>&lt;Ctrl&gt; + A</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="454"/>
+        <location filename="shortcuts.ui" line="468"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
@@ -597,7 +597,7 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;Ctrl&gt; + O</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="568"/>
+        <location filename="shortcuts.ui" line="582"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation>&lt;Ctrl&gt; + Ouvrir</translation>
     </message>
@@ -612,7 +612,7 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="461"/>
+        <location filename="shortcuts.ui" line="475"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
@@ -622,69 +622,69 @@ p, li { white-space: pre-wrap; }
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="468"/>
+        <location filename="shortcuts.ui" line="482"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="430"/>
+        <location filename="shortcuts.ui" line="444"/>
         <source>&lt;Enter&gt;</source>
         <translation>&lt;Entrer&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="413"/>
+        <location filename="shortcuts.ui" line="427"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation>&lt;Shift&gt; + &lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="721"/>
+        <location filename="shortcuts.ui" line="735"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation>&lt;Shift&gt; + Ouvrir la vue</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="681"/>
+        <location filename="shortcuts.ui" line="695"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation>&lt;Shift&gt; + Basculer de vue</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="447"/>
+        <location filename="shortcuts.ui" line="461"/>
         <source>&lt;Tab&gt;</source>
         <translation>&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="743"/>
+        <location filename="shortcuts.ui" line="757"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation>&lt;b&gt;Raccourci dans le texte saisi&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="272"/>
+        <location filename="shortcuts.ui" line="286"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;i&gt;Lors de l&apos;édition d&apos;une ressource dans le menu contextuel&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="437"/>
+        <location filename="shortcuts.ui" line="451"/>
         <source>Auto-complete text field</source>
         <translation>Champ texte auto-complété</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="503"/>
+        <location filename="shortcuts.ui" line="517"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation>Valeur calculée
 (Exemple de resultat: 7)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="711"/>
+        <location filename="shortcuts.ui" line="725"/>
         <source>Change current tab</source>
         <translation>Changer l&apos;onglet courant</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="671"/>
+        <location filename="shortcuts.ui" line="685"/>
         <source>Close tab</source>
         <translation>Fermer l&apos;onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="305"/>
+        <location filename="shortcuts.ui" line="319"/>
         <source>Close window without saving</source>
         <translation>Fermer la fenêtre sans sauvegarder</translation>
     </message>
@@ -694,17 +694,17 @@ p, li { white-space: pre-wrap; }
         <translation>Connecter</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="383"/>
+        <location filename="shortcuts.ui" line="397"/>
         <source>Copy selected text</source>
         <translation>Copier le texte sélectionné</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="554"/>
+        <location filename="shortcuts.ui" line="568"/>
         <source>Create a new record</source>
-        <translation></translation>
+        <translation>Créer un nouvel enregistrement</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="373"/>
+        <location filename="shortcuts.ui" line="387"/>
         <source>Cut selected text</source>
         <translation>Couper le texte sélectionné</translation>
     </message>
@@ -719,19 +719,19 @@ p, li { white-space: pre-wrap; }
         <translation>Dupliquer l&apos;enregistrement</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="575"/>
-        <source>F1</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="339"/>
-        <source>F10</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="shortcuts.ui" line="589"/>
+        <source>F1</source>
+        <translation>F1</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="353"/>
+        <source>F10</source>
+        <translation>F10</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="603"/>
         <source>F2</source>
-        <translation></translation>
+        <translation>F2</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="236"/>
@@ -744,11 +744,16 @@ p, li { white-space: pre-wrap; }
         <translation>Trouver / Rechercher</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="495"/>
+        <location filename="shortcuts.ui" line="509"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation>Formule + &lt;Entrer&gt;
 (Exemple: 3+2*2)</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="277"/>
+        <source>Full Text Search current selection</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="124"/>
@@ -756,22 +761,22 @@ p, li { white-space: pre-wrap; }
         <translation>Recherche texte intégral</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="330"/>
+        <location filename="shortcuts.ui" line="344"/>
         <source>General</source>
-        <translation></translation>
+        <translation>Général</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="604"/>
+        <location filename="shortcuts.ui" line="618"/>
         <source>Lists</source>
         <translation>Listes</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="661"/>
+        <location filename="shortcuts.ui" line="675"/>
         <source>Middle mouse click on Tab</source>
         <translation>Clic du milieu sur l&apos;onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="701"/>
+        <location filename="shortcuts.ui" line="715"/>
         <source>Mouse Wheel on Tab</source>
         <translation>Molette de la souris sur les onglets</translation>
     </message>
@@ -781,7 +786,7 @@ p, li { white-space: pre-wrap; }
         <translation>Nouveau</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="403"/>
+        <location filename="shortcuts.ui" line="417"/>
         <source>Next editable widget</source>
         <translation>Prochain composant modifiable</translation>
     </message>
@@ -796,32 +801,32 @@ p, li { white-space: pre-wrap; }
         <translation>Onglet suivant</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="483"/>
+        <location filename="shortcuts.ui" line="497"/>
         <source>Numeric fields</source>
         <translation>Champs numériques</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="691"/>
+        <location filename="shortcuts.ui" line="705"/>
         <source>Open form view in new tab</source>
         <translation>Ouvrir la vue formulaire dans un nouvel onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="731"/>
+        <location filename="shortcuts.ui" line="745"/>
         <source>Open view in a background tab</source>
         <translation>Ouvrir la vue dans un onglet en arrière plan</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="544"/>
+        <location filename="shortcuts.ui" line="558"/>
         <source>Opens the record in a new background tab</source>
         <translation>Ouvrir l&apos;enregistrement dans une nouvel onglet en arrière plan</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="534"/>
+        <location filename="shortcuts.ui" line="548"/>
         <source>Opens the record in a new tab</source>
         <translation>Ouvrir l&apos;enregistrement dans un nouvel onglet</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="393"/>
+        <location filename="shortcuts.ui" line="407"/>
         <source>Paste selected text</source>
         <translation>Coller le texte sélectionné</translation>
     </message>
@@ -831,7 +836,7 @@ p, li { white-space: pre-wrap; }
         <translation>Enregistrement précédent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="420"/>
+        <location filename="shortcuts.ui" line="434"/>
         <source>Previous editable widget</source>
         <translation>Précedent composant modifiable</translation>
     </message>
@@ -841,7 +846,7 @@ p, li { white-space: pre-wrap; }
         <translation>Onglet précédent</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="522"/>
+        <location filename="shortcuts.ui" line="536"/>
         <source>Relation fields</source>
         <translation>Champs relation</translation>
     </message>
@@ -851,7 +856,7 @@ p, li { white-space: pre-wrap; }
         <translation>Recharger</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="288"/>
+        <location filename="shortcuts.ui" line="302"/>
         <source>Save and close window</source>
         <translation>Sauvegarder et fermer la fenêtre</translation>
     </message>
@@ -861,39 +866,39 @@ p, li { white-space: pre-wrap; }
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="561"/>
+        <location filename="shortcuts.ui" line="575"/>
         <source>Search/edit existing records</source>
-        <translation></translation>
+        <translation>Chercher/editer les enregistrements existants</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="620"/>
+        <location filename="shortcuts.ui" line="634"/>
         <source>Selects all records</source>
         <translation>Choisir tous les enregistrements</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="772"/>
+        <location filename="shortcuts.ui" line="786"/>
         <source>Set focus to current widget&apos;s container</source>
-        <translation></translation>
+        <translation>Mettre le focus sur le container du composant courant</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="762"/>
+        <location filename="shortcuts.ui" line="776"/>
         <source>Set focus to nearest widget</source>
-        <translation></translation>
+        <translation>Mettre le focus sur le composant le plus proche</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="802"/>
+        <location filename="shortcuts.ui" line="816"/>
         <source>Set focus to one of the widgets in the container</source>
-        <translation></translation>
+        <translation>Metttre le focus sur un des widgets du container</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="361"/>
+        <location filename="shortcuts.ui" line="375"/>
         <source>Shortcuts in text entries</source>
         <translation>Raccourcis dans les textes saisis</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="346"/>
+        <location filename="shortcuts.ui" line="360"/>
         <source>Show field&apos;s help information</source>
-        <translation></translation>
+        <translation>Montre l&apos;information d&apos;aide du champ</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="175"/>
@@ -984,7 +989,16 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo is a product of NaN:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="48"/>
@@ -1002,7 +1016,20 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;the terms of the GNU Public Licence.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;More Info on &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenObject - KDE Client - %s&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;OpenERP is an Open Source ERP+CRM&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;for small to medium businesses.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;The whole source code is distributed under &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;the terms of the GNU Public Licence.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;More Info on &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="20"/>
@@ -1026,34 +1053,44 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="96"/>
+        <location filename="login.ui" line="115"/>
         <source>&amp;Database:</source>
         <translation>&amp;Base de données:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="198"/>
+        <location filename="login.ui" line="225"/>
         <source>&amp;Password:</source>
         <translation>Mot de &amp;passe:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="120"/>
+        <location filename="login.ui" line="147"/>
+        <source>&amp;Restore Database</source>
+        <translation>&amp;Restaurer la base de données</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="74"/>
         <source>&amp;Server:</source>
         <translation>&amp;Serveur:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="224"/>
+        <location filename="login.ui" line="251"/>
         <source>&amp;User:</source>
         <translation>&amp;Utilisateur:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="153"/>
+        <location filename="login.ui" line="180"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;Impossible de se connecter au serveur !&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="109"/>
+        <location filename="login.ui" line="102"/>
         <source>C&amp;hange</source>
         <translation>C&amp;hanger</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="136"/>
+        <source>Create &amp;Database</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="login.ui" line="23"/>
@@ -1332,7 +1369,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="159"/>
         <source>&amp;Open</source>
-        <translation></translation>
+        <translation>&amp;Ouvrir</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="42"/>
@@ -1341,7 +1378,11 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="14"/>
@@ -1353,7 +1394,9 @@ p, li { white-space: pre-wrap; }
         <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
 
 Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
-        <translation></translation>
+        <translation>Vous pouvez rechercher ici tous les termes présents dans  la base de données depuis qu&apos;elle est indexée.  Si le résultat de la recherche ne renvoie rien bienque vous soyez certain de l&apos;existance de ces mots dans la base de donnée,  vous devez contacter l&apos;administrateur du système.
+
+La recherche textuelle recherche des mots complets mais aussi des mots ayant la même racine. Par exemple, si vous cherchez &quot;construire&quot;, apparitront dans le résultat les documents contenant les mots &quot;construit&quot;, &quot;construction&quot;, &quot;construire&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1710,12 +1753,12 @@ Text search only searches for complete words but it will return words that conta
     <message>
         <location filename="keyboard.ui" line="631"/>
         <source>Ã</source>
-        <translation></translation>
+        <translation>Ã</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="225"/>
         <source>Ã</source>
-        <translation></translation>
+        <translation>Ã</translation>
     </message>
 </context>
 <context>

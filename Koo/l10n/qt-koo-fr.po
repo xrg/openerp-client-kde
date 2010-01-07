@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-07-28 00:00+0200\n"
-"PO-Revision-Date: 2009-09-28 07:56+0000\n"
+"PO-Revision-Date: 2010-01-07 10:05+0000\n"
 "Last-Translator: Christophe Chauvet - http://www.syleam.fr/ <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-11-16 16:24+0000\n"
+"X-Launchpad-Export-Date: 2010-01-07 22:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context KooMainWindow
@@ -43,7 +43,7 @@ msgid "&Administrator Password"
 msgstr "Mot de passe &Administrateur"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:646
+#: shortcuts.ui:660
 msgid "&Advanced"
 msgstr "&Avancé"
 
@@ -100,10 +100,10 @@ msgstr "Aide contextuelle"
 #. ts-context KooMainWindow
 #: mainwindow.ui:283
 msgid "&Database"
-msgstr ""
+msgstr "&Base de données"
 
 #. ts-context LoginDialog
-#: login.ui:96
+#: login.ui:115
 msgid "&Database:"
 msgstr "&Base de données:"
 
@@ -148,7 +148,7 @@ msgid "&Drop Database"
 msgstr "Supprimer les base de &données"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:318
+#: shortcuts.ui:332
 msgid "&Edition Shortcuts"
 msgstr "&Editer les raccourcis"
 
@@ -260,7 +260,7 @@ msgstr "Ancien m&ot de passe"
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:159
 msgid "&Open"
-msgstr ""
+msgstr "&Ouvrir"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
@@ -273,7 +273,7 @@ msgid "&OpenERP"
 msgstr "&OpenERP"
 
 #. ts-context LoginDialog
-#: login.ui:198
+#: login.ui:225
 msgid "&Password:"
 msgstr "Mot de &passe:"
 
@@ -327,8 +327,8 @@ msgstr "Supprimer"
 msgid "&Reports"
 msgstr "&Rapports"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:441
+#. ts-context LoginDialog
+#: login.ui:147
 msgid "&Restore Database"
 msgstr "&Restaurer la base de données"
 
@@ -358,7 +358,7 @@ msgid "&Send Request"
 msgstr "Envoyer une requête"
 
 #. ts-context LoginDialog
-#: login.ui:120
+#: login.ui:74
 msgid "&Server:"
 msgstr "&Serveur:"
 
@@ -383,7 +383,7 @@ msgid "&User"
 msgstr "&Utilisateur"
 
 #. ts-context LoginDialog
-#: login.ui:224
+#: login.ui:251
 msgid "&User:"
 msgstr "&Utilisateur:"
 
@@ -1469,6 +1469,17 @@ msgid ""
 "style=\" text-decoration: underline; "
 "color:#0000ff;\">?</span></a></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
+"style=\" text-decoration: underline; "
+"color:#0000ff;\">?</span></a></p></body></html>"
 
 #. ts-context AboutDialog
 #: about.ui:82
@@ -1506,6 +1517,38 @@ msgid ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+"NaN:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+"18</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
+"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+"tic.com</span></a></p></body></html>"
 
 #. ts-context AboutDialog
 #: about.ui:48
@@ -1556,6 +1599,51 @@ msgid ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
+" %s</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
+"Source ERP+CRM</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+"businesses.</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code is "
+"distributed under </span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+"Public Licence.</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
+"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+"tic.com</span></a></p></body></html>"
 
 #. ts-context Form
 #: keyboard.ui:592
@@ -1573,27 +1661,32 @@ msgid "<Alt> + <PgUp>"
 msgstr "<Alt> + <PgUp>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:752
+#: shortcuts.ui:766
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
-msgstr ""
+msgstr "<Alt> + Flèche (Gauche, Droite, Haut, Bas)"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:782
+#: shortcuts.ui:796
 msgid "<Alt> + Minus"
-msgstr ""
+msgstr "<Alt> + Moins"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:792
+#: shortcuts.ui:806
 msgid "<Alt> + Plus"
+msgstr "<Alt> + Plus"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:270
+msgid "<Ctrl> + <Alt> + T"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:281
+#: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
 msgstr "<Ctrl> + <Enter>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:298
+#: shortcuts.ui:312
 msgid "<Ctrl> + <Esc>"
 msgstr "<Ctrl> + <Esc>"
 
@@ -1613,17 +1706,17 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:582
+#: shortcuts.ui:596
 msgid "<Ctrl> + <Shift> + Open"
 msgstr "<Ctrl> + <Shift> + Open"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:613
+#: shortcuts.ui:627
 msgid "<Ctrl> + A"
 msgstr "<Ctrl> + A"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:454
+#: shortcuts.ui:468
 msgid "<Ctrl> + C"
 msgstr "<Ctrl> + C"
 
@@ -1653,7 +1746,7 @@ msgid "<Ctrl> + O"
 msgstr "<Ctrl> + O"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:568
+#: shortcuts.ui:582
 msgid "<Ctrl> + Open"
 msgstr "<Ctrl> + Ouvrir"
 
@@ -1668,7 +1761,7 @@ msgid "<Ctrl> + T"
 msgstr "<Ctrl> + T"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:461
+#: shortcuts.ui:475
 msgid "<Ctrl> + V"
 msgstr "<Ctrl> + V"
 
@@ -1678,32 +1771,32 @@ msgid "<Ctrl> + W"
 msgstr "<Ctrl> + W"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:468
+#: shortcuts.ui:482
 msgid "<Ctrl> + X"
 msgstr "<Ctrl> + X"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:430
+#: shortcuts.ui:444
 msgid "<Enter>"
 msgstr "<Entrer>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:413
+#: shortcuts.ui:427
 msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:721
+#: shortcuts.ui:735
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Ouvrir la vue"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:681
+#: shortcuts.ui:695
 msgid "<Shift> + Switch View"
 msgstr "<Shift> + Basculer de vue"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:447
+#: shortcuts.ui:461
 msgid "<Tab>"
 msgstr "<Tab>"
 
@@ -1723,7 +1816,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr "<b>Impossible de se connecter à la base de données</b>"
 
 #. ts-context LoginDialog
-#: login.ui:153
+#: login.ui:180
 msgid "<b>Could not connect to server !</b>"
 msgstr "<b>Impossible de se connecter au serveur !</b>"
 
@@ -1748,7 +1841,7 @@ msgid "<b>Predefined exports</b>"
 msgstr "<b>Exports prédéfinis</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:743
+#: shortcuts.ui:757
 msgid "<b>Shortcuts in text entries</b>"
 msgstr "<b>Raccourci dans le texte saisi</b>"
 
@@ -1768,7 +1861,7 @@ msgid "<center><b>Choose a plug-in</b></center>"
 msgstr "<center><b>Choisir un greffon</b></center>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:272
+#: shortcuts.ui:286
 msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
 "<center><i>Lors de l'édition d'une ressource dans le menu "
@@ -1872,7 +1965,7 @@ msgid "Auto-&detect"
 msgstr "Auto-&détection"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:437
+#: shortcuts.ui:451
 msgid "Auto-complete text field"
 msgstr "Champ texte auto-complété"
 
@@ -1897,12 +1990,12 @@ msgid "C"
 msgstr "C"
 
 #. ts-context LoginDialog
-#: login.ui:109
+#: login.ui:102
 msgid "C&hange"
 msgstr "C&hanger"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:503
+#: shortcuts.ui:517
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
@@ -1921,7 +2014,7 @@ msgid "Center"
 msgstr "Centrer"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:711
+#: shortcuts.ui:725
 msgid "Change current tab"
 msgstr "Changer l'onglet courant"
 
@@ -1946,12 +2039,12 @@ msgid "Clear"
 msgstr "Effacer"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:671
+#: shortcuts.ui:685
 msgid "Close tab"
 msgstr "Fermer l'onglet"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:305
+#: shortcuts.ui:319
 msgid "Close window without saving"
 msgstr "Fermer la fenêtre sans sauvegarder"
 
@@ -1986,9 +2079,14 @@ msgid "Connect"
 msgstr "Connecter"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:383
+#: shortcuts.ui:397
 msgid "Copy selected text"
 msgstr "Copier le texte sélectionné"
+
+#. ts-context LoginDialog
+#: login.ui:136
+msgid "Create &Database"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
@@ -1996,9 +2094,9 @@ msgid "Create a new database"
 msgstr "Créer une nouvelle base de données"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:554
+#: shortcuts.ui:568
 msgid "Create a new record"
-msgstr ""
+msgstr "Créer un nouvel enregistrement"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:552
@@ -2062,7 +2160,7 @@ msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:373
+#: shortcuts.ui:387
 msgid "Cut selected text"
 msgstr "Couper le texte sélectionné"
 
@@ -2167,19 +2265,19 @@ msgid "F&orm"
 msgstr "F&ormulaire"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:575
-msgid "F1"
-msgstr ""
-
-#. ts-context ShortcutsDialog
-#: shortcuts.ui:339
-msgid "F10"
-msgstr ""
-
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:589
+msgid "F1"
+msgstr "F1"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:353
+msgid "F10"
+msgstr "F10"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:603
 msgid "F2"
-msgstr ""
+msgstr "F2"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:236
@@ -2222,7 +2320,7 @@ msgid "Form"
 msgstr "Formulaire"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:495
+#: shortcuts.ui:509
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
@@ -2234,6 +2332,11 @@ msgstr ""
 #: mainwindow.ui:757
 msgid "Full &Text Search"
 msgstr "Recherche Texte Intégrale"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:277
+msgid "Full Text Search current selection"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:124
@@ -2251,9 +2354,9 @@ msgid "G"
 msgstr "G"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:330
+#: shortcuts.ui:344
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:14
@@ -2282,6 +2385,15 @@ msgid ""
 "contain the same root. For example, searching for \"build\", may return "
 "documents which contain the words \"built\", \"build\" or \"building\"."
 msgstr ""
+"Vous pouvez rechercher ici tous les termes présents dans  la base de données "
+"depuis qu'elle est indexée.  Si le résultat de la recherche ne renvoie rien "
+"bienque vous soyez certain de l'existance de ces mots dans la base de "
+"donnée,  vous devez contacter l'administrateur du système.\n"
+"\n"
+"La recherche textuelle recherche des mots complets mais aussi des mots ayant "
+"la même racine. Par exemple, si vous cherchez \"construire\", apparitront "
+"dans le résultat les documents contenant les mots \"construit\", "
+"\"construction\", \"construire\"."
 
 #. ts-context Form
 #: keyboard.ui:121
@@ -2344,7 +2456,7 @@ msgid "Left Justify"
 msgstr "Aligner à gauche"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:604
+#: shortcuts.ui:618
 msgid "Lists"
 msgstr "Listes"
 
@@ -2369,7 +2481,7 @@ msgid "Massive Update Process"
 msgstr "Processus de mise à jour massif"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:661
+#: shortcuts.ui:675
 msgid "Middle mouse click on Tab"
 msgstr "Clic du milieu sur l'onglet"
 
@@ -2384,7 +2496,7 @@ msgid "Monthly View"
 msgstr "Vue mensuelle"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:701
+#: shortcuts.ui:715
 msgid "Mouse Wheel on Tab"
 msgstr "Molette de la souris sur les onglets"
 
@@ -2409,7 +2521,7 @@ msgid "Next Tab"
 msgstr "Onglet suivant"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:403
+#: shortcuts.ui:417
 msgid "Next editable widget"
 msgstr "Prochain composant modifiable"
 
@@ -2429,7 +2541,7 @@ msgid "Next"
 msgstr "Suivant"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:483
+#: shortcuts.ui:497
 msgid "Numeric fields"
 msgstr "Champs numériques"
 
@@ -2454,12 +2566,12 @@ msgid "Open Home Tab"
 msgstr "Ouvir l'onglet d'accueil"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:691
+#: shortcuts.ui:705
 msgid "Open form view in new tab"
 msgstr "Ouvrir la vue formulaire dans un nouvel onglet"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:731
+#: shortcuts.ui:745
 msgid "Open view in a background tab"
 msgstr "Ouvrir la vue dans un onglet en arrière plan"
 
@@ -2479,12 +2591,12 @@ msgid "OpenERP license"
 msgstr "Licence OpenERP"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:544
+#: shortcuts.ui:558
 msgid "Opens the record in a new background tab"
 msgstr "Ouvrir l'enregistrement dans une nouvel onglet en arrière plan"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:534
+#: shortcuts.ui:548
 msgid "Opens the record in a new tab"
 msgstr "Ouvrir l'enregistrement dans un nouvel onglet"
 
@@ -2499,7 +2611,7 @@ msgid "P"
 msgstr "P"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:393
+#: shortcuts.ui:407
 msgid "Paste selected text"
 msgstr "Coller le texte sélectionné"
 
@@ -2528,7 +2640,7 @@ msgid "Previous Tab"
 msgstr "Onglet précédent"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:420
+#: shortcuts.ui:434
 msgid "Previous editable widget"
 msgstr "Précedent composant modifiable"
 
@@ -2568,7 +2680,7 @@ msgid "Read My Requests"
 msgstr "Lire toutes mes requêtes"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:522
+#: shortcuts.ui:536
 msgid "Relation fields"
 msgstr "Champs relation"
 
@@ -2628,7 +2740,7 @@ msgid "Save Image"
 msgstr "Sauvegarder image"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:288
+#: shortcuts.ui:302
 msgid "Save and close window"
 msgstr "Sauvegarder et fermer la fenêtre"
 
@@ -2648,9 +2760,9 @@ msgid "Search"
 msgstr "Recherche"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:561
+#: shortcuts.ui:575
 msgid "Search/edit existing records"
-msgstr ""
+msgstr "Chercher/editer les enregistrements existants"
 
 #. ts-context LinkWidget
 #: link.ui:36
@@ -2668,7 +2780,7 @@ msgid "Select font"
 msgstr "Sélectionner une police"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:620
+#: shortcuts.ui:634
 msgid "Selects all records"
 msgstr "Choisir tous les enregistrements"
 
@@ -2683,22 +2795,22 @@ msgid "Server"
 msgstr "Serveur"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:772
+#: shortcuts.ui:786
 msgid "Set focus to current widget's container"
-msgstr ""
+msgstr "Mettre le focus sur le container du composant courant"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:762
+#: shortcuts.ui:776
 msgid "Set focus to nearest widget"
-msgstr ""
+msgstr "Mettre le focus sur le composant le plus proche"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:802
+#: shortcuts.ui:816
 msgid "Set focus to one of the widgets in the container"
-msgstr ""
+msgstr "Metttre le focus sur un des widgets du container"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:361
+#: shortcuts.ui:375
 msgid "Shortcuts in text entries"
 msgstr "Raccourcis dans les textes saisis"
 
@@ -2708,9 +2820,9 @@ msgid "Shortcuts"
 msgstr "Raccourcis"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:346
+#: shortcuts.ui:360
 msgid "Show field's help information"
-msgstr ""
+msgstr "Montre l'information d'aide du champ"
 
 #. ts-context Form
 #: keyboard.ui:462
@@ -2725,7 +2837,7 @@ msgstr "État:"
 #. ts-context KooMainWindow
 #: mainwindow.ui:663
 msgid "Store View Settings"
-msgstr ""
+msgstr "Conserver les paramètres de la vue"
 
 #. ts-context RichTextWidget
 #: richtext.ui:128
@@ -2865,12 +2977,12 @@ msgstr "barre d'outil"
 #. ts-context Form
 #: keyboard.ui:631
 msgid "Ã"
-msgstr ""
+msgstr "Ã"
 
 #. ts-context Form
 #: keyboard.ui:225
 msgid "Ã"
-msgstr ""
+msgstr "Ã"
 
 #~ msgid "&File"
 #~ msgstr "&Fichier"
