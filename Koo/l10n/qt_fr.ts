@@ -90,8 +90,13 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="Obsolete_PO_entries"/>
-        <source>�</source>
-        <translation type="obsolete">�</translation>
+        <source>Ç</source>
+        <translation type="obsolete">Ç</translation>
+    </message>
+    <message>
+        <location filename="Obsolete_PO_entries"/>
+        <source>Ñ</source>
+        <translation type="obsolete">Ñ</translation>
     </message>
 </context>
 <context>
@@ -114,7 +119,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="450"/>
         <source>&amp;Backup Database</source>
-        <translation>Sauvegarder la &amp;Base de donn�es</translation>
+        <translation>Sauvegarder la &amp;Base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="327"/>
@@ -139,12 +144,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="283"/>
         <source>&amp;Database</source>
-        <translation>&amp;Base de donn�es</translation>
+        <translation>&amp;Base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="287"/>
         <source>&amp;Databases</source>
-        <translation>&amp;Bases de donn�es</translation>
+        <translation>&amp;Bases de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="549"/>
@@ -154,12 +159,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="414"/>
         <source>&amp;Disconnect</source>
-        <translation>&amp;D�connecter</translation>
+        <translation>&amp;Déconnecter</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="459"/>
         <source>&amp;Drop Database</source>
-        <translation>Supprimer les base de &amp;donn�es</translation>
+        <translation>Supprimer les base de &amp;données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="711"/>
@@ -179,7 +184,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="702"/>
         <source>&amp;Import Data</source>
-        <translation>&amp;Importer des donn�es</translation>
+        <translation>&amp;Importer des données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="734"/>
@@ -199,7 +204,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="432"/>
         <source>&amp;New Database</source>
-        <translation>&amp;Nouvelle base de donn�es</translation>
+        <translation>&amp;Nouvelle base de données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="573"/>
@@ -214,12 +219,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="477"/>
         <source>&amp;Preferences</source>
-        <translation>&amp;Pr�f�rences</translation>
+        <translation>&amp;Préférences</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="585"/>
         <source>&amp;Previous</source>
-        <translation>&amp;Pr�c�dent</translation>
+        <translation>&amp;Précédent</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="423"/>
@@ -229,7 +234,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="495"/>
         <source>&amp;Read My Requests</source>
-        <translation>Li&amp;re mes requ�tes</translation>
+        <translation>Li&amp;re mes requêtes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="681"/>
@@ -249,7 +254,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="486"/>
         <source>&amp;Send Request</source>
-        <translation>Envoyer une requ�te</translation>
+        <translation>Envoyer une requête</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="725"/>
@@ -264,12 +269,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="504"/>
         <source>&amp;Waiting Requests</source>
-        <translation>Requ�tes en attentes</translation>
+        <translation>Requêtes en attentes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="332"/>
         <source>&amp;Window</source>
-        <translation>Fen�tre</translation>
+        <translation>Fenêtre</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="576"/>
@@ -284,7 +289,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="769"/>
         <source>Attachments</source>
-        <translation>Pi�ce jointe</translation>
+        <translation>Pièce jointe</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="552"/>
@@ -355,7 +360,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="693"/>
         <source>E&amp;xport Data</source>
-        <translation>E&amp;xporter les donn�es</translation>
+        <translation>E&amp;xporter les données</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="257"/>
@@ -370,12 +375,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="757"/>
         <source>Full &amp;Text Search</source>
-        <translation>Recherche Texte Int�grale</translation>
+        <translation>Recherche Texte Intégrale</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="672"/>
         <source>Go To Resource ID</source>
-        <translation>Aller � l&apos;ID de ressource</translation>
+        <translation>Aller à l&apos;ID de ressource</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="801"/>
@@ -390,7 +395,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="828"/>
         <source>Modify All Selected Records</source>
-        <translation>Modifier tous les enregistrements s�lectionn�s</translation>
+        <translation>Modifier tous les enregistrements sélectionnés</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="618"/>
@@ -410,27 +415,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="630"/>
         <source>Previous Tab</source>
-        <translation>Onglet pr�c�dent</translation>
+        <translation>Onglet précédent</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="187"/>
         <source>Read My Requests</source>
-        <translation>Lire toutes mes requ�tes</translation>
+        <translation>Lire toutes mes requêtes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="144"/>
         <source>Requests:</source>
-        <translation>Rqu�tes:</translation>
+        <translation>Rquêtes:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="210"/>
         <source>Send New Request</source>
-        <translation>Envoyer une nouvelle requ�te</translation>
+        <translation>Envoyer une nouvelle requête</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="663"/>
         <source>Store View Settings</source>
-        <translation>Conserver les param�tres de la vue</translation>
+        <translation>Conserver les paramètres de la vue</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="597"/>
@@ -445,7 +450,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="654"/>
         <source>View Access Log</source>
-        <translation>Vue du journal des acc�s</translation>
+        <translation>Vue du journal des accès</translation>
     </message>
 </context>
 <context>
@@ -463,7 +468,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="translationdialog.ui" line="13"/>
         <source>Translation dialog</source>
-        <translation>Fen�tre de traduction</translation>
+        <translation>Fenêtre de traduction</translation>
     </message>
 </context>
 <context>
@@ -484,7 +489,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="660"/>
         <source>&amp;Advanced</source>
-        <translation>&amp;Avanc�</translation>
+        <translation>&amp;Avancé</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="332"/>
@@ -509,7 +514,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="766"/>
         <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
-        <translation>&lt;Alt&gt; + Fl�che (Gauche, Droite, Haut, Bas)</translation>
+        <translation>&lt;Alt&gt; + Flèche (Gauche, Droite, Haut, Bas)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="796"/>
@@ -654,18 +659,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="286"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;i&gt;Lors de l&apos;�dition d&apos;une ressource dans le menu contextuel&lt;/i&gt;&lt;/center&gt;</translation>
+        <translation>&lt;center&gt;&lt;i&gt;Lors de l&apos;édition d&apos;une ressource dans le menu contextuel&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="451"/>
         <source>Auto-complete text field</source>
-        <translation>Champ texte auto-compl�t�</translation>
+        <translation>Champ texte auto-complété</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="517"/>
         <source>Calculates value
 (Example result: 7)</source>
-        <translation>Valeur calcul�e
+        <translation>Valeur calculée
 (Exemple de resultat: 7)</translation>
     </message>
     <message>
@@ -681,7 +686,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="319"/>
         <source>Close window without saving</source>
-        <translation>Fermer la fen�tre sans sauvegarder</translation>
+        <translation>Fermer la fenêtre sans sauvegarder</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="39"/>
@@ -691,17 +696,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="397"/>
         <source>Copy selected text</source>
-        <translation>Copier le texte s�lectionn�</translation>
+        <translation>Copier le texte sélectionné</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="568"/>
         <source>Create a new record</source>
-        <translation>Cr�er un nouvel enregistrement</translation>
+        <translation>Créer un nouvel enregistrement</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="387"/>
         <source>Cut selected text</source>
-        <translation>Couper le texte s�lectionn�</translation>
+        <translation>Couper le texte sélectionné</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="90"/>
@@ -753,12 +758,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="124"/>
         <source>Full Text Search</source>
-        <translation>Recherche texte int�gral</translation>
+        <translation>Recherche texte intégral</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="344"/>
         <source>General</source>
-        <translation>G�n�ral</translation>
+        <translation>Général</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="618"/>
@@ -798,7 +803,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="497"/>
         <source>Numeric fields</source>
-        <translation>Champs num�riques</translation>
+        <translation>Champs numériques</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="705"/>
@@ -808,12 +813,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="745"/>
         <source>Open view in a background tab</source>
-        <translation>Ouvrir la vue dans un onglet en arri�re plan</translation>
+        <translation>Ouvrir la vue dans un onglet en arrière plan</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="558"/>
         <source>Opens the record in a new background tab</source>
-        <translation>Ouvrir l&apos;enregistrement dans une nouvel onglet en arri�re plan</translation>
+        <translation>Ouvrir l&apos;enregistrement dans une nouvel onglet en arrière plan</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="548"/>
@@ -823,22 +828,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="407"/>
         <source>Paste selected text</source>
-        <translation>Coller le texte s�lectionn�</translation>
+        <translation>Coller le texte sélectionné</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="141"/>
         <source>Previous Record</source>
-        <translation>Enregistrement pr�c�dent</translation>
+        <translation>Enregistrement précédent</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="434"/>
         <source>Previous editable widget</source>
-        <translation>Pr�cedent composant modifiable</translation>
+        <translation>Précedent composant modifiable</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="192"/>
         <source>Previous tab</source>
-        <translation>Onglet pr�c�dent</translation>
+        <translation>Onglet précédent</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="536"/>
@@ -853,7 +858,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="302"/>
         <source>Save and close window</source>
-        <translation>Sauvegarder et fermer la fen�tre</translation>
+        <translation>Sauvegarder et fermer la fenêtre</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="73"/>
@@ -916,7 +921,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="choosedb.ui" line="13"/>
         <source>Choose database...</source>
-        <translation>Choisir une base de donn�es</translation>
+        <translation>Choisir une base de données</translation>
     </message>
 </context>
 <context>
@@ -952,7 +957,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tip.ui" line="77"/>
         <source>&amp;Previous Tip</source>
-        <translation>Astuce &amp;pr�c�dente</translation>
+        <translation>Astuce &amp;précédente</translation>
     </message>
     <message>
         <location filename="tip.ui" line="13"/>
@@ -1037,7 +1042,7 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;A propos d&apos;OpenERP&lt;/span&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;ERP &amp;amp; CRM Open Source le plus avanc� !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;ERP &amp;amp; CRM Open Source le plus avancé !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="about.ui" line="14"/>
@@ -1050,7 +1055,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="115"/>
         <source>&amp;Database:</source>
-        <translation>&amp;Base de donn�es:</translation>
+        <translation>&amp;Base de données:</translation>
     </message>
     <message>
         <location filename="login.ui" line="225"/>
@@ -1060,7 +1065,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="147"/>
         <source>&amp;Restore Database</source>
-        <translation>&amp;Restaurer la base de donn�es</translation>
+        <translation>&amp;Restaurer la base de données</translation>
     </message>
     <message>
         <location filename="login.ui" line="74"/>
@@ -1098,17 +1103,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="181"/>
         <source>&amp;Default language:</source>
-        <translation>Langage par &amp;d�faut</translation>
+        <translation>Langage par &amp;défaut</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="197"/>
         <source>&amp;Load demonstration data</source>
-        <translation>Charger &amp;les donn�es de d�monstrations</translation>
+        <translation>Charger &amp;les données de démonstrations</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
-        <translation>&amp;Nouveau nom de base de donn�es</translation>
+        <translation>&amp;Nouveau nom de base de données</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="233"/>
@@ -1123,17 +1128,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
-        <translation>(ne doit pas contenir de caract�res sp�ciaux)</translation>
+        <translation>(ne doit pas contenir de caractères spéciaux)</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="123"/>
         <source>(use &apos;admin&apos;, if you did not change it)</source>
-        <translation>(utiliser &apos;admin&apos;, si vous ne l&apos;avez pas chang�)</translation>
+        <translation>(utiliser &apos;admin&apos;, si vous ne l&apos;avez pas changé)</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="26"/>
         <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Impossible de se connecter � la base de donn�es&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Impossible de se connecter à la base de données&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="292"/>
@@ -1143,12 +1148,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="14"/>
         <source>Create a new database</source>
-        <translation>Cr�er une nouvelle base de donn�es</translation>
+        <translation>Créer une nouvelle base de données</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="299"/>
         <source>Repeat admin password</source>
-        <translation>R�p�ter le mot de passe administrateur</translation>
+        <translation>Répéter le mot de passe administrateur</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1181,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="124"/>
         <source>De&amp;tails</source>
-        <translation>D�&amp;tail</translation>
+        <translation>Dé&amp;tail</translation>
     </message>
     <message>
         <location filename="error.ui" line="13"/>
@@ -1186,7 +1191,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="error.ui" line="78"/>
         <source>View details</source>
-        <translation>Vue d�tails</translation>
+        <translation>Vue détails</translation>
     </message>
 </context>
 <context>
@@ -1214,7 +1219,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="55"/>
         <source>Default &amp;value</source>
-        <translation>&amp;Valeur par d�faut</translation>
+        <translation>&amp;Valeur par défaut</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="21"/>
@@ -1237,17 +1242,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="178"/>
         <source>&amp;Field separator</source>
-        <translation>S�parateur de champ</translation>
+        <translation>Séparateur de champ</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="219"/>
         <source>&amp;Lines to skip:</source>
-        <translation>&amp;Lignes � ignorer</translation>
+        <translation>&amp;Lignes à ignorer</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="195"/>
         <source>&amp;Text delimiter:</source>
-        <translation>D�limiteur de &amp;texte:</translation>
+        <translation>Délimiteur de &amp;texte:</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="188"/>
@@ -1262,17 +1267,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_import.ui" line="109"/>
         <source>Auto-&amp;detect</source>
-        <translation>Auto-&amp;d�tection</translation>
+        <translation>Auto-&amp;détection</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="130"/>
         <source>Fields to import</source>
-        <translation>Champs � importer</translation>
+        <translation>Champs à importer</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="153"/>
         <source>File to &amp;import:</source>
-        <translation>Fichier � &amp;importer</translation>
+        <translation>Fichier à &amp;importer</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="16"/>
@@ -1382,16 +1387,16 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="14"/>
         <source>Full text search</source>
-        <translation>Recherche texte int�gral</translation>
+        <translation>Recherche texte intégral</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="37"/>
         <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
 
 Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
-        <translation>Vous pouvez rechercher ici tous les termes pr�sents dans  la base de donn�es depuis qu&apos;elle est index�e.  Si le r�sultat de la recherche ne renvoie rien bienque vous soyez certain de l&apos;existance de ces mots dans la base de donn�e,  vous devez contacter l&apos;administrateur du syst�me.
+        <translation>Vous pouvez rechercher ici tous les termes présents dans  la base de données depuis qu&apos;elle est indexée.  Si le résultat de la recherche ne renvoie rien bienque vous soyez certain de l&apos;existance de ces mots dans la base de donnée,  vous devez contacter l&apos;administrateur du système.
 
-La recherche textuelle recherche des mots complets mais aussi des mots ayant la m�me racine. Par exemple, si vous cherchez &quot;construire&quot;, apparitront dans le r�sultat les documents contenant les mots &quot;construit&quot;, &quot;construction&quot;, &quot;construire&quot;.</translation>
+La recherche textuelle recherche des mots complets mais aussi des mots ayant la même racine. Par exemple, si vous cherchez &quot;construire&quot;, apparitront dans le résultat les documents contenant les mots &quot;construit&quot;, &quot;construction&quot;, &quot;construire&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1427,7 +1432,7 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     <message>
         <location filename="win_export.ui" line="177"/>
         <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Champ � exporter&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Champ à exporter&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="197"/>
@@ -1437,7 +1442,7 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     <message>
         <location filename="win_export.ui" line="22"/>
         <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Exports pr�d�finis&lt;/b&gt;</translation>
+        <translation>&lt;b&gt;Exports prédéfinis&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="116"/>
@@ -1470,7 +1475,7 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     <message>
         <location filename="gotoid.ui" line="14"/>
         <source>Go To Id</source>
-        <translation>Aller � l&apos;ID</translation>
+        <translation>Aller à l&apos;ID</translation>
     </message>
 </context>
 <context>
@@ -1578,7 +1583,7 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     <message>
         <location filename="calendarview.ui" line="83"/>
         <source>Color Legend</source>
-        <translation>Couleur de la l�gende</translation>
+        <translation>Couleur de la légende</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="251"/>
@@ -1588,7 +1593,7 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     <message>
         <location filename="calendarview.ui" line="63"/>
         <source>Daily View</source>
-        <translation>Vue journali�re</translation>
+        <translation>Vue journalière</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="56"/>
@@ -1747,13 +1752,13 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     </message>
     <message>
         <location filename="keyboard.ui" line="631"/>
-        <source>Ç</source>
-        <translation>Ç</translation>
+        <source>Ã</source>
+        <translation>Ã</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="225"/>
-        <source>Ñ</source>
-        <translation>Ñ</translation>
+        <source>Ã</source>
+        <translation>Ã</translation>
     </message>
 </context>
 <context>
@@ -1776,7 +1781,7 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     <message>
         <location filename="one2many.ui" line="171"/>
         <source>Previous</source>
-        <translation>Pr�c�dent</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="136"/>
@@ -1817,7 +1822,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Vous pouvez vous connecter � la nouvelle base de donn�es avec les comptes suivants:&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Vous pouvez vous connecter à la nouvelle base de données avec les comptes suivants:&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrateur: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1834,12 +1839,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="56"/>
         <source>Database created successfully!</source>
-        <translation>Base de donn�es cr�e avec succ�s</translation>
+        <translation>Base de données crée avec succès</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="13"/>
         <source>Database created</source>
-        <translation>Base de donn�es cr��e</translation>
+        <translation>Base de données créée</translation>
     </message>
 </context>
 <context>
@@ -2059,7 +2064,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_selection.ui" line="13"/>
         <source>Dialog</source>
-        <translation>Fen�tre</translation>
+        <translation>Fenêtre</translation>
     </message>
 </context>
 <context>
@@ -2072,7 +2077,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="tree.ui" line="111"/>
         <source>Expand/Collapse</source>
-        <translation>D�plier/Plier</translation>
+        <translation>Déplier/Plier</translation>
     </message>
     <message>
         <location filename="tree.ui" line="91"/>
@@ -2090,7 +2095,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="306"/>
         <source>Background color</source>
-        <translation>Couleur d&apos;arri�re plan</translation>
+        <translation>Couleur d&apos;arrière plan</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="41"/>
@@ -2120,22 +2125,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="164"/>
         <source>Left Justify</source>
-        <translation>Aligner � gauche</translation>
+        <translation>Aligner à gauche</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="222"/>
         <source>Right Justify</source>
-        <translation>Aligner � droite</translation>
+        <translation>Aligner à droite</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="336"/>
         <source>Select font size</source>
-        <translation>S�lectionner la taille de la police</translation>
+        <translation>Sélectionner la taille de la police</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="323"/>
         <source>Select font</source>
-        <translation>S�lectionner une police</translation>
+        <translation>Sélectionner une police</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="128"/>
@@ -2145,7 +2150,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="richtext.ui" line="99"/>
         <source>Underline</source>
-        <translation>Soulign�</translation>
+        <translation>Souligné</translation>
     </message>
 </context>
 <context>
@@ -2197,7 +2202,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="massiveupdate.ui" line="13"/>
         <source>Massive Update Process</source>
-        <translation>Processus de mise � jour massif</translation>
+        <translation>Processus de mise à jour massif</translation>
     </message>
 </context>
 <context>
@@ -2221,14 +2226,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="progress.ui" line="40"/>
         <source>Operation in progress</source>
-        <translation>Op�ration en cours</translation>
+        <translation>Opération en cours</translation>
     </message>
     <message>
         <location filename="progress.ui" line="53"/>
         <source>Please wait, 
 this operation may take a while...</source>
         <translation>Veuillez patienter, 
-cette op�ration peut prendre du temps...</translation>
+cette opération peut prendre du temps...</translation>
     </message>
     <message>
         <location filename="progress.ui" line="14"/>
@@ -2241,7 +2246,7 @@ cette op�ration peut prendre du temps...</translation>
     <message>
         <location filename="preferences.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Pr�f�rences</translation>
+        <translation>Préférences</translation>
     </message>
 </context>
 <context>
@@ -2257,7 +2262,7 @@ cette op�ration peut prendre du temps...</translation>
     <message>
         <location filename="link.ui" line="36"/>
         <source>Select file...</source>
-        <translation>S�lectionner un fichier...</translation>
+        <translation>Sélectionner un fichier...</translation>
     </message>
 </context>
 <context>
@@ -2265,7 +2270,7 @@ cette op�ration peut prendre du temps...</translation>
     <message>
         <location filename="formcontainer.ui" line="56"/>
         <source>State:</source>
-        <translation>�tat:</translation>
+        <translation>État:</translation>
     </message>
 </context>
 <context>

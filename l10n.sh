@@ -46,11 +46,8 @@ ts2po koo.ts qt-koo.pot
 echo "Converting qt-koo*.po files to .ts and then compiling to .qm"
 echo $QT_LANGS
 for x in $QT_LANGS; do
-	if [ "$x" == "fr" ]; then
-		utf="yes"
-	else
-		utf="no"
-	fi
+	echo $x
+	utf="no"
 	po2ts qt-koo-$x.po qt_$x.ts $utf
 	lrelease $DIR/qt_$x.ts -qm $DIR/qt_$x.qm
 done
