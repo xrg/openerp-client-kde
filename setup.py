@@ -88,15 +88,6 @@ def findPlugins( module ):
 				result.append( dirpath.replace(os.path.sep, '.') )
 	return result
 
-def translations():
-	trans = []
-	dest = opj('share','locale','%s','LC_MESSAGES','%s.mo')
-	for po in glob.glob( opj('Koo','l10n','*.po') ):
-		lang = os.path.splitext(os.path.basename(po))[0]
-		trans.append((dest % (lang, name), po))
-	return trans
-
-
 
 
 long_desc = '''\
@@ -134,14 +125,18 @@ command = sys.argv[1]
 check_modules()
 
 # create startup script
-start_script = """
-cd %s/Koo
-exec %s ./koo.py $@
-""" % ( get_python_lib(), sys.executable)
-# write script
-f = open('koo', 'w')
-f.write(start_script)
-f.close()
+if os.name != 'nt':
+	start_script = "cd %s/Koo\nexec %s ./koo.py $@\n" % ( 
+		get_python_lib(), sys.executable
+	)
+	# write script
+	f = open('koo', 'w')
+	f.write(start_script)
+	f.close()
+	
+	script_files = ['koo']
+else:
+	script_files = []
 
 packages = [
 	'Koo', 
@@ -170,9 +165,7 @@ setup (
 	classifiers      = filter(None, classifiers.splitlines()),
 	license          = 'GPL',
 	data_files       = data_files(),
-	translations     = translations(),
-	pot_file         = opj('Koo','l10n','koo.pot'),
-	scripts          = ['koo'],
+	scripts          = script_files,
 	windows          = [{
                                 'script': opj('Koo','koo.py'),
                                 'icon_resources': [(1, opj("nsis", "koo.ico"))],
