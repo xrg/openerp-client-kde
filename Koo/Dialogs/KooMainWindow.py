@@ -33,6 +33,7 @@
 import time
 import os
 import gettext
+import base64
 
 from Koo import Rpc
 
@@ -41,7 +42,6 @@ from PreferencesDialog import *
 from FullTextSearchDialog import *
 from DatabaseCreationDialog import DatabaseCreationDialog
 from DatabaseDialog import *
-import base64
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -59,6 +59,8 @@ from Koo.Common import Debug
 from Koo.Common import Icons
 
 from Koo.View.ViewFactory import *
+
+from Koo.Plugins import *
 
 class MainTabWidget(QTabWidget):
 	def __init__(self, parent=None):
@@ -213,6 +215,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.systemTrayIcon.setIcon( QIcon(":/images/koo-icon.png") )
 		self.systemTrayIcon.setContextMenu( self.systemTrayMenu )
 		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
+
+		# Initialize plugins: This allows some plugins (such as SerialBarcodeScanner)
+		# to be available in the LoginDialog.
+		Plugins.list()
 
 	def systemTrayIconActivated(self, reason):
 		if reason != QSystemTrayIcon.DoubleClick:

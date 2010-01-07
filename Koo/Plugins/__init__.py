@@ -38,6 +38,9 @@ class Plugins:
 
 	## @brief This function obtains the list of all available plugins by iterating
 	# over every subdirectory inside Plugins/
+	# 
+	# This means that some plugins are activated the first time this function is 
+	# called.
 	@staticmethod
 	def list( model = None ):
 		# Search for all available plugins
