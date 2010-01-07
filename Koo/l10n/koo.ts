@@ -589,7 +589,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Form</name>
     <message>
-        <location filename="image.ui" line="13"/>
+        <location filename="video.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1587,43 +1587,53 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="96"/>
+        <location filename="login.ui" line="115"/>
         <source>&amp;Database:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="109"/>
+        <location filename="login.ui" line="102"/>
         <source>C&amp;hange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="120"/>
+        <location filename="login.ui" line="74"/>
         <source>&amp;Server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="153"/>
+        <location filename="login.ui" line="180"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="198"/>
+        <location filename="login.ui" line="225"/>
         <source>&amp;Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="224"/>
+        <location filename="login.ui" line="251"/>
         <source>&amp;User:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="260"/>
+        <location filename="login.ui" line="287"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="274"/>
+        <location filename="login.ui" line="301"/>
         <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="136"/>
+        <source>Create &amp;Database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="147"/>
+        <source>&amp;Restore Database</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2146,7 +2156,7 @@ this operation may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="671"/>
+        <location filename="shortcuts.ui" line="685"/>
         <source>Close tab</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2171,270 +2181,280 @@ this operation may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="272"/>
+        <location filename="shortcuts.ui" line="286"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="281"/>
+        <location filename="shortcuts.ui" line="295"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="288"/>
+        <location filename="shortcuts.ui" line="302"/>
         <source>Save and close window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="298"/>
+        <location filename="shortcuts.ui" line="312"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="305"/>
+        <location filename="shortcuts.ui" line="319"/>
         <source>Close window without saving</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="318"/>
+        <location filename="shortcuts.ui" line="332"/>
         <source>&amp;Edition Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="361"/>
+        <location filename="shortcuts.ui" line="375"/>
         <source>Shortcuts in text entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="373"/>
+        <location filename="shortcuts.ui" line="387"/>
         <source>Cut selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="383"/>
+        <location filename="shortcuts.ui" line="397"/>
         <source>Copy selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="393"/>
+        <location filename="shortcuts.ui" line="407"/>
         <source>Paste selected text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="403"/>
+        <location filename="shortcuts.ui" line="417"/>
         <source>Next editable widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="413"/>
+        <location filename="shortcuts.ui" line="427"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="420"/>
+        <location filename="shortcuts.ui" line="434"/>
         <source>Previous editable widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="430"/>
+        <location filename="shortcuts.ui" line="444"/>
         <source>&lt;Enter&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="437"/>
+        <location filename="shortcuts.ui" line="451"/>
         <source>Auto-complete text field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="447"/>
+        <location filename="shortcuts.ui" line="461"/>
         <source>&lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="454"/>
+        <location filename="shortcuts.ui" line="468"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="461"/>
+        <location filename="shortcuts.ui" line="475"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="468"/>
+        <location filename="shortcuts.ui" line="482"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="483"/>
+        <location filename="shortcuts.ui" line="497"/>
         <source>Numeric fields</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="495"/>
+        <location filename="shortcuts.ui" line="509"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="503"/>
+        <location filename="shortcuts.ui" line="517"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="522"/>
+        <location filename="shortcuts.ui" line="536"/>
         <source>Relation fields</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="568"/>
+        <location filename="shortcuts.ui" line="582"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="534"/>
+        <location filename="shortcuts.ui" line="548"/>
         <source>Opens the record in a new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="582"/>
+        <location filename="shortcuts.ui" line="596"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="544"/>
+        <location filename="shortcuts.ui" line="558"/>
         <source>Opens the record in a new background tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="604"/>
+        <location filename="shortcuts.ui" line="618"/>
         <source>Lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="613"/>
+        <location filename="shortcuts.ui" line="627"/>
         <source>&lt;Ctrl&gt; + A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="620"/>
+        <location filename="shortcuts.ui" line="634"/>
         <source>Selects all records</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="646"/>
+        <location filename="shortcuts.ui" line="660"/>
         <source>&amp;Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="743"/>
+        <location filename="shortcuts.ui" line="757"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="661"/>
+        <location filename="shortcuts.ui" line="675"/>
         <source>Middle mouse click on Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="681"/>
+        <location filename="shortcuts.ui" line="695"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="691"/>
+        <location filename="shortcuts.ui" line="705"/>
         <source>Open form view in new tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="701"/>
+        <location filename="shortcuts.ui" line="715"/>
         <source>Mouse Wheel on Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="711"/>
+        <location filename="shortcuts.ui" line="725"/>
         <source>Change current tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="721"/>
+        <location filename="shortcuts.ui" line="735"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="731"/>
+        <location filename="shortcuts.ui" line="745"/>
         <source>Open view in a background tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="846"/>
+        <location filename="shortcuts.ui" line="860"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="330"/>
+        <location filename="shortcuts.ui" line="344"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="339"/>
+        <location filename="shortcuts.ui" line="353"/>
         <source>F10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="346"/>
+        <location filename="shortcuts.ui" line="360"/>
         <source>Show field&apos;s help information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="554"/>
+        <location filename="shortcuts.ui" line="568"/>
         <source>Create a new record</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="561"/>
+        <location filename="shortcuts.ui" line="575"/>
         <source>Search/edit existing records</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="575"/>
+        <location filename="shortcuts.ui" line="589"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="589"/>
+        <location filename="shortcuts.ui" line="603"/>
         <source>F2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="752"/>
+        <location filename="shortcuts.ui" line="766"/>
         <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="762"/>
+        <location filename="shortcuts.ui" line="776"/>
         <source>Set focus to nearest widget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="772"/>
+        <location filename="shortcuts.ui" line="786"/>
         <source>Set focus to current widget&apos;s container</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="782"/>
+        <location filename="shortcuts.ui" line="796"/>
         <source>&lt;Alt&gt; + Minus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="792"/>
+        <location filename="shortcuts.ui" line="806"/>
         <source>&lt;Alt&gt; + Plus</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="802"/>
+        <location filename="shortcuts.ui" line="816"/>
         <source>Set focus to one of the widgets in the container</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="270"/>
+        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="277"/>
+        <source>Full Text Search current selection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -38,7 +38,7 @@ msgid "&Administrator Password"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:646
+#: shortcuts.ui:660
 #, fuzzy
 msgid "&Advanced"
 msgstr ""
@@ -110,7 +110,7 @@ msgid "&Database"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:96
+#: login.ui:115
 #, fuzzy
 msgid "&Database:"
 msgstr ""
@@ -164,7 +164,7 @@ msgid "&Drop Database"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:318
+#: shortcuts.ui:332
 #, fuzzy
 msgid "&Edition Shortcuts"
 msgstr ""
@@ -314,7 +314,7 @@ msgid "&OpenERP"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:198
+#: login.ui:225
 #, fuzzy
 msgid "&Password:"
 msgstr ""
@@ -379,8 +379,8 @@ msgstr ""
 msgid "&Reports"
 msgstr ""
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:441
+#. ts-context LoginDialog
+#: login.ui:147
 #, fuzzy
 msgid "&Restore Database"
 msgstr ""
@@ -416,7 +416,7 @@ msgid "&Send Request"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:120
+#: login.ui:74
 #, fuzzy
 msgid "&Server:"
 msgstr ""
@@ -446,7 +446,7 @@ msgid "&User"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:224
+#: login.ui:251
 #, fuzzy
 msgid "&User:"
 msgstr ""
@@ -772,31 +772,37 @@ msgid "<Alt> + <PgUp>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:752
+#: shortcuts.ui:766
 #, fuzzy
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:782
+#: shortcuts.ui:796
 #, fuzzy
 msgid "<Alt> + Minus"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:792
+#: shortcuts.ui:806
 #, fuzzy
 msgid "<Alt> + Plus"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:281
+#: shortcuts.ui:270
+#, fuzzy
+msgid "<Ctrl> + <Alt> + T"
+msgstr ""
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:295
 #, fuzzy
 msgid "<Ctrl> + <Enter>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:298
+#: shortcuts.ui:312
 #, fuzzy
 msgid "<Ctrl> + <Esc>"
 msgstr ""
@@ -820,19 +826,19 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:582
+#: shortcuts.ui:596
 #, fuzzy
 msgid "<Ctrl> + <Shift> + Open"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:613
+#: shortcuts.ui:627
 #, fuzzy
 msgid "<Ctrl> + A"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:454
+#: shortcuts.ui:468
 #, fuzzy
 msgid "<Ctrl> + C"
 msgstr ""
@@ -868,7 +874,7 @@ msgid "<Ctrl> + O"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:568
+#: shortcuts.ui:582
 #, fuzzy
 msgid "<Ctrl> + Open"
 msgstr ""
@@ -886,7 +892,7 @@ msgid "<Ctrl> + T"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:461
+#: shortcuts.ui:475
 #, fuzzy
 msgid "<Ctrl> + V"
 msgstr ""
@@ -898,37 +904,37 @@ msgid "<Ctrl> + W"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:468
+#: shortcuts.ui:482
 #, fuzzy
 msgid "<Ctrl> + X"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:430
+#: shortcuts.ui:444
 #, fuzzy
 msgid "<Enter>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:413
+#: shortcuts.ui:427
 #, fuzzy
 msgid "<Shift> + <Tab>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:721
+#: shortcuts.ui:735
 #, fuzzy
 msgid "<Shift> + Open View"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:681
+#: shortcuts.ui:695
 #, fuzzy
 msgid "<Shift> + Switch View"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:447
+#: shortcuts.ui:461
 #, fuzzy
 msgid "<Tab>"
 msgstr ""
@@ -952,7 +958,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:153
+#: login.ui:180
 #, fuzzy
 msgid "<b>Could not connect to server !</b>"
 msgstr ""
@@ -982,7 +988,7 @@ msgid "<b>Predefined exports</b>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:743
+#: shortcuts.ui:757
 #, fuzzy
 msgid "<b>Shortcuts in text entries</b>"
 msgstr ""
@@ -1006,7 +1012,7 @@ msgid "<center><b>Choose a plug-in</b></center>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:272
+#: shortcuts.ui:286
 #, fuzzy
 msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
@@ -1107,7 +1113,7 @@ msgid "Auto-&detect"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:437
+#: shortcuts.ui:451
 #, fuzzy
 msgid "Auto-complete text field"
 msgstr ""
@@ -1137,13 +1143,13 @@ msgid "C"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:109
+#: login.ui:102
 #, fuzzy
 msgid "C&hange"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:503
+#: shortcuts.ui:517
 #, fuzzy
 msgid ""
 "Calculates value\n"
@@ -1163,7 +1169,7 @@ msgid "Center"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:711
+#: shortcuts.ui:725
 #, fuzzy
 msgid "Change current tab"
 msgstr ""
@@ -1193,13 +1199,13 @@ msgid "Clear"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:671
+#: shortcuts.ui:685
 #, fuzzy
 msgid "Close tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:305
+#: shortcuts.ui:319
 #, fuzzy
 msgid "Close window without saving"
 msgstr ""
@@ -1241,9 +1247,15 @@ msgid "Connect"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:383
+#: shortcuts.ui:397
 #, fuzzy
 msgid "Copy selected text"
+msgstr ""
+
+#. ts-context LoginDialog
+#: login.ui:136
+#, fuzzy
+msgid "Create &Database"
 msgstr ""
 
 #. ts-context CreateDatabaseDialog
@@ -1253,7 +1265,7 @@ msgid "Create a new database"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:554
+#: shortcuts.ui:568
 #, fuzzy
 msgid "Create a new record"
 msgstr ""
@@ -1332,7 +1344,7 @@ msgid "Ctrl+W"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:373
+#: shortcuts.ui:387
 #, fuzzy
 msgid "Cut selected text"
 msgstr ""
@@ -1458,19 +1470,19 @@ msgid "F&orm"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:575
+#: shortcuts.ui:589
 #, fuzzy
 msgid "F1"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:339
+#: shortcuts.ui:353
 #, fuzzy
 msgid "F10"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:589
+#: shortcuts.ui:603
 #, fuzzy
 msgid "F2"
 msgstr ""
@@ -1524,7 +1536,7 @@ msgid "Form"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:495
+#: shortcuts.ui:509
 #, fuzzy
 msgid ""
 "Formula + <Enter>\n"
@@ -1535,6 +1547,12 @@ msgstr ""
 #: mainwindow.ui:757
 #, fuzzy
 msgid "Full &Text Search"
+msgstr ""
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:277
+#, fuzzy
+msgid "Full Text Search current selection"
 msgstr ""
 
 #. ts-context ShortcutsDialog
@@ -1556,7 +1574,7 @@ msgid "G"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:330
+#: shortcuts.ui:344
 #, fuzzy
 msgid "General"
 msgstr ""
@@ -1661,7 +1679,7 @@ msgid "Left Justify"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:604
+#: shortcuts.ui:618
 #, fuzzy
 msgid "Lists"
 msgstr ""
@@ -1691,7 +1709,7 @@ msgid "Massive Update Process"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:661
+#: shortcuts.ui:675
 #, fuzzy
 msgid "Middle mouse click on Tab"
 msgstr ""
@@ -1709,7 +1727,7 @@ msgid "Monthly View"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:701
+#: shortcuts.ui:715
 #, fuzzy
 msgid "Mouse Wheel on Tab"
 msgstr ""
@@ -1739,7 +1757,7 @@ msgid "Next Tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:403
+#: shortcuts.ui:417
 #, fuzzy
 msgid "Next editable widget"
 msgstr ""
@@ -1763,7 +1781,7 @@ msgid "Next"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:483
+#: shortcuts.ui:497
 #, fuzzy
 msgid "Numeric fields"
 msgstr ""
@@ -1793,13 +1811,13 @@ msgid "Open Home Tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:691
+#: shortcuts.ui:705
 #, fuzzy
 msgid "Open form view in new tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:731
+#: shortcuts.ui:745
 #, fuzzy
 msgid "Open view in a background tab"
 msgstr ""
@@ -1823,13 +1841,13 @@ msgid "OpenERP license"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:544
+#: shortcuts.ui:558
 #, fuzzy
 msgid "Opens the record in a new background tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:534
+#: shortcuts.ui:548
 #, fuzzy
 msgid "Opens the record in a new tab"
 msgstr ""
@@ -1847,7 +1865,7 @@ msgid "P"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:393
+#: shortcuts.ui:407
 #, fuzzy
 msgid "Paste selected text"
 msgstr ""
@@ -1879,7 +1897,7 @@ msgid "Previous Tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:420
+#: shortcuts.ui:434
 #, fuzzy
 msgid "Previous editable widget"
 msgstr ""
@@ -1927,7 +1945,7 @@ msgid "Read My Requests"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:522
+#: shortcuts.ui:536
 #, fuzzy
 msgid "Relation fields"
 msgstr ""
@@ -1999,7 +2017,7 @@ msgid "Save Image"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:288
+#: shortcuts.ui:302
 #, fuzzy
 msgid "Save and close window"
 msgstr ""
@@ -2023,7 +2041,7 @@ msgid "Search"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:561
+#: shortcuts.ui:575
 #, fuzzy
 msgid "Search/edit existing records"
 msgstr ""
@@ -2047,7 +2065,7 @@ msgid "Select font"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:620
+#: shortcuts.ui:634
 #, fuzzy
 msgid "Selects all records"
 msgstr ""
@@ -2065,25 +2083,25 @@ msgid "Server"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:772
+#: shortcuts.ui:786
 #, fuzzy
 msgid "Set focus to current widget's container"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:762
+#: shortcuts.ui:776
 #, fuzzy
 msgid "Set focus to nearest widget"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:802
+#: shortcuts.ui:816
 #, fuzzy
 msgid "Set focus to one of the widgets in the container"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:361
+#: shortcuts.ui:375
 #, fuzzy
 msgid "Shortcuts in text entries"
 msgstr ""
@@ -2095,7 +2113,7 @@ msgid "Shortcuts"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:346
+#: shortcuts.ui:360
 #, fuzzy
 msgid "Show field's help information"
 msgstr ""
