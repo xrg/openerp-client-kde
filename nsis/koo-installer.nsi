@@ -97,7 +97,8 @@
 ;--------------------------------
 ;Installer Sections
 Function .onInit
-    IfSilent +20
+    IfSilent AfterLanguageSelection SelectLanguage
+    SelectLanguage:
         Push ""
         Push ${LANG_ENGLISH}
         Push English
@@ -111,16 +112,17 @@ Function .onInit
         Pop $LANGUAGE
         StrCmp $LANGUAGE "cancel" 0 +2
             Abort
-    ClearErrors
-    ReadRegStr $0 HKLM "Software\Koo" ""
-    IfErrors DoInstall 0
-        MessageBox MB_OK "$(CannotInstallText)"
-        Quit
-    DoInstall:
-    WriteRegStr HKCU "Software\Koo" "Language" $LANGUAGE
-    ; 1034 - Spanish
-    ; 1027 - Catalan
-    ; 1033 - English
+    AfterLanguageSelection:
+	ClearErrors
+	ReadRegStr $0 HKLM "Software\Koo" ""
+	IfErrors DoInstall 0
+		MessageBox MB_OK "$(CannotInstallText)"
+		Quit
+	DoInstall:
+	WriteRegStr HKCU "Software\Koo" "Language" $LANGUAGE
+	; 1034 - Spanish
+	; 1027 - Catalan
+	; 1033 - English
 FunctionEnd
 
 Section "Koo" SecKoo
@@ -137,19 +139,27 @@ Section "Koo" SecKoo
     ;Store installation folder
     WriteRegStr HKCU "Software\Koo" "" $INSTDIR
     
-    ;Create uninstaller
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "DisplayName" "Koo (remove only)"
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "UninstallString" "$INSTDIR\Uninstall.exe"
-    WriteUninstaller "$INSTDIR\Uninstall.exe"
-    
-    !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-      
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$STARTMENU_FOLDER"
     CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Koo.lnk" "$INSTDIR\koo.exe"
     CreateShortCut "$DESKTOP\Koo.lnk" "$INSTDIR\koo.exe"
-    !insertmacro MUI_STARTMENU_WRITE_END
 
+IfSilent RegisterUninstaller NotRegisterUninstaller
+RegisterUninstaller:
+    ;Create uninstaller
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "DisplayName" "Koo (remove only)"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Koo" "UninstallString" "$INSTDIR\Uninstall.exe"
+    CreateShortCut "$SMPROGRAMS\$STARTMENU_FOLDER\Uninstall.lnk" "$INSTDIR\uninstall.exe"
+    Goto ContinueRegister
+    
+NotRegisterUninstaller:
+    WriteRegStr HKLM  "Software\KooSP" "UninstallClient" "$INSTDIR\Uninstall.exe"
+
+ContinueRegister:
+
+    WriteUninstaller "$INSTDIR\Uninstall.exe"
+    !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
+    !insertmacro MUI_STARTMENU_WRITE_END
 SectionEnd
 
 ;Descriptions
@@ -184,8 +194,20 @@ Section "Uninstall"
     StrCmp $MUI_TEMP $SMPROGRAMS startMenuDeleteLoopDone startMenuDeleteLoop
   startMenuDeleteLoopDone:
 
-  DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Koo"
+  
+  DeleteRegKey HKCU "Software\Koo\Language"
   DeleteRegKey /ifempty HKCU "Software\Koo"
+
+  IfSilent RemoveUninstallSingle RemoveUninstallAllInOne
+  
+  RemoveUninstallSingle:
+    DeleteRegKey HKEY_LOCAL_MACHINE "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Koo"
+    goto ContinueUninstall
+  
+  RemoveUninstallAllInOne:
+    DeleteRegKey HKLM "Software\KooSP\UninstallClient"
+  
+  ContinueUninstall:
 
 SectionEnd
 
