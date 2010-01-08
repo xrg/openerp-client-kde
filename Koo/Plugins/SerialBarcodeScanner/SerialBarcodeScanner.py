@@ -64,7 +64,7 @@ class SerialBarcodeScanner(QThread):
 					key = eval('Qt.Key_%s' % char)
 				except:
 					Debug.warning('Could not find key for char "%s".' % char )
-					pass
+					continue
 				# Send Key Press
 				event = QKeyEvent( QEvent.KeyPress, key, QApplication.keyboardModifiers(), char )
 				QApplication.postEvent( QApplication.focusWidget(), event )
