@@ -1,11 +1,11 @@
-koo (5.0) stable; urgency=low
-
-  * Initial release.
-
- -- Albert <albert@nan-tic.com>  Wed, 16 Dec 2009 22:25:08 +0100
-
 koo (5.0.1) stable; urgency=low
 
   * Updated to 5.0.1
 
  -- Albert <albert@nan-tic.com>  Wed, 8 Jan 2010 09:00:00 +0100
+
+koo (5.0) stable; urgency=low
+
+  * Initial release.
+
+ -- Albert <albert@nan-tic.com>  Wed, 16 Dec 2009 22:25:08 +0100
