@@ -51,7 +51,14 @@ p, li { white-space: pre-wrap; }
       <widget class="QLineEdit" name="uiText"/>
      </item>
      <item>
-      <widget class="QComboBox" name="uiModel"/>
+      <widget class="QComboBox" name="uiModel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushFind">
