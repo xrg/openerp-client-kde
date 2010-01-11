@@ -128,7 +128,11 @@ class Report:
 
 		# Remove all temporary files created during the report
 		for file in self.temporaryFiles:
-			os.unlink( file )
+			try:
+				os.unlink( file )
+			except WindowsError, e:
+				logger = netsvc.Logger()
+				logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
 		self.temporaryFiles = []
 		return ( data, self.outputFormat )
 
