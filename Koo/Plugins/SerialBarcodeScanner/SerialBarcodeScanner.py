@@ -61,7 +61,7 @@ class SerialBarcodeScanner(QThread):
 			if data:
 				char = data[0]
 				try:
-					key = eval('Qt.Key_%s' % char)
+					key = eval('Qt.Key_%s' % char.upper())
 				except:
 					Debug.warning('Could not find key for char "%s".' % char )
 					continue
