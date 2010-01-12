@@ -42,6 +42,16 @@ except:
 ## @brief This class reads from a Barcode Scanner connected to the serial port and sends
 # its input as key events to the application.
 class SerialBarcodeScanner(QThread):
+	Keys = {
+		'-': 'Minus',
+		'+': 'Plus',
+		'.': 'Period',
+		'/': 'Slash',
+		',': 'Comma',
+		'*': 'Asterisk',
+		'%': 'Percent',
+		' ': 'Space',
+	}
 	def __init__(self, parent=None):
 		QThread.__init__(self, parent)
 
@@ -61,7 +71,9 @@ class SerialBarcodeScanner(QThread):
 			if data:
 				char = data[0]
 				try:
-					key = eval('Qt.Key_%s' % char.upper())
+					key = char.upper()
+					key = SerialBarcodeScanner.Keys.get( key, key )
+					key = eval('Qt.Key_%s' % key)
 				except:
 					Debug.warning('Could not find key for char "%s".' % char )
 					continue
