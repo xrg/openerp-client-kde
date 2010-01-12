@@ -68,6 +68,10 @@ class SerialBarcodeScanner(QThread):
 			except:
 				Debug.error('Could not read from serial device. Serial Barcode Scanner stopped.')
 				return
+			# In some cases (application lost focus, for example), QApplication.focusWidget()
+			# may return None. In those cases we simple ignore barcode input.
+			if not QApplication.focusWidget():
+				continue
 			if data:
 				char = data[0]
 				try:
