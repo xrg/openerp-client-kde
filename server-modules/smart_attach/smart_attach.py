@@ -35,6 +35,7 @@ import shutil
 import codecs
 import re
 import threading
+import pooler
 
 import ocr
 from PyQt4.QtCore import *
