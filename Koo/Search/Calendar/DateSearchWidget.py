@@ -27,6 +27,7 @@
 ##############################################################################
 
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 
 from Koo.Common.Calendar import *
 from Koo.Search.AbstractSearchWidget import *
@@ -46,26 +47,41 @@ class DateSearchWidget(AbstractSearchWidget, DateSearchWidgetUi):
 		self.uiStart.installEventFilter( self )
 		self.uiEnd.installEventFilter( self )
 
+		# Add shortcuts
+		self.scStartSearch = QShortcut( self.uiStart )
+		self.scStartSearch.setKey( Shortcuts.SearchInField )
+		self.scStartSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scStartSearch, SIGNAL('activated()'), self.showStartCalendar )
+
+		self.scEndSearch = QShortcut( self.uiEnd )
+		self.scEndSearch.setKey( Shortcuts.SearchInField )
+		self.scEndSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scEndSearch, SIGNAL('activated()'), self.showEndCalendar )
+
 		self.widget = self
 		self.focusWidget = self.uiStart
-		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )
-		self.connect( self.pushEnd, SIGNAL('clicked()'), self.slotEnd )
+		self.connect( self.pushStart, SIGNAL('clicked()'), self.showStartCalendar )
+		self.connect( self.pushEnd, SIGNAL('clicked()'), self.showEndCalendar )
 
-	def slotStart(self):
+	def showStartCalendar(self):
 		PopupCalendarWidget( self.uiStart )
 
-	def slotEnd(self):
+	def showEndCalendar(self):
 		PopupCalendarWidget( self.uiEnd )
 
 	def value(self):
 		res = []
-		val = dateToStorage( textToDate( self.uiStart.text() ) )
+		date = textToDate( self.uiStart.text() )
+		val = dateToStorage( date )
  		if val:
+			self.uiStart.setText( dateToText( date ) )
 			res.append((self.name, '>=', val ))
 		else:
 			self.uiStart.clear()
-		val = dateToStorage( textToDate( self.uiEnd.text() ) )
+		date = textToDate( self.uiEnd.text() )
+		val = dateToStorage( date )
 	 	if val:
+			self.uiEnd.setText( dateToText( date ) )
 			res.append((self.name, '<=', val ))
 		else:
 			self.uiEnd.clear()

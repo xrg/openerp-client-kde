@@ -27,6 +27,7 @@
 ##############################################################################
 
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 
 from Koo.Common.Calendar import *
 from Koo.Search.AbstractSearchWidget import *
@@ -46,30 +47,45 @@ class DateTimeSearchWidget(AbstractSearchWidget, DateTimeSearchWidgetUi):
 		self.uiStart.installEventFilter( self )
 		self.uiEnd.installEventFilter( self )
 
+		# Add shortcuts
+		self.scStartSearch = QShortcut( self.uiStart )
+		self.scStartSearch.setKey( Shortcuts.SearchInField )
+		self.scStartSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scStartSearch, SIGNAL('activated()'), self.showStartCalendar )
+
+		self.scEndSearch = QShortcut( self.uiEnd )
+		self.scEndSearch.setKey( Shortcuts.SearchInField )
+		self.scEndSearch.setContext( Qt.WidgetShortcut )
+		self.connect( self.scEndSearch, SIGNAL('activated()'), self.showEndCalendar )
+
 		self.widget = self
 		self.focusWidget = self.uiStart
-		self.connect( self.pushStart, SIGNAL('clicked()'), self.slotStart )
-		self.connect( self.pushEnd, SIGNAL('clicked()'), self.slotEnd )
+		self.connect( self.pushStart, SIGNAL('clicked()'), self.showStartCalendar )
+		self.connect( self.pushEnd, SIGNAL('clicked()'), self.showEndCalendar )
 
-	def slotStart(self):
+	def showStartCalendar(self):
 		PopupCalendarWidget( self.uiStart )
 
-	def slotEnd(self):
+	def showEndCalendar(self):
 		PopupCalendarWidget( self.uiEnd )
 
 	def value(self):
 		res = []
-		val = QDateTime( textToDate( self.uiStart.text() ) )
-		val = dateTimeToStorage( val )
+		date = textToDate( self.uiStart.text() )
+		dateTime = QDateTime( date )
+		val = dateTimeToStorage( dateTime )
  		if val:
+			self.uiStart.setText( dateToText( date ) )
 			res.append((self.name, '>=', val ))
 		else:
 			self.uiStart.clear()
-		val = QDateTime( textToDate( self.uiEnd.text() ) )
-		if val.isValid():
-			val.setTime( QTime( 23, 59, 59, 99 ) )
-		val = dateTimeToStorage( val )
+		date = textToDate( self.uiEnd.text() )
+		dateTime = QDateTime( date )
+		if dateTime.isValid():
+			dateTime.setTime( QTime( 23, 59, 59, 99 ) )
+		val = dateTimeToStorage( dateTime )
 	 	if val:
+			self.uiEnd.setText( dateToText( date ) )
 			# For the same reason we filter for strictly lower values
 			res.append((self.name, '<=', val ))
 		else:
