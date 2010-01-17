@@ -74,6 +74,8 @@ class ActionViewCache(AbstractCache):
 			return (obj, method, str(args)) in self.cache
 		elif method == 'execute' and len(args) >= 2 and args[0] == 'ir.values' and args[1] == 'get':
 			return (obj, method, str(args)) in self.cache
+		elif obj == '/fulltextsearch' and method == 'indexedModels':
+			return (obj, method, str(args)) in self.cache
 		else:
 			return False
 			
@@ -93,6 +95,8 @@ class ActionViewCache(AbstractCache):
 				return 
 			self.cache[(obj,method,str(args))] = copy.deepcopy( value )
 		elif method == 'execute' and len(args) >= 2 and args[0] == 'ir.values' and args[1] == 'get':
+			self.cache[(obj,method,str(args))] = copy.deepcopy( value )
+		elif obj == '/fulltextsearch' and method == 'indexedModels':
 			self.cache[(obj,method,str(args))] = copy.deepcopy( value )
 
 	def clear(self):
