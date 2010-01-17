@@ -90,13 +90,32 @@ def dateTimeToStorage( dateTime ):
 
 ## @brief Converts a Python string or QString into a QDate object
 def textToDate( text ):
-	if unicode( QString( text ).trimmed() ) == '=':
+	text = unicode( text ).strip()
+	if text == '=':
 		return QDate.currentDate()
 
-	inputFormats = ["dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy', 'dd.MM.yyyy', 'dd.MM.yy', 'ddMMyyyy', 'ddMMyy']
+	inputFormats = [ 
+		'dd/MM/yyyy', 'dd-MM-yyyy', ('dd-MM-yy', 'century'), ('dd/MM/yy', 'century'), 
+		('dd-M-yy', 'century'), ('d-M-yy', 'add'), ('d-MM-yy','century'), 'dd.MM.yyyy', 
+		('dd.MM.yy','century'), 'ddMMyyyy', ('ddMMyy','century'), ('dd/MM', 'year'), 
+		('dd.MM', 'year'), ('ddMM', 'year'), ('dd', 'month')
+	]
 	for x in inputFormats:
-		date = QDate.fromString( text, x )
+		if isinstance(x, tuple):
+			format = x[0]
+			complete = x[1]
+		else:
+			format = x
+			complete = None
+
+		date = QDate.fromString( text, format )
 		if date.isValid():
+			if complete == 'century':
+				date.setDate( date.year() + 100, date.month(), date.day() )
+			if complete == 'year':
+				date.setDate( QDate.currentDate().year(), date.month(), date.day() )
+			elif complete == 'month':
+				date.setDate( QDate.currentDate().year(), QDate.currentDate().month(), date.day() )
 			break
 	return date
 
@@ -123,7 +142,8 @@ def textToTime( text ):
 
 ## @brief Converts a Python string or QString into a QDateTime object
 def textToDateTime( text ):
-	if unicode( QString( text ).trimmed() ) == '=':
+	text = unicode( text ).strip()
+	if text == '=':
 		return QDateTime.currentDateTime()
 
 	inputFormats = ['dd/MM/yyyy h:m:s', "dd/MM/yyyy", "dd-MM-yyyy", 'dd-MM-yy', 'dd/MM/yy', 'dd-M-yy', 'd-M-yy', 'd-MM-yy', 'ddMMyyyy', 'ddMMyy' ]
