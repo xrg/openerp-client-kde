@@ -71,7 +71,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		else:
 			group = None
 		if not group:
-			group = RecordGroup( attrs['relation'] )
+			group = RecordGroup( self.attrs['relation'] )
 			group.setDomainForEmptyGroup()
 		self.screen.setRecordGroup( group )
 		self.screen.setViewTypes( ['tree'] )
