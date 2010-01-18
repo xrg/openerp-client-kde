@@ -329,6 +329,13 @@ class Screen(QScrollArea):
 
 		group.addFields(self.fields)
 		self.fields.update(group.fields)
+		
+		if self.isVisible():
+			if self.group and self.group.count() and not self.currentRecord():
+				self.setCurrentRecord( self.group.recordByIndex( 0 ) )
+			self._firstTimeShown = False
+		else:
+			self._firstTimeShown = True
 
 	## @brief Returns a reference the current record (Record).
 	def currentRecord(self):
@@ -498,9 +505,12 @@ class Screen(QScrollArea):
 		self.setOnWriteFunction( view.onWriteFunction() )
 		# Load view settings
 		if not self.group.updated:
-			self.group.setDomainForEmptyGroup()
-			view.setViewSettings( ViewSettings.load( view.id ) )
-			self.group.unsetDomainForEmptyGroup()
+			if self.group.domain() != [('id','in',[])]:
+				self.group.setDomainForEmptyGroup()
+				view.setViewSettings( ViewSettings.load( view.id ) )
+				self.group.unsetDomainForEmptyGroup()
+			else:
+				view.setViewSettings( ViewSettings.load( view.id ) )
 		else:
 			view.setViewSettings( ViewSettings.load( view.id ) )
 

@@ -201,7 +201,7 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 	def colorWidget(self):
 		return self.uiText
 
-	def store(self):
+	def storeValue(self):
 		# As the HTML returned can be different than the one we set in 
 		# showValue() even if the text hasn't been modified by the user
 		# we need to track modifications using QTextDocument property

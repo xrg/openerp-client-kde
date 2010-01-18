@@ -120,7 +120,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 	def colorWidget(self):
 		return self.uiText
 
-	def store(self):
+	def storeValue(self):
 		# No update of the model, the model is updated in real time 
 		pass
 

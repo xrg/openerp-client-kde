@@ -140,7 +140,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 	# We do not store anything here as elements are added and removed in the
 	# Screen (self.screen). The only thing we need to take care of (as noted 
 	# above) is to ensure that the model and field are marked as modified.
-	def store(self):
+	def storeValue(self):
 		pass
 
 	def saveState(self):

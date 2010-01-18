@@ -78,7 +78,7 @@ class CharFieldWidget(AbstractFieldWidget):
 		if dialog.exec_() == QDialog.Accepted:
 			self.setText( dialog.result )
 
-	def store(self):
+	def storeValue(self):
 		# The function might be called by 'editingFinished()' signal when no
 		# record is set.
 		if not self.record:

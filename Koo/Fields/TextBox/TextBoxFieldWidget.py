@@ -71,7 +71,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 	def colorWidget(self):
 		return self.uiText
 
-	def store(self):
+	def storeValue(self):
 		self.record.setValue(self.name, unicode( self.uiText.document().toPlainText() ) or False )
 
 	def clear(self):

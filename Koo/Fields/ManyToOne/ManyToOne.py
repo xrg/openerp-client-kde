@@ -81,22 +81,15 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
  		self.newMenuEntries.append((_('Report'), lambda: self.executeAction('client_print_multi'), False))
  		self.newMenuEntries.append((None, None, None))
 
- 		if attrs.get('completion',False):
+		QTimer.singleShot( 0, self.initGui )
+
+
+	def initGui( self ):
+		# Name completion can be delayied without side effects.
+ 		if self.attrs.get('completion',False):
  			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', Rpc.session.context, False)
  			if ids:
-				self.loadCompletion( ids, attrs )
-
-	def clear( self ):
-		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
-		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
-		# the parent model could make us lose changes.
-		self.view.store()
-
-		if self.record:
-			self.record.setValue( self.name, False )
-		self.uiText.clear()
-		self.pushOpen.setIcon( QIcon( ":/images/find.png"))
-		self.pushOpen.setToolTip( _("Search") )
+				self.loadCompletion( ids, self.attrs )
 
 	def loadCompletion(self,ids,attrs):
 		self.completion = QCompleter()
@@ -113,6 +106,18 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 				liststore.append( word[1] )
 		self.completion.setModel( QStringListModel( liststore ) )
 		self.completion.setCompletionColumn( 0 )
+
+	def clear( self ):
+		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
+		# have been stored in the model. Otherwise the recordChanged() triggered by modifying
+		# the parent model could make us lose changes.
+		self.view.store()
+
+		if self.record:
+			self.record.setValue( self.name, False )
+		self.uiText.clear()
+		self.pushOpen.setIcon( QIcon( ":/images/find.png"))
+		self.pushOpen.setToolTip( _("Search") )
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
@@ -196,7 +201,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.record.setValue(self.name, dialog.record)
 			self.display()
 
-	def store(self):
+	def storeValue(self):
 		if self.uiText.hasFocus():
 			# Ensure match() is executed. Otherwise clicking on save() while the cursor
 			# is on the widget doesn't behave as expected and returns the field to its 

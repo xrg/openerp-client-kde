@@ -132,7 +132,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 	def slotOpen( self ):
 		Api.instance.execute(self.act_id )
 
-	def store(self):
+	def storeValue(self):
 		self.screen.currentView().store()
 
 	def showValue(self):

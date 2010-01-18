@@ -54,7 +54,7 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 		self.cookieJar = CookieJar()
 		self.uiWeb.page().networkAccessManager().setCookieJar( self.cookieJar )
 
-	def store(self):
+	def storeValue(self):
 		pass
 
 	def clear( self ):

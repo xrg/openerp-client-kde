@@ -51,7 +51,7 @@ class IntegerFieldWidget(AbstractFieldWidget):
 	def value(self):
 		return textToInteger( unicode(self.widget.text()) )
 
-	def store(self):
+	def storeValue(self):
 		self.record.setValue(self.name, self.value() )
 
 	def clear(self):

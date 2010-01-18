@@ -53,6 +53,8 @@ class AbstractFieldWidget(QWidget):
 		self.attrs = attributes
 		self.view = view
 
+		self._isUpToDate = False
+
 		# Required and readonly attributes are not directly linked to
 		# the field states because a widget might not have a record
 		# assigned. Also updating the attribute directly in the fields
@@ -84,6 +86,13 @@ class AbstractFieldWidget(QWidget):
 			'required' : '#ddddff', 
 			'normal'   : 'white'
 		}
+
+	def showEvent(self, event):
+		if not self._isUpToDate:
+			self._isUpToDate = True
+			if self.record:
+				self.showValue()
+		return QWidget.showEvent(self, event)
 
 	## @brief Sets the default value to the field.
 	#
@@ -234,7 +243,11 @@ class AbstractFieldWidget(QWidget):
 		self._readOnly = self.record.isFieldReadOnly(self.name)
 		self._required = self.record.isFieldRequired(self.name)
 		self.refresh()
-		self.showValue()
+		if self.isVisible():
+			self._isUpToDate = True
+			self.showValue()
+		else:
+			self._isUpToDate = False
 	
 	def reset(self):
 		self.refresh()
@@ -246,8 +259,17 @@ class AbstractFieldWidget(QWidget):
 
 	## @brief Stores information in the widget to the record.
 	# Reimplement this function in your widget.
-	def store(self):
+	def storeValue(self):
 		pass
+
+	## @brief Stores information in the widget to the record.
+	# This is the function you should call when you want the field
+	# to store information back into the model. This function may
+	# NOT store information if it has not changed.
+	def store(self):
+		if not self._isUpToDate:
+			return
+		self.storeValue()
 
 	def saveState(self):
 		return QByteArray()

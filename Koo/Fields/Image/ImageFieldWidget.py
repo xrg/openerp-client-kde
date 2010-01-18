@@ -47,7 +47,6 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		ImageFieldWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		self._isUpToDate = False
 		self.width = int( attrs.get( 'img_width', 300 ) )
 		self.height = int( attrs.get( 'img_height', 100 ) )
 		self.installPopupMenu( self.uiImage )
@@ -55,16 +54,6 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		self.connect( self.pushSave, SIGNAL('clicked()'), self.saveImage )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self.removeImage )
 		self.pushSave.setEnabled( False )
-
-	def showEvent(self, event):
-		if not self._isUpToDate:
-			if self.getImage():
-				self.pushSave.setEnabled( True )
-			else:
-				self.pushSave.setEnabled( False )
-			self.update()
-			self._isUpToDate = True
-		return AbstractFieldWidget.showEvent(self, event)
 
 	# This function is overriden in picture widget
 	def getImage(self):
@@ -166,17 +155,13 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 		self.uiImage.setText( _('(no image)') )
 
 	def showValue(self):
-		if self.isVisible():
-			if self.getImage():
-				self.pushSave.setEnabled( True )
-			else:
-				self.pushSave.setEnabled( False )
-			self.update()
-			self._isUpToDate = True
+		if self.getImage():
+			self.pushSave.setEnabled( True )
 		else:
-			self._isUpToDate = False
+			self.pushSave.setEnabled( False )
+		self.update()
 
-	def store(self):
+	def storeValue(self):
 		pass
 
 class ImageFieldDelegate( AbstractFieldDelegate ):

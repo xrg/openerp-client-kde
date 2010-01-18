@@ -244,7 +244,7 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 	# This widget is a bit special. We don't set the value
 	# here. We do it in the new(), so we don't have two copies
 	# of the file (which can be pretty big) in memory.
-	def store(self):
+	def storeValue(self):
 		pass
 
 	def colorWidget(self):

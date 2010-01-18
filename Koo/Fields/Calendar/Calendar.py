@@ -79,7 +79,7 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 			return False
 		return dateToStorage(date)
 
-	def store(self):
+	def storeValue(self):
 		# We've found in account.reconcile model that the date widget
 		# is used to show a datetime field. The field is read-only, but when we
 		# call store() it's stored without time information and this causes the 
@@ -178,7 +178,7 @@ class TimeFieldWidget(AbstractFieldWidget):
 			return False
 		return timeToStorage( time )
 
-	def store(self):
+	def storeValue(self):
 		self.record.setValue(self.name, self.value())
 
 	def clear(self):
@@ -233,7 +233,7 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 			return False
 		return timeToStorage( time )
 
-	def store(self):
+	def storeValue(self):
 		self.record.setValue(self.name, textToFloatTime(unicode(self.uiTime.text())) )
 
 	def clear(self):

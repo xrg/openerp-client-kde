@@ -124,7 +124,7 @@ class VideoFieldWidget(AbstractFieldWidget, VideoFieldWidgetUi):
 		self.uiVideo.hide()
 		self.uiSlider.hide()
 
-	def store(self):
+	def storeValue(self):
 		pass
 
 	def clear(self):

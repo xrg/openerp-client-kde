@@ -89,7 +89,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		else:
 			return False
 
-	def store(self):
+	def storeValue(self):
 		self.record.setValue(self.name, self.value())
 
 	def clear(self):

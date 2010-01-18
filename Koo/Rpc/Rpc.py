@@ -137,6 +137,9 @@ class PyroConnection(Connection):
 	def singleCall(self, obj, method, *args):
 		encodedArgs = self.unicodeToString( args )
 		if self.authorized:
+			print "CALL: ", method, encodedArgs
+			import traceback
+			traceback.print_stack()
 			result = self.proxy.dispatch( obj[1:], method, self.databaseName, self.uid, self.password, *encodedArgs )
 		else:
 			result = self.proxy.dispatch( obj[1:], method, *encodedArgs )

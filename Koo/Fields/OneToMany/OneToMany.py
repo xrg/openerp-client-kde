@@ -243,7 +243,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			self.screen.display()
 		self.updateButtons()
 
-	def store(self):
+	def storeValue(self):
 		self.screen.currentView().store()
 
 	def saveState(self):

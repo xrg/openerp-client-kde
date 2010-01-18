@@ -53,7 +53,7 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		self.connect( self.uiUrl, SIGNAL('editingFinished()'), self.modified )
 		self.installPopupMenu( self.uiUrl )
 
-	def store(self):
+	def storeValue(self):
 		return self.record.setValue(self.name, unicode( self.uiUrl.text() ) or False)
 
 	def clear( self ):

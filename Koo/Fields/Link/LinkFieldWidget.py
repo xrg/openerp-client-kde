@@ -84,7 +84,7 @@ class LinkFieldWidget(AbstractFieldWidget, LinkFieldWidgetUi):
 		self.uiText.clear()
 
 	# Value is stored when selected
-	def store(self):
+	def storeValue(self):
 		pass
 
 	def colorWidget(self):

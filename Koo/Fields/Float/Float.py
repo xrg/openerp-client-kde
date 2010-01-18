@@ -59,7 +59,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 	def value(self):
 		return textToFloat( str(self.widget.text()) )
 
-	def store(self):
+	def storeValue(self):
 		self.record.setValue( self.name, self.value() )
 
 	def clear(self):
