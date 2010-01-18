@@ -69,7 +69,7 @@ class WizardPage(QDialog):
 		self.group = RecordGroup( 'wizard.'+name )
 		# Do not allow record loading as most probably 'wizard.'+name model
 		# won't exist in the server
-		self.group.setAllowRecordLoading( False )
+		self.group.setDomainForEmptyGroup()
 		self.screen = Screen( self )
 		self.screen.setRecordGroup( self.group )
 		self.screen.new(default=False)

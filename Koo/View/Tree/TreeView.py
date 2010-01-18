@@ -277,7 +277,6 @@ class TreeView( AbstractView ):
 		pass
 
 	def setSelected(self, model):
-		return
 		idx = self.treeModel.indexFromId(model)
 		if idx != None:
 			self.selecting = True
@@ -290,9 +289,7 @@ class TreeView( AbstractView ):
 		if self._widgetType != 'tree':
 			self.treeModel.sort( 0, Qt.AscendingOrder )
 		self.updateAggregates()
-		if not currentModel:
-			self.selectFirst()
-		else:
+		if currentModel:
 			idx = self.treeModel.indexFromId( currentModel.id )
 			if idx:
 				self.widget.setCurrentIndex( idx )
@@ -303,7 +300,6 @@ class TreeView( AbstractView ):
 		index = self.treeModel.index( 0, 0 )
 		if not index.isValid():
 			return
-		
 		self.widget.setCurrentIndex( index )
 		self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 

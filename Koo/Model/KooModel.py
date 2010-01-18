@@ -711,3 +711,69 @@ class KooModel(QAbstractItemModel):
 
 	def recordFromIndex(self, index):
 		return self.record( index.row(), index.internalPointer() )
+
+class KooGroupedModel( QAbstractProxyModel ):
+	def __getattr__(self, name):
+		if name == 'group':
+			print "GROUP!"
+			return self.sourceModel().group
+		return QAbstractProxyModel.__getattr__(name)
+
+	def __setattr__(self, name, value):
+		if name == 'group':
+			print "SET GROUP!"
+			self.sourceModel().group = value
+			return
+		return QAbstractProxyModel.__setattr__(self, name, value)	
+
+	def setSourceModel(self, model):
+		QAbstractProxyModel.setSourceModel(self, model)
+		self.group = model.group
+
+	def mapFromSource( self, index ):
+		model = self.sourceModel()
+		newRow = 0
+		previous = False
+		for y in xrange(0, index.row()):
+			value = model.value( y, 0, self.group)
+			if value != previous:
+				newRow += 1
+				previous = value
+		return self.createIndex( newRow, index.column() )
+
+	def mapToSource( self, index ):
+		model = self.sourceModel()
+		previous = None
+		newRow = 0
+		for y in xrange(0, self.group.count()):
+			value = model.value( y, 0, self.group)
+			if value != previous:
+				newRow += 1
+				if newRow == index.row():
+					break
+		return self.createIndex( y, index.column() )
+
+	def recordGroup(self):
+		return self.sourceModel().recordGroup()
+
+	def setRecordGroup(self, recordGroup):
+		return self.sourceModel().setRecordGroup( recordGroup )
+
+	def isReadOnly(self):
+		return self.sourceModel().isReadOnly()
+
+	def rowCount(self, parent = QModelIndex()):
+		model = self.sourceModel()
+		newRow = 0
+		previous = None
+		for y in xrange(0, self.group.count()):
+			value = model.value( y, 0, self.group )
+			if value != previous:
+				newRow += 1
+		return newRow
+
+	def columnCount(self, parent = QModelIndex()):
+		return self.sourceModel().columnCount( parent )
+		
+	def index(self, row, column, parent = QModelIndex() ):
+		return self.createIndex( row, column, parent )

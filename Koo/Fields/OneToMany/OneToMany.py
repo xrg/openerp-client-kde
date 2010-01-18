@@ -126,7 +126,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
 		group = RecordGroup( attrs['relation'] )
-		group.setAllowRecordLoading( False )
+		group.setDomainForEmptyGroup()
 
 		self.screen.setRecordGroup( group )
 		self.screen.setPreloadedViews( attrs.get('views', {}) )
@@ -237,8 +237,6 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		group.setContext( self.record.fieldContext( self.name ) )
 		if self.screen.group != group:
 			self.screen.setRecordGroup(group)
-			if group.count():
-				self.screen.setCurrentRecord( group.modelByIndex(0) )
 			# Do NOT display if self.screen.group == group. Doing so
 			# causes a segmentation fault when storing the form if the one2many
 			# has an editable list and one item is being edited.

@@ -118,7 +118,6 @@ class RecordGroup(QObject):
 		self.updated = False
 		self._domain = []
 		self._filter = []
-		self._allowRecordLoading = True
 
 		if Settings.value('sort_mode') == 'visible_items':
 			self._sortMode = self.SortVisibleItems
@@ -651,7 +650,6 @@ class RecordGroup(QObject):
 			self._domain = []
 		else:
 			self._domain = value
-		self._allowRecordLoading  = True
 		self.updated = False
 	
 	## @brief Returns the current domain.
@@ -667,35 +665,31 @@ class RecordGroup(QObject):
 			self._filter = []
 		else:
 			self._filter = value
-		self._allowRecordLoading  = True
 		self.updated = False
 	
 	## @brief Returns the current filter.
 	def filter(self):
 		return self._filter
 
-	## @brief Enables or disables record loading. Sometimes it's desired that the record
-	# won't load anything, as otherwise it would load records, by default.
+	## @brief Disables record loading by setting domain to [('id','in',[])]
 	#
-	# Calling setFilter() or setDomain() after this function will reallow record loading
-	# if it's disallowed. If the following sequence happens:
+	# RecordGroup will optimize the case when domain + filter = [('id','in',[])]
+	# by not even querying the server and searching ids. It will simply consider
+	# the result is [] and thus the group will be kept empty.
 	#
-	# setAllowRecordLoading( False )
-	# sort( 'name', Qt.Descending )
-	# setAllowRecordLoading( True )
-	# 
-	# When setAllowRecordLoading( True ) is called, the record will be updated with the
-	# latest sort parameters. That is, sorted by name in descending order.
-	def setAllowRecordLoading(self, value):
-		self._allowRecordLoading  = value
-		if not value:
-			self.clear()
-		else:
-			self.update()
-	
-	## @brief Returns whether record loading is enabled or not.
-	def allowRecordLoading(self):
-		return self._allowRecordLoading 
+	# Domain may be changed using setDomain() function or reset to empty [] using
+	# unsetDomainForEmptyGroup (which will load all records, except if filter has 
+	# another value) 
+	def setDomainForEmptyGroup(self):
+		self.setDomain([('id','in',[])])
+		self.clear()
+
+	## @brief Resets the value of the domain to [] only if domain is [('id','in',[])]
+	#
+	# @see setDomainForEmptyGroup
+	def unsetDomainForEmptyGroup(self):
+		if self.domain() == [('id','in',[])]:
+			self.setDomain([])
 
 	## @brief Reload the record group with current selected sort field, order, domain and filter
 	def update(self):
@@ -709,8 +703,6 @@ class RecordGroup(QObject):
 
 	## @brief Ensures the group is updated.
 	def ensureUpdated(self):
-		if not self._allowRecordLoading:
-			return
 		if self.updated:
 			return
 		self.update()
@@ -719,8 +711,6 @@ class RecordGroup(QObject):
 	def sort(self, field, order):
 		self.toBeSortedField = field
 		self.toBeSortedOrder = order
-		if not self._allowRecordLoading:
-			return
 		if self._sortMode == self.SortAllItems:
 			self.sortAll( field, order )
 		else:
@@ -749,7 +739,14 @@ class RecordGroup(QObject):
 		sorted = False
 		sortingResult = self.SortingPossible
 
-		if not field in self.fields.keys():
+		if self._domain + self._filter == [('id','in',[])]:
+			# If setDomainForEmptyGroup() was called, or simply the domain
+			# included no tuples, we don't even need to query the server.
+			# Note that this may be quite important in some wizards because
+			# the model will actually not exist in the server and would raise
+			# an exception.
+			ids = []
+		elif not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
 			ids = self.rpc.search( self._domain + self._filter, 0, False, False, self._context )

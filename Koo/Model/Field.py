@@ -162,7 +162,11 @@ class BinaryField(StringField):
 			self.changed(record)
 
 	def get(self, record, checkLoad=True, readonly=True, modified=False):
-		value = self.get_client(record)
+		if checkLoad:
+			# Only load from the server if checkLoad is True
+			value = self.get_client(record)
+		else:
+			value = record.values[self.name]
 		if value:
 			value = base64.encodestring(value)
 		else:
@@ -270,7 +274,7 @@ class ToManyField(StringField):
 	def create(self, record):
 		from Koo.Model.Group import RecordGroup
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
-		group.setAllowRecordLoading( False )
+		group.setDomainForEmptyGroup()
 		self.connect( group, SIGNAL('modified()'), self.groupModified )
 		return group
 

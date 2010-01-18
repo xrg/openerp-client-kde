@@ -120,6 +120,29 @@ class Screen(QScrollArea):
 
 		self._viewQueue = ViewQueue()
 		self._readOnly = False
+		# The first time Screen is shown it will try to setCurrentRecord 
+		# if none is selected.
+		self._firstTimeShown = True
+
+	def showEvent(self, event):
+		if self._firstTimeShown:
+			self._firstTimeShown = False
+			# The first time Screen is shown/rendered we'll set current record
+			# if none is yet selected. Note that this means that it's not possible
+			# to explicitly make Screen NOT select any items.
+			#
+			# The reason for doing this is that it allows delayed loading of embedded
+			# one2many and many2many fields because those not in the main tab won't 
+			# receive the 'showEvent' and won't try to load data from the server, which
+			# greatly improves load time of some forms.
+			#
+			# If we don't do this here, and let 2many widgets to try to implement it,
+			# they have to set current record on switchView, but the problem is that 
+			# label is kept as 0/0 (instead of 1/3, for example), until user clicks 
+			# switch view.
+			if self.group and self.group.count() and not self.currentRecord():
+				self.setCurrentRecord( self.group.recordByIndex( 0 ) )
+		return QScrollArea.showEvent(self, event)
 
 	## @brief Sets the focus to current view.
 	def setFocusToView(self):
@@ -474,7 +497,12 @@ class Screen(QScrollArea):
 		self.viewLayout.addWidget( view )
 		self.setOnWriteFunction( view.onWriteFunction() )
 		# Load view settings
-		view.setViewSettings( ViewSettings.load( view.id ) )
+		if not self.group.updated:
+			self.group.setDomainForEmptyGroup()
+			view.setViewSettings( ViewSettings.load( view.id ) )
+			self.group.unsetDomainForEmptyGroup()
+		else:
+			view.setViewSettings( ViewSettings.load( view.id ) )
 
 		self.views[ view.viewType() ] = view
 		self.loadActions( toolbar )

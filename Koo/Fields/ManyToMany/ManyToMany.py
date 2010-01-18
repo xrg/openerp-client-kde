@@ -61,7 +61,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.connect( self.scSearch, SIGNAL('activated()'), self.add )
 
 		group = RecordGroup( attrs['relation'] )
-		group.setAllowRecordLoading( False )
+		group.setDomainForEmptyGroup()
 		
 		self.screen.setRecordGroup( group )
 		self.screen.setViewTypes( ['tree'] )

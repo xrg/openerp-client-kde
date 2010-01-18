@@ -135,7 +135,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 		# Remove ids with False value
 		self.screen.setupViews( view_type, view_ids )
 
-
 		if name:
 			self.name = name
 		else:
