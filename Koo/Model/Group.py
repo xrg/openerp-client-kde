@@ -677,19 +677,14 @@ class RecordGroup(QObject):
 	# by not even querying the server and searching ids. It will simply consider
 	# the result is [] and thus the group will be kept empty.
 	#
-	# Domain may be changed using setDomain() function or reset to empty [] using
-	# unsetDomainForEmptyGroup (which will load all records, except if filter has 
-	# another value) 
+	# Domain may be changed using setDomain() function.
 	def setDomainForEmptyGroup(self):
 		self.setDomain([('id','in',[])])
 		self.clear()
 
-	## @brief Resets the value of the domain to [] only if domain is [('id','in',[])]
-	#
-	# @see setDomainForEmptyGroup
-	def unsetDomainForEmptyGroup(self):
-		if self.domain() == [('id','in',[])]:
-			self.setDomain([])
+	## @brief Returns True if domain is [('id','in',[])]
+	def isDomainForEmptyGroup(self):
+		return self.domain() == [('id','in',[])]
 
 	## @brief Reload the record group with current selected sort field, order, domain and filter
 	def update(self):

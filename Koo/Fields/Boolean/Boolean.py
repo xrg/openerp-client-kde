@@ -53,7 +53,6 @@ class BooleanFieldWidget(AbstractFieldWidget):
 		self.widget.setEnabled( not value )
 
 	def storeValue(self):
-		print "VALUE WAS: ", self.name, self.record.value(self.name), self.widget.isChecked()
 		self.record.setValue(self.name, self.widget.isChecked())
 
 	def clear(self):

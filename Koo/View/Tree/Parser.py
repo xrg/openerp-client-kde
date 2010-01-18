@@ -139,6 +139,7 @@ class TreeParser(AbstractParser):
 		# view.setViewSettings(). What we do here is disallow record loading,
 		# run setModel(), load settings and finally allow record loading again.
 		# This optimizes Tree View loading times.
+		domain = screen.group.domain()
 		screen.group.setDomainForEmptyGroup()
 
 		view.setModel( model )
@@ -154,7 +155,8 @@ class TreeParser(AbstractParser):
 			view.widget.setItemDelegateForColumn( column, delegate )
 
 		view.setViewSettings( ViewSettings.load( view.id ) )
-		screen.group.unsetDomainForEmptyGroup()
+
+		screen.group.setDomain( domain )
 
 		return view
 

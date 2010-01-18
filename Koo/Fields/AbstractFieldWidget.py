@@ -53,6 +53,7 @@ class AbstractFieldWidget(QWidget):
 		self.attrs = attributes
 		self.view = view
 
+		self._isInitialized = False
 		self._isUpToDate = False
 
 		# Required and readonly attributes are not directly linked to
@@ -88,11 +89,26 @@ class AbstractFieldWidget(QWidget):
 		}
 
 	def showEvent(self, event):
+		if not self._isInitialized:
+			self._isInitialized = True
+			self.initGui()
 		if not self._isUpToDate:
 			self._isUpToDate = True
 			if self.record:
 				self.showValue()
 		return QWidget.showEvent(self, event)
+
+	## @brief This function is called the first time the widget is shown.
+	#
+	# It can be used by widgets to initialize GUI elements that are slow to
+	# execute. The advantage of using this function is that if the user never
+	# sees the widget (because it's in another tab, for example), it will never
+	# be called, improving form loading time.
+	#
+	# It's ensured that this function is called before any call to showValue() or
+	# storeValue() happens.
+	def initGui(self):
+		return
 
 	## @brief Sets the default value to the field.
 	#
@@ -244,6 +260,9 @@ class AbstractFieldWidget(QWidget):
 		self._required = self.record.isFieldRequired(self.name)
 		self.refresh()
 		if self.isVisible():
+			if not self._isInitialized:
+				self._isInitialized = True
+				self.initGui()
 			self._isUpToDate = True
 			self.showValue()
 		else:

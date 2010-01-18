@@ -125,21 +125,29 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect( self.pushForward, SIGNAL( "clicked()"),self.next )
 		self.connect( self.pushSwitchView, SIGNAL( "clicked()"),self.switchView )
 
-		group = RecordGroup( attrs['relation'] )
-		group.setDomainForEmptyGroup()
-
-		self.screen.setRecordGroup( group )
-		self.screen.setPreloadedViews( attrs.get('views', {}) )
-		self.screen.setEmbedded( True )
-		self.screen.setViewTypes( attrs.get('mode', 'tree,form').split(',') )
-
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 		self.connect(self.screen, SIGNAL('activated()'), self.edit)
 
-		self.uiTitle.setText( self.screen.currentView().title )
 		# Do not install Popup Menu because setting and getting default values
 		# is not supported for OneToMany fields.
 		#self.installPopupMenu( self.uiTitle )
+
+	def initGui(self):
+		if self.record:
+			group = self.record.value(self.name)
+		else:
+			group = None
+		if not group:
+			print "GROUP JUST CREATED!", self.attrs['relation']
+			group = RecordGroup( self.attrs['relation'] )
+			group.setDomainForEmptyGroup()
+
+		print "GROUP IS: ", group, self.attrs['relation']
+		self.screen.setRecordGroup( group )
+		self.screen.setPreloadedViews( self.attrs.get('views', {}) )
+		self.screen.setEmbedded( True )
+		self.screen.setViewTypes( self.attrs.get('mode', 'tree,form').split(',') )
+		self.uiTitle.setText( self.screen.currentView().title )
 
 	def switchView(self):
 		# If Control Key is pressed when the open button is clicked

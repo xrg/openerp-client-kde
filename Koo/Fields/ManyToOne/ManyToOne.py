@@ -81,10 +81,10 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
  		self.newMenuEntries.append((_('Report'), lambda: self.executeAction('client_print_multi'), False))
  		self.newMenuEntries.append((None, None, None))
 
-		QTimer.singleShot( 0, self.initGui )
-
-
 	def initGui( self ):
+		QTimer.singleShot( 0, self.delayedInitGui )
+
+	def delayedInitGui( self ):
 		# Name completion can be delayied without side effects.
  		if self.attrs.get('completion',False):
  			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', Rpc.session.context, False)

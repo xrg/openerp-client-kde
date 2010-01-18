@@ -505,12 +505,10 @@ class Screen(QScrollArea):
 		self.setOnWriteFunction( view.onWriteFunction() )
 		# Load view settings
 		if not self.group.updated:
-			if self.group.domain() != [('id','in',[])]:
-				self.group.setDomainForEmptyGroup()
-				view.setViewSettings( ViewSettings.load( view.id ) )
-				self.group.unsetDomainForEmptyGroup()
-			else:
-				view.setViewSettings( ViewSettings.load( view.id ) )
+			domain = self.group.domain()
+			self.group.setDomainForEmptyGroup()
+			view.setViewSettings( ViewSettings.load( view.id ) )
+			self.group.setDomain( domain )
 		else:
 			view.setViewSettings( ViewSettings.load( view.id ) )
 

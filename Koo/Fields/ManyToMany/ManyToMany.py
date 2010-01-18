@@ -60,16 +60,22 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.add )
 
-		group = RecordGroup( attrs['relation'] )
-		group.setDomainForEmptyGroup()
-		
-		self.screen.setRecordGroup( group )
-		self.screen.setViewTypes( ['tree'] )
-		self.screen.setEmbedded( True )
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
 
 		self.installPopupMenu( self.uiText )
 		self.old = None
+
+	def initGui(self):
+		if self.record:
+			group = self.record.value(self.name)
+		else:
+			group = None
+		if not group:
+			group = RecordGroup( attrs['relation'] )
+			group.setDomainForEmptyGroup()
+		self.screen.setRecordGroup( group )
+		self.screen.setViewTypes( ['tree'] )
+		self.screen.setEmbedded( True )
 
 	def open( self ):
 		if not ( QApplication.keyboardModifiers() & Qt.ControlModifier ):
