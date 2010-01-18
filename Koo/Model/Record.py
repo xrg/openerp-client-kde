@@ -102,14 +102,14 @@ class Record(QObject):
 
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
-		# Ensure there are values for all fields in the group
-		self.createMissingFields()
+		if not fieldName in self.values: 
+			self.group.ensureModelLoaded( self )
 		self.group.fieldObjects[fieldName].set_client(self, value)
 
 	## @brief Obtains the value of a given field
 	def value(self, fieldName):
-		# Ensure there are values for all fields in the group
-		self.createMissingFields()
+		if not fieldName in self.values:
+			self.group.ensureModelLoaded( self )
 		return self.group.fieldObjects[fieldName].get_client(self)
 
 	## @brief Establishes the default value for a given field
@@ -397,9 +397,8 @@ class Record(QObject):
 		if checkLoad:
 			self.ensureIsLoaded()
 		d = {}
-		self.createMissingFields()
-		for name, mfield in self.group.fieldObjects.items():
-			d[name] = mfield.get(self, checkLoad=checkLoad)
+		for name in self.values:
+			d[name] = self.group.fieldObjects[name].get(self, checkLoad=checkLoad)
 
 		d['current_date'] = time.strftime('%Y-%m-%d')
 		d['time'] = time
@@ -427,9 +426,8 @@ class Record(QObject):
 				result = result and self.evaluateCondition( c )
 			return result
 
-		if not (condition[0] in self.group.fields):
+		if not self.fieldExists( condition[0] ):
 			return False
-		self.createMissingFields()
 		value = self.value( condition[0] )
 		if condition[1] in ('=', '=='):
 			if value == condition[2]:

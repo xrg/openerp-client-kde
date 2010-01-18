@@ -536,14 +536,12 @@ class RecordGroup(QObject):
 		record = self.recordById( id )
 		if not record:
 			return None
-		self.ensureModelLoaded( record )
 		return record
 	__getitem__ = modelById
 
 	## @brief Returns the record at the specified row number.
 	def modelByIndex(self, row):
 		record = self.recordByIndex( row )
-		self.ensureModelLoaded(record)
 		return record
 
 	## @brief Returns the row number of the given record. Note that
