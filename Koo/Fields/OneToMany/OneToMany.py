@@ -138,16 +138,17 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		else:
 			group = None
 		if not group:
-			print "GROUP JUST CREATED!", self.attrs['relation']
 			group = RecordGroup( self.attrs['relation'] )
 			group.setDomainForEmptyGroup()
 
-		print "GROUP IS: ", group, self.attrs['relation']
 		self.screen.setRecordGroup( group )
 		self.screen.setPreloadedViews( self.attrs.get('views', {}) )
 		self.screen.setEmbedded( True )
 		self.screen.setViewTypes( self.attrs.get('mode', 'tree,form').split(',') )
 		self.uiTitle.setText( self.screen.currentView().title )
+		if not group.count():
+			# Ensure label is set to (_/0)
+			self.screen.setCurrentRecord( None )
 
 	def switchView(self):
 		# If Control Key is pressed when the open button is clicked
@@ -245,6 +246,9 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		group.setContext( self.record.fieldContext( self.name ) )
 		if self.screen.group != group:
 			self.screen.setRecordGroup(group)
+			if not group.count():
+				# Ensure label is set to (_/0)
+				self.screen.setCurrentRecord( None )
 			# Do NOT display if self.screen.group == group. Doing so
 			# causes a segmentation fault when storing the form if the one2many
 			# has an editable list and one item is being edited.
