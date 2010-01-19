@@ -330,6 +330,7 @@ class Record(QObject):
 	## @brief Sets the default values for each field from a dict
 	# { 'field': defaultValue }
 	def setDefaults(self, val):
+		self.createMissingFields()
 		for fieldname, value in val.items():
 			if fieldname not in self.group.fieldObjects:
 				continue
@@ -391,7 +392,7 @@ class Record(QObject):
 	# Before passing the dom expression to Rpc.session.evaluateExpression
 	# a context with 'current_date', 'time', 'context', 'active_id' and
 	# 'parent' (if applies) is prepared.
-	def evaluateExpression(self, dom, checkLoad=True):
+	def evaluateExpression(self, dom, checkLoad=True, firstTry=True):
 		if not isinstance(dom, basestring):
 			return dom
 		if checkLoad:
@@ -412,7 +413,20 @@ class Record(QObject):
 		d['id'] = self.id or False
 		if self.parent:
 			d['parent'] = EvalEnvironment(self.parent)
-		val = Rpc.session.evaluateExpression(dom, d)
+		try:
+			val = Rpc.session.evaluateExpression(dom, d)
+		except NameError, exception:
+			# If evaluateExpression raises a NameError exception like this one:
+			# NameError: name 'unit_amount' is not defined
+			# It may be because not all fields are loaded yet, so we'll ensure
+			# the model is loaded and re-evaluate. If that doesn't solve the problem
+			# (that is firstTry == False) then raise the exception because it's
+			# really an issue on the view definition.
+			if firstTry:
+				self.group.ensureModelLoaded( self )
+				val = self.evaluateExpression( dom, checkLoad, firstTry=False )
+			else:
+				raise exception
 		return val
 
 	# @brief Evaluates the given condition.
