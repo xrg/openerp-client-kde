@@ -258,6 +258,8 @@ class TreeView( AbstractView ):
 	def currentChanged(self, current):
 		if self.selecting:
 			return
+		if self.currentIndex == current:
+			return
 		self.currentIndex = current
 		# We send the current model. Previously we sent only the id of the model, but
 		# new models have id=None
