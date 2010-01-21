@@ -105,7 +105,7 @@ which provide better attachments handling and full text search capabilities.
 '''
 
 classifiers = """\
-Development Status :: 4 - Beta
+Development Status :: 5 - Production/Stable
 License :: OSI Approved :: GNU General Public License (GPL)
 Programming Language :: Python
 Topic :: Desktop Environment :: K Desktop Environment (KDE)
