@@ -28,7 +28,6 @@
 import os
 import csv
 from xml.dom.minidom import getDOMImplementation
-import xml.xpath
 import xml.dom.minidom
 import codecs
 

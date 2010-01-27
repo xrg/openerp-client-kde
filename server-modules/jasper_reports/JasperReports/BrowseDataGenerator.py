@@ -30,7 +30,6 @@ import csv
 import copy
 import base64
 from xml.dom.minidom import getDOMImplementation
-import xml.xpath
 import xml.dom.minidom
 from osv import orm, osv, fields
 import tempfile 

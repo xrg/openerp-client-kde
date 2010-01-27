@@ -27,7 +27,7 @@
 
 import os
 from xml.dom.minidom import getDOMImplementation
-import xml.xpath
+from lxml import etree
 import xml.dom.minidom
 import re
 
@@ -74,37 +74,41 @@ class JasperReport:
 	def extractProperties(self):
 		# The function will read all relevant information from the jrxml file
 			
-		doc = xml.dom.minidom.parse( self._reportPath )
+		doc = etree.parse( self._reportPath )
+
+		# Define namespaces
+		ns = 'http://jasperreports.sourceforge.net/jasperreports'
+		nss = {'jr': ns}
 
 		# Language
 		
 		# Not that if either queryString or language do not exist the default (from the constructor)
 		# is SQL.
-		langTags = xml.xpath.Evaluate( '/jasperReport/queryString', doc )
+		langTags = doc.xpath( '/jr:jasperReport/jr:queryString', namespaces=nss )
 		if langTags:
-			if langTags[0].getAttribute('language'):
-				self._language = langTags[0].getAttribute('language').lower()
+			if langTags[0].get('language'):
+				self._language = langTags[0].get('language').lower()
 		
 		# Relations
-		relationTags = xml.xpath.Evaluate( '/jasperReport/property[@name="OPENERP_RELATIONS"]', doc )
-		if relationTags and relationTags[0].hasAttribute('value'):
-			self._relations = eval( relationTags[0].getAttribute('value') )
+		relationTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_RELATIONS"]', namespaces=nss )
+		if relationTags and 'value' in relationTags[0].keys():
+			# TODO: Make this secure.
+			self._relations = eval( relationTags[0].get('value') )
 
 		# Repeat field
-		copiesFieldTags = xml.xpath.Evaluate( '/jasperReport/property[@name="OPENERP_COPIES_FIELD"]', doc )
-		if copiesFieldTags and copiesFieldTags[0].hasAttribute('value'):
-			self._copiesField = copiesFieldTags[0].getAttribute('value')
+		copiesFieldTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_COPIES_FIELD"]', namespaces=nss )
+		if copiesFieldTags and 'value' in copiesFieldTags[0].keys():
+			self._copiesField = copiesFieldTags[0].get('value')
 
 		# fields and fieldNames
 		fields = {}
-		fieldTags = xml.xpath.Evaluate( '/jasperReport/field', doc )
+		fieldTags = doc.xpath( '/jr:jasperReport/jr:field', namespaces=nss )
 		for tag in fieldTags:
-			name = tag.getAttribute('name')
-			type = tag.getAttribute('class')
-			if tag.getElementsByTagName('fieldDescription') and tag.getElementsByTagName('fieldDescription')[0].firstChild:
-				path = tag.getElementsByTagName('fieldDescription')[0].firstChild.data
-			else:
-				path = ''
+			name = tag.get('name')
+			type = tag.get('class')
+			children = tag.getchildren()
+			path = tag.findtext('{%s}fieldDescription' % ns, '')
+			#print "D2: ", tag.find('fieldDescription').text
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = path[13:]
@@ -128,12 +132,11 @@ class JasperReport:
 		#  <dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>
 		#  <subreportExpression class="java.lang.String"><![CDATA[$P{STANDARD_DIR} + "report_header.jasper"]]></subreportExpression>
 		#</subreport>
-		subreportTags = xml.xpath.Evaluate( '//subreport', doc )
+		subreportTags = doc.xpath( '//jr:subreport', namespaces=nss )
 		for tag in subreportTags:
-			dataSourceExpression = tag.getElementsByTagName('dataSourceExpression')
+			dataSourceExpression = tag.findtext('{%s}dataSourceExpression' % ns, '')
 			if not dataSourceExpression:
 				continue
-			dataSourceExpression = dataSourceExpression[0].firstChild.data
 			dataSourceExpression = dataSourceExpression.strip()
 			m = dataSourceExpressionRegExp.match( dataSourceExpression )
 			if not m:
@@ -142,14 +145,14 @@ class JasperReport:
 			if dataSourceExpression == 'REPORT_DATA_SOURCE':
 				continue
 
-			subreportExpression = tag.getElementsByTagName('subreportExpression')
+			subreportExpression = tag.findtext('{%s}subreportExpression' % ns, '')
 			if not subreportExpression:
 				continue
-			subreportExpression = subreportExpression[0].firstChild.data
 			subreportExpression = subreportExpression.strip()
 			subreportExpression = subreportExpression.replace('$P{STANDARD_DIR}', '"%s"' % self.standardDirectory() )
 			subreportExpression = subreportExpression.replace('$P{SUBREPORT_DIR}', '"%s"' % self.subreportDirectory() )
 			try:
+				# TODO: Make this secure
 				subreportExpression = eval( subreportExpression )
 			except:
 				print "COULD NOT EVALUATE EXPRESSION: '%s'" % subreportExpression
