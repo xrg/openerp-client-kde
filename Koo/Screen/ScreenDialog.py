@@ -47,19 +47,18 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.rejected )
+		self.group = None
 		self.record = None
 		self.recordId = None
-		self.screen = None
 		self._recordAdded = False
 		self._context = {}
 		self._domain = []
 
 	def setup(self, model, id=None):
-		if self.screen:
+		if self.group:
 			return
 		self.group = RecordGroup( model, context=self._context )
 		self.group.setDomain( self._domain )
-		self.screen = Screen(self)
 		self.screen.setRecordGroup( self.group )
 		self.screen.setViewTypes( ['form'] )
 		if id:
