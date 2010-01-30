@@ -45,9 +45,10 @@ class ReferenceSearchWidget(AbstractSearchWidget, ReferenceSearchWidgetUi):
 
 	def setPopdown(self, selection):
 		self.invertedModels = {}
-		for (i,j) in selection:
+		for (i,j) in [('','')] + selection:
 			self.uiModel.addItem( j, QVariant(i) )
 			self.invertedModels[i] = j
+		 
 
 	def value(self):
 		resource = unicode(self.uiModel.itemData(self.uiModel.currentIndex()).toString())
