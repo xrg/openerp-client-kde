@@ -25,10 +25,12 @@
 #
 ##############################################################################
 
+import time
+
 from osv import osv, fields
 import base64
 import xml.dom.minidom
-import xml.xpath
+from lxml import etree
 import tempfile
 import os
 import shutil
@@ -60,7 +62,7 @@ class ir_attachment(osv.osv):
 			else:
 				vals['metainfo'] = ''
 		id = super(ir_attachment, self).create(cr, uid, vals, context)
-		if vals.get('datas',False):
+		if 'datas' in vals:
 			ctx = context and context.copy() or None
 			thread = threading.Thread(target=updateMetaInfo, args=(cr.dbname, uid, [id]))
 			thread.start()
@@ -74,7 +76,7 @@ class ir_attachment(osv.osv):
 			else:
 				vals['metainfo'] = ''
 		ret = super(ir_attachment, self).write(cr, uid, ids, vals, context)
-		if vals.get('datas', False):
+		if 'datas' in vals:
 			ctx = context and context.copy() or None
 			thread = threading.Thread(target=updateMetaInfo, args=(cr.dbname, uid, [ids]))
 			thread.start()
@@ -107,16 +109,19 @@ class ir_attachment(osv.osv):
 		output = f.read()
 		f.close()
 
+		# Define namespaces
 		metaInfo = None
 		mimeTypes = []
 		try:
-			doc = xml.dom.minidom.parseString( output )
-			tags = doc.getElementsByTagName( 'text' )
+			doc = etree.fromstring( output )
+			tags = doc.xpath( '//file/text/text()' )
 			if tags:
-				metaInfo = self.getText(tags[0].childNodes).strip()
-			tags = xml.xpath.Evaluate( "//file/value[@name='http://freedesktop.org/standards/xesam/1.0/core#mimeType']", doc )
-			for tag in tags:
-				mimeTypes.append( tag.firstChild.data )
+				strigiText = tags[0].strip()
+			tags = doc.xpath( "//file/value[@name='http://freedesktop.org/standards/xesam/1.0/core#mimeType']/text()" )
+			mimeTypes += tags
+			# Newer versions use semanticdestkop.org ontologies.
+			tags = doc.xpath( "//file/value[@name='http://www.semanticdesktop.org/ontologies/2007/01/19/nie#mimeType']/text()" )
+			mimeTypes += tags
 		except:
 			pass
 
@@ -132,6 +137,11 @@ class ir_attachment(osv.osv):
 			f = os.popen( 'antiword %s/object.tmp' % dir, 'r' )
 			metaInfo = f.read()
 			f.close()
+
+		# Test it at the very end in case some of the applications (pdftotext, odt2txt or antiword)
+		# are not installed.
+		if not metaInfo:
+			metaInfo = strigiText
 
 		if not metaInfo:
 			# We couldn't get text information with other methods, let's see if it's an image
@@ -154,6 +164,10 @@ class ir_attachment(osv.osv):
 ir_attachment()
 
 def updateMetaInfo(db_name, uid, ids):
+	# As we're creating a new transaction, if update is executed in another thread and very fast,
+	# it may not get latest changes. So we wait a couple of seconds before updating meta information.
+	time.sleep( 2 )
+
 	db, pool = pooler.get_db_and_pool(db_name)
 	cr = db.cursor()
 
