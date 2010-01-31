@@ -68,6 +68,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.group = RecordGroup( model, context=self._context )
 		self.model = model
 		self.group.setDomain( self._domain )
+		self.screen = Screen(self)
 		self.screen.setRecordGroup( self.group )
 		self.screen.setViewTypes( ['form'] )
 		if id:
@@ -78,8 +79,6 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.screen.new()
 		self.screen.display()
 		self.layout().insertWidget( 0, self.screen  )
-		if not self.devel_mode:
-			self
 		self.screen.show()
 
 	def setAttributes(self, attrs):
