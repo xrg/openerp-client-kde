@@ -731,7 +731,9 @@ class Screen(QScrollArea):
 				self.setCurrentRecord( self.group.recordByIndex( idx ) )
 			else:
 				self.setCurrentRecord( None )
-			self.display()
+			try:
+				self.display()
+			except: pass
 
 	## @brief Returns a reference to the current view.
 	def currentView(self):

@@ -279,8 +279,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		widget = self.tabWidget.widget(tab)
 		if widget:
 			# Ask the current tab if it can be closed
-			if not widget.canClose():
-				return False
+			try:
+				if not widget.canClose():
+					return False
+			except:
+				pass
 		self.tabWidget.removeTab( tab ) 
 		if widget:
 			widget.setParent( None )
