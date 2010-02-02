@@ -172,7 +172,7 @@ class TreeView( AbstractView ):
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
 
-		self.currentIndex = self.widget.rootIndex()
+		self.currentIndex = None
 
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
@@ -193,6 +193,7 @@ class TreeView( AbstractView ):
 			self.widget.setGridSize( QSize( self.widget.gridSize().width(), height ) )
 
 	def setModel( self, model ):
+		self.currentIndex = None
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
 		self.connect( self.widget.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.currentChanged)
@@ -255,13 +256,13 @@ class TreeView( AbstractView ):
 		if self._readOnly:
 			self.emit( SIGNAL('activated()') )
 
-	def currentChanged(self, current):
+	def currentChanged(self, current, previous):
 		if self.selecting:
 			return
 		if self.currentIndex == current:
 			return
 		self.currentIndex = current
-		# We send the current model. Previously we sent only the id of the model, but
+		# We send the current record. Previously we sent only the id of the model, but
 		# new models have id=None
 		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.recordFromIndex(current) )
 		self.updateAggregates()
