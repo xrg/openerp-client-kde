@@ -149,6 +149,7 @@ class TimeFieldWidget(AbstractFieldWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFieldWidget.__init__(self, parent, model, attrs)
 		self.uiTime = QLineEdit( self )
+		self.uiTime.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.uiTime )
@@ -203,6 +204,7 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 	def __init__(self, parent, model, attrs={}):
 		AbstractFieldWidget.__init__(self, parent, model, attrs)
 		self.uiTime = QLineEdit( self )
+		self.uiTime.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 		self.uiTime.setMaxLength( 11 )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
