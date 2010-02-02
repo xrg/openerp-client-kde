@@ -112,6 +112,7 @@ class ir_attachment(osv.osv):
 		# Define namespaces
 		metaInfo = None
 		mimeTypes = []
+		strigiText = None
 		try:
 			doc = etree.fromstring( output )
 			tags = doc.xpath( '//file/text/text()' )
