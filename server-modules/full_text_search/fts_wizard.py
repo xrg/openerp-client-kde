@@ -33,7 +33,7 @@ class wizard_start(osv.osv_memory):
 	_name = 'fts.wizard'
 
 	def _get_configs(self, cr, uid, context={}):
-		cr.execute( "SELECT cfgname FROM pg_catalog.pg_ts_config ORDER BY cfgname" )
+		cr.execute( "SELECT cfgname FROM pg_catalog.pg_ts_config WHERE cfgname <> 'default' ORDER BY cfgname" )
 		result = []
 		for record in cr.fetchall():
 			result.append( (record[0], record[0]) )
