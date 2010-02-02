@@ -76,8 +76,7 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
                 record = self.screen.currentRecord()
 		fields = []
                 if record.isModified():
-                        values = record.get(get_readonly=False, get_modifiedonly=True)
-			for field in values:
+			for field in record.modifiedFields():
 				attrs = record.fields()[ field ].attrs
 				if 'string' in attrs:
 					name = attrs['string']

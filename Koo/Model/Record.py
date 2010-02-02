@@ -138,6 +138,9 @@ class Record(QObject):
 	def fields(self):
 		return self.group.fieldObjects
 
+	def modifiedFields(self):
+		return self.modified_fields.keys()
+
 	def stateAttributes(self, fieldName):
 		if fieldName not in self._stateAttributes:
 			if fieldName in self.group.fieldObjects:

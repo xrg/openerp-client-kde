@@ -476,7 +476,20 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def modifiedSave(self):
 		if self.screen.isModified():
-			value = QMessageBox.question( self, _('Question'), _('This record has been modified do you want to save it?'), _('Save'), _('Discard'), _('Cancel'), 2, 2 )
+			record = self.screen.currentRecord()
+			fields = []
+			for field in record.modifiedFields():
+				attrs = record.fields()[ field ].attrs
+				if 'string' in attrs:
+					name = attrs['string']
+				else:
+					name = field
+				fields.append( '<li>%s</li>' % name )
+			fields.sort()
+			fields = '<ul>%s</ul>' % ''.join( fields )
+			value = QMessageBox.question( self, _('Question'), 
+				_('<p>You have modified the following fields in current record:</p>%s<p>Do you want to save the changes?</p>') % fields, 
+				_('Save'), _('Discard'), _('Cancel'), 2, 2 )
 			if value == 0:
 				return self.save()
 			elif value == 1:
