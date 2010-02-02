@@ -303,7 +303,6 @@ class Record(QObject):
 			self.setFieldValid( fname, True )
 		if change:
 			self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self )
-			self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self )
 		return change
 
 	## @brief Returns True if all fields are valid. Otherwise it returns False.
