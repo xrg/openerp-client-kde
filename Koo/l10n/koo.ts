@@ -203,12 +203,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="55"/>
+        <location filename="binary.ui" line="58"/>
         <source>Save file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="72"/>
+        <location filename="binary.ui" line="75"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
@@ -589,7 +589,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Form</name>
     <message>
-        <location filename="video.ui" line="13"/>
+        <location filename="image.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -915,27 +915,27 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="59"/>
+        <location filename="full_text_search.ui" line="66"/>
         <source>&amp;Find</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="85"/>
+        <location filename="full_text_search.ui" line="92"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="116"/>
+        <location filename="full_text_search.ui" line="123"/>
         <source>&amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="127"/>
+        <location filename="full_text_search.ui" line="134"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="173"/>
+        <location filename="full_text_search.ui" line="180"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -956,7 +956,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="159"/>
+        <location filename="full_text_search.ui" line="166"/>
         <source>&amp;Open</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1663,12 +1663,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="55"/>
+        <location filename="dia_form_win_many2one.ui" line="65"/>
         <source>&amp;OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="66"/>
+        <location filename="dia_form_win_many2one.ui" line="76"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1913,22 +1913,22 @@ this operation may take a while...</source>
 <context>
     <name>SearchDateWidget</name>
     <message>
-        <location filename="search_date.ui" line="25"/>
+        <location filename="search_date.ui" line="26"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="52"/>
+        <location filename="search_date.ui" line="56"/>
         <source>Choose a date from a calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="76"/>
+        <location filename="search_date.ui" line="81"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="104"/>
+        <location filename="search_date.ui" line="112"/>
         <source>Choose the date from a calendar</source>
         <translation type="unfinished"></translation>
     </message>
