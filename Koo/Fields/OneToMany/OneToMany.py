@@ -56,7 +56,6 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		if ('string' in attrs) and attrs['string']:
 			self.setWindowTitle( self.windowTitle() + " - " + attrs['string'])
 
-		self.screen = Screen( self )
 		self.screen.setRecordGroup( modelGroup )
 		self.screen.setEmbedded( True )
 		# Set the view first otherwise, default values created by self.screen.new()
@@ -76,10 +75,10 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.screen.setCurrentRecord( record )
 
 		self.screen.display()
-		self.layout().insertWidget( 0, self.screen )
 
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.rejected )
+		self.connect( self, SIGNAL('reject()'), self.cleanup )
 		
 		# Make screen as big as needed but ensuring it's not bigger than
 		# the available space on screen (minus some pixels so they can be
@@ -94,9 +93,15 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 	def setReadOnly(self, value):
 		self.screen.setReadOnly( value )
 
-	def rejected( self ):
+	def cleanup(self):
 		if self._recordAdded:
 			self.screen.remove()
+		# Ensure there's no current record so a signal in modelGroup doesn't 
+		# trigger a updateDisplay in this screen object.
+		self.screen.setCurrentRecord( None )
+
+	def rejected( self ):
+		self.cleanup()
 		self.reject()
 
 	def accepted( self ):
@@ -104,6 +109,10 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			self.screen.currentView().store()
 			self.screen.new(context=self.creationContext)
 		else:
+			self.screen.currentView().store()
+			# Ensure there's no current record so a signal in modelGroup doesn't 
+			# trigger a updateDisplay in this screen object.
+			self.screen.setCurrentRecord( None )
 			self.accept()
 
 (OneToManyFieldWidgetUi, OneToManyFieldWidgetBase ) = loadUiType( Common.uiPath('one2many.ui') ) 

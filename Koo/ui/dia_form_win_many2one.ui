@@ -21,6 +21,16 @@
     <number>9</number>
    </property>
    <item>
+    <widget class="Screen" name="screen" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout">
      <property name="spacing">
       <number>6</number>
@@ -77,6 +87,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Screen</class>
+   <extends>QWidget</extends>
+   <header>Koo.Screen.Screen</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="common.qrc"/>
  </resources>
