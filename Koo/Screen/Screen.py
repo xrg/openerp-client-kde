@@ -333,6 +333,11 @@ class Screen(QScrollArea):
 		if self.isVisible():
 			if self.group and self.group.count() and not self.currentRecord():
 				self.setCurrentRecord( self.group.recordByIndex( 0 ) )
+			else:
+				# Note that we need to setCurrentRecord so it is initialized and
+				# emits the recordMessage() signal.
+				self.setCurrentRecord( None )
+
 			self._firstTimeShown = False
 		else:
 			self._firstTimeShown = True
@@ -358,13 +363,19 @@ class Screen(QScrollArea):
 	#
 	# Note that value will be a reference to the Record.
 	def setCurrentRecord(self, value):
-		if self._currentRecord == value:
-			return
-		self._currentRecord = value
 		if self.group and self.group.recordExists( value ):
 			pos = self.group.indexOfRecord( value )
 		else:
 			pos = -1
+		# In order to "discover" if we need to update current record we 
+		# use "self._currentRecordPosition", because setRecordGroup sets
+		# self._currentRecordPosition = None and then calls setCurrentRecord( None )
+		# Which will make pos = -1 and will emit the recordMessage() signal.
+		#
+		# Trying to "discover" this with self._currentRecord will not work.
+		if self._currentRecordPosition == pos:
+			return
+		self._currentRecord = value
 		self._currentRecordPosition = pos
 		if value and value.id:
 			id = value.id
