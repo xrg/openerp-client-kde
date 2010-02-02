@@ -38,6 +38,32 @@ from Koo.Common import Common
 from Koo.Common import Semantic
 from Koo.Common import Numeric
 
+#try:
+from NanScan.ScanDialog import ScanDialog, AbstractImageSaverFactory, AbstractImageSaver
+isNanScanAvailable = True
+#except:
+	#isNanScanAvailable = False
+
+if isNanScanAvailable:
+	class BinaryImageSaverFactory(AbstractImageSaverFactory):
+		def __init__(self, record, field):
+			self.record = record
+			self.field = field
+
+		def create(self, parent):
+			saver = BinaryImageSaver( parent )
+			saver.record = self.record
+			saver.field = self.field
+			return saver
+
+	class BinaryImageSaver(AbstractImageSaver):
+		def run(self):
+			self.error = True
+			image = QBuffer()
+			if self.item.image.save( image, 'PNG' ):
+				self.error = False
+				self.record.setValue( self.field, str( image.buffer() ) )
+
 (BinaryFieldWidgetUi, BinaryFieldWidgetBase) = loadUiType( Common.uiPath('binary.ui') ) 
 
 class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
@@ -54,8 +80,23 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.fileNameField = attrs.get('filename')
 		self.baseDirectory = unicode( QDir.homePath() )
 
-		self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
+		#self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
+
+		self.actionNew = QAction(self)
+		self.actionNew.setText( _('&New') )
+		self.actionNew.setIcon( QIcon( ':/images/new.png' ) )
+
+		self.actionScan = QAction(self)
+		self.actionScan.setText( _('&Scan') )
+		self.actionScan.setIcon( QIcon( ':/images/scanner.png' ) )
+
+		self.newMenu = QMenu( self )
+		self.newMenu.addAction( self.actionNew )
+		if isNanScanAvailable:
+			self.newMenu.addAction( self.actionScan )
+		self.pushNew.setMenu( self.newMenu )
+		self.pushNew.setDefaultAction( self.actionNew )
 
 		self.actionSave = QAction(self)
 		self.actionSave.setText( _('&Save') )
@@ -67,17 +108,19 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.actionShowImage.setText( _('Show &image'), )
 		self.actionShowImage.setIcon( QIcon( ':/images/convert.png' ) )
 
-		self.menu = QMenu( self )
-		self.menu.addAction( self.actionSave )
-		self.menu.addAction( self.actionOpen )
-		self.menu.addAction( self.actionShowImage )
-		self.pushSave.setMenu( self.menu )
+		self.saveMenu = QMenu( self )
+		self.saveMenu.addAction( self.actionSave )
+		self.saveMenu.addAction( self.actionOpen )
+		self.saveMenu.addAction( self.actionShowImage )
+		self.pushSave.setMenu( self.saveMenu )
 		self.pushSave.setDefaultAction( self.actionSave )
 
+		self.connect( self.actionNew, SIGNAL('triggered()'), self.new )
+		self.connect( self.actionScan, SIGNAL('triggered()'), self.scan )
 		self.connect( self.actionSave, SIGNAL('triggered()'), self.save )
 		self.connect( self.actionOpen, SIGNAL('triggered()'), self.open )
 		self.connect( self.actionShowImage, SIGNAL('triggered()'), self.showImage )
-		self.connect( self.menu, SIGNAL('aboutToShow()'), self.updateShowImageAction )
+		self.connect( self.saveMenu, SIGNAL('aboutToShow()'), self.updateShowImageAction )
 
 		self.uiBinary.setAcceptDrops( True )
 		self.installPopupMenu( self.uiBinary )
@@ -130,6 +173,15 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 
 		return [ (_('Open...'), self.open, enableApplication), 
 			 (_('Show &image...'), self.showImage, enableImage) ]
+
+	def scan(self):
+		from NanScan.ScanDialog import ScanDialog
+		
+		saver = BinaryImageSaverFactory( self.record, self.name )
+
+		dialog = ScanDialog( self )
+		dialog.setImageSaverFactory( saver )
+		dialog.show()
 
 	def open(self):
 		if not self.record.value(self.name):
