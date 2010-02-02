@@ -53,7 +53,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 
 		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
-		self.connect( self.uiText, SIGNAL( 'returnPressed()' ), self.add )
+		self.connect( self.uiText, SIGNAL( 'editingFinished()' ), self.match )
 
 		self.scSearch = QShortcut( self.uiText )
 		self.scSearch.setKey( Shortcuts.SearchInField )
@@ -91,7 +91,15 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 			target = 'background'
 		else:
 			target = 'current'
-		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree', target=target)	
+		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree', target=target)
+
+	def match(self):
+		if not self.record:
+			return
+		if unicode(self.uiText.text()).strip() == '':
+			self.uiText.clear()
+			return 
+		self.add()
 	
 	def add(self):
 		# As the 'add' button modifies the model we need to be sure all other fields/widgets
