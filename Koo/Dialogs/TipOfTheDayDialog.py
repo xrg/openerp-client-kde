@@ -34,10 +34,13 @@ from Koo.Common.Paths import *
 
 Tips = [
 _("""
+<p>
 <b>Welcome to Koo!</b>
-
+</p>
+<p>
 Koo is a client that gives you access to the powerful OpenERP application with
 very good performance and bleeding edge features.
+</p>
 """),
 _("""
 <p>
@@ -45,6 +48,14 @@ _("""
 </p>
 <p>
 Did you know that you can use number input boxes like a calculator? Go to a field where you should insert a number and type <i>3+4*12</i>. Then press enter to see the result or store the form directly. In both cases you will see the result updated in the same input box. Allowed operators include: +, -, *, / and you can also use parenthesis.
+</p>
+"""),
+_("""
+<p>
+<b>Full Text Search</b>
+</p>
+<p>
+Did you know that you can search any record of your database from a single place, just like you do with Google? Search and install the full_text_search module and follow the instructions on how to configure it properly.
 </p>
 """),
 _("""
