@@ -1,93 +1,140 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>TipsDialog</class>
- <widget class="QDialog" name="TipsDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="TipsDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>518</width>
-    <height>300</height>
+    <width>573</width>
+    <height>325</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
    <string>Tip of the Day</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
-    <number>6</number>
-   </property>
-   <property name="margin" >
-    <number>9</number>
-   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label" >
-     <property name="text" >
-      <string/>
+    <widget class="QLabel" name="uiKoo">
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
      </property>
-     <property name="pixmap" >
-      <pixmap resource="common.qrc" >:/images/koo.png</pixmap>
+     <property name="text">
+      <string notr="true">&lt;a href=&quot;http://www.NaN-tic.com&quot;&gt;&lt;img src=&quot;:images/koo.png&quot;/&gt;&lt;/a&gt;</string>
      </property>
-     <property name="alignment" >
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
+     <property name="openExternalLinks">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="uiTip" >
-     <property name="text" >
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QLabel" name="uiTip">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
       <string/>
      </property>
-     <property name="alignment" >
+     <property name="alignment">
       <set>Qt::AlignJustify|Qt::AlignVCenter</set>
      </property>
-     <property name="wordWrap" >
+     <property name="wordWrap">
       <bool>true</bool>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="uiShowNextTime" >
-     <property name="text" >
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="uiShowNextTime">
+     <property name="text">
       <string>&amp;Display a new tip next time ?</string>
      </property>
-     <property name="checked" >
+     <property name="checked">
       <bool>true</bool>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="margin" >
+       <property name="margin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushPrevious" >
-         <property name="text" >
+        <widget class="QPushButton" name="pushPrevious">
+         <property name="text">
           <string>&amp;Previous Tip</string>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >:/images/previous.png</iconset>
+         <property name="icon">
+          <iconset resource="common.qrc">
+           <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushNext" >
-         <property name="text" >
+        <widget class="QPushButton" name="pushNext">
+         <property name="text">
           <string>&amp;Next Tip</string>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >:/images/next.png</iconset>
+         <property name="icon">
+          <iconset resource="common.qrc">
+           <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
          </property>
         </widget>
        </item>
@@ -95,10 +142,10 @@
      </item>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -107,12 +154,13 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushClose" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushClose">
+       <property name="text">
         <string>&amp;Close</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/close.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
        </property>
       </widget>
      </item>
@@ -121,7 +169,8 @@
   </layout>
  </widget>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
+  <include location="../../../../planetronic/openobject-client-kde-5.0/Koo/ui/common.qrc"/>
  </resources>
  <connections/>
 </ui>

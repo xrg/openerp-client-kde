@@ -111,7 +111,9 @@ app.setOrganizationDomain( 'www.nan-tic.com' )
 app.setOrganizationName( 'NaN' )
 
 try:
-	app.setStyleSheet( file(Settings.value('stylesheet')).read() )
+	f = open( Settings.value('stylesheet'), 'r' )
+	app.setStyleSheet( f.read() )
+	f.close()
 except:
 	pass
 
@@ -169,7 +171,8 @@ from Koo.Common import WhatsThisEventFilter
 app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(win) )
 
 if Settings.value('tip.autostart'):
-	dialog = Common.TipOfTheDayDialog()
+	from Koo.Dialogs.TipOfTheDayDialog import *
+	dialog = TipOfTheDayDialog()
 	dialog.exec_()
 
 win.showLoginDialog()

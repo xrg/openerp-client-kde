@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>691</width>
-    <height>370</height>
+    <height>373</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -34,13 +34,10 @@
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap resource="common.qrc">:/images/koo.png</pixmap>
+      <string notr="true">&lt;a href=&quot;http://www.NaN-tic.com&quot;&gt;&lt;img src=&quot;:images/koo.png&quot;/&gt;&lt;/a&gt;</string>
      </property>
      <property name="scaledContents">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

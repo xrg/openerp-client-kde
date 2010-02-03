@@ -66,8 +66,9 @@ class Settings(object):
 	@staticmethod
 	def saveToFile():
 		if not Settings.rcFile:
-			Debug.warning( 'No rc file specified.' )
-			return False
+			# If no file was specified we try to read it from environment 
+			# variable o standard path
+			Settings.rcFile = os.environ.get('TERPRC') or os.path.join(unicode(QDir.toNativeSeparators(QDir.homePath())), '.koorc')
 		try:
 			p = ConfigParser.ConfigParser()
 			sections = {}
@@ -78,7 +79,9 @@ class Settings(object):
 				if not p.has_section(osection):
 					p.add_section(osection)
 				p.set(osection,oname,Settings.options[o])
-			p.write(file(Settings.rcFile,'wb'))
+			f = open(Settings.rcFile, 'wb')
+			p.write( f )
+			f.close()
 		except:
 			Debug.warning( 'Unable to write config file %s !' % Settings.rcFile )
 		return True

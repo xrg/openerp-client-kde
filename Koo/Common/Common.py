@@ -120,49 +120,6 @@ def selection(title, values, alwaysask=False):
 	else:
 		return False
 	
-
-(TipOfTheDayDialogUi, TipOfTheDayDialogBase) = loadUiType( uiPath('tip.ui') )
-
-## @brief The TipOfTheDayDialog class shows a dialog with a Tip of the day
-# TODO: Use KTipDialog when we start using KDE libs
-class TipOfTheDayDialog( QDialog, TipOfTheDayDialogUi ):
-	def __init__(self, parent=None):
-		QDialog.__init__(self, parent)
-		TipOfTheDayDialogUi.__init__(self)
-		self.setupUi( self )
-
-		try:
-			self.number = int( Settings.value('tip.position') )
-		except:
-			self.number = 0
-	
-		self.connect( self.pushNext, SIGNAL('clicked()'), self.nextTip )
-		self.connect( self.pushPrevious, SIGNAL('clicked()'), self.previousTip )
-		self.connect( self.pushClose, SIGNAL('clicked()'), self.closeTip )
-		self.uiShowNextTime.setChecked( Settings.value('tip.autostart') )
-		self.showTip()
-	
-	def showTip(self):
-		tips = file(searchFile('kootips.txt')).read().split('---')
-		tip = tips[self.number % len(tips)]
-		del tips
-		self.uiTip.setText(tip)
-
-	def nextTip(self):
-		self.number+=1
-		self.showTip()
-
-	def previousTip(self):
-		if self.number>0:
-			self.number -= 1
-		self.showTip()
-
-	def closeTip(self):
-		Settings.setValue( 'tip.autostart', self.uiShowNextTime.isChecked() )
-		Settings.setValue( 'tip.position', self.number+1 )
-		Settings.saveToFile()
-		self.close()
-
 ## @brief Shows a warning dialog. Function used by the notifier in the Koo application.
 def warning(title, message):
 	QApplication.setOverrideCursor( Qt.ArrowCursor )

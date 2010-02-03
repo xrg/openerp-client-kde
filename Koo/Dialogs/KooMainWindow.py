@@ -42,6 +42,7 @@ from PreferencesDialog import *
 from FullTextSearchDialog import *
 from DatabaseCreationDialog import DatabaseCreationDialog
 from DatabaseDialog import *
+from TipOfTheDayDialog import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -470,7 +471,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
 
 	def showTipOfTheDay(self):
-		dialog = Common.TipOfTheDayDialog(self)
+		dialog = TipOfTheDayDialog(self)
 		dialog.exec_()
 		
 	def showLicense(self):
