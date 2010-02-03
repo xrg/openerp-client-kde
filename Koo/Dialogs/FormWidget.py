@@ -546,7 +546,6 @@ class FormWidget( QWidget, FormWidgetUi ):
 		return self._switchViewMenu
 
 	def __del__(self):
-		print "DEL FORMWIDGET"
 		self.group.__del__()
 		del self.group
 
