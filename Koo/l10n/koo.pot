@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-03 09:01+0100\n"
+"POT-Creation-Date: 2010-02-03 17:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
-#: Koo/Dialogs/DatabaseDialog.py:131 Koo/Dialogs/DatabaseDialog.py:153
+#: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+#: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/TreeWidget.py:287
-#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:218
+#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:219
 msgid "Information"
 msgstr ""
 
@@ -54,12 +54,12 @@ msgstr ""
 msgid "Nothing to print!"
 msgstr ""
 
-#: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:150
+#: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
 #: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
-#: Koo/Dialogs/AdministratorPasswordDialog.py:67
+#: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:145
-#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:230
-#: Koo/Fields/Binary/BinaryFieldWidget.py:264
+#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:229
+#: Koo/Fields/Binary/BinaryFieldWidget.py:263
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -243,91 +243,91 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:301
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/MassiveUpdateDialog.py:95
+#: Koo/Dialogs/KooMainWindow.py:591 Koo/Dialogs/MassiveUpdateDialog.py:95
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:301
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/MassiveUpdateDialog.py:95
+#: Koo/Dialogs/KooMainWindow.py:591 Koo/Dialogs/MassiveUpdateDialog.py:95
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "No"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:75 Koo/Dialogs/LoginDialog.py:85
+#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:81 Koo/Dialogs/LoginDialog.py:93
+#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
 msgid "No database found, you must create one !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:110
+#: Koo/Dialogs/DatabaseDialog.py:108
 msgid "Open backup file..."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:113
+#: Koo/Dialogs/DatabaseDialog.py:111
 msgid "Restore a database"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:126 Koo/Dialogs/DatabaseDialog.py:128
+#: Koo/Dialogs/DatabaseDialog.py:124 Koo/Dialogs/DatabaseDialog.py:126
 msgid "Could not restore database"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:126
+#: Koo/Dialogs/DatabaseDialog.py:124
 msgid "Bad database administrator password!"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:128
+#: Koo/Dialogs/DatabaseDialog.py:126
 msgid "There was an error restoring the database!"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:131
+#: Koo/Dialogs/DatabaseDialog.py:129
 msgid "Database restored successfully!"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:134
+#: Koo/Dialogs/DatabaseDialog.py:132
 msgid "Backup a database"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:138
-#: Koo/Fields/Binary/BinaryFieldWidget.py:253
+#: Koo/Dialogs/DatabaseDialog.py:136
+#: Koo/Fields/Binary/BinaryFieldWidget.py:252
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:150
+#: Koo/Dialogs/DatabaseDialog.py:148
 #, python-format
 msgid ""
 "Could not backup database.\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:153
+#: Koo/Dialogs/DatabaseDialog.py:151
 msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:156
+#: Koo/Dialogs/DatabaseDialog.py:154
 msgid "Delete a database"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:167
+#: Koo/Dialogs/DatabaseDialog.py:165
 msgid "Could not drop database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseDialog.py:165 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:169 Koo/Dialogs/DatabaseDialog.py:172
+#: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseDialog.py:170
 msgid "Database removal"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:169
+#: Koo/Dialogs/DatabaseDialog.py:167
 msgid "Couldn't drop database"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:172
+#: Koo/Dialogs/DatabaseDialog.py:170
 msgid "Database dropped successfully!"
 msgstr ""
 
@@ -446,96 +446,96 @@ msgstr ""
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:472
+#: Koo/Dialogs/KooMainWindow.py:101 Koo/Dialogs/KooMainWindow.py:462
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:113
+#: Koo/Dialogs/KooMainWindow.py:112
 msgid "Close tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:194
+#: Koo/Dialogs/KooMainWindow.py:193
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:199
+#: Koo/Dialogs/KooMainWindow.py:198
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:241
+#: Koo/Dialogs/KooMainWindow.py:240
 msgid "Products"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:241
+#: Koo/Dialogs/KooMainWindow.py:240
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:370
+#: Koo/Dialogs/KooMainWindow.py:369
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:372
+#: Koo/Dialogs/KooMainWindow.py:371
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:374
+#: Koo/Dialogs/KooMainWindow.py:373
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:381
+#: Koo/Dialogs/KooMainWindow.py:380
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:381
+#: Koo/Dialogs/KooMainWindow.py:380
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:446 Koo/Dialogs/KooMainWindow.py:448
+#: Koo/Dialogs/KooMainWindow.py:436 Koo/Dialogs/KooMainWindow.py:438
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:446
+#: Koo/Dialogs/KooMainWindow.py:436
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:448
+#: Koo/Dialogs/KooMainWindow.py:438
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:453 Koo/Dialogs/KooMainWindow.py:455
+#: Koo/Dialogs/KooMainWindow.py:443 Koo/Dialogs/KooMainWindow.py:445
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:455
+#: Koo/Dialogs/KooMainWindow.py:445
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:471
+#: Koo/Dialogs/KooMainWindow.py:461
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:565
+#: Koo/Dialogs/KooMainWindow.py:555
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:565
+#: Koo/Dialogs/KooMainWindow.py:555
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:601
+#: Koo/Dialogs/KooMainWindow.py:591
 msgid "Quit"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:601
+#: Koo/Dialogs/KooMainWindow.py:591
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:635
+#: Koo/Dialogs/KooMainWindow.py:625
 msgid "Wizard"
 msgstr ""
 
@@ -550,7 +550,7 @@ msgid "Search: %s (%%d result(s))"
 msgstr ""
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "NET-RPC (faster)"
+msgid "NET-RPC"
 msgstr ""
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:67
@@ -562,7 +562,7 @@ msgid "Secure XML-RPC"
 msgstr ""
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:69
-msgid "Pyro"
+msgid "Pyro (faster)"
 msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:48
@@ -688,19 +688,19 @@ msgstr ""
 msgid "Ranking"
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+#: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Validation Error"
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+#: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Confirmation password does not match new password."
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+#: Koo/Dialogs/AdministratorPasswordDialog.py:66
 msgid "Password changed successfully"
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:67
+#: Koo/Dialogs/AdministratorPasswordDialog.py:69
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
@@ -844,21 +844,21 @@ msgid ""
 "We suggest you to drop this database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:177
+#: Koo/Dialogs/DatabaseCreationDialog.py:178
 msgid "Bad database name !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:177
+#: Koo/Dialogs/DatabaseCreationDialog.py:178
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:180
+#: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Wrong password"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:180
+#: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Administrator passwords differ."
 msgstr ""
 
@@ -934,12 +934,12 @@ msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:81
 #: Koo/Fields/Link/LinkFieldWidget.py:62
-#: Koo/Fields/Binary/BinaryFieldWidget.py:174
+#: Koo/Fields/Binary/BinaryFieldWidget.py:173
 msgid "Open..."
 msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:109
-#: Koo/Fields/Binary/BinaryFieldWidget.py:209
+#: Koo/Fields/Binary/BinaryFieldWidget.py:208
 msgid "Image"
 msgstr ""
 
@@ -991,50 +991,50 @@ msgstr ""
 msgid "Files (%s)"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:87
+#: Koo/Fields/Binary/BinaryFieldWidget.py:86
 msgid "&New"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:91
+#: Koo/Fields/Binary/BinaryFieldWidget.py:90
 msgid "&Scan"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:102
+#: Koo/Fields/Binary/BinaryFieldWidget.py:101
 msgid "&Save"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:105
+#: Koo/Fields/Binary/BinaryFieldWidget.py:104
 msgid "&Open"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:108
+#: Koo/Fields/Binary/BinaryFieldWidget.py:107
 msgid "Show &image"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:175
+#: Koo/Fields/Binary/BinaryFieldWidget.py:174
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:219
+#: Koo/Fields/Binary/BinaryFieldWidget.py:218
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:230
+#: Koo/Fields/Binary/BinaryFieldWidget.py:229
 #, python-format
 msgid ""
 "Error reading the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:264
+#: Koo/Fields/Binary/BinaryFieldWidget.py:263
 #, python-format
 msgid ""
 "Error writing the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:218
+#: Koo/Fields/OneToMany/OneToMany.py:219
 msgid "No record selected"
 msgstr ""
 
