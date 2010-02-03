@@ -290,6 +290,10 @@ class Screen(QScrollArea):
 		try:
 			value = self.searchForm.value()
 			self.group.setFilter( value )
+			# We setCurrentRecord( None ) first because self.group.update()
+			# can emit some events that can be used to query the currentRecord().
+			# Previous record may not exist and cause an exception.
+			self.setCurrentRecord( None )
 			self.group.update()
 			if self.group.count() > 0:
 				self.setCurrentRecord( self.group.recordByIndex( 0 ) )
