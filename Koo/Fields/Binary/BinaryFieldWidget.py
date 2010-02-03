@@ -38,11 +38,11 @@ from Koo.Common import Common
 from Koo.Common import Semantic
 from Koo.Common import Numeric
 
-#try:
-from NanScan.ScanDialog import ScanDialog, AbstractImageSaverFactory, AbstractImageSaver
-isNanScanAvailable = True
-#except:
-	#isNanScanAvailable = False
+try:
+	from NanScan.ScanDialog import ScanDialog, AbstractImageSaverFactory, AbstractImageSaver
+	isNanScanAvailable = True
+except:
+	isNanScanAvailable = False
 
 if isNanScanAvailable:
 	class BinaryImageSaverFactory(AbstractImageSaverFactory):
@@ -80,7 +80,6 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		self.fileNameField = attrs.get('filename')
 		self.baseDirectory = unicode( QDir.homePath() )
 
-		#self.connect( self.pushNew, SIGNAL('clicked()'), self.new )
 		self.connect( self.pushRemove, SIGNAL('clicked()'),self.remove )
 
 		self.actionNew = QAction(self)
