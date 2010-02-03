@@ -63,24 +63,33 @@ class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 		ServerConfigurationDialogUi.__init__(self)
 		self.setupUi(self)
 
-		self.uiConnection.addItem( _("NET-RPC (faster)"), QVariant( 'socket://' ) )
-		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http://' ) )
-		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https://' ) )
-		self.uiConnection.addItem( _("Pyro"), QVariant( 'PYROLOC://' ) )
+		self.uiConnection.addItem( _("NET-RPC"), QVariant( 'socket' ) )
+		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http' ) )
+		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https' ) )
+		self.uiConnection.addItem( _("Pyro (faster)"), QVariant( 'PYROLOC' ) )
 		result = False
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.reject )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
 
-	def setDefault( self, url ):
+	def setUrl( self, url ):
 		self.url = url
-		m = re.match('^(http[s]?://|socket://|PYROLOC://)([\w.\-]+):(\d{1,5})$', url )
-		if m:
-			self.uiConnection.setCurrentIndex( self.uiConnection.findData( QVariant( m.group(1) ) ) )
-			self.uiServer.setText( m.group(2) )
-			self.uiPort.setText( m.group(3) )
+		url = QUrl( url )
+		if url.isValid():
+			self.uiConnection.setCurrentIndex( self.uiConnection.findData( QVariant( url.scheme() ) ) )
+			self.uiServer.setText( url.host() )
+			self.uiPort.setText( unicode( url.port() ) )
 
 	def slotAccept(self):
+		url = QUrl( self.url )
 		protocol = unicode( self.uiConnection.itemData( self.uiConnection.currentIndex() ).toString() )
-		self.url = '%s%s:%s' % (protocol, self.uiServer.text(), self.uiPort.text())
+		url.setScheme( protocol )
+		url.setHost( self.uiServer.text() )
+		url.setPort( int( self.uiPort.text().toInt()[0] ) )
+		if url.isValid():
+			# Store default settings
+			Settings.setValue('login.url', unicode( url.toString() ) )
+			Settings.saveToFile()
+		url.setUserName( '' )
+		self.url = unicode( url.toString() )
 		self.accept()
 

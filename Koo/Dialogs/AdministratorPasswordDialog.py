@@ -43,8 +43,10 @@ class AdministratorPasswordDialog( QDialog, AdministratorPasswordDialogUi ):
 		self.connect( self.pushChange, SIGNAL('clicked()'), self.slotChange )	
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
 		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
-		url = '%s%s:%s' % (Settings.value('login.protocol'), Settings.value('login.server'), Settings.value('login.port'))
-		self.uiServer.setText(url)
+
+		url = QUrl( Settings.value( 'login.url' ) )
+		url.setUserName( '' )
+		self.uiServer.setText( url.toString() )
 
 	def slotChange(self):
 		dialog = ServerConfigurationDialog( self )

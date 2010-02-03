@@ -47,7 +47,6 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import * 
 
-from ServerConfigurationDialog import *
 from LoginDialog import * 
 from AdministratorPasswordDialog import *
 
@@ -385,10 +384,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			return ([], [])
 
 	def showLoginDialog(self):
-		LoginDialog.defaultHost = Settings.value('login.server')
-		LoginDialog.defaultPort = Settings.value('login.port')
-		LoginDialog.defaultProtocol = Settings.value('login.protocol')
-		LoginDialog.defaultUserName = Settings.value('login.login')
 		dialog = LoginDialog( self )
 		while dialog.exec_() == QDialog.Accepted:
 			self.login( dialog.url, dialog.databaseName )
@@ -427,11 +422,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				# Start timer once settings have been loaded because
 				# the request interval can be configured
 				self.startRequestsTimer()
-				# Remove password and store URL
-				url.setPassword( '' )
-				Settings.setValue('login.url', unicode( url.toString() ) )
-				Settings.setValue('login.db', databaseName )
-				Settings.saveToFile()
 
 			        self.openMenuTab()
 				self.openHomeTab()

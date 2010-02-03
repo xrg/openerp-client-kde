@@ -61,11 +61,6 @@ def parseArguments(args):
 		Settings.setValue( 'login.url', opt.url )
 	if Settings.value( 'login.url' ):
 		url = QUrl( Settings.value('login.url' ) )
-		if url.isValid():
-			Settings.setValue('login.server', unicode( url.host() ) )
-			Settings.setValue('login.port', unicode( url.port() ) )
-			Settings.setValue('login.protocol', '%s://' % url.scheme() )
-			Settings.setValue('login.login', unicode( url.userName() ) )
 	Settings.setValue( 'stylesheet', opt.stylesheet )
 	Settings.setValue( 'pos_mode', opt.pos_mode )
 	Settings.setValue( 'enter_as_tab', opt.enter_as_tab )

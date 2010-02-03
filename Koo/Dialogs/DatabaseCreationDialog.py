@@ -128,8 +128,9 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.accepted )
 		self.connect(self.pushChange,SIGNAL("clicked()"),self.changeServer )
 
-		url = '%s%s:%s' % (Settings.value('login.protocol'), Settings.value('login.server'), Settings.value('login.port'))
-		self.uiServer.setText(url)
+		url = QUrl( Settings.value('login.url' ) )
+		url.setUserName( '' )
+		self.uiServer.setText( url.toString() )
 		self.refreshLangList(url) 
 	
 	def refreshLangList(self, url):
@@ -206,7 +207,7 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 
 	def changeServer(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
-		dialog.setDefault( str( self.uiServer.text() ) )
+		dialog.setUrl( Settings.value( 'login.url' ) )
 		ret = dialog.exec_()
 		if ret == QDialog.Accepted:
 			url = dialog.url

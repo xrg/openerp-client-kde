@@ -55,11 +55,9 @@ class DatabaseDialog( QDialog, DatabaseDialogUi ):
 			self.uiDatabaseSelector.setVisible( False )
 			self.uiDatabaseLabel.setBuddy( self.uiDatabaseEditor )
 
-		host = Settings.value('login.server')
-		port = Settings.value('login.port')
-		protocol = Settings.value('login.protocol')
-		url = '%s%s:%s' % (protocol, host, port)
-		self.uiServer.setText( url )
+		url = QUrl( Settings.value('login.url') )
+		url.setUserName( '' )
+		self.uiServer.setText( url.toString() )
 
 		self.uiTitle.setText( title )
 		self.setModal( True )
@@ -101,7 +99,7 @@ class DatabaseDialog( QDialog, DatabaseDialogUi ):
 		
 	def slotChange(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog(self)
-		dialog.setDefault( str( self.uiServer.text() ) )
+		dialog.setUrl( Settings.value( 'login.url' ) )
 		if dialog.exec_() == QDialog.Accepted:
 			self.uiServer.setText( dialog.url )
 			self.refreshList()

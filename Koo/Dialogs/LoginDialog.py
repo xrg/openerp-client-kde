@@ -57,12 +57,13 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		self.pushRestoreDatabase.hide()
 		self.uiTextDatabase.hide()
 		self.databaseName = ''
-		self.init()
+
+		QTimer.singleShot( 0, self.initGui )
 	
 	def setDatabaseName( self, name ):
 		self.databaseName = name
 
-	def init(self):
+	def initGui(self):
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.slotCancel )
 		self.connect( self.pushAccept, SIGNAL("clicked()"), self.slotAccept )
 		self.connect( self.pushChange, SIGNAL("clicked()"), self.slotChange )
@@ -71,12 +72,11 @@ class LoginDialog( QDialog, LoginDialogUi ):
 
 		uid = 0
 		self.uiNoConnection.hide()
-		host = LoginDialog.defaultHost
-		port = LoginDialog.defaultPort
-		protocol = LoginDialog.defaultProtocol
-		url = '%s%s:%s' % (protocol, host, port)
-		self.uiServer.setText( url )
-		self.uiUserName.setText( LoginDialog.defaultUserName )
+
+		url = QUrl( Settings.value( 'login.url' ) )
+		self.uiUserName.setText( url.userName() )
+		url.setUserName( '' )
+		self.uiServer.setText( url.toString() )
 		res = self.refreshList()
 
 	def refreshList(self):
@@ -112,7 +112,7 @@ class LoginDialog( QDialog, LoginDialogUi ):
 
 	def slotChange(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
-		dialog.setDefault( str( self.uiServer.text() ) )
+		dialog.setUrl( Settings.value( 'login.url' ) )
 		dialog.exec_()
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.uiServer.setText( dialog.url )
@@ -129,6 +129,10 @@ class LoginDialog( QDialog, LoginDialogUi ):
 				self.databaseName = unicode( self.uiDatabase.currentText() )
 			else:
 				self.databaseName = unicode( self.uiTextDatabase.text() )
+			m.setPassword( '' )
+			Settings.setValue( 'login.url', unicode( m.toString() ) )
+			Settings.setValue( 'login.db', self.databaseName )
+			Settings.saveToFile()
 			self.accept()
 		else:
 			self.reject()
