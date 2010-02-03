@@ -511,6 +511,20 @@ class Record(QObject):
 		response = getattr(self.rpc, func_name)(ids, *args)
 		if response:
 			self.set(response.get('value', {}), modified=True)
+			if 'value_def' in response:
+				is_updated = False
+				for fieldname, val in response['value_def'].items():
+					if fieldname not in self.group.fieldObjects:
+						continue
+					if not self.group.fieldObjects[fieldname].get(self):
+						self.group.fieldObjects[fieldname].set(self, val, modified=True)
+						is_updated = True
+                
+				if is_updated:
+					self.modified = True
+					self.emit(SIGNAL('recordChanged( PyQt_PyObject )'), self)
+					self.emit(SIGNAL('recordModified( PyQt_PyObject )'), self)
+				
 			if 'domain' in response:
 				for fieldname, value in response['domain'].items():
 					if fieldname not in self.group.fieldObjects:
