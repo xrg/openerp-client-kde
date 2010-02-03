@@ -1587,52 +1587,52 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="115"/>
+        <location filename="login.ui" line="112"/>
         <source>&amp;Database:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="102"/>
+        <location filename="login.ui" line="99"/>
         <source>C&amp;hange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="74"/>
+        <location filename="login.ui" line="71"/>
         <source>&amp;Server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="180"/>
+        <location filename="login.ui" line="177"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="225"/>
+        <location filename="login.ui" line="222"/>
         <source>&amp;Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="251"/>
+        <location filename="login.ui" line="248"/>
         <source>&amp;User:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="287"/>
+        <location filename="login.ui" line="284"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="301"/>
+        <location filename="login.ui" line="298"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="136"/>
+        <location filename="login.ui" line="133"/>
         <source>Create &amp;Database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="147"/>
+        <location filename="login.ui" line="144"/>
         <source>&amp;Restore Database</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2461,27 +2461,27 @@ this operation may take a while...</source>
 <context>
     <name>TipsDialog</name>
     <message>
-        <location filename="tip.ui" line="13"/>
+        <location filename="tip.ui" line="20"/>
         <source>Tip of the Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="51"/>
+        <location filename="tip.ui" line="96"/>
         <source>&amp;Display a new tip next time ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="77"/>
+        <location filename="tip.ui" line="122"/>
         <source>&amp;Previous Tip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="87"/>
+        <location filename="tip.ui" line="133"/>
         <source>&amp;Next Tip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="112"/>
+        <location filename="tip.ui" line="159"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>

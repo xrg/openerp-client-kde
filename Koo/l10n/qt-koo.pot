@@ -80,7 +80,7 @@ msgid "&Clear"
 msgstr ""
 
 #. ts-context TipsDialog
-#: tip.ui:112
+#: tip.ui:159
 #, fuzzy
 msgid "&Close"
 msgstr ""
@@ -110,7 +110,7 @@ msgid "&Database"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:115
+#: login.ui:112
 #, fuzzy
 msgid "&Database:"
 msgstr ""
@@ -146,7 +146,7 @@ msgid "&Disconnect"
 msgstr ""
 
 #. ts-context TipsDialog
-#: tip.ui:51
+#: tip.ui:96
 #, fuzzy
 msgid "&Display a new tip next time ?"
 msgstr ""
@@ -272,7 +272,7 @@ msgid "&New"
 msgstr ""
 
 #. ts-context TipsDialog
-#: tip.ui:87
+#: tip.ui:133
 #, fuzzy
 msgid "&Next Tip"
 msgstr ""
@@ -314,7 +314,7 @@ msgid "&OpenERP"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:225
+#: login.ui:222
 #, fuzzy
 msgid "&Password:"
 msgstr ""
@@ -338,7 +338,7 @@ msgid "&Preferences"
 msgstr ""
 
 #. ts-context TipsDialog
-#: tip.ui:77
+#: tip.ui:122
 #, fuzzy
 msgid "&Previous Tip"
 msgstr ""
@@ -380,7 +380,7 @@ msgid "&Reports"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:147
+#: login.ui:144
 #, fuzzy
 msgid "&Restore Database"
 msgstr ""
@@ -416,7 +416,7 @@ msgid "&Send Request"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:74
+#: login.ui:71
 #, fuzzy
 msgid "&Server:"
 msgstr ""
@@ -446,7 +446,7 @@ msgid "&User"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:251
+#: login.ui:248
 #, fuzzy
 msgid "&User:"
 msgstr ""
@@ -958,7 +958,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:180
+#: login.ui:177
 #, fuzzy
 msgid "<b>Could not connect to server !</b>"
 msgstr ""
@@ -1143,7 +1143,7 @@ msgid "C"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:102
+#: login.ui:99
 #, fuzzy
 msgid "C&hange"
 msgstr ""
@@ -1253,7 +1253,7 @@ msgid "Copy selected text"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:136
+#: login.ui:133
 #, fuzzy
 msgid "Create &Database"
 msgstr ""
@@ -2191,7 +2191,7 @@ msgid "Time:"
 msgstr ""
 
 #. ts-context TipsDialog
-#: tip.ui:13
+#: tip.ui:20
 #, fuzzy
 msgid "Tip of the Day"
 msgstr ""
