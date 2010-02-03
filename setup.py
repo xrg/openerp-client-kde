@@ -67,7 +67,6 @@ def data_files():
 		(opj('share','man','man1',''),[ opj('man','koo.1')]),
 		(opj('share', 'doc', 'koo', 'manual' ), [f for f in glob.glob(opj('doc','html','*')) if os.path.isfile(f)]),
 		(opj('share', 'doc', 'koo', 'api' ), [f for f in glob.glob(opj('doc','doxygen','html','*')) if os.path.isfile(f)]),
-		(opj('share', 'Koo'), [ opj('Koo','kootips.txt')]),
 		(opj('share', 'Koo', 'ui'), glob.glob( opj('Koo','ui','*.ui') ) ),
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) ),
 		(opj('share', 'Koo', 'ui'), [ opj('nsis','koo-icon.png') ] ),
