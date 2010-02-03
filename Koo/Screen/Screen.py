@@ -354,6 +354,11 @@ class Screen(QScrollArea):
 		# will be no currentRecord. TreeView then will set the appropiate order by loading settings from 
 		# the server through restoreViewSettings, and KooModel will load data on demand.
 		if self._currentRecordPosition >= 0 and self.group.count():
+			# In some cases self._currentRecordPosition might point to a position
+			# beyond group size. In this case ensure current record is set to None.
+			if self._currentRecordPosition >= self.group.count():
+				self.setCurrentRecord( None )
+				return None
 			# Use modelByIndex because this ensures all missing fields of the model
 			# are loaded. For example, the model could have been loaded in tree view
 			# but now might need more fields for form view.

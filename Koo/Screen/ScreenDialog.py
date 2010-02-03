@@ -34,7 +34,7 @@ from Koo.Common import Common
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
 
-(ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
+(ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('screen_dialog.ui') ) 
 
 class ScreenDialog( QDialog, ScreenDialogUi ):
 	def __init__(self, parent):

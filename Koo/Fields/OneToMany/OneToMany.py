@@ -37,12 +37,12 @@ from Koo.Common import Common
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
 
-(ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('dia_form_win_many2one.ui') ) 
+(OneToManyDialogUi, OneToManyDialogBase) = loadUiType( Common.uiPath('one2many_dialog.ui') ) 
 
-class ScreenDialog( QDialog, ScreenDialogUi ):
+class OneToManyDialog( QDialog, OneToManyDialogUi ):
 	def __init__(self, modelGroup, parent, record=None, attrs=None, creationContext=None):
 		QDialog.__init__( self, parent )
-		ScreenDialogUi.__init__( self )
+		OneToManyDialogUi.__init__( self )
 		self.setupUi( self )
 
 		if attrs is None:
@@ -79,6 +79,13 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		self.connect( self.pushOk, SIGNAL("clicked()"), self.accepted )
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.rejected )
 		self.connect( self, SIGNAL('reject()'), self.cleanup )
+		self.connect( self.pushPrevious, SIGNAL('clicked()'), self.previous )
+		self.connect( self.pushNext, SIGNAL('clicked()'), self.next )
+
+		if not self._recordAdded:
+			# If the user is modifying an existing record, he won't be
+			# able to cancel changes so we better hide the Cancel button
+			self.pushCancel.hide()
 		
 		# Make screen as big as needed but ensuring it's not bigger than
 		# the available space on screen (minus some pixels so they can be
@@ -88,6 +95,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		available -= QSize( 180, 180 )
 		self.screen.setMinimumSize( size.boundedTo( available ) )
 
+		self.updatePosition()
 		self.show()
 
 	def setReadOnly(self, value):
@@ -108,12 +116,28 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		if self._recordAdded:
 			self.screen.currentView().store()
 			self.screen.new(context=self.creationContext)
+			self.updatePosition()
 		else:
 			self.screen.currentView().store()
 			# Ensure there's no current record so a signal in modelGroup doesn't 
 			# trigger a updateDisplay in this screen object.
 			self.screen.setCurrentRecord( None )
 			self.accept()
+
+	def updatePosition( self ):
+		position = self.screen.group.indexOfRecord( self.screen.currentRecord() ) + 1
+		total = self.screen.group.count()
+		self.uiPosition.setText( '(%s/%s)' % (position, total) )
+
+	def previous( self ):
+		self.screen.currentView().store()
+		self.screen.displayPrevious()
+		self.updatePosition()
+
+	def next( self ):
+		self.screen.currentView().store()
+		self.screen.displayNext()
+		self.updatePosition()
 
 (OneToManyFieldWidgetUi, OneToManyFieldWidgetBase ) = loadUiType( Common.uiPath('one2many.ui') ) 
 
@@ -209,7 +233,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
                 if ( not self.screen.currentView().showsMultipleRecords() ) or not self.screen.currentView().isReadOnly():
 			self.screen.new(context=ctx)
 		else:
-			dialog = ScreenDialog(self.screen.group, parent=self, attrs=self.attrs, creationContext=ctx)
+			dialog = OneToManyDialog(self.screen.group, parent=self, attrs=self.attrs, creationContext=ctx)
 			dialog.exec_()
 			self.screen.display()
 
@@ -217,7 +241,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		if not self.screen.currentRecord():
 			QMessageBox.information(self, _('Information'), _('No record selected'))
 			return
-		dialog = ScreenDialog( self.screen.group, parent=self, record=self.screen.currentRecord(), attrs=self.attrs)
+		dialog = OneToManyDialog( self.screen.group, parent=self, record=self.screen.currentRecord(), attrs=self.attrs)
 		dialog.setReadOnly( self.isReadOnly() )
 		dialog.exec_()
 		self.screen.display()
