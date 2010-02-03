@@ -83,7 +83,7 @@ class SearchDialog( QDialog, SearchDialogUi ):
 		self.model = model
 
 		view_form = Rpc.session.execute('/object', 'execute', self.model, 'fields_view_get', False, 'form', self.context)
-		self.form.setup( view_form['arch'], view_form['fields'], model )
+		self.form.setup( view_form['arch'], view_form['fields'], model, domain )
 		self.form.hideButtons()
 		self.connect( self.form, SIGNAL('keyDownPressed()'), self.setFocusToList )
 
