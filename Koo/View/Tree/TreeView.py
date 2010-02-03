@@ -173,6 +173,7 @@ class TreeView( AbstractView ):
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
 
 		self.currentIndex = None
+		self.currentRecord = None
 
 		layout = QVBoxLayout()
 		layout.setContentsMargins(0, 0, 0, 0)
@@ -194,6 +195,7 @@ class TreeView( AbstractView ):
 
 	def setModel( self, model ):
 		self.currentIndex = None
+		self.currentRecord = None
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
 		self.connect( self.widget.selectionModel(),SIGNAL('currentChanged(QModelIndex, QModelIndex)'),self.currentChanged)
@@ -262,9 +264,10 @@ class TreeView( AbstractView ):
 		if self.currentIndex == current:
 			return
 		self.currentIndex = current
+		self.currentRecord = self.treeModel.recordFromIndex( current )
 		# We send the current record. Previously we sent only the id of the model, but
 		# new models have id=None
-		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.treeModel.recordFromIndex(current) )
+		self.emit( SIGNAL("currentChanged(PyQt_PyObject)"), self.currentRecord )
 		self.updateAggregates()
 
 	def store(self):
@@ -279,8 +282,10 @@ class TreeView( AbstractView ):
 	def reset(self):
 		pass
 
-	def setSelected(self, model):
-		idx = self.treeModel.indexFromId(model)
+	def setSelected(self, id):
+		if self.currentRecord and self.currentRecord.id == id:
+			return
+		idx = self.treeModel.indexFromId(id)
 		if idx != None:
 			self.selecting = True
 			self.widget.selectionModel().setCurrentIndex( idx, QItemSelectionModel.ClearAndSelect | QItemSelectionModel.Rows)
