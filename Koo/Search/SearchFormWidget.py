@@ -168,7 +168,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	#
 	# Needed fields include XML view (usually 'form'), fields dictionary with information
 	# such as names and types, and the model parameter.
-	def setup(self, xml, fields, model):
+	def setup(self, xml, fields, model, domain):
 		# We allow one setup call only
 		if self._loaded:
 			return 
@@ -184,6 +184,10 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.widgets = parser.parse(xml)
 		for widget in self.widgets.values():
 			self.connect( widget, SIGNAL('keyDownPressed()'), self, SIGNAL('keyDownPressed()') )
+
+		for x in domain:
+			if len(x) >= 2 and x[0] in self.widgets and x[1] == '=':
+				self.widgets[ x[0] ].setEnabled( False )
 
 		# Don't show expander button unless there are widgets in the
 		# second row

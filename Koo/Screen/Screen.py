@@ -213,7 +213,7 @@ class Screen(QScrollArea):
 		if self.currentView().showsMultipleRecords() and not self._embedded: 
 			if not self.searchForm.isLoaded():
 				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
-				self.searchForm.setup( form['arch'], form['fields'], self.resource )
+				self.searchForm.setup( form['arch'], form['fields'], self.resource, self.group.domain() )
 
 			if self.searchForm.isEmpty():
 				self.searchForm.hide()
