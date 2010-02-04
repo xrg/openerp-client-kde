@@ -76,7 +76,8 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
                 record = self.screen.currentRecord()
 		fields = []
                 if record.isModified():
-			for field in record.modifiedFields():
+			values = record.get(get_readonly=False, get_modifiedonly=True)
+			for field in values:
 				attrs = record.fields()[ field ].attrs
 				if 'string' in attrs:
 					name = attrs['string']
@@ -87,14 +88,14 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 			fields.sort()
 			fields = '<ul>%s</ul>' % ''.join( fields )
 
-		if fields:
-			answer = QMessageBox.question( self, _('Confirmation'), 
-				_('<p>This process will update the following fields in %(number)d records:</p>%(records)s<p>Do you want to continue?</p>') % { 
-				'number': len(self.ids), 
-				'records': fields 
-				}, _("Yes"), _("No") )
-			if answer == 1:
-				return
-                        Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, values, self.context)
+			if fields:
+				answer = QMessageBox.question( self, _('Confirmation'), 
+					_('<p>This process will update the following fields in %(number)d records:</p>%(records)s<p>Do you want to continue?</p>') % { 
+					'number': len(self.ids), 
+					'records': fields 
+					}, _("Yes"), _("No") )
+				if answer == 1:
+					return
+				Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, values, self.context)
 		self.accept()
 
