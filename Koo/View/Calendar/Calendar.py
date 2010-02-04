@@ -299,12 +299,47 @@ class GraphicsCalendarItem( QGraphicsItemGroup ):
 		for x in self._days.values():
 			x.clear()
 
+		#
+		# Filter the records, so only those in the current* month/week/day
+		#   are processed (just the ones that will be shown).
+		#
+		# (*) We use a hack, to get events that span from the previous
+		#   month, so we really are processing one month more than the
+		#   days shown :(
+		#
+		startField = self._model.field(self._modelDateColumn)
+		durationField =  self._model.field(self._modelDurationColumn)
+		if startField == durationField:
+			startDate = Calendar.dateToStorage( self.startDate() )
+		else:
+			# TODO: Based on web client hack to get spanded events.
+			#	A better solution should be used someday...
+			startDate = Calendar.dateToStorage( self.startDate().addMonths(-1) )
+		endDate = Calendar.dateToStorage( self.endDate() )
+
+		oldFilter = self._model.group.filter() or []
+		newFilter = []
+		# Ignore any (start_field, ..., ...) item from the filter.
+		for x in oldFilter:
+			if x[0] != startField:
+				newFilter.append(x)
+		# Add the start field restrictions to the new filter
+		newFilter.extend([
+			(startField, '>=', startDate),
+			(startField, '<=', endDate),
+		])
+		self._model.group.setFilter(newFilter)
+
+		# Get the data
 		for x in range(self._model.rowCount()):
 			idx = self._model.index( x, self._modelDateColumn )
 			date = Calendar.dateToText( self.dateTimeFromIndex( idx ).date() )
 			if date in self._days:
 				idx = self._model.index( x, self._modelTitleColumn )
 				self._days[date].addModelIndex( idx )
+
+		# Restore the old filter
+		self._model.group.setFilter(oldFilter)
 
 	def dateTimeFromIndex(self, idx):
 		data = self._model.data( idx )
