@@ -45,7 +45,7 @@ class Settings(object):
 		'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 		'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
 		'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
-		'tip.autostart': False,
+		'tip.autostart': True,
 		'tip.position': 0,
 		'print_directly': False,
 		'client.default_path': os.path.expanduser('~'),
