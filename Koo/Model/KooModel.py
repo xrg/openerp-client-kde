@@ -699,7 +699,7 @@ class KooModel(QAbstractItemModel):
 			return -1
 
 	## @brief Returns a QModelIndex pointing to the first field of a given 
-	# a model id
+	# record id
 	def indexFromId(self, id):
 		if not self.group:
 			return QModelIndex()
@@ -711,6 +711,16 @@ class KooModel(QAbstractItemModel):
 
 	def recordFromIndex(self, index):
 		return self.record( index.row(), index.internalPointer() )
+
+	## @brief Returns a QModelIndex pointing to the first field of a given
+	# record
+	def indexFromRecord(self, record):
+		if not self.group:
+			return QModelIndex()
+		row = self.group.indexOfRecord( record )
+		if row >= 0:
+			return self.index( row, 0 )
+		return QModelIndex()
 
 class KooGroupedModel( QAbstractProxyModel ):
 	def __getattr__(self, name):

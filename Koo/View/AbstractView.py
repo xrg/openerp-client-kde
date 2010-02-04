@@ -67,8 +67,8 @@ class AbstractView(QWidget):
 	def selectedRecords(self):
 		return []
 
-	## @brief Selects the current modelId
-	def setSelected(self, modelId):
+	## @brief Selects the current record
+	def setSelected(self, record):
 		pass
 
 	## @brief This function should return False if the view modifies data

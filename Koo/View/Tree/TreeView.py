@@ -59,7 +59,7 @@ class KooTreeView(QTreeView):
 			delegate = self.itemDelegateForColumn( column )
 			hint = 0
 			for record in records:
-				index = model.indexFromId( record.id )
+				index = model.indexFromRecord( record )
 				index = model.index( index.row(), column, index.parent() )
 				hint = max( hint, delegate.sizeHint( viewOptions, index ).width() )
 		except Rpc.RpcException, e:
@@ -282,23 +282,24 @@ class TreeView( AbstractView ):
 	def reset(self):
 		pass
 
-	def setSelected(self, id):
-		if self.currentRecord and self.currentRecord.id == id:
+	def setSelected(self, record):
+		if self.currentRecord == record:
 			return
-		idx = self.treeModel.indexFromId(id)
+		self.currentRecord = record
+		idx = self.treeModel.indexFromRecord( record )
 		if idx != None:
 			self.selecting = True
 			self.widget.selectionModel().setCurrentIndex( idx, QItemSelectionModel.ClearAndSelect | QItemSelectionModel.Rows)
 			self.selecting = False
 
-	def display(self, currentModel, models):
+	def display(self, currentRecord, recordGroup ):
 		# TODO: Avoid setting the model group each time...
-		self.treeModel.setRecordGroup( models )
+		self.treeModel.setRecordGroup( recordGroup )
 		if self._widgetType != 'tree':
 			self.treeModel.sort( 0, Qt.AscendingOrder )
 		self.updateAggregates()
-		if currentModel:
-			idx = self.treeModel.indexFromId( currentModel.id )
+		if currentRecord:
+			idx = self.treeModel.indexFromRecord( currentRecord )
 			if idx:
 				self.widget.setCurrentIndex( idx )
 				self.widget.selectionModel().select( self.widget.currentIndex(), QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )

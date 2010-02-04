@@ -397,7 +397,7 @@ class Screen(QScrollArea):
 		self.emit(SIGNAL('recordMessage(int,int,int)'), pos, count, id)
 		if self._currentRecord:
 			if self.currentView():
-				self.currentView().setSelected(self._currentRecord.id)
+				self.currentView().setSelected( self._currentRecord )
 
 	## @brief Switches the current view to the previous one. If viewType (such as 'calendar') 
 	# is given it will switch to that view type.
@@ -788,7 +788,7 @@ class Screen(QScrollArea):
 			idx = (idx+1) % self.group.count()
 			self.setCurrentRecord( self.group.modelByIndex(idx) )
 		else:
-			self.setCurrentRecord( self.group.count() and self.group.modelByIndex(0) )
+			self.setCurrentRecord( self.group.count() and self.group.modelByIndex(0) or None )
 		if self.currentRecord():
 			self.currentRecord().setValidate()
 		self.display()
@@ -804,7 +804,7 @@ class Screen(QScrollArea):
 				idx = self.group.count()-1
 			self.setCurrentRecord( self.group.modelByIndex(idx) )
 		else:
-			self.setCurrentRecord( self.group.count() and self.group.modelByIndex(-1) )
+			self.setCurrentRecord( self.group.count() and self.group.modelByIndex(-1) or None )
 
 		if self.currentRecord():
 			self.currentRecord().setValidate()
