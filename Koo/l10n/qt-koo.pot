@@ -277,14 +277,14 @@ msgstr ""
 msgid "&Next Tip"
 msgstr ""
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:573
+#. ts-context ManyToOneWidget
+#: one2many_dialog.ui:68
 #, fuzzy
 msgid "&Next"
 msgstr ""
 
 #. ts-context ManyToOneWidget
-#: dia_form_win_many2one.ui:65
+#: one2many_dialog.ui:118
 #, fuzzy
 msgid "&OK"
 msgstr ""
@@ -343,8 +343,8 @@ msgstr ""
 msgid "&Previous Tip"
 msgstr ""
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:585
+#. ts-context ManyToOneWidget
+#: one2many_dialog.ui:57
 #, fuzzy
 msgid "&Previous"
 msgstr ""
@@ -479,6 +479,12 @@ msgstr ""
 #: one2many.ui:197
 #, fuzzy
 msgid "(0/0)"
+msgstr ""
+
+#. ts-context ManyToOneWidget
+#: one2many_dialog.ui:95
+#, fuzzy
+msgid "(_/0)"
 msgstr ""
 
 #. ts-context CreateDatabaseDialog
@@ -1829,7 +1835,7 @@ msgid "Open"
 msgstr ""
 
 #. ts-context ManyToOneWidget
-#: dia_form_win_many2one.ui:14
+#: one2many_dialog.ui:14
 #, fuzzy
 msgid "OpenERP - Link"
 msgstr ""

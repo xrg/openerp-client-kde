@@ -20,7 +20,7 @@ Language-Team: LANGUAGE &lt;LL.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2010-01-07 22:36+0000
+X-Launchpad-Export-Date: 2010-02-03 12:28+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -1280,7 +1280,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToOneWidget</name>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="55"/>
+        <location filename="dia_form_win_many2one.ui" line="65"/>
         <source>&amp;OK</source>
         <translation>&amp;D&apos;acord</translation>
     </message>
@@ -1293,7 +1293,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FullTextSearchDialog</name>
     <message>
-        <location filename="full_text_search.ui" line="159"/>
+        <location filename="full_text_search.ui" line="166"/>
         <source>&amp;Open</source>
         <translation>&amp;Obre</translation>
     </message>
@@ -1718,17 +1718,17 @@ La cerca de text només busca paraules completes però retornarà paraules que c
 <context>
     <name>SearchDateWidget</name>
     <message>
-        <location filename="search_date.ui" line="76"/>
+        <location filename="search_date.ui" line="81"/>
         <source>-</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="52"/>
+        <location filename="search_date.ui" line="56"/>
         <source>Choose a date from a calendar</source>
         <translation>Escolliu una data del calendari</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="104"/>
+        <location filename="search_date.ui" line="112"/>
         <source>Choose the date from a calendar</source>
         <translation>Escolliu la data d&apos;un calendari</translation>
     </message>
@@ -2081,7 +2081,7 @@ aquesta operació pot tardar una estona...</translation>
 <context>
     <name>BinaryWidget</name>
     <message>
-        <location filename="binary.ui" line="55"/>
+        <location filename="binary.ui" line="58"/>
         <source>Save file...</source>
         <translation>Desa a un fitxer...</translation>
     </message>

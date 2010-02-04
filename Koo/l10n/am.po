@@ -7,15 +7,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-01-07 22:57+0100\n"
+"POT-Creation-Date: 2010-02-03 09:01+0100\n"
 "PO-Revision-Date: 2009-02-26 22:41+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-07 22:36+0000\n"
+"X-Launchpad-Export-Date: 2010-02-03 12:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+
+#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
+#: Koo/Dialogs/DatabaseDialog.py:131 Koo/Dialogs/DatabaseDialog.py:153
+#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/TreeWidget.py:287
+#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:218
+msgid "Information"
+msgstr ""
+
+#: Koo/Screen/Action.py:81
+msgid "You must select a record to use the relate button !"
+msgstr "ይህን ቁልፍ ለመጠቀም በቅድሚይ መዝገቡን ይምረጡ"
+
+#: Koo/Screen/Action.py:87
+msgid "You must save this record to use the relate button !"
+msgstr "ይህን መዝገብ በቅድሚያ ያስቀምጡ ይህን ቁልፍ ለመጠቀም"
+
+#: Koo/Screen/Action.py:129
+msgid "Print Screen"
+msgstr "ጠቅላላ ገጽ ማተም"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
@@ -30,26 +51,16 @@ msgstr "የሚታተም የለም"
 msgid "Printing aborted. Delay too long."
 msgstr "ሐትመቱ ተስርዟል በጣም ዘግይቷል"
 
-#: Koo/Actions/Actions.py:100 Koo/Dialogs/ImportDialog.py:63
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-#: Koo/Dialogs/DatabaseDialog.py:131 Koo/Dialogs/DatabaseDialog.py:153
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Fields/OneToMany/OneToMany.py:203
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
-msgid "Information"
-msgstr ""
-
 #: Koo/Actions/Actions.py:100
 msgid "Nothing to print!"
 msgstr "የሚታተም የለም"
 
-#: Koo/Actions/Actions.py:116 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:150
+#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/DatabaseDialog.py:150 Koo/Dialogs/ExportDialog.py:76
-#: Koo/Dialogs/ExportDialog.py:145 Koo/Dialogs/ExportDialog.py:179
-#: Koo/Fields/Binary/BinaryFieldWidget.py:178
-#: Koo/Fields/Binary/BinaryFieldWidget.py:212
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:145
+#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:230
+#: Koo/Fields/Binary/BinaryFieldWidget.py:264
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -63,33 +74,89 @@ msgstr "ሕተመቱ ተቋርጧኣል  በጣም ዘግይቷል"
 msgid "Select your action"
 msgstr "ምርጫህን ወስን"
 
-#: Koo/Common/CommandLine.py:44
-msgid "specify alternate config file"
-msgstr "ሌላ ማስተካከያ ፋይል ካለ ይብራራ"
-
-#: Koo/Common/CommandLine.py:45
-msgid "specify the server (ie. http://admin@localhost:8069)"
+#: Koo/Plugins/SearchModelData/__init__.py:37
+msgid "Search Model Data"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:46
-msgid "specify stylesheet to apply"
+#: Koo/Plugins/ViewEditor/__init__.py:38
+msgid "Edit View"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:47
-msgid "use POS (Point of Sales) mode"
+#: Koo/Plugins/Semantic/__init__.py:46
+msgid "Semantic Info"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:48
-msgid "replace enter/return keys with tab hits"
+#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+msgid "Print Workflow"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:49
-msgid "disable usage of KDE libraries if they are available"
+#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+msgid "Print Workflow (Complex)"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:50
-msgid "enable debug mode. Will show the crash dialog in all exceptions"
+#: Koo/Plugins/ViewTranslator/__init__.py:38
+msgid "Translate View"
 msgstr ""
+
+#: Koo/View/Form/__init__.py:32
+msgid "Form View"
+msgstr ""
+
+#: Koo/View/Tree/__init__.py:32
+msgid "List View"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:207
+msgid "<font color='red'>Sorting not possible.</font>"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:209
+msgid "<font color='red'>Sorting only groups.</font>"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:211
+msgid "<font color='red'>Save changes before sorting.</font>"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:235
+msgid "<a href=\"update\">Update totals</a>"
+msgstr ""
+
+#: Koo/View/DummyView.py:44
+#, python-format
+msgid "Views of type %s not available in Koo."
+msgstr ""
+
+#: Koo/View/Svg/__init__.py:33
+msgid "SVG View"
+msgstr ""
+
+#: Koo/View/Chart/Parser.py:58 Koo/View/Calendar/Parser.py:47
+msgid "Unknown"
+msgstr "ያልታወቀ"
+
+#: Koo/View/Chart/__init__.py:31
+msgid "Chart View"
+msgstr ""
+
+#: Koo/View/Calendar/__init__.py:31
+msgid "Calendar View"
+msgstr ""
+
+#: Koo/View/Calendar/Calendar.py:93
+#, python-format
+msgid ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
+"%(duration)s<br/>"
+msgstr ""
+
+#: Koo/Printer/Printer.py:75
+msgid "Report error"
+msgstr "ስህተቱን አሳውቁን"
+
+#: Koo/Printer/Printer.py:75
+msgid "There was an error trying to create the report."
+msgstr "ስህተቱን ለማሳወቅ ሙከራዎ አልተሳካም"
 
 #: Koo/Common/Common.py:178
 msgid "Concurrency warning"
@@ -148,370 +215,45 @@ msgstr "ይህ አካል 'dbus' አልተገኘም ይህን ከገጠሙ ኩ �
 msgid "DBus initialization failed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:184
-msgid "<font color=\"blue\">Document modified</font>"
+#: Koo/Common/CommandLine.py:44
+msgid "specify alternate config file"
+msgstr "ሌላ ማስተካከያ ፋይል ካለ ይብራራ"
+
+#: Koo/Common/CommandLine.py:45
+msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:242
-msgid "No resource selected !"
+#: Koo/Common/CommandLine.py:46
+msgid "specify stylesheet to apply"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:283
-msgid "You have to select one resource!"
+#: Koo/Common/CommandLine.py:47
+msgid "use POS (Point of Sales) mode"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:289 Koo/Dialogs/FullTextSearchDialog.py:429
-msgid "ID"
+#: Koo/Common/CommandLine.py:48
+msgid "replace enter/return keys with tab hits"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:290
-msgid "Creation User"
+#: Koo/Common/CommandLine.py:49
+msgid "disable usage of KDE libraries if they are available"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:291
-msgid "Creation Date"
+#: Koo/Common/CommandLine.py:50
+msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:292
-msgid "Latest Modification by"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:293
-msgid "Latest Modification Date"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:299
-msgid "Record log"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/FormWidget.py:480
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:301
+#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/MassiveUpdateDialog.py:95
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
-msgid "Question"
-msgstr "ጥያቄ"
-
-#: Koo/Dialogs/FormWidget.py:302
-msgid "Are you sure you want to remove these records?"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Fields/Button/ButtonFieldWidget.py:74
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42
 msgid "Yes"
 msgstr "አዎ"
 
-#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Fields/Button/ButtonFieldWidget.py:74
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:301
+#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/MassiveUpdateDialog.py:95
+#: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "No"
 msgstr "አይደለም"
-
-#: Koo/Dialogs/FormWidget.py:307
-msgid "Resource not removed !"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:309
-msgid "Resource removed."
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:340
-msgid "<font color=\"orange\">Working now on the duplicated document</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:350
-msgid "<font color=\"green\">Document saved</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:354
-msgid "<font color=\"red\">Invalid form</font>"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:449
-#, python-format
-msgid "(%s attachments) "
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:460
-msgid "No records"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:467
-msgid "No document selected"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:471
-msgid "New document"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:473
-#, python-format
-msgid "Editing document (id: %s)"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:474
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "This record has been modified do you want to save it?"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "Save"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "Discard"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "Cancel"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:498
-msgid "No records selected"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:48
-#, python-format
-msgid "Error opening file: %s"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:58
-#, python-format
-msgid "Error reading file: %s"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:63
-#, python-format
-msgid "Imported %d objects !"
-msgstr "አስመጣ %d እቃዎች"
-
-#: Koo/Dialogs/ImportDialog.py:68
-#, python-format
-msgid ""
-"Error trying to import this record:\n"
-"%(record)s\n"
-"Error Message:\n"
-"%(error1)s\n"
-"\n"
-"%(error2)s"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:73
-msgid "Error importing data"
-msgstr "ስህተት ዳታ በማምጥት"
-
-#: Koo/Dialogs/ImportDialog.py:130
-msgid "File to import"
-msgstr "ፋይል ለማምጣት"
-
-#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:151
-msgid "Import error"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:145
-msgid "No file specified."
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
-msgid "Separator must be a single character."
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
-msgid "Delimiter must be a single character."
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
-#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
-#: Koo/Dialogs/ImportDialog.py:228
-msgid "Auto-detect error"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:218
-msgid "Error opening .CSV file: Input Error."
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:228
-#, python-format
-msgid ""
-"Error processing your first line of the file.\n"
-"Field %s is unknown !"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "NET-RPC (faster)"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:67
-msgid "XML-RPC"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:68
-msgid "Secure XML-RPC"
-msgstr ""
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:69
-msgid "Pyro"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
-#, python-format
-msgid ""
-"<p>This process will update the following fields in %(number)d "
-"records:</p>%(records)s<p>Do you want to continue?</p>"
-msgstr ""
-
-#: Koo/Dialogs/PreferencesDialog.py:54
-msgid "User Preferences"
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
-msgid "Validation Error"
-msgstr "የማረጋገጥ ስህተት"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
-msgid "Confirmation password does not match new password."
-msgstr "የማረጋገጫው መግቢያ ቃል ከአዲሱ መግቢይ ቃል ጋር አንድ አይነት አይደለም"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-msgid "Password changed successfully"
-msgstr "የተቀየረው የመግቢያው ቃል ተሳክቷል"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:67
-msgid ""
-"Could not change administrator password. Please, check the server and "
-"password are correct."
-msgstr "የአስተዳዳሪውን መግቢያ ቃል መቀየር አልተቻለም እባክዎ የስርቨር መግቢያ ቃሉን ትክክል መሆኑን ያረጋግጡ"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:305
-msgid "Loading..."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:307
-msgid "Full Text Search"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:308
-#, python-format
-msgid "Full Text Search (%%d result(s))"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:335
-msgid "(Everywhere)"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:339
-msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:343
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:430
-msgid "Model ID"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:431
-msgid "Model Name"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:433
-msgid "Type"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:434
-msgid "Name"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:435
-msgid "Text"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:436
-msgid "Ranking"
-msgstr ""
-
-#: Koo/Dialogs/SearchDialog.py:90
-#, python-format
-msgid "Search: %s"
-msgstr ""
-
-#: Koo/Dialogs/SearchDialog.py:91
-#, python-format
-msgid "Search: %s (%%d result(s))"
-msgstr ""
-
-#: Koo/Dialogs/ImportExportCommon.py:37
-msgid "Fields"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:48
-msgid "You can now connect to the database as an administrator."
-msgstr "እንደ አስተዳዳሪ አሁን ከዳታቤዝ ጋር መገናኘት ይችላሉ"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:48
-msgid ""
-"The following users have been installed on your database:\n"
-"\n"
-msgstr ""
-"ይህ ተጠቃሚ በዳታቤዝ ውስጥ ተገጥሟል\n"
-"\n"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:84
-#: Koo/Dialogs/DatabaseCreationDialog.py:86
-msgid "Error during database creation"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:84 Koo/Dialogs/DatabaseDialog.py:167
-msgid "Bad database administrator password !"
-msgstr "የተሳሳተ ዳታቤዝ አስተዳዳሪ መግቢያ ቃል"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:86
-msgid "Could not create database."
-msgstr "ዳታቤዝ መፍጠር አልተቻለም"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:93
-msgid "Error during database creation !"
-msgstr "ስህተት ዳታቤዝን መፍጠር"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:93
-msgid ""
-"The server crashed during installation.\n"
-"We suggest you to drop this database."
-msgstr ""
-"ስርቭሩ ተጋጭቷል በመግጠም ላይ እያለ.\n"
-"ዳታቤዙን ይጣሉት ዋጋ የለውም"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:177
-msgid "Bad database name !"
-msgstr "መጥፎ የዳታቤዝ ስም"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:177
-msgid ""
-"The database name must contain only normal characters or \"_\".\n"
-"You must avoid all accents, space or special characters."
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:180
-msgid "Wrong password"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:180
-msgid "Administrator passwords differ."
-msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:75 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
@@ -550,7 +292,7 @@ msgid "Backup a database"
 msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:138
-#: Koo/Fields/Binary/BinaryFieldWidget.py:201
+#: Koo/Fields/Binary/BinaryFieldWidget.py:253
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "ማስቀመጥ እንደ"
@@ -574,6 +316,10 @@ msgstr ""
 msgid "Could not drop database."
 msgstr ""
 
+#: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseCreationDialog.py:84
+msgid "Bad database administrator password !"
+msgstr "የተሳሳተ ዳታቤዝ አስተዳዳሪ መግቢያ ቃል"
+
 #: Koo/Dialogs/DatabaseDialog.py:169 Koo/Dialogs/DatabaseDialog.py:172
 msgid "Database removal"
 msgstr ""
@@ -586,94 +332,119 @@ msgstr ""
 msgid "Database dropped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:63
-msgid "Tree"
+#: Koo/Dialogs/FormWidget.py:183
+msgid "<font color=\"blue\">Document modified</font>"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
-msgid "No resource selected!"
+#: Koo/Dialogs/FormWidget.py:241
+msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:316
-msgid "No item selected"
+#: Koo/Dialogs/FormWidget.py:282
+msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:316
-msgid "Please select an element from the tree to add a shortcut to it."
+#: Koo/Dialogs/FormWidget.py:288 Koo/Dialogs/FullTextSearchDialog.py:429
+msgid "ID"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:53
-msgid "OpenERP exported information"
+#: Koo/Dialogs/FormWidget.py:289
+msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
+#: Koo/Dialogs/FormWidget.py:290
+msgid "Creation Date"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:291
+msgid "Latest Modification by"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:292
+msgid "Latest Modification Date"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:298
+msgid "Record log"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:301 Koo/Dialogs/FormWidget.py:490
+#: Koo/Fields/Button/ButtonFieldWidget.py:74
+msgid "Question"
+msgstr "ጥያቄ"
+
+#: Koo/Dialogs/FormWidget.py:301
+msgid "Are you sure you want to remove these records?"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:306
+msgid "Resource not removed !"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:308
+msgid "Resource removed."
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:339
+msgid "<font color=\"orange\">Working now on the duplicated document</font>"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:349
+msgid "<font color=\"green\">Document saved</font>"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:353
+msgid "<font color=\"red\">Invalid form</font>"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:448
 #, python-format
-msgid "%s record(s) saved!"
+msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/FormWidget.py:459
+msgid "No records"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:466
+msgid "No document selected"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:470
+msgid "New document"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:472
+#, python-format
+msgid "Editing document (id: %s)"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:473
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:491
 #, python-format
 msgid ""
-"Operation failed !\n"
-"I/O error (%s)"
+"<p>You have modified the following fields in current record:</p>%s<p>Do you "
+"want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
-#: Koo/Dialogs/ExportDialog.py:105
-msgid "Data Export"
+#: Koo/Dialogs/FormWidget.py:492
+msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:105
-#, python-format
-msgid ""
-"Error exporting data:\n"
-"%s"
+#: Koo/Dialogs/FormWidget.py:492
+msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:145
-#, python-format
-msgid ""
-"Error opening Excel:\n"
-"%s"
+#: Koo/Dialogs/FormWidget.py:492
+msgid "Cancel"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:179
-#, python-format
-msgid ""
-"Error Opening OpenOffice.org:\n"
-"%s"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:303
-msgid "Export Data"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:346
-msgid "What is the name of this export?"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:364
-msgid "Open with OpenOffice.org"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:370
-msgid "Open with Excel"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:373
-msgid "Save as CSV"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:374
-msgid "Save as HTML"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:386
-msgid "Export name"
-msgstr ""
-
-#: Koo/Dialogs/ExportDialog.py:387
-msgid "Exported fields"
+#: Koo/Dialogs/FormWidget.py:510
+msgid "No records selected"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:472
@@ -769,56 +540,352 @@ msgstr ""
 msgid "Wizard"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:52
+#: Koo/Dialogs/SearchDialog.py:90
 #, python-format
-msgid "Files (%s)"
+msgid "Search: %s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:61
-msgid "&Save"
+#: Koo/Dialogs/SearchDialog.py:91
+#, python-format
+msgid "Search: %s (%%d result(s))"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:64
-msgid "&Open"
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "NET-RPC (faster)"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:67
-msgid "Show &image"
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
+msgid "XML-RPC"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:131
-#: Koo/Fields/Image/ImageFieldWidget.py:81
-#: Koo/Fields/Link/LinkFieldWidget.py:62
-msgid "Open..."
-msgstr "መክፈት"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:132
-msgid "Show &image..."
-msgstr "ማሳየትና ስእል"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:157
-#: Koo/Fields/Image/ImageFieldWidget.py:109
-msgid "Image"
+#: Koo/Dialogs/ServerConfigurationDialog.py:68
+msgid "Secure XML-RPC"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:167
-#: Koo/Fields/Video/VideoFieldWidget.py:72
-msgid "Select the file to attach"
-msgstr "የሚያያዘውን ፋይል ይምረጡ"
+#: Koo/Dialogs/ServerConfigurationDialog.py:69
+msgid "Pyro"
+msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Dialogs/ImportDialog.py:48
+#, python-format
+msgid "Error opening file: %s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:58
+#, python-format
+msgid "Error reading file: %s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:63
+#, python-format
+msgid "Imported %d objects !"
+msgstr "አስመጣ %d እቃዎች"
+
+#: Koo/Dialogs/ImportDialog.py:68
 #, python-format
 msgid ""
-"Error reading the file:\n"
+"Error trying to import this record:\n"
+"%(record)s\n"
+"Error Message:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:73
+msgid "Error importing data"
+msgstr "ስህተት ዳታ በማምጥት"
+
+#: Koo/Dialogs/ImportDialog.py:130
+msgid "File to import"
+msgstr "ፋይል ለማምጣት"
+
+#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
+#: Koo/Dialogs/ImportDialog.py:151
+msgid "Import error"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:145
+msgid "No file specified."
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
+msgid "Separator must be a single character."
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
+msgid "Delimiter must be a single character."
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
+#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
+#: Koo/Dialogs/ImportDialog.py:228
+msgid "Auto-detect error"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:218
+msgid "Error opening .CSV file: Input Error."
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:228
+#, python-format
+msgid ""
+"Error processing your first line of the file.\n"
+"Field %s is unknown !"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:305
+msgid "Loading..."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:307
+msgid "Full Text Search"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:308
+#, python-format
+msgid "Full Text Search (%%d result(s))"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:335
+msgid "(Everywhere)"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:339
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:343
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:430
+msgid "Model ID"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:431
+msgid "Model Name"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:433
+msgid "Type"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:434
+msgid "Name"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:435
+msgid "Text"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:436
+msgid "Ranking"
+msgstr ""
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+msgid "Validation Error"
+msgstr "የማረጋገጥ ስህተት"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+msgid "Confirmation password does not match new password."
+msgstr "የማረጋገጫው መግቢያ ቃል ከአዲሱ መግቢይ ቃል ጋር አንድ አይነት አይደለም"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+msgid "Password changed successfully"
+msgstr "የተቀየረው የመግቢያው ቃል ተሳክቷል"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:67
+msgid ""
+"Could not change administrator password. Please, check the server and "
+"password are correct."
+msgstr "የአስተዳዳሪውን መግቢያ ቃል መቀየር አልተቻለም እባክዎ የስርቨር መግቢያ ቃሉን ትክክል መሆኑን ያረጋግጡ"
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:91
+msgid "Confirmation"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:92
+#, python-format
+msgid ""
+"<p>This process will update the following fields in %(number)d "
+"records:</p>%(records)s<p>Do you want to continue?</p>"
+msgstr ""
+
+#: Koo/Dialogs/ImportExportCommon.py:37
+msgid "Fields"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:53
+msgid "OpenERP exported information"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
+#, python-format
+msgid "%s record(s) saved!"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
+#, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:105
+msgid "Data Export"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:105
+#, python-format
+msgid ""
+"Error exporting data:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:212
+#: Koo/Dialogs/ExportDialog.py:145
 #, python-format
 msgid ""
-"Error writing the file:\n"
+"Error opening Excel:\n"
 "%s"
 msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:179
+#, python-format
+msgid ""
+"Error Opening OpenOffice.org:\n"
+"%s"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:303
+msgid "Export Data"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:346
+msgid "What is the name of this export?"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:364
+msgid "Open with OpenOffice.org"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:370
+msgid "Open with Excel"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:373
+msgid "Save as CSV"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:374
+msgid "Save as HTML"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:386
+msgid "Export name"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:387
+msgid "Exported fields"
+msgstr ""
+
+#: Koo/Dialogs/TreeWidget.py:63
+msgid "Tree"
+msgstr ""
+
+#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+msgid "No resource selected!"
+msgstr ""
+
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "No item selected"
+msgstr ""
+
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr ""
+
+#: Koo/Dialogs/PreferencesDialog.py:54
+msgid "User Preferences"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
+msgid "You can now connect to the database as an administrator."
+msgstr "እንደ አስተዳዳሪ አሁን ከዳታቤዝ ጋር መገናኘት ይችላሉ"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+"ይህ ተጠቃሚ በዳታቤዝ ውስጥ ተገጥሟል\n"
+"\n"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+msgid "Error during database creation"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+msgid "Could not create database."
+msgstr "ዳታቤዝ መፍጠር አልተቻለም"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
+msgid "Error during database creation !"
+msgstr "ስህተት ዳታቤዝን መፍጠር"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+"ስርቭሩ ተጋጭቷል በመግጠም ላይ እያለ.\n"
+"ዳታቤዙን ይጣሉት ዋጋ የለውም"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:177
+msgid "Bad database name !"
+msgstr "መጥፎ የዳታቤዝ ስም"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:177
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:180
+msgid "Wrong password"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:180
+msgid "Administrator passwords differ."
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:305 Koo/Rpc/Rpc.py:422
+msgid "Connection Refused"
+msgstr "ግንኙነቱ አልተሳካም"
+
+#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
+msgid "Application Error"
+msgstr "የማመልከቻ ስህተት"
+
+#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
+msgid "View details"
+msgstr "ዝርዝሩን ማየት"
+
+#: Koo/Rpc/Rpc.py:404
+msgid "Not logged in"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:553
+msgid "Could not contact server!"
+msgstr "ስርቨሩን መገናኘት አልተቻለም"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:111
 msgid "Error in Button"
@@ -832,27 +899,54 @@ msgstr "ያልተፈቀደ ቁልፍ አይነት"
 msgid "Invalid Form, correct red fields!"
 msgstr "ዋጋ የሌለው ፎርም ሬድ ፊልድስን አርም"
 
-#: Koo/Fields/Calendar/Calendar.py:63
-msgid "Set current date"
-msgstr "የዛሬን ቀን መውሰድ"
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:123
+msgid "Operation not permited"
+msgstr "ለመክፈት ያልተፈቀደ"
 
-#: Koo/Fields/Calendar/Calendar.py:121
-msgid "Set current date and time"
-msgstr "የዛሬን ቀንና ስአት መውሰድ"
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:123
+msgid "You can not set to the default value here !"
+msgstr "ወደ መስረቱ መመለስ አይቻልም"
 
-#: Koo/Fields/Calendar/Calendar.py:163 Koo/Fields/Calendar/Calendar.py:218
-msgid "Set current time"
-msgstr "የአሁኑን ስአት መውስድ"
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:273
+msgid "Action"
+msgstr "ተግባር"
 
-#: Koo/Fields/Char/CharFieldWidget.py:75
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:274
+msgid "Report"
+msgstr "ማስታወቅ"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:120 Koo/Fields/ManyToOne/ManyToOne.py:227
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
+msgid "Search"
+msgstr ""
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:220
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
+msgid "Open"
+msgstr ""
+
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
+#: Koo/Fields/Char/CharFieldWidget.py:75
 msgid "Translation dialog"
 msgstr "የትርጉም ንግግር"
 
-#: Koo/Fields/Char/CharFieldWidget.py:75
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
+#: Koo/Fields/Char/CharFieldWidget.py:75
 msgid "You must save the resource before adding translations"
 msgstr "በቅድሚያ ማስቀመጥ ይገባል ከመተርጎም በፊት"
+
+#: Koo/Fields/Image/ImageFieldWidget.py:81
+#: Koo/Fields/Link/LinkFieldWidget.py:62
+#: Koo/Fields/Binary/BinaryFieldWidget.py:174
+msgid "Open..."
+msgstr "መክፈት"
+
+#: Koo/Fields/Image/ImageFieldWidget.py:109
+#: Koo/Fields/Binary/BinaryFieldWidget.py:209
+msgid "Image"
+msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:124
 msgid "Save image as..."
@@ -881,31 +975,77 @@ msgstr "የምስል ፋይሉን መክፈት"
 msgid "(no image)"
 msgstr ""
 
+#: Koo/Fields/AbstractFieldWidget.py:71
+msgid "Set to default value"
+msgstr "ወደ መስረቱ መመለስ"
+
+#: Koo/Fields/AbstractFieldWidget.py:77
+msgid "Set as default value"
+msgstr "እንድ መስረት ማድረግ"
+
 #: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
 msgstr "ከዚህ ፋይል ጋር የሚያያዝውን መምረጥ"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:268
-msgid "Action"
-msgstr "ተግባር"
+#: Koo/Fields/FieldPreferencesDialog.py:64
+msgid "<center>Always applicable!</center>"
+msgstr "<center>ከዚህ ጋር የተያያዝ</center>"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:269
-msgid "Report"
-msgstr "ማስታወቅ"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:99 Koo/Fields/ManyToOne/ManyToOne.py:222
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
-msgid "Search"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:78
+#, python-format
+msgid "Files (%s)"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:215
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
-msgid "Open"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:87
+msgid "&New"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:203
+#: Koo/Fields/Binary/BinaryFieldWidget.py:91
+msgid "&Scan"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:102
+msgid "&Save"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:105
+msgid "&Open"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:108
+msgid "Show &image"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:175
+msgid "Show &image..."
+msgstr "ማሳየትና ስእል"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:219
+#: Koo/Fields/Video/VideoFieldWidget.py:72
+msgid "Select the file to attach"
+msgstr "የሚያያዘውን ፋይል ይምረጡ"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:230
+#, python-format
+msgid ""
+"Error reading the file:\n"
+"%s"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:264
+#, python-format
+msgid ""
+"Error writing the file:\n"
+"%s"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:218
 msgid "No record selected"
 msgstr ""
+
+#: Koo/Fields/TranslationDialog.py:51
+msgid "Translation Dialog"
+msgstr "የትርጉም ንግግር"
 
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
@@ -915,140 +1055,14 @@ msgstr "ሰህተት ፋይሉን ማንበብ አልተቻለም"
 msgid "Error writing the file!"
 msgstr "ሰህተት ፋይሉን ለመጻፍ አልተቻለም"
 
-#: Koo/Fields/TranslationDialog.py:51
-msgid "Translation Dialog"
-msgstr "የትርጉም ንግግር"
+#: Koo/Fields/Calendar/Calendar.py:63
+msgid "Set current date"
+msgstr "የዛሬን ቀን መውሰድ"
 
-#: Koo/Fields/FieldPreferencesDialog.py:64
-msgid "<center>Always applicable!</center>"
-msgstr "<center>ከዚህ ጋር የተያያዝ</center>"
+#: Koo/Fields/Calendar/Calendar.py:121
+msgid "Set current date and time"
+msgstr "የዛሬን ቀንና ስአት መውሰድ"
 
-#: Koo/Fields/AbstractFieldWidget.py:68
-msgid "Set to default value"
-msgstr "ወደ መስረቱ መመለስ"
-
-#: Koo/Fields/AbstractFieldWidget.py:74
-msgid "Set as default value"
-msgstr "እንድ መስረት ማድረግ"
-
-#: Koo/Fields/AbstractFieldWidget.py:98
-#: Koo/Fields/AbstractFieldDelegate.py:115
-msgid "Operation not permited"
-msgstr "ለመክፈት ያልተፈቀደ"
-
-#: Koo/Fields/AbstractFieldWidget.py:98
-#: Koo/Fields/AbstractFieldDelegate.py:115
-msgid "You can not set to the default value here !"
-msgstr "ወደ መስረቱ መመለስ አይቻልም"
-
-#: Koo/Plugins/Semantic/__init__.py:46
-msgid "Semantic Info"
-msgstr ""
-
-#: Koo/Plugins/ViewEditor/__init__.py:38
-msgid "Edit View"
-msgstr ""
-
-#: Koo/Plugins/ViewTranslator/__init__.py:38
-msgid "Translate View"
-msgstr ""
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
-msgid "Print Workflow"
-msgstr ""
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
-msgid "Print Workflow (Complex)"
-msgstr ""
-
-#: Koo/Printer/Printer.py:75
-msgid "Report error"
-msgstr "ስህተቱን አሳውቁን"
-
-#: Koo/Printer/Printer.py:75
-msgid "There was an error trying to create the report."
-msgstr "ስህተቱን ለማሳወቅ ሙከራዎ አልተሳካም"
-
-#: Koo/Rpc/Rpc.py:305 Koo/Rpc/Rpc.py:422
-msgid "Connection Refused"
-msgstr "ግንኙነቱ አልተሳካም"
-
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
-msgid "Application Error"
-msgstr "የማመልከቻ ስህተት"
-
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
-msgid "View details"
-msgstr "ዝርዝሩን ማየት"
-
-#: Koo/Rpc/Rpc.py:404
-msgid "Not logged in"
-msgstr ""
-
-#: Koo/Rpc/Rpc.py:553
-msgid "Could not contact server!"
-msgstr "ስርቨሩን መገናኘት አልተቻለም"
-
-#: Koo/Screen/Action.py:81
-msgid "You must select a record to use the relate button !"
-msgstr "ይህን ቁልፍ ለመጠቀም በቅድሚይ መዝገቡን ይምረጡ"
-
-#: Koo/Screen/Action.py:87
-msgid "You must save this record to use the relate button !"
-msgstr "ይህን መዝገብ በቅድሚያ ያስቀምጡ ይህን ቁልፍ ለመጠቀም"
-
-#: Koo/Screen/Action.py:129
-msgid "Print Screen"
-msgstr "ጠቅላላ ገጽ ማተም"
-
-#: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
-msgid "Unknown"
-msgstr "ያልታወቀ"
-
-#: Koo/View/Calendar/Calendar.py:93
-#, python-format
-msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
-"%(duration)s<br/>"
-msgstr ""
-
-#: Koo/View/Calendar/__init__.py:31
-msgid "Calendar View"
-msgstr ""
-
-#: Koo/View/Chart/__init__.py:31
-msgid "Chart View"
-msgstr ""
-
-#: Koo/View/Form/__init__.py:32
-msgid "Form View"
-msgstr ""
-
-#: Koo/View/Svg/__init__.py:33
-msgid "SVG View"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:206
-msgid "<font color='red'>Sorting not possible.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:208
-msgid "<font color='red'>Sorting only groups.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:210
-msgid "<font color='red'>Save changes before sorting.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:234
-msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
-
-#: Koo/View/Tree/__init__.py:32
-msgid "List View"
-msgstr ""
-
-#: Koo/View/DummyView.py:44
-#, python-format
-msgid "Views of type %s not available in Koo."
-msgstr ""
+#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:220
+msgid "Set current time"
+msgstr "የአሁኑን ስአት መውስድ"

@@ -1658,17 +1658,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToOneWidget</name>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="14"/>
+        <location filename="one2many_dialog.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="65"/>
+        <location filename="one2many_dialog.ui" line="118"/>
         <source>&amp;OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="76"/>
+        <location filename="one2many_dialog.ui" line="129"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1690,6 +1690,21 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="many2one.ui" line="105"/>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="57"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="68"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="95"/>
+        <source>(_/0)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

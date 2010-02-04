@@ -14,13 +14,13 @@ FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
         <translation>Project-Id-Version: Koo_l10n_qt-koo-de
 Report-Msgid-Bugs-To: 
 POT-Creation-Date: 2009-07-28 00:00+0200
-PO-Revision-Date: 2009-11-17 23:25+0000
+PO-Revision-Date: 2010-01-22 19:22+0000
 Last-Translator: Ferdinand @ ChriCar &lt;Unknown&gt;
 Language-Team: Deutsch
 MIME-Version: 1.0
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2010-01-07 22:36+0000
+X-Launchpad-Export-Date: 2010-02-03 12:28+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -455,7 +455,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="270"/>
         <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
-        <translation></translation>
+        <translation>&lt;Ctrl&gt; + &lt;Alt&gt; + T</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="295"/>
@@ -679,7 +679,7 @@ X-Generator: Launchpad (build Unknown)
     <message>
         <location filename="shortcuts.ui" line="277"/>
         <source>Full Text Search current selection</source>
-        <translation></translation>
+        <translation>Volltextsuche aktuelle Auswahl</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="124"/>
@@ -1016,7 +1016,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="login.ui" line="136"/>
         <source>Create &amp;Database</source>
-        <translation></translation>
+        <translation>DAtenbank erstellen</translation>
     </message>
     <message>
         <location filename="login.ui" line="23"/>
@@ -1280,7 +1280,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToOneWidget</name>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="55"/>
+        <location filename="dia_form_win_many2one.ui" line="65"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
@@ -1293,7 +1293,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FullTextSearchDialog</name>
     <message>
-        <location filename="full_text_search.ui" line="159"/>
+        <location filename="full_text_search.ui" line="166"/>
         <source>&amp;Open</source>
         <translation>�&amp;ffnen</translation>
     </message>
@@ -1719,17 +1719,17 @@ Das System sucht nur nach vollst�ndigen W�rtern, bzw. deren Wurzeln.
 <context>
     <name>SearchDateWidget</name>
     <message>
-        <location filename="search_date.ui" line="76"/>
+        <location filename="search_date.ui" line="81"/>
         <source>-</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="52"/>
+        <location filename="search_date.ui" line="56"/>
         <source>Choose a date from a calendar</source>
         <translation>Datum vom Kalender w�hlen</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="104"/>
+        <location filename="search_date.ui" line="112"/>
         <source>Choose the date from a calendar</source>
         <translation>Datum vom Kalender w�hlen</translation>
     </message>
@@ -2179,7 +2179,7 @@ dieser Vorgang kann einige Zeit dauern</translation>
 <context>
     <name>BinaryWidget</name>
     <message>
-        <location filename="binary.ui" line="55"/>
+        <location filename="binary.ui" line="58"/>
         <source>Save file...</source>
         <translation>Datei Speichern</translation>
     </message>

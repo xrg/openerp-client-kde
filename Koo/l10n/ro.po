@@ -7,15 +7,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-01-07 22:57+0100\n"
+"POT-Creation-Date: 2010-02-03 09:01+0100\n"
 "PO-Revision-Date: 2009-10-07 06:12+0000\n"
 "Last-Translator: Cristi Nistor <cristian.marius.nistor@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-07 22:36+0000\n"
+"X-Launchpad-Export-Date: 2010-02-03 12:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
+
+#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
+#: Koo/Dialogs/DatabaseDialog.py:131 Koo/Dialogs/DatabaseDialog.py:153
+#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/TreeWidget.py:287
+#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:218
+msgid "Information"
+msgstr "Informaţii"
+
+#: Koo/Screen/Action.py:81
+msgid "You must select a record to use the relate button !"
+msgstr "Trebuie să selectaţi o înregistrare pentru a utiliza butonul!"
+
+#: Koo/Screen/Action.py:87
+msgid "You must save this record to use the relate button !"
+msgstr "Trebuie să salvaţi acestă înregistrare pentru a utiliza butonul!"
+
+#: Koo/Screen/Action.py:129
+msgid "Print Screen"
+msgstr "Tiparire ecran"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
@@ -30,26 +51,16 @@ msgstr "Nimic de tipărit."
 msgid "Printing aborted. Delay too long."
 msgstr "Tiparire intrerupta. Asteptare prea lunga."
 
-#: Koo/Actions/Actions.py:100 Koo/Dialogs/ImportDialog.py:63
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-#: Koo/Dialogs/DatabaseDialog.py:131 Koo/Dialogs/DatabaseDialog.py:153
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Fields/OneToMany/OneToMany.py:203
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
-msgid "Information"
-msgstr "Informaţii"
-
 #: Koo/Actions/Actions.py:100
 msgid "Nothing to print!"
 msgstr "Nimic de tipărit!"
 
-#: Koo/Actions/Actions.py:116 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:150
+#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/DatabaseDialog.py:150 Koo/Dialogs/ExportDialog.py:76
-#: Koo/Dialogs/ExportDialog.py:145 Koo/Dialogs/ExportDialog.py:179
-#: Koo/Fields/Binary/BinaryFieldWidget.py:178
-#: Koo/Fields/Binary/BinaryFieldWidget.py:212
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:145
+#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:230
+#: Koo/Fields/Binary/BinaryFieldWidget.py:264
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -63,33 +74,91 @@ msgstr "Tiparire intrerupta, asteptare prea lunga !"
 msgid "Select your action"
 msgstr "Selectati actiunea"
 
-#: Koo/Common/CommandLine.py:44
-msgid "specify alternate config file"
-msgstr "specificati un fisier de configurare alternativ"
-
-#: Koo/Common/CommandLine.py:45
-msgid "specify the server (ie. http://admin@localhost:8069)"
-msgstr "specificati server-ul (ex. http://admin@localhost:8069)"
-
-#: Koo/Common/CommandLine.py:46
-msgid "specify stylesheet to apply"
-msgstr "specifică foaie de stil pentru a se aplica"
-
-#: Koo/Common/CommandLine.py:47
-msgid "use POS (Point of Sales) mode"
-msgstr "utilizati modul POS"
-
-#: Koo/Common/CommandLine.py:48
-msgid "replace enter/return keys with tab hits"
+#: Koo/Plugins/SearchModelData/__init__.py:37
+msgid "Search Model Data"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:49
-msgid "disable usage of KDE libraries if they are available"
-msgstr "dezactivează folosirea bibliotecilor KDE dacă ele sunt disponibile"
-
-#: Koo/Common/CommandLine.py:50
-msgid "enable debug mode. Will show the crash dialog in all exceptions"
+#: Koo/Plugins/ViewEditor/__init__.py:38
+msgid "Edit View"
 msgstr ""
+
+#: Koo/Plugins/Semantic/__init__.py:46
+msgid "Semantic Info"
+msgstr "Info semantice"
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+msgid "Print Workflow"
+msgstr "Tiparire Workflow"
+
+#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+msgid "Print Workflow (Complex)"
+msgstr "Tiparire Workflow (Complex)"
+
+#: Koo/Plugins/ViewTranslator/__init__.py:38
+msgid "Translate View"
+msgstr "Traduce forma afisare"
+
+#: Koo/View/Form/__init__.py:32
+msgid "Form View"
+msgstr "Forma afisare"
+
+#: Koo/View/Tree/__init__.py:32
+msgid "List View"
+msgstr "Forma de afisare tip Lista"
+
+#: Koo/View/Tree/TreeView.py:207
+msgid "<font color='red'>Sorting not possible.</font>"
+msgstr "<font color='red'>Sortarea nu este posibilă.</font>"
+
+#: Koo/View/Tree/TreeView.py:209
+msgid "<font color='red'>Sorting only groups.</font>"
+msgstr "<font color='red'>Sortare doar pentru grupuri.</font>"
+
+#: Koo/View/Tree/TreeView.py:211
+msgid "<font color='red'>Save changes before sorting.</font>"
+msgstr "<font color='red'>Salvează modificările înainte de sortare.</font>"
+
+#: Koo/View/Tree/TreeView.py:235
+msgid "<a href=\"update\">Update totals</a>"
+msgstr "<a href=\"update\">Actualizare totaluri</a>"
+
+#: Koo/View/DummyView.py:44
+#, python-format
+msgid "Views of type %s not available in Koo."
+msgstr ""
+
+#: Koo/View/Svg/__init__.py:33
+msgid "SVG View"
+msgstr "Vizualizare SVG"
+
+#: Koo/View/Chart/Parser.py:58 Koo/View/Calendar/Parser.py:47
+msgid "Unknown"
+msgstr "Necunoscut"
+
+#: Koo/View/Chart/__init__.py:31
+msgid "Chart View"
+msgstr "Vizualizare Diagramă"
+
+#: Koo/View/Calendar/__init__.py:31
+msgid "Calendar View"
+msgstr "Forma afisare calendar"
+
+#: Koo/View/Calendar/Calendar.py:93
+#, python-format
+msgid ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
+"%(duration)s<br/>"
+msgstr ""
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Durata:</b> "
+"%(duration)s<br/>"
+
+#: Koo/Printer/Printer.py:75
+msgid "Report error"
+msgstr "Eroare raport"
+
+#: Koo/Printer/Printer.py:75
+msgid "There was an error trying to create the report."
+msgstr "In incercarea de a crea acest raport a aparut o eroare."
 
 #: Koo/Common/Common.py:178
 msgid "Concurrency warning"
@@ -152,393 +221,45 @@ msgstr ""
 msgid "DBus initialization failed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:184
-msgid "<font color=\"blue\">Document modified</font>"
-msgstr "<font color=\"blue\">Document modificat</font>"
+#: Koo/Common/CommandLine.py:44
+msgid "specify alternate config file"
+msgstr "specificati un fisier de configurare alternativ"
 
-#: Koo/Dialogs/FormWidget.py:242
-msgid "No resource selected !"
-msgstr "Nu ati selectat nici o resursa !"
+#: Koo/Common/CommandLine.py:45
+msgid "specify the server (ie. http://admin@localhost:8069)"
+msgstr "specificati server-ul (ex. http://admin@localhost:8069)"
 
-#: Koo/Dialogs/FormWidget.py:283
-msgid "You have to select one resource!"
-msgstr "Trebuie sa selectati o resursa !"
+#: Koo/Common/CommandLine.py:46
+msgid "specify stylesheet to apply"
+msgstr "specifică foaie de stil pentru a se aplica"
 
-#: Koo/Dialogs/FormWidget.py:289 Koo/Dialogs/FullTextSearchDialog.py:429
-msgid "ID"
-msgstr "ID"
+#: Koo/Common/CommandLine.py:47
+msgid "use POS (Point of Sales) mode"
+msgstr "utilizati modul POS"
 
-#: Koo/Dialogs/FormWidget.py:290
-msgid "Creation User"
-msgstr "Crearea de utilizatori"
+#: Koo/Common/CommandLine.py:48
+msgid "replace enter/return keys with tab hits"
+msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:291
-msgid "Creation Date"
-msgstr "Data creării"
+#: Koo/Common/CommandLine.py:49
+msgid "disable usage of KDE libraries if they are available"
+msgstr "dezactivează folosirea bibliotecilor KDE dacă ele sunt disponibile"
 
-#: Koo/Dialogs/FormWidget.py:292
-msgid "Latest Modification by"
-msgstr "Ultima modificare de"
+#: Koo/Common/CommandLine.py:50
+msgid "enable debug mode. Will show the crash dialog in all exceptions"
+msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:293
-msgid "Latest Modification Date"
-msgstr "Data ultimei modificări"
-
-#: Koo/Dialogs/FormWidget.py:299
-msgid "Record log"
-msgstr "Înregistrare jurmal"
-
-#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/FormWidget.py:480
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:301
+#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/MassiveUpdateDialog.py:95
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
-msgid "Question"
-msgstr "Întrebare"
-
-#: Koo/Dialogs/FormWidget.py:302
-msgid "Are you sure you want to remove these records?"
-msgstr "Sigur doriti sa stergeti aceste inregistrari ?"
-
-#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Fields/Button/ButtonFieldWidget.py:74
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42
 msgid "Yes"
 msgstr "Da"
 
-#: Koo/Dialogs/FormWidget.py:302 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Dialogs/KooMainWindow.py:601 Koo/Fields/Button/ButtonFieldWidget.py:74
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:301
+#: Koo/Dialogs/KooMainWindow.py:601 Koo/Dialogs/MassiveUpdateDialog.py:95
+#: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "No"
 msgstr "Nu"
-
-#: Koo/Dialogs/FormWidget.py:307
-msgid "Resource not removed !"
-msgstr "Resursa nu a fost stearsa !"
-
-#: Koo/Dialogs/FormWidget.py:309
-msgid "Resource removed."
-msgstr "Resursa stearsa."
-
-#: Koo/Dialogs/FormWidget.py:340
-msgid "<font color=\"orange\">Working now on the duplicated document</font>"
-msgstr ""
-"<font color=\"orange\">Se lucrează acum la documentul duplicat</font>"
-
-#: Koo/Dialogs/FormWidget.py:350
-msgid "<font color=\"green\">Document saved</font>"
-msgstr "<font color=\"gree\">Document salvat</font>"
-
-#: Koo/Dialogs/FormWidget.py:354
-msgid "<font color=\"red\">Invalid form</font>"
-msgstr "<font color=\"red\">Formular invalid</font>"
-
-#: Koo/Dialogs/FormWidget.py:449
-#, python-format
-msgid "(%s attachments) "
-msgstr "(%s attachments) "
-
-#: Koo/Dialogs/FormWidget.py:460
-msgid "No records"
-msgstr "Nici o inregistrare"
-
-#: Koo/Dialogs/FormWidget.py:467
-msgid "No document selected"
-msgstr "Nici un document selectat"
-
-#: Koo/Dialogs/FormWidget.py:471
-msgid "New document"
-msgstr "Document nou"
-
-#: Koo/Dialogs/FormWidget.py:473
-#, python-format
-msgid "Editing document (id: %s)"
-msgstr "Editare document (id: %s)"
-
-#: Koo/Dialogs/FormWidget.py:474
-#, python-format
-msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr "Inregistrare: %(name)s / %(count)s - %(name2)s"
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "This record has been modified do you want to save it?"
-msgstr "Aceasta inregistrare a fost modificata. Doriti sa o salvati ?"
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "Save"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "Discard"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:480
-msgid "Cancel"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:498
-msgid "No records selected"
-msgstr "Nu ati selectat nici o inregistrare"
-
-#: Koo/Dialogs/ImportDialog.py:48
-#, python-format
-msgid "Error opening file: %s"
-msgstr "Eroare la deschiderea fişierului: %s"
-
-#: Koo/Dialogs/ImportDialog.py:58
-#, python-format
-msgid "Error reading file: %s"
-msgstr "Eroare la citirea fişierului: %s"
-
-#: Koo/Dialogs/ImportDialog.py:63
-#, python-format
-msgid "Imported %d objects !"
-msgstr "%d obiecte importate!"
-
-#: Koo/Dialogs/ImportDialog.py:68
-#, python-format
-msgid ""
-"Error trying to import this record:\n"
-"%(record)s\n"
-"Error Message:\n"
-"%(error1)s\n"
-"\n"
-"%(error2)s"
-msgstr ""
-"Eroare la incercarea de import a acestei inregistrari:\n"
-"%(record)s\n"
-"Mesaj de eroare:\n"
-"%(error1)s\n"
-"\n"
-"%(error2)s"
-
-#: Koo/Dialogs/ImportDialog.py:73
-msgid "Error importing data"
-msgstr "Eroare import date"
-
-#: Koo/Dialogs/ImportDialog.py:130
-msgid "File to import"
-msgstr "Fişier de importat"
-
-#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:151
-msgid "Import error"
-msgstr "Eroare la importare"
-
-#: Koo/Dialogs/ImportDialog.py:145
-msgid "No file specified."
-msgstr "Nu ati specificat nici un fisier."
-
-#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
-msgid "Separator must be a single character."
-msgstr "Separatorul trebuie sa fie un singur caracter."
-
-#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
-msgid "Delimiter must be a single character."
-msgstr "Delimitatorul trebuie sa fie un singur caracter."
-
-#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
-#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
-#: Koo/Dialogs/ImportDialog.py:228
-msgid "Auto-detect error"
-msgstr "Auto-detectare eroare"
-
-#: Koo/Dialogs/ImportDialog.py:218
-msgid "Error opening .CSV file: Input Error."
-msgstr "Eroare la deschiderea fisierului .CSV: Eroare de intrare."
-
-#: Koo/Dialogs/ImportDialog.py:228
-#, python-format
-msgid ""
-"Error processing your first line of the file.\n"
-"Field %s is unknown !"
-msgstr ""
-"Eroare la procesarea primei linii din fisier.\n"
-"Campul %s este necunoscut !"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
-msgid "NET-RPC (faster)"
-msgstr "NET-RPC (mai rapid)"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:67
-msgid "XML-RPC"
-msgstr "XML-RPC"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:68
-msgid "Secure XML-RPC"
-msgstr "XML-RPC securizat"
-
-#: Koo/Dialogs/ServerConfigurationDialog.py:69
-msgid "Pyro"
-msgstr "Piro"
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr "Confirmare"
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
-#, python-format
-msgid ""
-"<p>This process will update the following fields in %(number)d "
-"records:</p>%(records)s<p>Do you want to continue?</p>"
-msgstr ""
-"<p>Acest proces va actualiza urmatoarele campuri in %(number)d "
-"inregistrari:</p>%(records)s<p>Doriti sa continuati?</p>"
-
-#: Koo/Dialogs/PreferencesDialog.py:54
-msgid "User Preferences"
-msgstr "Preferinte utilizator"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
-msgid "Validation Error"
-msgstr "Eroare la validare"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
-msgid "Confirmation password does not match new password."
-msgstr ""
-"Parola introdusa pentru confirmare este diferita de noua parola introdusa."
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-msgid "Password changed successfully"
-msgstr "Parola a fost schimbată cu succes"
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:67
-msgid ""
-"Could not change administrator password. Please, check the server and "
-"password are correct."
-msgstr ""
-"Parola administratorului nu poate fi modificata. Va rugam verificati daca "
-"parola si serverul sunt corecte."
-
-#: Koo/Dialogs/FullTextSearchDialog.py:305
-msgid "Loading..."
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:307
-msgid "Full Text Search"
-msgstr "Căutare Text Întreg"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:308
-#, python-format
-msgid "Full Text Search (%%d result(s))"
-msgstr "Căutare Text Întreg (%%d rezultat(e))"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:335
-msgid "(Everywhere)"
-msgstr "(peste tot)"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:339
-msgid ""
-"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
-"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
-"to be indexed and finally use <i>Update Full Text Search</i>."
-msgstr ""
-"<b>Căutare pentru text întreg nu este configurată.</b><br/>Mergi la "
-"<i>Administrare - Configurare - Căutare Text Întreg - Indecşi</i>. Apoi "
-"adaugă câmpurile ce doreşti a fi indexate şi în cele din urmă foloseşte "
-"<i>Actualizează Căutare Text Întreg</i>."
-
-#: Koo/Dialogs/FullTextSearchDialog.py:343
-msgid ""
-"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
-"Modules administration - Uninstalled Modules</i> and add the "
-"<i>full_text_search</i> module."
-msgstr ""
-"<b>Modulul de căutare text întreg nu este instalat.</b><br/>Mergi la "
-"<i>Administrare - Administrare module - Module neinstalate</i> şi adaugă "
-"modulul <i>full_text_search</i>"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:430
-msgid "Model ID"
-msgstr "Id model"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:431
-msgid "Model Name"
-msgstr "Denumire model"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:433
-msgid "Type"
-msgstr "Tip"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:434
-msgid "Name"
-msgstr "Nume"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:435
-msgid "Text"
-msgstr "Text"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:436
-msgid "Ranking"
-msgstr "Rang"
-
-#: Koo/Dialogs/SearchDialog.py:90
-#, python-format
-msgid "Search: %s"
-msgstr "Cauta: %s"
-
-#: Koo/Dialogs/SearchDialog.py:91
-#, python-format
-msgid "Search: %s (%%d result(s))"
-msgstr "Cauta: %s (%%d rezultat(e))"
-
-#: Koo/Dialogs/ImportExportCommon.py:37
-msgid "Fields"
-msgstr "Câmpuri"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:48
-msgid "You can now connect to the database as an administrator."
-msgstr "Va puteti conecta acum la baza de date ca administrator."
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:48
-msgid ""
-"The following users have been installed on your database:\n"
-"\n"
-msgstr ""
-"Urmatorii utilizatori au fost instalati in baza dvs. de date:\n"
-"\n"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:84
-#: Koo/Dialogs/DatabaseCreationDialog.py:86
-msgid "Error during database creation"
-msgstr "Eroare in timpul crearii bazei de date"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:84 Koo/Dialogs/DatabaseDialog.py:167
-msgid "Bad database administrator password !"
-msgstr "Baza de date sau parola administratorului eronata !"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:86
-msgid "Could not create database."
-msgstr "Baza de date nu poate fi creata."
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:93
-msgid "Error during database creation !"
-msgstr "Eroare în timpul crearii bazei de date"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:93
-msgid ""
-"The server crashed during installation.\n"
-"We suggest you to drop this database."
-msgstr ""
-"Serverul a generat erori pe parcursul instalarii.\n"
-"Vă sugeram sa stergeti definitiv aceasta baza de date."
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:177
-msgid "Bad database name !"
-msgstr "Nume bază de date greşit!"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:177
-msgid ""
-"The database name must contain only normal characters or \"_\".\n"
-"You must avoid all accents, space or special characters."
-msgstr ""
-"Numele bazei de date trebuie sa contina caractere obisnuite sau \"_\".\n"
-"Evitati folosirea caracterelor speciale sau a spatiilor."
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:180
-msgid "Wrong password"
-msgstr "Parola eronata"
-
-#: Koo/Dialogs/DatabaseCreationDialog.py:180
-msgid "Administrator passwords differ."
-msgstr "Parolele de Administrator diferă"
 
 #: Koo/Dialogs/DatabaseDialog.py:75 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
@@ -577,7 +298,7 @@ msgid "Backup a database"
 msgstr "Backup bază de date"
 
 #: Koo/Dialogs/DatabaseDialog.py:138
-#: Koo/Fields/Binary/BinaryFieldWidget.py:201
+#: Koo/Fields/Binary/BinaryFieldWidget.py:253
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "Salvează ca..."
@@ -603,6 +324,10 @@ msgstr "Şterge o bază de date"
 msgid "Could not drop database."
 msgstr "Nu se poate sterge definitiv baza de date."
 
+#: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseCreationDialog.py:84
+msgid "Bad database administrator password !"
+msgstr "Baza de date sau parola administratorului eronata !"
+
 #: Koo/Dialogs/DatabaseDialog.py:169 Koo/Dialogs/DatabaseDialog.py:172
 msgid "Database removal"
 msgstr "Stergere baza de date"
@@ -615,103 +340,121 @@ msgstr "Nu se poate sterge definitiv baza de date."
 msgid "Database dropped successfully!"
 msgstr "Stergerea bazei de date s-a incheiat cu succes !"
 
-#: Koo/Dialogs/TreeWidget.py:63
-msgid "Tree"
-msgstr "Arbore"
+#: Koo/Dialogs/FormWidget.py:183
+msgid "<font color=\"blue\">Document modified</font>"
+msgstr "<font color=\"blue\">Document modificat</font>"
 
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
-msgid "No resource selected!"
-msgstr "Nici o resursă selectată!"
+#: Koo/Dialogs/FormWidget.py:241
+msgid "No resource selected !"
+msgstr "Nu ati selectat nici o resursa !"
 
-#: Koo/Dialogs/TreeWidget.py:316
-msgid "No item selected"
-msgstr "Nu ati selectat nici un  element"
+#: Koo/Dialogs/FormWidget.py:282
+msgid "You have to select one resource!"
+msgstr "Trebuie sa selectati o resursa !"
 
-#: Koo/Dialogs/TreeWidget.py:316
-msgid "Please select an element from the tree to add a shortcut to it."
-msgstr "Selectati un element al arborelui pentru a-i adauga o scurtatura."
+#: Koo/Dialogs/FormWidget.py:288 Koo/Dialogs/FullTextSearchDialog.py:429
+msgid "ID"
+msgstr "ID"
 
-#: Koo/Dialogs/ExportDialog.py:53
-msgid "OpenERP exported information"
-msgstr "Informaţie exportată OpenERP"
+#: Koo/Dialogs/FormWidget.py:289
+msgid "Creation User"
+msgstr "Crearea de utilizatori"
 
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
+#: Koo/Dialogs/FormWidget.py:290
+msgid "Creation Date"
+msgstr "Data creării"
+
+#: Koo/Dialogs/FormWidget.py:291
+msgid "Latest Modification by"
+msgstr "Ultima modificare de"
+
+#: Koo/Dialogs/FormWidget.py:292
+msgid "Latest Modification Date"
+msgstr "Data ultimei modificări"
+
+#: Koo/Dialogs/FormWidget.py:298
+msgid "Record log"
+msgstr "Înregistrare jurmal"
+
+#: Koo/Dialogs/FormWidget.py:301 Koo/Dialogs/FormWidget.py:490
+#: Koo/Fields/Button/ButtonFieldWidget.py:74
+msgid "Question"
+msgstr "Întrebare"
+
+#: Koo/Dialogs/FormWidget.py:301
+msgid "Are you sure you want to remove these records?"
+msgstr "Sigur doriti sa stergeti aceste inregistrari ?"
+
+#: Koo/Dialogs/FormWidget.py:306
+msgid "Resource not removed !"
+msgstr "Resursa nu a fost stearsa !"
+
+#: Koo/Dialogs/FormWidget.py:308
+msgid "Resource removed."
+msgstr "Resursa stearsa."
+
+#: Koo/Dialogs/FormWidget.py:339
+msgid "<font color=\"orange\">Working now on the duplicated document</font>"
+msgstr ""
+"<font color=\"orange\">Se lucrează acum la documentul duplicat</font>"
+
+#: Koo/Dialogs/FormWidget.py:349
+msgid "<font color=\"green\">Document saved</font>"
+msgstr "<font color=\"gree\">Document salvat</font>"
+
+#: Koo/Dialogs/FormWidget.py:353
+msgid "<font color=\"red\">Invalid form</font>"
+msgstr "<font color=\"red\">Formular invalid</font>"
+
+#: Koo/Dialogs/FormWidget.py:448
 #, python-format
-msgid "%s record(s) saved!"
-msgstr "%s inregistrari salvate!"
+msgid "(%s attachments) "
+msgstr "(%s attachments) "
 
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/FormWidget.py:459
+msgid "No records"
+msgstr "Nici o inregistrare"
+
+#: Koo/Dialogs/FormWidget.py:466
+msgid "No document selected"
+msgstr "Nici un document selectat"
+
+#: Koo/Dialogs/FormWidget.py:470
+msgid "New document"
+msgstr "Document nou"
+
+#: Koo/Dialogs/FormWidget.py:472
+#, python-format
+msgid "Editing document (id: %s)"
+msgstr "Editare document (id: %s)"
+
+#: Koo/Dialogs/FormWidget.py:473
+#, python-format
+msgid "Record: %(name)s / %(count)s - %(name2)s"
+msgstr "Inregistrare: %(name)s / %(count)s - %(name2)s"
+
+#: Koo/Dialogs/FormWidget.py:491
 #, python-format
 msgid ""
-"Operation failed !\n"
-"I/O error (%s)"
+"<p>You have modified the following fields in current record:</p>%s<p>Do you "
+"want to save the changes?</p>"
 msgstr ""
-"Operatie esuata !\n"
-"Eroare I/O (%s)"
 
-#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
-#: Koo/Dialogs/ExportDialog.py:105
-msgid "Data Export"
-msgstr "Export date"
-
-#: Koo/Dialogs/ExportDialog.py:105
-#, python-format
-msgid ""
-"Error exporting data:\n"
-"%s"
+#: Koo/Dialogs/FormWidget.py:492
+msgid "Save"
 msgstr ""
-"Eroare la exportul de date:\n"
-"%s"
 
-#: Koo/Dialogs/ExportDialog.py:145
-#, python-format
-msgid ""
-"Error opening Excel:\n"
-"%s"
+#: Koo/Dialogs/FormWidget.py:492
+msgid "Discard"
 msgstr ""
-"Eroare la deschiderea Excel:\n"
-"%s"
 
-#: Koo/Dialogs/ExportDialog.py:179
-#, python-format
-msgid ""
-"Error Opening OpenOffice.org:\n"
-"%s"
+#: Koo/Dialogs/FormWidget.py:492
+msgid "Cancel"
 msgstr ""
-"Eroare la Deschiderea OpenOffice.org:\n"
-"%s"
 
-#: Koo/Dialogs/ExportDialog.py:303
-msgid "Export Data"
-msgstr "Exportă datele"
-
-#: Koo/Dialogs/ExportDialog.py:346
-msgid "What is the name of this export?"
-msgstr "Care este denumirea acestui export ?"
-
-#: Koo/Dialogs/ExportDialog.py:364
-msgid "Open with OpenOffice.org"
-msgstr "Deschide cu OpenOffice.org"
-
-#: Koo/Dialogs/ExportDialog.py:370
-msgid "Open with Excel"
-msgstr "Deschide cu Excel"
-
-#: Koo/Dialogs/ExportDialog.py:373
-msgid "Save as CSV"
-msgstr "Salveaza ca CSV"
-
-#: Koo/Dialogs/ExportDialog.py:374
-msgid "Save as HTML"
-msgstr "Salveaza ca HTML"
-
-#: Koo/Dialogs/ExportDialog.py:386
-msgid "Export name"
-msgstr "Denumire export"
-
-#: Koo/Dialogs/ExportDialog.py:387
-msgid "Exported fields"
-msgstr "Campuri exportate"
+#: Koo/Dialogs/FormWidget.py:510
+msgid "No records selected"
+msgstr "Nu ati selectat nici o inregistrare"
 
 #: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:472
 msgid "Press Ctrl+O to login"
@@ -809,60 +552,382 @@ msgstr "Doriţi întradevăr să terminaţi?"
 msgid "Wizard"
 msgstr "Asistent"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:52
+#: Koo/Dialogs/SearchDialog.py:90
 #, python-format
-msgid "Files (%s)"
-msgstr "Fişiere (%s)"
+msgid "Search: %s"
+msgstr "Cauta: %s"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:61
-msgid "&Save"
-msgstr "&Salvare"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:64
-msgid "&Open"
-msgstr "&Deschide"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:67
-msgid "Show &image"
-msgstr "Arata &imagine"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:131
-#: Koo/Fields/Image/ImageFieldWidget.py:81
-#: Koo/Fields/Link/LinkFieldWidget.py:62
-msgid "Open..."
-msgstr "Deschide..."
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:132
-msgid "Show &image..."
-msgstr "Arata &imagine..."
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:157
-#: Koo/Fields/Image/ImageFieldWidget.py:109
-msgid "Image"
-msgstr "Imagine"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:167
-#: Koo/Fields/Video/VideoFieldWidget.py:72
-msgid "Select the file to attach"
-msgstr "Selecteaza fisierul ce urmeaza a fi atasat"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:178
+#: Koo/Dialogs/SearchDialog.py:91
 #, python-format
-msgid ""
-"Error reading the file:\n"
-"%s"
-msgstr ""
-"Eroare la citirea fişierului:\n"
-"%s"
+msgid "Search: %s (%%d result(s))"
+msgstr "Cauta: %s (%%d rezultat(e))"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:212
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+msgid "NET-RPC (faster)"
+msgstr "NET-RPC (mai rapid)"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:68
+msgid "Secure XML-RPC"
+msgstr "XML-RPC securizat"
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:69
+msgid "Pyro"
+msgstr "Piro"
+
+#: Koo/Dialogs/ImportDialog.py:48
+#, python-format
+msgid "Error opening file: %s"
+msgstr "Eroare la deschiderea fişierului: %s"
+
+#: Koo/Dialogs/ImportDialog.py:58
+#, python-format
+msgid "Error reading file: %s"
+msgstr "Eroare la citirea fişierului: %s"
+
+#: Koo/Dialogs/ImportDialog.py:63
+#, python-format
+msgid "Imported %d objects !"
+msgstr "%d obiecte importate!"
+
+#: Koo/Dialogs/ImportDialog.py:68
 #, python-format
 msgid ""
-"Error writing the file:\n"
+"Error trying to import this record:\n"
+"%(record)s\n"
+"Error Message:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
+msgstr ""
+"Eroare la incercarea de import a acestei inregistrari:\n"
+"%(record)s\n"
+"Mesaj de eroare:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
+
+#: Koo/Dialogs/ImportDialog.py:73
+msgid "Error importing data"
+msgstr "Eroare import date"
+
+#: Koo/Dialogs/ImportDialog.py:130
+msgid "File to import"
+msgstr "Fişier de importat"
+
+#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
+#: Koo/Dialogs/ImportDialog.py:151
+msgid "Import error"
+msgstr "Eroare la importare"
+
+#: Koo/Dialogs/ImportDialog.py:145
+msgid "No file specified."
+msgstr "Nu ati specificat nici un fisier."
+
+#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
+msgid "Separator must be a single character."
+msgstr "Separatorul trebuie sa fie un singur caracter."
+
+#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
+msgid "Delimiter must be a single character."
+msgstr "Delimitatorul trebuie sa fie un singur caracter."
+
+#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
+#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
+#: Koo/Dialogs/ImportDialog.py:228
+msgid "Auto-detect error"
+msgstr "Auto-detectare eroare"
+
+#: Koo/Dialogs/ImportDialog.py:218
+msgid "Error opening .CSV file: Input Error."
+msgstr "Eroare la deschiderea fisierului .CSV: Eroare de intrare."
+
+#: Koo/Dialogs/ImportDialog.py:228
+#, python-format
+msgid ""
+"Error processing your first line of the file.\n"
+"Field %s is unknown !"
+msgstr ""
+"Eroare la procesarea primei linii din fisier.\n"
+"Campul %s este necunoscut !"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:305
+msgid "Loading..."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:307
+msgid "Full Text Search"
+msgstr "Căutare Text Întreg"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:308
+#, python-format
+msgid "Full Text Search (%%d result(s))"
+msgstr "Căutare Text Întreg (%%d rezultat(e))"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:335
+msgid "(Everywhere)"
+msgstr "(peste tot)"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:339
+msgid ""
+"<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
+"Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
+"to be indexed and finally use <i>Update Full Text Search</i>."
+msgstr ""
+"<b>Căutare pentru text întreg nu este configurată.</b><br/>Mergi la "
+"<i>Administrare - Configurare - Căutare Text Întreg - Indecşi</i>. Apoi "
+"adaugă câmpurile ce doreşti a fi indexate şi în cele din urmă foloseşte "
+"<i>Actualizează Căutare Text Întreg</i>."
+
+#: Koo/Dialogs/FullTextSearchDialog.py:343
+msgid ""
+"<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
+"Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
+msgstr ""
+"<b>Modulul de căutare text întreg nu este instalat.</b><br/>Mergi la "
+"<i>Administrare - Administrare module - Module neinstalate</i> şi adaugă "
+"modulul <i>full_text_search</i>"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:430
+msgid "Model ID"
+msgstr "Id model"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:431
+msgid "Model Name"
+msgstr "Denumire model"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:433
+msgid "Type"
+msgstr "Tip"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:434
+msgid "Name"
+msgstr "Nume"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:435
+msgid "Text"
+msgstr "Text"
+
+#: Koo/Dialogs/FullTextSearchDialog.py:436
+msgid "Ranking"
+msgstr "Rang"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+msgid "Validation Error"
+msgstr "Eroare la validare"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+msgid "Confirmation password does not match new password."
+msgstr ""
+"Parola introdusa pentru confirmare este diferita de noua parola introdusa."
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+msgid "Password changed successfully"
+msgstr "Parola a fost schimbată cu succes"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:67
+msgid ""
+"Could not change administrator password. Please, check the server and "
+"password are correct."
+msgstr ""
+"Parola administratorului nu poate fi modificata. Va rugam verificati daca "
+"parola si serverul sunt corecte."
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:91
+msgid "Confirmation"
+msgstr "Confirmare"
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:92
+#, python-format
+msgid ""
+"<p>This process will update the following fields in %(number)d "
+"records:</p>%(records)s<p>Do you want to continue?</p>"
+msgstr ""
+"<p>Acest proces va actualiza urmatoarele campuri in %(number)d "
+"inregistrari:</p>%(records)s<p>Doriti sa continuati?</p>"
+
+#: Koo/Dialogs/ImportExportCommon.py:37
+msgid "Fields"
+msgstr "Câmpuri"
+
+#: Koo/Dialogs/ExportDialog.py:53
+msgid "OpenERP exported information"
+msgstr "Informaţie exportată OpenERP"
+
+#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
+#, python-format
+msgid "%s record(s) saved!"
+msgstr "%s inregistrari salvate!"
+
+#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
+#, python-format
+msgid ""
+"Operation failed !\n"
+"I/O error (%s)"
+msgstr ""
+"Operatie esuata !\n"
+"Eroare I/O (%s)"
+
+#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:105
+msgid "Data Export"
+msgstr "Export date"
+
+#: Koo/Dialogs/ExportDialog.py:105
+#, python-format
+msgid ""
+"Error exporting data:\n"
 "%s"
 msgstr ""
-"Eroare la scrierea fişierului:\n"
+"Eroare la exportul de date:\n"
 "%s"
+
+#: Koo/Dialogs/ExportDialog.py:145
+#, python-format
+msgid ""
+"Error opening Excel:\n"
+"%s"
+msgstr ""
+"Eroare la deschiderea Excel:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:179
+#, python-format
+msgid ""
+"Error Opening OpenOffice.org:\n"
+"%s"
+msgstr ""
+"Eroare la Deschiderea OpenOffice.org:\n"
+"%s"
+
+#: Koo/Dialogs/ExportDialog.py:303
+msgid "Export Data"
+msgstr "Exportă datele"
+
+#: Koo/Dialogs/ExportDialog.py:346
+msgid "What is the name of this export?"
+msgstr "Care este denumirea acestui export ?"
+
+#: Koo/Dialogs/ExportDialog.py:364
+msgid "Open with OpenOffice.org"
+msgstr "Deschide cu OpenOffice.org"
+
+#: Koo/Dialogs/ExportDialog.py:370
+msgid "Open with Excel"
+msgstr "Deschide cu Excel"
+
+#: Koo/Dialogs/ExportDialog.py:373
+msgid "Save as CSV"
+msgstr "Salveaza ca CSV"
+
+#: Koo/Dialogs/ExportDialog.py:374
+msgid "Save as HTML"
+msgstr "Salveaza ca HTML"
+
+#: Koo/Dialogs/ExportDialog.py:386
+msgid "Export name"
+msgstr "Denumire export"
+
+#: Koo/Dialogs/ExportDialog.py:387
+msgid "Exported fields"
+msgstr "Campuri exportate"
+
+#: Koo/Dialogs/TreeWidget.py:63
+msgid "Tree"
+msgstr "Arbore"
+
+#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+msgid "No resource selected!"
+msgstr "Nici o resursă selectată!"
+
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "No item selected"
+msgstr "Nu ati selectat nici un  element"
+
+#: Koo/Dialogs/TreeWidget.py:316
+msgid "Please select an element from the tree to add a shortcut to it."
+msgstr "Selectati un element al arborelui pentru a-i adauga o scurtatura."
+
+#: Koo/Dialogs/PreferencesDialog.py:54
+msgid "User Preferences"
+msgstr "Preferinte utilizator"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
+msgid "You can now connect to the database as an administrator."
+msgstr "Va puteti conecta acum la baza de date ca administrator."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:48
+msgid ""
+"The following users have been installed on your database:\n"
+"\n"
+msgstr ""
+"Urmatorii utilizatori au fost instalati in baza dvs. de date:\n"
+"\n"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:84
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+msgid "Error during database creation"
+msgstr "Eroare in timpul crearii bazei de date"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:86
+msgid "Could not create database."
+msgstr "Baza de date nu poate fi creata."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
+msgid "Error during database creation !"
+msgstr "Eroare în timpul crearii bazei de date"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:93
+msgid ""
+"The server crashed during installation.\n"
+"We suggest you to drop this database."
+msgstr ""
+"Serverul a generat erori pe parcursul instalarii.\n"
+"Vă sugeram sa stergeti definitiv aceasta baza de date."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:177
+msgid "Bad database name !"
+msgstr "Nume bază de date greşit!"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:177
+msgid ""
+"The database name must contain only normal characters or \"_\".\n"
+"You must avoid all accents, space or special characters."
+msgstr ""
+"Numele bazei de date trebuie sa contina caractere obisnuite sau \"_\".\n"
+"Evitati folosirea caracterelor speciale sau a spatiilor."
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:180
+msgid "Wrong password"
+msgstr "Parola eronata"
+
+#: Koo/Dialogs/DatabaseCreationDialog.py:180
+msgid "Administrator passwords differ."
+msgstr "Parolele de Administrator diferă"
+
+#: Koo/Rpc/Rpc.py:305 Koo/Rpc/Rpc.py:422
+msgid "Connection Refused"
+msgstr "Conectare refuzată"
+
+#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
+msgid "Application Error"
+msgstr "Eroare Aplicaţie"
+
+#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
+msgid "View details"
+msgstr "Afişare detalii"
+
+#: Koo/Rpc/Rpc.py:404
+msgid "Not logged in"
+msgstr "Nu sunteţi autentificat"
+
+#: Koo/Rpc/Rpc.py:553
+msgid "Could not contact server!"
+msgstr "Serverul nu poate fi contactat!"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:111
 msgid "Error in Button"
@@ -876,27 +941,54 @@ msgstr "Tip buton nepermis"
 msgid "Invalid Form, correct red fields!"
 msgstr "Formular invalid, corectati campurile rosii !"
 
-#: Koo/Fields/Calendar/Calendar.py:63
-msgid "Set current date"
-msgstr "Setati data curenta"
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:123
+msgid "Operation not permited"
+msgstr "Operatie nepermisa"
 
-#: Koo/Fields/Calendar/Calendar.py:121
-msgid "Set current date and time"
-msgstr "Setati ora si data curenta"
+#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:123
+msgid "You can not set to the default value here !"
+msgstr "Nu puteti schimba valoarea cu valoarea implicita, aici!"
 
-#: Koo/Fields/Calendar/Calendar.py:163 Koo/Fields/Calendar/Calendar.py:218
-msgid "Set current time"
-msgstr "Setati timpul curent"
+#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:273
+msgid "Action"
+msgstr "Acțiune"
 
-#: Koo/Fields/Char/CharFieldWidget.py:75
+#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:274
+msgid "Report"
+msgstr "Raport"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:120 Koo/Fields/ManyToOne/ManyToOne.py:227
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
+msgid "Search"
+msgstr "Caută"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:220
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
+msgid "Open"
+msgstr "Deschide"
+
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
+#: Koo/Fields/Char/CharFieldWidget.py:75
 msgid "Translation dialog"
 msgstr "Dialog traducere"
 
-#: Koo/Fields/Char/CharFieldWidget.py:75
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
+#: Koo/Fields/Char/CharFieldWidget.py:75
 msgid "You must save the resource before adding translations"
 msgstr "Trebuie sa salvati resursa inainte sa faceti traduceri"
+
+#: Koo/Fields/Image/ImageFieldWidget.py:81
+#: Koo/Fields/Link/LinkFieldWidget.py:62
+#: Koo/Fields/Binary/BinaryFieldWidget.py:174
+msgid "Open..."
+msgstr "Deschide..."
+
+#: Koo/Fields/Image/ImageFieldWidget.py:109
+#: Koo/Fields/Binary/BinaryFieldWidget.py:209
+msgid "Image"
+msgstr "Imagine"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:124
 msgid "Save image as..."
@@ -927,31 +1019,81 @@ msgstr "Deschide fisier imagine..."
 msgid "(no image)"
 msgstr "(fara imagine)"
 
+#: Koo/Fields/AbstractFieldWidget.py:71
+msgid "Set to default value"
+msgstr "Alege valoare implicită"
+
+#: Koo/Fields/AbstractFieldWidget.py:77
+msgid "Set as default value"
+msgstr "Setează ca valoare implictă"
+
 #: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
 msgstr "Selectati fisierul pe care trebuie sa-l legati la"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:268
-msgid "Action"
-msgstr "Acțiune"
+#: Koo/Fields/FieldPreferencesDialog.py:64
+msgid "<center>Always applicable!</center>"
+msgstr "<center>Aplicabil intotdeauna!</center>"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:269
-msgid "Report"
-msgstr "Raport"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:78
+#, python-format
+msgid "Files (%s)"
+msgstr "Fişiere (%s)"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:99 Koo/Fields/ManyToOne/ManyToOne.py:222
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
-msgid "Search"
-msgstr "Caută"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:87
+msgid "&New"
+msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:215
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
-msgid "Open"
-msgstr "Deschide"
+#: Koo/Fields/Binary/BinaryFieldWidget.py:91
+msgid "&Scan"
+msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:203
+#: Koo/Fields/Binary/BinaryFieldWidget.py:102
+msgid "&Save"
+msgstr "&Salvare"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:105
+msgid "&Open"
+msgstr "&Deschide"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:108
+msgid "Show &image"
+msgstr "Arata &imagine"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:175
+msgid "Show &image..."
+msgstr "Arata &imagine..."
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:219
+#: Koo/Fields/Video/VideoFieldWidget.py:72
+msgid "Select the file to attach"
+msgstr "Selecteaza fisierul ce urmeaza a fi atasat"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:230
+#, python-format
+msgid ""
+"Error reading the file:\n"
+"%s"
+msgstr ""
+"Eroare la citirea fişierului:\n"
+"%s"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:264
+#, python-format
+msgid ""
+"Error writing the file:\n"
+"%s"
+msgstr ""
+"Eroare la scrierea fişierului:\n"
+"%s"
+
+#: Koo/Fields/OneToMany/OneToMany.py:218
 msgid "No record selected"
 msgstr ""
+
+#: Koo/Fields/TranslationDialog.py:51
+msgid "Translation Dialog"
+msgstr "Dialog traducere"
 
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"
@@ -961,142 +1103,14 @@ msgstr "Eroare la citirea fisierului"
 msgid "Error writing the file!"
 msgstr "Eroare scriere fisier !"
 
-#: Koo/Fields/TranslationDialog.py:51
-msgid "Translation Dialog"
-msgstr "Dialog traducere"
+#: Koo/Fields/Calendar/Calendar.py:63
+msgid "Set current date"
+msgstr "Setati data curenta"
 
-#: Koo/Fields/FieldPreferencesDialog.py:64
-msgid "<center>Always applicable!</center>"
-msgstr "<center>Aplicabil intotdeauna!</center>"
+#: Koo/Fields/Calendar/Calendar.py:121
+msgid "Set current date and time"
+msgstr "Setati ora si data curenta"
 
-#: Koo/Fields/AbstractFieldWidget.py:68
-msgid "Set to default value"
-msgstr "Alege valoare implicită"
-
-#: Koo/Fields/AbstractFieldWidget.py:74
-msgid "Set as default value"
-msgstr "Setează ca valoare implictă"
-
-#: Koo/Fields/AbstractFieldWidget.py:98
-#: Koo/Fields/AbstractFieldDelegate.py:115
-msgid "Operation not permited"
-msgstr "Operatie nepermisa"
-
-#: Koo/Fields/AbstractFieldWidget.py:98
-#: Koo/Fields/AbstractFieldDelegate.py:115
-msgid "You can not set to the default value here !"
-msgstr "Nu puteti schimba valoarea cu valoarea implicita, aici!"
-
-#: Koo/Plugins/Semantic/__init__.py:46
-msgid "Semantic Info"
-msgstr "Info semantice"
-
-#: Koo/Plugins/ViewEditor/__init__.py:38
-msgid "Edit View"
-msgstr ""
-
-#: Koo/Plugins/ViewTranslator/__init__.py:38
-msgid "Translate View"
-msgstr "Traduce forma afisare"
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
-msgid "Print Workflow"
-msgstr "Tiparire Workflow"
-
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
-msgid "Print Workflow (Complex)"
-msgstr "Tiparire Workflow (Complex)"
-
-#: Koo/Printer/Printer.py:75
-msgid "Report error"
-msgstr "Eroare raport"
-
-#: Koo/Printer/Printer.py:75
-msgid "There was an error trying to create the report."
-msgstr "In incercarea de a crea acest raport a aparut o eroare."
-
-#: Koo/Rpc/Rpc.py:305 Koo/Rpc/Rpc.py:422
-msgid "Connection Refused"
-msgstr "Conectare refuzată"
-
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
-msgid "Application Error"
-msgstr "Eroare Aplicaţie"
-
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
-msgid "View details"
-msgstr "Afişare detalii"
-
-#: Koo/Rpc/Rpc.py:404
-msgid "Not logged in"
-msgstr "Nu sunteţi autentificat"
-
-#: Koo/Rpc/Rpc.py:553
-msgid "Could not contact server!"
-msgstr "Serverul nu poate fi contactat!"
-
-#: Koo/Screen/Action.py:81
-msgid "You must select a record to use the relate button !"
-msgstr "Trebuie să selectaţi o înregistrare pentru a utiliza butonul!"
-
-#: Koo/Screen/Action.py:87
-msgid "You must save this record to use the relate button !"
-msgstr "Trebuie să salvaţi acestă înregistrare pentru a utiliza butonul!"
-
-#: Koo/Screen/Action.py:129
-msgid "Print Screen"
-msgstr "Tiparire ecran"
-
-#: Koo/View/Calendar/Parser.py:47 Koo/View/Chart/Parser.py:58
-msgid "Unknown"
-msgstr "Necunoscut"
-
-#: Koo/View/Calendar/Calendar.py:93
-#, python-format
-msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
-"%(duration)s<br/>"
-msgstr ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Durata:</b> "
-"%(duration)s<br/>"
-
-#: Koo/View/Calendar/__init__.py:31
-msgid "Calendar View"
-msgstr "Forma afisare calendar"
-
-#: Koo/View/Chart/__init__.py:31
-msgid "Chart View"
-msgstr "Vizualizare Diagramă"
-
-#: Koo/View/Form/__init__.py:32
-msgid "Form View"
-msgstr "Forma afisare"
-
-#: Koo/View/Svg/__init__.py:33
-msgid "SVG View"
-msgstr "Vizualizare SVG"
-
-#: Koo/View/Tree/TreeView.py:206
-msgid "<font color='red'>Sorting not possible.</font>"
-msgstr "<font color='red'>Sortarea nu este posibilă.</font>"
-
-#: Koo/View/Tree/TreeView.py:208
-msgid "<font color='red'>Sorting only groups.</font>"
-msgstr "<font color='red'>Sortare doar pentru grupuri.</font>"
-
-#: Koo/View/Tree/TreeView.py:210
-msgid "<font color='red'>Save changes before sorting.</font>"
-msgstr "<font color='red'>Salvează modificările înainte de sortare.</font>"
-
-#: Koo/View/Tree/TreeView.py:234
-msgid "<a href=\"update\">Update totals</a>"
-msgstr "<a href=\"update\">Actualizare totaluri</a>"
-
-#: Koo/View/Tree/__init__.py:32
-msgid "List View"
-msgstr "Forma de afisare tip Lista"
-
-#: Koo/View/DummyView.py:44
-#, python-format
-msgid "Views of type %s not available in Koo."
-msgstr ""
+#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:220
+msgid "Set current time"
+msgstr "Setati timpul curent"

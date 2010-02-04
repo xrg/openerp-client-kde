@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-01-07 22:36+0000\n"
+"X-Launchpad-Export-Date: 2010-02-03 12:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: ca_ES\n"
 
@@ -249,7 +249,7 @@ msgid "&Next"
 msgstr "&Següent"
 
 #. ts-context ManyToOneWidget
-#: dia_form_win_many2one.ui:55
+#: dia_form_win_many2one.ui:65
 msgid "&OK"
 msgstr "&D'acord"
 
@@ -259,7 +259,7 @@ msgid "&Old password:"
 msgstr "&Contrasenya anterior:"
 
 #. ts-context FullTextSearchDialog
-#: full_text_search.ui:159
+#: full_text_search.ui:166
 msgid "&Open"
 msgstr "&Obre"
 
@@ -439,7 +439,7 @@ msgid ","
 msgstr ","
 
 #. ts-context SearchDateWidget
-#: search_date.ui:76
+#: search_date.ui:81
 msgid "-"
 msgstr "-"
 
@@ -1950,7 +1950,7 @@ msgid "Change current tab"
 msgstr "Canvia la pestanya actual"
 
 #. ts-context SearchDateWidget
-#: search_date.ui:52
+#: search_date.ui:56
 msgid "Choose a date from a calendar"
 msgstr "Escolliu una data del calendari"
 
@@ -1960,7 +1960,7 @@ msgid "Choose database..."
 msgstr "Escull la base de dades..."
 
 #. ts-context SearchDateWidget
-#: search_date.ui:104
+#: search_date.ui:112
 msgid "Choose the date from a calendar"
 msgstr "Escolliu la data d'un calendari"
 
@@ -2676,7 +2676,7 @@ msgid "Save and close window"
 msgstr "Desa i tanca la finestra"
 
 #. ts-context BinaryWidget
-#: binary.ui:55
+#: binary.ui:58
 msgid "Save file..."
 msgstr "Desa a un fitxer..."
 
