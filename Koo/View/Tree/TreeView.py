@@ -316,6 +316,12 @@ class TreeView( AbstractView ):
 	def selectAll(self):
 		start = self.treeModel.index( 0, 0 )
 		end = self.treeModel.index( self.treeModel.rowCount() - 1, 0 )
+		# We call selectFirst() before setting the selection because we want to ensure that 
+		# "self.currenRecord" is set. Otherwise we're selecting all records without keeping
+		# track that the current selected item is the first one, and when we receive the
+		# next call to setSelected() from Screen, we're updating the selection and only the
+		# first item is selected.
+		self.selectFirst()
 		selection = QItemSelection( start, end )
 		self.widget.selectionModel().select( selection, QItemSelectionModel.SelectCurrent | QItemSelectionModel.Rows )
 
