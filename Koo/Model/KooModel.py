@@ -725,13 +725,11 @@ class KooModel(QAbstractItemModel):
 class KooGroupedModel( QAbstractProxyModel ):
 	def __getattr__(self, name):
 		if name == 'group':
-			print "GROUP!"
 			return self.sourceModel().group
 		return QAbstractProxyModel.__getattr__(name)
 
 	def __setattr__(self, name, value):
 		if name == 'group':
-			print "SET GROUP!"
 			self.sourceModel().group = value
 			return
 		return QAbstractProxyModel.__setattr__(self, name, value)	

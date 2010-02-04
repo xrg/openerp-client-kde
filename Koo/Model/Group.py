@@ -547,7 +547,10 @@ class RecordGroup(QObject):
 	## @brief Returns the row number of the given record. Note that
 	# the record must be in the group. Otherwise an exception is risen.
 	def indexOfRecord(self, record):
-		return self.records.index(record)
+		if record in self.records:
+			return self.records.index(record)
+		else:
+			return -1
 		
 	## @brief Returns the row number of the given id.
 	# If the id doesn't exist it returns -1.
