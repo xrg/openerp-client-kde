@@ -172,7 +172,6 @@ class TreeView( AbstractView ):
 
 		self.connect( self.widget, SIGNAL('activated(QModelIndex)'), self.activated )
 
-		self.currentIndex = None
 		self.currentRecord = None
 
 		layout = QVBoxLayout()
@@ -194,7 +193,6 @@ class TreeView( AbstractView ):
 			self.widget.setGridSize( QSize( self.widget.gridSize().width(), height ) )
 
 	def setModel( self, model ):
-		self.currentIndex = None
 		self.currentRecord = None
 		self.treeModel = model	
 		self.widget.setModel( self.treeModel )
@@ -261,9 +259,6 @@ class TreeView( AbstractView ):
 	def currentChanged(self, current, previous):
 		if self.selecting:
 			return
-		if self.currentIndex == current:
-			return
-		self.currentIndex = current
 		self.currentRecord = self.treeModel.recordFromIndex( current )
 		# We send the current record. Previously we sent only the id of the model, but
 		# new models have id=None
