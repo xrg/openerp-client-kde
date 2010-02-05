@@ -156,7 +156,7 @@ class fulltextsearch_services(netsvc.Service):
 				\"""" + table + """\"
 			WHERE
 				id = %s
-			""", (text, id) )	
+			""", (text, id) )
 
 		return { 'name': name, 'headline': cr.fetchone()[0] }
 
@@ -234,18 +234,13 @@ class fulltextsearch_services(netsvc.Service):
 		# Parse text query so we convert dates into SQL dates (::DATE) and other 
 		# types if necessary too.
 		tsQuery = []
-		tsVector = []
 		for x in text.split(u' '):
 			if isFloat(x):
-				tsVector.append( u"to_tsvector( 'default', %s::TEXT )" % float(x) )
 				tsQuery.append( u"to_tsquery( 'default', %s::TEXT )" % float(x) )
 			elif isInteger(x):
-				tsVector.append( u"to_tsvector( 'default', %s::TEXT )" % long(x) )
 				tsQuery.append( u"to_tsquery( 'default', %s::TEXT )" % long(x) )
 			else:
-				tsVector.append( u"to_tsvector( 'default', %s::TEXT )" % quote(x) )
 				tsQuery.append( u"to_tsquery( 'default', %s::TEXT )" % quote(x) )
-		tsVector = u' || '.join(tsVector)
 		tsQuery = u' && '.join(tsQuery)
 
 		if model:
@@ -294,23 +289,11 @@ class fulltextsearch_services(netsvc.Service):
 		i = -1
 		all = cr.fetchall()
 		for x in all:
-			i = i + 1
-			if i < offset:
-				continue
-			if i >= offset + limit:
-				break
-			
 			model_id = x[0]
 			id = x[1]
 			model_label = x[2]
 			model_name = x[3]
 			ranking = x[4]
-
-			# Search for the translation of the model
-			model_label = pool.get('ir.translation')._get_source(cr, uid, 'ir.model,name', 'model', lang, model_label)
-			if not model_label:
-				model_label = x[2]
-
 
 			# Check security permissions using search
 			if not pool.get(model_name).search(cr, uid, [('id','=',id)], context=context):
@@ -321,6 +304,18 @@ class fulltextsearch_services(netsvc.Service):
 					if not pool.get(attachment.res_model).search(cr, uid, [('id','=',attachment.res_id)], context=context):
 						continue
 
+			# Offset & limit can only be calulated once we have ensured the user has
+			# access to those records.
+			i = i + 1
+			if i < offset:
+				continue
+			if i >= offset + limit:
+				break
+
+			# Search for the translation of the model
+			model_label = pool.get('ir.translation')._get_source(cr, uid, 'ir.model,name', 'model', lang, model_label)
+			if not model_label:
+				model_label = x[2]
 
 			d = self.headline( cr, pool, text, id, model_id, model_name )
 			d['id'] = id
