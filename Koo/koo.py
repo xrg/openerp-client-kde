@@ -112,8 +112,10 @@ app.setOrganizationName( 'NaN' )
 
 try:
 	f = open( Settings.value('stylesheet'), 'r' )
-	app.setStyleSheet( f.read() )
-	f.close()
+	try:
+		app.setStyleSheet( f.read() )
+	finally:
+		f.close()
 except:
 	pass
 
@@ -158,7 +160,7 @@ win.show()
 
 if Settings.value('pos_mode'):
         import Koo.Pos
-	app.installEventFilter( Pos.PosEventFilter(win) )
+	app.installEventFilter( Koo.Pos.PosEventFilter(win) )
 
 if Settings.value('enter_as_tab'):
 	from Koo.Common import EnterEventFilter
