@@ -120,7 +120,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		if Settings.value('sort_mode') == 'visible_items':
 			self.group.setSortMode( RecordGroup.SortVisibleItems )
 		self.group.setDomain( domain )
-		self.connect(self.group, SIGNAL('modified()'), self.notifyRecordModified)
+		self.connect(self.group, SIGNAL('modified'), self.notifyRecordModified)
 
 		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( False )
