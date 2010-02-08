@@ -123,8 +123,10 @@ class Report:
 
 		# Read data from the generated file and return it
 		f = open( outputFile, 'rb')
-		data = f.read()
-		f.close()
+		try:
+			data = f.read()
+		finally:
+			f.close()
 
 		# Remove all temporary files created during the report
 		for file in self.temporaryFiles:

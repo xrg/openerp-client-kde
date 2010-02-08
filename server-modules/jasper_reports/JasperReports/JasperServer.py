@@ -27,8 +27,10 @@ class JasperServer:
 		process = subprocess.Popen(['java', 'com.nantic.jasperreports.JasperServer', unicode(self.port)], env=env, cwd=cwd)
 		if self.pidfile:
 			f = open( self.pidfile, 'w')
-			f.write( str( process.pid ) ) 
-			f.close()
+			try:
+				f.write( str( process.pid ) ) 
+			finally:
+				f.close()
 
 	def execute(self, *args):
 		try: 

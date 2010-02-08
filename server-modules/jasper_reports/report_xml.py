@@ -139,9 +139,10 @@ class report_xml(osv.osv):
 		path = os.path.abspath( os.path.dirname(__file__) )
 		path += '/custom_reports/%s' % name
 		f = open( path, 'wb+' )
-		f.write( base64.decodestring( value ) )
-		f.close()
-
+		try:
+			f.write( base64.decodestring( value ) )
+		finally:
+			f.close()
 		path = 'jasper_reports/custom_reports/%s' % name
 		return path
 

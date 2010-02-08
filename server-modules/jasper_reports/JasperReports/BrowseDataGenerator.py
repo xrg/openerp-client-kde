@@ -153,8 +153,10 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 
 		# Once created, the only missing step is to store the XML into a file
 		f = codecs.open( fileName, 'wb+', 'utf-8' )
-		topNode.writexml( f )
-		f.close()
+		try:
+			topNode.writexml( f )
+		finally:
+			f.close()
 
 	def generateXmlRecord(self, record, records, recordNode, path, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
@@ -215,8 +217,10 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 				else:
 					fd, fileName = tempfile.mkstemp()
 					f = open( fileName, 'wb+' )
-					f.write( base64.decodestring( value ) )
-					f.close()
+					try:
+						f.write( base64.decodestring( value ) )
+					finally:
+						f.close()
 					self.temporaryFiles.append( fileName )
 					self.imageFiles[ imageId ] = fileName
 				value = fileName
@@ -248,25 +252,26 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 				for x in xrange(copies):
 					self.allRecords.append( new )
 
-		#f = codecs.open( fileName, 'wb+', 'utf-8' )
 		f = open( fileName, 'wb+' )
-		csv.QUOTE_ALL = True
-		# JasperReports CSV reader requires an extra colon at the end of the line.
-		writer = csv.DictWriter( f, self.report.fieldNames() + [''], delimiter=",", quotechar='"' )
-		header = {}
-		for field in self.report.fieldNames() + ['']:
-			if isinstance(field, unicode):
-				name = field.encode('utf-8')
-			else:
-				name = field
-			header[ field ] = name
-		writer.writerow( header )
-		# Once all records have been calculated, create the CSV structure itself
-		for records in self.allRecords:
-			row = {}
-			self.generateCsvRecord( records['root'], records, row, '', self.report.fields() )
-			writer.writerow( row )
-		f.close()
+		try:
+			csv.QUOTE_ALL = True
+			# JasperReports CSV reader requires an extra colon at the end of the line.
+			writer = csv.DictWriter( f, self.report.fieldNames() + [''], delimiter=",", quotechar='"' )
+			header = {}
+			for field in self.report.fieldNames() + ['']:
+				if isinstance(field, unicode):
+					name = field.encode('utf-8')
+				else:
+					name = field
+				header[ field ] = name
+			writer.writerow( header )
+			# Once all records have been calculated, create the CSV structure itself
+			for records in self.allRecords:
+				row = {}
+				self.generateCsvRecord( records['root'], records, row, '', self.report.fields() )
+				writer.writerow( row )
+		finally:
+			f.close()
 
 	def generateCsvRecord(self, record, records, row, path, fields):
 		# One field (many2one, many2many or one2many) can appear several times.
@@ -341,8 +346,10 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 				else:
 					fd, fileName = tempfile.mkstemp()
 					f = open( fileName, 'wb+' )
-					f.write( base64.decodestring( value ) )
-					f.close()
+					try:
+						f.write( base64.decodestring( value ) )
+					finally:
+						f.close()
 					self.temporaryFiles.append( fileName )
 					self.imageFiles[ imageId ] = fileName
 				value = fileName
