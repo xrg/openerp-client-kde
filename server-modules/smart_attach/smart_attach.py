@@ -101,13 +101,17 @@ class ir_attachment(osv.osv):
 		dir=tempfile.mkdtemp()
 		buf = base64.decodestring(data)
 		f = open('%s/object.tmp' % dir,'wb')
-		f.write( buf )
-		f.close()
+		try:
+			f.write( buf )
+		finally:
+			f.close()
 
 		# Analyze strigi's xmlindexer output
 		f = os.popen('xmlindexer %s' % dir, 'r')
-		output = f.read()
-		f.close()
+		try:
+			output = f.read()
+		finally:
+			f.close()
 
 		# Define namespaces
 		metaInfo = None
@@ -128,16 +132,22 @@ class ir_attachment(osv.osv):
 
 		if 'application/pdf' in mimeTypes:
 			f = os.popen( 'pdftotext -enc UTF-8 -nopgbrk %s/object.tmp -' % dir, 'r')
-			metaInfo = f.read()
-			f.close()
+			try:
+				metaInfo = f.read()
+			finally:
+				f.close()
 		elif 'application/vnd.oasis.opendocument.text' in mimeTypes:
 			f = os.popen( 'odt2txt --encoding=UTF-8 %s/object.tmp' % dir, 'r' )
-			metaInfo = f.read()
-			f.close()
+			try:
+				metaInfo = f.read()
+			finally:
+				f.close()
 		elif 'application/x-ole-storage' in mimeTypes:
 			f = os.popen( 'antiword %s/object.tmp' % dir, 'r' )
-			metaInfo = f.read()
-			f.close()
+			try:
+				metaInfo = f.read()
+			finally:
+				f.close()
 
 		# Test it at the very end in case some of the applications (pdftotext, odt2txt or antiword)
 		# are not installed.
