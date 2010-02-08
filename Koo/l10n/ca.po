@@ -759,7 +759,7 @@ msgstr "Camps"
 
 #: Koo/Dialogs/ExportDialog.py:53
 msgid "OpenERP exported information"
-msgstr "Informació exportadad d'OpenERP"
+msgstr "Informació exportada d'OpenERP"
 
 #: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
 #, python-format
