@@ -197,6 +197,18 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
 		self.uiText.setReadOnly( value )
+		self.pushBold.setEnabled( not value )
+		self.pushItalic.setEnabled( not value )
+		self.pushUnderline.setEnabled( not value )
+		self.pushStrike.setEnabled( not value )
+		self.pushLeftJustify.setEnabled( not value )
+		self.pushCenter.setEnabled( not value )
+		self.pushRightJustify.setEnabled( not value )
+		self.pushJustify.setEnabled( not value )
+		self.pushForegroundColor.setEnabled( not value )
+		self.pushBackgroundColor.setEnabled( not value )
+		self.uiFont.setEnabled( not value )
+		self.uiFontSize.setEnabled( not value )
 
 	def colorWidget(self):
 		return self.uiText
