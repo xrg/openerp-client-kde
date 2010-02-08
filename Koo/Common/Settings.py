@@ -47,19 +47,19 @@ class Settings(object):
 		'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
 		'tip.autostart': True,
 		'tip.position': 0,
-		'print_directly': False,
 		'client.default_path': os.path.expanduser('~'),
 		'client.language': False,
-		'stylesheet' : '',
-		'tabs_position' : 'top',
-		'tabs_closable' : True,
-		'show_toolbar' : True,
-		'sort_mode' : 'all_items',
-		'pos_mode' : False,
-		'enter_as_tab' : False,
+		'client.debug': False,
+		'koo.print_directly': False,
+		'koo.stylesheet' : '',
+		'koo.tabs_position' : 'top',
+		'koo.tabs_closable' : True,
+		'koo.show_toolbar' : True,
+		'koo.sort_mode' : 'all_items',
+		'koo.pos_mode' : False,
+		'koo.enter_as_tab' : False,
 		'kde.enabled' : True,
-		'attachments_dialog' : False,
-		'debug': False,
+		'koo.attachments_dialog' : False,
 	}
 
 	## @brief Stores current settings in the appropiate config file.
@@ -80,8 +80,12 @@ class Settings(object):
 					p.add_section(osection)
 				p.set(osection,oname,Settings.options[o])
 			f = open(Settings.rcFile, 'wb')
-			p.write( f )
-			f.close()
+			try:
+				p.write( f )
+			except:
+				Debug.warning( 'Unable to write config file %s !' % Settings.rcFile )
+			finally:
+				f.close()
 		except:
 			Debug.warning( 'Unable to write config file %s !' % Settings.rcFile )
 		return True
@@ -152,6 +156,9 @@ class Settings(object):
 			settings = Rpc.session.call( '/object', 'execute', 'nan.koo.settings', 'get_settings' )
 		except:
 			settings = {}
-		Settings.options.update( settings )
-		Rpc.ViewCache.exceptions = Settings.options.get('cache_exceptions', [])
+		new_settings = {}
+		for key, value in settings.iteritems():
+			new_settings[ 'koo.%s' % key ] = value
+		Settings.options.update( new_settings )
+		Rpc.ViewCache.exceptions = Settings.options.get('koo.cache_exceptions', [])
 

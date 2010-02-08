@@ -90,7 +90,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 			self.screen.setRecordGroup( self.recordGroup )
 			#self.screen.setDomain( self.domain )
 			self.screen.setEmbedded( True )
-			if int( self.attrs.get('show_toolbar','0') ):
+			if int( self.attrs.get('koo.show_toolbar','0') ):
 				self.screen.setToolbarVisible( True )
 			else:
 				self.screen.setToolbarVisible( False )

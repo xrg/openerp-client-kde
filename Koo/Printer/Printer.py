@@ -62,7 +62,7 @@ class Printer(object):
 	# application depending on user settings.
 	@staticmethod
 	def printFile(fileName, fileType):
-		if Settings.value('print_directly'):
+		if Settings.value('koo.print_directly'):
 			Printer.sendToPrinter( fileName )
 		else:
 			Printer.open( fileName )
@@ -90,8 +90,10 @@ class Printer(object):
 
 		fp, fileName = tempfile.mkstemp( '.%s' % data['format'] )
 		fp = os.fdopen( fp, 'wb+' )
-		fp.write(content)
-		fp.close()
+		try:
+			fp.write(content)
+		finally:
+			fp.close()
 		# Add semantic information before printing file because otherwise
 		# it raises an exception in some systems.
 		Semantic.addInformationToFile( fileName, model, ids )

@@ -43,11 +43,11 @@ def parseArguments(args):
 	parser = optparse.OptionParser()
 	parser.add_option("-c", "--config", dest="config", help=_("specify alternate config file"))
 	parser.add_option("-u", "--url", dest="url", help=_("specify the server (ie. http://admin@localhost:8069)"))
-	parser.add_option("", "--stylesheet", dest="stylesheet", help=_("specify stylesheet to apply"))
-	parser.add_option("", "--pos-mode", action="store_true", default=False, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
-	parser.add_option("", "--enter-as-tab", action="store_true", default=False, dest="enter_as_tab", help=_("replace enter/return keys with tab hits"))
-	parser.add_option("", "--disable-kde", action="store_true", default=False, dest="disable_kde", help=_("disable usage of KDE libraries if they are available"))
-	parser.add_option("", "--debug", action="store_true", default=False, dest="debug", help=_("enable debug mode. Will show the crash dialog in all exceptions"))
+	parser.add_option("", "--stylesheet", dest="stylesheet", default=None, help=_("specify stylesheet to apply"))
+	parser.add_option("", "--pos-mode", action="store_true", default=None, dest="pos_mode", help=_("use POS (Point of Sales) mode"))
+	parser.add_option("", "--enter-as-tab", action="store_true", default=None, dest="enter_as_tab", help=_("replace enter/return keys with tab hits"))
+	parser.add_option("", "--disable-kde", action="store_true", default=None, dest="disable_kde", help=_("disable usage of KDE libraries if they are available"))
+	parser.add_option("", "--debug", action="store_true", default=None, dest="debug", help=_("enable debug mode. Will show the crash dialog in all exceptions"))
 
 	#print "ARG: ", sys.argv
 	(opt, args) = parser.parse_args(args)
@@ -61,12 +61,15 @@ def parseArguments(args):
 		Settings.setValue( 'login.url', opt.url )
 	if Settings.value( 'login.url' ):
 		url = QUrl( Settings.value('login.url' ) )
-	Settings.setValue( 'stylesheet', opt.stylesheet )
-	Settings.setValue( 'pos_mode', opt.pos_mode )
-	Settings.setValue( 'enter_as_tab', opt.enter_as_tab )
-	Settings.setValue( 'debug', opt.debug )
-	if opt.disable_kde:
+	if not opt.stylesheet is None:
+		Settings.setValue( 'koo.stylesheet', opt.stylesheet )
+	if not opt.pos_mode is None:
+		Settings.setValue( 'koo.pos_mode', opt.pos_mode )
+	if not opt.enter_as_tab is None:
+		Settings.setValue( 'koo.enter_as_tab', opt.enter_as_tab )
+	if not opt.debug is None:
+		Settings.setValue( 'client.debug', opt.debug )
+	if not opt.disable_kde is None:
 		Settings.setValue( 'kde.enabled', False )
-
 	return args
 

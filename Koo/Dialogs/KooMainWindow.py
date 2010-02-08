@@ -428,7 +428,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				self.openHomeTab()
 
 				if Common.isQtVersion45():
-					self.tabWidget.setTabsClosable( Settings.value('tabs_closable') )
+					self.tabWidget.setTabsClosable( Settings.value('koo.tabs_closable') )
 
 				self.updateRequestsStatus()
 				self.updateUserShortcuts()

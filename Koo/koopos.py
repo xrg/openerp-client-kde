@@ -60,7 +60,11 @@ Notifier.concurrencyErrorHandler = Common.concurrencyError
 ### Main application loop
 app = QApplication( sys.argv )
 try:
-	app.setStyleSheet( file(Settings.value('stylesheet')).read() )
+	f = open(Settings.value('koo.stylesheet'), 'rb')
+	try:
+		app.setStyleSheet( f.read() )
+	finally:
+		f.close()
 except:
 	pass
 

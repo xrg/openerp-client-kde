@@ -558,7 +558,7 @@ class Screen(QScrollArea):
 			# This way dashboards won't show the toolbar, though the option will
 			# remain available in the menu for those screens that don't have any
 			# actions configured in the server, but Print Screen can be useful.
-			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('show_toolbar'):
+			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('koo.show_toolbar'):
 				self.toolBar.setup( self.actions )
 
 	## @brief Creates a new record in the current model. If the current view is not editable

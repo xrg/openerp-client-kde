@@ -119,7 +119,7 @@ class RecordGroup(QObject):
 		self._domain = []
 		self._filter = []
 
-		if Settings.value('sort_mode') == 'visible_items':
+		if Settings.value('koo.sort_mode') == 'visible_items':
 			self._sortMode = self.SortVisibleItems
 		else:
 			self._sortMode = self.SortAllItems

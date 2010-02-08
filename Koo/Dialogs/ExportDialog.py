@@ -49,6 +49,11 @@ def exportHtml(fname, fields, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		f = codecs.open( fname, 'wb+', 'utf8' )
+	except IOError, (errno, strerror):
+		QApplication.restoreOverrideCursor()
+		QMessageBox.warning( None, _('Error'), _("Operation failed !\nI/O error (%s)") % (errno))
+		return
+	try:
 		f.write( '<html>' )
 		f.write( '<head><title>' + _('OpenERP exported information') + '</title></head>' )
 		f.write( '<table>' )
@@ -68,12 +73,13 @@ def exportHtml(fname, fields, result, writeTitle):
 			f.write( '<tr>' )
 			f.write( '<td>%s</td>' % ( '</td><td>'.join( row ) ) )
 			f.write( '</tr>' )
-		f.close()
 		QApplication.restoreOverrideCursor()
 		QMessageBox.information( None, _('Information'), _('%s record(s) saved!') % (str(len(result))) )
 	except IOError, (errno, strerror):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Error'), _("Operation failed !\nI/O error (%s)") % (errno))
+	finally:
+		f.close()
 
 def textToCsv(text):
 	return '"%s"' % text.replace('\n',' ').replace('\t', ' ').replace('"','\\"')
@@ -82,6 +88,11 @@ def exportCsv(fname, fields, result, writeTitle):
 	QApplication.setOverrideCursor( Qt.WaitCursor )
 	try:
 		fp = codecs.open( fname, 'wb+', 'utf8' )
+	except IOError, (errno, strerror):
+		QApplication.restoreOverrideCursor()
+		QMessageBox.warning( None, _('Data Export'), _("Operation failed !\nI/O error (%s)") % (errno))
+		return
+	try:
 		if writeTitle:
 			fp.write( ','.join( [textToCsv(x) for x in fields] ) + '\n' )
 		for data in result:
@@ -94,7 +105,6 @@ def exportCsv(fname, fields, result, writeTitle):
 				else:
 					row.append( textToCsv(d) )
 			fp.write( ','.join( row ) + '\n' )
-		fp.close()
 		QApplication.restoreOverrideCursor()
 		QMessageBox.information( None, _('Data Export'), _('%s record(s) saved!') % (str(len(result))) )
 	except IOError, (errno, strerror):
@@ -103,6 +113,8 @@ def exportCsv(fname, fields, result, writeTitle):
 	except Exception, e:
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning( None, _('Data Export'), _("Error exporting data:\n%s") % unicode(e.args) )
+	finally:
+		fp.close()
 
 ## @brief Converts the given list of lists (data) into the appropiate type so Excel and OpenOffice.org
 # set the appropiate cell format.

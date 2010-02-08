@@ -117,7 +117,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self._viewActionGroup.addAction( action )
 
 		self.group = RecordGroup( self.model, context=self.context )
-		if Settings.value('sort_mode') == 'visible_items':
+		if Settings.value('koo.sort_mode') == 'visible_items':
 			self.group.setSortMode( RecordGroup.SortVisibleItems )
 		self.group.setDomain( domain )
 		self.connect(self.group, SIGNAL('modified'), self.notifyRecordModified)
@@ -219,7 +219,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def showAttachments(self):
 		id = self.screen.currentId()
 		if id:
-			if Settings.value('attachments_dialog'):
+			if Settings.value('koo.attachments_dialog'):
 				QApplication.setOverrideCursor( Qt.WaitCursor )
 				try:
 					window = AttachmentDialog(self.model, id, self)

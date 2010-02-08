@@ -111,7 +111,7 @@ app.setOrganizationDomain( 'www.nan-tic.com' )
 app.setOrganizationName( 'NaN' )
 
 try:
-	f = open( Settings.value('stylesheet'), 'r' )
+	f = open( Settings.value('koo.stylesheet'), 'r' )
 	try:
 		app.setStyleSheet( f.read() )
 	finally:
@@ -158,11 +158,12 @@ Api.instance = KooApi()
 
 win.show()
 
-if Settings.value('pos_mode'):
+print "SETTING: ", Settings.value('koo.pos_mode')
+if Settings.value('koo.pos_mode'):
         import Koo.Pos
 	app.installEventFilter( Koo.Pos.PosEventFilter(win) )
 
-if Settings.value('enter_as_tab'):
+if Settings.value('koo.enter_as_tab'):
 	from Koo.Common import EnterEventFilter
 	app.installEventFilter( EnterEventFilter.EnterEventFilter(win) )
 
@@ -179,7 +180,7 @@ if Settings.value('tip.autostart'):
 
 win.showLoginDialog()
 
-if Settings.value('debug'):
+if Settings.value('client.debug'):
 	def excepthook(type, value, backtrace):
 		import traceback
 		Notifier.notifyError( type, value, ''.join( traceback.format_tb( backtrace ) ) )

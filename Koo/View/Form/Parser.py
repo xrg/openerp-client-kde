@@ -145,7 +145,7 @@ class FormParser(AbstractParser):
 						'top': QTabWidget.North,
 						'right': QTabWidget.East,
 						'bottom': QTabWidget.South
-					} [Settings.value('tabs_position')]
+					} [Settings.value('koo.tabs_position')]
 					
 			        tab.setTabPosition( pos )
 
