@@ -158,7 +158,6 @@ Api.instance = KooApi()
 
 win.show()
 
-print "SETTING: ", Settings.value('koo.pos_mode')
 if Settings.value('koo.pos_mode'):
         import Koo.Pos
 	app.installEventFilter( Koo.Pos.PosEventFilter(win) )
