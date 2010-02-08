@@ -57,7 +57,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 
 		self.connect( self.widget, SIGNAL('activated(int)'), self.activated )
 		self.connect( self.widget, SIGNAL('editTextChanged(QString)'), self.changed )
-		self.fill(attrs.get('selection',[]))
+		self.fill( attrs.get('selection') or [] )
 
 	def fill(self, selection):
 		for (id,name) in selection:
