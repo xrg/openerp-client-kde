@@ -79,7 +79,7 @@ class Record(QObject):
 		for key, value in self.values.iteritems():
 			from Group import RecordGroup
 			if isinstance(value, RecordGroup):
-				#value.parent.fieldObjects[key].disconnect( SIGNAL('modified()'), value )
+				#value.parent.fieldObjects[key].disconnect( SIGNAL('modified'), value )
 				value.__del__()
 		self.values = {}
 		from Koo.Common import Debug

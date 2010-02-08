@@ -275,7 +275,7 @@ class ToManyField(StringField):
 		from Koo.Model.Group import RecordGroup
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
 		group.setDomainForEmptyGroup()
-		self.connect( group, SIGNAL('modified()'), self.groupModified )
+		self.connect( group, SIGNAL('modified'), self.groupModified )
 		return group
 
 	def groupModified(self):
@@ -295,7 +295,7 @@ class ToManyField(StringField):
 		# This has crashed when switching view of the 'account.invoice.line' one2many field
 		# in 'account.invoice' view.
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
-		self.connect( group, SIGNAL('modified()'), self.groupModified )
+		self.connect( group, SIGNAL('modified'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.load(value)
 		record.values[self.name] = group
@@ -344,7 +344,7 @@ class OneToManyField(ToManyField):
 			fields = Rpc2.fields_get(value[0].keys(), context)
 
 		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record, context=self.context(record, eval=False))
-		self.connect( record.values[self.name], SIGNAL('modified()'), self.groupModified )
+		self.connect( record.values[self.name], SIGNAL('modified'), self.groupModified )
 		mod=None
 		for record in (value or []):
 			# TODO: Fix with new Group behaviour. Has this ever really worked?

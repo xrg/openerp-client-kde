@@ -378,7 +378,7 @@ class RecordGroup(QObject):
 
 	def recordModified(self, record):
 		if self._signalsEnabled:
-			self.emit( SIGNAL('modified()') )
+			self.emit( SIGNAL('modified') )
 
 	## @brief Removes a record from the record group but not from the server.
 	#
@@ -398,7 +398,7 @@ class RecordGroup(QObject):
 			if record.parent:
 				record.parent.modified = True
 		self.freeRecord( record )
-		self.emit( SIGNAL('modified()') )
+		self.emit( SIGNAL('modified') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), idx, idx )
 
 	## @brief Remove a list of records from the record group but not from the server.
@@ -429,7 +429,7 @@ class RecordGroup(QObject):
 				if record.parent:
 					record.parent.modified = True
 			self.freeRecord( record )
-		self.emit( SIGNAL('modified()') )
+		self.emit( SIGNAL('modified') )
 		self.emit( SIGNAL('recordsRemoved(int,int)'), firstIdx, lastIdx )
 
 	## @brief Removes a record from the record group but not from the server.
