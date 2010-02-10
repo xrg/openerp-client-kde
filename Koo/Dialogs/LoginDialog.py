@@ -113,11 +113,11 @@ class LoginDialog( QDialog, LoginDialogUi ):
 	def slotChange(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
 		dialog.setUrl( Settings.value( 'login.url' ) )
-		dialog.exec_()
-		QApplication.setOverrideCursor( Qt.WaitCursor )
-		self.uiServer.setText( dialog.url )
-		self.refreshList()
-		QApplication.restoreOverrideCursor()
+		if dialog.exec_() == QDialog.Accepted:
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			self.uiServer.setText( dialog.url )
+			self.refreshList()
+			QApplication.restoreOverrideCursor()
 
 	def slotAccept( self ):
 		m = QUrl( self.uiServer.text() )
