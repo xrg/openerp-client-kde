@@ -295,12 +295,6 @@ msgstr ""
 msgid "&Old password:"
 msgstr ""
 
-#. ts-context FullTextSearchDialog
-#: full_text_search.ui:166
-#, fuzzy
-msgid "&Open"
-msgstr ""
-
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
 #, fuzzy

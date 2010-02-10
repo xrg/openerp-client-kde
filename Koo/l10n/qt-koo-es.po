@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-03 12:28+0000\n"
+"X-Launchpad-Export-Date: 2010-02-04 15:44+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 
@@ -79,7 +79,7 @@ msgid "&Clear"
 msgstr "&Borrar"
 
 #. ts-context TipsDialog
-#: tip.ui:112
+#: tip.ui:159
 msgid "&Close"
 msgstr "&Cerrar"
 
@@ -104,7 +104,7 @@ msgid "&Database"
 msgstr "&Base de datos"
 
 #. ts-context LoginDialog
-#: login.ui:115
+#: login.ui:112
 msgid "&Database:"
 msgstr "&Base de datos:"
 
@@ -134,7 +134,7 @@ msgid "&Disconnect"
 msgstr "&Desconectar"
 
 #. ts-context TipsDialog
-#: tip.ui:51
+#: tip.ui:96
 msgid "&Display a new tip next time ?"
 msgstr "&Mostrar un consejo la próxima vez?"
 
@@ -239,17 +239,17 @@ msgid "&New"
 msgstr "&Nuevo"
 
 #. ts-context TipsDialog
-#: tip.ui:87
+#: tip.ui:133
 msgid "&Next Tip"
 msgstr "Consejo &Siguiente"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:573
+#. ts-context ManyToOneWidget
+#: one2many_dialog.ui:68
 msgid "&Next"
 msgstr "&Siguiente"
 
 #. ts-context ManyToOneWidget
-#: dia_form_win_many2one.ui:65
+#: one2many_dialog.ui:118
 msgid "&OK"
 msgstr "&Aceptar"
 
@@ -274,7 +274,7 @@ msgid "&OpenERP"
 msgstr "&OpenERP"
 
 #. ts-context LoginDialog
-#: login.ui:225
+#: login.ui:222
 msgid "&Password:"
 msgstr "C&ontraseña:"
 
@@ -294,12 +294,12 @@ msgid "&Preferences"
 msgstr "&Preferencias"
 
 #. ts-context TipsDialog
-#: tip.ui:77
+#: tip.ui:122
 msgid "&Previous Tip"
 msgstr "Consejo &Anterior"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:585
+#. ts-context ManyToOneWidget
+#: one2many_dialog.ui:57
 msgid "&Previous"
 msgstr "&Anterior"
 
@@ -329,7 +329,7 @@ msgid "&Reports"
 msgstr "&Informes"
 
 #. ts-context LoginDialog
-#: login.ui:147
+#: login.ui:144
 msgid "&Restore Database"
 msgstr "&Restaurar una Base de Datos"
 
@@ -359,7 +359,7 @@ msgid "&Send Request"
 msgstr "&Enviar una Petición"
 
 #. ts-context LoginDialog
-#: login.ui:74
+#: login.ui:71
 msgid "&Server:"
 msgstr "&Servidor:"
 
@@ -384,7 +384,7 @@ msgid "&User"
 msgstr "&Usuario"
 
 #. ts-context LoginDialog
-#: login.ui:251
+#: login.ui:248
 msgid "&User:"
 msgstr "&Usuario:"
 
@@ -412,6 +412,11 @@ msgstr "'"
 #: one2many.ui:197
 msgid "(0/0)"
 msgstr "(0/0)"
+
+#. ts-context ManyToOneWidget
+#: one2many_dialog.ui:95
+msgid "(_/0)"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:113
@@ -1748,7 +1753,7 @@ msgid "<b>Could not connect to database</b>"
 msgstr "<b>No se pudo conectar con la base de datos</b>"
 
 #. ts-context LoginDialog
-#: login.ui:180
+#: login.ui:177
 msgid "<b>Could not connect to server !</b>"
 msgstr "<b>No se ha podido conectar con el servidor !</b>"
 
@@ -1921,7 +1926,7 @@ msgid "C"
 msgstr "C"
 
 #. ts-context LoginDialog
-#: login.ui:102
+#: login.ui:99
 msgid "C&hange"
 msgstr "Cam&biar"
 
@@ -2015,7 +2020,7 @@ msgid "Copy selected text"
 msgstr "Copiar el texto seleccionado"
 
 #. ts-context LoginDialog
-#: login.ui:136
+#: login.ui:133
 msgid "Create &Database"
 msgstr "Crear una base de &datos"
 
@@ -2512,7 +2517,7 @@ msgid "Open"
 msgstr "Abrir"
 
 #. ts-context ManyToOneWidget
-#: dia_form_win_many2one.ui:14
+#: one2many_dialog.ui:14
 msgid "OpenERP - Link"
 msgstr "Enlace - OpenERP"
 
@@ -2816,7 +2821,7 @@ msgid "Time:"
 msgstr "Hora:"
 
 #. ts-context TipsDialog
-#: tip.ui:13
+#: tip.ui:20
 msgid "Tip of the Day"
 msgstr "Consejo del Día"
 

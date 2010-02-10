@@ -20,7 +20,7 @@ Language-Team: LANGUAGE &lt;LL.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2010-02-03 12:28+0000
+X-Launchpad-Export-Date: 2010-02-04 15:44+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -133,11 +133,6 @@ X-Generator: Launchpad (build Unknown)
         <translation>&amp;Base de dades nova</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="573"/>
-        <source>&amp;Next</source>
-        <translation>&amp;Següent</translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="241"/>
         <source>&amp;Plugins</source>
         <translation>&amp;Extensions</translation>
@@ -146,11 +141,6 @@ X-Generator: Launchpad (build Unknown)
         <location filename="mainwindow.ui" line="477"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Preferències</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="585"/>
-        <source>&amp;Previous</source>
-        <translation>&amp;Previous</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="423"/>
@@ -866,27 +856,27 @@ X-Generator: Launchpad (build Unknown)
 <context>
     <name>TipsDialog</name>
     <message>
-        <location filename="tip.ui" line="112"/>
+        <location filename="tip.ui" line="159"/>
         <source>&amp;Close</source>
         <translation>&amp;Tanca</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="51"/>
+        <location filename="tip.ui" line="96"/>
         <source>&amp;Display a new tip next time ?</source>
         <translation>&amp;Mostra el consell del dia el proper cop?</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="87"/>
+        <location filename="tip.ui" line="133"/>
         <source>&amp;Next Tip</source>
         <translation>&amp;Següent consell</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="77"/>
+        <location filename="tip.ui" line="122"/>
         <source>&amp;Previous Tip</source>
         <translation>Consell &amp;anterior</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="13"/>
+        <location filename="tip.ui" line="20"/>
         <source>Tip of the Day</source>
         <translation>Consell del dia</translation>
     </message>
@@ -979,42 +969,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LoginDialog</name>
     <message>
-        <location filename="login.ui" line="115"/>
+        <location filename="login.ui" line="112"/>
         <source>&amp;Database:</source>
         <translation>&amp;Base de dades:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="225"/>
+        <location filename="login.ui" line="222"/>
         <source>&amp;Password:</source>
         <translation>C&amp;ontrasenya:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="147"/>
+        <location filename="login.ui" line="144"/>
         <source>&amp;Restore Database</source>
         <translation>&amp;Restaura una base de dades</translation>
     </message>
     <message>
-        <location filename="login.ui" line="74"/>
+        <location filename="login.ui" line="71"/>
         <source>&amp;Server:</source>
         <translation>&amp;Servidor:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="251"/>
+        <location filename="login.ui" line="248"/>
         <source>&amp;User:</source>
         <translation>&amp;Usuari:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="180"/>
+        <location filename="login.ui" line="177"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;No s&apos;ha pogut connectar al servidor !&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="102"/>
+        <location filename="login.ui" line="99"/>
         <source>C&amp;hange</source>
         <translation>Can&amp;via</translation>
     </message>
     <message>
-        <location filename="login.ui" line="136"/>
+        <location filename="login.ui" line="133"/>
         <source>Create &amp;Database</source>
         <translation>Crea una base de &amp;dades</translation>
     </message>
@@ -1280,12 +1270,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ManyToOneWidget</name>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="65"/>
+        <location filename="one2many_dialog.ui" line="68"/>
+        <source>&amp;Next</source>
+        <translation>&amp;Següent</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="118"/>
         <source>&amp;OK</source>
         <translation>&amp;D&apos;acord</translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="14"/>
+        <location filename="one2many_dialog.ui" line="57"/>
+        <source>&amp;Previous</source>
+        <translation>&amp;Previous</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="95"/>
+        <source>(_/0)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation>Enllaç - OpenERP</translation>
     </message>
