@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>501</width>
-    <height>451</height>
+    <width>661</width>
+    <height>618</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -77,12 +77,11 @@ p, li { white-space: pre-wrap; }
     </layout>
    </item>
    <item>
-    <widget class="SearchView" name="uiItems" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
+    <widget class="QWebView" name="uiWeb">
+     <property name="url">
+      <url>
+       <string>about:blank</string>
+      </url>
      </property>
     </widget>
    </item>
@@ -163,25 +162,11 @@ p, li { white-space: pre-wrap; }
        <item>
         <widget class="QPushButton" name="pushAccept">
          <property name="text">
-          <string>&amp;Open</string>
+          <string>&amp;Accept</string>
          </property>
          <property name="icon">
           <iconset resource="common.qrc">
            <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
-         </property>
-         <property name="default">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushCancel">
-         <property name="text">
-          <string>&amp;Cancel</string>
-         </property>
-         <property name="icon">
-          <iconset resource="common.qrc">
-           <normaloff>:/images/cancel.png</normaloff>:/images/cancel.png</iconset>
          </property>
         </widget>
        </item>
@@ -193,10 +178,9 @@ p, li { white-space: pre-wrap; }
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SearchView</class>
+   <class>QWebView</class>
    <extends>QWidget</extends>
-   <header>Koo.Dialogs.FullTextSearchDialog</header>
-   <container>1</container>
+   <header>QtWebKit/QWebView</header>
   </customwidget>
  </customwidgets>
  <resources>
