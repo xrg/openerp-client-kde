@@ -31,251 +31,16 @@ import gettext
 import re
 from Koo.Common import Common
 from Koo.Common import Numeric
+from Koo.Common import Api
 
 from Koo import Rpc
+from Koo.Model.Group import RecordGroup
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
+from PyQt4.QtWebKit import *
 
-class SearchViewItem( QWidget ):
-	def __init__( self, uiFile, parent = None ):
-		QWidget.__init__( self, parent )
-		loadUi( uiFile, self )
-		self.index = None
-
-## @brief The SearchView class provides a view for a list of custom widgets.
-#
-# SearchView, simplifies the task of creating a list-like view for a model
-# in which the items of the list are custom widgets. Even more, SearchView
-# allows to trivially use a '.ui' to be used as items, where you only need
-# to map model indexes into .ui widget names.
-class SearchView( QAbstractItemView ):
-	def __init__( self, parent = None ):
-		QAbstractItemView.__init__( self, parent )
-		self.setViewport( QWidget(self) )
-		layout = QVBoxLayout( self.viewport() )
-		layout.setSpacing( 0 )
-		layout.setMargin( 0 )
-		self.items = []
-		self.selected = -1
-		self.keyboard = ""
-		self.setVerticalScrollBarPolicy( Qt.ScrollBarAlwaysOn )
-		self.connect( self.verticalScrollBar(), SIGNAL('valueChanged(int)'), self.scrollBarChanged )
-		self.setEditTriggers( QAbstractItemView.NoEditTriggers )
-
-	def scrollBarChanged(self, value):
-		self.viewport().move( 0, - value )
-
-	## @brief Map the label or widget of each item with 
-	# the corresponding column of the model
-	#
-	# Example of a valid map:
-	# \code
-	#  map = [ ('uiModel', 3), ('uiName', 4), ('uiHeadline', 5), ('uiRanking', 6) ]
-	#  uiItems.setModelItemMap( map )
-	# \endcode
-	def setModelItemMap(self, map):
-		self.map = map
-
-	## @brief Sets the .ui file that will be used to represent each item
-	#  int the list
-	#
-	# The .ui file should contain QLabels which will be mapped using
-	# setModelItemMap().
-	def setItemUi(self, uiFile ):
-		self.uiFile = uiFile
-
-	## @brief You may inherit this class and reimplement this function if your items,
-	# aren't created from ui files or the file is not composed
-	# only of simple labels.
-	def createItemWidget(self, parent):
-		return SearchViewItem( self.uiFile, parent )
-
-	## @brief Reimplement this function if you don't use the map to automatically
-	# fill the item widget. Note that the index of the model is inside 
-	# 'item.index'.
-	def fillItemWidget( self, item ):
-		pass
-
-	# Functions required by QAbstractItemView
-	def indexAt( self, point ):
-		idx = QModelIndex()
-		y = 0
-		for x in self.items:
-			if x.geometry().contains(point):
-				return x.index
-			y += 1
-		return idx
-
-	def keyboardSearch( self, search ):
-		search = self.keyboard + unicode(search).lower()
-		found = False
-		start = max(self.selected, 0)
-		for x in range(start, len(self.items)):
-			if unicode(self.items[x].uiName.text()).lower().startswith( search ):
-				found = True
-				break
-		if found:
-			self.selected = x
-			self.keyboard = search
-			self.highlightSelected()
-
-	def scrollTo( self, index, hint ): 
-		pos = None
-		if hint == QAbstractItemView.EnsureVisible:
-			rect = self.visualRect(index)
-			if rect.y() + rect.height() > abs(self.viewport().y()) + self.height():
-				# Position at bottom	
-				rect = self.visualRect(index)
-				pos = rect.y() + rect.height() - self.height() 
-				pos = max( pos, 0 )
-			elif rect.y() < abs(self.viewport().y()):
-				# Position at top
-				pos = self.visualRect(index).y()
-		elif hint == QAbstractItemView.PositionAtTop:
-			pos = self.visualRect(index).y()
-		elif hint == QAbstractItemView.PositionAtBottom:
-			rect = self.visualRect(index)
-			pos = rect.y() + rect.height() - self.height() 
-			pos = max( pos, 0 )
-		elif hint == QAbstractItemView.PositionAtCenter:
-			rect = self.visualRect(index)
-			pos = rect.y() + (rect.height()/2) - ( self.height()/2 )
-			pos = max( pos, 0 )
-
-		if pos != None:
-			self.viewport().move( 0, - pos )
-
-	def visualRect( self, index ):
-		for x in self.items:
-			if x.index == index:
-				return x.geometry()
-		return QRect()
-
-	def isIndexHidden( self, index ):
-		for x in self.items:
-			if x.index == index:
-				if x.geometry().y() > self.viewport().y() + self.viewport().height() or \
-					x.geometry().y + x.geometry().height() < self.viewport().y():
-					return True
-				else:
-					return False
-		return False
-
-	def horizontalOffset(self):
-		return 0
-
-	def verticalOffset(self):
-		return self.viewport().y()
-
-	def moveCursor( self, action, modifiers ):
-		if len(self.items) == 0:
-			return QModelIndex()
-		if action == QAbstractItemView.MoveUp:
-			selected = self.selected - 1
-		elif action == QAbstractItemView.MoveDown:
-			selected = self.selected + 1
-		elif action == QAbstractItemView.MoveHome:
-			selected = 0
-		elif action == QAbstractItemView.MoveEnd:
-			selected = len(self.items) - 1
-		elif action == QAbstractItemView.MovePageUp:
-			selected = self.selected - 3
-		elif action == QAbstractItemView.MovePageDown:
-			selected = self.selected + 3
-		elif action == QAbstractItemView.MoveNext:
-			selected = self.selected + 1
-		elif action == QAbstractItemView.MovePrevious:
-			selected = self.selected - 1
-		elif action == QAbstractItemView.MoveRight:
-			selected = self.selected + 1
-		elif action == QAbstractItemView.MoveLeft:
-			selected = self.selected - 1
-
-		selected = min(selected, len(self.items)-1)
-		selected = max(selected, 0)
-		if selected != self.selected:
-			self.selected = selected
-			self.highlightSelected()
-		return self.items[self.selected].index
-
-	def wheelEvent(self, event):
-		newEvent = QWheelEvent(event.pos(), event.globalPos(), event.delta()*6, event.buttons(), event.modifiers(), event.orientation())
-		return QAbstractItemView.wheelEvent(self, newEvent)
-
-	def setSelection( self, rect, flags ):
-		self.selected = -1
-		for x in range(len(self.items)):
-			if self.items[x].geometry().intersects( rect ):
-				self.selected = x
-		if self.selected != -1:
-			self.selectionModel().select( self.items[self.selected].index, QItemSelectionModel.Current )
-		else:
-			self.selectionModel().select( QModelIndex(), QItemSelectionModel.Current )
-		self.highlightSelected()
-
-	def visualRegionForSelection( self, selection ):
-		region = QRegion()
-		for x in self.items:
-			for y in selection.indexes():
-				if x.index == y:
-					region.unite( QRegion( x.geometry() ) )
-		return region
-
-	def rowsInserted( self, index, start, end ):
-		for y in range(start, end+1):
-			item = self.createItemWidget( self.viewport() )
-			item.index = self.model().index( y, 0, index )
-			# Fill in the item
-			if self.map:
-				# If there is a map, it means that autofilling is enabled
-				for x in self.map:
-					idx = self.model().index( y, x[1], index )
-					exec("item.%s.setText( self.model().data( idx ).toString() )" % x[0] )
-			else:
-				# Otherwise let the user fill in the item
-				self.fillItemWidget( item )
-			self.items.append(item)
-			self.viewport().layout().addWidget( item )
-			self.updateViewport( item.height() )
-
-		if self.selected == -1:
-			self.selected = 0
-			self.highlightSelected() 
-
-	def updateViewport(self, itemHeight):
-		height = 0
-		for x in self.items:
-			height += x.geometry().height()
-		self.viewport().setFixedHeight( height )
-		diff = self.viewport().height() - self.height()
-		if diff < 0:
-			diff = 0
-		self.verticalScrollBar().setRange( 0, diff )
-		self.verticalScrollBar().setValue( 0 )
-
-	def rowsAboutToBeRemoved( self, index, start, end ):
-		s = self.model().index( start, 0, index )
-		e = self.model().index( end, 0, index )
-		remove = []
-		for x in self.items:
-			if ( s < x.index or s == x.index ) and (x.index < e or x.index == e):
-				remove.append( x )
-				x.deleteLater()
-		for x in remove:
-			del self.items[self.items.index(x)]
-		if self.selected >= len(self.items):
-			self.selected = -1
-
-	def highlightSelected(self):
-		if self.selected < 0:
-			return
-		for x in range(len(self.items)):
-			if x == self.selected:
-				self.items[x].setStyleSheet( 'QWidget{background: yellow}' )	
-			else:
-				self.items[x].setStyleSheet( '' )
 
 (FullTextSearchDialogUi, FullTextSearchDialogBase) = loadUiType( Common.uiPath('full_text_search.ui') )
 
@@ -293,31 +58,24 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 
 		self.result = None
 
-		self.model = FullTextSearchModel(self)
-		#self.uiItems = SearchView( self )
-		map = [ ('uiModel', 3), ('uiName', 4), ('uiHeadline', 5),
-			('uiRanking', 6) ]
-		self.uiItems.setModelItemMap( map )
-		self.uiItems.setItemUi( Common.uiPath('searchviewitem.ui') )
-		self.uiItems.setModel( self.model )
-		self.layout().insertWidget( 1, self.uiItems )
-
 		self.setQueriesEnabled( False, _('Loading...') )
 
 		self.title = _('Full Text Search')
 		self.title_results = _('Full Text Search (%%d result(s))')
 
 		self.setWindowTitle( self.title )
+		self.uiWeb.page().setLinkDelegationPolicy( QWebPage.DelegateAllLinks )
+		self.connect( self.uiWeb, SIGNAL('linkClicked(QUrl)'), self.open )
 
+		self.shortcuts = {}
+		self.related = []
 		self.limit = 10 
 		self.offset = 0
 		self.pushNext.setEnabled( False )
 		self.pushPrevious.setEnabled( False )
 
 		self.connect( self.uiHelp, SIGNAL('linkActivated(QString)'), self.showHelp )
-		self.connect( self.pushAccept, SIGNAL( "clicked( )"), self.open )
-		self.connect( self.uiItems, SIGNAL( "doubleClicked(QModelIndex)"), self.open )
-		self.connect( self.pushCancel , SIGNAL( "clicked()"), self.reject )
+		self.connect( self.pushAccept, SIGNAL( "clicked( )"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
 		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
@@ -362,7 +120,6 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.pushFind.setEnabled( value )
 		self.pushAccept.setEnabled( value )
 		self.uiText.setEnabled( value )
-		self.uiItems.setVisible( value )
 		self.uiErrorMessage.setText( text )
 		self.uiErrorMessage.setVisible( not value )
 
@@ -388,8 +145,65 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 			self.pushPrevious.setEnabled( False )
 		else:
 			self.pushPrevious.setEnabled( True )
-		self.model.setList( answer )
+		self.showResults( answer )
 		QApplication.restoreOverrideCursor()
+
+	def showResults(self, answer):
+		number = 1
+		page = ''
+		for item in answer:
+			# Prepare relations
+			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(item['model_name'], False)], False, Rpc.session.context)
+			actions = [x[2] for x in related]
+			block = []
+			related = ''
+			for action in actions:
+				f = lambda action: lambda: self.executeRelation(action)
+				action['model_name'] = item['model_name']
+				self.related.append( action )
+				block.append( "<a href='relate/%d/%d'>%s</a>" % ( len(self.related)-1, item['id'], action['name'] ) )
+				if len(block) == 3:
+					related += '<div>%s</div>' % ' - '.join( block )
+					block = []
+			if block:
+				related += '<div>%s</div>' % ' - '.join( block )
+
+			# Prepare URL
+			url = 'open/%s/%s' % ( item['model_name'], item['id'] )
+
+			# Prepare Shortcut
+			# TODO: Implement shortcuts
+			#if number <= 10:
+				#self.shortcut = QShortcut( self )
+				#self.shortcut.setKey( 'Ctrl+%s' % number )
+				#self.shortcut.setContext( Qt.WidgetWithChildrenShortcut )
+				#self.connect( self.shortcut, SIGNAL('activated()'), self.openShortcut )
+				#self.shortcuts[ self.shortcut ] = url
+				#shortcut = ' - <span style="color: green; font-size: medium">[Ctrl+%d]</span>' % ( number % 10 )
+			#else:
+				#shortcut = ''
+			shortcut = ''
+			number += 1
+
+			# Prepare Item
+			page += """
+				<div style="padding: 5px; font-size: large">
+				<a href="%(url)s">%(model_label)s: %(name)s</a> &nbsp;%(shortcut)s - <span style="font-size: medium">[ %(ranking).2f ]</span></a>
+				<div style="font-size: medium">%(headline)s</div>
+				<div style="font-size: medium">%(related)s</div>
+				</div>""" % {
+				'url': url,
+				'model_label': item['model_label'],
+				'name': item['name'],
+				'shortcut': shortcut,
+				'ranking': item['ranking'],
+				'headline': item['headline'],
+				'related': related,
+			}
+
+		page = '<html>%s</html>' % page
+		self.uiWeb.page().mainFrame().setHtml( page )
+		#self.serverOrder = ['id', 'model_id', 'model_name', 'model_label', 'name', 'headline', 'ranking']
 		
 	def previous(self):
 		self.offset = max(0, self.offset - self.limit )
@@ -403,55 +217,28 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.offset = 0
 		self.query()
 
-	def reload(self):
-		self.view.widget.model().removeAll()
-		model = self.view.widget.model()
-		index1 =  model.index( 1,1 )
-		selectionModel = QItemSelectionModel( model )
-		selectionModel.select( index1 , QItemSelectionModel.Rows )
+	def openShortcut( self ):
+		self.open( self.shortcuts[ self.sender() ] )
 
-	def open( self ):
-		idx = self.uiItems.selectionModel().currentIndex()
-		if idx.isValid():
-			id = self.model.item( idx.row(), 0 ).text()
-			model = self.model.item( idx.row(), 2 ).text()
+	def open( self, url ):
+		url = unicode( url.toString() )
+		url = url.split('/')
+		if url[0] == 'open':
 			self.result = {
-				'id': int(str(id)), 
-				'model': unicode(model)
+				'id': int(url[2]),
+				'model': url[1],
 			}
 			self.accept()
+		elif url[0] == 'relate':
+			self.executeRelation( self.related[ int(url[1]) ], int(url[2]) )
+			self.reject()
+	
+	def executeRelation(self, action, id):
+		group = RecordGroup( action['model_name'] )
+		group.load( [id] )
+		record = group.modelByIndex( 0 )
+		action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
+		action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
+		Api.instance.executeAction( action )
 
-class FullTextSearchModel( QStandardItemModel ):
-	def __init__(self, parent = None):
-		QStandardItemModel.__init__(self, parent)
-		self.rootItem = self.invisibleRootItem()
-		self.setColumnCount( 7 )
-		self.setHeaderData( 0, Qt.Horizontal, QVariant( _("ID") ) )
-		self.setHeaderData( 1, Qt.Horizontal, QVariant( _("Model ID") ) )
-		self.setHeaderData( 2, Qt.Horizontal, QVariant( _("Model Name") ) )
-		# Model Description
-		self.setHeaderData( 3, Qt.Horizontal, QVariant( _("Type") ) )
-		self.setHeaderData( 4, Qt.Horizontal, QVariant( _("Name") ) )
-		self.setHeaderData( 5, Qt.Horizontal, QVariant( _("Text") ) )
-		self.setHeaderData( 6, Qt.Horizontal, QVariant( _("Ranking") ) )
-
-		self.serverOrder = ['id', 'model_id', 'model_name', 'model_label', 'name', 'headline', 'ranking']
-
-	def setList(self, list):
-		if self.rowCount() > 0:
-			self.removeRows(0, self.rowCount())
-		for x in list:
-			l = []
-			for y in self.serverOrder:
-				item = QStandardItem()
-				value = x[y]
-				if isinstance( value, float ):
-					item.setText( Numeric.floatToText( value ) )
-				else:	
-					# If name (for example) is False we just want to print it as empty text
-					# not as 'False' string.
-					item.setText( unicode( x[y] or '' ) )
-				l.append( item )
-			self.rootItem.appendRow( l )
-		
 # vim:noexpandtab:

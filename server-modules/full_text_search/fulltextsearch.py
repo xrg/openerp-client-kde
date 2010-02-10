@@ -105,7 +105,7 @@ class fulltextsearch_services(netsvc.Service):
 				self.postgresKeyWords[ 'ts_headline' ] = u'headline'
 
 	# This method should not be exported
-	def headline( self, cr, pool, text, id, model_id, model_name ):
+	def headline( self, pool, cr, uid, text, id, model_id, model_name, context ):
 		# Get all the fields of the model that are indexed
 		cr.execute( """
 			SELECT
@@ -127,38 +127,25 @@ class fulltextsearch_services(netsvc.Service):
 		for k in fields:
 			textFields = textFields + " || ' ' || COALESCE(" + k + "::TEXT,'')"
 
-		# Look if the model has the 'name' field. Which is the
-		# 'default' field we show to represent it on screen instead
-		# of the 'id'
-		cr.execute( """
-			SELECT
-				f.name
-			FROM
-				ir_model_fields f
-			WHERE
-				f.name = 'name' AND
-				f.model_id=%s 
-			LIMIT 1
-			""", (model_id,) )
-		if cr.fetchone():
-			# If it has, fetch the name of the object 
-			cr.execute( "SELECT name FROM \"" + table + "\" WHERE id = %s", (id,) )
-			name = cr.fetchone()[0]
-		else:
+		try:
+			name = pool.get( model_name ).name_get( cr, uid, [id], context )[0][1]
+		except:
 			name = ""
 
 		# Finally, obtain the headline with the concatenation of the
 		# indexed fields
 		cr.execute( """
 			SELECT
-				""" + self.postgresKeyWords['ts_headline'] + """ ( 'default', """ + textFields + """, to_tsquery('default', %s) ) 
+				""" + self.postgresKeyWords['ts_headline'] + """ ( 'default', """ + textFields + """, to_tsquery('default', %s) ),
+				""" + self.postgresKeyWords['ts_headline'] + """ ( 'default', %s, to_tsquery('default', %s) ) 
+
 			FROM 
 				\"""" + table + """\"
 			WHERE
 				id = %s
-			""", (text, id) )
-
-		return { 'name': name, 'headline': cr.fetchone()[0] }
+			""", (text, name, text, id) )
+		record = cr.fetchone()
+		return { 'name': record[1], 'headline': record[0] }
 
 	# Returns a list with the models that have any fields 
 	# indexed with full text index.
@@ -212,7 +199,10 @@ class fulltextsearch_services(netsvc.Service):
 	# starting at offset.
 	# If model is None or False all models are searched. Model should be the
 	# identifier of the model.
-	def search(self, db, uid, passwd, text, limit, offset, model, context={}):
+	def search(self, db, uid, passwd, text, limit, offset, model, context=None):
+		if context is None:
+			context = {}
+
 		security.check(db, uid, passwd)
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
@@ -317,7 +307,7 @@ class fulltextsearch_services(netsvc.Service):
 			if not model_label:
 				model_label = x[2]
 
-			d = self.headline( cr, pool, text, id, model_id, model_name )
+			d = self.headline( pool, cr, uid, text, id, model_id, model_name, context )
 			d['id'] = id
 			d['ranking'] = ranking
 			d['model_id'] = model_id
