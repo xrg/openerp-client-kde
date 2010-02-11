@@ -52,6 +52,8 @@ class ToolBar(QToolBar):
 		self.loaded = True
 		last = None
 		for action in actions:
+			if action.type() == 'plugin':
+				continue
 			if last and last != action.type():
 				self.addSeparator()
 			last = action.type()
