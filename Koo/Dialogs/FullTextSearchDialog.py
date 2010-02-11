@@ -118,10 +118,8 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 	def setQueriesEnabled(self, value, text = ''): 
 		self.uiModel.setEnabled( value )
 		self.pushFind.setEnabled( value )
-		self.pushAccept.setEnabled( value )
 		self.uiText.setEnabled( value )
-		self.uiErrorMessage.setText( text )
-		self.uiErrorMessage.setVisible( not value )
+		self.uiWeb.page().mainFrame().setHtml( "<span style='font-size: large'>%s</span>" % text )
 
 	def textToQuery(self):
 		q = unicode( self.uiText.text() ).strip()
