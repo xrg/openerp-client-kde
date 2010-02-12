@@ -176,7 +176,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
-		if Settings.value('auto_reload'):
+		if Settings.value('koo.auto_reload'):
 			self.subscriber.subscribe( 'updated_model:%s' % model, self.autoReload )
 
 	def notifyRecordModified(self):
@@ -194,7 +194,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			# but only when data is changed in the server.
 			if value > 0:
 				self.reloadTimer.start( int(value) * 1000 )
-			if not Settings.value('auto_reload'):
+			if not Settings.value('koo.auto_reload'):
 				# Do not subscribe again if that was already done in the constructor
 				self.subscriber.subscribe( 'updated_model:%s' % self.model, self.autoReload )
 		else:
@@ -347,7 +347,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			id = self.screen.save()
 			if id:
 				self.updateStatus(_('<font color="green">Document saved</font>'))
-				if not modification and Settings.value('auto_new'):
+				if not modification and Settings.value('koo.auto_new'):
 					self.screen.new()
 			else:
 				self.updateStatus(_('<font color="red">Invalid form</font>'))

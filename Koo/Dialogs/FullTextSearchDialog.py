@@ -75,7 +75,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.pushPrevious.setEnabled( False )
 
 		self.connect( self.uiHelp, SIGNAL('linkActivated(QString)'), self.showHelp )
-		self.connect( self.pushAccept, SIGNAL( "clicked( )"), self.reject )
+		self.connect( self.pushAccept, SIGNAL( "clicked()"), self.reject )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
 		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )

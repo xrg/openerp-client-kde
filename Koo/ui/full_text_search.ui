@@ -69,8 +69,11 @@ p, li { white-space: pre-wrap; }
         <iconset resource="common.qrc">
          <normaloff>:/images/find.png</normaloff>:/images/find.png</iconset>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
        <property name="default">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
      </item>

@@ -91,7 +91,7 @@ class RecordGroup(QObject):
 		self._context = context
 		self._context.update(Rpc.session.context)
 		self.resource = resource
-		self.limit = Settings.value( 'limit', 80 )
+		self.limit = Settings.value( 'koo.limit', 80 )
 		self.maximumLimit = self.limit
 		self.rpc = RpcProxy(resource)
 		if fields == None:

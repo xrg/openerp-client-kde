@@ -247,9 +247,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
-		frequency = Settings.value( 'requests_refresh_interval', 5 * 60 ) * 1000
+		frequency = Settings.value( 'koo.requests_refresh_interval', 5 * 60 ) * 1000
 		if frequency > 0:
-			self.requestsTimer.start( Settings.value( 'requests_refresh_interval', 5 * 60 ) * 1000 )
+			self.requestsTimer.start( Settings.value( 'koo.requests_refresh_interval', 5 * 60 ) * 1000 )
 		else:
 			self.requestsTimer.stop()
 		# We always use the Subscriber as the class itself will handle
@@ -412,12 +412,12 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			url = QUrl( url )
 			if log_response==Rpc.session.LoggedIn:
 				Settings.loadFromServer()
-				if Settings.value('use_cache'):
+				if Settings.value('koo.use_cache'):
 					Rpc.session.cache = Rpc.Cache.ActionViewCache()
 				else:
 					Rpc.session.cache = None
 
-				iconVisible = Settings.value('show_system_tray_icon', True )
+				iconVisible = Settings.value('koo.show_system_tray_icon', True )
 				self.systemTrayIcon.setVisible( iconVisible )
 
 				# Start timer once settings have been loaded because
@@ -647,7 +647,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		else:
 			self.actionFullTextSearch.setEnabled( False )
 
-		if Settings.value('allow_massive_updates', True):
+		if Settings.value('koo.allow_massive_updates', True):
 			self.actionMassiveUpdate.setVisible( True )
 		else:
 			self.actionMassiveUpdate.setVisible( False )
