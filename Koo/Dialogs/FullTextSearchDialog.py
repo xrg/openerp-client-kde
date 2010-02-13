@@ -75,7 +75,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.pushPrevious.setEnabled( False )
 
 		self.connect( self.uiHelp, SIGNAL('linkActivated(QString)'), self.showHelp )
-		self.connect( self.pushAccept, SIGNAL( "clicked()"), self.reject )
+		self.connect( self.pushClose, SIGNAL( "clicked()"), self.accept )
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
 		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
@@ -218,18 +218,29 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.open( self.shortcuts[ self.sender() ] )
 
 	def open( self, url ):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		if isinstance( url, QUrl ):
 			url = unicode( url.toString() )
 		url = url.split('/')
 		if url[0] == 'open':
-			self.result = {
-				'id': int(url[2]),
-				'model': url[1],
-			}
-			self.accept()
+			model = url[1]
+			id = int(url[2])
+
+			if model == 'ir.ui.menu':
+				Api.instance.executeKeyword('tree_but_open', {
+					'model': model, 
+					'id': id, 
+					'report_type': 'pdf', 
+					'ids': [id]
+				}, Rpc.session.context)
+			else:
+				Api.instance.createWindow(None, model, id, view_type='form', mode='form,tree')
 		elif url[0] == 'relate':
-			self.executeRelation( self.related[ int(url[1]) ], int(url[2]) )
-			self.reject()
+			action = int(url[1])
+			id = int(url[2])
+			self.executeRelation( self.related[ action ], id )
+		QApplication.restoreOverrideCursor()
+		self.accept()
 	
 	def executeRelation(self, action, id):
 		group = RecordGroup( action['model_name'] )

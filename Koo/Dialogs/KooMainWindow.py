@@ -300,20 +300,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.showNormal()
 
 		win = FullTextSearchDialog(self)
-		if win.exec_() == QDialog.Rejected:
-			return
-		self.setCursor( Qt.WaitCursor )
-		res = win.result
-		if res['model'] == 'ir.ui.menu':
-			Api.instance.executeKeyword('tree_but_open', {
-				'model': res['model'], 
-				'id': res['id'], 
-				'report_type': 'pdf', 
-				'ids': [res['id']]
-			}, Rpc.session.context)
-		else:
-			Api.instance.createWindow(None, res['model'], res['id'], view_type='form', mode='form,tree')
-		self.unsetCursor()
+		win.exec_()
 
 	def nextTab(self):
 		pn = self.tabWidget.currentIndex()

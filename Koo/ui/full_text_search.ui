@@ -153,13 +153,13 @@ p, li { white-space: pre-wrap; }
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushAccept">
+        <widget class="QPushButton" name="pushClose">
          <property name="text">
-          <string>&amp;Accept</string>
+          <string>&amp;Close</string>
          </property>
          <property name="icon">
           <iconset resource="common.qrc">
-           <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
+           <normaloff>:/images/close.png</normaloff>:/images/close.png</iconset>
          </property>
         </widget>
        </item>
