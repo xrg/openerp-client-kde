@@ -64,7 +64,7 @@ class koo_services(netsvc.Service):
 		self.joinGroup('web-services')
 		self.exportMethod(self.search)
 
-	def search(self, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False):
+	def search(self, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
 		security.check(db, uid, passwd)
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
@@ -126,8 +126,19 @@ class koo_services(netsvc.Service):
 		    return res[0][0]
 
 		# execute the "main" query to fetch the ids we were searching for
-		cr.execute('select %s.id from ' % table + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
-		res = [x[0] for x in cr.fetchall()]
+		if group:
+			cr.execute('select %s.id, %s from ' % (table, group) + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
+			res = []
+			counter = 0 
+			last_value = None
+			for record in cr.fetchall():
+				if last_value != x[1]:
+					last_value = x[1]
+					counter += 1
+				res = [(x[0], counter)]
+		else:
+			cr.execute('select %s.id from ' % table + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
+			res = [x[0] for x in cr.fetchall()]
 
 		#if resortField:
 		#	# This code tries to respect the order returned by standard search()

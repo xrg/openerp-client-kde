@@ -218,7 +218,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.open( self.shortcuts[ self.sender() ] )
 
 	def open( self, url ):
-		if isinstance( url, QString ):
+		if isinstance( url, QUrl ):
 			url = unicode( url.toString() )
 		url = url.split('/')
 		if url[0] == 'open':

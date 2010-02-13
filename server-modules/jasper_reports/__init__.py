@@ -25,6 +25,7 @@
 #
 ##############################################################################
 
+#from translation import *
 from jasper_report import *
 from report_xml import *
 import wizard
