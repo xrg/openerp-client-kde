@@ -135,7 +135,6 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 	
 	def refreshLangList(self, url):
 		self.uiLanguage.clear()
-		print "URL: ", url
 		try:
 			lang_list = Rpc.database.call(url, 'list_lang')
 		except:
