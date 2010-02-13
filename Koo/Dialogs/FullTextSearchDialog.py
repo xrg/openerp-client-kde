@@ -171,16 +171,15 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 
 			# Prepare Shortcut
 			# TODO: Implement shortcuts
-			#if number <= 10:
-				#self.shortcut = QShortcut( self )
-				#self.shortcut.setKey( 'Ctrl+%s' % number )
-				#self.shortcut.setContext( Qt.WidgetWithChildrenShortcut )
-				#self.connect( self.shortcut, SIGNAL('activated()'), self.openShortcut )
-				#self.shortcuts[ self.shortcut ] = url
-				#shortcut = ' - <span style="color: green; font-size: medium">[Ctrl+%d]</span>' % ( number % 10 )
-			#else:
-				#shortcut = ''
-			shortcut = ''
+			if number <= 10:
+				self.shortcut = QShortcut( self )
+				self.shortcut.setKey( 'Ctrl+%s' % number )
+				self.shortcut.setContext( Qt.WidgetWithChildrenShortcut )
+				self.connect( self.shortcut, SIGNAL('activated()'), self.openShortcut )
+				self.shortcuts[ self.shortcut ] = url
+				shortcut = ' - <span style="color: green; font-size: medium">[Ctrl+%d]</span>' % ( number % 10 )
+			else:
+				shortcut = ''
 			number += 1
 
 			# Prepare Item
@@ -219,7 +218,8 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.open( self.shortcuts[ self.sender() ] )
 
 	def open( self, url ):
-		url = unicode( url.toString() )
+		if isinstance( url, QString ):
+			url = unicode( url.toString() )
 		url = url.split('/')
 		if url[0] == 'open':
 			self.result = {
