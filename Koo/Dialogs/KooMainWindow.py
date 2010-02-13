@@ -247,9 +247,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def startRequestsTimer(self):
 		# Every X minutes check for new requests and put the number of open
 		# requests in the appropiate space in the status bar
-		frequency = Settings.value( 'koo.requests_refresh_interval', 5 * 60 ) * 1000
+		frequency = Settings.value( 'koo.requests_refresh_interval', 5 * 60, int ) * 1000
 		if frequency > 0:
-			self.requestsTimer.start( Settings.value( 'koo.requests_refresh_interval', 5 * 60 ) * 1000 )
+			self.requestsTimer.start( frequency )
 		else:
 			self.requestsTimer.stop()
 		# We always use the Subscriber as the class itself will handle

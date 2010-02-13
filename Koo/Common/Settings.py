@@ -138,9 +138,15 @@ class Settings(object):
 		Settings.options[key]=value
 
 	## @brief Returns the value for the given key.
+	#
+	# If defaultValue parameter is given, defaultValue is returned if the key does not exist.
+	# If type is given, it will convert the value to the given type.
 	@staticmethod
-	def value(key, defaultValue=None):
-		return Settings.options.get(key, defaultValue)
+	def value(key, defaultValue=None, toType=None):
+		value = Settings.options.get(key, defaultValue)
+		if toType == int:
+			return int( value )
+		return value
 
 	## @brief Returns the value associated with the given key. If the key has no valu
 	# returns defaultValue
@@ -158,7 +164,8 @@ class Settings(object):
 			settings = {}
 		new_settings = {}
 		for key, value in settings.iteritems():
-			new_settings[ 'koo.%s' % key ] = value
+			if key != 'id':
+				new_settings[ 'koo.%s' % key ] = value
 		Settings.options.update( new_settings )
 		Rpc.ViewCache.exceptions = Settings.options.get('koo.cache_exceptions', [])
 
