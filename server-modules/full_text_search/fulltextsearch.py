@@ -193,6 +193,7 @@ class fulltextsearch_services(netsvc.Service):
 
 			ret.append( { 'id': x[0], 'name': name } )		
 		ret.sort( key=itemgetter('name') )
+		cr.close()
 		return ret
 		
 	# Searches limit records that match the text query in the specified model 
