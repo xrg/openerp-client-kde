@@ -40,6 +40,7 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from PyQt4.uic import *
 from PyQt4.QtWebKit import *
+from PyQt4.QtNetwork import *
 
 
 (FullTextSearchDialogUi, FullTextSearchDialogBase) = loadUiType( Common.uiPath('full_text_search.ui') )
