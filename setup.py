@@ -158,7 +158,7 @@ setup (
 	version          = version,
 	description      = "Koo Client",
 	long_description = long_desc,
-	url              = 'http://sf.net/projects/ktiny',
+	url              = 'http://www.NaN-tic.com/koo-platforma',
 	author           = 'NaN',
 	author_email     = 'info@nan-tic.com',
 	classifiers      = filter(None, classifiers.splitlines()),
