@@ -29,6 +29,7 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from Koo.KooChart import *
+from Koo import Rpc
 
 import datetime 
 import time
