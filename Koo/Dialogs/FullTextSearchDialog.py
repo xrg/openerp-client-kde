@@ -162,10 +162,13 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 				self.related.append( action )
 				block.append( "<a href='relate/%d/%d'>%s</a>" % ( len(self.related)-1, item['id'], action['name'] ) )
 				if len(block) == 3:
-					related += '<div>%s</div>' % ' - '.join( block )
+					related += '<div style="padding-left: 40px">%s</div>' % ' - '.join( block )
 					block = []
 			if block:
-				related += '<div>%s</div>' % ' - '.join( block )
+				related += '<div style="padding-left: 40px">%s</div>' % ' - '.join( block )
+
+			if related:
+				related = '<div style="padding-top: 5px">%s</div>' % related
 
 			# Prepare URL
 			url = 'open/%s/%s' % ( item['model_name'], item['id'] )
