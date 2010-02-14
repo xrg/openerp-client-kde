@@ -125,6 +125,7 @@ class Settings(object):
 			'1027': 'ca',
 			'1033': 'en',
 			'1034': 'es',
+			'1040': 'it',
 		}
 			
 		import _winreg
