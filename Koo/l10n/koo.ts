@@ -920,17 +920,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="91"/>
-        <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="122"/>
+        <location filename="full_text_search.ui" line="115"/>
         <source>&amp;Previous</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="133"/>
+        <location filename="full_text_search.ui" line="126"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
@@ -951,13 +946,13 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="83"/>
+        <location filename="full_text_search.ui" line="86"/>
         <source>about:blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="165"/>
-        <source>&amp;Accept</source>
+        <location filename="full_text_search.ui" line="158"/>
+        <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

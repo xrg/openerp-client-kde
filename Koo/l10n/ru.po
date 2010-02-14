@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-04 13:57+0100\n"
+"POT-Creation-Date: 2010-02-10 12:55+0100\n"
 "PO-Revision-Date: 2010-01-30 19:28+0000\n"
 "Last-Translator: Santjaga <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-04 15:44+0000\n"
+"X-Launchpad-Export-Date: 2010-02-14 23:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/TreeWidget.py:287
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:287
 #: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:242
 msgid "Information"
 msgstr "Информация"
@@ -58,8 +58,9 @@ msgstr "Ничто не печатать!"
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
 #: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:145
-#: Koo/Dialogs/ExportDialog.py:179 Koo/Fields/Binary/BinaryFieldWidget.py:229
+#: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
+#: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
+#: Koo/Fields/Binary/BinaryFieldWidget.py:229
 #: Koo/Fields/Binary/BinaryFieldWidget.py:263
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
@@ -106,19 +107,19 @@ msgstr "В виде формы"
 msgid "List View"
 msgstr "В виде списка"
 
-#: Koo/View/Tree/TreeView.py:209
+#: Koo/View/Tree/TreeView.py:207
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr "<font color='red'>Сортировка невозможна.</font>"
 
-#: Koo/View/Tree/TreeView.py:211
+#: Koo/View/Tree/TreeView.py:209
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:213
+#: Koo/View/Tree/TreeView.py:211
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr "<font color='red'>Сохраните изменения перед сортировкой.</font>"
 
-#: Koo/View/Tree/TreeView.py:237
+#: Koo/View/Tree/TreeView.py:235
 msgid "<a href=\"update\">Update totals</a>"
 msgstr "<a href=\"update\">Обновить целиком</a>"
 
@@ -249,13 +250,13 @@ msgstr ""
 "Включить debug режим. Будет отображаться диалог ошибки во всех исключениях"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:301
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/MassiveUpdateDialog.py:95
+#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/MassiveUpdateDialog.py:96
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "Yes"
 msgstr "Да"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:301
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/MassiveUpdateDialog.py:95
+#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/MassiveUpdateDialog.py:96
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "No"
 msgstr "Нет"
@@ -405,7 +406,7 @@ msgstr "Ресурс не выбран!"
 msgid "You have to select one resource!"
 msgstr "Вы должны выбрать один ресурс!"
 
-#: Koo/Dialogs/FormWidget.py:288 Koo/Dialogs/FullTextSearchDialog.py:429
+#: Koo/Dialogs/FormWidget.py:288
 msgid "ID"
 msgstr "ID"
 
@@ -706,60 +707,36 @@ msgstr ""
 "Ошибка обработки первой строки файла.\n"
 "Поле %s неизвесто!"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:305
+#: Koo/Dialogs/FullTextSearchDialog.py:61
 msgid "Loading..."
 msgstr "Загрузка..."
 
-#: Koo/Dialogs/FullTextSearchDialog.py:307
+#: Koo/Dialogs/FullTextSearchDialog.py:63
 msgid "Full Text Search"
 msgstr "Полнотекстовый поиск"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:308
+#: Koo/Dialogs/FullTextSearchDialog.py:64
 #, python-format
 msgid "Full Text Search (%%d result(s))"
 msgstr "Полнотекстовый поиск (%%d результат(ов)"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:335
+#: Koo/Dialogs/FullTextSearchDialog.py:93
 msgid "(Everywhere)"
 msgstr "(Везде)"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:339
+#: Koo/Dialogs/FullTextSearchDialog.py:97
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:343
+#: Koo/Dialogs/FullTextSearchDialog.py:101
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:430
-msgid "Model ID"
-msgstr "ID модели"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:431
-msgid "Model Name"
-msgstr "Название модели"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:433
-msgid "Type"
-msgstr "Тип"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:434
-msgid "Name"
-msgstr "Название"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:435
-msgid "Text"
-msgstr "Текст"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:436
-msgid "Ranking"
-msgstr "Результаты"
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Validation Error"
@@ -783,11 +760,11 @@ msgstr ""
 "Не удалось сменить пароль администратора. Пожалуйста, проверьте правильность "
 "сервера и пароля."
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:91
+#: Koo/Dialogs/MassiveUpdateDialog.py:92
 msgid "Confirmation"
 msgstr "Подтверждение"
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
+#: Koo/Dialogs/MassiveUpdateDialog.py:93
 #, python-format
 msgid ""
 "<p>This process will update the following fields in %(number)d "
@@ -800,16 +777,8 @@ msgstr ""
 msgid "Fields"
 msgstr "Поля"
 
-#: Koo/Dialogs/ExportDialog.py:53
-msgid "OpenERP exported information"
-msgstr "Экспортированная информация OpenERP"
-
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:99
-#, python-format
-msgid "%s record(s) saved!"
-msgstr "%s запись(ей) сохранено!"
-
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
+#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
 #, python-format
 msgid ""
 "Operation failed !\n"
@@ -818,12 +787,21 @@ msgstr ""
 "Операция не удалась !\n"
 "Ошибка Ввода/Вывода (%s)"
 
-#: Koo/Dialogs/ExportDialog.py:99 Koo/Dialogs/ExportDialog.py:102
-#: Koo/Dialogs/ExportDialog.py:105
+#: Koo/Dialogs/ExportDialog.py:58
+msgid "OpenERP exported information"
+msgstr "Экспортированная информация OpenERP"
+
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/ExportDialog.py:109
+#, python-format
+msgid "%s record(s) saved!"
+msgstr "%s запись(ей) сохранено!"
+
+#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:109
+#: Koo/Dialogs/ExportDialog.py:112 Koo/Dialogs/ExportDialog.py:115
 msgid "Data Export"
 msgstr "Экспорт информации"
 
-#: Koo/Dialogs/ExportDialog.py:105
+#: Koo/Dialogs/ExportDialog.py:115
 #, python-format
 msgid ""
 "Error exporting data:\n"
@@ -832,7 +810,7 @@ msgstr ""
 "Ошибка при экспорте информации:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:145
+#: Koo/Dialogs/ExportDialog.py:157
 #, python-format
 msgid ""
 "Error opening Excel:\n"
@@ -841,7 +819,7 @@ msgstr ""
 "Ошибка при открытии Excel:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:179
+#: Koo/Dialogs/ExportDialog.py:191
 #, python-format
 msgid ""
 "Error Opening OpenOffice.org:\n"
@@ -850,35 +828,35 @@ msgstr ""
 "Ошибка при открытии OpenOffice.org:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:303
+#: Koo/Dialogs/ExportDialog.py:315
 msgid "Export Data"
 msgstr "Экспорт данных"
 
-#: Koo/Dialogs/ExportDialog.py:346
+#: Koo/Dialogs/ExportDialog.py:358
 msgid "What is the name of this export?"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:364
+#: Koo/Dialogs/ExportDialog.py:376
 msgid "Open with OpenOffice.org"
 msgstr "Открыть с помощью OpenOffice.org"
 
-#: Koo/Dialogs/ExportDialog.py:370
+#: Koo/Dialogs/ExportDialog.py:382
 msgid "Open with Excel"
 msgstr "Открыть с помощью Excel"
 
-#: Koo/Dialogs/ExportDialog.py:373
+#: Koo/Dialogs/ExportDialog.py:385
 msgid "Save as CSV"
 msgstr "Сохранить как CSV"
 
-#: Koo/Dialogs/ExportDialog.py:374
+#: Koo/Dialogs/ExportDialog.py:386
 msgid "Save as HTML"
 msgstr "Сохранить как HTML"
 
-#: Koo/Dialogs/ExportDialog.py:386
+#: Koo/Dialogs/ExportDialog.py:398
 msgid "Export name"
 msgstr "Экспорт имени"
 
-#: Koo/Dialogs/ExportDialog.py:387
+#: Koo/Dialogs/ExportDialog.py:399
 msgid "Exported fields"
 msgstr "Экспорт полей"
 

@@ -14,13 +14,13 @@ FIRST AUTHOR &lt;EMAIL@ADDRESS&gt;, YEAR.
         <translation>Project-Id-Version: PACKAGE VERSION
 Report-Msgid-Bugs-To: 
 POT-Creation-Date: 2009-07-28 00:00+0200
-PO-Revision-Date: 2010-01-07 22:34+0000
+PO-Revision-Date: 2010-02-05 21:02+0000
 Last-Translator: Albert Cervera i Areny &lt;albert@nan-tic.com&gt;
 Language-Team: LANGUAGE &lt;LL.org&gt;
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Launchpad-Export-Date: 2010-02-04 15:44+0000
+X-Launchpad-Export-Date: 2010-02-14 23:08+0000
 X-Generator: Launchpad (build Unknown)
 </translation>
     </message>
@@ -1287,47 +1287,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="one2many_dialog.ui" line="95"/>
         <source>(_/0)</source>
-        <translation></translation>
+        <translation>(_/0)</translation>
     </message>
     <message>
         <location filename="one2many_dialog.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation>Enllaç - OpenERP</translation>
-    </message>
-</context>
-<context>
-    <name>FullTextSearchDialog</name>
-    <message>
-        <location filename="full_text_search.ui" line="166"/>
-        <source>&amp;Open</source>
-        <translation>&amp;Obre</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="42"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="14"/>
-        <source>Full text search</source>
-        <translation>Cerca de text</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="37"/>
-        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
-
-Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
-        <translation>Aquí pot cercar qualsevol terme en tota la base de dades mentres estigui indexat. Si les paraules que cerca no li retornen cap resultat i sap que existeixen, probablement no estiguin indexades i hauria de posar-se en contacte amb l&apos;administrador del sistema.
-
-La cerca de text només busca paraules completes però retornarà paraules que continguin la mateixa arrel. Per exmple, cercar &quot;construir&quot;, pot retornar documents que continguin les paraules &quot;construït&quot;, &quot;construir&quot; o &quot;construcció&quot;.</translation>
     </message>
 </context>
 <context>
@@ -1886,6 +1851,36 @@ p, li { white-space: pre-wrap; }
         <location filename="license.ui" line="19"/>
         <source>OpenERP license</source>
         <translation>Llicència d&apos;OpenERP</translation>
+    </message>
+</context>
+<context>
+    <name>FullTextSearchDialog</name>
+    <message>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="14"/>
+        <source>Full text search</source>
+        <translation>Cerca de text</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
+        <translation>Aquí pot cercar qualsevol terme en tota la base de dades mentres estigui indexat. Si les paraules que cerca no li retornen cap resultat i sap que existeixen, probablement no estiguin indexades i hauria de posar-se en contacte amb l&apos;administrador del sistema.
+
+La cerca de text només busca paraules completes però retornarà paraules que continguin la mateixa arrel. Per exmple, cercar &quot;construir&quot;, pot retornar documents que continguin les paraules &quot;construït&quot;, &quot;construir&quot; o &quot;construcció&quot;.</translation>
     </message>
 </context>
 <context>
