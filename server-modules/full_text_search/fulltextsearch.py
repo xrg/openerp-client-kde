@@ -219,6 +219,7 @@ class fulltextsearch_services(netsvc.Service):
 		# Note that this doesn't avoid the problem when you query for a word which
 		# is descarted by the TSearch2 dictionary. Such as 'a' in English.
 		if text.strip() == '':
+			cr.close()
 			return []
 
 		# Parse text query so we convert dates into SQL dates (::DATE) and other 
@@ -267,6 +268,7 @@ class fulltextsearch_services(netsvc.Service):
 					fts.model,
 					fts.reference""" % (self.postgresKeyWords['ts_rank'], tsQuery, tsQuery, filterModel) )
 		except:
+			cr.close()
 			return []
 
 		if 'lang' in context:
@@ -315,6 +317,7 @@ class fulltextsearch_services(netsvc.Service):
 			d['model_name'] = model_name
 			ret.append( d )
 
+		cr.close()
 		return noneToFalse( ret )
 
 fulltextsearch_services()
