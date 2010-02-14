@@ -116,6 +116,7 @@
   !insertmacro MUI_LANGUAGE "English"
   !insertmacro MUI_LANGUAGE "Catalan"
   !insertmacro MUI_LANGUAGE "Spanish"
+  !insertmacro MUI_LANGUAGE "Italian"
 
 ;--------------------------------
 ;Installer Sections
@@ -129,6 +130,8 @@ Function .onInit
         Push "Catalan"
         Push ${LANG_SPANISH}
         Push "Spanish"
+	Push ${LANG_ITALIAN}
+	Push "Italiano"
         Push A ; A means auto count languages
         ; for the auto count to work the first empty push (Push "") must remain
         LangDLL::LangDialog "$(SelectLanguageTitleText)"  "$(SelectLanguageText)"
@@ -251,20 +254,24 @@ FunctionEnd
 LangString SelectLanguageText ${LANG_ENGLISH} "Please, select installer language."
 LangString SelectLanguageText ${LANG_CATALAN} "Si us plau, seleccioneu l'idioma per l'instal·lador."
 LangString SelectLanguageText ${LANG_SPANISH} "Por favor, seleccione el idioma para el instalador."
+LangString SelectLanguageText ${LANG_ITALIAN} "Selezionare il linguaggio di installazione."
 
 LangString SelectLanguageTitleText ${LANG_ENGLISH} "Installer Language"
 LangString SelectLanguageTitleText ${LANG_CATALAN} "Idioma de l'instal·ador"
 LangString SelectLanguageTitleText ${LANG_SPANISH} "Idioma del instalador"
+LangString SelectLanguageTitleText ${LANG_ITALIAN} "Lingua dell'installatore"
 
 LangString FinishPageText ${LANG_ENGLISH} "Start Koo"
 LangString FinishPageText ${LANG_CATALAN} "Inicia el Koo"
 LangString FinishPageText ${LANG_SPANISH} "Iniciar Koo"
+LangString FinishPageText ${LANG_ITALIAN} "Avvia Koo"
 
 LangString DESC_SecKoo ${LANG_ENGLISH} "Koo."
 LangString DESC_SecKoo ${LANG_CATALAN} "Koo."
 LangString DESC_SecKoo ${LANG_SPANISH} "Koo."
+LangString DESC_SecKoo ${LANG_ITALIAN} "Koo."
 
 LangString CannotInstallText ${LANG_ENGLISH} "Can not install the Open ERP Client because a previous installation already exists on this system. Please uninstall your current installation and relaunch this setup wizard."
 LangString CannotInstallText ${LANG_CATALAN} "No es pot instal·lar el Koo perquè ja hi ha instal·lada una versió anterior. Si us plau, desinstal·leu la versió actual i reinicieu aquest instal·lador."
 LangString CannotInstallText ${LANG_SPANISH} "No se puede instalar Koo porqué ya hay instalada un versión anterior. Por favor, desinstale la versión actual y reinicie este instalador."
-
+LangString CannotInstallText ${LANG_ITALIAN} "Impossibile installare il client OpenERP Koo. Una installazione precedente � presente nel sistema. Disinstallare la versione precedente prima di installare questa."
