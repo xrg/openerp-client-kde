@@ -148,6 +148,9 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		QApplication.restoreOverrideCursor()
 
 	def showResults(self, answer):
+		for shortcut in self.shortcuts.keys():
+			shortcut.setParent( None )
+		self.shortcuts = {}
 		number = 1
 		page = ''
 		for item in answer:
