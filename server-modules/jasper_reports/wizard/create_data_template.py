@@ -5,6 +5,7 @@ import pooler
 import base64
 import osv
 import string
+from tools.translate import _
 
 view_form_start = """<?xml version="1.0"?>
 	<form string="Create Data Template">
