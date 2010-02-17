@@ -158,6 +158,7 @@ class koo_services(netsvc.Service):
 		#	data.sort(key=operator.itemgetter(1))
 		#	res = [x[0] for x in data]
 
+		cr.close()
 		return res
 koo_services()
 paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/koo' ]
