@@ -123,6 +123,7 @@ class koo_services(netsvc.Service):
 		    cr.execute('select count(%s.id) from ' % table +
 			    ','.join(tables) +qu1 + limit_str + offset_str, qu2)
 		    res = cr.fetchall()
+		    cr.close()
 		    return res[0][0]
 
 		# execute the "main" query to fetch the ids we were searching for
