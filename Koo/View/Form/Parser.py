@@ -49,6 +49,8 @@ class FormParser(AbstractParser):
 		# Create the view
 		self.view = FormView( parent )
 		self.view.id = viewId
+		# Counter to ensure 'unnamed' buttons have different names.
+		self.unnamed = 0
 		# Parse and fill in the view
 		container, onWriteFunction = self.parse( node, fields )
 		self.view.setWidget( container )
@@ -123,7 +125,10 @@ class FormParser(AbstractParser):
 				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
 				if not self.isWidgetVisible( attrs ):
 					continue
-				name = attrs.get('name', 'unnamed')
+				name = attrs.get('name')
+				if not name:
+					name = 'unnamed_%d' % self.unnamed
+					self.unnamed += 1
 				self.view.widgets[name] = button
 				self.view.addStateWidget( button, attrs.get('attrs'), attrs.get('states') )
 				container.addWidget(button, attrs)
