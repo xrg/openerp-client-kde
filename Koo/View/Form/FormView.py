@@ -215,7 +215,7 @@ class FormView( AbstractView ):
 		if isinstance(widget, FormContainer) and widget.isTab:
 			widget.setTabEnabled( not value )
 		else:
-			widget['widget'].setReadOnly( value )
+			widget.setEnabled( not value )
 
 	def addStateWidget(self, widget, attributes, states):
 		if not attributes:
