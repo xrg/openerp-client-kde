@@ -247,7 +247,10 @@ class Screen(QScrollArea):
 			self.save()
 			self.display()
 
-		action.execute( id, ids )
+		context = self.context.copy()
+		context.update( self.currentRecord().get() )
+
+		action.execute( id, ids, context )
 
 		if action.type() != 'relate':
 			self.reload()

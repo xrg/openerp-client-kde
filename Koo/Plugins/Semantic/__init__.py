@@ -33,14 +33,16 @@ from Koo.Plugins import Plugins
 from Koo import Rpc
 
 ## @brief Opens a new window that allows setting the rating for the current document.
-def semantic(data):
-	context = { 
-		'subject_model' : data['model'],
-		'subject_id' : data['id']
-	}
-	model_id = Rpc.session.execute( '/object', 'execute', 'ir.model', 'search', [('model','=',data['model'])] )
-	domain = [('subject_model','=',model_id), ('subject_id','=', data['id'])]
-	Api.instance.createWindow( None, 'nan.semantic.triple', mode='tree,form', domain=domain, context=context )
+def semantic(model, id, ids, context):
+	model_id = Rpc.session.execute( '/object', 'execute', 'ir.model', 'search', [('model','=',model)], 0, 0, False, context )
+	ctx = context.copy()
+	ctx['subject_model'] = model
+	ctx['subject_id'] = id
+	domain = [
+		('subject_model','=',model_id), 
+		('subject_id','=', id)
+	]
+	Api.instance.createWindow( None, 'nan.semantic.triple', mode='tree,form', domain=domain, context=ctx )
 
 if Common.isKdeAvailable:
 	Plugins.register( 'Semantic', '.*', _('Semantic Info'), semantic )

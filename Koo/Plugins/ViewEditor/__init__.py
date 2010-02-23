@@ -31,8 +31,8 @@ from Koo.Plugins import Plugins
 from Koo import Rpc
 
 ## @brief Opens a new window with all labels to be translated for the current view.
-def editView(data):
-	domain = [('model','=',data['model'])]
-	Api.instance.createWindow( None, 'ir.ui.view', mode='tree,form', domain=domain )
+def editView(model, id, ids, context):
+	domain = [('model','=',model)]
+	Api.instance.createWindow( None, 'ir.ui.view', mode='tree,form', domain=domain, context=context )
 
 Plugins.register( 'ViewEditor', '.*', _('Edit View'), editView )

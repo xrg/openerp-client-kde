@@ -67,22 +67,24 @@ class Action(QAction):
 
 	## @brief Executes the action (depending on its type), given the current id
 	# and the selected ids.
-	def execute(self, currentId, selectedIds):
+	def execute(self, currentId, selectedIds, context):
 		if self._type == 'relate':
-			self.executeRelate( currentId )
+			self.executeRelate( currentId, context )
 		elif self._type in ( 'action', 'print' ):
-			self.executeAction( currentId, selectedIds )
+			self.executeAction( currentId, selectedIds, context )
 		else:
-			self.executePlugin( currentId, selectedIds )
+			self.executePlugin( currentId, selectedIds, context )
 
 	# Executes the action as a 'relate' type
-	def executeRelate(self, currentId):
+	def executeRelate(self, currentId, context ):
 		if not currentId:
 			QMessageBox.information( self, _('Information'), _('You must select a record to use the relate button !'))
-		Api.instance.executeAction(self._data, {'id': currentId})
+		Api.instance.executeAction(self._data, {
+			'id': currentId
+		}, context)
 
 	# Executes the action as a 'relate' or 'action' type
-	def executeAction(self, currentId, selectedIds):
+	def executeAction(self, currentId, selectedIds, context):
 		if not currentId and not selectedIds:
 			QMessageBox.information(self, _('Information'), _('You must save this record to use the relate button !'))
 			return False
@@ -94,15 +96,19 @@ class Action(QAction):
 		if self._type == 'print':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
-			Api.instance.executeAction(self._data, { 'id': currentId, 'ids': selectedIds, 'model': self._model } )
+			Api.instance.executeAction(self._data, { 
+				'id': currentId, 
+				'ids': selectedIds, 
+				'model': self._model 
+			}, context )
 		except Rpc.RpcException:
 			pass
 		if self._type == 'print':
 			QApplication.restoreOverrideCursor()
 
 	# Executes the action as a plugin type
-	def executePlugin(self, currentId, selectedIds):
-		Plugins.execute( self._data, self._model, currentId, selectedIds )
+	def executePlugin(self, currentId, selectedIds, context):
+		Plugins.execute( self._data, self._model, currentId, selectedIds, context )
 
 ## @brief The ActionFactory class is a factory that creates Action objects to execute
 # actions on the server. Typically those shown in the toolbar and menus for an specific 

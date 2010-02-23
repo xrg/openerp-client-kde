@@ -59,11 +59,10 @@ class Plugins:
 
 	## @brief Executes the given plugin.
 	@staticmethod
-	def execute(plugin, model, id, ids):
+	def execute(plugin, model, id, ids, context):
 		plugins = Plugins.list()
-		datas = { 'model': model, 'id': id, 'ids': ids }
 		action = plugins[plugin]['action']
-		action( datas )
+		action( model, id, ids, context )
 
 	@staticmethod
 	def register(name, model, title, action):
