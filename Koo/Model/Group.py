@@ -481,6 +481,7 @@ class RecordGroup(QObject):
 	## @brief Returns the list of ids that have not been loaded yet. The list
 	# won't include new records as those have id 0 or None.
 	def unloadedIds(self):
+		self.ensureUpdated()
 		ids = []
 		for x in self.records:
 			if isinstance(x, Record):
