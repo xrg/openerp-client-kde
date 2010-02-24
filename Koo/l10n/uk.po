@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-10 12:55+0100\n"
+"POT-Creation-Date: 2010-02-24 02:24+0100\n"
 "PO-Revision-Date: 2009-08-30 21:25+0000\n"
 "Last-Translator: Eugene Babiy <eugene.babiy@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-14 23:08+0000\n"
+"X-Launchpad-Export-Date: 2010-02-24 02:00+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
@@ -251,13 +251,13 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:301
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/MassiveUpdateDialog.py:96
+#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "Yes"
 msgstr "Так"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:301
-#: Koo/Dialogs/KooMainWindow.py:592 Koo/Dialogs/MassiveUpdateDialog.py:96
+#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
 #: Koo/Fields/Button/ButtonFieldWidget.py:74
 msgid "No"
 msgstr "Ні"
@@ -510,7 +510,7 @@ msgstr ""
 msgid "No records selected"
 msgstr "Записи не вибрано"
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:463
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:450
 msgid "Press Ctrl+O to login"
 msgstr "Натисніть Ctrl+O для входу"
 
@@ -534,57 +534,57 @@ msgstr "Продукти"
 msgid "Products module is not installed."
 msgstr "Модуль Продукти не встановлено."
 
-#: Koo/Dialogs/KooMainWindow.py:370
+#: Koo/Dialogs/KooMainWindow.py:357
 #, python-format
 msgid "%s request(s)"
 msgstr "%s запит(и)"
 
-#: Koo/Dialogs/KooMainWindow.py:372
+#: Koo/Dialogs/KooMainWindow.py:359
 msgid "No request"
 msgstr "Немає запиту"
 
-#: Koo/Dialogs/KooMainWindow.py:374
+#: Koo/Dialogs/KooMainWindow.py:361
 #, python-format
 msgid " - %s pending request(s)"
 msgstr " - %s запитів в очікуванні"
 
-#: Koo/Dialogs/KooMainWindow.py:381
+#: Koo/Dialogs/KooMainWindow.py:368
 msgid "New Request"
 msgstr "Новий Запит"
 
-#: Koo/Dialogs/KooMainWindow.py:381
+#: Koo/Dialogs/KooMainWindow.py:368
 msgid "You've received a new request"
 msgstr "Ви отримали новий запит"
 
-#: Koo/Dialogs/KooMainWindow.py:437 Koo/Dialogs/KooMainWindow.py:439
+#: Koo/Dialogs/KooMainWindow.py:424 Koo/Dialogs/KooMainWindow.py:426
 msgid "Connection error !"
 msgstr "Помилка з’єднання !"
 
-#: Koo/Dialogs/KooMainWindow.py:437
+#: Koo/Dialogs/KooMainWindow.py:424
 msgid "Unable to connect to the server !"
 msgstr "Неможливо з’єднатись з сервером !"
 
-#: Koo/Dialogs/KooMainWindow.py:439
+#: Koo/Dialogs/KooMainWindow.py:426
 msgid "Bad username or password !"
 msgstr "Невірне ім’я користувача або пароль !"
 
-#: Koo/Dialogs/KooMainWindow.py:444 Koo/Dialogs/KooMainWindow.py:446
+#: Koo/Dialogs/KooMainWindow.py:431 Koo/Dialogs/KooMainWindow.py:433
 msgid "Connection Error !"
 msgstr "Помилка З’єднання !"
 
-#: Koo/Dialogs/KooMainWindow.py:446
+#: Koo/Dialogs/KooMainWindow.py:433
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:462
+#: Koo/Dialogs/KooMainWindow.py:449
 msgid "Not logged !"
 msgstr "Не в системі!"
 
-#: Koo/Dialogs/KooMainWindow.py:556
+#: Koo/Dialogs/KooMainWindow.py:543
 msgid "Access denied"
 msgstr "Доступ заборонено"
 
-#: Koo/Dialogs/KooMainWindow.py:556
+#: Koo/Dialogs/KooMainWindow.py:543
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -594,15 +594,15 @@ msgstr ""
 "Зверніться до адміністратора, щоб перевірити\n"
 "чи Ви маєте дії визначені для свого користувача."
 
-#: Koo/Dialogs/KooMainWindow.py:592
+#: Koo/Dialogs/KooMainWindow.py:579
 msgid "Quit"
 msgstr "Вийти"
 
-#: Koo/Dialogs/KooMainWindow.py:592
+#: Koo/Dialogs/KooMainWindow.py:579
 msgid "Do you really want to quit ?"
 msgstr "Ви дійсно бажаєте вийти?"
 
-#: Koo/Dialogs/KooMainWindow.py:626
+#: Koo/Dialogs/KooMainWindow.py:613
 msgid "Wizard"
 msgstr "Майстер"
 
@@ -708,24 +708,24 @@ msgstr ""
 "Помилка обробки першого рядка файлу.\n"
 "Поле %s невідоме !"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:61
+#: Koo/Dialogs/FullTextSearchDialog.py:62
 msgid "Loading..."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:63
+#: Koo/Dialogs/FullTextSearchDialog.py:64
 msgid "Full Text Search"
 msgstr "Повнотекстний Пошук"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:64
+#: Koo/Dialogs/FullTextSearchDialog.py:65
 #, python-format
 msgid "Full Text Search (%%d result(s))"
 msgstr "Повнотекстний Пошук (%%d result(s))"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:93
+#: Koo/Dialogs/FullTextSearchDialog.py:94
 msgid "(Everywhere)"
 msgstr "(Скрізь)"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:97
+#: Koo/Dialogs/FullTextSearchDialog.py:98
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
@@ -735,7 +735,7 @@ msgstr ""
 "- Налаштування - Повнотекстний Пошук - Індекси</i>. Потім додайте поля для "
 "індексування та використайте <i>Оновити Повнотекстний Пошук</i>."
 
-#: Koo/Dialogs/FullTextSearchDialog.py:101
+#: Koo/Dialogs/FullTextSearchDialog.py:102
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "

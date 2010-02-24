@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-24 02:24+0100\n"
+"POT-Creation-Date: 2010-02-24 03:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
+#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:89 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
@@ -29,11 +29,11 @@ msgstr ""
 msgid "You must select a record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:87
+#: Koo/Screen/Action.py:89
 msgid "You must save this record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:129
+#: Koo/Screen/Action.py:135
 msgid "Print Screen"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Select your action"
 msgstr ""
 
-#: Koo/Plugins/SearchModelData/__init__.py:37
+#: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
 msgstr ""
 
@@ -82,19 +82,19 @@ msgstr ""
 msgid "Edit View"
 msgstr ""
 
-#: Koo/Plugins/Semantic/__init__.py:46
+#: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+#: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+#: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
 msgstr ""
 
-#: Koo/Plugins/ViewTranslator/__init__.py:38
+#: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
 msgstr ""
 
