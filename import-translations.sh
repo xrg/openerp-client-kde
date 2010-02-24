@@ -29,7 +29,8 @@ for file in $(find -iname "qt-koo-*.po"); do
 	echo "IMPORTING: ", $file
 	lang=$(echo $file | cut -d "-" -f 3 | cut -d "." -f 1)
 	cp $file $appdir/qt-koo-$lang.po
-	lconvert $appdir/qt-koo-$lang.po -o $appdir/$lang.ts
+	#lconvert $appdir/qt-koo-$lang.po -o $appdir/$lang.ts
+	./po2ts.py $appdir/qt-koo-$lang.po -o $appdir/$lang.ts
 	echo "CREATED: " $appdir/$lang.ts
 done
 
