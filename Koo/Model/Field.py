@@ -299,6 +299,8 @@ class ToManyField(StringField):
 		group.setDomain( [('id','in',value)] )
 		group.load(value)
 		record.values[self.name] = group
+		if modified:
+			self.changed(record)
 
 	def set_client(self, record, value, test_state=False):
 		self.set(record, value, test_state=test_state)
