@@ -167,6 +167,17 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 				dialog.setAttributes( self.attrs )
 				dialog.setup( self.attrs['relation'], self.record.get()[self.name] )
 				if dialog.exec_() == QDialog.Accepted:
+					# TODO: As we want to ensure that if the user changed any field
+					# in the related model, on_change event is triggered in our model
+					# so those changes can take effect, we force the change by setting
+					# the field to False first.
+					#
+					# Note that this is technically correct but not ideal because it will
+					# trigger two on_change server calls instead of only one. We'd need to
+					# have explicit support for that by having a special "forceChange" 
+					# parameter or something like that.
+					if dialog.record and dialog.record[0] == self.record.get()[self.name]:
+						self.record.setValue(self.name, False)
 					self.record.setValue(self.name, dialog.record)
 					self.display()
 		else:
