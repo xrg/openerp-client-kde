@@ -177,6 +177,9 @@ class SocketConnection(Connection):
 		try:
 			s = tiny_socket.mysocket()
 			s.connect( self.url )
+		except socket.error, err:
+			raise RpcProtocolException( unicode(err) )
+		try:
 			# Remove leading slash (ie. '/object' -> 'object')
 			obj = obj[1:]
 			encodedArgs = self.unicodeToString( args )
@@ -185,14 +188,14 @@ class SocketConnection(Connection):
 			else:
 				s.mysend( (obj, method) + encodedArgs )
 			result = s.myreceive()
-			s.disconnect()
 		except socket.error, err:
 			raise RpcProtocolException( unicode(err) )
 		except tiny_socket.Myexception, err:
 			faultCode = unicode( err.faultCode, 'utf-8' )
 			faultString = unicode( err.faultString, 'utf-8' )
 			raise RpcServerException( faultCode, faultString )
-
+		finally:
+			s.disconnect()
 		return self.stringToUnicode( result )
 
 ## @brief The XmlRpcConnection class implements Connection class for XML-RPC.
