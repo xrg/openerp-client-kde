@@ -291,6 +291,13 @@ class fulltextsearch_services(netsvc.Service):
 			# Check security permissions using search
 			if not pool.get(model_name).search(cr, uid, [('id','=',id)], context=context):
 				continue
+			# Check read permissions using because 'search' is not enough and using 'read' 
+			# alone is not enough either. For example, it can allow searching
+			# menu entries restricted to that user.
+			try:
+				pool.get('ir.model.access').check(cr, uid, model_name, 'read')
+			except except_orm, e:
+				continue
 			if model_name == 'ir.attachment':
 				attachment = pool.get(model_name).browse(cr, uid, id, context)
 				if attachment.res_model and attachment.res_id:
