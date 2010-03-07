@@ -194,4 +194,5 @@ def updateMetaInfo(db_name, uid, ids):
 		# meanwhile. After all, the field is readonly in the GUI so no conflicts can occur.
 		cr.execute("UPDATE ir_attachment SET metainfo=%s WHERE id=%s", (metainfo, attachment.id) )
 	cr.commit()
+	cr.close()
 
