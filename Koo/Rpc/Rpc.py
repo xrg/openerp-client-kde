@@ -538,8 +538,12 @@ class Session:
 			ctx = context.copy()
 		ctx['uid'] = self.uid
 		if isinstance(expression, basestring):
-			expression = expression.replace("'active_id'","active_id")
-			return safe_eval(expression, ctx)
+			try:
+			        expression = expression.replace("'active_id'","active_id")
+				return safe_eval(expression, ctx)
+			except Exception, e:
+				print "Exception: %s for \"%s\" " %( e, expression)
+				raise
 		else:
 			return expression
 
