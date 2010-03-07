@@ -116,8 +116,8 @@ class Connection:
 		self.uid = uid
 		self.password = password
 
-	def call(self, url, method, *args ):
-		pass
+	def call(self, url, method, args=None, auth_level='db' ):
+		raise NotImplementedError()
 
 modules = []
 try:
@@ -143,7 +143,7 @@ class PyroConnection(Connection):
 			result = self.proxy.dispatch( obj[1:], method, *encodedArgs )
 		return self.stringToUnicode( result )
 
-	def call(self, obj, method, *args):
+	def call(self, obj, method, args= None, auth_level='db'):
 		try:
 			try:
 				#import traceback
@@ -174,7 +174,7 @@ class PyroConnection(Connection):
 #
 # The socket RPC protocol is usually opened at port 8070 on the server.
 class SocketConnection(Connection):
-	def call(self, obj, method, *args):
+	def call(self, obj, method, args, auth_level='db'):
 		try:
 			s = tiny_socket.mysocket()
 			s.connect( self.url )
@@ -229,7 +229,7 @@ class XmlRpcConnection(Connection):
 		
 		return self._ogws[obj]
 
-	def call(self, obj, method, *args ):
+	def call(self, obj, method, args, auth_level='db'):
 		remote = self.gw(obj)
 		function = getattr(remote, method)
 		try:
@@ -324,12 +324,12 @@ class AsynchronousSessionCall(QThread):
 		# we handle exceptions depending on 'useNotifications' 
 		if not self.useNotifications:
 			try:
-				self.result = self.session.call( self.obj, self.method, *self.args )
+				self.result = self.session.call( self.obj, self.method, self.args )
 			except Exception, err:
 				self.exception = err
 		else:
 			try:
-				self.result = self.session.call( self.obj, self.method, *self.args )
+				self.result = self.session.call( self.obj, self.method, self.args )
 			except RpcProtocolException, err:
 				self.exception = err
 				self.error = (_('Connection Refused'), err.info, err.info)
@@ -436,7 +436,7 @@ class Session:
 		if self.cache:
 			if self.cache.exists( obj, method, *args ):
 				return self.cache.get( obj, method, *args )
-		value = self.connection.call(obj, method, *args)
+		value = self.connection.call(obj, method, args)
 		if self.cache:
 			self.cache.add( value, obj, method, *args )
 		return value
@@ -483,7 +483,7 @@ class Session:
 		user = Url.decodeFromUrl( unicode( url.userName() ) )
 		password = Url.decodeFromUrl( unicode( url.password() ) )
 		try:
-			res = self.connection.call( '/common', 'login', db, user, password )
+			res = self.connection.call( '/common', 'login', (db, user, password) )
 		except socket.error, e:
 			return Session.Exception
 		if not res:
@@ -585,7 +585,7 @@ class Database:
 	# during the call it simply rises an exception
 	def call(self, url, method, *args):
 		con = createConnection( url )
-		return con.call( '/db', method, *args )
+		return con.call( '/db', method, args, auth_level='root')
 
 	## @brief Same as call() but uses the notify mechanism to notify 
 	# exceptions.
