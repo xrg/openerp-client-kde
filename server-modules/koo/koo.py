@@ -75,6 +75,7 @@ class koo_services(netsvc.ExportService):
 		return res
 
 	def exp_search(self, db, uid, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
+	    try:
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
 		pool = pooler.get_pool(db)
@@ -88,10 +89,16 @@ class koo_services(netsvc.ExportService):
 		# compute the where, order by, limit and offset clauses
 		(qu1, qu2, tables) = pool.get(model)._where_calc(cr, uid, filter, context=context)
 
-		if len(qu1):
-		    qu1 = ' where ' + ' and '.join(qu1)
-		else:
-		    qu1 = ''
+		# construct a clause for the rules :
+		d1, d2, dtables = pool.get('ir.rule').domain_get(cr, uid, model)
+		if d1:
+		    if isinstance(qu1, tuple):
+			qu1 = list(qu1)
+		    qu1 += list(d1)
+		    qu2 += d2
+		    for dt in dtables:
+			if dt not in tables:
+			    tables.append(dt)
 
 		resortField = False
 		resortOrder = False
@@ -121,23 +128,21 @@ class koo_services(netsvc.ExportService):
 		limit_str = limit and ' limit %d' % limit or ''
 		offset_str = offset and ' offset %d' % offset or ''
 
-
-		# construct a clause for the rules :
-		d1, d2 = pool.get('ir.rule').domain_get(cr, uid, model)
-		if d1:
-		    qu1 = qu1 and qu1+' and '+d1 or ' where '+d1
-		    qu2 += d2
-
+		if len(qu1):
+			qu1s = ' WHERE ' + ' AND '.join(qu1)
+		else:
+			qu1s = ''
+		
 		if count:
-		    cr.execute('select count(%s.id) from ' % table +
-			    ','.join(tables) +qu1 + limit_str + offset_str, qu2)
+		    cr.execute('SELECT COUNT(%s.id) FROM ' % table +
+			    ','.join(tables) +qu1s + limit_str + offset_str, qu2)
 		    res = cr.fetchall()
 		    cr.close()
 		    return res[0][0]
 
 		# execute the "main" query to fetch the ids we were searching for
 		if group:
-			cr.execute('select %s.id, %s from ' % (table, group) + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
+			cr.execute('SELECT %s.id, %s FROM ' % (table, group) + ','.join(tables) +qu1s+' ORDER BY '+order_by+limit_str+offset_str, qu2)
 			res = []
 			counter = 0 
 			last_value = None
@@ -147,7 +152,7 @@ class koo_services(netsvc.ExportService):
 					counter += 1
 				res = [(x[0], counter)]
 		else:
-			cr.execute('select %s.id from ' % table + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
+			cr.execute('SELECT %s.id FROM ' % table + ','.join(tables) +qu1s+' ORDER BY '+order_by+limit_str+offset_str, qu2)
 			res = [x[0] for x in cr.fetchall()]
 
 		#if resortField:
@@ -170,6 +175,12 @@ class koo_services(netsvc.ExportService):
 
 		cr.close()
 		return res
+	    except Exception, e:
+	        import traceback
+		traceback.print_exc()
+	        print "koo exp_search:", e
+		cr.close()
+
 koo_services()
 
 class nan_koo_settings(osv.osv):
