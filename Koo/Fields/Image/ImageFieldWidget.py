@@ -28,6 +28,7 @@
 
 import os
 import base64 
+import binascii
 import tempfile
 
 from Koo.Common import Common
@@ -203,7 +204,10 @@ class PictureFieldWidget( ImageFieldWidget ):
 			stock, size = data
 			return self.pixmapToData( Icons.kdePixmap( stock ) )
 		else:
-			return base64.decodestring(data)
+			try:
+				return base64.decodestring(data)
+			except binascii.Error:
+				return False
 
 	def pixmapToData(self, pixmap):
 		if pixmap.isNull():
