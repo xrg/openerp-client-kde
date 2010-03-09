@@ -33,7 +33,7 @@ function print_log()
 	echo "$log" | grep -i 'jasper' | grep -iv 'fix'
 }
 
-all_tags=$(bzr tags)
+all_tags=$(bzr tags | sort -k 2 -n -r)
 
 current_tag='trunk'
 current_rev=$(bzr log -l1 | grep "^revno: " | cut -d " " -f 2)

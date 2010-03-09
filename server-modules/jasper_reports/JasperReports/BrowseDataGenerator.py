@@ -215,11 +215,11 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 				if imageId in self.imageFiles:
 					fileName = self.imageFiles[ imageId ]
 				else:
-					f = tempfile.NamedTemporaryFile()
+					fd, fileName = tempfile.mkstemp()
 					try:
-						f.write( base64.decodestring( value ) )
+						os.write( fd, base64.decodestring( value ) )
 					finally:
-						f.close()
+						os.close( fd )
 					self.temporaryFiles.append( fileName )
 					self.imageFiles[ imageId ] = fileName
 				value = fileName
@@ -343,11 +343,11 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 				if imageId in self.imageFiles:
 					fileName = self.imageFiles[ imageId ]
 				else:
-					f = tempfile.NamedTemporaryFile()
+					fd, fileName = tempfile.mkstemp()
 					try:
-						f.write( base64.decodestring( value ) )
+						os.write( fd, base64.decodestring( value ) )
 					finally:
-						f.close()
+						os.close( fd )
 					self.temporaryFiles.append( fileName )
 					self.imageFiles[ imageId ] = fileName
 				value = fileName

@@ -135,7 +135,7 @@ class Report:
 		for file in self.temporaryFiles:
 			try:
 				os.unlink( file )
-			except WindowsError, e:
+			except os.error, e:
 				logger = netsvc.Logger()
 				logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
 		self.temporaryFiles = []

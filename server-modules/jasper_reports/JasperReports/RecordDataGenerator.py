@@ -41,30 +41,32 @@ class CsvRecordDataGenerator(AbstractDataGenerator):
 	# CSV file generation using a list of dictionaries provided by the parser function.
 	def generate(self, fileName):
 		f = open( fileName, 'wb+' )
-		csv.QUOTE_ALL = True
-		fieldNames = self.report.fieldNames()
-		# JasperReports CSV reader requires an extra colon at the end of the line.
-		writer = csv.DictWriter( f, fieldNames + [''], delimiter=',', quotechar='"' )
-		header = {}
-		for field in fieldNames + ['']:
-			header[ field ] = field
-		writer.writerow( header )
-		for record in self.data['records']:
-			row = {}
-			for field in record:
-				if field not in self.report.fields():
-					print "FIELD '%s' NOT FOUND IN REPORT." % field 
-					continue
-				value = record.get(field, False)
-				if value == False:
-					value = ''
-				elif isinstance(value, unicode):
-					value = value.encode('utf-8')
-				elif not isinstance(value, str):
-					value = str(value)
-				row[self.report.fields()[field]['name']] = value
-			writer.writerow( row )
-		f.close()
+		try:
+			csv.QUOTE_ALL = True
+			fieldNames = self.report.fieldNames()
+			# JasperReports CSV reader requires an extra colon at the end of the line.
+			writer = csv.DictWriter( f, fieldNames + [''], delimiter=',', quotechar='"' )
+			header = {}
+			for field in fieldNames + ['']:
+				header[ field ] = field
+			writer.writerow( header )
+			for record in self.data['records']:
+				row = {}
+				for field in record:
+					if field not in self.report.fields():
+						print "FIELD '%s' NOT FOUND IN REPORT." % field 
+						continue
+					value = record.get(field, False)
+					if value == False:
+						value = ''
+					elif isinstance(value, unicode):
+						value = value.encode('utf-8')
+					elif not isinstance(value, str):
+						value = str(value)
+					row[self.report.fields()[field]['name']] = value
+				writer.writerow( row )
+		finally:
+			f.close()
 
 
 class XmlRecordDataGenerator(AbstractDataGenerator):
@@ -91,5 +93,7 @@ class XmlRecordDataGenerator(AbstractDataGenerator):
 				fieldNode.appendChild( valueNode )
 		# Once created, the only missing step is to store the XML into a file
 		f = codecs.open( fileName, 'wb+', 'utf-8' )
-		topNode.writexml( f )
-		f.close()
+		try:
+			topNode.writexml( f )
+		finally:
+			f.close()
