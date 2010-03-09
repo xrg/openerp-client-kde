@@ -149,6 +149,10 @@ class Connection:
 			res = self.call( '/common', 'login', (database, user, password) )
 			if not res:
 				self.databaseName, self.uid, self.password = saved_creds
+			else:
+				assert isinstance(res, int)
+				self.authorized = True
+				self.uid = res
 			return res
 		except:
 			self.databaseName, self.uid, self.password = saved_creds
