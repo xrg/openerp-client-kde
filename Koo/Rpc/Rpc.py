@@ -54,8 +54,6 @@ class RpcProtocolException(RpcException):
 class RpcServerException(RpcException):
 	def __init__(self, code, backtrace):
 		self.code = code
-		self.args = (backtrace,)
-		self.backtrace = backtrace
 		if hasattr(code, 'split'):
 			lines = code.split('\n')
 
@@ -63,13 +61,28 @@ class RpcServerException(RpcException):
 			msg = ''
 			if len(lines[0].split(' -- ')) > 1:
 				msg = lines[0].split(' -- ')[1]
+			else:
+				msg = lines[0]
+			
+			if len(lines) > 1:
+				data = '\n'.join(lines[2:])
+			else:
+				data = backtrace
 	
-			self.args = ( msg, '\n'.join(lines[2:]))
+			self.args = ( msg, data )
 		else:
 			self.type = 'error'
 			self.args = (backtrace, backtrace)
 
 		self.backtrace = backtrace
+	def __str__(self):
+		if self.backtrace and '\n' in self.backtrace:
+			bt = self.backtrace.split("\n")[-3:-2]
+			bt = " ".join(bt)
+		else:
+			bt = self.backtrace
+		return "<RpcServerException %s: '%s', '%s' >" % \
+			(self.type, self.code, bt)
 
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
@@ -81,6 +94,14 @@ class Connection:
 		self.password = None
 		self.url = url
 
+	def copy(self):
+		newob = self.__class__(self.url)
+		newob.authorized = self.authorized
+		newob.databaseName = self.databaseName
+		newob.uid = self.uid
+		newob.password = self.password
+		return newob
+		
 	def stringToUnicode(self, result): 
 		if isinstance(result, str):
 			return unicode( result, 'utf-8' )
@@ -116,8 +137,22 @@ class Connection:
 		self.uid = uid
 		self.password = password
 
-	def call(self, url, method, args=None, auth_level='db' ):
+	def call(self, path, method, args=None, auth_level='db' ):
 		raise NotImplementedError()
+		
+	def login(self, database, user, password):
+		saved_creds = (self.databaseName, self.uid, self.password)
+		try:
+			self.databaseName = database
+			self.uid = None
+			self.password = password
+			res = self.call( '/common', 'login', (database, user, password) )
+			if not res:
+				self.databaseName, self.uid, self.password = saved_creds
+			return res
+		except:
+			self.databaseName, self.uid, self.password = saved_creds
+			raise
 
 modules = []
 try:
@@ -209,7 +244,11 @@ class XmlRpcConnection(Connection):
 		Connection.__init__(self, url)
 		self.url += '/xmlrpc'
 		self._ogws = {}
-		
+
+	def copy(self):
+		newob = Connection.copy(self)
+		newob.url = self.url
+
 	def gw(self,obj):
 		""" Return the persistent gateway for some object
 		"""
@@ -248,6 +287,128 @@ class XmlRpcConnection(Connection):
 		return result
 
 
+## @brief Connection class for the xml-rpc 2.0 OpenObject protocol
+#
+# This protocol is implemented at the same port as the xmlrpc 1.0, but has a
+# different authentication mechanism.
+#
+class XmlRpc2Connection(Connection):
+	def __init__(self, url):
+		Connection.__init__(self, url)
+		self.url += '/xmlrpc2'
+		self._ogws = {}
+		self.username = None
+		self._authclient = None
+		
+	def copy(self):
+		newob = Connection.copy(self)
+		newob.username = self.username
+		newob.url = self.url
+		newob._authclient = self._authclient
+		# Note: we don't copy the _ogws, so that new connections
+		# are launched (not reuse the persistent ones)
+		
+		return newob
+		
+	def gw(self, obj, auth_level, temp=False):
+		""" Return the persistent gateway for some object
+		
+		    If temp is specified, the proxy is a temporary one,
+		    not from cache. This is needed at the login, where the
+		    proxy could fail and need to be discarded.
+		"""
+		global session_counter
+		if temp or not self._ogws.has_key(obj):
+			if self.url.startswith("https"):
+				transport = tiny_socket.SafePersistentAuthTransport()
+			elif self.url.startswith("http"):
+				transport = tiny_socket.PersistentAuthTransport()
+			else:
+				transport = None
+			
+			path = self.url
+			if not path.endswith('/'):
+				path += '/'
+			path += auth_level
+			if auth_level == 'db':
+				path += '/' + self.databaseName
+			path += obj
+			print "path:", path, obj
+			
+			if temp and transport:
+				transport.setAuthTries(1)
+				
+			if self._authclient and transport:
+				transport.setAuthClient(self._authclient)
+			
+			nproxy = xmlrpclib.ServerProxy( path, transport=transport)
+			
+			session_counter = session_counter + 1
+			if (session_counter % 100) == 0:
+				print "Sessions:", session_counter
+				
+			if temp:
+				if transport:
+					transport.setAuthTries(3)
+				return nproxy
+			
+			self._ogws[obj] = nproxy
+		
+		return self._ogws[obj]
+
+	def call(self, obj, method, args, auth_level='db'):
+		remote = self.gw(obj, auth_level)
+		function = getattr(remote, method)
+		try:
+			result = function( *args )
+		except socket.error, err:
+			print "socket.error",err
+			raise RpcProtocolException( err )
+		except xmlrpclib.Fault, err:
+			print "xmlrpclib.Fault on %s/%s(%s):" % (obj,str(method), str(args[:2])), err
+			raise RpcServerException( err.faultCode, err.faultString )
+		except Exception, e:
+			print "Exception:",e
+			raise
+		return result
+
+	def call2(self, obj, method, args, auth_level='db'):
+		""" Variant of call(), with a temporary gateway, for login """
+		remote = self.gw(obj, auth_level, temp=True)
+		function = getattr(remote, method)
+		try:
+			result = function( *args )
+			if result:
+				# do cache the proxy, now that it's successful
+				self._ogws[obj] = remote
+		except socket.error, err:
+			print "socket.error",err
+			raise RpcProtocolException( err )
+		except xmlrpclib.Fault, err:
+			print "xmlrpclib.Fault on %s/%s(%s):" % (obj,str(method), str(args[:2])), err
+			raise RpcServerException( err.faultCode, err.faultString )
+		except Exception, e:
+			print "Exception:",e
+			raise
+		return result
+
+	def login(self, database, user, password):
+		saved_creds = (self.databaseName, self.username, self.uid, self.password, self._authclient)
+		try:
+			self.databaseName = database
+			self.username = user
+			self.uid = None
+			self.password = password
+			self._authclient = tiny_socket.BasicAuthClient()
+			self._authclient.addLogin("OpenERP User", user, password)
+			res = self.call2( '/common', 'login', (database, user, password) )
+			if not res:
+				self.databaseName, self.username, self.uid, self.password, self._authclient = saved_creds
+			return res
+		except:
+			self.databaseName, self.username, self.uid, self.password, self._authclient = saved_creds
+			raise
+
 ## @brief Creates an instance of the appropiate Connection class.
 #
 # These can be:
@@ -261,7 +422,7 @@ def createConnection(url):
 	elif qUrl.scheme() == 'PYROLOC':
 		con = PyroConnection( url )
 	else:
-		con = XmlRpcConnection( url )
+		con = XmlRpc2Connection( url )
 	return con
 
 class AsynchronousSessionCall(QThread):
@@ -359,7 +520,7 @@ class Session:
 	def __init__(self):
 		self.open = False
 		self.url = None
-		self.password = None
+		#self.password = None
 		self.uid = None
 		self.context = {}
 		self.userName = None
@@ -483,8 +644,11 @@ class Session:
 		user = Url.decodeFromUrl( unicode( url.userName() ) )
 		password = Url.decodeFromUrl( unicode( url.password() ) )
 		try:
-			res = self.connection.call( '/common', 'login', (db, user, password) )
+			res = self.connection.login(db, user, password)
 		except socket.error, e:
+			return Session.Exception
+		except Exception, e:
+			print "login call exception:", e
 			return Session.Exception
 		if not res:
 			self.open=False
@@ -495,16 +659,11 @@ class Session:
 		self.open = True
 		self.uid = res
 		self.userName = user
-		self.password = password
+		#self.password = password
 		self.databaseName = db
 		if self.cache:
 			self.cache.clear()
 		
-		self.connection.databaseName = self.databaseName
-		self.connection.password = self.password
-		self.connection.uid = self.uid
-		self.connection.authorized = True
-
 		self.reloadContext()
 		return Session.LoggedIn
 
@@ -522,9 +681,9 @@ class Session:
 	def logout(self):
 		if self.open:
 			self.open = False
-			self.userName = None
+			#self.userName = None
 			self.uid = None
-			self.password = None
+			#self.password = None
 			self.connection = None
 			if self.cache:
 				self.cache.clear()
@@ -551,19 +710,12 @@ class Session:
 		new = Session()
 		new.open = self.open 
 		new.url = self.url 
-		new.password = self.password
+		# new.password = self.password
 		new.uid = self.uid
 		new.context = self.context
 		new.userName = self.userName
-		new.databaseName = self.databaseName 
-		# Create a new connection as Pyro protocol does not allow the use of
-		# the same connection in different threads and this copy() function
-		# will mostly be called to use the session in new threads.
-		new.connection = createConnection( new.url )
-		new.connection.databaseName = self.databaseName
-		new.connection.password = self.password
-		new.connection.uid = self.uid
-		new.connection.authorized = True
+		new.databaseName = self.databaseName
+		new.connection = self.connection.copy()
 		return new
 
 session = Session()
@@ -577,6 +729,8 @@ class Database:
 		try:
 			return self.call( url, 'list' )
 		except Exception,e:
+			import traceback
+			traceback.print_exc()
 			print "db list exc:", e
 			return -1
 
@@ -585,7 +739,11 @@ class Database:
 	# during the call it simply rises an exception
 	def call(self, url, method, *args):
 		con = createConnection( url )
-		return con.call( '/db', method, args, auth_level='root')
+		if method in [ 'db_exist', 'list', 'list_lang', 'server_version']:
+		    authl = 'pub'
+		else:
+		    authl = 'root'
+		return con.call( '/db', method, args, auth_level=authl)
 
 	## @brief Same as call() but uses the notify mechanism to notify 
 	# exceptions.
