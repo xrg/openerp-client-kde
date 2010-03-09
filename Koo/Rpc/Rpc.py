@@ -503,6 +503,7 @@ class Session:
 			context = {}
 		context['uid'] = self.uid
 		if isinstance(expression, basestring):
+			expression = expression.replace("'active_id'","active_id")
 			return eval(expression, context)
 		else:
 			return expression 
