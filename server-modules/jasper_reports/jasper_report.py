@@ -80,7 +80,9 @@ class Report:
 
 		# Create temporary input (XML) and output (PDF) files 
 		fd, dataFile = tempfile.mkstemp()
+		os.close(fd)
 		fd, outputFile = tempfile.mkstemp()
+		os.close(fd)
 		self.temporaryFiles.append( dataFile )
 		self.temporaryFiles.append( outputFile )
 		print "TEMP DATA FILE: ", dataFile
@@ -105,6 +107,7 @@ class Report:
 			subreport = JasperReport( subreportInfo['filename'] )
 			if subreport.language() == 'xpath':
 				fd, subreportDataFile = tempfile.mkstemp()
+				os.close(fd)
 				subreportDataFiles.append({
 					'parameter': subreportInfo['parameter'],
 					'dataFile': subreportDataFile,
