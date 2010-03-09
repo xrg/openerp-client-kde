@@ -30,7 +30,8 @@ from osv import orm
 import SimpleXMLRPCServer
 import re
 from service import security
-import netsvc
+# import netsvc
+from service.web_services import baseExportService
 import sql_db
 import pooler
 import operator
@@ -58,9 +59,10 @@ ir_attachment()
 
 regex_order = re.compile('^(([a-z0-9_]+|"[a-z0-9_]+")( *desc| *asc)?( *, *|))+$', re.I)
 
-class koo_services(netsvc.ExportService):
+class koo_services(baseExportService):
+	_auth_commands = { 'db': ['search' ] }
 	def __init__(self, name='koo'):
-		netsvc.ExportService.__init__(self,name)
+		baseExportService.__init__(self,name)
 		self.joinGroup('web-services')
 		#self.exportMethod(self.search)
 		

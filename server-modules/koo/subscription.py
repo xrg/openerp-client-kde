@@ -27,6 +27,7 @@
 
 from threading import Thread, Semaphore, Lock
 import netsvc
+from service.web_services import baseExportService
 import time
 from workflow.wkf_service import workflow_service
 import SimpleXMLRPCServer
@@ -49,9 +50,10 @@ class new_workflow_service(workflow_service):
 		return workflow_service.trg_delete(self, uid, res_type, res_id, cr)
 # new_workflow_service()
 
-class subscription_services(netsvc.ExportService):
+class subscription_services(baseExportService):
+	_auth_commands = { 'db': ['wait' ], }
 	def __init__(self, name="subscription"):
-		netsvc.ExportService.__init__(self,name)
+		baseExportService.__init__(self,name)
 		self.joinGroup('web-services')
 		#self.exportMethod(self.wait)
 		#self.exportMethod(self.publish)
