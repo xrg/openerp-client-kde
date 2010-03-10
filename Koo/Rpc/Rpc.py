@@ -489,12 +489,12 @@ class AsynchronousSessionCall(QThread):
 		# we handle exceptions depending on 'useNotifications' 
 		if not self.useNotifications:
 			try:
-				self.result = self.session.call( self.obj, self.method, self.args )
+				self.result = self.session.call( self.obj, self.method, *self.args )
 			except Exception, err:
 				self.exception = err
 		else:
 			try:
-				self.result = self.session.call( self.obj, self.method, self.args )
+				self.result = self.session.call( self.obj, self.method, *self.args )
 			except RpcProtocolException, err:
 				self.exception = err
 				self.error = (_('Connection Refused'), err.info, err.info)
