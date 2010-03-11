@@ -26,7 +26,7 @@
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="text">
-      <string notr="true">&lt;a href=&quot;http://www.NaN-tic.com&quot;&gt;&lt;img src=&quot;:images/koo.png&quot;/&gt;&lt;/a&gt;</string>
+      <string notr="true">&lt;a href='http://www.NaN-tic.com'&gt;&lt;img src=':images/koo.png'/&gt;&lt;/a&gt;</string>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
