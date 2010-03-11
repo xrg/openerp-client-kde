@@ -213,7 +213,28 @@ class Screen(QScrollArea):
 		if self.currentView().showsMultipleRecords() and not self._embedded: 
 			if not self.searchForm.isLoaded():
 				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
-				self.searchForm.setup( form['arch'], form['fields'], self.resource, self.group.domain() )
+				tree = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'tree', self.context)
+				fields = form['fields']
+				fields.update( tree['fields'] )
+				arch = form['arch']
+
+				# Due to the fact that searchForm.setup() requires an XML and we want it to
+				# be able to process select=True from both form and tree, we need to fake
+				# an XML.
+
+				dom = xml.dom.minidom.parseString(tree['arch'])
+				children = dom.childNodes[0].childNodes
+				tempArch = ''
+				for i in range(1,len(children)):
+					tempArch += children[i].toxml()
+				##Generic case when we need to remove the last occurance of </form> from form view
+				arch = arch[0:form['arch'].rfind('</form>')]
+				##Special case when form is replaced,we need to remove </form>
+				if arch.rfind('</form>') > 0:
+					arch = arch[0:find_form]
+				arch = arch + tempArch + '\n</form>'
+
+				self.searchForm.setup( arch, fields, self.resource, self.group.domain() )
 
 			if self.searchForm.isEmpty():
 				self.searchForm.hide()

@@ -108,8 +108,15 @@ class SearchFormParser(object):
 		self.widgetDict={}
 		psr.Parse(xml_data.encode('utf-8'))
 
+		fieldNames = set()
 		for line in sorted( self.widgets.keys() ):
 			for name in self.widgets[ line ]:
+				# Because field may have the select attribute twice (one for form and 
+				# another one for tree) we only use the one with higher priority.
+				if name in fieldNames:
+					continue
+				fieldNames.add( name )
+
 				attributes = self.fields[name]
 				type = attributes.get('widget', attributes['type'])
 				widget = SearchWidgetFactory.create( type, name, self.container, attributes )
