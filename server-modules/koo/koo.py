@@ -72,15 +72,17 @@ class koo_services(baseExportService):
 		if method not in ['search']:
 			raise KeyError("Method not supported %s" % method)
 		security.check(db,uid,passwd)
+		cr = pooler.get_db(db).cursor()
 		fn = getattr(self, 'exp_'+method)
-		res = fn(db, uid, *params)
-		return res
+		try:
+			res = fn(cr, uid, *params)
+			return res
+		finally:
+			cr.close()
 
-	def exp_search(self, db, uid, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
+	def exp_search(self, cr, uid, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
 	    try:
-		conn = sql_db.db_connect(db)
-		cr = conn.cursor()
-		pool = pooler.get_pool(db)
+		pool = pooler.get_pool(cr.dbname)
 		if not context:
 			context = {}
 
@@ -139,7 +141,6 @@ class koo_services(baseExportService):
 		    cr.execute('SELECT COUNT(%s.id) FROM ' % table +
 			    ','.join(tables) +qu1s + limit_str + offset_str, qu2)
 		    res = cr.fetchall()
-		    cr.close()
 		    return res[0][0]
 
 		# execute the "main" query to fetch the ids we were searching for
@@ -175,13 +176,11 @@ class koo_services(baseExportService):
 		#	data.sort(key=operator.itemgetter(1))
 		#	res = [x[0] for x in data]
 
-		cr.close()
 		return res
 	    except Exception, e:
 	        import traceback
 		traceback.print_exc()
 	        print "koo exp_search:", e
-		cr.close()
 
 koo_services()
 
