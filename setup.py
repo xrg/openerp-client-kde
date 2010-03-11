@@ -20,7 +20,7 @@ try:
 	import py2exe
 
 	# Override the function in py2exe to determine if a dll should be included
-	dllList = ('mfc90.dll','msvcp90.dll')
+	dllList = ('mfc90.dll','msvcp90.dll','qtnetwork.pyd','qtxmlpatterns4.dll','qtsvg4.dll')
 	origIsSystemDLL = py2exe.build_exe.isSystemDLL
 	def isSystemDLL(pathname):
 		if os.path.basename(pathname).lower() in dllList:
