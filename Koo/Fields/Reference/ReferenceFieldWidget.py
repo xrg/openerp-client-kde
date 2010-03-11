@@ -180,7 +180,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 					target = 'background'
 				else:
 					target = 'current'
-				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree', target=target)
+				Api.instance.createWindow(False, model, id, [('id','=',id)], 'form', mode='form,tree', target=target)
 			else:	
 				dialog = ScreenDialog( self )
 				dialog.setup( model, id )

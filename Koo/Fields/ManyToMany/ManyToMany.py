@@ -91,7 +91,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 			target = 'background'
 		else:
 			target = 'current'
-		Api.instance.createWindow(False, self.attrs['relation'], id, [], 'form', mode='form,tree', target=target)
+		Api.instance.createWindow(False, self.attrs['relation'], id, [('id','=',id)], 'form', mode='form,tree', target=target)
 
 	def match(self):
 		if not self.record:

@@ -161,7 +161,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 					target = 'background'
 				else:
 					target = 'current'
-				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree', target=target)
+				Api.instance.createWindow(False, model, id, [('id','=',id)], 'form', mode='form,tree', target=target)
 			else:	
 				dialog = ScreenDialog( self )
 				dialog.setAttributes( self.attrs )

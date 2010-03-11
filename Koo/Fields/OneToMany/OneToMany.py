@@ -196,7 +196,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			else:
 				target = 'current'
 
-			Api.instance.createWindow( False, self.attrs['relation'], id, [], 'form', 
+			Api.instance.createWindow( False, self.attrs['relation'], id, [('id','=',id)], 'form', 
 				mode='form,tree', target=target )	
 		else:
 			self.screen.switchView()
