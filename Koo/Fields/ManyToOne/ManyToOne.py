@@ -71,6 +71,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.open )
 
+		self.searching = False
+
  		self.recordType = attrs['relation']	
 		# To build the menu entries we need to query the server so we only make 
 		# the call if necessary and only once. Hence with self.menuLoaded we know
@@ -133,6 +135,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		return self.uiText
 
 	def match(self):
+		if self.searching:
+			return
 		if not self.record:
 			return
 		name = unicode( self.uiText.text() )
@@ -142,7 +146,11 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			return
 		if name == self.record.value(self.name):
 			return
+		# Probably due to a bug in Qt, editingFinished signal may be fired
+		# again in "def search()" so we ensure we don't open the dialog twice.
+		self.searching = True
 		self.search( name )
+		self.searching = False
 
 	def open(self):
 		# As the 'open' button might modify the model we need to be sure all other fields/widgets
@@ -181,7 +189,9 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 					self.record.setValue(self.name, dialog.record)
 					self.display()
 		else:
-			self.search('')
+			text = unicode( self.uiText.text() )
+			if text.strip() == '':
+				self.search('')
 
 	# This function searches the given name within the available records. If none or more than
 	# one possible name matches the search dialog is shown. If only one matches we set the
@@ -201,6 +211,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 				name = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_get', [id], context)[0]
 				self.record.setValue(self.name, name)
 				self.display()
+			else:
+				self.uiText.setFocus()
 
 	def new(self):
 		dialog = ScreenDialog(self)

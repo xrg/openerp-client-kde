@@ -51,7 +51,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
-		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.add )
+		self.connect( self.pushAdd, SIGNAL( "clicked()"), self.slotAdd )
 		self.connect( self.pushRemove, SIGNAL( "clicked()"), self.remove )
 		self.connect( self.uiText, SIGNAL( 'editingFinished()' ), self.match )
 
@@ -64,6 +64,8 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 
 		self.installPopupMenu( self.uiText )
 		self.old = None
+		self.latestMatch = None
+		self.searching = True
 
 	def initGui(self):
 		if self.record:
@@ -94,13 +96,28 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		Api.instance.createWindow(False, self.attrs['relation'], id, [('id','=',id)], 'form', mode='form,tree', target=target)
 
 	def match(self):
+		if self.searching:
+			return
 		if not self.record:
 			return
-		if unicode(self.uiText.text()).strip() == '':
+		text = unicode(self.uiText.text()).strip()
+		if text == '':
 			self.uiText.clear()
 			return 
+		# As opening the search dialog will emit the editingFinished signal, 
+		# we need to know we're searching by setting self.searching = True
+		self.searching = True
 		self.add()
+		self.searching = False
 	
+	def slotAdd(self):
+		text = unicode(self.uiText.text()).strip()
+		# As opening the search dialog will emit the editingFinished signal, 
+		# we need to know we're searching by setting self.searching = True
+		self.searching = True
+		self.add()
+		self.searching = False
+
 	def add(self):
 		# As the 'add' button modifies the model we need to be sure all other fields/widgets
 		# have been stored in the model. Otherwise the recordChanged() triggered 
@@ -115,6 +132,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		if unicode( self.uiText.text() ) == '' or len(ids) != 1:
 			dialog = SearchDialog(self.attrs['relation'], sel_multi=True, ids=ids, domain=domain, context=context)
 			if dialog.exec_() == QDialog.Rejected:
+				self.uiText.clear()
 				return
 			ids = dialog.result
 
