@@ -222,7 +222,7 @@ class Screen(QScrollArea):
 				# be able to process select=True from both form and tree, we need to fake
 				# an XML.
 
-				dom = xml.dom.minidom.parseString(tree['arch'])
+				dom = xml.dom.minidom.parseString(tree['arch'].encode('utf-8'))
 				children = dom.childNodes[0].childNodes
 				tempArch = ''
 				for i in range(1,len(children)):
