@@ -21,8 +21,12 @@ class JasperServer:
 	def start(self):
 		env = {}
 		env.update( os.environ )
+		if os.name == 'nt':
+			sep = ';'
+		else:
+			sep = ':'
 		libs = os.path.join( self.path(), '..', 'java', 'lib', '*.jar' )
-		env['CLASSPATH'] = os.path.join( self.path(), '..', 'java:' ) + ':'.join( glob.glob( libs ) ) + ':' + os.path.join( self.path(), '..', 'custom_reports' )
+		env['CLASSPATH'] = os.path.join( self.path(), '..', 'java' + sep ) + sep.join( glob.glob( libs ) ) + sep + os.path.join( self.path(), '..', 'custom_reports' )
 		cwd = os.path.join( self.path(), '..', 'java' )
 		process = subprocess.Popen(['java', 'com.nantic.jasperreports.JasperServer', unicode(self.port)], env=env, cwd=cwd)
 		if self.pidfile:
