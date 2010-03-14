@@ -115,7 +115,7 @@ class FormParser(AbstractParser):
 							text += node.toxml()
 				label = QLabel( text, container )
 				label.setWordWrap( True )
-				label.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+				label.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 				container.addWidget(label, attrs)
 
 			elif node.localName=='newline':
