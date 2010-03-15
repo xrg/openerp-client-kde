@@ -584,6 +584,9 @@ class Screen(QScrollArea):
 			# actions configured in the server, but Print Screen can be useful.
 			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('koo.show_toolbar'):
 				self.toolBar.setup( self.actions )
+				self.toolBar.show()
+			else:
+				self.toolBar.hide()
 
 	## @brief Creates a new record in the current model. If the current view is not editable
 	# it will automatically switch to a view that allows editing.
