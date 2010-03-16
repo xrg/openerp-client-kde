@@ -280,8 +280,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 	def printHtmlCurrent(self):
 		self.executeAction(keyword='client_print_multi')
 
-	def executeAction(self, keyword='tree_but_action', id=None, report_type='pdf'):
+	def executeAction(self, keyword='tree_but_action', id=None, fourth_arg=False, report_type='pdf'):
+		assert not fourth_arg  # Any remaining calls that pass context there should be eliminated
 		if id:
+			assert isinstance(report_type, str), "%s: %s"  %(type(report_type), report_type)
 			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id,]}, self.context)
 		else:
 			QMessageBox.information( self, _('Information'), _('No resource selected!'))
@@ -289,12 +291,12 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 	def open(self, idx):
 		id = self.treeModel.id( idx )
 		if id:
-			self.executeAction( 'tree_but_open', id, self.context )
+			self.executeAction( 'tree_but_open', id )
 
 	def editCurrentItem(self):
 		id = self.treeModel.id( self.uiTree.currentIndex() )
 		if id:
-			Api.instance.createWindow(None, self.model, id, self.domain, context=self.context)
+			Api.instance.createWindow(None, self.model, id, self.domain)
 		else:
 			QMessageBox.information(self, _('Information'), _('No resource selected!'))
 
@@ -333,7 +335,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		id = self.shortcutsGroup.fieldObjects[ 'res_id' ].get( m )
 		if not id:
 			return
-		self.executeAction('tree_but_open', id, self.context)
+		self.executeAction('tree_but_open', id)
 
 	def expand(self):
 		if self.toolbar:
