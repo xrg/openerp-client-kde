@@ -219,10 +219,16 @@ class Record(QObject):
 		if checkLoad:
 			self.ensureIsLoaded()
 		value = {}
+
 		# Iterate over self.group.fields to avoid objects of type BinarySizeField
 		# which shouldn't be treated as a normal field.
 		for name in self.group.fields:
 			field = self.group.fieldObjects[ name ]
+			# If checkLoad was not specified, the record may not have all the fields
+			# the group has. This is because there may have been a switch view to a form
+			# but not for this record.
+			if not name in self.values:
+				continue
 			if (get_readonly or not self.isFieldReadOnly(name)) \
 				and (not get_modifiedonly or field.name in self.modified_fields):
 					value[name] = field.get(self, readonly=get_readonly, modified=get_modifiedonly)
