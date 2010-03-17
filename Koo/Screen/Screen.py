@@ -87,7 +87,7 @@ class Screen(QScrollArea):
 		self.containerView = None
 
 		self.toolBar = ToolBar(self)
-		self.toolBar.hide()
+		self.setToolbarVisible( False )
 
 		self.viewLayout = QVBoxLayout()
 
@@ -582,7 +582,7 @@ class Screen(QScrollArea):
 			# This way dashboards won't show the toolbar, though the option will
 			# remain available in the menu for those screens that don't have any
 			# actions configured in the server, but Print Screen can be useful.
-			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('koo.show_toolbar'):
+			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('koo.show_toolbar') and self._toolbarVisible:
 				self.toolBar.setup( self.actions )
 				self.toolBar.show()
 			else:
