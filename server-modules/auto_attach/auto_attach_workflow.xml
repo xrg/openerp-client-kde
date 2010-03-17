@@ -13,6 +13,7 @@
 			<field name="flow_start">True</field>
 			<field name="name">pending</field>
 			<field name="action">write({'state':'pending'})</field>
+			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="scanning">
 			<field name="wkf_id" ref="wkf"/>

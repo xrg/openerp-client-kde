@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2009 NaN Projectes de Programari Lliure, S.L. All rights reserved
+# Copyright (c) 2007-2010 NaN Projectes de Programari Lliure, S.L. All rights reserved
 #                         http://www.NaN-tic.com
 #
 # WARNING: This program as such is intended to be used by professional
@@ -26,14 +26,17 @@
 #
 ##############################################################################
 
-from osv import osv, fields
-import base64
-import xml.dom.minidom
-import tempfile
-import os
-import shutil
-import codecs
 import re
+import os
+import codecs
+import base64
+import shutil
+import tempfile
+import xml.dom.minidom
+
+from osv import osv
+from osv import fields
+from tools.translate import _
 
 from NanScan.Template import *
 from NanScan.Document import *
@@ -47,10 +50,10 @@ class nan_template(osv.osv):
 	_name = 'nan.template'
 	_columns = {
 		'name' : fields.char('Name', 64, required=True),
-		'boxes' : fields.one2many('nan.template.box', 'template', 'Boxes'),
+		'box_ids' : fields.one2many('nan.template.box', 'template_id', 'Boxes'),
 		'attach_function' : fields.char('Attachment Function', 256),
 		'action_function' : fields.char('Action Function', 256),
-		'documents' : fields.one2many('nan.document', 'template', 'Documents')
+		'document_ids' : fields.one2many('nan.document', 'template_id', 'Documents')
 	}
 
 	# Returns a Template from the fields of a template. You'll usually use 
@@ -58,7 +61,7 @@ class nan_template(osv.osv):
 	def getTemplateFromData(self, cr, uid, data, context=None):
 		template = Template( data['name'] )
 		template.id = data['id']
-		ids = self.pool.get('nan.template.box').search( cr, uid, [('template','=',data['id'])], context=context )
+		ids = self.pool.get('nan.template.box').search( cr, uid, [('template_id','=',data['id'])], context=context )
 		boxes = self.pool.get('nan.template.box').read(cr, uid, ids, context=context)
 		for y in boxes:
 			box = TemplateBox()
@@ -73,7 +76,6 @@ class nan_template(osv.osv):
 			if isinstance( box.text, str ):
 				box.text = unicode( box.text, 'latin-1' )
 			template.addBox( box )
-		print "GETTING TEMPLATE: %s WITH %d BOXES" % ( data['name'], len(boxes) )
 		return template
 
 	# Returns a Template from the given id
@@ -99,7 +101,7 @@ nan_template()
 class nan_template_box(osv.osv):
 	_name = 'nan.template.box'
 	_columns = {
-		'template' : fields.many2one('nan.template', 'Template', required=True, ondelete='cascade'),
+		'template_id' : fields.many2one('nan.template', 'Template', required=True, ondelete='cascade'),
 		'x' : fields.float('X'),
 		'y' : fields.float('Y'),
 		'width' : fields.float('Width'),
@@ -126,9 +128,9 @@ class nan_document(osv.osv):
 	_columns = {
 		'name' : fields.char('Name', 64),
 		'datas': fields.binary('Data'),
-		'properties': fields.one2many('nan.document.property', 'document', 'Properties'),
-		'template': fields.many2one('nan.template', 'Template' ),
-		'document': fields.reference('Document', selection=attachableDocuments, size=128),
+		'property_ids': fields.one2many('nan.document.property', 'document_id', 'Properties'),
+		'template_id': fields.many2one('nan.template', 'Template' ),
+		'document_id': fields.reference('Document', selection=attachableDocuments, size=128),
 		'task' : fields.text('Task', readonly=True),
 		'state': fields.selection( [('pending','Pending'),('scanning','Scanning'),
 			('scanned','Scanned'), ('verified','Verified'),('processing','Processing'),
@@ -144,21 +146,20 @@ class nan_document(osv.osv):
 		# the meanwhile" would be thrown, so by now check which of the records
 		# we'll want to scan later
 		toScan = []
-		if 'template' in values:
-			for x in self.read( cr, uid, ids, ['state', 'template'], context ):
+		if 'template_id' in values:
+			for x in self.read( cr, uid, ids, ['state', 'template_id'], context ):
 				# We only scan the document if template has changed and the document
 				# is in 'scanned' state.
-				if x['state'] == 'scanned' and x['template'] != values['template']:
-					toScan.append( {'id': x['id'], 'template': values['template'] } )
+				if x['state'] == 'scanned' and x['template_id'] != values['template_id']:
+					toScan.append( {'id': x['id'], 'template_id': values['template_id'] } )
 
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
 		for x in toScan:
-			self.scanDocumentWithTemplate( cr, uid, x['id'], x['template'] )
+			self.scanDocumentWithTemplate( cr, uid, x['id'], x['template_id'] )
 		return ret
 
 	def scan_document_background(self, cr, uid, imageIds, context=None):
-		print "Scan document background"
 		self.pool.get('ir.cron').create(cr, uid, {
 			'name': 'Scan document',
 			'user_id': uid,
@@ -169,7 +170,7 @@ class nan_document(osv.osv):
 		cr.commit()
 
 	def scan_documents_batch(self, cr, uid, imageIds, context=None):
-		self.scan_document(cr, uid, imageIds)
+		self.scan_document(cr, uid, imageIds, context=context)
 		self.pool.get('res.request').create( cr, uid, {
 			'act_from': uid,
 			'act_to': uid,
@@ -179,17 +180,17 @@ class nan_document(osv.osv):
 
 	# If notify=True sends a request/notification to uid
 	def scan_document(self, cr, uid, imageIds, notify=False, context=None):
-		print "Scan_documentcalled"
 		# Load templates into 'templates' list
 		templates = self.pool.get('nan.template').getAllTemplates( cr, uid, context )
 
 		# Initialize Ocr System (Gamera)
-		initOcrSystem()
 		recognizer = Recognizer()
 
 		# Iterate over all images and try to find the most similar template
 		for document in self.browse(cr, uid, imageIds, context):
 			if document.state not in ('pending','scanning'):
+				continue
+			if not document.datas:
 				continue
 			fp, image = tempfile.mkstemp()
 			fp = os.fdopen( fp, 'wb+' )
@@ -210,7 +211,7 @@ class nan_document(osv.osv):
 			else:
 				template_id = False
 			self.write(cr, uid, [document.id], {
-				'template': template_id, 
+				'template_id': template_id, 
 				'state': 'scanned'
 			}, context=context)
 			if doc:
@@ -218,8 +219,8 @@ class nan_document(osv.osv):
 					self.pool.get('nan.document.property').create(cr, uid, { 
 						'name': box.templateBox.name, 
 						'value': box.text, 
-						'document': document.id,
-						'template_box': box.templateBox.id
+						'document_id': document.id,
+						'template_box_id': box.templateBox.id
 					}, context)
 
 			if notify:
@@ -240,13 +241,10 @@ class nan_document(osv.osv):
 
 		# Whether templateId is valid or not
 		# Remove previous properties
-		ids = self.pool.get('nan.document.property').search( cr, uid, [('document','=',documentId)], context=context )
+		ids = self.pool.get('nan.document.property').search( cr, uid, [('document_id','=',documentId)], context=context )
 		self.pool.get('nan.document.property').unlink( cr, uid, ids, context )
 
 		if templateId:
-			# Initialize Ocr System (Gamera)
-			initOcrSystem()
-
 			template = self.pool.get('nan.template').getTemplateFromId( cr, uid, templateId, context )  
 
 			documents = self.read(cr, uid, [documentId], context=context)
@@ -267,14 +265,14 @@ class nan_document(osv.osv):
 				obj.create(cr, uid, {
 					'name': box.templateBox.name, 
 					'value': box.text, 
-					'document': document['id'],
-					'template_box': box.templateBox.id
+					'document_id': document['id'],
+					'template_box_id': box.templateBox.id
 				}, context)
 		self.executeAttachs( cr, uid, [documentId], context )
 		self.executeActions( cr, uid, [documentId], True, context )
 		cr.commit()
 
-	def process_document(self, cr, uid, ids):
+	def process_document(self, cr, uid, ids, context=None):
 		self.executeActions( cr, uid, ids, False, context )
 		cr.commit()
 
@@ -304,25 +302,24 @@ class nan_document(osv.osv):
 
 	def executeActions( self, cr, uid, ids, explain, context ):
 		for document in self.browse( cr, uid, ids, context ):
-			print "Executing action on document with state ", document.state
+			print "Executing action on document with state ", document.state, explain
 			if not explain and document.state not in ('verified','processing'):
 				continue
 
-			print "Yes"
 			task = None
-			if document.template:
-				function = document.template.action_function
+			if document.template_id:
+				function = document.template_id.action_function
 				if function:
-					properties = dict( [(x.name, unicode(x.value)) for x in document.properties] )
+					properties = dict( [(x.name, unicode(x.value)) for x in document.property_ids] )
 					(name, parameters) = self._parseFunction(function, properties)
 
 					obj = self.pool.get('nan.document')
 					task = eval('obj.%s(cr, uid, explain, %s)' % ( name, ','.join( parameters ) ) )
 			if explain:
 				self.write( cr, uid, [document.id], {'task': task} )
-			elif document.document:
+			elif document.document_id:
 				# Attach document to the appropiate reference
-				ref = document.document.split(',')
+				ref = document.document_id.split(',')
 				model = ref[0]
 				id = ref[1]
 				self.pool.get( 'ir.attachment' ).create( cr, uid, { 
@@ -341,10 +338,10 @@ class nan_document(osv.osv):
 	def executeAttachs( self, cr, uid, ids, context=None ):
 		for document in self.browse( cr, uid, ids, context ):
 			reference = None
-			if document.template:
-				function = document.template.attach_function
+			if document.template_id:
+				function = document.template_id.attach_function
 				if function:
-					properties = dict( [(x.name, unicode( x.value, 'latin-1' )) for x in document.properties] )
+					properties = dict( [(x.name, x.value) for x in document.property_ids] )
 
 					(name, parameters) = self._parseFunction(function, properties)
 					obj = self.pool.get('nan.document')
@@ -353,32 +350,38 @@ class nan_document(osv.osv):
 
 			if reference:
 				self.write( cr, uid, [document.id], {
-					'document': '%s,%s' % (reference[0],reference[1]) 
+					'document_id': '%s,%s' % (reference[0],reference[1]) 
 				}, context )
 			else:
 				self.write( cr, uid, [document.id], {
-					'document': False
+					'document_id': False
 				}, context )
 
 
 	def actionAddPartner( self, cr, uid, explain, name ):
 		if explain:
-			return "A new partner with name '%s' will be created (if it doesn't exist already)." % name
-		else:
-			if not self.pool.get( 'res.partner' ).search( cr, uid, [('name','=',name)], context=context):
-				self.pool.get( 'res.partner' ).create( cr, uid, {
-					'name': name
-				}, context )
-			return True
+			return _("A new partner with name '%s' will be created (if it doesn't exist already).") % name
+
+		if not self.pool.get( 'res.partner' ).search( cr, uid, [('name','=',name)]):
+			self.pool.get( 'res.partner' ).create( cr, uid, {
+				'name': name
+			})
+		return True
 
 	def attachModelByField( self, cr, uid, model, field, name ):
-		table = self.pool.get( model )._table
-		# TODO: Security issues
-		cr.execute( 'SELECT id FROM "' + table + '" ORDER BY similarity("' + field + '",\'%s\') DESC LIMIT 1' % name ) 
-		record = cr.fetchone()
-		if not record:
+		# Note: The commented code below has security issues and it is here as a example only. 
+		#table = self.pool.get( model )._table
+		#cr.execute( 'SELECT id FROM "' + table + '" ORDER BY similarity("' + field + '",\'%s\') DESC LIMIT 1' % name ) 
+		#record = cr.fetchone()
+		#if not record:
+		#	return False
+		#return ( model, record[0] )
+
+		ids = self.pool.get(model).search(cr, uid, [(field,'=',name)])
+		if not ids:
 			return False
-		return ( model, record[0] )
+		return ( model, ids[0] )
+		
 
 nan_document()
 
@@ -387,8 +390,8 @@ class nan_document_property(osv.osv):
 	_columns = {
 		'name' : fields.char('Text', 256),
 		'value' : fields.char('Value', 256),
-		'document' : fields.many2one('nan.document', 'Document', required=True, ondelete='cascade'),
-		'template_box' : fields.many2one('nan.template.box', 'Template Box', required=True, ondelete='set null')
+		'document_id' : fields.many2one('nan.document', 'Document', required=True, ondelete='cascade'),
+		'template_box_id' : fields.many2one('nan.template.box', 'Template Box', required=True, ondelete='set null')
 	}
 nan_document_property()	
 
