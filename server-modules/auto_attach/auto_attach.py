@@ -125,16 +125,20 @@ def attachableDocuments(self, cr, uid, context={}):
 
 class nan_document(osv.osv):
 	_name = 'nan.document'
+	state_only_read = {
+		'pending': [ ( 'readonly', False ), ],
+		'scanned': [ ( 'readonly', False ), ],
+	}
 	_columns = {
-		'name' : fields.char('Name', 64),
-		'datas': fields.binary('Data'),
-		'property_ids': fields.one2many('nan.document.property', 'document_id', 'Properties'),
-		'template_id': fields.many2one('nan.template', 'Template' ),
-		'document_id': fields.reference('Document', selection=attachableDocuments, size=128),
+		'name' : fields.char('Name', 64, readonly=True, states=state_only_read),
+		'datas': fields.binary('Data', readonly=True, states=state_only_read),
+		'property_ids': fields.one2many('nan.document.property', 'document_id', 'Properties', readonly=True, states=state_only_read),
+		'template_id': fields.many2one('nan.template', 'Template', readonly=True, states=state_only_read),
+		'document_id': fields.reference('Document', selection=attachableDocuments, size=128, readonly=True, states=state_only_read),
 		'task' : fields.text('Task', readonly=True),
-		'state': fields.selection( [('pending','Pending'),('scanning','Scanning'),
-			('scanned','Scanned'), ('verified','Verified'),('processing','Processing'),
-			('processed','Processed')], 
+		'state': fields.selection( [
+			('pending','Pending'),('scanning','Scanning'),('scanned','Scanned'),
+			('verified','Verified'),('processing','Processing'),('processed','Processed')], 
 			'State', required=True, readonly=True )
 	}
 	_defaults = {
