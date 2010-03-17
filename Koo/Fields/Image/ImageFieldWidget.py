@@ -33,6 +33,7 @@ import tempfile
 
 from Koo.Common import Common
 from Koo.Common import Icons
+from Koo.Common import Semantic
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
@@ -131,7 +132,7 @@ class ImageFieldWidget(AbstractFieldWidget, ImageFieldWidgetUi):
 			fp.close()
 		except:
 			QMessageBox.warning( self, _('Error saving file'), _('Could not save the image with the given file name. Please check that you have permissions.') )
-		Semantic.addInformationToFile( filename, self.record.group.resource, self.record.id, self.name )
+		Semantic.addInformationToFile( name, self.record.group.resource, self.record.id, self.name )
 
 	def loadImage(self):
 		fileTypes = "*.png *.jpg *.jpeg *.gif *.tif *.xpm *.bmp"
