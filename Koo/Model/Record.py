@@ -224,9 +224,11 @@ class Record(QObject):
 		# which shouldn't be treated as a normal field.
 		for name in self.group.fields:
 			field = self.group.fieldObjects[ name ]
-			# If checkLoad was not specified, the record may not have all the fields
-			# the group has. This is because there may have been a switch view to a form
+			# The record may not have all the fields the group has. 
+			# This is because there may have been a switch view to a form
 			# but not for this record.
+			if not name in self.values:
+				continue
 			if not name in self.values:
 				continue
 			if (get_readonly or not self.isFieldReadOnly(name)) \
@@ -315,12 +317,17 @@ class Record(QObject):
 	def validate(self):
  		self.ensureIsLoaded()
  		ok = True
- 		for fname in self.group.fieldObjects:
- 			if not self.group.fieldObjects[fname].validate(self):
-				self.setFieldValid( fname, False )
+ 		for name in self.group.fieldObjects:
+			# The record may not have all the fields the group has. 
+			# This is because there may have been a switch view to a form
+			# but not for this record.
+			if not name in self.values:
+				continue
+ 			if not self.group.fieldObjects[name].validate(self):
+				self.setFieldValid( name, False )
  				ok = False
 			else:
-				self.setFieldValid( fname, True )
+				self.setFieldValid( name, True )
  		return ok
 
 	## @brief Returns the context with which the record has been loaded.
