@@ -180,7 +180,7 @@ RegisterUninstaller:
     Goto ContinueRegister
     
 NotRegisterUninstaller:
-    WriteRegStr HKLM  "Software\KooSP" "UninstallClient" "$INSTDIR\Uninstall.exe"
+    WriteRegStr HKLM  "Software\Koo" "UninstallClient" "$INSTDIR\Uninstall.exe"
 
 ContinueRegister:
 
@@ -223,7 +223,8 @@ Section "Uninstall"
 
   
   DeleteRegKey HKCU "Software\Koo\Language"
-  DeleteRegKey /ifempty HKCU "Software\Koo"
+  DeleteRegKey HKCU "Software\Koo"
+  ;DeleteRegKey /ifempty HKCU "Software\Koo"
 
   IfSilent RemoveUninstallSingle RemoveUninstallAllInOne
   
@@ -232,8 +233,8 @@ Section "Uninstall"
     goto ContinueUninstall
   
   RemoveUninstallAllInOne:
-    DeleteRegKey HKLM "Software\KooSP\UninstallClient"
-  
+    DeleteRegKey HKLM "Software\Koo\UninstallClient"
+
   ContinueUninstall:
 
 SectionEnd
