@@ -230,8 +230,9 @@ class Screen(QScrollArea):
 				##Generic case when we need to remove the last occurance of </form> from form view
 				arch = arch[0:form['arch'].rfind('</form>')]
 				##Special case when form is replaced,we need to remove </form>
-				if arch.rfind('</form>') > 0:
-					arch = arch[0:find_form]
+				index = arch.rfind('</form>')
+				if index > 0:
+					arch = arch[0:index]
 				arch = arch + tempArch + '\n</form>'
 
 				self.searchForm.setup( arch, fields, self.resource, self.group.domain() )
