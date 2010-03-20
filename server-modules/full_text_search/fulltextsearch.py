@@ -205,8 +205,17 @@ class fulltextsearch_services(netsvc.Service):
 			context = {}
 
 		security.check(db, uid, passwd)
+		pool = pooler.get_pool(db)
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
+		try:
+			return self.search_internal(pool, cr, uid, text, limit, offset, model, context)
+		except Exception, e:
+			print "EX: ", str(e)
+		finally:
+			cr.close()
+
+	def search_internal(self, pool, cr, uid, text, limit, offset, model, context=None):
 
 		self.checkPostgresVersion(cr)
 
@@ -220,7 +229,6 @@ class fulltextsearch_services(netsvc.Service):
 		# Note that this doesn't avoid the problem when you query for a word which
 		# is descarted by the TSearch2 dictionary. Such as 'a' in English.
 		if text.strip() == '':
-			cr.close()
 			return []
 
 		# Parse text query so we convert dates into SQL dates (::DATE) and other 
@@ -269,7 +277,6 @@ class fulltextsearch_services(netsvc.Service):
 					fts.model,
 					fts.reference""" % (self.postgresKeyWords['ts_rank'], tsQuery, tsQuery, filterModel) )
 		except:
-			cr.close()
 			return []
 
 		if 'lang' in context:
@@ -277,7 +284,6 @@ class fulltextsearch_services(netsvc.Service):
 		else:
 			lang = 'en_US'
 
-		pool = pooler.get_pool(db)
 		ret = []
 		i = -1
 		all = cr.fetchall()
@@ -289,7 +295,10 @@ class fulltextsearch_services(netsvc.Service):
 			ranking = x[4]
 
 			# Check security permissions using search
-			if not pool.get(model_name).search(cr, uid, [('id','=',id)], context=context):
+			try:
+				if not pool.get(model_name).search(cr, uid, [('id','=',id)], context=context):
+					continue
+			except except_orm, e:
 				continue
 			# Check read permissions using because 'search' is not enough and using 'read' 
 			# alone is not enough either. For example, it can allow searching
@@ -325,7 +334,6 @@ class fulltextsearch_services(netsvc.Service):
 			d['model_name'] = model_name
 			ret.append( d )
 
-		cr.close()
 		return noneToFalse( ret )
 
 fulltextsearch_services()
