@@ -671,6 +671,9 @@
    <property name="text">
     <string>Go To Resource ID</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
   </action>
   <action name="actionReload">
    <property name="icon">

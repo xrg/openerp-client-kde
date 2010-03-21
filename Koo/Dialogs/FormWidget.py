@@ -209,6 +209,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog = GoToIdDialog( self )
 		if dialog.exec_() == QDialog.Rejected:
 			return
+		if not dialog.result in self.group.ids():
+			QMessageBox.information(self, _('Go To Id'), _("Resouce with ID '%s' not found.") % dialog.result )
+			return
 		self.screen.load( [dialog.result] )
 		
 	def setStatusBarVisible(self, value):
