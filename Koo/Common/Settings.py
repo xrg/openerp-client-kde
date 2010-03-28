@@ -60,6 +60,7 @@ class Settings(object):
 		'koo.enter_as_tab' : False,
 		'kde.enabled' : True,
 		'koo.attachments_dialog' : False,
+		'koo.load_on_open' : True,
 	}
 
 	## @brief Stores current settings in the appropiate config file.

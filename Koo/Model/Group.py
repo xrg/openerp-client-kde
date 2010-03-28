@@ -652,7 +652,8 @@ class RecordGroup(QObject):
 			self._domain = []
 		else:
 			self._domain = value
-		self.updated = False
+		if Settings.value( 'koo.load_on_open', True ):
+			self.updated = False
 	
 	## @brief Returns the current domain.
 	def domain(self):
