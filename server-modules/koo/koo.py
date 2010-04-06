@@ -68,6 +68,13 @@ class koo_services(netsvc.Service):
 		security.check(db, uid, passwd)
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
+		try:
+			return self.internal_search(cr, db, uid, passwd, model, filter, offset, limit, order, context, count, group)
+		finally:
+			cr.close()
+
+	def internal_search(self, cr, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
+
 		pool = pooler.get_pool(db)
 		if not context:
 			context = {}
@@ -123,7 +130,6 @@ class koo_services(netsvc.Service):
 		    cr.execute('select count(%s.id) from ' % table +
 			    ','.join(tables) +qu1 + limit_str + offset_str, qu2)
 		    res = cr.fetchall()
-		    cr.close()
 		    return res[0][0]
 
 		# execute the "main" query to fetch the ids we were searching for
@@ -141,26 +147,8 @@ class koo_services(netsvc.Service):
 			cr.execute('select %s.id from ' % table + ','.join(tables) +qu1+' order by '+order_by+limit_str+offset_str, qu2)
 			res = [x[0] for x in cr.fetchall()]
 
-		#if resortField:
-		#	# This code tries to respect the order returned by standard search()
-		#	# The problem is that it currently doesn't sort correctly in translatable
-		#	# fields.
-		#	obj = pool.get(model)._columns[resortField]._obj
-		#	o = pool.get(obj)._rec_name or 'name'
-		#	if resortOrder:
-		#		o += resortOrder
-		#	ids = pool.get(obj).search(cr, uid, filter, order=o, context=context)
-		#	hash = {}
-		#	for x in xrange(len(ids)):
-		#		hash[ids[x]] = x
-		#	data = []
-		#	for record in pool.get(model).read(cr, uid, res, ['id', resortField], context=context):
-		#		data.append( (record['id'], hash.get(record[resortField][0])) )
-		#	data.sort(key=operator.itemgetter(1))
-		#	res = [x[0] for x in data]
-
-		cr.close()
 		return res
+
 koo_services()
 paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/koo' ]
 SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
