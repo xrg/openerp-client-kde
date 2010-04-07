@@ -72,7 +72,7 @@ class report_xml(osv.osv):
 		'jasper_report': fields.boolean('Is Jasper Report?', help=''),
 	}
 	_defaults = {
-		'jasper_output': lambda self, cr, uid, context: context.get('jasper_report') and 'pdf',
+		'jasper_output': lambda self, cr, uid, context: context and context.get('jasper_report') and 'pdf' or False,
 	}
 
 	def create(self, cr, uid, vals, context=None):
