@@ -292,6 +292,9 @@ class AsynchronousSessionCall(QThread):
 		if self.callback:
 			self.callback( self.result, self.exception )
 
+		# Free session and thus server connections as soon as possible
+		self.session = None
+
 	def run(self):
 		# As we don't want to force initialization of gettext if 'call' is used
 		# we handle exceptions depending on 'useNotifications' 
