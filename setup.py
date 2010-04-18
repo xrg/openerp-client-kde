@@ -129,7 +129,7 @@ check_modules()
 
 # create startup script
 if os.name != 'nt':
-	start_script = "cd %s/Koo\nexec %s ./koo.py $@\n" % ( 
+	start_script = "#!/bin/sh\ncd %s/Koo\nexec %s ./koo.py $@\n" % ( 
 		get_python_lib(), sys.executable
 	)
 	# write script
