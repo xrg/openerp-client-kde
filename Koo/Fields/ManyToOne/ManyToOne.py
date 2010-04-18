@@ -361,6 +361,8 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 			else:	
 				dialog = ScreenDialog( self.currentEditor )
 				dialog.setAttributes( self.attributes )
+				dialog.setContext( self.record.fieldContext( self.name ) )
+				dialog.setDomain( self.record.domain(self.name) )
 				dialog.setup( self.attributes['relation'], self.record.get()[self.name] )
 				if dialog.exec_() == QDialog.Accepted:
 					self.record.setValue(self.name, dialog.record)
