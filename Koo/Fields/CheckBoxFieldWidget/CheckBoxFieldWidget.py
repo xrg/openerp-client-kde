@@ -28,12 +28,12 @@
 
 from PyQt4.QtGui import *
 
-from Koo.FieldWidgets.AbstractFieldWidget import *
-from Koo.FieldWidgets.AbstractFieldDelegate import *
+from Koo.Fields.AbstractFieldWidget import *
+from Koo.Fields.AbstractFieldDelegate import *
 
-class CheckBoxFormWidget(AbstractFormWidget):
+class CheckBoxFormWidget(AbstractFieldWidget):
 	def __init__(self, parent, model, attrs={}):
-		AbstractFormWidget.__init__(self, parent, model, attrs)
+		AbstractFieldWidget.__init__(self, parent, model, attrs)
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 		self.widget = QCheckBox( self )
 		self.widget.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
