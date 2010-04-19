@@ -158,24 +158,6 @@ class koo_services(baseExportService):
 			cr.execute('SELECT %s.id FROM ' % table + ','.join(tables) +qu1s+' ORDER BY '+order_by+limit_str+offset_str, qu2)
 			res = [x[0] for x in cr.fetchall()]
 
-		#if resortField:
-		#	# This code tries to respect the order returned by standard search()
-		#	# The problem is that it currently doesn't sort correctly in translatable
-		#	# fields.
-		#	obj = pool.get(model)._columns[resortField]._obj
-		#	o = pool.get(obj)._rec_name or 'name'
-		#	if resortOrder:
-		#		o += resortOrder
-		#	ids = pool.get(obj).search(cr, uid, filter, order=o, context=context)
-		#	hash = {}
-		#	for x in xrange(len(ids)):
-		#		hash[ids[x]] = x
-		#	data = []
-		#	for record in pool.get(model).read(cr, uid, res, ['id', resortField], context=context):
-		#		data.append( (record['id'], hash.get(record[resortField][0])) )
-		#	data.sort(key=operator.itemgetter(1))
-		#	res = [x[0] for x in data]
-
 		return res
 	    except Exception, e:
 	        import traceback
@@ -218,11 +200,19 @@ class nan_koo_settings(osv.osv):
 		'attachments_dialog': fields.boolean( 'Attachments in a Dialog', help="If set, pushing on attachments button will open them in a new blocking dialog. Otherwise they will be opened in a new tab" ),
 		'use_cache': fields.boolean('Allow Client Caching', help="If set, it enables the caching mechanism of the client. Developers will often consider disabling this option so they avoid clicking Clear Cache after changing views and actions."),
 		'auto_new': fields.boolean('Automatically create new record', help="If set, it will put the user in a new document just after saving a new document. This eases creation of many records. Resembles old (4.2) behaviour of the application."),
+		'load_on_open': fields.boolean('Load on Open', help="If set, it will load records the first time a view is opened. Otherwise, the user will have to search before anything is loaded. This may be interesting for performance reasons."),
 	}
 	_defaults = {
+		'show_toolbar': lambda *a: True,
+		'tabs_position': lambda *a: 'top',
+		'tabs_closable': lambda *a: True,
+		'sort_mode': lambda *a: 'all_items',
 		'limit': lambda *a: 80,
+		'allow_massive_updates': lambda *a: True,
+		'show_system_tray_icon': lambda *a: True,
 		'requests_refresh_interval': lambda *a: 300,
 		'use_cache': lambda *a: True,
+		'load_on_open': lambda *a: True,
 	}
 	_constraints = [
 		(_check_limit, 'Limit must be greater than zero.', ['limit']),

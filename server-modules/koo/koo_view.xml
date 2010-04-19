@@ -57,6 +57,7 @@
 					<field name="attachments_dialog"/>
 					<field name="use_cache"/>
 					<field name="auto_new"/>
+					<field name="load_on_open"/>
 					<separator colspan="4" string="Roles"/>
 					<field name="roles_id" colspan="4" nolabel="1"/>
 				</form>
