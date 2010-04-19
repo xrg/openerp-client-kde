@@ -465,6 +465,9 @@ class Record(QObject):
 		if not self.fieldExists( condition[0] ):
 			return False
 		value = self.value( condition[0] )
+		from Group import RecordGroup
+		if isinstance(value, RecordGroup):
+			value = value.ids()
 		if condition[1] in ('=', '=='):
 			if value == condition[2]:
 				return True

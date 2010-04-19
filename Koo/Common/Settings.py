@@ -61,6 +61,7 @@ class Settings(object):
 		'kde.enabled' : True,
 		'koo.attachments_dialog' : False,
 		'client.devel_mode': False,
+		'koo.load_on_open' : True,
 	}
 
 	## @brief Stores current settings in the appropiate config file.

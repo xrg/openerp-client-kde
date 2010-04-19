@@ -144,6 +144,9 @@ class Wizard( QObject ):
 			self.step()
 			return
 
+		ctx = self.context.copy()
+		ctx.update(Rpc.session.context)
+
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
 		if res['type']=='form':

@@ -187,7 +187,6 @@ def error(title, message, details=''):
 	dialog.exec_()
 	errorInError=False
 	QApplication.restoreOverrideCursor()
-	errorInError=False
 
 (ProgressDialogUi, ProgressDialogBase) = loadUiType( uiPath('progress.ui') )
 		

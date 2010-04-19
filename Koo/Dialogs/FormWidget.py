@@ -277,18 +277,15 @@ class FormWidget( QWidget, FormWidgetUi ):
 					self.screen.switchView( name )
 				else:
 					self.screen.switchView( viewType )
-		if self.pendingReload:
-			self.reload()
-		self.updateSwitchView()
-		QApplication.restoreOverrideCursor()
 
-		QApplication.setOverrideCursor( Qt.WaitCursor )
 			if self.pendingReload:
 				self.reload()
 			self.updateSwitchView()
 		except Rpc.RpcException, e:
 			pass
-		QApplication.restoreOverrideCursor()
+		finally:
+			QApplication.restoreOverrideCursor()
+
 	def showLogs(self):
 		id = self.screen.currentId()
 		if not id:

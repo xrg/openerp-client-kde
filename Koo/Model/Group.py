@@ -281,15 +281,22 @@ class RecordGroup(QObject):
 			# doesn't verify that, and we'd end up in errors because when records are
 			# actually loaded they're only checked against a single appearance of the 
 			# id in the list of records.
-		selfids= self.ids()
-		nids = []
-		for id in ids:
-			if id not in selfids:
-				nids.append(id)
-
-		start = len(self.records)
-		self.records += nids
-		end = len(self.records)-1
+			#
+			# Note we don't use sets to discard ids, because we want to keep the order
+			# their order and because it can cause infinite recursion.
+			currentIds = self.ids()
+			for id in ids:
+				if id not in currentIds:
+					self.records.insert( 0, id )
+			end = len(ids)-1
+		else:
+			start = len(self.records)
+			# Discard from 'ids' those that are already loaded. Same as above.
+			currentIds = self.ids()
+			for id in ids:
+				if id not in currentIds:
+					self.records.append( id )
+			end = len(self.records)-1
 		# We consider the group is updated because otherwise calling count() would
 		# force an update() which would cause one2many relations to load elements
 		# when we only want to know how many are there.
@@ -647,7 +654,8 @@ class RecordGroup(QObject):
 			self._domain = []
 		else:
 			self._domain = value
-		self.updated = False
+		if Settings.value( 'koo.load_on_open', True ):
+			self.updated = False
 	
 	## @brief Returns the current domain.
 	def domain(self):
