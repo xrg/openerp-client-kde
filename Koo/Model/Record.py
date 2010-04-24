@@ -515,6 +515,8 @@ class Record(QObject):
 			warning = response.get('warning',{})
 			if warning:
 				Notifier.notifyWarning(warning['title'], warning['message'])
+			if 'focus' in response:
+				self.emit(SIGNAL('setFocus(QString)'), response['focus'])
 
 	# This functions is called whenever a field with 'change_default'
 	# attribute set to True is modified. The function sets all conditional
