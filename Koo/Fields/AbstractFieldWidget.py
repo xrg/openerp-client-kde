@@ -96,6 +96,7 @@ class AbstractFieldWidget(QWidget):
 			self._isUpToDate = True
 			if self.record:
 				self.showValue()
+			self.updateColor()
 		return QWidget.showEvent(self, event)
 
 	## @brief This function is called the first time the widget is shown.
