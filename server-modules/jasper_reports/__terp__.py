@@ -39,7 +39,8 @@
 	],
 	"update_xml" : [
 		'jasper_wizard.xml',
-		'report_xml_view.xml'
+		'report_xml_view.xml',
+		'security/ir.model.access.csv',
 	],
 	"active": False,
 	"installable": True
