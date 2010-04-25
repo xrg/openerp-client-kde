@@ -187,7 +187,6 @@ class nan_document(osv.osv):
 		# Load templates into 'templates' list
 		templates = self.pool.get('nan.template').getAllTemplates( cr, uid, context )
 
-		# Initialize Ocr System (Gamera)
 		recognizer = Recognizer()
 
 		# Iterate over all images and try to find the most similar template
