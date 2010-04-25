@@ -67,7 +67,6 @@
 			<field name="view_mode">tree,form</field>
 			<field name="domain"></field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Document Queue" action="all_document_tree" id="menu_document_tree"/>
 
 		<record model="ir.actions.act_window" id="pending_document_tree">
 			<field name="name">Pending Documents</field>
@@ -76,7 +75,6 @@
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','pending')]</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Document Queue/Pending" action="pending_document_tree" id="menu_pending_document_tree"/>
 
 		<record model="ir.actions.act_window" id="scanned_document_tree">
 			<field name="name">Scanned Documents</field>
@@ -85,7 +83,6 @@
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','scanned')]</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Document Queue/Scanned" action="scanned_document_tree" id="menu_scanned_document_tree"/>
 
 		<record model="ir.actions.act_window" id="verified_document_tree">
 			<field name="name">Verified Documents</field>
@@ -94,7 +91,6 @@
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','verified')]</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Document Queue/Verified" action="verified_document_tree" id="menu_verified_document_tree"/>
 
 		<record model="ir.actions.act_window" id="processed_document_tree">
 			<field name="name">Processed Documents</field>
@@ -103,7 +99,6 @@
 			<field name="view_mode">tree,form</field>
 			<field name="domain">[('state','=','processed')]</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Document Queue/Processed" action="processed_document_tree" id="menu_processed_document_tree"/>
 
 
 		<!-- Template views -->
@@ -169,6 +164,57 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Templates" action="view_template_action" id="menu_view_template"/>
+
+		<menuitem
+			name="Auto Attach"
+			id="auto_attach_menu" 
+			/>
+		<menuitem 
+			name="Configuration" 
+			id="auto_attach_config_menu"
+			parent="auto_attach_menu"
+			sequence="1"
+			/>
+		<menuitem 
+			name="Templates" 
+			action="view_template_action" 
+			id="template_menu"
+			parent="auto_attach_config_menu"
+			/>
+		<menuitem 
+			name="Document Queue"
+			action="all_document_tree"
+			id="document_queue_menu"
+			parent="auto_attach_menu"
+			sequence="2"
+			/>
+		<menuitem 
+			name="Pending" 
+			action="pending_document_tree" 
+			id="document_pending_menu"
+			parent="document_queue_menu"
+			sequence="1"
+			/>
+		<menuitem 
+			name="Scanned" 
+			action="scanned_document_tree" 
+			id="document_scanned_menu"
+			parent="document_queue_menu"
+			sequence="2"
+			/>
+		<menuitem 
+			name="Verified" 
+			action="verified_document_tree" 
+			id="document_verified_menu"
+			parent="document_queue_menu"
+			sequence="3"
+			/>
+		<menuitem 
+			name="Processed" 
+			action="processed_document_tree" 
+			id="document_processed_menu"
+			parent="document_queue_menu"
+			sequence="4"
+			/>
 	</data>
 </terp>
