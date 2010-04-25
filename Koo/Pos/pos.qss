@@ -26,12 +26,66 @@ QToolBar {
 	qproperty-iconSize: 40px 40px;
 }
 
-// Doesn't work
 QCalendarWidget {
 	qproperty-font: bold italic large "Times New Roman";
 }
 
-// Doesn't work
-QScrollBar {
-	width: 60px;
+/* ScrollBar */
+
+QScrollBar:horizontal {
+	border: 2px solid grey;
+	background: DarkGray;
+	height: 35px;
+	margin: 0px 20px 0 20px;
+	border-radius: 3px;
+}
+QScrollBar::handle:horizontal {
+	background: white;
+	min-width: 35px;
+	border-radius: 3px;
+}
+QScrollBar::add-line:horizontal {
+	border: 2px solid grey;
+	background: DarkGray;
+	width: 50px;
+	subcontrol-position: right;
+	subcontrol-origin: margin;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:horizontal {
+	border: 2px solid grey;
+	background: DarkGray;
+	width: 50px;
+	subcontrol-position: left;
+	subcontrol-origin: margin;
+	border-radius: 3px;
+}
+
+QScrollBar:vertical {
+	border: 2px solid grey;
+	background: DarkGray;
+	width: 35px;
+	margin: 20px 0px 20px 0px;
+	border-radius: 3px;
+}
+QScrollBar::handle:vertical {
+	background: white;
+	min-height: 35px;
+	border-radius: 3px;
+}
+QScrollBar::add-line:vertical {
+	border: 2px solid grey;
+	background: DarkGray;
+	height: 50px;
+	subcontrol-position: bottom;
+	subcontrol-origin: margin;
+	border-radius: 3px;
+}
+QScrollBar::sub-line:vertical {
+	border: 2px solid grey;
+	background: DarkGray;
+	height: 50px;
+	subcontrol-position: top;
+	subcontrol-origin: margin;
+	border-radius: 3px;
 }
