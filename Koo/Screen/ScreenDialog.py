@@ -106,13 +106,15 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 	
 	def showLogs(self):
 		id = self.screen.currentId()
-		if not id:
+		if not (id or self.devel_mode):
 			self.updateStatus(_('You have to select one resource!'))
 			return False
-		res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+		if id:
+			res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+		else:
+			res = []
 		message = ''
-		devel_mode = True
-		if devel_mode:
+		if self.devel_mode:
 			message = "Object: %s\n" %(self.model)
 			message += "Domain: %s\nContext: %s\n" %(self._domain, self._context)
 			message += "Scr context: %s\n" % (self.screen.context)

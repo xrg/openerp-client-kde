@@ -288,10 +288,13 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def showLogs(self):
 		id = self.screen.currentId()
-		if not id:
+		if not (id or self.devel_mode):
 			self.updateStatus(_('You have to select one resource!'))
 			return False
-		res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+		if id:
+			res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+		else:
+			res = []
 		message = ''
 		if self.devel_mode:
 			message = "Object: %s, form: %s\n" %(self.model, self.viewIds)
