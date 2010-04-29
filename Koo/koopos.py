@@ -41,26 +41,77 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'Koo'])
 sys.path.append(terp_path)
 
+from Koo.Common.Settings import Settings
+from Koo.Common import CommandLine
 from Koo.Common import Localization
-Localization.initializeTranslations()
 
-from Koo.Common.Settings import *
+# Note that we need translations in order to parse command line arguments
+# because we might have to print information to the user. However, koo's
+# language configuration is stored in the .rc file users might provide in 
+# the command line.
+#
+# To solve this problem we load translations twice: one before command line
+# parsing and another one after, with the definitive language.
+#
+# Under windows, loading language twice doesn't work, and the first one loaded
+# will be the one used so we first load settings from default file and registre,
+# then load translations based on that file, then parse command line arguments
+# and eventually load definitive translations (which windows will ignore silently).
+Settings.loadFromFile()
+Settings.loadFromRegistry()
+Localization.initializeTranslations(Settings.value('client.language'))
 
+arguments = CommandLine.parseArguments(sys.argv)
+
+Localization.initializeTranslations(Settings.value('client.language'))
+
+
+imports={}
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-
 from Koo.Common import Notifier, Common
+from Koo.Common import DBus
 
 # Declare notifier handlers for the whole application
 Notifier.errorHandler = Common.error
 Notifier.warningHandler = Common.warning
 Notifier.concurrencyErrorHandler = Common.concurrencyError
 
+
+
+
 ### Main application loop
-app = QApplication( sys.argv )
+if Common.isKdeAvailable:
+	from PyKDE4.kdecore import ki18n, KAboutData, KCmdLineArgs
+	from PyKDE4.kdeui import KApplication
+
+	appName     = "Koo"
+	catalog     = ""
+	programName = ki18n ("Koo")
+	version     = "1.0"
+	description = ki18n ("KDE OpenObject Client")
+	license     = KAboutData.License_GPL
+	copyright   = ki18n ("(c) 2009 Albert Cervera i Areny")
+	text        = ki18n ("none")
+	homePage    = "www.nan-tic.com"
+	bugEmail    = "albert@nan-tic.com"
+	 
+	aboutData   = KAboutData (appName, catalog, programName, version, description,
+				license, copyright, text, homePage, bugEmail)
+
+	KCmdLineArgs.init (arguments, aboutData)
+	 
+	app = KApplication ()
+else:
+	app = QApplication( arguments )
+
+app.setApplicationName( 'Koo POS' )
+app.setOrganizationDomain( 'www.NaN-tic.com' )
+app.setOrganizationName( 'NaN' )
+
 try:
-	f = open(Settings.value('koo.stylesheet'), 'rb')
+	f = open( Settings.value('koo.stylesheet'), 'r' )
 	try:
 		app.setStyleSheet( f.read() )
 	finally:
@@ -68,14 +119,14 @@ try:
 except:
 	pass
 
-Localization.initializeQtTranslations()
+Localization.initializeQtTranslations(Settings.value('client.language'))
+
 
 from Koo.Dialogs.KooMainWindow import *
 from Koo.Dialogs.WindowService import *
 import Koo.Actions
 
 mainWindow = QMainWindow(None, Qt.CustomizeWindowHint)
-mainWindow.setLayout( QHBoxLayout( mainWindow ) )
 
 from Koo.Common import Api
 
@@ -107,16 +158,36 @@ Api.instance = KooApi()
 
 mainWindow.showFullScreen()
 
-import Pos
-app.installEventFilter( Pos.PosEventFilter(mainWindow) )
+if Settings.value('koo.pos_mode'):
+        import Koo.Pos
+	app.installEventFilter( Koo.Pos.PosEventFilter(mainWindow) )
+
+if Settings.value('koo.enter_as_tab'):
+	from Koo.Common import EnterEventFilter
+	app.installEventFilter( EnterEventFilter.EnterEventFilter(mainWindow) )
+
+from Koo.Common import ArrowsEventFilter
+app.installEventFilter( ArrowsEventFilter.ArrowsEventFilter(mainWindow) )
+
+from Koo.Common import WhatsThisEventFilter
+app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(mainWindow) )
 
 # Load default wizard
-Rpc.session.login( 'PYROLOC://admin:admin@localhost:8071', 'test' )
-id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], ['menu_id','name'], Rpc.session.context)
+if not Settings.value( 'login.url'):
+	sys.exit( "Error: No connection parameters given." )
+if not Settings.value( 'login.db'):
+	sys.exit( "Error: No database given." )
+
+Rpc.session.login( Settings.value('login.url'), Settings.value('login.db') )
+
+if not Rpc.session.logged():
+	sys.exit( "Error: Invalid credentials." )
+
+id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], ['action_id','name'], Rpc.session.context)
 
 # Store the menuId so we ensure we don't open the menu twice when
 # calling openHomeTab()
-menuId = id[0]['menu_id'][0]
+menuId = id[0]['action_id'][0]
 
 Api.instance.execute(menuId)
 

@@ -1,0 +1,503 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* auto_attach
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.9\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2010-04-25 23:08:12+0000\n"
+"PO-Revision-Date: 2010-04-25 23:08:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,init:0
+#: wizard_view:nan_document_scan,init:0
+msgid "Note that this operation may take a lot of time, depending on the amount of documents."
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,width:0
+msgid "Width"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Back to pending"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document,document_id:0
+#: field:nan.document.property,document_id:0
+msgid "Document"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_template_box
+msgid "nan.template.box"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.processed_document_tree
+msgid "Processed Documents"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_button:nan_document_process,init,start:0
+msgid "Start Process"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Scan document in the background"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,init:0
+msgid "The following documents will be processed:"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+#: field:nan.document,task:0
+msgid "Task"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document.property,value:0
+msgid "Value"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,x:0
+msgid "X"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.nan_document_scan
+msgid "Scan documents queue"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.auto_attach_config_menu
+msgid "Configuration"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.module.module,shortdesc:auto_attach.module_meta_information
+#: model:ir.ui.menu,name:auto_attach.auto_attach_menu
+msgid "Auto Attach"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_button:nan_document_scan,init,start:0
+msgid "Start Scan"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Numeric"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,recognizer:0
+msgid "Data Matrix"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_scanned_menu
+#: selection:nan.document,state:0
+msgid "Scanned"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.nan_document_process_menu
+msgid "Process Documents Queue"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_scan,init:0
+msgid "All pending documents in the queue will be scanned."
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.all_document_tree
+#: field:nan.template,document_ids:0
+#: wizard_field:nan_document_process,init,documents:0
+#: wizard_field:nan_document_scan,init,documents:0
+msgid "Documents"
+msgstr ""
+
+#. module: auto_attach
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr ""
+
+#. module: auto_attach
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Documents in queue"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document,state:0
+msgid "State"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Alphabetic"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "General"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,type:0
+msgid "Type"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_document_property
+msgid "nan.document.property"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.nan_document_scan_menu
+msgid "Scan Documents Queue"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_scan,start:0
+msgid "The document queue has been scanned. Now you can verify the documents!"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document,template_id:0
+#: field:nan.template.box,template_id:0
+msgid "Template"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.nan_document_process
+msgid "Process documents queue"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_scan,init:0
+msgid "The following documents will be scanned:"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "None"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,init:0
+#: wizard_view:nan_document_scan,init:0
+msgid "Document queue update"
+msgstr ""
+
+#. module: auto_attach
+#: code:addons/auto_attach/auto_attach.py:0
+#, python-format
+msgid "A new partner with name '%s' will be created (if it doesn't exist already)."
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_document
+msgid "nan.document"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.template:0
+msgid "Feature Dimensions"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.document,state:0
+msgid "Scanning"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,init:0
+msgid "All verified documents in the queue will be processed."
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Exists"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Image"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_scan,start:0
+msgid "Document queue scanned"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document.property,template_box_id:0
+msgid "Template Box"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,type:0
+msgid "Matcher"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,start:0
+msgid "Document queue processed"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_verified_menu
+#: selection:nan.document,state:0
+msgid "Verified"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.template:0
+msgid "Dimensions"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Verify document"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.module.module,description:auto_attach.module_meta_information
+msgid "This module makes it possible to automatically attach scanned documents to any object using NanScan [1].\n"
+"\n"
+"[1] http://www.NaN-tic.com/nanscan\n"
+"	"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,type:0
+msgid "Input"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Unset verified"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Process document in the background"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_pending_menu
+#: selection:nan.document,state:0
+msgid "Pending"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template,action_function:0
+msgid "Action Function"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.document,state:0
+msgid "Processing"
+msgstr ""
+
+#. module: auto_attach
+#: model:res.request.link,name:auto_attach.wkf
+msgid "Document in Queue"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.template:0
+#: field:nan.template,box_ids:0
+msgid "Boxes"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.wizard_scan_documents
+msgid "Scan Documents"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Scan document"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document,datas:0
+msgid "Data"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+#: field:nan.document,property_ids:0
+msgid "Properties"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.template:0
+msgid "Document Templates"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,start:0
+msgid "The document queue has been processed. Now you can verify the documents!"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.verified_document_tree
+msgid "Verified Documents"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,filter:0
+msgid "Filter"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_processed_menu
+#: selection:nan.document,state:0
+msgid "Processed"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,recognizer:0
+msgid "Recognizer"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,feature_height:0
+msgid "Feature Height"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.scanned_document_tree
+msgid "Scanned Documents"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document.property,name:0
+#: selection:nan.template.box,recognizer:0
+#: field:nan.template.box,text:0
+msgid "Text"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,feature_y:0
+msgid "Feature Y"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,feature_x:0
+msgid "Feature X"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,height:0
+msgid "Height"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_queue_menu
+msgid "Document Queue"
+msgstr ""
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Process document"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_button:nan_document_process,init,end:0
+#: wizard_button:nan_document_scan,init,end:0
+msgid "Cancel"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_button:nan_document_process,start,end:0
+#: wizard_button:nan_document_scan,start,end:0
+msgid "Close"
+msgstr ""
+
+#. module: auto_attach
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,feature_width:0
+msgid "Feature Width"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.view_template_action
+#: model:ir.ui.menu,name:auto_attach.template_menu
+msgid "Templates"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,recognizer:0
+msgid "Barcode"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.wizard_process_documents
+msgid "Process Documents"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_template
+msgid "nan.template"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.document,name:0
+#: field:nan.template,name:0
+#: field:nan.template.box,name:0
+msgid "Name"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template.box,y:0
+msgid "Y"
+msgstr ""
+
+#. module: auto_attach
+#: field:nan.template,attach_function:0
+msgid "Attachment Function"
+msgstr ""
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.pending_document_tree
+msgid "Pending Documents"
+msgstr ""
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Alphanumeric"
+msgstr ""
+
+#. module: auto_attach
+#: wizard_field:nan_document_scan,init,background:0
+msgid "Execute in the background"
+msgstr ""
+

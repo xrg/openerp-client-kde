@@ -156,10 +156,18 @@ class FormView( AbstractView ):
 		# in such buttons.
 		if self.record:
 			self.disconnect(self.record,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+			self.disconnect(self.record,SIGNAL('setFocus(QString)'),self.setFieldFocus)
 		self.record = currentRecord
 		if self.record:
-			self.connect(self.record, SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+			self.connect(self.record,SIGNAL('recordChanged(PyQt_PyObject)'),self.updateDisplay)
+			self.connect(self.record,SIGNAL('setFocus(QString)'),self.setFieldFocus)
 		self.updateDisplay(self.record)
+
+	def setFieldFocus(self, fieldName):
+		fieldName = unicode( fieldName )
+		if not fieldName in self.widgets:
+			return
+		self.widgets[fieldName].setFocus()
 
 	def updateDisplay(self, record):
 

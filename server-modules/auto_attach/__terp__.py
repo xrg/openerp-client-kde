@@ -44,6 +44,8 @@ This module makes it possible to automatically attach scanned documents to any o
 		"auto_attach_view.xml", 
 		"auto_attach_wizard.xml", 
 		"auto_attach_workflow.xml", 
+		"security/auto_attach_security.xml",
+		"security/ir.model.access.csv",
 	],
 	"active": False,
 	"installable": True

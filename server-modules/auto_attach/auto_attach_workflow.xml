@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <terp>
 	<data>
-		<record model="workflow" id="wkf">
+		<record model="workflow" id="wkf_nan_document">
 			<field name="name">nan.document.basic</field>
 			<field name="osv">nan.document</field>
 			<field name="on_create">True</field>
@@ -9,38 +9,38 @@
 
 		<!-- states -->
 		<record model="workflow.activity" id="pending">
-			<field name="wkf_id" ref="wkf"/>
+			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="flow_start">True</field>
 			<field name="name">pending</field>
 			<field name="action">write({'state':'pending'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="scanning">
-			<field name="wkf_id" ref="wkf"/>
+			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="name">scanning</field>
 			<field name="action">scan_document_background()&#10;write({'state':'scanning'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="scanned">
-			<field name="wkf_id" ref="wkf"/>
+			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="name">scanned</field>
-			<field name="action">scan_document()&#10;write({'state':'scanned'})</field>
+			<field name="action">print "HOLA MANOLA"&#10;scan_document()&#10;write({'state':'scanned'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="verified">
-			<field name="wkf_id" ref="wkf"/>
+			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="name">verified</field>
 			<field name="action">write({'state':'verified'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="processing">
-			<field name="wkf_id" ref="wkf"/>
+			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="name">processing</field>
 			<field name="action">process_document_background()&#10;write({'state':'processing'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="processed">
-			<field name="wkf_id" ref="wkf"/>
+			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="flow_stop">True</field>
 			<field name="name">processed</field>
 			<field name="action">process_document()&#10;write({'state':'processed'})</field>
