@@ -119,14 +119,32 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			message += "Domain: %s\nContext: %s\n" %(self._domain, self._context)
 			message += "Scr context: %s\n" % (self.screen.context)
 			message += "\n"
+
+		todo = [
+			('id', _('ID')),
+			('str_id', _('Model ID')),
+			('create_uid', _('Creation User')),
+			('create_date', _('Creation Date')),
+			('write_uid', _('Latest Modification by')),
+			('write_date', _('Latest Modification Date')),
+		]
+
 		for line in res:
-			todo = [
-				('id', _('ID')),
-				('create_uid', _('Creation User')),
-				('create_date', _('Creation Date')),
-				('write_uid', _('Latest Modification by')),
-				('write_date', _('Latest Modification Date')),
-			]
+			try:
+				# Using call() because we don't want exception handling
+				res2 = Rpc.session.call('/object', 'execute',
+					'ir.model.data', 'get_rev_ref', self.model, line['id'])
+				
+				if res2 and res2[1]:
+					line['str_id'] = ', '.join(res2[1])
+			except AttributeError:
+				line['str_id'] = None
+			except Exception, e:
+				# This can happen, just because old servers don't have
+				# this method.
+				line['str_id'] = None
+				print "Cannot rev ref id:" % e
+		
 			for (key,val) in todo:
 				if line[key] and key in ('create_uid','write_uid'):
 					line[key] = line[key][1]
