@@ -164,7 +164,11 @@ def executeAction(action, datas, context=None):
 
 		ctx = context.copy()
 		ctx.update( {'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])} )
-		ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
+		try:
+			ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
+		except NameError,e:
+			print "Cannot evaluate context: %s" % e
+			pass # ?
 
 		a = ctx.copy()
 		a['time'] = time
