@@ -634,6 +634,7 @@ class Session:
 			raise
 		except Exception,e:
 			import traceback
+			# Fixme: use logging
 			print "Unhandled exception in execute", e, type(e)
 			traceback.print_exc()
 			pass
@@ -699,14 +700,14 @@ class Session:
 	# plus the appropiate 'uid' in it.
 	def evaluateExpression(self, expression, context=None):
 		if context is None:
-			ctx = {}
-		else:
-			ctx = context.copy()
-		ctx['uid'] = self.uid
+			context = {}
+		#else:
+		#	ctx = context.copy()
+		context['uid'] = self.uid
 		if isinstance(expression, basestring):
 			try:
 			        expression = expression.replace("'active_id'","active_id")
-				return safe_eval(expression, ctx)
+				return safe_eval(expression, context)
 			except Exception, e:
 				print "Exception: %s for \"%s\" " %( e, expression)
 				raise
