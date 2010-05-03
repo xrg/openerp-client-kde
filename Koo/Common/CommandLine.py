@@ -41,6 +41,7 @@ def homeDirectory():
 
 def parseArguments(args):
 	parser = optparse.OptionParser()
+	parser.add_option("-d", "--database", dest="database", help=_("specify database"))
 	parser.add_option("-c", "--config", dest="config", help=_("specify alternate config file"))
 	parser.add_option("-u", "--url", dest="url", help=_("specify the server (ie. http://admin@localhost:8069)"))
 	parser.add_option("", "--stylesheet", dest="stylesheet", default=None, help=_("specify stylesheet to apply"))
@@ -71,5 +72,7 @@ def parseArguments(args):
 		Settings.setValue( 'client.debug', opt.debug )
 	if not opt.disable_kde is None:
 		Settings.setValue( 'kde.enabled', False )
+	if not opt.database is None:
+		Settings.setValue( 'login.db', opt.database )
 	return args
 
