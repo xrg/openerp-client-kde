@@ -105,7 +105,7 @@ class Action(QAction):
 				'model': self._model 
 			}, context )
 		except Rpc.RpcException:
-		        print "RpcException at executeAction", e # FIXME
+		        logging.getLogger('koo.action').exception("executeAction")
 			pass
 		if self._type == 'print':
 			QApplication.restoreOverrideCursor()

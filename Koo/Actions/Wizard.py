@@ -38,6 +38,7 @@ from Koo.Common import Icons
 
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
+import logging
 
 ## @brief The WizardPage class shows a QDialog with the information givenin one wizard step.
 class WizardPage(QDialog):
@@ -120,7 +121,8 @@ class Wizard( QObject ):
 		self.finished = False
 		self.progress = Common.ProgressDialog( QApplication.activeWindow() )
 		self.thread = None
-		self.context = context or {}
+		self.context = context
+		self._log = logging.getLogger('koo.wizard')
 
 	def step(self):
 		if self.state == 'end':
@@ -130,6 +132,7 @@ class Wizard( QObject ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		ctx = self.context.copy()
 		ctx.update(Rpc.session.context)
+		self._log.debug("Wizard step with context: %r" % ctx)
 		self.thread = Rpc.session.executeAsync( self.finishedStep, '/wizard', 'execute', self.wizardId, self.datas, self.state, ctx )
 
 	def finishedStep(self, res, exception):
@@ -146,6 +149,7 @@ class Wizard( QObject ):
 
 		ctx = self.context.copy()
 		ctx.update(Rpc.session.context)
+		self._log.debug("Wizard finish step with context: %r" % ctx)
 
 		if 'datas' in res:
 			self.datas['form'].update( res['datas'] )
