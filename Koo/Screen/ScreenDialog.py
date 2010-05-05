@@ -130,6 +130,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 		]
 
 		for line in res:
+			line['str_id'] = None
 			try:
 				# Using call() because we don't want exception handling
 				res2 = Rpc.session.call('/object', 'execute',
@@ -138,11 +139,10 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 				if res2 and res2[1]:
 					line['str_id'] = ', '.join(res2[1])
 			except AttributeError:
-				line['str_id'] = None
+				pass
 			except Exception, e:
 				# This can happen, just because old servers don't have
 				# this method.
-				line['str_id'] = None
 				print "Cannot rev ref id:" % e
 		
 			for (key,val) in todo:
