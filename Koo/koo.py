@@ -64,7 +64,28 @@ Localization.initializeTranslations(Settings.value('client.language'))
 arguments = CommandLine.parseArguments(sys.argv)
 Localization.initializeTranslations(Settings.value('client.language'))
 
+import logging
 
+def setup_logging():
+	"""Sets up the logging.
+	It is put in a function, so that any vars are of local scope
+	"""
+	global Settings
+	log_level = Settings.value('logging.level') or logging.WARN
+	if Settings.value('client.debug'):
+		log_level = logging.DEBUG
+	
+	logging.basicConfig(level=log_level)
+	logging.getLogger().info("Logging started, level: %d", log_level)
+	
+	# This logger is very noisy, silence it.
+	uic_log = logging.getLogger('PyQt4.uic')
+	if Settings.value('logging.uic_debug'):
+		uic_log.setLevel(logging.DEBUG)
+	else:
+		uic_log.setLevel(logging.WARN)
+
+setup_logging()
 imports={}
 
 from PyQt4.QtCore import *
@@ -155,18 +176,8 @@ class KooApi(Api.KooApi):
 
 Api.instance = KooApi()
 
-import logging
 log = logging.getLogger('koo.view')
-if Settings.value('debug'):
-	logging.basicConfig(level=logging.DEBUG)
 log.debug('Starting main window')
-
-import logging
-log = logging.getLogger('koo.view')
-if Settings.value('debug'):
-	logging.basicConfig(level=logging.DEBUG)
-log.debug('Starting main window')
-
 win.show()
 
 if Settings.value('koo.pos_mode'):

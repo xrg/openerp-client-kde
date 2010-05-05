@@ -50,6 +50,8 @@ class Settings(object):
 		'client.default_path': os.path.expanduser('~'),
 		'client.language': False,
 		'client.debug': False,
+		'logging.level': 30, # hard code the logging.WARN value
+		'logging.uic_debug': False,
 		'koo.print_directly': False,
 		'koo.stylesheet' : '',
 		'koo.tabs_position' : 'top',
