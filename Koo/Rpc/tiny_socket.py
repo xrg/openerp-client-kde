@@ -27,7 +27,8 @@
 
 import socket
 import cPickle
-import sys 
+import sys
+import logging
 
 DNS_CACHE = {}
 
@@ -138,6 +139,7 @@ class PersistentTransport(Transport):
     def __init__(self, use_datetime=0):
         self._use_datetime = use_datetime
 	self._http = {}
+	self._log = logging.getLogger('Rpc.Transport')
 	# print "Using persistent transport"
 
     def make_connection(self, host):
@@ -145,7 +147,7 @@ class PersistentTransport(Transport):
 	if not self._http.has_key(host):
 		host, extra_headers, x509 = self.get_host_info(host)
 		self._http[host] = HTTP11(host)
-		# print "New connection to",host
+		self._log("New connection to %s", host)
 	if not self._http[host].is_idle():
 		# Here, we need to discard a busy or broken connection.
 		# It might be the case that another thread is using that
@@ -154,7 +156,7 @@ class PersistentTransport(Transport):
 		self._http[host] = None
 		host, extra_headers, x509 = self.get_host_info(host)
 		self._http[host] = HTTP11(host)
-		# print "New connection to",host
+		self._log("New connection to %s",host)
 	
 	return self._http[host]
 
@@ -257,14 +259,15 @@ import base64
 class BasicAuthClient(AuthClient):
     def __init__(self):
         self._realm_dict = {}
+        self._log = logging.getLogger('BasicAuthClient')
 
     def getAuth(self, atype, realm):
         if atype != 'Basic' :
 	    return super(BasicAuthClient,self).getAuth(atype, realm)
 
 	if not self._realm_dict.has_key(realm):
-	    print "realm dict:", self._realm_dict
-	    print "missing key: \"%s\"" % realm
+	    self._log.debug("realm dict: %r", self._realm_dict)
+	    self._log.debug("missing key: \"%s\"" % realm)
 	    self.resolveFailedRealm(realm)
 	return 'Basic '+ self._realm_dict[realm]
 	
@@ -321,7 +324,6 @@ class addAuthTransport:
 	        # This line will bork if self.setAuthClient has not
 		# been issued. That is a programming error, fix your code!
 	        auths = self._auth_client.getAuth(atype, realm)
-		print "sending authorization:", auths
 		h.putheader('Authorization', auths)
             self.send_content(h, request_body)
 
@@ -335,8 +337,8 @@ class addAuthTransport:
 		    data1 = resp.read()
 		    if realm.startswith('realm="') and realm.endswith('"'):
 		        realm = realm[7:-1]
-		    print "Resp:", resp.version,resp.isclosed(), resp.will_close
-		    print "Want to do auth %s for realm %s" % (atype, realm)
+		    # print "Resp:", resp.version,resp.isclosed(), resp.will_close
+		    #print "Want to do auth %s for realm %s" % (atype, realm)
 		    if atype != 'Basic':
 		        raise ProtocolError(host+handler, 403, 
 					"Unknown authentication method: %s" % atype, resp.msg)

@@ -32,6 +32,7 @@ from Koo.Common import Url
 import xmlrpclib
 import socket
 import tiny_socket
+import logging
 from Cache import *
 from Koo.Common.safe_eval import safe_eval
 
@@ -93,6 +94,7 @@ class Connection:
 		self.uid = None
 		self.password = None
 		self.url = url
+		self._log = logging.getLogger('RPC.Connection')
 
 	def copy(self):
 		newob = self.__class__(self.url)
@@ -268,7 +270,7 @@ class XmlRpcConnection(Connection):
 			
 			session_counter = session_counter + 1
 			if (session_counter % 100) == 0:
-				print "Sessions:", session_counter
+				self._log.debug("Sessions: %d", session_counter)
 		
 		return self._ogws[obj]
 
@@ -337,7 +339,7 @@ class XmlRpc2Connection(Connection):
 			if auth_level == 'db':
 				path += '/' + self.databaseName
 			path += obj
-			print "path:", path, obj
+			# self._log.debug("path: %s %s", path, obj)
 			
 			if temp and transport:
 				transport.setAuthTries(1)
@@ -349,7 +351,7 @@ class XmlRpc2Connection(Connection):
 			
 			session_counter = session_counter + 1
 			if (session_counter % 100) == 0:
-				print "Sessions:", session_counter
+				self._log.debug("Sessions: %d", session_counter)
 				
 			if temp:
 				if transport:
@@ -366,13 +368,13 @@ class XmlRpc2Connection(Connection):
 		try:
 			result = function( *args )
 		except socket.error, err:
-			print "socket.error",err
+			self._log.error("socket error: %s" % err)
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
-			print "xmlrpclib.Fault on %s/%s(%s):" % (obj,str(method), str(args[:2])), err
+			self._log.error( "xmlrpclib.Fault on %s/%s(%s): %s" % (obj,str(method), str(args[:2]), err))
 			raise RpcServerException( err.faultCode, err.faultString )
 		except Exception, e:
-			print "Exception:",e
+			self._log.exception("Exception:")
 			raise
 		return result
 
@@ -386,13 +388,13 @@ class XmlRpc2Connection(Connection):
 				# do cache the proxy, now that it's successful
 				self._ogws[obj] = remote
 		except socket.error, err:
-			print "socket.error",err
+			self._log.error("socket error: %s" % err)
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
-			print "xmlrpclib.Fault on %s/%s(%s):" % (obj,str(method), str(args[:2])), err
+			self._log.error( "xmlrpclib.Fault on %s/%s(%s): %s" % (obj,str(method), str(args[:2]), err))
 			raise RpcServerException( err.faultCode, err.faultString )
 		except Exception, e:
-			print "Exception:",e
+			self._log.exception("Exception:")
 			raise
 		return result
 
@@ -535,6 +537,7 @@ class Session:
 		self.connection = None
 		self.cache = None
 		self.threads = []
+		self._log = logging.getLogger('RPC.Session')
 
 	# This function removes all finished threads from the list of running
 	# threads and appends the one provided.
@@ -633,10 +636,7 @@ class Session:
 				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
 			raise
 		except Exception,e:
-			import traceback
-			# Fixme: use logging
-			print "Unhandled exception in execute", e, type(e)
-			traceback.print_exc()
+			self._log.exception("Execute:")
 			pass
 
 
@@ -653,10 +653,14 @@ class Session:
 		password = Url.decodeFromUrl( unicode( url.password() ) )
 		try:
 			res = self.connection.login(db, user, password)
+			self._log.info('Logged into %s as %s', db, user)
 		except socket.error, e:
 			return Session.Exception
+		except tiny_socket.ProtocolError, e:
+			self._log.error('Protocol error: %s', e)
+			return Session.InvalidCredentials
 		except Exception, e:
-			print "login call exception:", e
+			self._log.exception("login call exception:")
 			return Session.Exception
 		if not res:
 			self.open=False
@@ -709,7 +713,7 @@ class Session:
 			        expression = expression.replace("'active_id'","active_id")
 				return safe_eval(expression, context)
 			except Exception, e:
-				print "Exception: %s for \"%s\" " %( e, expression)
+				self._log.exception( "Exception: %s for \"%s\" " %( e, expression))
 				raise
 		else:
 			return expression
@@ -737,9 +741,7 @@ class Database:
 		try:
 			return self.call( url, 'list' )
 		except Exception,e:
-			import traceback
-			traceback.print_exc()
-			print "db list exc:", e
+			logging.getLogger('RPC.Database').exception("db list exc:")
 			return -1
 
 	## @brief Calls the specified method
