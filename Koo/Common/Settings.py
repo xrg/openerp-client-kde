@@ -64,6 +64,7 @@ class Settings(object):
 		'koo.attachments_dialog' : False,
 		'client.devel_mode': False,
 		'koo.load_on_open' : True,
+		'SerialScanner.enable': False,
 	}
 
 	## @brief Stores current settings in the appropiate config file.

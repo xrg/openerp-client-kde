@@ -29,6 +29,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 from Common import Debug
+from Settings import Settings
 
 
 try:
@@ -55,6 +56,13 @@ class SerialBarcodeScanner(QThread):
 		QThread.__init__(self, parent)
 
 	def run(self):
+	
+		# We should NOT always try the scanner. Not only it is a noisy
+		# message, but we shouldn't access that hardware unless configured
+		# to do so. (consider that the serial port could be used for something
+		# else at the same time, koo shouldn't mess with it)
+		if not Settings.value('SerialScanner.enable', False):
+			return
 		try:
 			device = serial.Serial(0)
 		except:
