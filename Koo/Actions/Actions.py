@@ -39,6 +39,7 @@ from Koo.Common import Api
 from Koo.Common import Common
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+import logging
 
 class ExecuteReportThread(QThread):
 	def __init__(self, name, data, context=None, parent=None):
@@ -124,11 +125,13 @@ def executeReport(name, data, context=None):
 
 ## @brief Executes the given action id (it could be a report, wizard, etc).
 def execute(act_id, datas, type=None, context=None):
+	log = logging.getLogger('koo.action')
 	if context is None:
 		context = {}
 	ctx = Rpc.session.context.copy()
 	if context:
 		ctx.update(context)
+	log.debug("Context for action: %r" % ctx)
 	if type==None:
 		res = Rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [act_id], ['type'], ctx)
 		if not len(res):
@@ -139,10 +142,16 @@ def execute(act_id, datas, type=None, context=None):
 
 ## @brief Executes the given action (it could be a report, wizard, etc).
 def executeAction(action, datas, context=None):
+	log = logging.getLogger('koo.action')
 	if context is None:
 		context = {}
 	if 'type' not in action:
 		return
+	
+	ctx = context.copy()
+	ctx.update({'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])})
+	log.debug('context for execAction (server): %r' % ctx)
+	
 	if action['type']=='ir.actions.act_window':
 		for key in ('res_id', 'res_model', 'view_type', 'view_mode',
 				'limit', 'auto_refresh'):
@@ -158,16 +167,15 @@ def executeAction(action, datas, context=None):
 		elif action.get('view_id', False):
 			view_ids=[action['view_id'][0]]
 
-
 		if not action.get('domain', False):
 			action['domain']='[]'
 
-		ctx = context.copy()
-		ctx.update( {'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])} )
 		try:
+			# only at this type of action ?
 			ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
+			log.debug('context for execAction 2: %r' % ctx)
 		except NameError,e:
-			print "Cannot evaluate context: %s" % e
+			log.warn("Cannot evaluate context: %s" % e)
 			pass # ?
 
 		a = ctx.copy()
@@ -190,11 +198,9 @@ def executeAction(action, datas, context=None):
 		#	del Rpc.session.context[key]
 
 	elif action['type']=='ir.actions.server':
-		ctx = context.copy()
-		ctx.update({'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])})
 		res = Rpc.session.execute('/object', 'execute', 'ir.actions.server', 'run', [action['id']], ctx)
 		if res:
-			self.executeAction( res, datas, context )
+			self.executeAction( res, datas, ctx )
 
 	elif action['type']=='ir.actions.wizard':
 		win=None
@@ -208,13 +214,13 @@ def executeAction(action, datas, context=None):
 			win=datas['window']
 			del datas['window']
 		datas['report_id'] = action['report_id']
-		Api.instance.executeReport('custom', datas, context)
+		Api.instance.executeReport('custom', datas, ctx)
 
 	elif action['type']=='ir.actions.report.xml':
 		if 'window' in datas:
 			win=datas['window']
 			del datas['window']
-		Api.instance.executeReport(action['report_name'], datas, context)
+		Api.instance.executeReport(action['report_name'], datas, ctx)
 	elif action['type']=='ir.actions.act_url':
 		QDesktopServices.openUrl( QUrl( action.get('url','') ) )
 
