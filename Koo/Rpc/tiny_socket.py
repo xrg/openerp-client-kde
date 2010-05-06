@@ -306,20 +306,27 @@ class addAuthTransport:
 
     def request(self, host, handler, request_body, verbose=0):
         # issue XML-RPC request
-
-        h = self.make_connection(host)
-        if verbose:
-            h.set_debuglevel(1)
-	
 	max_tries = getattr(self, "_auth_tries", 3)
 	tries = 0
 	atype = None
 	realm = None
+	h = None
 
 	while(tries < max_tries):
-            self.send_request(h, handler, request_body)
-            self.send_host(h, host)
-            self.send_user_agent(h)
+	    if not h:
+	        h = self.make_connection(host)
+		if verbose:
+                    h.set_debuglevel(1)
+
+	    tries += 1
+	    try:
+		self.send_request(h, handler, request_body)
+		self.send_host(h, host)
+		self.send_user_agent(h)
+	    except httplib.CannotSendRequest:
+	        if h: h.close()
+	        continue
+
 	    if atype:
 	        # This line will bork if self.setAuthClient has not
 		# been issued. That is a programming error, fix your code!
@@ -329,7 +336,6 @@ class addAuthTransport:
 
             resp = h._conn.getresponse()
             #  except BadStatusLine, e:
-	    tries += 1
     
 	    if resp.status == 401:
 		if 'www-authenticate' in resp.msg:
