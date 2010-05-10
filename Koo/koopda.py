@@ -79,8 +79,10 @@ class PosMessageBox(QWidget):
 
 
 		self.uiTitle = QLabel( self )
+		self.uiTitle.setWordWrap( True )
 		self.uiTitle.setText( title )
 		self.uiMessage = QLabel( self )
+		self.uiMessage.setWordWrap( True )
 		self.uiMessage.setText( '<b>%s</b>' % message )
 		self.pushOk = QPushButton( self )
 		self.pushOk.setText( _('Ok') )
@@ -205,9 +207,10 @@ class KooApi(Api.KooApi):
 
 Api.instance = KooApi()
 
-#mainWindow.showFullScreen()
-mainWindow.setFixedSize( 240, 320 )
-mainWindow.show()
+mainWindow.showFullScreen()
+#mainWindow.setFixedSize( 240, 320 )
+#mainWindow.setFixedSize( 240, 280 )
+#mainWindow.show()
 
 if Settings.value('koo.pos_mode'):
         import Koo.Pos
