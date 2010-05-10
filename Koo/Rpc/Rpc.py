@@ -430,7 +430,7 @@ class Session:
 		except RpcServerException, err:
 			if err.type in ('warning','UserError'):
 				if err.info in ('ConcurrencyException') and len(args) > 4:
-					if Notifier.notifyConcurrencyError(args[0], args[2][0], args[4]):
+					if Notifier.notifyConcurrencyError(args[0], args[2] and args[2][0], args[4]):
 						if ConcurrencyCheckField in args[4]:
 							del args[4][ConcurrencyCheckField]
 						return self.execute(obj, method, *args)
