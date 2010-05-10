@@ -26,8 +26,10 @@
 ##############################################################################
 
 from ManyToOne import *
+from ManyToOnePos import *
 from Koo.Fields.FieldWidgetFactory import *
 from Koo.Fields.FieldDelegateFactory import *
 
 FieldWidgetFactory.register( 'many2one', ManyToOneFieldWidget )
+FieldWidgetFactory.register( 'many2one_pos', ManyToOnePosFieldWidget )
 FieldDelegateFactory.register( 'many2one', ManyToOneFieldDelegate )
