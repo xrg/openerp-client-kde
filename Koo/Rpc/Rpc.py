@@ -371,7 +371,7 @@ class XmlRpc2Connection(Connection):
 			self._log.error("socket error: %s" % err)
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
-			self._log.error( "xmlrpclib.Fault on %s/%s(%s): %s" % (obj,str(method), str(args[:2]), err))
+			self._log.error( "xmlrpclib.Fault on %s/%s(%s): %s" % (obj,str(method), args[:2], err.faultCode))
 			raise RpcServerException( err.faultCode, err.faultString )
 		except Exception, e:
 			self._log.exception("Exception:")

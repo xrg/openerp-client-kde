@@ -182,7 +182,12 @@ def error(title, message, details=''):
 		return
 	errorInError=True
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
-	Debug.error( 'MSG %s: %s' % (unicode(message), unicode(details)) )
+	if isinstance(message, Rpc.RpcException):
+		Debug.warning("RPC exception end up: %s" % message.args[0])
+		errorInError=False
+		QApplication.restoreOverrideCursor()
+		return
+	Debug.error( 'MSG %s: %s' % (message, details) )
 	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
 	errorInError=False
