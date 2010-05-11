@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.9\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2010-05-11 11:47:19+0000\n"
-"PO-Revision-Date: 2010-05-11 14:31+0200\n"
+"POT-Creation-Date: 2010-05-11 19:23:35+0000\n"
+"PO-Revision-Date: 2010-05-11 21:30+0200\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,9 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 
 #. module: auto_attach
-#: wizard_view:nan_document_analyze,init:0
-#: wizard_view:nan_document_process,init:0
-msgid ""
-"Note that this operation may take a lot of time, depending on the amount of "
-"documents."
-msgstr ""
-"Tingueu en compte que aquesta operació pot tardar molt de temps, depenent de "
-"la quantitat de documents."
+#: wizard_view:nan_document_execute,init:0
+msgid "All documents in the queue will be analyzed, verified and processed."
+msgstr "Tots els documents de la cua s'analitzaran, verificaran i processaran."
 
 #. module: auto_attach
 #: field:nan.document,filename:0
@@ -58,14 +53,41 @@ msgid "Processed Documents"
 msgstr "Documents processats"
 
 #. module: auto_attach
+#: wizard_button:nan_document_execute,init,start:0
 #: wizard_button:nan_document_process,init,start:0
 msgid "Start Process"
 msgstr "Inicia el procés"
 
 #. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.analyzing_document_tree
+msgid "Documents Being Analyzed"
+msgstr "Documents en anàlisi"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.nan_document_execute
+msgid "Execute documents queue"
+msgstr "Executa la cua de documents"
+
+#. module: auto_attach
+#: wizard_view:nan_document_execute,init:0
 #: wizard_view:nan_document_process,init:0
 msgid "The following documents will be processed:"
 msgstr "Es processaran els següents documents:"
+
+#. module: auto_attach
+#: model:ir.module.module,description:auto_attach.module_meta_information
+msgid ""
+"This module makes it possible to automatically attach scanned documents to "
+"any object using NanScan [1].\n"
+"\n"
+"[1] http://www.NaN-tic.com/nanscan\n"
+"\t"
+msgstr ""
+"Aquest mòdul permet adjuntar automàticament documents escanejats a qualsevol "
+"objecte utilitzant NanScan [1].\n"
+"\n"
+"[1] http://www.NaN-tic.com/nanscan\n"
+"\t"
 
 #. module: auto_attach
 #: view:nan.document:0 field:nan.document,task:0
@@ -76,6 +98,11 @@ msgstr "Tasca"
 #: field:nan.document.property,value:0
 msgid "Value"
 msgstr "Valor"
+
+#. module: auto_attach
+#: wizard_view:nan_document_execute,start:0
+msgid "The document queue has been executed."
+msgstr "S'ha executat la cua de documents."
 
 #. module: auto_attach
 #: field:nan.template.box,x:0
@@ -108,6 +135,11 @@ msgid "The document queue has been analyzed. Now you can verify the documents!"
 msgstr "S'ha analitzat la cua de documents. Ara els podeu verificar!"
 
 #. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_analyzing_menu
+msgid "Being Analyzed"
+msgstr "En anàlisi"
+
+#. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_process_menu
 msgid "Process Documents Queue"
 msgstr "Processa la cua de documents"
@@ -116,6 +148,7 @@ msgstr "Processa la cua de documents"
 #: model:ir.actions.act_window,name:auto_attach.all_document_tree
 #: field:nan.template,document_ids:0
 #: wizard_field:nan_document_analyze,init,documents:0
+#: wizard_field:nan_document_execute,init,documents:0
 #: wizard_field:nan_document_process,init,documents:0
 msgid "Documents"
 msgstr "Documents"
@@ -126,9 +159,19 @@ msgid "Invalid model name in the action definition."
 msgstr "Nom de model invàlid en la definició de l'acció."
 
 #. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_processing_menu
+msgid "Being Processed"
+msgstr "En procés"
+
+#. module: auto_attach
 #: selection:nan.template.box,filter:0
 msgid "None"
 msgstr "Cap"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Analyze document in the background"
+msgstr "Analitza el document en segon pla"
 
 #. module: auto_attach
 #: view:nan.document:0
@@ -190,6 +233,7 @@ msgstr "XML invàlid per l'arquitectura de la vista!"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
+#: wizard_view:nan_document_execute,init:0
 #: wizard_view:nan_document_process,init:0
 msgid "Document queue update"
 msgstr "S'ha actualitzat la cua de documents"
@@ -240,6 +284,7 @@ msgid "Action Function"
 msgstr "Funció de l'acció"
 
 #. module: auto_attach
+#: wizard_view:nan_document_execute,start:0
 #: wizard_view:nan_document_process,start:0
 msgid "Document queue processed"
 msgstr "S'ha processat la cua de documents"
@@ -266,19 +311,9 @@ msgid "Verify document"
 msgstr "Verifica el document"
 
 #. module: auto_attach
-#: model:ir.module.module,description:auto_attach.module_meta_information
-msgid ""
-"This module makes it possible to automatically attach scanned documents to "
-"any object using NanScan [1].\n"
-"\n"
-"[1] http://www.NaN-tic.com/nanscan\n"
-"\t"
-msgstr ""
-"Aquest mòdul permet adjuntar automàticament documents escanejats a qualsevol "
-"objecte utilitzant NanScan [1].\n"
-"\n"
-"[1] http://www.NaN-tic.com/nanscan\n"
-"\t"
+#: model:ir.actions.act_window,name:auto_attach.processing_document_tree
+msgid "Documents Being Processed"
+msgstr "Documents en procés"
 
 #. module: auto_attach
 #: view:nan.document:0
@@ -332,16 +367,15 @@ msgid "Boxes"
 msgstr "Caixes"
 
 #. module: auto_attach
-#: wizard_view:nan_document_process,start:0
-msgid ""
-"The document queue has been processed. Now you can verify the documents!"
-msgstr "S'ha processat la cua de documents. Ara els podeu verificar!"
-
-#. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_analyzed_menu
 #: selection:nan.document,state:0
 msgid "Analyzed"
 msgstr "Analitzat"
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,start:0
+msgid "The document queue has been processed."
+msgstr "S'ha processat la cua de documents."
 
 #. module: auto_attach
 #: field:nan.document,datas:0
@@ -390,6 +424,17 @@ msgid "Analyze Documents"
 msgstr "Analitza documents"
 
 #. module: auto_attach
+#: wizard_view:nan_document_analyze,init:0
+#: wizard_view:nan_document_execute,init:0
+#: wizard_view:nan_document_process,init:0
+msgid ""
+"Note that this operation may take a lot of time, depending on the number of "
+"documents."
+msgstr ""
+"Tingueu en compte que aquesta operació pot tardar molt de temps, depenent de "
+"la quantitat de documents."
+
+#. module: auto_attach
 #: model:ir.module.module,shortdesc:auto_attach.module_meta_information
 #: model:ir.ui.menu,name:auto_attach.auto_attach_menu
 msgid "Auto Attach"
@@ -412,9 +457,9 @@ msgid "Feature X"
 msgstr "Element X"
 
 #. module: auto_attach
-#: view:nan.document:0
-msgid "Analyze document in the background"
-msgstr "Analitza el document en segon pla"
+#: model:ir.ui.menu,name:auto_attach.document_execute_menu
+msgid "Execute Documents Queue"
+msgstr "Executa la cua de documents"
 
 #. module: auto_attach
 #: field:nan.template.box,height:0
@@ -433,12 +478,14 @@ msgstr "Processa el document"
 
 #. module: auto_attach
 #: wizard_button:nan_document_analyze,init,end:0
+#: wizard_button:nan_document_execute,init,end:0
 #: wizard_button:nan_document_process,init,end:0
 msgid "Cancel"
 msgstr "Cancel·la"
 
 #. module: auto_attach
 #: wizard_button:nan_document_analyze,start,end:0
+#: wizard_button:nan_document_execute,start,end:0
 #: wizard_button:nan_document_process,start,end:0
 msgid "Close"
 msgstr "Tanca"
@@ -506,6 +553,7 @@ msgstr "Funció per l'adjunt"
 
 #. module: auto_attach
 #: wizard_field:nan_document_analyze,init,background:0
+#: wizard_field:nan_document_process,init,background:0
 msgid "Execute in the background"
 msgstr "Executa en segon pla"
 
@@ -523,4 +571,9 @@ msgstr "Alfanumèric"
 #: wizard_button:nan_document_analyze,init,start:0
 msgid "Start Analysis"
 msgstr "Inicia l'anàlisi"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.wizard_execute_documents
+msgid "Execute Documents"
+msgstr "Executa els documents"
 
