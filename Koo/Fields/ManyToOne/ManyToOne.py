@@ -60,6 +60,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.connect( self.pushOpen, SIGNAL( "clicked()" ), self.open )
 		self.connect( self.pushClear, SIGNAL( "clicked()" ), self.clear )
 
+		self.setFocusProxy( self.uiText )
+
 		# Create shortcuts
 		self.scNew = QShortcut( self.uiText )
 		self.scNew.setKey( Shortcuts.CreateInField )
