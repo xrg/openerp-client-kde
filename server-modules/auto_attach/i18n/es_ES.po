@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: OpenERP Server 5.0.9\n"
 "Report-Msgid-Bugs-To: support@openerp.com\n"
 "POT-Creation-Date: 2010-05-11 19:23:35+0000\n"
-"PO-Revision-Date: 2010-05-11 21:28+0200\n"
+"PO-Revision-Date: 2010-05-11 21:34+0200\n"
 "Last-Translator: Albert Cervera i Areny <albert@nan-tic.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,7 +138,7 @@ msgstr ""
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_analyzing_menu
 msgid "Being Analyzed"
-msgstr "Analizándose"
+msgstr "En análisis"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_process_menu
@@ -162,7 +162,7 @@ msgstr "Nombre de modelo inválido en la definición de la acción."
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_processing_menu
 msgid "Being Processed"
-msgstr "Procesandose"
+msgstr "En proceso"
 
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
