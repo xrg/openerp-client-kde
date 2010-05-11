@@ -24,7 +24,7 @@
 		<record model="workflow.activity" id="scanned">
 			<field name="wkf_id" ref="wkf_nan_document"/>
 			<field name="name">scanned</field>
-			<field name="action">print "HOLA MANOLA"&#10;scan_document()&#10;write({'state':'scanned'})</field>
+			<field name="action">scan_document()&#10;write({'state':'scanned'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="verified">
