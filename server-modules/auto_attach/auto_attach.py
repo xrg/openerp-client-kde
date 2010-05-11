@@ -120,24 +120,32 @@ nan_template_box()
 
 def attachableDocuments(self, cr, uid, context={}):
 	ids = self.pool.get('ir.model').search(cr, uid, [], context=context)
-	res = self.pool.get('ir.model').read(cr, uid, ids, ['model', 'name'], context)
-	return [(r['model'], r['name']) for r in res]
+	records = self.pool.get('ir.model').read(cr, uid, ids, ['model', 'name'], context)
+	data = []
+	for record in records:
+		model = record['model']
+		name = record['name']
+		if len(name) > 30:
+			name = name[:30] + '...'
+		data.append( (model, name) )
+	return data
 
 class nan_document(osv.osv):
 	_name = 'nan.document'
 	state_only_read = {
 		'pending': [ ( 'readonly', False ), ],
-		'scanned': [ ( 'readonly', False ), ],
+		'analyzed': [ ( 'readonly', False ), ],
 	}
 	_columns = {
 		'name' : fields.char('Name', 64, readonly=True, states=state_only_read),
 		'datas': fields.binary('Data', readonly=True, states=state_only_read),
+		'filename': fields.char('Filename', 80, readonly=True, states=state_only_read),
 		'property_ids': fields.one2many('nan.document.property', 'document_id', 'Properties', readonly=True, states=state_only_read),
 		'template_id': fields.many2one('nan.template', 'Template', readonly=True, states=state_only_read),
 		'document_id': fields.reference('Document', selection=attachableDocuments, size=128, readonly=True, states=state_only_read),
 		'task' : fields.text('Task', readonly=True),
 		'state': fields.selection( [
-			('pending','Pending'),('scanning','Scanning'),('scanned','Scanned'),
+			('pending','Pending'),('analyzing','Analyzing'),('analyzed','Analyzed'),
 			('verified','Verified'),('processing','Processing'),('processed','Processed')], 
 			'State', required=True, readonly=True )
 	}
@@ -146,44 +154,44 @@ class nan_document(osv.osv):
 	}
 
 	def write(self, cr, uid, ids, values, context=None):
-		# Scan after writting as it will modify the objects and thus a "modified in 
+		# Analyze after writting as it will modify the objects and thus a "modified in 
 		# the meanwhile" would be thrown, so by now check which of the records
-		# we'll want to scan later
-		toScan = []
+		# we'll want to analyze later
+		toAnalyze = []
 		if 'template_id' in values:
 			for x in self.read( cr, uid, ids, ['state', 'template_id'], context ):
-				# We only scan the document if template has changed and the document
-				# is in 'scanned' state.
-				if x['state'] == 'scanned' and x['template_id'] != values['template_id']:
-					toScan.append( {'id': x['id'], 'template_id': values['template_id'] } )
+				# We only analyze the document if template has changed and the document
+				# is in 'analyzed' state.
+				if x['state'] == 'analyzed' and x['template_id'] != values['template_id']:
+					toAnalyze.append( {'id': x['id'], 'template_id': values['template_id'] } )
 
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
-		for x in toScan:
-			self.scanDocumentWithTemplate( cr, uid, x['id'], x['template_id'] )
+		for x in toAnalyze:
+			self.analyzeDocumentWithTemplate( cr, uid, x['id'], x['template_id'] )
 		return ret
 
-	def scan_document_background(self, cr, uid, imageIds, context=None):
+	def analyze_document_background(self, cr, uid, imageIds, context=None):
 		self.pool.get('ir.cron').create(cr, uid, {
-			'name': 'Scan document',
+			'name': 'Analyze document',
 			'user_id': uid,
 			'model': 'nan.document',
-			'function': 'scan_document',
+			'function': 'analyze_document',
 			'args': repr([ imageIds, True ])
 		}, context)
 		cr.commit()
 
-	def scan_documents_batch(self, cr, uid, imageIds, context=None):
-		self.scan_document(cr, uid, imageIds, context=context)
+	def analyze_documents_batch(self, cr, uid, imageIds, context=None):
+		self.analyze_document(cr, uid, imageIds, context=context)
 		self.pool.get('res.request').create( cr, uid, {
 			'act_from': uid,
 			'act_to': uid,
-			'name': 'Finished scanning documents',
-			'body': 'The auto_attach system has finished scanning the documents you requested. You can now go to the Scanned Documents queue to verify and process them.',
+			'name': 'Finished analyzing documents',
+			'body': 'The auto_attach system has finished analyzing the documents you requested. You can now go to the Analyzed Documents queue to verify and process them.',
 		}, context)
 
 	# If notify=True sends a request/notification to uid
-	def scan_document(self, cr, uid, imageIds, notify=False, context=None):
+	def analyze_document(self, cr, uid, imageIds, notify=False, context=None):
 		# Load templates into 'templates' list
 		templates = self.pool.get('nan.template').getAllTemplates( cr, uid, context )
 
@@ -191,7 +199,7 @@ class nan_document(osv.osv):
 
 		# Iterate over all images and try to find the most similar template
 		for document in self.browse(cr, uid, imageIds, context):
-			if document.state not in ('pending','scanning'):
+			if document.state not in ('pending','analyzing'):
 				continue
 			if not document.datas:
 				continue
@@ -215,7 +223,7 @@ class nan_document(osv.osv):
 				template_id = False
 			self.write(cr, uid, [document.id], {
 				'template_id': template_id, 
-				'state': 'scanned'
+				'state': 'analyzed'
 			}, context=context)
 			if doc:
 				for box in doc.boxes:
@@ -230,8 +238,8 @@ class nan_document(osv.osv):
 				self.pool.get('res.request').create( cr, uid, {
 					'act_from': uid,
 					'act_to': uid,
-					'name': 'Finished scanning document',
-					'body': 'The auto_attach system has finished scanning the document you requested. A reference to the document can be found in field Document Ref 1.',
+					'name': 'Finished analyzing document',
+					'body': 'The auto_attach system has finished analyzing the document you requested. A reference to the document can be found in field Document Ref 1.',
 					'ref_doc1': 'nan.document,%d' % document.id,
 				}, context)
 
@@ -240,7 +248,7 @@ class nan_document(osv.osv):
 
 		cr.commit()
 
-	def scanDocumentWithTemplate(self, cr, uid, documentId, templateId, context):
+	def analyzeDocumentWithTemplate(self, cr, uid, documentId, templateId, context):
 
 		# Whether templateId is valid or not
 		# Remove previous properties
@@ -330,8 +338,8 @@ class nan_document(osv.osv):
 					'res_model': model,
 					'name': document.name,
 					'datas': document.datas,
-					'datas_fname': document.name,
-					'description': 'Document attached automatically'
+					'datas_fname': document.filename or document.name,
+					'description': _('Document attached automatically'),
 				}, context)
 				self.write(cr, uid, [document.id], {
 					'state': 'processed'

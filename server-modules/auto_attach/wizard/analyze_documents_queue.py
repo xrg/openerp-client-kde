@@ -30,17 +30,17 @@ import wizard
 import pooler
 
 view_form_end = """<?xml version="1.0"?>
-	<form string="Document queue scanned">
-		<label align="0.0" string="The document queue has been scanned. Now you can verify the documents!" colspan="4"/>
+	<form string="Document queue analyzed">
+		<label align="0.0" string="The document queue has been analyzed. Now you can verify the documents!" colspan="4"/>
 	</form>"""
 
 view_form_start = """<?xml version="1.0"?>
 	<form string="Document queue update">
 		<image name="gtk-info" size="64" colspan="2"/>
 		<group colspan="2" col="4">
-			<label align="0.0" string="All pending documents in the queue will be scanned." colspan="4"/>
+			<label align="0.0" string="All pending documents in the queue will be analyzed." colspan="4"/>
 			<label align="0.0" string="Note that this operation may take a lot of time, depending on the amount of documents." colspan="4"/>
-			<label align="0.0" string="The following documents will be scanned:" colspan="4"/>
+			<label align="0.0" string="The following documents will be analyzed:" colspan="4"/>
 			<field name="documents" nolabel="1" colspan="4"/>
 			<field name="background"/>
 		</group>
@@ -51,8 +51,8 @@ view_fields_start = {
 	"background": {'type':'boolean', 'string':'Execute in the background' }
 }
 
-class scan_document_queue_wizard(wizard.interface):
-	def _before_scan(self, cr, uid, data, context):
+class analyze_document_queue_wizard(wizard.interface):
+	def _before_analyze(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		if 'ids' in data:
 			ids = data['ids']
@@ -64,33 +64,33 @@ class scan_document_queue_wizard(wizard.interface):
 			'background': True
 		}
 
-	def _scan(self, cr, uid, data, context):
+	def _analyze(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		if 'ids' in data:
 			ids = data['ids']
 		else:
 			ids = pool.get('nan.document').search(cr, uid, [('state','=','pending')], context=context)
 		if data['form']['background']:
-			pool.get('nan.document').write(cr, uid, ids, {'state': 'scanning'})
+			pool.get('nan.document').write(cr, uid, ids, {'state': 'analyzing'})
 			pool.get('ir.cron').create(cr, uid, {
-				'name': 'Scan documents in batch',
+				'name': 'Analyze documents in batch',
 				'user_id': uid,
 				'model': 'nan.document',
-				'function': 'scan_documents_batch',
+				'function': 'analyze_documents_batch',
 				'args': repr([ ids ])
 			}, context)
 		else:
-			pool.get('nan.document').scan_document(cr, uid, ids, context)
+			pool.get('nan.document').analyze_document(cr, uid, ids, context)
 		return {}
 
 	states = {
 		'init': {
-			'actions': [_before_scan],
-			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Scan','gtk-ok')]}
+			'actions': [_before_analyze],
+			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Analysis','gtk-ok')]}
 		},
 		'start': {
-			'actions': [_scan],
+			'actions': [_analyze],
 			'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
 		}
 	}
-scan_document_queue_wizard('nan_document_scan')
+analyze_document_queue_wizard('nan_document_analyze')

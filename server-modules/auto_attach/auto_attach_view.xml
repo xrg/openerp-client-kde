@@ -12,6 +12,7 @@
 					<field name="state"/>
 					<field name="template_id"/>
 					<field name="task"/>
+					<field name="filename"/>
 				</tree>
 			</field>
 		</record>
@@ -30,15 +31,16 @@
 							<separator string="Task"/>
 							<field name="task" nolabel="1" colspan="4"/>
 							<separator string="Image"/>
-							<field name="datas" widget="image" img_width="300" img_height="300" nolabel="1" colspan="4"/>
+							<field name="datas" widget="image" filename="filename" img_width="300" img_height="300" nolabel="1" colspan="4"/>
+							<field name="filename" colspan="4"/>
 							<group colspan="4">
-								<button name="scan_document" states="pending" string="Scan document"/>
-								<button name="pending_to_scanning" states="pending" string="Scan document in the background"/>
-								<button name="verify_document" states="scanned" string="Verify document"/>
-								<button name="scanned_to_pending" states="scanned" string="Back to pending"/>
+								<button name="analyze_document" states="pending" string="Analyze document"/>
+								<button name="pending_to_analyzing" states="pending" string="Analyze document in the background"/>
+								<button name="verify_document" states="analyzed" string="Verify document"/>
+								<button name="analyzed_to_pending" states="analyzed" string="Back to pending"/>
 								<button name="process_document" states="verified" string="Process document"/>
 								<button name="verified_to_processing" states="verified" string="Process document in the background"/>
-								<button name="verified_to_scanned" states="verified" string="Unset verified"/>
+								<button name="verified_to_analyzed" states="verified" string="Unset verified"/>
 							</group>
 						</page>
 						<page string="Properties">
@@ -77,12 +79,12 @@
 			<field name="domain">[('state','=','pending')]</field>
 		</record>
 
-		<record model="ir.actions.act_window" id="scanned_document_tree">
-			<field name="name">Scanned Documents</field>
+		<record model="ir.actions.act_window" id="analyzed_document_tree">
+			<field name="name">Analyzed Documents</field>
 			<field name="res_model">nan.document</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
-			<field name="domain">[('state','=','scanned')]</field>
+			<field name="domain">[('state','=','analyzed')]</field>
 		</record>
 
 		<record model="ir.actions.act_window" id="verified_document_tree">
@@ -197,9 +199,9 @@
 			sequence="1"
 			/>
 		<menuitem 
-			name="Scanned" 
-			action="scanned_document_tree" 
-			id="document_scanned_menu"
+			name="Analyzed" 
+			action="analyzed_document_tree" 
+			id="document_analyzed_menu"
 			parent="document_queue_menu"
 			sequence="2"
 			/>

@@ -15,16 +15,16 @@
 			<field name="action">write({'state':'pending'})</field>
 			<field name="kind">function</field>
 		</record>
-		<record model="workflow.activity" id="scanning">
+		<record model="workflow.activity" id="analyzing">
 			<field name="wkf_id" ref="wkf_nan_document"/>
-			<field name="name">scanning</field>
-			<field name="action">scan_document_background()&#10;write({'state':'scanning'})</field>
+			<field name="name">analyzing</field>
+			<field name="action">analyze_document_background()&#10;write({'state':'analyzing'})</field>
 			<field name="kind">function</field>
 		</record>
-		<record model="workflow.activity" id="scanned">
+		<record model="workflow.activity" id="analyzed">
 			<field name="wkf_id" ref="wkf_nan_document"/>
-			<field name="name">scanned</field>
-			<field name="action">scan_document()&#10;write({'state':'scanned'})</field>
+			<field name="name">analyzed</field>
+			<field name="action">analyze_document()&#10;write({'state':'analyzed'})</field>
 			<field name="kind">function</field>
 		</record>
 		<record model="workflow.activity" id="verified">
@@ -50,12 +50,12 @@
 		<!-- transitions -->
 		<record model="workflow.transition" id="t1">
 			<field name="act_from" ref="pending"/>
-			<field name="act_to" ref="scanned"/>
-			<field name="signal">scan_document</field>
+			<field name="act_to" ref="analyzed"/>
+			<field name="signal">analyze_document</field>
 		</record>
 
 		<record model="workflow.transition" id="t2">
-			<field name="act_from" ref="scanned"/>
+			<field name="act_from" ref="analyzed"/>
 			<field name="act_to" ref="verified"/>
 			<field name="signal">verify_document</field>
 		</record>
@@ -68,13 +68,13 @@
 
 		<record model="workflow.transition" id="t4">
 			<field name="act_from" ref="pending"/>
-			<field name="act_to" ref="scanning"/>
-			<field name="signal">pending_to_scanning</field>
+			<field name="act_to" ref="analyzing"/>
+			<field name="signal">pending_to_analyzing</field>
 		</record>
 		<record model="workflow.transition" id="t5">
-			<field name="act_from" ref="scanning"/>
-			<field name="act_to" ref="scanned"/>
-			<field name="signal">scanning_to_scanned</field>
+			<field name="act_from" ref="analyzing"/>
+			<field name="act_to" ref="analyzed"/>
+			<field name="signal">analyzing_to_analyzed</field>
 		</record>
 		<record model="workflow.transition" id="t6">
 			<field name="act_from" ref="verified"/>
@@ -88,14 +88,14 @@
 		</record>
 
 		<record model="workflow.transition" id="t8">
-			<field name="act_from" ref="scanned"/>
+			<field name="act_from" ref="analyzed"/>
 			<field name="act_to" ref="pending"/>
-			<field name="signal">scanned_to_pending</field>
+			<field name="signal">analyzed_to_pending</field>
 		</record>
 		<record model="workflow.transition" id="t9">
 			<field name="act_from" ref="verified"/>
-			<field name="act_to" ref="scanned"/>
-			<field name="signal">verified_to_scanned</field>
+			<field name="act_to" ref="analyzed"/>
+			<field name="signal">verified_to_analyzed</field>
 		</record>
 	</data>
 </openerp>
