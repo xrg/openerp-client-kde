@@ -312,6 +312,14 @@ class nan_document(osv.osv):
 		return (name, newParameters)
 
 	def executeActions( self, cr, uid, ids, explain, context ):
+		if context is None:
+			# As workflows do not support context, we create, at least the lang
+			# entry so translations work as expected when calling action functions.
+			user = self.pool.get('res.users').browse(cr, uid, uid, context)
+			context = {
+				'lang': user.context_lang
+			}
+
 		for document in self.browse( cr, uid, ids, context ):
 			print "Executing action on document with state ", document.state, explain
 			if not explain and document.state not in ('verified','processing'):
@@ -325,7 +333,7 @@ class nan_document(osv.osv):
 					(name, parameters) = self._parseFunction(function, properties)
 
 					obj = self.pool.get('nan.document')
-					task = eval('obj.%s(cr, uid, explain, %s)' % ( name, ','.join( parameters ) ) )
+					task = eval('obj.%s(cr, uid, explain, %s, context)' % ( name, ','.join( parameters ) ) )
 			if explain:
 				self.write( cr, uid, [document.id], {'task': task} )
 			elif document.document_id:
@@ -347,6 +355,14 @@ class nan_document(osv.osv):
 
 
 	def executeAttachs( self, cr, uid, ids, context=None ):
+		if context is None:
+			# As workflows do not support context, we create, at least the lang
+			# entry so translations work as expected when calling action functions.
+			user = self.pool.get('res.users').browse(cr, uid, uid, context)
+			context = {
+				'lang': user.context_lang
+			}
+
 		for document in self.browse( cr, uid, ids, context ):
 			reference = None
 			if document.template_id:
@@ -356,8 +372,7 @@ class nan_document(osv.osv):
 
 					(name, parameters) = self._parseFunction(function, properties)
 					obj = self.pool.get('nan.document')
-					#print 'CALLING: obj.%s(cr, uid, %s)' % ( name, u','.join( parameters ) ), 
-					reference = eval('obj.%s(cr, uid, %s)' % ( name, u','.join( parameters ) ) )
+					reference = eval('obj.%s(cr, uid, %s, context)' % ( name, u','.join( parameters ) ) )
 
 			if reference:
 				self.write( cr, uid, [document.id], {
@@ -369,26 +384,26 @@ class nan_document(osv.osv):
 				}, context )
 
 
-	def actionAddPartner( self, cr, uid, explain, name ):
+	def actionAddPartner( self, cr, uid, explain, name, context ):
+		"""
+		This is sample function to be used as action function in a template.
+		"""
+
 		if explain:
 			return _("A new partner with name '%s' will be created (if it doesn't exist already).") % name
 
-		if not self.pool.get( 'res.partner' ).search( cr, uid, [('name','=',name)]):
+		if not self.pool.get( 'res.partner' ).search( cr, uid, [('name','=',name)], context=context):
 			self.pool.get( 'res.partner' ).create( cr, uid, {
 				'name': name
-			})
+			}, context)
 		return True
 
-	def attachModelByField( self, cr, uid, model, field, name ):
-		# Note: The commented code below has security issues and it is here as a example only. 
-		#table = self.pool.get( model )._table
-		#cr.execute( 'SELECT id FROM "' + table + '" ORDER BY similarity("' + field + '",\'%s\') DESC LIMIT 1' % name ) 
-		#record = cr.fetchone()
-		#if not record:
-		#	return False
-		#return ( model, record[0] )
+	def attachModelByField( self, cr, uid, model, field, name, context ):
+		"""
+		This is sample function to be used as an attach function in a template.
+		"""
 
-		ids = self.pool.get(model).search(cr, uid, [(field,'=',name)])
+		ids = self.pool.get(model).search(cr, uid, [(field,'=',name)], context=context)
 		if not ids:
 			return False
 		return ( model, ids[0] )
