@@ -31,6 +31,21 @@
 			/>
 
 		<wizard string="Process Documents" model="nan.document" name="nan_document_process" id="wizard_process_documents"/>
+
+		<!-- Analyze, Verify & Process -->
+		<record model="ir.actions.wizard" id="nan_document_execute">
+			<field name="name">Execute documents queue</field>
+			<field name="wiz_name">nan_document_execute</field>
+		</record>
+		<menuitem 
+			name="Execute Documents Queue"
+			action="nan_document_execute"
+			id="document_execute_menu"
+			parent="auto_attach_menu"
+			sequence="10"
+			type="wizard"
+			/>
+		<wizard string="Execute Documents" model="nan.document" name="nan_document_execute" id="wizard_execute_documents"/>
 	</data>
 </openerp>
 

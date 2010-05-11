@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2009 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2007-2010 NaN Projectes de Programari Lliure, S.L. All rights reserved.
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,70 +25,67 @@
 #
 ##############################################################################
 
+import netsvc
 import wizard
 import pooler
-import netsvc
 
 view_form_end = """<?xml version="1.0"?>
-	<form string="Document queue analyzed">
-		<label align="0.0" string="The document queue has been analyzed. Now you can verify the documents!" colspan="4"/>
+	<form string="Document queue processed">
+		<label align="0.0" string="The document queue has been executed." colspan="4"/>
 	</form>"""
 
 view_form_start = """<?xml version="1.0"?>
 	<form string="Document queue update">
 		<image name="gtk-info" size="64" colspan="2"/>
 		<group colspan="2" col="4">
-			<label align="0.0" string="All pending documents in the queue will be analyzed." colspan="4"/>
+			<label align="0.0" string="All documents in the queue will be analyzed, verified and processed." colspan="4"/>
 			<label align="0.0" string="Note that this operation may take a lot of time, depending on the number of documents." colspan="4"/>
-			<label align="0.0" string="The following documents will be analyzed:" colspan="4"/>
+			<label align="0.0" string="The following documents will be processed:" colspan="4"/>
 			<field name="documents" nolabel="1" colspan="4"/>
-			<field name="background"/>
 		</group>
 	</form>"""
 
 view_fields_start = {
-	"documents": {'type':'text', 'string':'Documents', 'readonly':True},
-	"background": {'type':'boolean', 'string':'Execute in the background' }
+	"documents": {'type':'text', 'string':'Documents', 'readonly':True}
 }
 
-class analyze_document_queue_wizard(wizard.interface):
-	def _before_analyze(self, cr, uid, data, context):
+class execute_document_queue_wizard(wizard.interface):
+	def _before_execute(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		if 'ids' in data:
 			ids = data['ids']
 		else:
-			ids = pool.get('nan.document').search(cr, uid, [('state','=','pending')], context=context)
+			ids = pool.get('nan.document').search(cr, uid, [('state','in',('pending','verified'))], context=context)
 		values = pool.get('nan.document').read(cr, uid, ids, ['name'], context)
-		return {
-			'documents': '\n'.join([x['name'] for x in values]) ,
-			'background': True
+		ret = { 
+			'documents': '\n'.join([x['name'] for x in values]) 
 		}
+		return ret
 
-	def _analyze(self, cr, uid, data, context):
+	def _execute(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		if 'ids' in data:
 			ids = data['ids']
 		else:
-			ids = pool.get('nan.document').search(cr, uid, [('state','=','pending')], context=context)
-
-		if data['form']['background']:
-			signal = 'pending_to_analyzing'
-		else:
-			signal = 'pending_to_analyzed'
+			ids = pool.get('nan.document').search(cr, uid, [('state','=',('pending','verified'))], context=context)
 		workflow = netsvc.LocalService('workflow')
 		for id in ids:
-			workflow.trg_validate(uid, 'nan.document', id, signal, cr)
-
+			workflow.trg_validate(uid, 'nan.document', id, 'analyze_document', cr)
+			document = pool.get('nan.document').browse(cr, uid, id, context)
+			if not document.template_id:
+				continue
+			workflow.trg_validate(uid, 'nan.document', id, 'verify_document', cr)
+			workflow.trg_validate(uid, 'nan.document', id, 'process_document', cr)
 		return {}
 
 	states = {
 		'init': {
-			'actions': [_before_analyze],
-			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Analysis','gtk-ok')]}
+			'actions': [_before_execute],
+			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Process','gtk-ok')]}
 		},
 		'start': {
-			'actions': [_analyze],
+			'actions': [_execute],
 			'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
 		}
 	}
-analyze_document_queue_wizard('nan_document_analyze')
+execute_document_queue_wizard('nan_document_execute')

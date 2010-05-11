@@ -25,13 +25,13 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
+import netsvc
 import wizard
 import pooler
 
 view_form_end = """<?xml version="1.0"?>
 	<form string="Document queue processed">
-		<label align="0.0" string="The document queue has been processed. Now you can verify the documents!" colspan="4"/>
+		<label align="0.0" string="The document queue has been processed." colspan="4"/>
 	</form>"""
 
 view_form_start = """<?xml version="1.0"?>
@@ -39,14 +39,16 @@ view_form_start = """<?xml version="1.0"?>
 		<image name="gtk-info" size="64" colspan="2"/>
 		<group colspan="2" col="4">
 			<label align="0.0" string="All verified documents in the queue will be processed." colspan="4"/>
-			<label align="0.0" string="Note that this operation may take a lot of time, depending on the amount of documents." colspan="4"/>
+			<label align="0.0" string="Note that this operation may take a lot of time, depending on the number of documents." colspan="4"/>
 			<label align="0.0" string="The following documents will be processed:" colspan="4"/>
 			<field name="documents" nolabel="1" colspan="4"/>
+			<field name="background"/>
 		</group>
 	</form>"""
 
 view_fields_start = {
-	"documents": {'type':'text', 'string':'Documents', 'readonly':True}
+	"documents": {'type':'text', 'string':'Documents', 'readonly':True},
+	"background": {'type':'boolean', 'string':'Execute in the background' },
 }
 
 class process_document_queue_wizard(wizard.interface):
@@ -57,7 +59,10 @@ class process_document_queue_wizard(wizard.interface):
 		else:
 			ids = pool.get('nan.document').search(cr, uid, [('state','=','verified')], context=context)
 		values = pool.get('nan.document').read(cr, uid, ids, ['name'], context)
-		ret  = { 'documents': '\n'.join([x['name'] for x in values]) }
+		ret  = { 
+			'documents': '\n'.join([x['name'] for x in values]),
+			'background': True,
+		}
 		return ret
 
 	def _process(self, cr, uid, data, context):
@@ -66,7 +71,13 @@ class process_document_queue_wizard(wizard.interface):
 			ids = data['ids']
 		else:
 			ids = pool.get('nan.document').search(cr, uid, [('state','=','verified')], context=context)
-		pool.get('nan.document').process_document(cr, uid, ids, context)
+		if data['form']['background']:
+			signal = 'verified_to_processing'
+		else:
+			signal = 'verified_to_processed'
+		workflow = netsvc.LocalService('workflow')
+		for id in ids:
+			workflow.trg_validate(uid, 'nan.document', id, signal, cr)
 		return {}
 
 	states = {

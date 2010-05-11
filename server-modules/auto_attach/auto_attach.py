@@ -32,8 +32,10 @@ import codecs
 import base64
 import shutil
 import tempfile
+import datetime
 import xml.dom.minidom
 
+import netsvc
 from osv import osv
 from osv import fields
 from tools.translate import _
@@ -172,14 +174,27 @@ class nan_document(osv.osv):
 		return ret
 
 	def analyze_document_background(self, cr, uid, imageIds, context=None):
+		# Use ir.cron to execute job in the background. We do not use threading
+		# because in case of the server crashing while the process is being executed
+		# it would not be recovered.
+		#
+		# Also, we need to set nextcall in some time in the future, otherwise it's
+		# executed within this transaction, meaning trg_validate() can not work correctly
+		# because current state has not yet changed to 'analyzing'.
+		nextcall = datetime.datetime.now() + datetime.timedelta(seconds=5)
 		self.pool.get('ir.cron').create(cr, uid, {
 			'name': 'Analyze document',
 			'user_id': uid,
 			'model': 'nan.document',
-			'function': 'analyze_document',
-			'args': repr([ imageIds, True ])
+			'function': 'analyze_document_analyzing_to_analyzed',
+			'args': repr([ imageIds, True ]),
+			'nextcall': nextcall.strftime('%Y-%m-%d %H:%M:%S'),
 		}, context)
-		cr.commit()
+
+	def analyze_document_analyzing_to_analyzed(self, cr, uid, imageIds, context=None):
+		workflow = netsvc.LocalService('workflow')
+		for id in imageIds:
+			workflow.trg_validate(uid, 'nan.document', id, 'analyzing_to_analyzed', cr)
 
 	def analyze_documents_batch(self, cr, uid, imageIds, context=None):
 		self.analyze_document(cr, uid, imageIds, context=context)
@@ -190,8 +205,7 @@ class nan_document(osv.osv):
 			'body': 'The auto_attach system has finished analyzing the documents you requested. You can now go to the Analyzed Documents queue to verify and process them.',
 		}, context)
 
-	# If notify=True sends a request/notification to uid
-	def analyze_document(self, cr, uid, imageIds, notify=False, context=None):
+	def analyze_document(self, cr, uid, imageIds, context=None):
 		# Load templates into 'templates' list
 		templates = self.pool.get('nan.template').getAllTemplates( cr, uid, context )
 
@@ -234,7 +248,7 @@ class nan_document(osv.osv):
 						'template_box_id': box.templateBox.id
 					}, context)
 
-			if notify:
+			if document.state == 'analyzing':
 				self.pool.get('res.request').create( cr, uid, {
 					'act_from': uid,
 					'act_to': uid,
@@ -245,8 +259,6 @@ class nan_document(osv.osv):
 
 		self.executeAttachs( cr, uid, imageIds, context )
 		self.executeActions( cr, uid, imageIds, True, context )
-
-		cr.commit()
 
 	def analyzeDocumentWithTemplate(self, cr, uid, documentId, templateId, context):
 
@@ -281,11 +293,32 @@ class nan_document(osv.osv):
 				}, context)
 		self.executeAttachs( cr, uid, [documentId], context )
 		self.executeActions( cr, uid, [documentId], True, context )
-		cr.commit()
+
+	def process_document_background(self, cr, uid, imageIds, context=None):
+		# Use ir.cron to execute job in the background. We do not use threading
+		# because in case of the server crashing while the process is being executed
+		# it would not be recovered.
+		#
+		# Also, we need to set nextcall in some time in the future, otherwise it's
+		# executed within this transaction, meaning trg_validate() can not work correctly
+		# because current state has not yet changed to 'analyzing'.
+		nextcall = datetime.datetime.now() + datetime.timedelta(seconds=5)
+		self.pool.get('ir.cron').create(cr, uid, {
+			'name': 'Process document',
+			'user_id': uid,
+			'model': 'nan.document',
+			'function': 'process_document_processing_to_processed',
+			'args': repr([ imageIds, True ]),
+			'nextcall': nextcall.strftime('%Y-%m-%d %H:%M:%S'),
+		}, context)
+
+	def process_document_processing_to_processed(self, cr, uid, imageIds, context=None):
+		workflow = netsvc.LocalService('workflow')
+		for id in imageIds:
+			workflow.trg_validate(uid, 'nan.document', id, 'processing_to_processed', cr)
 
 	def process_document(self, cr, uid, ids, context=None):
 		self.executeActions( cr, uid, ids, False, context )
-		cr.commit()
 
 	def _parseFunction(self, function, properties):
 		expression = re.match('(.*)\((.*)\)', function)
