@@ -1,4 +1,4 @@
-<terp>
+<openerp>
 	<data>
 		<!-- Scan -->
 		<record model="ir.actions.wizard" id="nan_document_scan">
@@ -32,5 +32,5 @@
 
 		<wizard string="Process Documents" model="nan.document" name="nan_document_process" id="wizard_process_documents"/>
 	</data>
-</terp>
+</openerp>
 
