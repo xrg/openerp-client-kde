@@ -50,6 +50,12 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 	
 		self.connect( self.button, SIGNAL('clicked()'), self.click)
 
+	def addShortcut(self, keys):
+		if not keys:
+			return
+		shortcut = QShortcut(QKeySequence(keys), self)
+		self.connect(shortcut, SIGNAL('activated()'), self.button.click)
+
 	def click( self ): 
 		if not self.record:
 			return
