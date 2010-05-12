@@ -209,6 +209,13 @@ class nan_document(osv.osv):
 		# Load templates into 'templates' list
 		templates = self.pool.get('nan.template').getAllTemplates( cr, uid, context )
 
+		# Search what recognizers are used so we do not execute unnecessary processes.
+		recognizers = set()
+		for template in templates:
+			for box in template.boxes:
+				recognizers.add( box.recognizer )
+		recognizers = list(recognizers)
+
 		recognizer = Recognizer()
 
 		# Iterate over all images and try to find the most similar template
@@ -221,7 +228,7 @@ class nan_document(osv.osv):
 			fp = os.fdopen( fp, 'wb+' )
 			fp.write( base64.decodestring(document.datas) )
 			fp.close()
-			recognizer.recognize( QImage( image ) )
+			recognizer.recognize( QImage( image ), recognizers )
 			
 			result = recognizer.findMatchingTemplateByOffset( templates )
 			template = result['template']
