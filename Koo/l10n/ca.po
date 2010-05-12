@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 21:36+0200\n"
-"PO-Revision-Date: 2010-05-11 21:26+0000\n"
+"POT-Creation-Date: 2010-05-12 04:29+0200\n"
+"PO-Revision-Date: 2010-05-12 10:49+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-11 21:32+0000\n"
+"X-Launchpad-Export-Date: 2010-05-12 10:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:81 Koo/Screen/Action.py:89 Koo/Actions/Actions.py:100
@@ -109,24 +109,25 @@ msgid "Scan Documents"
 msgstr "Escaneja documents"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:43
-msgid "Please, how do you want to import documents?"
-msgstr "Si us plau, com voleu importar els documents?"
-
-#: Koo/Plugins/DocumentImporter/__init__.py:44
-msgid "Import Selected Files"
-msgstr "Importa el fitxxers seleccionats"
-
-#: Koo/Plugins/DocumentImporter/__init__.py:45
-msgid "Import Selected Directories"
-msgstr "Importa els directoris seleccionats"
-
-#: Koo/Plugins/DocumentImporter/__init__.py:46
-msgid "Cancel Import"
-msgstr "Cancel·la la importació"
-
-#: Koo/Plugins/DocumentImporter/__init__.py:80
+#: Koo/Plugins/DocumentImporter/__init__.py:81
 msgid "Import Documents"
 msgstr "Importa documents"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:44
+msgid "How do you want to import documents?"
+msgstr "Com voleu importar els documents?"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:45
+msgid "Select Files"
+msgstr "Selecciona fitxers"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:46
+msgid "Selected Directory"
+msgstr "Selecciona un directori"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:47
+msgid "Cancel Import"
+msgstr "Cancel·la la importació"
 
 #: Koo/koopda.py:88
 msgid "Ok"
