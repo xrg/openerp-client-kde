@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-12 03:54+0200\n"
+"POT-Creation-Date: 2010-05-12 04:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,11 +87,10 @@ msgid "Semantic Info"
 msgstr ""
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
-#: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:64
+#: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
 msgstr ""
 
@@ -99,33 +98,33 @@ msgstr ""
 msgid "Translate View"
 msgstr ""
 
-#: Koo/Plugins/DocumentScanner/__init__.py:72
+#: Koo/Plugins/DocumentScanner/__init__.py:71
 msgid "document.png"
 msgstr ""
 
-#: Koo/Plugins/DocumentScanner/__init__.py:79
-#: Koo/Plugins/DocumentScanner/__init__.py:80
+#: Koo/Plugins/DocumentScanner/__init__.py:78
 msgid "Scan Documents"
 msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:43
-msgid "Please, how do you want to import documents?"
+#: Koo/Plugins/DocumentImporter/__init__.py:81
+msgid "Import Documents"
 msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:44
-msgid "Import Selected Files"
+msgid "How do you want to import documents?"
 msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
-msgid "Import Selected Directories"
+msgid "Select Files"
 msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
-msgid "Cancel Import"
+msgid "Selected Directory"
 msgstr ""
 
-#: Koo/Plugins/DocumentImporter/__init__.py:80
-msgid "Import Documents"
+#: Koo/Plugins/DocumentImporter/__init__.py:47
+msgid "Cancel Import"
 msgstr ""
 
 #: Koo/koopda.py:88
