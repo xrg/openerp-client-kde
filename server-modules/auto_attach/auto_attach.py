@@ -373,7 +373,7 @@ class nan_document(osv.osv):
 					(name, parameters) = self._parseFunction(function, properties)
 
 					obj = self.pool.get('nan.document')
-					task = eval('obj.%s(cr, uid, explain, %s, context)' % ( name, ','.join( parameters ) ) )
+					task = eval('obj.%s(cr, uid, document.id, explain, %s, context)' % ( name, ','.join( parameters ) ) )
 			if explain:
 				self.write( cr, uid, [document.id], {'task': task} )
 			elif document.document_id:
@@ -412,7 +412,7 @@ class nan_document(osv.osv):
 
 					(name, parameters) = self._parseFunction(function, properties)
 					obj = self.pool.get('nan.document')
-					reference = eval('obj.%s(cr, uid, %s, context)' % ( name, u','.join( parameters ) ) )
+					reference = eval('obj.%s(cr, uid, document.id, %s, context)' % ( name, u','.join( parameters ) ) )
 
 			if reference:
 				self.write( cr, uid, [document.id], {
@@ -424,7 +424,7 @@ class nan_document(osv.osv):
 				}, context )
 
 
-	def actionAddPartner( self, cr, uid, explain, name, context ):
+	def actionAddPartner( self, cr, uid, document_id, explain, name, context ):
 		"""
 		This is sample function to be used as action function in a template.
 		"""
@@ -438,7 +438,7 @@ class nan_document(osv.osv):
 			}, context)
 		return True
 
-	def attachModelByField( self, cr, uid, model, field, name, context ):
+	def attachModelByField( self, cr, uid, document_id, model, field, name, context ):
 		"""
 		This is sample function to be used as an attach function in a template.
 		"""
