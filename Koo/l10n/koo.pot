@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 21:36+0200\n"
+"POT-Creation-Date: 2010-05-12 03:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,10 +87,11 @@ msgid "Semantic Info"
 msgstr ""
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
+#: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:63
+#: Koo/Plugins/WorkflowPrinter/__init__.py:64
 msgid "Print Workflow (Complex)"
 msgstr ""
 
@@ -98,11 +99,12 @@ msgstr ""
 msgid "Translate View"
 msgstr ""
 
-#: Koo/Plugins/DocumentScanner/__init__.py:71
+#: Koo/Plugins/DocumentScanner/__init__.py:72
 msgid "document.png"
 msgstr ""
 
-#: Koo/Plugins/DocumentScanner/__init__.py:78
+#: Koo/Plugins/DocumentScanner/__init__.py:79
+#: Koo/Plugins/DocumentScanner/__init__.py:80
 msgid "Scan Documents"
 msgstr ""
 
