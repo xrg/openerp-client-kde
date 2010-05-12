@@ -40,9 +40,10 @@ def scan(model, id, ids, context):
 	Files = 0
 	Cancel = 2
 	dialog = QMessageBox()
-	dialog.setText( _('Please, how do you want to import documents?') )
-	dialog.addButton( _('Import Selected Files'), 3 )
-	dialog.addButton( _('Import Selected Directories'), 2 )
+	dialog.setWindowTitle( _('Import Documents') )
+	dialog.setText( _('How do you want to import documents?') )
+	dialog.addButton( _('Select Files'), 3 )
+	dialog.addButton( _('Selected Directory'), 2 )
 	dialog.addButton( _('Cancel Import'), 1 )
 	result = dialog.exec_()
 	if result == Cancel:
