@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-12 12:57+0200\n"
+"POT-Creation-Date: 2010-05-13 19:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,8 @@ msgid "Nothing to print!"
 msgstr ""
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
+#: Koo/Dialogs/FormWidget.py:371 Koo/Dialogs/ImportDialog.py:48
+#: Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
@@ -127,7 +128,7 @@ msgstr ""
 msgid "Cancel Import"
 msgstr ""
 
-#: Koo/koopda.py:88
+#: Koo/koopda.py:88 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
 msgstr ""
 
@@ -468,7 +469,7 @@ msgstr ""
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:304 Koo/Dialogs/FormWidget.py:493
+#: Koo/Dialogs/FormWidget.py:304 Koo/Dialogs/FormWidget.py:510
 #: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Question"
 msgstr ""
@@ -493,57 +494,64 @@ msgstr ""
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:356
+#: Koo/Dialogs/FormWidget.py:357
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:451
+#: Koo/Dialogs/FormWidget.py:372
+#, python-format
+msgid ""
+"<p>The following fields have an invalid value and have been highlighted in "
+"red:</p>%s<p>Please fix them before saving.</p>"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:468
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:462
+#: Koo/Dialogs/FormWidget.py:479
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:469
+#: Koo/Dialogs/FormWidget.py:486
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:473
+#: Koo/Dialogs/FormWidget.py:490
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:475
+#: Koo/Dialogs/FormWidget.py:492
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:476
+#: Koo/Dialogs/FormWidget.py:493
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:494
+#: Koo/Dialogs/FormWidget.py:511
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:495
+#: Koo/Dialogs/FormWidget.py:512
 msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:495
+#: Koo/Dialogs/FormWidget.py:512
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:495
+#: Koo/Dialogs/FormWidget.py:512
 msgid "Cancel"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:513
+#: Koo/Dialogs/FormWidget.py:530
 msgid "No records selected"
 msgstr ""
 
