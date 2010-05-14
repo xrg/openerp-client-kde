@@ -54,6 +54,16 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 		self.cookieJar = CookieJar()
 		self.uiWeb.page().networkAccessManager().setCookieJar( self.cookieJar )
 
+	def sizeHint(self):
+		size = super(WebFieldWidget, self).sizeHint()
+		width = self.attrs.get('width')
+		height = self.attrs.get('height')
+		if width:
+			size.setWidth( int(width) )
+		if height:
+			size.setHeight( int(height) )
+		return size
+
 	def storeValue(self):
 		pass
 
