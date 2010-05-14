@@ -170,7 +170,7 @@ class nan_document(osv.osv):
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
 		for x in toAnalyze:
-			self.analyzeDocumentWithTemplate( cr, uid, x['id'], x['template_id'] )
+			self.analyzeDocumentWithTemplate( cr, uid, x['id'], x['template_id'], context )
 		return ret
 
 	def analyze_document_background(self, cr, uid, imageIds, context=None):
