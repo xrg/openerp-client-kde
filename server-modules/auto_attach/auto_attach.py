@@ -190,7 +190,6 @@ class nan_document(osv.osv):
 
 			istart += startfix
 			iend += endfix
-			print "JPG %d from %d to %d" % (njpg, istart, iend)
 			image = pdf[istart:iend]
 			#jpgfile = file("jpg%d.jpg" % njpg, "wb")
 			#jpgfile.write(jpg)
@@ -205,8 +204,10 @@ class nan_document(osv.osv):
 	def create(self, cr, uid, values, context=None):
 		# If file is a PDF try to extract its JPEG.
 		datas = values.get('datas')
-		if datas and datas.lower().startswith('%pdf'):
-			datas['datas'] = self.image_from_pdf( datas )
+		if datas:
+			datas = base64.decodestring(datas)
+			if datas.lower().startswith('%pdf'):
+				values['datas'] = base64.encodestring( self.image_from_pdf( datas ) )
 		return super(nan_document, self).create(cr, uid, values, context)
 
 	def write(self, cr, uid, ids, values, context=None):
@@ -223,8 +224,10 @@ class nan_document(osv.osv):
 
 		# If file is a PDF try to extract its JPEG.
 		datas = values.get('datas')
-		if datas and datas.lower().startswith('%pdf'):
-			datas['datas'] = self.image_from_pdf( datas )
+		if datas:
+			datas = base64.decodestring(datas)
+			if datas.lower().startswith('%pdf'):
+				values['datas'] = base64.encodestring( self.image_from_pdf( datas ) )
 
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
@@ -323,10 +326,10 @@ class nan_document(osv.osv):
 			if doc:
 				for box in doc.boxes:
 					self.pool.get('nan.document.property').create(cr, uid, { 
-						'name': box.templateBox.name, 
+						'name': box.name, 
 						'value': box.text, 
 						'document_id': document.id,
-						'template_box_id': box.templateBox.id
+						'template_box_id': box.templateBox and box.templateBox.id or False
 					}, context)
 
 			if document.state == 'analyzing':
