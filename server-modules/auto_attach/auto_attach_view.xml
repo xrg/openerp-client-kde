@@ -24,15 +24,15 @@
 				<form string="Documents in queue">
 					<notebook>
 						<page string="General">
-							<field name="name"/>
-							<field name="state"/>
-							<field name="template_id"/> 
-							<field name="document_id"/>
+							<field name="name" select="1"/>
+							<field name="state" select="1"/>
+							<field name="template_id" select="1"/> 
+							<field name="document_id" select="1"/>
 							<separator string="Task" colspan="4"/>
-							<field name="task" nolabel="1" colspan="4"/>
+							<field name="task" nolabel="1" colspan="4" select="2"/>
 							<separator string="Image" colspan="4"/>
 							<field name="datas" widget="image" filename="filename" img_width="300" img_height="300" nolabel="1" colspan="4"/>
-							<field name="filename" colspan="4"/>
+							<field name="filename" colspan="4" select="2"/>
 							<group colspan="4">
 								<button name="analyze_document" states="pending" string="Analyze document"/>
 								<button name="pending_to_analyzing" states="pending" string="Analyze document in the background"/>
@@ -140,8 +140,9 @@
 			<field name="arch" type="xml">
 				<form string="Document Templates">
 					<field name="name" select="1"/>
-					<field name="attach_function"/>
-					<field name="action_function"/>
+					<field name="attach_function" select="1"/>
+					<field name="action_function" select="1"/>
+					<field name="analysis_function" select="2"/>
 					<newline/>
 					<field name="box_ids" mode="tree,form" colspan="4" nolabel="1">
 						<form string="Boxes">

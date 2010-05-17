@@ -49,10 +49,17 @@ from PyQt4.QtCore import *
 
 
 class nan_template(osv.osv):
+	"""
+	This class holds template information. A template stores information about what data is expected
+	to be found in a given type of document. It also stores what information we need to be retrieved
+	from the document to be used as input data for a given process.
+	"""
+
 	_name = 'nan.template'
 	_columns = {
 		'name' : fields.char('Name', 64, required=True),
 		'box_ids' : fields.one2many('nan.template.box', 'template_id', 'Boxes'),
+		'analysis_function': fields.char('Analysis Function', 256),
 		'attach_function' : fields.char('Attachment Function', 256),
 		'action_function' : fields.char('Action Function', 256),
 		'document_ids' : fields.one2many('nan.document', 'template_id', 'Documents')
@@ -63,6 +70,7 @@ class nan_template(osv.osv):
 	def getTemplateFromData(self, cr, uid, data, context=None):
 		template = Template( data['name'] )
 		template.id = data['id']
+		template.analysisFunction = data['analysis_function']
 		ids = self.pool.get('nan.template.box').search( cr, uid, [('template_id','=',data['id'])], context=context )
 		boxes = self.pool.get('nan.template.box').read(cr, uid, ids, context=context)
 		for y in boxes:
@@ -155,6 +163,52 @@ class nan_document(osv.osv):
 		'state': lambda *a: 'pending'
 	}
 
+
+	def image_from_pdf(self, pdf):
+		startmark = "\xff\xd8"
+		startfix = 0
+		endmark = "\xff\xd9"
+		endfix = 2
+		i = 0
+
+		image = False
+		njpg = 0
+		while True:
+			istream = pdf.find("stream", i)
+			if istream < 0:
+				break
+			istart = pdf.find(startmark, istream, istream+20)
+			if istart < 0:
+				i = istream+20
+				continue
+			iend = pdf.find("endstream", istart)
+			if iend < 0:
+				raise Exception("Didn't find end of stream!")
+			iend = pdf.find(endmark, iend-20)
+			if iend < 0:
+				raise Exception("Didn't find end of JPG!")
+
+			istart += startfix
+			iend += endfix
+			print "JPG %d from %d to %d" % (njpg, istart, iend)
+			image = pdf[istart:iend]
+			#jpgfile = file("jpg%d.jpg" % njpg, "wb")
+			#jpgfile.write(jpg)
+			#jpgfile.close()
+
+			njpg += 1
+			i = iend
+			break
+		return image
+
+
+	def create(self, cr, uid, values, context=None):
+		# If file is a PDF try to extract its JPEG.
+		datas = values.get('datas')
+		if datas and datas.lower().startswith('%pdf'):
+			datas['datas'] = self.image_from_pdf( datas )
+		return super(nan_document, self).create(cr, uid, values, context)
+
 	def write(self, cr, uid, ids, values, context=None):
 		# Analyze after writting as it will modify the objects and thus a "modified in 
 		# the meanwhile" would be thrown, so by now check which of the records
@@ -166,6 +220,11 @@ class nan_document(osv.osv):
 				# is in 'analyzed' state.
 				if x['state'] == 'analyzed' and x['template_id'] != values['template_id']:
 					toAnalyze.append( {'id': x['id'], 'template_id': values['template_id'] } )
+
+		# If file is a PDF try to extract its JPEG.
+		datas = values.get('datas')
+		if datas and datas.lower().startswith('%pdf'):
+			datas['datas'] = self.image_from_pdf( datas )
 
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
@@ -209,6 +268,9 @@ class nan_document(osv.osv):
 		# Load templates into 'templates' list
 		templates = self.pool.get('nan.template').getAllTemplates( cr, uid, context )
 
+		templatesWithAnalysis = [x for x in templates if x.analysisFunction]
+		templatesWithoutAnalysis = [x for x in templates if not x.analysisFunction]
+
 		# Search what recognizers are used so we do not execute unnecessary processes.
 		recognizers = set()
 		for template in templates:
@@ -230,9 +292,21 @@ class nan_document(osv.osv):
 			fp.close()
 			recognizer.recognize( QImage( image ), recognizers )
 			
-			result = recognizer.findMatchingTemplateByOffset( templates )
-			template = result['template']
-			doc = result['document']
+			template = False
+			doc = False
+			for template in templatesWithAnalysis:
+				function = re.sub( ' *', '', template.analysisFunction )
+				if function.endswith('()'):
+					function = function[:-2]
+				doc = eval( 'self.%s(cr, uid, document, template, recognizer, context)' % function )
+				if doc:
+					break
+
+			if not doc:
+				result = recognizer.findMatchingTemplateByOffset( templatesWithoutAnalysis )
+				template = result['template']
+				doc = result['document']
+
 			if not template:
 				print "No template found for document %s." % document.name
 			else:
@@ -457,7 +531,7 @@ class nan_document_property(osv.osv):
 		'name' : fields.char('Text', 256),
 		'value' : fields.char('Value', 256),
 		'document_id' : fields.many2one('nan.document', 'Document', required=True, ondelete='cascade'),
-		'template_box_id' : fields.many2one('nan.template.box', 'Template Box', required=True, ondelete='set null')
+		'template_box_id' : fields.many2one('nan.template.box', 'Template Box', ondelete='set null')
 	}
 nan_document_property()	
 
