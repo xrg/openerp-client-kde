@@ -165,6 +165,12 @@ class nan_document(osv.osv):
 
 
 	def image_from_pdf(self, pdf):
+		"""
+		Extracts and returns the first image found in a PDF file.
+
+		This should not be necessary in the future as ideally NanScan should
+		be able to handle PDF files, and in general, multi-page documents.
+		"""
 		startmark = "\xff\xd8"
 		startfix = 0
 		endmark = "\xff\xd9"
@@ -191,9 +197,6 @@ class nan_document(osv.osv):
 			istart += startfix
 			iend += endfix
 			image = pdf[istart:iend]
-			#jpgfile = file("jpg%d.jpg" % njpg, "wb")
-			#jpgfile.write(jpg)
-			#jpgfile.close()
 
 			njpg += 1
 			i = iend
