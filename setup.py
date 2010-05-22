@@ -71,11 +71,12 @@ def data_files():
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) ),
 		(opj('share', 'Koo', 'ui'), [ opj('nsis','koo-icon.png') ] ),
 	]
-	if using_py2exe or os.name == 'posix':
+	if using_py2exe:
                 # Add NanScan files
                 files.append( (opj('share','NanScan'), ['c:\\python26\\lib\\site-packages\\NanScan\\ScanDialog.ui']) )
                 files.append( (opj('share','NanScan'), ['c:\\python26\\lib\\site-packages\\NanScan\\Common.rcc']) )
 
+	if using_py2exe or os.name == 'posix':
 		dest = opj('share','locale','%s','LC_MESSAGES')
 		for src in glob.glob( opj('Koo','l10n','*','LC_MESSAGES','koo.mo') ):
 			lang = src.split(os.sep)[2]
