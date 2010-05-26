@@ -80,6 +80,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		# if we've got it in the 'cache'
  		self.menuLoaded = False
 		self.newMenuEntries = []
+		self.newMenuEntries.append((_('Open'), lambda: self.open(), False))
  		self.newMenuEntries.append((_('Action'), lambda: self.executeAction('client_action_multi'), False))
  		self.newMenuEntries.append((_('Report'), lambda: self.executeAction('client_print_multi'), False))
  		self.newMenuEntries.append((None, None, None))
@@ -297,7 +298,10 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		self.currentValue = None
 
 	def menuEntries(self, record):
+		self.record = record
+
 		newMenuEntries = []
+		newMenuEntries.append((_('Open'), lambda: self.open(), False))
  		newMenuEntries.append((_('Action'), lambda: self.executeAction(record, 'client_action_multi'), False))
  		newMenuEntries.append((_('Report'), lambda: self.executeAction(record, 'client_print_multi'), False))
  		newMenuEntries.append((None, None, None))
