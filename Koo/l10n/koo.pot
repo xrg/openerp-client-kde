@@ -8,10 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-13 19:55+0200\n"
+"POT-Creation-Date: 2010-05-26 12:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -180,8 +181,8 @@ msgstr ""
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
 msgid ""
-"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> %(duration)"
-"s<br/>"
+"<b>%(title)s</b><br/><b>Start:</b> %(start)s<br/><b>Duration:</b> "
+"%(duration)s<br/>"
 msgstr ""
 
 #: Koo/Printer/Printer.py:75
@@ -798,8 +799,8 @@ msgstr ""
 #: Koo/Dialogs/MassiveUpdateDialog.py:93
 #, python-format
 msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>%"
-"(records)s<p>Do you want to continue?</p>"
+"<p>This process will update the following fields in %(number)d records:</p>"
+"%(records)s<p>Do you want to continue?</p>"
 msgstr ""
 
 #: Koo/Dialogs/ImportExportCommon.py:37
@@ -990,22 +991,23 @@ msgstr ""
 msgid "You can not set to the default value here !"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:84 Koo/Fields/ManyToOne/ManyToOne.py:298
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:246
+#: Koo/Fields/ManyToOne/ManyToOne.py:305
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
+msgid "Open"
+msgstr ""
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:307
 msgid "Action"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:299
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:308
 msgid "Report"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:124 Koo/Fields/ManyToOne/ManyToOne.py:252
+#: Koo/Fields/ManyToOne/ManyToOne.py:125 Koo/Fields/ManyToOne/ManyToOne.py:253
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:212
 msgid "Search"
-msgstr ""
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:245
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
-msgid "Open"
 msgstr ""
 
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
