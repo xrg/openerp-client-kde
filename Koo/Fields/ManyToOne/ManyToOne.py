@@ -81,6 +81,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
  		self.menuLoaded = False
 		self.newMenuEntries = []
 		self.newMenuEntries.append((_('Open'), lambda: self.open(), False))
+ 		self.newMenuEntries.append((None, None, None))
  		self.newMenuEntries.append((_('Action'), lambda: self.executeAction('client_action_multi'), False))
  		self.newMenuEntries.append((_('Report'), lambda: self.executeAction('client_print_multi'), False))
  		self.newMenuEntries.append((None, None, None))
@@ -302,6 +303,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 
 		newMenuEntries = []
 		newMenuEntries.append((_('Open'), lambda: self.open(), False))
+ 		newMenuEntries.append((None, None, None))
  		newMenuEntries.append((_('Action'), lambda: self.executeAction(record, 'client_action_multi'), False))
  		newMenuEntries.append((_('Report'), lambda: self.executeAction(record, 'client_print_multi'), False))
  		newMenuEntries.append((None, None, None))
