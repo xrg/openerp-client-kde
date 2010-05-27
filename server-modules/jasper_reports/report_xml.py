@@ -38,6 +38,7 @@ import codecs
 import sql_db
 import netsvc
 import jasper_report
+from tools.translate import _
 
 class report_xml_file(osv.osv):
 	_name = 'ir.actions.report.xml.file'
