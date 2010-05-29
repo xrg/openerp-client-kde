@@ -34,6 +34,7 @@ from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Common import Shortcuts
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
 
@@ -160,6 +161,27 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 
 		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 		self.connect(self.screen, SIGNAL('activated()'), self.edit)
+
+		# Create shortcuts
+		self.scNew = QShortcut( self )
+		self.scNew.setKey( Shortcuts.NewInOneToMany )
+		self.scNew.setContext( Qt.WidgetWithChildrenShortcut )
+		self.connect( self.scNew, SIGNAL('activated()'), self.new )
+
+		self.scEdit = QShortcut( self )
+		self.scEdit.setKey( Shortcuts.EditInOneToMany )
+		self.scEdit.setContext( Qt.WidgetWithChildrenShortcut )
+		self.connect( self.scEdit, SIGNAL('activated()'), self.edit )
+
+		self.scDelete = QShortcut( self )
+		self.scDelete.setKey( Shortcuts.DeleteInOneToMany )
+		self.scDelete.setContext( Qt.WidgetWithChildrenShortcut )
+		self.connect( self.scDelete, SIGNAL('activated()'), self.remove )
+
+		self.scSwitchView = QShortcut( self )
+		self.scSwitchView.setKey( Shortcuts.SwitchViewInOneToMany )
+		self.scSwitchView.setContext( Qt.WidgetWithChildrenShortcut )
+		self.connect( self.scSwitchView, SIGNAL('activated()'), self.switchView )
 
 		# Do not install Popup Menu because setting and getting default values
 		# is not supported for OneToMany fields.
