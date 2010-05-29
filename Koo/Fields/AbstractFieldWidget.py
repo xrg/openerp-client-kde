@@ -197,8 +197,7 @@ class AbstractFieldWidget(QWidget):
 	def setColor(self, name):
 		color = QColor( self.colors.get( name, 'white' ) )
 		palette = QPalette()
-		palette.setColor(QPalette.Base, color)
-
+		palette.setColor(QPalette.Active, QPalette.Base, color)
 		self.colorWidget().setPalette(palette);
 
 	## @brief Installs the eventFilter on the given widget so the popup
