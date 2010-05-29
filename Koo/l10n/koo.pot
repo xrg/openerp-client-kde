@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-26 12:31+0200\n"
+"POT-Creation-Date: 2010-05-29 22:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:287
-#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:242
+#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Cancel Import"
 msgstr ""
 
-#: Koo/koopda.py:88 Koo/Dialogs/FormWidget.py:373
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
 msgstr ""
 
@@ -1122,7 +1122,7 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:242
+#: Koo/Fields/OneToMany/OneToMany.py:264
 msgid "No record selected"
 msgstr ""
 
