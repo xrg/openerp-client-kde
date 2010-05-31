@@ -216,7 +216,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 				self.record.setValue(self.name, name)
 				self.display()
 			else:
-				self.uiText.setFocus()
+				self.clear()
 
 	def new(self):
 		dialog = ScreenDialog(self)
