@@ -130,6 +130,8 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.treeModel.setIconForField( 'icon', 'name')
 		self.treeModel.setChildrenForField( self.childrenField, parser.fieldsOrder[0] )
 		self.treeModel.setShowBackgroundColor( False )
+		if model == 'ir.ui.menu':
+			self.treeModel.setShowToolTips( False )
 
 		self.listModel = KooModel( self )
 		self.listModel.setMode( KooModel.ListMode )

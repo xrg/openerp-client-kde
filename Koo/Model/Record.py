@@ -75,7 +75,7 @@ class Record(QObject):
 
 	def __del__(self):
 		#self.parent = None
-		#self.setParent( None )
+		self.setParent( None )
 		for key, value in self.values.iteritems():
 			from Group import RecordGroup
 			if isinstance(value, RecordGroup):

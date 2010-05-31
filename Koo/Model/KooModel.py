@@ -80,6 +80,7 @@ class KooModel(QAbstractItemModel):
 		self.showBackgroundColor = True
 		self._readOnly = True
 		self._updatesEnabled = True
+		self._showToolTips = True
 		# visibleFields is an alphabetically sorted list of 
 		# all visible fields. This means it discards self.icon
 		# and self.child fields. The list is updated using
@@ -207,6 +208,10 @@ class KooModel(QAbstractItemModel):
 	def setMode(self, mode):
 		self.mode = mode
 
+	## @brief Sets whether tooltips should be shown or not.
+	def setShowToolTips(self, show):
+		self._showToolTips = show
+
 	## @brief Returns the model id corresponding to index
 	def id(self, index):
 		if not self.group:
@@ -329,7 +334,7 @@ class KooModel(QAbstractItemModel):
 	def data(self, index, role=Qt.DisplayRole ):
 		if not self.group:
 			return QVariant()
-		if role == Qt.DisplayRole or role == Qt.EditRole:
+		if role in (Qt.DisplayRole, Qt.EditRole) or (self._showToolTips and role == Qt.ToolTipRole):
 			value = self.value( index.row(), index.column(), index.internalPointer() )
 			fieldType = self.fieldType( index.column(), index.internalPointer() )
 			if fieldType in ['one2many', 'many2many']:
