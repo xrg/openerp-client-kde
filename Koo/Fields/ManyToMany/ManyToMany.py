@@ -65,7 +65,7 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.installPopupMenu( self.uiText )
 		self.old = None
 		self.latestMatch = None
-		self.searching = True
+		self.searching = False
 
 	def initGui(self):
 		if self.record:
