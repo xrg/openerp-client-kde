@@ -156,6 +156,9 @@ class RecordGroup(QObject):
 		return self._onWriteFunction
 
 	def __del__(self):
+		if self.parent:
+			self.disconnect(self,SIGNAL('modified'),self.tomanyfield)
+			self.tomanyfield = None
 		self.rpc = None
 		self.parent = None
 		self.resource = None
@@ -164,11 +167,14 @@ class RecordGroup(QObject):
 		for r in self.records:
 			if not isinstance(r, Record):
 				continue
+			self.disconnect(r,SIGNAL('recordChanged( PyQt_PyObject )'), self.recordChanged )
+			self.disconnect(r,SIGNAL('recordModified( PyQt_PyObject )'), self.recordModified)
 			r.__del__()
 		self.records = []
 		for f in self.fieldObjects:
 			self.fieldObjects[f].parent = None
 			self.fieldObjects[f].setParent( None )
+			#self.fieldObjects[f].__del__()
 			#self.disconnect( self.fieldObjects[f], None, 0, 0 )
 			#self.fieldObjects[f] = None
 			#del self.fieldObjects[f]
