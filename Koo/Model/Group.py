@@ -157,7 +157,7 @@ class RecordGroup(QObject):
 
 	def __del__(self):
 		if self.parent:
-			self.disconnect(self,SIGNAL('modified'),self.tomanyfield)
+			self.disconnect(self,SIGNAL('modified'),self.tomanyfield.groupModified)
 			self.tomanyfield = None
 		self.rpc = None
 		self.parent = None
