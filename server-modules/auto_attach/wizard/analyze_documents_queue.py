@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2010 NaN Projectes de Programari Lliure, S.L. All rights reserved.
+# Copyright (c) 2007-2009 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,22 +25,22 @@
 #
 ##############################################################################
 
-import netsvc
 import wizard
 import pooler
+import netsvc
 
 view_form_end = """<?xml version="1.0"?>
-	<form string="Document queue processed">
-		<label align="0.0" string="The document queue has been processed." colspan="4"/>
+	<form string="Document queue analyzed">
+		<label align="0.0" string="The document queue has been analyzed. Now you can verify the documents!" colspan="4"/>
 	</form>"""
 
 view_form_start = """<?xml version="1.0"?>
 	<form string="Document queue update">
 		<image name="gtk-info" size="64" colspan="2"/>
 		<group colspan="2" col="4">
-			<label align="0.0" string="All verified documents in the queue will be processed." colspan="4"/>
+			<label align="0.0" string="All pending documents in the queue will be analyzed." colspan="4"/>
 			<label align="0.0" string="Note that this operation may take a lot of time, depending on the number of documents." colspan="4"/>
-			<label align="0.0" string="The following documents will be processed:" colspan="4"/>
+			<label align="0.0" string="The following documents will be analyzed:" colspan="4"/>
 			<field name="documents" nolabel="1" colspan="4"/>
 			<field name="background"/>
 		</group>
@@ -48,46 +48,47 @@ view_form_start = """<?xml version="1.0"?>
 
 view_fields_start = {
 	"documents": {'type':'text', 'string':'Documents', 'readonly':True},
-	"background": {'type':'boolean', 'string':'Execute in the background' },
+	"background": {'type':'boolean', 'string':'Execute in the background' }
 }
 
-class process_document_queue_wizard(wizard.interface):
-	def _before_process(self, cr, uid, data, context):
+class analyze_document_queue_wizard(wizard.interface):
+	def _before_analyze(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		if 'ids' in data:
 			ids = data['ids']
 		else:
-			ids = pool.get('nan.document').search(cr, uid, [('state','=','verified')], context=context)
+			ids = pool.get('nan.document').search(cr, uid, [('state','=','pending')], context=context)
 		values = pool.get('nan.document').read(cr, uid, ids, ['name'], context)
-		ret  = { 
-			'documents': '\n'.join([x['name'] for x in values]),
-			'background': True,
+		return {
+			'documents': '\n'.join([x['name'] for x in values]) ,
+			'background': True
 		}
-		return ret
 
-	def _process(self, cr, uid, data, context):
+	def _analyze(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		if 'ids' in data:
 			ids = data['ids']
 		else:
-			ids = pool.get('nan.document').search(cr, uid, [('state','=','verified')], context=context)
+			ids = pool.get('nan.document').search(cr, uid, [('state','=','pending')], context=context)
+
 		if data['form']['background']:
-			signal = 'verified_to_processing'
+			signal = 'pending_to_analyzing'
 		else:
-			signal = 'verified_to_processed'
+			signal = 'pending_to_analyzed'
 		workflow = netsvc.LocalService('workflow')
 		for id in ids:
 			workflow.trg_validate(uid, 'nan.document', id, signal, cr)
+
 		return {}
 
 	states = {
 		'init': {
-			'actions': [_before_process],
-			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Process','gtk-ok')]}
+			'actions': [_before_analyze],
+			'result': {'type':'form', 'arch':view_form_start, 'fields': view_fields_start, 'state':[('end','Cancel','gtk-cancel'),('start','Start Analysis','gtk-ok')]}
 		},
 		'start': {
-			'actions': [_process],
+			'actions': [_analyze],
 			'result': {'type':'form', 'arch':view_form_end, 'fields': {}, 'state':[('end','Close','gtk-close')]}
 		}
 	}
-process_document_queue_wizard('nan_document_process')
+analyze_document_queue_wizard('nan_document_analyze')

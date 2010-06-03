@@ -60,6 +60,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.connect( self.pushOpen, SIGNAL( "clicked()" ), self.open )
 		self.connect( self.pushClear, SIGNAL( "clicked()" ), self.clear )
 
+		self.setFocusProxy( self.uiText )
+
 		# Create shortcuts
 		self.scNew = QShortcut( self.uiText )
 		self.scNew.setKey( Shortcuts.CreateInField )
@@ -73,12 +75,13 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 		self.searching = False
 
- 		self.recordType = attrs['relation']	
 		# To build the menu entries we need to query the server so we only make 
 		# the call if necessary and only once. Hence with self.menuLoaded we know
 		# if we've got it in the 'cache'
  		self.menuLoaded = False
 		self.newMenuEntries = []
+		self.newMenuEntries.append((_('Open'), lambda: self.open(), False))
+ 		self.newMenuEntries.append((None, None, None))
  		self.newMenuEntries.append((_('Action'), lambda: self.executeAction('client_action_multi'), False))
  		self.newMenuEntries.append((_('Report'), lambda: self.executeAction('client_print_multi'), False))
  		self.newMenuEntries.append((None, None, None))
@@ -253,7 +256,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def menuEntries(self):
 		if not self.menuLoaded:
-			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.recordType, False)], False, Rpc.session.context)
+			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.attrs['relation'], False)], False, Rpc.session.context)
 			actions = [x[2] for x in related]
 			for action in actions:
 				f = lambda action: lambda: self.executeRelation(action)
@@ -281,23 +284,30 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		Api.instance.executeAction( action )
 
 	def executeAction(self, type):
-		id = self.record.id
-			# TODO: context?
-		Api.instance.executeKeyword(type, {'model':self.recordType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
+		id = self.record.get()[self.name]
+		Api.instance.executeKeyword(type, {
+			'model':self.attrs['relation'], 
+			'id': id or False, 
+			'ids':[id], 
+			'report_type': 'pdf'
+		}, Rpc.session.context)
 
 class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 	def __init__(self, parent, attributes):
 		AbstractFieldDelegate.__init__(self, parent, attributes)
 		self.currentEditor = None
 		self.currentValue = None
- 		self.recordType = attributes['relation']	
 
 	def menuEntries(self, record):
+		self.record = record
+
 		newMenuEntries = []
+		newMenuEntries.append((_('Open'), lambda: self.open(), False))
+ 		newMenuEntries.append((None, None, None))
  		newMenuEntries.append((_('Action'), lambda: self.executeAction(record, 'client_action_multi'), False))
  		newMenuEntries.append((_('Report'), lambda: self.executeAction(record, 'client_print_multi'), False))
  		newMenuEntries.append((None, None, None))
-		related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.recordType, False)], False, Rpc.session.context)
+		related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(self.attributes['relation'], False)], False, Rpc.session.context)
 		actions = [x[2] for x in related]
 		for action in actions:
 			f = lambda action: lambda: self.executeRelation(record, action)
@@ -324,9 +334,13 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		Api.instance.executeAction( action )
 
 	def executeAction(self, record, type):
-		id = record.id
-		   # TODO: context?
-		Api.instance.executeKeyword(type, {'model':self.recordType, 'id': id or False, 'ids':[id], 'report_type': 'pdf'})
+		id = record.get()[self.name]
+		Api.instance.executeKeyword(type, {
+			'model': self.attributes['relation'], 
+			'id': id or False, 
+			'ids': [id], 
+			'report_type': 'pdf'
+		}, Rpc.session.context)
 
 	def createEditor(self, parent, option, index):
 		widget = AbstractFieldDelegate.createEditor(self, parent, option, index)

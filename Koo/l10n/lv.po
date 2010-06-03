@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-02-24 02:24+0100\n"
+"POT-Creation-Date: 2010-05-26 12:31+0200\n"
 "PO-Revision-Date: 2009-04-10 10:02+0000\n"
 "Last-Translator: sraps (KN dati) <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-24 02:00+0000\n"
+"X-Launchpad-Export-Date: 2010-05-29 20:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87 Koo/Actions/Actions.py:100
+#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:89 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
@@ -30,11 +30,11 @@ msgstr ""
 msgid "You must select a record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:87
+#: Koo/Screen/Action.py:89
 msgid "You must save this record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:129
+#: Koo/Screen/Action.py:135
 msgid "Print Screen"
 msgstr "Drukāt ekrāna saturu"
 
@@ -56,12 +56,13 @@ msgid "Nothing to print!"
 msgstr "Nav ko drukāt!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
+#: Koo/Dialogs/FormWidget.py:371 Koo/Dialogs/ImportDialog.py:48
+#: Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
-#: Koo/Fields/Binary/BinaryFieldWidget.py:229
-#: Koo/Fields/Binary/BinaryFieldWidget.py:263
+#: Koo/Fields/Binary/BinaryFieldWidget.py:231
+#: Koo/Fields/Binary/BinaryFieldWidget.py:265
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -75,7 +76,7 @@ msgstr "Druka pārtraukta, pārāk ilga aizture!"
 msgid "Select your action"
 msgstr "Izvēlies savu darbību"
 
-#: Koo/Plugins/SearchModelData/__init__.py:37
+#: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
 msgstr ""
 
@@ -83,20 +84,53 @@ msgstr ""
 msgid "Edit View"
 msgstr ""
 
-#: Koo/Plugins/Semantic/__init__.py:46
+#: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+#: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+#: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
 msgstr ""
 
-#: Koo/Plugins/ViewTranslator/__init__.py:38
+#: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
+msgstr ""
+
+#: Koo/Plugins/DocumentScanner/__init__.py:71
+msgid "document.png"
+msgstr ""
+
+#: Koo/Plugins/DocumentScanner/__init__.py:78
+msgid "Scan Documents"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:43
+#: Koo/Plugins/DocumentImporter/__init__.py:81
+msgid "Import Documents"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:44
+msgid "How do you want to import documents?"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:45
+msgid "Select Files"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:46
+msgid "Selected Directory"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:47
+msgid "Cancel Import"
+msgstr ""
+
+#: Koo/koopda.py:88 Koo/Dialogs/FormWidget.py:373
+msgid "Ok"
 msgstr ""
 
 #: Koo/View/Form/__init__.py:32
@@ -107,19 +141,19 @@ msgstr ""
 msgid "List View"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:207
+#: Koo/View/Tree/TreeView.py:210
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:209
+#: Koo/View/Tree/TreeView.py:212
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:211
+#: Koo/View/Tree/TreeView.py:214
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:235
+#: Koo/View/Tree/TreeView.py:238
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -217,42 +251,46 @@ msgid "DBus initialization failed."
 msgstr ""
 
 #: Koo/Common/CommandLine.py:44
+msgid "specify database"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:45
 msgid "specify alternate config file"
 msgstr "norādi citu konfigurācijas datni"
 
-#: Koo/Common/CommandLine.py:45
+#: Koo/Common/CommandLine.py:46
 msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:46
+#: Koo/Common/CommandLine.py:47
 msgid "specify stylesheet to apply"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:47
+#: Koo/Common/CommandLine.py:48
 msgid "use POS (Point of Sales) mode"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:48
+#: Koo/Common/CommandLine.py:49
 msgid "replace enter/return keys with tab hits"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:49
+#: Koo/Common/CommandLine.py:50
 msgid "disable usage of KDE libraries if they are available"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:50
+#: Koo/Common/CommandLine.py:51
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:301
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
 #: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:74
+#: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "Jā"
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:301
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
 #: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:74
+#: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "Nē"
 
@@ -347,7 +385,7 @@ msgid "Backup a database"
 msgstr "Izveidot datubāzes rezerves kopiju"
 
 #: Koo/Dialogs/DatabaseDialog.py:136
-#: Koo/Fields/Binary/BinaryFieldWidget.py:252
+#: Koo/Fields/Binary/BinaryFieldWidget.py:254
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "Saglabāt kā..."
@@ -391,114 +429,130 @@ msgstr ""
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:241
+#: Koo/Dialogs/FormWidget.py:213
+msgid "Go To Id"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:213
+#, python-format
+msgid "Resouce with ID '%s' not found."
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:244
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:282
+#: Koo/Dialogs/FormWidget.py:285
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:288
+#: Koo/Dialogs/FormWidget.py:291
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:289
+#: Koo/Dialogs/FormWidget.py:292
 msgid "Creation User"
 msgstr "Lietotāja izveide"
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:293
 msgid "Creation Date"
 msgstr "Izveidošanas datums"
 
-#: Koo/Dialogs/FormWidget.py:291
+#: Koo/Dialogs/FormWidget.py:294
 msgid "Latest Modification by"
 msgstr "Pedējais labojis"
 
-#: Koo/Dialogs/FormWidget.py:292
+#: Koo/Dialogs/FormWidget.py:295
 msgid "Latest Modification Date"
 msgstr "Pēdējās labošanas datums"
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:301
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:301 Koo/Dialogs/FormWidget.py:490
-#: Koo/Fields/Button/ButtonFieldWidget.py:74
+#: Koo/Dialogs/FormWidget.py:304 Koo/Dialogs/FormWidget.py:510
+#: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Question"
 msgstr "Jautājums"
 
-#: Koo/Dialogs/FormWidget.py:301
+#: Koo/Dialogs/FormWidget.py:304
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:306
+#: Koo/Dialogs/FormWidget.py:309
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:308
+#: Koo/Dialogs/FormWidget.py:311
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:339
+#: Koo/Dialogs/FormWidget.py:342
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:349
+#: Koo/Dialogs/FormWidget.py:352
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:353
+#: Koo/Dialogs/FormWidget.py:357
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:448
+#: Koo/Dialogs/FormWidget.py:372
+#, python-format
+msgid ""
+"<p>The following fields have an invalid value and have been highlighted in "
+"red:</p>%s<p>Please fix them before saving.</p>"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:468
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:459
+#: Koo/Dialogs/FormWidget.py:479
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:466
+#: Koo/Dialogs/FormWidget.py:486
 msgid "No document selected"
 msgstr "Nav izvēlēts neviens dokuments"
 
-#: Koo/Dialogs/FormWidget.py:470
+#: Koo/Dialogs/FormWidget.py:490
 msgid "New document"
 msgstr "Jauns dokuments"
 
-#: Koo/Dialogs/FormWidget.py:472
+#: Koo/Dialogs/FormWidget.py:492
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:473
+#: Koo/Dialogs/FormWidget.py:493
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:491
+#: Koo/Dialogs/FormWidget.py:511
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:492
+#: Koo/Dialogs/FormWidget.py:512
 msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:492
+#: Koo/Dialogs/FormWidget.py:512
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:492
+#: Koo/Dialogs/FormWidget.py:512
 msgid "Cancel"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:510
+#: Koo/Dialogs/FormWidget.py:530
 msgid "No records selected"
 msgstr ""
 
@@ -899,64 +953,65 @@ msgstr ""
 msgid "Administrator passwords differ."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:305 Koo/Rpc/Rpc.py:422
+#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:428
 msgid "Connection Refused"
 msgstr "Pieslēgšanās atteikta"
 
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
+#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:440
 msgid "Application Error"
 msgstr "Aplikācijas kļūda"
 
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:434
+#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:440
 msgid "View details"
 msgstr "Skatīt detaļas"
 
-#: Koo/Rpc/Rpc.py:404
+#: Koo/Rpc/Rpc.py:410
 msgid "Not logged in"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:553
+#: Koo/Rpc/Rpc.py:560
 msgid "Could not contact server!"
 msgstr "Nevar pieslēgties serverim!"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:111
+#: Koo/Fields/Button/ButtonFieldWidget.py:117
 msgid "Error in Button"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:111
+#: Koo/Fields/Button/ButtonFieldWidget.py:117
 msgid "Button type not allowed"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:120
+#: Koo/Fields/Button/ButtonFieldWidget.py:126
 msgid "Invalid Form, correct red fields!"
 msgstr "Nepareizi aizpildīta veidlapa, izlabo sarkanos laukus"
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#: Koo/Fields/AbstractFieldWidget.py:123
+#: Koo/Fields/AbstractFieldWidget.py:134
 msgid "Operation not permited"
 msgstr "Darbība nav atļauta"
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#: Koo/Fields/AbstractFieldWidget.py:123
+#: Koo/Fields/AbstractFieldWidget.py:134
 msgid "You can not set to the default value here !"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:273
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:246
+#: Koo/Fields/ManyToOne/ManyToOne.py:305
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
+msgid "Open"
+msgstr ""
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:307
 msgid "Action"
 msgstr "Darbība"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:274
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:308
 msgid "Report"
 msgstr "Atskaite"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:120 Koo/Fields/ManyToOne/ManyToOne.py:227
+#: Koo/Fields/ManyToOne/ManyToOne.py:125 Koo/Fields/ManyToOne/ManyToOne.py:253
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:212
 msgid "Search"
-msgstr ""
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:220
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
-msgid "Open"
 msgstr ""
 
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
@@ -969,41 +1024,41 @@ msgstr "Tulkošanas dialogs"
 msgid "You must save the resource before adding translations"
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:81
+#: Koo/Fields/Image/ImageFieldWidget.py:83
 #: Koo/Fields/Link/LinkFieldWidget.py:62
 #: Koo/Fields/Binary/BinaryFieldWidget.py:173
 msgid "Open..."
 msgstr "Atvērt..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:109
-#: Koo/Fields/Binary/BinaryFieldWidget.py:208
+#: Koo/Fields/Image/ImageFieldWidget.py:111
+#: Koo/Fields/Binary/BinaryFieldWidget.py:210
 msgid "Image"
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:124
+#: Koo/Fields/Image/ImageFieldWidget.py:126
 msgid "Save image as..."
 msgstr "Saglabāt attēlu ar nosaukumu..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:132
+#: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid "Error saving file"
 msgstr "Kļūda saglabājot datni"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:132
+#: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:137
+#: Koo/Fields/Image/ImageFieldWidget.py:139
 #, python-format
 msgid "Image files (%s)"
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:138
+#: Koo/Fields/Image/ImageFieldWidget.py:140
 msgid "Open image file..."
 msgstr "Atvērt attēla datni..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:155
+#: Koo/Fields/Image/ImageFieldWidget.py:157
 msgid "(no image)"
 msgstr ""
 
@@ -1052,19 +1107,19 @@ msgstr ""
 msgid "Show &image..."
 msgstr "Rādīt attēlu..."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:218
+#: Koo/Fields/Binary/BinaryFieldWidget.py:220
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Norādi attēlu, ko pievienot"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:229
+#: Koo/Fields/Binary/BinaryFieldWidget.py:231
 #, python-format
 msgid ""
 "Error reading the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:263
+#: Koo/Fields/Binary/BinaryFieldWidget.py:265
 #, python-format
 msgid ""
 "Error writing the file:\n"

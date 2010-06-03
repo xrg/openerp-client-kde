@@ -13,13 +13,18 @@ msgstr ""
 msgid "Ctrl+F"
 msgstr ""
 
+#. ts-context KooMainWindow
+#: mainwindow.ui:675
+msgid "Ctrl+G"
+msgstr ""
+
 #. ts-context ExportDialog
 #: win_export.ui:162
 msgid "&Save list"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:772
+#: mainwindow.ui:775
 msgid "Ctrl+J"
 msgstr ""
 
@@ -51,7 +56,7 @@ msgid "Ctrl+S"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:760
+#: mainwindow.ui:763
 msgid "Ctrl+T"
 msgstr ""
 
@@ -79,12 +84,12 @@ msgstr ""
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context LoginDialog
-#: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:71
+#: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:70
 msgid "&Server:"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:757
+#: mainwindow.ui:760
 msgid "Full &Text Search"
 msgstr ""
 
@@ -269,7 +274,7 @@ msgid "K"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:796
+#: mainwindow.ui:799
 msgid "Documentation"
 msgstr ""
 
@@ -285,7 +290,7 @@ msgstr ""
 
 #. ts-context ChooseDatabaseDialog
 #. ts-context LoginDialog
-#: choosedb.ui:95 login.ui:112
+#: choosedb.ui:95 login.ui:111
 msgid "&Database:"
 msgstr ""
 
@@ -295,12 +300,12 @@ msgid "Copy selected text"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:791
+#: mainwindow.ui:794
 msgid "User Manual"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:801
+#: mainwindow.ui:804
 msgid "Koo"
 msgstr ""
 
@@ -310,7 +315,7 @@ msgid "&Main Shortcuts"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:725
+#: mainwindow.ui:728
 msgid "&Tips"
 msgstr ""
 
@@ -419,7 +424,7 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
-#: mainwindow.ui:684 shortcuts.ui:236
+#: mainwindow.ui:687 shortcuts.ui:236
 msgid "F5"
 msgstr ""
 
@@ -576,7 +581,7 @@ msgid "Auto-&detect"
 msgstr ""
 
 #. ts-context BinaryWidget
-#: binary.ui:58
+#: binary.ui:64
 msgid "Save file..."
 msgstr ""
 
@@ -591,7 +596,7 @@ msgid "&Advanced"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:739
+#: mainwindow.ui:742
 msgid "&License"
 msgstr ""
 
@@ -606,7 +611,7 @@ msgid "<b>Value applicable if:</b>"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:781
+#: mainwindow.ui:784
 msgid "&Form designer"
 msgstr ""
 
@@ -653,7 +658,7 @@ msgid "L"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:810
+#: mainwindow.ui:813
 msgid "Open Home Tab"
 msgstr ""
 
@@ -701,7 +706,7 @@ msgid "'"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:819
+#: mainwindow.ui:822
 msgid "&Clear Cache"
 msgstr ""
 
@@ -735,7 +740,7 @@ msgstr ""
 
 #. ts-context BinaryWidget
 #. ts-context LinkWidget
-#: binary.ui:41 link.ui:36
+#: binary.ui:47 link.ui:36
 msgid "Select file..."
 msgstr ""
 
@@ -756,7 +761,7 @@ msgstr ""
 
 #. ts-context ChooseDatabaseDialog
 #. ts-context LoginDialog
-#: choosedb.ui:78 login.ui:222
+#: choosedb.ui:78 login.ui:221
 msgid "&Password:"
 msgstr ""
 
@@ -771,7 +776,7 @@ msgid "Create a new record"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:786
+#: mainwindow.ui:789
 msgid "&Menu"
 msgstr ""
 
@@ -818,7 +823,7 @@ msgid "Opens the record in a new background tab"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:748
+#: mainwindow.ui:751
 msgid "&About"
 msgstr ""
 
@@ -1102,7 +1107,7 @@ msgid "C"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:177
+#: login.ui:176
 msgid "<b>Could not connect to server !</b>"
 msgstr ""
 
@@ -1178,7 +1183,7 @@ msgstr ""
 #: about.ui:120 admin_passwd.ui:138 change_server.ui:113 choosedb.ui:161
 #: create_database.ui:343 error.ui:152 win_export.ui:243
 #: field_preferences.ui:134 gotoid.ui:72 win_import.ui:263 license.ui:148
-#: login.ui:284 massiveupdate.ui:44 preferences.ui:45 win_search.ui:97
+#: login.ui:283 massiveupdate.ui:44 preferences.ui:45 win_search.ui:97
 #: win_selection.ui:44 translationdialog.ui:47
 msgid "&Accept"
 msgstr ""
@@ -1201,7 +1206,7 @@ msgstr ""
 #. ts-context AdminPasswordDialog
 #. ts-context CreateDatabaseDialog
 #. ts-context LoginDialog
-#: admin_passwd.ui:46 create_database.ui:94 login.ui:99
+#: admin_passwd.ui:46 create_database.ui:94 login.ui:98
 msgid "C&hange"
 msgstr ""
 
@@ -1222,7 +1227,7 @@ msgstr ""
 #. ts-context TranslationDialog
 #: admin_passwd.ui:149 change_server.ui:133 choosedb.ui:175
 #: create_database.ui:357 win_export.ui:257 field_preferences.ui:144
-#: gotoid.ui:83 win_import.ui:274 login.ui:298 one2many_dialog.ui:129
+#: gotoid.ui:83 win_import.ui:274 login.ui:297 one2many_dialog.ui:129
 #: massiveupdate.ui:55 preferences.ui:56 win_search.ui:108 win_selection.ui:57
 #: translationdialog.ui:57
 msgid "&Cancel"
@@ -1259,7 +1264,7 @@ msgid "Connect &now"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:702
+#: mainwindow.ui:705
 msgid "&Import Data"
 msgstr ""
 
@@ -1289,7 +1294,7 @@ msgid "&Preferences"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:720
+#: mainwindow.ui:723
 msgid "&Contextual Help"
 msgstr ""
 
@@ -1329,7 +1334,7 @@ msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:16 mainwindow.ui:769
+#: win_attach.ui:16 mainwindow.ui:772
 msgid "Attachments"
 msgstr ""
 
@@ -1361,7 +1366,7 @@ msgid "Numeric fields"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:711
+#: mainwindow.ui:714
 msgid "&Execute Plugins"
 msgstr ""
 
@@ -1402,7 +1407,7 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
-#: mainwindow.ui:441 login.ui:144
+#: mainwindow.ui:441 login.ui:143
 msgid "&Restore Database"
 msgstr ""
 
@@ -1418,7 +1423,7 @@ msgstr ""
 
 #. ts-context BinaryWidget
 #. ts-context ReferenceWidget
-#: binary.ui:75 reference.ui:83
+#: binary.ui:81 reference.ui:83
 msgid "Clear"
 msgstr ""
 
@@ -1568,7 +1573,7 @@ msgid "&Window"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:133
+#: login.ui:132
 msgid "Create &Database"
 msgstr ""
 
@@ -1633,7 +1638,7 @@ msgid "Switch view mode"
 msgstr ""
 
 #. ts-context LoginDialog
-#: login.ui:248
+#: login.ui:247
 msgid "&User:"
 msgstr ""
 
@@ -1648,7 +1653,7 @@ msgid "Add Shortcut"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:734
+#: mainwindow.ui:737
 msgid "&Keyboard Shortcut"
 msgstr ""
 
@@ -1709,7 +1714,7 @@ msgid "Open Calendar"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:681
+#: mainwindow.ui:684
 msgid "&Reload/Undo"
 msgstr ""
 
@@ -1878,7 +1883,7 @@ msgid ""
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:828
+#: mainwindow.ui:831
 msgid "Modify All Selected Records"
 msgstr ""
 
@@ -1918,7 +1923,7 @@ msgid "<Shift> + Open View"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:693
+#: mainwindow.ui:696
 msgid "E&xport Data"
 msgstr ""
 

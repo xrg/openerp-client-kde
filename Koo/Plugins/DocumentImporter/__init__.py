@@ -40,9 +40,10 @@ def scan(model, id, ids, context):
 	Files = 0
 	Cancel = 2
 	dialog = QMessageBox()
-	dialog.setText( _('Please, how do you want to import documents?') )
-	dialog.addButton( _('Import Selected Files'), 3 )
-	dialog.addButton( _('Import Selected Directories'), 2 )
+	dialog.setWindowTitle( _('Import Documents') )
+	dialog.setText( _('How do you want to import documents?') )
+	dialog.addButton( _('Select Files'), 3 )
+	dialog.addButton( _('Selected Directory'), 2 )
 	dialog.addButton( _('Cancel Import'), 1 )
 	result = dialog.exec_()
 	if result == Cancel:
@@ -52,7 +53,6 @@ def scan(model, id, ids, context):
 		directory = unicode( QFileDialog.getExistingDirectory() )
 		if not directory:
 			return
-		print directory
 		fileNames = QDir( directory ).entryList()
 		fileNames = [os.path.join( directory, unicode(x) ) for x in fileNames]
 	else:
@@ -60,7 +60,6 @@ def scan(model, id, ids, context):
 		fileNames = [unicode(x) for x in fileNames]
 			
 			
-	print fileNames
 	for fileName in fileNames:
 		try:
 			# As fileName may not be a file, simply try the next file.
@@ -76,6 +75,7 @@ def scan(model, id, ids, context):
 		id = Rpc.session.execute('/object', 'execute', 'nan.document', 'create', {
 			'name': Calendar.dateTimeToText( QDateTime.currentDateTime() ),
 			'datas': data,
+			'filename': os.path.basename(fileName),
 		}, context )
 
 Plugins.register( 'document-importer', 'nan.document', _('Import Documents'), scan )

@@ -34,8 +34,12 @@ import re
 dataSourceExpressionRegExp = re.compile( r"""\$P\{(\w+)\}""" )
 
 class JasperReport:
-	def __init__(self, fileName):
+	def __init__(self, fileName, pathPrefix=''):
 		self._reportPath = fileName
+		self._pathPrefix = pathPrefix.strip()
+		if self._pathPrefix and self._pathPrefix[-1] != '/':
+			self._pathPrefix += '/'
+
 		self._language = 'SQL'
 		self._relations = []
 		self._fields = {}
@@ -61,9 +65,6 @@ class JasperReport:
 
 	def copiesField(self):
 		return self._copiesField
-
-	def path(self):
-		return self._reportPath
 
 	def subreportDirectory(self):
 		return os.path.join( os.path.abspath(os.path.dirname( self._reportPath )), '' )
@@ -94,11 +95,14 @@ class JasperReport:
 		if relationTags and 'value' in relationTags[0].keys():
 			# TODO: Make this secure.
 			self._relations = eval( relationTags[0].get('value') )
+			self._relations = [self._pathPrefix + x for x in self._relations]
+		if not self._relations and self._pathPrefix:
+			self._relations = [self._pathPrefix[:-1]]
 
 		# Repeat field
 		copiesFieldTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_COPIES_FIELD"]', namespaces=nss )
 		if copiesFieldTags and 'value' in copiesFieldTags[0].keys():
-			self._copiesField = copiesFieldTags[0].get('value')
+			self._copiesField = self._pathPrefix + copiesFieldTags[0].get('value')
 
 		# fields and fieldNames
 		fields = {}
@@ -111,7 +115,7 @@ class JasperReport:
 			#print "D2: ", tag.find('fieldDescription').text
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
-				path = path[13:]
+				path = self._pathPrefix + path[13:]
 			# Remove language specific data from the path so:
 			# Empresa-partner_id/Nom-name becomes partner_id/name
 			# We need to consider the fact that the name in user's language
@@ -160,8 +164,22 @@ class JasperReport:
 				continue
 			if subreportExpression.endswith('.jasper'):
 				subreportExpression = subreportExpression[:-6] + 'jrxml'
+
+			# Model
+			model = ''
+			modelTags = tag.xpath( '//jr:reportElement/jr:property[@name="OPENERP_MODEL"]', namespaces=nss )
+			if modelTags and 'value' in modelTags[0].keys():
+				model = modelTags[0].get('value')
+			
+			pathPrefix = ''
+			pathPrefixTags = tag.xpath( '//jr:reportElement/jr:property[@name="OPENERP_PATH_PREFIX"]', namespaces=nss )
+			if pathPrefixTags and 'value' in pathPrefixTags[0].keys():
+				pathPrefix = pathPrefixTags[0].get('value')
+
 			self._subreports.append({
 				'parameter': dataSourceExpression,
-				'filename': subreportExpression
+				'filename': subreportExpression,
+				'model': model,
+				'pathPrefix': pathPrefix,
 			})
 

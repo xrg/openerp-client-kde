@@ -180,6 +180,9 @@ class TreeView( AbstractView ):
 		layout.addWidget( self.aggregatesContainer )
 		self.setLayout( layout )
 		self._readOnly = True
+
+	def sizeHint(self):
+		return QSize(10, 10)
 	
 	def viewType(self):
 		return 'tree'

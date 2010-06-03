@@ -26,5 +26,6 @@
 #
 ##############################################################################
 
-import scan_documents_queue
+import analyze_documents_queue
 import process_documents_queue
+import execute_documents_queue

@@ -68,6 +68,7 @@ if isNanScanAvailable:
 			id = Rpc.session.execute('/object', 'execute', 'nan.document', 'create', {
 				'name': unicode( self.item.name ),
 				'datas': base64.encodestring( str(image.buffer()) ),
+				'filename': _('document.png'),
 			}, self.context )
 			if not id:
 				return

@@ -73,14 +73,51 @@ from PyQt4.QtGui import *
 from Koo.Common import Notifier, Common
 from Koo.Common import DBus
 
+## @brief The KeyPressEventFilter class provides an eventFilter that allows
+# removes KeyPress events and sends them only when KeyRelease is received. This can be used as a workaround
+# for a strange bug found when using koopda from a RDP client from a PDA.
+#
+# To install it in an application use 'app.installEventFilter( Koo.Common.KeyPressEventFilter( mainWindow ) )'
+#
+# In koopda.py we found that in some circumstances barcodes were not read properly. For 
+# example the following code '00121/1' was read as '00112/1'. Investigation showed the 
+# problem was not responsibility of Windows CE applications nor xrdp server. For some 
+# reason some key press events were being received by koopos.py application in the 
+# following way: 0 press, 0 release, 0 press, 0 release, 1 press, 1 release, **1 press**, 
+# 2 press, 2 release, 1 release, / press, / release, 1 press, 1 release. As it can be seen 
+# **1 press** was received before 2.
+#
+# The only way found to solve the issue has been to create an event filter called KeyPressEventFilter 
+# in koopda.py, which drops key presses and resends them only when release event is received.
+#
+class KeyPressEventFilter(QObject):
+	## @brief Creates a new KeyPressEventFilter object.
+	def __init__(self, parent=None):
+		QObject.__init__(self, parent)
+
+	def eventFilter(self, target, event):
+		if event.type() == QEvent.KeyPress:
+			try:
+				if event.force:
+					return False
+			except:
+				return True
+		if event.type() == QEvent.KeyRelease:
+			newEvent = QKeyEvent( QEvent.KeyPress, event.key(), event.modifiers(), event.text(), event.isAutoRepeat(), event.count() )
+			newEvent.force = True
+			QApplication.sendEvent( target, newEvent )
+		return QObject.eventFilter( self, target, event )	
+
 class PosMessageBox(QWidget):
 	def __init__(self, title, message, parent):
 		QWidget.__init__(self, parent)
 
 
 		self.uiTitle = QLabel( self )
+		self.uiTitle.setWordWrap( True )
 		self.uiTitle.setText( title )
 		self.uiMessage = QLabel( self )
+		self.uiMessage.setWordWrap( True )
 		self.uiMessage.setText( '<b>%s</b>' % message )
 		self.pushOk = QPushButton( self )
 		self.pushOk.setText( _('Ok') )
@@ -205,9 +242,10 @@ class KooApi(Api.KooApi):
 
 Api.instance = KooApi()
 
-#mainWindow.showFullScreen()
-mainWindow.setFixedSize( 240, 320 )
-mainWindow.show()
+mainWindow.showFullScreen()
+#mainWindow.setFixedSize( 240, 320 )
+#mainWindow.setFixedSize( 240, 280 )
+#mainWindow.show()
 
 if Settings.value('koo.pos_mode'):
         import Koo.Pos
@@ -222,6 +260,8 @@ app.installEventFilter( ArrowsEventFilter.ArrowsEventFilter(mainWindow) )
 
 from Koo.Common import WhatsThisEventFilter
 app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(mainWindow) )
+
+app.installEventFilter( KeyPressEventFilter(mainWindow) )
 
 # Load default wizard
 if not Settings.value( 'login.url'):

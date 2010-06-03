@@ -104,7 +104,7 @@ class Report:
 		
 		subreportDataFiles = []
 		for subreportInfo in self.report.subreports():
-			subreport = JasperReport( subreportInfo['filename'] )
+			subreport = JasperReport( subreportInfo['filename'], subreportInfo ['pathPrefix'] )
 			if subreport.language() == 'xpath':
 				fd, subreportDataFile = tempfile.mkstemp()
 				os.close(fd)

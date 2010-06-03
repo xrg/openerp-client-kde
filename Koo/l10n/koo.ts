@@ -198,17 +198,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BinaryWidget</name>
     <message>
-        <location filename="binary.ui" line="41"/>
+        <location filename="binary.ui" line="47"/>
         <source>Select file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="58"/>
+        <location filename="binary.ui" line="64"/>
         <source>Save file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="75"/>
+        <location filename="binary.ui" line="81"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1326,112 +1326,112 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="681"/>
+        <location filename="mainwindow.ui" line="684"/>
         <source>&amp;Reload/Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="684"/>
+        <location filename="mainwindow.ui" line="687"/>
         <source>F5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="693"/>
+        <location filename="mainwindow.ui" line="696"/>
         <source>E&amp;xport Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="702"/>
+        <location filename="mainwindow.ui" line="705"/>
         <source>&amp;Import Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="711"/>
+        <location filename="mainwindow.ui" line="714"/>
         <source>&amp;Execute Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="720"/>
+        <location filename="mainwindow.ui" line="723"/>
         <source>&amp;Contextual Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="725"/>
+        <location filename="mainwindow.ui" line="728"/>
         <source>&amp;Tips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="734"/>
+        <location filename="mainwindow.ui" line="737"/>
         <source>&amp;Keyboard Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="739"/>
+        <location filename="mainwindow.ui" line="742"/>
         <source>&amp;License</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="748"/>
+        <location filename="mainwindow.ui" line="751"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="757"/>
+        <location filename="mainwindow.ui" line="760"/>
         <source>Full &amp;Text Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="760"/>
+        <location filename="mainwindow.ui" line="763"/>
         <source>Ctrl+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="769"/>
+        <location filename="mainwindow.ui" line="772"/>
         <source>Attachments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="772"/>
+        <location filename="mainwindow.ui" line="775"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="781"/>
+        <location filename="mainwindow.ui" line="784"/>
         <source>&amp;Form designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="786"/>
+        <location filename="mainwindow.ui" line="789"/>
         <source>&amp;Menu</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="791"/>
+        <location filename="mainwindow.ui" line="794"/>
         <source>User Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="796"/>
+        <location filename="mainwindow.ui" line="799"/>
         <source>Documentation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="801"/>
+        <location filename="mainwindow.ui" line="804"/>
         <source>Koo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="810"/>
+        <location filename="mainwindow.ui" line="813"/>
         <source>Open Home Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="819"/>
+        <location filename="mainwindow.ui" line="822"/>
         <source>&amp;Clear Cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="828"/>
+        <location filename="mainwindow.ui" line="831"/>
         <source>Modify All Selected Records</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1448,6 +1448,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.ui" line="663"/>
         <source>Store View Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="675"/>
+        <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1582,52 +1587,52 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="112"/>
+        <location filename="login.ui" line="111"/>
         <source>&amp;Database:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="99"/>
+        <location filename="login.ui" line="98"/>
         <source>C&amp;hange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="71"/>
+        <location filename="login.ui" line="70"/>
         <source>&amp;Server:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="177"/>
+        <location filename="login.ui" line="176"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="222"/>
+        <location filename="login.ui" line="221"/>
         <source>&amp;Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="248"/>
+        <location filename="login.ui" line="247"/>
         <source>&amp;User:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="284"/>
+        <location filename="login.ui" line="283"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="298"/>
+        <location filename="login.ui" line="297"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="133"/>
+        <location filename="login.ui" line="132"/>
         <source>Create &amp;Database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="login.ui" line="144"/>
+        <location filename="login.ui" line="143"/>
         <source>&amp;Restore Database</source>
         <translation type="unfinished"></translation>
     </message>

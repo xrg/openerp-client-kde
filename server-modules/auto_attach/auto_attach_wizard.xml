@@ -1,24 +1,51 @@
-<terp>
+<openerp>
 	<data>
-		<!-- Scan -->
-		<record model="ir.actions.wizard" id="nan_document_scan">
-			<field name="name">Scan documents queue</field>
-			<field name="wiz_name">nan_document_scan</field>
+		<!-- Analyze -->
+		<record model="ir.actions.wizard" id="nan_document_analyze">
+			<field name="name">Analyze documents queue</field>
+			<field name="wiz_name">nan_document_analyze</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Scan Documents Queue" 
-			action="nan_document_scan" id="nan_document_scan_menu" type="wizard"/>
+		<menuitem 
+			name="Analyze Documents Queue"
+			action="nan_document_analyze"
+			id="document_analyze_menu"
+			parent="auto_attach_menu"
+			sequence="8"
+			type="wizard"
+			/>
 
-		<wizard string="Scan Documents" model="nan.document" name="nan_document_scan" id="wizard_scan_documents"/>
+		<wizard string="Analyze Documents" model="nan.document" name="nan_document_analyze" id="wizard_analyze_documents"/>
 
 		<!-- Process -->
 		<record model="ir.actions.wizard" id="nan_document_process">
 			<field name="name">Process documents queue</field>
 			<field name="wiz_name">nan_document_process</field>
 		</record>
-		<menuitem name="Administration/Auto Attach/Process Documents Queue" 
-			action="nan_document_process" id="nan_document_process_menu" type="wizard"/>
+		<menuitem 
+			name="Process Documents Queue"
+			action="nan_document_process"
+			id="document_process_menu"
+			parent="auto_attach_menu"
+			sequence="9"
+			type="wizard"
+			/>
 
 		<wizard string="Process Documents" model="nan.document" name="nan_document_process" id="wizard_process_documents"/>
+
+		<!-- Analyze, Verify & Process -->
+		<record model="ir.actions.wizard" id="nan_document_execute">
+			<field name="name">Execute documents queue</field>
+			<field name="wiz_name">nan_document_execute</field>
+		</record>
+		<menuitem 
+			name="Execute Documents Queue"
+			action="nan_document_execute"
+			id="document_execute_menu"
+			parent="auto_attach_menu"
+			sequence="10"
+			type="wizard"
+			/>
+		<wizard string="Execute Documents" model="nan.document" name="nan_document_execute" id="wizard_execute_documents"/>
 	</data>
-</terp>
+</openerp>
 

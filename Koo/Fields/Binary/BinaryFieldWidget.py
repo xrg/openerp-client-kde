@@ -192,8 +192,10 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 		# to know what kind of file it is, is if the filename property
 		# was set, and pick up the extension from that field.
 		extension = ''
-		if self.fileName():
+		if self.fileName() and '.' in self.fileName():
 			extension = '.%s' % self.fileName().rpartition('.')[2]
+		else:
+			extension = ''
 
 		fileName = tempfile.mktemp( extension )
 		fp = file(fileName,'wb+')

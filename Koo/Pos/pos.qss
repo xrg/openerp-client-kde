@@ -1,5 +1,5 @@
 * {
-	font-size: 20px;
+	font-size: 16px;
 }
 
 QListView::item {
@@ -11,7 +11,7 @@ QTreeView::item {
 }
 
 QPushButton {
-	padding: 10px;
+	padding: 5px;
 	qproperty-iconSize: 40px 40px;
 }
 

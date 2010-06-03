@@ -385,11 +385,28 @@ class FormWidget( QWidget, FormWidgetUi ):
 				self.updateStatus(_('<font color="green">Document saved</font>'))
 				if not modification and Settings.value('koo.auto_new'):
 					self.screen.new()
+				QApplication.restoreOverrideCursor()
 			else:
 				self.updateStatus(_('<font color="red">Invalid form</font>'))
+
+				QApplication.restoreOverrideCursor()
+				record = self.screen.currentRecord()
+				fields = []
+				for field in record.invalidFields:
+					attrs = record.fields()[ field ].attrs
+					if 'string' in attrs:
+						name = attrs['string']
+					else:
+						name = field
+					fields.append( '<li>%s</li>' % name )
+				fields.sort()
+				fields = '<ul>%s</ul>' % ''.join( fields )
+				value = QMessageBox.question( self, _('Error'), 
+					_('<p>The following fields have an invalid value and have been highlighted in red:</p>%s<p>Please fix them before saving.</p>') % fields, 
+					_('Ok') )
 		except Rpc.RpcException, e:
+			QApplication.restoreOverrideCursor()
 			id = False
-		QApplication.restoreOverrideCursor()
 		return bool(id)
 
 	def previous(self):

@@ -88,10 +88,20 @@ class AbstractFieldWidget(QWidget):
 			'normal'   : 'white'
 		}
 
+	def addShortcut(self, keys):
+		if not keys:
+			return
+		shortcut = QShortcut(QKeySequence(keys), self)
+		self.connect(shortcut, SIGNAL('activated()'), self.setFocus)
+
+	def initialize(self):
+		self.addShortcut( eval(self.attrs.get('use', '{}')).get('shortcut','') )
+
 	def showEvent(self, event):
 		if not self._isInitialized:
 			self._isInitialized = True
 			self.initGui()
+			self.initialize()
 		if not self._isUpToDate:
 			self._isUpToDate = True
 			if self.record:
@@ -187,8 +197,7 @@ class AbstractFieldWidget(QWidget):
 	def setColor(self, name):
 		color = QColor( self.colors.get( name, 'white' ) )
 		palette = QPalette()
-		palette.setColor(QPalette.Base, color)
-
+		palette.setColor(QPalette.Active, QPalette.Base, color)
 		self.colorWidget().setPalette(palette);
 
 	## @brief Installs the eventFilter on the given widget so the popup
@@ -264,6 +273,7 @@ class AbstractFieldWidget(QWidget):
 			if not self._isInitialized:
 				self._isInitialized = True
 				self.initGui()
+				self.initialize()
 			self._isUpToDate = True
 			self.showValue()
 		else:
