@@ -33,6 +33,7 @@ from Koo.Common import Calendar
 from Koo.Common import Numeric
 from Koo.Common import Common
 from Koo.Rpc import Rpc
+import logging
 
 #
 # We store the pointer to the Tiny ModelGroup on QModelIndex.internalPointer
@@ -65,7 +66,8 @@ class KooModel(QAbstractItemModel):
 	# QDate inside QVariant, instead of a QString as Qt.DisplayRole
 	# does. It's been created for the Calendar view but others
 	# might benefit too.
-	ValueRole = Qt.UserRole + 1 
+	ValueRole = Qt.UserRole + 1
+	_log = logging.getLogger('koo.model')
 
 	def __init__(self, parent=None):
 		QAbstractItemModel.__init__(self, parent)
@@ -322,7 +324,7 @@ class KooModel(QAbstractItemModel):
 				value = [ int(value[0].toInt()[0]), unicode(value[1].toString()) ]
 			model.setValue( field, value )
 		else:
-			print "Unable to store value of type: ", fieldType
+			self._log.error("Unable to store value of type: %s " % fieldType)
 
 		return True
 
@@ -599,7 +601,12 @@ class KooModel(QAbstractItemModel):
 		if orientation == Qt.Vertical:
 			return QVariant()
 		if role == Qt.DisplayRole:
-			field = self.fields[ self.field( section ) ]
+			field = self.fields.get(self.field( section ), None)
+			if not field:
+				self._log.warning("Could not get field %s: %s for %s header display role" % \
+					    (section, self.field(section) or 'in %d fields' % len(self.visibleFields),
+					    self.group.resource))
+				return QVariant()
 			return QVariant( Common.normalizeLabel( unicode( field['string'] ) ) )
 		elif role == Qt.FontRole and not self._readOnly:
 			if self.group.isFieldRequired( self.field( section ) ):
