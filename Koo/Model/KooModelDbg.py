@@ -46,7 +46,7 @@ def printMI(qmi, do_parent = True):
 class KooModelDbg(KooModel):
 	def __init__(self, *args,**kwargs):
 		KooModel.__init__(self,*args,**kwargs)
-		self.__logger = logging.getLogger('koo.model')
+		self.__logger = self._log
 		
 	def __call__(self, method, *params):
 		self.__logger.debug("call km.%s"%(str(method)))
