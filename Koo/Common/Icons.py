@@ -54,6 +54,7 @@ mapIcons = {
 	'gtk-ok' : 'ok.png',
 	'gtk-open' : 'open.png',
 	'gtk-print' : 'print.png',
+	'gtk-undo' : 'undo.png',
 	'STOCK_CONVERT' : 'convert.png',
 	'STOCK_EXECUTE' : 'action.png',
 	'STOCK_INDENT' : 'rightjust.png',

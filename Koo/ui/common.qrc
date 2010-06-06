@@ -80,6 +80,7 @@
     <file>images/text_under.png</file>
     <file>images/trash.png</file>
     <file>images/koo-icon.png</file>
+    <file>images/undo.png</file>
     <file>images/up.png</file>
     <file>images/warning.png</file>
   </qresource>
