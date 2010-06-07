@@ -210,7 +210,18 @@ class nan_document(osv.osv):
 		if datas:
 			datas = base64.decodestring(datas)
 			if datas.lower().startswith('%pdf'):
-				values['datas'] = base64.encodestring( self.image_from_pdf( datas ) )
+				data = self.image_from_pdf( datas ) 
+				if data:
+					values['datas'] = base64.encodestring(data)
+				else:
+					values['datas'] = False
+				filename = values.get('filename')
+				if filename:
+					# Set .jpg extension
+					if '.' in filename:
+						filename = filename.rpartition('.')[0]
+					values['filename'] = '%s.jpg' % filename 
+
 		return super(nan_document, self).create(cr, uid, values, context)
 
 	def write(self, cr, uid, ids, values, context=None):
@@ -230,7 +241,17 @@ class nan_document(osv.osv):
 		if datas:
 			datas = base64.decodestring(datas)
 			if datas.lower().startswith('%pdf'):
-				values['datas'] = base64.encodestring( self.image_from_pdf( datas ) )
+				data = self.image_from_pdf( datas ) 
+				if data:
+					values['datas'] = base64.encodestring(data)
+				else:
+					values['datas'] = False
+				filename = values.get('filename')
+				if filename:
+					# Set .jpg extension
+					if '.' in filename:
+						filename = filename.rpartition('.')[0]
+					values['filename'] = '%s.jpg' % filename 
 
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
