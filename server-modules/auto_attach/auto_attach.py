@@ -128,17 +128,6 @@ class nan_template_box(osv.osv):
 	}
 nan_template_box()
 
-def attachableDocuments(self, cr, uid, context={}):
-	ids = self.pool.get('ir.model').search(cr, uid, [], context=context)
-	records = self.pool.get('ir.model').read(cr, uid, ids, ['model', 'name'], context)
-	data = []
-	for record in records:
-		model = record['model']
-		name = record['name']
-		if len(name) > 30:
-			name = name[:30] + '...'
-		data.append( (model, name) )
-	return data
 
 class nan_document(osv.osv):
 	_name = 'nan.document'
@@ -146,6 +135,19 @@ class nan_document(osv.osv):
 		'pending': [ ( 'readonly', False ), ],
 		'analyzed': [ ( 'readonly', False ), ],
 	}
+
+	def attachableDocuments(self, cr, uid, context={}):
+		ids = self.pool.get('ir.model').search(cr, uid, [], context=context)
+		records = self.pool.get('ir.model').read(cr, uid, ids, ['model', 'name'], context)
+		data = []
+		for record in records:
+			model = record['model']
+			name = record['name']
+			if len(name) > 30:
+				name = name[:30] + '...'
+			data.append( (model, name) )
+		return data
+
 	_columns = {
 		'name' : fields.char('Name', 64, readonly=True, states=state_only_read),
 		'datas': fields.binary('Data', readonly=True, states=state_only_read),
