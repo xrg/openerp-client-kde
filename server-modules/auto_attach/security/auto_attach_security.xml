@@ -10,5 +10,8 @@
 	<record model='ir.ui.menu' id='auto_attach_config_menu'>
 		<field name="groups_id" eval="[(6,0,[ref('group_auto_attach_manager')])]"/>
 	</record>
+	<record model='ir.ui.menu' id='auto_attach_menu'>
+		<field name="groups_id" eval="[(6,0,[ref('group_auto_attach_user')])]"/>
+	</record>
 </data>
 </openerp>
