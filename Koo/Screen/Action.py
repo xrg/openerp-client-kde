@@ -28,6 +28,7 @@
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from Koo.Common import Api
+from Koo.Common import Common
 from Koo.Plugins import *
 from Koo import Rpc
 
@@ -142,7 +143,7 @@ class ActionFactory:
 			for tool in definition[icontype]:
 				action = Action( parent )
 				action.setIcon( QIcon( ":/images/%s.png" % icontype) )
-				action.setText( tool['string'] )
+				action.setText( Common.normalizeLabel( tool['string'] ) )
 				action.setType( icontype )
 				action.setData( tool )
 				action.setModel( model )
