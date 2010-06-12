@@ -423,6 +423,38 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Dialog</name>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="14"/>
+        <source>Massive Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="49"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the fields you want to update in the %d selected records:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="104"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="115"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="122"/>
+        <source>Esc</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ErrorDialog</name>
     <message>
         <location filename="error.ui" line="13"/>
@@ -2504,17 +2536,17 @@ this operation may take a while...</source>
 <context>
     <name>TranslationDialog</name>
     <message>
-        <location filename="translationdialog.ui" line="13"/>
+        <location filename="translationdialog.ui" line="14"/>
         <source>Translation dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="translationdialog.ui" line="47"/>
+        <location filename="translationdialog.ui" line="48"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="translationdialog.ui" line="57"/>
+        <location filename="translationdialog.ui" line="59"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
