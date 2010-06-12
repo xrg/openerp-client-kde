@@ -26,8 +26,11 @@
 						<page string="General">
 							<field name="name" select="1"/>
 							<field name="state" select="1"/>
-							<field name="template_id" select="1"/> 
-							<field name="document_id" select="1"/>
+							<group col="6" colspan="4">
+								<field name="template_id" select="1"/> 
+								<field name="document_id" select="1"/>
+								<field name="attachment_id" select="2"/>
+							</group>
 							<separator string="Task" colspan="4"/>
 							<field name="task" nolabel="1" colspan="4" select="2"/>
 							<separator string="Image" colspan="4"/>
