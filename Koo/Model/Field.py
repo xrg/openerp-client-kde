@@ -31,6 +31,7 @@ from Koo.Rpc import RpcProxy, Rpc
 from Koo import Rpc
 import base64
 from Koo.Common import Numeric
+# import logging
 
 
 class StringField(QObject):
@@ -250,7 +251,10 @@ class ManyToOneField(StringField):
 			# list from the server so we just check it before
 			# trying to store result[0]
 			if result:
-				record.values[self.name] = result[0]
+				assert isinstance(result[0], (tuple, list)), result[0]
+				record.values[self.name] = tuple(result[0])
+		elif isinstance(value, dict):
+			record.values[self.name] = (value['id'],value.get('name',False))
 		else:
 			record.values[self.name] = value
 		if modified:
