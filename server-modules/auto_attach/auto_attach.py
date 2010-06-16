@@ -128,17 +128,6 @@ class nan_template_box(osv.osv):
 	}
 nan_template_box()
 
-def attachableDocuments(self, cr, uid, context={}):
-	ids = self.pool.get('ir.model').search(cr, uid, [], context=context)
-	records = self.pool.get('ir.model').read(cr, uid, ids, ['model', 'name'], context)
-	data = []
-	for record in records:
-		model = record['model']
-		name = record['name']
-		if len(name) > 30:
-			name = name[:30] + '...'
-		data.append( (model, name) )
-	return data
 
 class nan_document(osv.osv):
 	_name = 'nan.document'
@@ -146,6 +135,19 @@ class nan_document(osv.osv):
 		'pending': [ ( 'readonly', False ), ],
 		'analyzed': [ ( 'readonly', False ), ],
 	}
+
+	def attachableDocuments(self, cr, uid, context={}):
+		ids = self.pool.get('ir.model').search(cr, uid, [], context=context)
+		records = self.pool.get('ir.model').read(cr, uid, ids, ['model', 'name'], context)
+		data = []
+		for record in records:
+			model = record['model']
+			name = record['name']
+			if len(name) > 30:
+				name = name[:30] + '...'
+			data.append( (model, name) )
+		return data
+
 	_columns = {
 		'name' : fields.char('Name', 64, readonly=True, states=state_only_read),
 		'datas': fields.binary('Data', readonly=True, states=state_only_read),
@@ -153,6 +155,7 @@ class nan_document(osv.osv):
 		'property_ids': fields.one2many('nan.document.property', 'document_id', 'Properties', readonly=True, states=state_only_read),
 		'template_id': fields.many2one('nan.template', 'Template', readonly=True, states=state_only_read),
 		'document_id': fields.reference('Document', selection=attachableDocuments, size=128, readonly=True, states=state_only_read),
+		'attachment_id': fields.many2one('ir.attachment', 'Attachment', readonly=True, ondelete='cascade', help='Attachment created by this document.'),
 		'task' : fields.text('Task', readonly=True),
 		'state': fields.selection( [
 			('pending','Pending'),('analyzing','Analyzing'),('analyzed','Analyzed'),
@@ -210,7 +213,18 @@ class nan_document(osv.osv):
 		if datas:
 			datas = base64.decodestring(datas)
 			if datas.lower().startswith('%pdf'):
-				values['datas'] = base64.encodestring( self.image_from_pdf( datas ) )
+				data = self.image_from_pdf( datas ) 
+				if data:
+					values['datas'] = base64.encodestring(data)
+				else:
+					values['datas'] = False
+				filename = values.get('filename')
+				if filename:
+					# Set .jpg extension
+					if '.' in filename:
+						filename = filename.rpartition('.')[0]
+					values['filename'] = '%s.jpg' % filename 
+
 		return super(nan_document, self).create(cr, uid, values, context)
 
 	def write(self, cr, uid, ids, values, context=None):
@@ -230,7 +244,17 @@ class nan_document(osv.osv):
 		if datas:
 			datas = base64.decodestring(datas)
 			if datas.lower().startswith('%pdf'):
-				values['datas'] = base64.encodestring( self.image_from_pdf( datas ) )
+				data = self.image_from_pdf( datas ) 
+				if data:
+					values['datas'] = base64.encodestring(data)
+				else:
+					values['datas'] = False
+				filename = values.get('filename')
+				if filename:
+					# Set .jpg extension
+					if '.' in filename:
+						filename = filename.rpartition('.')[0]
+					values['filename'] = '%s.jpg' % filename 
 
 		ret = super(nan_document, self).write(cr, uid, ids, values, context)
 
@@ -445,6 +469,40 @@ class nan_document(osv.osv):
 			if not explain and document.state not in ('verified','processing'):
 				continue
 
+			if not explain and document.document_id:
+				# Attach document to the appropiate reference
+				ref = document.document_id.split(',')
+				model = ref[0]
+				id = ref[1]
+
+				# Ensure attachment name is not duplicated because there's a restriction
+				# in ir.attachment model.
+				count = 0
+				while True:
+					current_name = '%s (%d)' % (document.name, count)
+					name = count and current_name or document.name
+					ids = self.pool.get('ir.attachment').search(cr, uid, [
+						('res_id','=',id),
+						('res_model','=',model),
+						('name','=',name)
+					], context=context)
+					if not ids:
+						break
+					count += 1
+
+				attachment_id = self.pool.get('ir.attachment').create( cr, uid, { 
+					'res_id': id,
+					'res_model': model,
+					'name': name,
+					'datas': document.datas,
+					'datas_fname': document.filename or document.name,
+					'description': _('Document attached automatically'),
+				}, context)
+				self.write(cr, uid, [document.id], {
+					'state': 'processed',
+					'attachment_id': attachment_id,
+				}, context)
+
 			task = None
 			if document.template_id:
 				function = document.template_id.action_function
@@ -456,23 +514,6 @@ class nan_document(osv.osv):
 					task = eval('obj.%s(cr, uid, document.id, explain, %s, context)' % ( name, ','.join( parameters ) ) )
 			if explain:
 				self.write( cr, uid, [document.id], {'task': task} )
-			elif document.document_id:
-				# Attach document to the appropiate reference
-				ref = document.document_id.split(',')
-				model = ref[0]
-				id = ref[1]
-				self.pool.get( 'ir.attachment' ).create( cr, uid, { 
-					'res_id': id,
-					'res_model': model,
-					'name': document.name,
-					'datas': document.datas,
-					'datas_fname': document.filename or document.name,
-					'description': _('Document attached automatically'),
-				}, context)
-				self.write(cr, uid, [document.id], {
-					'state': 'processed'
-				}, context)
-
 
 	def executeAttachs( self, cr, uid, ids, context=None ):
 		if context is None:

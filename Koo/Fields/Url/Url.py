@@ -58,10 +58,12 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 
 	def clear( self ):
 		self.uiUrl.clear()
+		self.uiUrl.setToolTip('')
 
 	def showValue(self):
-		self.uiUrl.setText(self.record.value(self.name) or '')
 		self.uiUrl.setCursorPosition( 0 )
+		self.uiUrl.setText(self.record.value(self.name) or '')
+		self.uiUrl.setToolTip(self.record.value(self.name) or '')
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)

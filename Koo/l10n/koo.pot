@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-29 22:20+0200\n"
+"POT-Creation-Date: 2010-06-12 18:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:89 Koo/Actions/Actions.py:100
+#: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:287
-#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:264
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:289
+#: Koo/Dialogs/TreeWidget.py:301 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
 msgstr ""
 
-#: Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:89
+#: Koo/Screen/Action.py:90
 msgid "You must save this record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:135
+#: Koo/Screen/Action.py:136
 msgid "Print Screen"
 msgstr ""
 
@@ -141,19 +141,19 @@ msgstr ""
 msgid "List View"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:210
+#: Koo/View/Tree/TreeView.py:221
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:212
+#: Koo/View/Tree/TreeView.py:223
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:214
+#: Koo/View/Tree/TreeView.py:225
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:238
+#: Koo/View/Tree/TreeView.py:249
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -215,7 +215,7 @@ msgstr ""
 msgid "Do not save"
 msgstr ""
 
-#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:359
+#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:364
 #, python-format
 msgid "%d bytes"
 msgstr ""
@@ -283,14 +283,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:579 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:579 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr ""
 
@@ -792,15 +790,9 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#: Koo/Dialogs/MassiveUpdateDialog.py:125
 #, python-format
-msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>"
-"%(records)s<p>Do you want to continue?</p>"
+msgid "Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
 
 #: Koo/Dialogs/ImportExportCommon.py:37
@@ -886,15 +878,15 @@ msgstr ""
 msgid "Tree"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+#: Koo/Dialogs/TreeWidget.py:289 Koo/Dialogs/TreeWidget.py:301
 msgid "No resource selected!"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:316
+#: Koo/Dialogs/TreeWidget.py:318
 msgid "No item selected"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:316
+#: Koo/Dialogs/TreeWidget.py:318
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
@@ -991,22 +983,22 @@ msgstr ""
 msgid "You can not set to the default value here !"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:246
-#: Koo/Fields/ManyToOne/ManyToOne.py:305
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:249
+#: Koo/Fields/ManyToOne/ManyToOne.py:309
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:307
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:311
 msgid "Action"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:308
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:312
 msgid "Report"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:125 Koo/Fields/ManyToOne/ManyToOne.py:253
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
+#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:257
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
 msgstr ""
 
@@ -1142,10 +1134,10 @@ msgstr ""
 msgid "Set current date"
 msgstr ""
 
-#: Koo/Fields/Calendar/Calendar.py:121
+#: Koo/Fields/Calendar/Calendar.py:124
 msgid "Set current date and time"
 msgstr ""
 
-#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:220
+#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:222
 msgid "Set current time"
 msgstr ""

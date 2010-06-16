@@ -121,6 +121,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		if self.record:
 			self.record.setValue( self.name, False )
 		self.uiText.clear()
+		self.uiText.setToolTip('')
 		self.pushOpen.setIcon( QIcon( ":/images/find.png"))
 		self.pushOpen.setToolTip( _("Search") )
 
@@ -215,7 +216,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 				self.record.setValue(self.name, name)
 				self.display()
 			else:
-				self.uiText.setFocus()
+				self.clear()
 
 	def new(self):
 		dialog = ScreenDialog(self)
@@ -236,12 +237,14 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def reset(self):
 		self.uiText.clear()
+		self.uiText.setToolTip('')
 		
 	def showValue(self):
 		res = self.record.value(self.name)
  		if res:
-			self.uiText.setText( res )
 			self.uiText.setCursorPosition( 0 )
+			self.uiText.setText( res )
+			self.uiText.setToolTip( res )
 			self.pushOpen.setIcon( QIcon( ":/images/folder.png"))
 			self.pushOpen.setToolTip( _("Open") )
 			# pushOpen will always be enabled if it has to open an existing
@@ -249,6 +252,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.pushOpen.setEnabled( True )
  		else:
 			self.uiText.clear()
+			self.uiText.setToolTip('') 
  			self.pushOpen.setIcon( QIcon( ":/images/find.png"))
 			self.pushOpen.setToolTip( _("Search") )
 			# pushOpen won't be enabled if it is to find an element

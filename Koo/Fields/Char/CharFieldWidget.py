@@ -87,13 +87,15 @@ class CharFieldWidget(AbstractFieldWidget):
 
 	def clear(self):
 		self.widget.clear()
+		self.widget.setToolTip('')
 	
 	def showValue(self):
 		self.setText( self.record.value(self.name) or '' )
 
 	def setText(self, text):
-		self.widget.setText( text )
 		self.widget.setCursorPosition( 0 )
+		self.widget.setText( text )
+		self.widget.setToolTip( text )
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)

@@ -81,14 +81,17 @@ class Record(QObject):
 		self.new = new
 
 	def __del__(self):
-		#self.parent = None
-		#self.setParent( None )
+		self.rpc = None
+		self.modified_fields = None
+		self.parent = None
+		self.setParent( None )
 		for key, value in self.values.iteritems():
 			from Group import RecordGroup
 			if isinstance(value, RecordGroup):
 				#value.parent.fieldObjects[key].disconnect( SIGNAL('modified'), value )
 				value.__del__()
 		self.values = {}
+		self.invalidFields = []
 		from Koo.Common import Debug
 		if self.id == 2:
 			Debug.printReferrers( self )

@@ -69,8 +69,9 @@ class IntegerFieldWidget(AbstractFieldWidget):
 		return self.widget
 
 	def setText(self, text):
-		self.widget.setText( text )
 		self.widget.setCursorPosition( 0 )
+		self.widget.setText( text )
+		self.widget.setToolTip( text )
 
 class IntegerFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):

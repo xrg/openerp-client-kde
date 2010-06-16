@@ -63,7 +63,7 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		return [ (_('Set current date'), self._setCurrentDate, True ) ]	
 
 	def _setCurrentDate( self ):
-		self.uiDate.setText( dateToText( QDate.currentDate() ) )
+		self.setText( dateToText( QDate.currentDate() ) )
 
 	def colorWidget(self):
 		return self.uiDate
@@ -92,6 +92,7 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 
 	def clear(self):
 		self.uiDate.clear()
+		self.uiDate.setToolTip('')
 	
 	def showValue(self):
 		# Ensure record is valid given the function can be called from self.updateValue()
@@ -109,8 +110,10 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		self.connect( popup, SIGNAL('selected()'), self.store )
 
 	def setText(self, text):
-		self.uiDate.setText( text )
 		self.uiDate.setCursorPosition( 0 )
+		self.uiDate.setText( text )
+		self.uiDate.setToolTip( text )
+
 
 class DateTimeFieldWidget( DateFieldWidget ):
 	def __init__(self, parent, model, attrs={}):
@@ -129,9 +132,6 @@ class DateTimeFieldWidget( DateFieldWidget ):
 			return False
 		return  str(dateTimeToStorage( datetime ))
 	
-	def clear(self):
-		self.uiDate.clear()
-
  	def showValue(self):
 		# Ensure record is valid given the function can be called from self.updateValue()
 		if not self.record:
@@ -184,6 +184,7 @@ class TimeFieldWidget(AbstractFieldWidget):
 
 	def clear(self):
 		self.uiTime.clear()
+		self.uiTime.setToolTip('')
 
 	def showValue(self):
 		# Ensure record is valid given the function can be called from self.updateValue()
@@ -197,8 +198,9 @@ class TimeFieldWidget(AbstractFieldWidget):
 			self.clear()
 
 	def setText(self, text):
-		self.uiTime.setText( text )
 		self.uiTime.setCursorPosition( 0 )
+		self.uiTime.setText( text )
+		self.uiTime.setToolTip( text )
 
 class FloatTimeFieldWidget(AbstractFieldWidget):
 	def __init__(self, parent, model, attrs={}):
@@ -253,8 +255,9 @@ class FloatTimeFieldWidget(AbstractFieldWidget):
 			self.setText( '00:00' )
 
 	def setText(self, text):
-		self.uiTime.setText( text )
 		self.uiTime.setCursorPosition( 0 )
+		self.uiTime.setText( text )
+		self.uiTime.setToolTip( text )
 
 class DateFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):

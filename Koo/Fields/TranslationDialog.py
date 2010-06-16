@@ -104,6 +104,7 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 			widget.setText( text )
 		else:
 			widget.setPlainText( text )
+		widget.setToolTip( text )
 
 	def text(self, widget):
 		if self.type == TranslationDialog.LineEdit:

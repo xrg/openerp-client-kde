@@ -207,6 +207,7 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 			self.pushOpen.setToolTip( _("Open") )
 		else:
 			self.uiText.clear()
+			self.uiText.setToolTip('')
 			self.uiModel.setCurrentIndex(-1)
 			self.pushOpen.setIcon( QIcon(":/images/find.png") )
 			self.pushOpen.setToolTip( _("Search") )
@@ -214,4 +215,5 @@ class ReferenceFieldWidget(AbstractFieldWidget, ReferenceFieldWidgetUi):
 	def setText(self, text):
 		self.uiText.setText(text)
 		self.uiText.setCursorPosition( 0 )
+		self.uiText.setToolTip(text)
 

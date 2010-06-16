@@ -33,6 +33,38 @@ from Koo.Common import Common
 from Koo.Model.Group import RecordGroup
 from Koo.Screen.ViewQueue import *
 
+(MassiveUpdateMessageBoxUi, MassiveUpdateMessageBoxBase) = loadUiType( Common.uiPath('massiveupdate_msgbox.ui') )
+
+class MassiveUpdateMessageBoxDialog(QDialog, MassiveUpdateMessageBoxUi):
+	def __init__(self, parent=None):
+		QDialog.__init__(self, parent)
+		MassiveUpdateMessageBoxUi.__init__(self)
+		self.setupUi(self)
+		self._fields = []
+
+	def setMessage(self, message):
+		self.uiMessage.setText( message )
+
+	def setFields(self, fields):
+		"""
+		fields = [(label, name)...]
+		"""
+		self._fields = fields
+		for field in self._fields:
+			item = QListWidgetItem( self.uiFields )
+			item.setText( field[0] )
+			item.setSelected( True )
+			self.uiFields.addItem( item )
+
+	def selectedFields(self):
+		selected = []
+		for x in xrange(self.uiFields.count()):
+			item = self.uiFields.item(x)
+			if item.isSelected():
+				selected.append( self._fields[x][1] )
+		return selected
+
+
 (MassiveUpdateDialogUi, MassiveUpdateDialogBase) = loadUiType( Common.uiPath('massiveupdate.ui') )
 
 class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
@@ -83,19 +115,19 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 					name = attrs['string']
 				else:
 					name = field
-				fields.append( '<li>%s</li>' % name )
+				fields.append( (name, field) )
 
-			fields.sort()
-			fields = '<ul>%s</ul>' % ''.join( fields )
+			fields.sort(key=lambda x: x[0])
 
 			if fields:
-				answer = QMessageBox.question( self, _('Confirmation'), 
-					_('<p>This process will update the following fields in %(number)d records:</p>%(records)s<p>Do you want to continue?</p>') % { 
-					'number': len(self.ids), 
-					'records': fields 
-					}, _("Yes"), _("No") )
-				if answer == 1:
+				messageBox = MassiveUpdateMessageBoxDialog(self)
+				messageBox.setFields(fields)
+				messageBox.setMessage( _('Select the fields you want to update in the <b>%d</b> selected records:') % len(self.ids) )
+				if messageBox.exec_() == QDialog.Rejected:
 					return
-				Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, values, self.context)
+				newValues = {}
+				for field in messageBox.selectedFields():
+					newValues[field] = values[field]
+				Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, newValues, self.context)
 		self.accept()
 

@@ -279,6 +279,7 @@ class ToManyField(StringField):
 		from Koo.Model.Group import RecordGroup
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
 		group.setDomainForEmptyGroup()
+		group.tomanyfield = self
 		self.connect( group, SIGNAL('modified'), self.groupModified )
 		return group
 
@@ -299,6 +300,7 @@ class ToManyField(StringField):
 		# This has crashed when switching view of the 'account.invoice.line' one2many field
 		# in 'account.invoice' view.
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
+		group.tomanyfield = self
 		self.connect( group, SIGNAL('modified'), self.groupModified )
 		group.setDomain( [('id','in',value)] )
 		group.load(value)
@@ -351,6 +353,7 @@ class OneToManyField(ToManyField):
 
 		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record, context=self.context(record, eval=False))
 		self.connect( record.values[self.name], SIGNAL('modified'), self.groupModified )
+		record.values[self.name].tomanyfield = self
 		mod=None
 		for record in (value or []):
 			# TODO: Fix with new Group behaviour. Has this ever really worked?

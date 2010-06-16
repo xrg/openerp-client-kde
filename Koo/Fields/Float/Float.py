@@ -75,8 +75,9 @@ class FloatFieldWidget(AbstractFieldWidget):
 		return self.widget
 
 	def setText(self, text):
-		self.widget.setText( text )
 		self.widget.setCursorPosition( 0 )
+		self.widget.setText( text )
+		self.widget.setToolTip( text )
 
 class FloatFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):

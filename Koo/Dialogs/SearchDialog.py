@@ -123,8 +123,6 @@ class SearchDialog( QDialog, SearchDialogUi ):
 	def select(self):
 		if self.allowMultipleSelection:
 			self.view.selectAll()
-		else:
-			self.view.selectFirst()
 		self.setWindowTitle( self.titleResults % self.modelGroup.count() )
 
 	def accepted( self ):
