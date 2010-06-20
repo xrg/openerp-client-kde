@@ -198,7 +198,7 @@ class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
 		self.retry = True
 		self.remaining = 10
 		self.updateMessage()
-		self.uiTitle.setText( '<b>Connection Lost:</b> %s' % count )
+		self.uiTitle.setText( _('<b>Connection Lost:</b> %s') % count )
 
 		self.timer = QTimer()
 		self.timer.setInterval( 1000 )
@@ -207,7 +207,7 @@ class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
 
 	@pyqtSlot()
 	def updateMessage(self):
-		self.uiMessage.setText( 'Connection with the server has been lost. Will retry connection in %d seconds.' % self.remaining )
+		self.uiMessage.setText( _('Connection with the server has been lost. Will retry connection in %d seconds.') % self.remaining )
 		self.remaining -= 1
 		if self.remaining < 0:
 			self.timer.stop()
