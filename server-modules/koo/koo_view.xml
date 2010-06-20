@@ -88,6 +88,46 @@
 		<menuitem name="Administration/Configuration/Koo/Settings" 
 			action="koo_settings_action" id="koo_settings_menu"/>
 
+		<!-- Koo Releases Views -->
+		<record model='ir.ui.view' id='koo_release_form'>
+			<field name="name">nan.koo.release.form</field>
+			<field name="model">nan.koo.release</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Koo Releases">
+					<field name="version"/>
+					<field name="platform"/>
+					<field name="installer" filename="filename"/>
+					<field name="filename"/>
+					<field name="command_line" colspan="4"/>
+					<separator string="Release Notes" colspan="4"/>
+					<field name="release_notes" colspan="4"/>
+				</form>
+			</field>
+		</record>
+		<record model='ir.ui.view' id='koo_release_tree'>
+			<field name="name">nan.koo.release.tree</field>
+			<field name="model">nan.koo.release</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Koo Release">
+					<field name="version"/>
+					<field name="platform"/>
+					<field name="filename"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="koo_release_action">
+			<field name="name">Koo Releases</field>
+			<field name="res_model">nan.koo.release</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem 
+			name="Administration/Configuration/Koo/Releases" 
+			action="koo_release_action" 
+			id="koo_release_menu"/>
+
 		<!-- Attachment updates for Koo -->
 
 		<!-- Add "link" field to attachment view form -->

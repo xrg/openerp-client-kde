@@ -153,6 +153,52 @@ koo_services()
 paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/koo' ]
 SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
 
+class nan_koo_release(osv.osv):
+	_name = 'nan.koo.release'
+	_rec_name = 'version'
+
+	_columns = {
+		'version': fields.char('Version', 20, required=True),
+		'installer': fields.binary('Installer'),
+		'filename': fields.char('File Name', 40, required=True),
+		'command_line': fields.char('Command Line', 200, required=True),
+		'release_notes': fields.text('Release Notes'),
+		'platform': fields.selection([('win32','Windows (32 bit)'),('posix','Posix')], 'Platform', required=True),
+	}
+	_sql_constraints = [
+		('version_platform_uniq', 'unique(version, platform)', 'You can only have one installer per version and platform.'),
+	]
+
+	def needs_update(self, cr, uid, version, platform, download, context):
+		ids = self.search(cr, uid, [
+			('version','>',version),
+			('platform','=',platform)
+		], order='version DESC', limit=1, context=context)
+		if not ids:
+			return False
+		release = self.browse(cr, uid, ids[0], context)
+		if not release.installer:
+			return False
+		return {
+			'version': release.version,
+			'release_notes': release.release_notes,
+			'installer': download and release.installer or False,
+			'filename': release.filename,
+			'command_line': release.command_line,
+		}
+
+	def get_installer(self, cr, uid, version, platform, context):
+		ids = self.search(cr, uid, [
+			('version','=',version),
+			('platform','=',platform)
+		], context=context)
+		if not ids:
+			return False
+		release = self.browse(cr, uid, ids[0], context)
+		return release.installer
+
+nan_koo_release()
+
 class nan_koo_settings(osv.osv):
 	_name = 'nan.koo.settings'
 
