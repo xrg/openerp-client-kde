@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-20 13:56+0200\n"
+"POT-Creation-Date: 2010-06-20 23:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,7 +215,19 @@ msgstr ""
 msgid "Do not save"
 msgstr ""
 
-#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:579
+#: Koo/Common/Common.py:201
+#, python-format
+msgid "<b>Connection Lost:</b> %s"
+msgstr ""
+
+#: Koo/Common/Common.py:210
+#, python-format
+msgid ""
+"Connection with the server has been lost. Will retry connection in %d "
+"seconds."
+msgstr ""
+
+#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:604
 msgid "Quit"
 msgstr ""
 
@@ -293,12 +305,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr ""
 
@@ -564,7 +576,7 @@ msgstr ""
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:450
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:475
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -588,68 +600,68 @@ msgstr ""
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:357
+#: Koo/Dialogs/KooMainWindow.py:361
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:359
+#: Koo/Dialogs/KooMainWindow.py:363
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:361
+#: Koo/Dialogs/KooMainWindow.py:365
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:368
+#: Koo/Dialogs/KooMainWindow.py:372
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:368
+#: Koo/Dialogs/KooMainWindow.py:372
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:424 Koo/Dialogs/KooMainWindow.py:426
+#: Koo/Dialogs/KooMainWindow.py:449 Koo/Dialogs/KooMainWindow.py:451
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:424
+#: Koo/Dialogs/KooMainWindow.py:449
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:426
+#: Koo/Dialogs/KooMainWindow.py:451
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:431 Koo/Dialogs/KooMainWindow.py:433
+#: Koo/Dialogs/KooMainWindow.py:456 Koo/Dialogs/KooMainWindow.py:458
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:433
+#: Koo/Dialogs/KooMainWindow.py:458
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:449
+#: Koo/Dialogs/KooMainWindow.py:474
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:543
+#: Koo/Dialogs/KooMainWindow.py:568
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:543
+#: Koo/Dialogs/KooMainWindow.py:568
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:579
+#: Koo/Dialogs/KooMainWindow.py:604
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:638
 msgid "Wizard"
 msgstr ""
 
