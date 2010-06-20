@@ -453,6 +453,26 @@ p, li { white-space: pre-wrap; }
         <source>Esc</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="lostconnection.ui" line="32"/>
+        <source>Connection Lost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="45"/>
+        <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="73"/>
+        <source>&amp;Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="84"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ErrorDialog</name>
