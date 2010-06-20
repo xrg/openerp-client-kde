@@ -384,6 +384,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if exception:
 			return
 
+		if not value:
+			return
+
 		import base64
 		import tempfile
 		import subprocess
