@@ -77,6 +77,7 @@ from Koo.Common import DBus
 Notifier.errorHandler = Common.error
 Notifier.warningHandler = Common.warning
 Notifier.concurrencyErrorHandler = Common.concurrencyError
+Notifier.lostConnectionErrorHandler = Common.lostConnectionError
 
 
 

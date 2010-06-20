@@ -52,6 +52,7 @@
 errorHandler = None
 warningHandler = None
 concurrencyErrorHandler = None
+lostConnectionErrorHandler = None
 
 ## @brief Calls the function that has been registered to handle errors.
 def notifyError(title, message, detail):
@@ -68,3 +69,7 @@ def notifyConcurrencyError(model, id, context):
 	if concurrencyErrorHandler:
 		return concurrencyErrorHandler(model, id, context)
 
+## @brief Calls the function that has been registered to handle lost connection errors.
+def notifyLostConnection(count):
+	if lostConnectionErrorHandler:
+		return lostConnectionErrorHandler(count)

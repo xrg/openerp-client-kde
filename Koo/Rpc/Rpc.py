@@ -422,24 +422,27 @@ class Session:
 	# Note that you'll need to bind gettext as texts sent to
 	# the notify module are localized.
 	def execute(self, obj, method, *args):
-		try:
-			return self.call(obj, method, *args)
-		except RpcProtocolException, err:
-			Notifier.notifyError(_('Connection Refused'), err.info, err.info )
-			raise
-		except RpcServerException, err:
-			if err.type in ('warning','UserError'):
-				if err.info in ('ConcurrencyException') and len(args) > 4:
-					if Notifier.notifyConcurrencyError(args[0], args[2] and args[2][0], args[4]):
-						if ConcurrencyCheckField in args[4]:
-							del args[4][ConcurrencyCheckField]
-						return self.execute(obj, method, *args)
+		retry = True
+		count = 1
+		while retry:
+			try:
+				return self.call(obj, method, *args)
+			except RpcProtocolException, err:
+				if not Notifier.notifyLostConnection( count ):
+					raise
+			except RpcServerException, err:
+				if err.type in ('warning','UserError'):
+					if err.info in ('ConcurrencyException') and len(args) > 4:
+						if Notifier.notifyConcurrencyError(args[0], args[2] and args[2][0], args[4]):
+							if ConcurrencyCheckField in args[4]:
+								del args[4][ConcurrencyCheckField]
+							return self.execute(obj, method, *args)
+					else:
+						Notifier.notifyWarning(err.info, err.data )
 				else:
-					Notifier.notifyWarning(err.info, err.data )
-			else:
-				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
-			raise
-
+					Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
+				raise
+			count += 1
 
 	## @brief Logs in the given server with specified name and password.
 	# @param url url string such as 'http://admin:admin\@localhost:8069'. 

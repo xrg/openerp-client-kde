@@ -175,11 +175,56 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
 def error(title, message, details=''):
-	Debug.error( 'MSG %s: %s' % (unicode(message), unicode(details)) )
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
 	dialog = ErrorDialog( unicode(title), unicode(message), unicode(details) )
 	dialog.exec_()
 	QApplication.restoreOverrideCursor()
+
+
+(LostConnectionDialogUi, LostConnectionDialogBase) = loadUiType( uiPath('lostconnection.ui') )
+
+## @brief The LostConnectionDialog class shows the error dialog used when connection with the server has been lost.
+#
+# The show a counter which is decreased every seconds and waits for 10 seconds before retrying.
+#
+# @see lostConnectionError()
+class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
+	def __init__(self, count, parent=None):
+		QDialog.__init__(self, parent)
+		LostConnectionDialogUi.__init__(self)
+		self.setupUi( self )
+
+		self.count = count
+		self.retry = True
+		self.remaining = 10
+		self.updateMessage()
+		self.uiTitle.setText( '<b>Connection Lost:</b> %s' % count )
+
+		self.timer = QTimer()
+		self.timer.setInterval( 1000 )
+		self.timer.timeout.connect( self.updateMessage )
+		self.timer.start()
+
+	@pyqtSlot()
+	def updateMessage(self):
+		self.uiMessage.setText( 'Connection with the server has been lost. Will retry connection in %d seconds.' % self.remaining )
+		self.remaining -= 1
+		if self.remaining < 0:
+			self.timer.stop()
+			self.accept()
+
+
+## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
+def lostConnectionError(count):
+	QApplication.setOverrideCursor( Qt.ArrowCursor )
+	dialog = LostConnectionDialog( count )
+	if dialog.exec_() == QDialog.Rejected:
+		result = QMessageBox.warning( None, _("Quit"), _("Leaving the application now will lose all unsaved changes. Are you sure you want to quit?"), QMessageBox.Yes | QMessageBox.No, QMessageBox.No )
+		if result == QMessageBox.Yes:
+			QApplication.quit()
+	QApplication.restoreOverrideCursor()
+	return True
+
 
 (ProgressDialogUi, ProgressDialogBase) = loadUiType( uiPath('progress.ui') )
 		
