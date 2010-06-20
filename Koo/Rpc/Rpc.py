@@ -380,7 +380,7 @@ class Session:
 	# Rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
 	# Rpc.session.logout()
 	# \endcode
-	def callAsync( self, callback, exceptionCallback, obj, method, *args ):
+	def callAsync( self, callback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.call( callback, obj, method, *args )
 		self.appendThread( caller )
