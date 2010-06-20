@@ -422,9 +422,8 @@ class Session:
 	# Note that you'll need to bind gettext as texts sent to
 	# the notify module are localized.
 	def execute(self, obj, method, *args):
-		retry = True
 		count = 1
-		while retry:
+		while True:
 			try:
 				return self.call(obj, method, *args)
 			except RpcProtocolException, err:
