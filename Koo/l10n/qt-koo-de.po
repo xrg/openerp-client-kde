@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-12 16:18+0000\n"
+"POT-Creation-Date: 2010-06-20 12:06+0000\n"
 "PO-Revision-Date: 2010-04-29 15:27+0000\n"
 "Last-Translator: Ferdinand @ ChriCar <Unknown>\n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-20 10:16+0000\n"
+"X-Launchpad-Export-Date: 2010-06-20 21:28+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
@@ -372,6 +372,11 @@ msgstr "Datum vom Kalender wählen"
 #: win_export.ui:197
 msgid "<b>Options</b>"
 msgstr "<b>Optionen</b>"
+
+#. ts-context Dialog
+#: lostconnection.ui:73
+msgid "&Retry"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:553
@@ -811,6 +816,13 @@ msgstr "L"
 #: mainwindow.ui:813
 msgid "Open Home Tab"
 msgstr "Öffne persönlichen Reiter"
+
+#. ts-context Dialog
+#: lostconnection.ui:45
+msgid ""
+"Connection with the server has been lost. Will retry connection in 10 "
+"seconds."
+msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:32
@@ -1474,10 +1486,10 @@ msgstr "&Persönliche Einstellungen"
 msgid "&Contextual Help"
 msgstr "Kontext Hilfe"
 
-#. ts-context LicenseDialog
-#: license.ui:19
-msgid "OpenERP license"
-msgstr "OpenERP Lizenz"
+#. ts-context Dialog
+#: lostconnection.ui:32
+msgid "Connection Lost"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:375
@@ -1580,6 +1592,75 @@ msgstr "9"
 #: formcontainer.ui:56
 msgid "State:"
 msgstr "Status:"
+
+#. ts-context AboutDialog
+#: about.ui:82
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+"NaN:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+"18</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
+"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+"tic.com</span></a></p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo ist ein Produkt von "
+"NaN:</span></p>\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+"18</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
+"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+"tic.com</span></a></p></body></html>"
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
@@ -1950,8 +2031,9 @@ msgstr "Voriger Tip"
 msgid "Latin1"
 msgstr "Latin1"
 
+#. ts-context Dialog
 #. ts-context KooMainWindow
-#: mainwindow.ui:423
+#: lostconnection.ui:84 mainwindow.ui:423
 msgid "&Quit"
 msgstr "Verlasse"
 
@@ -2942,74 +3024,10 @@ msgstr "Schließen Fenster ohne zu speichern"
 msgid "&Waiting Requests"
 msgstr "&Wartende Anfragen"
 
-#. ts-context AboutDialog
-#: about.ui:82
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
-"NaN:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
-"18</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
-"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo ist ein Produkt von "
-"NaN:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
-"18</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
-"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
+#. ts-context LicenseDialog
+#: license.ui:19
+msgid "OpenERP license"
+msgstr "OpenERP Lizenz"
 
 #. ts-context Form
 #: keyboard.ui:540
