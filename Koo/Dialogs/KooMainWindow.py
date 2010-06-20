@@ -394,6 +394,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		f.write( base64.decodestring( value['installer'] ) )
 		f.close()
 		command_line = value['command_line'].split(' ')
+		command_line = [x.replace('$path', directory) for x in command_line]
 		subprocess.Popen(command_line, cwd=directory)
 
 	def showLoginDialog(self):
