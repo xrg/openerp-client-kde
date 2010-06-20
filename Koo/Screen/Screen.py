@@ -257,6 +257,13 @@ class Screen(QScrollArea):
 		# We expect a Screen.Action here
 		action = self.sender()
 
+		# If record has been modified save before executing the action. Otherwise:
+		# - With new records nothing is done without notifying the user which isn't intuitive.
+		# - With existing records it prints (for example) old values, which isn't intuitive either.
+		if self.isModified():
+			if not self.save():
+				return
+
 		# Do not trigger action if there is no record selected. This is
 		# only permitted for plugins.
 		if not self.currentId() and action.type() != 'plugin':
