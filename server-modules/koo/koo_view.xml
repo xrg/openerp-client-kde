@@ -99,7 +99,8 @@
 					<field name="platform"/>
 					<field name="installer" filename="filename"/>
 					<field name="filename"/>
-					<field name="command_line" colspan="4"/>
+					<field name="command_line"/>
+					<field name="downloads"/>
 					<separator string="Release Notes" colspan="4"/>
 					<field name="release_notes" colspan="4"/>
 				</form>
@@ -114,6 +115,7 @@
 					<field name="version"/>
 					<field name="platform"/>
 					<field name="filename"/>
+					<field name="downloads"/>
 				</tree>
 			</field>
 		</record>
