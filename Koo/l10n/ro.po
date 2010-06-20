@@ -7,34 +7,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-05-26 12:31+0200\n"
+"POT-Creation-Date: 2010-06-12 18:07+0200\n"
 "PO-Revision-Date: 2009-10-07 06:12+0000\n"
 "Last-Translator: Cristi Nistor <cristian.marius.nistor@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-29 20:16+0000\n"
+"X-Launchpad-Export-Date: 2010-06-20 10:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:89 Koo/Actions/Actions.py:100
+#: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:287
-#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:242
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:289
+#: Koo/Dialogs/TreeWidget.py:301 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
 msgstr "Informaţii"
 
-#: Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
 msgstr "Trebuie să selectaţi o înregistrare pentru a utiliza butonul!"
 
-#: Koo/Screen/Action.py:89
+#: Koo/Screen/Action.py:90
 msgid "You must save this record to use the relate button !"
 msgstr "Trebuie să salvaţi acestă înregistrare pentru a utiliza butonul!"
 
-#: Koo/Screen/Action.py:135
+#: Koo/Screen/Action.py:136
 msgid "Print Screen"
 msgstr "Tiparire ecran"
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Cancel Import"
 msgstr ""
 
-#: Koo/koopda.py:88 Koo/Dialogs/FormWidget.py:373
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
 msgstr ""
 
@@ -141,19 +141,19 @@ msgstr "Forma afisare"
 msgid "List View"
 msgstr "Forma de afisare tip Lista"
 
-#: Koo/View/Tree/TreeView.py:210
+#: Koo/View/Tree/TreeView.py:221
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr "<font color='red'>Sortarea nu este posibilă.</font>"
 
-#: Koo/View/Tree/TreeView.py:212
+#: Koo/View/Tree/TreeView.py:223
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr "<font color='red'>Sortare doar pentru grupuri.</font>"
 
-#: Koo/View/Tree/TreeView.py:214
+#: Koo/View/Tree/TreeView.py:225
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr "<font color='red'>Salvează modificările înainte de sortare.</font>"
 
-#: Koo/View/Tree/TreeView.py:238
+#: Koo/View/Tree/TreeView.py:249
 msgid "<a href=\"update\">Update totals</a>"
 msgstr "<a href=\"update\">Actualizare totaluri</a>"
 
@@ -219,7 +219,7 @@ msgstr "Compară"
 msgid "Do not save"
 msgstr "Nu salva"
 
-#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:359
+#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:364
 #, python-format
 msgid "%d bytes"
 msgstr "%d bytes"
@@ -289,14 +289,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:579 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "Da"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:579 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "Nu"
 
@@ -822,18 +820,11 @@ msgstr ""
 "Parola administratorului nu poate fi modificata. Va rugam verificati daca "
 "parola si serverul sunt corecte."
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr "Confirmare"
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#: Koo/Dialogs/MassiveUpdateDialog.py:125
 #, python-format
 msgid ""
-"<p>This process will update the following fields in %(number)d "
-"records:</p>%(records)s<p>Do you want to continue?</p>"
+"Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
-"<p>Acest proces va actualiza urmatoarele campuri in %(number)d "
-"inregistrari:</p>%(records)s<p>Doriti sa continuati?</p>"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
@@ -926,15 +917,15 @@ msgstr "Campuri exportate"
 msgid "Tree"
 msgstr "Arbore"
 
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+#: Koo/Dialogs/TreeWidget.py:289 Koo/Dialogs/TreeWidget.py:301
 msgid "No resource selected!"
 msgstr "Nici o resursă selectată!"
 
-#: Koo/Dialogs/TreeWidget.py:316
+#: Koo/Dialogs/TreeWidget.py:318
 msgid "No item selected"
 msgstr "Nu ati selectat nici un  element"
 
-#: Koo/Dialogs/TreeWidget.py:316
+#: Koo/Dialogs/TreeWidget.py:318
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "Selectati un element al arborelui pentru a-i adauga o scurtatura."
 
@@ -1037,22 +1028,22 @@ msgstr "Operatie nepermisa"
 msgid "You can not set to the default value here !"
 msgstr "Nu puteti schimba valoarea cu valoarea implicita, aici!"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:246
-#: Koo/Fields/ManyToOne/ManyToOne.py:305
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:249
+#: Koo/Fields/ManyToOne/ManyToOne.py:309
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr "Deschide"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:307
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:311
 msgid "Action"
 msgstr "Acțiune"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:308
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:312
 msgid "Report"
 msgstr "Raport"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:125 Koo/Fields/ManyToOne/ManyToOne.py:253
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
+#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:257
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
 msgstr "Caută"
 
@@ -1174,7 +1165,7 @@ msgstr ""
 "Eroare la scrierea fişierului:\n"
 "%s"
 
-#: Koo/Fields/OneToMany/OneToMany.py:242
+#: Koo/Fields/OneToMany/OneToMany.py:264
 msgid "No record selected"
 msgstr ""
 
@@ -1194,10 +1185,10 @@ msgstr "Eroare scriere fisier !"
 msgid "Set current date"
 msgstr "Setati data curenta"
 
-#: Koo/Fields/Calendar/Calendar.py:121
+#: Koo/Fields/Calendar/Calendar.py:124
 msgid "Set current date and time"
 msgstr "Setati ora si data curenta"
 
-#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:220
+#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:222
 msgid "Set current time"
 msgstr "Setati timpul curent"

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-11 19:45+0000\n"
+"POT-Creation-Date: 2010-06-12 16:18+0000\n"
 "PO-Revision-Date: 2010-04-29 15:27+0000\n"
 "Last-Translator: Ferdinand @ ChriCar <Unknown>\n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-29 20:16+0000\n"
+"X-Launchpad-Export-Date: 2010-06-20 10:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
@@ -463,7 +463,7 @@ msgid "V"
 msgstr "V"
 
 #. ts-context TranslationDialog
-#: translationdialog.ui:13
+#: translationdialog.ui:14
 msgid "Translation dialog"
 msgstr "Übersetzungs Dialog"
 
@@ -1266,6 +1266,11 @@ msgstr "<b>Kann nicht mit Server verbinden !</b>"
 msgid "&Load demonstration data"
 msgstr "&Lade Demo Daten"
 
+#. ts-context Dialog
+#: massiveupdate_msgbox.ui:14
+msgid "Massive Update"
+msgstr ""
+
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
 msgid "Admin password:"
@@ -1337,6 +1342,7 @@ msgstr "Server"
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context CreateDatabaseDialog
+#. ts-context Dialog
 #. ts-context ErrorDialog
 #. ts-context ExportDialog
 #. ts-context FieldDefaultsDialog
@@ -1350,10 +1356,10 @@ msgstr "Server"
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
 #: about.ui:120 admin_passwd.ui:138 change_server.ui:113 choosedb.ui:161
-#: create_database.ui:343 error.ui:152 win_export.ui:243
-#: field_preferences.ui:134 gotoid.ui:72 win_import.ui:263 license.ui:148
-#: login.ui:283 massiveupdate.ui:44 preferences.ui:45 win_search.ui:97
-#: win_selection.ui:44 translationdialog.ui:47
+#: create_database.ui:343 massiveupdate_msgbox.ui:104 error.ui:152
+#: win_export.ui:243 field_preferences.ui:134 gotoid.ui:72 win_import.ui:263
+#: license.ui:148 login.ui:283 massiveupdate.ui:44 preferences.ui:45
+#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:48
 msgid "&Accept"
 msgstr "&Annehmen"
 
@@ -1383,6 +1389,7 @@ msgstr "Ändern"
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context CreateDatabaseDialog
+#. ts-context Dialog
 #. ts-context ExportDialog
 #. ts-context FieldDefaultsDialog
 #. ts-context GoToIdDialog
@@ -1395,10 +1402,10 @@ msgstr "Ändern"
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
 #: admin_passwd.ui:149 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 win_export.ui:257 field_preferences.ui:144
-#: gotoid.ui:83 win_import.ui:274 login.ui:297 one2many_dialog.ui:129
-#: massiveupdate.ui:55 preferences.ui:56 win_search.ui:108 win_selection.ui:57
-#: translationdialog.ui:57
+#: create_database.ui:357 massiveupdate_msgbox.ui:115 win_export.ui:257
+#: field_preferences.ui:144 gotoid.ui:83 win_import.ui:274 login.ui:297
+#: one2many_dialog.ui:129 massiveupdate.ui:55 preferences.ui:56
+#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:59
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
@@ -2917,9 +2924,11 @@ msgid "Remo&ve all"
 msgstr "Entferne Alle"
 
 #. ts-context AttachmentWindow
+#. ts-context Dialog
 #. ts-context Form
 #. ts-context SearchWidget
-#: win_attach.ui:137 keyboard.ui:449 win_search.ui:115
+#: win_attach.ui:137 massiveupdate_msgbox.ui:122 keyboard.ui:449
+#: win_search.ui:115
 msgid "Esc"
 msgstr "Esc"
 
@@ -3031,6 +3040,21 @@ msgstr "Bearbeiten"
 #: shortcuts.ui:427
 msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
+
+#. ts-context Dialog
+#: massiveupdate_msgbox.ui:49
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Select the fields you want "
+"to update in the %d selected records:</p></body></html>"
+msgstr ""
 
 #. ts-context ManyToOneWidget
 #. ts-context OneToManyWidget
