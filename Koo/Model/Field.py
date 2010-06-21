@@ -208,7 +208,7 @@ class FloatField(StringField):
 	def set_client(self, record, value, test_state=True):
 		internal = record.values[self.name]
 		self.set(record, value, test_state)
-		digits = self.attrs.get('digits', (12,4))
+		digits = self.attrs.get('digits', (14,2))
 		# Use floatToText as the comparison we inherited from the GTK client failed for us in some cases
 		# were python was considering the difference between 145,13 and 145,12 as 0,009999999 instead of 0,01
 		# Converting to string the numbers with the appropiate number of digits make it much easier.
