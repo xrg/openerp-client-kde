@@ -161,9 +161,9 @@ class nan_koo_release(osv.osv):
 		'version': fields.char('Version', 20, required=True),
 		'installer': fields.binary('Installer'),
 		'filename': fields.char('File Name', 40, required=True),
-		'command_line': fields.char('Command Line', 200, required=True),
+		'command_line': fields.char('Command Line', 200, required=True, help='Command to be executed once the installer has been downloaded. "$path" may be used to refer to the directory where the file is stored. Example: $path\koo-setup-5.0.3.exe /S'),
 		'release_notes': fields.text('Release Notes'),
-		'platform': fields.selection([('win32','Windows (32 bit)'),('posix','Posix')], 'Platform', required=True),
+		'platform': fields.selection([('nt','Windows'),('posix','Posix')], 'Platform', required=True),
 		'downloads': fields.integer('Downloads', readonly=True, help='Number of times the installer has been downloaded.'),
 	}
 	_defaults = {
