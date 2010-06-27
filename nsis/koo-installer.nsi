@@ -245,34 +245,32 @@ FunctionEnd
 
 ;; TRANSLATION STRINGS
 
-;LangString LicenseText ${LANG_ENGLISH} "Usually, a proprietary license is provided with the software: limited number of users, limited in time usage, etc. This Open Source license is the opposite: it garantees you the right to use, copy, study, distribute and modify Open ERP for free."
-;LangString LicenseText ${LANG_FRENCH} "Normalement, une licence propri�taire est fournie avec le logiciel: limitation du nombre d'utilisateurs, limitation dans le temps, etc. Cette licence Open Source est l'oppos�: Elle vous garantie le droit d'utiliser, de copier, d'�tudier, de distribuer et de modifier Open ERP librement."
-
-;LangString LicenseNext ${LANG_ENGLISH} "Next >"
-;LangString LicenseNext ${LANG_CATALAN} "Següent >"
-;LangString LicenseNext ${LANG_SPANISH} "Siguiente >"
-
 LangString SelectLanguageText ${LANG_ENGLISH} "Please, select installer language."
 LangString SelectLanguageText ${LANG_CATALAN} "Si us plau, seleccioneu l'idioma per l'instal·lador."
 LangString SelectLanguageText ${LANG_SPANISH} "Por favor, seleccione el idioma para el instalador."
 LangString SelectLanguageText ${LANG_ITALIAN} "Selezionare il linguaggio di installazione."
+LangString SelectLanguageText ${LANG_GERMAN}  "Bitte Installationssprache w�hlen"
 
 LangString SelectLanguageTitleText ${LANG_ENGLISH} "Installer Language"
 LangString SelectLanguageTitleText ${LANG_CATALAN} "Idioma de l'instal·ador"
 LangString SelectLanguageTitleText ${LANG_SPANISH} "Idioma del instalador"
 LangString SelectLanguageTitleText ${LANG_ITALIAN} "Lingua dell'installatore"
+LangString SelectLanguageTitleText ${LANG_GERMAN}  "Installationssprache"
 
 LangString FinishPageText ${LANG_ENGLISH} "Start Koo"
 LangString FinishPageText ${LANG_CATALAN} "Inicia el Koo"
 LangString FinishPageText ${LANG_SPANISH} "Iniciar Koo"
 LangString FinishPageText ${LANG_ITALIAN} "Avvia Koo"
+LangString FinishPageText ${LANG_GERMAN}  "Starte Koo"
 
 LangString DESC_SecKoo ${LANG_ENGLISH} "Koo."
 LangString DESC_SecKoo ${LANG_CATALAN} "Koo."
 LangString DESC_SecKoo ${LANG_SPANISH} "Koo."
 LangString DESC_SecKoo ${LANG_ITALIAN} "Koo."
+LangString DESC_SecKoo ${LANG_GERMAN}  "Koo."
 
 LangString CannotInstallText ${LANG_ENGLISH} "Can not install the Open ERP Client because a previous installation already exists on this system. Please uninstall your current installation and relaunch this setup wizard."
 LangString CannotInstallText ${LANG_CATALAN} "No es pot instal·lar el Koo perquè ja hi ha instal·lada una versió anterior. Si us plau, desinstal·leu la versió actual i reinicieu aquest instal·lador."
 LangString CannotInstallText ${LANG_SPANISH} "No se puede instalar Koo porqué ya hay instalada un versión anterior. Por favor, desinstale la versión actual y reinicie este instalador."
 LangString CannotInstallText ${LANG_ITALIAN} "Impossibile installare il client OpenERP Koo. Una installazione precedente � presente nel sistema. Disinstallare la versione precedente prima di installare questa."
+LangString CannotInstallText ${LANG_GERMAN}  "Die OpenERP Anwendung kann nicht installiert werden, weil eine vorangegangene Installation bereits exisitiert. Bitte diese l�schen und die Installation neu starten."
