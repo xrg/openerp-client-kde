@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-06-20 23:03+0200\n"
+"POT-Creation-Date: 2010-06-20 23:31+0200\n"
 "PO-Revision-Date: 2009-04-30 09:29+0000\n"
 "Last-Translator: Timppa <timo.ke.karjalainen@student.saimia.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-20 21:28+0000\n"
+"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -229,7 +229,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:605
 msgid "Quit"
 msgstr "Lopeta"
 
@@ -307,12 +307,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "Kyllä"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "Ei"
 
@@ -580,7 +580,7 @@ msgstr ""
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:475
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:476
 msgid "Press Ctrl+O to login"
 msgstr "Paina Ctrl+O kirjautuaksesi sisään"
 
@@ -626,35 +626,35 @@ msgstr "Uusi pyyntö"
 msgid "You've received a new request"
 msgstr "Olet vastaanottanut uuden pyynnön"
 
-#: Koo/Dialogs/KooMainWindow.py:449 Koo/Dialogs/KooMainWindow.py:451
+#: Koo/Dialogs/KooMainWindow.py:450 Koo/Dialogs/KooMainWindow.py:452
 msgid "Connection error !"
 msgstr "Yhteysvirhe !"
 
-#: Koo/Dialogs/KooMainWindow.py:449
+#: Koo/Dialogs/KooMainWindow.py:450
 msgid "Unable to connect to the server !"
 msgstr "Yhteyden luominen palvelimelle epäonnistui !"
 
-#: Koo/Dialogs/KooMainWindow.py:451
+#: Koo/Dialogs/KooMainWindow.py:452
 msgid "Bad username or password !"
 msgstr "Väärä käyttäjätunnus tai salasana !"
 
-#: Koo/Dialogs/KooMainWindow.py:456 Koo/Dialogs/KooMainWindow.py:458
+#: Koo/Dialogs/KooMainWindow.py:457 Koo/Dialogs/KooMainWindow.py:459
 msgid "Connection Error !"
 msgstr "Yhteysvirhe !"
 
-#: Koo/Dialogs/KooMainWindow.py:458
+#: Koo/Dialogs/KooMainWindow.py:459
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:474
+#: Koo/Dialogs/KooMainWindow.py:475
 msgid "Not logged !"
 msgstr "Et ole kirjautunut!"
 
-#: Koo/Dialogs/KooMainWindow.py:568
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid "Access denied"
 msgstr "Pääsy evätty"
 
-#: Koo/Dialogs/KooMainWindow.py:568
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -664,11 +664,11 @@ msgstr ""
 "Pyydä pääkäyttäjää varmistamaan,\n"
 "että käyttäjällesi on määritelty toiminto."
 
-#: Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Dialogs/KooMainWindow.py:605
 msgid "Do you really want to quit ?"
 msgstr "Oletko varma, että haluat lopettaa?"
 
-#: Koo/Dialogs/KooMainWindow.py:638
+#: Koo/Dialogs/KooMainWindow.py:639
 msgid "Wizard"
 msgstr ""
 

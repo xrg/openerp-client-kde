@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-20 21:28+0000\n"
+"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 

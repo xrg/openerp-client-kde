@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-06-20 23:03+0200\n"
+"POT-Creation-Date: 2010-06-20 23:31+0200\n"
 "PO-Revision-Date: 2009-05-09 12:09+0000\n"
 "Last-Translator: ekodaq <ceo@ekosdaq.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-20 21:28+0000\n"
+"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -229,7 +229,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:605
 msgid "Quit"
 msgstr "중단"
 
@@ -307,12 +307,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "네"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "아니오"
 
@@ -580,7 +580,7 @@ msgstr ""
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:475
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:476
 msgid "Press Ctrl+O to login"
 msgstr "로그인하려면 Ctrl+O를 누르세요"
 
@@ -626,35 +626,35 @@ msgstr "새로운 요청"
 msgid "You've received a new request"
 msgstr "새로운 요청이 도착했습니다."
 
-#: Koo/Dialogs/KooMainWindow.py:449 Koo/Dialogs/KooMainWindow.py:451
+#: Koo/Dialogs/KooMainWindow.py:450 Koo/Dialogs/KooMainWindow.py:452
 msgid "Connection error !"
 msgstr "접속 에러 !"
 
-#: Koo/Dialogs/KooMainWindow.py:449
+#: Koo/Dialogs/KooMainWindow.py:450
 msgid "Unable to connect to the server !"
 msgstr "서버에 접속할 수 없습니다 !"
 
-#: Koo/Dialogs/KooMainWindow.py:451
+#: Koo/Dialogs/KooMainWindow.py:452
 msgid "Bad username or password !"
 msgstr "아이디 또는 패스워드 오류 !"
 
-#: Koo/Dialogs/KooMainWindow.py:456 Koo/Dialogs/KooMainWindow.py:458
+#: Koo/Dialogs/KooMainWindow.py:457 Koo/Dialogs/KooMainWindow.py:459
 msgid "Connection Error !"
 msgstr "접속 에러 !"
 
-#: Koo/Dialogs/KooMainWindow.py:458
+#: Koo/Dialogs/KooMainWindow.py:459
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:474
+#: Koo/Dialogs/KooMainWindow.py:475
 msgid "Not logged !"
 msgstr "로그되지 않음 !"
 
-#: Koo/Dialogs/KooMainWindow.py:568
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid "Access denied"
 msgstr "접근이 거부됨"
 
-#: Koo/Dialogs/KooMainWindow.py:568
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -664,11 +664,11 @@ msgstr ""
 "귀하에게 부여된 권한에 대해\n"
 "관리자에게 문의하십시오."
 
-#: Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Dialogs/KooMainWindow.py:605
 msgid "Do you really want to quit ?"
 msgstr "중단 하시겠습니까?"
 
-#: Koo/Dialogs/KooMainWindow.py:638
+#: Koo/Dialogs/KooMainWindow.py:639
 msgid "Wizard"
 msgstr ""
 

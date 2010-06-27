@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-06-20 12:06+0000\n"
-"PO-Revision-Date: 2010-04-29 15:27+0000\n"
+"PO-Revision-Date: 2010-06-27 07:29+0000\n"
 "Last-Translator: Ferdinand @ ChriCar <Unknown>\n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-20 21:28+0000\n"
+"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
@@ -31,7 +31,7 @@ msgstr "Strg+F"
 #. ts-context KooMainWindow
 #: mainwindow.ui:675
 msgid "Ctrl+G"
-msgstr ""
+msgstr "Strg+G"
 
 #. ts-context ExportDialog
 #: win_export.ui:162
@@ -376,7 +376,7 @@ msgstr "<b>Optionen</b>"
 #. ts-context Dialog
 #: lostconnection.ui:73
 msgid "&Retry"
-msgstr ""
+msgstr "&Wiederholen"
 
 #. ts-context Form
 #: keyboard.ui:553
@@ -823,6 +823,7 @@ msgid ""
 "Connection with the server has been lost. Will retry connection in 10 "
 "seconds."
 msgstr ""
+"Verbindung mit dem Server wurde getrennt, nächster Versuch in 10 Sekunden."
 
 #. ts-context ImportDialog
 #: win_import.ui:32
@@ -1281,7 +1282,7 @@ msgstr "&Lade Demo Daten"
 #. ts-context Dialog
 #: massiveupdate_msgbox.ui:14
 msgid "Massive Update"
-msgstr ""
+msgstr "Massen Update"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
@@ -1489,7 +1490,7 @@ msgstr "Kontext Hilfe"
 #. ts-context Dialog
 #: lostconnection.ui:32
 msgid "Connection Lost"
-msgstr ""
+msgstr "Verbindung verloren"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:375
@@ -3073,6 +3074,16 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Select the fields you want "
 "to update in the %d selected records:</p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+"type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Wählen Sie die Felder für "
+"das Update in den %d ausgewählten Datensätzen:</p></body></html>"
 
 #. ts-context ManyToOneWidget
 #. ts-context OneToManyWidget

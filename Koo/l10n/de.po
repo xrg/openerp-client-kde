@@ -11,14 +11,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-20 23:03+0200\n"
-"PO-Revision-Date: 2010-02-11 09:16+0000\n"
+"POT-Creation-Date: 2010-06-20 23:31+0200\n"
+"PO-Revision-Date: 2010-06-27 09:00+0000\n"
 "Last-Translator: Ferdinand @ ChriCar <Unknown>\n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-20 21:28+0000\n"
+"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -106,36 +106,36 @@ msgstr "Übersetze Sicht"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:71
 msgid "document.png"
-msgstr ""
+msgstr "document.png"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:78
 msgid "Scan Documents"
-msgstr ""
+msgstr "Dokumente scannen"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:43
 #: Koo/Plugins/DocumentImporter/__init__.py:81
 msgid "Import Documents"
-msgstr ""
+msgstr "Importiere Dokumente"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:44
 msgid "How do you want to import documents?"
-msgstr ""
+msgstr "Wie sollen die Dokumente importiert werden?"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Dateien auswählen"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 msgid "Selected Directory"
-msgstr ""
+msgstr "Ausgewähltes Verzeichnis"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:47
 msgid "Cancel Import"
-msgstr ""
+msgstr "Import Abbrechen"
 
 #: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
@@ -226,7 +226,7 @@ msgstr "Nicht Speichern"
 #: Koo/Common/Common.py:201
 #, python-format
 msgid "<b>Connection Lost:</b> %s"
-msgstr ""
+msgstr "<b>Serververbindung unterbrochen:</b> %s"
 
 #: Koo/Common/Common.py:210
 #, python-format
@@ -234,8 +234,9 @@ msgid ""
 "Connection with the server has been lost. Will retry connection in %d "
 "seconds."
 msgstr ""
+"Verbindung mit dem Server wurde getrennt. Nächster Versuch in %d Sekunden."
 
-#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:605
 msgid "Quit"
 msgstr "Beenden"
 
@@ -244,6 +245,8 @@ msgid ""
 "Leaving the application now will lose all unsaved changes. Are you sure you "
 "want to quit?"
 msgstr ""
+"Alle ungesicherten Veränderungen gehen beim Verlassen verloren. Sind Sie "
+"sicher beenden zu wollen?"
 
 #: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:364
 #, python-format
@@ -284,7 +287,7 @@ msgstr "DBus Initialisierung nicht gelungen"
 
 #: Koo/Common/CommandLine.py:44
 msgid "specify database"
-msgstr ""
+msgstr "Datenbank auswählen"
 
 #: Koo/Common/CommandLine.py:45
 msgid "specify alternate config file"
@@ -317,12 +320,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr "Debug Mode einschalten. Zeigt den Crahs dialog in allen Situationen"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "Ja"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:604 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "Nein"
 
@@ -509,12 +512,12 @@ msgstr "<font color=\"blue\"> Dokument geändert</font>"
 
 #: Koo/Dialogs/FormWidget.py:213
 msgid "Go To Id"
-msgstr ""
+msgstr "Gehe zu ID"
 
 #: Koo/Dialogs/FormWidget.py:213
 #, python-format
 msgid "Resouce with ID '%s' not found."
-msgstr ""
+msgstr "Resource mit ID  '%s' nicht gefunden."
 
 #: Koo/Dialogs/FormWidget.py:244
 msgid "No resource selected !"
@@ -584,6 +587,8 @@ msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
+"<p> Die folgenden Felder haben ungültige Werte und sind rot "
+"markiert:</p>%s<p>Bite vor dem Speichern berichtigen.</p>"
 
 #: Koo/Dialogs/FormWidget.py:468
 #, python-format
@@ -637,7 +642,7 @@ msgstr "Abbrechen"
 msgid "No records selected"
 msgstr "Keine Datensätze ausgewählt!"
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:475
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:476
 msgid "Press Ctrl+O to login"
 msgstr "Strg-O drücken zum Anmelden"
 
@@ -683,35 +688,35 @@ msgstr "Keine Anfrage"
 msgid "You've received a new request"
 msgstr "Sie haben eine neue Anfrage erhalten"
 
-#: Koo/Dialogs/KooMainWindow.py:449 Koo/Dialogs/KooMainWindow.py:451
+#: Koo/Dialogs/KooMainWindow.py:450 Koo/Dialogs/KooMainWindow.py:452
 msgid "Connection error !"
 msgstr "Verbindungsfehler!"
 
-#: Koo/Dialogs/KooMainWindow.py:449
+#: Koo/Dialogs/KooMainWindow.py:450
 msgid "Unable to connect to the server !"
 msgstr "Keine Verbindung zum Server möglich!"
 
-#: Koo/Dialogs/KooMainWindow.py:451
+#: Koo/Dialogs/KooMainWindow.py:452
 msgid "Bad username or password !"
 msgstr "Falscher Benutzername oder Kennwort!"
 
-#: Koo/Dialogs/KooMainWindow.py:456 Koo/Dialogs/KooMainWindow.py:458
+#: Koo/Dialogs/KooMainWindow.py:457 Koo/Dialogs/KooMainWindow.py:459
 msgid "Connection Error !"
 msgstr "Verbindungsfehler!"
 
-#: Koo/Dialogs/KooMainWindow.py:458
+#: Koo/Dialogs/KooMainWindow.py:459
 msgid "Error logging into database."
 msgstr "Fehlerprotokoll in Datenbank speichern"
 
-#: Koo/Dialogs/KooMainWindow.py:474
+#: Koo/Dialogs/KooMainWindow.py:475
 msgid "Not logged !"
 msgstr "Nicht angemeldet!"
 
-#: Koo/Dialogs/KooMainWindow.py:568
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid "Access denied"
 msgstr "Zugriff verweigert"
 
-#: Koo/Dialogs/KooMainWindow.py:568
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -721,11 +726,11 @@ msgstr ""
 "Problem: Es wurde keine Aktion für den Benutzer definiert. Fragen Sie ihren "
 "Administrator."
 
-#: Koo/Dialogs/KooMainWindow.py:604
+#: Koo/Dialogs/KooMainWindow.py:605
 msgid "Do you really want to quit ?"
 msgstr "Möchten Sie OpenERP wirklich beenden?"
 
-#: Koo/Dialogs/KooMainWindow.py:638
+#: Koo/Dialogs/KooMainWindow.py:639
 msgid "Wizard"
 msgstr "Assistent"
 
@@ -894,6 +899,8 @@ msgstr ""
 msgid ""
 "Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
+"Wählen Sie die Felder, die Sie  in den ausgewählten <b>%d</b> Datensätzen  "
+"verändern möchten:"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
