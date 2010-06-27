@@ -1,0 +1,390 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* koo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 5.0.11\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2010-06-27 14:39:37+0000\n"
+"PO-Revision-Date: 2010-06-27 14:39:37+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: koo
+#: field:nan.koo.settings,name:0
+msgid "Settings Name"
+msgstr ""
+
+#. module: koo
+#: constraint:ir.model:0
+msgid "The Object name must start with x_ and not contain any special character !"
+msgstr ""
+
+#. module: koo
+#: model:ir.module.module,shortdesc:koo.module_meta_information
+msgid "Koo"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,use_cache:0
+msgid "Allow Client Caching"
+msgstr ""
+
+#. module: koo
+#: model:ir.actions.act_window,name:koo.koo_release_action
+#: view:nan.koo.release:0
+msgid "Koo Releases"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.settings,tabs_position:0
+msgid "Top"
+msgstr ""
+
+#. module: koo
+#: model:ir.model,name:koo.model_nan_koo_view_settings
+msgid "nan.koo.view.settings"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,name:0
+msgid "Name to be given to these settings."
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,attachments_dialog:0
+msgid "If set, pushing on attachments button will open them in a new blocking dialog. Otherwise they will be opened in a new tab"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,requests_refresh_interval:0
+msgid "Indicates the number of seconds to wait to check if new requests have been received by the current user."
+msgstr ""
+
+#. module: koo
+#: view:nan.koo.settings:0
+#: field:nan.koo.settings,stylesheet:0
+msgid "Stylesheet"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.release,version:0
+msgid "Version"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,auto_new:0
+msgid "Automatically create new record"
+msgstr ""
+
+#. module: koo
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr ""
+
+#. module: koo
+#: view:nan.koo.release:0
+#: field:nan.koo.release,release_notes:0
+msgid "Release Notes"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.release,platform:0
+msgid "Platform"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,allow_massive_updates:0
+msgid "If set, the option to Modify all Selected Records is enabled in Form menu."
+msgstr ""
+
+#. module: koo
+#: model:ir.model,name:koo.model_nan_koo_cache_exception
+msgid "nan.koo.cache.exception"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,tabs_position:0
+msgid "Default tabs position"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,requests_refresh_interval:0
+msgid "Requests refresh interval (seconds)"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,auto_new:0
+msgid "If set, it will put the user in a new document just after saving a new document. This eases creation of many records. Resembles old (4.2) behaviour of the application."
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,show_toolbar:0
+msgid "Show toolbar"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,roles_id:0
+msgid "Roles to which these settings apply."
+msgstr ""
+
+#. module: koo
+#: model:ir.ui.menu,name:koo.koo_release_menu
+msgid "Releases"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.release,command_line:0
+msgid "Command Line"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.settings,sort_mode:0
+msgid "All Items"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.release,downloads:0
+msgid "Downloads"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.settings,tabs_position:0
+msgid "Bottom"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,load_on_open:0
+msgid "If set, it will load records the first time a view is opened. Otherwise, the user will have to search before anything is loaded. This may be interesting for performance reasons."
+msgstr ""
+
+#. module: koo
+#: view:nan.koo.settings:0
+msgid "Behaviour"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.view.settings,user:0
+msgid "User"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.cache.exception,name:0
+msgid "Model Name"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,tabs_closable:0
+msgid "Show Close Button on Tabs"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.release,downloads:0
+msgid "Number of times the installer has been downloaded."
+msgstr ""
+
+#. module: koo
+#: model:ir.model,name:koo.model_nan_koo_settings
+msgid "nan.koo.settings"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.settings,tabs_position:0
+msgid "Left"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.view.settings,data:0
+msgid "Data"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,show_toolbar:0
+msgid "Whether toolbar is shown on screens. Note the toolbar may be convenient but not necessary as all options are available from the Reports, Actions, Browse and Plugins menu entries."
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,allow_massive_updates:0
+msgid "Allow Massive Updates"
+msgstr ""
+
+#. module: koo
+#: model:ir.actions.act_window,name:koo.koo_cache_exception_action
+#: model:ir.ui.menu,name:koo.koo_cache_exception_menu
+#: view:nan.koo.cache.exception:0
+#: view:nan.koo.cache_exception:0
+msgid "View Cache Exceptions"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,tabs_position:0
+msgid "Tabs can be on the left, top, right or bottom by default. Note that some screens may require an specific position which will override this default."
+msgstr ""
+
+#. module: koo
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,sort_mode:0
+msgid "Sorting Mode"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,print_directly:0
+msgid "If set, sends the document directly to the printer. Otherwise the document is shown in a PDF viewer."
+msgstr ""
+
+#. module: koo
+#: view:nan.koo.settings:0
+#: field:nan.koo.settings,roles_id:0
+msgid "Roles"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,print_directly:0
+msgid "Print directly"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.release,platform:0
+msgid "Windows"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.settings,sort_mode:0
+msgid "Visible Items"
+msgstr ""
+
+#. module: koo
+#: view:nan.koo.settings:0
+msgid "Appearance"
+msgstr ""
+
+#. module: koo
+#: field:ir.attachment,record:0
+msgid "Record"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,limit:0
+msgid "Limit"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,load_on_open:0
+msgid "Load on Open"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,use_cache:0
+msgid "If set, it enables the caching mechanism of the client. Developers will often consider disabling this option so they avoid clicking Clear Cache after changing views and actions."
+msgstr ""
+
+#. module: koo
+#: view:nan.koo.release:0
+msgid "Koo Release"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.release,command_line:0
+msgid "Command to be executed once the installer has been downloaded. \"$path\" may be used to refer to the directory where the file is stored. Example: $path\koo-setup-5.0.3.exe /S"
+msgstr ""
+
+#. module: koo
+#: model:ir.actions.act_window,name:koo.koo_settings_action
+#: view:nan.koo.settings:0
+msgid "Koo Settings"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,show_system_tray_icon:0
+msgid "Show Icon in System Tray"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,auto_reload:0
+msgid "Auto Reload"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,auto_reload:0
+msgid "If set, all views will be reloaded when data changes in the server."
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.settings,tabs_position:0
+msgid "Right"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.view.settings,view:0
+msgid "View"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,limit:0
+msgid "Number of records to be fetched at once."
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.release,filename:0
+msgid "File Name"
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.settings,attachments_dialog:0
+msgid "Attachments in a Dialog"
+msgstr ""
+
+#. module: koo
+#: selection:nan.koo.release,platform:0
+msgid "Posix"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,tabs_closable:0
+msgid "A close button will be shown in each tab."
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,stylesheet:0
+msgid "A valid Qt Stylesheet can be provided to be applied once the user has logged in."
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,show_system_tray_icon:0
+msgid "If checked, an icon is shown in the system tray to keep Koo accessible all the time."
+msgstr ""
+
+#. module: koo
+#: model:ir.module.module,description:koo.module_meta_information
+msgid "This module prepares the server for properly handling attachments in Koo and allows server side client settings storage."
+msgstr ""
+
+#. module: koo
+#: field:nan.koo.release,installer:0
+msgid "Installer"
+msgstr ""
+
+#. module: koo
+#: model:ir.model,name:koo.model_nan_koo_release
+msgid "nan.koo.release"
+msgstr ""
+
+#. module: koo
+#: help:nan.koo.settings,sort_mode:0
+msgid "If set to \"Visible Items\" only the \"Limit\" elements are loaded and sorting is done in the client side. If \"All Items\" is used, sorting is done in the server and all records are (virtually) loaded in chunks of size \"Limit\""
+msgstr ""
+
+#. module: koo
+#: model:ir.ui.menu,name:koo.koo_settings_menu
+msgid "Settings"
+msgstr ""
+
