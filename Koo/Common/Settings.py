@@ -124,6 +124,7 @@ class Settings(object):
 
 		languages = {
 			'1027': 'ca',
+			'1031': 'de',
 			'1033': 'en',
 			'1034': 'es',
 			'1040': 'it',
