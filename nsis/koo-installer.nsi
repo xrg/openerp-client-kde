@@ -115,8 +115,9 @@
  
   !insertmacro MUI_LANGUAGE "English"
   !insertmacro MUI_LANGUAGE "Catalan"
-  !insertmacro MUI_LANGUAGE "Spanish"
+  !insertmacro MUI_LANGUAGE "German"
   !insertmacro MUI_LANGUAGE "Italian"
+  !insertmacro MUI_LANGUAGE "Spanish"
 
 ;--------------------------------
 ;Installer Sections
@@ -128,10 +129,12 @@ Function .onInit
         Push English
         Push ${LANG_CATALAN}
         Push "Catalan"
-        Push ${LANG_SPANISH}
-        Push "Spanish"
+	Push ${LANG_GERMAN}
+	Push "German"
 	Push ${LANG_ITALIAN}
 	Push "Italiano"
+        Push ${LANG_SPANISH}
+        Push "Spanish"
         Push A ; A means auto count languages
         ; for the auto count to work the first empty push (Push "") must remain
         LangDLL::LangDialog "$(SelectLanguageTitleText)"  "$(SelectLanguageText)"
