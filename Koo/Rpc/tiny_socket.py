@@ -147,7 +147,7 @@ class PersistentTransport(Transport):
 	if not self._http.has_key(host):
 		host, extra_headers, x509 = self.get_host_info(host)
 		self._http[host] = HTTP11(host)
-		self._log("New connection to %s", host)
+		self._log.info("New connection to %s", host)
 	if not self._http[host].is_idle():
 		# Here, we need to discard a busy or broken connection.
 		# It might be the case that another thread is using that
@@ -156,7 +156,7 @@ class PersistentTransport(Transport):
 		self._http[host] = None
 		host, extra_headers, x509 = self.get_host_info(host)
 		self._http[host] = HTTP11(host)
-		self._log("New connection to %s",host)
+		self._log.info("New connection to %s",host)
 	
 	return self._http[host]
 

@@ -7,34 +7,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-05-26 12:31+0200\n"
+"POT-Creation-Date: 2010-06-20 23:31+0200\n"
 "PO-Revision-Date: 2009-05-09 12:09+0000\n"
 "Last-Translator: ekodaq <ceo@ekosdaq.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-05-29 20:16+0000\n"
+"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:89 Koo/Actions/Actions.py:100
+#: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:287
-#: Koo/Dialogs/TreeWidget.py:299 Koo/Fields/OneToMany/OneToMany.py:242
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:289
+#: Koo/Dialogs/TreeWidget.py:301 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
 msgstr ""
 
-#: Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
 msgstr "관련 버튼을 이용하려면, 레코드를 선택하십시오 !"
 
-#: Koo/Screen/Action.py:89
+#: Koo/Screen/Action.py:90
 msgid "You must save this record to use the relate button !"
 msgstr "관련 버튼을 이용하려면, 이 레코드를 저장하십시오 !"
 
-#: Koo/Screen/Action.py:135
+#: Koo/Screen/Action.py:136
 msgid "Print Screen"
 msgstr "화면 출력"
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Cancel Import"
 msgstr ""
 
-#: Koo/koopda.py:88 Koo/Dialogs/FormWidget.py:373
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
 msgstr ""
 
@@ -141,19 +141,19 @@ msgstr ""
 msgid "List View"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:210
+#: Koo/View/Tree/TreeView.py:221
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:212
+#: Koo/View/Tree/TreeView.py:223
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:214
+#: Koo/View/Tree/TreeView.py:225
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:238
+#: Koo/View/Tree/TreeView.py:249
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -217,7 +217,29 @@ msgstr "비교"
 msgid "Do not save"
 msgstr "저장하지 않음"
 
-#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:359
+#: Koo/Common/Common.py:201
+#, python-format
+msgid "<b>Connection Lost:</b> %s"
+msgstr ""
+
+#: Koo/Common/Common.py:210
+#, python-format
+msgid ""
+"Connection with the server has been lost. Will retry connection in %d "
+"seconds."
+msgstr ""
+
+#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:605
+msgid "Quit"
+msgstr "중단"
+
+#: Koo/Common/Common.py:222
+msgid ""
+"Leaving the application now will lose all unsaved changes. Are you sure you "
+"want to quit?"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:364
 #, python-format
 msgid "%d bytes"
 msgstr "%d 바이트"
@@ -285,14 +307,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "네"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:579 Koo/Dialogs/MassiveUpdateDialog.py:96
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "아니오"
 
@@ -560,7 +580,7 @@ msgstr ""
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:450
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:476
 msgid "Press Ctrl+O to login"
 msgstr "로그인하려면 Ctrl+O를 누르세요"
 
@@ -584,57 +604,57 @@ msgstr "상품"
 msgid "Products module is not installed."
 msgstr "상품 모듈이 설치되지 않았습니다."
 
-#: Koo/Dialogs/KooMainWindow.py:357
+#: Koo/Dialogs/KooMainWindow.py:361
 #, python-format
 msgid "%s request(s)"
 msgstr "%s 요청(들)"
 
-#: Koo/Dialogs/KooMainWindow.py:359
+#: Koo/Dialogs/KooMainWindow.py:363
 msgid "No request"
 msgstr "요청이 없음"
 
-#: Koo/Dialogs/KooMainWindow.py:361
+#: Koo/Dialogs/KooMainWindow.py:365
 #, python-format
 msgid " - %s pending request(s)"
 msgstr " - %s 보류 중인 요청"
 
-#: Koo/Dialogs/KooMainWindow.py:368
+#: Koo/Dialogs/KooMainWindow.py:372
 msgid "New Request"
 msgstr "새로운 요청"
 
-#: Koo/Dialogs/KooMainWindow.py:368
+#: Koo/Dialogs/KooMainWindow.py:372
 msgid "You've received a new request"
 msgstr "새로운 요청이 도착했습니다."
 
-#: Koo/Dialogs/KooMainWindow.py:424 Koo/Dialogs/KooMainWindow.py:426
+#: Koo/Dialogs/KooMainWindow.py:450 Koo/Dialogs/KooMainWindow.py:452
 msgid "Connection error !"
 msgstr "접속 에러 !"
 
-#: Koo/Dialogs/KooMainWindow.py:424
+#: Koo/Dialogs/KooMainWindow.py:450
 msgid "Unable to connect to the server !"
 msgstr "서버에 접속할 수 없습니다 !"
 
-#: Koo/Dialogs/KooMainWindow.py:426
+#: Koo/Dialogs/KooMainWindow.py:452
 msgid "Bad username or password !"
 msgstr "아이디 또는 패스워드 오류 !"
 
-#: Koo/Dialogs/KooMainWindow.py:431 Koo/Dialogs/KooMainWindow.py:433
+#: Koo/Dialogs/KooMainWindow.py:457 Koo/Dialogs/KooMainWindow.py:459
 msgid "Connection Error !"
 msgstr "접속 에러 !"
 
-#: Koo/Dialogs/KooMainWindow.py:433
+#: Koo/Dialogs/KooMainWindow.py:459
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:449
+#: Koo/Dialogs/KooMainWindow.py:475
 msgid "Not logged !"
 msgstr "로그되지 않음 !"
 
-#: Koo/Dialogs/KooMainWindow.py:543
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid "Access denied"
 msgstr "접근이 거부됨"
 
-#: Koo/Dialogs/KooMainWindow.py:543
+#: Koo/Dialogs/KooMainWindow.py:569
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -644,15 +664,11 @@ msgstr ""
 "귀하에게 부여된 권한에 대해\n"
 "관리자에게 문의하십시오."
 
-#: Koo/Dialogs/KooMainWindow.py:579
-msgid "Quit"
-msgstr "중단"
-
-#: Koo/Dialogs/KooMainWindow.py:579
+#: Koo/Dialogs/KooMainWindow.py:605
 msgid "Do you really want to quit ?"
 msgstr "중단 하시겠습니까?"
 
-#: Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:639
 msgid "Wizard"
 msgstr ""
 
@@ -811,15 +827,10 @@ msgid ""
 "password are correct."
 msgstr "관리자 패스워드를 변경할 수 없습니다. 서버와 패스워드를 다시 확인해 주십시오."
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr ""
-
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#: Koo/Dialogs/MassiveUpdateDialog.py:125
 #, python-format
 msgid ""
-"<p>This process will update the following fields in %(number)d "
-"records:</p>%(records)s<p>Do you want to continue?</p>"
+"Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
 
 #: Koo/Dialogs/ImportExportCommon.py:37
@@ -907,15 +918,15 @@ msgstr "내보낸 필드들"
 msgid "Tree"
 msgstr "트리"
 
-#: Koo/Dialogs/TreeWidget.py:287 Koo/Dialogs/TreeWidget.py:299
+#: Koo/Dialogs/TreeWidget.py:289 Koo/Dialogs/TreeWidget.py:301
 msgid "No resource selected!"
 msgstr "선택된 리소스가 없음!"
 
-#: Koo/Dialogs/TreeWidget.py:316
+#: Koo/Dialogs/TreeWidget.py:318
 msgid "No item selected"
 msgstr "선택된 아이템이 없음"
 
-#: Koo/Dialogs/TreeWidget.py:316
+#: Koo/Dialogs/TreeWidget.py:318
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "단축키를 추가하려면, 트리에서 원소를 선택하십시오."
 
@@ -976,15 +987,15 @@ msgstr ""
 msgid "Administrator passwords differ."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:311 Koo/Rpc/Rpc.py:428
+#: Koo/Rpc/Rpc.py:311
 msgid "Connection Refused"
 msgstr "첩속이 거부됨"
 
-#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:442
 msgid "Application Error"
 msgstr "어플리케이션 에러"
 
-#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:440
+#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:442
 msgid "View details"
 msgstr "상세 보기"
 
@@ -992,7 +1003,7 @@ msgstr "상세 보기"
 msgid "Not logged in"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:560
+#: Koo/Rpc/Rpc.py:562
 msgid "Could not contact server!"
 msgstr "서버에 접속하지 못했습니다!"
 
@@ -1018,22 +1029,22 @@ msgstr "허용되지 않은 오퍼레이션"
 msgid "You can not set to the default value here !"
 msgstr "여기에 디폴트 값을 설정할 수 없습니다 !"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:246
-#: Koo/Fields/ManyToOne/ManyToOne.py:305
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:249
+#: Koo/Fields/ManyToOne/ManyToOne.py:309
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:307
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:311
 msgid "Action"
 msgstr "액션"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:308
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:312
 msgid "Report"
 msgstr "레포트"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:125 Koo/Fields/ManyToOne/ManyToOne.py:253
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:212
+#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:257
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
 msgstr ""
 
@@ -1149,7 +1160,7 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:242
+#: Koo/Fields/OneToMany/OneToMany.py:264
 msgid "No record selected"
 msgstr ""
 
@@ -1169,10 +1180,10 @@ msgstr "파일 쓰기 에러"
 msgid "Set current date"
 msgstr "현재 날짜 설정"
 
-#: Koo/Fields/Calendar/Calendar.py:121
+#: Koo/Fields/Calendar/Calendar.py:124
 msgid "Set current date and time"
 msgstr "현재 날짜와 시각 설정"
 
-#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:220
+#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:222
 msgid "Set current time"
 msgstr "현재 시각 설정"

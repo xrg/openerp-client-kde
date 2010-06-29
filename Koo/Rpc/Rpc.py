@@ -576,7 +576,7 @@ class Session:
 	# Rpc.session.post( returned, '/object', 'execute', 'ir.attachment', 'read', [1,2,3]) 
 	# Rpc.session.logout()
 	# \endcode
-	def callAsync( self, callback, exceptionCallback, obj, method, *args ):
+	def callAsync( self, callback, obj, method, *args ):
 		caller = AsynchronousSessionCall( self )
 		caller.call( callback, obj, method, *args )
 		self.appendThread( caller )
@@ -619,26 +619,29 @@ class Session:
 	# Note that you'll need to bind gettext as texts sent to
 	# the notify module are localized.
 	def execute(self, obj, method, *args):
-		try:
-			return self.call(obj, method, *args)
-		except RpcProtocolException, err:
-			Notifier.notifyError(_('Connection Refused'), err.info, err.info )
-			raise
-		except RpcServerException, err:
-			if err.type in ('warning','UserError'):
-				if err.args[0] in ('ConcurrencyException') and len(args) > 4:
-					if Notifier.notifyConcurrencyError(args[0], args[2] and args[2][0], args[4]):
-						if ConcurrencyCheckField in args[4]:
-							del args[4][ConcurrencyCheckField]
-						return self.execute(obj, method, *args)
+		count = 1
+		while True:
+			try:
+				return self.call(obj, method, *args)
+			except RpcProtocolException, err:
+				if not Notifier.notifyLostConnection( count ):
+					raise
+			except RpcServerException, err:
+				if err.type in ('warning','UserError'):
+					if err.args[0] in ('ConcurrencyException') and len(args) > 4:
+						if Notifier.notifyConcurrencyError(args[0], args[2] and args[2][0], args[4]):
+							if ConcurrencyCheckField in args[4]:
+								del args[4][ConcurrencyCheckField]
+							return self.execute(obj, method, *args)
+					else:
+						Notifier.notifyWarning(err.args[0], err.args[1])
 				else:
-					Notifier.notifyWarning(err.args[0], err.args[1])
-			else:
-				Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
-			raise
-		except Exception,e:
-			self._log.exception("Execute:")
-			pass
+					Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
+				raise
+			except Exception, e:
+					self._log.exception("Execute:")
+					break
+			count += 1
 
 
 	## @brief Logs in the given server with specified name and password.

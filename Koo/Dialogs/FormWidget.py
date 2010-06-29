@@ -453,6 +453,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.pendingReload = True
 
 	def reload(self):
+		if not self.modifiedSave():
+			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
 			# Ensure attachments are updated by initializing previousId

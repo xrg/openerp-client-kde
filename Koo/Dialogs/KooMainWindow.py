@@ -252,6 +252,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.requestsTimer.start( frequency )
 		else:
 			self.requestsTimer.stop()
+
+		# Check for new Koo releases after logging in.
+		self.checkNewRelease()
+
 		# We always use the Subscriber as the class itself will handle
 		# whether the module exists on the server or not
 		self.subscriber = Rpc.Subscriber(Rpc.session, self)
@@ -373,6 +377,31 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			return (ids, ids2)
 		except:
 			return ([], [])
+
+	def checkNewRelease(self):
+		from Koo.Common import Version
+
+		Rpc.session.callAsync(self.newReleaseInformation, '/object', 'execute', 'nan.koo.release', 'needs_update', Version.Version, os.name, True, Rpc.session.context)
+		
+	def newReleaseInformation(self, value, exception):
+		if exception:
+			return
+
+		if not value:
+			return
+
+		import base64
+		import tempfile
+		import subprocess
+
+		directory = tempfile.mkdtemp()
+		installer = os.path.join( directory, value['filename'] )
+		f = open( installer, 'wb' )
+		f.write( base64.decodestring( value['installer'] ) )
+		f.close()
+		command_line = value['command_line'].split(' ')
+		command_line = [x.replace('$path', directory) for x in command_line]
+		subprocess.Popen(command_line, cwd=directory)
 
 	def showLoginDialog(self):
 		dialog = LoginDialog( self )

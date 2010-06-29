@@ -67,17 +67,6 @@ class KooTreeView(QTreeView):
 		QApplication.restoreOverrideCursor()
 		return hint
 
-#	def event( self, event ):
-#		if event.type() != QEvent.ToolTip:
-#			return False
-#		index = self.indexAt( event.pos() )
-#		delegate = self.itemDelegateForColumn( index.column() )
-#
-#		# If text fits inside column's width, capture the event and do not show tooltip.
-#		if self.columnWidth( index.column() ) >= delegate.sizeHint( self.viewOptions(), index ).width():
-#			return True
-#		return False
-
 	def moveCursor(	self, action, modifiers ):
 		index = self.currentIndex()
 		if not index.isValid():

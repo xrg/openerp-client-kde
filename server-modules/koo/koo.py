@@ -166,6 +166,64 @@ class koo_services(baseExportService):
 
 koo_services()
 
+class nan_koo_release(osv.osv):
+	_name = 'nan.koo.release'
+	_rec_name = 'version'
+
+	_columns = {
+		'version': fields.char('Version', 20, required=True),
+		'installer': fields.binary('Installer'),
+		'filename': fields.char('File Name', 40, required=True),
+		'command_line': fields.char('Command Line', 200, required=True, help='Command to be executed once the installer has been downloaded. "$path" may be used to refer to the directory where the file is stored. Example: $path\koo-setup-5.0.3.exe /S'),
+		'release_notes': fields.text('Release Notes'),
+		'platform': fields.selection([('nt','Windows'),('posix','Posix')], 'Platform', required=True),
+		'downloads': fields.integer('Downloads', readonly=True, help='Number of times the installer has been downloaded.'),
+	}
+	_defaults = {
+		'downloads': lambda *a: 0,
+	}
+	_sql_constraints = [
+		('version_platform_uniq', 'unique(version, platform)', 'You can only have one installer per version and platform.'),
+	]
+
+	def needs_update(self, cr, uid, version, platform, download, context):
+		ids = self.search(cr, uid, [
+			('version','>',version),
+			('platform','=',platform)
+		], order='version DESC', limit=1, context=context)
+		if not ids:
+			return False
+		release = self.browse(cr, uid, ids[0], context)
+		if not release.installer:
+			return False
+		if download and release.installer:
+			self.write(cr, uid, release.id, {
+				'downloads': release.downloads + 1,
+			}, context)
+		return {
+			'version': release.version,
+			'release_notes': release.release_notes,
+			'installer': download and release.installer or False,
+			'filename': release.filename,
+			'command_line': release.command_line,
+		}
+
+	def get_installer(self, cr, uid, version, platform, context):
+		ids = self.search(cr, uid, [
+			('version','=',version),
+			('platform','=',platform)
+		], context=context)
+		if not ids:
+			return False
+		release = self.browse(cr, uid, ids[0], context)
+		if release.installer:
+			self.write(cr, uid, release.id, {
+				'downloads': release.downloads + 1,
+			}, context)
+		return release.installer
+
+nan_koo_release()
+
 class nan_koo_settings(osv.osv):
 	_name = 'nan.koo.settings'
 

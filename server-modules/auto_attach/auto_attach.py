@@ -318,8 +318,10 @@ class nan_document(osv.osv):
 				continue
 			fp, image = tempfile.mkstemp()
 			fp = os.fdopen( fp, 'wb+' )
-			fp.write( base64.decodestring(document.datas) )
-			fp.close()
+			try:
+				fp.write( base64.decodestring(document.datas) )
+			finally:
+				fp.close()
 			recognizer.recognize( QImage( image ), recognizers )
 			
 			template = False
@@ -388,8 +390,10 @@ class nan_document(osv.osv):
 
 			fp, image = tempfile.mkstemp()
 			fp = os.fdopen( fp, 'wb+' )
-			fp.write( base64.decodestring( document['datas'] ) )
-			fp.close()
+			try:
+				fp.write( base64.decodestring( document['datas'] ) )
+			finally:
+				fp.close()
 
 			recognizer = Recognizer()
 			recognizer.recognize( QImage( image ) )
