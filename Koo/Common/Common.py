@@ -177,8 +177,6 @@ errorInError=False
 def error(title, message, details=''):
 	global errorInError
 	if errorInError:
-		print "Error in Error:", title, message
-		print "Details:", details
 		return
 	errorInError=True
 	QApplication.setOverrideCursor( Qt.ArrowCursor )
