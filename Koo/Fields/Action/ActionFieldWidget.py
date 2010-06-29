@@ -101,7 +101,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 			#else:
 				#self.screen.setViewTypes( mode )
 			self.screen.setupViews( mode, self.view_id )
-			self.uiTitle.setText( QString( self.attrs['string'] or "" ))
+			self.uiTitle.setText( QString( self.attrs.get('string','') or '' ))
 			layout = QVBoxLayout( self.uiGroup )
 			layout.setContentsMargins( 0, 0, 0 , 0 )
 			layout.addWidget( self.screen )
