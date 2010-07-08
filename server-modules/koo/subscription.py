@@ -93,12 +93,52 @@ class subscription_services(baseExportService):
 				self.waits.remove( wait )
 		self.lock.release()
 
+	def release_all(self):
+		self.lock.acquire()
+		for w in self.waits:
+			w['lock'].release()
+		self.waits = []
+		self.lock.release()
+
 	def connection(self, host):
 		if host in connections:
 			data = connections[host]
 			return Pyro.core.getProxyForURI( 'PYROLOC://%s:%s' % ( data['host'], data['port'] ) )
 		self.proxy = Pyro.core.getProxyForURI( self.url )
 		
-		
-subscription_services()
 
+class WaitServer(netsvc.Server):
+    """ A dummy server that controls the wait service.
+    It is needed for a normal server exit, and statistics
+    """
+    
+    def start(self):
+        self._is_alive = True
+        self.subscription = netsvc.ExportService.getService("subscription")
+
+    def stop(self):
+        if hasattr(self, 'subscription'):
+            self.subscription.release_all()
+        self._is_alive = False
+        self.subscription = None
+
+    def join(self, timeout=None):
+        pass
+
+    def is_alive(self):
+        return hasattr(self, '_is_alive') and self._is_alive
+
+    def stats(self):
+        """ This function should return statistics about the server """
+        if hasattr(self,'subscription') and self.subscription:
+            ret = 'Koo subscription wait: %d locks\n' % len(self.subscription.waits)
+            for w in self.subscription.waits:
+                ret += '    waiting for %s\n' % w['expression']
+            return ret
+        else:
+            return "Koo subscription wait: not bound"
+
+subscription_services()
+WaitServer()
+
+#eof
