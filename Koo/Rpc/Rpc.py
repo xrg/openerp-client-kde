@@ -86,6 +86,29 @@ class RpcServerException(RpcException):
 		return "<RpcServerException %s: '%s', '%s' >" % \
 			(self.type, self.code, bt)
 
+class Rpc2ServerException(RpcServerException):
+	def __init__(self, code, string):
+	    
+		dic = { 'X-Exception': '', 'X-ExcOrigin': 'exception',
+			'X-ExcOrigin': '', 'X-Traceback': '' }
+		
+		key = None
+		for line in string.split('\n'):
+		    if line.startswith('\t'):
+			dic[key] += '\n' + line[1:]
+		    else:
+			nkey, rest = line.split(':', 1)
+			assert nkey
+			rest = rest.strip()
+			dic[nkey] = rest
+			key = nkey
+		
+		self.code = dic['X-Exception']
+		self.type = dic['X-ExcOrigin']
+		self.backtrace = dic['X-Traceback']
+		self.args = ( dic['X-Exception'], dic['X-ExcDetails'])
+
+
 ## @brief The Connection class provides an abstract interface for a RPC
 # protocol
 class Connection:
@@ -372,8 +395,8 @@ class XmlRpc2Connection(Connection):
 			self._log.error("socket error: %s" % err)
 			raise RpcProtocolException( err )
 		except xmlrpclib.Fault, err:
-			self._log.error( "xmlrpclib.Fault on %s/%s(%s): %s" % (obj,str(method), args[:2], err.faultCode))
-			raise RpcServerException( err.faultCode, err.faultString )
+			self._log.error( "xmlrpclib.Fault on %s/%s(%s): %s" % (obj,str(method), args[:2], err.faultString))
+			raise Rpc2ServerException( err.faultCode, err.faultString )
 		except Exception, e:
 			self._log.exception("Exception:")
 			raise
