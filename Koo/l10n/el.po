@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-14 18:20+0300\n"
+"POT-Creation-Date: 2010-07-11 18:18+0300\n"
 "PO-Revision-Date: 2009-10-14 18:27+0300\n"
 "Last-Translator: P. Christeas <p_christ@hol.gr>\n"
 "Language-Team: Greek <openerp@lists.hellug.gr>\n"
@@ -16,34 +16,68 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
-#: Koo/Dialogs/KooMainWindow.py:740 Koo/Dialogs/KooMainWindow.py:764
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ImportDialog.py:63
-#: Koo/Dialogs/TreeWidget.py:267 Koo/Dialogs/TreeWidget.py:279
-#: Koo/Fields/OneToMany/OneToMany.py:185 Koo/Actions/Actions.py:95
+#: Koo/Screen/Action.py:85 Koo/Screen/Action.py:93
+#: Koo/Dialogs/AdministratorPasswordDialog.py:66
+#: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/TreeWidget.py:291 Koo/Dialogs/TreeWidget.py:303
+#: Koo/Fields/OneToMany/OneToMany.py:264 Koo/Actions/Actions.py:101
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: Koo/Screen/Action.py:81
+#: Koo/Screen/Action.py:85
 msgid "You must select a record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:87
+#: Koo/Screen/Action.py:93
 msgid "You must save this record to use the relate button !"
 msgstr ""
 
-#: Koo/Screen/Action.py:130
+#: Koo/Screen/Action.py:140
 msgid "Print Screen"
 msgstr "Εκτύπωση Οθόνης"
 
+#: Koo/Screen/ScreenDialog.py:110 Koo/Dialogs/FormWidget.py:292
+msgid "You have to select one resource!"
+msgstr "Πρέπει να επιλέξετε έναν πόρο!"
+
+#: Koo/Screen/ScreenDialog.py:124 Koo/Dialogs/FormWidget.py:306
+msgid "ID"
+msgstr ""
+
+#: Koo/Screen/ScreenDialog.py:125 Koo/Dialogs/FormWidget.py:307
+msgid "Model ID"
+msgstr "Κωδ. Μοντέλου"
+
+#: Koo/Screen/ScreenDialog.py:126 Koo/Dialogs/FormWidget.py:308
+msgid "Creation User"
+msgstr "Δημιουργία από"
+
+#: Koo/Screen/ScreenDialog.py:127 Koo/Dialogs/FormWidget.py:309
+msgid "Creation Date"
+msgstr "Δημιουργία στις"
+
+#: Koo/Screen/ScreenDialog.py:128 Koo/Dialogs/FormWidget.py:310
+msgid "Latest Modification by"
+msgstr "Τροποποίηση από"
+
+#: Koo/Screen/ScreenDialog.py:129 Koo/Dialogs/FormWidget.py:311
+msgid "Latest Modification Date"
+msgstr "Τροποποίηση στις"
+
+#: Koo/Screen/ScreenDialog.py:152 Koo/Dialogs/FormWidget.py:334
+msgid "Record log"
+msgstr "Ιστορικό εγγραφής"
+
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42
-#: Koo/Dialogs/KooMainWindow.py:576
+#: Koo/Dialogs/KooMainWindow.py:611 Koo/Dialogs/FormWidget.py:337
+#: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "Ναι"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43
-#: Koo/Dialogs/KooMainWindow.py:576
+#: Koo/Dialogs/KooMainWindow.py:611 Koo/Dialogs/FormWidget.py:337
+#: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "Όχι"
 
@@ -51,421 +85,477 @@ msgstr "Όχι"
 msgid "Fields"
 msgstr "Πεδία"
 
-#: Koo/Dialogs/KooMainWindow.py:101 Koo/Dialogs/KooMainWindow.py:448
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:482
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:112
+#: Koo/Dialogs/KooMainWindow.py:113
 msgid "Close tab"
 msgstr "Κλείσιμο καρτέλας"
 
-#: Koo/Dialogs/KooMainWindow.py:191
+#: Koo/Dialogs/KooMainWindow.py:194
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:196
+#: Koo/Dialogs/KooMainWindow.py:199
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:234
+#: Koo/Dialogs/KooMainWindow.py:241
 msgid "Products"
 msgstr "Προϊόντα"
 
-#: Koo/Dialogs/KooMainWindow.py:234
+#: Koo/Dialogs/KooMainWindow.py:241
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:350
+#: Koo/Dialogs/KooMainWindow.py:364
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:352
+#: Koo/Dialogs/KooMainWindow.py:366
 msgid "No request"
 msgstr "Κανένα αίτημα"
 
-#: Koo/Dialogs/KooMainWindow.py:354
+#: Koo/Dialogs/KooMainWindow.py:368
 #, python-format
 msgid " - %s pending request(s)"
 msgstr "- %s αιτήματα σε αναμονή"
 
-#: Koo/Dialogs/KooMainWindow.py:360
+#: Koo/Dialogs/KooMainWindow.py:375
 msgid "New Request"
 msgstr "Νέο αίτημα"
 
-#: Koo/Dialogs/KooMainWindow.py:360
+#: Koo/Dialogs/KooMainWindow.py:375
 msgid "You've received a new request"
 msgstr "Μόλις λάβατε νέο αίτημα"
 
-#: Koo/Dialogs/KooMainWindow.py:425 Koo/Dialogs/KooMainWindow.py:427
+#: Koo/Dialogs/KooMainWindow.py:456 Koo/Dialogs/KooMainWindow.py:458
 msgid "Connection error !"
 msgstr "Σφάλμα σύνδεσης!"
 
-#: Koo/Dialogs/KooMainWindow.py:425
+#: Koo/Dialogs/KooMainWindow.py:456
 msgid "Unable to connect to the server !"
 msgstr "Αδύνατη η σύνδεση στον εξυπηρετητή!"
 
-#: Koo/Dialogs/KooMainWindow.py:427
+#: Koo/Dialogs/KooMainWindow.py:458
 msgid "Bad username or password !"
 msgstr "Λάθος όνομα χρήση ή κωδικός πρόσβασης!"
 
-#: Koo/Dialogs/KooMainWindow.py:431
+#: Koo/Dialogs/KooMainWindow.py:463 Koo/Dialogs/KooMainWindow.py:465
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:447
+#: Koo/Dialogs/KooMainWindow.py:465
+msgid "Error logging into database."
+msgstr ""
+
+#: Koo/Dialogs/KooMainWindow.py:481
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:540
+#: Koo/Dialogs/KooMainWindow.py:575
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:540
+#: Koo/Dialogs/KooMainWindow.py:575
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:576
+#: Koo/Dialogs/KooMainWindow.py:611 Koo/Common/Common.py:232
 msgid "Quit"
 msgstr "Τερματισμός"
 
-#: Koo/Dialogs/KooMainWindow.py:576
+#: Koo/Dialogs/KooMainWindow.py:611
 msgid "Do you really want to quit ?"
 msgstr "Θέλετε πραγματικά να τερματίσετε;"
 
-#: Koo/Dialogs/KooMainWindow.py:610
+#: Koo/Dialogs/KooMainWindow.py:645
 msgid "Wizard"
 msgstr "Οδηγός"
 
-#: Koo/Dialogs/KooMainWindow.py:708 Koo/Dialogs/KooMainWindow.py:729
-msgid "Delete a database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:717 Koo/Dialogs/KooMainWindow.py:723
-msgid "Database removal"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:717
-msgid "Database dropped successfully!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:721
-msgid "Could not drop database."
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:721 Koo/Dialogs/DatabaseCreationDialog.py:84
-msgid "Bad database administrator password !"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:723
-msgid "Couldn't drop database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:740
-msgid "Database restored successfully!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:744 Koo/Dialogs/KooMainWindow.py:746
-msgid "Could not restore database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:744
-msgid "Bad database administrator password!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:746
-msgid "There was an error restoring the database!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:749
-msgid "Backup a database"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:764
-msgid "Database backuped successfully!"
-msgstr ""
-
-#: Koo/Dialogs/KooMainWindow.py:767
-#: Koo/Dialogs/AdministratorPasswordDialog.py:67
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:142
-#: Koo/Dialogs/ExportDialog.py:176 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58 Koo/Fields/Video/VideoFieldWidget.py:82
-#: Koo/Fields/Video/VideoFieldWidget.py:92
-#: Koo/Fields/Binary/BinaryFieldWidget.py:161
-#: Koo/Fields/Binary/BinaryFieldWidget.py:196 Koo/Actions/Actions.py:111
-msgid "Error"
-msgstr "Σφάλμα"
-
-#: Koo/Dialogs/KooMainWindow.py:767
-#, python-format
-msgid ""
-"Could not backup database.\n"
-"%s"
-msgstr ""
-
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+#: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Validation Error"
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:57
+#: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Confirmation password does not match new password."
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:64
+#: Koo/Dialogs/AdministratorPasswordDialog.py:66
 msgid "Password changed successfully"
 msgstr ""
 
-#: Koo/Dialogs/AdministratorPasswordDialog.py:67
+#: Koo/Dialogs/AdministratorPasswordDialog.py:69
+#: Koo/Dialogs/DatabaseDialog.py:148 Koo/Dialogs/ExportDialog.py:54
+#: Koo/Dialogs/ExportDialog.py:80 Koo/Dialogs/ExportDialog.py:157
+#: Koo/Dialogs/ExportDialog.py:191 Koo/Dialogs/FormWidget.py:404
+#: Koo/Dialogs/ImportDialog.py:48 Koo/Dialogs/ImportDialog.py:58
+#: Koo/Fields/Video/VideoFieldWidget.py:82
+#: Koo/Fields/Video/VideoFieldWidget.py:92
+#: Koo/Fields/Binary/BinaryFieldWidget.py:231
+#: Koo/Fields/Binary/BinaryFieldWidget.py:265 Koo/Actions/Actions.py:117
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: Koo/Dialogs/AdministratorPasswordDialog.py:69
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:303
+#: Koo/Dialogs/FullTextSearchDialog.py:62
+msgid "Loading..."
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:64
+msgid "Full Text Search"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:65
+#, python-format
+msgid "Full Text Search (%%d result(s))"
+msgstr ""
+
+#: Koo/Dialogs/FullTextSearchDialog.py:94
 msgid "(Everywhere)"
 msgstr "(Παντού)"
 
-#: Koo/Dialogs/FullTextSearchDialog.py:307
+#: Koo/Dialogs/FullTextSearchDialog.py:98
 msgid ""
 "<b>Full text search is not configured.</b><br/>Go to <i>Administration - "
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:309
+#: Koo/Dialogs/FullTextSearchDialog.py:102
 msgid ""
 "<b>Full text search module not installed.</b><br/>Go to <i>Administration - "
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
 
-#: Koo/Dialogs/FullTextSearchDialog.py:311
-msgid "Full Text Search"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:312
-#, python-format
-msgid "Full Text Search (%%d result(s))"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:397 Koo/Dialogs/FormWidget.py:285
-msgid "ID"
-msgstr ""
-
-#: Koo/Dialogs/FullTextSearchDialog.py:398
-msgid "Model ID"
-msgstr "Κωδ. Μοντέλου"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:399
-msgid "Model Name"
-msgstr "Ονομασία Μοντέλου"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:401
-msgid "Type"
-msgstr "Τύπος"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:402
-msgid "Name"
-msgstr "Όνομα"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:403
-msgid "Text"
-msgstr "Κείμενο"
-
-#: Koo/Dialogs/FullTextSearchDialog.py:404
-msgid "Ranking"
-msgstr ""
-
-#: Koo/Dialogs/DatabaseDialog.py:74 Koo/Dialogs/LoginDialog.py:76
+#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseDialog.py:80 Koo/Dialogs/LoginDialog.py:81
+#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
 msgid "No database found, you must create one !"
 msgstr ""
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:92
-msgid "Confirmation"
-msgstr "Επιβεβαίωση"
+#: Koo/Dialogs/DatabaseDialog.py:108
+msgid "Open backup file..."
+msgstr ""
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:93
+#: Koo/Dialogs/DatabaseDialog.py:111
+msgid "Restore a database"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:124 Koo/Dialogs/DatabaseDialog.py:126
+msgid "Could not restore database"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:124
+msgid "Bad database administrator password!"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:126
+msgid "There was an error restoring the database!"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:129
+msgid "Database restored successfully!"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:132
+msgid "Backup a database"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:136 Koo/Fields/Video/VideoFieldWidget.py:85
+#: Koo/Fields/Binary/BinaryFieldWidget.py:254
+msgid "Save as..."
+msgstr "Αποθήκευση ως..."
+
+#: Koo/Dialogs/DatabaseDialog.py:148
 #, python-format
 msgid ""
-"<p>This process will update the following fields in %(number)d records:</p>%"
-"(records)s<p>Do you want to continue?</p>"
+"Could not backup database.\n"
+"%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:53
-msgid "OpenERP exported information"
+#: Koo/Dialogs/DatabaseDialog.py:151
+msgid "Database backuped successfully!"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:73 Koo/Dialogs/ExportDialog.py:96
+#: Koo/Dialogs/DatabaseDialog.py:154
+msgid "Delete a database"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:165
+msgid "Could not drop database."
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:165 Koo/Dialogs/DatabaseCreationDialog.py:84
+msgid "Bad database administrator password !"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseDialog.py:170
+msgid "Database removal"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:167
+msgid "Couldn't drop database"
+msgstr ""
+
+#: Koo/Dialogs/DatabaseDialog.py:170
+msgid "Database dropped successfully!"
+msgstr ""
+
+#: Koo/Dialogs/MassiveUpdateDialog.py:125
 #, python-format
-msgid "%s record(s) saved!"
-msgstr "%s εγγραφές αποθηκεύτηκαν!"
+msgid "Select the fields you want to update in the <b>%d</b> selected records:"
+msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:76 Koo/Dialogs/ExportDialog.py:99
+#: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
+#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
 #, python-format
 msgid ""
 "Operation failed !\n"
 "I/O error (%s)"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:96 Koo/Dialogs/ExportDialog.py:99
-#: Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:58
+msgid "OpenERP exported information"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/ExportDialog.py:109
+#, python-format
+msgid "%s record(s) saved!"
+msgstr "%s εγγραφές αποθηκεύτηκαν!"
+
+#: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:109
+#: Koo/Dialogs/ExportDialog.py:112 Koo/Dialogs/ExportDialog.py:115
 msgid "Data Export"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:102
+#: Koo/Dialogs/ExportDialog.py:115
 #, python-format
 msgid ""
 "Error exporting data:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:142
+#: Koo/Dialogs/ExportDialog.py:157
 #, python-format
 msgid ""
 "Error opening Excel:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:176
+#: Koo/Dialogs/ExportDialog.py:191
 #, python-format
 msgid ""
 "Error Opening OpenOffice.org:\n"
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:300
+#: Koo/Dialogs/ExportDialog.py:315
 msgid "Export Data"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:343
+#: Koo/Dialogs/ExportDialog.py:358
 msgid "What is the name of this export?"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:361
+#: Koo/Dialogs/ExportDialog.py:376
 msgid "Open with OpenOffice.org"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:367
+#: Koo/Dialogs/ExportDialog.py:382
 msgid "Open with Excel"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:370
+#: Koo/Dialogs/ExportDialog.py:385
 msgid "Save as CSV"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:371
+#: Koo/Dialogs/ExportDialog.py:386
 msgid "Save as HTML"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:383
+#: Koo/Dialogs/ExportDialog.py:398
 msgid "Export name"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:384
+#: Koo/Dialogs/ExportDialog.py:399
 msgid "Exported fields"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:168
+#: Koo/Dialogs/FormWidget.py:184
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:226
+#: Koo/Dialogs/FormWidget.py:214
+msgid "Go To Id"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:214
+#, python-format
+msgid "Resouce with ID '%s' not found."
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:245
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:279
-msgid "You have to select one resource!"
-msgstr "Πρέπει να επιλέξετε έναν πόρο!"
-
-#: Koo/Dialogs/FormWidget.py:286
-msgid "Creation User"
-msgstr "Δημιουργία από"
-
-#: Koo/Dialogs/FormWidget.py:287
-msgid "Creation Date"
-msgstr "Δημιουργία στις"
-
-#: Koo/Dialogs/FormWidget.py:288
-msgid "Latest Modification by"
-msgstr "Τροποποίηση από"
-
-#: Koo/Dialogs/FormWidget.py:289
-msgid "Latest Modification Date"
-msgstr "Τροποποίηση στις"
-
-#: Koo/Dialogs/FormWidget.py:295
-msgid "Record log"
-msgstr "Ιστορικό εγγραφής"
-
-#: Koo/Dialogs/FormWidget.py:298 Koo/Dialogs/FormWidget.py:464
-#: Koo/Fields/Button/ButtonFieldWidget.py:74
+#: Koo/Dialogs/FormWidget.py:337 Koo/Dialogs/FormWidget.py:545
+#: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Question"
 msgstr "Ερώτηση"
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:337
 msgid "Are you sure you want to remove these records?"
 msgstr "Θέλετε πραγματικά να διαγράψετε αυτές τις εγγραφές;"
 
-#: Koo/Dialogs/FormWidget.py:303
+#: Koo/Dialogs/FormWidget.py:342
 msgid "Resource not removed !"
 msgstr "Οι εγγραφές ΔΕΝ διαγράφτηκαν!"
 
-#: Koo/Dialogs/FormWidget.py:305
+#: Koo/Dialogs/FormWidget.py:344
 msgid "Resource removed."
 msgstr "Οι εγγραφές διαγράφτηκαν."
 
-#: Koo/Dialogs/FormWidget.py:336
+#: Koo/Dialogs/FormWidget.py:375
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:346
+#: Koo/Dialogs/FormWidget.py:385
 msgid "<font color=\"green\">Document saved</font>"
 msgstr "<font color=\"green\">Εγγραφή αποθηκεύτηκε</font>"
 
-#: Koo/Dialogs/FormWidget.py:350
+#: Koo/Dialogs/FormWidget.py:390
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr "<font color=\"red\">Σφάλμα στη φόρμα</font>"
 
-#: Koo/Dialogs/FormWidget.py:433
+#: Koo/Dialogs/FormWidget.py:405
+#, python-format
+msgid ""
+"<p>The following fields have an invalid value and have been highlighted in "
+"red:</p>%s<p>Please fix them before saving.</p>"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:406 Koo/koopda.py:123
+msgid "Ok"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:503
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s συνημμένα)"
 
-#: Koo/Dialogs/FormWidget.py:444
+#: Koo/Dialogs/FormWidget.py:514
 msgid "No records"
 msgstr "Καμία εγγραφή"
 
-#: Koo/Dialogs/FormWidget.py:451
+#: Koo/Dialogs/FormWidget.py:521
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:455
+#: Koo/Dialogs/FormWidget.py:525
 msgid "New document"
 msgstr "Νέο έγγραφο"
 
-#: Koo/Dialogs/FormWidget.py:457
+#: Koo/Dialogs/FormWidget.py:527
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Τροποποίηση (id: %s)"
 
-#: Koo/Dialogs/FormWidget.py:458
+#: Koo/Dialogs/FormWidget.py:528
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Εγγραφή: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:464
-msgid "This record has been modified do you want to save it?"
-msgstr "Η εγγραφή τροποποιήθηκε, θέλετε να την αποθηκεύσετε;"
+#: Koo/Dialogs/FormWidget.py:546
+#, python-format
+msgid ""
+"<p>You have modified the following fields in current record:</p>%s<p>Do you "
+"want to save the changes?</p>"
+msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:482
+#: Koo/Dialogs/FormWidget.py:547
+#, fuzzy
+msgid "Save"
+msgstr "&Αποθήκευση"
+
+#: Koo/Dialogs/FormWidget.py:547
+#, fuzzy
+msgid "Discard"
+msgstr "Οδηγός"
+
+#: Koo/Dialogs/FormWidget.py:547
+msgid "Cancel"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:565
 msgid "No records selected"
+msgstr ""
+
+#: Koo/Dialogs/TipOfTheDayDialog.py:36
+msgid ""
+"\n"
+"<p>\n"
+"<b>Welcome to Koo!</b>\n"
+"</p>\n"
+"<p>\n"
+"Koo is a client that gives you access to the powerful OpenERP application "
+"with\n"
+"very good performance and bleeding edge features.\n"
+"</p>\n"
+msgstr ""
+
+#: Koo/Dialogs/TipOfTheDayDialog.py:45
+msgid ""
+"\n"
+"<p>\n"
+"<b>Integrated calculator</b>\n"
+"</p>\n"
+"<p>\n"
+"Did you know that you can use number input boxes like a calculator? Go to a "
+"field where you should insert a number and type <i>3+4*12</i>. Then press "
+"enter to see the result or store the form directly. In both cases you will "
+"see the result updated in the same input box. Allowed operators include: +, "
+"-, *, / and you can also use parenthesis.\n"
+"</p>\n"
+msgstr ""
+
+#: Koo/Dialogs/TipOfTheDayDialog.py:53
+msgid ""
+"\n"
+"<p>\n"
+"<b>Full Text Search</b>\n"
+"</p>\n"
+"<p>\n"
+"Did you know that you can search any record of your database from a single "
+"place, just like you do with Google? Search and install the full_text_search "
+"module and follow the instructions on how to configure it properly.\n"
+"</p>\n"
+msgstr ""
+
+#: Koo/Dialogs/TipOfTheDayDialog.py:61
+msgid ""
+"\n"
+"<p>\n"
+"<b>Export information</b>\n"
+"</p>\n"
+"<p>\n"
+"Did you know that you can easily export OpenERP information? Go to Form and "
+"then Export Data. You can even store your preferences and use it easily as "
+"many times as you need.\n"
+"</p>\n"
 msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:48
@@ -536,51 +626,53 @@ msgid ""
 "Field %s is unknown !"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:80
+#: Koo/Dialogs/SearchDialog.py:90
 #, python-format
 msgid "Search: %s"
 msgstr ""
 
-#: Koo/Dialogs/SearchDialog.py:81
+#: Koo/Dialogs/SearchDialog.py:91
 #, python-format
 msgid "Search: %s (%%d result(s))"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:61
+#: Koo/Dialogs/TreeWidget.py:63
 msgid "Tree"
 msgstr "Διάρθρωση"
 
-#: Koo/Dialogs/TreeWidget.py:267 Koo/Dialogs/TreeWidget.py:279
+#: Koo/Dialogs/TreeWidget.py:291 Koo/Dialogs/TreeWidget.py:303
 msgid "No resource selected!"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:296
+#: Koo/Dialogs/TreeWidget.py:320
 msgid "No item selected"
 msgstr ""
 
-#: Koo/Dialogs/TreeWidget.py:296
+#: Koo/Dialogs/TreeWidget.py:320
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 
-#: Koo/Dialogs/PreferencesDialog.py:77
+#: Koo/Dialogs/PreferencesDialog.py:54
 msgid "User Preferences"
 msgstr ""
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:64
-msgid "NET-RPC (faster)"
+#: Koo/Dialogs/ServerConfigurationDialog.py:66
+#, fuzzy
+msgid "NET-RPC"
 msgstr "NET-RPC (γρήγορο)"
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:65
+#: Koo/Dialogs/ServerConfigurationDialog.py:67
 msgid "XML-RPC"
 msgstr ""
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:66
+#: Koo/Dialogs/ServerConfigurationDialog.py:68
 msgid "Secure XML-RPC"
 msgstr "Ασφαλές XML-RPC"
 
-#: Koo/Dialogs/ServerConfigurationDialog.py:67
-msgid "Pyro"
-msgstr ""
+#: Koo/Dialogs/ServerConfigurationDialog.py:69
+#, fuzzy
+msgid "Pyro (faster)"
+msgstr "NET-RPC (γρήγορο)"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
@@ -611,21 +703,21 @@ msgid ""
 "We suggest you to drop this database."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:165
+#: Koo/Dialogs/DatabaseCreationDialog.py:178
 msgid "Bad database name !"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:165
+#: Koo/Dialogs/DatabaseCreationDialog.py:178
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Wrong password"
 msgstr ""
 
-#: Koo/Dialogs/DatabaseCreationDialog.py:168
+#: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Administrator passwords differ."
 msgstr ""
 
@@ -637,91 +729,92 @@ msgstr ""
 msgid "There was an error trying to create the report."
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:65
+#: Koo/Fields/AbstractFieldWidget.py:71
 msgid "Set to default value"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:71
+#: Koo/Fields/AbstractFieldWidget.py:77
 msgid "Set as default value"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:98
+#: Koo/Fields/AbstractFieldWidget.py:134
 #: Koo/Fields/AbstractFieldDelegate.py:115
 msgid "Operation not permited"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:98
+#: Koo/Fields/AbstractFieldWidget.py:134
 #: Koo/Fields/AbstractFieldDelegate.py:115
 msgid "You can not set to the default value here !"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:68
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+#: Koo/Fields/Char/CharFieldWidget.py:75
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
 msgid "Translation dialog"
 msgstr ""
 
-#: Koo/Fields/Char/CharFieldWidget.py:68
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:54
+#: Koo/Fields/Char/CharFieldWidget.py:75
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
 msgid "You must save the resource before adding translations"
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:80
-#: Koo/Fields/Link/LinkFieldWidget.py:61
-#: Koo/Fields/Binary/BinaryFieldWidget.py:116
+#: Koo/Fields/Image/ImageFieldWidget.py:83
+#: Koo/Fields/Link/LinkFieldWidget.py:62
+#: Koo/Fields/Binary/BinaryFieldWidget.py:173
 msgid "Open..."
 msgstr "Άνοιγμα..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:108
-#: Koo/Fields/Binary/BinaryFieldWidget.py:142
+#: Koo/Fields/Image/ImageFieldWidget.py:111
+#: Koo/Fields/Binary/BinaryFieldWidget.py:210
 msgid "Image"
 msgstr "Εικόνα"
 
-#: Koo/Fields/Image/ImageFieldWidget.py:123
+#: Koo/Fields/Image/ImageFieldWidget.py:126
 msgid "Save image as..."
 msgstr "Αποθήκευση εικόνας ως..."
 
-#: Koo/Fields/Image/ImageFieldWidget.py:131
+#: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid "Error saving file"
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:131
+#: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid ""
 "Could not save the image with the given file name. Please check that you "
 "have permissions."
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:136
+#: Koo/Fields/Image/ImageFieldWidget.py:139
 #, python-format
 msgid "Image files (%s)"
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:137
+#: Koo/Fields/Image/ImageFieldWidget.py:140
 msgid "Open image file..."
 msgstr ""
 
-#: Koo/Fields/Image/ImageFieldWidget.py:154
+#: Koo/Fields/Image/ImageFieldWidget.py:157
 msgid "(no image)"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:80 Koo/Fields/ManyToOne/ManyToOne.py:266
-msgid "Action"
-msgstr "Ενέργεια"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:81 Koo/Fields/ManyToOne/ManyToOne.py:267
-msgid "Report"
-msgstr "Αναφορά"
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:99 Koo/Fields/ManyToOne/ManyToOne.py:218
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:211
-msgid "Search"
-msgstr ""
-
-#: Koo/Fields/ManyToOne/ManyToOne.py:211
-#: Koo/Fields/Reference/ReferenceFieldWidget.py:206
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:249
+#: Koo/Fields/ManyToOne/ManyToOne.py:309
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr "Άνοιγμα"
 
-#: Koo/Fields/Link/LinkFieldWidget.py:70
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:311
+msgid "Action"
+msgstr "Ενέργεια"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:312
+msgid "Report"
+msgstr "Αναφορά"
+
+#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:257
+#: Koo/Fields/Reference/ReferenceFieldWidget.py:213
+msgid "Search"
+msgstr ""
+
+#: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
 msgstr ""
 
@@ -729,27 +822,27 @@ msgstr ""
 msgid "Set current date"
 msgstr ""
 
-#: Koo/Fields/Calendar/Calendar.py:120
+#: Koo/Fields/Calendar/Calendar.py:124
 msgid "Set current date and time"
 msgstr ""
 
-#: Koo/Fields/Calendar/Calendar.py:162 Koo/Fields/Calendar/Calendar.py:216
+#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:222
 msgid "Set current time"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:109
+#: Koo/Fields/Button/ButtonFieldWidget.py:117
 msgid "Error in Button"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:109
+#: Koo/Fields/Button/ButtonFieldWidget.py:117
 msgid "Button type not allowed"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:118
+#: Koo/Fields/Button/ButtonFieldWidget.py:126
 msgid "Invalid Form, correct red fields!"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:185
+#: Koo/Fields/OneToMany/OneToMany.py:264
 msgid "No record selected"
 msgstr ""
 
@@ -762,7 +855,7 @@ msgid "<center>Always applicable!</center>"
 msgstr ""
 
 #: Koo/Fields/Video/VideoFieldWidget.py:72
-#: Koo/Fields/Binary/BinaryFieldWidget.py:152
+#: Koo/Fields/Binary/BinaryFieldWidget.py:220
 msgid "Select the file to attach"
 msgstr ""
 
@@ -770,102 +863,166 @@ msgstr ""
 msgid "Error reading the file"
 msgstr ""
 
-#: Koo/Fields/Video/VideoFieldWidget.py:85
-#: Koo/Fields/Binary/BinaryFieldWidget.py:185
-msgid "Save as..."
-msgstr "Αποθήκευση ως..."
-
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:51
+#: Koo/Fields/Binary/BinaryFieldWidget.py:78
 #, python-format
 msgid "Files (%s)"
 msgstr "Αρχεία (%s)"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:60
+#: Koo/Fields/Binary/BinaryFieldWidget.py:86
+msgid "&New"
+msgstr ""
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:90
+#, fuzzy
+msgid "&Scan"
+msgstr "&Αποθήκευση"
+
+#: Koo/Fields/Binary/BinaryFieldWidget.py:101
 msgid "&Save"
 msgstr "&Αποθήκευση"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:63
+#: Koo/Fields/Binary/BinaryFieldWidget.py:104
 msgid "&Open"
 msgstr "&Άνοιγμα"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:66
+#: Koo/Fields/Binary/BinaryFieldWidget.py:107
 msgid "Show &image"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:117
+#: Koo/Fields/Binary/BinaryFieldWidget.py:174
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:161
+#: Koo/Fields/Binary/BinaryFieldWidget.py:231
 #, python-format
 msgid ""
 "Error reading the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:165
-#: Koo/Fields/Binary/BinaryFieldWidget.py:213 Koo/Model/KooModel.py:358
-#, python-format
-msgid "%d bytes"
-msgstr "%d bytes"
-
-#: Koo/Fields/Binary/BinaryFieldWidget.py:196
+#: Koo/Fields/Binary/BinaryFieldWidget.py:265
 #, python-format
 msgid ""
 "Error writing the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Plugins/Semantic/__init__.py:46
+#: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
 msgstr ""
 
-#: Koo/Plugins/ViewTranslator/__init__.py:40
+#: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
 msgstr ""
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:54
+#: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
 msgstr "Εκτύπωση ροής εργασίας"
 
-#: Koo/Plugins/WorkflowPrinter/__init__.py:55
+#: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
 msgstr ""
 
-#: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
+#: Koo/Plugins/ViewEditor/__init__.py:38
+#, fuzzy
+msgid "Edit View"
+msgstr "Προβολή Λίστας"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:43
+#: Koo/Plugins/DocumentImporter/__init__.py:81
+msgid "Import Documents"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:44
+msgid "How do you want to import documents?"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:45
+msgid "Select Files"
+msgstr ""
+
+#: Koo/Plugins/DocumentImporter/__init__.py:46
+#, fuzzy
+msgid "Selected Directory"
+msgstr "Επιλέξτε ενέργεια"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:47
+msgid "Cancel Import"
+msgstr ""
+
+#: Koo/Plugins/DocumentScanner/__init__.py:71
+#, fuzzy
+msgid "document.png"
+msgstr "Νέο έγγραφο"
+
+#: Koo/Plugins/DocumentScanner/__init__.py:78
+#, fuzzy
+msgid "Scan Documents"
+msgstr "Νέο έγγραφο"
+
+#: Koo/Plugins/SearchModelData/__init__.py:40
+msgid "Search Model Data"
+msgstr ""
+
+#: Koo/Actions/Actions.py:62 Koo/Actions/Actions.py:86
 #, python-format
 msgid "Error: %s"
 msgstr "Σφάλμα: %s"
 
-#: Koo/Actions/Actions.py:62
+#: Koo/Actions/Actions.py:66
 msgid "Nothing to print."
 msgstr "Τίποτα προς εκτύπωση."
 
-#: Koo/Actions/Actions.py:78
+#: Koo/Actions/Actions.py:82
 msgid "Printing aborted. Delay too long."
 msgstr ""
 
-#: Koo/Actions/Actions.py:95
+#: Koo/Actions/Actions.py:101
 msgid "Nothing to print!"
 msgstr "Τίποτα προς εκτύπωση!"
 
-#: Koo/Actions/Actions.py:111
+#: Koo/Actions/Actions.py:117
 msgid "Printing aborted, too long delay !"
 msgstr ""
 
-#: Koo/Actions/Actions.py:232
+#: Koo/Actions/Actions.py:252
 msgid "Select your action"
 msgstr "Επιλέξτε ενέργεια"
 
-#: Koo/Common/Common.py:178
+#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:366
+#, python-format
+msgid "%d bytes"
+msgstr "%d bytes"
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Kb"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Mb"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Gb"
+msgstr ""
+
+#: Koo/Common/Numeric.py:97
+#, python-format
+msgid "%.2f Tb"
+msgstr ""
+
+#: Koo/Common/Common.py:135
 msgid "Concurrency warning"
 msgstr "Προειδοποίηση συγχρονισμού"
 
-#: Koo/Common/Common.py:179
+#: Koo/Common/Common.py:136
 msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
@@ -873,39 +1030,65 @@ msgstr ""
 "<b>Προειδοποίηση σύγχρονης εγγραφής:</b><br/>Τα δεδομένα τροποποιήθηκαν από "
 "τρίτο όσο εσείς τα επεξεργαζόσαστε."
 
-#: Koo/Common/Common.py:180
+#: Koo/Common/Common.py:137
 msgid "Save anyway"
 msgstr "Αποθήκευσε"
 
-#: Koo/Common/Common.py:181
+#: Koo/Common/Common.py:138
 msgid "Compare"
 msgstr "Σύγκρινε"
 
-#: Koo/Common/Common.py:182
+#: Koo/Common/Common.py:139
 msgid "Do not save"
 msgstr "Μην αποθηκεύσεις"
 
+#: Koo/Common/Common.py:212
+#, python-format
+msgid "<b>Connection Lost:</b> %s"
+msgstr ""
+
+#: Koo/Common/Common.py:220
+#, python-format
+msgid ""
+"Connection with the server has been lost. Will retry connection in %d "
+"seconds."
+msgstr ""
+
+#: Koo/Common/Common.py:232
+msgid ""
+"Leaving the application now will lose all unsaved changes. Are you sure you "
+"want to quit?"
+msgstr ""
+
 #: Koo/Common/CommandLine.py:44
-msgid "specify alternate config file"
+msgid "specify database"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:45
-msgid "specify the server (ie. http://admin@localhost:8069)"
+msgid "specify alternate config file"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:46
-msgid "specify stylesheet to apply"
+msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:47
-msgid "use POS (Point of Sales) mode"
+msgid "specify stylesheet to apply"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:48
-msgid "disable usage of KDE libraries if they are available"
+msgid "use POS (Point of Sales) mode"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:49
+msgid "replace enter/return keys with tab hits"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:50
+msgid "disable usage of KDE libraries if they are available"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:51
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
@@ -915,19 +1098,23 @@ msgid ""
 "can easily interact with Koo."
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:206
-msgid "<font color='red'>Sorting not possible.</font>"
-msgstr ""
-
-#: Koo/View/Tree/TreeView.py:208
-msgid "<font color='red'>Sorting only groups.</font>"
+#: Koo/Common/DBus.py:36
+msgid "DBus initialization failed."
 msgstr ""
 
 #: Koo/View/Tree/TreeView.py:210
+msgid "<font color='red'>Sorting not possible.</font>"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:212
+msgid "<font color='red'>Sorting only groups.</font>"
+msgstr ""
+
+#: Koo/View/Tree/TreeView.py:214
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:234
+#: Koo/View/Tree/TreeView.py:238
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -955,7 +1142,7 @@ msgstr ""
 msgid "Views of type %s not available in Koo."
 msgstr ""
 
-#: Koo/View/Svg/__init__.py:32
+#: Koo/View/Svg/__init__.py:33
 msgid "SVG View"
 msgstr ""
 
@@ -967,25 +1154,44 @@ msgstr "Προβολή Φόρμας"
 msgid "Chart View"
 msgstr "Προβολή Γραφήματος"
 
-#: Koo/Rpc/Rpc.py:330 Koo/Rpc/Rpc.py:448
+#: Koo/View/Shower/__init__.py:31
+msgid "Diagram View"
+msgstr "Προβολή Διαγράμματος"
+
+#: Koo/Rpc/Rpc.py:529
 msgid "Connection Refused"
 msgstr "Απορριφθείσα σύνδεση"
 
-#: Koo/Rpc/Rpc.py:336 Koo/Rpc/Rpc.py:460
+#: Koo/Rpc/Rpc.py:535 Koo/Rpc/Rpc.py:662
 msgid "Application Error"
 msgstr "Σφάλμα Εφαρμογής"
 
-#: Koo/Rpc/Rpc.py:336 Koo/Rpc/Rpc.py:460
+#: Koo/Rpc/Rpc.py:535 Koo/Rpc/Rpc.py:662
 msgid "View details"
 msgstr "Λεπτομέρειες"
 
-#: Koo/Rpc/Rpc.py:430
+#: Koo/Rpc/Rpc.py:630
 msgid "Not logged in"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:579
+#: Koo/Rpc/Rpc.py:792
 msgid "Could not contact server!"
 msgstr ""
 
-#~ msgid "Diagram View"
-#~ msgstr "Προβολή Διαγράμματος"
+#~ msgid "Model Name"
+#~ msgstr "Ονομασία Μοντέλου"
+
+#~ msgid "Type"
+#~ msgstr "Τύπος"
+
+#~ msgid "Name"
+#~ msgstr "Όνομα"
+
+#~ msgid "Text"
+#~ msgstr "Κείμενο"
+
+#~ msgid "Confirmation"
+#~ msgstr "Επιβεβαίωση"
+
+#~ msgid "This record has been modified do you want to save it?"
+#~ msgstr "Η εγγραφή τροποποιήθηκε, θέλετε να την αποθηκεύσετε;"
