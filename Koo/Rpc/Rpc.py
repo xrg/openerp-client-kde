@@ -74,7 +74,7 @@ class RpcServerException(RpcException):
 			self.args = ( msg, data )
 		else:
 			self.type = 'error'
-			self.args = (backtrace, backtrace)
+			self.args = ('' , backtrace)
 
 		self.backtrace = backtrace
 	def __str__(self):
@@ -85,6 +85,16 @@ class RpcServerException(RpcException):
 			bt = self.backtrace
 		return "<RpcServerException %s: '%s', '%s' >" % \
 			(self.type, self.code, bt)
+
+	def get_title(self):
+	    if self.args and self.args[0] != self.backtrace:
+		return self.args[0]
+	    return ''
+	
+	def get_details(self):
+	    if len(self.args) > 1 and self.args[1] != self.backtrace:
+		return self.args[1]
+	    return ''
 
 class Rpc2ServerException(RpcServerException):
 	def __init__(self, code, string):
@@ -106,7 +116,8 @@ class Rpc2ServerException(RpcServerException):
 		self.code = dic['X-Exception']
 		self.type = dic['X-ExcOrigin']
 		self.backtrace = dic['X-Traceback']
-		self.args = ( dic['X-Exception'], dic['X-ExcDetails'])
+		self.args = ( dic.get('X-Exception','Exception!'), 
+			dic.get('X-ExcDetails',''))
 
 
 ## @brief The Connection class provides an abstract interface for a RPC
@@ -532,7 +543,7 @@ class AsynchronousSessionCall(QThread):
 				if err.type in ('warning','UserError'):
 					self.warning = tuple(err.args[0:2])
 				else:
-					self.error = (_('Application Error'), _('View details'), err.backtrace )
+					self.error = (_('Application Error: %s') % err.get_title(), _('View details: %s') % err.get_details(), err.backtrace )
 
 
 ## @brief The Session class provides a simple way of login and executing function in a server
@@ -659,7 +670,10 @@ class Session:
 					else:
 						Notifier.notifyWarning(err.args[0], err.args[1])
 				else:
-					Notifier.notifyError(_('Application Error'), _('View details'), err.backtrace )
+					Notifier.notifyError(
+						_('Application Error: %s') %err.get_title(),
+						_('View details: %s') %err.get_details(),
+						err.backtrace )
 				raise
 			except Exception, e:
 					self._log.exception("Execute:")
