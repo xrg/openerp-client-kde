@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-06-20 23:31+0200\n"
+"POT-Creation-Date: 2010-07-18 21:50+0200\n"
 "PO-Revision-Date: 2010-01-10 01:47+0000\n"
 "Last-Translator: Wei \"oldrev\" Li <oldrev@gmail.com>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
+"X-Launchpad-Export-Date: 2010-07-18 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -141,19 +141,19 @@ msgstr ""
 msgid "List View"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:221
+#: Koo/View/Tree/TreeView.py:210
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:223
+#: Koo/View/Tree/TreeView.py:212
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:225
+#: Koo/View/Tree/TreeView.py:214
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:249
+#: Koo/View/Tree/TreeView.py:238
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -220,18 +220,18 @@ msgstr "不要保存"
 msgid "<b>Connection Lost:</b> %s"
 msgstr ""
 
-#: Koo/Common/Common.py:210
+#: Koo/Common/Common.py:209
 #, python-format
 msgid ""
 "Connection with the server has been lost. Will retry connection in %d "
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:222 Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:608
 msgid "Quit"
 msgstr ""
 
-#: Koo/Common/Common.py:222
+#: Koo/Common/Common.py:221
 msgid ""
 "Leaving the application now will lose all unsaved changes. Are you sure you "
 "want to quit?"
@@ -305,14 +305,58 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:608 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr "是"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:605 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:608 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr "否"
+
+#: Koo/Search/CustomSearchFormWidget.py:82
+msgid "is empty"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:83
+msgid "contains"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:84
+msgid "does not contain"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:85
+msgid "is equal to"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:86
+msgid "is not equal to"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:87
+msgid "greater than"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:88
+msgid "less than"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:89
+msgid "in"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:90
+msgid "not in"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:187
+msgid "True"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:188
+msgid "False"
+msgstr ""
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:36
 msgid ""
@@ -490,7 +534,7 @@ msgstr ""
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:304 Koo/Dialogs/FormWidget.py:510
+#: Koo/Dialogs/FormWidget.py:304 Koo/Dialogs/FormWidget.py:512
 #: Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Question"
 msgstr "问题"
@@ -526,57 +570,57 @@ msgid ""
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:468
+#: Koo/Dialogs/FormWidget.py:470
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:479
+#: Koo/Dialogs/FormWidget.py:481
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:486
+#: Koo/Dialogs/FormWidget.py:488
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:490
+#: Koo/Dialogs/FormWidget.py:492
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:492
+#: Koo/Dialogs/FormWidget.py:494
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:493
+#: Koo/Dialogs/FormWidget.py:495
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:511
+#: Koo/Dialogs/FormWidget.py:513
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:512
+#: Koo/Dialogs/FormWidget.py:514
 msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:512
+#: Koo/Dialogs/FormWidget.py:514
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:512
+#: Koo/Dialogs/FormWidget.py:514
 msgid "Cancel"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:530
+#: Koo/Dialogs/FormWidget.py:532
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:476
+#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:479
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -622,46 +666,46 @@ msgstr ""
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:450 Koo/Dialogs/KooMainWindow.py:452
+#: Koo/Dialogs/KooMainWindow.py:453 Koo/Dialogs/KooMainWindow.py:455
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:450
+#: Koo/Dialogs/KooMainWindow.py:453
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:452
+#: Koo/Dialogs/KooMainWindow.py:455
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:457 Koo/Dialogs/KooMainWindow.py:459
+#: Koo/Dialogs/KooMainWindow.py:460 Koo/Dialogs/KooMainWindow.py:462
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:459
+#: Koo/Dialogs/KooMainWindow.py:462
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:475
+#: Koo/Dialogs/KooMainWindow.py:478
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:569
+#: Koo/Dialogs/KooMainWindow.py:572
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:569
+#: Koo/Dialogs/KooMainWindow.py:572
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:605
+#: Koo/Dialogs/KooMainWindow.py:608
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:639
+#: Koo/Dialogs/KooMainWindow.py:642
 msgid "Wizard"
 msgstr ""
 
