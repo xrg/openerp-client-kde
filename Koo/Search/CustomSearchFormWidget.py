@@ -79,14 +79,15 @@ class SearchFormContainer( QWidget ):
 class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 	operators = (
-		('ilike', _('contains'), ('char','text','many2one','many2many','one2many') ), 
-		('not ilike', _('does not contain'), ('char','text')), 
-		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time')),
-		('<>', _('is not equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time')), 
-		('>', _('greater than'), ('char','text','integer','float','date','time','datetime','float_time')), 
-		('<', _('less than'), ('char','text','integer','float','date','time','datetime','float_time')), 
-		('in', _('in'), ('selection')),
-		('not in', _('not in'), ('selection')),
+		('is empty', _('is empty'), ('char', 'text', 'many2one'), False),
+		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
+		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
+		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True),
+		('<>', _('is not equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True), 
+		('>', _('greater than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
+		('<', _('less than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
+		('in', _('in'), ('selection'), True),
+		('not in', _('not in'), ('selection'), True),
 	)
 
 	typeOperators = {
@@ -100,6 +101,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.setupUi(self)
 
 		self.connect(self.uiField, SIGNAL('currentIndexChanged(int)'), self.updateOperators)
+		self.connect(self.uiOperator, SIGNAL('currentIndexChanged(int)'), self.updateValue)
 
 		self.fields = None
 
@@ -137,6 +139,13 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		for operator in self.operators:
 			if fieldType in operator[2]:
 				self.uiOperator.addItem( operator[1], operator[0] )
+
+	def updateValue(self, index):
+		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
+		for op in self.operators:
+			if operator == op[0]:
+				self.uiValue.setVisible( op[3] )
+				break
 
 	def clear(self):
 		self.uiField.setCurrentIndex( 0 )
@@ -214,11 +223,14 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 				else:
 					newValue.append( item )
 			value = newValue
+		elif operator == 'is empty':
+			operator = '='
+			value = False
+			text = ''
 		else:
 			(value, text) = self.correctValue( value, fieldName )
 
 		self.uiValue.setText( text )
-		print "DATA: ", fieldName, operator, value
 		return [(fieldName, operator, value)]
 
 class CustomSearchFormWidget(AbstractSearchWidget):
