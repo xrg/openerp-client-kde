@@ -945,6 +945,11 @@ p, li { white-space: pre-wrap; }
         <source>Color Legend</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="customsearchitem.ui" line="49"/>
+        <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FormContainerWidget</name>
@@ -2008,12 +2013,12 @@ this operation may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="84"/>
+        <location filename="searchform.ui" line="108"/>
         <source>&amp;Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="95"/>
+        <location filename="searchform.ui" line="119"/>
         <source>&amp;Search</source>
         <translation type="unfinished"></translation>
     </message>

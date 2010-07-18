@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-27 16:40+0200\n"
+"POT-Creation-Date: 2010-07-18 21:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -312,6 +312,50 @@ msgstr ""
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
 #: Koo/Dialogs/KooMainWindow.py:608 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:82
+msgid "is empty"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:83
+msgid "contains"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:84
+msgid "does not contain"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:85
+msgid "is equal to"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:86
+msgid "is not equal to"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:87
+msgid "greater than"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:88
+msgid "less than"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:89
+msgid "in"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:90
+msgid "not in"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:187
+msgid "True"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:188
+msgid "False"
 msgstr ""
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:36

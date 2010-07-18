@@ -187,7 +187,7 @@ msgid "Choose a date from a calendar"
 msgstr ""
 
 #. ts-context SearchFormWidget
-#: searchform.ui:95
+#: searchform.ui:119
 msgid "&Search"
 msgstr ""
 
@@ -1103,6 +1103,11 @@ msgstr ""
 msgid "Field &Name"
 msgstr ""
 
+#. ts-context Form
+#: customsearchitem.ui:49
+msgid "If operator is 'in' or 'not in' you may introduce a list of comma separated values."
+msgstr ""
+
 #. ts-context ErrorDialog
 #: error.ui:41
 msgid "&Description"
@@ -1217,7 +1222,7 @@ msgid "&Drop Database"
 msgstr ""
 
 #. ts-context SearchFormWidget
-#: searchform.ui:84
+#: searchform.ui:108
 msgid "&Clear"
 msgstr ""
 
