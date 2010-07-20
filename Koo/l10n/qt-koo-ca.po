@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-20 12:06+0000\n"
-"PO-Revision-Date: 2010-06-20 20:45+0000\n"
+"POT-Creation-Date: 2010-07-18 20:38+0000\n"
+"PO-Revision-Date: 2010-07-18 21:49+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-06-27 14:24+0000\n"
+"X-Launchpad-Export-Date: 2010-07-18 21:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: ca_ES\n"
 
@@ -216,7 +216,7 @@ msgid "Choose a date from a calendar"
 msgstr "Escolliu una data del calendari"
 
 #. ts-context SearchFormWidget
-#: searchform.ui:95
+#: searchform.ui:119
 msgid "&Search"
 msgstr "&Cerca"
 
@@ -1259,6 +1259,15 @@ msgstr "Elimina l'accés directe"
 msgid "Field &Name"
 msgstr "Nom del &camp"
 
+#. ts-context Form
+#: customsearchitem.ui:49
+msgid ""
+"If operator is 'in' or 'not in' you may introduce a list of comma separated "
+"values."
+msgstr ""
+"Si l'operador és \"és dins de\" o bé \"no és dins de\" podeu introduir una "
+"llista de valors separats per comes."
+
 #. ts-context ErrorDialog
 #: error.ui:41
 msgid "&Description"
@@ -1392,7 +1401,7 @@ msgid "&Drop Database"
 msgstr "&Elimina la base de dades"
 
 #. ts-context SearchFormWidget
-#: searchform.ui:84
+#: searchform.ui:108
 msgid "&Clear"
 msgstr "&Neteja"
 

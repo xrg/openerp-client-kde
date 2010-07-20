@@ -164,10 +164,12 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
 		self.connect( self.pushSearch, SIGNAL('clicked()'), self.search )
+		self.connect( self.pushSwitchView, SIGNAL('clicked()'), self.toggleView )
 
 		self.pushExpander.setEnabled( False )
 		self.pushClear.setEnabled( False )
 		self.pushSearch.setEnabled( False )
+		self.toggleView()
 
 	## @brief Returns True if it's been already loaded. That is: setup has been called.
 	def isLoaded(self):
@@ -194,7 +196,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushClear.setEnabled( True )
 		self.pushSearch.setEnabled( True )
 
-		parser = SearchFormParser(self.uiContainer, fields, model)
+		parser = SearchFormParser(self.uiSimpleContainer, fields, model)
 		self.model = model
 
 		self.widgets = parser.parse(xml)
@@ -226,6 +228,8 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.focusable = parser.focusable
 		self.expanded = True
 		self.toggleExpansion()
+
+		self.uiCustomContainer.setup( fields, domain )
 		return 
 
 	def keyPressEvent(self, event):
@@ -246,9 +250,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSearch.setVisible( False )
 
 	def toggleExpansion(self):
-		layout = self.uiContainer.layout()
+		layout = self.uiSimpleContainer.layout()
 		
-		childs = self.uiContainer.children()
+		childs = self.uiSimpleContainer.children()
 		for x in childs:
 			if x.isWidgetType() and x.gridLine > 0:
 				if self.expanded:
@@ -260,7 +264,17 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			self.pushExpander.setIcon( QIcon(':/images/up.png') )
 		else:
 			self.pushExpander.setIcon( QIcon(':/images/down.png') )
-		
+
+	def toggleView(self):
+		if self.pushSwitchView.isChecked():
+			self.uiSimpleContainer.hide()
+			self.pushExpander.hide()
+			self.uiCustomContainer.show()
+		else:
+			self.uiSimpleContainer.show()
+			self.pushExpander.show()
+			self.uiCustomContainer.hide()
+
 	def setFocus(self):
 		if self.focusable:
 			self.focusable.setFocus()
@@ -271,6 +285,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	#
 	# Calling 'value()' after this function should return an empty list.
 	def clear(self):
+		if self.pushSwitchView.isChecked():
+			return self.uiCustomContainer.clear()
+
 		for x in self.widgets.values():
 			x.clear()
 
@@ -279,6 +296,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	# Note you can optionally give a 'domain' parameter which will be added to
 	# the filters the widget will return.
 	def value(self, domain=[]):
+		if self.pushSwitchView.isChecked():
+			return self.uiCustomContainer.value( domain )
+
 		res = []
 		for x in self.widgets:
 			res += self.widgets[x].value()

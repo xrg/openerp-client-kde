@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>39</height>
+    <width>572</width>
+    <height>63</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,6 +39,20 @@
       </spacer>
      </item>
      <item>
+      <widget class="QPushButton" name="pushSwitchView">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/configure.png</normaloff>:/images/configure.png</iconset>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="pushExpander">
        <property name="icon">
         <iconset resource="common.qrc">
@@ -49,7 +63,17 @@
     </layout>
    </item>
    <item>
-    <widget class="SearchFormContainer" name="uiContainer" native="true">
+    <widget class="CustomSearchFormWidget" name="uiCustomContainer" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="SearchFormContainer" name="uiSimpleContainer" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
        <horstretch>0</horstretch>
@@ -117,6 +141,12 @@
    <class>SearchFormContainer</class>
    <extends>QWidget</extends>
    <header>Koo.Search.SearchFormWidget</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CustomSearchFormWidget</class>
+   <extends>QWidget</extends>
+   <header>Koo.Search.CustomSearchFormWidget</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

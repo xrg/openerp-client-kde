@@ -27,8 +27,6 @@
 
 from threading import Thread
 import Pyro.core
-import Pyro.EventService.Server
-from Pyro.EventService.Clients import Publisher
 import netsvc
 import tools
 
