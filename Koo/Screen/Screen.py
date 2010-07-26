@@ -338,10 +338,19 @@ class Screen(QScrollArea):
 			pass
 		QApplication.restoreOverrideCursor()
 
+	def updateSearchFormStatus(self):
+		# Do not allow searches if group is modified. This avoids 'maximum recursion' errors if user
+		# tries to search after modifying a record in an editable list.
+		if self.group.isModified():
+			self.searchForm.setEnabled( False )
+		else:
+			self.searchForm.setEnabled( True )
+
 	# Slot to recieve the signal from a view when the current item changes
 	def currentChanged(self, model):
 		self.setCurrentRecord( model )
 		self.emit( SIGNAL('currentChanged()') )
+		self.updateSearchFormStatus()
 
 	## @brief Sets the RecordGroup this Screen should show.
 	# @param group RecordGroup object.
