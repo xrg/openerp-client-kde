@@ -379,7 +379,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 				id = self.record.get()[self.name]
 				Api.instance.createWindow(False, model, id, [], 'form', mode='form,tree')
 			else:	
-				dialog = ScreenDialog( self.currentEditor )
+				dialog = ScreenDialog( self.parent() )
 				dialog.setAttributes( self.attributes )
 				dialog.setContext( self.record.fieldContext( self.name ) )
 				dialog.setDomain( self.record.domain(self.name) )
