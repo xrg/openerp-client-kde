@@ -129,15 +129,20 @@ check_modules()
 
 # create startup script
 if os.name != 'nt':
+	if sys.platform == 'darwin':
+		script_name = 'koo.sh'
+	else:
+		script_name = 'koo'
+
 	start_script = "cd %s/Koo\nexec %s ./koo.py $@\n" % ( 
 		get_python_lib(), sys.executable
 	)
 	# write script
-	f = open('koo', 'w')
+	f = open(script_name, 'w')
 	f.write(start_script)
 	f.close()
 	
-	script_files = ['koo']
+	script_files = [script_name]
 else:
 	script_files = []
 
