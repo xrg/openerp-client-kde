@@ -26,17 +26,19 @@
 ##############################################################################
 
 import os
+import sys
 
 ## @brief This helper function searches all available modules in a given directory.
 # It's used to scan the Plugins, Fields, View and Search directories.
 def scan( module, directory ):
 	pluginImports = __import__(module, globals(), locals())
-	# Check if it's being run using py2exe environment
-	if hasattr(pluginImports, '__loader__'):
-		# If it's run using py2exe environment, all files will be in a single 
+	# Check if it's being run using py2exe or py2app environment
+	frozen = getattr(sys, 'frozen', None)
+	if frozen == 'macosx_app' or hasattr(pluginImports, '__loader__'):
+		# If it's run using py2exe or py2app environment, all files will be in a single 
 		# zip file and we can't use listdir() to find all available plugins.
 		zipFiles = pluginImports.__loader__._files
-		moduleDir = '\\'.join( module.split('.') )
+		moduleDir = os.sep.join( module.split('.') )
 		files = [zipFiles[file][0] for file in zipFiles.keys() if moduleDir in file]
 		files = [file for file in files if '__init__.py' in file]
 		for file in files:
