@@ -79,7 +79,7 @@ class SearchFormContainer( QWidget ):
 class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 	operators = (
-		('is empty', _('is empty'), ('char', 'text', 'many2one'), False),
+		('is empty', _('is empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
 		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
 		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True),
