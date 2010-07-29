@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-07-18 21:50+0200\n"
+"POT-Creation-Date: 2010-07-28 21:24+0200\n"
 "PO-Revision-Date: 2009-10-20 11:53+0000\n"
 "Last-Translator: Thiago Alexandre <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-18 21:56+0000\n"
+"X-Launchpad-Export-Date: 2010-07-29 20:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -314,47 +314,47 @@ msgstr "Sim"
 msgid "No"
 msgstr "Não"
 
-#: Koo/Search/CustomSearchFormWidget.py:82
+#: Koo/Search/CustomSearchFormWidget.py:81
 msgid "is empty"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:83
+#: Koo/Search/CustomSearchFormWidget.py:82
 msgid "contains"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:84
+#: Koo/Search/CustomSearchFormWidget.py:83
 msgid "does not contain"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:85
+#: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is equal to"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:86
+#: Koo/Search/CustomSearchFormWidget.py:85
 msgid "is not equal to"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:87
+#: Koo/Search/CustomSearchFormWidget.py:86
 msgid "greater than"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:88
+#: Koo/Search/CustomSearchFormWidget.py:87
 msgid "less than"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:89
+#: Koo/Search/CustomSearchFormWidget.py:88
 msgid "in"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:90
+#: Koo/Search/CustomSearchFormWidget.py:89
 msgid "not in"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:187
+#: Koo/Search/CustomSearchFormWidget.py:220
 msgid "True"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:188
+#: Koo/Search/CustomSearchFormWidget.py:221
 msgid "False"
 msgstr ""
 
