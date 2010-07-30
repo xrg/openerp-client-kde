@@ -347,6 +347,7 @@ class OneToManyField(ToManyField):
 		from Koo.Model.Group import RecordGroup
 		fields = {}
 		if value and len(value):
+			assert isinstance(value[0], dict), "%s: %r" %(self.name, value)
 			context = self.context(record)
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			fields = Rpc2.fields_get(value[0].keys(), context)
