@@ -112,12 +112,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		fields = [(x, fields[x].get('string', x)) for x in fields]
 		fields.sort( key=lambda x: x[1] )
 		for field in fields:
-			self.uiField.addItem( field[1], field[0] )
+			self.uiField.addItem( field[1], QVariant( field[0] ) )
 
 
 		self.uiOperator.addItem( '' )
 		for operator in self.operators:
-			self.uiOperator.addItem( operator[1], operator[0] )
+			self.uiOperator.addItem( operator[1], QVariant( operator[0] ) )
 
 		self.scNew = QShortcut( self )
 		self.scNew.setKey( Shortcuts.CreateInField )
@@ -171,7 +171,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.uiOperator.addItem( '' )
 		for operator in self.operators:
 			if fieldType in operator[2]:
-				self.uiOperator.addItem( operator[1], operator[0] )
+				self.uiOperator.addItem( operator[1], QVariant( operator[0] ) )
 
 	def updateValue(self, index):
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
