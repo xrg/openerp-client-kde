@@ -1,8 +1,7 @@
 ##############################################################################
 #
-# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2010 Albert Cervera i Areny <albert@nan-tic.com>
+#                    http://www.NaN-tic.com
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -79,7 +78,7 @@ class SearchFormContainer( QWidget ):
 class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 	operators = (
-		('is empty', _('is empty'), ('char', 'text', 'many2one'), False),
+		('is empty', _('is empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
 		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
 		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True),
@@ -113,20 +112,54 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		fields = [(x, fields[x].get('string', x)) for x in fields]
 		fields.sort( key=lambda x: x[1] )
 		for field in fields:
-			self.uiField.addItem( field[1], field[0] )
+			self.uiField.addItem( field[1], QVariant( field[0] ) )
 
 
 		self.uiOperator.addItem( '' )
 		for operator in self.operators:
-			self.uiOperator.addItem( operator[1], operator[0] )
+			self.uiOperator.addItem( operator[1], QVariant( operator[0] ) )
 
 		self.scNew = QShortcut( self )
 		self.scNew.setKey( Shortcuts.CreateInField )
 		self.scNew.setContext( Qt.WidgetWithChildrenShortcut )
 
+		self.setAndSelected()
+
 		self.connect( self.scNew, SIGNAL('activated()'), self, SIGNAL('newItem()') )
 		self.connect( self.pushNew, SIGNAL('clicked()'), self, SIGNAL('newItem()') )
+		self.connect( self.pushAnd, SIGNAL('clicked()'), self.andSelected )
+		self.connect( self.pushOr, SIGNAL('clicked()'), self.orSelected )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self, SIGNAL('removeItem()') )
+
+	def setAndSelected(self):
+		self.pushOr.setChecked( False )
+		self.pushOr.setEnabled( True )
+		self.pushAnd.setEnabled( False )
+		self.pushAnd.setChecked( True )
+
+	def setOrSelected(self):
+		self.pushAnd.setEnabled( True )
+		self.pushAnd.setChecked( False )
+		self.pushOr.setChecked( True )
+		self.pushOr.setEnabled( False )
+
+	def isAndSelected(self):
+		return self.pushAnd.isChecked()
+
+	def isOrSelected(self):
+		return self.pushOr.isChecked()
+
+	def copyState(self, widget):
+		if widget.isAndSelected():
+			self.setAndSelected()
+		else:
+			self.setOrSelected()
+
+	def andSelected(self):
+		self.setAndSelected()
+
+	def orSelected(self):
+		self.setOrSelected()
 
 	def updateOperators(self, index):
 		self.uiOperator.clear()
@@ -138,7 +171,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.uiOperator.addItem( '' )
 		for operator in self.operators:
 			if fieldType in operator[2]:
-				self.uiOperator.addItem( operator[1], operator[0] )
+				self.uiOperator.addItem( operator[1], QVariant( operator[0] ) )
 
 	def updateValue(self, index):
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
@@ -231,7 +264,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			(value, text) = self.correctValue( value, fieldName )
 
 		self.uiValue.setText( text )
-		return [(fieldName, operator, value)]
+
+		if self.pushOr.isChecked():
+			condition = '|'
+		else:
+			condition = '&'
+		return [condition,(fieldName, operator, value)]
 
 class CustomSearchFormWidget(AbstractSearchWidget):
 	def __init__(self, parent=None):
@@ -260,11 +298,17 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 		else:
 			return True
 
-	def addItem(self):
+	def insertItem(self, previousItem=None):
 		filterItem = CustomSearchItemWidget( self )
 		filterItem.setup( self.fields )
-		self.widgets.append( filterItem )
-		self.layout.addWidget( filterItem )
+		if previousItem:
+			index = self.layout.indexOf(previousItem)+1
+			filterItem.copyState( previousItem )
+			self.layout.insertWidget( index, filterItem )
+			self.widgets.insert(index, filterItem)
+		else:
+			self.layout.addWidget( filterItem )
+			self.widgets.append( filterItem )
 		self.connect( filterItem, SIGNAL('newItem()'), self.newItem )
 		self.connect( filterItem, SIGNAL('removeItem()'), self.removeItem )
 
@@ -277,7 +321,7 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 			item.clear()
 
 	def newItem(self):
-		self.addItem()
+		self.insertItem( self.sender() )
 
 	def removeItem(self):
 		self.dropItem( self.sender() )
@@ -293,7 +337,7 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 		self._loaded = True
 
 		self.fields = fields
-		self.addItem()
+		self.insertItem()
 
 		#for x in domain:
 		#	if len(x) >= 2 and x[0] in self.widgets and x[1] == '=':
@@ -327,6 +371,11 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 		res = []
 		for x in self.widgets:
 			res += x.value()
+
+		if res:
+			# Remove last '&' or '|' operator
+			res = res[:-2] + res[-1:]
+
 		v_keys = [x[0] for x in res]
 		for f in domain:
 			if f[0] not in v_keys:
