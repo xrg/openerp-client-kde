@@ -36,6 +36,7 @@ from AbstractSearchWidget import *
 from Koo.Common import Common
 from Koo.Common import Shortcuts
 from Koo.Common import Calendar
+from Koo.Common import Numeric
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -85,8 +86,8 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		('<>', _('is not equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True), 
 		('>', _('greater than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('<', _('less than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
-		('in', _('in'), ('selection'), True),
-		('not in', _('not in'), ('selection'), True),
+		('in', _('in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
+		('not in', _('not in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 	)
 
 	typeOperators = {
@@ -205,6 +206,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			value = Calendar.textToTime( value )
 			text = Calendar.timeToText( value )
 			value = Calendar.timeToStorage( value )
+		elif fieldType == 'float':
+			value = Numeric.textToFloat( value ) or 0.0
+			text = Numeric.floatToText( value )
+		elif fieldType == 'integer':
+			value = Numeric.textToInteger( value ) or 0.0
+			text = Numeric.integerToText( value )
 		elif fieldType == 'selection':
 			options = self.fields[fieldName]['selection']
 			text = []
