@@ -281,10 +281,11 @@ session_counter = 0
 #
 # The XML-RPC communication protocol is usually opened at port 8069 on the server.
 class XmlRpcConnection(Connection):
-	def __init__(self, url):
+	def __init__(self, url, send_gzip=False):
 		Connection.__init__(self, url)
 		self.url += '/xmlrpc'
 		self._ogws = {}
+		self._send_gzip=send_gzip
 
 	def copy(self):
 		newob = Connection.copy(self)
@@ -296,9 +297,9 @@ class XmlRpcConnection(Connection):
 		global session_counter
 		if not self._ogws.has_key(obj):
 			if self.url.startswith("https"):
-				transport = tiny_socket.SafePersistentTransport()
+				transport = tiny_socket.SafePersistentTransport(send_gzip=self._send_gzip)
 			elif self.url.startswith("http"):
-				transport = tiny_socket.PersistentTransport()
+				transport = tiny_socket.PersistentTransport(send_gzip=self._send_gzip)
 			else:
 				transport = None
 			self._ogws[obj] = xmlrpclib.ServerProxy(self.url + obj, transport=transport)
@@ -334,12 +335,13 @@ class XmlRpcConnection(Connection):
 # different authentication mechanism.
 #
 class XmlRpc2Connection(Connection):
-	def __init__(self, url):
+	def __init__(self, url, send_gzip=False):
 		Connection.__init__(self, url)
 		self.url += '/xmlrpc2'
 		self._ogws = {}
 		self.username = None
 		self._authclient = None
+		self._send_gzip = send_gzip
 		
 	def copy(self):
 		newob = Connection.copy(self)
@@ -359,11 +361,11 @@ class XmlRpc2Connection(Connection):
 		    proxy could fail and need to be discarded.
 		"""
 		global session_counter
-		if temp or not self._ogws.has_key(obj):
+		if temp or not self._ogws.has_key((obj,auth_level)):
 			if self.url.startswith("https"):
-				transport = tiny_socket.SafePersistentAuthTransport()
+				transport = tiny_socket.SafePersistentAuthTransport(send_gzip=self._send_gzip)
 			elif self.url.startswith("http"):
-				transport = tiny_socket.PersistentAuthTransport()
+				transport = tiny_socket.PersistentAuthTransport(send_gzip=self._send_gzip)
 			else:
 				transport = None
 			
@@ -393,9 +395,9 @@ class XmlRpc2Connection(Connection):
 					transport.setAuthTries(3)
 				return nproxy
 			
-			self._ogws[obj] = nproxy
+			self._ogws[(obj,auth_level)] = nproxy
 		
-		return self._ogws[obj]
+		return self._ogws[(obj,auth_level)]
 
 	def call(self, obj, method, args, auth_level='db'):
 		remote = self.gw(obj, auth_level)
@@ -572,6 +574,7 @@ class Session:
 		self.connection = None
 		self.cache = None
 		self.threads = []
+		self.server_options = []
 		self._log = logging.getLogger('RPC.Session')
 
 	# This function removes all finished threads from the list of running
@@ -725,6 +728,21 @@ class Session:
 	# Useful when some user parameters such as language are changed.
 	def reloadContext(self):
 		self.context = self.execute('/object', 'execute', 'res.users', 'context_get') or {}
+		
+		try:
+		    self.server_options = self.connection.call('/common', 'get_options', args=[], auth_level='pub')
+		    self._log.debug("got server options: %r", self.server_options)
+		    if 'xmlrpc-gzip' in self.server_options \
+			and isinstance(self.connection, (XmlRpcConnection, XmlRpc2Connection)):
+			self.connection._send_gzip = True
+			self._log.debug("Going gzip for %s..", self.url)
+		except xmlrpclib.Fault, err:
+		    # TODO diagnose other faults.
+		    self.server_options = []
+		except Exception, e:
+		    self._log.warning("Could not get server's options: %s", exc_info=True)
+		    self.server_options = []
+		    raise
 
 	## @brief Returns whether the login function has been called and was successfull
 	def logged(self):
