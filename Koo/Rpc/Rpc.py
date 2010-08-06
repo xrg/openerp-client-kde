@@ -458,14 +458,16 @@ class XmlRpc2Connection(Connection):
 # - SocketConnection if protocol (or scheme) is socket:// 
 # - PyroConnection if protocol 
 # - XmlRpcConnection otherwise (usually will be http or https)
-def createConnection(url):
+def createConnection(url, allow_xmlrpc2=False):
 	qUrl = QUrl( url )
 	if qUrl.scheme() == 'socket':
 		con = SocketConnection( url )
 	elif qUrl.scheme() == 'PYROLOC':
 		con = PyroConnection( url )
-	else:
+	elif allow_xmlrpc2:
 		con = XmlRpc2Connection( url )
+	else:
+		con = XmlRpcConnection( url )
 	return con
 
 class AsynchronousSessionCall(QThread):
@@ -692,20 +694,30 @@ class Session:
 	def login(self, url, db):
 		url = QUrl( url )
 		_url = str( url.scheme() ) + '://' + str( url.host() ) + ':' + str( url.port() ) 
-		self.connection = createConnection( _url )
+		self.connection = createConnection( _url, allow_xmlrpc2=True )
 		user = Url.decodeFromUrl( unicode( url.userName() ) )
 		password = Url.decodeFromUrl( unicode( url.password() ) )
-		try:
+		for ttry in (1, 2):
+		    res = False
+		    try:
 			res = self.connection.login(db, user, password)
-			self._log.info('Logged into %s as %s', db, user)
-		except socket.error, e:
+			if res:
+			    self._log.info('Logged into %s as %s', db, user)
+			break
+		    except socket.error, e:
 			return Session.Exception
-		except tiny_socket.ProtocolError, e:
+		    except tiny_socket.ProtocolError, e:
+			if e.errcode == 404 and isinstance(self.connection, XmlRpc2Connection):
+			    self.connection = createConnection( _url, allow_xmlrpc2=False)
+			    self._log.info("Server must be older, retrying with XML-RPC v.1")
+			    continue
 			self._log.error('Protocol error: %s', e)
 			return Session.InvalidCredentials
-		except Exception, e:
+		    except Exception, e:
 			self._log.exception("login call exception:")
-			return Session.Exception
+			raise Session.Exception
+		    break  # for
+
 		if not res:
 			self.open=False
 			self.uid=False
@@ -742,7 +754,6 @@ class Session:
 		except Exception, e:
 		    self._log.warning("Could not get server's options: %s", exc_info=True)
 		    self.server_options = []
-		    raise
 
 	## @brief Returns whether the login function has been called and was successfull
 	def logged(self):
