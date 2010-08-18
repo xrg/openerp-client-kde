@@ -493,7 +493,7 @@ msgid "Switch View"
 msgstr ""
 
 #. ts-context Form
-#: customsearchitem.ui:61
+#: customsearchitem.ui:71
 msgid "&And"
 msgstr ""
 
@@ -805,7 +805,7 @@ msgid "&Previous"
 msgstr ""
 
 #. ts-context Form
-#: customsearchitem.ui:71
+#: customsearchitem.ui:81
 msgid "&Or"
 msgstr ""
 
@@ -1114,7 +1114,7 @@ msgid "Field &Name"
 msgstr ""
 
 #. ts-context Form
-#: customsearchitem.ui:46
+#: customsearchitem.ui:56
 msgid "If operator is 'in' or 'not in' you may introduce a list of comma separated values."
 msgstr ""
 

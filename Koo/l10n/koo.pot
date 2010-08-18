@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-29 23:04+0200\n"
+"POT-Creation-Date: 2010-08-19 01:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,6 +78,23 @@ msgstr ""
 
 #: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
+msgstr ""
+
+#: Koo/Plugins/RemoteHelp/__init__.py:43
+msgid ""
+"<p><b>Remote Help</b> will allow you to share your desktop with one member "
+msgstr ""
+
+#: Koo/Plugins/RemoteHelp/__init__.py:58 Koo/Plugins/RemoteHelp/__init__.py:73
+msgid "Remote Help"
+msgstr ""
+
+#: Koo/Plugins/RemoteHelp/__init__.py:58
+msgid "Proceed"
+msgstr ""
+
+#: Koo/Plugins/RemoteHelp/__init__.py:58 Koo/Dialogs/FormWidget.py:514
+msgid "Cancel"
 msgstr ""
 
 #: Koo/Plugins/ViewEditor/__init__.py:38
@@ -227,7 +244,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:608
+#: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:613
 msgid "Quit"
 msgstr ""
 
@@ -305,56 +322,60 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:608 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:613 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:608 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:613 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:81
+#: Koo/Search/CustomSearchFormWidget.py:83
 msgid "is empty"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:82
-msgid "contains"
-msgstr ""
-
-#: Koo/Search/CustomSearchFormWidget.py:83
-msgid "does not contain"
-msgstr ""
-
 #: Koo/Search/CustomSearchFormWidget.py:84
-msgid "is equal to"
+msgid "is not empty"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:85
-msgid "is not equal to"
+msgid "contains"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:86
-msgid "greater than"
+msgid "does not contain"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:87
-msgid "less than"
+msgid "is equal to"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:88
-msgid "in"
+msgid "is not equal to"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:89
+msgid "greater than"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:90
+msgid "less than"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:91
+msgid "in"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:92
 msgid "not in"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:220
+#: Koo/Search/CustomSearchFormWidget.py:276
 msgid "True"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:221
+#: Koo/Search/CustomSearchFormWidget.py:277
 msgid "False"
 msgstr ""
 
@@ -612,100 +633,96 @@ msgstr ""
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:514
-msgid "Cancel"
-msgstr ""
-
 #: Koo/Dialogs/FormWidget.py:532
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:479
+#: Koo/Dialogs/KooMainWindow.py:107 Koo/Dialogs/KooMainWindow.py:484
 msgid "Press Ctrl+O to login"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:113
+#: Koo/Dialogs/KooMainWindow.py:118
 msgid "Close tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:194
+#: Koo/Dialogs/KooMainWindow.py:199
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:199
+#: Koo/Dialogs/KooMainWindow.py:204
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:241
+#: Koo/Dialogs/KooMainWindow.py:246
 msgid "Products"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:241
+#: Koo/Dialogs/KooMainWindow.py:246
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:361
+#: Koo/Dialogs/KooMainWindow.py:366
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:363
+#: Koo/Dialogs/KooMainWindow.py:368
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:365
+#: Koo/Dialogs/KooMainWindow.py:370
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:372
+#: Koo/Dialogs/KooMainWindow.py:377
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:372
+#: Koo/Dialogs/KooMainWindow.py:377
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:453 Koo/Dialogs/KooMainWindow.py:455
+#: Koo/Dialogs/KooMainWindow.py:458 Koo/Dialogs/KooMainWindow.py:460
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:453
+#: Koo/Dialogs/KooMainWindow.py:458
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:455
+#: Koo/Dialogs/KooMainWindow.py:460
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:460 Koo/Dialogs/KooMainWindow.py:462
+#: Koo/Dialogs/KooMainWindow.py:465 Koo/Dialogs/KooMainWindow.py:467
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:462
+#: Koo/Dialogs/KooMainWindow.py:467
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:478
+#: Koo/Dialogs/KooMainWindow.py:483
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:572
+#: Koo/Dialogs/KooMainWindow.py:577
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:572
+#: Koo/Dialogs/KooMainWindow.py:577
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:608
+#: Koo/Dialogs/KooMainWindow.py:613
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:642
+#: Koo/Dialogs/KooMainWindow.py:647
 msgid "Wizard"
 msgstr ""
 
@@ -1045,21 +1062,21 @@ msgstr ""
 msgid "You can not set to the default value here !"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:249
-#: Koo/Fields/ManyToOne/ManyToOne.py:309
+#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:250
+#: Koo/Fields/ManyToOne/ManyToOne.py:310
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:311
+#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:312
 msgid "Action"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:312
+#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:313
 msgid "Report"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:257
+#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:258
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
 msgstr ""
