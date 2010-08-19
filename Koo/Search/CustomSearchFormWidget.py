@@ -266,6 +266,13 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			text = []
 			keys = []
 			for selection in options:
+				# If text matches exactly one of the options of the selection field
+				# do not 'accept' other options. Otherwise, all options that contain
+				# the text will be 'accepted'.
+				if value.lower().strip() == selection[1].lower().strip():
+					keys = [ selection[0] ]
+					text = [ selection[1] ]
+					break
 				if value.lower() in selection[1].lower():
 					keys.append( selection[0] )
 					text.append( selection[1] )
