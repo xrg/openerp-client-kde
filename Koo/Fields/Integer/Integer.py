@@ -37,6 +37,7 @@ class IntegerFieldWidget(AbstractFieldWidget):
 		AbstractFieldWidget.__init__(self, parent, model, attrs)
 		self.widget = QLineEdit( self )
 		self.widget.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
+		self.widget.setAlignment( Qt.AlignRight )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )

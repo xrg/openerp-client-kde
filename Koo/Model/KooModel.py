@@ -354,7 +354,11 @@ class KooModel(QAbstractItemModel):
 				# in scientific notation. Also we have to respect the number
 				# of decimal digits given by the server.
 				field = self.fields[self.field( index.column() )]
-				return QVariant( Numeric.floatToText(value, field.get('digits',None) ) )	
+				if role == Qt.EditRole:
+					thousands = False
+				else:
+					thousands = True
+				return QVariant( Numeric.floatToText(value, field.get('digits',None), thousands) )	
 			elif fieldType == 'integer':
 				return QVariant( Numeric.integerToText(value) )	
 			elif fieldType == 'float_time':

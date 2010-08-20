@@ -39,6 +39,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 
 		self.widget = QLineEdit(self)
 		self.widget.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
+		self.widget.setAlignment( Qt.AlignRight )
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
@@ -46,36 +47,48 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
 		self.digits = attrs.get('digits', None)
+		self.numericValue = 0.0
+
+	def eventFilter( self, target, event ):
+		if event.type() == QEvent.FocusIn:
+			self.setText( self.record.value(self.name) )
+		return AbstractFieldWidget.eventFilter(self, target, event)
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
 		self.widget.setReadOnly( value )
 
 	def calculate(self):
-		val = textToFloat( str(self.widget.text() ) )
-		self.setText( floatToText( val, self.digits) )
+		val = textToFloat( unicode(self.widget.text() ) )
+		self.setText( val )
 		self.modified()
 
 	def value(self):
-		return textToFloat( str(self.widget.text()) )
+		#return textToFloat( unicode(self.widget.text()) )
+		return self.numericValue
 
 	def storeValue(self):
 		self.record.setValue( self.name, self.value() )
 
 	def clear(self):
-		self.setText( floatToText(0, self.digits) )
+		self.setText( 0 )
 		
 	def showValue(self):
 		if self.record.value(self.name):
-			self.setText( floatToText( self.record.value(self.name), self.digits ) )
+			self.setText( self.record.value(self.name) )
 		else:
 			self.clear()
 
 	def colorWidget(self):
 		return self.widget
 
-	def setText(self, text):
+	def setText(self, value):
 		self.widget.setCursorPosition( 0 )
+		self.numericValue = value
+		if self.widget.hasFocus():
+			text = floatToText( value, self.digits )
+		else:
+			text = floatToText( value, self.digits, True )
 		self.widget.setText( text )
 		self.widget.setToolTip( text )
 

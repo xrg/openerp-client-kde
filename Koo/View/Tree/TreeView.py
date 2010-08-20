@@ -381,7 +381,7 @@ class TreeView( AbstractView ):
 				value = 0.0
 				for model in self.treeModel.group:
 					value += model.value(agg['name'])
-				agg['widget'].setText( Numeric.floatToText( value, agg['digits'] ) )
+				agg['widget'].setText( Numeric.floatToText( value, agg['digits'], True ) )
 			else:
 				agg['widget'].setText( '-' )
 
