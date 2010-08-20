@@ -47,7 +47,6 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )
 		self.digits = attrs.get('digits', None)
-		self.numericValue = 0.0
 
 	def eventFilter( self, target, event ):
 		if event.type() == QEvent.FocusIn:
@@ -64,8 +63,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 		self.modified()
 
 	def value(self):
-		#return textToFloat( unicode(self.widget.text()) )
-		return self.numericValue
+		return textToFloat( unicode(self.widget.text()) )
 
 	def storeValue(self):
 		self.record.setValue( self.name, self.value() )
@@ -84,8 +82,7 @@ class FloatFieldWidget(AbstractFieldWidget):
 
 	def setText(self, value):
 		self.widget.setCursorPosition( 0 )
-		self.numericValue = value
-		if self.widget.hasFocus():
+		if self.widget.hasFocus() and not self.isReadOnly():
 			text = floatToText( value, self.digits )
 		else:
 			text = floatToText( value, self.digits, True )

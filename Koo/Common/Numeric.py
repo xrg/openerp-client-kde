@@ -34,8 +34,8 @@ import locale
 #  the function. If the formula contains floating point 
 #  values or results they're converted into integer at the end.
 def textToInteger(text):
-	chars=['+', '-', '/', '*', '.', '(', ')', ',']
-	chars=chars + [str(x) for x in range(10)]
+	chars = ['+', '-', '/', '*', '.', '(', ')', ',']
+	chars = chars + [str(x) for x in range(10)]
 	text = text.replace(',', '.')
 	try:
 		return int(eval(text))
@@ -48,13 +48,24 @@ def textToInteger(text):
 #  The formula is calculated and the output is returned by 
 #  the function. 
 def textToFloat(text):
-	chars=['+', '-', '/', '*', '.', '(', ')', ',']
-	chars=chars + [str(x) for x in range(10)]
-	text = text.replace(',', '.')
+	chars = ['+', '-', '/', '*', '.', '(', ')', ',']
+	chars = chars + [str(x) for x in range(10)]
+	newtext = text.replace(',', '.')
+	value = False
 	try:
-		return float(eval(text))
+		value = float(eval(newtext))
 	except:
-		return False
+		if '.' in text and ',' in text:
+			if text.rindex('.') > text.rindex(','):
+				newtext = text.replace(',','')
+			else:
+				newtext = text.replace('.','')
+			newtext = newtext.replace(',','.')
+			try:
+				value = float(newtext)
+			except:
+				pass
+	return value
 
 ## @brief This function converts a float into text. By default the number
 # of decimal digits is 2.
