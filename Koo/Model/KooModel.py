@@ -424,9 +424,12 @@ class KooModel(QAbstractItemModel):
 			palette = QPalette()
 			color = palette.color( QPalette.WindowText )
 			for (c, expression) in self.colors:
-				if model.evaluateExpression( expression, checkLoad=False ):
-					color = c
-					break
+				try:
+				    if model.evaluateExpression( expression, checkLoad=False ):
+					    color = c
+					    break
+				except StandardError, e:
+				    self._log.exception("Cannot get color for expr: %s at %r", expression, model)
 			return QVariant( QBrush( QColor( color ) ) )
 		elif role == Qt.TextAlignmentRole:
 			fieldType = self.fieldType( index.column(), index.internalPointer() )

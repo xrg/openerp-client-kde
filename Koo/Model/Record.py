@@ -107,8 +107,8 @@ class Record(QObject):
 		return self.group.fieldObjects.get(name, False)
 	
 	def __repr__(self):
-		#return '<Record %s@%s>' % (self.id, self.group.resource)
-		return '<Record %s>' % self.id
+		return '<Record %s@%s>' % (self.id, self.group.resource)
+		#return '<Record %s>' % self.id
 
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
@@ -424,7 +424,20 @@ class Record(QObject):
 			self.ensureIsLoaded()
 		d = {}
 		for name in self.values:
+		    try:
 			d[name] = self.group.fieldObjects[name].get(self, checkLoad=checkLoad)
+			continue
+		        # means we will skip the name
+		    except Exception:
+			if not checkLoad:
+			    continue
+			if not firstTry:
+			    continue
+		    self.group.ensureModelLoaded( self )
+		    try: #second
+			d[name] = self.group.fieldObjects[name].get(self, checkLoad=False)
+		    except Exception:
+			pass
 
 		d['current_date'] = time.strftime('%Y-%m-%d')
 		d['time'] = time
@@ -440,9 +453,11 @@ class Record(QObject):
 			d['parent'] = EvalEnvironment(self.parent)
 		try:
 			val = Rpc.session.evaluateExpression(dom, d)
-		except NameError, exception:
+		except StandardError, exc:
 			# If evaluateExpression raises a NameError exception like this one:
 			# NameError: name 'unit_amount' is not defined
+			# TypeErrors may be triggered, too
+			
 			# It may be because not all fields are loaded yet, so we'll ensure
 			# the model is loaded and re-evaluate. If that doesn't solve the problem
 			# (that is firstTry == False) then raise the exception because it's
@@ -451,7 +466,7 @@ class Record(QObject):
 				self.group.ensureModelLoaded( self )
 				val = self.evaluateExpression( dom, checkLoad, firstTry=False )
 			else:
-				raise exception
+				raise
 		return val
 
 	# @brief Evaluates the given condition.
