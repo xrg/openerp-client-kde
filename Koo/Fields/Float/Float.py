@@ -50,7 +50,8 @@ class FloatFieldWidget(AbstractFieldWidget):
 
 	def eventFilter( self, target, event ):
 		if event.type() == QEvent.FocusIn:
-			self.setText( self.record.value(self.name) )
+			if self.record:
+				self.setText( self.record.value(self.name) )
 		return AbstractFieldWidget.eventFilter(self, target, event)
 
 	def setReadOnly(self, value):
