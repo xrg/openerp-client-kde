@@ -66,7 +66,7 @@ class WebWidget( QWidget, WebWidgetUi ):
 		return None
 
 	def setUrl(self, url):
-		self.uiWeb.setUrl( url )
+		self.uiWeb.load( url )
 
 	def setTitle(self, title):
 		if len(title) > 20:
