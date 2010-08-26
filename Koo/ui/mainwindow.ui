@@ -233,24 +233,13 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>28</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlugins">
     <property name="title">
      <string>&amp;Plugins</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>&amp;Help</string>
-    </property>
-    <addaction name="actionOpenErpManual"/>
-    <addaction name="actionTips"/>
-    <addaction name="actionShortcuts"/>
-    <addaction name="separator"/>
-    <addaction name="actionLicense"/>
-    <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menuForm">
     <property name="title">
@@ -339,6 +328,25 @@
     <addaction name="actionNextTab"/>
     <addaction name="actionPreviousTab"/>
     <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <widget class="QMenu" name="menuDocumentation">
+     <property name="title">
+      <string>Documentation</string>
+     </property>
+     <addaction name="actionHtmlManual"/>
+     <addaction name="actionPdfManual"/>
+     <addaction name="actionDocOpenErpCom"/>
+    </widget>
+    <addaction name="menuDocumentation"/>
+    <addaction name="actionTips"/>
+    <addaction name="actionShortcuts"/>
+    <addaction name="separator"/>
+    <addaction name="actionLicense"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuDatabase"/>
    <addaction name="menuUser"/>
@@ -794,11 +802,6 @@
     <string>User Manual</string>
    </property>
   </action>
-  <action name="actionOpenErpManual">
-   <property name="text">
-    <string>Documentation</string>
-   </property>
-  </action>
   <action name="actionKooManual">
    <property name="text">
     <string>Koo</string>
@@ -829,6 +832,21 @@
    </property>
    <property name="text">
     <string>Modify All Selected Records</string>
+   </property>
+  </action>
+  <action name="actionPdfManual">
+   <property name="text">
+    <string>PDF Manual</string>
+   </property>
+  </action>
+  <action name="actionHtmlManual">
+   <property name="text">
+    <string>HTML Manual</string>
+   </property>
+  </action>
+  <action name="actionDocOpenErpCom">
+   <property name="text">
+    <string>doc.openerp.com</string>
    </property>
   </action>
  </widget>

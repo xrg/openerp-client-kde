@@ -32,6 +32,7 @@ from Koo.Common import Common
 from Koo.Common import Debug
 from FormWidget import *
 from TreeWidget import *
+from WebWidget import *
 
 from Koo import Rpc
 
@@ -81,3 +82,14 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 	else:
 		Debug.error( 'unknown view type: ' + view_type )
 
+def createWebWindow(url, title):
+	url = url or ''
+	if QApplication.keyboardModifiers() & Qt.ControlModifier:
+		QDesktopServices.openUrl( QUrl( url ) )
+		return
+	QApplication.setOverrideCursor( Qt.WaitCursor )
+	widget = WebWidget()
+	widget.setTitle( title or _('Web') )
+	widget.setUrl( QUrl( url ) )
+	QApplication.restoreOverrideCursor()
+	Api.instance.windowCreated(widget, 'current')

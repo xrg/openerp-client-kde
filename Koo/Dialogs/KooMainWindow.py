@@ -147,7 +147,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.connect( self.actionOpenHomeTab, SIGNAL('triggered()'), self.openHomeTab )
 		self.connect( self.actionClearCache, SIGNAL('triggered()'), self.clearCache )
 
-		self.connect( self.actionOpenErpManual, SIGNAL('triggered()'), self.openErpManual )
+		self.connect( self.actionHtmlManual, SIGNAL('triggered()'), self.openHtmlManual )
+		self.connect( self.actionPdfManual, SIGNAL('triggered()'), self.openPdfManual )
+		self.connect( self.actionDocOpenErpCom, SIGNAL('triggered()'), self.openDocOpenErpCom )
 		self.connect( self.actionTips, SIGNAL('triggered()'), self.showTipOfTheDay )
 		self.connect( self.actionShortcuts, SIGNAL('triggered()'), self.showShortcuts )
 		self.connect( self.actionLicense, SIGNAL('triggered()'), self.showLicense )
@@ -507,9 +509,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		Common.openFile( fileName )
 		return True
 
-	def openErpManual(self):
-		if not self.openPdfManual():
-			QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
+	def openHtmlManual(self):
+		Api.instance.createWebWindow( 'openerp://ir.documentation.file/get/index.html', _('Manual') )
+
+	def openDocOpenErpCom(self):
+		Api.instance.createWebWindow( 'http://doc.openerp.com', 'doc.openerp.com' )
 
 	def showTipOfTheDay(self):
 		dialog = TipOfTheDayDialog(self)

@@ -152,6 +152,9 @@ class KooApi(Api.KooApi):
 		WindowService.createWindow( view_ids, model, res_id, domain, 
 			view_type, window, context, mode, name, autoReload, target )
 
+	def createWebWindow(self, url, title):
+		WindowService.createWebWindow(url, title)
+
 	def windowCreated(self, window, target):
 		win.addWindow( window, target )
 
