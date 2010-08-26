@@ -203,6 +203,7 @@ class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
 		self.timer = QTimer()
 		self.timer.setInterval( 1000 )
 		self.connect( self.timer, SIGNAL('timeout()'), self.updateMessage )
+		self.connect( self, SIGNAL('rejected()'), self.stopTimer )
 		self.timer.start()
 
 	def updateMessage(self):
@@ -211,6 +212,9 @@ class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
 		if self.remaining < 0:
 			self.timer.stop()
 			self.accept()
+
+	def stopTimer(self):
+		self.timer.stop()
 
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
@@ -221,6 +225,7 @@ def lostConnectionError(count):
 		result = QMessageBox.warning( None, _("Quit"), _("Leaving the application now will lose all unsaved changes. Are you sure you want to quit?"), QMessageBox.Yes | QMessageBox.No, QMessageBox.No )
 		if result == QMessageBox.Yes:
 			QApplication.quit()
+			sys.exit(0)
 	QApplication.restoreOverrideCursor()
 	return True
 
