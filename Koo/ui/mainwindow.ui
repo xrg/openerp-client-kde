@@ -797,16 +797,6 @@
     <string>&amp;Menu</string>
    </property>
   </action>
-  <action name="actionUser_Manual">
-   <property name="text">
-    <string>User Manual</string>
-   </property>
-  </action>
-  <action name="actionKooManual">
-   <property name="text">
-    <string>Koo</string>
-   </property>
-  </action>
   <action name="actionOpenHomeTab">
    <property name="icon">
     <iconset resource="common.qrc">
