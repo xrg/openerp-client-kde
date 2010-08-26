@@ -30,6 +30,7 @@ from Koo import Rpc
 
 from Koo.Common import Common
 from Koo.Common.Settings import *
+from Koo.Common import Help
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -97,6 +98,15 @@ class WebWidget( QWidget, WebWidgetUi ):
 
 	def actions(self):
 		return []
+
+	def help(self, button):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		helpWidget = Help.HelpWidget( button )
+		helpWidget.setLabel( _('No help available for web views') )
+		helpWidget.setType( helpWidget.ViewType )
+		helpWidget.show()
+		QApplication.restoreOverrideCursor()
+		return
 
 	def __del__(self):
 		pass

@@ -40,6 +40,7 @@ from MassiveUpdateDialog import *
 from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common.Settings import *
+from Koo.Common import Help
 import copy
 
 from Koo.Screen.Screen import *
@@ -566,6 +567,15 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 	def switchViewMenu(self):
 		return self._switchViewMenu
+
+	def help(self, button):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		helpWidget = Help.HelpWidget( button )
+		helpWidget.setLabel( self.name )
+		helpWidget.setType( helpWidget.ViewType )
+		helpWidget.setFilter( (self.model, self.screen.currentView().viewType()) )
+		helpWidget.show()
+		QApplication.restoreOverrideCursor()
 
 	def __del__(self):
 		self.group.__del__()

@@ -161,6 +161,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.connect( self.pushReadRequests, SIGNAL('clicked()'), self.pendingRequests )
 		self.connect( self.pushSendRequest, SIGNAL('clicked()'), self.newRequest )
 
+		self.connect( self.pushHelp, SIGNAL('clicked()'), self.help )
+
 		# These actions are not handled by the Main Window but by the currently opened tab.
 		# What we do here, is connect all these actions to a single handler that will
 		# call the current child/tab/form. This is handled this way instead of signals because we
@@ -381,6 +383,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			return (ids, ids2)
 		except:
 			return ([], [])
+
+	def help(self):
+		widget = self.tabWidget.currentWidget()
+		if widget:
+			widget.help( self.pushHelp )
 
 	def checkNewRelease(self):
 		from Koo.Common import Version

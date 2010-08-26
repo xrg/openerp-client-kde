@@ -29,87 +29,11 @@
 
 from Koo import Rpc
 from Koo.Common import Api
+from Koo.Common import Help
 from FieldPreferencesDialog import *
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.QtWebKit import *
-
-class FieldHelpWidget( QWebView ):
-	def __init__(self, parent=None):
-		QWebView.__init__(self, parent)
-		self.setWindowFlags( Qt.Popup )
-		self.setFixedSize( 600, 400 )
-		self.manager = Rpc.RpcNetworkAccessManager( self.page().networkAccessManager() )
-		self.page().setNetworkAccessManager( self.manager )
-		self.page().setLinkDelegationPolicy( QWebPage.DelegateExternalLinks )
-		self.connect( self, SIGNAL( 'linkClicked(QUrl)' ), self.openLink )
-
-		# Determine appropiate position for the popup
-		screenHeight = QApplication.desktop().screenGeometry().height()
-		screenWidth = QApplication.desktop().screenGeometry().width()
-		pos = parent.parent().mapToGlobal( parent.pos() )
-
-		# Fix y coordinate
-		y = pos.y() + parent.height()
-		if y + self.height() > screenHeight:
-			y = pos.y() - self.height()
-			if y < 0:
-				y = screenHeight - self.height()
-		# Fix x coordinate
-		x = pos.x()
-		if x < 0:
-			x = 0
-		elif x + self.width() > screenWidth:
-			x = screenWidth - self.width()
-
-		self.move( x, y )
-
-		self._label = ''
-		self._help = ''
-		self._field = ''
-		self._model = ''
-
-	def setLabel(self, text):
-		self._label = text
-		self.updateText()
-
-	def setHelp(self, text):
-		self._help = text
-		self.updateText()
-	
-	def setField(self, field):
-		self._field = field
-		self.updateText()
-
-	def setModel(self, model):
-		self._model = model
-		self.updateText()
-
-	def openLink(self, url):
-		Api.instance.createWebWindow( unicode( url.toString() ), _('Documentation') )
-		self.hide()
-
-	def updateText(self):
-		if self._field and self._model:
-			headings = Rpc.session.execute('/object','execute','ir.documentation.paragraph', 'get_field_headings', self._model, self._field, Rpc.session.context)
-		else:
-			headings = ''
-
-		html_headings = []
-		for heading in headings:
-			html = '<div style="spacing-bottom: 20px; padding: 2px; background-color: Lavender;"><p><small><a style="text-decoration:none;" href="openerp://ir.documentation.file/get/index.html#field-%d">%s</a></small></p></div>' % (heading[0], heading[1])
-			html = html.replace('\\n','')
-			html_headings.append( html )
-
-		if html_headings:
-			references = _('<p><i>The following sections in the documentation refer to this concept:</i></p>')
-			references += '\n'.join( html_headings )
-		else:
-			references = _('<p><i>No sections in the documentation refer to this concept.</i></p>')
-			
-		html = '<html><body style="background-color: #FFFFF0"><p><b>%s</b></p><p>%s</p><p>%s</p></body></html>' % (self._label, self._help, references)
-		self.setHtml( html )
 
 
 ## @brief AbstractFieldWidget is the base class for all field widgets in Koo.
@@ -189,14 +113,16 @@ class AbstractFieldWidget(QWidget):
 		return QWidget.showEvent(self, event)
 
 	def showHelp(self):
-		helpWidget = FieldHelpWidget( self.sender() )
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		helpWidget = Help.HelpWidget( self.sender() )
 		helpWidget.setLabel( self.attrs.get('string','') )
 		helpWidget.setHelp( self.attrs.get('help','') )
-		helpWidget.setField( self.name )
+		helpWidget.setType( helpWidget.FieldType )
 		if self.record:
 			# TODO: self.record should be optional
-			helpWidget.setModel( self.record.group.resource )
+			helpWidget.setFilter( (self.record.group.resource, self.name) )
 		helpWidget.show()
+		QApplication.restoreOverrideCursor()
 
 	## @brief This function is called the first time the widget is shown.
 	#
