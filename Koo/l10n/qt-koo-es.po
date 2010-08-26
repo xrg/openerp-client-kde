@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-29 09:06+0000\n"
+"POT-Creation-Date: 2010-08-19 02:00+0000\n"
 "PO-Revision-Date: 2010-07-29 20:51+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-29 20:56+0000\n"
+"X-Launchpad-Export-Date: 2010-08-19 11:20+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 
@@ -645,7 +645,7 @@ msgid "Switch View"
 msgstr "Cambiar Vista"
 
 #. ts-context Form
-#: customsearchitem.ui:61
+#: customsearchitem.ui:71
 msgid "&And"
 msgstr "&Y"
 
@@ -961,7 +961,7 @@ msgid "&Previous"
 msgstr "A&nterior"
 
 #. ts-context Form
-#: customsearchitem.ui:71
+#: customsearchitem.ui:81
 msgid "&Or"
 msgstr "&O"
 
@@ -1270,7 +1270,7 @@ msgid "Field &Name"
 msgstr "&Nombre del campo"
 
 #. ts-context Form
-#: customsearchitem.ui:46
+#: customsearchitem.ui:56
 msgid ""
 "If operator is 'in' or 'not in' you may introduce a list of comma separated "
 "values."

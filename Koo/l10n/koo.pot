@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-19 01:21+0200\n"
+"POT-Creation-Date: 2010-08-26 02:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,6 +74,10 @@ msgstr ""
 
 #: Koo/Actions/Actions.py:240
 msgid "Select your action"
+msgstr ""
+
+#: Koo/Plugins/ScreenDocs/__init__.py:89
+msgid "Create Screenshots"
 msgstr ""
 
 #: Koo/Plugins/SearchModelData/__init__.py:40
@@ -244,7 +248,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:633
 msgid "Quit"
 msgstr ""
 
@@ -254,27 +258,27 @@ msgid ""
 "want to quit?"
 msgstr ""
 
-#: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:364
+#: Koo/Common/Numeric.py:113 Koo/Model/KooModel.py:368
 #, python-format
 msgid "%d bytes"
 msgstr ""
 
-#: Koo/Common/Numeric.py:97
+#: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Kb"
 msgstr ""
 
-#: Koo/Common/Numeric.py:97
+#: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Mb"
 msgstr ""
 
-#: Koo/Common/Numeric.py:97
+#: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Gb"
 msgstr ""
 
-#: Koo/Common/Numeric.py:97
+#: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Tb"
 msgstr ""
@@ -322,12 +326,12 @@ msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:613 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:633 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:304
-#: Koo/Dialogs/KooMainWindow.py:613 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:633 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
 msgstr ""
 
@@ -371,11 +375,11 @@ msgstr ""
 msgid "not in"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:276
+#: Koo/Search/CustomSearchFormWidget.py:283
 msgid "True"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:277
+#: Koo/Search/CustomSearchFormWidget.py:284
 msgid "False"
 msgstr ""
 
@@ -707,22 +711,22 @@ msgstr ""
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:577
+#: Koo/Dialogs/KooMainWindow.py:597
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:577
+#: Koo/Dialogs/KooMainWindow.py:597
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:613
+#: Koo/Dialogs/KooMainWindow.py:633
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:647
+#: Koo/Dialogs/KooMainWindow.py:667
 msgid "Wizard"
 msgstr ""
 
@@ -1020,23 +1024,23 @@ msgstr ""
 msgid "Administrator passwords differ."
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:311
+#: Koo/Rpc/Rpc.py:316
 msgid "Connection Refused"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:442
+#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
 msgid "Application Error"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:317 Koo/Rpc/Rpc.py:442
+#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
 msgid "View details"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:410
+#: Koo/Rpc/Rpc.py:415
 msgid "Not logged in"
 msgstr ""
 
-#: Koo/Rpc/Rpc.py:562
+#: Koo/Rpc/Rpc.py:567
 msgid "Could not contact server!"
 msgstr ""
 
@@ -1053,12 +1057,12 @@ msgid "Invalid Form, correct red fields!"
 msgstr ""
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#: Koo/Fields/AbstractFieldWidget.py:134
+#: Koo/Fields/AbstractFieldWidget.py:191
 msgid "Operation not permited"
 msgstr ""
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
-#: Koo/Fields/AbstractFieldWidget.py:134
+#: Koo/Fields/AbstractFieldWidget.py:191
 msgid "You can not set to the default value here !"
 msgstr ""
 
@@ -1129,11 +1133,21 @@ msgstr ""
 msgid "(no image)"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:71
+#: Koo/Fields/AbstractFieldWidget.py:75
+msgid ""
+"<p><i>The following sections in the documentation refer to this concept:</"
+"i></p>"
+msgstr ""
+
+#: Koo/Fields/AbstractFieldWidget.py:78
+msgid "<p><i>No sections in the documentation refer to this concept.</i></p>"
+msgstr ""
+
+#: Koo/Fields/AbstractFieldWidget.py:119
 msgid "Set to default value"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:77
+#: Koo/Fields/AbstractFieldWidget.py:125
 msgid "Set as default value"
 msgstr ""
 
