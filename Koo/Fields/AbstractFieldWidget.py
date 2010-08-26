@@ -98,7 +98,7 @@ class FieldHelpWidget( QWebView ):
 
 		html_headings = []
 		for heading in headings:
-			html = '<div style="spacing-bottom: 20px; padding: 2px; background-color:#DCE9CF;"><p><small><a style="text-decoration:none;" href="openerp://ir.documentation.file/get/index.html#field-%d">%s</a></small></p></div>' % (heading[0], heading[1])
+			html = '<div style="spacing-bottom: 20px; padding: 2px; background-color: Lavender;"><p><small><a style="text-decoration:none;" href="openerp://ir.documentation.file/get/index.html#field-%d">%s</a></small></p></div>' % (heading[0], heading[1])
 			html = html.replace('\\n','')
 			html_headings.append( html )
 
@@ -108,7 +108,7 @@ class FieldHelpWidget( QWebView ):
 		else:
 			references = _('<p><i>No sections in the documentation refer to this concept.</i></p>')
 			
-		html = '<html><body><p><b>%s</b></p><p>%s</p><p>%s</p></body></html>' % (self._label, self._help, references)
+		html = '<html><body style="background-color: #FFFFF0"><p><b>%s</b></p><p>%s</p><p>%s</p></body></html>' % (self._label, self._help, references)
 		self.setHtml( html )
 
 
