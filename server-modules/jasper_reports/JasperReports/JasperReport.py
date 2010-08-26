@@ -26,9 +26,7 @@
 ##############################################################################
 
 import os
-from xml.dom.minidom import getDOMImplementation
 from lxml import etree
-import xml.dom.minidom
 import re
 
 dataSourceExpressionRegExp = re.compile( r"""\$P\{(\w+)\}""" )
