@@ -488,8 +488,28 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.updateUserShortcuts()
 		return True
 
+	def openPdfManual(self):
+		try:
+			pdf = Rpc.session.call('/object', 'execute', 'ir.documentation.paragraph', 'export_to_pdf', Rpc.session.context)
+		except:
+			return False
+		if not pdf:
+			return False
+
+		import os
+		import base64
+		import tempfile
+		from Common import Common
+		pdf = base64.decodestring(pdf)
+		fd, fileName = tempfile.mkstemp( '.pdf' )
+		os.write( fd, pdf )
+		os.close( fd )
+		Common.openFile( fileName )
+		return True
+
 	def openErpManual(self):
-		QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
+		if not self.openPdfManual():
+			QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
 
 	def showTipOfTheDay(self):
 		dialog = TipOfTheDayDialog(self)

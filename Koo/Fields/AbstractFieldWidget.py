@@ -31,6 +31,54 @@ from Koo import Rpc
 from FieldPreferencesDialog import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+from PyQt4.QtWebKit import *
+
+class FieldHelpWidget( QWebView ):
+	def __init__(self, parent=None):
+		QWebView.__init__(self, parent)
+		self.setWindowFlags( Qt.Popup )
+		self.setFixedSize( 700, 400 )
+		self.manager = Rpc.RpcNetworkAccessManager( self.page().networkAccessManager() )
+		self.page().setNetworkAccessManager( self.manager )
+		pos = parent.parent().mapToGlobal( parent.pos() )
+		pos.setY( pos.y() + parent.height() )
+		self.move( pos )
+		self._text = ''
+		self._field = ''
+		self._model = ''
+
+	def setText(self, text):
+		self._text = text
+		self.updateText()
+	
+	def setField(self, field):
+		self._field = field
+		self.updateText()
+
+	def setModel(self, model):
+		self._model = model
+		self.updateText()
+
+	def updateText(self):
+		if self._field and self._model:
+			headings = Rpc.session.execute('/object','execute','ir.documentation.paragraph', 'get_field_headings', self._model, self._field, Rpc.session.context)
+		else:
+			headings = ''
+
+		html_headings = []
+		for heading in headings:
+			html = '<div style="spacing-bottom: 20px; background-color:#DCE9CF;"><p><small><a href="openerp://ir.documentation.file/get/index.html#field-%d">%s</a></small></p></div>' % (heading[0], heading[1])
+			html = html.replace('\\n','')
+			html_headings.append( html )
+
+		if html_headings:
+			references = _('<p><i>The following sections in the documentation refer to this concept:</i></p>')
+			references += '\n'.join( html_headings )
+		else:
+			references = _('<p><i>No sections in the documentation refer to this concept.</i></p>')
+			
+		html = '<html><body><p>%s</p><p>%s</p></body></html>' % (self._text, references)
+		self.setHtml( html )
 
 
 ## @brief AbstractFieldWidget is the base class for all field widgets in Koo.
@@ -108,6 +156,15 @@ class AbstractFieldWidget(QWidget):
 				self.showValue()
 			self.updateColor()
 		return QWidget.showEvent(self, event)
+
+	def showHelp(self):
+		helpWidget = FieldHelpWidget( self.sender() )
+		helpWidget.setText( unicode( self.sender().toolTip() ) )
+		helpWidget.setField( self.name )
+		if self.record:
+			# TODO: self.record should be optional
+			helpWidget.setModel( self.record.group.resource )
+		helpWidget.show()
 
 	## @brief This function is called the first time the widget is shown.
 	#
