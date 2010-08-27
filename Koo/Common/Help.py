@@ -73,6 +73,15 @@ class HelpWidget( QWebView ):
 		self._filter = ()
 		self._type = None
 
+	def mousePressEvent(self, event):
+		# Hide the widget if user clicks outside it, otherwise the only way of hiding it 
+		# is using Escape key
+		if not self.geometry().contains( event.globalPos() ):
+			self.hide()
+			return
+		QWebView.mousePressEvent(self, event)
+
+
 	def setLabel(self, text):
 		self._label = text
 		self.updateText()
