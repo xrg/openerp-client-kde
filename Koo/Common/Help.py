@@ -96,6 +96,8 @@ class HelpWidget( QWebView ):
 	def updateText(self):
 		if not self._type:
 			return
+
+		installed = True
 		if self._filter:
 			if self._type == self.FieldType:
 				function = 'get_field_headings'
@@ -103,11 +105,17 @@ class HelpWidget( QWebView ):
 				function = 'get_view_headings'
 			else:
 				function = 'get_menu_headings'
-			headings = Rpc.session.execute('/object','execute','ir.documentation.paragraph', function, self._filter, Rpc.session.context)
+			try:
+				headings = Rpc.session.call('/object','execute','ir.documentation.paragraph', function, self._filter, Rpc.session.context)
+			except Rpc.RpcProtocolException:
+				headings = []
+				installed = False
+			except Rpc.RpcServerException:
+				headings = []
+				installed = False
 		else:
 			headings = []
 
-		print "HEADINGS: ", [x[:10] for x in headings]
 		htmlHeadings = []
 		for heading in headings:
 			html = '<div style="spacing: 20px; padding: 2px; background-color: Lavender;"><p><small><a style="text-decoration:none;" href="openerp://ir.documentation.file/get/index.html#%s">%s</a></small></p></div>' % (heading[0], heading[1])
@@ -117,7 +125,13 @@ class HelpWidget( QWebView ):
 		
 
 
-		if htmlHeadings:
+		if not installed:
+			notInstalledMessages = {
+				self.FieldType : _('<p><i>Documentation module is not installed.</i></p>'),
+				self.MenuType : _('<p><i>The following sections in the documentation refer to this menu entry:</i></p>'),
+			}
+			references = _("<p><i>You may want to install the 'documentation' module for more information.</i></p>")
+		elif htmlHeadings:
 			foundMessages = {
 				self.FieldType : _('<p><i>The following sections in the documentation refer to this field:</i></p>'),
 				self.ViewType : _('<p><i>The following sections in the documentation refer to this view:</i></p>'),
