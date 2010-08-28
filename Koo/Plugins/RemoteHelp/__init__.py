@@ -64,7 +64,8 @@ def remoteHelp():
 	
 	path = os.path.join( 'Plugins', 'RemoteHelp', 'data' )
 	path = Paths.searchFile( 'koo_help_%s.exe' % language, path )
-	subprocess.Popen([path])
+	if path:
+		subprocess.Popen([path])
 
 def initGui():
 	mainWindow = KooMainWindow.instance
