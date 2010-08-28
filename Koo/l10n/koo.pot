@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-26 21:40+0200\n"
+"POT-Creation-Date: 2010-08-28 10:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,18 +241,18 @@ msgstr ""
 msgid "<b>Connection Lost:</b> %s"
 msgstr ""
 
-#: Koo/Common/Common.py:209
+#: Koo/Common/Common.py:210
 #, python-format
 msgid ""
 "Connection with the server has been lost. Will retry connection in %d "
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:644
+#: Koo/Common/Common.py:225 Koo/Dialogs/KooMainWindow.py:644
 msgid "Quit"
 msgstr ""
 
-#: Koo/Common/Common.py:221
+#: Koo/Common/Common.py:225
 msgid ""
 "Leaving the application now will lose all unsaved changes. Are you sure you "
 "want to quit?"
@@ -325,36 +325,46 @@ msgstr ""
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 
-#: Koo/Common/Help.py:93
+#: Koo/Common/Help.py:102
 msgid "Documentation"
 msgstr ""
 
-#: Koo/Common/Help.py:122
-msgid ""
-"<p><i>The following sections in the documentation refer to this field:</i></"
-"p>"
+#: Koo/Common/Help.py:139
+msgid "<p><i>Documentation module is not installed.</i></p>"
 msgstr ""
 
-#: Koo/Common/Help.py:123
-msgid ""
-"<p><i>The following sections in the documentation refer to this view:</i></p>"
-msgstr ""
-
-#: Koo/Common/Help.py:124
+#: Koo/Common/Help.py:140 Koo/Common/Help.py:147
 msgid ""
 "<p><i>The following sections in the documentation refer to this menu entry:</"
 "i></p>"
 msgstr ""
 
-#: Koo/Common/Help.py:130
+#: Koo/Common/Help.py:142
+msgid ""
+"<p><i>You may want to install the 'documentation' module for more "
+"information.</i></p>"
+msgstr ""
+
+#: Koo/Common/Help.py:145
+msgid ""
+"<p><i>The following sections in the documentation refer to this field:</i></"
+"p>"
+msgstr ""
+
+#: Koo/Common/Help.py:146
+msgid ""
+"<p><i>The following sections in the documentation refer to this view:</i></p>"
+msgstr ""
+
+#: Koo/Common/Help.py:153
 msgid "<p><i>No sections in the documentation refer to this field.</i></p>"
 msgstr ""
 
-#: Koo/Common/Help.py:131
+#: Koo/Common/Help.py:154
 msgid "<p><i>No sections in the documentation refer to this view.</i></p>"
 msgstr ""
 
-#: Koo/Common/Help.py:132
+#: Koo/Common/Help.py:155
 msgid ""
 "<p><i>No sections in the documentation refer to this menu entry.</i></p>"
 msgstr ""
