@@ -127,7 +127,7 @@ class HelpWidget( QWebView ):
 
 		htmlHeadings = []
 		for heading in headings:
-			html = '<div style="spacing: 20px; padding: 2px; background-color: Lavender;"><p><small><a style="text-decoration:none;" href="openerp://ir.documentation.file/get/index.html#%s">%s</a></small></p></div>' % (heading[0], heading[1])
+			html = '<div style="padding: 2px; background-color: Lavender;"><p><small><a style="text-decoration:none;" href="openerp://ir.documentation.file/get/index.html#%s">%s</a></small></p></div>' % (heading[0], heading[1])
 			html = html.replace('\\n','')
 			htmlHeadings.append( html )
 
@@ -147,7 +147,7 @@ class HelpWidget( QWebView ):
 				self.MenuType : _('<p><i>The following sections in the documentation refer to this menu entry:</i></p>'),
 			}
 			references = foundMessages[self._type]
-			references += '\n'.join( htmlHeadings )
+			references += '<br/>'.join( htmlHeadings )
 		else:
 			notFoundMessages = {
 				self.FieldType : _('<p><i>No sections in the documentation refer to this field.</i></p>'),
@@ -156,6 +156,6 @@ class HelpWidget( QWebView ):
 			}
 			references = notFoundMessages[self._type]
 			
-		html = '<html><body style="background-color: #FFFFF0"><p><b>%s</b></p><p>%s</p><p>%s</p></body></html>' % (self._label, self._help, references)
+		html = '<html><body style="background-color: #FFFFF0;"><p><b>%s</b></p><p>%s</p><p>%s</p></body></html>' % (self._label, self._help, references)
 		self.setHtml( html )
 
