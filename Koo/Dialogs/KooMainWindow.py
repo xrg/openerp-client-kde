@@ -59,6 +59,7 @@ from Koo.Common import Api
 from Koo.Common import ViewSettings
 from Koo.Common import Debug
 from Koo.Common import Icons
+from Koo.Common import RemoteHelp
 
 from Koo.View.ViewFactory import *
 
@@ -227,9 +228,20 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.systemTrayIcon.setContextMenu( self.systemTrayMenu )
 		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
 
+		if RemoteHelp.isRemoteHelpAvailable():
+			# Add Remote Help menu option under Windows platforms only.
+			self.actionRemoteHelp = QAction( self )
+			self.actionRemoteHelp.setIcon( QIcon( ':/images/partner.png' ) )
+			self.actionRemoteHelp.setText( _('Remote Help') )
+			QObject.connect( self.actionRemoteHelp, SIGNAL('triggered()'), self.remoteHelp )
+			self.menuHelp.addAction( self.actionRemoteHelp )
+
 		# Initialize plugins: This allows some plugins (such as SerialBarcodeScanner)
 		# to be available in the LoginDialog.
 		Plugins.list()
+
+	def remoteHelp(self):
+		RemoteHelp.remoteHelp( self )
 
 	def systemTrayIconActivated(self, reason):
 		if reason != QSystemTrayIcon.DoubleClick:

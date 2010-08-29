@@ -193,10 +193,18 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
 
+		from Koo.Common import RemoteHelp
+		self.pushRemoteHelp.setVisible( RemoteHelp.isRemoteHelpAvailable() )
+
 		self.connect( self.pushSend, SIGNAL('clicked()'), self.send )
+		self.connect( self.pushRemoteHelp, SIGNAL('clicked()'), self.remoteHelp )
 	
 	def done(self, r):
 		QDialog.done(self, r)
+
+	def remoteHelp(self):
+		from Koo.Common import RemoteHelp
+		RemoteHelp.remoteHelp( self )
 
 	def send(self):
 		to = Settings.value('koo.smtp_backtraces_to')
@@ -220,6 +228,7 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 
 		QMessageBox.information( self, _('Send Error Information'), _('Error information was successfully sent.') )
 		self.pushSend.setEnabled( False )
+
 
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.

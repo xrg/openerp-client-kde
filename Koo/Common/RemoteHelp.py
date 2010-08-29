@@ -33,13 +33,12 @@ from PyQt4.QtGui import *
 from Koo import Rpc
 from Koo.Common import Common
 from Koo.Common import Paths
-from Koo.Dialogs.KooMainWindow import KooMainWindow
 
 
 SupportAnchor = "<a href='http://www.NaN-tic.com'>NaN-tic</a>"
 
 ## @brief Opens the application used for helpdesk assistant to connect to user's desktop.
-def remoteHelp():
+def remoteHelp(parent):
 	message = _("<p><b>Remote Help</b> will allow you to share your desktop with one member "
 		"of our support team. This will provide you with first class "
 		"support in real time by an application expert.</p>"
@@ -55,7 +54,7 @@ def remoteHelp():
 		"proceed.</p>") % {
 			'anchor': SupportAnchor
 		}
-	answer = QMessageBox.question(KooMainWindow.instance, _('Remote Help'), message, _("Proceed"), _("Cancel") )
+	answer = QMessageBox.question(parent, _('Remote Help'), message, _("Proceed"), _("Cancel") )
 	if answer == 1:
 		return
 	language = Rpc.session.context and Rpc.session.context.get('lang') or 'en'
@@ -67,14 +66,5 @@ def remoteHelp():
 	if path:
 		subprocess.Popen([path])
 
-def initGui():
-	mainWindow = KooMainWindow.instance
-	actionRemoteHelp = QAction( mainWindow )
-	actionRemoteHelp.setIcon( QIcon( ':/images/help.png' ) )
-	actionRemoteHelp.setText( _('Remote Help') )
-	QObject.connect( actionRemoteHelp, SIGNAL('triggered()'), remoteHelp )
-
-	mainWindow.menuHelp.addAction( actionRemoteHelp )
-
-if os.name == 'nt':
-	initGui()
+def isRemoteHelpAvailable():
+	return os.name == 'nt'
