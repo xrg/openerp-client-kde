@@ -139,7 +139,7 @@
            </property>
            <property name="icon">
             <iconset resource="common.qrc">
-             <normaloff>:/images/info.png</normaloff>:/images/info.png</iconset>
+             <normaloff>:/images/help.png</normaloff>:/images/help.png</iconset>
            </property>
           </widget>
          </item>
@@ -353,6 +353,10 @@
     <widget class="QMenu" name="menuDocumentation">
      <property name="title">
       <string>Documentation</string>
+     </property>
+     <property name="icon">
+      <iconset resource="common.qrc">
+       <normaloff>:/images/help.png</normaloff>:/images/help.png</iconset>
      </property>
      <addaction name="actionHtmlManual"/>
      <addaction name="actionPdfManual"/>
