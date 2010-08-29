@@ -63,15 +63,20 @@ class FormContainer( QWidget ):
 		self.layout.setAlignment( Qt.AlignTop )
 		self.maxColumns = maxColumns
 		self.isTab = False
-		self.tabWidget = parent
+		if isinstance( parent, FormTabWidget ):
+			self.tabWidget = parent
+		else:
+			self.tabWidget = None
 		self.fieldWidgets = []
 		self.containerWidgets = []
 
 	def setTabEnabled(self, value):
-		self.tabWidget.setTabEnabled( self.tabWidget.indexOf( self ), value )
+		if self.tabWidget:
+			self.tabWidget.setTabEnabled( self.tabWidget.indexOf( self ), value )
 
 	def setTabValid(self, value):
-		self.tabWidget.setTabValid( self.tabWidget.indexOf( self ), value )
+		if self.tabWidget:
+			self.tabWidget.setTabValid( self.tabWidget.indexOf( self ), value )
 
 	def isValid(self, record):
 		valid = True
