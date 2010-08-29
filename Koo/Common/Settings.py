@@ -63,7 +63,7 @@ class Settings(object):
 		'koo.load_on_open' : True,
 		'koo.smtp_server' : 'mail.nan-tic.com',
 		'koo.smtp_from' : 'koo@nan-tic.com',
-		'koo.smtp_backtraces_to' : 'albert@nan-tic.com', #'backtraces@nan-tic.com',
+		'koo.smtp_backtraces_to' : 'backtraces@nan-tic.com',
 	}
 
 	## @brief Stores current settings in the appropiate config file.
