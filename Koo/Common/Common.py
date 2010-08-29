@@ -73,6 +73,30 @@ def nodeAttributes(node):
 	result[attrs.item(i).localName] = attrs.item(i).nodeValue
    return result
 
+def sendEMail(to, subject, body):
+	# Import smtplib for the actual sending function
+	import smtplib
+
+	# Import the email modules we'll need
+	from email.mime.text import MIMEText
+
+	source = Settings.value('koo.smtp_from')
+
+	msg = MIMEText(body)
+
+	# me == the sender's email address
+	# you == the recipient's email address
+	msg['Subject'] = subject
+	msg['From'] = source
+	msg['To'] = to
+
+	# Send the message via our own SMTP server, but don't include the
+	# envelope header.
+	s = smtplib.SMTP( Settings.value('koo.smtp_server') )
+	s.sendmail(source, [to], msg.as_string())
+	s.quit()
+
+
 (SelectionDialogUi, SelectionDialogBase) = loadUiType( uiPath('win_selection.ui') )
 
 ## @brief The SelectionDialog class shows a dialog prompting the user to choose
@@ -168,9 +192,34 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
+
+		self.connect( self.pushSend, SIGNAL('clicked()'), self.send )
 	
 	def done(self, r):
 		QDialog.done(self, r)
+
+	def send(self):
+		to = Settings.value('koo.smtp_backtraces_to')
+
+		button = QMessageBox.question(self, _('Send Error Information'), _('You are about to send the details of this error, database name, user ID, and server URL to %s. Do you want to proceed?') % to, QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+		if button == QMessageBox.No:
+			return
+
+		subject = 'Backtrace information: %s' % Rpc.session.databaseName
+		body = ''
+		body += 'Database: %s\n' % Rpc.session.databaseName
+		body += 'User ID: %s\n' % Rpc.session.uid
+		body += 'URL: %s\n\n' % Rpc.session.url
+		body += 'Backtrace:\n\n'
+		body += unicode( self.uiDetails.toPlainText() ).encode('ascii', 'replace')
+		try:
+			sendEMail( Settings.value('koo.smtp_backtraces_to'), subject, body)
+		except:
+			QMessageBox.warning( self, _('Send Error Information'), _('Error information could not be sent.') )
+			return
+
+		QMessageBox.information( self, _('Send Error Information'), _('Error information was successfully sent.') )
+		self.pushSend.setEnabled( False )
 
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.

@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ErrorDialog</class>
- <widget class="QDialog" name="ErrorDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="ErrorDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,72 +10,64 @@
     <height>670</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Error</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout">
    <item>
-    <widget class="QLabel" name="label" >
-     <property name="text" >
+    <widget class="QLabel" name="label">
+     <property name="text">
       <string>Application Error !</string>
      </property>
-     <property name="alignment" >
+     <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QTabWidget" name="tabWidget" >
-     <property name="currentIndex" >
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tab" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>467</width>
-        <height>554</height>
-       </rect>
-      </property>
-      <attribute name="title" >
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
        <string>&amp;Description</string>
       </attribute>
-      <layout class="QVBoxLayout" >
+      <layout class="QVBoxLayout">
        <item>
-        <widget class="QLabel" name="uiErrorTitle" >
-         <property name="text" >
+        <widget class="QLabel" name="uiErrorTitle">
+         <property name="text">
           <string>Application Error</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <layout class="QHBoxLayout" >
+        <layout class="QHBoxLayout">
          <item>
-          <widget class="QLabel" name="label_2" >
-           <property name="text" >
+          <widget class="QLabel" name="label_2">
+           <property name="text">
             <string/>
            </property>
-           <property name="pixmap" >
-            <pixmap resource="common.qrc" >:/images/warning.png</pixmap>
+           <property name="pixmap">
+            <pixmap resource="common.qrc">:/images/warning.png</pixmap>
            </property>
           </widget>
          </item>
          <item>
-          <layout class="QVBoxLayout" >
+          <layout class="QVBoxLayout">
            <item>
-            <widget class="QLabel" name="label_3" >
-             <property name="text" >
-              <string>&lt;b>Error code:&lt;/b></string>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>&lt;b&gt;Error code:&lt;/b&gt;</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="uiErrorInfo" >
-             <property name="text" >
+            <widget class="QLabel" name="uiErrorInfo">
+             <property name="text">
               <string>View details</string>
              </property>
             </widget>
@@ -83,10 +76,10 @@
          </item>
          <item>
           <spacer>
-           <property name="orientation" >
+           <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
-           <property name="sizeHint" stdset="0" >
+           <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
              <height>20</height>
@@ -98,10 +91,10 @@
        </item>
        <item>
         <spacer>
-         <property name="orientation" >
+         <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
-         <property name="sizeHint" stdset="0" >
+         <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
            <height>40</height>
@@ -111,34 +104,37 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>467</width>
-        <height>554</height>
-       </rect>
-      </property>
-      <attribute name="title" >
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
        <string>De&amp;tails</string>
       </attribute>
-      <layout class="QVBoxLayout" >
+      <layout class="QVBoxLayout">
        <item>
-        <widget class="QTextBrowser" name="uiDetails" />
+        <widget class="QTextBrowser" name="uiDetails"/>
        </item>
       </layout>
      </widget>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QPushButton" name="pushSend">
+       <property name="text">
+        <string>&amp;Send Error</string>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/send-request.png</normaloff>:/images/send-request.png</iconset>
+       </property>
+      </widget>
+     </item>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -147,12 +143,13 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushAccept" >
-       <property name="text" >
+      <widget class="QPushButton" name="pushAccept">
+       <property name="text">
         <string>&amp;Accept</string>
        </property>
-       <property name="icon" >
-        <iconset resource="common.qrc" >:/images/ok.png</iconset>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/ok.png</normaloff>:/images/ok.png</iconset>
        </property>
       </widget>
      </item>
@@ -161,7 +158,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections>
   <connection>
@@ -170,11 +167,11 @@
    <receiver>ErrorDialog</receiver>
    <slot>accept()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>410</x>
      <y>645</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>392</x>
      <y>665</y>
     </hint>
