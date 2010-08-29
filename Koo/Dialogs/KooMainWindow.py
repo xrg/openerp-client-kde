@@ -34,6 +34,8 @@ import time
 import os
 import gettext
 import base64
+import tempfile
+import subprocess
 
 from Koo import Rpc
 
@@ -401,10 +403,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not value:
 			return
 
-		import base64
-		import tempfile
-		import subprocess
-
 		directory = tempfile.mkdtemp()
 		installer = os.path.join( directory, value['filename'] )
 		f = open( installer, 'wb' )
@@ -505,10 +503,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not pdf:
 			return False
 
-		import os
-		import base64
-		import tempfile
-		from Common import Common
 		pdf = base64.decodestring(pdf)
 		fd, fileName = tempfile.mkstemp( '.pdf' )
 		os.write( fd, pdf )
