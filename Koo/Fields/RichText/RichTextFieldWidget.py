@@ -31,6 +31,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Koo.Common import Common
+from Koo.Common import Shortcuts
+from Koo.Fields.TranslationDialog import *
 from Koo.Fields.AbstractFieldWidget import *
 
 (RichTextFieldWidgetUi, RichTextFieldWidgetBase) = loadUiType( Common.uiPath('richtext.ui') ) 
@@ -62,6 +64,24 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 		font = self.uiText.document().defaultFont()
 		self.font( font )
 		self.fontSize( font.pointSize() )
+
+		if attrs.get('translate', False):
+			self.connect( self.pushTranslate, SIGNAL('clicked()'), self.translate )
+
+			self.scTranslate = QShortcut( self.uiText )
+			self.scTranslate.setKey( Shortcuts.SearchInField )
+			self.scTranslate.setContext( Qt.WidgetShortcut )
+			self.connect( self.scTranslate, SIGNAL('activated()'), self.translate )
+		else:
+			self.pushTranslate.setVisible( False )
+
+	def translate(self):
+		if not self.record.id:
+			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
+			return
+		dialog = TranslationDialog( self.record.id, self.record.group.resource, self.attrs['name'], unicode( self.uiText.document().toHtml() ), TranslationDialog.RichEdit, self )
+		if dialog.exec_() == QDialog.Accepted:
+			self.record.setValue(self.name, unicode( dialog.result ) or False )
 
 	def updateCurrentColors(self):
 		cursor = self.uiText.textCursor()

@@ -29,9 +29,12 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-from Koo.Common import Common
-import copy
+
 from Koo import Rpc
+from Koo.Common import Common
+from Koo.Model.Group import RecordGroup
+
+import copy
 
 (TranslationDialogUi, TranslationDialogBase) = loadUiType( Common.uiPath('translationdialog.ui') ) 
 
@@ -40,6 +43,7 @@ from Koo import Rpc
 class TranslationDialog( QDialog, TranslationDialogUi ):
 	LineEdit = 0
 	TextEdit = 1
+	RichEdit = 2
 
 	## @brief Constructs a new TranslationDialog object.
 	def __init__(self, id, model, fieldName, value, type, parent = None):
@@ -48,14 +52,13 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 		self.setupUi( self )
 
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
-		self.setWindowTitle( _('Translation Dialog') )
 		self.id = id
 		self.model = model
 		self.fieldName = fieldName
 		self.value = value
 		self.type = type
 
-		self.translations = []
+		self.values = {}
 		self.result = value
 		# Using the timer should improve user feedback
 		QTimer.singleShot( 0, self.init )
@@ -72,60 +75,62 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 		languageIds = Rpc.session.execute( '/object', 'execute', 'res.lang', 'search', [('translatable','=','1')])
 		languages = Rpc.session.execute( '/object', 'execute', 'res.lang', 'read', languageIds, ['code', 'name'] )
 
-		layout = QGridLayout()
-		self.layout().insertLayout(0, layout)
+		arch = []
+		fields = {}
 		for lang in languages:
-			uiLabel = QLabel( lang['name'] + ':', self)
 			if self.type == TranslationDialog.LineEdit:
-				uiText = QLineEdit(self)
+				widget = 'char'
+				fieldType = 'char'
+			elif self.type == TranslationDialog.TextEdit:
+				widget = 'text'
+				fieldType = 'text'
 			else:
-				uiText = QTextEdit(self)
-				uiText.setTabChangesFocus( True )
-				uiText.setAcceptRichText( False )
+				widget = 'text_tag'
+				fieldType = 'text'
 
-			row = layout.rowCount() + 1
-			layout.addWidget( uiLabel, row, 0 )
-			layout.addWidget( uiText, row, 1 )
-
+			arch.append( '<field name="%s" widget="%s"/>' % (lang['code'], widget) )
+			fields[lang['code']] = {
+				'string': lang['name'],
+				'type': fieldType,
+			}
 			if lang['code'] == self.currentCode:
-				self.setText( uiText, self.value )
-				self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.text(uiText) } )
+				self.values[ lang['code'] ] = self.value
 				continue
 
 			context = copy.copy(Rpc.session.context)			
 			context['lang'] = self.adaptContext( lang['code'] )
 			val = Rpc.session.execute( '/object', 'execute', self.model, 'read', [self.id], [self.fieldName], context)
 			val = val[0]
-			self.setText( uiText, val[self.fieldName] or '' )
-			self.translations.append( { 'code': lang['code'], 'widget': uiText, 'value': self.text(uiText) } )
 
-	def setText(self, widget, text):
-		if self.type == TranslationDialog.LineEdit:
-			widget.setText( text )
-		else:
-			widget.setPlainText( text )
-		widget.setToolTip( text )
+			self.values[ lang['code'] ] = val[self.fieldName]
 
-	def text(self, widget):
-		if self.type == TranslationDialog.LineEdit:
-			return unicode(widget.text())
-		else:
-			return unicode(widget.toPlainText())
-		
+		arch = '<form string="%s" col="2">%s</form>' % (_('Translation Dialog'), ''.join( arch ) )
+
+		self.group = RecordGroup( 'translator' )
+		# Do not allow record loading as most probably 'wizard.'+name model
+		# won't exist in the server
+		self.group.setDomainForEmptyGroup()
+		self.uiScreen.setRecordGroup( self.group )
+		self.uiScreen.new(default=False)
+		self.uiScreen.addView(arch, fields, display=True)
+		self.uiScreen.currentRecord().set(self.values)
+		self.uiScreen.display()
+
 	def slotAccept(self):
-		for lang in self.translations:
-			newValue = self.text( lang['widget'] )
+		self.uiScreen.currentView().store()
+		for lang, oldValue in self.values.iteritems():
+			newValue = self.uiScreen.currentRecord().value( lang )
 			# Don't update on the server the current text. This would cause information
 			# on the server to be updated after the form has been read causing possible
 			# conflits.
-			if lang['code'] == self.currentCode:
+			if lang == self.currentCode:
 				self.result = newValue
 				continue
 			# Only update on the server if the value has changed
-			if newValue == lang['value']:
+			if newValue == oldValue:
 				continue
 			context = copy.copy(Rpc.session.context)
-			context['lang'] = self.adaptContext( lang['code'] )
+			context['lang'] = self.adaptContext( lang )
 			Rpc.session.execute( '/object', 'execute', self.model, 'write', [self.id], {self.fieldName: newValue}, context )
 		self.accept()
 
