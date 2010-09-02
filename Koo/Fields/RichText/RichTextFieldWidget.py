@@ -79,7 +79,9 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 		if not self.record.id:
 			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
 			return
-		dialog = TranslationDialog( self.record.id, self.record.group.resource, self.attrs['name'], unicode( self.uiText.document().toHtml() ), TranslationDialog.RichEdit, self )
+
+		html = Common.simplifyHtml( self.uiText.document().toHtml() )
+		dialog = TranslationDialog( self.record.id, self.record.group.resource, self.attrs['name'], html, TranslationDialog.RichEdit, self )
 		if dialog.exec_() == QDialog.Accepted:
 			self.record.setValue(self.name, unicode( dialog.result ) or False )
 
@@ -238,7 +240,8 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 		# showValue() even if the text hasn't been modified by the user
 		# we need to track modifications using QTextDocument property
 		if self.uiText.document().isModified():
-			self.record.setValue(self.name, unicode( self.uiText.document().toHtml() ) or False )
+			html = Common.simplifyHtml( self.uiText.document().toHtml() )
+			self.record.setValue(self.name, html or False )
 
 	def clear(self):
 		self.uiText.setHtml('')

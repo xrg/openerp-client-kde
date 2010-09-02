@@ -366,3 +366,16 @@ def stringToBool(text):
 		if text.lower() == 'false' or text == '0':
 			return False
 	return bool(text)
+
+## @brief This function simplifies HTML as returned by TextEdit.toHtml() function by
+# removing <html>, <head> and <body> tags, so resulting text integrates better when
+# used in a web page.
+def simplifyHtml(html):
+	if isinstance(html, QString):
+		html = unicode( html )
+	if '<p' in html:
+		index = html.find('<p')
+		html = html[index:]
+		index = html.rfind('</p>') + 4
+		html = html[:index]
+	return html
