@@ -81,18 +81,23 @@ def data_files():
 		for src in glob.glob( opj('Koo','l10n','*','LC_MESSAGES','koo.mo') ):
 			lang = src.split(os.sep)[2]
 			files.append( ( (dest % lang), [src] ) )
+			
+		files.append(
+			(opj('share','Koo','Plugins','RemoteHelp','data'), glob.glob( opj('Koo','Plugins','RemoteHelp','data','*')) ),
+		)
 	return files
 
-def findPlugins( module ):
+def findPluginsDir( module ):
 	result = []
 	plugins = [x for x in glob.glob( opj('Koo', module,'*') ) if os.path.isdir(x)]
 	for plugin in plugins:
 		for dirpath, dirnames, filenames in os.walk(plugin):
 			if '__init__.py' in filenames:
-				result.append( dirpath.replace(os.path.sep, '.') )
+				result.append( dirpath )
 	return result
-
-
+	
+def findPlugins( module ):
+	return [x.replace(os.path.sep, '.') for x in findPluginsDir( module )]
 
 long_desc = '''\
 =====================================

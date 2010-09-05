@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
+    <width>573</width>
     <height>38</height>
    </rect>
   </property>
@@ -22,6 +22,16 @@
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
     <widget class="QComboBox" name="uiField">
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <property name="insertPolicy">
+      <enum>QComboBox::NoInsert</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="uiRelatedField">
      <property name="editable">
       <bool>true</bool>
      </property>

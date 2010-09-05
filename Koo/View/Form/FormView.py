@@ -1,4 +1,4 @@
- ##############################################################################
+##############################################################################
 #
 # Copyright (c) 2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
@@ -34,6 +34,20 @@ from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
+## @brief The FormTabWidget class is the widget used instead of QTabWidget in forms.
+#
+# It extends QTabWidget functionalities to show an icon when a field in a tab is invalid.
+
+class FormTabWidget( QTabWidget ):
+	def __init__(self, parent=None):
+		QTabWidget.__init__(self, parent)
+	
+	def setTabValid(self, index, value):
+		if value:
+			self.setTabIcon( index, QIcon() )
+		else:
+			self.setTabIcon( index, QIcon( ':/images/warning.png' ) )
+
 ## @brief The FormContainer class is a widget with some functionalities to help
 # the parser construct a Form.
 class FormContainer( QWidget ):
@@ -48,14 +62,41 @@ class FormContainer( QWidget ):
 		self.maxColumns = maxColumns
 		self.isTab = False
 		self.tabWidget = parent
+		self.fieldWidgets = []
+		self.containerWidgets = []
 
 	def setTabEnabled(self, value):
 		self.tabWidget.setTabEnabled( self.tabWidget.indexOf( self ), value )
+
+	def setTabValid(self, value):
+		self.tabWidget.setTabValid( self.tabWidget.indexOf( self ), value )
+
+	def isValid(self, record):
+		valid = True
+		if not record:
+			return valid
+
+		for w in self.fieldWidgets:
+			if not record.isFieldValid( w.name ):
+				valid = False
+				break
+
+		if valid:
+			for c in self.containerWidgets:
+				if not c.isValid( record ):
+					valid = False
+					break
+		return valid
 
 	def showHelp(self, link):
 		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
 
 	def addWidget(self, widget, attributes={}, labelText=None):
+		if widget.inherits( 'AbstractFieldWidget' ):
+			self.fieldWidgets.append( widget )
+		if widget.inherits( 'FormContainer' ):
+			self.containerWidgets.append( widget )
+
 		colspan = int(attributes.get( 'colspan', 1 ))
 		helpText = attributes.get( 'help', False )
 		stylesheet = attributes.get( 'stylesheet', False )
@@ -181,6 +222,8 @@ class FormView( AbstractView ):
 
 		# Update state widgets
 		for widget in self.stateWidgets:
+			widgetGui = widget['widget']
+
 			# Consider 'attrs' attribute
 			for attribute, condition in widget['attributes'].iteritems():
 				if self.record:
@@ -188,9 +231,9 @@ class FormView( AbstractView ):
 				else:
 					value = False
 				if attribute == 'invisible':
-					self.setWidgetVisible( widget['widget'], not value )
+					self.setWidgetVisible( widgetGui, not value )
 				elif attribute == 'readonly':
-					self.setWidgetReadOnly( widget['widget'], value )
+					self.setWidgetReadOnly( widgetGui, value )
 			# Consider 'states' attribute
 			if widget['states']:
 				if self.record and self.record.fieldExists('state'):
@@ -198,9 +241,13 @@ class FormView( AbstractView ):
 				else:
 					state = ''
 				if state in widget['states']:
-					self.setWidgetVisible( widget['widget'], True )
+					self.setWidgetVisible( widgetGui, True )
 				else:
-					self.setWidgetVisible( widget['widget'], False )
+					self.setWidgetVisible( widgetGui, False )
+
+			if isinstance(widgetGui, FormContainer):
+				if widgetGui.isTab:
+					widgetGui.setTabValid( widgetGui.isValid( record ) )
 
 		if self._readOnly:
 			for name in self.widgets:

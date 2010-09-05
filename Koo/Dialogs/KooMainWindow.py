@@ -92,11 +92,16 @@ class MainTabWidget(QTabWidget):
 
 class KooMainWindow(QMainWindow, KooMainWindowUi):
 	
+	instance = None
+	
 	def __init__(self):	
 		QMainWindow.__init__(self)
 		KooMainWindowUi.__init__(self)
 		self.setupUi( self )
-
+		
+		# Initialize singleton
+		KooMainWindow.instance = self
+		
 		self.fixedWindowTitle = self.windowTitle()
 
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )

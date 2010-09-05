@@ -946,17 +946,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="customsearchitem.ui" line="46"/>
+        <location filename="customsearchitem.ui" line="56"/>
         <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="customsearchitem.ui" line="61"/>
+        <location filename="customsearchitem.ui" line="71"/>
         <source>&amp;And</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="customsearchitem.ui" line="71"/>
+        <location filename="customsearchitem.ui" line="81"/>
         <source>&amp;Or</source>
         <translation type="unfinished"></translation>
     </message>

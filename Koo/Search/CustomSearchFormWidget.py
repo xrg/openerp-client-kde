@@ -36,6 +36,8 @@ from AbstractSearchWidget import *
 from Koo.Common import Common
 from Koo.Common import Shortcuts
 from Koo.Common import Calendar
+from Koo.Common import Numeric
+from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -79,14 +81,15 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 	operators = (
 		('is empty', _('is empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
+		('is not empty', _('is not empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
 		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
 		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True),
 		('<>', _('is not equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True), 
 		('>', _('greater than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('<', _('less than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
-		('in', _('in'), ('selection'), True),
-		('not in', _('not in'), ('selection'), True),
+		('in', _('in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
+		('not in', _('not in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 	)
 
 	typeOperators = {
@@ -94,12 +97,16 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		'integer': ('=', '<>', '>', '<')
 	}
 
+	typeRelated = ('many2one','many2many','one2many')
+
 	def __init__(self, parent=None):
 		AbstractSearchWidget.__init__(self, '', parent)
 		CustomSearchItemWidgetUi.__init__(self)
 		self.setupUi(self)
 
-		self.connect(self.uiField, SIGNAL('currentIndexChanged(int)'), self.updateOperators)
+		self.uiRelatedField.setVisible( False )
+		self.connect(self.uiField, SIGNAL('currentIndexChanged(int)'), self.updateRelatedAndOperators)
+		self.connect(self.uiRelatedField, SIGNAL('currentIndexChanged(int)'), self.updateOperators)
 		self.connect(self.uiOperator, SIGNAL('currentIndexChanged(int)'), self.updateValue)
 
 		self.fields = None
@@ -161,17 +168,51 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 	def orSelected(self):
 		self.setOrSelected()
 
-	def updateOperators(self, index):
-		self.uiOperator.clear()
+	def updateRelatedAndOperators(self, index):
 		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
 		if not fieldName:
 			return
 
 		fieldType = self.fields[fieldName].get('type')
+
+		if fieldType in self.typeRelated:
+			self.uiRelatedField.setVisible( True )
+			self.uiRelatedField.setCurrentIndex( 0 )
+			model = self.fields[fieldName].get('relation')
+			if model:
+				view = Rpc.session.execute('/object', 'execute', model, 'fields_view_get', False, 'form', Rpc.session.context)
+				self.relatedFields = view['fields']
+			else:
+				self.relatedFields = {}
+
+			self.uiRelatedField.clear()
+			self.uiRelatedField.addItem( '', QVariant('') )
+			fields = [(x, self.relatedFields[x].get('string', x)) for x in self.relatedFields]
+			fields.sort( key=lambda x: x[1] )
+			for field in fields:
+				self.uiRelatedField.addItem( field[1], QVariant( field[0] ) )
+		else:
+			self.uiRelatedField.setVisible( False )
+
+		self.updateOperators()
+
+	def updateOperators(self, index=None):
+		self.uiOperator.clear()
+		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
+		relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
+		if not fieldName:
+			return
+
+		if relatedFieldName:
+			fieldType = self.relatedFields[relatedFieldName].get('type')
+		else:
+			fieldType = self.fields[fieldName].get('type')
+
 		self.uiOperator.addItem( '' )
 		for operator in self.operators:
 			if fieldType in operator[2]:
 				self.uiOperator.addItem( operator[1], QVariant( operator[0] ) )
+
 
 	def updateValue(self, index):
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
@@ -182,13 +223,17 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 	def clear(self):
 		self.uiField.setCurrentIndex( 0 )
+		self.uiRelatedField.clear()
 		self.uiOperator.setCurrentIndex( 0 )
 		self.uiValue.clear()
 
-	def correctValue(self, value, fieldName):
+	def correctValue(self, value, fieldName, relatedFieldName):
 		text = value
 
-		fieldType = self.fields[fieldName].get('type')
+		if relatedFieldName:
+			fieldType = self.relatedFields[relatedFieldName].get('type')
+		else:
+			fieldType = self.fields[fieldName].get('type')
 		if fieldType == 'date':
 			value = Calendar.textToDate( value )
 			text = Calendar.dateToText( value )
@@ -205,11 +250,29 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			value = Calendar.textToTime( value )
 			text = Calendar.timeToText( value )
 			value = Calendar.timeToStorage( value )
+		elif fieldType == 'float':
+			value = Numeric.textToFloat( value ) or 0.0
+			text = Numeric.floatToText( value )
+		elif fieldType == 'integer':
+			value = Numeric.textToInteger( value ) or 0.0
+			text = Numeric.integerToText( value )
 		elif fieldType == 'selection':
-			options = self.fields[fieldName]['selection']
+
+			if relatedFieldName:
+				options = self.relatedFields[relatedFieldName]['selection']
+			else:
+				options = self.fields[fieldName]['selection']
+
 			text = []
 			keys = []
 			for selection in options:
+				# If text matches exactly one of the options of the selection field
+				# do not 'accept' other options. Otherwise, all options that contain
+				# the text will be 'accepted'.
+				if value.lower().strip() == selection[1].lower().strip():
+					keys = [ selection[0] ]
+					text = [ selection[1] ]
+					break
 				if value.lower() in selection[1].lower():
 					keys.append( selection[0] )
 					text.append( selection[1] )
@@ -237,13 +300,14 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		if not self.uiOperator.currentIndex():
 			return []
 		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
+		relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
 		value = unicode( self.uiValue.text() )
 		if operator in ('in', 'not in'):
 			text = []
 			newValue = []
 			for item in value.split(','):
-				data = self.correctValue( item.strip(), fieldName )
+				data = self.correctValue( item.strip(), fieldName, relatedFieldName )
 				newValue.append( data[0] )
 				text.append( data[1] )
 			value = newValue
@@ -260,8 +324,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			operator = '='
 			value = False
 			text = ''
+		elif operator == 'is not empty':
+			operator = '!='
+			value = False
+			text = ''
 		else:
-			(value, text) = self.correctValue( value, fieldName )
+			(value, text) = self.correctValue( value, fieldName, relatedFieldName )
 
 		self.uiValue.setText( text )
 
@@ -269,7 +337,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			condition = '|'
 		else:
 			condition = '&'
-		return [condition,(fieldName, operator, value)]
+
+		if relatedFieldName:
+			queryFieldName = '%s.%s' % (fieldName, relatedFieldName)
+		else:
+			queryFieldName = fieldName
+		return [condition,(queryFieldName, operator, value)]
 
 class CustomSearchFormWidget(AbstractSearchWidget):
 	def __init__(self, parent=None):

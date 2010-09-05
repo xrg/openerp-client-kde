@@ -31,7 +31,7 @@ from Koo.Common import Icons
 from Koo.Common.Settings import *
 from Koo import Rpc
 
-from FormView import FormView, FormContainer
+from FormView import FormView, FormContainer, FormTabWidget
 from Koo.View.AbstractParser import *
 from Koo.Fields.FieldWidgetFactory import *
 from Koo.Fields.AbstractFieldWidget import *
@@ -137,7 +137,7 @@ class FormParser(AbstractParser):
 			elif node.localName=='notebook':
 				if not self.isWidgetVisible( attrs ):
 					continue
-				tab = QTabWidget( container )
+				tab = FormTabWidget( container )
 				if attrs and 'tabpos' in attrs:
 					pos = { 
 						'up': QTabWidget.North,

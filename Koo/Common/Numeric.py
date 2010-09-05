@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-# This module includes
+import locale
 
 ## @brief This function converts a string into an integer allowing
 #  operations (+, -, /, *).
@@ -34,8 +34,8 @@
 #  the function. If the formula contains floating point 
 #  values or results they're converted into integer at the end.
 def textToInteger(text):
-	chars=['+', '-', '/', '*', '.', '(', ')', ',']
-	chars=chars + [str(x) for x in range(10)]
+	chars = ['+', '-', '/', '*', '.', '(', ')', ',']
+	chars = chars + [str(x) for x in range(10)]
 	text = text.replace(',', '.')
 	try:
 		return int(eval(text))
@@ -48,17 +48,28 @@ def textToInteger(text):
 #  The formula is calculated and the output is returned by 
 #  the function. 
 def textToFloat(text):
-	chars=['+', '-', '/', '*', '.', '(', ')', ',']
-	chars=chars + [str(x) for x in range(10)]
-	text = text.replace(',', '.')
+	chars = ['+', '-', '/', '*', '.', '(', ')', ',']
+	chars = chars + [str(x) for x in range(10)]
+	newtext = text.replace(',', '.')
+	value = False
 	try:
-		return float(eval(text))
+		value = float(eval(newtext))
 	except:
-		return False
+		if '.' in text and ',' in text:
+			if text.rindex('.') > text.rindex(','):
+				newtext = text.replace(',','')
+			else:
+				newtext = text.replace('.','')
+			newtext = newtext.replace(',','.')
+			try:
+				value = float(newtext)
+			except:
+				pass
+	return value
 
 ## @brief This function converts a float into text. By default the number
 # of decimal digits is 2.
-def floatToText(number, digits=None):
+def floatToText(number, digits=None, thousands=False):
 	if isinstance(number, int):
 		number = float(number)
 	if not isinstance(number, float):
@@ -72,7 +83,12 @@ def floatToText(number, digits=None):
 			d=digits.split(',')[1].strip(' )]')
 	else:
 		d='2'
-	return ('%.' + d + 'f') % number
+
+	if thousands:
+		return locale.format('%.' + d + 'f', number, True, True)
+	else:
+		return ('%.' + d + 'f') % number
+
 
 ## @brief This function converts an integer into text. 
 def integerToText(number):
