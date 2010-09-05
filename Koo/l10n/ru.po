@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-07-28 21:24+0200\n"
-"PO-Revision-Date: 2010-01-30 19:28+0000\n"
-"Last-Translator: Nikolai Romanik <Unknown>\n"
+"POT-Creation-Date: 2010-07-29 23:04+0200\n"
+"PO-Revision-Date: 2010-08-27 07:13+0000\n"
+"Last-Translator: vrsb <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-29 20:56+0000\n"
+"X-Launchpad-Export-Date: 2010-08-28 01:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -119,7 +119,7 @@ msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Выбрать файлы"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 msgid "Selected Directory"
@@ -127,11 +127,11 @@ msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:47
 msgid "Cancel Import"
-msgstr ""
+msgstr "Отмените импорт"
 
 #: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
-msgstr ""
+msgstr "ОК"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
@@ -333,19 +333,19 @@ msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is equal to"
-msgstr ""
+msgstr "равно"
 
 #: Koo/Search/CustomSearchFormWidget.py:85
 msgid "is not equal to"
-msgstr ""
+msgstr "не равно"
 
 #: Koo/Search/CustomSearchFormWidget.py:86
 msgid "greater than"
-msgstr ""
+msgstr "больше чем"
 
 #: Koo/Search/CustomSearchFormWidget.py:87
 msgid "less than"
-msgstr ""
+msgstr "меньше, чем"
 
 #: Koo/Search/CustomSearchFormWidget.py:88
 msgid "in"
@@ -1174,7 +1174,7 @@ msgstr "Файлы (%s)"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:86
 msgid "&New"
-msgstr ""
+msgstr "&Создать"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:90
 msgid "&Scan"
@@ -1225,7 +1225,7 @@ msgstr "Запись на выбрана"
 
 #: Koo/Fields/TranslationDialog.py:51
 msgid "Translation Dialog"
-msgstr ""
+msgstr "Переводы"
 
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 msgid "Error reading the file"

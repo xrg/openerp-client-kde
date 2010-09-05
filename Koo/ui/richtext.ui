@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>RichTextWidget</class>
- <widget class="QWidget" name="RichTextWidget" >
-  <property name="geometry" >
+ <widget class="QWidget" name="RichTextWidget">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,135 +10,129 @@
     <height>430</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="spacing" >
-    <number>4</number>
-   </property>
-   <property name="margin" >
-    <number>0</number>
-   </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" >
+    <layout class="QHBoxLayout">
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>0</number>
        </property>
        <item>
-        <widget class="QToolButton" name="pushBold" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushBold">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Bold</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/text_bold.png</normaloff>:/images/text_bold.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="flat" stdset="0" >
+         <property name="flat" stdset="0">
           <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushItalic" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushItalic">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Italics</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/text_italic.png</normaloff>:/images/text_italic.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="flat" stdset="0" >
+         <property name="flat" stdset="0">
           <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushUnderline" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushUnderline">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Underline</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/text_under.png</normaloff>:/images/text_under.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="flat" stdset="0" >
+         <property name="flat" stdset="0">
           <bool>false</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushStrike" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushStrike">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Strikethrough</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/text_strike.png</normaloff>:/images/text_strike.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="flat" stdset="0" >
+         <property name="flat" stdset="0">
           <bool>false</bool>
          </property>
         </widget>
@@ -145,122 +140,122 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>0</number>
        </property>
        <item>
-        <widget class="QToolButton" name="pushLeftJustify" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushLeftJustify">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Left Justify</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/leftjust.png</normaloff>:/images/leftjust.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="autoExclusive" >
+         <property name="autoExclusive">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushCenter" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushCenter">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Center</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/text_center.png</normaloff>:/images/text_center.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="autoExclusive" >
+         <property name="autoExclusive">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushRightJustify" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushRightJustify">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Right Justify</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/rightjust.png</normaloff>:/images/rightjust.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="autoExclusive" >
+         <property name="autoExclusive">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushJustify" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushJustify">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Justify</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="icon" >
-          <iconset resource="common.qrc" >
+         <property name="icon">
+          <iconset resource="common.qrc">
            <normaloff>:/images/text_block.png</normaloff>:/images/text_block.png</iconset>
          </property>
-         <property name="checkable" >
+         <property name="checkable">
           <bool>true</bool>
          </property>
-         <property name="autoExclusive" >
+         <property name="autoExclusive">
           <bool>true</bool>
          </property>
         </widget>
@@ -268,44 +263,44 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>0</number>
        </property>
        <item>
-        <widget class="QToolButton" name="pushForegroundColor" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushForegroundColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Foreground Color</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="pushBackgroundColor" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QToolButton" name="pushBackgroundColor">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="focusPolicy" >
+         <property name="focusPolicy">
           <enum>Qt::NoFocus</enum>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Background color</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
         </widget>
@@ -313,32 +308,32 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" >
-       <property name="spacing" >
+      <layout class="QHBoxLayout">
+       <property name="spacing">
         <number>1</number>
        </property>
        <item>
-        <widget class="QFontComboBox" name="uiFont" >
-         <property name="toolTip" >
+        <widget class="QFontComboBox" name="uiFont">
+         <property name="toolTip">
           <string>Select font</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="uiFontSize" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Fixed" >
+        <widget class="QSpinBox" name="uiFontSize">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Select font size</string>
          </property>
-         <property name="minimum" >
+         <property name="minimum">
           <number>4</number>
          </property>
-         <property name="value" >
+         <property name="value">
           <number>12</number>
          </property>
         </widget>
@@ -348,16 +343,34 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextEdit" name="uiText" >
-     <property name="tabChangesFocus" >
-      <bool>true</bool>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QTextEdit" name="uiText">
+       <property name="tabChangesFocus">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushTranslate">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/locale.png</normaloff>:/images/locale.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
  <resources>
-  <include location="common.qrc" />
+  <include location="common.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -34,6 +34,8 @@ import time
 import os
 import gettext
 import base64
+import tempfile
+import subprocess
 
 from Koo import Rpc
 
@@ -57,6 +59,7 @@ from Koo.Common import Api
 from Koo.Common import ViewSettings
 from Koo.Common import Debug
 from Koo.Common import Icons
+from Koo.Common import RemoteHelp
 
 from Koo.View.ViewFactory import *
 
@@ -147,7 +150,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.connect( self.actionOpenHomeTab, SIGNAL('triggered()'), self.openHomeTab )
 		self.connect( self.actionClearCache, SIGNAL('triggered()'), self.clearCache )
 
-		self.connect( self.actionOpenErpManual, SIGNAL('triggered()'), self.openErpManual )
+		self.connect( self.actionHtmlManual, SIGNAL('triggered()'), self.openHtmlManual )
+		self.connect( self.actionPdfManual, SIGNAL('triggered()'), self.openPdfManual )
+		self.connect( self.actionDocOpenErpCom, SIGNAL('triggered()'), self.openDocOpenErpCom )
 		self.connect( self.actionTips, SIGNAL('triggered()'), self.showTipOfTheDay )
 		self.connect( self.actionShortcuts, SIGNAL('triggered()'), self.showShortcuts )
 		self.connect( self.actionLicense, SIGNAL('triggered()'), self.showLicense )
@@ -158,6 +163,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# Connect request buttons
 		self.connect( self.pushReadRequests, SIGNAL('clicked()'), self.pendingRequests )
 		self.connect( self.pushSendRequest, SIGNAL('clicked()'), self.newRequest )
+
+		self.connect( self.pushHelp, SIGNAL('clicked()'), self.help )
 
 		# These actions are not handled by the Main Window but by the currently opened tab.
 		# What we do here, is connect all these actions to a single handler that will
@@ -221,9 +228,20 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.systemTrayIcon.setContextMenu( self.systemTrayMenu )
 		self.connect( self.systemTrayIcon, SIGNAL('activated(QSystemTrayIcon::ActivationReason)'), self.systemTrayIconActivated )
 
+		if RemoteHelp.isRemoteHelpAvailable():
+			# Add Remote Help menu option under Windows platforms only.
+			self.actionRemoteHelp = QAction( self )
+			self.actionRemoteHelp.setIcon( QIcon( ':/images/partner.png' ) )
+			self.actionRemoteHelp.setText( _('Remote Help') )
+			QObject.connect( self.actionRemoteHelp, SIGNAL('triggered()'), self.remoteHelp )
+			self.menuHelp.addAction( self.actionRemoteHelp )
+
 		# Initialize plugins: This allows some plugins (such as SerialBarcodeScanner)
 		# to be available in the LoginDialog.
 		Plugins.list()
+
+	def remoteHelp(self):
+		RemoteHelp.remoteHelp( self )
 
 	def systemTrayIconActivated(self, reason):
 		if reason != QSystemTrayIcon.DoubleClick:
@@ -383,6 +401,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		except:
 			return ([], [])
 
+	def help(self):
+		widget = self.tabWidget.currentWidget()
+		if widget:
+			widget.help( self.pushHelp )
+
 	def checkNewRelease(self):
 		from Koo.Common import Version
 
@@ -394,10 +417,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 		if not value:
 			return
-
-		import base64
-		import tempfile
-		import subprocess
 
 		directory = tempfile.mkdtemp()
 		installer = os.path.join( directory, value['filename'] )
@@ -491,8 +510,26 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.updateUserShortcuts()
 		return True
 
-	def openErpManual(self):
-		QDesktopServices.openUrl( QUrl('http://doc.openerp.com') )
+	def openPdfManual(self):
+		try:
+			pdf = Rpc.session.call('/object', 'execute', 'ir.documentation.paragraph', 'export_to_pdf', Rpc.session.context)
+		except:
+			return False
+		if not pdf:
+			return False
+
+		pdf = base64.decodestring(pdf)
+		fd, fileName = tempfile.mkstemp( '.pdf' )
+		os.write( fd, pdf )
+		os.close( fd )
+		Common.openFile( fileName )
+		return True
+
+	def openHtmlManual(self):
+		Api.instance.createWebWindow( 'openerp://ir.documentation.file/get/index.html', _('Manual') )
+
+	def openDocOpenErpCom(self):
+		Api.instance.createWebWindow( 'http://doc.openerp.com', 'doc.openerp.com' )
 
 	def showTipOfTheDay(self):
 		dialog = TipOfTheDayDialog(self)

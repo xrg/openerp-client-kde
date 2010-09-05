@@ -34,6 +34,7 @@ from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common import Debug
 from Koo.Common.ViewSettings import *
+from Koo.Common import Help
 from Koo import Rpc
 
 from Koo.Fields.FieldDelegateFactory import *
@@ -388,4 +389,22 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 	def switchViewMenu(self):
 		return None
+
+	def help(self, button):
+		if self.model != 'ir.ui.menu':
+			return
+
+		idx = self.uiTree.currentIndex()
+		record = self.treeModel.recordFromIndex( idx )
+		if not record:
+			return
+
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		helpWidget = Help.HelpWidget( button )
+		helpWidget.setLabel( record.value('name') )
+		helpWidget.setFilter( record.id )
+		helpWidget.setType( helpWidget.MenuType )
+		helpWidget.show()
+		QApplication.restoreOverrideCursor()
+		
 

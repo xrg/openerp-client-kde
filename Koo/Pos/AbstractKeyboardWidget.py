@@ -63,7 +63,7 @@ class AbstractKeyboardWidget(QWidget):
 		if y + self.height() > screenHeight:
 			y = parentPos.y() - self.height()
 			if y < 0:
-				y = screeHeight - self.height()
+				y = screenHeight - self.height()
 		# Fix x coordinate
 		x = parentPos.x() + parent.width() / 2 - self.width() / 2
 		if x < 0:

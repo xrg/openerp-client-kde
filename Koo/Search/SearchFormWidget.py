@@ -32,6 +32,7 @@ from xml.parsers import expat
 import sys
 import gettext
 
+from CustomSearchFormWidget import *
 from SearchWidgetFactory import *
 from AbstractSearchWidget import *
 from Koo.Common import Common

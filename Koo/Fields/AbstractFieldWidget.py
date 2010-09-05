@@ -28,7 +28,10 @@
 ##############################################################################
 
 from Koo import Rpc
+from Koo.Common import Api
+from Koo.Common import Help
 from FieldPreferencesDialog import *
+
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
@@ -108,6 +111,18 @@ class AbstractFieldWidget(QWidget):
 				self.showValue()
 			self.updateColor()
 		return QWidget.showEvent(self, event)
+
+	def showHelp(self):
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		helpWidget = Help.HelpWidget( self.sender() )
+		helpWidget.setLabel( self.attrs.get('string','') )
+		helpWidget.setHelp( self.attrs.get('help','') )
+		helpWidget.setType( helpWidget.FieldType )
+		if self.record:
+			# TODO: self.record should be optional
+			helpWidget.setFilter( (self.record.group.resource, self.name) )
+		helpWidget.show()
+		QApplication.restoreOverrideCursor()
 
 	## @brief This function is called the first time the widget is shown.
 	#

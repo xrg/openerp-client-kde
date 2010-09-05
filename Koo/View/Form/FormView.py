@@ -33,6 +33,7 @@ from Koo.View.AbstractView import *
 from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+from PyQt4.QtWebKit import *
 
 ## @brief The FormTabWidget class is the widget used instead of QTabWidget in forms.
 #
@@ -48,6 +49,7 @@ class FormTabWidget( QTabWidget ):
 		else:
 			self.setTabIcon( index, QIcon( ':/images/warning.png' ) )
 
+	
 ## @brief The FormContainer class is a widget with some functionalities to help
 # the parser construct a Form.
 class FormContainer( QWidget ):
@@ -61,15 +63,20 @@ class FormContainer( QWidget ):
 		self.layout.setAlignment( Qt.AlignTop )
 		self.maxColumns = maxColumns
 		self.isTab = False
-		self.tabWidget = parent
+		if isinstance( parent, FormTabWidget ):
+			self.tabWidget = parent
+		else:
+			self.tabWidget = None
 		self.fieldWidgets = []
 		self.containerWidgets = []
 
 	def setTabEnabled(self, value):
-		self.tabWidget.setTabEnabled( self.tabWidget.indexOf( self ), value )
+		if self.tabWidget:
+			self.tabWidget.setTabEnabled( self.tabWidget.indexOf( self ), value )
 
 	def setTabValid(self, value):
-		self.tabWidget.setTabValid( self.tabWidget.indexOf( self ), value )
+		if self.tabWidget:
+			self.tabWidget.setTabValid( self.tabWidget.indexOf( self ), value )
 
 	def isValid(self, record):
 		valid = True
@@ -87,9 +94,6 @@ class FormContainer( QWidget ):
 					valid = False
 					break
 		return valid
-
-	def showHelp(self, link):
-		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
 
 	def addWidget(self, widget, attributes={}, labelText=None):
 		if widget.inherits( 'AbstractFieldWidget' ):
@@ -116,12 +120,16 @@ class FormContainer( QWidget ):
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
 			if helpText:
+				color = 'blue'
 				helpText = '<b>%s</b><br/>%s' % (labelText, helpText)
-				label.setText( unicode( '<small><a href="help">?</a></small> ' + labelText ) )
 				label.setToolTip( helpText )
 				label.setWhatsThis( helpText )
 				widget.setWhatsThis( helpText )
-				self.connect( label, SIGNAL('linkActivated(QString)'), self.showHelp )
+			else:
+				color = 'black'
+
+			label.setText( unicode( '<small><a style="color: %s" href="help">?</a></small> %s' % (color, labelText ) ) )
+			self.connect( label, SIGNAL('linkActivated(QString)'), widget.showHelp )
 
 			self.layout.addWidget( label, self.row, self.column )
 			self.column = self.column + 1
@@ -162,6 +170,21 @@ class FormView( AbstractView ):
 	def setWidget(self, widget):
 		self.widget = widget
 		self.layout.addWidget( self.widget, 10 )
+
+	# @brief Ensures the given field is shown by opening the tab it is in, if the field 
+	# is inside a tab widget.
+	def ensureFieldVisible(self, fieldName):
+		if not fieldName in self.widgets:
+			return
+
+		previousContainer = None
+		widget = self.widgets[fieldName].parent()
+		while widget:
+			if isinstance( widget, FormTabWidget ):
+				widget.setCurrentWidget( previousContainer )
+			if isinstance( widget, FormContainer ):
+				previousContainer = widget
+			widget = widget.parent()
 
 	def __getitem__(self, name):
 		return self.widgets[name]

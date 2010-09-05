@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-07-28 21:24+0200\n"
-"PO-Revision-Date: 2009-04-30 09:29+0000\n"
-"Last-Translator: Timppa <timo.ke.karjalainen@student.saimia.fi>\n"
+"POT-Creation-Date: 2010-07-29 23:04+0200\n"
+"PO-Revision-Date: 2010-08-19 12:38+0000\n"
+"Last-Translator: Esa Lammi <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-29 20:56+0000\n"
+"X-Launchpad-Export-Date: 2010-08-28 01:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -24,7 +24,7 @@ msgstr ""
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:289
 #: Koo/Dialogs/TreeWidget.py:301 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
-msgstr ""
+msgstr "Tiedot"
 
 #: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
@@ -36,7 +36,7 @@ msgstr "Tallenna tietue ennenkuin käytät liitä-nappia!"
 
 #: Koo/Screen/Action.py:136
 msgid "Print Screen"
-msgstr "Print Screen"
+msgstr "Tulosta näytön sisältö"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
@@ -78,93 +78,93 @@ msgstr "Valitse toimintosi"
 
 #: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
-msgstr ""
+msgstr "Etsi mallitiedot"
 
 #: Koo/Plugins/ViewEditor/__init__.py:38
 msgid "Edit View"
-msgstr ""
+msgstr "Muutosnäkymä"
 
 #: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
-msgstr ""
+msgstr "Semantiikka"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
-msgstr ""
+msgstr "Tulosta työnkulku"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
-msgstr ""
+msgstr "Tulosta työnkulku (Monimutkainen)"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
-msgstr ""
+msgstr "Käännösnäkymä"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:71
 msgid "document.png"
-msgstr ""
+msgstr "document.png"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:78
 msgid "Scan Documents"
-msgstr ""
+msgstr "Lue asiakirjoja kuvanlukijalta"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:43
 #: Koo/Plugins/DocumentImporter/__init__.py:81
 msgid "Import Documents"
-msgstr ""
+msgstr "Lataa dokumentteja"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:44
 msgid "How do you want to import documents?"
-msgstr ""
+msgstr "Kuinka haluat ladata asiakirjat?"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Valitse tiedostot"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 msgid "Selected Directory"
-msgstr ""
+msgstr "Valittu hakemisto"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:47
 msgid "Cancel Import"
-msgstr ""
+msgstr "Keskeytä lataus"
 
 #: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:373
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
-msgstr ""
+msgstr "Lomakenäkymä"
 
 #: Koo/View/Tree/__init__.py:32
 msgid "List View"
-msgstr ""
+msgstr "Luettelonäkymä"
 
 #: Koo/View/Tree/TreeView.py:210
 msgid "<font color='red'>Sorting not possible.</font>"
-msgstr ""
+msgstr "<font color='red'>Lajittelu ei ole mahdollista.</font>"
 
 #: Koo/View/Tree/TreeView.py:212
 msgid "<font color='red'>Sorting only groups.</font>"
-msgstr ""
+msgstr "<font color='red'>Vain ryhmälajittelu.</font>"
 
 #: Koo/View/Tree/TreeView.py:214
 msgid "<font color='red'>Save changes before sorting.</font>"
-msgstr ""
+msgstr "<font color='red'>Tallenna muutokset ennen lajittelua.</font>"
 
 #: Koo/View/Tree/TreeView.py:238
 msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
+msgstr "<a href=\"update\">Päivitä summat</a>"
 
 #: Koo/View/DummyView.py:44
 #, python-format
 msgid "Views of type %s not available in Koo."
-msgstr ""
+msgstr "Tyypin %s näkymät eivät ole mahdollisia Koo:ssa."
 
 #: Koo/View/Svg/__init__.py:33
 msgid "SVG View"
-msgstr ""
+msgstr "SVG näkymä"
 
 #: Koo/View/Chart/Parser.py:58 Koo/View/Calendar/Parser.py:47
 msgid "Unknown"
@@ -172,11 +172,11 @@ msgstr "Tuntematon"
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
-msgstr ""
+msgstr "Kaavionäkymä"
 
 #: Koo/View/Calendar/__init__.py:31
 msgid "Calendar View"
-msgstr ""
+msgstr "Kalenterinäkymä"
 
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
@@ -197,13 +197,15 @@ msgstr "Virhe raportin luonnissa"
 
 #: Koo/Common/Common.py:135
 msgid "Concurrency warning"
-msgstr ""
+msgstr "Samanaikainen varoitus"
 
 #: Koo/Common/Common.py:136
 msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
 msgstr ""
+"<b>Kirjoituksen samanaikaisuus varoitus:</b><br/>Asiakirjaa muutettiin "
+"samaanaikaan kun olit päivittämässä sitä."
 
 #: Koo/Common/Common.py:137
 msgid "Save anyway"
@@ -211,7 +213,7 @@ msgstr "Tallenna silti"
 
 #: Koo/Common/Common.py:138
 msgid "Compare"
-msgstr "Vertaile"
+msgstr "Vertaa"
 
 #: Koo/Common/Common.py:139
 msgid "Do not save"
@@ -220,7 +222,7 @@ msgstr "Älä tallenna"
 #: Koo/Common/Common.py:201
 #, python-format
 msgid "<b>Connection Lost:</b> %s"
-msgstr ""
+msgstr "<b>Yhteys menetetty:</b> %s"
 
 #: Koo/Common/Common.py:209
 #, python-format
@@ -228,6 +230,7 @@ msgid ""
 "Connection with the server has been lost. Will retry connection in %d "
 "seconds."
 msgstr ""
+"Yhteys palvelimeen on menetetty. Yhteyttä yritetään %d sekunnin kuluttua."
 
 #: Koo/Common/Common.py:221 Koo/Dialogs/KooMainWindow.py:608
 msgid "Quit"
@@ -238,6 +241,8 @@ msgid ""
 "Leaving the application now will lose all unsaved changes. Are you sure you "
 "want to quit?"
 msgstr ""
+"Poistumalla nyt menetät kaikki tallentamattomat muutokset. Haluatko varmasti "
+"lopettaa?"
 
 #: Koo/Common/Numeric.py:97 Koo/Model/KooModel.py:364
 #, python-format
@@ -247,22 +252,22 @@ msgstr "%d tavua"
 #: Koo/Common/Numeric.py:97
 #, python-format
 msgid "%.2f Kb"
-msgstr ""
+msgstr "%.2f Kt"
 
 #: Koo/Common/Numeric.py:97
 #, python-format
 msgid "%.2f Mb"
-msgstr ""
+msgstr "%.2f Mt"
 
 #: Koo/Common/Numeric.py:97
 #, python-format
 msgid "%.2f Gb"
-msgstr ""
+msgstr "%.2f Gt"
 
 #: Koo/Common/Numeric.py:97
 #, python-format
 msgid "%.2f Tb"
-msgstr ""
+msgstr "%.2f Tt"
 
 #: Koo/Common/DBus.py:10
 msgid ""
@@ -272,39 +277,39 @@ msgstr "'dbus' moduuli ei ole saatavissa."
 
 #: Koo/Common/DBus.py:36
 msgid "DBus initialization failed."
-msgstr ""
+msgstr "DBus alustus epäonnistui."
 
 #: Koo/Common/CommandLine.py:44
 msgid "specify database"
-msgstr ""
+msgstr "Määrittele tietokanta"
 
 #: Koo/Common/CommandLine.py:45
 msgid "specify alternate config file"
-msgstr "määritä vaihtoehtoinen konfigurointi tiedosto"
+msgstr "määritä vaihtoehtoinen asetustiedosto"
 
 #: Koo/Common/CommandLine.py:46
 msgid "specify the server (ie. http://admin@localhost:8069)"
-msgstr ""
+msgstr "määritä palvelin (ie. http://admin@localhost:8069)"
 
 #: Koo/Common/CommandLine.py:47
 msgid "specify stylesheet to apply"
-msgstr ""
+msgstr "määritä käytettävä tyylisivu"
 
 #: Koo/Common/CommandLine.py:48
 msgid "use POS (Point of Sales) mode"
-msgstr ""
+msgstr "käytä POS (myyntipiste) tapaa"
 
 #: Koo/Common/CommandLine.py:49
 msgid "replace enter/return keys with tab hits"
-msgstr ""
+msgstr "vaihda tabulaattorin (tab) käyttö  enter -näppäimen käytöksi"
 
 #: Koo/Common/CommandLine.py:50
 msgid "disable usage of KDE libraries if they are available"
-msgstr ""
+msgstr "poista KDE kirjasto käytöstä"
 
 #: Koo/Common/CommandLine.py:51
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
-msgstr ""
+msgstr "aktivoi jäljitystila. Näyttää mahdolliset poikkeamat."
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:304
 #: Koo/Dialogs/KooMainWindow.py:608 Koo/Fields/Button/ButtonFieldWidget.py:80
@@ -318,47 +323,47 @@ msgstr "Ei"
 
 #: Koo/Search/CustomSearchFormWidget.py:81
 msgid "is empty"
-msgstr ""
+msgstr "on tyhjä"
 
 #: Koo/Search/CustomSearchFormWidget.py:82
 msgid "contains"
-msgstr ""
+msgstr "sisältää"
 
 #: Koo/Search/CustomSearchFormWidget.py:83
 msgid "does not contain"
-msgstr ""
+msgstr "ei sisällä"
 
 #: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is equal to"
-msgstr ""
+msgstr "on yhtäsuuri kuin"
 
 #: Koo/Search/CustomSearchFormWidget.py:85
 msgid "is not equal to"
-msgstr ""
+msgstr "ei ole yhtäsuuri kuin"
 
 #: Koo/Search/CustomSearchFormWidget.py:86
 msgid "greater than"
-msgstr ""
+msgstr "suurempi kuin"
 
 #: Koo/Search/CustomSearchFormWidget.py:87
 msgid "less than"
-msgstr ""
+msgstr "pienempi kuin"
 
 #: Koo/Search/CustomSearchFormWidget.py:88
 msgid "in"
-msgstr ""
+msgstr "kohteessa"
 
 #: Koo/Search/CustomSearchFormWidget.py:89
 msgid "not in"
-msgstr ""
+msgstr "ei joukossa"
 
 #: Koo/Search/CustomSearchFormWidget.py:220
 msgid "True"
-msgstr ""
+msgstr "Tosi"
 
 #: Koo/Search/CustomSearchFormWidget.py:221
 msgid "False"
-msgstr ""
+msgstr "Epätosi"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:36
 msgid ""
@@ -372,6 +377,14 @@ msgid ""
 "very good performance and bleeding edge features.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Tervetuloa toivottaa Koo!</b>\n"
+"</p>\n"
+"<p>\n"
+"Koo on työasemaohjelmisto, joka mahdollistaa OpenERP sovelluksen\n"
+"suorituskykyisen käytön ja näyttää sen parhaat ominaisuudet.\n"
+"</p>\n"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:45
 msgid ""
@@ -387,6 +400,18 @@ msgid ""
 ", *, / and you can also use parenthesis.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Yhdistetty laskin</b>\n"
+"</p>\n"
+"<p>\n"
+"Tiesitkö, että jokainen numerokenttä toimii kuin laskin? Mene kenttään, "
+"mihin olet syöttämässä numeroita ja näppäile\n"
+"<i>3+4*12</i> ja paina sitten enteriä nähdäksesi tuloa tai tallenna se "
+"suoraan lomakkeelle.\n"
+"Molemmissa tapauksissa tulos tallentuu samaan kenttään. Voit käyttää "
+"operaattoreina ; +,-,*,/ sekä sulkuja.  \n"
+"</p>\n"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:53
 msgid ""
@@ -400,6 +425,16 @@ msgid ""
 "module and follow the instructions on how to configure it properly.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Tekstihaku</b>\n"
+"</p>\n"
+"<p>\n"
+"Tiesitkö, että voit hakea tietokannan tietoja kaikista sen kentistä, samoin "
+"kuin Googlessa?\n"
+"Hae ja asenna Tekstihaku (full_text_search) moduli ja seuraa ohjeita kuinka "
+"asennat sen toimivaksi.\n"
+"</p>\n"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:61
 msgid ""
@@ -413,6 +448,16 @@ msgid ""
 "many times as you need.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Tiedonsiirto</b>\n"
+"</p>\n"
+"<p>\n"
+"Tiesitkö, että voit yksinkertaisesti hakea tiedot työasemallesi OpenERP "
+"tietokannasta? Mene Lomakkeelle ja sieltä\n"
+"Vie tiedot. Voit tallentaa vienti-asetukset ja käyttää samoja asetuksia niin "
+"usein kuin haluat.\n"
+"</p>\n"
 
 #: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
@@ -424,11 +469,11 @@ msgstr "Tietokantaa ei löytynyt, sinun täytyy luoda tietokanta!"
 
 #: Koo/Dialogs/DatabaseDialog.py:108
 msgid "Open backup file..."
-msgstr ""
+msgstr "Avataan varmistustiedosto..."
 
 #: Koo/Dialogs/DatabaseDialog.py:111
 msgid "Restore a database"
-msgstr ""
+msgstr "Palauta tietokanta"
 
 #: Koo/Dialogs/DatabaseDialog.py:124 Koo/Dialogs/DatabaseDialog.py:126
 msgid "Could not restore database"
@@ -440,7 +485,7 @@ msgstr "Virheellinen tietokannan pääkäyttäjän salasana!"
 
 #: Koo/Dialogs/DatabaseDialog.py:126
 msgid "There was an error restoring the database!"
-msgstr ""
+msgstr "Virhe palautettaessa tietokantaa!"
 
 #: Koo/Dialogs/DatabaseDialog.py:129
 msgid "Database restored successfully!"
@@ -483,7 +528,7 @@ msgstr "Tietokannan pääkäyttäjän salasana virheellinen!"
 
 #: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseDialog.py:170
 msgid "Database removal"
-msgstr ""
+msgstr "Tietokannan poisto"
 
 #: Koo/Dialogs/DatabaseDialog.py:167
 msgid "Couldn't drop database"
@@ -495,16 +540,16 @@ msgstr "Tietokanta poistettu onnistuneesti!"
 
 #: Koo/Dialogs/FormWidget.py:183
 msgid "<font color=\"blue\">Document modified</font>"
-msgstr ""
+msgstr "<font color=\"blue\">Asiakirja muutettu</font>"
 
 #: Koo/Dialogs/FormWidget.py:213
 msgid "Go To Id"
-msgstr ""
+msgstr "Mene tunnukseen"
 
 #: Koo/Dialogs/FormWidget.py:213
 #, python-format
 msgid "Resouce with ID '%s' not found."
-msgstr ""
+msgstr "Resurssia tunnuksella '%s' ei löytynyt."
 
 #: Koo/Dialogs/FormWidget.py:244
 msgid "No resource selected !"
@@ -520,23 +565,23 @@ msgstr "ID"
 
 #: Koo/Dialogs/FormWidget.py:292
 msgid "Creation User"
-msgstr "Luonti käyttäjä"
+msgstr "Käyttäjän luonti"
 
 #: Koo/Dialogs/FormWidget.py:293
 msgid "Creation Date"
-msgstr "Luontipäiväys"
+msgstr "Luotu pvm"
 
 #: Koo/Dialogs/FormWidget.py:294
 msgid "Latest Modification by"
-msgstr "Viimeisin muokkaus"
+msgstr "Muokannut"
 
 #: Koo/Dialogs/FormWidget.py:295
 msgid "Latest Modification Date"
-msgstr "Viimeisen muokkauksen päiväys"
+msgstr "Muokattu pvm"
 
 #: Koo/Dialogs/FormWidget.py:301
 msgid "Record log"
-msgstr ""
+msgstr "Lukittu"
 
 #: Koo/Dialogs/FormWidget.py:304 Koo/Dialogs/FormWidget.py:512
 #: Koo/Fields/Button/ButtonFieldWidget.py:80
@@ -557,15 +602,15 @@ msgstr "Resurssi poistettu."
 
 #: Koo/Dialogs/FormWidget.py:342
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
-msgstr ""
+msgstr "<font color=\"orange\">Olet työstämässä asiakirjan kopiota</font>"
 
 #: Koo/Dialogs/FormWidget.py:352
 msgid "<font color=\"green\">Document saved</font>"
-msgstr ""
+msgstr "<font color=\"green\">Asiakirja tallennettu</font>"
 
 #: Koo/Dialogs/FormWidget.py:357
 msgid "<font color=\"red\">Invalid form</font>"
-msgstr ""
+msgstr "<font color=\"red\">Virheellinen lomake</font>"
 
 #: Koo/Dialogs/FormWidget.py:372
 #, python-format
@@ -573,6 +618,8 @@ msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
+"<p>Virheelliset kenttätiedot on merkitty punaisella:</p>%s<p>Korjaa ennen "
+"tallennusta.</p>"
 
 #: Koo/Dialogs/FormWidget.py:470
 #, python-format
@@ -599,7 +646,7 @@ msgstr "Asiakirjan muokkaus (id: %s)"
 #: Koo/Dialogs/FormWidget.py:495
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
+msgstr "Tietue: %(name)s / %(count)s - %(name2)s"
 
 #: Koo/Dialogs/FormWidget.py:513
 #, python-format
@@ -607,22 +654,24 @@ msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
+"<p>Olet muuttanut seuraavia kenttiä tietueella:</p>%s<p>Haluatko tallettaa "
+"muutokset?</p>"
 
 #: Koo/Dialogs/FormWidget.py:514
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: Koo/Dialogs/FormWidget.py:514
 msgid "Discard"
-msgstr ""
+msgstr "Hylkää"
 
 #: Koo/Dialogs/FormWidget.py:514
 msgid "Cancel"
-msgstr ""
+msgstr "Peruuta"
 
 #: Koo/Dialogs/FormWidget.py:532
 msgid "No records selected"
-msgstr ""
+msgstr "Tietuetta ei ole valittuna"
 
 #: Koo/Dialogs/KooMainWindow.py:102 Koo/Dialogs/KooMainWindow.py:479
 msgid "Press Ctrl+O to login"
@@ -634,11 +683,11 @@ msgstr "Sulje välilehti"
 
 #: Koo/Dialogs/KooMainWindow.py:194
 msgid "Open partners tab"
-msgstr ""
+msgstr "Avaa kumppanivälilehti"
 
 #: Koo/Dialogs/KooMainWindow.py:199
 msgid "Open products tab"
-msgstr ""
+msgstr "Avaa tuotevälilehti"
 
 #: Koo/Dialogs/KooMainWindow.py:241
 msgid "Products"
@@ -651,7 +700,7 @@ msgstr "Tuotteen moduuli ei ole asennettu."
 #: Koo/Dialogs/KooMainWindow.py:361
 #, python-format
 msgid "%s request(s)"
-msgstr ""
+msgstr "%s pyyntö(ä)"
 
 #: Koo/Dialogs/KooMainWindow.py:363
 msgid "No request"
@@ -688,7 +737,7 @@ msgstr "Yhteysvirhe !"
 
 #: Koo/Dialogs/KooMainWindow.py:462
 msgid "Error logging into database."
-msgstr ""
+msgstr "Sisäänkirjautuminen tietokantaan epäonnistui."
 
 #: Koo/Dialogs/KooMainWindow.py:478
 msgid "Not logged !"
@@ -714,7 +763,7 @@ msgstr "Oletko varma, että haluat lopettaa?"
 
 #: Koo/Dialogs/KooMainWindow.py:642
 msgid "Wizard"
-msgstr ""
+msgstr "Velho"
 
 #: Koo/Dialogs/SearchDialog.py:90
 #, python-format
@@ -724,11 +773,11 @@ msgstr "Haku: %s"
 #: Koo/Dialogs/SearchDialog.py:91
 #, python-format
 msgid "Search: %s (%%d result(s))"
-msgstr ""
+msgstr "Haku: %s (%%d tulos(ta))"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "NET-RPC"
-msgstr ""
+msgstr "NET-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:67
 msgid "XML-RPC"
@@ -736,21 +785,21 @@ msgstr "XML-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:68
 msgid "Secure XML-RPC"
-msgstr ""
+msgstr "Salattu XML-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:69
 msgid "Pyro (faster)"
-msgstr ""
+msgstr "Pyro (nopeampi)"
 
 #: Koo/Dialogs/ImportDialog.py:48
 #, python-format
 msgid "Error opening file: %s"
-msgstr ""
+msgstr "Virhe avattaessa tiedostoa: %s"
 
 #: Koo/Dialogs/ImportDialog.py:58
 #, python-format
 msgid "Error reading file: %s"
-msgstr ""
+msgstr "Virhe luettaessa tiedostoa: %s"
 
 #: Koo/Dialogs/ImportDialog.py:63
 #, python-format
@@ -767,6 +816,12 @@ msgid ""
 "\n"
 "%(error2)s"
 msgstr ""
+"Virhe yritettäessä tuoda tietuetta:\n"
+"%(record)s\n"
+"Virheilmoitus:\n"
+"%(error1)s\n"
+"\n"
+"%(error2)s"
 
 #: Koo/Dialogs/ImportDialog.py:73
 msgid "Error importing data"
@@ -787,17 +842,17 @@ msgstr "Tiedostoa ei ole määritelty."
 
 #: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
 msgid "Separator must be a single character."
-msgstr ""
+msgstr "erotin pitää olla yksittäinen merkki"
 
 #: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
 msgid "Delimiter must be a single character."
-msgstr ""
+msgstr "erotin pitää olla yksittäinen merkki"
 
 #: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
 #: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
 #: Koo/Dialogs/ImportDialog.py:228
 msgid "Auto-detect error"
-msgstr ""
+msgstr "Virhe havaittu"
 
 #: Koo/Dialogs/ImportDialog.py:218
 msgid "Error opening .CSV file: Input Error."
@@ -809,10 +864,12 @@ msgid ""
 "Error processing your first line of the file.\n"
 "Field %s is unknown !"
 msgstr ""
+"Virhe tiedoston ensimmäisellä rivillä.\n"
+"Kenttä %s tuntematon !"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:62
 msgid "Loading..."
-msgstr ""
+msgstr "Ladataan..."
 
 #: Koo/Dialogs/FullTextSearchDialog.py:64
 msgid "Full Text Search"
@@ -821,7 +878,7 @@ msgstr "Kokotekstihaku"
 #: Koo/Dialogs/FullTextSearchDialog.py:65
 #, python-format
 msgid "Full Text Search (%%d result(s))"
-msgstr ""
+msgstr "Tekstihaku (%%d tulos(ta))"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:94
 msgid "(Everywhere)"
@@ -833,6 +890,9 @@ msgid ""
 "Configuration - Full Text Search - Indexes</i>. Then add the fields you want "
 "to be indexed and finally use <i>Update Full Text Search</i>."
 msgstr ""
+"<b>Tekstihakua ei ole määritelty.</b><br/>Go to <i>Hallinto - Asetukset - "
+"Tekstihaku - Indeksit</i>. Lisää indeksoitavat kentät ja lopuksi voit "
+"käyttää <i>Tekstihakua</i>."
 
 #: Koo/Dialogs/FullTextSearchDialog.py:102
 msgid ""
@@ -840,6 +900,9 @@ msgid ""
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
+"<b>Tekstihaku modulia ei ole asennettu.</b><br/>Mene <i>Hallinto - Modulien "
+"hallinta - Asentamattomat modulit</i> ja lisää <i>full_text_search</i> "
+"moduli."
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Validation Error"
@@ -865,7 +928,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Select the fields you want to update in the <b>%d</b> selected records:"
-msgstr ""
+msgstr "Valitse päivitettävät kentät <b>%d</b> valituista tietueista:"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
@@ -883,12 +946,12 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:58
 msgid "OpenERP exported information"
-msgstr ""
+msgstr "OpenERP vientitiedot"
 
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/ExportDialog.py:109
 #, python-format
 msgid "%s record(s) saved!"
-msgstr ""
+msgstr "%s tietue(tta) tallennettu!"
 
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:109
 #: Koo/Dialogs/ExportDialog.py:112 Koo/Dialogs/ExportDialog.py:115
@@ -901,6 +964,8 @@ msgid ""
 "Error exporting data:\n"
 "%s"
 msgstr ""
+"Virhe vietäessä tietoa:\n"
+"%s"
 
 #: Koo/Dialogs/ExportDialog.py:157
 #, python-format
@@ -908,6 +973,8 @@ msgid ""
 "Error opening Excel:\n"
 "%s"
 msgstr ""
+"Virhe avattaessa Exceliä:\n"
+"%s"
 
 #: Koo/Dialogs/ExportDialog.py:191
 #, python-format
@@ -915,6 +982,8 @@ msgid ""
 "Error Opening OpenOffice.org:\n"
 "%s"
 msgstr ""
+"Virhe avattaessa OpenOffice.org:\n"
+"%s"
 
 #: Koo/Dialogs/ExportDialog.py:315
 msgid "Export Data"
@@ -926,7 +995,7 @@ msgstr "Mikä on tämän viennin nimi?"
 
 #: Koo/Dialogs/ExportDialog.py:376
 msgid "Open with OpenOffice.org"
-msgstr ""
+msgstr "Avaa OpenOffice.org"
 
 #: Koo/Dialogs/ExportDialog.py:382
 msgid "Open with Excel"
@@ -962,11 +1031,11 @@ msgstr "Ei valittua kohdetta"
 
 #: Koo/Dialogs/TreeWidget.py:318
 msgid "Please select an element from the tree to add a shortcut to it."
-msgstr ""
+msgstr "Valitse puuhakemiston elementti mihin haluat oikotien lisätä."
 
 #: Koo/Dialogs/PreferencesDialog.py:54
 msgid "User Preferences"
-msgstr ""
+msgstr "Käyttäjäasetukset"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
@@ -983,7 +1052,7 @@ msgstr ""
 #: Koo/Dialogs/DatabaseCreationDialog.py:84
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Error during database creation"
-msgstr ""
+msgstr "Virhe luotaessa tietokantaa"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
@@ -1015,11 +1084,11 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Wrong password"
-msgstr ""
+msgstr "Väärä salasana"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Administrator passwords differ."
-msgstr ""
+msgstr "Pääkäyttäjän salasanat eroavat"
 
 #: Koo/Rpc/Rpc.py:311
 msgid "Connection Refused"
@@ -1035,7 +1104,7 @@ msgstr "Näytä yksityiskohdat"
 
 #: Koo/Rpc/Rpc.py:410
 msgid "Not logged in"
-msgstr ""
+msgstr "Et ole kirjautunut sisään"
 
 #: Koo/Rpc/Rpc.py:562
 msgid "Could not contact server!"
@@ -1051,7 +1120,7 @@ msgstr "Painikkeen tyyppi ei ole sallittu"
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:126
 msgid "Invalid Form, correct red fields!"
-msgstr "Viallinen lomake, korjaa puneiset kentät"
+msgstr "Viallinen lomake - korjaa punaiset kentät"
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
 #: Koo/Fields/AbstractFieldWidget.py:134
@@ -1067,7 +1136,7 @@ msgstr "Et voi  asettaa oletusarvoa tähän"
 #: Koo/Fields/ManyToOne/ManyToOne.py:309
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
-msgstr ""
+msgstr "Avaa"
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:311
 msgid "Action"
@@ -1080,7 +1149,7 @@ msgstr "Raportti"
 #: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:257
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
-msgstr ""
+msgstr "Haku"
 
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
 #: Koo/Fields/Char/CharFieldWidget.py:75
@@ -1101,7 +1170,7 @@ msgstr "Avaa..."
 #: Koo/Fields/Image/ImageFieldWidget.py:111
 #: Koo/Fields/Binary/BinaryFieldWidget.py:210
 msgid "Image"
-msgstr ""
+msgstr "Kuva"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:126
 msgid "Save image as..."
@@ -1122,7 +1191,7 @@ msgstr ""
 #: Koo/Fields/Image/ImageFieldWidget.py:139
 #, python-format
 msgid "Image files (%s)"
-msgstr ""
+msgstr "Kuvatiedostot (%s)"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:140
 msgid "Open image file..."
@@ -1130,7 +1199,7 @@ msgstr "Avaa kuva tiedosto..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:157
 msgid "(no image)"
-msgstr ""
+msgstr "(ei kuvaa)"
 
 #: Koo/Fields/AbstractFieldWidget.py:71
 msgid "Set to default value"
@@ -1142,7 +1211,7 @@ msgstr "Aseta oletusarvoksi"
 
 #: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
-msgstr ""
+msgstr "Valitse tiedosto linkkiin"
 
 #: Koo/Fields/FieldPreferencesDialog.py:64
 msgid "<center>Always applicable!</center>"
@@ -1151,31 +1220,31 @@ msgstr "<center>Aina käyttökelpoinen!</center>"
 #: Koo/Fields/Binary/BinaryFieldWidget.py:78
 #, python-format
 msgid "Files (%s)"
-msgstr ""
+msgstr "Tiedostot (%s)"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:86
 msgid "&New"
-msgstr ""
+msgstr "&Uusi"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:90
 msgid "&Scan"
-msgstr ""
+msgstr "&Skannaa"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:101
 msgid "&Save"
-msgstr ""
+msgstr "&Tallenna"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:104
 msgid "&Open"
-msgstr ""
+msgstr "&Avaa"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:107
 msgid "Show &image"
-msgstr ""
+msgstr "Näytä &image"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:174
 msgid "Show &image..."
-msgstr "Näytä &image"
+msgstr "Näytä &image..."
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:220
 #: Koo/Fields/Video/VideoFieldWidget.py:72
@@ -1195,10 +1264,12 @@ msgid ""
 "Error writing the file:\n"
 "%s"
 msgstr ""
+"Virhe kirjoitettaessa tiedostoon:\n"
+"%s"
 
 #: Koo/Fields/OneToMany/OneToMany.py:264
 msgid "No record selected"
-msgstr ""
+msgstr "Et ole valinnut yhtään tietuetta"
 
 #: Koo/Fields/TranslationDialog.py:51
 msgid "Translation Dialog"

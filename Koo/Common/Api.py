@@ -50,6 +50,10 @@ class KooApi:
 			target='current'):
 		pass
 
+	## @brief Opens a new window (a new tab with Koo application) with the given url.
+	def createWebWindow(self, url, title):
+		pass
+
 	## @brief This callback function is (should be) executed each time a new window (tab in Koo) is opened.
 	def windowCreated(self, window, target):
 		pass

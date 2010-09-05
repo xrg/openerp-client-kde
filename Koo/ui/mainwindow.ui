@@ -133,6 +133,17 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="pushHelp">
+           <property name="text">
+            <string>Help</string>
+           </property>
+           <property name="icon">
+            <iconset resource="common.qrc">
+             <normaloff>:/images/help.png</normaloff>:/images/help.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="label_3">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -148,10 +159,16 @@
          <item>
           <widget class="QLabel" name="uiRequests">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
            </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -241,17 +258,6 @@
      <string>&amp;Plugins</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuHelp">
-    <property name="title">
-     <string>&amp;Help</string>
-    </property>
-    <addaction name="actionOpenErpManual"/>
-    <addaction name="actionTips"/>
-    <addaction name="actionShortcuts"/>
-    <addaction name="separator"/>
-    <addaction name="actionLicense"/>
-    <addaction name="actionAbout"/>
-   </widget>
    <widget class="QMenu" name="menuForm">
     <property name="title">
      <string>F&amp;orm</string>
@@ -339,6 +345,29 @@
     <addaction name="actionNextTab"/>
     <addaction name="actionPreviousTab"/>
     <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <widget class="QMenu" name="menuDocumentation">
+     <property name="title">
+      <string>Documentation</string>
+     </property>
+     <property name="icon">
+      <iconset resource="common.qrc">
+       <normaloff>:/images/help.png</normaloff>:/images/help.png</iconset>
+     </property>
+     <addaction name="actionHtmlManual"/>
+     <addaction name="actionPdfManual"/>
+     <addaction name="actionDocOpenErpCom"/>
+    </widget>
+    <addaction name="menuDocumentation"/>
+    <addaction name="actionTips"/>
+    <addaction name="actionShortcuts"/>
+    <addaction name="separator"/>
+    <addaction name="actionLicense"/>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuDatabase"/>
    <addaction name="menuUser"/>
@@ -792,21 +821,6 @@
     <string>&amp;Menu</string>
    </property>
   </action>
-  <action name="actionUser_Manual">
-   <property name="text">
-    <string>User Manual</string>
-   </property>
-  </action>
-  <action name="actionOpenErpManual">
-   <property name="text">
-    <string>Documentation</string>
-   </property>
-  </action>
-  <action name="actionKooManual">
-   <property name="text">
-    <string>Koo</string>
-   </property>
-  </action>
   <action name="actionOpenHomeTab">
    <property name="icon">
     <iconset resource="common.qrc">
@@ -832,6 +846,21 @@
    </property>
    <property name="text">
     <string>Modify All Selected Records</string>
+   </property>
+  </action>
+  <action name="actionPdfManual">
+   <property name="text">
+    <string>PDF Manual</string>
+   </property>
+  </action>
+  <action name="actionHtmlManual">
+   <property name="text">
+    <string>HTML Manual</string>
+   </property>
+  </action>
+  <action name="actionDocOpenErpCom">
+   <property name="text">
+    <string>doc.openerp.com</string>
    </property>
   </action>
  </widget>

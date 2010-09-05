@@ -73,6 +73,30 @@ def nodeAttributes(node):
 	result[attrs.item(i).localName] = attrs.item(i).nodeValue
    return result
 
+def sendEMail(to, subject, body):
+	# Import smtplib for the actual sending function
+	import smtplib
+
+	# Import the email modules we'll need
+	from email.mime.text import MIMEText
+
+	source = Settings.value('koo.smtp_from')
+
+	msg = MIMEText(body)
+
+	# me == the sender's email address
+	# you == the recipient's email address
+	msg['Subject'] = subject
+	msg['From'] = source
+	msg['To'] = to
+
+	# Send the message via our own SMTP server, but don't include the
+	# envelope header.
+	s = smtplib.SMTP( Settings.value('koo.smtp_server') )
+	s.sendmail(source, [to], msg.as_string())
+	s.quit()
+
+
 (SelectionDialogUi, SelectionDialogBase) = loadUiType( uiPath('win_selection.ui') )
 
 ## @brief The SelectionDialog class shows a dialog prompting the user to choose
@@ -168,11 +192,46 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 		self.uiDetails.setText( details )
 		self.uiErrorInfo.setText( message )
 		self.uiErrorTitle.setText( title )
+
+		from Koo.Common import RemoteHelp
+		self.pushRemoteHelp.setVisible( RemoteHelp.isRemoteHelpAvailable() )
+
+		self.connect( self.pushSend, SIGNAL('clicked()'), self.send )
+		self.connect( self.pushRemoteHelp, SIGNAL('clicked()'), self.remoteHelp )
 	
 	def done(self, r):
 		QDialog.done(self, r)
 
+	def remoteHelp(self):
+		from Koo.Common import RemoteHelp
+		RemoteHelp.remoteHelp( self )
+
+	def send(self):
+		to = Settings.value('koo.smtp_backtraces_to')
+
+		button = QMessageBox.question(self, _('Send Error Information'), _('You are about to send the details of this error, database name, user ID, and server URL to %s. Do you want to proceed?') % to, QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+		if button == QMessageBox.No:
+			return
+
+		subject = 'Backtrace information: %s' % Rpc.session.databaseName
+		body = ''
+		body += 'Database: %s\n' % Rpc.session.databaseName
+		body += 'User ID: %s\n' % Rpc.session.uid
+		body += 'URL: %s\n\n' % Rpc.session.url
+		body += 'Backtrace:\n\n'
+		body += unicode( self.uiDetails.toPlainText() ).encode('ascii', 'replace')
+		try:
+			sendEMail( Settings.value('koo.smtp_backtraces_to'), subject, body)
+		except:
+			QMessageBox.warning( self, _('Send Error Information'), _('Error information could not be sent.') )
+			return
+
+		QMessageBox.information( self, _('Send Error Information'), _('Error information was successfully sent.') )
+		self.pushSend.setEnabled( False )
+
+
 errorInError=False
+
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
 def error(title, message, details=''):
 	global errorInError
@@ -214,6 +273,7 @@ class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
 		self.timer = QTimer()
 		self.timer.setInterval( 1000 )
 		self.connect( self.timer, SIGNAL('timeout()'), self.updateMessage )
+		self.connect( self, SIGNAL('rejected()'), self.stopTimer )
 		self.timer.start()
 
 	def updateMessage(self):
@@ -222,6 +282,9 @@ class LostConnectionDialog( QDialog, LostConnectionDialogUi ):
 		if self.remaining < 0:
 			self.timer.stop()
 			self.accept()
+
+	def stopTimer(self):
+		self.timer.stop()
 
 
 ## @brief Shows the ErrorDialog. Function used by the notifier in the Koo application.
@@ -232,6 +295,7 @@ def lostConnectionError(count):
 		result = QMessageBox.warning( None, _("Quit"), _("Leaving the application now will lose all unsaved changes. Are you sure you want to quit?"), QMessageBox.Yes | QMessageBox.No, QMessageBox.No )
 		if result == QMessageBox.Yes:
 			QApplication.quit()
+			sys.exit(0)
 	QApplication.restoreOverrideCursor()
 	return True
 
@@ -314,3 +378,16 @@ def stringToBool(text):
 		if text.lower() == 'false' or text == '0':
 			return False
 	return bool(text)
+
+## @brief This function simplifies HTML as returned by TextEdit.toHtml() function by
+# removing <html>, <head> and <body> tags, so resulting text integrates better when
+# used in a web page.
+def simplifyHtml(html):
+	if isinstance(html, QString):
+		html = unicode( html )
+	if '<p' in html:
+		index = html.find('<p')
+		html = html[index:]
+		index = html.rfind('</p>') + 4
+		html = html[:index]
+	return html

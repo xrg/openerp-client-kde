@@ -65,6 +65,9 @@ class Settings(object):
 		'client.devel_mode': False,
 		'koo.load_on_open' : True,
 		'SerialScanner.enable': False,
+		'koo.smtp_server' : 'mail.nan-tic.com',
+		'koo.smtp_from' : 'koo@nan-tic.com',
+		'koo.smtp_backtraces_to' : 'backtraces@nan-tic.com',
 	}
 
 	## @brief Stores current settings in the appropiate config file.
