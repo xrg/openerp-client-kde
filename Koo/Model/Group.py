@@ -760,8 +760,8 @@ class RecordGroup(QObject):
 				# We're not able to sort 2many fields
 				sortingResult = self.SortingNotPossible
 			elif type == 'many2one':
-				#orderby = '"%s"' % field 
-				orderby = '%s' % field
+				# This works only if '#407667' is fixed, but it was fixed in 2010-02-03
+				orderby = '"%s"' % field
 				if order == Qt.AscendingOrder:
 					orderby += " ASC"
 				else:
@@ -788,8 +788,7 @@ class RecordGroup(QObject):
 
 				# Ensure the field is quoted, otherwise fields such as 'to' can't be sorted
 				# and return an exception.
-				#orderby = '"%s"' % field 
-				orderby = '%s' % field
+				orderby = '"%s"' % field 
 				if order == Qt.AscendingOrder:
 					orderby += " ASC"
 				else:
