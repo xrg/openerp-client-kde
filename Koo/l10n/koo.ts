@@ -1952,67 +1952,67 @@ this operation may take a while...</source>
 <context>
     <name>RichTextWidget</name>
     <message>
-        <location filename="richtext.ui" line="13"/>
+        <location filename="richtext.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="41"/>
+        <location filename="richtext.ui" line="36"/>
         <source>Bold</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="70"/>
+        <location filename="richtext.ui" line="65"/>
         <source>Italics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="99"/>
+        <location filename="richtext.ui" line="94"/>
         <source>Underline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="128"/>
+        <location filename="richtext.ui" line="123"/>
         <source>Strikethrough</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="164"/>
+        <location filename="richtext.ui" line="159"/>
         <source>Left Justify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="193"/>
+        <location filename="richtext.ui" line="188"/>
         <source>Center</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="222"/>
+        <location filename="richtext.ui" line="217"/>
         <source>Right Justify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="251"/>
+        <location filename="richtext.ui" line="246"/>
         <source>Justify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="287"/>
+        <location filename="richtext.ui" line="282"/>
         <source>Foreground Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="306"/>
+        <location filename="richtext.ui" line="301"/>
         <source>Background color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="323"/>
+        <location filename="richtext.ui" line="318"/>
         <source>Select font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="336"/>
+        <location filename="richtext.ui" line="331"/>
         <source>Select font size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2596,18 +2596,18 @@ this operation may take a while...</source>
 <context>
     <name>TranslationDialog</name>
     <message>
-        <location filename="translationdialog.ui" line="14"/>
-        <source>Translation dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="translationdialog.ui" line="48"/>
+        <location filename="translationdialog.ui" line="45"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="translationdialog.ui" line="59"/>
+        <location filename="translationdialog.ui" line="56"/>
         <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="14"/>
+        <source>Translation Dialog</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

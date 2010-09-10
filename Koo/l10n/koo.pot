@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-29 13:29+0200\n"
+"POT-Creation-Date: 2010-09-10 03:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,7 +250,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:650
+#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:651
 msgid "Quit"
 msgstr ""
 
@@ -389,13 +389,23 @@ msgid ""
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:305
-#: Koo/Dialogs/KooMainWindow.py:650 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:651 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:305
-#: Koo/Dialogs/KooMainWindow.py:650 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/KooMainWindow.py:651 Koo/Fields/Button/ButtonFieldWidget.py:80
 msgid "No"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:248
+msgid "Search Error"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:248
+msgid ""
+"Some items of custom search cannot be used. Please, change those in red and "
+"try again."
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:83
@@ -438,11 +448,11 @@ msgstr ""
 msgid "not in"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:283
+#: Koo/Search/CustomSearchFormWidget.py:295
 msgid "True"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:284
+#: Koo/Search/CustomSearchFormWidget.py:296
 msgid "False"
 msgstr ""
 
@@ -708,7 +718,7 @@ msgstr ""
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:503
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:504
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -732,72 +742,72 @@ msgstr ""
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:384
+#: Koo/Dialogs/KooMainWindow.py:387
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:386
+#: Koo/Dialogs/KooMainWindow.py:389
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:388
+#: Koo/Dialogs/KooMainWindow.py:391
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:395
+#: Koo/Dialogs/KooMainWindow.py:398
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:395
+#: Koo/Dialogs/KooMainWindow.py:398
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:477 Koo/Dialogs/KooMainWindow.py:479
+#: Koo/Dialogs/KooMainWindow.py:478 Koo/Dialogs/KooMainWindow.py:480
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:477
+#: Koo/Dialogs/KooMainWindow.py:478
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:479
+#: Koo/Dialogs/KooMainWindow.py:480
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:484 Koo/Dialogs/KooMainWindow.py:486
+#: Koo/Dialogs/KooMainWindow.py:485 Koo/Dialogs/KooMainWindow.py:487
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:486
+#: Koo/Dialogs/KooMainWindow.py:487
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:502
+#: Koo/Dialogs/KooMainWindow.py:503
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:526
+#: Koo/Dialogs/KooMainWindow.py:527
 msgid "Manual"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:614
+#: Koo/Dialogs/KooMainWindow.py:615
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:614
+#: Koo/Dialogs/KooMainWindow.py:615
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:650
+#: Koo/Dialogs/KooMainWindow.py:651
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:684
+#: Koo/Dialogs/KooMainWindow.py:685
 msgid "Wizard"
 msgstr ""
 
@@ -1119,6 +1129,18 @@ msgstr ""
 msgid "Could not contact server!"
 msgstr ""
 
+#: Koo/Fields/RichText/RichTextFieldWidget.py:80
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
+#: Koo/Fields/Char/CharFieldWidget.py:75
+msgid "Translation dialog"
+msgstr ""
+
+#: Koo/Fields/RichText/RichTextFieldWidget.py:80
+#: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
+#: Koo/Fields/Char/CharFieldWidget.py:75
+msgid "You must save the resource before adding translations"
+msgstr ""
+
 #: Koo/Fields/Button/ButtonFieldWidget.py:117
 msgid "Error in Button"
 msgstr ""
@@ -1158,16 +1180,6 @@ msgstr ""
 #: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:258
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
-msgstr ""
-
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
-#: Koo/Fields/Char/CharFieldWidget.py:75
-msgid "Translation dialog"
-msgstr ""
-
-#: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
-#: Koo/Fields/Char/CharFieldWidget.py:75
-msgid "You must save the resource before adding translations"
 msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:83
@@ -1276,7 +1288,7 @@ msgstr ""
 msgid "No record selected"
 msgstr ""
 
-#: Koo/Fields/TranslationDialog.py:51
+#: Koo/Fields/TranslationDialog.py:107
 msgid "Translation Dialog"
 msgstr ""
 

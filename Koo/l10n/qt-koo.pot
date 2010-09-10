@@ -78,7 +78,7 @@ msgid "Koo: OpenObject KDE Client"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:41
+#: richtext.ui:36
 msgid "Bold"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgid "P"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:287
+#: richtext.ui:282
 msgid "Foreground Color"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 #. ts-context UrlWidget
 #. ts-context WebWidget
 #: calendar.ui:20 image.ui:13 formcontainer.ui:13 many2many.ui:14
-#: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:13
+#: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:14
 #: search_date.ui:26 searchform.ui:14 searchreference.ui:13
 #: searchviewitem.ui:19 tree.ui:14 url.ui:20 web.ui:13
 msgid "Form"
@@ -364,7 +364,7 @@ msgid "E"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:336
+#: richtext.ui:331
 msgid "Select font size"
 msgstr ""
 
@@ -408,11 +408,6 @@ msgstr ""
 #. ts-context Form
 #: keyboard.ui:290
 msgid "V"
-msgstr ""
-
-#. ts-context TranslationDialog
-#: translationdialog.ui:14
-msgid "Translation dialog"
 msgstr ""
 
 #. ts-context ShortcutsDialog
@@ -889,7 +884,7 @@ msgid "Shortcuts"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:128
+#: richtext.ui:123
 msgid "Strikethrough"
 msgstr ""
 
@@ -1055,7 +1050,7 @@ msgid "View details"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:306
+#: richtext.ui:301
 msgid "Background color"
 msgstr ""
 
@@ -1169,6 +1164,11 @@ msgstr ""
 msgid "3"
 msgstr ""
 
+#. ts-context TranslationDialog
+#: translationdialog.ui:14
+msgid "Translation Dialog"
+msgstr ""
+
 #. ts-context TreeWidget
 #: tree.ui:111
 msgid "Expand/Collapse"
@@ -1228,7 +1228,7 @@ msgstr ""
 #: create_database.ui:343 massiveupdate_msgbox.ui:104 error.ui:159
 #: win_export.ui:243 field_preferences.ui:134 gotoid.ui:72 win_import.ui:263
 #: license.ui:148 login.ui:283 massiveupdate.ui:44 preferences.ui:45
-#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:48
+#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
 msgstr ""
 
@@ -1274,7 +1274,7 @@ msgstr ""
 #: create_database.ui:357 massiveupdate_msgbox.ui:115 win_export.ui:257
 #: field_preferences.ui:144 gotoid.ui:83 win_import.ui:274 login.ui:297
 #: one2many_dialog.ui:129 massiveupdate.ui:55 preferences.ui:56
-#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:59
+#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:56
 msgid "&Cancel"
 msgstr ""
 
@@ -1324,7 +1324,7 @@ msgid "&Plugins"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:164
+#: richtext.ui:159
 msgid "Left Justify"
 msgstr ""
 
@@ -1493,7 +1493,7 @@ msgid "Clear"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:323
+#: richtext.ui:318
 msgid "Select font"
 msgstr ""
 
@@ -1673,7 +1673,7 @@ msgid "Relation fields"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:222
+#: richtext.ui:217
 msgid "Right Justify"
 msgstr ""
 
@@ -1830,7 +1830,7 @@ msgid "&Connect"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:251
+#: richtext.ui:246
 msgid "Justify"
 msgstr ""
 
@@ -2043,7 +2043,7 @@ msgid "doc.openerp.com"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:70
+#: richtext.ui:65
 msgid "Italics"
 msgstr ""
 
@@ -2096,7 +2096,7 @@ msgid "U"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:193
+#: richtext.ui:188
 msgid "Center"
 msgstr ""
 
@@ -2128,7 +2128,7 @@ msgid "&Encoding"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:99
+#: richtext.ui:94
 msgid "Underline"
 msgstr ""
 
