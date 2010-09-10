@@ -138,6 +138,16 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.connect( self.pushOr, SIGNAL('clicked()'), self.orSelected )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self, SIGNAL('removeItem()') )
 
+	def setValid(self, valid):
+		if valid:
+			color = 'white'
+		else:
+			color = 'red'
+		color = QColor( color )
+		palette = QPalette()
+		palette.setColor(QPalette.Active, QPalette.Base, color)
+		self.setPalette(palette);
+
 	def setAndSelected(self):
 		self.pushOr.setChecked( False )
 		self.pushOr.setEnabled( True )
@@ -192,6 +202,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			for field in fields:
 				self.uiRelatedField.addItem( field[1], QVariant( field[0] ) )
 		else:
+			self.uiRelatedField.clear()
 			self.uiRelatedField.setVisible( False )
 
 		self.updateOperators()
@@ -220,6 +231,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			if operator == op[0]:
 				self.uiValue.setVisible( op[3] )
 				break
+		self.setValid( True )
 
 	def clear(self):
 		self.uiField.setCurrentIndex( 0 )
@@ -298,7 +310,9 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		if not self.uiField.currentIndex():
 			return []
 		if not self.uiOperator.currentIndex():
+			self.setValid( False )
 			return []
+		self.setValid( True )
 		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
 		relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
@@ -371,6 +385,18 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 		else:
 			return True
 
+	## @brief Sets the given search item as valid or invalid
+	#
+	# This function is useful because several searches are not yet possible in OpenERP
+	# such as some searches with property fields. This way, there's a mechanism to show
+	# users that a given item search cannot be executed.
+	def setItemValid(self, number, valid):
+		self.widgets[number].setValid( valid )
+
+	def setAllItemsValid(self, valid):
+		for number in xrange(self.itemCount()):
+			self.setItemValid(number, valid)
+
 	def insertItem(self, previousItem=None):
 		filterItem = CustomSearchItemWidget( self )
 		filterItem.setup( self.fields )
@@ -398,6 +424,9 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 
 	def removeItem(self):
 		self.dropItem( self.sender() )
+
+	def itemCount(self):
+		return len(self.widgets)
 
 	## @brief Initializes the widget with the appropiate widgets to search.
 	#
@@ -435,6 +464,7 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 	def clear(self):
 		for item in self.widgets[:]:
 			self.dropItem( item )
+		self.setAllItemsValid(True)
 
 	## @brief Returns a domain-like list for the current search parameters.
 	#

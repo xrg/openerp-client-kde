@@ -36,6 +36,7 @@ from CustomSearchFormWidget import *
 from SearchWidgetFactory import *
 from AbstractSearchWidget import *
 from Koo.Common import Common
+from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -220,7 +221,38 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			self.search()
 
 	def search(self):
+		if self.isCustomSearch():
+			# Do not emit the signal if there the server raises an exception with the search
+			# which unfortunately can happen in some cases such as some searches with properties.
+			# (ie. [('property_product_pricelist.name','ilike','a')])
+			value = self.value()
+			proxy = Rpc.RpcProxy( self.model, useExecute=False )
+			try:
+				proxy.search( value, 0, False, False, Rpc.session.context )
+			except Rpc.RpcException, e:
+				number = 0
+				for item in value:
+					if not isinstance(item, tuple):
+						continue
+
+					valid = True
+					try:
+						self.uiCustomContainer.setItemValid
+						proxy.search( [item], 0, False, False, Rpc.session.context )
+					except Rpc.RpcException, e:
+						valid = False
+
+					self.uiCustomContainer.setItemValid(number, valid)
+					number += 1
+
+				QMessageBox.warning(self, _('Search Error'), _('Some items of custom search cannot be used. Please, change those in red and try again.'))
+				return
+
+			self.uiCustomContainer.setAllItemsValid(True)
+
 		self.emit( SIGNAL('search()') )
+
+
 
 	## @brief Shows Search and Clear buttons.
 	def showButtons(self):
@@ -290,6 +322,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			if f[0] not in v_keys:
 				res.append(f)
 		return res
+
+	def isCustomSearch(self):
+		return self.pushSwitchView.isChecked()
 
 	## @brief Allows setting filter values for all fields in the form.
 	#
