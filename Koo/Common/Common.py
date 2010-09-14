@@ -333,6 +333,10 @@ def openFile( fileName ):
 # ampersand. This function will convert a text prepared for a GTK label into
 # a valid Qt one.
 def normalizeLabel( text ):
+	# If text is False, we ensure a string is returned.
+	if not text:
+		return ''
+
 	res = ''
 	underscore = False
 	for x in text:
