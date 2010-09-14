@@ -84,10 +84,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		('is not empty', _('is not empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
 		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
-		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True),
+		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time','user'), True),
 		('<>', _('is not equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True), 
 		('>', _('greater than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('<', _('less than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
+		('>=', _('greater or equal to'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
+		('<=', _('less or equal to'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('in', _('in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 		('not in', _('not in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 	)
@@ -317,6 +319,8 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
 		value = unicode( self.uiValue.text() )
+		fieldType = self.fields[fieldName].get('type')
+		
 		if operator in ('in', 'not in'):
 			text = []
 			newValue = []
@@ -344,6 +348,15 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			text = ''
 		else:
 			(value, text) = self.correctValue( value, fieldName, relatedFieldName )
+
+		if fieldType == 'user':
+			data = Rpc.session.execute('/object','execute','res.users','name_search',value)
+			if value:
+				value = data[0][0]
+				text = data[0][1]
+			else:
+				value = False
+				text = ''
 
 		self.uiValue.setText( text )
 
@@ -438,7 +451,27 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 			return 
 		self._loaded = True
 
-		self.fields = fields
+		self.fields = fields.copy()
+		self.fields['id'] = {
+			'type': 'integer',
+			'string': _('( ID )'),
+		}
+		self.fields['create_uid'] = {
+			'type': 'user',
+			'string': _('( Created By )'),
+		}
+		self.fields['create_date'] = {
+			'type': 'datetime',
+			'string': _('( Creation Date )'),
+		}
+		self.fields['write_uid'] = {
+			'type': 'user',
+			'string': _('( Last Modified By )'),
+		}
+		self.fields['write_date'] = {
+			'type': 'datetime',
+			'string': _('( Last Modification Date )'),
+		}
 		self.insertItem()
 
 		#for x in domain:
