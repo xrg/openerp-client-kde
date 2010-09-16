@@ -32,8 +32,6 @@ import logging
 import gzip
 import StringIO
 
-DNS_CACHE = {}
-
 class Myexception(Exception):
 	def __init__(self, faultCode, faultString):
 		self.faultCode = faultCode
@@ -55,10 +53,7 @@ class mysocket:
 		if not port:
 			protocol, buf = host.split('//')
 			host, port = buf.split(':')
-		if host in DNS_CACHE:
-			host = DNS_CACHE[host]
 		self.sock.connect((host, int(port)))
-		DNS_CACHE[host], port = self.sock.getpeername()
 	def disconnect(self):
 		# on Mac, the connection is automatically shutdown when the server disconnect.
 		# see http://bugs.python.org/issue4397
