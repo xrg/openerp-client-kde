@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-26 22:21+0000\n"
+"POT-Creation-Date: 2010-09-10 08:17+0000\n"
 "PO-Revision-Date: 2010-07-29 20:53+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
@@ -15,22 +15,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-08-28 01:48+0000\n"
+"X-Launchpad-Export-Date: 2010-09-16 23:04+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:89 mainwindow.ui:577
+#: win_attach.ui:89 mainwindow.ui:581
 msgid "Ctrl+D"
 msgstr "Strg+D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:589
+#: mainwindow.ui:593
 msgid "Ctrl+F"
 msgstr "Strg+F"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:700
+#: mainwindow.ui:704
 msgid "Ctrl+G"
 msgstr "Strg+G"
 
@@ -40,7 +40,7 @@ msgid "&Save list"
 msgstr "&Speichere Liste"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:800
+#: mainwindow.ui:804
 msgid "Ctrl+J"
 msgstr "Strg+J"
 
@@ -51,12 +51,12 @@ msgstr "Strg+L"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:77 mainwindow.ui:541
+#: win_attach.ui:77 mainwindow.ui:545
 msgid "Ctrl+N"
 msgstr "Strg+N"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:424
+#: mainwindow.ui:428
 msgid "Ctrl+O"
 msgstr "Strg+O"
 
@@ -67,12 +67,12 @@ msgstr "Setze Fokus auf ein Widget im Kontainer"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:149 mainwindow.ui:553
+#: win_attach.ui:149 mainwindow.ui:557
 msgid "Ctrl+S"
 msgstr "Strg+S"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:788
+#: mainwindow.ui:792
 msgid "Ctrl+T"
 msgstr "Strg+T"
 
@@ -82,7 +82,7 @@ msgid "/"
 msgstr "/"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:670
+#: mainwindow.ui:674
 msgid "Ctrl+W"
 msgstr "Strg+W"
 
@@ -92,7 +92,7 @@ msgid "Koo: OpenObject KDE Client"
 msgstr "Koo: OpenObject KDE Anwendung"
 
 #. ts-context RichTextWidget
-#: richtext.ui:41
+#: richtext.ui:36
 msgid "Bold"
 msgstr "Fett"
 
@@ -105,7 +105,7 @@ msgid "&Server:"
 msgstr "&Server:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:785
+#: mainwindow.ui:789
 msgid "Full &Text Search"
 msgstr "& Volltext Suche"
 
@@ -132,7 +132,7 @@ msgid "about:blank"
 msgstr "über:leer"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:655
+#: mainwindow.ui:659
 msgid "Previous Tab"
 msgstr "Voriger Reiter"
 
@@ -152,7 +152,7 @@ msgid "P"
 msgstr "P"
 
 #. ts-context RichTextWidget
-#: richtext.ui:287
+#: richtext.ui:282
 msgid "Foreground Color"
 msgstr "Vordergrund Farbe"
 
@@ -180,7 +180,7 @@ msgstr ""
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
-#: full_text_search.ui:66 mainwindow.ui:586 win_search.ui:86
+#: full_text_search.ui:66 mainwindow.ui:590 win_search.ui:86
 msgid "&Find"
 msgstr "Suchen"
 
@@ -257,7 +257,7 @@ msgstr "&Text Begrenzer:"
 #. ts-context UrlWidget
 #. ts-context WebWidget
 #: calendar.ui:20 image.ui:13 formcontainer.ui:13 many2many.ui:14
-#: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:13
+#: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:14
 #: search_date.ui:26 searchform.ui:14 searchreference.ui:13
 #: searchviewitem.ui:19 tree.ui:14 url.ui:20 web.ui:13
 msgid "Form"
@@ -285,7 +285,7 @@ msgstr "Setze Fokus auf bestehende Kontainer"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:101 mainwindow.ui:601
+#: win_attach.ui:101 mainwindow.ui:605
 msgid "Alt+PgDown"
 msgstr "Alt Bild ab"
 
@@ -295,7 +295,7 @@ msgid "Set focus to nearest widget"
 msgstr "Setze Fokus auf nächstes Widget"
 
 #. ts-context ErrorDialog
-#: error.ui:124
+#: error.ui:109
 msgid "De&tails"
 msgstr "&Details"
 
@@ -310,12 +310,12 @@ msgid "Documentation"
 msgstr "Dokumentation"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:457
+#: mainwindow.ui:461
 msgid "&New Database"
 msgstr "&Neue Datenbank"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:565
+#: mainwindow.ui:569
 msgid "Ctrl+Shift+D"
 msgstr "Ctrl+Shift+D"
 
@@ -324,6 +324,11 @@ msgstr "Ctrl+Shift+D"
 #: choosedb.ui:95 login.ui:111
 msgid "&Database:"
 msgstr "&Datenbank:"
+
+#. ts-context ErrorDialog
+#: error.ui:135
+msgid "&Remote Help"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:397
@@ -336,7 +341,7 @@ msgid "&Main Shortcuts"
 msgstr "wichtige Kürzel"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:753
+#: mainwindow.ui:757
 msgid "&Tips"
 msgstr "&Tipps"
 
@@ -387,7 +392,7 @@ msgid "E"
 msgstr "E"
 
 #. ts-context RichTextWidget
-#: richtext.ui:336
+#: richtext.ui:331
 msgid "Select font size"
 msgstr "Zeichengröße auswählen"
 
@@ -459,11 +464,6 @@ msgstr "<Ctrl> + Öffnen"
 msgid "V"
 msgstr "V"
 
-#. ts-context TranslationDialog
-#: translationdialog.ui:14
-msgid "Translation dialog"
-msgstr "Übersetzungs Dialog"
-
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:589
 msgid "F1"
@@ -476,17 +476,17 @@ msgstr "F2"
 
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
-#: mainwindow.ui:712 shortcuts.ui:236
+#: mainwindow.ui:716 shortcuts.ui:236
 msgid "F5"
 msgstr "F5"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:625
+#: mainwindow.ui:629
 msgid "F6"
 msgstr "F6"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:439
+#: mainwindow.ui:443
 msgid "&Disconnect"
 msgstr "Trenne"
 
@@ -638,7 +638,7 @@ msgid "&And"
 msgstr "&Und"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:643
+#: mainwindow.ui:647
 msgid "Next Tab"
 msgstr "Nächster Reiter"
 
@@ -683,7 +683,7 @@ msgid "Load Image"
 msgstr "Lade Bild"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:520
+#: mainwindow.ui:524
 msgid "&Read My Requests"
 msgstr "Lese meine Anf&ragen"
 
@@ -748,7 +748,7 @@ msgid "&Advanced"
 msgstr "Fortgeschritten"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:767
+#: mainwindow.ui:771
 msgid "&License"
 msgstr "&Lizenz"
 
@@ -763,7 +763,7 @@ msgid "<b>Value applicable if:</b>"
 msgstr "<b>Wert anzuwenden, wenn:</b>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:809
+#: mainwindow.ui:813
 msgid "&Form designer"
 msgstr "&Formular Desinger"
 
@@ -779,13 +779,13 @@ msgid ","
 msgstr ","
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:574
+#: mainwindow.ui:578
 msgid "&Delete"
 msgstr "&Löschen"
 
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
-#: mainwindow.ui:538 win_search.ui:67
+#: mainwindow.ui:542 win_search.ui:67
 msgid "&New"
 msgstr "&Neu"
 
@@ -800,7 +800,7 @@ msgid "Ç"
 msgstr "Ç"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:493
+#: mainwindow.ui:497
 msgid "&Administrator Password"
 msgstr "&Administrator Kennwort"
 
@@ -810,7 +810,7 @@ msgid "L"
 msgstr "L"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:823
+#: mainwindow.ui:827
 msgid "Open Home Tab"
 msgstr "Öffne persönlichen Reiter"
 
@@ -866,7 +866,7 @@ msgid "'"
 msgstr "'"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:832
+#: mainwindow.ui:836
 msgid "&Clear Cache"
 msgstr "Zwischenspeicher &leeren"
 
@@ -930,20 +930,25 @@ msgstr "&Kennwort:"
 msgid "Database created successfully!"
 msgstr "Datenbank erfolgreich erzeugt!"
 
+#. ts-context ErrorDialog
+#: error.ui:124
+msgid "&Send Error"
+msgstr ""
+
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:568
 msgid "Create a new record"
 msgstr "Erzeuge neue Resource"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:814
+#: mainwindow.ui:818
 msgid "&Menu"
 msgstr "&Menü"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
-#: full_text_search.ui:115 mainwindow.ui:610 one2many_dialog.ui:57
+#: full_text_search.ui:115 mainwindow.ui:614 one2many_dialog.ui:57
 msgid "&Previous"
 msgstr "&Zurück"
 
@@ -988,7 +993,7 @@ msgid "Opens the record in a new background tab"
 msgstr "Öffnet Datensatz in Hintergrund Reiter"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:776
+#: mainwindow.ui:780
 msgid "&About"
 msgstr "Über"
 
@@ -1031,7 +1036,7 @@ msgid "Shortcuts"
 msgstr "Kürzel"
 
 #. ts-context RichTextWidget
-#: richtext.ui:128
+#: richtext.ui:123
 msgid "Strikethrough"
 msgstr "Durchgestrichen"
 
@@ -1061,7 +1066,7 @@ msgid "&User"
 msgstr "&Benutzer"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:658
+#: mainwindow.ui:662
 msgid "Ctrl+PgUp"
 msgstr "Strg+Bild auf"
 
@@ -1071,7 +1076,7 @@ msgid "Full Text Search"
 msgstr "Volltext Suche"
 
 #. ts-context ErrorDialog
-#: error.ui:71
+#: error.ui:64
 msgid "<b>Error code:</b>"
 msgstr "<b>Fehler Code</b>"
 
@@ -1081,7 +1086,7 @@ msgid "<Alt> + <PgDn>"
 msgstr "<Alt> + <Bild ab>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:679
+#: mainwindow.ui:683
 msgid "View Access Log"
 msgstr "Zeige Zugriffs Log"
 
@@ -1112,7 +1117,7 @@ msgid "M"
 msgstr "M"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:562
+#: mainwindow.ui:566
 msgid "D&uplicate"
 msgstr "&Duplizieren"
 
@@ -1157,7 +1162,7 @@ msgstr "&Datenbanken"
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
 #. ts-context TipsDialog
-#: full_text_search.ui:158 mainwindow.ui:667 shortcuts.ui:860 tip.ui:159
+#: full_text_search.ui:158 mainwindow.ui:671 shortcuts.ui:860 tip.ui:159
 msgid "&Close"
 msgstr "Sch&ließen"
 
@@ -1167,7 +1172,7 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr "<Strg> + <Shift> + D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:851
+#: mainwindow.ui:855
 msgid "HTML Manual"
 msgstr ""
 
@@ -1177,12 +1182,12 @@ msgid "&Field separator"
 msgstr "&Feldtrenner"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:634
+#: mainwindow.ui:638
 msgid "Open &Menu Tab"
 msgstr "Öffne Menü Reiter"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:511
+#: mainwindow.ui:515
 msgid "&Send Request"
 msgstr "&Sende Anfrage"
 
@@ -1192,17 +1197,17 @@ msgid "&New database name:"
 msgstr "&Neuer Datenbank Name:"
 
 #. ts-context ErrorDialog
-#: error.ui:78
+#: error.ui:71
 msgid "View details"
 msgstr "Zeige Details"
 
 #. ts-context RichTextWidget
-#: richtext.ui:306
+#: richtext.ui:301
 msgid "Background color"
 msgstr "Hintergrund Farbe"
 
 #. ts-context ErrorDialog
-#: error.ui:19
+#: error.ui:20
 msgid "Application Error !"
 msgstr "Anwednungs Fehler!"
 
@@ -1274,7 +1279,7 @@ msgid ""
 msgstr ""
 
 #. ts-context ErrorDialog
-#: error.ui:41
+#: error.ui:34
 msgid "&Description"
 msgstr "&Beschreibung"
 
@@ -1312,6 +1317,11 @@ msgstr "Admin Kennwort:"
 #: keyboard.ui:514
 msgid "3"
 msgstr "3"
+
+#. ts-context TranslationDialog
+#: translationdialog.ui:14
+msgid "Translation Dialog"
+msgstr ""
 
 #. ts-context TreeWidget
 #: tree.ui:111
@@ -1388,10 +1398,10 @@ msgstr "Server"
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
 #: about.ui:120 admin_passwd.ui:138 change_server.ui:113 choosedb.ui:161
-#: create_database.ui:343 massiveupdate_msgbox.ui:104 error.ui:152
+#: create_database.ui:343 massiveupdate_msgbox.ui:104 error.ui:159
 #: win_export.ui:243 field_preferences.ui:134 gotoid.ui:72 win_import.ui:263
 #: license.ui:148 login.ui:283 massiveupdate.ui:44 preferences.ui:45
-#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:48
+#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
 msgstr "&Annehmen"
 
@@ -1401,7 +1411,7 @@ msgid "S"
 msgstr "S"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:484
+#: mainwindow.ui:488
 msgid "&Drop Database"
 msgstr "&Datenbank löschen"
 
@@ -1437,7 +1447,7 @@ msgstr "Ändern"
 #: create_database.ui:357 massiveupdate_msgbox.ui:115 win_export.ui:257
 #: field_preferences.ui:144 gotoid.ui:83 win_import.ui:274 login.ui:297
 #: one2many_dialog.ui:129 massiveupdate.ui:55 preferences.ui:56
-#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:59
+#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:56
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
@@ -1447,7 +1457,7 @@ msgid "Remove Image"
 msgstr "Entferne Bild"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:846
+#: mainwindow.ui:850
 msgid "PDF Manual"
 msgstr ""
 
@@ -1462,7 +1472,7 @@ msgid "Send New Request"
 msgstr "Sende neue Anfrage"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:646
+#: mainwindow.ui:650
 msgid "Ctrl+PgDown"
 msgstr "Strg + Bild ab"
 
@@ -1477,7 +1487,7 @@ msgid "Connect &now"
 msgstr "Verbi&nde jetzt"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:730
+#: mainwindow.ui:734
 msgid "&Import Data"
 msgstr "&Importiere Daten"
 
@@ -1487,7 +1497,7 @@ msgid "&Plugins"
 msgstr "&Zusatzmodule"
 
 #. ts-context RichTextWidget
-#: richtext.ui:164
+#: richtext.ui:159
 msgid "Left Justify"
 msgstr "Links justiert"
 
@@ -1502,12 +1512,12 @@ msgid "Tip of the Day"
 msgstr "Tip des Tages"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:502
+#: mainwindow.ui:506
 msgid "&Preferences"
 msgstr "&Persönliche Einstellungen"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:748
+#: mainwindow.ui:752
 msgid "&Contextual Help"
 msgstr "Kontext Hilfe"
 
@@ -1547,12 +1557,12 @@ msgstr "Dialog"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:16 mainwindow.ui:797
+#: win_attach.ui:16 mainwindow.ui:801
 msgid "Attachments"
 msgstr "Anhänge"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:475
+#: mainwindow.ui:479
 msgid "&Backup Database"
 msgstr "Daten&bank Sichern"
 
@@ -1579,7 +1589,7 @@ msgid "Numeric fields"
 msgstr "Numerische Felder"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:739
+#: mainwindow.ui:743
 msgid "&Execute Plugins"
 msgstr "Zusatzmodule ausführen"
 
@@ -1689,7 +1699,7 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
-#: mainwindow.ui:466 login.ui:143
+#: mainwindow.ui:470 login.ui:143
 msgid "&Restore Database"
 msgstr "Datenbank Wiederhe&rstellen"
 
@@ -1710,7 +1720,7 @@ msgid "Clear"
 msgstr "Löschen"
 
 #. ts-context RichTextWidget
-#: richtext.ui:323
+#: richtext.ui:318
 msgid "Select font"
 msgstr "Zeichensatz Auswählen"
 
@@ -1745,7 +1755,7 @@ msgid "&Port:"
 msgstr "&Port:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:697
+#: mainwindow.ui:701
 msgid "Go To Resource ID"
 msgstr "Gehe zu Resource ID"
 
@@ -1870,7 +1880,7 @@ msgid "Search/edit existing records"
 msgstr "Suche / Editiere bestehende Datensätze"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:688
+#: mainwindow.ui:692
 msgid "Store View Settings"
 msgstr "Speichere die Sicht Einstellungen"
 
@@ -1890,7 +1900,7 @@ msgid "Relation fields"
 msgstr "Relationale Felder"
 
 #. ts-context RichTextWidget
-#: richtext.ui:222
+#: richtext.ui:217
 msgid "Right Justify"
 msgstr "Rechts justiert"
 
@@ -1940,7 +1950,7 @@ msgid "Add Shortcut"
 msgstr "Kürzle hinzufügen"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:762
+#: mainwindow.ui:766
 msgid "&Keyboard Shortcut"
 msgstr "Tastatur &Kürzel"
 
@@ -1991,7 +2001,7 @@ msgstr "ausgewählten Text ausschneiden"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:113 mainwindow.ui:613
+#: win_attach.ui:113 mainwindow.ui:617
 msgid "Alt+PgUp"
 msgstr "Alt Bild auf"
 
@@ -2001,7 +2011,7 @@ msgid "Open Calendar"
 msgstr "Öffne Kalender"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:709
+#: mainwindow.ui:713
 msgid "&Reload/Undo"
 msgstr "Neu Laden/&Rückgängig"
 
@@ -2042,12 +2052,12 @@ msgid "<Alt> + Plus"
 msgstr "<Alt> + Plus"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:421
+#: mainwindow.ui:425
 msgid "&Connect"
 msgstr "Verbinde"
 
 #. ts-context RichTextWidget
-#: richtext.ui:251
+#: richtext.ui:246
 msgid "Justify"
 msgstr "Justiere"
 
@@ -2063,7 +2073,7 @@ msgstr "Latin1"
 
 #. ts-context Dialog
 #. ts-context KooMainWindow
-#: lostconnection.ui:84 mainwindow.ui:448
+#: lostconnection.ui:84 mainwindow.ui:452
 msgid "&Quit"
 msgstr "Verlasse"
 
@@ -2981,12 +2991,12 @@ msgstr ""
 "indent:0px;\"></p></body></html>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:841
+#: mainwindow.ui:845
 msgid "Modify All Selected Records"
 msgstr "Alle ausgewählten Daten speichern"
 
 #. ts-context ErrorDialog
-#: error.ui:13
+#: error.ui:14
 msgid "Error"
 msgstr "Fehler"
 
@@ -3001,7 +3011,7 @@ msgid "Previous tab"
 msgstr "Voriger Reiter"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:622
+#: mainwindow.ui:626
 msgid "Switch &View"
 msgstr "Ansicht Umschalten"
 
@@ -3021,7 +3031,7 @@ msgid "<Shift> + Open View"
 msgstr "<Shift> + Öffne Ansicht"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:721
+#: mainwindow.ui:725
 msgid "E&xport Data"
 msgstr "E&xportiere Daten"
 
@@ -3050,7 +3060,7 @@ msgid "Close window without saving"
 msgstr "Schließen Fenster ohne zu speichern"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:529
+#: mainwindow.ui:533
 msgid "&Waiting Requests"
 msgstr "&Wartende Anfragen"
 
@@ -3065,17 +3075,17 @@ msgid "5"
 msgstr "5"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:856
+#: mainwindow.ui:860
 msgid "doc.openerp.com"
 msgstr ""
 
 #. ts-context RichTextWidget
-#: richtext.ui:70
+#: richtext.ui:65
 msgid "Italics"
 msgstr "Kursiv"
 
 #. ts-context ErrorDialog
-#: error.ui:47
+#: error.ui:40
 msgid "Application Error"
 msgstr "Anwendungsfehler"
 
@@ -3123,7 +3133,7 @@ msgstr "Enfernen"
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
-#: full_text_search.ui:126 mainwindow.ui:598 one2many_dialog.ui:68
+#: full_text_search.ui:126 mainwindow.ui:602 one2many_dialog.ui:68
 msgid "&Next"
 msgstr "Weiter"
 
@@ -3138,7 +3148,7 @@ msgid "U"
 msgstr "U"
 
 #. ts-context RichTextWidget
-#: richtext.ui:193
+#: richtext.ui:188
 msgid "Center"
 msgstr "Zentriert"
 
@@ -3153,7 +3163,7 @@ msgid "&Edition Shortcuts"
 msgstr "Kürzel für das Editieren"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:550
+#: mainwindow.ui:554
 msgid "&Save"
 msgstr "S&peichern"
 
@@ -3172,7 +3182,7 @@ msgid "&Encoding"
 msgstr "Kodierung"
 
 #. ts-context RichTextWidget
-#: richtext.ui:99
+#: richtext.ui:94
 msgid "Underline"
 msgstr "Unterstrichen"
 
