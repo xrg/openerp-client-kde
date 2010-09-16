@@ -347,6 +347,8 @@ def openFile( fileName ):
 def normalizeLabel( text ):
 	res = ''
 	underscore = False
+	if not text:
+	    return ''
 	for x in text:
 		if x == '_':
 			if underscore:
