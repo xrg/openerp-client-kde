@@ -129,13 +129,19 @@ class BinaryFieldWidget(AbstractFieldWidget, BinaryFieldWidgetUi):
 	def eventFilter(self, target, event):
 		if not event.type() in (QEvent.Drop, QEvent.DragEnter, QEvent.DragMove):
 			return AbstractFieldWidget.eventFilter(self, target, event)
-		if not event.mimeData().hasText():
+		if not event.mimeData().hasText() and not event.mimeData().hasUrls():
 			return AbstractFieldWidget.eventFilter(self, target, event)
 		if event.type() in (QEvent.DragMove, QEvent.DragEnter):
 			event.accept()
 			return True
-		path = unicode( event.mimeData().text() ).replace( 'file://', '' )
-		self.setBinaryFile( path )
+		if event.mimeData().hasText():
+			path = unicode( event.mimeData().text() ).replace( 'file://', '' )
+			self.setBinaryFile( path )
+		else:
+			urls = event.mimeData().urls()
+			if len(urls) > 0:
+				path = unicode( urls[0].toString() ).replace( 'file://', '' )
+				self.setBinaryFile( path )
 		return True
 
 	def setReadOnly(self, value):
