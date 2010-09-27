@@ -380,26 +380,27 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def updateRequestsStatus(self):
 		# We use 'try' because we might not have logged in or the server might
 		# be down temporarily. This way the user isn't notified unnecessarily.
+		uid = Rpc.session.uid
 		try:
-			uid = Rpc.session.uid
 			ids,ids2 = Rpc.session.call('/object', 'execute', 'res.request', 'request_get')
-			if len(ids):
-				message = _('%s request(s)') % len(ids)
-			else:
-				message = _('No request')
-			if len(ids2):
-				message += _(' - %s pending request(s)') % len(ids2)
-			self.uiRequests.setText( message )
-			message = "%s - [%s]" % (message, Rpc.session.databaseName)
-			self.systemTrayIcon.setToolTip( message )
-			if self.pendingRequests != -1 and self.pendingRequests < len(ids):
-				QApplication.alert( self )
-				if self.systemTrayIcon.isVisible() and not self.isVisible():
-					self.systemTrayIcon.showMessage( _("New Request"), _("You've received a new request") )
-			self.pendingRequests = len(ids)
-			return (ids, ids2)
-		except:
+		except Rpc.RpcException, e:
 			return ([], [])
+
+		if len(ids):
+			message = _('%s request(s)') % len(ids)
+		else:
+			message = _('No request')
+		if len(ids2):
+			message += _(' - %s pending request(s)') % len(ids2)
+		self.uiRequests.setText( message )
+		message = "%s - [%s]" % (message, Rpc.session.databaseName)
+		self.systemTrayIcon.setToolTip( message )
+		if self.pendingRequests != -1 and self.pendingRequests < len(ids):
+			QApplication.alert( self )
+			if self.systemTrayIcon.isVisible() and not self.isVisible():
+				self.systemTrayIcon.showMessage( _("New Request"), _("You've received a new request") )
+		self.pendingRequests = len(ids)
+		return (ids, ids2)
 
 	def help(self):
 		widget = self.tabWidget.currentWidget()
@@ -451,9 +452,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not self.logout():
 			return
 		try:
-			log_response = Rpc.session.login(url, databaseName)
+			loginResponse = Rpc.session.login(url, databaseName)
 			url = QUrl( url )
-			if log_response==Rpc.session.LoggedIn:
+			if loginResponse == Rpc.session.LoggedIn:
 				Settings.loadFromServer()
 				if Settings.value('koo.use_cache'):
 					Rpc.session.cache = Rpc.Cache.ActionViewCache()
@@ -476,9 +477,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				self.updateRequestsStatus()
 				self.updateUserShortcuts()
 
-			elif log_response==Rpc.session.Exception:
+			elif loginResponse == Rpc.session.Exception:
 				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
-			elif log_response==Rpc.session.InvalidCredentials:
+			elif loginResponse == Rpc.session.InvalidCredentials:
 				QMessageBox.warning(self, _('Connection error !'), _('Bad username or password !'))
 
 		except Rpc.RpcException, e:

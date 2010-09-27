@@ -1,5 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" href="$classKoo_1_1Pos_1_1AbstractKeyboardWidget_1_1AbstractKeyboardWidget.html" title="The AbstactKeyboardWidget provides an abstract class for creating virtual on&#45;screen..." alt="" coords="5,32,381,61"/>
-<area shape="rect" href="$classKoo_1_1Pos_1_1KeyboardWidget_1_1KeyboardWidget.html" title="The KeyboardWidget class provides a virtual on&#45;screen alphanumeric keyboard." alt="" coords="429,5,707,35"/>
-<area shape="rect" href="$classKoo_1_1Pos_1_1KeypadWidget_1_1KeypadWidget.html" title="The KeyboardWidget class provides a virtual on&#45;screen numeric keyboard." alt="" coords="440,59,696,88"/>
+<area shape="rect" id="node1" href="$classKoo_1_1Plugins_1_1SerialBarcodeScanner_1_1SerialBarcodeScanner_1_1SerialBarcodeScanner.html" title="This class reads from a Barcode Scanner connected to the serial port and sends its input as key event..." alt="" coords="5,5,555,35"/>
 </map>

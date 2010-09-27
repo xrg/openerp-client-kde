@@ -84,10 +84,12 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		('is not empty', _('is not empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
 		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
-		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True),
+		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time','user'), True),
 		('<>', _('is not equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time'), True), 
 		('>', _('greater than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('<', _('less than'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
+		('>=', _('greater or equal to'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
+		('<=', _('less or equal to'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('in', _('in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 		('not in', _('not in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 	)
@@ -137,6 +139,16 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.connect( self.pushAnd, SIGNAL('clicked()'), self.andSelected )
 		self.connect( self.pushOr, SIGNAL('clicked()'), self.orSelected )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self, SIGNAL('removeItem()') )
+
+	def setValid(self, valid):
+		if valid:
+			color = 'white'
+		else:
+			color = 'red'
+		color = QColor( color )
+		palette = QPalette()
+		palette.setColor(QPalette.Active, QPalette.Base, color)
+		self.setPalette(palette);
 
 	def setAndSelected(self):
 		self.pushOr.setChecked( False )
@@ -192,6 +204,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			for field in fields:
 				self.uiRelatedField.addItem( field[1], QVariant( field[0] ) )
 		else:
+			self.uiRelatedField.clear()
 			self.uiRelatedField.setVisible( False )
 
 		self.updateOperators()
@@ -220,6 +233,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			if operator == op[0]:
 				self.uiValue.setVisible( op[3] )
 				break
+		self.setValid( True )
 
 	def clear(self):
 		self.uiField.setCurrentIndex( 0 )
@@ -298,11 +312,15 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		if not self.uiField.currentIndex():
 			return []
 		if not self.uiOperator.currentIndex():
+			self.setValid( False )
 			return []
+		self.setValid( True )
 		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
 		relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
 		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
 		value = unicode( self.uiValue.text() )
+		fieldType = self.fields[fieldName].get('type')
+		
 		if operator in ('in', 'not in'):
 			text = []
 			newValue = []
@@ -330,6 +348,15 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			text = ''
 		else:
 			(value, text) = self.correctValue( value, fieldName, relatedFieldName )
+
+		if fieldType == 'user':
+			data = Rpc.session.execute('/object','execute','res.users','name_search',value)
+			if value:
+				value = data[0][0]
+				text = data[0][1]
+			else:
+				value = False
+				text = ''
 
 		self.uiValue.setText( text )
 
@@ -371,6 +398,18 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 		else:
 			return True
 
+	## @brief Sets the given search item as valid or invalid
+	#
+	# This function is useful because several searches are not yet possible in OpenERP
+	# such as some searches with property fields. This way, there's a mechanism to show
+	# users that a given item search cannot be executed.
+	def setItemValid(self, number, valid):
+		self.widgets[number].setValid( valid )
+
+	def setAllItemsValid(self, valid):
+		for number in xrange(self.itemCount()):
+			self.setItemValid(number, valid)
+
 	def insertItem(self, previousItem=None):
 		filterItem = CustomSearchItemWidget( self )
 		filterItem.setup( self.fields )
@@ -399,6 +438,9 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 	def removeItem(self):
 		self.dropItem( self.sender() )
 
+	def itemCount(self):
+		return len(self.widgets)
+
 	## @brief Initializes the widget with the appropiate widgets to search.
 	#
 	# Needed fields include XML view (usually 'form'), fields dictionary with information
@@ -409,7 +451,27 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 			return 
 		self._loaded = True
 
-		self.fields = fields
+		self.fields = fields.copy()
+		self.fields['id'] = {
+			'type': 'integer',
+			'string': _('( ID )'),
+		}
+		self.fields['create_uid'] = {
+			'type': 'user',
+			'string': _('( Created By )'),
+		}
+		self.fields['create_date'] = {
+			'type': 'datetime',
+			'string': _('( Creation Date )'),
+		}
+		self.fields['write_uid'] = {
+			'type': 'user',
+			'string': _('( Last Modified By )'),
+		}
+		self.fields['write_date'] = {
+			'type': 'datetime',
+			'string': _('( Last Modification Date )'),
+		}
 		self.insertItem()
 
 		#for x in domain:
@@ -435,6 +497,7 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 	def clear(self):
 		for item in self.widgets[:]:
 			self.dropItem( item )
+		self.setAllItemsValid(True)
 
 	## @brief Returns a domain-like list for the current search parameters.
 	#

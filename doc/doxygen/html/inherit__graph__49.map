@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" href="$classKoo_1_1Search_1_1SearchWidgetFactory_1_1SearchWidgetFactory.html" title="The SearchWidgetFactory class specializes in creating the appropiate search widget..." alt="" coords="7,5,364,35"/>
+<area shape="rect" id="node1" href="$classKoo_1_1Search_1_1AbstractSearchWidget_1_1AbstractSearchWidget.html" title="AbstractFieldWidget is the base class for all search widgets in Koo." alt="" coords="7,5,404,35"/>
+<area shape="rect" id="node3" href="$classKoo_1_1Search_1_1SearchFormWidget_1_1SearchFormWidget.html" title="This class provides a form with the fields to search given a model." alt="" coords="453,5,811,35"/>
 </map>

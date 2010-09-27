@@ -35,9 +35,9 @@ view_fields_end = {
 	'filename': { 'string': 'File Name', 'type': 'char' },
 }
 
-src_chars = """àáäâÀÁÄÂèéëêÈÉËÊìíïîÌÍÏÎòóöôÒÓÖÔùúüûÙÚÜÛçñºª·¤ '"()/*-+?!&$[]{}@#`'^:;<>=~%\\""" 
+src_chars = """àáäâÀÁÄÂèéëêÈÉËÊìíïîÌÍÏÎòóöôÒÓÖÔùúüûÙÚÜÛçñºª·¤ '"()/*-+?¿!&$[]{}@#`'^:;<>=~%\\""" 
 src_chars = unicode( src_chars, 'iso-8859-1' )
-dst_chars = """aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUcnoa_e______________________________"""
+dst_chars = """aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUcnoa_e_______________________________"""
 dst_chars = unicode( dst_chars, 'iso-8859-1' )
 
 class create_data_template(wizard.interface):

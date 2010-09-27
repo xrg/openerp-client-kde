@@ -847,23 +847,28 @@ database = Database()
 # For example: 
 # obj = RpcProxy('ir.values')
 class RpcProxy(object):
-	def __init__(self, resource):
+	def __init__(self, resource, useExecute=True):
 		self.resource = resource
 		self.__attrs = {}
+		self.__useExecute = useExecute
 
 	def __getattr__(self, name):
 		if not name in self.__attrs:
-			self.__attrs[name] = RpcFunction(self.resource, name)
+			self.__attrs[name] = RpcFunction(self.resource, name, self.__useExecute)
 		return self.__attrs[name]
 	
 
 class RpcFunction(object):
-	def __init__(self, object, func_name):
+	def __init__(self, object, func_name, useExecute=True):
 		self.object = object
 		self.func = func_name
+		self.useExecute = useExecute
 
 	def __call__(self, *args):
-		return session.execute('/object', 'execute', self.object, self.func, *args)
+		if self.useExecute:
+			return session.execute('/object', 'execute', self.object, self.func, *args)
+		else:
+			return session.call('/object', 'execute', self.object, self.func, *args)
 
 
 

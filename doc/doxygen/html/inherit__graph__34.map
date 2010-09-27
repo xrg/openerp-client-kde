@@ -1,3 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" href="$classKoo_1_1Plugins_1_1SerialBarcodeScanner_1_1SerialBarcodeScanner_1_1SerialBarcodeScanner.html" title="This class reads from a Barcode Scanner connected to the serial port and sends its..." alt="" coords="7,5,511,35"/>
+<area shape="rect" id="node1" href="$classKoo_1_1Model_1_1KooModel_1_1KooModel.html" title="The KooModel class provides a QAbstractItemModel wrapper around RecordGroup class." alt="" coords="5,5,237,35"/>
 </map>
