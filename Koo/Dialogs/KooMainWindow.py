@@ -259,7 +259,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not self.isVisible():
 			self.showNormal()
 
-		model =	Rpc.session.execute('/object', 'execute', 'ir.model', 'search', [('model','=','product.product')], Rpc.session.context )
+		model =	Rpc.session.execute('/object', 'execute', 'ir.model', 'search', [('model','=','product.product')], 0, 1, False, Rpc.session.context )
 		if not model:
 			QMessageBox.information(self, _('Products'), _('Products module is not installed.') )
 			return
