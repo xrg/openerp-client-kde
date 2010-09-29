@@ -253,7 +253,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def openPartnersTab(self):
 		if not self.isVisible():
 			self.showNormal()
-		Api.instance.createWindow(None, 'res.partner', mode='tree')
+		Api.instance.createWindow(None, 'res.partner', mode='tree,form')
 
 	def openProductsTab(self):
 		if not self.isVisible():
@@ -264,7 +264,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			QMessageBox.information(self, _('Products'), _('Products module is not installed.') )
 			return
 
-		Api.instance.createWindow(None, 'product.product', mode='tree')
+		Api.instance.createWindow(None, 'product.product', mode='tree,form')
 			
 
 	def startRequestsTimer(self):
