@@ -108,7 +108,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 					QApplication.restoreOverrideCursor()
 					if isinstance( result, dict ):
 						screen.close()
-						Api.instance.executeAction( result, {}, screen.context)
+						Api.instance.executeAction( result, result.get('datas',{}), screen.context)
 
 				elif type == 'action':
 					action_id = int(self.attrs['name'])
