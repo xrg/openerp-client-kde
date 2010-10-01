@@ -189,7 +189,7 @@ def executeAction(action, datas, context=None):
 		ctx.update({'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])})
 		res = Rpc.session.execute('/object', 'execute', 'ir.actions.server', 'run', [action['id']], ctx)
 		if res:
-			self.executeAction( res, datas, context )
+			Api.instance.executeAction( res, datas, context )
 
 	elif action['type']=='ir.actions.wizard':
 		win=None
