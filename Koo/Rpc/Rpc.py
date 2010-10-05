@@ -196,8 +196,8 @@ class SocketConnection(Connection):
 		except socket.error, err:
 			raise RpcProtocolException( unicode(err) )
 		except tiny_socket.Myexception, err:
-			faultCode = unicode( err.faultCode, 'utf-8' )
-			faultString = unicode( err.faultString, 'utf-8' )
+			faultCode = err.faultCode
+			faultString = err.faultString
 			raise RpcServerException( faultCode, faultString )
 		finally:
 			s.disconnect()
