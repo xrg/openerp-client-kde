@@ -209,6 +209,7 @@ def executeAction(action, datas, context=None):
 		if 'window' in datas:
 			win=datas['window']
 			del datas['window']
+		datas.update( action.get('datas', {}) )
 		Api.instance.executeReport(action['report_name'], datas, context)
 	elif action['type']=='ir.actions.act_url':
 		Api.instance.createWebWindow( action.get('url'), action.get('name') )
