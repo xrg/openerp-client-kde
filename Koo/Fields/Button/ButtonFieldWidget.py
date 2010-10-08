@@ -89,10 +89,19 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 							if result['type'] == 'ir.actions.act_window_close':
 								screen.close()
 							else:
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.setOverrideCursor( Qt.ArrowCursor )
 								Api.instance.executeAction( result, {'ids': [id]} )
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.restoreOverrideCursor()
+
 						elif isinstance( result, list ):
 							for r in result:
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.setOverrideCursor( Qt.ArrowCursor )
 								Api.instance.executeAction( r, { 'ids': [id] } )
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.restoreOverrideCursor()
 					except Rpc.RpcException, e:
 						pass
 					QApplication.restoreOverrideCursor()
