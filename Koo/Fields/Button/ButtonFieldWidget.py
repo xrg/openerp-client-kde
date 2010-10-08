@@ -132,7 +132,12 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
-		self.button.setEnabled( not value )
+		if self.attrs.get('readonly','0') == '1':
+			self.button.setEnabled( False )
+			self.button.setToolTip( _('You do not have permission to execute this action.') )
+		else:
+			self.button.setEnabled( not value )
+			self.button.setToolTip( '' )
 
 	def showValue(self):
 		if not self.attrs.get('states', False):
