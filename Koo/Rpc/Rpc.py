@@ -274,8 +274,8 @@ class SocketConnection(Connection):
 			# print err.strerror
 			raise RpcProtocolException( err.strerror )
 		except tiny_socket.Myexception, err:
-			faultCode = unicode( err.faultCode, 'utf-8' )
-			faultString = unicode( err.faultString, 'utf-8' )
+			faultCode = err.faultCode
+			faultString = err.faultString
 			raise RpcServerException( faultCode, faultString )
 		finally:
 			s.disconnect()

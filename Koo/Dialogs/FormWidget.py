@@ -331,7 +331,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			for (key,val) in todo:
 				if line[key] and key in ('create_uid','write_uid'):
 					line[key] = line[key][1]
-				message += val + ': ' + str(line[key] or '-') + '\n'
+				message += val + ': ' + unicode(line[key] or '-') + '\n'
 		QMessageBox.information(self, _('Record log'), message)
 
 	def remove(self):

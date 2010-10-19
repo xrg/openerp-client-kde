@@ -89,10 +89,19 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 							if result['type'] == 'ir.actions.act_window_close':
 								screen.close()
 							else:
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.setOverrideCursor( Qt.ArrowCursor )
 								Api.instance.executeAction( result, {'ids': [id]} )
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.restoreOverrideCursor()
+
 						elif isinstance( result, list ):
 							for r in result:
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.setOverrideCursor( Qt.ArrowCursor )
 								Api.instance.executeAction( r, { 'ids': [id] } )
+								if result['type'] == 'ir.actions.act_window':
+									QApplication.restoreOverrideCursor()
 					except Rpc.RpcException, e:
 						pass
 					QApplication.restoreOverrideCursor()
@@ -108,7 +117,13 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 					QApplication.restoreOverrideCursor()
 					if isinstance( result, dict ):
 						screen.close()
-						Api.instance.executeAction( result, result.get('datas',{}), screen.context)
+						datas = {
+							'ids' : [id],
+							'model' : screen.name,
+						}
+						if 'datas' in result:
+						        datas.update(result['datas'])
+						Api.instance.executeAction( result, datas, screen.context)
 
 				elif type == 'action':
 					action_id = int(self.attrs['name'])
@@ -128,7 +143,12 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
-		self.button.setEnabled( not value )
+		if self.attrs.get('readonly','0') == '1':
+			self.button.setEnabled( False )
+			self.button.setToolTip( _('You do not have permission to execute this action.') )
+		else:
+			self.button.setEnabled( not value )
+			self.button.setToolTip( '' )
 
 	def showValue(self):
 		if not self.attrs.get('states', False):

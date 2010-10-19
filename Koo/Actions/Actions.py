@@ -200,7 +200,7 @@ def executeAction(action, datas, context=None):
 	elif action['type']=='ir.actions.server':
 		res = Rpc.session.execute('/object', 'execute', 'ir.actions.server', 'run', [action['id']], ctx)
 		if res:
-			executeAction( res, datas, ctx )
+			Api.instance.executeAction( res, datas, ctx )
 
 	elif action['type']=='ir.actions.wizard':
 		win=None
@@ -220,6 +220,7 @@ def executeAction(action, datas, context=None):
 		if 'window' in datas:
 			win=datas['window']
 			del datas['window']
+		datas.update( action.get('datas', {}) )
 		if not datas.get('ids', False):
 		    log.error("Cannot execute report.xml for datas: %r", action)
 		    Common.error( _('Error at report'), _('Error: cannot locate report to execute: %s') % 'id', 'details' )

@@ -93,7 +93,7 @@ class mysocket:
 		res = cPickle.loads(msg)
 		if isinstance(res[0],Exception):
 			if exception:
-				raise Myexception(str(res[0]), str(res[1]))
+				raise Myexception(unicode(res[0]), unicode(res[1]))
 			raise res[0]
 		else:
 			return res[0]

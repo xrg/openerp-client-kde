@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-17 17:14+0200\n"
+"POT-Creation-Date: 2010-10-09 00:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,8 +61,8 @@ msgstr ""
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
-#: Koo/Fields/Binary/BinaryFieldWidget.py:231
-#: Koo/Fields/Binary/BinaryFieldWidget.py:265
+#: Koo/Fields/Binary/BinaryFieldWidget.py:237
+#: Koo/Fields/Binary/BinaryFieldWidget.py:271
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Printing aborted, too long delay !"
 msgstr ""
 
-#: Koo/Actions/Actions.py:240
+#: Koo/Actions/Actions.py:241
 msgid "Select your action"
 msgstr ""
 
@@ -585,7 +585,7 @@ msgid "Backup a database"
 msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:136
-#: Koo/Fields/Binary/BinaryFieldWidget.py:254
+#: Koo/Fields/Binary/BinaryFieldWidget.py:260
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr ""
@@ -1179,16 +1179,20 @@ msgstr ""
 msgid "You must save the resource before adding translations"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:117
+#: Koo/Fields/Button/ButtonFieldWidget.py:121
 msgid "Error in Button"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:117
+#: Koo/Fields/Button/ButtonFieldWidget.py:121
 msgid "Button type not allowed"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:126
+#: Koo/Fields/Button/ButtonFieldWidget.py:130
 msgid "Invalid Form, correct red fields!"
+msgstr ""
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:137
+msgid "You do not have permission to execute this action."
 msgstr ""
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
@@ -1222,12 +1226,12 @@ msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:83
 #: Koo/Fields/Link/LinkFieldWidget.py:62
-#: Koo/Fields/Binary/BinaryFieldWidget.py:173
+#: Koo/Fields/Binary/BinaryFieldWidget.py:179
 msgid "Open..."
 msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:111
-#: Koo/Fields/Binary/BinaryFieldWidget.py:210
+#: Koo/Fields/Binary/BinaryFieldWidget.py:216
 msgid "Image"
 msgstr ""
 
@@ -1299,23 +1303,23 @@ msgstr ""
 msgid "Show &image"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:174
+#: Koo/Fields/Binary/BinaryFieldWidget.py:180
 msgid "Show &image..."
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:220
+#: Koo/Fields/Binary/BinaryFieldWidget.py:226
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:231
+#: Koo/Fields/Binary/BinaryFieldWidget.py:237
 #, python-format
 msgid ""
 "Error reading the file:\n"
 "%s"
 msgstr ""
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:265
+#: Koo/Fields/Binary/BinaryFieldWidget.py:271
 #, python-format
 msgid ""
 "Error writing the file:\n"
