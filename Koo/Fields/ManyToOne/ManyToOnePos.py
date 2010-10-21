@@ -99,7 +99,7 @@ class ManyToOnePosFieldWidget(AbstractFieldWidget, ManyToOnePosFieldWidgetUi):
 		if group.domain() != domain:
 			group.setDomain( self.record.domain( self.name ) )
 
-		id = self.record.value(self.name)
+		id = self.record.value(self.name)[0]
 		if id:
 			record = group.modelById( id )
 		else:

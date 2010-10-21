@@ -33,7 +33,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 
 class SelectionFieldWidget(AbstractFieldWidget):
-	def __init__(self, parent, view, attrs={}):
+	def __init__(self, parent, view, attrs=None):
+		if attrs is None:
+		    attrs = {}
 		AbstractFieldWidget.__init__(self, parent, view, attrs)
 
 		self.widget =  QComboBox( self )
@@ -72,7 +74,10 @@ class SelectionFieldWidget(AbstractFieldWidget):
 
 	def value(self):
 		if not self._changed:
-			return self.record.value(self.name)
+			value = self.record.value(self.name)
+			if isinstance(value, (list, tuple)):
+			    value = value[0]
+			return value
 
 		# If we checked with MatchContains directly, we might find incorrect values when 
 		# the user clicked the item instead of writting it.
@@ -80,7 +85,7 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		if not value.isValid():
 			value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchExactly ) )
 		if not value.isValid():	
-			value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchContains ) )
+			value = self.widget.itemData( self.widget.findText( self.widget.currentText(), Qt.MatchContains ))
 		if value.isValid():
 			if value.typeName() == 'QString':
 				return unicode( value.toString() )
@@ -97,8 +102,10 @@ class SelectionFieldWidget(AbstractFieldWidget):
 		
 	def showValue(self):
 		value = self.record.value(self.name)
+		if isinstance(value, (list, tuple)):
+		    value = value[0]
 		if not value:
-			self.widget.setCurrentIndex( self.widget.findText( '') )
+			self.widget.setCurrentIndex( self.widget.findText('') )
 		else:
 			self.widget.setCurrentIndex( self.widget.findData( QVariant(value) ) )
 		self._changed = False

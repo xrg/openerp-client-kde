@@ -145,10 +145,10 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			return
 		name = unicode( self.uiText.text() )
 		if name.strip() == '':
-			self.record.setValue( self.name, False )			
+			self.record.setValue( self.name, False )
 			self.showValue()
 			return
-		if name == self.record.value(self.name):
+		if name == (self.record.value(self.name) or [False, False])[1]:
 			return
 		# Probably due to a bug in Qt, editingFinished signal may be fired
 		# again in "def search()" so we ensure we don't open the dialog twice.
@@ -244,8 +244,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		res = self.record.value(self.name)
  		if res:
 			self.uiText.setCursorPosition( 0 )
-			self.uiText.setText( res )
-			self.uiText.setToolTip( res )
+			self.uiText.setText( res[1] )
+			self.uiText.setToolTip( res[1] )
 			self.pushOpen.setIcon( QIcon( ":/images/folder.png"))
 			self.pushOpen.setToolTip( _("Open") )
 			# pushOpen will always be enabled if it has to open an existing
@@ -270,7 +270,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 		# Set enabled/disabled values
 		value = self.record.value(self.name)
-		if value:
+		if value and value[0]:
 			value = True
 		else:
 			value = False
@@ -320,7 +320,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 
 		# Set enabled/disabled values
 		value = record.value(self.name)
-		if value:
+		if value and value[0]:
 			value = True
 		else:
 			value = False

@@ -772,7 +772,7 @@ class RecordGroup(QObject):
 					ids = Rpc.session.call('/koo', 'search', self.resource, self._domain + self._filter, 0, 0, orderby, self._context )
 					sortingResult = self.SortingPossible
 					sorted = True
-				except:
+				except Exception:
 					sortingResult = self.SortingOnlyGroups
 
 			# We check whether the field is stored or not. In case the server 

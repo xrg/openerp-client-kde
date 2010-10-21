@@ -682,7 +682,11 @@ class KooModel(QAbstractItemModel):
 		if not field or not model:
 			return None
 		else:
-			return model.value( field )
+			val = model.value( field )
+			if isinstance(val, (list, tuple)):
+			    val = val[1]
+			return val
+			
 
 	def setValue(self, value, row, column, group):
 		# We ensure the group has been loaded by checking if there
@@ -705,7 +709,10 @@ class KooModel(QAbstractItemModel):
 		if not model:
 			return None
 		else:
-			return model.value( field )
+			val = model.value( field )
+			if isinstance(val, (list, tuple)):
+			    val = val[1]
+			return val
 
 	## @brief Returns the id of the model pointed by index. 
 	#
@@ -763,6 +770,8 @@ class KooGroupedModel( QAbstractProxyModel ):
 		previous = False
 		for y in xrange(0, index.row()):
 			value = model.value( y, 0, self.group)
+			if isinstance(value, (list, tuple)):
+			    value = value[1]
 			if value != previous:
 				newRow += 1
 				previous = value
@@ -774,6 +783,8 @@ class KooGroupedModel( QAbstractProxyModel ):
 		newRow = 0
 		for y in xrange(0, self.group.count()):
 			value = model.value( y, 0, self.group)
+			if isinstance(value, (list, tuple)):
+			    value = value[1]
 			if value != previous:
 				newRow += 1
 				if newRow == index.row():
@@ -795,6 +806,8 @@ class KooGroupedModel( QAbstractProxyModel ):
 		previous = None
 		for y in xrange(0, self.group.count()):
 			value = model.value( y, 0, self.group )
+			if isinstance(value, (list, tuple)):
+			    value = value[1]
 			if value != previous:
 				newRow += 1
 		return newRow

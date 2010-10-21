@@ -239,7 +239,7 @@ class ManyToOneField(StringField):
 
 	def get_client(self, record):
 		if record.values[self.name]:
-			return record.values[self.name][1]
+			return record.values[self.name]
 		return False
 
 	def set(self, record, value, test_state=False, modified=False):
@@ -356,11 +356,9 @@ class OneToManyField(ToManyField):
 		self.connect( record.values[self.name], SIGNAL('modified'), self.groupModified )
 		record.values[self.name].tomanyfield = self
 		mod=None
-		for record in (value or []):
-			# TODO: Fix with new Group behaviour. Has this ever really worked?
-			mod = record.values[self.name].model_new(default=False)
-			mod.setDefault(record)
-			record.values[self.name].model_add(mod)
+		for rec in (value or []):
+			mod = record.values[self.name].create(default=False)
+			mod.setDefaults(rec)
 		return True
 
 	def default(self, record):
