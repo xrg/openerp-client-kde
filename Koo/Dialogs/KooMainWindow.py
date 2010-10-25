@@ -173,7 +173,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# the signal...
 		self.actions = [ 'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 
 			'Reload', 'Switch', 'Attach', 'Export', 'Import', 'GoToResourceId', 
-			'Duplicate', 'AccessLog', 'MassiveUpdate', 'StoreViewSettings' ]
+			'Duplicate', 'AccessLog', 'MassiveUpdate', 'MassiveButton', 'StoreViewSettings' ]
 		for x in self.actions:
 			action = eval('self.action'+ x)
 			self.connect( action, SIGNAL( 'triggered()' ), self.callChildView )
@@ -708,8 +708,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 		if Settings.value('koo.allow_massive_updates', True):
 			self.actionMassiveUpdate.setVisible( True )
+			self.actionMassiveButton.setVisible( True )
 		else:
 			self.actionMassiveUpdate.setVisible( False )
+			self.actionMassiveButton.setVisible( False )
 
 		# Update the 'Reports', 'Actions' and 'Browse' Menu entries
 		self.menuReports.clear()

@@ -157,6 +157,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'Attach': self.showAttachments,
 			'Duplicate': self.duplicate,
 			'MassiveUpdate': self.massiveUpdate,
+			'MassiveButton': self.massiveButton,
 			'StoreViewSettings': self.storeViewSettings,
 		}
 
@@ -580,4 +581,49 @@ class FormWidget( QWidget, FormWidgetUi ):
 	def __del__(self):
 		self.group.__del__()
 		del self.group
+
+	def massiveButton(self):
+		viewTypes = self.viewTypes
+		viewIds = self.viewIds
+
+		group = RecordGroup( self.model, context=self.context )
+		group.setDomainForEmptyGroup()
+		group.load( self.screen.selectedIds() )
+
+		screen = Screen(self)
+		screen.setRecordGroup( self.group )
+		screen.setEmbedded( True )
+		if 'form' in viewTypes:
+			queue = ViewQueue()	
+			queue.setup( viewTypes, viewIds )	
+			type = ''
+			while type != 'form':
+				id, type = queue.next()
+			screen.setupViews( ['form'], [id] )
+		else:
+			screen.setupViews( ['form'], [False] )
+
+		from Koo.Fields.Button import ButtonFieldWidget
+		from Koo.Common import Common
+
+		buttons = {}
+		for key, widget in screen.currentView().widgets.iteritems():
+			if isinstance(widget, ButtonFieldWidget):
+				buttons[unicode(widget.button.text())] = widget.name
+				
+		selectionDialog = Common.SelectionDialog(_('Choose action to apply massively'), buttons, self)
+		if selectionDialog.exec_() == QDialog.Rejected:
+			return
+
+		buttonString = selectionDialog.result[0]
+		buttonName = selectionDialog.result[1]
+
+		if QMessageBox.question(self, _("Massive Update"), _("Do you really want to push button '%s' of all selected records?") % buttonString, _("Yes"), _("No")) == 1:
+			return
+
+		for id in self.screen.selectedIds():
+			screen.display( id )
+			screen.currentView().widgets[buttonName].executeButton(screen, id)
+
+		self.reload()
 

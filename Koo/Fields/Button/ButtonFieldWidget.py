@@ -56,6 +56,65 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		shortcut = QShortcut(QKeySequence(keys), self)
 		self.connect(shortcut, SIGNAL('activated()'), self.button.click)
 
+	def executeButton(self, screen, id):
+		type = self.attrs.get('type', 'workflow')
+		if type == 'workflow':
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			try:
+				# TODO: Uncomment when our patch will be applied in the server
+				#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, self.record.context())
+				result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
+				if isinstance( result, dict ):
+					if result['type'] == 'ir.actions.act_window_close':
+						screen.close()
+					else:
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.setOverrideCursor( Qt.ArrowCursor )
+						Api.instance.executeAction( result, {'ids': [id]} )
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.restoreOverrideCursor()
+
+				elif isinstance( result, list ):
+					for r in result:
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.setOverrideCursor( Qt.ArrowCursor )
+						Api.instance.executeAction( r, { 'ids': [id] } )
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.restoreOverrideCursor()
+			except Rpc.RpcException, e:
+				pass
+			QApplication.restoreOverrideCursor()
+		elif type == 'object':
+			if not id:
+				return
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			try:
+				result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+			except Rpc.RpcException, e:
+				QApplication.restoreOverrideCursor()
+				return
+			QApplication.restoreOverrideCursor()
+			if isinstance( result, dict ):
+				screen.close()
+				datas = {
+					'ids' : [id],
+					'model' : screen.name,
+				}
+				Api.instance.executeAction( result, datas, screen.context)
+
+		elif type == 'action':
+			action_id = int(self.attrs['name'])
+			Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
+		else:
+			Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
+
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		try:
+			screen.reload()
+		except Rpc.RpcException, e:
+			pass
+		QApplication.restoreOverrideCursor()
+
 	def click( self ): 
 		if not self.record:
 			return
@@ -78,63 +137,7 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 			id = screen.save()
 			if not self.attrs.get('confirm',False) or \
 					QMessageBox.question(self,_('Question'),self.attrs['confirm'], _("Yes"), _("No")) == 0:
-				type = self.attrs.get('type', 'workflow')
-				if type == 'workflow':
-					QApplication.setOverrideCursor( Qt.WaitCursor )
-					try:
-						# TODO: Uncomment when our patch will be applied in the server
-						#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, self.record.context())
-						result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
-						if isinstance( result, dict ):
-							if result['type'] == 'ir.actions.act_window_close':
-								screen.close()
-							else:
-								if result['type'] == 'ir.actions.act_window':
-									QApplication.setOverrideCursor( Qt.ArrowCursor )
-								Api.instance.executeAction( result, {'ids': [id]} )
-								if result['type'] == 'ir.actions.act_window':
-									QApplication.restoreOverrideCursor()
-
-						elif isinstance( result, list ):
-							for r in result:
-								if result['type'] == 'ir.actions.act_window':
-									QApplication.setOverrideCursor( Qt.ArrowCursor )
-								Api.instance.executeAction( r, { 'ids': [id] } )
-								if result['type'] == 'ir.actions.act_window':
-									QApplication.restoreOverrideCursor()
-					except Rpc.RpcException, e:
-						pass
-					QApplication.restoreOverrideCursor()
-				elif type == 'object':
-					if not id:
-						return
-					QApplication.setOverrideCursor( Qt.WaitCursor )
-					try:
-						result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
-					except Rpc.RpcException, e:
-						QApplication.restoreOverrideCursor()
-						return
-					QApplication.restoreOverrideCursor()
-					if isinstance( result, dict ):
-						screen.close()
-						datas = {
-							'ids' : [id],
-							'model' : screen.name,
-						}
-						Api.instance.executeAction( result, datas, screen.context)
-
-				elif type == 'action':
-					action_id = int(self.attrs['name'])
-					Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
-				else:
-					Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
-
-				QApplication.setOverrideCursor( Qt.WaitCursor )
-				try:
-					screen.reload()
-				except Rpc.RpcException, e:
-					pass
-				QApplication.restoreOverrideCursor()
+				self.executeButton(screen, id)
 		else:
 			Notifier.notifyWarning('',_('Invalid Form, correct red fields!'))
 			screen.display()
