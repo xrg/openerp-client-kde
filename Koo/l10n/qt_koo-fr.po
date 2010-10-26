@@ -1,80 +1,81 @@
-# translation of Koo_l10n_qt-koo-de.po to Deutsch
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# French translation for openobject-client-kde
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Koo_l10n_qt-koo-de\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-26 01:47+0000\n"
-"PO-Revision-Date: 2010-07-29 20:53+0000\n"
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-09-10 08:17+0000\n"
+"PO-Revision-Date: 2010-02-16 09:35+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
-"Language-Team: Deutsch\n"
+"Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-26 07:52+0000\n"
+"X-Launchpad-Export-Date: 2010-09-17 14:48+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:89 mainwindow.ui:582
 msgid "Ctrl+D"
-msgstr "Strg+D"
+msgstr "Ctrl+D"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:594
 msgid "Ctrl+F"
-msgstr "Strg+F"
+msgstr "Ctrl+F"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:705
 msgid "Ctrl+G"
-msgstr "Strg+G"
+msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:162
 msgid "&Save list"
-msgstr "&Speichere Liste"
+msgstr "&Sauvegarder la liste"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:805
 msgid "Ctrl+J"
-msgstr "Strg+J"
+msgstr "Ctrl+J"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:125
 msgid "Ctrl+L"
-msgstr "Strg+L"
+msgstr "Ctrl+L"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:77 mainwindow.ui:546
 msgid "Ctrl+N"
-msgstr "Strg+N"
+msgstr "Ctrl+N"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:429
 msgid "Ctrl+O"
-msgstr "Strg+O"
+msgstr "Ctrl+O"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:816
 msgid "Set focus to one of the widgets in the container"
-msgstr "Setze Fokus auf ein Widget im Kontainer"
+msgstr "Metttre le focus sur un des widgets du container"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:149 mainwindow.ui:558
 msgid "Ctrl+S"
-msgstr "Strg+S"
+msgstr "Ctrl+S"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:793
 msgid "Ctrl+T"
-msgstr "Strg+T"
+msgstr "Ctrl+T"
 
 #. ts-context Form
 #: keypad.ui:147
@@ -84,17 +85,17 @@ msgstr "/"
 #. ts-context KooMainWindow
 #: mainwindow.ui:675
 msgid "Ctrl+W"
-msgstr "Strg+W"
+msgstr "Ctrl+W"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:26
 msgid "Koo: OpenObject KDE Client"
-msgstr "Koo: OpenObject KDE Anwendung"
+msgstr "Koo: OpenObject KDE Client"
 
 #. ts-context RichTextWidget
 #: richtext.ui:36
 msgid "Bold"
-msgstr "Fett"
+msgstr "Gras"
 
 #. ts-context AdminPasswordDialog
 #. ts-context ChangeServerDialog
@@ -102,17 +103,17 @@ msgstr "Fett"
 #. ts-context LoginDialog
 #: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:70
 msgid "&Server:"
-msgstr "&Server:"
+msgstr "&Serveur:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:790
 msgid "Full &Text Search"
-msgstr "& Volltext Suche"
+msgstr "Recherche Texte Intégrale"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:407
 msgid "Paste selected text"
-msgstr "ausgewählten Text einfügen"
+msgstr "Coller le texte sélectionné"
 
 #. ts-context Form
 #: keyboard.ui:644
@@ -122,29 +123,29 @@ msgstr "0"
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:299
 msgid "Repeat admin password"
-msgstr "Wiederholen admin Kennwort"
+msgstr "Répéter le mot de passe administrateur"
 
 #. ts-context Form
 #. ts-context FullTextSearchDialog
 #. ts-context WebWidget
 #: webcontainer.ui:24 full_text_search.ui:86 web.ui:23
 msgid "about:blank"
-msgstr "über:leer"
+msgstr "apropos:vide"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:660
 msgid "Previous Tab"
-msgstr "Voriger Reiter"
+msgstr "Onglet précédent"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:685
 msgid "Close tab"
-msgstr "Reiter Schließen"
+msgstr "Fermer l'onglet"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:596
 msgid "<Ctrl> + <Shift> + Open"
-msgstr "<Ctrl>+<Shift>+ Öffnen"
+msgstr "<Ctrl> + <Shift> + Open"
 
 #. ts-context Form
 #: keyboard.ui:657
@@ -154,7 +155,7 @@ msgstr "P"
 #. ts-context RichTextWidget
 #: richtext.ui:282
 msgid "Foreground Color"
-msgstr "Vordergrund Farbe"
+msgstr "Couleur du premier plan"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:37
@@ -168,77 +169,79 @@ msgid ""
 "contain the same root. For example, searching for \"build\", may return "
 "documents which contain the words \"built\", \"build\" or \"building\"."
 msgstr ""
-"Hier können Sie nach jedem Begriff in der Datenbank suchen, wenn dieser "
-"indiziert ist.\n"
-"Wenn keine Suchresultate geliefert werden und Sie wissen, dass das Wort "
-"exisitert, dann ist es nicht indiziert. Wenden Sie sich an den System "
-"Administrator.\n"
-"Das System sucht nur nach vollständigen Wörtern, bzw. deren Wurzeln.\n"
-"(Anmerkung des Übersetzers: in wieweit dies für Deutsch funktioniert ist,ist "
-"offen)"
+"Vous pouvez rechercher ici tous les termes présents dans  la base de données "
+"depuis qu'elle est indexée.  Si le résultat de la recherche ne renvoie rien "
+"bienque vous soyez certain de l'existance de ces mots dans la base de "
+"donnée,  vous devez contacter l'administrateur du système.\n"
+"\n"
+"La recherche textuelle recherche des mots complets mais aussi des mots ayant "
+"la même racine. Par exemple, si vous cherchez \"construire\", apparitront "
+"dans le résultat les documents contenant les mots \"construit\", "
+"\"construction\", \"construire\"."
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
 #: full_text_search.ui:66 mainwindow.ui:591 win_search.ui:86
 msgid "&Find"
-msgstr "Suchen"
+msgstr "Rechercher"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:745
 msgid "Open view in a background tab"
-msgstr "Öffne Ansicht in Hintergrund Reiter"
+msgstr "Ouvrir la vue dans un onglet en arrière plan"
 
 #. ts-context Form
 #: keyboard.ui:420
 msgid "Tab"
-msgstr "Tab"
+msgstr "Onglet"
 
 #. ts-context ExportDialog
 #: win_export.ui:76
 msgid "<b>All fields</b>"
-msgstr "<b>Alle Felder</b>"
+msgstr "<b>Tous les champs</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:634
 msgid "Selects all records"
-msgstr "Wähle alle Datensätze"
+msgstr "Choisir tous les enregistrements"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:93
 msgid "for all &users"
-msgstr "für alle Benutzer"
+msgstr "pour tous les &utilisateurs"
 
 #. ts-context SearchDateWidget
 #: search_date.ui:56
 msgid "Choose a date from a calendar"
-msgstr "Datum vom Kalender wählen"
+msgstr "Choisir une date dans le calendrier"
 
 #. ts-context SearchFormWidget
 #: searchform.ui:119
 msgid "&Search"
-msgstr "&Suchen"
+msgstr "&Rechercher"
 
 #. ts-context ExportDialog
 #: win_export.ui:22
 msgid "<b>Predefined exports</b>"
-msgstr "<b>Vorgegebene Exports</b>"
+msgstr "<b>Exports prédéfinis</b>"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:113
 msgid "(must not contain any special character)"
-msgstr "(darf keine Sonderzeichen enthalten)"
+msgstr "(ne doit pas contenir de caractères spéciaux)"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:286
 msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
-"<center><i>Beim Ändern eines Datensatzes in eine PopUp fenster</i></center>"
+"<center><i>Lors de l'édition d'une ressource dans le menu contextuel</i></"
+"center>"
 
 #. ts-context ImportDialog
 #: win_import.ui:195
 msgid "&Text delimiter:"
-msgstr "&Text Begrenzer:"
+msgstr "Délimiteur de &texte:"
 
 #. ts-context CalendarWidget
 #. ts-context Form
@@ -261,12 +264,12 @@ msgstr "&Text Begrenzer:"
 #: search_date.ui:26 searchform.ui:14 searchreference.ui:13
 #: searchviewitem.ui:19 tree.ui:14 url.ui:20 web.ui:13
 msgid "Form"
-msgstr "Formular"
+msgstr "Formulaire"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:766
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
-msgstr "<Alt> + Pfeil (Links, Rechts, Hinauf, Hinunter)"
+msgstr "<Alt> + Flèche (Gauche, Droite, Haut, Bas)"
 
 #. ts-context Form
 #: keyboard.ui:618
@@ -276,28 +279,28 @@ msgstr "+"
 #. ts-context Form
 #: keyboard.ui:433
 msgid "Caps"
-msgstr "Hochstelltaste"
+msgstr "Majuscules"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:786
 msgid "Set focus to current widget's container"
-msgstr "Setze Fokus auf bestehende Kontainer"
+msgstr "Mettre le focus sur le container du composant courant"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:101 mainwindow.ui:606
 msgid "Alt+PgDown"
-msgstr "Alt Bild ab"
+msgstr "Alt+PgDown"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:776
 msgid "Set focus to nearest widget"
-msgstr "Setze Fokus auf nächstes Widget"
+msgstr "Mettre le focus sur le composant le plus proche"
 
 #. ts-context ErrorDialog
 #: error.ui:109
 msgid "De&tails"
-msgstr "&Details"
+msgstr "Dé&tail"
 
 #. ts-context Form
 #: keyboard.ui:173
@@ -307,12 +310,12 @@ msgstr "K"
 #. ts-context KooMainWindow
 #: mainwindow.ui:351
 msgid "Documentation"
-msgstr "Dokumentation"
+msgstr "Documentation"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:462
 msgid "&New Database"
-msgstr "&Neue Datenbank"
+msgstr "&Nouvelle base de données"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:570
@@ -323,7 +326,7 @@ msgstr "Ctrl+Shift+D"
 #. ts-context LoginDialog
 #: choosedb.ui:95 login.ui:111
 msgid "&Database:"
-msgstr "&Datenbank:"
+msgstr "&Base de données:"
 
 #. ts-context ErrorDialog
 #: error.ui:135
@@ -333,47 +336,47 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:397
 msgid "Copy selected text"
-msgstr "Kopiere ausgewählten Text"
+msgstr "Copier le texte sélectionné"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:24
 msgid "&Main Shortcuts"
-msgstr "wichtige Kürzel"
+msgstr "Raccourcis principaux"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:758
 msgid "&Tips"
-msgstr "&Tipps"
+msgstr "Asctuces"
 
 #. ts-context ImportDialog
 #: win_import.ui:16
 msgid "Import"
-msgstr "Import"
+msgstr "Importer"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:13
 msgid "Database created"
-msgstr "Datenbank erzeugt"
+msgstr "Base de données créée"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:26
 msgid "<b>Could not connect to database</b>"
-msgstr "<b>Kann nicht mit Datenbank verbinden</b>"
+msgstr "<b>Impossible de se connecter à la base de données</b>"
 
 #. ts-context SearchDateWidget
 #: search_date.ui:112
 msgid "Choose the date from a calendar"
-msgstr "Datum vom Kalender wählen"
+msgstr "Choisir la date depuis un calendrier"
 
 #. ts-context ExportDialog
 #: win_export.ui:197
 msgid "<b>Options</b>"
-msgstr "<b>Optionen</b>"
+msgstr "<b>Options</b>"
 
 #. ts-context Dialog
 #: lostconnection.ui:73
 msgid "&Retry"
-msgstr "&Wiederholen"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:553
@@ -384,7 +387,7 @@ msgstr "6"
 #. ts-context ShortcutsDialog
 #: win_attach.ui:86 shortcuts.ui:90
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Supprimer"
 
 #. ts-context Form
 #: keyboard.ui:56
@@ -394,7 +397,7 @@ msgstr "E"
 #. ts-context RichTextWidget
 #: richtext.ui:331
 msgid "Select font size"
-msgstr "Zeichengröße auswählen"
+msgstr "Sélectionner la taille de la police"
 
 #. ts-context Form
 #: keyboard.ui:160
@@ -409,55 +412,56 @@ msgstr "Ñ"
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:66
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
-"Serif';\">You can connect to the new database using one of the following "
-"accounts:</p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
+"\">You can connect to the new database using one of the following accounts:</"
+"p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "family:'Sans Serif';\"></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
-"Serif';\">Administrator: admin / admin</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
+"\">Administrator: admin / admin</p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
-"Serif';\">Sie können sich mit einem der folgenden Konten anmelden:</p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
+"\">Vous pouvez vous connecter à la nouvelle base de données avec les comptes "
+"suivants:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
 "family:'Sans Serif';\"></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
-"Serif';\">Administrator: admin / admin</p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
+"\">Administrateur: admin / admin</p></body></html>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:329
 msgid "&Reports"
-msgstr "Be&richte"
+msgstr "&Rapports"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:705
 msgid "Open form view in new tab"
-msgstr "Öffnet Formular in neuem Reiter"
+msgstr "Ouvrir la vue formulaire dans un nouvel onglet"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:582
 msgid "<Ctrl> + Open"
-msgstr "<Ctrl> + Öffnen"
+msgstr "<Ctrl> + Ouvrir"
 
 #. ts-context Form
 #: keyboard.ui:290
@@ -488,18 +492,18 @@ msgstr "F6"
 #. ts-context KooMainWindow
 #: mainwindow.ui:444
 msgid "&Disconnect"
-msgstr "Trenne"
+msgstr "&Déconnecter"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:32
 msgid "Connect to a OpenERP Server"
-msgstr "Verbinde zu OpenERP Server"
+msgstr "Se connecter au serveur OpenERP"
 
 #. ts-context AboutDialog
 #: about.ui:20
 msgid ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -510,17 +514,17 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">The most advanced Open "
 "Source ERP &amp; CRM !</p></center></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<center><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; "
 "margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"weight:600;\">About OpenERP</span> </p>\n"
+"weight:600;\">A propos d'OpenERP</span> </p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Das fortschrittlichstes "
-"TOpen Source ERP &amp; CRM !</p></center></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">L'ERP &amp; CRM Open "
+"Source le plus avancé !</p></center></body></html>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:509
@@ -528,16 +532,16 @@ msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
 msgstr ""
-"Formel + <Enter>\n"
-"(Beispiel: 3+2*2)"
+"Formule + <Entrer>\n"
+"(Exemple: 3+2*2)"
 
 #. ts-context AboutDialog
 #: about.ui:48
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -546,8 +550,8 @@ msgid ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
-" %s</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client "
+"- %s</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
@@ -580,10 +584,10 @@ msgid ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -592,65 +596,65 @@ msgstr ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
-" %s</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client "
+"- %s</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP ist ein Open "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
 "Source ERP+CRM</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">für kleine und mittlere "
-"Unternehmen.</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+"businesses.</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Der gesamte Quellcode "
-"ist unter </span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code is "
+"distributed under </span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">den Bedingungen der GNU "
-"Public Licence veröffentlicht.</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+"Public Licence.</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mehr INformation auf "
-"</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
-"Serif'; font-size:9pt; text-decoration: underline; "
-"color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
+"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+"tic.com</span></a></p></body></html>"
 
 #. ts-context OneToManyWidget
 #. ts-context PanedWidget
 #: one2many.ui:242 paned.ui:117
 msgid "Switch View"
-msgstr "Ansicht Umschalten"
+msgstr "Basculer de vue"
 
 #. ts-context Form
 #: customsearchitem.ui:71
 msgid "&And"
-msgstr "&Und"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:648
 msgid "Next Tab"
-msgstr "Nächster Reiter"
+msgstr "Onglet suivant"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
 msgid "Create a new database"
-msgstr "Erstelle neue Datenbank"
+msgstr "Créer une nouvelle base de données"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:675
 msgid "Middle mouse click on Tab"
-msgstr "Mittleree Mausklick auf Reiter"
+msgstr "Clic du milieu sur l'onglet"
 
 #. ts-context ImportDialog
 #: win_import.ui:233
@@ -660,7 +664,7 @@ msgstr "UTF-8"
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:57
 msgid "&Old password:"
-msgstr "Altes Kennwort"
+msgstr "Ancien m&ot de passe"
 
 #. ts-context Form
 #: keyboard.ui:527
@@ -670,7 +674,7 @@ msgstr "1"
 #. ts-context TipsDialog
 #: tip.ui:96
 msgid "&Display a new tip next time ?"
-msgstr "Zeige das nächste Mal einen neuen Tip?"
+msgstr "Afficher les astuces la prochaine fois ?"
 
 #. ts-context Form
 #: keyboard.ui:199
@@ -680,22 +684,22 @@ msgstr "A"
 #. ts-context Form
 #: image.ui:56
 msgid "Load Image"
-msgstr "Lade Bild"
+msgstr "Charger l'image"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:525
 msgid "&Read My Requests"
-msgstr "Lese meine Anf&ragen"
+msgstr "Li&re mes requêtes"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:107
 msgid "Find / Search"
-msgstr "Finden / Suchen"
+msgstr "Trouver / Rechercher"
 
 #. ts-context ImportDialog
 #: win_import.ui:130
 msgid "Fields to import"
-msgstr "Felder zu importieren"
+msgstr "Champs à importer"
 
 #. ts-context Form
 #: keyboard.ui:579
@@ -705,7 +709,7 @@ msgstr "Q"
 #. ts-context AboutDialog
 #: about.ui:76
 msgid "&Contact"
-msgstr "Kontakt"
+msgstr "&Contact"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:461
@@ -715,62 +719,62 @@ msgstr "<Tab>"
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:14
 msgid "OpenERP - Link"
-msgstr "OpenERP - Link"
+msgstr "OpenERP - Lien"
 
 #. ts-context ImportDialog
 #: win_import.ui:153
 msgid "File to &import:"
-msgstr "Datei zu importieren"
+msgstr "Fichier à &importer"
 
 #. ts-context ExportDialog
 #: win_export.ui:210
 msgid "Add &field names"
-msgstr "&Feldnamen hinzufügen"
+msgstr "Ajouter nom du champ"
 
 #. ts-context ImportDialog
 #: win_import.ui:109
 msgid "Auto-&detect"
-msgstr "automatisch Erkennung"
+msgstr "Auto-&détection"
 
 #. ts-context BinaryWidget
 #: binary.ui:64
 msgid "Save file..."
-msgstr "Datei Speichern"
+msgstr "Sauvegarder fichier"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:55
 msgid "Default &value"
-msgstr "&Voreinstellung Wert"
+msgstr "&Valeur par défaut"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:660
 msgid "&Advanced"
-msgstr "Fortgeschritten"
+msgstr "&Avancé"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:772
 msgid "&License"
-msgstr "&Lizenz"
+msgstr "&Licence"
 
 #. ts-context Form
 #: calendarview.ui:34
 msgid "Monthly View"
-msgstr "Monatsansicht"
+msgstr "Vue mensuelle"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:102
 msgid "<b>Value applicable if:</b>"
-msgstr "<b>Wert anzuwenden, wenn:</b>"
+msgstr "<b>Valeur applicable si:</b>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:814
 msgid "&Form designer"
-msgstr "&Formular Desinger"
+msgstr "Concepteur de &Formulaire"
 
 #. ts-context ImportDialog
 #: win_import.ui:219
 msgid "&Lines to skip:"
-msgstr "überspringe Zei&len:"
+msgstr "&Lignes à ignorer"
 
 #. ts-context Form
 #. ts-context ImportDialog
@@ -781,18 +785,18 @@ msgstr ","
 #. ts-context KooMainWindow
 #: mainwindow.ui:579
 msgid "&Delete"
-msgstr "&Löschen"
+msgstr "Supprimer"
 
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
 #: mainwindow.ui:543 win_search.ui:67
 msgid "&New"
-msgstr "&Neu"
+msgstr "&Nouveau"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:451
 msgid "Auto-complete text field"
-msgstr "Feld automatisch vervollständigen"
+msgstr "Champ texte auto-complété"
 
 #. ts-context Form
 #: keyboard.ui:631
@@ -802,7 +806,7 @@ msgstr "Ç"
 #. ts-context KooMainWindow
 #: mainwindow.ui:498
 msgid "&Administrator Password"
-msgstr "&Administrator Kennwort"
+msgstr "Mot de passe &Administrateur"
 
 #. ts-context Form
 #: keyboard.ui:212
@@ -812,7 +816,7 @@ msgstr "L"
 #. ts-context KooMainWindow
 #: mainwindow.ui:828
 msgid "Open Home Tab"
-msgstr "Öffne persönlichen Reiter"
+msgstr "Ouvir l'onglet d'accueil"
 
 #. ts-context Dialog
 #: lostconnection.ui:45
@@ -820,45 +824,44 @@ msgid ""
 "Connection with the server has been lost. Will retry connection in 10 "
 "seconds."
 msgstr ""
-"Verbindung mit dem Server wurde getrennt, nächster Versuch in 10 Sekunden."
 
 #. ts-context ImportDialog
 #: win_import.ui:32
 msgid "All fields"
-msgstr "Alle Felder"
+msgstr "Tous les champs"
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
 #: win_attach.ui:110 one2many.ui:171
 msgid "Previous"
-msgstr "Vorherig"
+msgstr "Précédent"
 
 #. ts-context PreferencesDialog
 #: preferences.ui:14
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr "Préférences"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:13
 msgid "Choose database..."
-msgstr "Wähle Datenbank"
+msgstr "Choisir une base de données"
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
 #: win_attach.ui:98 one2many.ui:213
 msgid "Next"
-msgstr "Weiter"
+msgstr "Suivant"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:91
 msgid "New password &confirmation:"
-msgstr "Neues Passwort und Bestätigung:"
+msgstr "&confirmation du nouveau mot de passe:"
 
 #. ts-context AttachmentWindow
 #. ts-context ShortcutsDialog
 #: win_attach.ui:146 shortcuts.ui:73
 msgid "Save"
-msgstr "Speichern"
+msgstr "Sauvegarder"
 
 #. ts-context Form
 #: keyboard.ui:605
@@ -868,7 +871,7 @@ msgstr "'"
 #. ts-context KooMainWindow
 #: mainwindow.ui:837
 msgid "&Clear Cache"
-msgstr "Zwischenspeicher &leeren"
+msgstr "Effacer le cache"
 
 #. ts-context ChooseDatabaseDialog
 #. ts-context Form
@@ -876,12 +879,12 @@ msgstr "Zwischenspeicher &leeren"
 #. ts-context SearchViewItemWidget
 #: choosedb.ui:123 image.ui:25 one2many.ui:80 searchviewitem.ui:164
 msgid "TextLabel"
-msgstr "TextLabel"
+msgstr "ChampTexte"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:757
 msgid "<b>Shortcuts in text entries</b>"
-msgstr "<b>Kürzel in Text Eingaben</b>"
+msgstr "<b>Raccourci dans le texte saisi</b>"
 
 #. ts-context Form
 #: keyboard.ui:475
@@ -896,18 +899,18 @@ msgstr "G"
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:123
 msgid "(use 'admin', if you did not change it)"
-msgstr "(verwende 'admin', wenn dies nicht verändert wurde)"
+msgstr "(utiliser 'admin', si vous ne l'avez pas changé)"
 
 #. ts-context BinaryWidget
 #. ts-context LinkWidget
 #: binary.ui:47 link.ui:36
 msgid "Select file..."
-msgstr "Datei Auswählen"
+msgstr "Sélectionner un fichier..."
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:20
 msgid "<b>Change your database administration password</b>"
-msgstr "<b>Verändere das Datenbank Admin Passwort</b>"
+msgstr "<b>Changer votre mot de passe administrateur</b>"
 
 #. ts-context Form
 #: keyboard.ui:43
@@ -923,12 +926,12 @@ msgstr "F10"
 #. ts-context LoginDialog
 #: choosedb.ui:78 login.ui:221
 msgid "&Password:"
-msgstr "&Kennwort:"
+msgstr "Mot de &passe:"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:56
 msgid "Database created successfully!"
-msgstr "Datenbank erfolgreich erzeugt!"
+msgstr "Base de données crée avec succès"
 
 #. ts-context ErrorDialog
 #: error.ui:124
@@ -938,39 +941,40 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:568
 msgid "Create a new record"
-msgstr "Erzeuge neue Resource"
+msgstr "Créer un nouvel enregistrement"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:819
 msgid "&Menu"
-msgstr "&Menü"
+msgstr "&Menu"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
 #: full_text_search.ui:115 mainwindow.ui:615 one2many_dialog.ui:57
 msgid "&Previous"
-msgstr "&Zurück"
+msgstr "&Précédent"
 
 #. ts-context Form
 #: customsearchitem.ui:81
 msgid "&Or"
-msgstr "&Oder"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
 msgid "Next record"
-msgstr "Nächster Datensatz"
+msgstr "Enregistrement suivant"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:870
+#, fuzzy
 msgid "Push Button of All Selected Records"
-msgstr ""
+msgstr "Modifier tous les enregistrements sélectionnés"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:324
 msgid "&Actions"
-msgstr "&Aktionen"
+msgstr "&Actions"
 
 #. ts-context ImportDialog
 #: win_import.ui:205
@@ -980,7 +984,7 @@ msgstr "\""
 #. ts-context KooMainWindow
 #: mainwindow.ui:263
 msgid "F&orm"
-msgstr "F&ormular"
+msgstr "F&ormulaire"
 
 #. ts-context Form
 #: keyboard.ui:501
@@ -990,24 +994,24 @@ msgstr "2"
 #. ts-context KooMainWindow
 #: mainwindow.ui:290
 msgid "&Database"
-msgstr "&Datenbank"
+msgstr "&Base de données"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:558
 msgid "Opens the record in a new background tab"
-msgstr "Öffnet Datensatz in Hintergrund Reiter"
+msgstr "Ouvrir l'enregistrement dans une nouvel onglet en arrière plan"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:781
 msgid "&About"
-msgstr "Über"
+msgstr "&A propos"
 
 #. ts-context ManyToOneWidget
 #. ts-context PanedWidget
 #. ts-context SearchWidget
 #: many2one.ui:59 paned.ui:83 win_search.ui:14
 msgid "Search"
-msgstr "Suchen"
+msgstr "Recherche"
 
 #. ts-context Form
 #: keyboard.ui:316
@@ -1017,12 +1021,12 @@ msgstr "B"
 #. ts-context KooMainWindow
 #: mainwindow.ui:155
 msgid "Requests:"
-msgstr "Anfragen:"
+msgstr "Rquêtes:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:347
 msgid "&Help"
-msgstr "&Hilfe"
+msgstr "Aide"
 
 #. ts-context Form
 #: keyboard.ui:69
@@ -1032,33 +1036,33 @@ msgstr "R"
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:64
 msgid "&Change"
-msgstr "Verändere"
+msgstr "Remplacer"
 
 #. ts-context ShortcutsDialog
 #. ts-context TreeWidget
 #: shortcuts.ui:14 tree.ui:58
 msgid "Shortcuts"
-msgstr "Kürzel"
+msgstr "Raccourcis"
 
 #. ts-context RichTextWidget
 #: richtext.ui:123
 msgid "Strikethrough"
-msgstr "Durchgestrichen"
+msgstr "Frappe au clavier"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:74
 msgid "<b>Value applicable for:</b>"
-msgstr "<b>Wert anzuwenden für</b>"
+msgstr "<b>Valeur applciable pour:</b>"
 
 #. ts-context Form
 #: keypad.ui:238
 msgid "Intro"
-msgstr "Einführung"
+msgstr "Intro"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:39
 msgid "Connect"
-msgstr "Verbinde"
+msgstr "Connecter"
 
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:118
@@ -1068,42 +1072,42 @@ msgstr "&OK"
 #. ts-context KooMainWindow
 #: mainwindow.ui:312
 msgid "&User"
-msgstr "&Benutzer"
+msgstr "&Utilisateur"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:663
 msgid "Ctrl+PgUp"
-msgstr "Strg+Bild auf"
+msgstr "Ctrl+PgUp"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:124
 msgid "Full Text Search"
-msgstr "Volltext Suche"
+msgstr "Recherche texte intégral"
 
 #. ts-context ErrorDialog
 #: error.ui:64
 msgid "<b>Error code:</b>"
-msgstr "<b>Fehler Code</b>"
+msgstr "<b>Code erreur:</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:151
 msgid "<Alt> + <PgDn>"
-msgstr "<Alt> + <Bild ab>"
+msgstr "<Alt> + <PgDn>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:684
 msgid "View Access Log"
-msgstr "Zeige Zugriffs Log"
+msgstr "Vue du journal des accès"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:209
 msgid "Next tab"
-msgstr "Nächster Reiter"
+msgstr "Onglet suivant"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:417
 msgid "Next editable widget"
-msgstr "Nächstes veränderbare Eingabefeld"
+msgstr "Prochain composant modifiable"
 
 #. ts-context Form
 #. ts-context SearchDateWidget
@@ -1124,44 +1128,44 @@ msgstr "M"
 #. ts-context KooMainWindow
 #: mainwindow.ui:567
 msgid "D&uplicate"
-msgstr "&Duplizieren"
+msgstr "D&upliquer"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:38
 msgid "&Domain"
-msgstr "&Domain"
+msgstr "&Domaine"
 
 #. ts-context Form
 #: keyboard.ui:407
 msgid "Enter"
-msgstr "Eingabe"
+msgstr "Entrer"
 
 #. ts-context LoginDialog
 #: login.ui:23
 msgid "Login"
-msgstr "Anmelden"
+msgstr "Connexion"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:14
 msgid "Full text search"
-msgstr "Volltext Suche"
+msgstr "Recherche texte intégral"
 
 #. ts-context ExportDialog
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
 #: win_export.ui:127 win_import.ui:74 many2many.ui:60
 msgid "&Remove"
-msgstr "Enfe&rne"
+msgstr "Supprimer"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:74
 msgid "&New password:"
-msgstr "&Neues Kennwort:"
+msgstr "&Nouveau mot de passe"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:294
 msgid "&Databases"
-msgstr "&Datenbanken"
+msgstr "&Bases de données"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
@@ -1169,12 +1173,12 @@ msgstr "&Datenbanken"
 #. ts-context TipsDialog
 #: full_text_search.ui:158 mainwindow.ui:672 shortcuts.ui:860 tip.ui:159
 msgid "&Close"
-msgstr "Sch&ließen"
+msgstr "Fermer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:253
 msgid "<Ctrl> + <Shift> + D"
-msgstr "<Strg> + <Shift> + D"
+msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:856
@@ -1184,52 +1188,52 @@ msgstr ""
 #. ts-context ImportDialog
 #: win_import.ui:178
 msgid "&Field separator"
-msgstr "&Feldtrenner"
+msgstr "Séparateur de champ"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:639
 msgid "Open &Menu Tab"
-msgstr "Öffne Menü Reiter"
+msgstr "Ouvrir l'onglet &Menu"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:516
 msgid "&Send Request"
-msgstr "&Sende Anfrage"
+msgstr "Envoyer une requête"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:50
 msgid "&New database name:"
-msgstr "&Neuer Datenbank Name:"
+msgstr "&Nouveau nom de base de données"
 
 #. ts-context ErrorDialog
 #: error.ui:71
 msgid "View details"
-msgstr "Zeige Details"
+msgstr "Vue détails"
 
 #. ts-context RichTextWidget
 #: richtext.ui:301
 msgid "Background color"
-msgstr "Hintergrund Farbe"
+msgstr "Couleur d'arrière plan"
 
 #. ts-context ErrorDialog
 #: error.ui:20
 msgid "Application Error !"
-msgstr "Anwednungs Fehler!"
+msgstr "Erreur de l'application"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
 msgid "&OpenERP server:"
-msgstr "&OpenERP Server:"
+msgstr "&OpenERp serveur:"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:25
 msgid "Action here..."
-msgstr "Aktion hier"
+msgstr "Action ici..."
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:548
 msgid "Opens the record in a new tab"
-msgstr "Öffnet Datensatz in neuem Reiter"
+msgstr "Ouvrir l'enregistrement dans un nouvel onglet"
 
 #. ts-context Form
 #: keyboard.ui:566
@@ -1239,7 +1243,7 @@ msgstr "8"
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:83
 msgid "&only for you"
-msgstr "nur für Sie"
+msgstr "&Seulement pour vous"
 
 #. ts-context Form
 #: keyboard.ui:264
@@ -1249,12 +1253,12 @@ msgstr "H"
 #. ts-context Form
 #: calendarview.ui:83
 msgid "Color Legend"
-msgstr "Farb Legende"
+msgstr "Couleur de la légende"
 
 #. ts-context Form
 #: image.ui:73
 msgid "Save Image"
-msgstr "Speichere Bild"
+msgstr "Sauvegarder image"
 
 #. ts-context Form
 #: keyboard.ui:368
@@ -1269,12 +1273,12 @@ msgstr ""
 #. ts-context TreeWidget
 #: tree.ui:91
 msgid "Remove Shortcut"
-msgstr "Kürzel entfernen"
+msgstr "Supprimer un raccourci"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:21
 msgid "Field &Name"
-msgstr "Feld &Name"
+msgstr "&Nom du champ"
 
 #. ts-context Form
 #: customsearchitem.ui:56
@@ -1286,12 +1290,12 @@ msgstr ""
 #. ts-context ErrorDialog
 #: error.ui:34
 msgid "&Description"
-msgstr "&Beschreibung"
+msgstr "&Description"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:260
 msgid "Duplicate Record"
-msgstr "Dupliziere Datensatz"
+msgstr "Dupliquer l'enregistrement"
 
 #. ts-context Form
 #: keyboard.ui:381
@@ -1301,22 +1305,22 @@ msgstr "C"
 #. ts-context LoginDialog
 #: login.ui:176
 msgid "<b>Could not connect to server !</b>"
-msgstr "<b>Kann nicht mit Server verbinden !</b>"
+msgstr "<b>Impossible de se connecter au serveur !</b>"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:197
 msgid "&Load demonstration data"
-msgstr "&Lade Demo Daten"
+msgstr "Charger &les données de démonstrations"
 
 #. ts-context Dialog
 #: massiveupdate_msgbox.ui:14
 msgid "Massive Update"
-msgstr "Massen Update"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
 msgid "Admin password:"
-msgstr "Admin Kennwort:"
+msgstr "Mot de passe administrateur:"
 
 #. ts-context Form
 #: keyboard.ui:514
@@ -1331,34 +1335,34 @@ msgstr ""
 #. ts-context TreeWidget
 #: tree.ui:111
 msgid "Expand/Collapse"
-msgstr "Entfalten/Zusammenfalten"
+msgstr "Déplier/Plier"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:42
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
-"style=\" text-decoration: underline; "
-"color:#0000ff;\">?</span></a></p></body></html>"
+"style=\" text-decoration: underline; color:#0000ff;\">?</span></a></p></"
+"body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
-"style=\" text-decoration: underline; "
-"color:#0000ff;\">?</span></a></p></body></html>"
+"style=\" text-decoration: underline; color:#0000ff;\">?</span></a></p></"
+"body></html>"
 
 #. ts-context ProgressDialog
 #: progress.ui:53
@@ -1366,23 +1370,23 @@ msgid ""
 "Please wait, \n"
 "this operation may take a while..."
 msgstr ""
-"Bitte warten, \n"
-"dieser Vorgang kann einige Zeit dauern"
+"Veuillez patienter, \n"
+"cette opération peut prendre du temps..."
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:204
 msgid "Read My Requests"
-msgstr "Lese meine Anfragen:"
+msgstr "Lire toutes mes requêtes"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:141
 msgid "Previous Record"
-msgstr "Voriger datensatz"
+msgstr "Enregistrement précédent"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:20
 msgid "Server"
-msgstr "Server"
+msgstr "Serveur"
 
 #. ts-context AboutDialog
 #. ts-context AdminPasswordDialog
@@ -1408,7 +1412,7 @@ msgstr "Server"
 #: license.ui:148 login.ui:283 massiveupdate.ui:44 preferences.ui:45
 #: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
-msgstr "&Annehmen"
+msgstr "&Accepter"
 
 #. ts-context Form
 #: keyboard.ui:238
@@ -1418,19 +1422,19 @@ msgstr "S"
 #. ts-context KooMainWindow
 #: mainwindow.ui:489
 msgid "&Drop Database"
-msgstr "&Datenbank löschen"
+msgstr "Supprimer les base de &données"
 
 #. ts-context SearchFormWidget
 #: searchform.ui:108
 msgid "&Clear"
-msgstr "Leeren"
+msgstr "Effacer"
 
 #. ts-context AdminPasswordDialog
 #. ts-context CreateDatabaseDialog
 #. ts-context LoginDialog
 #: admin_passwd.ui:46 create_database.ui:94 login.ui:98
 msgid "C&hange"
-msgstr "Ändern"
+msgstr "C&hanger"
 
 #. ts-context AdminPasswordDialog
 #. ts-context ChangeServerDialog
@@ -1454,12 +1458,12 @@ msgstr "Ändern"
 #: one2many_dialog.ui:129 massiveupdate.ui:55 preferences.ui:56
 #: win_search.ui:108 win_selection.ui:57 translationdialog.ui:56
 msgid "&Cancel"
-msgstr "&Abbrechen"
+msgstr "Annuler"
 
 #. ts-context Form
 #: image.ui:90
 msgid "Remove Image"
-msgstr "Entferne Bild"
+msgstr "Supprimer une image"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:851
@@ -1469,42 +1473,42 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:134
 msgid "<Alt> + <PgUp>"
-msgstr "<Alt> + <Bild auf>"
+msgstr "<Alt> + <PgUp>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:227
 msgid "Send New Request"
-msgstr "Sende neue Anfrage"
+msgstr "Envoyer une nouvelle requête"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:651
 msgid "Ctrl+PgDown"
-msgstr "Strg + Bild ab"
+msgstr "Ctrl+PgDown"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:444
 msgid "<Enter>"
-msgstr "<Eingabe>"
+msgstr "<Entrer>"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:98
 msgid "Connect &now"
-msgstr "Verbi&nde jetzt"
+msgstr "Co&nnecter maintenant"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:735
 msgid "&Import Data"
-msgstr "&Importiere Daten"
+msgstr "&Importer des données"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:258
 msgid "&Plugins"
-msgstr "&Zusatzmodule"
+msgstr "Greffons"
 
 #. ts-context RichTextWidget
 #: richtext.ui:159
 msgid "Left Justify"
-msgstr "Links justiert"
+msgstr "Aligner à gauche"
 
 #. ts-context Form
 #: keyboard.ui:342
@@ -1514,27 +1518,27 @@ msgstr "."
 #. ts-context TipsDialog
 #: tip.ui:20
 msgid "Tip of the Day"
-msgstr "Tip des Tages"
+msgstr "Astuce du jour"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:507
 msgid "&Preferences"
-msgstr "&Persönliche Einstellungen"
+msgstr "&Préférences"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:753
 msgid "&Contextual Help"
-msgstr "Kontext Hilfe"
+msgstr "Aide contextuelle"
 
 #. ts-context Dialog
 #: lostconnection.ui:32
 msgid "Connection Lost"
-msgstr "Verbindung verloren"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:375
 msgid "Shortcuts in text entries"
-msgstr "Kürzle in Text Eingaben"
+msgstr "Raccourcis dans les textes saisis"
 
 #. ts-context Form
 #: keyboard.ui:394
@@ -1544,12 +1548,12 @@ msgstr "N"
 #. ts-context AttachmentWindow
 #: win_attach.ui:122
 msgid "Switch"
-msgstr "Umschalten"
+msgstr "Basculer"
 
 #. ts-context Form
 #: keyboard.ui:462
 msgid "Space"
-msgstr "Leertaste"
+msgstr "Espace"
 
 #. ts-context AdminPasswordDialog
 #. ts-context ExportDialog
@@ -1558,55 +1562,55 @@ msgstr "Leertaste"
 #: admin_passwd.ui:14 win_export.ui:14 field_preferences.ui:13
 #: win_selection.ui:13
 msgid "Dialog"
-msgstr "Dialog"
+msgstr "Fenêtre"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:16 mainwindow.ui:802
 msgid "Attachments"
-msgstr "Anhänge"
+msgstr "Pièce jointe"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:480
 msgid "&Backup Database"
-msgstr "Daten&bank Sichern"
+msgstr "Sauvegarder la &Base de données"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:344
 msgid "General"
-msgstr "Allgemein"
+msgstr "Général"
 
 #. ts-context PanedWidget
 #. ts-context ReferenceWidget
 #. ts-context UrlWidget
 #: paned.ui:100 reference.ui:49 url.ui:51
 msgid "Open"
-msgstr "Offen"
+msgstr "Ouvrir"
 
 #. ts-context Form
 #: calendarview.ui:50
 msgid "Weekly View"
-msgstr "Wochenansicht"
+msgstr "Vue hebdomadaire"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:497
 msgid "Numeric fields"
-msgstr "Numerische Felder"
+msgstr "Champs numériques"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:744
 msgid "&Execute Plugins"
-msgstr "Zusatzmodule ausführen"
+msgstr "&Executer les greffons"
 
 #. ts-context ProgressDialog
 #: progress.ui:14
 msgid "Progress..."
-msgstr "Fortschritt."
+msgstr "En cours..."
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:22
 msgid "&Search Id:"
-msgstr "&Suche ID:"
+msgstr "Rechercher l'Id:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:312
@@ -1621,7 +1625,7 @@ msgstr "<-"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:715
 msgid "Mouse Wheel on Tab"
-msgstr "Mausrad am Reiter"
+msgstr "Molette de la souris sur les onglets"
 
 #. ts-context Form
 #: keyboard.ui:488
@@ -1631,15 +1635,15 @@ msgstr "9"
 #. ts-context FormContainerWidget
 #: formcontainer.ui:56
 msgid "State:"
-msgstr "Status:"
+msgstr "État:"
 
 #. ts-context AboutDialog
 #: about.ui:82
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -1648,8 +1652,8 @@ msgid ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
-"NaN:</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of NaN:"
+"</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
@@ -1659,20 +1663,20 @@ msgid ""
 "18</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
-"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href="
+"\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-decoration: "
+"underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href="
+"\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-"
+"size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
+"com</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -1681,8 +1685,8 @@ msgstr ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo ist ein Produkt von "
-"NaN:</span></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of NaN:"
+"</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
@@ -1692,26 +1696,26 @@ msgstr ""
 "18</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
-"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href="
+"\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-decoration: "
+"underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href="
+"\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-"
+"size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
+"com</span></a></p></body></html>"
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
 #: mainwindow.ui:471 login.ui:143
 msgid "&Restore Database"
-msgstr "Datenbank Wiederhe&rstellen"
+msgstr "&Restaurer la base de données"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:434
 msgid "Previous editable widget"
-msgstr "Voriges veränderbares Eingabefeld"
+msgstr "Précedent composant modifiable"
 
 #. ts-context Form
 #: keyboard.ui:121
@@ -1722,12 +1726,12 @@ msgstr "I"
 #. ts-context ReferenceWidget
 #: binary.ui:81 reference.ui:83
 msgid "Clear"
-msgstr "Löschen"
+msgstr "Effacer"
 
 #. ts-context RichTextWidget
 #: richtext.ui:318
 msgid "Select font"
-msgstr "Zeichensatz Auswählen"
+msgstr "Sélectionner une police"
 
 #. ts-context Form
 #: keyboard.ui:95
@@ -1737,12 +1741,12 @@ msgstr "Y"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:725
 msgid "Change current tab"
-msgstr "Verändere aktuellen Reiter"
+msgstr "Changer l'onglet courant"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:112
 msgid "Connect &later"
-msgstr "Verbinde später"
+msgstr "Connecter p&lus tard"
 
 #. ts-context Form
 #: keyboard.ui:82
@@ -1752,7 +1756,7 @@ msgstr "T"
 #. ts-context GoToIdDialog
 #: gotoid.ui:14
 msgid "Go To Id"
-msgstr "Gehe zu ID"
+msgstr "Aller à l'ID"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:71
@@ -1762,12 +1766,12 @@ msgstr "&Port:"
 #. ts-context KooMainWindow
 #: mainwindow.ui:702
 msgid "Go To Resource ID"
-msgstr "Gehe zu Resource ID"
+msgstr "Aller à l'ID de ressource"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:49
 msgid "<Ctrl> + N"
-msgstr "<Strg> + N"
+msgstr "<Ctrl> + N"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:32
@@ -1777,37 +1781,37 @@ msgstr "<Ctrl> + O"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:168
 msgid "<Ctrl> + L"
-msgstr "<Strg> + L"
+msgstr "<Ctrl> + L"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:468
 msgid "<Ctrl> + C"
-msgstr "<Strg> + C"
+msgstr "<Ctrl> + C"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:627
 msgid "<Ctrl> + A"
-msgstr "<Ctrl> +  A"
+msgstr "<Ctrl> + A"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:100
 msgid "<Ctrl> + F"
-msgstr "<Strg> + F"
+msgstr "<Ctrl> + F"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:83
 msgid "<Ctrl> + D"
-msgstr "<Strg> + D"
+msgstr "<Ctrl> + D"
 
 #. ts-context TipsDialog
 #: tip.ui:133
 msgid "&Next Tip"
-msgstr "&Nächster Tip"
+msgstr "Astuce suiva&nte"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:482
 msgid "<Ctrl> + X"
-msgstr "<Strg> + X"
+msgstr "<Ctrl> + X"
 
 #. ts-context Form
 #: keyboard.ui:670
@@ -1817,17 +1821,17 @@ msgstr "4"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:66
 msgid "<Ctrl> + S"
-msgstr "<Strg> + S"
+msgstr "<Ctrl> + S"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:475
 msgid "<Ctrl> + V"
-msgstr "<Strg> + V"
+msgstr "<Ctrl> + V"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:219
 msgid "<Ctrl> + W"
-msgstr "<Strg> + W"
+msgstr "<Ctrl> + W"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:117
@@ -1837,7 +1841,7 @@ msgstr "<Ctrl> + T"
 #. ts-context SelectionDialog
 #: win_selection.ui:19
 msgid "<center><b>Choose a plug-in</b></center>"
-msgstr "<center><b>Plugin auswählen</b></center>"
+msgstr "<center><b>Choisir un greffon</b></center>"
 
 #. ts-context Form
 #: keyboard.ui:251
@@ -1847,7 +1851,7 @@ msgstr "D"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:185
 msgid "<Ctrl> + <PgUp>"
-msgstr "<Strg> + <BildAuf>"
+msgstr "<Ctrl> + <PgUp>"
 
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:95
@@ -1857,57 +1861,57 @@ msgstr "(_/0)"
 #. ts-context MassiveUpdateDialog
 #: massiveupdate.ui:13
 msgid "Massive Update Process"
-msgstr "Mengen Aktualisierungs Prozess"
+msgstr "Processus de mise à jour massif"
 
 #. ts-context ExportDialog
 #: win_export.ui:116
 msgid "A&dd"
-msgstr "Hinzufügen"
+msgstr "Ajouter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
-msgstr "<Strg> + <Enter>"
+msgstr "<Ctrl> + <Enter>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:334
 msgid "&Window"
-msgstr "Fenster"
+msgstr "Fenêtre"
 
 #. ts-context LoginDialog
 #: login.ui:132
 msgid "Create &Database"
-msgstr "DAtenbank erstellen"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:575
 msgid "Search/edit existing records"
-msgstr "Suche / Editiere bestehende Datensätze"
+msgstr "Chercher/editer les enregistrements existants"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:693
 msgid "Store View Settings"
-msgstr "Speichere die Sicht Einstellungen"
+msgstr "Conserver les paramètres de la vue"
 
 #. ts-context DateTimeWidget
 #: datetime.ui:41
 msgid "Time:"
-msgstr "Zeit:"
+msgstr "Heure:"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:152
 msgid "&Super admin password:"
-msgstr "&Super admin Kennwort:"
+msgstr "Mot de passe &Super Admin:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:536
 msgid "Relation fields"
-msgstr "Relationale Felder"
+msgstr "Champs relation"
 
 #. ts-context RichTextWidget
 #: richtext.ui:217
 msgid "Right Justify"
-msgstr "Rechts justiert"
+msgstr "Aligner à droite"
 
 #. ts-context AboutDialog
 #: about.ui:42
@@ -1917,7 +1921,7 @@ msgstr "&OpenERP"
 #. ts-context ExportDialog
 #: win_export.ui:46
 msgid "Re&move Export"
-msgstr "Entferne Exportdefinitionen"
+msgstr "Supprimer l'export"
 
 #. ts-context AttachmentWindow
 #. ts-context ManyToOneWidget
@@ -1927,47 +1931,47 @@ msgstr "Entferne Exportdefinitionen"
 #: win_attach.ui:74 many2one.ui:82 one2many.ui:96 reference.ui:66
 #: shortcuts.ui:56
 msgid "New"
-msgstr "Neu"
+msgstr "Nouveau"
 
 #. ts-context ImportDialog
 #: win_import.ui:85
 msgid "Remo&ve All"
-msgstr "Enferne Alle"
+msgstr "Tous supprimer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:175
 msgid "Switch view mode"
-msgstr "Ansicht Umschalten"
+msgstr "Basculer le mode de vue"
 
 #. ts-context LoginDialog
 #: login.ui:247
 msgid "&User:"
-msgstr "&Benutzer:"
+msgstr "&Utilisateur:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:277
 msgid "Full Text Search current selection"
-msgstr "Volltextsuche aktuelle Auswahl"
+msgstr ""
 
 #. ts-context TreeWidget
 #: tree.ui:71
 msgid "Add Shortcut"
-msgstr "Kürzle hinzufügen"
+msgstr "Ajouter un raccourci"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:767
 msgid "&Keyboard Shortcut"
-msgstr "Tastatur &Kürzel"
+msgstr "Raccourci clavier"
 
 #. ts-context Form
 #: calendarview.ui:63
 msgid "Daily View"
-msgstr "Tagesansicht"
+msgstr "Vue journalière"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:181
 msgid "&Default language:"
-msgstr "Sprache Voreinstellung:"
+msgstr "Langage par &défaut"
 
 #. ts-context Form
 #: keyboard.ui:134
@@ -1982,54 +1986,54 @@ msgstr "(0/0)"
 #. ts-context AboutDialog
 #: about.ui:14
 msgid "About OpenERP"
-msgstr "Über OpenERP"
+msgstr "A propos d'OpenERP"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:302
 msgid "Save and close window"
-msgstr "Speichern und Schliessen des Fensters"
+msgstr "Sauvegarder et fermer la fenêtre"
 
 #. ts-context ExportDialog
 #: win_export.ui:177
 msgid "<b>Fields to export</b>"
-msgstr "<b>Felder zu exportieren</b>"
+msgstr "<b>Champ à exporter</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:796
 msgid "<Alt> + Minus"
-msgstr "<Alt> + Minus"
+msgstr "<Alt> + Moins"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:387
 msgid "Cut selected text"
-msgstr "ausgewählten Text ausschneiden"
+msgstr "Couper le texte sélectionné"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:113 mainwindow.ui:618
 msgid "Alt+PgUp"
-msgstr "Alt Bild auf"
+msgstr "Alt+PgUp"
 
 #. ts-context CalendarWidget
 #: calendar.ui:51
 msgid "Open Calendar"
-msgstr "Öffne Kalender"
+msgstr "Ouvrir le calendrier"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:714
 msgid "&Reload/Undo"
-msgstr "Neu Laden/&Rückgängig"
+msgstr "&Recharger/Annuler"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:202
 msgid "<Ctrl> + <PgDn>"
-msgstr "<Strg> + <BildAb>"
+msgstr "<Ctrl> + <PgDn>"
 
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
 #: win_import.ui:63 many2many.ui:40
 msgid "&Add"
-msgstr "&Hinzufügen"
+msgstr "&Ajouter"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:270
@@ -2044,12 +2048,12 @@ msgstr "*"
 #. ts-context ProgressDialog
 #: progress.ui:40
 msgid "Operation in progress"
-msgstr "in Arbeit"
+msgstr "Opération en cours"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:618
 msgid "Lists"
-msgstr "Listen"
+msgstr "Listes"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:806
@@ -2059,17 +2063,17 @@ msgstr "<Alt> + Plus"
 #. ts-context KooMainWindow
 #: mainwindow.ui:426
 msgid "&Connect"
-msgstr "Verbinde"
+msgstr "&Connecter"
 
 #. ts-context RichTextWidget
 #: richtext.ui:246
 msgid "Justify"
-msgstr "Justiere"
+msgstr "Justifier"
 
 #. ts-context TipsDialog
 #: tip.ui:122
 msgid "&Previous Tip"
-msgstr "Voriger Tip"
+msgstr "Astuce &précédente"
 
 #. ts-context ImportDialog
 #: win_import.ui:238
@@ -2080,15 +2084,15 @@ msgstr "Latin1"
 #. ts-context KooMainWindow
 #: lostconnection.ui:84 mainwindow.ui:453
 msgid "&Quit"
-msgstr "Verlasse"
+msgstr "&Quitter"
 
 #. ts-context LicenseDialog
 #: license.ui:29
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -2099,8 +2103,8 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">               Version 2, "
 "June 1991</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"> Copyright (C) 1989, 1991 "
 "Free Software Foundation, Inc.</p>\n"
@@ -2114,14 +2118,14 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\"> of this license document, "
 "but changing it is not allowed.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">                "
-"Preamble</p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">                Preamble</"
+"p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  The licenses for most "
 "software are designed to take away your freedom to share and change it.  By "
@@ -2133,8 +2137,8 @@ msgid ""
 "the GNU Library General Public License instead.)  You can apply it to your "
 "programs, too.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  When we speak of free "
 "software, we are referring to freedom, not price.  Our General Public "
@@ -2144,8 +2148,8 @@ msgid ""
 "software or use pieces of it in new free programs; and that you know you can "
 "do these things.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  To protect your rights, "
 "we need to make restrictions that forbid anyone to deny you these rights or "
@@ -2153,8 +2157,8 @@ msgid ""
 "responsibilities for you if you distribute copies of the software, or if you "
 "modify it.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  For example, if you "
 "distribute copies of such a program, whether gratis or for a fee, you must "
@@ -2162,16 +2166,16 @@ msgid ""
 "they, too, receive or can get the source code.  And you must show them these "
 "terms so they know their rights.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  We protect your rights "
 "with two steps: (1) copyright the software, and (2) offer you this license "
 "which gives you legal permission to copy, distribute and/or modify the "
 "software.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  Also, for each author's "
 "protection and ours, we want to make certain that everyone understands that "
@@ -2180,8 +2184,8 @@ msgid ""
 "have is not the original, so that any problems introduced by others will not "
 "reflect on the original authors' reputations.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  Finally, any free "
 "program is threatened constantly by software patents.  We wish to avoid the "
@@ -2190,14 +2194,14 @@ msgid ""
 "have made it clear that any patent must be licensed for everyone's free use "
 "or not licensed at all.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  The precise terms and "
 "conditions for copying, distribution and modification follow.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">            GNU GENERAL "
 "PUBLIC LICENSE</p>\n"
@@ -2205,8 +2209,8 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">   TERMS AND CONDITIONS "
 "FOR COPYING, DISTRIBUTION AND MODIFICATION</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  0. This License applies "
 "to any program or other work which contains a notice placed by the copyright "
@@ -2218,8 +2222,8 @@ msgid ""
 "another language.  (Hereinafter, translation is included without limitation "
 "in the term \"modification\".)  Each licensee is addressed as \"you\".</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Activities other than "
 "copying, distribution and modification are not covered by this License; they "
@@ -2228,8 +2232,8 @@ msgid ""
 "work based on the Program (independent of having been made by running the "
 "Program).  Whether that is true depends on what the Program does.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  1. You may copy and "
 "distribute verbatim copies of the Program's source code as you receive it, "
@@ -2239,15 +2243,15 @@ msgid ""
 "warranty; and give any other recipients of the Program a copy of this "
 "License along with the Program.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">You may charge a fee for "
 "the physical act of transferring a copy, and you may at your option offer "
 "warranty protection in exchange for a fee.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  2. You may modify your "
 "copy or copies of the Program or any portion of it, thus forming a work "
@@ -2255,23 +2259,23 @@ msgid ""
 "under the terms of Section 1 above, provided that you also meet all of these "
 "conditions:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    a) You must cause the "
 "modified files to carry prominent notices stating that you changed the files "
 "and the date of any change.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    b) You must cause any "
 "work that you distribute or publish, that in whole or in part contains or is "
 "derived from the Program or any part thereof, to be licensed as a whole at "
 "no charge to all third parties under the terms of this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    c) If the modified "
 "program normally reads commands interactively when run, you must cause it, "
@@ -2284,8 +2288,8 @@ msgid ""
 "such an announcement, your work based on the Program is not required to "
 "print an announcement.)</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">These requirements apply "
 "to the modified work as a whole.  If identifiable sections of that work are "
@@ -2297,40 +2301,40 @@ msgid ""
 "this License, whose permissions for other licensees extend to the entire "
 "whole, and thus to each and every part regardless of who wrote it.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Thus, it is not the intent "
 "of this section to claim rights or contest your rights to work written "
 "entirely by you; rather, the intent is to exercise the right to control the "
 "distribution of derivative or collective works based on the Program.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">In addition, mere "
 "aggregation of another work not based on the Program with the Program (or "
 "with a work based on the Program) on a volume of a storage or distribution "
 "medium does not bring the other work under the scope of this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  3. You may copy and "
 "distribute the Program (or a work based on it, under Section 2) in object "
 "code or executable form under the terms of Sections 1 and 2 above provided "
 "that you also do one of the following:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    a) Accompany it with "
 "the complete corresponding machine-readable source code, which must be "
 "distributed under the terms of Sections 1 and 2 above on a medium "
 "customarily used for software interchange; or,</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    b) Accompany it with a "
 "written offer, valid for at least three years, to give any third party, for "
@@ -2339,8 +2343,8 @@ msgid ""
 "code, to be distributed under the terms of Sections 1 and 2 above on a "
 "medium customarily used for software interchange; or,</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    c) Accompany it with "
 "the information you received as to the offer to distribute corresponding "
@@ -2348,8 +2352,8 @@ msgid ""
 "distribution and only if you received the program in object code or "
 "executable form with such an offer, in accord with Subsection b above.)</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">The source code for a work "
 "means the preferred form of the work for making modifications to it.  For an "
@@ -2362,8 +2366,8 @@ msgid ""
 "operating system on which the executable runs, unless that component itself "
 "accompanies the executable.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">If distribution of "
 "executable or object code is made by offering access to copy from a "
@@ -2372,8 +2376,8 @@ msgid ""
 "third parties are not compelled to copy the source along with the object "
 "code.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  4. You may not copy, "
 "modify, sublicense, or distribute the Program except as expressly provided "
@@ -2383,8 +2387,8 @@ msgid ""
 "from you under this License will not have their licenses terminated so long "
 "as such parties remain in full compliance.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  5. You are not required "
 "to accept this License, since you have not signed it.  However, nothing else "
@@ -2392,14 +2396,14 @@ msgid ""
 "works.  These actions are prohibited by law if you do not accept this "
 "License.  Therefore, by modifying or distributing the Program (or any work "
 "based on the Program), you indicate your acceptance of this License to do "
-"so, and all its terms and conditions for copying, distributing or "
-"modifying</p>\n"
+"so, and all its terms and conditions for copying, distributing or modifying</"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">the Program or works based "
 "on it.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  6. Each time you "
 "redistribute the Program (or any work based on the Program), the recipient "
@@ -2409,8 +2413,8 @@ msgid ""
 "rights granted herein.  You are not responsible for enforcing compliance by "
 "third parties to this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  7. If, as a consequence "
 "of a court judgment or allegation of patent infringement or for any other "
@@ -2425,16 +2429,16 @@ msgid ""
 "only way you could satisfy both it and this License would be to refrain "
 "entirely from distribution of the Program.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">If any portion of this "
 "section is held invalid or unenforceable under any particular circumstance, "
 "the balance of the section is intended to apply and the section as a whole "
 "is intended to apply in other circumstances.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">It is not the purpose of "
 "this section to induce you to infringe any patents or other property right "
@@ -2444,18 +2448,18 @@ msgid ""
 "made generous contributions to the wide range of software distributed "
 "through that system in reliance on consistent application of that system; it "
 "is up to the author/donor to decide if he or she is willing to distribute "
-"software through any other system and a licensee cannot impose that "
-"choice.</p>\n"
+"software through any other system and a licensee cannot impose that choice.</"
+"p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">This section is intended "
 "to make thoroughly clear what is believed to be a consequence of the rest of "
 "this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  8. If the distribution "
 "and/or use of the Program is restricted in certain countries either by "
@@ -2466,8 +2470,8 @@ msgid ""
 "License incorporates the limitation as if written in the body of this "
 "License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  9. The Free Software "
 "Foundation may publish revised and/or new versions of the General Public "
@@ -2475,8 +2479,8 @@ msgid ""
 "the present version, but may differ in detail to address new problems or "
 "concerns.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Each version is given a "
 "distinguishing version number.  If the Program specifies a version number of "
@@ -2486,8 +2490,8 @@ msgid ""
 "does not specify a version number of this License, you may choose any "
 "version ever published by the Free Software Foundation.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  10. If you wish to "
 "incorporate parts of the Program into other free programs whose distribution "
@@ -2498,14 +2502,14 @@ msgid ""
 "all derivatives of our free software and of promoting the sharing and reuse "
 "of software generally.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">                NO "
 "WARRANTY</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  11. BECAUSE THE PROGRAM "
 "IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE "
@@ -2517,8 +2521,8 @@ msgid ""
 "THE PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE "
 "COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  12. IN NO EVENT UNLESS "
 "REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT "
@@ -2531,31 +2535,31 @@ msgid ""
 "SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH "
 "DAMAGES.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">             END OF TERMS "
 "AND CONDITIONS</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p></body></html>"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">            GNU GENERAL "
-"PUBLIC LICENSE, Deutsch: http://www.gnu.de/documents/gpl-2.0.de.html</p>\n"
+"PUBLIC LICENSE</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">               Version 2, "
 "June 1991</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"> Copyright (C) 1989, 1991 "
 "Free Software Foundation, Inc.</p>\n"
@@ -2569,14 +2573,14 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\"> of this license document, "
 "but changing it is not allowed.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">                "
-"Preamble</p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">                Preamble</"
+"p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  The licenses for most "
 "software are designed to take away your freedom to share and change it.  By "
@@ -2588,8 +2592,8 @@ msgstr ""
 "the GNU Library General Public License instead.)  You can apply it to your "
 "programs, too.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  When we speak of free "
 "software, we are referring to freedom, not price.  Our General Public "
@@ -2599,8 +2603,8 @@ msgstr ""
 "software or use pieces of it in new free programs; and that you know you can "
 "do these things.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  To protect your rights, "
 "we need to make restrictions that forbid anyone to deny you these rights or "
@@ -2608,8 +2612,8 @@ msgstr ""
 "responsibilities for you if you distribute copies of the software, or if you "
 "modify it.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  For example, if you "
 "distribute copies of such a program, whether gratis or for a fee, you must "
@@ -2617,16 +2621,16 @@ msgstr ""
 "they, too, receive or can get the source code.  And you must show them these "
 "terms so they know their rights.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  We protect your rights "
 "with two steps: (1) copyright the software, and (2) offer you this license "
 "which gives you legal permission to copy, distribute and/or modify the "
 "software.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  Also, for each author's "
 "protection and ours, we want to make certain that everyone understands that "
@@ -2635,8 +2639,8 @@ msgstr ""
 "have is not the original, so that any problems introduced by others will not "
 "reflect on the original authors' reputations.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  Finally, any free "
 "program is threatened constantly by software patents.  We wish to avoid the "
@@ -2645,14 +2649,14 @@ msgstr ""
 "have made it clear that any patent must be licensed for everyone's free use "
 "or not licensed at all.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  The precise terms and "
 "conditions for copying, distribution and modification follow.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">            GNU GENERAL "
 "PUBLIC LICENSE</p>\n"
@@ -2660,8 +2664,8 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">   TERMS AND CONDITIONS "
 "FOR COPYING, DISTRIBUTION AND MODIFICATION</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  0. This License applies "
 "to any program or other work which contains a notice placed by the copyright "
@@ -2673,8 +2677,8 @@ msgstr ""
 "another language.  (Hereinafter, translation is included without limitation "
 "in the term \"modification\".)  Each licensee is addressed as \"you\".</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Activities other than "
 "copying, distribution and modification are not covered by this License; they "
@@ -2683,8 +2687,8 @@ msgstr ""
 "work based on the Program (independent of having been made by running the "
 "Program).  Whether that is true depends on what the Program does.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  1. You may copy and "
 "distribute verbatim copies of the Program's source code as you receive it, "
@@ -2694,15 +2698,15 @@ msgstr ""
 "warranty; and give any other recipients of the Program a copy of this "
 "License along with the Program.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">You may charge a fee for "
 "the physical act of transferring a copy, and you may at your option offer "
 "warranty protection in exchange for a fee.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  2. You may modify your "
 "copy or copies of the Program or any portion of it, thus forming a work "
@@ -2710,23 +2714,23 @@ msgstr ""
 "under the terms of Section 1 above, provided that you also meet all of these "
 "conditions:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    a) You must cause the "
 "modified files to carry prominent notices stating that you changed the files "
 "and the date of any change.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    b) You must cause any "
 "work that you distribute or publish, that in whole or in part contains or is "
 "derived from the Program or any part thereof, to be licensed as a whole at "
 "no charge to all third parties under the terms of this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    c) If the modified "
 "program normally reads commands interactively when run, you must cause it, "
@@ -2739,8 +2743,8 @@ msgstr ""
 "such an announcement, your work based on the Program is not required to "
 "print an announcement.)</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">These requirements apply "
 "to the modified work as a whole.  If identifiable sections of that work are "
@@ -2752,40 +2756,40 @@ msgstr ""
 "this License, whose permissions for other licensees extend to the entire "
 "whole, and thus to each and every part regardless of who wrote it.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Thus, it is not the intent "
 "of this section to claim rights or contest your rights to work written "
 "entirely by you; rather, the intent is to exercise the right to control the "
 "distribution of derivative or collective works based on the Program.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">In addition, mere "
 "aggregation of another work not based on the Program with the Program (or "
 "with a work based on the Program) on a volume of a storage or distribution "
 "medium does not bring the other work under the scope of this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  3. You may copy and "
 "distribute the Program (or a work based on it, under Section 2) in object "
 "code or executable form under the terms of Sections 1 and 2 above provided "
 "that you also do one of the following:</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    a) Accompany it with "
 "the complete corresponding machine-readable source code, which must be "
 "distributed under the terms of Sections 1 and 2 above on a medium "
 "customarily used for software interchange; or,</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    b) Accompany it with a "
 "written offer, valid for at least three years, to give any third party, for "
@@ -2794,8 +2798,8 @@ msgstr ""
 "code, to be distributed under the terms of Sections 1 and 2 above on a "
 "medium customarily used for software interchange; or,</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">    c) Accompany it with "
 "the information you received as to the offer to distribute corresponding "
@@ -2803,8 +2807,8 @@ msgstr ""
 "distribution and only if you received the program in object code or "
 "executable form with such an offer, in accord with Subsection b above.)</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">The source code for a work "
 "means the preferred form of the work for making modifications to it.  For an "
@@ -2817,8 +2821,8 @@ msgstr ""
 "operating system on which the executable runs, unless that component itself "
 "accompanies the executable.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">If distribution of "
 "executable or object code is made by offering access to copy from a "
@@ -2827,8 +2831,8 @@ msgstr ""
 "third parties are not compelled to copy the source along with the object "
 "code.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  4. You may not copy, "
 "modify, sublicense, or distribute the Program except as expressly provided "
@@ -2838,8 +2842,8 @@ msgstr ""
 "from you under this License will not have their licenses terminated so long "
 "as such parties remain in full compliance.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  5. You are not required "
 "to accept this License, since you have not signed it.  However, nothing else "
@@ -2847,14 +2851,14 @@ msgstr ""
 "works.  These actions are prohibited by law if you do not accept this "
 "License.  Therefore, by modifying or distributing the Program (or any work "
 "based on the Program), you indicate your acceptance of this License to do "
-"so, and all its terms and conditions for copying, distributing or "
-"modifying</p>\n"
+"so, and all its terms and conditions for copying, distributing or modifying</"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">the Program or works based "
 "on it.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  6. Each time you "
 "redistribute the Program (or any work based on the Program), the recipient "
@@ -2864,8 +2868,8 @@ msgstr ""
 "rights granted herein.  You are not responsible for enforcing compliance by "
 "third parties to this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  7. If, as a consequence "
 "of a court judgment or allegation of patent infringement or for any other "
@@ -2880,16 +2884,16 @@ msgstr ""
 "only way you could satisfy both it and this License would be to refrain "
 "entirely from distribution of the Program.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">If any portion of this "
 "section is held invalid or unenforceable under any particular circumstance, "
 "the balance of the section is intended to apply and the section as a whole "
 "is intended to apply in other circumstances.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">It is not the purpose of "
 "this section to induce you to infringe any patents or other property right "
@@ -2899,18 +2903,18 @@ msgstr ""
 "made generous contributions to the wide range of software distributed "
 "through that system in reliance on consistent application of that system; it "
 "is up to the author/donor to decide if he or she is willing to distribute "
-"software through any other system and a licensee cannot impose that "
-"choice.</p>\n"
+"software through any other system and a licensee cannot impose that choice.</"
+"p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">This section is intended "
 "to make thoroughly clear what is believed to be a consequence of the rest of "
 "this License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  8. If the distribution "
 "and/or use of the Program is restricted in certain countries either by "
@@ -2921,8 +2925,8 @@ msgstr ""
 "License incorporates the limitation as if written in the body of this "
 "License.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  9. The Free Software "
 "Foundation may publish revised and/or new versions of the General Public "
@@ -2930,8 +2934,8 @@ msgstr ""
 "the present version, but may differ in detail to address new problems or "
 "concerns.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Each version is given a "
 "distinguishing version number.  If the Program specifies a version number of "
@@ -2941,8 +2945,8 @@ msgstr ""
 "does not specify a version number of this License, you may choose any "
 "version ever published by the Free Software Foundation.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  10. If you wish to "
 "incorporate parts of the Program into other free programs whose distribution "
@@ -2953,14 +2957,14 @@ msgstr ""
 "all derivatives of our free software and of promoting the sharing and reuse "
 "of software generally.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">                NO "
 "WARRANTY</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  11. BECAUSE THE PROGRAM "
 "IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE "
@@ -2972,8 +2976,8 @@ msgstr ""
 "THE PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE "
 "COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">  12. IN NO EVENT UNLESS "
 "REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT "
@@ -2986,24 +2990,24 @@ msgstr ""
 "SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH "
 "DAMAGES.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">             END OF TERMS "
 "AND CONDITIONS</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p></body></html>"
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p></body></html>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:846
 msgid "Modify All Selected Records"
-msgstr "Alle ausgewählten Daten speichern"
+msgstr "Modifier tous les enregistrements sélectionnés"
 
 #. ts-context ErrorDialog
 #: error.ui:14
 msgid "Error"
-msgstr "Fehler"
+msgstr "Erreur"
 
 #. ts-context Form
 #: keyboard.ui:329
@@ -3013,42 +3017,42 @@ msgstr "Z"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:192
 msgid "Previous tab"
-msgstr "Voriger Reiter"
+msgstr "Onglet précédent"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:627
 msgid "Switch &View"
-msgstr "Ansicht Umschalten"
+msgstr "Basculer de &Vue"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:360
 msgid "Show field's help information"
-msgstr "Zeige die Hilfe Information"
+msgstr "Montre l'information d'aide du champ"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:134
 msgid "Close"
-msgstr "Schließen"
+msgstr "Fermer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:735
 msgid "<Shift> + Open View"
-msgstr "<Shift> + Öffne Ansicht"
+msgstr "<Shift> + Ouvrir la vue"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:726
 msgid "E&xport Data"
-msgstr "E&xportiere Daten"
+msgstr "E&xporter les données"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:370
 msgid "&Browse"
-msgstr "&Browsen"
+msgstr "Parcourirs"
 
 #. ts-context ExportDialog
 #: win_export.ui:138
 msgid "Remo&ve all"
-msgstr "Entferne Alle"
+msgstr "Tout supprimer"
 
 #. ts-context AttachmentWindow
 #. ts-context Dialog
@@ -3057,22 +3061,22 @@ msgstr "Entferne Alle"
 #: win_attach.ui:137 massiveupdate_msgbox.ui:122 keyboard.ui:449
 #: win_search.ui:115
 msgid "Esc"
-msgstr "Esc"
+msgstr "Echap"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:319
 msgid "Close window without saving"
-msgstr "Schließen Fenster ohne zu speichern"
+msgstr "Fermer la fenêtre sans sauvegarder"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:534
 msgid "&Waiting Requests"
-msgstr "&Wartende Anfragen"
+msgstr "Requêtes en attentes"
 
 #. ts-context LicenseDialog
 #: license.ui:19
 msgid "OpenERP license"
-msgstr "OpenERP Lizenz"
+msgstr "Licence OpenERP"
 
 #. ts-context Form
 #: keyboard.ui:540
@@ -3087,17 +3091,17 @@ msgstr ""
 #. ts-context RichTextWidget
 #: richtext.ui:65
 msgid "Italics"
-msgstr "Kursiv"
+msgstr "Italique"
 
 #. ts-context ErrorDialog
 #: error.ui:40
 msgid "Application Error"
-msgstr "Anwendungsfehler"
+msgstr "Erreur application"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:116
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Editer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:427
@@ -3107,10 +3111,10 @@ msgstr "<Shift> + <Tab>"
 #. ts-context Dialog
 #: massiveupdate_msgbox.ui:49
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
 "font-weight:400; font-style:normal;\">\n"
@@ -3118,34 +3122,24 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Select the fields you want "
 "to update in the %d selected records:</p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
-"font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Wählen Sie die Felder für "
-"das Update in den %d ausgewählten Datensätzen:</p></body></html>"
 
 #. ts-context ManyToOneWidget
 #. ts-context OneToManyWidget
 #: many2one.ui:105 one2many.ui:136
 msgid "Remove"
-msgstr "Enfernen"
+msgstr "Supprimer"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
 #: full_text_search.ui:126 mainwindow.ui:603 one2many_dialog.ui:68
 msgid "&Next"
-msgstr "Weiter"
+msgstr "Suiva&nt"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:243
 msgid "Reload"
-msgstr "Neu Laden"
+msgstr "Recharger"
 
 #. ts-context Form
 #: keyboard.ui:108
@@ -3155,22 +3149,22 @@ msgstr "U"
 #. ts-context RichTextWidget
 #: richtext.ui:188
 msgid "Center"
-msgstr "Zentriert"
+msgstr "Centrer"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:695
 msgid "<Shift> + Switch View"
-msgstr "<Shift> + Umschalten Ansicht"
+msgstr "<Shift> + Basculer de vue"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:332
 msgid "&Edition Shortcuts"
-msgstr "Kürzel für das Editieren"
+msgstr "&Editer les raccourcis"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:555
 msgid "&Save"
-msgstr "S&peichern"
+msgstr "&Sauvagarder"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:517
@@ -3178,20 +3172,201 @@ msgid ""
 "Calculates value\n"
 "(Example result: 7)"
 msgstr ""
-"Berechnet Wert\n"
-"(Beispiel Ergebnis: 7)"
+"Valeur calculée\n"
+"(Exemple de resultat: 7)"
 
 #. ts-context ImportDialog
 #: win_import.ui:212
 msgid "&Encoding"
-msgstr "Kodierung"
+msgstr "&Encodage"
 
 #. ts-context RichTextWidget
 #: richtext.ui:94
 msgid "Underline"
-msgstr "Unterstrichen"
+msgstr "Souligné"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:49
 msgid "toolBar"
-msgstr "Werkzeugleiste"
+msgstr "barre d'outil"
+
+#~ msgid "&File"
+#~ msgstr "&Fichier"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href="
+#~ "\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-tic.com</"
+#~ "span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href="
+#~ "\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
+#~ "com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href="
+#~ "\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-tic.com</"
+#~ "span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href="
+#~ "\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
+#~ "com</span></a></p></body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE "
+#~ "Client - %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
+#~ "Source ERP+CRM</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+#~ "businesses.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code "
+#~ "is distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </"
+#~ "span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
+#~ "Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www."
+#~ "nan-tic.com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE "
+#~ "Client - %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP est un ERP"
+#~ "+CRM Open Source</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">pour les petites et "
+#~ "moyennes entreprises.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code "
+#~ "is distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </"
+#~ "span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
+#~ "Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www."
+#~ "nan-tic.com</span></a></p></body></html>"
+
+#~ msgid "Ctrl+L, Ctrl+Shift+L"
+#~ msgstr "Ctrl+L, Ctrl+Shift+L"
+
+#~ msgctxt "Ctrl+O to Login"
+#~ msgid "Ctrl+O"
+#~ msgstr "Ctrl+O"
+
+#~ msgid "Koo"
+#~ msgstr "Koo"
+
+#~ msgid "Translation dialog"
+#~ msgstr "Fenêtre de traduction"
+
+#~ msgid "User Manual"
+#~ msgstr "Manuel utilisateur"

@@ -1,16 +1,17 @@
-# Thai translation for openobject-client-kde
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# Hungarian translation for openobject-client-kde
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-client-kde package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# Dukai Gábor <gdukai@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-10-26 01:23+0200\n"
-"PO-Revision-Date: 2010-09-14 12:56+0000\n"
-"Last-Translator: Songpon Phusing <p.songpon@gmail.com>\n"
-"Language-Team: Thai <th@li.org>\n"
+"PO-Revision-Date: 2010-10-21 12:08+0000\n"
+"Last-Translator: Dukai Gábor <Unknown>\n"
+"Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,36 +25,36 @@ msgstr ""
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
 #: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
-msgstr "รายละเอียด"
+msgstr "Információ"
 
 #: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
-msgstr "กรูณาเลือกรายการ"
+msgstr ""
 
 #: Koo/Screen/Action.py:90
 msgid "You must save this record to use the relate button !"
-msgstr "กรุณาบันทึกข้อมูลก่อนที่จะสร้างรายการที่เกี่ยวข้อง"
+msgstr ""
 
 #: Koo/Screen/Action.py:136
 msgid "Print Screen"
-msgstr "Print Screen"
+msgstr "Képernyőkép"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr ""
 
 #: Koo/Actions/Actions.py:65
 msgid "Nothing to print."
-msgstr "ไม่มีสิ่งที่จะพิมพ์"
+msgstr ""
 
 #: Koo/Actions/Actions.py:81
 msgid "Printing aborted. Delay too long."
-msgstr "การพิ์มล้มเหลว เนื่องจากใช้เวลานานเกินไป"
+msgstr ""
 
 #: Koo/Actions/Actions.py:100
 msgid "Nothing to print!"
-msgstr "ไม่มีข้อมูลที่จะใช้พิมพ์"
+msgstr ""
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
 #: Koo/Dialogs/FormWidget.py:373 Koo/Dialogs/ImportDialog.py:48
@@ -66,11 +67,11 @@ msgstr "ไม่มีข้อมูลที่จะใช้พิมพ์
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
-msgstr "Error"
+msgstr "Hiba"
 
 #: Koo/Actions/Actions.py:116
 msgid "Printing aborted, too long delay !"
-msgstr "การพิ์มล้มเหลว เนื่องจากใช้เวลานานเกินไป"
+msgstr ""
 
 #: Koo/Actions/Actions.py:241
 msgid "Select your action"
@@ -86,7 +87,7 @@ msgstr ""
 
 #: Koo/Plugins/ViewEditor/__init__.py:38
 msgid "Edit View"
-msgstr ""
+msgstr "Nézet szerkesztése"
 
 #: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
@@ -94,11 +95,11 @@ msgstr ""
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
-msgstr ""
+msgstr "Folyamatlista nyomtatása"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
-msgstr ""
+msgstr "Folyamatlista nyomtatása (komplex)"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
@@ -139,15 +140,15 @@ msgstr ""
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
-msgstr ""
+msgstr "Űrlap"
 
 #: Koo/View/Tree/__init__.py:32
 msgid "List View"
-msgstr ""
+msgstr "Lista"
 
 #: Koo/View/Tree/TreeView.py:210
 msgid "<font color='red'>Sorting not possible.</font>"
-msgstr ""
+msgstr "<font color='red'>Nem lehet rendezni.</font>"
 
 #: Koo/View/Tree/TreeView.py:212
 msgid "<font color='red'>Sorting only groups.</font>"
@@ -159,7 +160,7 @@ msgstr ""
 
 #: Koo/View/Tree/TreeView.py:238
 msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
+msgstr "<a href=\"update\">Összesítések frissítése</a>"
 
 #: Koo/View/DummyView.py:44
 #, python-format
@@ -176,11 +177,11 @@ msgstr ""
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
-msgstr ""
+msgstr "Diagram"
 
 #: Koo/View/Calendar/__init__.py:31
 msgid "Calendar View"
-msgstr ""
+msgstr "Naptár"
 
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
@@ -206,6 +207,8 @@ msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
 msgstr ""
+"<b>Figyelem, egyszerre többen akarják ugyanazt menteni:</b><br/>Ezt a "
+"rekordot valaki a közben módosította, míg ön dolgozott rajta."
 
 #: Koo/Common/Common.py:161
 msgid "Save anyway"
@@ -241,7 +244,7 @@ msgstr ""
 #: Koo/Common/Common.py:259
 #, python-format
 msgid "<b>Connection Lost:</b> %s"
-msgstr ""
+msgstr "<b>A kapcsolat megszakadt:</b> %s"
 
 #: Koo/Common/Common.py:268
 #, python-format
@@ -249,21 +252,24 @@ msgid ""
 "Connection with the server has been lost. Will retry connection in %d "
 "seconds."
 msgstr ""
+"Megszakadt a kapcsolat a szerverrel. Újrapróbálom %d másodperc múlva."
 
 #: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:651
 msgid "Quit"
-msgstr ""
+msgstr "Kilépés"
 
 #: Koo/Common/Common.py:283
 msgid ""
 "Leaving the application now will lose all unsaved changes. Are you sure you "
 "want to quit?"
 msgstr ""
+"Ha most kilép a programból, minden változtatása elveszik. Biztos, hogy ki "
+"akar lépni?"
 
 #: Koo/Common/Numeric.py:113 Koo/Model/KooModel.py:368
 #, python-format
 msgid "%d bytes"
-msgstr "%d ไบท์"
+msgstr ""
 
 #: Koo/Common/Numeric.py:113
 #, python-format
@@ -320,7 +326,7 @@ msgstr ""
 
 #: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:516
 msgid "Cancel"
-msgstr ""
+msgstr "Mégsem"
 
 #: Koo/Common/CommandLine.py:44
 msgid "specify database"
@@ -402,13 +408,13 @@ msgstr ""
 #: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
 #: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "Yes"
-msgstr ""
+msgstr "Igen"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:306
 #: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
 #: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "No"
-msgstr ""
+msgstr "Nem"
 
 #: Koo/Search/SearchFormWidget.py:248
 msgid "Search Error"
@@ -422,51 +428,51 @@ msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:83
 msgid "is empty"
-msgstr ""
+msgstr "üres"
 
 #: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is not empty"
-msgstr ""
+msgstr "nem üres"
 
 #: Koo/Search/CustomSearchFormWidget.py:85
 msgid "contains"
-msgstr ""
+msgstr "tartalmazza"
 
 #: Koo/Search/CustomSearchFormWidget.py:86
 msgid "does not contain"
-msgstr ""
+msgstr "nem tartalmazza"
 
 #: Koo/Search/CustomSearchFormWidget.py:87
 msgid "is equal to"
-msgstr ""
+msgstr "egyenlő"
 
 #: Koo/Search/CustomSearchFormWidget.py:88
 msgid "is not equal to"
-msgstr ""
+msgstr "nem egyenlő"
 
 #: Koo/Search/CustomSearchFormWidget.py:89
 msgid "greater than"
-msgstr ""
+msgstr "nagyobb, mint"
 
 #: Koo/Search/CustomSearchFormWidget.py:90
 msgid "less than"
-msgstr ""
+msgstr "kisebb, mint"
 
 #: Koo/Search/CustomSearchFormWidget.py:91
 msgid "greater or equal to"
-msgstr ""
+msgstr "nagyobb vagy egyenlő"
 
 #: Koo/Search/CustomSearchFormWidget.py:92
 msgid "less or equal to"
-msgstr ""
+msgstr "kisebb vagy egyenlő"
 
 #: Koo/Search/CustomSearchFormWidget.py:93
 msgid "in"
-msgstr ""
+msgstr "eleme"
 
 #: Koo/Search/CustomSearchFormWidget.py:94
 msgid "not in"
-msgstr ""
+msgstr "nem eleme"
 
 #: Koo/Search/CustomSearchFormWidget.py:297
 msgid "True"
@@ -482,19 +488,19 @@ msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:461
 msgid "( Created By )"
-msgstr ""
+msgstr "( létrehozta )"
 
 #: Koo/Search/CustomSearchFormWidget.py:465
 msgid "( Creation Date )"
-msgstr ""
+msgstr "( létrehozás dátuma )"
 
 #: Koo/Search/CustomSearchFormWidget.py:469
 msgid "( Last Modified By )"
-msgstr ""
+msgstr "( utoljára módosította )"
 
 #: Koo/Search/CustomSearchFormWidget.py:473
 msgid "( Last Modification Date )"
-msgstr ""
+msgstr "( utolsó módosítás dátuma )"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:36
 msgid ""
@@ -508,6 +514,14 @@ msgid ""
 "very good performance and bleeding edge features.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Üdvözli a Koo!</b>\n"
+"</p>\n"
+"<p>\n"
+"A Koo klienssel az OpenERP-t nagyon jó sebességgel és rengeteg "
+"szolgáltatással használhatja.\n"
+"</p>\n"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:45
 msgid ""
@@ -523,6 +537,17 @@ msgid ""
 ", *, / and you can also use parenthesis.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Beépített számológép</b>\n"
+"</p>\n"
+"<p>\n"
+"Tudta hogy a numerikus beviteli mezőket számológépként is használhatja? "
+"Álljon egy számmezőre és írja be, hogy <i>3+4*12</i>. Nyomja meg az entert, "
+"hogy csak megjelenítse az eredményt vagy csak mentse el az űrlapot. Mindkét "
+"esetben a mezőben látni fogja az eredményt. Használható műveletek: +, -, *, "
+"/ és a zárójelek.\n"
+"</p>\n"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:53
 msgid ""
@@ -536,6 +561,15 @@ msgid ""
 "module and follow the instructions on how to configure it properly.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Tartalmi keresés</b>\n"
+"</p>\n"
+"<p>\n"
+"Tudta hogy az adatbázis bármely rekordjára rákereshet egy helyen, úgy mint a "
+"Google keresés? Telepítse fel a full_text_search modult és kövesse az "
+"utasításokat a megfelelő beállításhoz.\n"
+"</p>\n"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:61
 msgid ""
@@ -549,10 +583,19 @@ msgid ""
 "many times as you need.\n"
 "</p>\n"
 msgstr ""
+"\n"
+"<p>\n"
+"<b>Adat export</b>\n"
+"</p>\n"
+"<p>\n"
+"Tudta hogy könnyen exportálhat adatokat az OpenERP-ből? Nyissa meg az Űrlap "
+"menü Adat export pontját. Még a saját beállításait is elmentheti és bármikor "
+"újra felhasználhatja, amikor csak szüksége van rá.\n"
+"</p>\n"
 
 #: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
-msgstr ""
+msgstr "Nem sikerült csatlakozni a szerverhez !"
 
 #: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
 msgid "No database found, you must create one !"
@@ -633,7 +676,7 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:185
 msgid "<font color=\"blue\">Document modified</font>"
-msgstr ""
+msgstr "<font color=\"blue\">Rekord módosult</font>"
 
 #: Koo/Dialogs/FormWidget.py:215
 msgid "Go To Id"
@@ -658,32 +701,32 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:294
 msgid "Creation User"
-msgstr ""
+msgstr "Létrehozta"
 
 #: Koo/Dialogs/FormWidget.py:295
 msgid "Creation Date"
-msgstr ""
+msgstr "Létrehozás dátuma"
 
 #: Koo/Dialogs/FormWidget.py:296
 msgid "Latest Modification by"
-msgstr ""
+msgstr "Utoljára módosította"
 
 #: Koo/Dialogs/FormWidget.py:297
 msgid "Latest Modification Date"
-msgstr ""
+msgstr "Utolsó módosítás dátuma"
 
 #: Koo/Dialogs/FormWidget.py:303
 msgid "Record log"
-msgstr ""
+msgstr "Rekord naplója"
 
 #: Koo/Dialogs/FormWidget.py:306 Koo/Dialogs/FormWidget.py:514
 #: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "Question"
-msgstr ""
+msgstr "Kérdés"
 
 #: Koo/Dialogs/FormWidget.py:306
 msgid "Are you sure you want to remove these records?"
-msgstr ""
+msgstr "Biztos törölni akarja ezeket a rekordokat?"
 
 #: Koo/Dialogs/FormWidget.py:311
 msgid "Resource not removed !"
@@ -699,11 +742,11 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:354
 msgid "<font color=\"green\">Document saved</font>"
-msgstr ""
+msgstr "<font color=\"green\">Rekord elmentve</font>"
 
 #: Koo/Dialogs/FormWidget.py:359
 msgid "<font color=\"red\">Invalid form</font>"
-msgstr ""
+msgstr "<font color=\"red\">Hibás űrlap</font>"
 
 #: Koo/Dialogs/FormWidget.py:374
 #, python-format
@@ -711,11 +754,13 @@ msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
+"<p>A következő mezők értéke érvénytelen, ezért pirossal meg lettek "
+"jelölve:</p>%s<p>Kérem javítsa ki ezeket mielőtt mentene.</p>"
 
 #: Koo/Dialogs/FormWidget.py:472
 #, python-format
 msgid "(%s attachments) "
-msgstr ""
+msgstr "(%s melléklet) "
 
 #: Koo/Dialogs/FormWidget.py:483
 msgid "No records"
@@ -727,17 +772,17 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:494
 msgid "New document"
-msgstr ""
+msgstr "Új rekord"
 
 #: Koo/Dialogs/FormWidget.py:496
 #, python-format
 msgid "Editing document (id: %s)"
-msgstr ""
+msgstr "Szerkesztés alatt (id: %s)"
 
 #: Koo/Dialogs/FormWidget.py:497
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
+msgstr "Rekord: %(name)s / %(count)s - %(name2)s"
 
 #: Koo/Dialogs/FormWidget.py:515
 #, python-format
@@ -745,14 +790,16 @@ msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
+"<p>Megváltoztatta az aktuális rekord következő mezőit:</p>%s<p>El akarja "
+"menteni a változásokat?</p>"
 
 #: Koo/Dialogs/FormWidget.py:516
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: Koo/Dialogs/FormWidget.py:516
 msgid "Discard"
-msgstr ""
+msgstr "Elvetés"
 
 #: Koo/Dialogs/FormWidget.py:534
 msgid "No records selected"
@@ -773,19 +820,19 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:504
 msgid "Press Ctrl+O to login"
-msgstr ""
+msgstr "Bejelentkezéshez nyomja meg a Ctrl+O-t."
 
 #: Koo/Dialogs/KooMainWindow.py:121
 msgid "Close tab"
-msgstr ""
+msgstr "Lap bezárása"
 
 #: Koo/Dialogs/KooMainWindow.py:206
 msgid "Open partners tab"
-msgstr ""
+msgstr "Partnerek lap megnyitása"
 
 #: Koo/Dialogs/KooMainWindow.py:211
 msgid "Open products tab"
-msgstr ""
+msgstr "Termékek lap megnyitása"
 
 #: Koo/Dialogs/KooMainWindow.py:264
 msgid "Products"
@@ -798,16 +845,16 @@ msgstr ""
 #: Koo/Dialogs/KooMainWindow.py:387
 #, python-format
 msgid "%s request(s)"
-msgstr ""
+msgstr "%s kérés"
 
 #: Koo/Dialogs/KooMainWindow.py:389
 msgid "No request"
-msgstr ""
+msgstr "Nincs kérés"
 
 #: Koo/Dialogs/KooMainWindow.py:391
 #, python-format
 msgid " - %s pending request(s)"
-msgstr ""
+msgstr " - %s kérése várakozik"
 
 #: Koo/Dialogs/KooMainWindow.py:398
 msgid "New Request"
@@ -819,7 +866,7 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:478 Koo/Dialogs/KooMainWindow.py:480
 msgid "Connection error !"
-msgstr ""
+msgstr "Kapcsolódási hiba !"
 
 #: Koo/Dialogs/KooMainWindow.py:478
 msgid "Unable to connect to the server !"
@@ -827,11 +874,11 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:480
 msgid "Bad username or password !"
-msgstr ""
+msgstr "Rossz felhasználónév vagy jelszó !"
 
 #: Koo/Dialogs/KooMainWindow.py:485 Koo/Dialogs/KooMainWindow.py:487
 msgid "Connection Error !"
-msgstr ""
+msgstr "Kapcsolódási hiba !"
 
 #: Koo/Dialogs/KooMainWindow.py:487
 msgid "Error logging into database."
@@ -839,15 +886,15 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:503
 msgid "Not logged !"
-msgstr ""
+msgstr "Nincs bejelentkezve !"
 
 #: Koo/Dialogs/KooMainWindow.py:527
 msgid "Manual"
-msgstr ""
+msgstr "Kézikönyv"
 
 #: Koo/Dialogs/KooMainWindow.py:615
 msgid "Access denied"
-msgstr ""
+msgstr "Hozzáférés megtagadva"
 
 #: Koo/Dialogs/KooMainWindow.py:615
 msgid ""
@@ -858,7 +905,7 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:651
 msgid "Do you really want to quit ?"
-msgstr ""
+msgstr "Tényleg ki akar lépni?"
 
 #: Koo/Dialogs/KooMainWindow.py:685
 msgid "Wizard"
@@ -888,11 +935,11 @@ msgstr ""
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:68
 msgid "Secure XML-RPC"
-msgstr ""
+msgstr "Biztonságos XML-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:69
 msgid "Pyro (faster)"
-msgstr ""
+msgstr "Pyro (gyorsabb)"
 
 #: Koo/Dialogs/ImportDialog.py:48
 #, python-format
@@ -949,7 +996,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
 #: Koo/Dialogs/ImportDialog.py:228
 msgid "Auto-detect error"
-msgstr ""
+msgstr "Auto-hozzáadás hiba"
 
 #: Koo/Dialogs/ImportDialog.py:218
 msgid "Error opening .CSV file: Input Error."
@@ -968,16 +1015,16 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:64
 msgid "Full Text Search"
-msgstr ""
+msgstr "Tartalmi keresés"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:65
 #, python-format
 msgid "Full Text Search (%%d result(s))"
-msgstr ""
+msgstr "Tartalmi keresés (%%d találat)"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:94
 msgid "(Everywhere)"
-msgstr ""
+msgstr "(mindenhol)"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:98
 msgid ""
@@ -992,6 +1039,9 @@ msgid ""
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
+"<b>A tartalmi keresés modul nincs telepítve.</b><br/>Go to <i>Administration "
+"- Modules administration - Uninstalled Modules</i> and add the "
+"<i>full_text_search</i> module."
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Validation Error"
@@ -1016,6 +1066,8 @@ msgstr ""
 msgid ""
 "Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
+"Válassza ki a mezőket, amiket módosítani fog a <b>%d</b> kiválasztott "
+"rekordon:"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
@@ -1036,7 +1088,7 @@ msgstr ""
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/ExportDialog.py:109
 #, python-format
 msgid "%s record(s) saved!"
-msgstr ""
+msgstr "%s rekord elmentve!"
 
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:109
 #: Koo/Dialogs/ExportDialog.py:112 Koo/Dialogs/ExportDialog.py:115
@@ -1066,7 +1118,7 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:315
 msgid "Export Data"
-msgstr ""
+msgstr "Adat export"
 
 #: Koo/Dialogs/ExportDialog.py:358
 msgid "What is the name of this export?"
@@ -1074,27 +1126,27 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:376
 msgid "Open with OpenOffice.org"
-msgstr ""
+msgstr "Megnyitás OpenOffice.org-gal"
 
 #: Koo/Dialogs/ExportDialog.py:382
 msgid "Open with Excel"
-msgstr ""
+msgstr "Megnyitás Excellel"
 
 #: Koo/Dialogs/ExportDialog.py:385
 msgid "Save as CSV"
-msgstr ""
+msgstr "Mentés CSV-ként"
 
 #: Koo/Dialogs/ExportDialog.py:386
 msgid "Save as HTML"
-msgstr ""
+msgstr "Mentés HTML-ként"
 
 #: Koo/Dialogs/ExportDialog.py:398
 msgid "Export name"
-msgstr ""
+msgstr "Export neve"
 
 #: Koo/Dialogs/ExportDialog.py:399
 msgid "Exported fields"
-msgstr ""
+msgstr "Exportált mezők"
 
 #: Koo/Dialogs/TreeWidget.py:64
 msgid "Tree"
@@ -1114,7 +1166,7 @@ msgstr ""
 
 #: Koo/Dialogs/PreferencesDialog.py:54
 msgid "User Preferences"
-msgstr ""
+msgstr "Saját beállításaim"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
@@ -1169,7 +1221,7 @@ msgstr ""
 
 #: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
 msgid "Application Error"
-msgstr ""
+msgstr "Alkalmazáshiba"
 
 #: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
 msgid "View details"
@@ -1225,7 +1277,7 @@ msgstr ""
 #: Koo/Fields/ManyToOne/ManyToOne.py:310
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
-msgstr ""
+msgstr "Megnyitás"
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:312
 msgid "Action"
@@ -1244,12 +1296,12 @@ msgstr ""
 #: Koo/Fields/Link/LinkFieldWidget.py:62
 #: Koo/Fields/Binary/BinaryFieldWidget.py:179
 msgid "Open..."
-msgstr ""
+msgstr "Megnyitás…"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:111
 #: Koo/Fields/Binary/BinaryFieldWidget.py:216
 msgid "Image"
-msgstr ""
+msgstr "Kép"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:126
 msgid "Save image as..."
@@ -1276,15 +1328,15 @@ msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:157
 msgid "(no image)"
-msgstr ""
+msgstr "(nincs kép)"
 
 #: Koo/Fields/AbstractFieldWidget.py:74
 msgid "Set to default value"
-msgstr ""
+msgstr "Alapértelmezett értékek betöltése"
 
 #: Koo/Fields/AbstractFieldWidget.py:80
 msgid "Set as default value"
-msgstr ""
+msgstr "Beállítás alapértelmezettként"
 
 #: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
@@ -1292,7 +1344,7 @@ msgstr ""
 
 #: Koo/Fields/FieldPreferencesDialog.py:64
 msgid "<center>Always applicable!</center>"
-msgstr ""
+msgstr "<center>Mindig érvényes!</center>"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:78
 #, python-format
@@ -1301,7 +1353,7 @@ msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:86
 msgid "&New"
-msgstr ""
+msgstr "Ú&j"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:90
 msgid "&Scan"
@@ -1309,19 +1361,19 @@ msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:101
 msgid "&Save"
-msgstr ""
+msgstr "Menté&s"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:104
 msgid "&Open"
-msgstr ""
+msgstr "&Megnyitás"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:107
 msgid "Show &image"
-msgstr ""
+msgstr "&Kép megjelenítése"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:180
 msgid "Show &image..."
-msgstr ""
+msgstr "&Kép megjelenítése"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:226
 #: Koo/Fields/Video/VideoFieldWidget.py:72

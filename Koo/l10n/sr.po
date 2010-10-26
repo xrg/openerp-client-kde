@@ -1,16 +1,17 @@
-# Thai translation for openobject-client-kde
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# Serbian translation for openobject-client-kde
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-client-kde package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# Dukai Gábor <gdukai@gmail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-10-26 01:23+0200\n"
-"PO-Revision-Date: 2010-09-14 12:56+0000\n"
-"Last-Translator: Songpon Phusing <p.songpon@gmail.com>\n"
-"Language-Team: Thai <th@li.org>\n"
+"PO-Revision-Date: 2010-10-21 12:17+0000\n"
+"Last-Translator: Dukai Gábor <Unknown>\n"
+"Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,36 +25,37 @@ msgstr ""
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
 #: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:264
 msgid "Information"
-msgstr "รายละเอียด"
+msgstr "Informacija"
 
 #: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
-msgstr "กรูณาเลือกรายการ"
+msgstr "Morate odabrati zapis za korištenje gumba za povezivanje !"
 
 #: Koo/Screen/Action.py:90
 msgid "You must save this record to use the relate button !"
-msgstr "กรุณาบันทึกข้อมูลก่อนที่จะสร้างรายการที่เกี่ยวข้อง"
+msgstr ""
+"Morate da sačuvate aktuelnu stavku za korištenje dugmeta za povezivanje !"
 
 #: Koo/Screen/Action.py:136
 msgid "Print Screen"
-msgstr "Print Screen"
+msgstr "Štampaj ekran"
 
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
 msgid "Error: %s"
-msgstr "Error: %s"
+msgstr "Greška: %s"
 
 #: Koo/Actions/Actions.py:65
 msgid "Nothing to print."
-msgstr "ไม่มีสิ่งที่จะพิมพ์"
+msgstr "Ne postoji ništa za štampanje."
 
 #: Koo/Actions/Actions.py:81
 msgid "Printing aborted. Delay too long."
-msgstr "การพิ์มล้มเหลว เนื่องจากใช้เวลานานเกินไป"
+msgstr ""
 
 #: Koo/Actions/Actions.py:100
 msgid "Nothing to print!"
-msgstr "ไม่มีข้อมูลที่จะใช้พิมพ์"
+msgstr "Ne postoji ništa za štampanje!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
 #: Koo/Dialogs/FormWidget.py:373 Koo/Dialogs/ImportDialog.py:48
@@ -66,15 +68,15 @@ msgstr "ไม่มีข้อมูลที่จะใช้พิมพ์
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
-msgstr "Error"
+msgstr "Greška"
 
 #: Koo/Actions/Actions.py:116
 msgid "Printing aborted, too long delay !"
-msgstr "การพิ์มล้มเหลว เนื่องจากใช้เวลานานเกินไป"
+msgstr "Štampanje prekinuto, predugačko kašnjenje !"
 
 #: Koo/Actions/Actions.py:241
 msgid "Select your action"
-msgstr ""
+msgstr "Odaberite radnju"
 
 #: Koo/Plugins/ScreenDocs/__init__.py:89
 msgid "Create Screenshots"
@@ -86,7 +88,7 @@ msgstr ""
 
 #: Koo/Plugins/ViewEditor/__init__.py:38
 msgid "Edit View"
-msgstr ""
+msgstr "Obradi prikaz"
 
 #: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
@@ -94,15 +96,15 @@ msgstr ""
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
-msgstr ""
+msgstr "Štampaj tok rada"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:63
 msgid "Print Workflow (Complex)"
-msgstr ""
+msgstr "Štampaj tok rada (kompleksno)"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
-msgstr ""
+msgstr "Prevedi prikaz"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:71
 msgid "document.png"
@@ -110,12 +112,12 @@ msgstr ""
 
 #: Koo/Plugins/DocumentScanner/__init__.py:78
 msgid "Scan Documents"
-msgstr ""
+msgstr "Skenirajte Dokumente"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:43
 #: Koo/Plugins/DocumentImporter/__init__.py:81
 msgid "Import Documents"
-msgstr ""
+msgstr "Uvoz dokumenata"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:44
 msgid "How do you want to import documents?"
@@ -123,31 +125,31 @@ msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Odabir datoteka"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 msgid "Selected Directory"
-msgstr ""
+msgstr "Odabrana mapa"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:47
 msgid "Cancel Import"
-msgstr ""
+msgstr "Otkaži uvoz"
 
 #: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:375
 msgid "Ok"
-msgstr ""
+msgstr "U redu"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
-msgstr ""
+msgstr "Prikaz obrasca"
 
 #: Koo/View/Tree/__init__.py:32
 msgid "List View"
-msgstr ""
+msgstr "Prikaz liste"
 
 #: Koo/View/Tree/TreeView.py:210
 msgid "<font color='red'>Sorting not possible.</font>"
-msgstr ""
+msgstr "<font color='red'>Sortiranje nije moguće.</font>"
 
 #: Koo/View/Tree/TreeView.py:212
 msgid "<font color='red'>Sorting only groups.</font>"
@@ -159,7 +161,7 @@ msgstr ""
 
 #: Koo/View/Tree/TreeView.py:238
 msgid "<a href=\"update\">Update totals</a>"
-msgstr ""
+msgstr "<a href=\"update\">Preračunaj sume</a>"
 
 #: Koo/View/DummyView.py:44
 #, python-format
@@ -172,15 +174,15 @@ msgstr ""
 
 #: Koo/View/Chart/Parser.py:58 Koo/View/Calendar/Parser.py:47
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #: Koo/View/Chart/__init__.py:31
 msgid "Chart View"
-msgstr ""
+msgstr "Prikaz grafikona"
 
 #: Koo/View/Calendar/__init__.py:31
 msgid "Calendar View"
-msgstr ""
+msgstr "Prikaz kalendara"
 
 #: Koo/View/Calendar/Calendar.py:93
 #, python-format
@@ -206,6 +208,8 @@ msgid ""
 "<b>Write concurrency warning:</b><br/>This document has been modified while "
 "you were editing it."
 msgstr ""
+"<b>Upozorenje prilikom sačuvanja:</b><br/>Tekuća stavka je izmenjena na "
+"drugoj radnoj stanici za vreme obrade."
 
 #: Koo/Common/Common.py:161
 msgid "Save anyway"
@@ -213,11 +217,11 @@ msgstr ""
 
 #: Koo/Common/Common.py:162
 msgid "Compare"
-msgstr ""
+msgstr "Uporedi"
 
 #: Koo/Common/Common.py:163
 msgid "Do not save"
-msgstr ""
+msgstr "Nemoj sačuvati"
 
 #: Koo/Common/Common.py:212 Koo/Common/Common.py:226 Koo/Common/Common.py:229
 msgid "Send Error Information"
@@ -241,29 +245,31 @@ msgstr ""
 #: Koo/Common/Common.py:259
 #, python-format
 msgid "<b>Connection Lost:</b> %s"
-msgstr ""
+msgstr "<b>Veza je prekinuta:</b> %s"
 
 #: Koo/Common/Common.py:268
 #, python-format
 msgid ""
 "Connection with the server has been lost. Will retry connection in %d "
 "seconds."
-msgstr ""
+msgstr "Veza sa serverom je prekinuta. Ponovni pokušaj za %d sekundi."
 
 #: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:651
 msgid "Quit"
-msgstr ""
+msgstr "Izađi"
 
 #: Koo/Common/Common.py:283
 msgid ""
 "Leaving the application now will lose all unsaved changes. Are you sure you "
 "want to quit?"
 msgstr ""
+"Ako sad izađete iz programa, izgubićete sve Vaše promene. Da li stvarno "
+"želite da napustite program?"
 
 #: Koo/Common/Numeric.py:113 Koo/Model/KooModel.py:368
 #, python-format
 msgid "%d bytes"
-msgstr "%d ไบท์"
+msgstr "%d bajtova"
 
 #: Koo/Common/Numeric.py:113
 #, python-format
@@ -402,13 +408,13 @@ msgstr ""
 #: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
 #: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "Yes"
-msgstr ""
+msgstr "Da"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:306
 #: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
 #: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: Koo/Search/SearchFormWidget.py:248
 msgid "Search Error"
@@ -422,51 +428,51 @@ msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:83
 msgid "is empty"
-msgstr ""
+msgstr "prazan je"
 
 #: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is not empty"
-msgstr ""
+msgstr "nije prazan"
 
 #: Koo/Search/CustomSearchFormWidget.py:85
 msgid "contains"
-msgstr ""
+msgstr "sadrži"
 
 #: Koo/Search/CustomSearchFormWidget.py:86
 msgid "does not contain"
-msgstr ""
+msgstr "ne sadrži"
 
 #: Koo/Search/CustomSearchFormWidget.py:87
 msgid "is equal to"
-msgstr ""
+msgstr "jednak je"
 
 #: Koo/Search/CustomSearchFormWidget.py:88
 msgid "is not equal to"
-msgstr ""
+msgstr "nije jednak"
 
 #: Koo/Search/CustomSearchFormWidget.py:89
 msgid "greater than"
-msgstr ""
+msgstr "veći od"
 
 #: Koo/Search/CustomSearchFormWidget.py:90
 msgid "less than"
-msgstr ""
+msgstr "manji od"
 
 #: Koo/Search/CustomSearchFormWidget.py:91
 msgid "greater or equal to"
-msgstr ""
+msgstr "veći ili jednak"
 
 #: Koo/Search/CustomSearchFormWidget.py:92
 msgid "less or equal to"
-msgstr ""
+msgstr "manji ili jednak"
 
 #: Koo/Search/CustomSearchFormWidget.py:93
 msgid "in"
-msgstr ""
+msgstr "element"
 
 #: Koo/Search/CustomSearchFormWidget.py:94
 msgid "not in"
-msgstr ""
+msgstr "nije element"
 
 #: Koo/Search/CustomSearchFormWidget.py:297
 msgid "True"
@@ -482,19 +488,19 @@ msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:461
 msgid "( Created By )"
-msgstr ""
+msgstr "( stvorio )"
 
 #: Koo/Search/CustomSearchFormWidget.py:465
 msgid "( Creation Date )"
-msgstr ""
+msgstr "( datum stvaranja )"
 
 #: Koo/Search/CustomSearchFormWidget.py:469
 msgid "( Last Modified By )"
-msgstr ""
+msgstr "( zadnja izmena od strane )"
 
 #: Koo/Search/CustomSearchFormWidget.py:473
 msgid "( Last Modification Date )"
-msgstr ""
+msgstr "( datum zadnje izmene )"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:36
 msgid ""
@@ -552,11 +558,11 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
 msgid "Could not connect to server !"
-msgstr ""
+msgstr "Spajanje nije uspelo sa serverom !"
 
 #: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
 msgid "No database found, you must create one !"
-msgstr ""
+msgstr "Nije pronađena niti jedna baza podataka, morate stvoriti jednu !"
 
 #: Koo/Dialogs/DatabaseDialog.py:108
 msgid "Open backup file..."
@@ -572,7 +578,7 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:124
 msgid "Bad database administrator password!"
-msgstr ""
+msgstr "Pogrešna administratorska lozinka baze!"
 
 #: Koo/Dialogs/DatabaseDialog.py:126
 msgid "There was an error restoring the database!"
@@ -584,13 +590,13 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:132
 msgid "Backup a database"
-msgstr ""
+msgstr "Izrada sigurnosne kopije baze podataka."
 
 #: Koo/Dialogs/DatabaseDialog.py:136
 #: Koo/Fields/Binary/BinaryFieldWidget.py:260
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
-msgstr ""
+msgstr "Sačuvaj kao..."
 
 #: Koo/Dialogs/DatabaseDialog.py:148
 #, python-format
@@ -609,11 +615,11 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:165
 msgid "Could not drop database."
-msgstr ""
+msgstr "Ne mogu izbrisati bazu podataka."
 
 #: Koo/Dialogs/DatabaseDialog.py:165 Koo/Dialogs/DatabaseCreationDialog.py:84
 msgid "Bad database administrator password !"
-msgstr ""
+msgstr "Pogrešna administratorska lozinka na bazi podataka !"
 
 #: Koo/Dialogs/DatabaseDialog.py:167 Koo/Dialogs/DatabaseDialog.py:170
 msgid "Database removal"
@@ -633,7 +639,7 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:185
 msgid "<font color=\"blue\">Document modified</font>"
-msgstr ""
+msgstr "<font color=\"blue\">Stavka je promenjena</font>"
 
 #: Koo/Dialogs/FormWidget.py:215
 msgid "Go To Id"
@@ -654,36 +660,36 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:293
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: Koo/Dialogs/FormWidget.py:294
 msgid "Creation User"
-msgstr ""
+msgstr "Stvorio korisnik"
 
 #: Koo/Dialogs/FormWidget.py:295
 msgid "Creation Date"
-msgstr ""
+msgstr "Datum stvaranja"
 
 #: Koo/Dialogs/FormWidget.py:296
 msgid "Latest Modification by"
-msgstr ""
+msgstr "Zadnja izmena od strane"
 
 #: Koo/Dialogs/FormWidget.py:297
 msgid "Latest Modification Date"
-msgstr ""
+msgstr "Datum zadnje izmene"
 
 #: Koo/Dialogs/FormWidget.py:303
 msgid "Record log"
-msgstr ""
+msgstr "Dnevnik stavke"
 
 #: Koo/Dialogs/FormWidget.py:306 Koo/Dialogs/FormWidget.py:514
 #: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "Question"
-msgstr ""
+msgstr "Pitanje"
 
 #: Koo/Dialogs/FormWidget.py:306
 msgid "Are you sure you want to remove these records?"
-msgstr ""
+msgstr "Jeste sigurni da želite obrisati ove stavke?"
 
 #: Koo/Dialogs/FormWidget.py:311
 msgid "Resource not removed !"
@@ -699,11 +705,11 @@ msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:354
 msgid "<font color=\"green\">Document saved</font>"
-msgstr ""
+msgstr "<font color=\"green\">Stavka je sačuvana</font>"
 
 #: Koo/Dialogs/FormWidget.py:359
 msgid "<font color=\"red\">Invalid form</font>"
-msgstr ""
+msgstr "<font color=\"red\">Neispravan obrazac</font>"
 
 #: Koo/Dialogs/FormWidget.py:374
 #, python-format
@@ -711,33 +717,35 @@ msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
+"<p>Vrednost sledećih polja je nevažeća, zato su obeležena crvenom "
+"bojom:</p>%s<p>Molim Vas ispravite ta polja pre sačuvanja.</p>"
 
 #: Koo/Dialogs/FormWidget.py:472
 #, python-format
 msgid "(%s attachments) "
-msgstr ""
+msgstr "(%s prilozi) "
 
 #: Koo/Dialogs/FormWidget.py:483
 msgid "No records"
-msgstr ""
+msgstr "Nema stavki"
 
 #: Koo/Dialogs/FormWidget.py:490
 msgid "No document selected"
-msgstr ""
+msgstr "Dokument nije izabran"
 
 #: Koo/Dialogs/FormWidget.py:494
 msgid "New document"
-msgstr ""
+msgstr "Nova stavka"
 
 #: Koo/Dialogs/FormWidget.py:496
 #, python-format
 msgid "Editing document (id: %s)"
-msgstr ""
+msgstr "Obrada stavke (id: %s)"
 
 #: Koo/Dialogs/FormWidget.py:497
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
-msgstr ""
+msgstr "Stavka: %(name)s / %(count)s - %(name2)s"
 
 #: Koo/Dialogs/FormWidget.py:515
 #, python-format
@@ -745,14 +753,16 @@ msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
+"<p>Promenili ste sledeća polja aktuelne stavke:</p>%s<p>Da li želite da "
+"sačuvate promene?</p>"
 
 #: Koo/Dialogs/FormWidget.py:516
 msgid "Save"
-msgstr ""
+msgstr "Sačuvaj"
 
 #: Koo/Dialogs/FormWidget.py:516
 msgid "Discard"
-msgstr ""
+msgstr "Nemoj sačuvati"
 
 #: Koo/Dialogs/FormWidget.py:534
 msgid "No records selected"
@@ -773,23 +783,23 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:504
 msgid "Press Ctrl+O to login"
-msgstr ""
+msgstr "Pritisnite Ctrl+O za prijavu"
 
 #: Koo/Dialogs/KooMainWindow.py:121
 msgid "Close tab"
-msgstr ""
+msgstr "Zatvori jezičak"
 
 #: Koo/Dialogs/KooMainWindow.py:206
 msgid "Open partners tab"
-msgstr ""
+msgstr "Otvori jezičak partnera"
 
 #: Koo/Dialogs/KooMainWindow.py:211
 msgid "Open products tab"
-msgstr ""
+msgstr "Otvori jezičak proizvoda"
 
 #: Koo/Dialogs/KooMainWindow.py:264
 msgid "Products"
-msgstr ""
+msgstr "Proizvodi"
 
 #: Koo/Dialogs/KooMainWindow.py:264
 msgid "Products module is not installed."
@@ -798,16 +808,16 @@ msgstr ""
 #: Koo/Dialogs/KooMainWindow.py:387
 #, python-format
 msgid "%s request(s)"
-msgstr ""
+msgstr "%s zahtev(a)"
 
 #: Koo/Dialogs/KooMainWindow.py:389
 msgid "No request"
-msgstr ""
+msgstr "Nema zahteva"
 
 #: Koo/Dialogs/KooMainWindow.py:391
 #, python-format
 msgid " - %s pending request(s)"
-msgstr ""
+msgstr " - %s zahteva na čekanju"
 
 #: Koo/Dialogs/KooMainWindow.py:398
 msgid "New Request"
@@ -819,7 +829,7 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:478 Koo/Dialogs/KooMainWindow.py:480
 msgid "Connection error !"
-msgstr ""
+msgstr "Greška pri spajanju !"
 
 #: Koo/Dialogs/KooMainWindow.py:478
 msgid "Unable to connect to the server !"
@@ -827,11 +837,11 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:480
 msgid "Bad username or password !"
-msgstr ""
+msgstr "Pogrešno korisničko ime ili lozinka !"
 
 #: Koo/Dialogs/KooMainWindow.py:485 Koo/Dialogs/KooMainWindow.py:487
 msgid "Connection Error !"
-msgstr ""
+msgstr "Greška pri spajanju !"
 
 #: Koo/Dialogs/KooMainWindow.py:487
 msgid "Error logging into database."
@@ -839,15 +849,15 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:503
 msgid "Not logged !"
-msgstr ""
+msgstr "Neprijavljen !"
 
 #: Koo/Dialogs/KooMainWindow.py:527
 msgid "Manual"
-msgstr ""
+msgstr "Priručnik"
 
 #: Koo/Dialogs/KooMainWindow.py:615
 msgid "Access denied"
-msgstr ""
+msgstr "Pristup zabranjen"
 
 #: Koo/Dialogs/KooMainWindow.py:615
 msgid ""
@@ -855,10 +865,13 @@ msgid ""
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
+"Ne možete se prijaviti u sustav !\n"
+"Zamolite administratora sustava da provjeri\n"
+"da imate akciju definiranu za vašeg korisnika."
 
 #: Koo/Dialogs/KooMainWindow.py:651
 msgid "Do you really want to quit ?"
-msgstr ""
+msgstr "Želite li zaista završiti s radom ?"
 
 #: Koo/Dialogs/KooMainWindow.py:685
 msgid "Wizard"
@@ -888,11 +901,11 @@ msgstr ""
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:68
 msgid "Secure XML-RPC"
-msgstr ""
+msgstr "Bezbedan XML-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:69
 msgid "Pyro (faster)"
-msgstr ""
+msgstr "Pyro (brži)"
 
 #: Koo/Dialogs/ImportDialog.py:48
 #, python-format
@@ -907,7 +920,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:63
 #, python-format
 msgid "Imported %d objects !"
-msgstr ""
+msgstr "Uvezeno %d objekata !"
 
 #: Koo/Dialogs/ImportDialog.py:68
 #, python-format
@@ -922,16 +935,16 @@ msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:73
 msgid "Error importing data"
-msgstr ""
+msgstr "Greška prilikom uvoza podataka"
 
 #: Koo/Dialogs/ImportDialog.py:130
 msgid "File to import"
-msgstr ""
+msgstr "Datoteka za uvoz"
 
 #: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
 #: Koo/Dialogs/ImportDialog.py:151
 msgid "Import error"
-msgstr ""
+msgstr "Pogreška pri uvozu"
 
 #: Koo/Dialogs/ImportDialog.py:145
 msgid "No file specified."
@@ -949,7 +962,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
 #: Koo/Dialogs/ImportDialog.py:228
 msgid "Auto-detect error"
-msgstr ""
+msgstr "Greška pri auto-dodavanju"
 
 #: Koo/Dialogs/ImportDialog.py:218
 msgid "Error opening .CSV file: Input Error."
@@ -968,7 +981,7 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:64
 msgid "Full Text Search"
-msgstr ""
+msgstr "Pretraživanje u sadržaju"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:65
 #, python-format
@@ -977,7 +990,7 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:94
 msgid "(Everywhere)"
-msgstr ""
+msgstr "(svugde)"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:98
 msgid ""
@@ -992,6 +1005,9 @@ msgid ""
 "Modules administration - Uninstalled Modules</i> and add the "
 "<i>full_text_search</i> module."
 msgstr ""
+"<b>Modul za pretraživanje u sadržaju nije instaliran.</b><br/>Go to "
+"<i>Administration - Modules administration - Uninstalled Modules</i> and add "
+"the <i>full_text_search</i> module."
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:59
 msgid "Validation Error"
@@ -1003,7 +1019,7 @@ msgstr ""
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Lozinka je uspešno promenjena"
 
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 msgid ""
@@ -1015,11 +1031,11 @@ msgstr ""
 #, python-format
 msgid ""
 "Select the fields you want to update in the <b>%d</b> selected records:"
-msgstr ""
+msgstr "Izaberi polja koja ćete promeniti kod <b>%d</b> odabranih stavki:"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
-msgstr ""
+msgstr "Polja"
 
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
@@ -1036,12 +1052,12 @@ msgstr ""
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/ExportDialog.py:109
 #, python-format
 msgid "%s record(s) saved!"
-msgstr ""
+msgstr "%s stavki su sačuvane!"
 
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:109
 #: Koo/Dialogs/ExportDialog.py:112 Koo/Dialogs/ExportDialog.py:115
 msgid "Data Export"
-msgstr ""
+msgstr "Izvoz podataka"
 
 #: Koo/Dialogs/ExportDialog.py:115
 #, python-format
@@ -1066,7 +1082,7 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:315
 msgid "Export Data"
-msgstr ""
+msgstr "Izvezi podatke"
 
 #: Koo/Dialogs/ExportDialog.py:358
 msgid "What is the name of this export?"
@@ -1074,31 +1090,31 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:376
 msgid "Open with OpenOffice.org"
-msgstr ""
+msgstr "Otvori u OpenOffice.org-u"
 
 #: Koo/Dialogs/ExportDialog.py:382
 msgid "Open with Excel"
-msgstr ""
+msgstr "Otvori u Excel-u"
 
 #: Koo/Dialogs/ExportDialog.py:385
 msgid "Save as CSV"
-msgstr ""
+msgstr "Sačuvaj kao CSV"
 
 #: Koo/Dialogs/ExportDialog.py:386
 msgid "Save as HTML"
-msgstr ""
+msgstr "Sačuvaj kao HTML"
 
 #: Koo/Dialogs/ExportDialog.py:398
 msgid "Export name"
-msgstr ""
+msgstr "Naziv izvoza"
 
 #: Koo/Dialogs/ExportDialog.py:399
 msgid "Exported fields"
-msgstr ""
+msgstr "Izvezena polja"
 
 #: Koo/Dialogs/TreeWidget.py:64
 msgid "Tree"
-msgstr ""
+msgstr "Stablo"
 
 #: Koo/Dialogs/TreeWidget.py:290 Koo/Dialogs/TreeWidget.py:302
 msgid "No resource selected!"
@@ -1114,11 +1130,11 @@ msgstr ""
 
 #: Koo/Dialogs/PreferencesDialog.py:54
 msgid "User Preferences"
-msgstr ""
+msgstr "Podešavanja korisnika"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid "You can now connect to the database as an administrator."
-msgstr ""
+msgstr "Možete se spojiti na bazu podataka kao administrator."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:48
 msgid ""
@@ -1133,27 +1149,32 @@ msgstr ""
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
 msgid "Could not create database."
-msgstr ""
+msgstr "Ne mogu stvoriti bazu podataka."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
-msgstr ""
+msgstr "Greška prilikom stvaranja baze podataka !"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid ""
 "The server crashed during installation.\n"
 "We suggest you to drop this database."
 msgstr ""
+"Server se srušio tokom instalacije.\n"
+"Preporučamo brisanje ove baze podataka."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:178
 msgid "Bad database name !"
-msgstr ""
+msgstr "Neispravan naziv baze podataka !"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:178
 msgid ""
 "The database name must contain only normal characters or \"_\".\n"
 "You must avoid all accents, space or special characters."
 msgstr ""
+"Naziv baze podataka mora sadržavati samo normalne znakove ili \"_\".\n"
+"Morate izbeći sve znakove koji ne postoje u engleskoj abecedi, razmake ili "
+"specijalne znakove."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:181
 msgid "Wrong password"
@@ -1169,11 +1190,11 @@ msgstr ""
 
 #: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
 msgid "Application Error"
-msgstr ""
+msgstr "Greška u programu"
 
 #: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
 msgid "View details"
-msgstr ""
+msgstr "Pogledaj detalje"
 
 #: Koo/Rpc/Rpc.py:415
 msgid "Not logged in"
@@ -1214,7 +1235,7 @@ msgstr ""
 #: Koo/Fields/AbstractFieldDelegate.py:115
 #: Koo/Fields/AbstractFieldWidget.py:149
 msgid "Operation not permited"
-msgstr ""
+msgstr "Operacija nije dozvoljena"
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
 #: Koo/Fields/AbstractFieldWidget.py:149
@@ -1225,15 +1246,15 @@ msgstr ""
 #: Koo/Fields/ManyToOne/ManyToOne.py:310
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
-msgstr ""
+msgstr "Otvori"
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:312
 msgid "Action"
-msgstr ""
+msgstr "Radnja"
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:313
 msgid "Report"
-msgstr ""
+msgstr "Izveštaj"
 
 #: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:258
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:213
@@ -1244,12 +1265,12 @@ msgstr ""
 #: Koo/Fields/Link/LinkFieldWidget.py:62
 #: Koo/Fields/Binary/BinaryFieldWidget.py:179
 msgid "Open..."
-msgstr ""
+msgstr "Otvori..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:111
 #: Koo/Fields/Binary/BinaryFieldWidget.py:216
 msgid "Image"
-msgstr ""
+msgstr "Slika"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:126
 msgid "Save image as..."
@@ -1257,7 +1278,7 @@ msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid "Error saving file"
-msgstr ""
+msgstr "Pogreška pri spremanju datoteke"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid ""
@@ -1276,15 +1297,15 @@ msgstr ""
 
 #: Koo/Fields/Image/ImageFieldWidget.py:157
 msgid "(no image)"
-msgstr ""
+msgstr "(nema slike)"
 
 #: Koo/Fields/AbstractFieldWidget.py:74
 msgid "Set to default value"
-msgstr ""
+msgstr "Postavi na zadanu vrednost"
 
 #: Koo/Fields/AbstractFieldWidget.py:80
 msgid "Set as default value"
-msgstr ""
+msgstr "Postavi da bude zadano"
 
 #: Koo/Fields/Link/LinkFieldWidget.py:71
 msgid "Select the file to link to"
@@ -1292,7 +1313,7 @@ msgstr ""
 
 #: Koo/Fields/FieldPreferencesDialog.py:64
 msgid "<center>Always applicable!</center>"
-msgstr ""
+msgstr "<center>Uvek primenjivo!</center>"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:78
 #, python-format
@@ -1301,7 +1322,7 @@ msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:86
 msgid "&New"
-msgstr ""
+msgstr "&Novo"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:90
 msgid "&Scan"
@@ -1309,19 +1330,19 @@ msgstr ""
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:101
 msgid "&Save"
-msgstr ""
+msgstr "&Sačuvaj"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:104
 msgid "&Open"
-msgstr ""
+msgstr "&Otvori"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:107
 msgid "Show &image"
-msgstr ""
+msgstr "&Prikaži sliku"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:180
 msgid "Show &image..."
-msgstr ""
+msgstr "&Prikaži sliku..."
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:226
 #: Koo/Fields/Video/VideoFieldWidget.py:72
@@ -1356,16 +1377,16 @@ msgstr ""
 
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error writing the file!"
-msgstr ""
+msgstr "Greška pri zapisivanju datoteke!"
 
 #: Koo/Fields/Calendar/Calendar.py:63
 msgid "Set current date"
-msgstr ""
+msgstr "Postavi trenutni datum"
 
 #: Koo/Fields/Calendar/Calendar.py:124
 msgid "Set current date and time"
-msgstr ""
+msgstr "Postavi trenutni datum i vreme"
 
 #: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:222
 msgid "Set current time"
-msgstr ""
+msgstr "Postavi trenutno vreme"

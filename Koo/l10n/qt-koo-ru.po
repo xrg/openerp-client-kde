@@ -1,17 +1,16 @@
-# translation of Koo_l10n_qt-koo-de.po to Deutsch
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Russian translation for openobject-client-kde
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Koo_l10n_qt-koo-de\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-10-26 01:47+0000\n"
-"PO-Revision-Date: 2010-07-29 20:53+0000\n"
-"Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
-"tic.com>\n"
-"Language-Team: Deutsch\n"
+"PO-Revision-Date: 2010-09-08 08:03+0000\n"
+"Last-Translator: vrsb <Unknown>\n"
+"Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,59 +21,59 @@ msgstr ""
 #. ts-context KooMainWindow
 #: win_attach.ui:89 mainwindow.ui:582
 msgid "Ctrl+D"
-msgstr "Strg+D"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:594
 msgid "Ctrl+F"
-msgstr "Strg+F"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:705
 msgid "Ctrl+G"
-msgstr "Strg+G"
+msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:162
 msgid "&Save list"
-msgstr "&Speichere Liste"
+msgstr "Сохранить список полей"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:805
 msgid "Ctrl+J"
-msgstr "Strg+J"
+msgstr ""
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:125
 msgid "Ctrl+L"
-msgstr "Strg+L"
+msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:77 mainwindow.ui:546
 msgid "Ctrl+N"
-msgstr "Strg+N"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:429
 msgid "Ctrl+O"
-msgstr "Strg+O"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:816
 msgid "Set focus to one of the widgets in the container"
-msgstr "Setze Fokus auf ein Widget im Kontainer"
+msgstr "Фокус ввода на один из элементов управления в контейнере"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:149 mainwindow.ui:558
 msgid "Ctrl+S"
-msgstr "Strg+S"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:793
 msgid "Ctrl+T"
-msgstr "Strg+T"
+msgstr ""
 
 #. ts-context Form
 #: keypad.ui:147
@@ -84,17 +83,17 @@ msgstr "/"
 #. ts-context KooMainWindow
 #: mainwindow.ui:675
 msgid "Ctrl+W"
-msgstr "Strg+W"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:26
 msgid "Koo: OpenObject KDE Client"
-msgstr "Koo: OpenObject KDE Anwendung"
+msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:36
 msgid "Bold"
-msgstr "Fett"
+msgstr "Полужирный"
 
 #. ts-context AdminPasswordDialog
 #. ts-context ChangeServerDialog
@@ -102,59 +101,59 @@ msgstr "Fett"
 #. ts-context LoginDialog
 #: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:70
 msgid "&Server:"
-msgstr "&Server:"
+msgstr "Сервер:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:790
 msgid "Full &Text Search"
-msgstr "& Volltext Suche"
+msgstr "Полнотекстовый поиск"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:407
 msgid "Paste selected text"
-msgstr "ausgewählten Text einfügen"
+msgstr "Вставить выделенный текст"
 
 #. ts-context Form
 #: keyboard.ui:644
 msgid "0"
-msgstr "0"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:299
 msgid "Repeat admin password"
-msgstr "Wiederholen admin Kennwort"
+msgstr "Подтверждение пароля администратора"
 
 #. ts-context Form
 #. ts-context FullTextSearchDialog
 #. ts-context WebWidget
 #: webcontainer.ui:24 full_text_search.ui:86 web.ui:23
 msgid "about:blank"
-msgstr "über:leer"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:660
 msgid "Previous Tab"
-msgstr "Voriger Reiter"
+msgstr "Предыдущая вкладка"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:685
 msgid "Close tab"
-msgstr "Reiter Schließen"
+msgstr "Закрыть вкладку"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:596
 msgid "<Ctrl> + <Shift> + Open"
-msgstr "<Ctrl>+<Shift>+ Öffnen"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:657
 msgid "P"
-msgstr "P"
+msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:282
 msgid "Foreground Color"
-msgstr "Vordergrund Farbe"
+msgstr ""
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:37
@@ -168,77 +167,68 @@ msgid ""
 "contain the same root. For example, searching for \"build\", may return "
 "documents which contain the words \"built\", \"build\" or \"building\"."
 msgstr ""
-"Hier können Sie nach jedem Begriff in der Datenbank suchen, wenn dieser "
-"indiziert ist.\n"
-"Wenn keine Suchresultate geliefert werden und Sie wissen, dass das Wort "
-"exisitert, dann ist es nicht indiziert. Wenden Sie sich an den System "
-"Administrator.\n"
-"Das System sucht nur nach vollständigen Wörtern, bzw. deren Wurzeln.\n"
-"(Anmerkung des Übersetzers: in wieweit dies für Deutsch funktioniert ist,ist "
-"offen)"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
 #: full_text_search.ui:66 mainwindow.ui:591 win_search.ui:86
 msgid "&Find"
-msgstr "Suchen"
+msgstr "&Поиск"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:745
 msgid "Open view in a background tab"
-msgstr "Öffne Ansicht in Hintergrund Reiter"
+msgstr "Открыть в новой вкладке, но не переключаться туда"
 
 #. ts-context Form
 #: keyboard.ui:420
 msgid "Tab"
-msgstr "Tab"
+msgstr "Вкладка"
 
 #. ts-context ExportDialog
 #: win_export.ui:76
 msgid "<b>All fields</b>"
-msgstr "<b>Alle Felder</b>"
+msgstr "<b>Все поля</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:634
 msgid "Selects all records"
-msgstr "Wähle alle Datensätze"
+msgstr "Выбрать все записи"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:93
 msgid "for all &users"
-msgstr "für alle Benutzer"
+msgstr "для всех пользователей"
 
 #. ts-context SearchDateWidget
 #: search_date.ui:56
 msgid "Choose a date from a calendar"
-msgstr "Datum vom Kalender wählen"
+msgstr ""
 
 #. ts-context SearchFormWidget
 #: searchform.ui:119
 msgid "&Search"
-msgstr "&Suchen"
+msgstr "&Поиск"
 
 #. ts-context ExportDialog
 #: win_export.ui:22
 msgid "<b>Predefined exports</b>"
-msgstr "<b>Vorgegebene Exports</b>"
+msgstr "Сохранённые списки полей для экспорта"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:113
 msgid "(must not contain any special character)"
-msgstr "(darf keine Sonderzeichen enthalten)"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:286
 msgid "<center><i>When editing a resource in a popup window</i></center>"
-msgstr ""
-"<center><i>Beim Ändern eines Datensatzes in eine PopUp fenster</i></center>"
+msgstr "<center><i>Редактирование записи во всплывающем окне</i></center>"
 
 #. ts-context ImportDialog
 #: win_import.ui:195
 msgid "&Text delimiter:"
-msgstr "&Text Begrenzer:"
+msgstr "Разделитель"
 
 #. ts-context CalendarWidget
 #. ts-context Form
@@ -261,69 +251,69 @@ msgstr "&Text Begrenzer:"
 #: search_date.ui:26 searchform.ui:14 searchreference.ui:13
 #: searchviewitem.ui:19 tree.ui:14 url.ui:20 web.ui:13
 msgid "Form"
-msgstr "Formular"
+msgstr "Форма"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:766
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
-msgstr "<Alt> + Pfeil (Links, Rechts, Hinauf, Hinunter)"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:618
 msgid "+"
-msgstr "+"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:433
 msgid "Caps"
-msgstr "Hochstelltaste"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:786
 msgid "Set focus to current widget's container"
-msgstr "Setze Fokus auf bestehende Kontainer"
+msgstr "Фокус ввода на контейнер ближайшего элемента управления"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:101 mainwindow.ui:606
 msgid "Alt+PgDown"
-msgstr "Alt Bild ab"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:776
 msgid "Set focus to nearest widget"
-msgstr "Setze Fokus auf nächstes Widget"
+msgstr "Фокус ввода на ближайший элемент управления"
 
 #. ts-context ErrorDialog
 #: error.ui:109
 msgid "De&tails"
-msgstr "&Details"
+msgstr "Подробности"
 
 #. ts-context Form
 #: keyboard.ui:173
 msgid "K"
-msgstr "K"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:351
 msgid "Documentation"
-msgstr "Dokumentation"
+msgstr "Руководство"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:462
 msgid "&New Database"
-msgstr "&Neue Datenbank"
+msgstr "Новая база данных"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:570
 msgid "Ctrl+Shift+D"
-msgstr "Ctrl+Shift+D"
+msgstr ""
 
 #. ts-context ChooseDatabaseDialog
 #. ts-context LoginDialog
 #: choosedb.ui:95 login.ui:111
 msgid "&Database:"
-msgstr "&Datenbank:"
+msgstr "&База данных:"
 
 #. ts-context ErrorDialog
 #: error.ui:135
@@ -333,78 +323,78 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:397
 msgid "Copy selected text"
-msgstr "Kopiere ausgewählten Text"
+msgstr "Скопировать выделенный текст"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:24
 msgid "&Main Shortcuts"
-msgstr "wichtige Kürzel"
+msgstr "Горячие клавиши"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:758
 msgid "&Tips"
-msgstr "&Tipps"
+msgstr "&Советы"
 
 #. ts-context ImportDialog
 #: win_import.ui:16
 msgid "Import"
-msgstr "Import"
+msgstr "Импорт"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:13
 msgid "Database created"
-msgstr "Datenbank erzeugt"
+msgstr "База данных создана"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:26
 msgid "<b>Could not connect to database</b>"
-msgstr "<b>Kann nicht mit Datenbank verbinden</b>"
+msgstr ""
 
 #. ts-context SearchDateWidget
 #: search_date.ui:112
 msgid "Choose the date from a calendar"
-msgstr "Datum vom Kalender wählen"
+msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:197
 msgid "<b>Options</b>"
-msgstr "<b>Optionen</b>"
+msgstr "<b>Настройки</b>"
 
 #. ts-context Dialog
 #: lostconnection.ui:73
 msgid "&Retry"
-msgstr "&Wiederholen"
+msgstr "&Повтор"
 
 #. ts-context Form
 #: keyboard.ui:553
 msgid "6"
-msgstr "6"
+msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context ShortcutsDialog
 #: win_attach.ui:86 shortcuts.ui:90
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Удалить"
 
 #. ts-context Form
 #: keyboard.ui:56
 msgid "E"
-msgstr "E"
+msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:331
 msgid "Select font size"
-msgstr "Zeichengröße auswählen"
+msgstr "Выберите размер шрифта"
 
 #. ts-context Form
 #: keyboard.ui:160
 msgid "F"
-msgstr "F"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:225
 msgid "Ñ"
-msgstr "Ñ"
+msgstr ""
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:66
@@ -427,73 +417,57 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
 "Serif';\">Administrator: admin / admin</p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
-"Serif';\">Sie können sich mit einem der folgenden Konten anmelden:</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif';\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans "
-"Serif';\">Administrator: admin / admin</p></body></html>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:329
 msgid "&Reports"
-msgstr "Be&richte"
+msgstr "&Отчёты"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:705
 msgid "Open form view in new tab"
-msgstr "Öffnet Formular in neuem Reiter"
+msgstr "Открыть форму в новой вкладке"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:582
 msgid "<Ctrl> + Open"
-msgstr "<Ctrl> + Öffnen"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:290
 msgid "V"
-msgstr "V"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:589
 msgid "F1"
-msgstr "F1"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:603
 msgid "F2"
-msgstr "F2"
+msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
 #: mainwindow.ui:717 shortcuts.ui:236
 msgid "F5"
-msgstr "F5"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:630
 msgid "F6"
-msgstr "F6"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:444
 msgid "&Disconnect"
-msgstr "Trenne"
+msgstr "Разорвать соединение"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:32
 msgid "Connect to a OpenERP Server"
-msgstr "Verbinde zu OpenERP Server"
+msgstr "Подключиться к серверу OpenERP"
 
 #. ts-context AboutDialog
 #: about.ui:20
@@ -510,17 +484,6 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">The most advanced Open "
 "Source ERP &amp; CRM !</p></center></body></html>"
 msgstr ""
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<center><p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; "
-"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"weight:600;\">About OpenERP</span> </p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Das fortschrittlichstes "
-"TOpen Source ERP &amp; CRM !</p></center></body></html>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:509
@@ -528,8 +491,6 @@ msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
 msgstr ""
-"Formel + <Enter>\n"
-"(Beispiel: 3+2*2)"
 
 #. ts-context AboutDialog
 #: about.ui:48
@@ -580,295 +541,249 @@ msgid ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
-" %s</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP ist ein Open "
-"Source ERP+CRM</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">für kleine und mittlere "
-"Unternehmen.</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Der gesamte Quellcode "
-"ist unter </span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">den Bedingungen der GNU "
-"Public Licence veröffentlicht.</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mehr INformation auf "
-"</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
-"Serif'; font-size:9pt; text-decoration: underline; "
-"color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
 
 #. ts-context OneToManyWidget
 #. ts-context PanedWidget
 #: one2many.ui:242 paned.ui:117
 msgid "Switch View"
-msgstr "Ansicht Umschalten"
+msgstr "Переключение форма/список"
 
 #. ts-context Form
 #: customsearchitem.ui:71
 msgid "&And"
-msgstr "&Und"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:648
 msgid "Next Tab"
-msgstr "Nächster Reiter"
+msgstr "Следующая вкладка"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
 msgid "Create a new database"
-msgstr "Erstelle neue Datenbank"
+msgstr "Создать новую базу данных"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:675
 msgid "Middle mouse click on Tab"
-msgstr "Mittleree Mausklick auf Reiter"
+msgstr "Средняя кнопка мыши на вкладке"
 
 #. ts-context ImportDialog
 #: win_import.ui:233
 msgid "UTF-8"
-msgstr "UTF-8"
+msgstr ""
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:57
 msgid "&Old password:"
-msgstr "Altes Kennwort"
+msgstr "Старый пароль:"
 
 #. ts-context Form
 #: keyboard.ui:527
 msgid "1"
-msgstr "1"
+msgstr ""
 
 #. ts-context TipsDialog
 #: tip.ui:96
 msgid "&Display a new tip next time ?"
-msgstr "Zeige das nächste Mal einen neuen Tip?"
+msgstr "Показывать советы при запуске?"
 
 #. ts-context Form
 #: keyboard.ui:199
 msgid "A"
-msgstr "A"
+msgstr ""
 
 #. ts-context Form
 #: image.ui:56
 msgid "Load Image"
-msgstr "Lade Bild"
+msgstr "Загрузить изображение"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:525
 msgid "&Read My Requests"
-msgstr "Lese meine Anf&ragen"
+msgstr "Прочесть мои запросы"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:107
 msgid "Find / Search"
-msgstr "Finden / Suchen"
+msgstr "Поиск"
 
 #. ts-context ImportDialog
 #: win_import.ui:130
 msgid "Fields to import"
-msgstr "Felder zu importieren"
+msgstr "Поля для импорта"
 
 #. ts-context Form
 #: keyboard.ui:579
 msgid "Q"
-msgstr "Q"
+msgstr ""
 
 #. ts-context AboutDialog
 #: about.ui:76
 msgid "&Contact"
-msgstr "Kontakt"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:461
 msgid "<Tab>"
-msgstr "<Tab>"
+msgstr ""
 
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:14
 msgid "OpenERP - Link"
-msgstr "OpenERP - Link"
+msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:153
 msgid "File to &import:"
-msgstr "Datei zu importieren"
+msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:210
 msgid "Add &field names"
-msgstr "&Feldnamen hinzufügen"
+msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:109
 msgid "Auto-&detect"
-msgstr "automatisch Erkennung"
+msgstr ""
 
 #. ts-context BinaryWidget
 #: binary.ui:64
 msgid "Save file..."
-msgstr "Datei Speichern"
+msgstr ""
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:55
 msgid "Default &value"
-msgstr "&Voreinstellung Wert"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:660
 msgid "&Advanced"
-msgstr "Fortgeschritten"
+msgstr "Дополнительно"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:772
 msgid "&License"
-msgstr "&Lizenz"
+msgstr "Лицензия"
 
 #. ts-context Form
 #: calendarview.ui:34
 msgid "Monthly View"
-msgstr "Monatsansicht"
+msgstr ""
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:102
 msgid "<b>Value applicable if:</b>"
-msgstr "<b>Wert anzuwenden, wenn:</b>"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:814
 msgid "&Form designer"
-msgstr "&Formular Desinger"
+msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:219
 msgid "&Lines to skip:"
-msgstr "überspringe Zei&len:"
+msgstr ""
 
 #. ts-context Form
 #. ts-context ImportDialog
 #: keyboard.ui:303 win_import.ui:188
 msgid ","
-msgstr ","
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:579
 msgid "&Delete"
-msgstr "&Löschen"
+msgstr "Удалить"
 
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
 #: mainwindow.ui:543 win_search.ui:67
 msgid "&New"
-msgstr "&Neu"
+msgstr "&Создать"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:451
 msgid "Auto-complete text field"
-msgstr "Feld automatisch vervollständigen"
+msgstr "Автодополнение"
 
 #. ts-context Form
 #: keyboard.ui:631
 msgid "Ç"
-msgstr "Ç"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:498
 msgid "&Administrator Password"
-msgstr "&Administrator Kennwort"
+msgstr "Пароль администратора"
 
 #. ts-context Form
 #: keyboard.ui:212
 msgid "L"
-msgstr "L"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:828
 msgid "Open Home Tab"
-msgstr "Öffne persönlichen Reiter"
+msgstr ""
 
 #. ts-context Dialog
 #: lostconnection.ui:45
 msgid ""
 "Connection with the server has been lost. Will retry connection in 10 "
 "seconds."
-msgstr ""
-"Verbindung mit dem Server wurde getrennt, nächster Versuch in 10 Sekunden."
+msgstr "Связь с сервером утеряна. Повторное подключение через 10 секунд."
 
 #. ts-context ImportDialog
 #: win_import.ui:32
 msgid "All fields"
-msgstr "Alle Felder"
+msgstr "Все поля"
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
 #: win_attach.ui:110 one2many.ui:171
 msgid "Previous"
-msgstr "Vorherig"
+msgstr "Предыдущее"
 
 #. ts-context PreferencesDialog
 #: preferences.ui:14
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr "Настройки"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:13
 msgid "Choose database..."
-msgstr "Wähle Datenbank"
+msgstr "Выбрать базу данных"
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
 #: win_attach.ui:98 one2many.ui:213
 msgid "Next"
-msgstr "Weiter"
+msgstr "Следующее"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:91
 msgid "New password &confirmation:"
-msgstr "Neues Passwort und Bestätigung:"
+msgstr "Новый пароль"
 
 #. ts-context AttachmentWindow
 #. ts-context ShortcutsDialog
 #: win_attach.ui:146 shortcuts.ui:73
 msgid "Save"
-msgstr "Speichern"
+msgstr "Сохранить"
 
 #. ts-context Form
 #: keyboard.ui:605
 msgid "'"
-msgstr "'"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:837
 msgid "&Clear Cache"
-msgstr "Zwischenspeicher &leeren"
+msgstr "&Очистить кеш"
 
 #. ts-context ChooseDatabaseDialog
 #. ts-context Form
@@ -876,59 +791,59 @@ msgstr "Zwischenspeicher &leeren"
 #. ts-context SearchViewItemWidget
 #: choosedb.ui:123 image.ui:25 one2many.ui:80 searchviewitem.ui:164
 msgid "TextLabel"
-msgstr "TextLabel"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:757
 msgid "<b>Shortcuts in text entries</b>"
-msgstr "<b>Kürzel in Text Eingaben</b>"
+msgstr "<b>Горячие клавиши в текстовых полях</b>"
 
 #. ts-context Form
 #: keyboard.ui:475
 msgid "7"
-msgstr "7"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:186
 msgid "G"
-msgstr "G"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:123
 msgid "(use 'admin', if you did not change it)"
-msgstr "(verwende 'admin', wenn dies nicht verändert wurde)"
+msgstr ""
 
 #. ts-context BinaryWidget
 #. ts-context LinkWidget
 #: binary.ui:47 link.ui:36
 msgid "Select file..."
-msgstr "Datei Auswählen"
+msgstr "Выберите файл..."
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:20
 msgid "<b>Change your database administration password</b>"
-msgstr "<b>Verändere das Datenbank Admin Passwort</b>"
+msgstr "<b>Смените пароль администратора базы данных</b>"
 
 #. ts-context Form
 #: keyboard.ui:43
 msgid "W"
-msgstr "W"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:353
 msgid "F10"
-msgstr "F10"
+msgstr ""
 
 #. ts-context ChooseDatabaseDialog
 #. ts-context LoginDialog
 #: choosedb.ui:78 login.ui:221
 msgid "&Password:"
-msgstr "&Kennwort:"
+msgstr "Пароль:"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:56
 msgid "Database created successfully!"
-msgstr "Datenbank erfolgreich erzeugt!"
+msgstr ""
 
 #. ts-context ErrorDialog
 #: error.ui:124
@@ -938,29 +853,29 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:568
 msgid "Create a new record"
-msgstr "Erzeuge neue Resource"
+msgstr "Создать новую запись"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:819
 msgid "&Menu"
-msgstr "&Menü"
+msgstr "&Меню"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
 #: full_text_search.ui:115 mainwindow.ui:615 one2many_dialog.ui:57
 msgid "&Previous"
-msgstr "&Zurück"
+msgstr "&Предыдущее"
 
 #. ts-context Form
 #: customsearchitem.ui:81
 msgid "&Or"
-msgstr "&Oder"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
 msgid "Next record"
-msgstr "Nächster Datensatz"
+msgstr "Следующая запись"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:870
@@ -970,198 +885,198 @@ msgstr ""
 #. ts-context KooMainWindow
 #: mainwindow.ui:324
 msgid "&Actions"
-msgstr "&Aktionen"
+msgstr "&Действия"
 
 #. ts-context ImportDialog
 #: win_import.ui:205
 msgid "\""
-msgstr "\""
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:263
 msgid "F&orm"
-msgstr "F&ormular"
+msgstr "Форма"
 
 #. ts-context Form
 #: keyboard.ui:501
 msgid "2"
-msgstr "2"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:290
 msgid "&Database"
-msgstr "&Datenbank"
+msgstr "База данных"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:558
 msgid "Opens the record in a new background tab"
-msgstr "Öffnet Datensatz in Hintergrund Reiter"
+msgstr "Открыть в новой вкладке, но не переключаться туда"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:781
 msgid "&About"
-msgstr "Über"
+msgstr "&О программе"
 
 #. ts-context ManyToOneWidget
 #. ts-context PanedWidget
 #. ts-context SearchWidget
 #: many2one.ui:59 paned.ui:83 win_search.ui:14
 msgid "Search"
-msgstr "Suchen"
+msgstr "Поиск"
 
 #. ts-context Form
 #: keyboard.ui:316
 msgid "B"
-msgstr "B"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:155
 msgid "Requests:"
-msgstr "Anfragen:"
+msgstr "Запросы:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:347
 msgid "&Help"
-msgstr "&Hilfe"
+msgstr "Справка"
 
 #. ts-context Form
 #: keyboard.ui:69
 msgid "R"
-msgstr "R"
+msgstr ""
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:64
 msgid "&Change"
-msgstr "Verändere"
+msgstr "Изменить"
 
 #. ts-context ShortcutsDialog
 #. ts-context TreeWidget
 #: shortcuts.ui:14 tree.ui:58
 msgid "Shortcuts"
-msgstr "Kürzel"
+msgstr "Ярлыки"
 
 #. ts-context RichTextWidget
 #: richtext.ui:123
 msgid "Strikethrough"
-msgstr "Durchgestrichen"
+msgstr ""
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:74
 msgid "<b>Value applicable for:</b>"
-msgstr "<b>Wert anzuwenden für</b>"
+msgstr ""
 
 #. ts-context Form
 #: keypad.ui:238
 msgid "Intro"
-msgstr "Einführung"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:39
 msgid "Connect"
-msgstr "Verbinde"
+msgstr "Подключиться"
 
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:118
 msgid "&OK"
-msgstr "&OK"
+msgstr "Ок"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:312
 msgid "&User"
-msgstr "&Benutzer"
+msgstr "Пользователь"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:663
 msgid "Ctrl+PgUp"
-msgstr "Strg+Bild auf"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:124
 msgid "Full Text Search"
-msgstr "Volltext Suche"
+msgstr "Полнотекстовый поиск"
 
 #. ts-context ErrorDialog
 #: error.ui:64
 msgid "<b>Error code:</b>"
-msgstr "<b>Fehler Code</b>"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:151
 msgid "<Alt> + <PgDn>"
-msgstr "<Alt> + <Bild ab>"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:684
 msgid "View Access Log"
-msgstr "Zeige Zugriffs Log"
+msgstr "Подробно об этой  записи в базе данных"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:209
 msgid "Next tab"
-msgstr "Nächster Reiter"
+msgstr "Следующая вкладка"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:417
 msgid "Next editable widget"
-msgstr "Nächstes veränderbare Eingabefeld"
+msgstr "Следующий изменяемый виджет"
 
 #. ts-context Form
 #. ts-context SearchDateWidget
 #: keyboard.ui:355 search_date.ui:81
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:147
 msgid "J"
-msgstr "J"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:277
 msgid "M"
-msgstr "M"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:567
 msgid "D&uplicate"
-msgstr "&Duplizieren"
+msgstr "Продублировать"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:38
 msgid "&Domain"
-msgstr "&Domain"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:407
 msgid "Enter"
-msgstr "Eingabe"
+msgstr ""
 
 #. ts-context LoginDialog
 #: login.ui:23
 msgid "Login"
-msgstr "Anmelden"
+msgstr "Вход"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:14
 msgid "Full text search"
-msgstr "Volltext Suche"
+msgstr "Полнотекстовый поиск"
 
 #. ts-context ExportDialog
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
 #: win_export.ui:127 win_import.ui:74 many2many.ui:60
 msgid "&Remove"
-msgstr "Enfe&rne"
+msgstr "Удалить"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:74
 msgid "&New password:"
-msgstr "&Neues Kennwort:"
+msgstr "Новый пароль:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:294
 msgid "&Databases"
-msgstr "&Datenbanken"
+msgstr "Базы данных"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
@@ -1169,12 +1084,12 @@ msgstr "&Datenbanken"
 #. ts-context TipsDialog
 #: full_text_search.ui:158 mainwindow.ui:672 shortcuts.ui:860 tip.ui:159
 msgid "&Close"
-msgstr "Sch&ließen"
+msgstr "Закрыть"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:253
 msgid "<Ctrl> + <Shift> + D"
-msgstr "<Strg> + <Shift> + D"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:856
@@ -1184,97 +1099,97 @@ msgstr ""
 #. ts-context ImportDialog
 #: win_import.ui:178
 msgid "&Field separator"
-msgstr "&Feldtrenner"
+msgstr "Разделитель полей"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:639
 msgid "Open &Menu Tab"
-msgstr "Öffne Menü Reiter"
+msgstr "Открыть меню"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:516
 msgid "&Send Request"
-msgstr "&Sende Anfrage"
+msgstr "Отправить запрос"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:50
 msgid "&New database name:"
-msgstr "&Neuer Datenbank Name:"
+msgstr "Название новой базы данных"
 
 #. ts-context ErrorDialog
 #: error.ui:71
 msgid "View details"
-msgstr "Zeige Details"
+msgstr "Просмотреть подробности"
 
 #. ts-context RichTextWidget
 #: richtext.ui:301
 msgid "Background color"
-msgstr "Hintergrund Farbe"
+msgstr "Цвет фона"
 
 #. ts-context ErrorDialog
 #: error.ui:20
 msgid "Application Error !"
-msgstr "Anwednungs Fehler!"
+msgstr "Ошибка приложения!"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
 msgid "&OpenERP server:"
-msgstr "&OpenERP Server:"
+msgstr "Сервер OpenERP"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:25
 msgid "Action here..."
-msgstr "Aktion hier"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:548
 msgid "Opens the record in a new tab"
-msgstr "Öffnet Datensatz in neuem Reiter"
+msgstr "Открыть запись в новой вкладке"
 
 #. ts-context Form
 #: keyboard.ui:566
 msgid "8"
-msgstr "8"
+msgstr ""
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:83
 msgid "&only for you"
-msgstr "nur für Sie"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:264
 msgid "H"
-msgstr "H"
+msgstr ""
 
 #. ts-context Form
 #: calendarview.ui:83
 msgid "Color Legend"
-msgstr "Farb Legende"
+msgstr "Цетная подпись"
 
 #. ts-context Form
 #: image.ui:73
 msgid "Save Image"
-msgstr "Speichere Bild"
+msgstr "Сохранить изображение"
 
 #. ts-context Form
 #: keyboard.ui:368
 msgid "X"
-msgstr "X"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:138
 msgid "Help"
-msgstr ""
+msgstr "Справка"
 
 #. ts-context TreeWidget
 #: tree.ui:91
 msgid "Remove Shortcut"
-msgstr "Kürzel entfernen"
+msgstr "Удалить ярлык"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:21
 msgid "Field &Name"
-msgstr "Feld &Name"
+msgstr "Название поля"
 
 #. ts-context Form
 #: customsearchitem.ui:56
@@ -1286,42 +1201,42 @@ msgstr ""
 #. ts-context ErrorDialog
 #: error.ui:34
 msgid "&Description"
-msgstr "&Beschreibung"
+msgstr "Описание"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:260
 msgid "Duplicate Record"
-msgstr "Dupliziere Datensatz"
+msgstr "Дублировать запись"
 
 #. ts-context Form
 #: keyboard.ui:381
 msgid "C"
-msgstr "C"
+msgstr ""
 
 #. ts-context LoginDialog
 #: login.ui:176
 msgid "<b>Could not connect to server !</b>"
-msgstr "<b>Kann nicht mit Server verbinden !</b>"
+msgstr "Невозможно соединиться с сервером!"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:197
 msgid "&Load demonstration data"
-msgstr "&Lade Demo Daten"
+msgstr "Загрузить демо-данные"
 
 #. ts-context Dialog
 #: massiveupdate_msgbox.ui:14
 msgid "Massive Update"
-msgstr "Massen Update"
+msgstr ""
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
 msgid "Admin password:"
-msgstr "Admin Kennwort:"
+msgstr "Пароль администратора"
 
 #. ts-context Form
 #: keyboard.ui:514
 msgid "3"
-msgstr "3"
+msgstr ""
 
 #. ts-context TranslationDialog
 #: translationdialog.ui:14
@@ -1331,7 +1246,7 @@ msgstr ""
 #. ts-context TreeWidget
 #: tree.ui:111
 msgid "Expand/Collapse"
-msgstr "Entfalten/Zusammenfalten"
+msgstr "Свернуть/развернуть"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:42
@@ -1348,17 +1263,6 @@ msgid ""
 "style=\" text-decoration: underline; "
 "color:#0000ff;\">?</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
-"style=\" text-decoration: underline; "
-"color:#0000ff;\">?</span></a></p></body></html>"
 
 #. ts-context ProgressDialog
 #: progress.ui:53
@@ -1366,23 +1270,21 @@ msgid ""
 "Please wait, \n"
 "this operation may take a while..."
 msgstr ""
-"Bitte warten, \n"
-"dieser Vorgang kann einige Zeit dauern"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:204
 msgid "Read My Requests"
-msgstr "Lese meine Anfragen:"
+msgstr "Прочесть мои запросы"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:141
 msgid "Previous Record"
-msgstr "Voriger datensatz"
+msgstr "Предыдущая запись"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:20
 msgid "Server"
-msgstr "Server"
+msgstr "Сервер"
 
 #. ts-context AboutDialog
 #. ts-context AdminPasswordDialog
@@ -1408,29 +1310,29 @@ msgstr "Server"
 #: license.ui:148 login.ui:283 massiveupdate.ui:44 preferences.ui:45
 #: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
-msgstr "&Annehmen"
+msgstr "Ок"
 
 #. ts-context Form
 #: keyboard.ui:238
 msgid "S"
-msgstr "S"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:489
 msgid "&Drop Database"
-msgstr "&Datenbank löschen"
+msgstr "Удалить базу данных"
 
 #. ts-context SearchFormWidget
 #: searchform.ui:108
 msgid "&Clear"
-msgstr "Leeren"
+msgstr "Очистить"
 
 #. ts-context AdminPasswordDialog
 #. ts-context CreateDatabaseDialog
 #. ts-context LoginDialog
 #: admin_passwd.ui:46 create_database.ui:94 login.ui:98
 msgid "C&hange"
-msgstr "Ändern"
+msgstr "Изменить"
 
 #. ts-context AdminPasswordDialog
 #. ts-context ChangeServerDialog
@@ -1454,12 +1356,12 @@ msgstr "Ändern"
 #: one2many_dialog.ui:129 massiveupdate.ui:55 preferences.ui:56
 #: win_search.ui:108 win_selection.ui:57 translationdialog.ui:56
 msgid "&Cancel"
-msgstr "&Abbrechen"
+msgstr "Отмена"
 
 #. ts-context Form
 #: image.ui:90
 msgid "Remove Image"
-msgstr "Entferne Bild"
+msgstr "Удалить изображение"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:851
@@ -1469,87 +1371,87 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:134
 msgid "<Alt> + <PgUp>"
-msgstr "<Alt> + <Bild auf>"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:227
 msgid "Send New Request"
-msgstr "Sende neue Anfrage"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:651
 msgid "Ctrl+PgDown"
-msgstr "Strg + Bild ab"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:444
 msgid "<Enter>"
-msgstr "<Eingabe>"
+msgstr ""
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:98
 msgid "Connect &now"
-msgstr "Verbi&nde jetzt"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:735
 msgid "&Import Data"
-msgstr "&Importiere Daten"
+msgstr "Импорт данных"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:258
 msgid "&Plugins"
-msgstr "&Zusatzmodule"
+msgstr "Дополнения"
 
 #. ts-context RichTextWidget
 #: richtext.ui:159
 msgid "Left Justify"
-msgstr "Links justiert"
+msgstr "Выравнивание по левому краю"
 
 #. ts-context Form
 #: keyboard.ui:342
 msgid "."
-msgstr "."
+msgstr ""
 
 #. ts-context TipsDialog
 #: tip.ui:20
 msgid "Tip of the Day"
-msgstr "Tip des Tages"
+msgstr "Совет дня"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:507
 msgid "&Preferences"
-msgstr "&Persönliche Einstellungen"
+msgstr "Параметры"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:753
 msgid "&Contextual Help"
-msgstr "Kontext Hilfe"
+msgstr "Контекстная справка"
 
 #. ts-context Dialog
 #: lostconnection.ui:32
 msgid "Connection Lost"
-msgstr "Verbindung verloren"
+msgstr "Соединение потеряно"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:375
 msgid "Shortcuts in text entries"
-msgstr "Kürzle in Text Eingaben"
+msgstr "Горячие клавиши при редактировании текста"
 
 #. ts-context Form
 #: keyboard.ui:394
 msgid "N"
-msgstr "N"
+msgstr ""
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:122
 msgid "Switch"
-msgstr "Umschalten"
+msgstr "Сменить"
 
 #. ts-context Form
 #: keyboard.ui:462
 msgid "Space"
-msgstr "Leertaste"
+msgstr ""
 
 #. ts-context AdminPasswordDialog
 #. ts-context ExportDialog
@@ -1558,80 +1460,80 @@ msgstr "Leertaste"
 #: admin_passwd.ui:14 win_export.ui:14 field_preferences.ui:13
 #: win_selection.ui:13
 msgid "Dialog"
-msgstr "Dialog"
+msgstr "Диалог"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:16 mainwindow.ui:802
 msgid "Attachments"
-msgstr "Anhänge"
+msgstr "Прикрепленные файлы"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:480
 msgid "&Backup Database"
-msgstr "Daten&bank Sichern"
+msgstr "Резервная копия базы данных"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:344
 msgid "General"
-msgstr "Allgemein"
+msgstr "Общие"
 
 #. ts-context PanedWidget
 #. ts-context ReferenceWidget
 #. ts-context UrlWidget
 #: paned.ui:100 reference.ui:49 url.ui:51
 msgid "Open"
-msgstr "Offen"
+msgstr "Открыть"
 
 #. ts-context Form
 #: calendarview.ui:50
 msgid "Weekly View"
-msgstr "Wochenansicht"
+msgstr "Недели"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:497
 msgid "Numeric fields"
-msgstr "Numerische Felder"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:744
 msgid "&Execute Plugins"
-msgstr "Zusatzmodule ausführen"
+msgstr ""
 
 #. ts-context ProgressDialog
 #: progress.ui:14
 msgid "Progress..."
-msgstr "Fortschritt."
+msgstr "Выполнение..."
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:22
 msgid "&Search Id:"
-msgstr "&Suche ID:"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:312
 msgid "<Ctrl> + <Esc>"
-msgstr "<Ctrl> + <Esc>"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:592
 msgid "<-"
-msgstr "<-"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:715
 msgid "Mouse Wheel on Tab"
-msgstr "Mausrad am Reiter"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:488
 msgid "9"
-msgstr "9"
+msgstr ""
 
 #. ts-context FormContainerWidget
 #: formcontainer.ui:56
 msgid "State:"
-msgstr "Status:"
+msgstr "Состояние:"
 
 #. ts-context AboutDialog
 #: about.ui:82
@@ -1669,255 +1571,223 @@ msgid ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo ist ein Produkt von "
-"NaN:</span></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
-"bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
-"18</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
-"href=\"mailto:info@nan-tic.com\"><span style=\" font-size:9pt; text-"
-"decoration: underline; color:#0000ff;\">info@nan-tic.com</span></a></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
-"href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
-"font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
-"tic.com</span></a></p></body></html>"
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
 #: mainwindow.ui:471 login.ui:143
 msgid "&Restore Database"
-msgstr "Datenbank Wiederhe&rstellen"
+msgstr "Восстановить базу данных из резервной копии"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:434
 msgid "Previous editable widget"
-msgstr "Voriges veränderbares Eingabefeld"
+msgstr "Предыдущий изменяемый виджет"
 
 #. ts-context Form
 #: keyboard.ui:121
 msgid "I"
-msgstr "I"
+msgstr ""
 
 #. ts-context BinaryWidget
 #. ts-context ReferenceWidget
 #: binary.ui:81 reference.ui:83
 msgid "Clear"
-msgstr "Löschen"
+msgstr "Очистить"
 
 #. ts-context RichTextWidget
 #: richtext.ui:318
 msgid "Select font"
-msgstr "Zeichensatz Auswählen"
+msgstr "Выбор шрифта"
 
 #. ts-context Form
 #: keyboard.ui:95
 msgid "Y"
-msgstr "Y"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:725
 msgid "Change current tab"
-msgstr "Verändere aktuellen Reiter"
+msgstr "Сменить текущую вкладку"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:112
 msgid "Connect &later"
-msgstr "Verbinde später"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:82
 msgid "T"
-msgstr "T"
+msgstr ""
 
 #. ts-context GoToIdDialog
 #: gotoid.ui:14
 msgid "Go To Id"
-msgstr "Gehe zu ID"
+msgstr ""
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:71
 msgid "&Port:"
-msgstr "&Port:"
+msgstr "Порт"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:702
 msgid "Go To Resource ID"
-msgstr "Gehe zu Resource ID"
+msgstr "Перейти к записи с ID в базе данных"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:49
 msgid "<Ctrl> + N"
-msgstr "<Strg> + N"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:32
 msgid "<Ctrl> + O"
-msgstr "<Ctrl> + O"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:168
 msgid "<Ctrl> + L"
-msgstr "<Strg> + L"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:468
 msgid "<Ctrl> + C"
-msgstr "<Strg> + C"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:627
 msgid "<Ctrl> + A"
-msgstr "<Ctrl> +  A"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:100
 msgid "<Ctrl> + F"
-msgstr "<Strg> + F"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:83
 msgid "<Ctrl> + D"
-msgstr "<Strg> + D"
+msgstr ""
 
 #. ts-context TipsDialog
 #: tip.ui:133
 msgid "&Next Tip"
-msgstr "&Nächster Tip"
+msgstr "Следующий совет"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:482
 msgid "<Ctrl> + X"
-msgstr "<Strg> + X"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:670
 msgid "4"
-msgstr "4"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:66
 msgid "<Ctrl> + S"
-msgstr "<Strg> + S"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:475
 msgid "<Ctrl> + V"
-msgstr "<Strg> + V"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:219
 msgid "<Ctrl> + W"
-msgstr "<Strg> + W"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:117
 msgid "<Ctrl> + T"
-msgstr "<Ctrl> + T"
+msgstr ""
 
 #. ts-context SelectionDialog
 #: win_selection.ui:19
 msgid "<center><b>Choose a plug-in</b></center>"
-msgstr "<center><b>Plugin auswählen</b></center>"
+msgstr ""
 
 #. ts-context Form
 #: keyboard.ui:251
 msgid "D"
-msgstr "D"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:185
 msgid "<Ctrl> + <PgUp>"
-msgstr "<Strg> + <BildAuf>"
+msgstr ""
 
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:95
 msgid "(_/0)"
-msgstr "(_/0)"
+msgstr ""
 
 #. ts-context MassiveUpdateDialog
 #: massiveupdate.ui:13
 msgid "Massive Update Process"
-msgstr "Mengen Aktualisierungs Prozess"
+msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:116
 msgid "A&dd"
-msgstr "Hinzufügen"
+msgstr "Добавить"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
-msgstr "<Strg> + <Enter>"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:334
 msgid "&Window"
-msgstr "Fenster"
+msgstr "Окно"
 
 #. ts-context LoginDialog
 #: login.ui:132
 msgid "Create &Database"
-msgstr "DAtenbank erstellen"
+msgstr "Создать базу данных"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:575
 msgid "Search/edit existing records"
-msgstr "Suche / Editiere bestehende Datensätze"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:693
 msgid "Store View Settings"
-msgstr "Speichere die Sicht Einstellungen"
+msgstr "Сохранить настройки"
 
 #. ts-context DateTimeWidget
 #: datetime.ui:41
 msgid "Time:"
-msgstr "Zeit:"
+msgstr "Время:"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:152
 msgid "&Super admin password:"
-msgstr "&Super admin Kennwort:"
+msgstr "Пароль главного администратора:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:536
 msgid "Relation fields"
-msgstr "Relationale Felder"
+msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:217
 msgid "Right Justify"
-msgstr "Rechts justiert"
+msgstr "Выравнивание по правому краю"
 
 #. ts-context AboutDialog
 #: about.ui:42
 msgid "&OpenERP"
-msgstr "&OpenERP"
+msgstr ""
 
 #. ts-context ExportDialog
 #: win_export.ui:46
 msgid "Re&move Export"
-msgstr "Entferne Exportdefinitionen"
+msgstr "Удалить сохранённые списки полей для экспорта"
 
 #. ts-context AttachmentWindow
 #. ts-context ManyToOneWidget
@@ -1927,160 +1797,160 @@ msgstr "Entferne Exportdefinitionen"
 #: win_attach.ui:74 many2one.ui:82 one2many.ui:96 reference.ui:66
 #: shortcuts.ui:56
 msgid "New"
-msgstr "Neu"
+msgstr "Создать"
 
 #. ts-context ImportDialog
 #: win_import.ui:85
 msgid "Remo&ve All"
-msgstr "Enferne Alle"
+msgstr "Удалить всё"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:175
 msgid "Switch view mode"
-msgstr "Ansicht Umschalten"
+msgstr "Переключение список/форма"
 
 #. ts-context LoginDialog
 #: login.ui:247
 msgid "&User:"
-msgstr "&Benutzer:"
+msgstr "Пользователь:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:277
 msgid "Full Text Search current selection"
-msgstr "Volltextsuche aktuelle Auswahl"
+msgstr "Полнотекстовый поиск"
 
 #. ts-context TreeWidget
 #: tree.ui:71
 msgid "Add Shortcut"
-msgstr "Kürzle hinzufügen"
+msgstr "Добавить ярлык"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:767
 msgid "&Keyboard Shortcut"
-msgstr "Tastatur &Kürzel"
+msgstr "Горячие клавиши"
 
 #. ts-context Form
 #: calendarview.ui:63
 msgid "Daily View"
-msgstr "Tagesansicht"
+msgstr "Дни"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:181
 msgid "&Default language:"
-msgstr "Sprache Voreinstellung:"
+msgstr "Язык по умолчанию"
 
 #. ts-context Form
 #: keyboard.ui:134
 msgid "O"
-msgstr "O"
+msgstr ""
 
 #. ts-context OneToManyWidget
 #: one2many.ui:197
 msgid "(0/0)"
-msgstr "(0/0)"
+msgstr ""
 
 #. ts-context AboutDialog
 #: about.ui:14
 msgid "About OpenERP"
-msgstr "Über OpenERP"
+msgstr "Об OpenERP"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:302
 msgid "Save and close window"
-msgstr "Speichern und Schliessen des Fensters"
+msgstr "Сохранить и закрыть окно"
 
 #. ts-context ExportDialog
 #: win_export.ui:177
 msgid "<b>Fields to export</b>"
-msgstr "<b>Felder zu exportieren</b>"
+msgstr "<b>Поля для экспорта</b>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:796
 msgid "<Alt> + Minus"
-msgstr "<Alt> + Minus"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:387
 msgid "Cut selected text"
-msgstr "ausgewählten Text ausschneiden"
+msgstr "Вырезать выделенный текст"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
 #: win_attach.ui:113 mainwindow.ui:618
 msgid "Alt+PgUp"
-msgstr "Alt Bild auf"
+msgstr ""
 
 #. ts-context CalendarWidget
 #: calendar.ui:51
 msgid "Open Calendar"
-msgstr "Öffne Kalender"
+msgstr "Открыть календарь"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:714
 msgid "&Reload/Undo"
-msgstr "Neu Laden/&Rückgängig"
+msgstr "Отменить изменения в форме"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:202
 msgid "<Ctrl> + <PgDn>"
-msgstr "<Strg> + <BildAb>"
+msgstr ""
 
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
 #: win_import.ui:63 many2many.ui:40
 msgid "&Add"
-msgstr "&Hinzufügen"
+msgstr "Добавить"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:270
 msgid "<Ctrl> + <Alt> + T"
-msgstr "<Ctrl> + <Alt> + T"
+msgstr ""
 
 #. ts-context Form
 #: keypad.ui:95
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #. ts-context ProgressDialog
 #: progress.ui:40
 msgid "Operation in progress"
-msgstr "in Arbeit"
+msgstr "Операция выполняется"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:618
 msgid "Lists"
-msgstr "Listen"
+msgstr "Списки"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:806
 msgid "<Alt> + Plus"
-msgstr "<Alt> + Plus"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:426
 msgid "&Connect"
-msgstr "Verbinde"
+msgstr "Подключиться"
 
 #. ts-context RichTextWidget
 #: richtext.ui:246
 msgid "Justify"
-msgstr "Justiere"
+msgstr ""
 
 #. ts-context TipsDialog
 #: tip.ui:122
 msgid "&Previous Tip"
-msgstr "Voriger Tip"
+msgstr "Предыдущий совет"
 
 #. ts-context ImportDialog
 #: win_import.ui:238
 msgid "Latin1"
-msgstr "Latin1"
+msgstr ""
 
 #. ts-context Dialog
 #. ts-context KooMainWindow
 #: lostconnection.ui:84 mainwindow.ui:453
 msgid "&Quit"
-msgstr "Verlasse"
+msgstr "Выход"
 
 #. ts-context LicenseDialog
 #: license.ui:29
@@ -2540,515 +2410,61 @@ msgid ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px;\"></p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">            GNU GENERAL "
-"PUBLIC LICENSE, Deutsch: http://www.gnu.de/documents/gpl-2.0.de.html</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">               Version 2, "
-"June 1991</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"> Copyright (C) 1989, 1991 "
-"Free Software Foundation, Inc.</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"> 59 Temple Place, Suite "
-"330, Boston, MA  02111-1307  USA</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"> Everyone is permitted to "
-"copy and distribute verbatim copies</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"> of this license document, "
-"but changing it is not allowed.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">                "
-"Preamble</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  The licenses for most "
-"software are designed to take away your freedom to share and change it.  By "
-"contrast, the GNU General Public License is intended to guarantee your "
-"freedom to share and change free software--to make sure the software is free "
-"for all its users.  This General Public License applies to most of the Free "
-"Software Foundation's software and to any other program whose authors commit "
-"to using it.  (Some other Free Software Foundation software is covered by "
-"the GNU Library General Public License instead.)  You can apply it to your "
-"programs, too.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  When we speak of free "
-"software, we are referring to freedom, not price.  Our General Public "
-"Licenses are designed to make sure that you have the freedom to distribute "
-"copies of free software (and charge for this service if you wish), that you "
-"receive source code or can get it if you want it, that you can change the "
-"software or use pieces of it in new free programs; and that you know you can "
-"do these things.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  To protect your rights, "
-"we need to make restrictions that forbid anyone to deny you these rights or "
-"to ask you to surrender the rights. These restrictions translate to certain "
-"responsibilities for you if you distribute copies of the software, or if you "
-"modify it.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  For example, if you "
-"distribute copies of such a program, whether gratis or for a fee, you must "
-"give the recipients all the rights that you have.  You must make sure that "
-"they, too, receive or can get the source code.  And you must show them these "
-"terms so they know their rights.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  We protect your rights "
-"with two steps: (1) copyright the software, and (2) offer you this license "
-"which gives you legal permission to copy, distribute and/or modify the "
-"software.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  Also, for each author's "
-"protection and ours, we want to make certain that everyone understands that "
-"there is no warranty for this free software.  If the software is modified by "
-"someone else and passed on, we want its recipients to know that what they "
-"have is not the original, so that any problems introduced by others will not "
-"reflect on the original authors' reputations.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  Finally, any free "
-"program is threatened constantly by software patents.  We wish to avoid the "
-"danger that redistributors of a free program will individually obtain patent "
-"licenses, in effect making the program proprietary.  To prevent this, we "
-"have made it clear that any patent must be licensed for everyone's free use "
-"or not licensed at all.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  The precise terms and "
-"conditions for copying, distribution and modification follow.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">            GNU GENERAL "
-"PUBLIC LICENSE</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">   TERMS AND CONDITIONS "
-"FOR COPYING, DISTRIBUTION AND MODIFICATION</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  0. This License applies "
-"to any program or other work which contains a notice placed by the copyright "
-"holder saying it may be distributed under the terms of this General Public "
-"License.  The \"Program\", below, refers to any such program or work, and a "
-"\"work based on the Program\" means either the Program or any derivative "
-"work under copyright law: that is to say, a work containing the Program or a "
-"portion of it, either verbatim or with modifications and/or translated into "
-"another language.  (Hereinafter, translation is included without limitation "
-"in the term \"modification\".)  Each licensee is addressed as \"you\".</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Activities other than "
-"copying, distribution and modification are not covered by this License; they "
-"are outside its scope.  The act of running the Program is not restricted, "
-"and the output from the Program is covered only if its contents constitute a "
-"work based on the Program (independent of having been made by running the "
-"Program).  Whether that is true depends on what the Program does.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  1. You may copy and "
-"distribute verbatim copies of the Program's source code as you receive it, "
-"in any medium, provided that you conspicuously and appropriately publish on "
-"each copy an appropriate copyright notice and disclaimer of warranty; keep "
-"intact all the notices that refer to this License and to the absence of any "
-"warranty; and give any other recipients of the Program a copy of this "
-"License along with the Program.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">You may charge a fee for "
-"the physical act of transferring a copy, and you may at your option offer "
-"warranty protection in exchange for a fee.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  2. You may modify your "
-"copy or copies of the Program or any portion of it, thus forming a work "
-"based on the Program, and copy and distribute such modifications or work "
-"under the terms of Section 1 above, provided that you also meet all of these "
-"conditions:</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">    a) You must cause the "
-"modified files to carry prominent notices stating that you changed the files "
-"and the date of any change.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">    b) You must cause any "
-"work that you distribute or publish, that in whole or in part contains or is "
-"derived from the Program or any part thereof, to be licensed as a whole at "
-"no charge to all third parties under the terms of this License.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">    c) If the modified "
-"program normally reads commands interactively when run, you must cause it, "
-"when started running for such interactive use in the most ordinary way, to "
-"print or display an announcement including an appropriate copyright notice "
-"and a notice that there is no warranty (or else, saying that you provide a "
-"warranty) and that users may redistribute the program under these "
-"conditions, and telling the user how to view a copy of this License.  "
-"(Exception: if the Program itself is interactive but does not normally print "
-"such an announcement, your work based on the Program is not required to "
-"print an announcement.)</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">These requirements apply "
-"to the modified work as a whole.  If identifiable sections of that work are "
-"not derived from the Program, and can be reasonably considered independent "
-"and separate works in themselves, then this License, and its terms, do not "
-"apply to those sections when you distribute them as separate works.  But "
-"when you distribute the same sections as part of a whole which is a work "
-"based on the Program, the distribution of the whole must be on the terms of "
-"this License, whose permissions for other licensees extend to the entire "
-"whole, and thus to each and every part regardless of who wrote it.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Thus, it is not the intent "
-"of this section to claim rights or contest your rights to work written "
-"entirely by you; rather, the intent is to exercise the right to control the "
-"distribution of derivative or collective works based on the Program.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">In addition, mere "
-"aggregation of another work not based on the Program with the Program (or "
-"with a work based on the Program) on a volume of a storage or distribution "
-"medium does not bring the other work under the scope of this License.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  3. You may copy and "
-"distribute the Program (or a work based on it, under Section 2) in object "
-"code or executable form under the terms of Sections 1 and 2 above provided "
-"that you also do one of the following:</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">    a) Accompany it with "
-"the complete corresponding machine-readable source code, which must be "
-"distributed under the terms of Sections 1 and 2 above on a medium "
-"customarily used for software interchange; or,</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">    b) Accompany it with a "
-"written offer, valid for at least three years, to give any third party, for "
-"a charge no more than your cost of physically performing source "
-"distribution, a complete machine-readable copy of the corresponding source "
-"code, to be distributed under the terms of Sections 1 and 2 above on a "
-"medium customarily used for software interchange; or,</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">    c) Accompany it with "
-"the information you received as to the offer to distribute corresponding "
-"source code.  (This alternative is allowed only for noncommercial "
-"distribution and only if you received the program in object code or "
-"executable form with such an offer, in accord with Subsection b above.)</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">The source code for a work "
-"means the preferred form of the work for making modifications to it.  For an "
-"executable work, complete source code means all the source code for all "
-"modules it contains, plus any associated interface definition files, plus "
-"the scripts used to control compilation and installation of the executable.  "
-"However, as a special exception, the source code distributed need not "
-"include anything that is normally distributed (in either source or binary "
-"form) with the major components (compiler, kernel, and so on) of the "
-"operating system on which the executable runs, unless that component itself "
-"accompanies the executable.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">If distribution of "
-"executable or object code is made by offering access to copy from a "
-"designated place, then offering equivalent access to copy the source code "
-"from the same place counts as distribution of the source code, even though "
-"third parties are not compelled to copy the source along with the object "
-"code.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  4. You may not copy, "
-"modify, sublicense, or distribute the Program except as expressly provided "
-"under this License.  Any attempt otherwise to copy, modify, sublicense or "
-"distribute the Program is void, and will automatically terminate your rights "
-"under this License.  However, parties who have received copies, or rights, "
-"from you under this License will not have their licenses terminated so long "
-"as such parties remain in full compliance.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  5. You are not required "
-"to accept this License, since you have not signed it.  However, nothing else "
-"grants you permission to modify or distribute the Program or its derivative "
-"works.  These actions are prohibited by law if you do not accept this "
-"License.  Therefore, by modifying or distributing the Program (or any work "
-"based on the Program), you indicate your acceptance of this License to do "
-"so, and all its terms and conditions for copying, distributing or "
-"modifying</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">the Program or works based "
-"on it.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  6. Each time you "
-"redistribute the Program (or any work based on the Program), the recipient "
-"automatically receives a license from the original licensor to copy, "
-"distribute or modify the Program subject to these terms and conditions.  You "
-"may not impose any further restrictions on the recipients' exercise of the "
-"rights granted herein.  You are not responsible for enforcing compliance by "
-"third parties to this License.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  7. If, as a consequence "
-"of a court judgment or allegation of patent infringement or for any other "
-"reason (not limited to patent issues), conditions are imposed on you "
-"(whether by court order, agreement or otherwise) that contradict the "
-"conditions of this License, they do not excuse you from the conditions of "
-"this License.  If you cannot distribute so as to satisfy simultaneously your "
-"obligations under this License and any other pertinent obligations, then as "
-"a consequence you may not distribute the Program at all.  For example, if a "
-"patent license would not permit royalty-free redistribution of the Program "
-"by all those who receive copies directly or indirectly through you, then the "
-"only way you could satisfy both it and this License would be to refrain "
-"entirely from distribution of the Program.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">If any portion of this "
-"section is held invalid or unenforceable under any particular circumstance, "
-"the balance of the section is intended to apply and the section as a whole "
-"is intended to apply in other circumstances.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">It is not the purpose of "
-"this section to induce you to infringe any patents or other property right "
-"claims or to contest validity of any such claims; this section has the sole "
-"purpose of protecting the integrity of the free software distribution "
-"system, which is implemented by public license practices.  Many people have "
-"made generous contributions to the wide range of software distributed "
-"through that system in reliance on consistent application of that system; it "
-"is up to the author/donor to decide if he or she is willing to distribute "
-"software through any other system and a licensee cannot impose that "
-"choice.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">This section is intended "
-"to make thoroughly clear what is believed to be a consequence of the rest of "
-"this License.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  8. If the distribution "
-"and/or use of the Program is restricted in certain countries either by "
-"patents or by copyrighted interfaces, the original copyright holder who "
-"places the Program under this License may add an explicit geographical "
-"distribution limitation excluding those countries, so that distribution is "
-"permitted only in or among countries not thus excluded.  In such case, this "
-"License incorporates the limitation as if written in the body of this "
-"License.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  9. The Free Software "
-"Foundation may publish revised and/or new versions of the General Public "
-"License from time to time.  Such new versions will be similar in spirit to "
-"the present version, but may differ in detail to address new problems or "
-"concerns.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Each version is given a "
-"distinguishing version number.  If the Program specifies a version number of "
-"this License which applies to it and \"any later version\", you have the "
-"option of following the terms and conditions either of that version or of "
-"any later version published by the Free Software Foundation.  If the Program "
-"does not specify a version number of this License, you may choose any "
-"version ever published by the Free Software Foundation.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  10. If you wish to "
-"incorporate parts of the Program into other free programs whose distribution "
-"conditions are different, write to the author to ask for permission.  For "
-"software which is copyrighted by the Free Software Foundation, write to the "
-"Free Software Foundation; we sometimes make exceptions for this.  Our "
-"decision will be guided by the two goals of preserving the free status of "
-"all derivatives of our free software and of promoting the sharing and reuse "
-"of software generally.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">                NO "
-"WARRANTY</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  11. BECAUSE THE PROGRAM "
-"IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY FOR THE PROGRAM, TO THE "
-"EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING "
-"THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM \"AS IS\" "
-"WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT "
-"NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A "
-"PARTICULAR PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF "
-"THE PROGRAM IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE "
-"COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">  12. IN NO EVENT UNLESS "
-"REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT "
-"HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS "
-"PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, "
-"SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR "
-"INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR "
-"DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES "
-"OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF "
-"SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH "
-"DAMAGES.</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">             END OF TERMS "
-"AND CONDITIONS</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
-"indent:0px;\"></p></body></html>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:846
 msgid "Modify All Selected Records"
-msgstr "Alle ausgewählten Daten speichern"
+msgstr "Изменить сразу все выделенные записи"
 
 #. ts-context ErrorDialog
 #: error.ui:14
 msgid "Error"
-msgstr "Fehler"
+msgstr "Ошибка"
 
 #. ts-context Form
 #: keyboard.ui:329
 msgid "Z"
-msgstr "Z"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:192
 msgid "Previous tab"
-msgstr "Voriger Reiter"
+msgstr "Предыдущая вкладка"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:627
 msgid "Switch &View"
-msgstr "Ansicht Umschalten"
+msgstr "Переключение форма/список"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:360
 msgid "Show field's help information"
-msgstr "Zeige die Hilfe Information"
+msgstr "Справочная информация о поле"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:134
 msgid "Close"
-msgstr "Schließen"
+msgstr "Закрыть"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:735
 msgid "<Shift> + Open View"
-msgstr "<Shift> + Öffne Ansicht"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:726
 msgid "E&xport Data"
-msgstr "E&xportiere Daten"
+msgstr "Экспорт данных"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:370
 msgid "&Browse"
-msgstr "&Browsen"
+msgstr "Имеющие к этому отношение"
 
 #. ts-context ExportDialog
 #: win_export.ui:138
 msgid "Remo&ve all"
-msgstr "Entferne Alle"
+msgstr "Удалить всё"
 
 #. ts-context AttachmentWindow
 #. ts-context Dialog
@@ -3057,27 +2473,27 @@ msgstr "Entferne Alle"
 #: win_attach.ui:137 massiveupdate_msgbox.ui:122 keyboard.ui:449
 #: win_search.ui:115
 msgid "Esc"
-msgstr "Esc"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:319
 msgid "Close window without saving"
-msgstr "Schließen Fenster ohne zu speichern"
+msgstr "Закрыть окно без сохранения"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:534
 msgid "&Waiting Requests"
-msgstr "&Wartende Anfragen"
+msgstr "Запросы"
 
 #. ts-context LicenseDialog
 #: license.ui:19
 msgid "OpenERP license"
-msgstr "OpenERP Lizenz"
+msgstr "Лицензия OpenERP"
 
 #. ts-context Form
 #: keyboard.ui:540
 msgid "5"
-msgstr "5"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:861
@@ -3087,22 +2503,22 @@ msgstr ""
 #. ts-context RichTextWidget
 #: richtext.ui:65
 msgid "Italics"
-msgstr "Kursiv"
+msgstr ""
 
 #. ts-context ErrorDialog
 #: error.ui:40
 msgid "Application Error"
-msgstr "Anwendungsfehler"
+msgstr "Ошибка приложения"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:116
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Правка"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:427
 msgid "<Shift> + <Tab>"
-msgstr "<Shift> + <Tab>"
+msgstr ""
 
 #. ts-context Dialog
 #: massiveupdate_msgbox.ui:49
@@ -3118,59 +2534,49 @@ msgid ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Select the fields you want "
 "to update in the %d selected records:</p></body></html>"
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
-"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
-"type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
-"font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Wählen Sie die Felder für "
-"das Update in den %d ausgewählten Datensätzen:</p></body></html>"
 
 #. ts-context ManyToOneWidget
 #. ts-context OneToManyWidget
 #: many2one.ui:105 one2many.ui:136
 msgid "Remove"
-msgstr "Enfernen"
+msgstr "Удалить"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
 #: full_text_search.ui:126 mainwindow.ui:603 one2many_dialog.ui:68
 msgid "&Next"
-msgstr "Weiter"
+msgstr "Следующее"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:243
 msgid "Reload"
-msgstr "Neu Laden"
+msgstr "Открыть заново"
 
 #. ts-context Form
 #: keyboard.ui:108
 msgid "U"
-msgstr "U"
+msgstr ""
 
 #. ts-context RichTextWidget
 #: richtext.ui:188
 msgid "Center"
-msgstr "Zentriert"
+msgstr "По центру"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:695
 msgid "<Shift> + Switch View"
-msgstr "<Shift> + Umschalten Ansicht"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:332
 msgid "&Edition Shortcuts"
-msgstr "Kürzel für das Editieren"
+msgstr "Горячие клавиши правки"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:555
 msgid "&Save"
-msgstr "S&peichern"
+msgstr "Сохранить"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:517
@@ -3178,20 +2584,20 @@ msgid ""
 "Calculates value\n"
 "(Example result: 7)"
 msgstr ""
-"Berechnet Wert\n"
-"(Beispiel Ergebnis: 7)"
+"Рассчитать значение\n"
+"(В этом примере: 7)"
 
 #. ts-context ImportDialog
 #: win_import.ui:212
 msgid "&Encoding"
-msgstr "Kodierung"
+msgstr "Кодировка"
 
 #. ts-context RichTextWidget
 #: richtext.ui:94
 msgid "Underline"
-msgstr "Unterstrichen"
+msgstr "Подчёркнутый"
 
 #. ts-context AttachmentWindow
 #: win_attach.ui:49
 msgid "toolBar"
-msgstr "Werkzeugleiste"
+msgstr "Панель инструментов"
