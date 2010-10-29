@@ -146,6 +146,8 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 				print "Cannot rev ref id:" % e
 		
 			for (key,val) in todo:
+				if not key in line:
+				    continue
 				if line[key] and key in ('create_uid','write_uid'):
 					line[key] = line[key][1]
 				message += val + ': ' + str(line[key] or '-') + '\n'
