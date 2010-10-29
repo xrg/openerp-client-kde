@@ -162,7 +162,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		# the parent model could make us lose changes.
 		self.view.store()
 
-		if self.record.value(self.name):
+		if self.record and self.record.value(self.name):
 			# If Control Key is pressed when the open button is clicked
 			# the record will be opened in a new tab. Otherwise it's opened
 			# in a new modal dialog.
