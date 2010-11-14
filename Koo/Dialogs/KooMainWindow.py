@@ -713,6 +713,13 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.actionMassiveUpdate.setVisible( False )
 			self.actionMassiveButton.setVisible( False )
 
+		if Settings.value('koo.allow_import_export', True):
+			self.actionImport.setVisible( True )
+			self.actionExport.setVisible( True )
+		else:
+			self.actionImport.setVisible( False )
+			self.actionExport.setVisible( False )
+
 		# Update the 'Reports', 'Actions' and 'Browse' Menu entries
 		self.menuReports.clear()
 		self.menuBrowse.clear()

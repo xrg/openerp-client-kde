@@ -54,6 +54,7 @@
 					<field name="print_directly"/>
 					<field name="auto_reload"/>
 					<field name="allow_massive_updates"/>
+					<field name="allow_import_export"/>
 					<field name="attachments_dialog"/>
 					<field name="use_cache"/>
 					<field name="auto_new"/>
