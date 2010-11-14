@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-10 08:17+0000\n"
+"POT-Creation-Date: 2010-10-26 01:47+0000\n"
 "PO-Revision-Date: 2010-07-29 20:53+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-17 14:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-26 07:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
@@ -965,9 +965,8 @@ msgstr "Nächster Datensatz"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:870
-#, fuzzy
 msgid "Push Button of All Selected Records"
-msgstr "Alle ausgewählten Daten speichern"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:324

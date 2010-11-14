@@ -1,8 +1,7 @@
 # 
 #, fuzzy
 msgid ""
-msgstr ""
-"X-Virgin-Header: remove this line if you change anything in the header.\n"
+msgstr "X-Virgin-Header: remove this line if you change anything in the header.\n"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow

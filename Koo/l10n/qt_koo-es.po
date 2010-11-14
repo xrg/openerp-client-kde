@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-10 08:17+0000\n"
-"PO-Revision-Date: 2010-09-15 00:05+0000\n"
+"POT-Creation-Date: 2010-10-26 01:47+0000\n"
+"PO-Revision-Date: 2010-10-26 07:48+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-17 14:48+0000\n"
+"X-Launchpad-Export-Date: 2010-10-26 07:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 
@@ -969,9 +969,8 @@ msgstr "Registro siguiente"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:870
-#, fuzzy
 msgid "Push Button of All Selected Records"
-msgstr "Modificar todos los registros seleccionados"
+msgstr "Pulsar un botón de los registros seleccionados"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:324
