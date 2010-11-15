@@ -1,0 +1,236 @@
+# Brazilian Portuguese translation for openobject-client-kde
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-06-27 14:38+0000\n"
+"PO-Revision-Date: 2010-09-15 15:49+0000\n"
+"Last-Translator: Eliel Teotonio <Unknown>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-11-14 12:57+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. module: full_text_search
+#: model:ir.module.module,description:full_text_search.module_meta_information
+msgid ""
+"This module adds full text search capabilities to OpenERP if used in "
+"conjunction with the Koo client.\n"
+"\n"
+"Note that this module requires the server to connect to an administrator "
+"user in PostgreSQL because it uses PL/PythonU. Be advised that this might be "
+"a security risk.\n"
+"\n"
+"The module will try to load PL/PythonU language if it doesn't already exist "
+"in the database."
+msgstr ""
+"Este módulo adiciona capacidades de pesquisa de texto completo para OpenERP "
+"se usado em conjunto com o cliente Koo.\n"
+"\n"
+"Note que este módulo requer que o servidor se conecte a um usuário "
+"administrador no PostgreSQL, porque ele usa PL / PythonU. Esteja ciente de "
+"que este poderia ser um risco de segurança.\n"
+"\n"
+"O módulo vai tentar carregar linguagem PL / PythonU se já não existir no "
+"banco de dados."
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_full_text_index
+msgid "fts.full_text_index"
+msgstr "fts.full_text_index"
+
+#. module: full_text_search
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr ""
+"O nome do Objeto deve começar com x_ e não deve conter nenhum caracter "
+"especial!"
+
+#. module: full_text_search
+#: help:ir.model.fields,fts_priority:0
+msgid ""
+"Fields that should be indexed in the Full Text Search engine should be given "
+"a priority here."
+msgstr ""
+"Os campos que devem ser indexados no mecanismo de pesquisa de texto completo "
+"deve ter uma prioridade definida aqui."
+
+#. module: full_text_search
+#: help:fts.wizard,configuration:0
+msgid "Choose a PostgreSQL TS configuration"
+msgstr "Escolha uma configuração do PostgreSQL TS"
+
+#. module: full_text_search
+#: model:ir.actions.act_window,name:full_text_search.fts_priorities_action
+msgid "Full Text Index Priorities"
+msgstr "Prioridade de Índice de Texto"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_wizard
+msgid "fts.wizard"
+msgstr "fts.wizars"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.fts_full_text_index_menu
+msgid "Indexes"
+msgstr "Índices"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,priority:0
+#: field:fts.full_text_index,priority:0
+msgid "Priority"
+msgstr "Prioridade"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,field_id:0
+#: field:fts.full_text_index,field_id:0
+msgid "Field"
+msgstr "Campo"
+
+#. module: full_text_search
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "Nome do modelo inválido na definição da ação."
+
+#. module: full_text_search
+#: model:ir.module.module,shortdesc:full_text_search.module_meta_information
+#: model:ir.ui.menu,name:full_text_search.fts_menu
+msgid "Full Text Search"
+msgstr "Pesquisa de Texto Completo"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Full Text Index Creation Wizard"
+msgstr "Assistente de Criação de Índice de Texto"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.menu_fts_wizard
+msgid "Update Full Text Index"
+msgstr "Atualizar Índice de Texto"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_current_full_text_index
+msgid "fts.current_full_text_index"
+msgstr "fts.current_full_text_index"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Non indexable field type."
+msgstr "Tipo de campo não indexável."
+
+#. module: full_text_search
+#: field:fts.priority,value:0
+msgid "Value (0-1.0)"
+msgstr "Valor (0-1.0)"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_priority
+msgid "fts.priority"
+msgstr "pts.prioridade"
+
+#. module: full_text_search
+#: model:ir.actions.act_window,name:full_text_search.action_fts_wizard
+msgid "Full Text Search Configuration Wizard"
+msgstr "Assistente de Configuração de Busca de Texto"
+
+#. module: full_text_search
+#: field:fts.wizard,configuration:0
+msgid "Configuration"
+msgstr "Configuração"
+
+#. module: full_text_search
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "XML inválido para a Visão de Arquitetura!"
+
+#. module: full_text_search
+#: field:fts.priority,name:0
+msgid "Name"
+msgstr "Nome"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.fts_priorities_menu
+msgid "Priorities"
+msgstr "Prioridades"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Creation error"
+msgstr "Erro na criação"
+
+#. module: full_text_search
+#: view:fts.full_text_index:0
+#: view:fts.priority:0
+#: model:ir.actions.act_window,name:full_text_search.fts_full_text_index_action
+msgid "Full Text Indexes"
+msgstr "Índice de Texto"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,model_id:0
+#: field:fts.full_text_index,model_id:0
+msgid "Model"
+msgstr "Modelo"
+
+#. module: full_text_search
+#: help:ir.model.fields,fts_current_priority:0
+msgid ""
+"Shows with which priority this field is being indexed at the moment. It may "
+"change after Update Full Text Index process."
+msgstr ""
+"Mostra a prioridade do campo que está sendo indexado nesse momento. Isso "
+"pode ser mudado após o processo de atualização do índice de texto."
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid ""
+"Note that this operation may take a long time depending on the number of "
+"indexes and database size."
+msgstr ""
+"Note que essa operação poderá levar muito tempo dependendo do numero de "
+"índices e do tamanho do banco de dados."
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Create Index"
+msgstr "Criar Índice"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Fields of type function can't be indexed: '%s'"
+msgstr "Campos do tipo função não pode ser indexado: '%s'"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "This wizard will recreate full text indexes."
+msgstr "Esse assistente irá recriar os índices de texto."
+
+#. module: full_text_search
+#: field:ir.model.fields,fts_priority:0
+msgid "FTS Priority"
+msgstr "Prioridade do FTS"
+
+#. module: full_text_search
+#: field:ir.model.fields,fts_current_priority:0
+msgid "FTS Current Priority"
+msgstr "Prioridade atual do FTS"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Non indexable field type: '%s'"
+msgstr "Tipo de campo não indexável: '%s'"
