@@ -7,15 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-10-26 01:47+0000\n"
-"PO-Revision-Date: 2010-02-16 09:34+0000\n"
-"Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
-"tic.com>\n"
+"POT-Creation-Date: 2010-11-14 04:24+0000\n"
+"PO-Revision-Date: 2010-11-01 19:27+0000\n"
+"Last-Translator: simone.sandri <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-10-26 07:52+0000\n"
+"X-Launchpad-Export-Date: 2010-11-14 12:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
@@ -32,7 +31,7 @@ msgstr "Ctrl+F"
 #. ts-context KooMainWindow
 #: mainwindow.ui:705
 msgid "Ctrl+G"
-msgstr ""
+msgstr "Ctrl+G"
 
 #. ts-context ExportDialog
 #: win_export.ui:162
@@ -325,7 +324,7 @@ msgstr "&Database:"
 #. ts-context ErrorDialog
 #: error.ui:135
 msgid "&Remote Help"
-msgstr ""
+msgstr "&Aiuto Remoto"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:397
@@ -370,7 +369,7 @@ msgstr "<b>Opzioni</b>"
 #. ts-context Dialog
 #: lostconnection.ui:73
 msgid "&Retry"
-msgstr ""
+msgstr "&Riprova"
 
 #. ts-context Form
 #: keyboard.ui:553
@@ -633,7 +632,7 @@ msgstr "Cambia Vista"
 #. ts-context Form
 #: customsearchitem.ui:71
 msgid "&And"
-msgstr ""
+msgstr "&E"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:648
@@ -930,7 +929,7 @@ msgstr "Database creato con successo!"
 #. ts-context ErrorDialog
 #: error.ui:124
 msgid "&Send Error"
-msgstr ""
+msgstr "&Invia Errore"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:568
@@ -952,7 +951,7 @@ msgstr "&Precedente"
 #. ts-context Form
 #: customsearchitem.ui:81
 msgid "&Or"
-msgstr ""
+msgstr "&O"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
@@ -1176,7 +1175,7 @@ msgstr "<Ctrl> + <Shift> + D"
 #. ts-context KooMainWindow
 #: mainwindow.ui:856
 msgid "HTML Manual"
-msgstr ""
+msgstr "Manuale HTML"
 
 #. ts-context ImportDialog
 #: win_import.ui:178
@@ -1261,7 +1260,7 @@ msgstr "X"
 #. ts-context KooMainWindow
 #: mainwindow.ui:138
 msgid "Help"
-msgstr ""
+msgstr "Aiuto"
 
 #. ts-context TreeWidget
 #: tree.ui:91
@@ -1461,7 +1460,7 @@ msgstr "Rimuovi Immagine"
 #. ts-context KooMainWindow
 #: mainwindow.ui:851
 msgid "PDF Manual"
-msgstr ""
+msgstr "Manuale PDF"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:134
@@ -1526,7 +1525,7 @@ msgstr "&Help in linea"
 #. ts-context Dialog
 #: lostconnection.ui:32
 msgid "Connection Lost"
-msgstr ""
+msgstr "Connessione Persa"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:375
@@ -3076,7 +3075,7 @@ msgstr "5"
 #. ts-context KooMainWindow
 #: mainwindow.ui:861
 msgid "doc.openerp.com"
-msgstr ""
+msgstr "doc.openerp.com"
 
 #. ts-context RichTextWidget
 #: richtext.ui:65
