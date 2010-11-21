@@ -31,6 +31,7 @@ from PyQt4.QtCore import *
 
 CreateInField = Qt.Key_F1
 SearchInField = Qt.Key_F2
+ClearInField = Qt.Key_F3
 WhatsThis = Qt.Key_F10
 
 NewInOneToMany = 'Return'

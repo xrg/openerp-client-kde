@@ -60,6 +60,11 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.add )
 
+		self.scClear = QShortcut( self.screen )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetWithChildrenShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.remove )
+
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
 
 		self.installPopupMenu( self.uiText )

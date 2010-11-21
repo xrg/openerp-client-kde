@@ -56,6 +56,11 @@ class CharFieldWidget(AbstractFieldWidget):
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
 
+		self.scClear = QShortcut( self.widget )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.clear )
+
 		if attrs.get('translate', False):
 			pushTranslate = QToolButton( self )
 			pushTranslate.setIcon( QIcon( ':/images/locale.png' ) )

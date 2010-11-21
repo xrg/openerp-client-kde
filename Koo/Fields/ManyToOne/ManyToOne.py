@@ -73,6 +73,11 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.open )
 
+		self.scClear = QShortcut( self.uiText )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.clear )
+
 		self.searching = False
 
 		# To build the menu entries we need to query the server so we only make 
