@@ -17,7 +17,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -358,6 +358,20 @@
           <widget class="QLabel" name="label_234">
            <property name="text">
             <string>Show field's help information</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_84">
+           <property name="text">
+            <string>F3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="label_85">
+           <property name="text">
+            <string>Clear field</string>
            </property>
           </widget>
          </item>
