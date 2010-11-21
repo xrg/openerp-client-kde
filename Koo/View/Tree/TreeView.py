@@ -121,6 +121,8 @@ class TreeView( AbstractView ):
 	def __init__(self, parent, widgetType='tree'):
 		AbstractView.__init__(self, parent)
 		self._widgetType = widgetType
+		# We still depend on the parent being a screen because of ButtonFieldDelegate
+		self.screen = parent
 		self.treeModel = None
 		self.reload = False
 		self.title=""

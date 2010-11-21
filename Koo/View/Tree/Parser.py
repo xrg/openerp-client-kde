@@ -70,10 +70,20 @@ class TreeParser(AbstractParser):
 				colour, test = color_spec.split(':')
 				colors.append( ( colour, str(test) ) )
 
-		header = []
 		columns = []
+		buttons = {}
 		for node in rootNode.childNodes:
 			node_attrs = Common.nodeAttributes(node)
+			if node.localName == 'button':
+				fname = node_attrs['name']
+				columns.append({
+					'name': fname, 
+					'width': 20,
+					'type': 'button',
+					'attributes': node_attrs,
+					'visible': True,
+				})
+				buttons[ fname ] = node_attrs
  			if node.localName == 'field':
 				fname = node_attrs['name']
 				twidth = {
@@ -106,12 +116,12 @@ class TreeParser(AbstractParser):
 					width = int(fields[fname]['width'])
 				else:
 					width = twidth.get(fields[fname]['type'], 200)
-				header.append( { 'name': fname, 'type': fields[fname]['type'], 'string': fields[fname].get('string', '') })
 				columns.append({ 
+					'name': fname,
 					'width': width , 
 					'type': fields[fname]['type'], 
 					'attributes':node_attrs,
-					'visible': visible
+					'visible': visible,
 				})
 
 		view.finishAggregates()
@@ -120,7 +130,8 @@ class TreeParser(AbstractParser):
 		model.setMode( KooModel.KooModel.ListMode )
 		model.setRecordGroup( screen.group )
 		model.setFields( fields )
-		model.setFieldsOrder( [x['name'] for x in header] )
+		model.setButtons( buttons )
+		model.setFieldsOrder( [x['name'] for x in columns] )
 		model.setColors( colors )
 		model.setReadOnly( not attrs.get('editable', False) )
 		view.setReadOnly( not attrs.get('editable', False) )
@@ -144,7 +155,7 @@ class TreeParser(AbstractParser):
 
 		view.setModel( model )
 
-		for column in range( len(columns)):
+		for column in range(len(columns)):
 			current = columns[column]
 			if view._widgetType in ('tree','table'):
 				view.widget.setColumnWidth( column, current['width'] )

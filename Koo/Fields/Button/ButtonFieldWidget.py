@@ -28,6 +28,7 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from Koo.Fields.AbstractFieldWidget import *
+from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common import Api
 from Koo.Common import Notifier
 from Koo.Common import Icons
@@ -165,3 +166,113 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		else:
 			self.hide()
 
+class ButtonFieldDelegate( AbstractFieldDelegate ):
+	def createEditor(self, parent, option, index):
+		return None
+	
+	def editorEvent(self, event, model, option, index):
+		if event.type() != QEvent.MouseButtonPress:
+			return AbstractFieldDelegate.editorEvent(self, event, model, option, index)
+
+		record = index.model().recordFromIndex( index )
+		if not record:
+			return True
+
+		if not self.isEnabled( record ):
+			return True
+
+		# TODO: Remove screen dependency and thus ViewTree.screen
+		view = self.parent().parent()
+		screen = self.parent().parent().screen
+
+		screen.setCurrentRecord( record )
+
+		view.store()
+		if self.attributes.get('special', '') == 'cancel':
+			screen.close()
+			if 'name' in self.attributes.keys():
+				result = Rpc.session.execute(
+					'/object', 'execute', screen.name,
+					self.attributes['name'], [], record.context()
+				)
+				datas = {}
+				Api.instance.executeAction( result, datas, screen.context )
+			return
+
+		if record.validate():
+			id = screen.save()
+			if not self.attributes.get('confirm',False) or \
+					QMessageBox.question(self,_('Question'),self.attributes['confirm'], _("Yes"), _("No")) == 0:
+				self.executeButton(screen, id)
+		else:
+			Notifier.notifyWarning('',_('Invalid Form, correct red fields!'))
+			screen.display()
+		return True
+
+	def isEnabled(self, record):
+		state = 'draft'
+		if record and record.fieldExists('state'):
+			state = record.value('state')
+		states = self.attributes.get('states','').split(',')
+		if state in states:
+			return True
+		return False
+
+	def executeButton(self, screen, id):
+		type = self.attributes.get('type', 'workflow')
+		if type == 'workflow':
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			try:
+				# TODO: Uncomment when our patch will be applied in the server
+				#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, self.record.context())
+				result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
+				if isinstance( result, dict ):
+					if result['type'] == 'ir.actions.act_window_close':
+						screen.close()
+					else:
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.setOverrideCursor( Qt.ArrowCursor )
+						Api.instance.executeAction( result, {'ids': [id]} )
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.restoreOverrideCursor()
+
+				elif isinstance( result, list ):
+					for r in result:
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.setOverrideCursor( Qt.ArrowCursor )
+						Api.instance.executeAction( r, { 'ids': [id] } )
+						if result['type'] == 'ir.actions.act_window':
+							QApplication.restoreOverrideCursor()
+			except Rpc.RpcException, e:
+				pass
+			QApplication.restoreOverrideCursor()
+		elif type == 'object':
+			if not id:
+				return
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			try:
+				result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+			except Rpc.RpcException, e:
+				QApplication.restoreOverrideCursor()
+				return
+			QApplication.restoreOverrideCursor()
+			if isinstance( result, dict ):
+				screen.close()
+				datas = {
+					'ids' : [id],
+					'model' : screen.name,
+				}
+				Api.instance.executeAction( result, datas, screen.context)
+
+		elif type == 'action':
+			action_id = int(self.attributes['name'])
+			Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
+		else:
+			Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
+
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+		try:
+			screen.reload()
+		except Rpc.RpcException, e:
+			pass
+		QApplication.restoreOverrideCursor()
