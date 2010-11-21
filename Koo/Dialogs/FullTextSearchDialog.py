@@ -241,12 +241,20 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 					'ids': [id]
 				}, Rpc.session.context)
 			else:
-				Api.instance.createWindow(None, model, id, view_type='form', mode='form,tree')
+				if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+					target = 'background'
+				else:
+					target = 'current'
+				Api.instance.createWindow(None, model, id, view_type='form', mode='form,tree', target=target)
 		elif url[0] == 'relate':
 			action = int(url[1])
 			id = int(url[2])
 			self.executeRelation( self.related[ action ], id )
 		QApplication.restoreOverrideCursor()
+
+		if QApplication.keyboardModifiers() & Qt.ControlModifier:
+			# If user is pressing Control do not close current dialog
+			return
 		self.accept()
 	
 	def executeRelation(self, action, id):
