@@ -66,13 +66,12 @@ class BooleanFieldWidget(AbstractFieldWidget):
 
 class BooleanFieldDelegate( AbstractFieldDelegate ):
 	def createEditor(self, parent, option, index):
-		return QCheckBox(parent)
+		return None
 	
-	def setEditorData(self, editor, index):
-		editor.setChecked( index.data(Qt.EditRole).toBool() )
-
-	def setModelData(self, editor, model, index):
-		model.setData( index, QVariant( editor.isChecked() ), Qt.EditRole )
+	def editorEvent(self, event, model, option, index):
+		if event.type() == QEvent.MouseButtonPress:
+			model.setData( index, QVariant( not model.data(index).toBool() ), Qt.EditRole )
+		return False
 
 	def paint(self, painter, option, index):
 		# Paint background
