@@ -112,6 +112,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.connect(self.uiOperator, SIGNAL('currentIndexChanged(int)'), self.updateValue)
 
 		self.fields = None
+		self.andOr = 'and'
 
 	def setup(self, fields):
 		self.uiField.addItem( '' )
@@ -132,12 +133,16 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.scNew.setKey( Shortcuts.CreateInField )
 		self.scNew.setContext( Qt.WidgetWithChildrenShortcut )
 
+		self.scRemove = QShortcut( self )
+		self.scRemove.setKey( Shortcuts.ClearInField )
+		self.scRemove.setContext( Qt.WidgetWithChildrenShortcut )
+
 		self.setAndSelected()
 
 		self.connect( self.scNew, SIGNAL('activated()'), self, SIGNAL('newItem()') )
 		self.connect( self.pushNew, SIGNAL('clicked()'), self, SIGNAL('newItem()') )
-		self.connect( self.pushAnd, SIGNAL('clicked()'), self.andSelected )
-		self.connect( self.pushOr, SIGNAL('clicked()'), self.orSelected )
+		self.connect( self.pushAndOr, SIGNAL('clicked()'), self.toggleAndOr )
+		self.connect( self.scRemove, SIGNAL('activated()'), self, SIGNAL('removeItem()') )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self, SIGNAL('removeItem()') )
 
 	def setValid(self, valid):
@@ -151,22 +156,18 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		self.setPalette(palette);
 
 	def setAndSelected(self):
-		self.pushOr.setChecked( False )
-		self.pushOr.setEnabled( True )
-		self.pushAnd.setEnabled( False )
-		self.pushAnd.setChecked( True )
+		self.pushAndOr.setText( _('&And') )
+		self.andOr = 'and'
 
 	def setOrSelected(self):
-		self.pushAnd.setEnabled( True )
-		self.pushAnd.setChecked( False )
-		self.pushOr.setChecked( True )
-		self.pushOr.setEnabled( False )
+		self.pushAndOr.setText( _('&Or') )
+		self.andOr = 'or'
 
 	def isAndSelected(self):
-		return self.pushAnd.isChecked()
+		return self.andOr == 'and'
 
 	def isOrSelected(self):
-		return self.pushOr.isChecked()
+		return self.andOr == 'or'
 
 	def copyState(self, widget):
 		if widget.isAndSelected():
@@ -174,11 +175,11 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		else:
 			self.setOrSelected()
 
-	def andSelected(self):
-		self.setAndSelected()
-
-	def orSelected(self):
-		self.setOrSelected()
+	def toggleAndOr(self):
+		if self.isAndSelected():
+			self.setOrSelected()
+		else:
+			self.setAndSelected()
 
 	def updateRelatedAndOperators(self, index):
 		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
@@ -360,7 +361,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 		self.uiValue.setText( text )
 
-		if self.pushOr.isChecked():
+		if self.isOrSelected():
 			condition = '|'
 		else:
 			condition = '&'
