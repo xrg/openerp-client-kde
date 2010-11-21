@@ -347,20 +347,18 @@ class OneToManyField(ToManyField):
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			fields = Rpc2.fields_get(value[0].keys(), context)
 
-		record.values[self.name] = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record, context=self.context(record, eval=False))
-		self.connect( record.values[self.name], SIGNAL('modified'), self.groupModified )
-		record.values[self.name].tomanyfield = self
-		mod=None
-		for record in (value or []):
+		newGroup = RecordGroup(resource=self.attrs['relation'], fields=fields, parent=record, context=self.context(record, eval=False))
+		newGroup.tomanyfield = self
+		for recordData in (value or []):
 			# TODO: Fix with new Group behaviour. Has this ever really worked?
-			mod = record.values[self.name].model_new(default=False)
-			mod.setDefault(record)
-			record.values[self.name].model_add(mod)
+			newRecord = newGroup.create(default=False)
+			newRecord.setDefaults(recordData)
+		record.values[self.name] = newGroup
+		self.connect( newGroup, SIGNAL('modified'), self.groupModified )
 		return True
 
 	def default(self, record):
-		# TODO: Fix with new Group behaviour. Has this ever really worked?
-		return [ x.defaults() for x in record.values[self.name].records ]
+		return [ x.defaults() for x in record.values[self.name] ]
 
 class ManyToManyField(ToManyField):
 	def get(self, record, checkLoad=True, readonly=True, modified=False):
