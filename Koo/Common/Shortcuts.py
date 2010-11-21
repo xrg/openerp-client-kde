@@ -33,7 +33,7 @@ CreateInField = Qt.Key_F1
 SearchInField = Qt.Key_F2
 WhatsThis = Qt.Key_F10
 
-NewInOneToMany = 'Ctrl+Alt+N'
-DeleteInOneToMany = 'Ctrl+Alt+D'
+NewInOneToMany = 'Return'
+DeleteInOneToMany = 'Alt+Backspace'
 EditInOneToMany = 'Ctrl+Alt+E'
 SwitchViewInOneToMany = 'Alt+F6'
