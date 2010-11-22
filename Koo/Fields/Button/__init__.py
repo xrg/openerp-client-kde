@@ -27,5 +27,7 @@
 
 from ButtonFieldWidget import *
 from Koo.Fields.FieldWidgetFactory import *
+from Koo.Fields.FieldDelegateFactory import *
 
 FieldWidgetFactory.register( 'button', ButtonFieldWidget )
+FieldDelegateFactory.register( 'button', ButtonFieldDelegate )

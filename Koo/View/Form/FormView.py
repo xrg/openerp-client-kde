@@ -148,7 +148,7 @@ class FormContainer( QWidget ):
 class FormView( AbstractView ):
 	def __init__(self, parent=None):
 		AbstractView.__init__( self, parent )
-		# We still depend on the parent being a screen because of ButtonFormWidget
+		# We still depend on the parent being a screen because of ButtonFieldWidget
 		self.screen = parent
 		self.title = ""
 		self.record = None

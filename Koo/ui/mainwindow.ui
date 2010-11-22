@@ -266,6 +266,7 @@
     <addaction name="actionSave"/>
     <addaction name="actionDuplicate"/>
     <addaction name="actionMassiveUpdate"/>
+    <addaction name="actionMassiveButton"/>
     <addaction name="separator"/>
     <addaction name="actionDelete"/>
     <addaction name="separator"/>
@@ -328,11 +329,6 @@
      <string>&amp;Reports</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuBrowse">
-    <property name="title">
-     <string>&amp;Browse</string>
-    </property>
-   </widget>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
      <string>&amp;Window</string>
@@ -368,6 +364,11 @@
     <addaction name="separator"/>
     <addaction name="actionLicense"/>
     <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuBrowse">
+    <property name="title">
+     <string>&amp;Browse</string>
+    </property>
    </widget>
    <addaction name="menuDatabase"/>
    <addaction name="menuUser"/>
@@ -861,6 +862,15 @@
   <action name="actionDocOpenErpCom">
    <property name="text">
     <string>doc.openerp.com</string>
+   </property>
+  </action>
+  <action name="actionMassiveButton">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/exec.png</normaloff>:/images/exec.png</iconset>
+   </property>
+   <property name="text">
+    <string>Push Button of All Selected Records</string>
    </property>
   </action>
  </widget>

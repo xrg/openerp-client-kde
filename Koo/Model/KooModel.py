@@ -73,6 +73,7 @@ class KooModel(QAbstractItemModel):
 		QAbstractItemModel.__init__(self, parent)
 		self.group = None
 		self.fields = {}
+		self.buttons = {}
 		self.icon = ''
 		self.iconField = ''
 		self.child = ''
@@ -149,6 +150,10 @@ class KooModel(QAbstractItemModel):
 	def setFields(self, fields):
 		self.fields = fields
 		self.updateVisibleFields()
+
+	## @brief Sets the dictionary of buttons to be shown
+	def setButtons(self, buttons):
+		self.buttons = buttons
 
 	## @brief Sets the order in which fields should be put in the model.
 	#
@@ -280,7 +285,19 @@ class KooModel(QAbstractItemModel):
 			if index.isValid():
 				defaultFlags = defaultFlags | Qt.ItemIsDragEnabled
 
-		field = self.fields[self.field( index.column() )]
+		field = self.fields.get( self.field( index.column() ) )
+		if not field:
+			# Buttons
+			fieldName = self.field( index.column() )
+			record = self.record( index.row(), index.internalPointer() )
+			state = 'draft'
+			if record and record.fieldExists('state'):
+				state = record.value('state')
+			states = self.buttons[fieldName].get('states','').split(',')
+			if state in states:
+				return defaultFlags
+			return Qt.NoItemFlags
+
 		if self._readOnly or ( 'readonly' in field and field['readonly'] ):
 			return defaultFlags
 		else:
@@ -372,6 +389,11 @@ class KooModel(QAbstractItemModel):
 					return QVariant()
 			elif fieldType == 'boolean':
 				return QVariant( bool(value) )
+			elif fieldType == 'button':
+				if role == Qt.ToolTipRole:
+					fieldName = self.field( index.column() )
+					return QVariant( self.buttons[fieldName].get('string','') )
+				return QVariant()
 			else:
 				if value == False or value == None:
 					return QVariant()
@@ -379,9 +401,13 @@ class KooModel(QAbstractItemModel):
 					# If the text has several lines put them all in a single one
 					return QVariant( unicode(value).replace('\n', ' ') )
 		elif role == Qt.DecorationRole:
+			fieldType = self.fieldType( index.column(), index.internalPointer() )
+			if fieldType == 'button':
+				fieldName = self.field( index.column() )
+				return QVariant( Icons.kdeIcon( self.buttons[fieldName].get('icon') ) )
 			if self.field( index.column() ) == self.iconField:
-				model = self.record( index.row(), index.internalPointer() )
 				# Not all models necessarily have the icon so check that first
+				model = self.record( index.row(), index.internalPointer() )
 				if model and self.icon in model.values:
 					return QVariant( Icons.kdeIcon( model.value( self.icon ) ) )
 				else:
@@ -615,6 +641,8 @@ class KooModel(QAbstractItemModel):
 		if role == Qt.DisplayRole:
 			field = self.fields.get(self.field( section ), None)
 			if not field:
+				field = self.buttons.get( self.field( section ) )
+		        if not field:
 				self._log.warning("Could not get field %s: %s for %s header display role" % \
 					    (section, self.field(section) or 'in %d fields' % len(self.visibleFields),
 					    self.group.resource))
@@ -641,10 +669,11 @@ class KooModel(QAbstractItemModel):
 	## @brief Returns the field type for the given column and group
 	def fieldType(self, column, group):
 		field = self.field(column)
-		if field:
-			return self.group.fields[ field ]['type']
-		else:
+		if not field:
 			return None
+		if field in self.buttons:
+			return 'button'
+		return self.group.fields[ field ]['type']
 
 	## @brief Returns the field type for the given column and group
 	def fieldTypeByName(self, field, group):
@@ -679,7 +708,7 @@ class KooModel(QAbstractItemModel):
 			group.addFields( self.fields )
 		model = self.record(row, group)
 		field = self.field(column)
-		if not field or not model:
+		if not field or not model or not field in self.fields:
 			return None
 		else:
 			val = model.value( field )

@@ -284,6 +284,9 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		group = RecordGroup( self.attrs['relation'] )
 		group.load( [id] )
 		record = group.modelByIndex( 0 )
+		# Copy action so we do not update the action, othewise, domain and context would only be
+		# evaluated fo the first record but not the following ones.
+		action = action.copy()
 		action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
 		action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
 		Api.instance.executeAction( action )
@@ -334,6 +337,7 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 		group = RecordGroup( self.attributes['relation'] )
 		group.load( [id] )
 		record = group.modelByIndex( 0 )
+		action = action.copy()
 		action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
 		action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
 		Api.instance.executeAction( action )

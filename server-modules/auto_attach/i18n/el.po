@@ -1,26 +1,24 @@
 # Greek translation for openobject-client-kde
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-client-kde package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-05-11 19:23+0000\n"
-"PO-Revision-Date: 2010-05-14 14:02+0000\n"
-"Last-Translator: Michael Tzavaras <Unknown>\n"
+"PO-Revision-Date: 2010-09-27 14:52+0000\n"
+"Last-Translator: Βασίλης Τσιβίκης <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-07-18 21:56+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
 
 #. module: auto_attach
 #: wizard_view:nan_document_execute,init:0
 msgid "All documents in the queue will be analyzed, verified and processed."
 msgstr ""
+"'Όλα τα έγγραφα στην ουρά θα αναλυθούν, θα πιστοποιηθούν και θα "
+"επεξεργασθούν."
 
 #. module: auto_attach
 #: field:nan.document,filename:0
@@ -62,7 +60,7 @@ msgstr "'Εναρξη διαδικασίας"
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.analyzing_document_tree
 msgid "Documents Being Analyzed"
-msgstr ""
+msgstr "Αρχεία που Αναλύονται"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.nan_document_execute
@@ -179,7 +177,7 @@ msgstr "Έγγραφα στην αναμονή."
 #. module: auto_attach
 #: field:nan.document,state:0
 msgid "State"
-msgstr ""
+msgstr "Κατάσταση"
 
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
@@ -194,12 +192,12 @@ msgstr "Γενικά"
 #. module: auto_attach
 #: field:nan.template.box,type:0
 msgid "Type"
-msgstr ""
+msgstr "Τύπος"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,start:0
 msgid "Document queue analyzed"
-msgstr ""
+msgstr "Η ουρά εγγράφων αναλύθηκε"
 
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_document_property
@@ -227,29 +225,29 @@ msgstr ""
 #. module: auto_attach
 #: constraint:ir.ui.view:0
 msgid "Invalid XML for View Architecture!"
-msgstr ""
+msgstr "Άκυρο XML για προβολή αρχιτεκτονικής!"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
 #: wizard_view:nan_document_execute,init:0
 #: wizard_view:nan_document_process,init:0
 msgid "Document queue update"
-msgstr ""
+msgstr "Ανανέωση ουράς εγγράφων"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
 msgid "All pending documents in the queue will be analyzed."
-msgstr ""
+msgstr "Όλα τα έγγραφα στην ουρά θα αναλυθούν."
 
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_document
 msgid "nan.document"
-msgstr ""
+msgstr "nan.document"
 
 #. module: auto_attach
 #: view:nan.template:0
 msgid "Feature Dimensions"
-msgstr ""
+msgstr "Μελλοντικές Διαστάσεις"
 
 #. module: auto_attach
 #: wizard_view:nan_document_process,init:0
@@ -264,7 +262,7 @@ msgstr "Υπάρχει"
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Image"
-msgstr ""
+msgstr "Εικόνα"
 
 #. module: auto_attach
 #: selection:nan.document,state:0
@@ -285,7 +283,7 @@ msgstr ""
 #: wizard_view:nan_document_execute,start:0
 #: wizard_view:nan_document_process,start:0
 msgid "Document queue processed"
-msgstr ""
+msgstr "Ουρά εγγράφων επεξεργάστηκε"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_verified_menu

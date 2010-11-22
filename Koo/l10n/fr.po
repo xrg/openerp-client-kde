@@ -7,15 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-09-17 01:40+0200\n"
-"PO-Revision-Date: 2010-02-16 09:36+0000\n"
-"Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
-"tic.com>\n"
+"POT-Creation-Date: 2010-11-14 02:30+0100\n"
+"PO-Revision-Date: 2010-09-26 17:19+0000\n"
+"Last-Translator: Christophe Chauvet - http://www.syleam.fr/ <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-09-17 14:48+0000\n"
+"X-Launchpad-Export-Date: 2010-11-14 12:56+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -57,13 +56,13 @@ msgid "Nothing to print!"
 msgstr "Rien à imprimer"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:372 Koo/Dialogs/ImportDialog.py:48
+#: Koo/Dialogs/FormWidget.py:373 Koo/Dialogs/ImportDialog.py:48
 #: Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
-#: Koo/Fields/Binary/BinaryFieldWidget.py:231
-#: Koo/Fields/Binary/BinaryFieldWidget.py:265
+#: Koo/Fields/Binary/BinaryFieldWidget.py:237
+#: Koo/Fields/Binary/BinaryFieldWidget.py:271
 #: Koo/Fields/Video/VideoFieldWidget.py:82
 #: Koo/Fields/Video/VideoFieldWidget.py:92
 msgid "Error"
@@ -73,13 +72,13 @@ msgstr "Erreur"
 msgid "Printing aborted, too long delay !"
 msgstr "Impression abandonnée, délay trop long !"
 
-#: Koo/Actions/Actions.py:240
+#: Koo/Actions/Actions.py:241
 msgid "Select your action"
 msgstr "Sélectionner votre action"
 
 #: Koo/Plugins/ScreenDocs/__init__.py:89
 msgid "Create Screenshots"
-msgstr ""
+msgstr "Creer une copie d'écran"
 
 #: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
@@ -107,36 +106,36 @@ msgstr "Vue traduction"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:71
 msgid "document.png"
-msgstr ""
+msgstr "document.png"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:78
 msgid "Scan Documents"
-msgstr ""
+msgstr "Numériser des documents"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:43
 #: Koo/Plugins/DocumentImporter/__init__.py:81
 msgid "Import Documents"
-msgstr ""
+msgstr "importer les documents"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:44
 msgid "How do you want to import documents?"
-msgstr ""
+msgstr "comment souhaitez vous importer des documents ?"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Sélectionnez des fichiers"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 msgid "Selected Directory"
-msgstr ""
+msgstr "Dossier sélectionné"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:47
 msgid "Cancel Import"
-msgstr ""
+msgstr "Annuler l’importation"
 
-#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:374
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:375
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: Koo/View/Form/__init__.py:32
 msgid "Form View"
@@ -228,7 +227,7 @@ msgstr "Ne pas enregistrer"
 
 #: Koo/Common/Common.py:212 Koo/Common/Common.py:226 Koo/Common/Common.py:229
 msgid "Send Error Information"
-msgstr ""
+msgstr "Envoyer les erreur d'information"
 
 #: Koo/Common/Common.py:212
 #, python-format
@@ -239,7 +238,7 @@ msgstr ""
 
 #: Koo/Common/Common.py:226
 msgid "Error information could not be sent."
-msgstr ""
+msgstr "Erreur les informations ne peuvent pas être envoyer"
 
 #: Koo/Common/Common.py:229
 msgid "Error information was successfully sent."
@@ -248,7 +247,7 @@ msgstr ""
 #: Koo/Common/Common.py:259
 #, python-format
 msgid "<b>Connection Lost:</b> %s"
-msgstr ""
+msgstr "<b>Connexion perdu:</b> %s"
 
 #: Koo/Common/Common.py:268
 #, python-format
@@ -321,19 +320,19 @@ msgstr ""
 
 #: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:235
 msgid "Remote Help"
-msgstr ""
+msgstr "Aide distante"
 
 #: Koo/Common/RemoteHelp.py:57
 msgid "Proceed"
-msgstr ""
+msgstr "Procéder"
 
-#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:515
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:516
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: Koo/Common/CommandLine.py:44
 msgid "specify database"
-msgstr ""
+msgstr "Spécifier une base de données"
 
 #: Koo/Common/CommandLine.py:45
 msgid "specify alternate config file"
@@ -368,7 +367,7 @@ msgstr ""
 
 #: Koo/Common/Help.py:102
 msgid "Documentation"
-msgstr ""
+msgstr "Documentation"
 
 #: Koo/Common/Help.py:139
 msgid "<p><i>Documentation module is not installed.</i></p>"
@@ -410,19 +409,21 @@ msgid ""
 "<p><i>No sections in the documentation refer to this menu entry.</i></p>"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:305
-#: Koo/Dialogs/KooMainWindow.py:651 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:306
+#: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "Yes"
 msgstr "Oui"
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:305
-#: Koo/Dialogs/KooMainWindow.py:651 Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:306
+#: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "No"
 msgstr "Non"
 
 #: Koo/Search/SearchFormWidget.py:248
 msgid "Search Error"
-msgstr ""
+msgstr "Erreur de recherche"
 
 #: Koo/Search/SearchFormWidget.py:248
 msgid ""
@@ -432,75 +433,75 @@ msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:83
 msgid "is empty"
-msgstr ""
+msgstr "est vide"
 
 #: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is not empty"
-msgstr ""
+msgstr "n'est pas vide"
 
 #: Koo/Search/CustomSearchFormWidget.py:85
 msgid "contains"
-msgstr ""
+msgstr "contient"
 
 #: Koo/Search/CustomSearchFormWidget.py:86
 msgid "does not contain"
-msgstr ""
+msgstr "ne contient pas"
 
 #: Koo/Search/CustomSearchFormWidget.py:87
 msgid "is equal to"
-msgstr ""
+msgstr "est égal à"
 
 #: Koo/Search/CustomSearchFormWidget.py:88
 msgid "is not equal to"
-msgstr ""
+msgstr "n'est pas égal à"
 
 #: Koo/Search/CustomSearchFormWidget.py:89
 msgid "greater than"
-msgstr ""
+msgstr "supérieur à"
 
 #: Koo/Search/CustomSearchFormWidget.py:90
 msgid "less than"
-msgstr ""
+msgstr "inférieur à"
 
 #: Koo/Search/CustomSearchFormWidget.py:91
 msgid "greater or equal to"
-msgstr ""
+msgstr "plus grand ou égal à"
 
 #: Koo/Search/CustomSearchFormWidget.py:92
 msgid "less or equal to"
-msgstr ""
+msgstr "plus petit ou égal à"
 
 #: Koo/Search/CustomSearchFormWidget.py:93
 msgid "in"
-msgstr ""
+msgstr "dans"
 
 #: Koo/Search/CustomSearchFormWidget.py:94
 msgid "not in"
-msgstr ""
+msgstr "n'est pas"
 
 #: Koo/Search/CustomSearchFormWidget.py:297
 msgid "True"
-msgstr ""
+msgstr "Vrai"
 
 #: Koo/Search/CustomSearchFormWidget.py:298
 msgid "False"
-msgstr ""
+msgstr "Faux"
 
 #: Koo/Search/CustomSearchFormWidget.py:457
 msgid "( ID )"
-msgstr ""
+msgstr "( ID )"
 
 #: Koo/Search/CustomSearchFormWidget.py:461
 msgid "( Created By )"
-msgstr ""
+msgstr "( Crée par )"
 
 #: Koo/Search/CustomSearchFormWidget.py:465
 msgid "( Creation Date )"
-msgstr ""
+msgstr "( Date de création )"
 
 #: Koo/Search/CustomSearchFormWidget.py:469
 msgid "( Last Modified By )"
-msgstr ""
+msgstr "( Dernière modification par )"
 
 #: Koo/Search/CustomSearchFormWidget.py:473
 msgid "( Last Modification Date )"
@@ -570,7 +571,7 @@ msgstr "Pas de base de données trouvée, vous devez en créer une !"
 
 #: Koo/Dialogs/DatabaseDialog.py:108
 msgid "Open backup file..."
-msgstr ""
+msgstr "Ouvrir le fichier de sauvegarde"
 
 #: Koo/Dialogs/DatabaseDialog.py:111
 msgid "Restore a database"
@@ -597,7 +598,7 @@ msgid "Backup a database"
 msgstr "Sauvegarder la base de données"
 
 #: Koo/Dialogs/DatabaseDialog.py:136
-#: Koo/Fields/Binary/BinaryFieldWidget.py:254
+#: Koo/Fields/Binary/BinaryFieldWidget.py:260
 #: Koo/Fields/Video/VideoFieldWidget.py:85
 msgid "Save as..."
 msgstr "Enregistrer sous..."
@@ -643,133 +644,146 @@ msgstr "Base de données supprimée avec succès!"
 msgid "No help available for web views"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:184
+#: Koo/Dialogs/FormWidget.py:185
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr "<font color=\"blue\">Document modifié</font>"
 
-#: Koo/Dialogs/FormWidget.py:214
+#: Koo/Dialogs/FormWidget.py:215
 msgid "Go To Id"
-msgstr ""
+msgstr "Aller à l'ID"
 
-#: Koo/Dialogs/FormWidget.py:214
+#: Koo/Dialogs/FormWidget.py:215
 #, python-format
 msgid "Resouce with ID '%s' not found."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:245
+#: Koo/Dialogs/FormWidget.py:246
 msgid "No resource selected !"
 msgstr "Aucune ressource sélectionnée !"
 
-#: Koo/Dialogs/FormWidget.py:286
+#: Koo/Dialogs/FormWidget.py:287
 msgid "You have to select one resource!"
 msgstr "Vous devez sélectionner une ressource !"
 
-#: Koo/Dialogs/FormWidget.py:292
+#: Koo/Dialogs/FormWidget.py:293
 msgid "ID"
 msgstr "ID"
 
-#: Koo/Dialogs/FormWidget.py:293
+#: Koo/Dialogs/FormWidget.py:294
 msgid "Creation User"
 msgstr "Utilisateur de création"
 
-#: Koo/Dialogs/FormWidget.py:294
+#: Koo/Dialogs/FormWidget.py:295
 msgid "Creation Date"
 msgstr "Date de création"
 
-#: Koo/Dialogs/FormWidget.py:295
+#: Koo/Dialogs/FormWidget.py:296
 msgid "Latest Modification by"
 msgstr "Dernière modification par"
 
-#: Koo/Dialogs/FormWidget.py:296
+#: Koo/Dialogs/FormWidget.py:297
 msgid "Latest Modification Date"
 msgstr "Dernière date de modification"
 
-#: Koo/Dialogs/FormWidget.py:302
+#: Koo/Dialogs/FormWidget.py:303
 msgid "Record log"
 msgstr "Enregsitrement du fichier de log"
 
-#: Koo/Dialogs/FormWidget.py:305 Koo/Dialogs/FormWidget.py:513
-#: Koo/Fields/Button/ButtonFieldWidget.py:80
+#: Koo/Dialogs/FormWidget.py:306 Koo/Dialogs/FormWidget.py:514
+#: Koo/Fields/Button/ButtonFieldWidget.py:139
 msgid "Question"
 msgstr "Question"
 
-#: Koo/Dialogs/FormWidget.py:305
+#: Koo/Dialogs/FormWidget.py:306
 msgid "Are you sure you want to remove these records?"
 msgstr "Etes vous sûr de vouloir supprimer ces enregistrements ?"
 
-#: Koo/Dialogs/FormWidget.py:310
+#: Koo/Dialogs/FormWidget.py:311
 msgid "Resource not removed !"
 msgstr "Ressource non supprimée !"
 
-#: Koo/Dialogs/FormWidget.py:312
+#: Koo/Dialogs/FormWidget.py:313
 msgid "Resource removed."
 msgstr "Ressource supprimée"
 
-#: Koo/Dialogs/FormWidget.py:343
+#: Koo/Dialogs/FormWidget.py:344
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 "<font color=\"orange\">Travail maintenant sur le document dupliqué</font>"
 
-#: Koo/Dialogs/FormWidget.py:353
+#: Koo/Dialogs/FormWidget.py:354
 msgid "<font color=\"green\">Document saved</font>"
 msgstr "Copy text   \t <font color=\"green\">Document enregistré</font>"
 
-#: Koo/Dialogs/FormWidget.py:358
+#: Koo/Dialogs/FormWidget.py:359
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr "<font color=\"red\">Formulaire invalide</font>"
 
-#: Koo/Dialogs/FormWidget.py:373
+#: Koo/Dialogs/FormWidget.py:374
 #, python-format
 msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:471
+#: Koo/Dialogs/FormWidget.py:472
 #, python-format
 msgid "(%s attachments) "
 msgstr "(%s pièces jointes) "
 
-#: Koo/Dialogs/FormWidget.py:482
+#: Koo/Dialogs/FormWidget.py:483
 msgid "No records"
 msgstr "Pas d'enregistrements"
 
-#: Koo/Dialogs/FormWidget.py:489
+#: Koo/Dialogs/FormWidget.py:490
 msgid "No document selected"
 msgstr "Aucun document sélectionné"
 
-#: Koo/Dialogs/FormWidget.py:493
+#: Koo/Dialogs/FormWidget.py:494
 msgid "New document"
 msgstr "Nouveau document"
 
-#: Koo/Dialogs/FormWidget.py:495
+#: Koo/Dialogs/FormWidget.py:496
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr "Editer le document (id: %s)"
 
-#: Koo/Dialogs/FormWidget.py:496
+#: Koo/Dialogs/FormWidget.py:497
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr "Enregistrement: %(name)s / %(count)s - %(name2)s"
 
-#: Koo/Dialogs/FormWidget.py:514
+#: Koo/Dialogs/FormWidget.py:515
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:515
+#: Koo/Dialogs/FormWidget.py:516
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
-#: Koo/Dialogs/FormWidget.py:515
+#: Koo/Dialogs/FormWidget.py:516
 msgid "Discard"
-msgstr ""
+msgstr "Abandonner"
 
-#: Koo/Dialogs/FormWidget.py:533
+#: Koo/Dialogs/FormWidget.py:534
 msgid "No records selected"
 msgstr "Pas d'enregistrement sélectionné"
+
+#: Koo/Dialogs/FormWidget.py:614
+msgid "Choose action to apply massively"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:621
+msgid "Massive Update"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:621
+#, python-format
+msgid "Do you really want to push button '%s' of all selected records?"
+msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:504
 msgid "Press Ctrl+O to login"
@@ -835,7 +849,7 @@ msgstr "Erreur de connexion"
 
 #: Koo/Dialogs/KooMainWindow.py:487
 msgid "Error logging into database."
-msgstr ""
+msgstr "Erreur de connexion à la base de données"
 
 #: Koo/Dialogs/KooMainWindow.py:503
 msgid "Not logged !"
@@ -843,7 +857,7 @@ msgstr "Non connecté !"
 
 #: Koo/Dialogs/KooMainWindow.py:527
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: Koo/Dialogs/KooMainWindow.py:615
 msgid "Access denied"
@@ -879,7 +893,7 @@ msgstr "Recherche: %s (%%d résultat(s))"
 
 #: Koo/Dialogs/WindowService.py:92
 msgid "Web"
-msgstr ""
+msgstr "Internet"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "NET-RPC"
@@ -895,7 +909,7 @@ msgstr "XML-RPC Sécurisé"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:69
 msgid "Pyro (faster)"
-msgstr ""
+msgstr "Pyro (plus rapide)"
 
 #: Koo/Dialogs/ImportDialog.py:48
 #, python-format
@@ -1233,17 +1247,21 @@ msgstr "Fenêtre de traduction"
 msgid "You must save the resource before adding translations"
 msgstr "Vous devez sauvegarder la fiche avant d'ajouter les traductions"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:117
+#: Koo/Fields/Button/ButtonFieldWidget.py:109
 msgid "Error in Button"
 msgstr "Erreur sur le bouton"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:117
+#: Koo/Fields/Button/ButtonFieldWidget.py:109
 msgid "Button type not allowed"
 msgstr "Type de bouton non autorisé"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:126
+#: Koo/Fields/Button/ButtonFieldWidget.py:142
 msgid "Invalid Form, correct red fields!"
 msgstr "Formulaire invalide, corriger les champs en rouge !"
+
+#: Koo/Fields/Button/ButtonFieldWidget.py:149
+msgid "You do not have permission to execute this action."
+msgstr ""
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
 #: Koo/Fields/AbstractFieldWidget.py:149
@@ -1276,12 +1294,12 @@ msgstr "Rechercher"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:83
 #: Koo/Fields/Link/LinkFieldWidget.py:62
-#: Koo/Fields/Binary/BinaryFieldWidget.py:173
+#: Koo/Fields/Binary/BinaryFieldWidget.py:179
 msgid "Open..."
 msgstr "Ouvrir..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:111
-#: Koo/Fields/Binary/BinaryFieldWidget.py:210
+#: Koo/Fields/Binary/BinaryFieldWidget.py:216
 msgid "Image"
 msgstr "Image"
 
@@ -1337,11 +1355,11 @@ msgstr "Fichiers (%s)"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:86
 msgid "&New"
-msgstr ""
+msgstr "&Nouveau"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:90
 msgid "&Scan"
-msgstr ""
+msgstr "&Numériser"
 
 #: Koo/Fields/Binary/BinaryFieldWidget.py:101
 msgid "&Save"
@@ -1355,16 +1373,16 @@ msgstr "&Ouvrir"
 msgid "Show &image"
 msgstr "Montrer l'image"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:174
+#: Koo/Fields/Binary/BinaryFieldWidget.py:180
 msgid "Show &image..."
 msgstr "Montrer l'image.."
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:220
+#: Koo/Fields/Binary/BinaryFieldWidget.py:226
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 msgid "Select the file to attach"
 msgstr "Sélectionner la pièce jointe"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:231
+#: Koo/Fields/Binary/BinaryFieldWidget.py:237
 #, python-format
 msgid ""
 "Error reading the file:\n"
@@ -1373,7 +1391,7 @@ msgstr ""
 "Erreur lors de la lecture du fichier:\n"
 "%s"
 
-#: Koo/Fields/Binary/BinaryFieldWidget.py:265
+#: Koo/Fields/Binary/BinaryFieldWidget.py:271
 #, python-format
 msgid ""
 "Error writing the file:\n"
