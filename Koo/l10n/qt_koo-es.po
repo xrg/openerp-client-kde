@@ -22,17 +22,17 @@ msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:89 mainwindow.ui:582
+#: win_attach.ui:89 mainwindow.ui:584
 msgid "Ctrl+D"
 msgstr "Ctrl+D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:594
+#: mainwindow.ui:596
 msgid "Ctrl+F"
 msgstr "Ctrl+F"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:705
+#: mainwindow.ui:707
 msgid "Ctrl+G"
 msgstr "Ctrl+G"
 
@@ -42,7 +42,7 @@ msgid "&Save list"
 msgstr "&Guardar la lista"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:805
+#: mainwindow.ui:807
 msgid "Ctrl+J"
 msgstr "Ctrl+J"
 
@@ -53,28 +53,28 @@ msgstr "Ctrl+L"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:77 mainwindow.ui:546
+#: win_attach.ui:77 mainwindow.ui:548
 msgid "Ctrl+N"
 msgstr "Ctrl+N"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:429
+#: mainwindow.ui:431
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:816
+#: shortcuts.ui:858
 msgid "Set focus to one of the widgets in the container"
 msgstr "Establecer el cursor en uno de los campos del contenedor"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:149 mainwindow.ui:558
+#: win_attach.ui:149 mainwindow.ui:560
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:793
+#: mainwindow.ui:795
 msgid "Ctrl+T"
 msgstr "Ctrl+T"
 
@@ -84,7 +84,7 @@ msgid "/"
 msgstr "/"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:675
+#: mainwindow.ui:677
 msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
@@ -107,12 +107,12 @@ msgid "&Server:"
 msgstr "&Servidor:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:790
+#: mainwindow.ui:792
 msgid "Full &Text Search"
 msgstr "Búsqueda de &Texto"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:407
+#: shortcuts.ui:421
 msgid "Paste selected text"
 msgstr "Pegar el texto seleccionado"
 
@@ -134,17 +134,17 @@ msgid "about:blank"
 msgstr "about:blank"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:660
+#: mainwindow.ui:662
 msgid "Previous Tab"
 msgstr "Pestaña Anterior"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:685
+#: shortcuts.ui:727
 msgid "Close tab"
 msgstr "Cerrar la pestaña"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:596
+#: shortcuts.ui:610
 msgid "<Ctrl> + <Shift> + Open"
 msgstr "<Ctrl> + <Shift> + Abrir"
 
@@ -152,6 +152,12 @@ msgstr "<Ctrl> + <Shift> + Abrir"
 #: keyboard.ui:657
 msgid "P"
 msgstr "P"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:374
+#, fuzzy
+msgid "Clear field"
+msgstr "Todos los campos"
 
 #. ts-context RichTextWidget
 #: richtext.ui:282
@@ -183,12 +189,12 @@ msgstr ""
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
-#: full_text_search.ui:66 mainwindow.ui:591 win_search.ui:86
+#: full_text_search.ui:66 mainwindow.ui:593 win_search.ui:86
 msgid "&Find"
 msgstr "&Buscar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:745
+#: shortcuts.ui:787
 msgid "Open view in a background tab"
 msgstr "Abre la vista en una pestaña de fondo"
 
@@ -203,7 +209,7 @@ msgid "<b>All fields</b>"
 msgstr "<b>Todos los campos</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:634
+#: shortcuts.ui:676
 msgid "Selects all records"
 msgstr "Selecciona todos los registros"
 
@@ -267,7 +273,7 @@ msgid "Form"
 msgstr "Formulario"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:766
+#: shortcuts.ui:808
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr "<Alt> + Flecha (Izquierda, derecha, arriba, abajo)"
 
@@ -282,18 +288,18 @@ msgid "Caps"
 msgstr "Caps"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:786
+#: shortcuts.ui:828
 msgid "Set focus to current widget's container"
 msgstr "Establecer el cursor en el contenedor del campo actual"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:101 mainwindow.ui:606
+#: win_attach.ui:101 mainwindow.ui:608
 msgid "Alt+PgDown"
 msgstr "Alt+PgDown"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:776
+#: shortcuts.ui:818
 msgid "Set focus to nearest widget"
 msgstr "Establecer el cursor en el campo más cercano"
 
@@ -308,17 +314,17 @@ msgid "K"
 msgstr "K"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:351
+#: mainwindow.ui:319
 msgid "Documentation"
 msgstr "Documentación"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:462
+#: mainwindow.ui:464
 msgid "&New Database"
 msgstr "&Nueva base de datos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:570
+#: mainwindow.ui:572
 msgid "Ctrl+Shift+D"
 msgstr "Ctrl+Shift+D"
 
@@ -334,7 +340,7 @@ msgid "&Remote Help"
 msgstr "Ayuda &remota"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:397
+#: shortcuts.ui:411
 msgid "Copy selected text"
 msgstr "Copiar el texto seleccionado"
 
@@ -344,7 +350,7 @@ msgid "&Main Shortcuts"
 msgstr "&Teclas de acceso principales"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:758
+#: mainwindow.ui:760
 msgid "&Tips"
 msgstr "&Consejos"
 
@@ -449,17 +455,17 @@ msgstr ""
 "\">Administrador: admin / admin</p></body></html>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:329
+#: mainwindow.ui:343
 msgid "&Reports"
 msgstr "&Informes"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:705
+#: shortcuts.ui:747
 msgid "Open form view in new tab"
 msgstr "Abre el formulario en una nueva pestaña"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:582
+#: shortcuts.ui:596
 msgid "<Ctrl> + Open"
 msgstr "<Ctrl> + Abrir"
 
@@ -469,28 +475,34 @@ msgid "V"
 msgstr "V"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:589
+#: shortcuts.ui:603
 msgid "F1"
 msgstr "F1"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:603
+#: shortcuts.ui:617
 msgid "F2"
 msgstr "F2"
 
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:367
+#, fuzzy
+msgid "F3"
+msgstr "F"
+
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
-#: mainwindow.ui:717 shortcuts.ui:236
+#: mainwindow.ui:719 shortcuts.ui:236
 msgid "F5"
 msgstr "F5"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:630
+#: mainwindow.ui:632
 msgid "F6"
 msgstr "F6"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:444
+#: mainwindow.ui:446
 msgid "&Disconnect"
 msgstr "&Desconectar"
 
@@ -527,7 +539,7 @@ msgstr ""
 "Source más avanzado !</p></center></body></html>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:509
+#: shortcuts.ui:523
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
@@ -632,17 +644,17 @@ msgstr ""
 
 #. ts-context OneToManyWidget
 #. ts-context PanedWidget
-#: one2many.ui:242 paned.ui:117
+#: one2many.ui:263 paned.ui:117
 msgid "Switch View"
 msgstr "Cambiar Vista"
 
 #. ts-context Form
-#: customsearchitem.ui:71
+#: customsearchitem.ui:63
 msgid "&And"
 msgstr "&Y"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:648
+#: mainwindow.ui:650
 msgid "Next Tab"
 msgstr "Pestaña Siguiente"
 
@@ -652,7 +664,7 @@ msgid "Create a new database"
 msgstr "Crear una base de datos nueva"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:675
+#: shortcuts.ui:717
 msgid "Middle mouse click on Tab"
 msgstr "Clic con el botón del medio en una pestaña"
 
@@ -687,7 +699,7 @@ msgid "Load Image"
 msgstr "Cargar una imagen"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:525
+#: mainwindow.ui:527
 msgid "&Read My Requests"
 msgstr "&Leer Mis Peticiones"
 
@@ -712,7 +724,7 @@ msgid "&Contact"
 msgstr "&Contacto"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:461
+#: shortcuts.ui:475
 msgid "<Tab>"
 msgstr "<Tab>"
 
@@ -747,12 +759,12 @@ msgid "Default &value"
 msgstr "&Valor por defecto"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:660
+#: shortcuts.ui:702
 msgid "&Advanced"
 msgstr "&Avanzadas"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:772
+#: mainwindow.ui:774
 msgid "&License"
 msgstr "&Licencia"
 
@@ -767,7 +779,7 @@ msgid "<b>Value applicable if:</b>"
 msgstr "<b>Valor aplicable si:</b>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:814
+#: mainwindow.ui:816
 msgid "&Form designer"
 msgstr "&Diseñador de Formularios"
 
@@ -783,18 +795,18 @@ msgid ","
 msgstr ","
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:579
+#: mainwindow.ui:581
 msgid "&Delete"
 msgstr "&Borrar"
 
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
-#: mainwindow.ui:543 win_search.ui:67
+#: mainwindow.ui:545 win_search.ui:67
 msgid "&New"
 msgstr "&Nuevo"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:451
+#: shortcuts.ui:465
 msgid "Auto-complete text field"
 msgstr "Auto-completar el campo de texto"
 
@@ -804,7 +816,7 @@ msgid "Ã‡"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:498
+#: mainwindow.ui:500
 msgid "&Administrator Password"
 msgstr "&Contraseña del Administrador"
 
@@ -814,7 +826,7 @@ msgid "L"
 msgstr "L"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:828
+#: mainwindow.ui:830
 msgid "Open Home Tab"
 msgstr "Abrir la Pestaña Principal"
 
@@ -834,7 +846,7 @@ msgstr "Todos los campos"
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
-#: win_attach.ui:110 one2many.ui:171
+#: win_attach.ui:110 one2many.ui:192
 msgid "Previous"
 msgstr "Anterior"
 
@@ -850,7 +862,7 @@ msgstr "Seleccione una base de datos..."
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
-#: win_attach.ui:98 one2many.ui:213
+#: win_attach.ui:98 one2many.ui:234
 msgid "Next"
 msgstr "Siguiente"
 
@@ -871,7 +883,7 @@ msgid "'"
 msgstr "'"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:837
+#: mainwindow.ui:839
 msgid "&Clear Cache"
 msgstr "&Limpiar cache"
 
@@ -884,7 +896,7 @@ msgid "TextLabel"
 msgstr "TextLabel"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:757
+#: shortcuts.ui:799
 msgid "<b>Shortcuts in text entries</b>"
 msgstr "<b>Teclas de acceso en campos de texto</b>"
 
@@ -941,26 +953,26 @@ msgid "&Send Error"
 msgstr "Enviar el error"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:568
+#: shortcuts.ui:582
 msgid "Create a new record"
 msgstr "Crear un nuevo registro"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:819
+#: mainwindow.ui:821
 msgid "&Menu"
 msgstr "&Menú"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
-#: full_text_search.ui:115 mainwindow.ui:615 one2many_dialog.ui:57
+#: full_text_search.ui:115 mainwindow.ui:617 one2many_dialog.ui:57
 msgid "&Previous"
 msgstr "A&nterior"
 
-#. ts-context Form
-#: customsearchitem.ui:81
-msgid "&Or"
-msgstr "&O"
+#. ts-context KooMainWindow
+#: mainwindow.ui:881
+msgid "Insert Several Records at Once"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
@@ -968,12 +980,12 @@ msgid "Next record"
 msgstr "Registro siguiente"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:870
+#: mainwindow.ui:872
 msgid "Push Button of All Selected Records"
 msgstr "Pulsar un botón de los registros seleccionados"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:324
+#: mainwindow.ui:297
 msgid "&Actions"
 msgstr "&Acciones"
 
@@ -983,7 +995,7 @@ msgid "\""
 msgstr "\""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:263
+#: mainwindow.ui:348
 msgid "F&orm"
 msgstr "F&ormulario"
 
@@ -993,17 +1005,17 @@ msgid "2"
 msgstr "2"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:290
+#: mainwindow.ui:263
 msgid "&Database"
 msgstr "&Base de datos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:558
+#: shortcuts.ui:572
 msgid "Opens the record in a new background tab"
 msgstr "Abre el registro en una nueva pestaña de fondo"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:781
+#: mainwindow.ui:783
 msgid "&About"
 msgstr "&Acerca de"
 
@@ -1025,7 +1037,7 @@ msgid "Requests:"
 msgstr "Peticiones:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:347
+#: mainwindow.ui:315
 msgid "&Help"
 msgstr "&Ayuda"
 
@@ -1071,12 +1083,12 @@ msgid "&OK"
 msgstr "&Aceptar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:312
+#: mainwindow.ui:285
 msgid "&User"
 msgstr "&Usuario"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:663
+#: mainwindow.ui:665
 msgid "Ctrl+PgUp"
 msgstr "Ctrl+PgUp"
 
@@ -1096,7 +1108,7 @@ msgid "<Alt> + <PgDn>"
 msgstr "<Alt> + <PgDn>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:684
+#: mainwindow.ui:686
 msgid "View Access Log"
 msgstr "Ver el Histórico de Accesos"
 
@@ -1106,7 +1118,7 @@ msgid "Next tab"
 msgstr "Pestaña siguiente"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:417
+#: shortcuts.ui:431
 msgid "Next editable widget"
 msgstr "Campo editable siguiente"
 
@@ -1127,7 +1139,7 @@ msgid "M"
 msgstr "M"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:567
+#: mainwindow.ui:569
 msgid "D&uplicate"
 msgstr "D&uplicar"
 
@@ -1164,7 +1176,7 @@ msgid "&New password:"
 msgstr "Contraseña &nueva:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:294
+#: mainwindow.ui:267
 msgid "&Databases"
 msgstr "&Bases de datos"
 
@@ -1172,7 +1184,7 @@ msgstr "&Bases de datos"
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
 #. ts-context TipsDialog
-#: full_text_search.ui:158 mainwindow.ui:672 shortcuts.ui:860 tip.ui:159
+#: full_text_search.ui:158 mainwindow.ui:674 shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "&Cerrar"
 
@@ -1182,7 +1194,7 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:856
+#: mainwindow.ui:858
 msgid "HTML Manual"
 msgstr "Manual HTML"
 
@@ -1192,12 +1204,12 @@ msgid "&Field separator"
 msgstr "S&eparador de campos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:639
+#: mainwindow.ui:641
 msgid "Open &Menu Tab"
 msgstr "Abrir la Pestaña de &Menú"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:516
+#: mainwindow.ui:518
 msgid "&Send Request"
 msgstr "&Enviar una Petición"
 
@@ -1232,7 +1244,7 @@ msgid "Action here..."
 msgstr "Acción aquí..."
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:548
+#: shortcuts.ui:562
 msgid "Opens the record in a new tab"
 msgstr "Abre el registro en una nueva pestaña"
 
@@ -1423,7 +1435,7 @@ msgid "S"
 msgstr "S"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:489
+#: mainwindow.ui:491
 msgid "&Drop Database"
 msgstr "&Eliminar una Base de Datos"
 
@@ -1463,13 +1475,18 @@ msgstr "Cam&biar"
 msgid "&Cancel"
 msgstr "&Cancelar"
 
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:645
+msgid "Remove current record"
+msgstr ""
+
 #. ts-context Form
 #: image.ui:90
 msgid "Remove Image"
 msgstr "Eliminar la imagen"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:851
+#: mainwindow.ui:853
 msgid "PDF Manual"
 msgstr "Manual PDF"
 
@@ -1484,12 +1501,12 @@ msgid "Send New Request"
 msgstr "Enviar una Nueva Petición"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:651
+#: mainwindow.ui:653
 msgid "Ctrl+PgDown"
 msgstr "Ctrl+PgDown"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:444
+#: shortcuts.ui:624
 msgid "<Enter>"
 msgstr "<Enter>"
 
@@ -1499,7 +1516,7 @@ msgid "Connect &now"
 msgstr "Conectar &ahora"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:735
+#: mainwindow.ui:737
 msgid "&Import Data"
 msgstr "&Importar Datos"
 
@@ -1524,12 +1541,12 @@ msgid "Tip of the Day"
 msgstr "Consejo del Día"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:507
+#: mainwindow.ui:509
 msgid "&Preferences"
 msgstr "&Preferencias"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:753
+#: mainwindow.ui:755
 msgid "&Contextual Help"
 msgstr "&Ayuda Contextual"
 
@@ -1539,7 +1556,7 @@ msgid "Connection Lost"
 msgstr "Conexión perdida"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:375
+#: shortcuts.ui:389
 msgid "Shortcuts in text entries"
 msgstr "Teclas de acceso en campos de texto"
 
@@ -1569,12 +1586,12 @@ msgstr "Diálogo"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:16 mainwindow.ui:802
+#: win_attach.ui:16 mainwindow.ui:804
 msgid "Attachments"
 msgstr "Adjuntos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:480
+#: mainwindow.ui:482
 msgid "&Backup Database"
 msgstr "&Copia de Seguridad"
 
@@ -1596,14 +1613,20 @@ msgid "Weekly View"
 msgstr "Vista semanal"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:497
+#: shortcuts.ui:511
 msgid "Numeric fields"
 msgstr "Campos numéricos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:744
+#: mainwindow.ui:746
 msgid "&Execute Plugins"
 msgstr "&Ejectuar un Conector"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:631
+#, fuzzy
+msgid "Add new record"
+msgstr "Crear un nuevo registro"
 
 #. ts-context ProgressDialog
 #: progress.ui:14
@@ -1626,7 +1649,7 @@ msgid "<-"
 msgstr "<-"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:715
+#: shortcuts.ui:757
 msgid "Mouse Wheel on Tab"
 msgstr "Rueda del ratón en las pestañas"
 
@@ -1711,12 +1734,12 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
-#: mainwindow.ui:471 login.ui:143
+#: mainwindow.ui:473 login.ui:143
 msgid "&Restore Database"
 msgstr "&Restaurar una Base de Datos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:434
+#: shortcuts.ui:448
 msgid "Previous editable widget"
 msgstr "Campo editable anterior"
 
@@ -1742,7 +1765,7 @@ msgid "Y"
 msgstr "Y"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:725
+#: shortcuts.ui:767
 msgid "Change current tab"
 msgstr "Cambia la pestaña actual"
 
@@ -1767,7 +1790,7 @@ msgid "&Port:"
 msgstr "&Puerto:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:702
+#: mainwindow.ui:704
 msgid "Go To Resource ID"
 msgstr "Ir al recurso con ID"
 
@@ -1787,12 +1810,12 @@ msgid "<Ctrl> + L"
 msgstr "<Ctrl> + L"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:468
+#: shortcuts.ui:482
 msgid "<Ctrl> + C"
 msgstr "<Ctrl> + C"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:627
+#: shortcuts.ui:669
 msgid "<Ctrl> + A"
 msgstr "<Ctrl> + A"
 
@@ -1812,7 +1835,7 @@ msgid "&Next Tip"
 msgstr "Consejo &Siguiente"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:482
+#: shortcuts.ui:496
 msgid "<Ctrl> + X"
 msgstr "<Ctrl> + X"
 
@@ -1827,7 +1850,7 @@ msgid "<Ctrl> + S"
 msgstr "<Ctrl> + S"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:475
+#: shortcuts.ui:489
 msgid "<Ctrl> + V"
 msgstr "<Ctrl> + V"
 
@@ -1840,6 +1863,12 @@ msgstr "<Ctrl> + W"
 #: shortcuts.ui:117
 msgid "<Ctrl> + T"
 msgstr "<Ctrl> + T"
+
+#. ts-context ManyToManyWidget
+#. ts-context OneToManyWidget
+#: many2many.ui:96 one2many.ui:165
+msgid "..."
+msgstr ""
 
 #. ts-context SelectionDialog
 #: win_selection.ui:19
@@ -1877,7 +1906,7 @@ msgid "<Ctrl> + <Enter>"
 msgstr "<Ctrl> + <Enter>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:334
+#: mainwindow.ui:302
 msgid "&Window"
 msgstr "&Ventana"
 
@@ -1887,12 +1916,12 @@ msgid "Create &Database"
 msgstr "Crear una base de &datos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:575
+#: shortcuts.ui:589
 msgid "Search/edit existing records"
 msgstr "Buscar/editar registros existentes"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:693
+#: mainwindow.ui:695
 msgid "Store View Settings"
 msgstr "Guardar la configuración de la vista"
 
@@ -1907,7 +1936,7 @@ msgid "&Super admin password:"
 msgstr "Contraseña de &super administrador:"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:536
+#: shortcuts.ui:550
 msgid "Relation fields"
 msgstr "Campos de relación"
 
@@ -1962,7 +1991,7 @@ msgid "Add Shortcut"
 msgstr "Añadir acceso directo"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:767
+#: mainwindow.ui:769
 msgid "&Keyboard Shortcut"
 msgstr "&Accesos de Teclado"
 
@@ -1981,8 +2010,9 @@ msgstr "Idioma por &defecto:"
 msgid "O"
 msgstr "O"
 
+#. ts-context ManyToManyWidget
 #. ts-context OneToManyWidget
-#: one2many.ui:197
+#: many2many.ui:89 one2many.ui:218
 msgid "(0/0)"
 msgstr "(0/0)"
 
@@ -2002,18 +2032,18 @@ msgid "<b>Fields to export</b>"
 msgstr "<b>Campos a exportar</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:796
+#: shortcuts.ui:838
 msgid "<Alt> + Minus"
 msgstr "<Alt> + Menos"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:387
+#: shortcuts.ui:401
 msgid "Cut selected text"
 msgstr "Cortar el texto seleccionado"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:113 mainwindow.ui:618
+#: win_attach.ui:113 mainwindow.ui:620
 msgid "Alt+PgUp"
 msgstr "Alt+PgUp"
 
@@ -2023,7 +2053,7 @@ msgid "Open Calendar"
 msgstr "Abrir Calendario"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:714
+#: mainwindow.ui:716
 msgid "&Reload/Undo"
 msgstr "&Recardar/Deshacer"
 
@@ -2054,17 +2084,17 @@ msgid "Operation in progress"
 msgstr "Operación en progreso"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:618
+#: shortcuts.ui:660
 msgid "Lists"
 msgstr "Listas"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:806
+#: shortcuts.ui:848
 msgid "<Alt> + Plus"
 msgstr "<Alt> + Más"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:426
+#: mainwindow.ui:428
 msgid "&Connect"
 msgstr "&Conectar"
 
@@ -2085,7 +2115,7 @@ msgstr "Latin1"
 
 #. ts-context Dialog
 #. ts-context KooMainWindow
-#: lostconnection.ui:84 mainwindow.ui:453
+#: lostconnection.ui:84 mainwindow.ui:455
 msgid "&Quit"
 msgstr "&Salir"
 
@@ -2933,7 +2963,7 @@ msgstr ""
 "text-indent:0px;\"></p></body></html>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:846
+#: mainwindow.ui:848
 msgid "Modify All Selected Records"
 msgstr "Modificar todos los registros seleccionados"
 
@@ -2953,7 +2983,7 @@ msgid "Previous tab"
 msgstr "Pestaña anterior"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:627
+#: mainwindow.ui:629
 msgid "Switch &View"
 msgstr "Cambiar &Vista"
 
@@ -2968,17 +2998,17 @@ msgid "Close"
 msgstr "Cerrar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:735
+#: shortcuts.ui:777
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Abrir la vista"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:726
+#: mainwindow.ui:728
 msgid "E&xport Data"
 msgstr "E&xportar Datos"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:370
+#: mainwindow.ui:338
 msgid "&Browse"
 msgstr "&Navegar"
 
@@ -3002,7 +3032,7 @@ msgid "Close window without saving"
 msgstr "Cerrar la ventana sin guardar"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:534
+#: mainwindow.ui:536
 msgid "&Waiting Requests"
 msgstr "&Peticiones en Espera"
 
@@ -3017,7 +3047,7 @@ msgid "5"
 msgstr "5"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:861
+#: mainwindow.ui:863
 msgid "doc.openerp.com"
 msgstr "doc.openerp.com"
 
@@ -3037,7 +3067,7 @@ msgid "Edit"
 msgstr "Editar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:427
+#: shortcuts.ui:441
 msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
 
@@ -3075,7 +3105,7 @@ msgstr "Borrar"
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
-#: full_text_search.ui:126 mainwindow.ui:603 one2many_dialog.ui:68
+#: full_text_search.ui:126 mainwindow.ui:605 one2many_dialog.ui:68
 msgid "&Next"
 msgstr "&Siguiente"
 
@@ -3095,9 +3125,15 @@ msgid "Center"
 msgstr "Centrado"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:695
+#: shortcuts.ui:737
 msgid "<Shift> + Switch View"
 msgstr "<Shift> + Cambio de vista"
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:638
+#, fuzzy
+msgid "<Alt> + <Backspace>"
+msgstr "<Alt> + <PgUp>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:332
@@ -3105,12 +3141,12 @@ msgid "&Edition Shortcuts"
 msgstr "Teclas de acceso de &Edición"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:555
+#: mainwindow.ui:557
 msgid "&Save"
 msgstr "&Guardar"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:517
+#: shortcuts.ui:531
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
@@ -3138,3 +3174,6 @@ msgstr "toolBar"
 
 #~ msgid "Ç"
 #~ msgstr "Ç"
+
+#~ msgid "&Or"
+#~ msgstr "&O"
