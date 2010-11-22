@@ -65,6 +65,42 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushBack">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="uiLabel">
+       <property name="text">
+        <string>(0/0)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="pushForward">
+       <property name="text">
+        <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="common.qrc">
+         <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
