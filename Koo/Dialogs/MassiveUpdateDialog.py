@@ -76,6 +76,10 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.save )
 
 		self.ids = []
+		self.model = None
+		self.context = None
+		self.updateOnServer = True
+		self.newValues = {}
 
 	def setIds( self, ids ):
 		self.ids = ids
@@ -85,6 +89,9 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 
 	def setContext(self, context):
 		self.context = context
+
+	def setUpdateOnServer(self, update):
+		self.updateOnServer = update
 
 	def setup( self, viewTypes, viewIds ):
 		self.group = RecordGroup( self.model, context=self.context )
@@ -125,9 +132,11 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 				messageBox.setMessage( _('Select the fields you want to update in the <b>%d</b> selected records:') % len(self.ids) )
 				if messageBox.exec_() == QDialog.Rejected:
 					return
-				newValues = {}
+				self.newValues = {}
 				for field in messageBox.selectedFields():
-					newValues[field] = values[field]
-				Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, newValues, self.context)
+					self.newValues[field] = values[field]
+
+				if self.updateOnServer:
+					Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, self.newValues, self.context)
 		self.accept()
 

@@ -171,9 +171,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		# call the current child/tab/form. This is handled this way instead of signals because we
 		# may have several windows opened at the same time and all children would receive
 		# the signal...
-		self.actions = [ 'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 
-			'Reload', 'Switch', 'Attach', 'Export', 'Import', 'GoToResourceId', 
-			'Duplicate', 'AccessLog', 'MassiveUpdate', 'MassiveButton', 'StoreViewSettings' ]
+		self.actions = [ 
+			'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 'Reload', 'Switch', 
+			'Attach', 'Export', 'Import', 'GoToResourceId', 'Duplicate', 'AccessLog', 
+			'MassiveInsert', 'MassiveUpdate', 'MassiveButton', 'StoreViewSettings' 
+		]
 		for x in self.actions:
 			action = eval('self.action'+ x)
 			self.connect( action, SIGNAL( 'triggered()' ), self.callChildView )
@@ -707,9 +709,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.actionFullTextSearch.setEnabled( False )
 
 		if Settings.value('koo.allow_massive_updates', True):
+			self.actionMassiveInsert.setVisible( True )
 			self.actionMassiveUpdate.setVisible( True )
 			self.actionMassiveButton.setVisible( True )
 		else:
+			self.actionMassiveInsert.setVisible( False )
 			self.actionMassiveUpdate.setVisible( False )
 			self.actionMassiveButton.setVisible( False )
 

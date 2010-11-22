@@ -30,6 +30,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
+from Koo.Dialogs.MassiveUpdateDialog import *
+from Koo.Dialogs.MassiveInsertDialog import *
+
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common import Api
@@ -150,6 +153,22 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
+		# Extra Actions
+		self.actionMassiveUpdate = QAction(self)
+		self.actionMassiveUpdate.setText( _('Massive &Update') )
+		self.actionMassiveUpdate.setIcon( QIcon( ':/images/edit.png' ) )
+		self.connect(self.actionMassiveUpdate, SIGNAL('triggered()'), self.massiveUpdate)
+
+		self.actionMassiveInsert = QAction(self)
+		self.actionMassiveInsert.setText( _('Massive &Insert') )
+		self.actionMassiveInsert.setIcon( QIcon( ':/images/new.png' ) )
+		self.connect(self.actionMassiveInsert, SIGNAL('triggered()'), self.massiveInsert)
+		
+		self.actionsMenu = QMenu( self )
+		self.actionsMenu.addAction( self.actionMassiveUpdate )
+		self.actionsMenu.addAction( self.actionMassiveInsert )
+		self.pushActions.setMenu( self.actionsMenu )
+
 		#self.colors['normal'] = self.palette().color( self.backgroundRole() )
 
 		self.connect( self.pushNew, SIGNAL( "clicked()"),self.new )
@@ -201,6 +220,33 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.setEmbedded( True )
 		self.screen.setViewTypes( self.attrs.get('mode', 'tree,form').split(',') )
 		self.uiTitle.setText( self.screen.currentView().title )
+
+	def massiveUpdate(self):
+		dialog = MassiveUpdateDialog(self)
+		dialog.setIds( self.screen.selectedIds() )
+		dialog.setModel( self.screen.resource )
+		dialog.setUpdateOnServer( False )
+		dialog.setContext( Rpc.session.context )
+		dialog.setup( [], [] )
+		if dialog.exec_() == QDialog.Rejected:
+			return
+		for record in self.screen.selectedRecords():
+			record.set( dialog.newValues, modified=True )
+
+	def massiveInsert(self):
+		dialog = MassiveInsertDialog(self)
+		dialog.setModel( self.screen.resource )
+		dialog.setAvailableFields( [x for x in self.screen.group.fields] )
+		dialog.setUpdateOnServer( False )
+		dialog.setContext( Rpc.session.context )
+		if not dialog.setup():
+			return
+		if dialog.exec_() == QDialog.Rejected:
+			return
+		for value in dialog.newValues:
+			record = self.screen.group.create()
+			record.setValue( dialog.newField, value )
+		self.screen.display()
 
 	def switchView(self):
 		# If Control Key is pressed when the open button is clicked
