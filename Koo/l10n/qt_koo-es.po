@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-14 04:24+0000\n"
-"PO-Revision-Date: 2010-10-26 07:48+0000\n"
+"POT-Creation-Date: 2010-11-22 04:03+0000\n"
+"PO-Revision-Date: 2010-11-22 10:04+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-14 12:56+0000\n"
+"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Language: es_ES\n"
 
@@ -155,9 +155,8 @@ msgstr "P"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:374
-#, fuzzy
 msgid "Clear field"
-msgstr "Todos los campos"
+msgstr "Limpiar el campo"
 
 #. ts-context RichTextWidget
 #: richtext.ui:282
@@ -486,9 +485,8 @@ msgstr "F2"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:367
-#, fuzzy
 msgid "F3"
-msgstr "F"
+msgstr "F3"
 
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
@@ -972,7 +970,7 @@ msgstr "A&nterior"
 #. ts-context KooMainWindow
 #: mainwindow.ui:881
 msgid "Insert Several Records at Once"
-msgstr ""
+msgstr "Añadir múltiples registros a la vez"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
@@ -1478,7 +1476,7 @@ msgstr "&Cancelar"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:645
 msgid "Remove current record"
-msgstr ""
+msgstr "Eliminar el registro actual"
 
 #. ts-context Form
 #: image.ui:90
@@ -1624,9 +1622,8 @@ msgstr "&Ejectuar un Conector"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:631
-#, fuzzy
 msgid "Add new record"
-msgstr "Crear un nuevo registro"
+msgstr "Añadir un registro nuevo"
 
 #. ts-context ProgressDialog
 #: progress.ui:14
@@ -1868,7 +1865,7 @@ msgstr "<Ctrl> + T"
 #. ts-context OneToManyWidget
 #: many2many.ui:96 one2many.ui:165
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. ts-context SelectionDialog
 #: win_selection.ui:19
@@ -3131,9 +3128,8 @@ msgstr "<Shift> + Cambio de vista"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:638
-#, fuzzy
 msgid "<Alt> + <Backspace>"
-msgstr "<Alt> + <PgUp>"
+msgstr "<Alt> + <Tecla de retroceso>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:332
@@ -3174,6 +3170,3 @@ msgstr "toolBar"
 
 #~ msgid "Ç"
 #~ msgstr "Ç"
-
-#~ msgid "&Or"
-#~ msgstr "&O"

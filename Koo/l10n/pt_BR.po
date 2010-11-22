@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-14 02:30+0100\n"
+"POT-Creation-Date: 2010-11-22 02:25+0100\n"
 "PO-Revision-Date: 2009-10-20 11:53+0000\n"
 "Last-Translator: Thiago Alexandre <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-14 12:56+0000\n"
+"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -22,7 +22,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
-#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:264
+#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:310
 msgid "Information"
 msgstr "Informação"
 
@@ -56,7 +56,7 @@ msgid "Nothing to print!"
 msgstr "Nada a imprimir!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:373 Koo/Dialogs/ImportDialog.py:48
+#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:48
 #: Koo/Dialogs/ImportDialog.py:58
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
@@ -133,7 +133,7 @@ msgstr ""
 msgid "Cancel Import"
 msgstr ""
 
-#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:375
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:377
 msgid "Ok"
 msgstr ""
 
@@ -145,19 +145,19 @@ msgstr ""
 msgid "List View"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:210
+#: Koo/View/Tree/TreeView.py:212
 msgid "<font color='red'>Sorting not possible.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:212
+#: Koo/View/Tree/TreeView.py:214
 msgid "<font color='red'>Sorting only groups.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:214
+#: Koo/View/Tree/TreeView.py:216
 msgid "<font color='red'>Save changes before sorting.</font>"
 msgstr ""
 
-#: Koo/View/Tree/TreeView.py:238
+#: Koo/View/Tree/TreeView.py:240
 msgid "<a href=\"update\">Update totals</a>"
 msgstr ""
 
@@ -250,7 +250,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:653
 msgid "Quit"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgid ""
 "want to quit?"
 msgstr ""
 
-#: Koo/Common/Numeric.py:113 Koo/Model/KooModel.py:368
+#: Koo/Common/Numeric.py:113 Koo/Model/KooModel.py:385
 #, python-format
 msgid "%d bytes"
 msgstr "%d bytes"
@@ -310,7 +310,7 @@ msgid ""
 "experts you can proceed.</p>"
 msgstr ""
 
-#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:235
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:237
 msgid "Remote Help"
 msgstr ""
 
@@ -318,7 +318,7 @@ msgstr ""
 msgid "Proceed"
 msgstr ""
 
-#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:516
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:518
 msgid "Cancel"
 msgstr ""
 
@@ -398,15 +398,19 @@ msgid ""
 "<p><i>No sections in the documentation refer to this menu entry.</i></p>"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:306
-#: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
-#: Koo/Fields/Button/ButtonFieldWidget.py:139
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Dialogs/MassiveInsertDialog.py:131
+#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "Sim"
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:306
-#: Koo/Dialogs/FormWidget.py:621 Koo/Dialogs/KooMainWindow.py:651
-#: Koo/Fields/Button/ButtonFieldWidget.py:139
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Dialogs/MassiveInsertDialog.py:131
+#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "Não"
 
@@ -468,31 +472,39 @@ msgstr ""
 msgid "not in"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:297
-msgid "True"
+#: Koo/Search/CustomSearchFormWidget.py:159
+msgid "&And"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:163
+msgid "&Or"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:298
+msgid "True"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:299
 msgid "False"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:457
+#: Koo/Search/CustomSearchFormWidget.py:458
 msgid "( ID )"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:461
+#: Koo/Search/CustomSearchFormWidget.py:462
 msgid "( Created By )"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:465
+#: Koo/Search/CustomSearchFormWidget.py:466
 msgid "( Creation Date )"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:469
+#: Koo/Search/CustomSearchFormWidget.py:470
 msgid "( Last Modified By )"
 msgstr ""
 
-#: Koo/Search/CustomSearchFormWidget.py:473
+#: Koo/Search/CustomSearchFormWidget.py:474
 msgid "( Last Modification Date )"
 msgstr ""
 
@@ -631,147 +643,148 @@ msgstr ""
 msgid "No help available for web views"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:185
+#: Koo/Dialogs/FormWidget.py:187
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:215
+#: Koo/Dialogs/FormWidget.py:217
 msgid "Go To Id"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:215
+#: Koo/Dialogs/FormWidget.py:217
 #, python-format
 msgid "Resouce with ID '%s' not found."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:246
+#: Koo/Dialogs/FormWidget.py:248
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:287
+#: Koo/Dialogs/FormWidget.py:289
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:293
+#: Koo/Dialogs/FormWidget.py:295
 msgid "ID"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:294
+#: Koo/Dialogs/FormWidget.py:296
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:295
+#: Koo/Dialogs/FormWidget.py:297
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:296
+#: Koo/Dialogs/FormWidget.py:298
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:297
+#: Koo/Dialogs/FormWidget.py:299
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:303
+#: Koo/Dialogs/FormWidget.py:305
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:306 Koo/Dialogs/FormWidget.py:514
-#: Koo/Fields/Button/ButtonFieldWidget.py:139
+#: Koo/Dialogs/FormWidget.py:308 Koo/Dialogs/FormWidget.py:516
+#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Question"
 msgstr "Pergunta"
 
-#: Koo/Dialogs/FormWidget.py:306
+#: Koo/Dialogs/FormWidget.py:308
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:311
+#: Koo/Dialogs/FormWidget.py:313
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:313
+#: Koo/Dialogs/FormWidget.py:315
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:344
+#: Koo/Dialogs/FormWidget.py:346
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:354
+#: Koo/Dialogs/FormWidget.py:356
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:359
+#: Koo/Dialogs/FormWidget.py:361
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:374
+#: Koo/Dialogs/FormWidget.py:376
 #, python-format
 msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:472
+#: Koo/Dialogs/FormWidget.py:474
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:483
+#: Koo/Dialogs/FormWidget.py:485
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:490
+#: Koo/Dialogs/FormWidget.py:492
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:494
+#: Koo/Dialogs/FormWidget.py:496
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:496
+#: Koo/Dialogs/FormWidget.py:498
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:497
+#: Koo/Dialogs/FormWidget.py:499
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:515
+#: Koo/Dialogs/FormWidget.py:517
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:516
+#: Koo/Dialogs/FormWidget.py:518
 msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:516
+#: Koo/Dialogs/FormWidget.py:518
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:534
+#: Koo/Dialogs/FormWidget.py:547
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:614
+#: Koo/Dialogs/FormWidget.py:628
 msgid "Choose action to apply massively"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:621
+#: Koo/Dialogs/FormWidget.py:635
 msgid "Massive Update"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:621
+#: Koo/Dialogs/FormWidget.py:635
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:504
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -779,88 +792,88 @@ msgstr ""
 msgid "Close tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:206
+#: Koo/Dialogs/KooMainWindow.py:208
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:211
+#: Koo/Dialogs/KooMainWindow.py:213
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:264
+#: Koo/Dialogs/KooMainWindow.py:266
 msgid "Products"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:264
+#: Koo/Dialogs/KooMainWindow.py:266
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:387
+#: Koo/Dialogs/KooMainWindow.py:389
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:389
+#: Koo/Dialogs/KooMainWindow.py:391
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:391
+#: Koo/Dialogs/KooMainWindow.py:393
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:398
+#: Koo/Dialogs/KooMainWindow.py:400
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:398
+#: Koo/Dialogs/KooMainWindow.py:400
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:478 Koo/Dialogs/KooMainWindow.py:480
+#: Koo/Dialogs/KooMainWindow.py:480 Koo/Dialogs/KooMainWindow.py:482
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:478
+#: Koo/Dialogs/KooMainWindow.py:480
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:480
+#: Koo/Dialogs/KooMainWindow.py:482
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:485 Koo/Dialogs/KooMainWindow.py:487
+#: Koo/Dialogs/KooMainWindow.py:487 Koo/Dialogs/KooMainWindow.py:489
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:487
+#: Koo/Dialogs/KooMainWindow.py:489
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:503
+#: Koo/Dialogs/KooMainWindow.py:505
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:527
+#: Koo/Dialogs/KooMainWindow.py:529
 msgid "Manual"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:615
+#: Koo/Dialogs/KooMainWindow.py:617
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:615
+#: Koo/Dialogs/KooMainWindow.py:617
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:651
+#: Koo/Dialogs/KooMainWindow.py:653
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:685
+#: Koo/Dialogs/KooMainWindow.py:687
 msgid "Wizard"
 msgstr ""
 
@@ -1017,7 +1030,7 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:125
+#: Koo/Dialogs/MassiveUpdateDialog.py:132
 #, python-format
 msgid ""
 "Select the fields you want to update in the <b>%d</b> selected records:"
@@ -1100,6 +1113,20 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:399
 msgid "Exported fields"
+msgstr ""
+
+#: Koo/Dialogs/MassiveInsertDialog.py:82
+msgid "Choose field to insert massively"
+msgstr ""
+
+#: Koo/Dialogs/MassiveInsertDialog.py:99
+#: Koo/Dialogs/MassiveInsertDialog.py:131
+msgid "Massive Insert"
+msgstr ""
+
+#: Koo/Dialogs/MassiveInsertDialog.py:131
+#, python-format
+msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
 #: Koo/Dialogs/TreeWidget.py:64
@@ -1191,29 +1218,32 @@ msgstr "Não pude conecar com o servidor!"
 
 #: Koo/Fields/RichText/RichTextFieldWidget.py:80
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
-#: Koo/Fields/Char/CharFieldWidget.py:75
+#: Koo/Fields/Char/CharFieldWidget.py:80
 msgid "Translation dialog"
 msgstr ""
 
 #: Koo/Fields/RichText/RichTextFieldWidget.py:80
 #: Koo/Fields/TextBox/TextBoxFieldWidget.py:61
-#: Koo/Fields/Char/CharFieldWidget.py:75
+#: Koo/Fields/Char/CharFieldWidget.py:80
 msgid "You must save the resource before adding translations"
 msgstr "Voce precisa salvar o recurso antes de adicionar traduções"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:109
+#: Koo/Fields/Button/ButtonFieldWidget.py:110
+#: Koo/Fields/Button/ButtonFieldWidget.py:271
 msgid "Error in Button"
 msgstr ""
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:109
+#: Koo/Fields/Button/ButtonFieldWidget.py:110
+#: Koo/Fields/Button/ButtonFieldWidget.py:271
 msgid "Button type not allowed"
 msgstr "Tipo de botão não permitido"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:142
+#: Koo/Fields/Button/ButtonFieldWidget.py:143
+#: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "Invalid Form, correct red fields!"
 msgstr "Formulário inválido, corriga os campos em vermelho!"
 
-#: Koo/Fields/Button/ButtonFieldWidget.py:149
+#: Koo/Fields/Button/ButtonFieldWidget.py:150
 msgid "You do not have permission to execute this action."
 msgstr ""
 
@@ -1227,21 +1257,21 @@ msgstr "Operação não permitida"
 msgid "You can not set to the default value here !"
 msgstr "Voce não pode definir um valor padão aqui !"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:83 Koo/Fields/ManyToOne/ManyToOne.py:250
-#: Koo/Fields/ManyToOne/ManyToOne.py:310
+#: Koo/Fields/ManyToOne/ManyToOne.py:88 Koo/Fields/ManyToOne/ManyToOne.py:255
+#: Koo/Fields/ManyToOne/ManyToOne.py:318
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:85 Koo/Fields/ManyToOne/ManyToOne.py:312
+#: Koo/Fields/ManyToOne/ManyToOne.py:90 Koo/Fields/ManyToOne/ManyToOne.py:320
 msgid "Action"
 msgstr "Ação"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:86 Koo/Fields/ManyToOne/ManyToOne.py:313
+#: Koo/Fields/ManyToOne/ManyToOne.py:91 Koo/Fields/ManyToOne/ManyToOne.py:321
 msgid "Report"
 msgstr "Relatório"
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:126 Koo/Fields/ManyToOne/ManyToOne.py:258
+#: Koo/Fields/ManyToOne/ManyToOne.py:131 Koo/Fields/ManyToOne/ManyToOne.py:263
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
 msgstr ""
@@ -1350,7 +1380,15 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:264
+#: Koo/Fields/OneToMany/OneToMany.py:158
+msgid "&Modify All Selected Records"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:163
+msgid "&Insert Several Records at Once"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:310
 msgid "No record selected"
 msgstr ""
 
@@ -1366,14 +1404,14 @@ msgstr "Erro lendo o arquivo"
 msgid "Error writing the file!"
 msgstr "Erro ao escrever no arquivo!"
 
-#: Koo/Fields/Calendar/Calendar.py:63
+#: Koo/Fields/Calendar/Calendar.py:68
 msgid "Set current date"
 msgstr "Definir data atual"
 
-#: Koo/Fields/Calendar/Calendar.py:124
+#: Koo/Fields/Calendar/Calendar.py:129
 msgid "Set current date and time"
 msgstr "Definir data e hora atual"
 
-#: Koo/Fields/Calendar/Calendar.py:164 Koo/Fields/Calendar/Calendar.py:222
+#: Koo/Fields/Calendar/Calendar.py:169 Koo/Fields/Calendar/Calendar.py:227
 msgid "Set current time"
 msgstr "Definir hora atual"
