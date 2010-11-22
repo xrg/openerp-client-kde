@@ -154,19 +154,19 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
 		# Extra Actions
-		self.actionMassiveUpdate = QAction(self)
-		self.actionMassiveUpdate.setText( _('&Modify All Selected Records') )
-		self.actionMassiveUpdate.setIcon( QIcon( ':/images/edit.png' ) )
-		self.connect(self.actionMassiveUpdate, SIGNAL('triggered()'), self.massiveUpdate)
-
 		self.actionMassiveInsert = QAction(self)
 		self.actionMassiveInsert.setText( _('&Insert Several Records at Once') )
 		self.actionMassiveInsert.setIcon( QIcon( ':/images/new.png' ) )
 		self.connect(self.actionMassiveInsert, SIGNAL('triggered()'), self.massiveInsert)
+
+		self.actionMassiveUpdate = QAction(self)
+		self.actionMassiveUpdate.setText( _('&Modify All Selected Records') )
+		self.actionMassiveUpdate.setIcon( QIcon( ':/images/edit.png' ) )
+		self.connect(self.actionMassiveUpdate, SIGNAL('triggered()'), self.massiveUpdate)
 		
 		self.actionsMenu = QMenu( self )
-		self.actionsMenu.addAction( self.actionMassiveUpdate )
 		self.actionsMenu.addAction( self.actionMassiveInsert )
+		self.actionsMenu.addAction( self.actionMassiveUpdate )
 		self.pushActions.setMenu( self.actionsMenu )
 
 		#self.colors['normal'] = self.palette().color( self.backgroundRole() )
