@@ -211,6 +211,7 @@ class nan_koo_release(osv.osv):
 
 nan_koo_release()
 
+
 class nan_koo_settings(osv.osv):
 	_name = 'nan.koo.settings'
 
@@ -238,7 +239,6 @@ class nan_koo_settings(osv.osv):
 		'limit': fields.integer('Limit',help='Number of records to be fetched at once.'),
 		'requests_refresh_interval': fields.integer('Requests refresh interval (seconds)', help='Indicates the number of seconds to wait to check if new requests have been received by the current user.'),
 		'show_system_tray_icon': fields.boolean( 'Show Icon in System Tray', help='If checked, an icon is shown in the system tray to keep Koo accessible all the time.' ),
-		'roles_id': fields.many2many('res.roles', 'nan_koo_settings_roles_rel', 'setting_id', 'role_id', 'Roles', help='Roles to which these settings apply.'),
 		'print_directly': fields.boolean( 'Print directly', help='If set, sends the document directly to the printer. Otherwise the document is shown in a PDF viewer.' ),
 		'auto_reload': fields.boolean( 'Auto Reload', help='If set, all views will be reloaded when data changes in the server.' ),
 		'allow_massive_updates': fields.boolean( 'Allow Massive Updates', help='If set, the option to Modify all Selected Records is enabled in Form menu.' ),
@@ -267,21 +267,12 @@ class nan_koo_settings(osv.osv):
 	]
 	
 
-	# Returns the id of the settings to load. Currently only uses roles to
+	# Returns the id of the settings to load. Currently only uses user ID to
 	# decide the appropiate settings, but in the future it could use user IP
 	# address or other supplied parameters.
 	def get_settings_id(self, cr, uid):
-		user = self.pool.get('res.users').browse(cr, uid, [uid])[0]
-		ids = [x.id for x in user.roles_id]
-		if not ids:
-			return False
-		ids = str(ids).replace('[', '(').replace(']',')')
-		cr.execute( "SELECT setting_id FROM nan_koo_settings_roles_rel WHERE role_id IN %s" % ( ids ) )
-		row = cr.fetchone()
-		if row:
-			return row[0]
-		else:
-			return False
+		user = self.pool.get('res.users').browse(cr, uid, uid)
+		return user.koo_settings_id and user.koo_settings_id.id
 
 	def get_settings(self, cr, uid):
 		ids = self.pool.get('nan.koo.cache.exception').search(cr, uid, [])
@@ -296,7 +287,22 @@ class nan_koo_settings(osv.osv):
 		if id:
 			settings.update( self.read(cr, uid, [id])[0] )
 		return settings
-		
+
+nan_koo_settings()
+
+class res_users(osv.osv):
+	_inherit = 'res.users'
+	
+	_columns = {
+		'koo_settings_id': fields.many2one('nan.koo.settings', 'Koo Settings'),
+	}
+res_users()
+
+class nan_koo_settings(osv.osv):
+	_inherit = 'nan.koo.settings'
+	_columns = {
+		'user_ids': fields.one2many('res.users', 'koo_settings_id', 'Users'),
+	}
 nan_koo_settings()
 
 class nan_koo_view_settings(osv.osv):
