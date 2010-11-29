@@ -29,14 +29,17 @@
 
 import os
 import sys
+import inspect
 
 ## @brief This functions searches the given file (optionally adding a subdirectory)
 # in the possible directories it could be found.
 #
 # This should hide different installation and operating system directories. Making
 # it easier to find resource files.
-def searchFile(file, subdir=None):
+def searchFile(file, subdir=None, extraDir=None):
 	tests = []
+	if extraDir:
+		tests += [extraDir]
 	if subdir:
 		tests += [os.path.join( x, subdir ) for x in sys.path]
 		tests += [os.path.join( x, 'Koo', subdir ) for x in sys.path]
@@ -60,5 +63,11 @@ def searchFile(file, subdir=None):
 	# gettext.translation() will depend on it).
 	return None
 
-uiPath = lambda x: searchFile(x, 'ui')
+def uiPath(uiFile, pyFile=None):
+	if not pyFile:
+    		frame = inspect.stack()[1][0]
+		pyFile = frame.f_code.co_filename
+	extraDir=pyFile and os.path.abspath(os.path.dirname(pyFile) or None)
+	return searchFile(uiFile, 'ui', extraDir)
+
 
