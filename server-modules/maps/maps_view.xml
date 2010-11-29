@@ -8,9 +8,19 @@
 			<field name="type">form</field>
 			<field name="inherit_id" ref="base.view_partner_address_form1"/>
 			<field name="arch" type="xml">
-				<field name="email" position="after">
-					<separator string="Map" colspan="4"/>
+				<form position="inside">
 					<field name="map" nolabel="1" colspan="4" readonly="1" widget="web"/>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_partner_address_map_title">
+			<field name="name">res.partner.address.map.title</field>
+			<field name="model">res.partner.address</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="view_partner_address_map"/>
+			<field name="arch" type="xml">
+				<field name="map" position="before">
+					<separator string="Map" colspan="4"/>
 				</field>
 			</field>
 		</record>
