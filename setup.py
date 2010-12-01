@@ -139,8 +139,16 @@ if os.name != 'nt':
 	else:
 		script_name = 'koo'
 
-	start_script = "cd %s/Koo\nexec %s ./koo.py $@\n" % ( 
-		get_python_lib(), sys.executable
+	start_script = """\
+if [ -d '%s/Koo' ]; then
+	cd %s/Koo
+else
+	# Hack for Ubuntu
+	export PYTHONPATH=/usr/lib/python2.6/site-packages
+	cd /usr/lib/python2.6/site-packages/Koo
+fi
+exec %s ./koo.py $@\n""" % ( 
+		get_python_lib(), get_python_lib(), sys.executable
 	)
 	# write script
 	f = open(script_name, 'w')
