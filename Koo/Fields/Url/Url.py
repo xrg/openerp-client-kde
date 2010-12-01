@@ -77,7 +77,7 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 	def openUrl(self):
 		value =  unicode(self.uiUrl.text()).strip()
 		if value != '':
-			QDesktopServices.openUrl( QUrl(value) )
+			Api.instance.createWebWindow( value, value )
 
 class EMailFieldWidget(UrlFieldWidget):
 	def openUrl(self):
