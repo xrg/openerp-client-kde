@@ -140,7 +140,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="admin_passwd.ui" line="74"/>
         <source>&amp;New password:</source>
-        <translation type="unfinished">&amp;Νέο κωδικός:</translation>
+        <translation>&amp;Νέος κωδικός:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="91"/>
@@ -244,17 +244,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>BinaryWidget</name>
     <message>
-        <location filename="binary.ui" line="41"/>
+        <location filename="binary.ui" line="47"/>
         <source>Select file...</source>
         <translation>Επιλογή αρχείου...</translation>
     </message>
     <message>
-        <location filename="binary.ui" line="55"/>
+        <location filename="binary.ui" line="64"/>
         <source>Save file...</source>
         <translation>Αποθήκευση αρχείου...</translation>
     </message>
     <message>
-        <location filename="binary.ui" line="72"/>
+        <location filename="binary.ui" line="81"/>
         <source>Clear</source>
         <translation>Καθαρισμός</translation>
     </message>
@@ -469,46 +469,108 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>Dialog</name>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="14"/>
+        <source>Massive Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="49"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the fields you want to update in the %d selected records:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="104"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;Αποδοχή</translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="115"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="massiveupdate_msgbox.ui" line="122"/>
+        <source>Esc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="32"/>
+        <source>Connection Lost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="45"/>
+        <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="73"/>
+        <source>&amp;Retry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="84"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">&amp;Τερματισμός</translation>
+    </message>
+</context>
+<context>
     <name>ErrorDialog</name>
     <message>
-        <location filename="error.ui" line="13"/>
+        <location filename="error.ui" line="14"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="error.ui" line="19"/>
+        <location filename="error.ui" line="20"/>
         <source>Application Error !</source>
         <translation>Σφάλμα Εφαρμογής!</translation>
     </message>
     <message>
-        <location filename="error.ui" line="41"/>
+        <location filename="error.ui" line="34"/>
         <source>&amp;Description</source>
         <translation>Περι&amp;γραφή</translation>
     </message>
     <message>
-        <location filename="error.ui" line="47"/>
+        <location filename="error.ui" line="40"/>
         <source>Application Error</source>
         <translation>Σφάλμα Εφαρμογής</translation>
     </message>
     <message>
-        <location filename="error.ui" line="71"/>
+        <location filename="error.ui" line="64"/>
         <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
         <translation>&lt;b&gt;Κωδ Σφάλματος:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="error.ui" line="78"/>
+        <location filename="error.ui" line="71"/>
         <source>View details</source>
         <translation>Λεπτομέρειες</translation>
     </message>
     <message>
-        <location filename="error.ui" line="124"/>
+        <location filename="error.ui" line="109"/>
         <source>De&amp;tails</source>
         <translation>Λεπ&amp;τομέρειες</translation>
     </message>
     <message>
-        <location filename="error.ui" line="152"/>
+        <location filename="error.ui" line="159"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="124"/>
+        <source>&amp;Send Error</source>
+        <translation>Αποστολή &amp;Σφάλματος</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="135"/>
+        <source>&amp;Remote Help</source>
+        <translation>Απομακ&amp;ρυσμένη Βοήθεια</translation>
     </message>
 </context>
 <context>
@@ -551,7 +613,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_export.ui" line="162"/>
         <source>&amp;Save list</source>
-        <translation>Αποθήκευση λίστας</translation>
+        <translation>Αποθήκευ&amp;ση λίστας</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="177"/>
@@ -566,17 +628,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="win_export.ui" line="210"/>
         <source>Add &amp;field names</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation>Προσθήκη ονομάτων πεδίων</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="243"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished">&amp;Αποδοχή</translation>
+        <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="257"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Ακύρωση</translation>
+        <translation>&amp;Ακύρωση</translation>
     </message>
 </context>
 <context>
@@ -932,12 +994,27 @@ p, li { white-space: pre-wrap; }
     <message utf8="true">
         <location filename="keyboard.ui" line="225"/>
         <source>Ñ</source>
-        <translation type="unfinished"></translation>
+        <translation>Ñ</translation>
     </message>
     <message utf8="true">
         <location filename="keyboard.ui" line="631"/>
         <source>Ç</source>
+        <translation>Ç</translation>
+    </message>
+    <message>
+        <location filename="webcontainer.ui" line="24"/>
+        <source>about:blank</source>
+        <translation>about:blank</translation>
+    </message>
+    <message>
+        <location filename="customsearchitem.ui" line="56"/>
+        <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="customsearchitem.ui" line="63"/>
+        <source>&amp;And</source>
+        <translation>&amp;Και</translation>
     </message>
 </context>
 <context>
@@ -961,22 +1038,22 @@ p, li { white-space: pre-wrap; }
         <translation>Πλήρης αναζήτηση</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="59"/>
+        <location filename="full_text_search.ui" line="66"/>
         <source>&amp;Find</source>
         <translation>&amp;Εύρεση</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="85"/>
         <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <translation type="obsolete">TextLabel</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="116"/>
+        <location filename="full_text_search.ui" line="115"/>
         <source>&amp;Previous</source>
         <translation>Προηγού&amp;μενο</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="127"/>
+        <location filename="full_text_search.ui" line="126"/>
         <source>&amp;Next</source>
         <translation>Επόμε&amp;νο</translation>
     </message>
@@ -988,7 +1065,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="full_text_search.ui" line="173"/>
         <source>&amp;Cancel</source>
-        <translation>&amp;Ακύρωση</translation>
+        <translation type="obsolete">&amp;Ακύρωση</translation>
     </message>
     <message>
         <location filename="full_text_search.ui" line="37"/>
@@ -1007,9 +1084,14 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="159"/>
-        <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
+        <location filename="full_text_search.ui" line="86"/>
+        <source>about:blank</source>
+        <translation type="unfinished">about:blank</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="158"/>
+        <source>&amp;Close</source>
+        <translation>&amp;Κλείσιμο</translation>
     </message>
 </context>
 <context>
@@ -1022,7 +1104,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="gotoid.ui" line="22"/>
         <source>&amp;Search Id:</source>
-        <translation>Αναζήτηση Id:</translation>
+        <translation>Ανα&amp;ζήτηση Id:</translation>
     </message>
     <message>
         <location filename="gotoid.ui" line="72"/>
@@ -1136,32 +1218,32 @@ p, li { white-space: pre-wrap; }
         <translation>KDE Πελάτης OpenObject</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="144"/>
+        <location filename="mainwindow.ui" line="155"/>
         <source>Requests:</source>
         <translation>Αιτήματα:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="187"/>
+        <location filename="mainwindow.ui" line="204"/>
         <source>Read My Requests</source>
         <translation>Ανάγνωση αιτημάτων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="210"/>
+        <location filename="mainwindow.ui" line="227"/>
         <source>Send New Request</source>
         <translation>Αποστολή Νέου αιτήματος</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="241"/>
+        <location filename="mainwindow.ui" line="258"/>
         <source>&amp;Plugins</source>
         <translation>&amp;Πρόσθετα</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="246"/>
+        <location filename="mainwindow.ui" line="315"/>
         <source>&amp;Help</source>
         <translation>&amp;Βοήθεια</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="257"/>
+        <location filename="mainwindow.ui" line="348"/>
         <source>F&amp;orm</source>
         <translation>Φ&amp;όρμα</translation>
     </message>
@@ -1171,37 +1253,37 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">&amp;Αρχείο</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="287"/>
+        <location filename="mainwindow.ui" line="267"/>
         <source>&amp;Databases</source>
         <translation>Βάσεις &amp;δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="305"/>
+        <location filename="mainwindow.ui" line="285"/>
         <source>&amp;User</source>
         <translation>&amp;Χρήστης</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="317"/>
+        <location filename="mainwindow.ui" line="297"/>
         <source>&amp;Actions</source>
         <translation>Ε&amp;νέργειες</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="322"/>
+        <location filename="mainwindow.ui" line="343"/>
         <source>&amp;Reports</source>
         <translation>&amp;Αναφορές</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="327"/>
+        <location filename="mainwindow.ui" line="338"/>
         <source>&amp;Browse</source>
         <translation>Εξε&amp;ρεύνηση</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="332"/>
+        <location filename="mainwindow.ui" line="302"/>
         <source>&amp;Window</source>
         <translation>&amp;Παράθυρο</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="396"/>
+        <location filename="mainwindow.ui" line="428"/>
         <source>&amp;Connect</source>
         <translation>&amp;Σύνδεση</translation>
     </message>
@@ -1213,132 +1295,132 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Ctrl+Α</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="414"/>
+        <location filename="mainwindow.ui" line="446"/>
         <source>&amp;Disconnect</source>
         <translation>&amp;Αποσύνδεση</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="423"/>
+        <location filename="mainwindow.ui" line="455"/>
         <source>&amp;Quit</source>
         <translation>&amp;Τερματισμός</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="435"/>
+        <location filename="mainwindow.ui" line="467"/>
         <source>&amp;New Database</source>
-        <translation>Νέα Βάση δεδομένων</translation>
+        <translation>&amp;Νέα Βάση δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="444"/>
+        <location filename="mainwindow.ui" line="476"/>
         <source>&amp;Restore Database</source>
         <translation>Αποκατάσταση Βάσης δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="453"/>
+        <location filename="mainwindow.ui" line="485"/>
         <source>&amp;Backup Database</source>
-        <translation>Αντίγραφα Βάσης δεδομένων</translation>
+        <translation>Αντίγραφο Βάσης δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="462"/>
+        <location filename="mainwindow.ui" line="494"/>
         <source>&amp;Drop Database</source>
         <translation>Διαγραφή Βάσης δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="471"/>
+        <location filename="mainwindow.ui" line="503"/>
         <source>&amp;Administrator Password</source>
         <translation>Κω&amp;δικός πρόσβασης</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="480"/>
+        <location filename="mainwindow.ui" line="512"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Προτιμήσεις</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="489"/>
+        <location filename="mainwindow.ui" line="521"/>
         <source>&amp;Send Request</source>
         <translation>Αποστολή Αιτή&amp;ματος</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="498"/>
+        <location filename="mainwindow.ui" line="530"/>
         <source>&amp;Read My Requests</source>
         <translation>Ανάγνωση Αιτημάτων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="507"/>
+        <location filename="mainwindow.ui" line="539"/>
         <source>&amp;Waiting Requests</source>
         <translation>Αιτήματα σε αναμονή</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="516"/>
+        <location filename="mainwindow.ui" line="548"/>
         <source>&amp;New</source>
         <translation>&amp;Νέο</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="519"/>
+        <location filename="mainwindow.ui" line="551"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="528"/>
+        <location filename="mainwindow.ui" line="560"/>
         <source>&amp;Save</source>
         <translation>Απο&amp;θήκευση</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="531"/>
+        <location filename="mainwindow.ui" line="563"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="540"/>
+        <location filename="mainwindow.ui" line="572"/>
         <source>D&amp;uplicate</source>
         <translation>Διπλότ&amp;υπος</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="543"/>
+        <location filename="mainwindow.ui" line="575"/>
         <source>Ctrl+Shift+D</source>
         <translation>Ctrl+Shift+D</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="552"/>
+        <location filename="mainwindow.ui" line="584"/>
         <source>&amp;Delete</source>
         <translation>&amp;Διαγραφή</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="555"/>
+        <location filename="mainwindow.ui" line="587"/>
         <source>Ctrl+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="564"/>
+        <location filename="mainwindow.ui" line="596"/>
         <source>&amp;Find</source>
         <translation>&amp;Εύρεση</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="567"/>
+        <location filename="mainwindow.ui" line="599"/>
         <source>Ctrl+F</source>
         <translation>Ctrl F</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="576"/>
+        <location filename="mainwindow.ui" line="608"/>
         <source>&amp;Next</source>
         <translation>Επόμε&amp;νο</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="579"/>
+        <location filename="mainwindow.ui" line="611"/>
         <source>Alt+PgDown</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="588"/>
+        <location filename="mainwindow.ui" line="620"/>
         <source>&amp;Previous</source>
         <translation>Προηγού&amp;μενο</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="591"/>
+        <location filename="mainwindow.ui" line="623"/>
         <source>Alt+PgUp</source>
         <translation>Alt+PgUp</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="600"/>
+        <location filename="mainwindow.ui" line="632"/>
         <source>Switch &amp;View</source>
         <translation>Αλλαγή Προβολής</translation>
     </message>
@@ -1348,185 +1430,220 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Ctrl+L, Ctrl+Shift+L</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="612"/>
+        <location filename="mainwindow.ui" line="644"/>
         <source>Open &amp;Menu Tab</source>
         <translation>Άνοιγμα &amp;Μενού</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="621"/>
+        <location filename="mainwindow.ui" line="653"/>
         <source>Next Tab</source>
         <translation>Επόμενη Καρτέλα</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="624"/>
+        <location filename="mainwindow.ui" line="656"/>
         <source>Ctrl+PgDown</source>
         <translation>Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="633"/>
+        <location filename="mainwindow.ui" line="665"/>
         <source>Previous Tab</source>
         <translation>Προηγούμενη Καρτέλα</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="636"/>
+        <location filename="mainwindow.ui" line="668"/>
         <source>Ctrl+PgUp</source>
         <translation>Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="645"/>
+        <location filename="mainwindow.ui" line="677"/>
         <source>&amp;Close</source>
         <translation>&amp;Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="648"/>
+        <location filename="mainwindow.ui" line="680"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="657"/>
+        <location filename="mainwindow.ui" line="689"/>
         <source>View Access Log</source>
         <translation>Προβολή Καταγραφής</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="675"/>
+        <location filename="mainwindow.ui" line="707"/>
         <source>Go To Resource ID</source>
         <translation>Πήγαινε στην Εγγραφή με ID</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="684"/>
+        <location filename="mainwindow.ui" line="719"/>
         <source>&amp;Reload/Undo</source>
         <translation>&amp;Επαναφόρτωση</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="687"/>
+        <location filename="mainwindow.ui" line="722"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="696"/>
+        <location filename="mainwindow.ui" line="731"/>
         <source>E&amp;xport Data</source>
         <translation>Ε&amp;ξαγωγή Δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="705"/>
+        <location filename="mainwindow.ui" line="740"/>
         <source>&amp;Import Data</source>
         <translation>Ε&amp;ισαγωγή Δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="714"/>
+        <location filename="mainwindow.ui" line="749"/>
         <source>&amp;Execute Plugins</source>
         <translation>&amp;Εκτέλεση Προσθέτων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="723"/>
+        <location filename="mainwindow.ui" line="758"/>
         <source>&amp;Contextual Help</source>
         <translation>Βοήθεια</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="728"/>
+        <location filename="mainwindow.ui" line="763"/>
         <source>&amp;Tips</source>
         <translation>&amp;Συμβουλές</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="737"/>
+        <location filename="mainwindow.ui" line="772"/>
         <source>&amp;Keyboard Shortcut</source>
         <translation>Συντομεύσεις Πλη&amp;κτρολογίου</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="742"/>
+        <location filename="mainwindow.ui" line="777"/>
         <source>&amp;License</source>
         <translation>Άδ&amp;εια</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="751"/>
+        <location filename="mainwindow.ui" line="786"/>
         <source>&amp;About</source>
         <translation>&amp;Σχετικά</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="760"/>
+        <location filename="mainwindow.ui" line="795"/>
         <source>Full &amp;Text Search</source>
         <translation>Αναζήτηση Κειμένου</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="763"/>
+        <location filename="mainwindow.ui" line="798"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="772"/>
+        <location filename="mainwindow.ui" line="807"/>
         <source>Attachments</source>
         <translation>Συνημμένα</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="775"/>
+        <location filename="mainwindow.ui" line="810"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="784"/>
+        <location filename="mainwindow.ui" line="819"/>
         <source>&amp;Form designer</source>
         <translation>Σχεδιαστής &amp;Φόρμας</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="789"/>
+        <location filename="mainwindow.ui" line="824"/>
         <source>&amp;Menu</source>
         <translation>&amp;Μενού</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="794"/>
         <source>User Manual</source>
-        <translation>Εγχειρίδιο Χρήστη</translation>
+        <translation type="obsolete">Εγχειρίδιο Χρήστη</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="799"/>
+        <location filename="mainwindow.ui" line="319"/>
         <source>Documentation</source>
         <translation>Τεκμηρίωση</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="804"/>
         <source>Koo</source>
-        <translation>Koo</translation>
+        <translation type="obsolete">Koo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="813"/>
+        <location filename="mainwindow.ui" line="833"/>
         <source>Open Home Tab</source>
         <translation>Άνοιγμα Μενού</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="822"/>
+        <location filename="mainwindow.ui" line="842"/>
         <source>&amp;Clear Cache</source>
         <translation>&amp;Καθαρισμός Λανθάνουσας μνήμης</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="831"/>
+        <location filename="mainwindow.ui" line="851"/>
         <source>Modify All Selected Records</source>
         <translation>Τροποποίηση Επιλεγμένων Εγγραφών</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="399"/>
+        <location filename="mainwindow.ui" line="431"/>
         <source>Ctrl+O</source>
         <comment>Ctrl+O to Login</comment>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="603"/>
+        <location filename="mainwindow.ui" line="635"/>
         <source>F6</source>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="283"/>
+        <location filename="mainwindow.ui" line="263"/>
         <source>&amp;Database</source>
         <translation>Βάση &amp;δεδομένων</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="426"/>
+        <location filename="mainwindow.ui" line="458"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="666"/>
+        <location filename="mainwindow.ui" line="698"/>
         <source>Store View Settings</source>
         <translation>Αποθήκευση ρυθμίσεων προβολής</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="138"/>
+        <source>Help</source>
+        <translation>Βοήθεια</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="710"/>
+        <source>Ctrl+G</source>
+        <translation>Ctrl+G</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="856"/>
+        <source>PDF Manual</source>
+        <translation>Εγχειρίδιο PDF</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="861"/>
+        <source>HTML Manual</source>
+        <translation>Εγχειρίδιο HTML</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="866"/>
+        <source>doc.openerp.com</source>
+        <translation>doc.openerp.com</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="875"/>
+        <source>Push Button of All Selected Records</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="884"/>
+        <source>Insert Several Records at Once</source>
+        <translation>Εισαγωγή πολλαπλών εγγραφών</translation>
     </message>
 </context>
 <context>
@@ -1660,50 +1777,60 @@ p, li { white-space: pre-wrap; }
         <translation>Σύνδεση</translation>
     </message>
     <message>
-        <location filename="login.ui" line="96"/>
+        <location filename="login.ui" line="111"/>
         <source>&amp;Database:</source>
         <translation>Βάση &amp;δεδομένων:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="109"/>
+        <location filename="login.ui" line="98"/>
         <source>C&amp;hange</source>
         <translation>Αλ&amp;λαγή</translation>
     </message>
     <message>
-        <location filename="login.ui" line="120"/>
+        <location filename="login.ui" line="70"/>
         <source>&amp;Server:</source>
         <translation>Εξυπηρετητή&amp;ς:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="153"/>
+        <location filename="login.ui" line="176"/>
         <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
         <translation>&lt;b&gt;Δεν είναι δυνατή η σύνδεση στον εξυπηρετητή!&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="login.ui" line="198"/>
+        <location filename="login.ui" line="221"/>
         <source>&amp;Password:</source>
         <translation>&amp;Κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="224"/>
+        <location filename="login.ui" line="247"/>
         <source>&amp;User:</source>
         <translation>&amp;Χρήστης:</translation>
     </message>
     <message>
-        <location filename="login.ui" line="260"/>
+        <location filename="login.ui" line="283"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="login.ui" line="274"/>
+        <location filename="login.ui" line="297"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="132"/>
+        <source>Create &amp;Database</source>
+        <translation>&amp;Δημιουργία Βάσης</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="143"/>
+        <source>&amp;Restore Database</source>
+        <translation>Α&amp;ποκατάσταση Βάσης δεδομένων</translation>
     </message>
 </context>
 <context>
     <name>ManyToManyWidget</name>
     <message>
-        <location filename="many2many.ui" line="14"/>
+        <location filename="many2one_pos.ui" line="14"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
@@ -1716,6 +1843,16 @@ p, li { white-space: pre-wrap; }
         <location filename="many2many.ui" line="60"/>
         <source>&amp;Remove</source>
         <translation>Α&amp;φαίρεση</translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="96"/>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="89"/>
+        <source>(0/0)</source>
+        <translation>(0/0)</translation>
     </message>
 </context>
 <context>
@@ -1741,7 +1878,7 @@ p, li { white-space: pre-wrap; }
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="14"/>
+        <location filename="screen_dialog.ui" line="14"/>
         <source>OpenERP - Link</source>
         <translation>OpenERP - Δεσμός</translation>
     </message>
@@ -1756,19 +1893,34 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">Ακύρωση</translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="72"/>
+        <location filename="screen_dialog.ui" line="82"/>
         <source>&amp;OK</source>
         <translation>&amp;ΟΚ</translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="83"/>
+        <location filename="screen_dialog.ui" line="93"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
     </message>
     <message>
-        <location filename="dia_form_win_many2one.ui" line="37"/>
+        <location filename="screen_dialog.ui" line="47"/>
         <source>Item ?</source>
         <translation>Εγγραφή ?</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="57"/>
+        <source>&amp;Previous</source>
+        <translation>Προηγού&amp;μενο</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="68"/>
+        <source>&amp;Next</source>
+        <translation>Επόμε&amp;νο</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="95"/>
+        <source>(_/0)</source>
+        <translation>(_/0)</translation>
     </message>
 </context>
 <context>
@@ -1817,24 +1969,29 @@ p, li { white-space: pre-wrap; }
         <translation>Αφαίρεση</translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="171"/>
+        <location filename="one2many.ui" line="192"/>
         <source>Previous</source>
         <translation>Προηγούμενο</translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="197"/>
+        <location filename="one2many.ui" line="218"/>
         <source>(0/0)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="213"/>
+        <location filename="one2many.ui" line="234"/>
         <source>Next</source>
         <translation>Επόμενο</translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="242"/>
+        <location filename="one2many.ui" line="263"/>
         <source>Switch View</source>
         <translation>Αλλαγή Προβολής</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="165"/>
+        <source>...</source>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -1924,67 +2081,67 @@ this operation may take a while...</source>
 <context>
     <name>RichTextWidget</name>
     <message>
-        <location filename="richtext.ui" line="13"/>
+        <location filename="richtext.ui" line="14"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="41"/>
+        <location filename="richtext.ui" line="36"/>
         <source>Bold</source>
         <translation>Έντονα</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="70"/>
+        <location filename="richtext.ui" line="65"/>
         <source>Italics</source>
         <translation>Πλάγια</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="99"/>
+        <location filename="richtext.ui" line="94"/>
         <source>Underline</source>
         <translation>Υπογράμμιση</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="128"/>
+        <location filename="richtext.ui" line="123"/>
         <source>Strikethrough</source>
         <translation>Διακριτή διαγραφή</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="164"/>
+        <location filename="richtext.ui" line="159"/>
         <source>Left Justify</source>
         <translation>Αριστερή στοίχιση</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="193"/>
+        <location filename="richtext.ui" line="188"/>
         <source>Center</source>
         <translation>Κεντράρισμα</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="222"/>
+        <location filename="richtext.ui" line="217"/>
         <source>Right Justify</source>
         <translation>Δεξιά στοίχιση</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="251"/>
+        <location filename="richtext.ui" line="246"/>
         <source>Justify</source>
         <translation>Πλήρης στοίχιση</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="287"/>
+        <location filename="richtext.ui" line="282"/>
         <source>Foreground Color</source>
         <translation>Χρώμα Προσκηνίου</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="306"/>
+        <location filename="richtext.ui" line="301"/>
         <source>Background color</source>
         <translation>Χρώμα παρασκηνίου</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="323"/>
+        <location filename="richtext.ui" line="318"/>
         <source>Select font</source>
         <translation>Επιλέξτε γραμματοσειρά</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="336"/>
+        <location filename="richtext.ui" line="331"/>
         <source>Select font size</source>
         <translation>Επιλογή μεγέθους γραμμάτων</translation>
     </message>
@@ -1992,22 +2149,22 @@ this operation may take a while...</source>
 <context>
     <name>SearchDateWidget</name>
     <message>
-        <location filename="search_date.ui" line="25"/>
+        <location filename="search_date.ui" line="26"/>
         <source>Form</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="52"/>
+        <location filename="search_date.ui" line="56"/>
         <source>Choose a date from a calendar</source>
         <translation>Επιλογή ημερομηνίας από ημερολόγιο</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="76"/>
+        <location filename="search_date.ui" line="81"/>
         <source>-</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="search_date.ui" line="104"/>
+        <location filename="search_date.ui" line="112"/>
         <source>Choose the date from a calendar</source>
         <translation>Επιλογή ημερομηνίας από ημερολόγιο</translation>
     </message>
@@ -2020,12 +2177,12 @@ this operation may take a while...</source>
         <translation>Φόρμα</translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="84"/>
+        <location filename="searchform.ui" line="108"/>
         <source>&amp;Clear</source>
         <translation>Κα&amp;θαρισμός</translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="95"/>
+        <location filename="searchform.ui" line="119"/>
         <source>&amp;Search</source>
         <translation>&amp;Αναζήτηση</translation>
     </message>
@@ -2130,227 +2287,227 @@ this operation may take a while...</source>
         <translation>Σύνδεση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="46"/>
+        <location filename="shortcuts.ui" line="49"/>
         <source>&lt;Ctrl&gt; + N</source>
         <translation>&lt;Ctrl&gt; + N</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="53"/>
+        <location filename="shortcuts.ui" line="56"/>
         <source>New</source>
         <translation>Νέο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="60"/>
+        <location filename="shortcuts.ui" line="66"/>
         <source>&lt;Ctrl&gt; + S</source>
         <translation>&lt;Ctrl&gt; + S</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="67"/>
+        <location filename="shortcuts.ui" line="73"/>
         <source>Save</source>
         <translation>Αποθήκευση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="74"/>
+        <location filename="shortcuts.ui" line="83"/>
         <source>&lt;Ctrl&gt; + D</source>
         <translation>&lt;Ctrl&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="81"/>
+        <location filename="shortcuts.ui" line="90"/>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="88"/>
+        <location filename="shortcuts.ui" line="100"/>
         <source>&lt;Ctrl&gt; + F</source>
         <translation>&lt;Ctrl&gt; + F</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="95"/>
+        <location filename="shortcuts.ui" line="107"/>
         <source>Find / Search</source>
         <translation>Αναζήτηση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="102"/>
+        <location filename="shortcuts.ui" line="117"/>
         <source>&lt;Ctrl&gt; + T</source>
         <translation>&lt;Ctrl&gt; + T</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="109"/>
+        <location filename="shortcuts.ui" line="124"/>
         <source>Full Text Search</source>
         <translation>Αναζήτηση στο Κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="116"/>
+        <location filename="shortcuts.ui" line="134"/>
         <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="123"/>
+        <location filename="shortcuts.ui" line="141"/>
         <source>Previous Record</source>
         <translation>Προηγούμενη εγγραφή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="130"/>
+        <location filename="shortcuts.ui" line="151"/>
         <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Alt&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="137"/>
+        <location filename="shortcuts.ui" line="158"/>
         <source>Next record</source>
         <translation>Επόμενη εγγραφή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="144"/>
+        <location filename="shortcuts.ui" line="168"/>
         <source>&lt;Ctrl&gt; + L</source>
         <translation>&lt;Ctrl&gt; + L</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="151"/>
+        <location filename="shortcuts.ui" line="175"/>
         <source>Switch view mode</source>
         <translation>Αλλαγή προβολής</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="158"/>
+        <location filename="shortcuts.ui" line="185"/>
         <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="165"/>
+        <location filename="shortcuts.ui" line="192"/>
         <source>Previous tab</source>
         <translation>Προηγούμενη καρτέλα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="172"/>
+        <location filename="shortcuts.ui" line="202"/>
         <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="179"/>
+        <location filename="shortcuts.ui" line="209"/>
         <source>Next tab</source>
         <translation>Επόμενη καρτέλλα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="186"/>
+        <location filename="shortcuts.ui" line="219"/>
         <source>&lt;Ctrl&gt; + W</source>
         <translation>&lt;Ctrl&gt; + W</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="593"/>
+        <location filename="shortcuts.ui" line="727"/>
         <source>Close tab</source>
         <translation>Κλείσιμο καρτέλας</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="200"/>
+        <location filename="shortcuts.ui" line="236"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="207"/>
+        <location filename="shortcuts.ui" line="243"/>
         <source>Reload</source>
         <translation>Επαναφόρτωση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="214"/>
+        <location filename="shortcuts.ui" line="253"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
         <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="221"/>
+        <location filename="shortcuts.ui" line="260"/>
         <source>Duplicate Record</source>
         <translation>Διπλασιασμός</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="230"/>
+        <location filename="shortcuts.ui" line="286"/>
         <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
         <translation>&lt;center&gt;&lt;i&gt; Όταν διορθώνονται στοιχεία σε αναδυόμενο παράθυρο&lt;/i&gt;&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="239"/>
+        <location filename="shortcuts.ui" line="295"/>
         <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="246"/>
+        <location filename="shortcuts.ui" line="302"/>
         <source>Save and close window</source>
         <translation>Αποθήκευση και κλείσιμο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="253"/>
+        <location filename="shortcuts.ui" line="312"/>
         <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
         <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="260"/>
+        <location filename="shortcuts.ui" line="319"/>
         <source>Close window without saving</source>
         <translation>Κλείσιμο χωρίς αποθήκευση</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="270"/>
+        <location filename="shortcuts.ui" line="332"/>
         <source>&amp;Edition Shortcuts</source>
         <translation type="unfinished">Συντομεύσεις</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="577"/>
+        <location filename="shortcuts.ui" line="799"/>
         <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
         <translation type="unfinished">&lt;b&gt; Συντομεύσεις σε κείμενο&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="325"/>
+        <location filename="shortcuts.ui" line="401"/>
         <source>Cut selected text</source>
-        <translation type="unfinished">Αποκοπή κείμενο</translation>
+        <translation>Αποκοπή επιλεγμένου κειμένου</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="332"/>
+        <location filename="shortcuts.ui" line="411"/>
         <source>Copy selected text</source>
-        <translation type="unfinished">Αντιγραφή κείμενο</translation>
+        <translation>Αντιγραφή επιλεγμένου κειμένου</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="339"/>
+        <location filename="shortcuts.ui" line="421"/>
         <source>Paste selected text</source>
         <translation type="unfinished">Επικόλληση κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="346"/>
+        <location filename="shortcuts.ui" line="431"/>
         <source>Next editable widget</source>
         <translation type="unfinished">Επόμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="353"/>
+        <location filename="shortcuts.ui" line="441"/>
         <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="360"/>
+        <location filename="shortcuts.ui" line="448"/>
         <source>Previous editable widget</source>
         <translation type="unfinished">Προηγούμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="367"/>
+        <location filename="shortcuts.ui" line="624"/>
         <source>&lt;Enter&gt;</source>
         <translation type="unfinished">&lt;Enter&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="374"/>
+        <location filename="shortcuts.ui" line="465"/>
         <source>Auto-complete text field</source>
         <translation type="unfinished">Αυτόματο Ολοκληρωμένο κείμενο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="381"/>
+        <location filename="shortcuts.ui" line="475"/>
         <source>&lt;Tab&gt;</source>
         <translation type="unfinished">&lt;Tab&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="388"/>
+        <location filename="shortcuts.ui" line="482"/>
         <source>&lt;Ctrl&gt; + C</source>
         <translation>&lt;Ctrl&gt; + C</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="395"/>
+        <location filename="shortcuts.ui" line="489"/>
         <source>&lt;Ctrl&gt; + V</source>
         <translation>&lt;Ctrl&gt; + V</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="402"/>
+        <location filename="shortcuts.ui" line="496"/>
         <source>&lt;Ctrl&gt; + X</source>
         <translation>&lt;Ctrl&gt; + X</translation>
     </message>
@@ -2364,13 +2521,13 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Αριθμητικό&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="429"/>
+        <location filename="shortcuts.ui" line="523"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
         <translation type="unfinished">Μαθηματικός τύπος&lt;Enter&gt; Παράδειγμα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="437"/>
+        <location filename="shortcuts.ui" line="531"/>
         <source>Calculates value
 (Example result: 7)</source>
         <translation type="unfinished">τιμή Παράδειγμα</translation>
@@ -2385,160 +2542,225 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">HTML HTML ENhttp://www.w3.org/TR/REC-html40/strict.dtd&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Σχέση, Πίνακας&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="496"/>
+        <location filename="shortcuts.ui" line="596"/>
         <source>&lt;Ctrl&gt; + Open</source>
         <translation type="unfinished">&lt;Ctrl&gt; Άνοιγμα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="465"/>
+        <location filename="shortcuts.ui" line="562"/>
         <source>Opens the record in a new tab</source>
         <translation type="unfinished">εγγραφή σε a νέο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="510"/>
+        <location filename="shortcuts.ui" line="610"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
         <translation type="unfinished">&lt;Ctrl&gt;&lt;Shift&gt; Άνοιγμα</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="475"/>
+        <location filename="shortcuts.ui" line="572"/>
         <source>Opens the record in a new background tab</source>
         <translation type="unfinished">εγγραφή σε a νέο φόντο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="571"/>
+        <location filename="shortcuts.ui" line="702"/>
         <source>&amp;Advanced</source>
         <translation>Για &amp;προχωρημένους</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="586"/>
+        <location filename="shortcuts.ui" line="717"/>
         <source>Middle mouse click on Tab</source>
         <translation type="unfinished">Μεσαίο ιχνοθέτης, ποντίκι κλικ Στηλοθέτης</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="600"/>
+        <location filename="shortcuts.ui" line="737"/>
         <source>&lt;Shift&gt; + Switch View</source>
         <translation type="unfinished">&lt;Shift&gt; Αλλαγή Προβολή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="607"/>
+        <location filename="shortcuts.ui" line="747"/>
         <source>Open form view in new tab</source>
         <translation type="unfinished">Άνοιγμα σε νέο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="614"/>
+        <location filename="shortcuts.ui" line="757"/>
         <source>Mouse Wheel on Tab</source>
         <translation type="unfinished">Ποντίκι Τροχός Στηλοθέτης</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="621"/>
+        <location filename="shortcuts.ui" line="767"/>
         <source>Change current tab</source>
         <translation type="unfinished">Αλλαγή στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="628"/>
+        <location filename="shortcuts.ui" line="777"/>
         <source>&lt;Shift&gt; + Open View</source>
         <translation type="unfinished">&lt;Shift&gt; Άνοιγμα Προβολή</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="635"/>
+        <location filename="shortcuts.ui" line="787"/>
         <source>Open view in a background tab</source>
         <translation type="unfinished">Άνοιγμα σε a φόντο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="676"/>
+        <location filename="shortcuts.ui" line="902"/>
         <source>&amp;Close</source>
         <translation type="unfinished">&amp;Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="313"/>
+        <location filename="shortcuts.ui" line="389"/>
         <source>Shortcuts in text entries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="417"/>
+        <location filename="shortcuts.ui" line="511"/>
         <source>Numeric fields</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="453"/>
+        <location filename="shortcuts.ui" line="550"/>
         <source>Relation fields</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="532"/>
+        <location filename="shortcuts.ui" line="660"/>
         <source>Lists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="541"/>
+        <location filename="shortcuts.ui" line="669"/>
         <source>&lt;Ctrl&gt; + A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="548"/>
+        <location filename="shortcuts.ui" line="676"/>
         <source>Selects all records</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="282"/>
+        <location filename="shortcuts.ui" line="344"/>
         <source>General</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="291"/>
+        <location filename="shortcuts.ui" line="353"/>
         <source>F10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="298"/>
+        <location filename="shortcuts.ui" line="360"/>
         <source>Show field&apos;s help information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="482"/>
+        <location filename="shortcuts.ui" line="582"/>
         <source>Create a new record</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="489"/>
+        <location filename="shortcuts.ui" line="589"/>
         <source>Search/edit existing records</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="503"/>
+        <location filename="shortcuts.ui" line="603"/>
         <source>F1</source>
         <translation type="unfinished">F1</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="517"/>
+        <location filename="shortcuts.ui" line="617"/>
         <source>F2</source>
         <translation type="unfinished">F2</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="270"/>
+        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="277"/>
+        <source>Full Text Search current selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="367"/>
+        <source>F3</source>
+        <translation type="unfinished">F3</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="374"/>
+        <source>Clear field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="631"/>
+        <source>Add new record</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="638"/>
+        <source>&lt;Alt&gt; + &lt;Backspace&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="645"/>
+        <source>Remove current record</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="808"/>
+        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="818"/>
+        <source>Set focus to nearest widget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="828"/>
+        <source>Set focus to current widget&apos;s container</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="838"/>
+        <source>&lt;Alt&gt; + Minus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="848"/>
+        <source>&lt;Alt&gt; + Plus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="858"/>
+        <source>Set focus to one of the widgets in the container</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TipsDialog</name>
     <message>
-        <location filename="tip.ui" line="13"/>
+        <location filename="tip.ui" line="20"/>
         <source>Tip of the Day</source>
         <translation>Συμβουλή της ημέρας</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="51"/>
+        <location filename="tip.ui" line="96"/>
         <source>&amp;Display a new tip next time ?</source>
         <translation>Να &amp;εμφανιστεί συμβουλή την επόμενη φορά;</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="77"/>
+        <location filename="tip.ui" line="122"/>
         <source>&amp;Previous Tip</source>
         <translation>Προη&amp;γούμενη Συμβουλή</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="87"/>
+        <location filename="tip.ui" line="133"/>
         <source>&amp;Next Tip</source>
         <translation>Επόμενη &amp;Συμβουλή</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="112"/>
+        <location filename="tip.ui" line="159"/>
         <source>&amp;Close</source>
         <translation>&amp;Κλείσιμο</translation>
     </message>
@@ -2548,17 +2770,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="translationdialog.ui" line="13"/>
         <source>Translation dialog</source>
-        <translation>Διάλογος Μετάφρασης</translation>
+        <translation type="obsolete">Διάλογος Μετάφρασης</translation>
     </message>
     <message>
-        <location filename="translationdialog.ui" line="47"/>
+        <location filename="translationdialog.ui" line="45"/>
         <source>&amp;Accept</source>
         <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
-        <location filename="translationdialog.ui" line="57"/>
+        <location filename="translationdialog.ui" line="56"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="14"/>
+        <source>Translation Dialog</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
