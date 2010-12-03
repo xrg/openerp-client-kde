@@ -36,6 +36,7 @@ from ImportDialog import *
 from AttachmentDialog import *
 from GoToIdDialog import *
 from MassiveUpdateDialog import *
+from MassiveInsertDialog import *
 
 from Koo.Common import Api
 from Koo.Common import Common
@@ -157,6 +158,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'Switch': self.switchView,
 			'Attach': self.showAttachments,
 			'Duplicate': self.duplicate,
+			'MassiveInsert': self.massiveInsert,
 			'MassiveUpdate': self.massiveUpdate,
 			'MassiveButton': self.massiveButton,
 			'StoreViewSettings': self.storeViewSettings,
@@ -562,6 +564,17 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.screen.cancel()
 		return True
 
+	def massiveInsert(self):
+		dialog = MassiveInsertDialog( self )
+		dialog.setModel( self.model )
+		dialog.setContext( self.context )
+		dialog.setViewTypes( self.viewTypes )
+		dialog.setViewIds( self.viewIds )
+		dialog.setup()
+		if dialog.exec_() == QDialog.Rejected:
+			return
+		self.reload()
+
 	def massiveUpdate(self):
 		if not self.screen.selectedIds():
 			QMessageBox.information( self, _('No records selected'), _('No records selected') )
@@ -571,7 +584,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog.setModel( self.model )
 		dialog.setContext( self.context )
 		dialog.setup( self.viewTypes, self.viewIds )
-		dialog.exec_()
+		if dialog.exec_() == QDialog.Rejected:
+			return
 		self.reload()
 
 	def storeViewSettings(self):

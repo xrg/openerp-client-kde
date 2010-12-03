@@ -29,6 +29,7 @@
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common.Numeric import *
+from Koo.Common import Shortcuts
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 
@@ -43,6 +44,12 @@ class FloatFieldWidget(AbstractFieldWidget):
 		layout = QHBoxLayout( self )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		layout.addWidget( self.widget )
+
+		# Shortcut
+		self.scClear = QShortcut( self.widget )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.clear )
 
 		self.installPopupMenu( self.widget )
 		self.connect( self.widget, SIGNAL('editingFinished()'), self.calculate )

@@ -258,33 +258,6 @@
      <string>&amp;Plugins</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuForm">
-    <property name="title">
-     <string>F&amp;orm</string>
-    </property>
-    <addaction name="actionNew"/>
-    <addaction name="actionSave"/>
-    <addaction name="actionDuplicate"/>
-    <addaction name="actionMassiveUpdate"/>
-    <addaction name="actionMassiveButton"/>
-    <addaction name="separator"/>
-    <addaction name="actionDelete"/>
-    <addaction name="separator"/>
-    <addaction name="actionFind"/>
-    <addaction name="actionNext"/>
-    <addaction name="actionPrevious"/>
-    <addaction name="actionSwitch"/>
-    <addaction name="separator"/>
-    <addaction name="actionStoreViewSettings"/>
-    <addaction name="actionAccessLog"/>
-    <addaction name="actionGoToResourceId"/>
-    <addaction name="separator"/>
-    <addaction name="actionAttach"/>
-    <addaction name="actionReload"/>
-    <addaction name="separator"/>
-    <addaction name="actionExport"/>
-    <addaction name="actionImport"/>
-   </widget>
    <widget class="QMenu" name="menuDatabase">
     <property name="title">
      <string>&amp;Database</string>
@@ -322,11 +295,6 @@
    <widget class="QMenu" name="menuActions">
     <property name="title">
      <string>&amp;Actions</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuReports">
-    <property name="title">
-     <string>&amp;Reports</string>
     </property>
    </widget>
    <widget class="QMenu" name="menuWindow">
@@ -369,6 +337,40 @@
     <property name="title">
      <string>&amp;Browse</string>
     </property>
+   </widget>
+   <widget class="QMenu" name="menuReports">
+    <property name="title">
+     <string>&amp;Reports</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuForm">
+    <property name="title">
+     <string>F&amp;orm</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionDuplicate"/>
+    <addaction name="separator"/>
+    <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionMassiveInsert"/>
+    <addaction name="actionMassiveUpdate"/>
+    <addaction name="actionMassiveButton"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind"/>
+    <addaction name="actionNext"/>
+    <addaction name="actionPrevious"/>
+    <addaction name="actionSwitch"/>
+    <addaction name="separator"/>
+    <addaction name="actionStoreViewSettings"/>
+    <addaction name="actionAccessLog"/>
+    <addaction name="actionGoToResourceId"/>
+    <addaction name="separator"/>
+    <addaction name="actionAttach"/>
+    <addaction name="actionReload"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionImport"/>
    </widget>
    <addaction name="menuDatabase"/>
    <addaction name="menuUser"/>
@@ -871,6 +873,15 @@
    </property>
    <property name="text">
     <string>Push Button of All Selected Records</string>
+   </property>
+  </action>
+  <action name="actionMassiveInsert">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>Insert Several Records at Once</string>
    </property>
   </action>
  </widget>

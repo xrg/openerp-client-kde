@@ -60,7 +60,16 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.add )
 
+		self.scClear = QShortcut( self.screen )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetWithChildrenShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.remove )
+
 		self.connect( self.screen, SIGNAL('activated()'), self.open )
+
+		self.connect(self.pushBack, SIGNAL( "clicked()"), self.previous)
+		self.connect(self.pushForward, SIGNAL( "clicked()"), self.next)
+		self.connect(self.screen, SIGNAL('recordMessage(int,int,int)'), self.setLabel)
 
 		self.installPopupMenu( self.uiText )
 		self.old = None
@@ -78,6 +87,19 @@ class ManyToManyFieldWidget(AbstractFieldWidget, ManyToManyFieldWidgetUi):
 		self.screen.setRecordGroup( group )
 		self.screen.setViewTypes( ['tree'] )
 		self.screen.setEmbedded( True )
+
+	def next(self ): 
+		self.screen.displayNext()
+
+	def previous(self): 
+		self.screen.displayPrevious()
+
+	def setLabel(self, position, count, value):
+		name = '_'
+		if position >= 0:
+			name = str(position + 1)
+		line = '(%s/%s)' % (name, count)
+		self.uiLabel.setText( line )
 
 	def open( self ):
 		if not ( QApplication.keyboardModifiers() & Qt.ControlModifier ):

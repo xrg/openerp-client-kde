@@ -8,29 +8,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-14 04:24+0000\n"
+"POT-Creation-Date: 2010-11-22 04:03+0000\n"
 "PO-Revision-Date: 2010-10-11 13:15+0000\n"
 "Last-Translator: Dukai Gábor <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-14 12:56+0000\n"
+"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:89 mainwindow.ui:582
+#: win_attach.ui:89 mainwindow.ui:584
 msgid "Ctrl+D"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:594
+#: mainwindow.ui:596
 msgid "Ctrl+F"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:705
+#: mainwindow.ui:707
 msgid "Ctrl+G"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgid "&Save list"
 msgstr "Sačuvaj &listu"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:805
+#: mainwindow.ui:807
 msgid "Ctrl+J"
 msgstr ""
 
@@ -51,28 +51,28 @@ msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:77 mainwindow.ui:546
+#: win_attach.ui:77 mainwindow.ui:548
 msgid "Ctrl+N"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:429
+#: mainwindow.ui:431
 msgid "Ctrl+O"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:816
+#: shortcuts.ui:858
 msgid "Set focus to one of the widgets in the container"
 msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:149 mainwindow.ui:558
+#: win_attach.ui:149 mainwindow.ui:560
 msgid "Ctrl+S"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:793
+#: mainwindow.ui:795
 msgid "Ctrl+T"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgid "/"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:675
+#: mainwindow.ui:677
 msgid "Ctrl+W"
 msgstr ""
 
@@ -105,12 +105,12 @@ msgid "&Server:"
 msgstr "&Server:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:790
+#: mainwindow.ui:792
 msgid "Full &Text Search"
 msgstr "&Pronađi u sadržaju"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:407
+#: shortcuts.ui:421
 msgid "Paste selected text"
 msgstr "Umetni odabrani tekst"
 
@@ -132,23 +132,28 @@ msgid "about:blank"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:660
+#: mainwindow.ui:662
 msgid "Previous Tab"
 msgstr "Prethodni jezičak"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:685
+#: shortcuts.ui:727
 msgid "Close tab"
 msgstr "Zatvori jezičak"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:596
+#: shortcuts.ui:610
 msgid "<Ctrl> + <Shift> + Open"
 msgstr "<Ctrl> + <Shift> + otvori"
 
 #. ts-context Form
 #: keyboard.ui:657
 msgid "P"
+msgstr ""
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:374
+msgid "Clear field"
 msgstr ""
 
 #. ts-context RichTextWidget
@@ -181,12 +186,12 @@ msgstr ""
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
-#: full_text_search.ui:66 mainwindow.ui:591 win_search.ui:86
+#: full_text_search.ui:66 mainwindow.ui:593 win_search.ui:86
 msgid "&Find"
 msgstr "&Pronađi"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:745
+#: shortcuts.ui:787
 msgid "Open view in a background tab"
 msgstr ""
 
@@ -201,7 +206,7 @@ msgid "<b>All fields</b>"
 msgstr "<b>Sva polja</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:634
+#: shortcuts.ui:676
 msgid "Selects all records"
 msgstr "Izabere sve stavke"
 
@@ -264,7 +269,7 @@ msgid "Form"
 msgstr "Obrazac"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:766
+#: shortcuts.ui:808
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr ""
 
@@ -279,18 +284,18 @@ msgid "Caps"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:786
+#: shortcuts.ui:828
 msgid "Set focus to current widget's container"
 msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:101 mainwindow.ui:606
+#: win_attach.ui:101 mainwindow.ui:608
 msgid "Alt+PgDown"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:776
+#: shortcuts.ui:818
 msgid "Set focus to nearest widget"
 msgstr ""
 
@@ -305,17 +310,17 @@ msgid "K"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:351
+#: mainwindow.ui:319
 msgid "Documentation"
 msgstr "Korisnički priručnik"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:462
+#: mainwindow.ui:464
 msgid "&New Database"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:570
+#: mainwindow.ui:572
 msgid "Ctrl+Shift+D"
 msgstr ""
 
@@ -331,7 +336,7 @@ msgid "&Remote Help"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:397
+#: shortcuts.ui:411
 msgid "Copy selected text"
 msgstr "Kopiraj odabrani tekst"
 
@@ -341,7 +346,7 @@ msgid "&Main Shortcuts"
 msgstr "&Glavne prečice"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:758
+#: mainwindow.ui:760
 msgid "&Tips"
 msgstr "&Saveti"
 
@@ -429,17 +434,17 @@ msgid ""
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:329
+#: mainwindow.ui:343
 msgid "&Reports"
 msgstr "&Izveštaji"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:705
+#: shortcuts.ui:747
 msgid "Open form view in new tab"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:582
+#: shortcuts.ui:596
 msgid "<Ctrl> + Open"
 msgstr "<Ctrl> + otvori"
 
@@ -449,28 +454,33 @@ msgid "V"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:589
+#: shortcuts.ui:603
 msgid "F1"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:603
+#: shortcuts.ui:617
 msgid "F2"
+msgstr ""
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:367
+msgid "F3"
 msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
-#: mainwindow.ui:717 shortcuts.ui:236
+#: mainwindow.ui:719 shortcuts.ui:236
 msgid "F5"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:630
+#: mainwindow.ui:632
 msgid "F6"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:444
+#: mainwindow.ui:446
 msgid "&Disconnect"
 msgstr "&Prekini vezu"
 
@@ -507,7 +517,7 @@ msgstr ""
 "otvorenog koda !</p></center></body></html>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:509
+#: shortcuts.ui:523
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
@@ -567,17 +577,17 @@ msgstr ""
 
 #. ts-context OneToManyWidget
 #. ts-context PanedWidget
-#: one2many.ui:242 paned.ui:117
+#: one2many.ui:263 paned.ui:117
 msgid "Switch View"
 msgstr "Prebaci način prikaza"
 
 #. ts-context Form
-#: customsearchitem.ui:71
+#: customsearchitem.ui:63
 msgid "&And"
 msgstr "&i"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:648
+#: mainwindow.ui:650
 msgid "Next Tab"
 msgstr "Sledeći jezičak"
 
@@ -587,7 +597,7 @@ msgid "Create a new database"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:675
+#: shortcuts.ui:717
 msgid "Middle mouse click on Tab"
 msgstr "Klikni sa srednjim dugmetom miša na jezičak"
 
@@ -622,7 +632,7 @@ msgid "Load Image"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:525
+#: mainwindow.ui:527
 msgid "&Read My Requests"
 msgstr "&Pročitaj moje zahteve"
 
@@ -647,7 +657,7 @@ msgid "&Contact"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:461
+#: shortcuts.ui:475
 msgid "<Tab>"
 msgstr ""
 
@@ -682,12 +692,12 @@ msgid "Default &value"
 msgstr "Zadana vrednost"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:660
+#: shortcuts.ui:702
 msgid "&Advanced"
 msgstr "&Napredni"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:772
+#: mainwindow.ui:774
 msgid "&License"
 msgstr "&Licenca"
 
@@ -702,7 +712,7 @@ msgid "<b>Value applicable if:</b>"
 msgstr "<b>Važi samo ako:</b>"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:814
+#: mainwindow.ui:816
 msgid "&Form designer"
 msgstr ""
 
@@ -718,18 +728,18 @@ msgid ","
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:579
+#: mainwindow.ui:581
 msgid "&Delete"
 msgstr "&Obriši"
 
 #. ts-context KooMainWindow
 #. ts-context SearchWidget
-#: mainwindow.ui:543 win_search.ui:67
+#: mainwindow.ui:545 win_search.ui:67
 msgid "&New"
 msgstr "&Novo"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:451
+#: shortcuts.ui:465
 msgid "Auto-complete text field"
 msgstr "Automatska dopuna teksta"
 
@@ -739,7 +749,7 @@ msgid "Ç"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:498
+#: mainwindow.ui:500
 msgid "&Administrator Password"
 msgstr ""
 
@@ -749,7 +759,7 @@ msgid "L"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:828
+#: mainwindow.ui:830
 msgid "Open Home Tab"
 msgstr "Otvori početni jezičak"
 
@@ -767,7 +777,7 @@ msgstr "Sva polja"
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
-#: win_attach.ui:110 one2many.ui:171
+#: win_attach.ui:110 one2many.ui:192
 msgid "Previous"
 msgstr "Nazad"
 
@@ -783,7 +793,7 @@ msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context OneToManyWidget
-#: win_attach.ui:98 one2many.ui:213
+#: win_attach.ui:98 one2many.ui:234
 msgid "Next"
 msgstr "Napred"
 
@@ -804,7 +814,7 @@ msgid "'"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:837
+#: mainwindow.ui:839
 msgid "&Clear Cache"
 msgstr "&Očisti keš"
 
@@ -817,7 +827,7 @@ msgid "TextLabel"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:757
+#: shortcuts.ui:799
 msgid "<b>Shortcuts in text entries</b>"
 msgstr ""
 
@@ -874,26 +884,26 @@ msgid "&Send Error"
 msgstr "&Pošalji izveštaj o grešci"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:568
+#: shortcuts.ui:582
 msgid "Create a new record"
 msgstr "Stvaranje nove stavke"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:819
+#: mainwindow.ui:821
 msgid "&Menu"
 msgstr ""
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
-#: full_text_search.ui:115 mainwindow.ui:615 one2many_dialog.ui:57
+#: full_text_search.ui:115 mainwindow.ui:617 one2many_dialog.ui:57
 msgid "&Previous"
 msgstr "Na&zad"
 
-#. ts-context Form
-#: customsearchitem.ui:81
-msgid "&Or"
-msgstr "i&li"
+#. ts-context KooMainWindow
+#: mainwindow.ui:881
+msgid "Insert Several Records at Once"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
@@ -901,12 +911,12 @@ msgid "Next record"
 msgstr "Sledeća stavka"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:870
+#: mainwindow.ui:872
 msgid "Push Button of All Selected Records"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:324
+#: mainwindow.ui:297
 msgid "&Actions"
 msgstr "&Radnja"
 
@@ -916,7 +926,7 @@ msgid "\""
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:263
+#: mainwindow.ui:348
 msgid "F&orm"
 msgstr "&Obrazac"
 
@@ -926,17 +936,17 @@ msgid "2"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:290
+#: mainwindow.ui:263
 msgid "&Database"
 msgstr "&Baza"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:558
+#: shortcuts.ui:572
 msgid "Opens the record in a new background tab"
 msgstr "Stavka će biti otvorena na novom jezičku u pozadini"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:781
+#: mainwindow.ui:783
 msgid "&About"
 msgstr "&O OpenERP-u"
 
@@ -958,7 +968,7 @@ msgid "Requests:"
 msgstr "Zahtevi:"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:347
+#: mainwindow.ui:315
 msgid "&Help"
 msgstr "&Pomoć"
 
@@ -1004,12 +1014,12 @@ msgid "&OK"
 msgstr "&U redu"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:312
+#: mainwindow.ui:285
 msgid "&User"
 msgstr "&Korisnik"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:663
+#: mainwindow.ui:665
 msgid "Ctrl+PgUp"
 msgstr ""
 
@@ -1029,7 +1039,7 @@ msgid "<Alt> + <PgDn>"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:684
+#: mainwindow.ui:686
 msgid "View Access Log"
 msgstr "Pogledaj dnevnik izmena"
 
@@ -1039,7 +1049,7 @@ msgid "Next tab"
 msgstr "Sledeći jezičak"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:417
+#: shortcuts.ui:431
 msgid "Next editable widget"
 msgstr "Sledeće obradivo polje"
 
@@ -1060,7 +1070,7 @@ msgid "M"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:567
+#: mainwindow.ui:569
 msgid "D&uplicate"
 msgstr "&Dupliraj"
 
@@ -1097,7 +1107,7 @@ msgid "&New password:"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:294
+#: mainwindow.ui:267
 msgid "&Databases"
 msgstr "&Baze podataka"
 
@@ -1105,7 +1115,7 @@ msgstr "&Baze podataka"
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
 #. ts-context TipsDialog
-#: full_text_search.ui:158 mainwindow.ui:672 shortcuts.ui:860 tip.ui:159
+#: full_text_search.ui:158 mainwindow.ui:674 shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "&Zatvori"
 
@@ -1115,7 +1125,7 @@ msgid "<Ctrl> + <Shift> + D"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:856
+#: mainwindow.ui:858
 msgid "HTML Manual"
 msgstr "HTML priručnik"
 
@@ -1125,12 +1135,12 @@ msgid "&Field separator"
 msgstr "O&znaka za kraj polja"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:639
+#: mainwindow.ui:641
 msgid "Open &Menu Tab"
 msgstr "Otvori &meni"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:516
+#: mainwindow.ui:518
 msgid "&Send Request"
 msgstr "&Pošalji zahtev"
 
@@ -1165,7 +1175,7 @@ msgid "Action here..."
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:548
+#: shortcuts.ui:562
 msgid "Opens the record in a new tab"
 msgstr "Stavka će biti otvorena na novom jezičku"
 
@@ -1345,7 +1355,7 @@ msgid "S"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:489
+#: mainwindow.ui:491
 msgid "&Drop Database"
 msgstr ""
 
@@ -1385,13 +1395,18 @@ msgstr "&Izmeni"
 msgid "&Cancel"
 msgstr "&Otkaži"
 
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:645
+msgid "Remove current record"
+msgstr ""
+
 #. ts-context Form
 #: image.ui:90
 msgid "Remove Image"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:851
+#: mainwindow.ui:853
 msgid "PDF Manual"
 msgstr "PDF priručnik"
 
@@ -1406,12 +1421,12 @@ msgid "Send New Request"
 msgstr "Pošalji nov zahtev"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:651
+#: mainwindow.ui:653
 msgid "Ctrl+PgDown"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:444
+#: shortcuts.ui:624
 msgid "<Enter>"
 msgstr ""
 
@@ -1421,7 +1436,7 @@ msgid "Connect &now"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:735
+#: mainwindow.ui:737
 msgid "&Import Data"
 msgstr "&Uvezi podatke"
 
@@ -1446,12 +1461,12 @@ msgid "Tip of the Day"
 msgstr "Savet dana"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:507
+#: mainwindow.ui:509
 msgid "&Preferences"
 msgstr "&Prilagodi"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:753
+#: mainwindow.ui:755
 msgid "&Contextual Help"
 msgstr ""
 
@@ -1461,7 +1476,7 @@ msgid "Connection Lost"
 msgstr "Veza je prekinuta"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:375
+#: shortcuts.ui:389
 msgid "Shortcuts in text entries"
 msgstr "Prečice za unošenje teksta"
 
@@ -1491,12 +1506,12 @@ msgstr "Dijalog"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:16 mainwindow.ui:802
+#: win_attach.ui:16 mainwindow.ui:804
 msgid "Attachments"
 msgstr "Prilozi"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:480
+#: mainwindow.ui:482
 msgid "&Backup Database"
 msgstr ""
 
@@ -1518,13 +1533,18 @@ msgid "Weekly View"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:497
+#: shortcuts.ui:511
 msgid "Numeric fields"
 msgstr "Numerička polja"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:744
+#: mainwindow.ui:746
 msgid "&Execute Plugins"
+msgstr ""
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:631
+msgid "Add new record"
 msgstr ""
 
 #. ts-context ProgressDialog
@@ -1548,7 +1568,7 @@ msgid "<-"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:715
+#: shortcuts.ui:757
 msgid "Mouse Wheel on Tab"
 msgstr "Rol dugme na jezičku"
 
@@ -1601,12 +1621,12 @@ msgstr ""
 
 #. ts-context KooMainWindow
 #. ts-context LoginDialog
-#: mainwindow.ui:471 login.ui:143
+#: mainwindow.ui:473 login.ui:143
 msgid "&Restore Database"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:434
+#: shortcuts.ui:448
 msgid "Previous editable widget"
 msgstr "Prethodno obradivo polje"
 
@@ -1632,7 +1652,7 @@ msgid "Y"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:725
+#: shortcuts.ui:767
 msgid "Change current tab"
 msgstr "Pomera jezičke"
 
@@ -1657,7 +1677,7 @@ msgid "&Port:"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:702
+#: mainwindow.ui:704
 msgid "Go To Resource ID"
 msgstr "Idi na stavku ID"
 
@@ -1677,12 +1697,12 @@ msgid "<Ctrl> + L"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:468
+#: shortcuts.ui:482
 msgid "<Ctrl> + C"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:627
+#: shortcuts.ui:669
 msgid "<Ctrl> + A"
 msgstr ""
 
@@ -1702,7 +1722,7 @@ msgid "&Next Tip"
 msgstr "&Sledeći savet"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:482
+#: shortcuts.ui:496
 msgid "<Ctrl> + X"
 msgstr ""
 
@@ -1717,7 +1737,7 @@ msgid "<Ctrl> + S"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:475
+#: shortcuts.ui:489
 msgid "<Ctrl> + V"
 msgstr ""
 
@@ -1729,6 +1749,12 @@ msgstr ""
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:117
 msgid "<Ctrl> + T"
+msgstr ""
+
+#. ts-context ManyToManyWidget
+#. ts-context OneToManyWidget
+#: many2many.ui:96 one2many.ui:165
+msgid "..."
 msgstr ""
 
 #. ts-context SelectionDialog
@@ -1767,7 +1793,7 @@ msgid "<Ctrl> + <Enter>"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:334
+#: mainwindow.ui:302
 msgid "&Window"
 msgstr "Pro&zor"
 
@@ -1777,12 +1803,12 @@ msgid "Create &Database"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:575
+#: shortcuts.ui:589
 msgid "Search/edit existing records"
 msgstr "Pronađi/obradi povezane stavke"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:693
+#: mainwindow.ui:695
 msgid "Store View Settings"
 msgstr "Sačuvaj podešavanja prikaza"
 
@@ -1797,7 +1823,7 @@ msgid "&Super admin password:"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:536
+#: shortcuts.ui:550
 msgid "Relation fields"
 msgstr "Povezana polja"
 
@@ -1852,7 +1878,7 @@ msgid "Add Shortcut"
 msgstr "Dodaj"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:767
+#: mainwindow.ui:769
 msgid "&Keyboard Shortcut"
 msgstr "&Prečice na tastaturi"
 
@@ -1871,8 +1897,9 @@ msgstr ""
 msgid "O"
 msgstr ""
 
+#. ts-context ManyToManyWidget
 #. ts-context OneToManyWidget
-#: one2many.ui:197
+#: many2many.ui:89 one2many.ui:218
 msgid "(0/0)"
 msgstr ""
 
@@ -1892,18 +1919,18 @@ msgid "<b>Fields to export</b>"
 msgstr "<b>Polja za izvoz</b>"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:796
+#: shortcuts.ui:838
 msgid "<Alt> + Minus"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:387
+#: shortcuts.ui:401
 msgid "Cut selected text"
 msgstr "Iseci obeleženi tekst"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
-#: win_attach.ui:113 mainwindow.ui:618
+#: win_attach.ui:113 mainwindow.ui:620
 msgid "Alt+PgUp"
 msgstr ""
 
@@ -1913,7 +1940,7 @@ msgid "Open Calendar"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:714
+#: mainwindow.ui:716
 msgid "&Reload/Undo"
 msgstr "&Ponovo učitaj/opozovi"
 
@@ -1944,17 +1971,17 @@ msgid "Operation in progress"
 msgstr "Obrada je u toku"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:618
+#: shortcuts.ui:660
 msgid "Lists"
 msgstr "Liste"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:806
+#: shortcuts.ui:848
 msgid "<Alt> + Plus"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:426
+#: mainwindow.ui:428
 msgid "&Connect"
 msgstr "&Spoji"
 
@@ -1975,7 +2002,7 @@ msgstr ""
 
 #. ts-context Dialog
 #. ts-context KooMainWindow
-#: lostconnection.ui:84 mainwindow.ui:453
+#: lostconnection.ui:84 mainwindow.ui:455
 msgid "&Quit"
 msgstr "&Izađi"
 
@@ -2439,7 +2466,7 @@ msgid ""
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:846
+#: mainwindow.ui:848
 msgid "Modify All Selected Records"
 msgstr "Promeni svih izabranih stavki"
 
@@ -2459,7 +2486,7 @@ msgid "Previous tab"
 msgstr "Prethodni jezičak"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:627
+#: mainwindow.ui:629
 msgid "Switch &View"
 msgstr "Promeni način &prikaza"
 
@@ -2474,17 +2501,17 @@ msgid "Close"
 msgstr "Zatvori"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:735
+#: shortcuts.ui:777
 msgid "<Shift> + Open View"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:726
+#: mainwindow.ui:728
 msgid "E&xport Data"
 msgstr "&Izvezi podatke"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:370
+#: mainwindow.ui:338
 msgid "&Browse"
 msgstr "&Pretraživanje"
 
@@ -2508,7 +2535,7 @@ msgid "Close window without saving"
 msgstr "Zatvori prozor bez sačuvanja"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:534
+#: mainwindow.ui:536
 msgid "&Waiting Requests"
 msgstr "&Zahtevi na čekanju"
 
@@ -2523,7 +2550,7 @@ msgid "5"
 msgstr ""
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:861
+#: mainwindow.ui:863
 msgid "doc.openerp.com"
 msgstr ""
 
@@ -2543,7 +2570,7 @@ msgid "Edit"
 msgstr "Obradi"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:427
+#: shortcuts.ui:441
 msgid "<Shift> + <Tab>"
 msgstr ""
 
@@ -2571,7 +2598,7 @@ msgstr "Obriši"
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
 #. ts-context ManyToOneWidget
-#: full_text_search.ui:126 mainwindow.ui:603 one2many_dialog.ui:68
+#: full_text_search.ui:126 mainwindow.ui:605 one2many_dialog.ui:68
 msgid "&Next"
 msgstr "&Napred"
 
@@ -2591,8 +2618,13 @@ msgid "Center"
 msgstr ""
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:695
+#: shortcuts.ui:737
 msgid "<Shift> + Switch View"
+msgstr ""
+
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:638
+msgid "<Alt> + <Backspace>"
 msgstr ""
 
 #. ts-context ShortcutsDialog
@@ -2601,12 +2633,12 @@ msgid "&Edition Shortcuts"
 msgstr "U toku &obrade"
 
 #. ts-context KooMainWindow
-#: mainwindow.ui:555
+#: mainwindow.ui:557
 msgid "&Save"
 msgstr "&Sačuvaj"
 
 #. ts-context ShortcutsDialog
-#: shortcuts.ui:517
+#: shortcuts.ui:531
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"

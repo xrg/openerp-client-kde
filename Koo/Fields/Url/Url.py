@@ -48,6 +48,11 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.openUrl )
 
+		self.scClear = QShortcut( self.uiUrl )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.clear )
+
 		self.uiUrl.setMaxLength( int( attrs.get('size',16)))
 		self.connect( self.pushOpenUrl, SIGNAL('clicked()'), self.openUrl )
 		self.connect( self.uiUrl, SIGNAL('editingFinished()'), self.modified )
@@ -72,7 +77,7 @@ class UrlFieldWidget(AbstractFieldWidget, UrlFieldWidgetUi):
 	def openUrl(self):
 		value =  unicode(self.uiUrl.text()).strip()
 		if value != '':
-			QDesktopServices.openUrl( QUrl(value) )
+			Api.instance.createWebWindow( value, value )
 
 class EMailFieldWidget(UrlFieldWidget):
 	def openUrl(self):

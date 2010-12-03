@@ -31,6 +31,19 @@
 		<menuitem name="Administration/Configuration/Koo/View Cache Exceptions" 
 			action="koo_cache_exception_action" id="koo_cache_exception_menu"/>
 
+		<!-- User Koo Settings -->
+		<record model="ir.ui.view" id="view_users_form_koo_settings">
+			<field name="name">res.users.form.koo</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form"/>
+			<field name="arch" type="xml">
+				<field name="context_tz" position="after">
+					<field name="koo_settings_id" select="2"/>
+				</field>
+			</field>
+		</record>
+        
+
 		<!-- Koo Settings views -->
 		<record model='ir.ui.view' id='koo_settings_form'>
 			<field name="name">nan.koo.settings.form</field>
@@ -59,8 +72,6 @@
 					<field name="use_cache"/>
 					<field name="auto_new"/>
 					<field name="load_on_open"/>
-					<separator colspan="4" string="Roles"/>
-					<field name="roles_id" colspan="4" nolabel="1"/>
 				</form>
 			</field>
 		</record>
@@ -76,7 +87,6 @@
 					<field name="sort_mode"/>
 					<field name="limit"/>
 					<field name="requests_refresh_interval"/>
-					<field name="roles_id"/>
 				</tree>
 			</field>
 		</record>

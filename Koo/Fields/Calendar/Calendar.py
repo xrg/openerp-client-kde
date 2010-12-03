@@ -50,6 +50,11 @@ class DateFieldWidget(AbstractFieldWidget, DateFieldWidgetUi):
 		self.scSearch.setContext( Qt.WidgetShortcut )
 		self.connect( self.scSearch, SIGNAL('activated()'), self.showCalendar )
 
+		self.scClear = QShortcut( self.uiDate )
+		self.scClear.setKey( Shortcuts.ClearInField )
+		self.scClear.setContext( Qt.WidgetShortcut )
+		self.connect( self.scClear, SIGNAL('activated()'), self.clear )
+
 		self.connect( self.pushCalendar, SIGNAL( "clicked()" ),self.showCalendar )
 		self.dateTime = False
 		self.connect( self.uiDate, SIGNAL('editingFinished()'), self.updateValue )
