@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 11:38+0100\n"
+"POT-Creation-Date: 2010-12-05 18:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -399,17 +399,15 @@ msgid ""
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/MassiveInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/MassiveInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr ""
@@ -772,16 +770,29 @@ msgid "No records selected"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:628
-msgid "Choose action to apply massively"
+msgid "Choose action to apply to selected records"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:635
-msgid "Massive Update"
+msgid "Batch Update"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:635
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert in batch action"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:99 Koo/Dialogs/BatchInsertDialog.py:131
+msgid "Batch Insert"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:131
+#, python-format
+msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
@@ -875,6 +886,11 @@ msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:687
 msgid "Wizard"
+msgstr ""
+
+#: Koo/Dialogs/BatchUpdateDialog.py:132
+#, python-format
+msgid "Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
 
 #: Koo/Dialogs/SearchDialog.py:90
@@ -1024,11 +1040,6 @@ msgid ""
 "password are correct."
 msgstr ""
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:132
-#, python-format
-msgid "Select the fields you want to update in the <b>%d</b> selected records:"
-msgstr ""
-
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr ""
@@ -1106,20 +1117,6 @@ msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:399
 msgid "Exported fields"
-msgstr ""
-
-#: Koo/Dialogs/MassiveInsertDialog.py:82
-msgid "Choose field to insert massively"
-msgstr ""
-
-#: Koo/Dialogs/MassiveInsertDialog.py:99
-#: Koo/Dialogs/MassiveInsertDialog.py:131
-msgid "Massive Insert"
-msgstr ""
-
-#: Koo/Dialogs/MassiveInsertDialog.py:131
-#, python-format
-msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
 #: Koo/Dialogs/TreeWidget.py:64
@@ -1372,11 +1369,11 @@ msgid ""
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
-msgid "&Modify All Selected Records"
+msgid "&Insert Several Records at Once"
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:163
-msgid "&Insert Several Records at Once"
+msgid "&Modify All Selected Records"
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:310

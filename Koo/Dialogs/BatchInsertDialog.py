@@ -34,12 +34,12 @@ from Koo.Model.Group import RecordGroup
 from Koo.Screen.ViewQueue import *
 from Koo.Screen.Screen import *
 
-(MassiveInsertDialogUi, MassiveInsertDialogBase) = loadUiType( Common.uiPath('massiveupdate.ui') )
+(BatchInsertDialogUi, BatchInsertDialogBase) = loadUiType( Common.uiPath('batchupdate.ui') )
 
-class MassiveInsertDialog( QDialog, MassiveInsertDialogUi ):
+class BatchInsertDialog( QDialog, BatchInsertDialogUi ):
 	def __init__( self, parent=None ):
 		QDialog.__init__(self, parent)
-		MassiveInsertDialogUi.__init__(self)
+		BatchInsertDialogUi.__init__(self)
 		self.setupUi( self )
 		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.save )
@@ -79,7 +79,7 @@ class MassiveInsertDialog( QDialog, MassiveInsertDialogUi ):
 				
 		oneToManyFields = [(fields[field]['string'], field) for field in fields if fields[field]['type'] == 'many2one']
 		oneToManyFields = dict(oneToManyFields)
-		selectionDialog = Common.SelectionDialog(_('Choose field to insert massively'), oneToManyFields, self)
+		selectionDialog = Common.SelectionDialog(_('Choose field to insert in batch action'), oneToManyFields, self)
 		if selectionDialog.exec_() == QDialog.Rejected:
 			return False
 		fieldString = selectionDialog.result[0]
@@ -96,7 +96,7 @@ class MassiveInsertDialog( QDialog, MassiveInsertDialogUi ):
 		}
 		arch = ''
 		arch += '<?xml version="1.0"?>'
-		arch += '<form string="%s">\n' % _('Massive Insert')
+		arch += '<form string="%s">\n' % _('Batch Insert')
 		arch += '<label string="%s" colspan="4"/>' % fieldString
 		arch += '<field name="many2many" colspan="4" nolabel="1"/>'
 		arch += '</form>'
@@ -128,7 +128,7 @@ class MassiveInsertDialog( QDialog, MassiveInsertDialogUi ):
                 record = self.screen.currentRecord()
 		self.newValues = [x.id for x in record.value('many2many')]
                 if record.isModified() and self.newValues:
-			if QMessageBox.question(self, _('Massive Insert'), _('Are you sure you want to insert %d records?') % len(self.newValues), _("Yes"), _("No")) == 1:
+			if QMessageBox.question(self, _('Batch Insert'), _('Are you sure you want to insert %d records?') % len(self.newValues), _("Yes"), _("No")) == 1:
 				return
 			if self.updateOnServer:
 				screen = self.createScreen()

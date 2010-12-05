@@ -30,8 +30,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
 
-from Koo.Dialogs.MassiveUpdateDialog import *
-from Koo.Dialogs.MassiveInsertDialog import *
+from Koo.Dialogs.BatchUpdateDialog import *
+from Koo.Dialogs.BatchInsertDialog import *
 
 from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
@@ -154,19 +154,19 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
 		# Extra Actions
-		self.actionMassiveInsert = QAction(self)
-		self.actionMassiveInsert.setText( _('&Insert Several Records at Once') )
-		self.actionMassiveInsert.setIcon( QIcon( ':/images/new.png' ) )
-		self.connect(self.actionMassiveInsert, SIGNAL('triggered()'), self.massiveInsert)
+		self.actionBatchInsert = QAction(self)
+		self.actionBatchInsert.setText( _('&Insert Several Records at Once') )
+		self.actionBatchInsert.setIcon( QIcon( ':/images/new.png' ) )
+		self.connect(self.actionBatchInsert, SIGNAL('triggered()'), self.batchInsert)
 
-		self.actionMassiveUpdate = QAction(self)
-		self.actionMassiveUpdate.setText( _('&Modify All Selected Records') )
-		self.actionMassiveUpdate.setIcon( QIcon( ':/images/edit.png' ) )
-		self.connect(self.actionMassiveUpdate, SIGNAL('triggered()'), self.massiveUpdate)
+		self.actionBatchUpdate = QAction(self)
+		self.actionBatchUpdate.setText( _('&Modify All Selected Records') )
+		self.actionBatchUpdate.setIcon( QIcon( ':/images/edit.png' ) )
+		self.connect(self.actionBatchUpdate, SIGNAL('triggered()'), self.batchUpdate)
 		
 		self.actionsMenu = QMenu( self )
-		self.actionsMenu.addAction( self.actionMassiveInsert )
-		self.actionsMenu.addAction( self.actionMassiveUpdate )
+		self.actionsMenu.addAction( self.actionBatchInsert )
+		self.actionsMenu.addAction( self.actionBatchUpdate )
 		self.pushActions.setMenu( self.actionsMenu )
 
 		#self.colors['normal'] = self.palette().color( self.backgroundRole() )
@@ -221,8 +221,8 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.setViewTypes( self.attrs.get('mode', 'tree,form').split(',') )
 		self.uiTitle.setText( self.screen.currentView().title )
 
-	def massiveUpdate(self):
-		dialog = MassiveUpdateDialog(self)
+	def batchUpdate(self):
+		dialog = BatchUpdateDialog(self)
 		dialog.setIds( self.screen.selectedIds() )
 		dialog.setModel( self.screen.resource )
 		dialog.setUpdateOnServer( False )
@@ -233,8 +233,8 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		for record in self.screen.selectedRecords():
 			record.set( dialog.newValues, modified=True )
 
-	def massiveInsert(self):
-		dialog = MassiveInsertDialog(self)
+	def batchInsert(self):
+		dialog = BatchInsertDialog(self)
 		dialog.setModel( self.screen.resource )
 		dialog.setAvailableFields( [x for x in self.screen.group.fields] )
 		dialog.setUpdateOnServer( False )

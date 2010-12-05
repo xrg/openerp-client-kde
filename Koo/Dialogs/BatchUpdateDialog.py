@@ -33,12 +33,12 @@ from Koo.Common import Common
 from Koo.Model.Group import RecordGroup
 from Koo.Screen.ViewQueue import *
 
-(MassiveUpdateMessageBoxUi, MassiveUpdateMessageBoxBase) = loadUiType( Common.uiPath('massiveupdate_msgbox.ui') )
+(BatchUpdateMessageBoxUi, BatchUpdateMessageBoxBase) = loadUiType( Common.uiPath('batchupdate_msgbox.ui') )
 
-class MassiveUpdateMessageBoxDialog(QDialog, MassiveUpdateMessageBoxUi):
+class BatchUpdateMessageBoxDialog(QDialog, BatchUpdateMessageBoxUi):
 	def __init__(self, parent=None):
 		QDialog.__init__(self, parent)
-		MassiveUpdateMessageBoxUi.__init__(self)
+		BatchUpdateMessageBoxUi.__init__(self)
 		self.setupUi(self)
 		self._fields = []
 
@@ -65,12 +65,12 @@ class MassiveUpdateMessageBoxDialog(QDialog, MassiveUpdateMessageBoxUi):
 		return selected
 
 
-(MassiveUpdateDialogUi, MassiveUpdateDialogBase) = loadUiType( Common.uiPath('massiveupdate.ui') )
+(BatchUpdateDialogUi, BatchUpdateDialogBase) = loadUiType( Common.uiPath('batchupdate.ui') )
 
-class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
+class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 	def __init__( self, parent=None ):
 		QDialog.__init__(self, parent)
-		MassiveUpdateDialogUi.__init__(self)
+		BatchUpdateDialogUi.__init__(self)
 		self.setupUi( self )
 		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.save )
@@ -127,7 +127,7 @@ class MassiveUpdateDialog( QDialog, MassiveUpdateDialogUi ):
 			fields.sort(key=lambda x: x[0])
 
 			if fields:
-				messageBox = MassiveUpdateMessageBoxDialog(self)
+				messageBox = BatchUpdateMessageBoxDialog(self)
 				messageBox.setFields(fields)
 				messageBox.setMessage( _('Select the fields you want to update in the <b>%d</b> selected records:') % len(self.ids) )
 				if messageBox.exec_() == QDialog.Rejected:

@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>MassiveUpdateDialog</class>
- <widget class="QDialog" name="MassiveUpdateDialog" >
+ <class>BatchUpdateDialog</class>
+ <widget class="QDialog" name="BatchUpdateDialog" >
   <property name="geometry" >
    <rect>
     <x>0</x>
@@ -10,7 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Massive Update Process</string>
+   <string>Batch Update Process</string>
   </property>
   <layout class="QVBoxLayout" >
    <item>
@@ -83,7 +83,7 @@
   <connection>
    <sender>pushCancel</sender>
    <signal>clicked()</signal>
-   <receiver>MassiveUpdateDialog</receiver>
+   <receiver>BatchUpdateDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel" >

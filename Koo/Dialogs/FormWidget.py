@@ -35,8 +35,8 @@ from ExportDialog import *
 from ImportDialog import *
 from AttachmentDialog import *
 from GoToIdDialog import *
-from MassiveUpdateDialog import *
-from MassiveInsertDialog import *
+from BatchUpdateDialog import *
+from BatchInsertDialog import *
 
 from Koo.Common import Api
 from Koo.Common import Common
@@ -157,9 +157,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'Switch': self.switchView,
 			'Attach': self.showAttachments,
 			'Duplicate': self.duplicate,
-			'MassiveInsert': self.massiveInsert,
-			'MassiveUpdate': self.massiveUpdate,
-			'MassiveButton': self.massiveButton,
+			'BatchInsert': self.batchInsert,
+			'BatchUpdate': self.batchUpdate,
+			'BatchButton': self.batchButton,
 			'StoreViewSettings': self.storeViewSettings,
 		}
 
@@ -531,8 +531,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.screen.cancel()
 		return True
 
-	def massiveInsert(self):
-		dialog = MassiveInsertDialog( self )
+	def batchInsert(self):
+		dialog = BatchInsertDialog( self )
 		dialog.setModel( self.model )
 		dialog.setContext( self.context )
 		dialog.setViewTypes( self.viewTypes )
@@ -542,11 +542,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		self.reload()
 
-	def massiveUpdate(self):
+	def batchUpdate(self):
 		if not self.screen.selectedIds():
 			QMessageBox.information( self, _('No records selected'), _('No records selected') )
 			return
-		dialog = MassiveUpdateDialog( self )
+		dialog = BatchUpdateDialog( self )
 		dialog.setIds( self.screen.selectedIds() )
 		dialog.setModel( self.model )
 		dialog.setContext( self.context )
@@ -596,7 +596,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.group.__del__()
 		del self.group
 
-	def massiveButton(self):
+	def batchButton(self):
 		viewTypes = self.viewTypes
 		viewIds = self.viewIds
 
@@ -625,14 +625,14 @@ class FormWidget( QWidget, FormWidgetUi ):
 			if isinstance(widget, ButtonFieldWidget):
 				buttons[unicode(widget.button.text())] = widget.name
 				
-		selectionDialog = Common.SelectionDialog(_('Choose action to apply massively'), buttons, self)
+		selectionDialog = Common.SelectionDialog(_('Choose action to apply to selected records'), buttons, self)
 		if selectionDialog.exec_() == QDialog.Rejected:
 			return
 
 		buttonString = selectionDialog.result[0]
 		buttonName = selectionDialog.result[1]
 
-		if QMessageBox.question(self, _("Massive Update"), _("Do you really want to push button '%s' of all selected records?") % buttonString, _("Yes"), _("No")) == 1:
+		if QMessageBox.question(self, _("Batch Update"), _("Do you really want to push button '%s' of all selected records?") % buttonString, _("Yes"), _("No")) == 1:
 			return
 
 		for id in self.screen.selectedIds():

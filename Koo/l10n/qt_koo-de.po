@@ -295,11 +295,6 @@ msgstr "Setze Fokus auf bestehende Kontainer"
 msgid "Alt+PgDown"
 msgstr "Alt Bild ab"
 
-#. ts-context ShortcutsDialog
-#: shortcuts.ui:818
-msgid "Set focus to nearest widget"
-msgstr "Setze Fokus auf nächstes Widget"
-
 #. ts-context ErrorDialog
 #: error.ui:109
 msgid "De&tails"
@@ -1101,6 +1096,11 @@ msgstr "<b>Fehler Code</b>"
 msgid "<Alt> + <PgDn>"
 msgstr "<Alt> + <Bild ab>"
 
+#. ts-context BatchUpdateDialog
+#: batchupdate.ui:13
+msgid "Batch Update Process"
+msgstr "Mengen Aktualisierungs Prozess"
+
 #. ts-context KooMainWindow
 #: mainwindow.ui:686
 msgid "View Access Log"
@@ -1319,11 +1319,6 @@ msgstr "<b>Kann nicht mit Server verbinden !</b>"
 msgid "&Load demonstration data"
 msgstr "&Lade Demo Daten"
 
-#. ts-context Dialog
-#: massiveupdate_msgbox.ui:14
-msgid "Massive Update"
-msgstr "Massen Update"
-
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
 msgid "Admin password:"
@@ -1397,6 +1392,7 @@ msgstr "Server"
 
 #. ts-context AboutDialog
 #. ts-context AdminPasswordDialog
+#. ts-context BatchUpdateDialog
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context CreateDatabaseDialog
@@ -1408,15 +1404,14 @@ msgstr "Server"
 #. ts-context ImportDialog
 #. ts-context LicenseDialog
 #. ts-context LoginDialog
-#. ts-context MassiveUpdateDialog
 #. ts-context PreferencesDialog
 #. ts-context SearchWidget
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
-#: about.ui:120 admin_passwd.ui:138 change_server.ui:113 choosedb.ui:161
-#: create_database.ui:343 massiveupdate_msgbox.ui:104 error.ui:159
-#: win_export.ui:243 field_preferences.ui:134 gotoid.ui:72 win_import.ui:263
-#: license.ui:148 login.ui:283 massiveupdate.ui:44 preferences.ui:45
+#: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
+#: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
+#: error.ui:159 win_export.ui:243 field_preferences.ui:134 gotoid.ui:72
+#: win_import.ui:263 license.ui:148 login.ui:283 preferences.ui:45
 #: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
 msgstr "&Annehmen"
@@ -1444,6 +1439,7 @@ msgid "C&hange"
 msgstr "Ändern"
 
 #. ts-context AdminPasswordDialog
+#. ts-context BatchUpdateDialog
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context CreateDatabaseDialog
@@ -1454,16 +1450,15 @@ msgstr "Ändern"
 #. ts-context ImportDialog
 #. ts-context LoginDialog
 #. ts-context ManyToOneWidget
-#. ts-context MassiveUpdateDialog
 #. ts-context PreferencesDialog
 #. ts-context SearchWidget
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
-#: admin_passwd.ui:149 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 massiveupdate_msgbox.ui:115 win_export.ui:257
+#: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
+#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:257
 #: field_preferences.ui:144 gotoid.ui:83 win_import.ui:274 login.ui:297
-#: one2many_dialog.ui:129 massiveupdate.ui:55 preferences.ui:56
-#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:56
+#: one2many_dialog.ui:129 preferences.ui:56 win_search.ui:108
+#: win_selection.ui:57 translationdialog.ui:56
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
@@ -1881,10 +1876,10 @@ msgstr "<Strg> + <BildAuf>"
 msgid "(_/0)"
 msgstr "(_/0)"
 
-#. ts-context MassiveUpdateDialog
-#: massiveupdate.ui:13
-msgid "Massive Update Process"
-msgstr "Mengen Aktualisierungs Prozess"
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:818
+msgid "Set focus to nearest widget"
+msgstr "Setze Fokus auf nächstes Widget"
 
 #. ts-context ExportDialog
 #: win_export.ui:116
@@ -2000,6 +1995,11 @@ msgstr "Sprache Voreinstellung:"
 #: keyboard.ui:134
 msgid "O"
 msgstr "O"
+
+#. ts-context Dialog
+#: batchupdate_msgbox.ui:14
+msgid "Batch Update"
+msgstr "Massen Update"
 
 #. ts-context ManyToManyWidget
 #. ts-context OneToManyWidget
@@ -3082,7 +3082,7 @@ msgstr "Entferne Alle"
 #. ts-context Dialog
 #. ts-context Form
 #. ts-context SearchWidget
-#: win_attach.ui:137 massiveupdate_msgbox.ui:122 keyboard.ui:449
+#: win_attach.ui:137 batchupdate_msgbox.ui:122 keyboard.ui:449
 #: win_search.ui:115
 msgid "Esc"
 msgstr "Esc"
@@ -3133,7 +3133,7 @@ msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
 
 #. ts-context Dialog
-#: massiveupdate_msgbox.ui:49
+#: batchupdate_msgbox.ui:49
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"

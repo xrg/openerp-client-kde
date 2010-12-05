@@ -2198,10 +2198,10 @@ La recherche textuelle recherche des mots complets mais aussi des mots ayant la 
     </message>
 </context>
 <context>
-    <name>MassiveUpdateDialog</name>
+    <name>BatchUpdateDialog</name>
     <message>
-        <location filename="massiveupdate.ui" line="13"/>
-        <source>Massive Update Process</source>
+        <location filename="batchupdate.ui" line="13"/>
+        <source>Batch Update Process</source>
         <translation>Processus de mise à jour massif</translation>
     </message>
 </context>

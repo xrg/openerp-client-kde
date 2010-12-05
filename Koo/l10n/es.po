@@ -441,7 +441,7 @@ msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/MassiveInsertDialog.py:131
+#: Koo/Dialogs/BatchInsertDialog.py:131
 #: Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
@@ -449,7 +449,7 @@ msgstr "Si"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/MassiveInsertDialog.py:131
+#: Koo/Dialogs/BatchInsertDialog.py:131
 #: Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
@@ -862,11 +862,11 @@ msgid "No records selected"
 msgstr "Ningún registro seleccionado"
 
 #: Koo/Dialogs/FormWidget.py:628
-msgid "Choose action to apply massively"
+msgid "Choose action to apply batchly"
 msgstr "Seleccione la opción a aplicar de forma masiva"
 
 #: Koo/Dialogs/FormWidget.py:635
-msgid "Massive Update"
+msgid "Batch Update"
 msgstr "Actualización masiva"
 
 #: Koo/Dialogs/FormWidget.py:635
@@ -1136,7 +1136,7 @@ msgstr ""
 "No se pudo cambiar la contraseña de administrador. Por favor, compruebe que "
 "el servidor y la contraseña son correctos."
 
-#: Koo/Dialogs/MassiveUpdateDialog.py:132
+#: Koo/Dialogs/BatchUpdateDialog.py:132
 #, python-format
 msgid ""
 "Select the fields you want to update in the <b>%d</b> selected records:"
@@ -1231,16 +1231,16 @@ msgstr "Nombre de la exportación"
 msgid "Exported fields"
 msgstr "Campos a exportar"
 
-#: Koo/Dialogs/MassiveInsertDialog.py:82
-msgid "Choose field to insert massively"
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert batchly"
 msgstr "Seleccione el campo para añadir de forma masiva"
 
-#: Koo/Dialogs/MassiveInsertDialog.py:99
-#: Koo/Dialogs/MassiveInsertDialog.py:131
-msgid "Massive Insert"
+#: Koo/Dialogs/BatchInsertDialog.py:99
+#: Koo/Dialogs/BatchInsertDialog.py:131
+msgid "Batch Insert"
 msgstr "Inserción masiva"
 
-#: Koo/Dialogs/MassiveInsertDialog.py:131
+#: Koo/Dialogs/BatchInsertDialog.py:131
 #, python-format
 msgid "Are you sure you want to insert %d records?"
 msgstr "Está seguro que quiere añadir %d registros?"
