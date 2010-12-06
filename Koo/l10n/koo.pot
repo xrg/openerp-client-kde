@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-05 18:04+0100\n"
+"POT-Creation-Date: 2010-12-06 12:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:63
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
-#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:321
 msgid "Information"
 msgstr ""
 
@@ -1369,14 +1369,18 @@ msgid ""
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
-msgid "&Insert Several Records at Once"
+msgid "&Duplicate Selected Records"
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:163
+msgid "&Insert Several Records at Once"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:168
 msgid "&Modify All Selected Records"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Fields/OneToMany/OneToMany.py:321
 msgid "No record selected"
 msgstr ""
 
