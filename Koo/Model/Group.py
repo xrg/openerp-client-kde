@@ -125,6 +125,8 @@ class RecordGroup(QObject):
 			self._sortMode = self.SortAllItems
 		self._sortMode = self.SortAllItems
 
+		self._allFieldsLoaded = False
+
 		self.load(ids)
 		self.removedRecords = []
 		self._onWriteFunction = ''
@@ -453,6 +455,13 @@ class RecordGroup(QObject):
 	def allFieldNames(self):
 		return [x for x in self.fieldObjects.keys() if not x.endswith('.size')]
 
+	def createAllFields(self):
+		if self._allFieldsLoaded:
+			return
+		fields = self.rpc.fields_get()
+		self.addFields( fields )
+		self._allFieldsLoaded = True
+
 	## @brief Adds the specified fields to the record group
 	#
 	# Note that it updates 'fields' and 'fieldObjects' in the group.
@@ -591,6 +600,21 @@ class RecordGroup(QObject):
 				self.records[idx] = record 
 				return record
 
+	def duplicate(self, record):
+		if record.id:
+			# If record exists in the database, ensure we copy all fields.
+			self.createAllFields()
+			self.ensureRecordLoaded(record)
+
+		newRecord = self.create()
+		newRecord.values = record.values.copy()
+		for field in newRecord.values.keys():
+			if self.fieldType( field ) in ('one2many'):
+				del newRecord.values[field]
+		newRecord.modified = True
+		newRecord.changed()
+		return newRecord
+
 	## @brief Returns a Record object for the given row.
 	def recordByIndex(self, row):
 		record = self.records[row]
@@ -609,7 +633,7 @@ class RecordGroup(QObject):
 
 	## @brief Checks whether the specified record is fully loaded and loads
 	# it if necessary.
-	def ensureModelLoaded(self, record):
+	def ensureRecordLoaded(self, record):
 		self.ensureUpdated()
 		# Do not try to load if record is new.
 		if not record.id:

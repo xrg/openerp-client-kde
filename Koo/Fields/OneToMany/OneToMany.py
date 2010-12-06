@@ -154,6 +154,11 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Expanding )
 
 		# Extra Actions
+		self.actionDuplicate = QAction(self)
+		self.actionDuplicate.setText( _('&Duplicate Selected Records') )
+		self.actionDuplicate.setIcon( QIcon( ':/images/duplicate.png' ) )
+		self.connect(self.actionDuplicate, SIGNAL('triggered()'), self.duplicate)
+
 		self.actionBatchInsert = QAction(self)
 		self.actionBatchInsert.setText( _('&Insert Several Records at Once') )
 		self.actionBatchInsert.setIcon( QIcon( ':/images/new.png' ) )
@@ -165,6 +170,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.connect(self.actionBatchUpdate, SIGNAL('triggered()'), self.batchUpdate)
 		
 		self.actionsMenu = QMenu( self )
+		self.actionsMenu.addAction( self.actionDuplicate )
 		self.actionsMenu.addAction( self.actionBatchInsert )
 		self.actionsMenu.addAction( self.actionBatchUpdate )
 		self.pushActions.setMenu( self.actionsMenu )
@@ -220,6 +226,11 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.setEmbedded( True )
 		self.screen.setViewTypes( self.attrs.get('mode', 'tree,form').split(',') )
 		self.uiTitle.setText( self.screen.currentView().title )
+
+	def duplicate(self):
+		for record in self.screen.selectedRecords():
+			self.screen.group.duplicate( record )
+		self.screen.display()
 
 	def batchUpdate(self):
 		dialog = BatchUpdateDialog(self)
