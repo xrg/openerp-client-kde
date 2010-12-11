@@ -214,6 +214,23 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="0" colspan="2">
+      <widget class="QCheckBox" name="uiImportCompatible">
+       <property name="toolTip">
+        <string>Check this field if you want to be able to import this information back to OpenERP.
+
+Note that you may also be interested in adding ID or Database ID fields, so OpenERP can match CSV and database's records when you import it later.
+
+On the other hand, import incompatible files will show some information in a way users can better understand it and it's probably what you expect if you do not intend to import data back to OpenERP.</string>
+       </property>
+       <property name="text">
+        <string>Import compatible</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>

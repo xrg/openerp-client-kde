@@ -30,6 +30,8 @@
 import gettext
 from xml.parsers import expat
 
+from ExportDialog import *
+
 from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common import Debug
@@ -116,6 +118,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			'PrintHtml': self.printHtmlCurrent,
 			'Reload': self.reload,
 			'StoreViewSettings': self.storeViewState,
+			'Export': self.export,
 		}
 
 		parser = TreeParser()
@@ -337,6 +340,13 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if not id:
 			return
 		self.executeAction('tree_but_open', id)
+
+	def export(self):
+		dialog = ExportDialog(self)
+		dialog.setModel( self.model )
+		dialog.setIds( self.treeModel.recordGroup().ids() )
+		dialog.setup( ['tree', 'form'], [self.view['view_id'], False] )
+		dialog.exec_()
 
 	def expand(self):
 		if self.toolbar:
