@@ -36,11 +36,35 @@ from Koo.Screen.ViewQueue import *
 
 from Koo import Rpc
 
-import csv, StringIO
+import csv
+import StringIO
+
+try:
+	import xlrd
+	isExcelAvailable = True
+except:
+	isExcelAvailable = False
 
 from ImportExportCommon import *
 
-def import_csv(csv_data, fields, model):
+def executeImport(datas, model, fields):
+	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
+	if res[0]>=0:
+		QMessageBox.information( None, _('Information'), _('Imported %d objects !') % (res[0]))
+	else:
+		d = ''
+		for key,val in res[1].items():
+			d+= ('\t%s: %s\n' % (str(key),str(val)))
+		error = _('Error trying to import this record:\n%(record)s\nError Message:\n%(error1)s\n\n%(error2)s') % {
+			'record': d,
+			'error1': res[2],
+			'error2': res[3]
+		}
+		QMessageBox.warning(None, _('Error importing data'), error )
+		return False
+	return True
+
+def importCsv(csv_data, fields, model):
 	fname = csv_data['fname']
 	try:
 		content = file(fname,'rb').read()
@@ -58,21 +82,7 @@ def import_csv(csv_data, fields, model):
 		QMessageBox.information( None, _('Error'), _('Error reading file: %s') % unicode(e.args) )
 		return False
 
-	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
-	if res[0]>=0:
-		QMessageBox.information( None, _('Information'), _('Imported %d objects !') % (res[0]))
-	else:
-		d = ''
-		for key,val in res[1].items():
-			d+= ('\t%s: %s\n' % (str(key),str(val)))
-		error = _('Error trying to import this record:\n%(record)s\nError Message:\n%(error1)s\n\n%(error2)s') % {
-			'record': d,
-			'error1': res[2],
-			'error2': res[3]
-		}
-		QMessageBox.warning(None, _('Error importing data'), error )
-		return False
-	return True
+	return executeImport(datas, model, fields)
 
 (ImportDialogUi, ImportDialogBase) = loadUiType( Common.uiPath('win_import.ui') )
 
@@ -84,13 +94,44 @@ class ImportDialog(QDialog, ImportDialogUi):
 
 		self.model = None
 		self.fields = None
-		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
-		self.connect( self.pushCancel, SIGNAL('clicked()'), self.reject )
+
+		self.uiFileFormat.addItem( _('CSV'), 'csv' )
+		if isExcelAvailable:
+			self.uiFileFormat.addItem( _('Excel'), 'excel' )
+		self.uiFileFormat.setCurrentIndex( 0 )
+		self.updateFileFormat()
+
+		self.connect( self.pushImport, SIGNAL('clicked()'), self.import_ )
+		self.connect( self.pushClose, SIGNAL('clicked()'), self.reject )
 		self.connect( self.pushAdd, SIGNAL('clicked()'), self.slotAdd )
 		self.connect( self.pushRemove, SIGNAL('clicked()'), self.slotRemove )
 		self.connect( self.pushRemoveAll, SIGNAL('clicked()'), self.slotRemoveAll )
 		self.connect( self.pushAutoDetect, SIGNAL('clicked()'), self.slotAutoDetect )
 		self.connect( self.pushOpenFile, SIGNAL('clicked()'), self.slotOpenFile )
+		self.connect( self.uiFileFormat, SIGNAL('currentIndexChanged(int)'), self.updateFileFormat )
+
+	def fileFormat(self):
+		index = self.uiFileFormat.currentIndex()
+		return unicode( self.uiFileFormat.itemData( index ).toString() )
+
+	def updateFileFormat(self):
+		if self.fileFormat() == 'csv':
+			self.uiCsvContainer.show()
+			self.uiSpreadSheetContainer.hide()
+		else:
+			self.uiCsvContainer.hide()
+			self.uiSpreadSheetContainer.show()
+			self.updateExcelFields()
+
+	def updateExcelFields(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
+			QMessageBox.information(self, _('Sheet List Error'), 'You must select an import file first !')
+			return 
+		self.uiSpreadSheetSheet.clear()
+		for sheet in self.excelSheets(fileName):
+			self.uiSpreadSheetSheet.addItem( sheet, 0 )
+		self.uiSpreadSheetSheet.setCurrentIndex( 0 )
 
 	def setModel(self, model):
 		self.model = model
@@ -132,32 +173,7 @@ class ImportDialog(QDialog, ImportDialogUi):
 			return
 		self.uiFileName.setText( file )
 
-	def slotAccept(self):
-		self.uiLinesToSkip.setValue(1)
-		csv = {
-			'fname': unicode(self.uiFileName.text()).strip(),
-			'sep': unicode(self.uiFieldSeparator.text()).encode('ascii','ignore').strip(),
-			'del': unicode(self.uiTextDelimiter.text()).encode('ascii','ignore').strip(),
-			'skip': self.uiLinesToSkip.value(),
-			'encoding': unicode(self.uiEncoding.currentText())
-		}
-		if csv['fname'] == '':
-			QMessageBox.warning(self, _('Import error'), _('No file specified.'))
-			return
-		if len(csv['sep']) != 1:
-			QMessageBox.warning(self, _('Import error'), _('Separator must be a single character.'))
-			return
-		if len(csv['del']) != 1:
-			QMessageBox.warning(self, _('Import error'), _('Delimiter must be a single character.'))
-			return
-		fieldsData = []
-		for x in range(0, self.selectedModel.rowCount() ):
-			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
-
-		if csv['fname']:
-			if not import_csv(csv, fieldsData, self.model):
-				return
-		self.accept()
+		
 
 	def slotAdd(self):
 		idx = self.uiAllFields.selectionModel().selectedRows()
@@ -195,35 +211,144 @@ class ImportDialog(QDialog, ImportDialogUi):
 			path = item.data().toString() + "/" + path
 		return path
 
-	def slotAutoDetect(self):
-		fname=unicode(self.uiFileName.text())
-		if not fname:
+	def csvAutoDetect(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
 			QMessageBox.information(self, _('Auto-detect error'), 'You must select an import file first !')
 			return 
-		csvsep=unicode(self.uiFieldSeparator.text()).encode('ascii','ignore').strip()
-		csvdel=unicode(self.uiTextDelimiter.text()).encode('ascii','ignore').strip()
-		csvcode=unicode(self.uiEncoding.currentText()) or 'UTF-8'
+		separator = unicode(self.uiFieldSeparator.text()).encode('ascii','ignore').strip()
+		delimiter = unicode(self.uiTextDelimiter.text()).encode('ascii','ignore').strip()
+		encoding = unicode(self.uiEncoding.currentText()) or 'UTF-8'
 
 		self.uiLinesToSkip.setValue(1)
-		if len(csvsep) != 1:
+		if len(separator) != 1:
 			QMessageBox.warning(self, _('Auto-detect error'), _('Separator must be a single character.'))
 			return
-		if len(csvdel) != 1:
+		if len(delimiter) != 1:
 			QMessageBox.warning(self, _('Auto-detect error'), _('Delimiter must be a single character.'))
 			return
 		
 		try:
-			data = csv.reader(file(fname), quotechar=csvdel, delimiter=csvsep)
+			records = csv.reader(file(fileName), quotechar=delimiter, delimiter=separator)
 		except:
 			QMessageBox.warning(self, _('Auto-detect error'), _('Error opening .CSV file: Input Error.') )
 			return 
 		self.slotRemoveAll()
 		try:
-			for line in data:
-				for word in line:
-					word=unicode(word, csvcode, errors='replace') 
-					self.selectedModel.addField( word, self.fieldsInvertedInfo[word] )
+			for record in records:
+				for field in record:
+					if encoding:
+						field = unicode(field, encoding, errors='replace') 
+					self.selectedModel.addField( field, self.fieldsInvertedInfo[field] )
 				break
+			if self.uiLinesToSkip.value() == 0:
+				self.uiLinesToSkip.setValue( 1 )
 		except:
-			QMessageBox.warning(self, _('Auto-detect error'), _('Error processing your first line of the file.\nField %s is unknown !') % (word) )
+			QMessageBox.warning(self, _('Auto-detect error'), _('Error processing your first line of the file.\nField %s is unknown !') % (field) )
+
+	def excelRecords(self, fileName, sheet):
+		try:
+			book = xlrd.open_workbook( fileName )
+		except Exception, e:
+			QMessageBox.information( None, _('Error'), _('Error reading file: %s') % unicode(e.args) )
+			return []
+		sheet = book.sheet_by_name(sheet)
+		if sheet.nrows == 0:
+			return []
+		header = sheet.row_values(0)
+		records = []
+		for row in xrange(sheet.nrows):
+			record = []
+			for column in sheet.row_values(row):
+				record.append( column )
+			records.append( record )
+		return records
+
+	def excelSheets(self, fileName):
+		try:
+			book = xlrd.open_workbook( fileName )
+		except Exception, e:
+			QMessageBox.information( None, _('Error'), _('Error reading file: %s') % unicode(e.args) )
+			return []
+		sheets = []
+		for i in xrange(book.nsheets):
+			sheets.append( book.sheet_by_index( i ).name )
+		return sheets	
+
+	def excelAutoDetect(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
+			QMessageBox.information(self, _('Auto-detect error'), 'You must select an import file first !')
+			return 
+		sheet = unicode( self.uiSpreadSheetSheet.currentText() )
+		records = self.excelRecords( fileName, sheet )
+		if records:
+			record = records[0]
+			for field in record:
+				if not field in self.fieldsInvertedInfo:
+					QMessageBox.warning(self, _('Auto-detect error'), _('Error processing your first line of the file.\nField %s is unknown !') % (field) )
+					return
+				self.selectedModel.addField( field, self.fieldsInvertedInfo[field] )
+			if self.uiSpreadSheetLinesToSkip.value() == 0:
+				self.uiSpreadSheetLinesToSkip.setValue( 1 )
+
+	def slotAutoDetect(self):
+		self.slotRemoveAll()
+		if self.fileFormat() == 'csv':
+			self.csvAutoDetect()
+		else:
+			self.excelAutoDetect()
+
+	def importCsv(self):
+		self.uiLinesToSkip.setValue(1)
+		csv = {
+			'fname': unicode(self.uiFileName.text()).strip(),
+			'sep': unicode(self.uiFieldSeparator.text()).encode('ascii','ignore').strip(),
+			'del': unicode(self.uiTextDelimiter.text()).encode('ascii','ignore').strip(),
+			'skip': self.uiLinesToSkip.value(),
+			'encoding': unicode(self.uiEncoding.currentText())
+		}
+		if csv['fname'] == '':
+			QMessageBox.warning(self, _('Import error'), _('No file specified.'))
+			return
+		if len(csv['sep']) != 1:
+			QMessageBox.warning(self, _('Import error'), _('Separator must be a single character.'))
+			return
+		if len(csv['del']) != 1:
+			QMessageBox.warning(self, _('Import error'), _('Delimiter must be a single character.'))
+			return
+		fieldsData = []
+		for x in range(0, self.selectedModel.rowCount() ):
+			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
+
+		if csv['fname']:
+			if not importCsv(csv, fieldsData, self.model):
+				return
+		self.accept()
+
+	def importExcel(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
+			QMessageBox.information(self, _('Import Error'), 'You must select an import file first !')
+			return 
+		sheet = unicode( self.uiSpreadSheetSheet.currentText() )
+
+		linesToSkip = self.uiSpreadSheetLinesToSkip.value()
+
+		fieldsData = []
+		for x in range(0, self.selectedModel.rowCount() ):
+			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
+
+
+		records = self.excelRecords( fileName, sheet )
+		records = records[linesToSkip:]
+		executeImport( records, self.model, fieldsData )
+		return records
+			
+
+	def import_(self):
+		if self.fileFormat() == 'csv':
+			self.importCsv()
+		else:
+			self.importExcel()
 
