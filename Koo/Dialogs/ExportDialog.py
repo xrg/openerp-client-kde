@@ -190,12 +190,21 @@ def openOpenOffice(fields, fieldsType, result, writeTitle):
 		QApplication.restoreOverrideCursor()
 		QMessageBox.warning(None, _('Error'), _('Error Opening OpenOffice.org:\n%s') % unicode(e.args) )
 
-def exportData(ids, model, fields, prefix=''):
-	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields, Rpc.session.context)
+def exportData(ids, model, fields, importCompatible):
+	context = Rpc.session.context.copy()
+	context['import_comp'] = importCompatible
+	data = Rpc.session.execute('/object', 'execute', model, 'export_data', ids, fields, context)
 	# After 5.0 data is returned directly (no 'datas' key in a dictionary).
 	if isinstance(data, dict) and 'datas' in data:
 		data = data['datas']
-	return data
+	result = {
+		'data': data,
+	}
+	if isinstance(data, dict) and 'warning' in data:
+		result = {
+			'warning': data['warning'],
+		}
+	return result
 
 (ExportDialogUi, ExportDialogBase) = loadUiType( Common.uiPath('win_export.ui') )
 
@@ -309,7 +318,12 @@ class ExportDialog( QDialog, ExportDialogUi ):
 			fields.append( unicode( self.selectedModel.item( x ).data().toString() ) )
 			fieldTitles.append( unicode( self.selectedModel.item( x ).text() ) )
 		action = unicode( self.uiFormat.itemData(self.uiFormat.currentIndex()).toString() )
-		result = exportData(self.ids, self.model, fields)
+		importCompatible = self.uiImportCompatible.isChecked()
+		result = exportData(self.ids, self.model, fields, importCompatible)
+		if 'warning' in result:
+			QMessageBox.warning(self, _('Data Export Error'), result['warning'])
+			return
+		result = result['data']
 		export = ExportDialog.exports[action]
 		if export['requiresFileName']:
 			fileName = unicode( QFileDialog.getSaveFileName( self, _('Export Data') ) )

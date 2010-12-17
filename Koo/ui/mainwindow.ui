@@ -353,9 +353,9 @@
     <addaction name="separator"/>
     <addaction name="actionDelete"/>
     <addaction name="separator"/>
-    <addaction name="actionMassiveInsert"/>
-    <addaction name="actionMassiveUpdate"/>
-    <addaction name="actionMassiveButton"/>
+    <addaction name="actionBatchInsert"/>
+    <addaction name="actionBatchUpdate"/>
+    <addaction name="actionBatchButton"/>
     <addaction name="separator"/>
     <addaction name="actionFind"/>
     <addaction name="actionNext"/>
@@ -842,7 +842,7 @@
     <string>&amp;Clear Cache</string>
    </property>
   </action>
-  <action name="actionMassiveUpdate">
+  <action name="actionBatchUpdate">
    <property name="icon">
     <iconset resource="common.qrc">
      <normaloff>:/images/edit.png</normaloff>:/images/edit.png</iconset>
@@ -866,7 +866,7 @@
     <string>doc.openerp.com</string>
    </property>
   </action>
-  <action name="actionMassiveButton">
+  <action name="actionBatchButton">
    <property name="icon">
     <iconset resource="common.qrc">
      <normaloff>:/images/exec.png</normaloff>:/images/exec.png</iconset>
@@ -875,7 +875,7 @@
     <string>Push Button of All Selected Records</string>
    </property>
   </action>
-  <action name="actionMassiveInsert">
+  <action name="actionBatchInsert">
    <property name="icon">
     <iconset resource="common.qrc">
      <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>

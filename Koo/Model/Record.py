@@ -113,13 +113,13 @@ class Record(QObject):
 	## @brief Establishes the value for a given field
 	def setValue(self, fieldName, value):
 		if not fieldName in self.values: 
-			self.group.ensureModelLoaded( self )
+			self.group.ensureRecordLoaded( self )
 		self.group.fieldObjects[fieldName].set_client(self, value)
 
 	## @brief Obtains the value of a given field
 	def value(self, fieldName):
 		if not fieldName in self.values:
-			self.group.ensureModelLoaded( self )
+			self.group.ensureRecordLoaded( self )
 		return self.group.fieldObjects[fieldName].get_client(self)
 
 	## @brief Establishes the default value for a given field
@@ -463,7 +463,7 @@ class Record(QObject):
 			# (that is firstTry == False) then raise the exception because it's
 			# really an issue on the view definition.
 			if firstTry:
-				self.group.ensureModelLoaded( self )
+				self.group.ensureRecordLoaded( self )
 				val = self.evaluateExpression( dom, checkLoad, firstTry=False )
 			else:
 				raise

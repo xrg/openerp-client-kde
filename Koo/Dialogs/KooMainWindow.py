@@ -174,7 +174,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.actions = [ 
 			'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 'Reload', 'Switch', 
 			'Attach', 'Export', 'Import', 'GoToResourceId', 'Duplicate', 'AccessLog', 
-			'MassiveInsert', 'MassiveUpdate', 'MassiveButton', 'StoreViewSettings' 
+			'BatchInsert', 'BatchUpdate', 'BatchButton', 'StoreViewSettings' 
 		]
 		for x in self.actions:
 			action = eval('self.action'+ x)
@@ -712,13 +712,13 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.actionFullTextSearch.setEnabled( False )
 
 		if Settings.value('koo.allow_massive_updates', True):
-			self.actionMassiveInsert.setVisible( True )
-			self.actionMassiveUpdate.setVisible( True )
-			self.actionMassiveButton.setVisible( True )
+			self.actionBatchInsert.setVisible( True )
+			self.actionBatchUpdate.setVisible( True )
+			self.actionBatchButton.setVisible( True )
 		else:
-			self.actionMassiveInsert.setVisible( False )
-			self.actionMassiveUpdate.setVisible( False )
-			self.actionMassiveButton.setVisible( False )
+			self.actionBatchInsert.setVisible( False )
+			self.actionBatchUpdate.setVisible( False )
+			self.actionBatchButton.setVisible( False )
 
 		if Settings.value('koo.allow_import_export', True):
 			self.actionImport.setVisible( True )

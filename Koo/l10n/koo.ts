@@ -196,6 +196,24 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>BatchUpdateDialog</name>
+    <message>
+        <location filename="batchupdate.ui" line="13"/>
+        <source>Batch Update Process</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="batchupdate.ui" line="44"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="batchupdate.ui" line="55"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BinaryWidget</name>
     <message>
         <location filename="binary.ui" line="47"/>
@@ -425,12 +443,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Dialog</name>
     <message>
-        <location filename="massiveupdate_msgbox.ui" line="14"/>
-        <source>Massive Update</source>
+        <location filename="batchupdate_msgbox.ui" line="14"/>
+        <source>Batch Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="massiveupdate_msgbox.ui" line="49"/>
+        <location filename="batchupdate_msgbox.ui" line="49"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -439,17 +457,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="massiveupdate_msgbox.ui" line="104"/>
+        <location filename="batchupdate_msgbox.ui" line="104"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="massiveupdate_msgbox.ui" line="115"/>
+        <location filename="batchupdate_msgbox.ui" line="115"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="massiveupdate_msgbox.ui" line="122"/>
+        <location filename="batchupdate_msgbox.ui" line="122"/>
         <source>Esc</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1812,24 +1830,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="one2many_dialog.ui" line="95"/>
         <source>(_/0)</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MassiveUpdateDialog</name>
-    <message>
-        <location filename="massiveupdate.ui" line="13"/>
-        <source>Massive Update Process</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="massiveupdate.ui" line="44"/>
-        <source>&amp;Accept</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="massiveupdate.ui" line="55"/>
-        <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2027,10 +2027,10 @@ La búsqueda de texto sólo busca palabras completas pero devolverá palabras qu
     </message>
 </context>
 <context>
-    <name>MassiveUpdateDialog</name>
+    <name>BatchUpdateDialog</name>
     <message>
-        <location filename="massiveupdate.ui" line="13"/>
-        <source>Massive Update Process</source>
+        <location filename="batchupdate.ui" line="13"/>
+        <source>Batch Update Process</source>
         <translation>Proceso de actualización masiva</translation>
     </message>
 </context>

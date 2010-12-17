@@ -1093,6 +1093,22 @@ msgstr ""
 msgid "&Insert Several Records at Once"
 msgstr ""
 
+#: Koo/Dialogs/FormWidget.py:628
+msgid "Choose action to apply batchly"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:635
+msgid "Batch Update"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert batchly"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:99 Koo/Dialogs/BatchInsertDialog.py:131
+msgid "Batch Insert"
+msgstr ""
+
 #, fuzzy
 #~ msgid "Document saved !"
 #~ msgstr "Opzioni salvate!"

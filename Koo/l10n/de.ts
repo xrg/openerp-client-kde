@@ -2125,10 +2125,10 @@ Das System sucht nur nach vollständigen Wörtern, bzw. deren Wurzeln.
     </message>
 </context>
 <context>
-    <name>MassiveUpdateDialog</name>
+    <name>BatchUpdateDialog</name>
     <message>
-        <location filename="massiveupdate.ui" line="13"/>
-        <source>Massive Update Process</source>
+        <location filename="batchupdate.ui" line="13"/>
+        <source>Batch Update Process</source>
         <translation>Mengen Aktualisierungs Prozess</translation>
     </message>
 </context>
