@@ -39,7 +39,7 @@ class JasperReport:
 		if self._pathPrefix and self._pathPrefix[-1] != '/':
 			self._pathPrefix += '/'
 
-		self._language = 'SQL'
+		self._language = 'xpath'
 		self._relations = []
 		self._fields = {}
 		self._fieldNames = []
@@ -82,8 +82,8 @@ class JasperReport:
 
 		# Language
 		
-		# Not that if either queryString or language do not exist the default (from the constructor)
-		# is SQL.
+		# Note that if either queryString or language do not exist the default (from the constructor)
+		# is XPath.
 		langTags = doc.xpath( '/jr:jasperReport/jr:queryString', namespaces=nss )
 		if langTags:
 			if langTags[0].get('language'):
@@ -92,7 +92,11 @@ class JasperReport:
 		# Relations
 		relationTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_RELATIONS"]', namespaces=nss )
 		if relationTags and 'value' in relationTags[0].keys():
-			self._relations = safe_eval( relationTags[0].get('value'), {} )
+			relation = relationTags[0].get('value').strip()
+			if relation.startswith('['):
+				self._relations = safe_eval( relationTags[0].get('value'), {} )
+			else:
+				self._relations = [x.strip() for x in relation.split(',')]
 			self._relations = [self._pathPrefix + x for x in self._relations]
 		if not self._relations and self._pathPrefix:
 			self._relations = [self._pathPrefix[:-1]]
@@ -172,7 +176,15 @@ class JasperReport:
 			if pathPrefixTags and 'value' in pathPrefixTags[0].keys():
 				pathPrefix = pathPrefixTags[0].get('value')
 
-			subreport = JasperReport( subreportExpression, pathPrefix )
+			# Add our own pathPrefix to subreport's pathPrefix
+			subPrefix = []
+			if self._pathPrefix:
+				subPrefix.append( self._pathPrefix )
+			if pathPrefix:
+				subPrefix.append( pathPrefix )
+			subPrefix = '/'.join( subPrefix )
+
+			subreport = JasperReport( subreportExpression, subPrefix )
 			self._subreports.append({
 				'parameter': dataSourceExpression,
 				'filename': subreportExpression,
@@ -182,18 +194,8 @@ class JasperReport:
 				'depth': 1,
 			})
 			for subsubInfo in subreport.subreports():
-				subPrefix = []
-				if pathPrefix:
-					subPrefix.append( pathPrefix )
-				if subsubInfo.get('pathprefix'):
-					subPrefix.append( subsubInfo['pathprefix'] )
-				subPrefix = '/'.join( subPrefix )
-				self._subreports.append({
-					'parameter': subsubInfo['parameter'], # PARAMETER MUST BE THE SAME IN ALL REPORTS
-					'filename': subsubInfo['filename'],
-					'model': subsubInfo['model'],
-					'pathPrefix': subPrefix,
-					'report': subsubInfo['report'],
-					'depth': subsubInfo['depth'] + 1,
-				})
+				subsubInfo['depth'] += 1
+				# Note hat 'parameter' (the one used to pass report's DataSource) must be 
+				# the same in all reports
+				self._subreports.append( subsubInfo )
 
