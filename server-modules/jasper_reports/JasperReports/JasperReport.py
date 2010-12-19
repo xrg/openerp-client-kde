@@ -28,6 +28,7 @@
 import os
 from lxml import etree
 import re
+from tools.safe_eval import safe_eval
 
 dataSourceExpressionRegExp = re.compile( r"""\$P\{(\w+)\}""" )
 
@@ -91,8 +92,7 @@ class JasperReport:
 		# Relations
 		relationTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_RELATIONS"]', namespaces=nss )
 		if relationTags and 'value' in relationTags[0].keys():
-			# TODO: Make this secure.
-			self._relations = eval( relationTags[0].get('value') )
+			self._relations = safe_eval( relationTags[0].get('value'), {} )
 			self._relations = [self._pathPrefix + x for x in self._relations]
 		if not self._relations and self._pathPrefix:
 			self._relations = [self._pathPrefix[:-1]]
@@ -110,7 +110,6 @@ class JasperReport:
 			type = tag.get('class')
 			children = tag.getchildren()
 			path = tag.findtext('{%s}fieldDescription' % ns, '')
-			#print "D2: ", tag.find('fieldDescription').text
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = self._pathPrefix + path[13:]
@@ -154,8 +153,7 @@ class JasperReport:
 			subreportExpression = subreportExpression.replace('$P{STANDARD_DIR}', '"%s"' % self.standardDirectory() )
 			subreportExpression = subreportExpression.replace('$P{SUBREPORT_DIR}', '"%s"' % self.subreportDirectory() )
 			try:
-				# TODO: Make this secure
-				subreportExpression = eval( subreportExpression )
+				subreportExpression = safe_eval( subreportExpression, {} )
 			except:
 				print "COULD NOT EVALUATE EXPRESSION: '%s'" % subreportExpression
 				# If we're not able to evaluate the expression go to next subreport
@@ -174,10 +172,28 @@ class JasperReport:
 			if pathPrefixTags and 'value' in pathPrefixTags[0].keys():
 				pathPrefix = pathPrefixTags[0].get('value')
 
+			subreport = JasperReport( subreportExpression, pathPrefix )
 			self._subreports.append({
 				'parameter': dataSourceExpression,
 				'filename': subreportExpression,
 				'model': model,
 				'pathPrefix': pathPrefix,
+				'report': subreport,
+				'depth': 1,
 			})
+			for subsubInfo in subreport.subreports():
+				subPrefix = []
+				if pathPrefix:
+					subPrefix.append( pathPrefix )
+				if subsubInfo.get('pathprefix'):
+					subPrefix.append( subsubInfo['pathprefix'] )
+				subPrefix = '/'.join( subPrefix )
+				self._subreports.append({
+					'parameter': subsubInfo['parameter'], # PARAMETER MUST BE THE SAME IN ALL REPORTS
+					'filename': subsubInfo['filename'],
+					'model': subsubInfo['model'],
+					'pathPrefix': subPrefix,
+					'report': subsubInfo['report'],
+					'depth': subsubInfo['depth'] + 1,
+				})
 

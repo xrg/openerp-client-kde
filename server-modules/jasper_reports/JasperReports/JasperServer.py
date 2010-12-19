@@ -12,6 +12,20 @@ class JasperServer:
 		url = 'http://localhost:%d' % port
 		self.proxy = xmlrpclib.ServerProxy( url, allow_none = True )
 
+		try:
+			# Do not depend on being called inside OpenERP server
+			import netsvc
+			self.logger = netsvc.Logger()
+			self.ERROR = netsvc.LOG_ERROR
+		except:
+			self.logger = None
+
+	def error(self, message):
+		if self.logger:
+			self.logger.notifyChannel("jasper_reports", self.ERROR, message )
+		else:
+			print 'JasperReports: %s' % message
+
 	def path(self):
 		return os.path.abspath(os.path.dirname(__file__))
 
@@ -44,14 +58,13 @@ class JasperServer:
 		try: 
 			self.proxy.Report.execute( *args )
 		except (xmlrpclib.ProtocolError, socket.error), e:
-			print "FIRST TRY DIDN'T WORK: ", str(e), str(e.args)
+			#self.info("First try did not work: %s / %s" % (str(e), str(e.args)) )
 			self.start()
 			for x in xrange(40):
 				time.sleep(1)
 				try:
-					print "TRYING"
 					return self.proxy.Report.execute( *args )
 				except (xmlrpclib.ProtocolError, socket.error), e:
-					print "EXCEPTION: ", str(e), str(e.args)
+					self.error("EXCEPTION: %s %s" % ( str(e), str(e.args) ))
 					pass
 

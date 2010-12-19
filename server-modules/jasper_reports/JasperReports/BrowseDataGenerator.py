@@ -51,6 +51,20 @@ class BrowseDataGenerator(AbstractDataGenerator):
 		self.imageFiles = {}
 		self.temporaryFiles = []
 
+		try:
+			# Do not depend on being called inside OpenERP server
+			import netsvc
+			self.logger = netsvc.Logger()
+			self.WARNING = netsvc.LOG_WARNING
+		except:
+			self.logger = None
+	
+	def warning(self, message):
+		if self.logger:
+			self.logger.notifyChannel("jasper_reports", self.WARNING, message )
+		else:
+			print 'JasperReports: %s' % message
+
 	def languages(self):
 		if self._languages:
 			return self._languages
@@ -94,7 +108,7 @@ class BrowseDataGenerator(AbstractDataGenerator):
 				elif record.__hasattr__(root):
 					value = record.__getattr__(root)
 				else:
-					print "Field '%s' does not exist in model '%s'." % (root, record._table)
+					self.warning("Field '%s' does not exist in model '%s'." % (root, record._table._name))
 					continue
 
 				if isinstance(value, orm.browse_record):
@@ -102,7 +116,7 @@ class BrowseDataGenerator(AbstractDataGenerator):
 					return self.generateIds( value, relations2, currentPath, currentRecords )
 
 				if not isinstance(value, list):
-					print "Field '%s' in model '%s' is not a relation." % (root, self.model)
+					self.warning("Field '%s' in model '%s' is not a relation." % (root, self.model))
 					return currentRecords
 
 			# Only join if there are any records because it's a LEFT JOIN
@@ -182,7 +196,7 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 					value = record.__getattr__(root)
 				else:
 					value = None
-					print "Field '%s' does not exist in model '%s'." % (root, record._table)
+					self.warning("Field '%s' does not exist in model '%s'." % (root, record._table._name))
 
 			# Check if it's a many2one
 			if isinstance(value, orm.browse_record):
@@ -294,7 +308,7 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 					value = record.__getattr__(root)
 				else:
 					value = None
-					print "Field '%s' does not exist in model '%s'." % (root, record._table)
+					self.warning("Field '%s' (path: %s) does not exist in model '%s'." % (root, currentPath, record._table._name))
 
 
 			# Check if it's a many2one
