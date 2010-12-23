@@ -190,7 +190,10 @@ setup (
 	windows          = [{
                                 'script': opj('Koo','koo.py'),
                                 'icon_resources': [(1, opj("nsis", "koo.ico"))],
-                            }],
+                            },{
+                                'script': opj('Koo','koopos.py'),
+                                'icon_resources': [(1, opj("nsis", "koo.ico"))],
+			    }],
 	#console          = ['Koo/koo.py'],
 	packages         = packages ,
 	package_dir      = {'Koo': 'Koo'},
