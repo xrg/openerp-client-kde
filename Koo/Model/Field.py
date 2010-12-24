@@ -220,10 +220,10 @@ class FloatField(StringField):
 class IntegerField(StringField):
 
 	def get(self, record, checkLoad=True, readonly=True, modified=False):
-		return record.values.get(self.name, 0) or 0
+		return record.values.get(self.name, 0)
 
 	def get_client(self, record):
-		return record.values[self.name] or 0
+		return record.values.get(self.name, 0)
 
 	def validate(self, record):
 		record.setFieldValid( self.name, True )
