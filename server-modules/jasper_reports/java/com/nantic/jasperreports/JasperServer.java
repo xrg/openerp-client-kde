@@ -284,7 +284,9 @@ public class JasperServer {
 				Map m = (Map)subreports[i];
 
 				// Ensure subreport is compiled
-				compile( (String)m.get("jrxmlFile") );
+				String jrxmlFile = (String)m.get("jrxmlFile");
+				if ( ! jrxmlFile.equals( "DATASET" ) )
+					compile( (String)m.get("jrxmlFile") );
 
 				// Create DataSource for subreport
 				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)m.get("dataFile"), "utf-8" );
