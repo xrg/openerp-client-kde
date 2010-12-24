@@ -81,88 +81,19 @@ class koo_services(baseExportService):
 			cr.close()
 
 	def exp_search(self, cr, uid, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
-	    try:
 		pool = pooler.get_pool(cr.dbname)
 		if not context:
 			context = {}
 
 		# Check to avoid SQL injection later
-		model = pool.get(model)._name
-		table = pool.get(model)._table
-
-		# compute the where, order by, limit and offset clauses
-		(qu1, qu2, tables) = pool.get(model)._where_calc(cr, uid, filter, context=context)
-
-		# construct a clause for the rules :
-		d1, d2, dtables = pool.get('ir.rule').domain_get(cr, uid, model)
-		if d1:
-		    if isinstance(qu1, tuple):
-			qu1 = list(qu1)
-		    qu1 += list(d1)
-		    qu2 += d2
-		    for dt in dtables:
-			if dt not in tables:
-			    tables.append(dt)
-
-		resortField = False
-		resortOrder = False
-		if order:
-		    pool.get(model)._check_qorder(order)
-		    m = regex_order.match( order )
-		    field = m.group(2)
-		    if field in pool.get(model)._columns:
-		    	if isinstance( pool.get(model)._columns[field], fields.many2one ):
-				# USING STANDARD search() FUNCTION
-				#resortField = field
-				#if m.group(3).strip().upper() in ('ASC', 'DESC'):
-					#resortOrder = m.group(3)
-				
-				# DIRECT JOIN WITH NO TRANSLATION SUPPORT
-				obj = pool.get(model)._columns[field]._obj
-				rec_name = pool.get(obj)._rec_name
-				obj = pool.get(obj)._table
-				t = tables[0]
-				tables[0] = '(%s LEFT JOIN (SELECT id AS join_identifier, "%s" AS join_sort_field FROM "%s") AS left_join_subquery ON %s = join_identifier) AS %s' % (t, rec_name, obj, field, t) 
-				order = 'join_sort_field'
-				if m.group(3).strip().upper() in ('ASC', 'DESC'):
-					order += m.group(3)
-
-		order_by = order or pool.get(model)._order
-
-		limit_str = limit and ' limit %d' % limit or ''
-		offset_str = offset and ' offset %d' % offset or ''
-
-		if len(qu1):
-			qu1s = ' WHERE ' + ' AND '.join(qu1)
-		else:
-			qu1s = ''
+		mod_obj = pool.get(model)
 		
-		if count:
-		    cr.execute('SELECT COUNT(%s.id) FROM ' % table +
-			    ','.join(tables) +qu1s + limit_str + offset_str, qu2)
-		    res = cr.fetchall()
-		    return res[0][0]
-
-		# execute the "main" query to fetch the ids we were searching for
 		if group:
-			cr.execute('SELECT %s.id, %s FROM ' % (table, group) + ','.join(tables) +qu1s+' ORDER BY '+order_by+limit_str+offset_str, qu2)
-			res = []
-			counter = 0 
-			last_value = None
-			for record in cr.fetchall():
-				if last_value != x[1]:
-					last_value = x[1]
-					counter += 1
-				res = [(x[0], counter)]
-		else:
-			cr.execute('SELECT %s.id FROM ' % table + ','.join(tables) +qu1s+' ORDER BY '+order_by+limit_str+offset_str, qu2)
-			res = [x[0] for x in cr.fetchall()]
+		    raise NotImplementedError
+	
+		return mod_obj.search(cr, uid, filter, offset=offset, limit=limit, order=order, context=context, count=count)
 
-		return res
-	    except Exception, e:
-	        import traceback
-		traceback.print_exc()
-	        print "koo exp_search:", e
+		# and that's all (dirty hack)
 
 koo_services()
 
