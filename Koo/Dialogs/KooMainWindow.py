@@ -470,6 +470,19 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			        self.openMenuTab()
 				self.openHomeTab()
 
+				if Settings.value('open.model'):
+					model = Settings.value('open.model')
+					id = Settings.value('open.id') or False
+					mode = 'tree,form'
+					if id:
+						try:
+							id = int(id)
+							mode = 'form,tree'
+						except:
+							id = False
+							pass
+					Api.instance.createWindow(None, model, id, view_type='form', mode=mode)
+
 				if Common.isQtVersion45():
 					self.tabWidget.setTabsClosable( Settings.value('koo.tabs_closable') )
 
