@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=OpenERP Full Text Search
+Name[ca]=Cerca de text a OpenERP
+Name[es]=Búsqueda de texto en OpenERP
+Type=Service
+Icon=games-hint
+X-KDE-ServiceTypes=Plasma/Runner
+X-KDE-PluginInfo-Author=NaN Projectes de Programari Lliure, S.L.
+X-KDE-PluginInfo-Email=info@nan-tic.com
+X-KDE-PluginInfo-Name=openerp-fts
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://www.NaN-tic.com
+X-KDE-PluginInfo-Category=Utilities
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-Plasma-API=python
+X-Plasma-MainScript=code/main.py
