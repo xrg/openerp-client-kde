@@ -31,6 +31,7 @@ from PyQt4.QtNetwork import *
 
 from Koo.Common import Notifier
 from Koo.Common import Url
+from Koo.Common import Api 
 
 from Cache import *
 import tiny_socket
@@ -609,7 +610,21 @@ class RpcReply(QNetworkReply):
 
 		path = unicode( url.path() )
 		path = path.split('/')
-		if len(path) >= 3:
+		if unicode( url.host() ) == 'client':
+			function = path[-1]
+			parameters = [[unicode(x[0]), unicode(x[1])] for x in url.queryItems()]
+			parameters = dict(parameters)
+			if 'res_id' in parameters:
+				try:
+					parameters['res_id'] = int(parameters['res_id'])
+				except ValueError:
+					parameters['res_id'] = False
+
+			if function == 'action':
+				Api.instance.executeAction(parameters, data={}, context=session.context)
+				
+			return
+		elif len(path) >= 3:
 			model = unicode( url.host() )
 			function = path[1]
 			parameter = '/%s' % '/'.join( path[2:] )
