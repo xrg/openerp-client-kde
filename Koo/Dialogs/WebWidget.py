@@ -32,6 +32,7 @@ from Koo.Common import Common
 from Koo.Common.Settings import *
 from Koo.Common import Help
 
+from PyQt4.QtWebKit import * 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
@@ -60,7 +61,8 @@ class WebWidget( QWidget, WebWidgetUi ):
 		self.handlers = {
 			'Previous': self.previous,
 			'Next': self.next,
-			'Reload': self.next,
+			'Reload': self.reload,
+			'Find': self.find,
 		}
 
 	def switchViewMenu(self):
@@ -75,11 +77,17 @@ class WebWidget( QWidget, WebWidgetUi ):
 		else:
 			self.name = title
 
+	def find(self):
+		text, ok = QInputDialog.getText( self, _('Find'), _('Find:') )
+		if not ok:
+			return
+		self.uiWeb.findText( text, QWebPage.HighlightAllOccurrences )
+
 	def previous(self):
-		self.uiWeb.forward()
+		self.uiWeb.back()
 
 	def next(self):
-		self.uiWeb.back()
+		self.uiWeb.forward()
 
 	def reload(self):
 		self.uiWeb.reload()
