@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-06-27 14:38+0000\n"
-"PO-Revision-Date: 2010-09-26 20:04+0000\n"
-"Last-Translator: Christophe Chauvet - http://www.syleam.fr/ <Unknown>\n"
+"PO-Revision-Date: 2010-11-26 18:03+0000\n"
+"Last-Translator: Numérigraphe <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
 
 #. module: full_text_search
 #: model:ir.module.module,description:full_text_search.module_meta_information
@@ -84,7 +84,7 @@ msgstr "Champ"
 #. module: full_text_search
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr "Nom de modèle non valide pour l'action définit"
+msgstr "Nom de modèle incorrect dans la définition de l'action"
 
 #. module: full_text_search
 #: model:ir.module.module,shortdesc:full_text_search.module_meta_information

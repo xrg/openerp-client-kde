@@ -1,4 +1,4 @@
-# German translation for openobject-client-kde
+# Brazilian Portuguese translation for openobject-client-kde
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-client-kde package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-05-11 19:23+0000\n"
-"PO-Revision-Date: 2010-06-27 08:58+0000\n"
-"Last-Translator: Ferdinand @ Camptocamp <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2010-11-30 13:52+0000\n"
+"Last-Translator: Alexsandro Haag <Unknown>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,29 +21,28 @@ msgstr ""
 #: wizard_view:nan_document_execute,init:0
 msgid "All documents in the queue will be analyzed, verified and processed."
 msgstr ""
-"Alle Dokumente in der Warteschlange werden analysiert, geprüft und "
-"verarbeitet."
+"Todos os documentos na fila serão analisados, verificados e processados."
 
 #. module: auto_attach
 #: field:nan.document,filename:0
 msgid "Filename"
-msgstr "Dateiname"
+msgstr "Nome do arquivo"
 
 #. module: auto_attach
 #: field:nan.template.box,width:0
 msgid "Width"
-msgstr "Breite"
+msgstr "Largura"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Back to pending"
-msgstr "Zurück zu unverarbeiteten"
+msgstr "Voltar para pendente"
 
 #. module: auto_attach
 #: field:nan.document,document_id:0
 #: field:nan.document.property,document_id:0
 msgid "Document"
-msgstr "Dokument"
+msgstr "Documento"
 
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_template_box
@@ -53,29 +52,29 @@ msgstr "nan.template.box"
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.processed_document_tree
 msgid "Processed Documents"
-msgstr "Verarbeitete Dokumente"
+msgstr "Documentos Processados"
 
 #. module: auto_attach
 #: wizard_button:nan_document_execute,init,start:0
 #: wizard_button:nan_document_process,init,start:0
 msgid "Start Process"
-msgstr "Starte Prozess"
+msgstr "Iniciar Processo"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.analyzing_document_tree
 msgid "Documents Being Analyzed"
-msgstr "Dokumente die analysisert werden"
+msgstr "Os documentos estão sendo analisados"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.nan_document_execute
 msgid "Execute documents queue"
-msgstr "Verarbeite Dokumente Warteschlange"
+msgstr "Executar fila de documentos"
 
 #. module: auto_attach
 #: wizard_view:nan_document_execute,init:0
 #: wizard_view:nan_document_process,init:0
 msgid "The following documents will be processed:"
-msgstr "Die folgenden Dokumente werden verarbeitet"
+msgstr "Serão processados os seguintes documentos:"
 
 #. module: auto_attach
 #: model:ir.module.module,description:auto_attach.module_meta_information
@@ -86,8 +85,8 @@ msgid ""
 "[1] http://www.NaN-tic.com/nanscan\n"
 "\t"
 msgstr ""
-"Dieses Module erlaubt die mit NanScan {1] gescanten Dokumente an jedes "
-"Obejkt anzuhängen.\n"
+"Este módulo torna possível anexar documentos escaneados para qualquer objeto "
+"usando NanScan [1].\n"
 "\n"
 "[1] http://www.NaN-tic.com/nanscan\n"
 "\t"
@@ -96,17 +95,17 @@ msgstr ""
 #: view:nan.document:0
 #: field:nan.document,task:0
 msgid "Task"
-msgstr "Aufgabe"
+msgstr "Tarefa"
 
 #. module: auto_attach
 #: field:nan.document.property,value:0
 msgid "Value"
-msgstr "Wert"
+msgstr "Valor"
 
 #. module: auto_attach
 #: wizard_view:nan_document_execute,start:0
 msgid "The document queue has been executed."
-msgstr "Die Dokumente Warteschlange wurde verarbeitet."
+msgstr "A fila de documentos foi executada."
 
 #. module: auto_attach
 #: field:nan.template.box,x:0
@@ -116,40 +115,39 @@ msgstr "X"
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.auto_attach_config_menu
 msgid "Configuration"
-msgstr "Einstellungen"
+msgstr "Configuração"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_analyze_menu
 msgid "Analyze Documents Queue"
-msgstr "Analysiere Dokumente Warteschlange"
+msgstr "Analisar Fila de Documentos"
 
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
 msgid "Numeric"
-msgstr "Numerisch"
+msgstr "Numérico"
 
 #. module: auto_attach
 #: selection:nan.template.box,recognizer:0
 msgid "Data Matrix"
-msgstr "Daten Matrix"
+msgstr "Matriz de Dados"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,start:0
 msgid ""
 "The document queue has been analyzed. Now you can verify the documents!"
 msgstr ""
-"Die Dokumente Waretschlange wurde analysiert. Sie können die Dokumente nun "
-"überprüfen."
+"A fila de documentos foi analisada. Agora você pode verificar os documentos!"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_analyzing_menu
 msgid "Being Analyzed"
-msgstr "Wird analysisert"
+msgstr "Em Análise"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_process_menu
 msgid "Process Documents Queue"
-msgstr "Verarbeite Dokumente Warteschlange"
+msgstr "Processar Fila de Documentos"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.all_document_tree
@@ -158,32 +156,32 @@ msgstr "Verarbeite Dokumente Warteschlange"
 #: wizard_field:nan_document_execute,init,documents:0
 #: wizard_field:nan_document_process,init,documents:0
 msgid "Documents"
-msgstr "Dokumente"
+msgstr "Documentos"
 
 #. module: auto_attach
 #: constraint:ir.actions.act_window:0
 msgid "Invalid model name in the action definition."
-msgstr "Ungültiger Modellname in der Aktionsdefinition."
+msgstr "Nome de modelo inválido na definição da ação."
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_processing_menu
 msgid "Being Processed"
-msgstr "Wird verarbeitet"
+msgstr "Em Processo"
 
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
 msgid "None"
-msgstr "Kein(e)"
+msgstr "Nenhum"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Analyze document in the background"
-msgstr "Analysiere Dokumente im Hintergrund"
+msgstr "Analisar documento em segundo plano"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Documents in queue"
-msgstr "Dokumente in der Warteschlange"
+msgstr "Documentos na fila"
 
 #. module: auto_attach
 #: field:nan.document,state:0
@@ -193,22 +191,22 @@ msgstr "Status"
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
 msgid "Alphabetic"
-msgstr "Alphabetisch"
+msgstr "Alfabética"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "General"
-msgstr "Allgemein"
+msgstr "Geral"
 
 #. module: auto_attach
 #: field:nan.template.box,type:0
 msgid "Type"
-msgstr "Typ"
+msgstr "Tipo"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,start:0
 msgid "Document queue analyzed"
-msgstr "Dokumente Warteschlange wurde analysiert"
+msgstr "Fila de documentos analisada"
 
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_document_property
@@ -219,38 +217,36 @@ msgstr "nan.document.property"
 #: field:nan.document,template_id:0
 #: field:nan.template.box,template_id:0
 msgid "Template"
-msgstr "Vorlage"
+msgstr "Modelo"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.nan_document_process
 msgid "Process documents queue"
-msgstr "Verarbeite Dokumente Warteschlange"
+msgstr "Processar fila de documentos"
 
 #. module: auto_attach
 #: code:addons/auto_attach/auto_attach.py:0
 #, python-format
 msgid ""
 "A new partner with name '%s' will be created (if it doesn't exist already)."
-msgstr ""
-"Ein neuer Partner mit dem Namen '%s' wird erzeugt, wenn dieser noch nicht "
-"existiert."
+msgstr "Um novo parceiro chamado '%s' será criado (se já não existir)."
 
 #. module: auto_attach
 #: constraint:ir.ui.view:0
 msgid "Invalid XML for View Architecture!"
-msgstr "Fehlerhafter XML-Code für diese Ansicht!"
+msgstr "XML inválido para Arquitetura da View"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
 #: wizard_view:nan_document_execute,init:0
 #: wizard_view:nan_document_process,init:0
 msgid "Document queue update"
-msgstr "Dokumente Warteschlange wird upgedatet"
+msgstr "Fila de Documentos atualizada"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
 msgid "All pending documents in the queue will be analyzed."
-msgstr "Alle wartenden Dokumente in der Warteschlange werden analysiert"
+msgstr "Todos os documentos pendentes na fila serão analisados."
 
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_document
@@ -260,179 +256,179 @@ msgstr "nan.document"
 #. module: auto_attach
 #: view:nan.template:0
 msgid "Feature Dimensions"
-msgstr "Eigenschaften Dimensionen"
+msgstr "Recurso Dimensões"
 
 #. module: auto_attach
 #: wizard_view:nan_document_process,init:0
 msgid "All verified documents in the queue will be processed."
-msgstr "Alle geprüften Dokumente in der Warteschlange werden verarbeitet."
+msgstr "Todos os documentos verificados na fila serão processados."
 
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
 msgid "Exists"
-msgstr "Vorhanden"
+msgstr "Existe"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Image"
-msgstr "Bild"
+msgstr "Imagem"
 
 #. module: auto_attach
 #: selection:nan.document,state:0
 msgid "Analyzing"
-msgstr "Analyiseren"
+msgstr "Analisando"
 
 #. module: auto_attach
 #: field:nan.document.property,template_box_id:0
 msgid "Template Box"
-msgstr "Vorlagen Container"
+msgstr "Modelo de Caixa"
 
 #. module: auto_attach
 #: field:nan.template,action_function:0
 msgid "Action Function"
-msgstr "Aktion Funktion"
+msgstr "Função de Ação"
 
 #. module: auto_attach
 #: wizard_view:nan_document_execute,start:0
 #: wizard_view:nan_document_process,start:0
 msgid "Document queue processed"
-msgstr "Dokumenten Warteschlange wird verarbeitet."
+msgstr "Fila de documentos processada"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_verified_menu
 #: selection:nan.document,state:0
 msgid "Verified"
-msgstr "überprüft"
+msgstr "Verificado"
 
 #. module: auto_attach
 #: view:nan.template:0
 msgid "Dimensions"
-msgstr "Dimensionen"
+msgstr "Dimensões"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
 msgid "The following documents will be analyzed:"
-msgstr "Die folgenden Dokumente werden analysiert"
+msgstr "Os seguintes documentos serão analisados:"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Verify document"
-msgstr "Überprüfe Dokument"
+msgstr "Verificar documento"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.processing_document_tree
 msgid "Documents Being Processed"
-msgstr "Dokumente werden verarbeitet"
+msgstr "Documentos Em Processamento"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Analyze document"
-msgstr "Analysiere Dokument"
+msgstr "Analisar documento"
 
 #. module: auto_attach
 #: selection:nan.template.box,type:0
 msgid "Input"
-msgstr "Eingabe"
+msgstr "Entrada"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Unset verified"
-msgstr "Auflösung geprüft"
+msgstr "Remover verificação"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Process document in the background"
-msgstr "Verarbeite Dkument im Hintergrund"
+msgstr "Processar documentos em segundo plano"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_pending_menu
 #: selection:nan.document,state:0
 msgid "Pending"
-msgstr "Unerledigt"
+msgstr "Pendente"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.analyzed_document_tree
 msgid "Analyzed Documents"
-msgstr "Analysierte Dokumente"
+msgstr "Documentos Analisados"
 
 #. module: auto_attach
 #: selection:nan.template.box,type:0
 msgid "Matcher"
-msgstr "Zuordner"
+msgstr "Combinar"
 
 #. module: auto_attach
 #: selection:nan.document,state:0
 msgid "Processing"
-msgstr "In Bearbeitung"
+msgstr "Processando"
 
 #. module: auto_attach
 #: model:res.request.link,name:auto_attach.wkf
 msgid "Document in Queue"
-msgstr "Dokumente in Warteschlange"
+msgstr "Documentos na Fila"
 
 #. module: auto_attach
 #: view:nan.template:0
 #: field:nan.template,box_ids:0
 msgid "Boxes"
-msgstr "Container"
+msgstr "Caixas"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_analyzed_menu
 #: selection:nan.document,state:0
 msgid "Analyzed"
-msgstr "Analysisert"
+msgstr "Analisado"
 
 #. module: auto_attach
 #: wizard_view:nan_document_process,start:0
 msgid "The document queue has been processed."
-msgstr "Die Dokumente Warteschlange wurde verarbeitet."
+msgstr "A fila de documentos foi processada."
 
 #. module: auto_attach
 #: field:nan.document,datas:0
 msgid "Data"
-msgstr "Daten"
+msgstr "Dado"
 
 #. module: auto_attach
 #: view:nan.document:0
 #: field:nan.document,property_ids:0
 msgid "Properties"
-msgstr "Eigenschaften"
+msgstr "Propriedades"
 
 #. module: auto_attach
 #: view:nan.template:0
 msgid "Document Templates"
-msgstr "Dokumente Vorlagen"
+msgstr "Modelos de Documentos"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.verified_document_tree
 msgid "Verified Documents"
-msgstr "Überprüfte Dokumente"
+msgstr "Documentos Verificados"
 
 #. module: auto_attach
 #: field:nan.template.box,filter:0
 msgid "Filter"
-msgstr "Filter"
+msgstr "Filtro"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_processed_menu
 #: selection:nan.document,state:0
 msgid "Processed"
-msgstr "Verarbeitet"
+msgstr "Processado"
 
 #. module: auto_attach
 #: field:nan.template.box,recognizer:0
 msgid "Recognizer"
-msgstr "Erkenner"
+msgstr "Reconhededor"
 
 #. module: auto_attach
 #: field:nan.template.box,feature_height:0
 msgid "Feature Height"
-msgstr "Merkmal Höhe"
+msgstr "Recurso de Altura"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.wizard_analyze_documents
 msgid "Analyze Documents"
-msgstr "Analysiere Dokumente"
+msgstr "Documentos Analisados"
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,init:0
@@ -442,105 +438,105 @@ msgid ""
 "Note that this operation may take a lot of time, depending on the number of "
 "documents."
 msgstr ""
-"Dieser Vorgang kann in Abhängigkeit von der Anzahl der Dokumente lange "
-"dauern."
+"Note que esta operação pode demorar bastante tempo, dependendo do número de "
+"documentos."
 
 #. module: auto_attach
 #: model:ir.module.module,shortdesc:auto_attach.module_meta_information
 #: model:ir.ui.menu,name:auto_attach.auto_attach_menu
 msgid "Auto Attach"
-msgstr "automatische Anhänge"
+msgstr "Auto Anexar"
 
 #. module: auto_attach
 #: field:nan.document.property,name:0
 #: selection:nan.template.box,recognizer:0
 #: field:nan.template.box,text:0
 msgid "Text"
-msgstr "Text"
+msgstr "Texto"
 
 #. module: auto_attach
 #: field:nan.template.box,feature_y:0
 msgid "Feature Y"
-msgstr "Merkmal Y"
+msgstr "Recurso Y"
 
 #. module: auto_attach
 #: field:nan.template.box,feature_x:0
 msgid "Feature X"
-msgstr "Merkmal X"
+msgstr "Recurso X"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_execute_menu
 msgid "Execute Documents Queue"
-msgstr "Verarbeite Dokumente Warteschlange"
+msgstr "Executar Fila de Documentos"
 
 #. module: auto_attach
 #: field:nan.template.box,height:0
 msgid "Height"
-msgstr "Höhe"
+msgstr "Altura"
 
 #. module: auto_attach
 #: model:ir.ui.menu,name:auto_attach.document_queue_menu
 msgid "Document Queue"
-msgstr "Dokumente Warteschlange"
+msgstr "Fila de Documentos"
 
 #. module: auto_attach
 #: view:nan.document:0
 msgid "Process document"
-msgstr "Verarbeite Dokument"
+msgstr "Processar documento"
 
 #. module: auto_attach
 #: wizard_button:nan_document_analyze,init,end:0
 #: wizard_button:nan_document_execute,init,end:0
 #: wizard_button:nan_document_process,init,end:0
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "Cancelar"
 
 #. module: auto_attach
 #: wizard_button:nan_document_analyze,start,end:0
 #: wizard_button:nan_document_execute,start,end:0
 #: wizard_button:nan_document_process,start,end:0
 msgid "Close"
-msgstr "Schliessen"
+msgstr "Fechar"
 
 #. module: auto_attach
 #: constraint:ir.model:0
 msgid ""
 "The Object name must start with x_ and not contain any special character !"
 msgstr ""
-"Der Objektname muss mit \"x_\" beginnen und darf keine Sonderzeichen "
-"beinhalten!"
+"O nome do objeto precisa iniciar com x_ e não pode conter nenhum caracter "
+"especial!"
 
 #. module: auto_attach
 #: field:nan.template.box,feature_width:0
 msgid "Feature Width"
-msgstr "Merkmal Breite"
+msgstr "Recurso Largura"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.view_template_action
 #: model:ir.ui.menu,name:auto_attach.template_menu
 msgid "Templates"
-msgstr "Vorlagen"
+msgstr "Modelos"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.nan_document_analyze
 msgid "Analyze documents queue"
-msgstr "Analysiere Dokumente Warteschlange"
+msgstr "Analisar fila de documentos"
 
 #. module: auto_attach
 #: code:addons/auto_attach/auto_attach.py:0
 #, python-format
 msgid "Document attached automatically"
-msgstr "Dokument wurde automatisch zum Anhang"
+msgstr "Documento anexado automaticamente"
 
 #. module: auto_attach
 #: selection:nan.template.box,recognizer:0
 msgid "Barcode"
-msgstr "Strichcode"
+msgstr "Código de Barras"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.wizard_process_documents
 msgid "Process Documents"
-msgstr "Verarbeite Dokumente"
+msgstr "Processar Documentos"
 
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_template
@@ -552,7 +548,7 @@ msgstr "nan.template"
 #: field:nan.template,name:0
 #: field:nan.template.box,name:0
 msgid "Name"
-msgstr "Bezeichnung"
+msgstr "Nome"
 
 #. module: auto_attach
 #: field:nan.template.box,y:0
@@ -562,30 +558,30 @@ msgstr "Y"
 #. module: auto_attach
 #: field:nan.template,attach_function:0
 msgid "Attachment Function"
-msgstr "Anahng Funktion"
+msgstr "Função de Anexação"
 
 #. module: auto_attach
 #: wizard_field:nan_document_analyze,init,background:0
 #: wizard_field:nan_document_process,init,background:0
 msgid "Execute in the background"
-msgstr "Verarbeite im HIntergrund"
+msgstr "Executar em segundo plano"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.pending_document_tree
 msgid "Pending Documents"
-msgstr "unerledigte Dokumente"
+msgstr "Documentos Pendentes"
 
 #. module: auto_attach
 #: selection:nan.template.box,filter:0
 msgid "Alphanumeric"
-msgstr "Alphanumerisch"
+msgstr "Alfanumérico"
 
 #. module: auto_attach
 #: wizard_button:nan_document_analyze,init,start:0
 msgid "Start Analysis"
-msgstr "Starte Analyse"
+msgstr "Iniciar Análise"
 
 #. module: auto_attach
 #: model:ir.actions.wizard,name:auto_attach.wizard_execute_documents
 msgid "Execute Documents"
-msgstr "Verarbeite Dokumente"
+msgstr "Executar Documentos"
