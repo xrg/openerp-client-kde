@@ -7,23 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-22 04:03+0000\n"
-"PO-Revision-Date: 2010-02-16 09:35+0000\n"
-"Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
-"tic.com>\n"
+"POT-Creation-Date: 2010-12-23 23:02+0000\n"
+"PO-Revision-Date: 2010-11-25 13:30+0000\n"
+"Last-Translator: Numérigraphe <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
 
 #. ts-context ExportDialog
 #: win_export.ui:232
-#, fuzzy
 msgid "Import compatible"
-msgstr "&Importer des données"
+msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
@@ -1117,7 +1115,7 @@ msgstr "<Alt> + <PgDn>"
 #. ts-context BatchUpdateDialog
 #: batchupdate.ui:13
 msgid "Batch Update Process"
-msgstr "Processus de mise à jour massif"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:686
@@ -1132,7 +1130,7 @@ msgstr "Onglet suivant"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:431
 msgid "Next editable widget"
-msgstr "Prochain composant modifiable"
+msgstr "Composant modifiable suivant"
 
 #. ts-context Form
 #. ts-context SearchDateWidget
@@ -1497,9 +1495,8 @@ msgstr ""
 
 #. ts-context ImportDialog
 #: win_import.ui:324
-#, fuzzy
 msgid "&Import"
-msgstr "Importer"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:134
@@ -1770,7 +1767,7 @@ msgstr "&Restaurer la base de données"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:448
 msgid "Previous editable widget"
-msgstr "Précedent composant modifiable"
+msgstr "Composant modifiable précédent"
 
 #. ts-context Form
 #: keyboard.ui:121
@@ -3437,8 +3434,20 @@ msgstr "barre d'outil"
 #~ msgid "Koo"
 #~ msgstr "Koo"
 
+#~ msgid "Massive Update Process"
+#~ msgstr "Processus de mise à jour massif"
+
 #~ msgid "Translation dialog"
 #~ msgstr "Fenêtre de traduction"
 
 #~ msgid "User Manual"
 #~ msgstr "Manuel utilisateur"
+
+#~ msgid "&Open"
+#~ msgstr "&Ouvrir"
+
+#~ msgid "Ã"
+#~ msgstr "Ã"
+
+#~ msgid "Ã"
+#~ msgstr "Ã"

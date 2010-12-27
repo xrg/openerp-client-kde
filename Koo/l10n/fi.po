@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-22 02:25+0100\n"
+"POT-Creation-Date: 2010-12-23 21:10+0100\n"
 "PO-Revision-Date: 2010-08-19 12:38+0000\n"
 "Last-Translator: Esa Lammi <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
-#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/ImportDialog.py:53
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
-#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:293
+#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:321
 msgid "Information"
 msgstr "Tiedot"
 
@@ -56,8 +56,9 @@ msgid "Nothing to print!"
 msgstr "Ei tulostettavaa!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:72
+#: Koo/Dialogs/ImportDialog.py:82 Koo/Dialogs/ImportDialog.py:253
+#: Koo/Dialogs/ImportDialog.py:271
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
@@ -406,17 +407,15 @@ msgid ""
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "Kyllä"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "Ei"
@@ -713,7 +712,7 @@ msgstr "Resurssia ei ole valittu !"
 msgid "You have to select one resource!"
 msgstr "Sinun täytyy valita yksi resurssi !"
 
-#: Koo/Dialogs/FormWidget.py:295
+#: Koo/Dialogs/FormWidget.py:295 Koo/Dialogs/ImportExportCommon.py:55
 msgid "ID"
 msgstr "ID"
 
@@ -825,7 +824,7 @@ msgid "No records selected"
 msgstr "Tietuetta ei ole valittuna"
 
 #: Koo/Dialogs/FormWidget.py:628
-msgid "Choose action to apply batchly"
+msgid "Choose action to apply to selected records"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:635
@@ -835,6 +834,19 @@ msgstr ""
 #: Koo/Dialogs/FormWidget.py:635
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert in batch action"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:99 Koo/Dialogs/BatchInsertDialog.py:131
+msgid "Batch Insert"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:131
+#, python-format
+msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
@@ -933,6 +945,12 @@ msgstr "Oletko varma, että haluat lopettaa?"
 msgid "Wizard"
 msgstr "Velho"
 
+#: Koo/Dialogs/BatchUpdateDialog.py:132
+#, python-format
+msgid ""
+"Select the fields you want to update in the <b>%d</b> selected records:"
+msgstr "Valitse päivitettävät kentät <b>%d</b> valituista tietueista:"
+
 #: Koo/Dialogs/SearchDialog.py:90
 #, python-format
 msgid "Search: %s"
@@ -963,22 +981,12 @@ msgstr "Salattu XML-RPC"
 msgid "Pyro (faster)"
 msgstr "Pyro (nopeampi)"
 
-#: Koo/Dialogs/ImportDialog.py:48
-#, python-format
-msgid "Error opening file: %s"
-msgstr "Virhe avattaessa tiedostoa: %s"
-
-#: Koo/Dialogs/ImportDialog.py:58
-#, python-format
-msgid "Error reading file: %s"
-msgstr "Virhe luettaessa tiedostoa: %s"
-
-#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/ImportDialog.py:53
 #, python-format
 msgid "Imported %d objects !"
 msgstr "%d objektia tuotu!"
 
-#: Koo/Dialogs/ImportDialog.py:68
+#: Koo/Dialogs/ImportDialog.py:58
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -995,42 +1003,57 @@ msgstr ""
 "\n"
 "%(error2)s"
 
-#: Koo/Dialogs/ImportDialog.py:73
+#: Koo/Dialogs/ImportDialog.py:63
 msgid "Error importing data"
 msgstr "Virhe tiedoston tuonnissa"
 
-#: Koo/Dialogs/ImportDialog.py:130
+#: Koo/Dialogs/ImportDialog.py:72
+#, python-format
+msgid "Error opening file: %s"
+msgstr "Virhe avattaessa tiedostoa: %s"
+
+#: Koo/Dialogs/ImportDialog.py:82 Koo/Dialogs/ImportDialog.py:253
+#: Koo/Dialogs/ImportDialog.py:271
+#, python-format
+msgid "Error reading file: %s"
+msgstr "Virhe luettaessa tiedostoa: %s"
+
+#: Koo/Dialogs/ImportDialog.py:98
+msgid "CSV"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:100
+msgid "Excel"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:129
+msgid "Sheet List Error"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:171
 msgid "File to import"
 msgstr "Tuotava tiedosto"
 
-#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:151
-msgid "Import error"
-msgstr "Virhe tuotaessa"
-
-#: Koo/Dialogs/ImportDialog.py:145
-msgid "No file specified."
-msgstr "Tiedostoa ei ole määritelty."
-
-#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
-msgid "Separator must be a single character."
-msgstr "erotin pitää olla yksittäinen merkki"
-
-#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
-msgid "Delimiter must be a single character."
-msgstr "erotin pitää olla yksittäinen merkki"
-
-#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
-#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
-#: Koo/Dialogs/ImportDialog.py:228
+#: Koo/Dialogs/ImportDialog.py:217 Koo/Dialogs/ImportDialog.py:225
+#: Koo/Dialogs/ImportDialog.py:228 Koo/Dialogs/ImportDialog.py:234
+#: Koo/Dialogs/ImportDialog.py:247 Koo/Dialogs/ImportDialog.py:281
+#: Koo/Dialogs/ImportDialog.py:289
 msgid "Auto-detect error"
 msgstr "Virhe havaittu"
 
-#: Koo/Dialogs/ImportDialog.py:218
+#: Koo/Dialogs/ImportDialog.py:225 Koo/Dialogs/ImportDialog.py:315
+msgid "Separator must be a single character."
+msgstr "erotin pitää olla yksittäinen merkki"
+
+#: Koo/Dialogs/ImportDialog.py:228 Koo/Dialogs/ImportDialog.py:318
+msgid "Delimiter must be a single character."
+msgstr "erotin pitää olla yksittäinen merkki"
+
+#: Koo/Dialogs/ImportDialog.py:234
 msgid "Error opening .CSV file: Input Error."
 msgstr "Virhe avattaessa .CSV tiedosto: Syöttö virhe."
 
-#: Koo/Dialogs/ImportDialog.py:228
+#: Koo/Dialogs/ImportDialog.py:247 Koo/Dialogs/ImportDialog.py:289
 #, python-format
 msgid ""
 "Error processing your first line of the file.\n"
@@ -1038,6 +1061,19 @@ msgid ""
 msgstr ""
 "Virhe tiedoston ensimmäisellä rivillä.\n"
 "Kenttä %s tuntematon !"
+
+#: Koo/Dialogs/ImportDialog.py:312 Koo/Dialogs/ImportDialog.py:315
+#: Koo/Dialogs/ImportDialog.py:318
+msgid "Import error"
+msgstr "Virhe tuotaessa"
+
+#: Koo/Dialogs/ImportDialog.py:312
+msgid "No file specified."
+msgstr "Tiedostoa ei ole määritelty."
+
+#: Koo/Dialogs/ImportDialog.py:332
+msgid "Import Error"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:62
 msgid "Loading..."
@@ -1096,15 +1132,13 @@ msgstr ""
 "Ylläpitäjän salasanan vaihto ei onnistu. Tarkista, että palvelin ja salasana "
 "ovat oikeat."
 
-#: Koo/Dialogs/BatchUpdateDialog.py:132
-#, python-format
-msgid ""
-"Select the fields you want to update in the <b>%d</b> selected records:"
-msgstr "Valitse päivitettävät kentät <b>%d</b> valituista tietueista:"
-
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "Kentät"
+
+#: Koo/Dialogs/ImportExportCommon.py:59
+msgid "Database ID"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
@@ -1157,65 +1191,55 @@ msgstr ""
 "Virhe avattaessa OpenOffice.org:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:315
+#: Koo/Dialogs/ExportDialog.py:324
+msgid "Data Export Error"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:329
 msgid "Export Data"
 msgstr "Vie tiedot"
 
-#: Koo/Dialogs/ExportDialog.py:358
+#: Koo/Dialogs/ExportDialog.py:372
 msgid "What is the name of this export?"
 msgstr "Mikä on tämän viennin nimi?"
 
-#: Koo/Dialogs/ExportDialog.py:376
+#: Koo/Dialogs/ExportDialog.py:390
 msgid "Open with OpenOffice.org"
 msgstr "Avaa OpenOffice.org"
 
-#: Koo/Dialogs/ExportDialog.py:382
+#: Koo/Dialogs/ExportDialog.py:396
 msgid "Open with Excel"
 msgstr "Avaa Excel:n kanssa"
 
-#: Koo/Dialogs/ExportDialog.py:385
+#: Koo/Dialogs/ExportDialog.py:399
 msgid "Save as CSV"
 msgstr "Tallenna CSV:nä"
 
-#: Koo/Dialogs/ExportDialog.py:386
+#: Koo/Dialogs/ExportDialog.py:400
 msgid "Save as HTML"
 msgstr "Tallenna HTML:nä"
 
-#: Koo/Dialogs/ExportDialog.py:398
+#: Koo/Dialogs/ExportDialog.py:412
 msgid "Export name"
 msgstr "Vienti nimi"
 
-#: Koo/Dialogs/ExportDialog.py:399
+#: Koo/Dialogs/ExportDialog.py:413
 msgid "Exported fields"
 msgstr "Viedyt kentät"
 
-#: Koo/Dialogs/BatchInsertDialog.py:82
-msgid "Choose field to insert batchly"
-msgstr ""
-
-#: Koo/Dialogs/BatchInsertDialog.py:99
-#: Koo/Dialogs/BatchInsertDialog.py:131
-msgid "Batch Insert"
-msgstr ""
-
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#, python-format
-msgid "Are you sure you want to insert %d records?"
-msgstr ""
-
-#: Koo/Dialogs/TreeWidget.py:64
+#: Koo/Dialogs/TreeWidget.py:66
 msgid "Tree"
 msgstr "Puu"
 
-#: Koo/Dialogs/TreeWidget.py:290 Koo/Dialogs/TreeWidget.py:302
+#: Koo/Dialogs/TreeWidget.py:293 Koo/Dialogs/TreeWidget.py:305
 msgid "No resource selected!"
 msgstr "Ei valittuja resursseja!"
 
-#: Koo/Dialogs/TreeWidget.py:319
+#: Koo/Dialogs/TreeWidget.py:322
 msgid "No item selected"
 msgstr "Ei valittua kohdetta"
 
-#: Koo/Dialogs/TreeWidget.py:319
+#: Koo/Dialogs/TreeWidget.py:322
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "Valitse puuhakemiston elementti mihin haluat oikotien lisätä."
 
@@ -1463,14 +1487,18 @@ msgstr ""
 "%s"
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
-msgid "&Modify All Selected Records"
+msgid "&Duplicate Selected Records"
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:163
 msgid "&Insert Several Records at Once"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Fields/OneToMany/OneToMany.py:168
+msgid "&Modify All Selected Records"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:321
 msgid "No record selected"
 msgstr "Et ole valinnut yhtään tietuetta"
 
@@ -1497,3 +1525,84 @@ msgstr "Aseta päivämäärä ja aika"
 #: Koo/Fields/Calendar/Calendar.py:169 Koo/Fields/Calendar/Calendar.py:227
 msgid "Set current time"
 msgstr "Aseta kellonaika"
+
+#~ msgid "No available plugin for this resource !"
+#~ msgstr "Tälle resurssille ei löytynyt liitännäistä!"
+
+#~ msgid "No action defined!"
+#~ msgstr "Yhtään toimintoa ei määritelty!"
+
+#~ msgid "Choose a Plugin"
+#~ msgstr "Valitse liitännäinen"
+
+#~ msgid "specify the server port"
+#~ msgstr "määritä palvelimen portti"
+
+#~ msgid "specify the user login"
+#~ msgstr "määritä käyttäjäntunnistus"
+
+#~ msgid "enable basic debugging"
+#~ msgstr "salli normaali debuggaus"
+
+#~ msgid "specify the server ip/name"
+#~ msgstr "määritä palvelimen ip-osoite/nimi"
+
+#~ msgid "Error exporting data."
+#~ msgstr "Virhe tiedoston viennissä"
+
+#~ msgid "Error opening Excel !"
+#~ msgstr "Virhe avattaessa Excel !"
+
+#~ msgid "Owner"
+#~ msgstr "Omistaja"
+
+#~ msgid "Group Owner"
+#~ msgstr "Ryhmäomistaja"
+
+#~ msgid "Document saved !"
+#~ msgstr "Asiakirja tallennettu !"
+
+#~ msgid "Working now on the duplicated document !"
+#~ msgstr "Työskentelet nyt kopioidulla dokumentilla!"
+
+#~ msgid "No record selected!"
+#~ msgstr "Ei yhtään tietuetta valittuna!"
+
+#~ msgid "This record has been modified do you want to save it?"
+#~ msgstr "Tätä tietuetta on muokattu, haluatko tallentaa sen?"
+
+#~ msgid "Preferences"
+#~ msgstr "Asetukset"
+
+#~ msgid "Model Name"
+#~ msgstr "Mallin nimi"
+
+#~ msgid "Text"
+#~ msgstr "Teksti"
+
+#~ msgid "Type"
+#~ msgstr "Tyyppi"
+
+#~ msgid "Ranking"
+#~ msgstr "Järjestys"
+
+#~ msgid "Name"
+#~ msgstr "Nimi"
+
+#~ msgid "NET-RPC (faster)"
+#~ msgstr "NET-RPC (nopeampi)"
+
+#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+#~ msgstr "määritä lokin taso: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+
+#~ msgid "Access Level"
+#~ msgstr "Oikeustaso"
+
+#~ msgid "Invalid form !"
+#~ msgstr "Mitätön kaavake !"
+
+#~ msgid "Model ID"
+#~ msgstr "Malli ID"
+
+#~ msgid "specify channels to log"
+#~ msgstr "määritä kanavat jotka menevät lokiin"

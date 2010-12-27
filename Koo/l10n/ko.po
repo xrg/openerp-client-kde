@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-22 02:25+0100\n"
+"POT-Creation-Date: 2010-12-23 21:10+0100\n"
 "PO-Revision-Date: 2009-05-09 12:09+0000\n"
 "Last-Translator: ekodaq <ceo@ekosdaq.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
-#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/ImportDialog.py:53
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
-#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:293
+#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:321
 msgid "Information"
 msgstr ""
 
@@ -56,8 +56,9 @@ msgid "Nothing to print!"
 msgstr "출력할 내용이 없음!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:72
+#: Koo/Dialogs/ImportDialog.py:82 Koo/Dialogs/ImportDialog.py:253
+#: Koo/Dialogs/ImportDialog.py:271
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
@@ -401,17 +402,15 @@ msgid ""
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "네"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "아니오"
@@ -668,7 +667,7 @@ msgstr "선택된 리소스가 없음 !"
 msgid "You have to select one resource!"
 msgstr "하나의 리소스를 선택해야 합니다 !"
 
-#: Koo/Dialogs/FormWidget.py:295
+#: Koo/Dialogs/FormWidget.py:295 Koo/Dialogs/ImportExportCommon.py:55
 msgid "ID"
 msgstr "ID"
 
@@ -776,7 +775,7 @@ msgid "No records selected"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:628
-msgid "Choose action to apply batchly"
+msgid "Choose action to apply to selected records"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:635
@@ -786,6 +785,19 @@ msgstr ""
 #: Koo/Dialogs/FormWidget.py:635
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert in batch action"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:99 Koo/Dialogs/BatchInsertDialog.py:131
+msgid "Batch Insert"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:131
+#, python-format
+msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
@@ -884,6 +896,12 @@ msgstr "중단 하시겠습니까?"
 msgid "Wizard"
 msgstr ""
 
+#: Koo/Dialogs/BatchUpdateDialog.py:132
+#, python-format
+msgid ""
+"Select the fields you want to update in the <b>%d</b> selected records:"
+msgstr ""
+
 #: Koo/Dialogs/SearchDialog.py:90
 #, python-format
 msgid "Search: %s"
@@ -914,22 +932,12 @@ msgstr "Secure XML-RPC"
 msgid "Pyro (faster)"
 msgstr ""
 
-#: Koo/Dialogs/ImportDialog.py:48
-#, python-format
-msgid "Error opening file: %s"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:58
-#, python-format
-msgid "Error reading file: %s"
-msgstr ""
-
-#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/ImportDialog.py:53
 #, python-format
 msgid "Imported %d objects !"
 msgstr "%d 객체를 가져옴 !"
 
-#: Koo/Dialogs/ImportDialog.py:68
+#: Koo/Dialogs/ImportDialog.py:58
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -946,42 +954,57 @@ msgstr ""
 "\n"
 "%(error2)s"
 
-#: Koo/Dialogs/ImportDialog.py:73
+#: Koo/Dialogs/ImportDialog.py:63
 msgid "Error importing data"
 msgstr "데이터 가져오기 에러"
 
-#: Koo/Dialogs/ImportDialog.py:130
+#: Koo/Dialogs/ImportDialog.py:72
+#, python-format
+msgid "Error opening file: %s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:82 Koo/Dialogs/ImportDialog.py:253
+#: Koo/Dialogs/ImportDialog.py:271
+#, python-format
+msgid "Error reading file: %s"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:98
+msgid "CSV"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:100
+msgid "Excel"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:129
+msgid "Sheet List Error"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:171
 msgid "File to import"
 msgstr "가져올 파일"
 
-#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:151
-msgid "Import error"
-msgstr "가져오기 에러"
-
-#: Koo/Dialogs/ImportDialog.py:145
-msgid "No file specified."
-msgstr "파일을 지정하지 않았음."
-
-#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
-msgid "Separator must be a single character."
-msgstr "Separator는 하나의 문자 세트여야 합니다."
-
-#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
-msgid "Delimiter must be a single character."
-msgstr "Delimiter는 하나의 문자 세트여야 합니다."
-
-#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
-#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
-#: Koo/Dialogs/ImportDialog.py:228
+#: Koo/Dialogs/ImportDialog.py:217 Koo/Dialogs/ImportDialog.py:225
+#: Koo/Dialogs/ImportDialog.py:228 Koo/Dialogs/ImportDialog.py:234
+#: Koo/Dialogs/ImportDialog.py:247 Koo/Dialogs/ImportDialog.py:281
+#: Koo/Dialogs/ImportDialog.py:289
 msgid "Auto-detect error"
 msgstr "자동 탐지 에러"
 
-#: Koo/Dialogs/ImportDialog.py:218
+#: Koo/Dialogs/ImportDialog.py:225 Koo/Dialogs/ImportDialog.py:315
+msgid "Separator must be a single character."
+msgstr "Separator는 하나의 문자 세트여야 합니다."
+
+#: Koo/Dialogs/ImportDialog.py:228 Koo/Dialogs/ImportDialog.py:318
+msgid "Delimiter must be a single character."
+msgstr "Delimiter는 하나의 문자 세트여야 합니다."
+
+#: Koo/Dialogs/ImportDialog.py:234
 msgid "Error opening .CSV file: Input Error."
 msgstr ".CSV 파일 열기 에러: 입력 에러"
 
-#: Koo/Dialogs/ImportDialog.py:228
+#: Koo/Dialogs/ImportDialog.py:247 Koo/Dialogs/ImportDialog.py:289
 #, python-format
 msgid ""
 "Error processing your first line of the file.\n"
@@ -989,6 +1012,19 @@ msgid ""
 msgstr ""
 "파일의 첫 라인 처리 중에 에러.\n"
 "필드 %s를 알 수 없음 !"
+
+#: Koo/Dialogs/ImportDialog.py:312 Koo/Dialogs/ImportDialog.py:315
+#: Koo/Dialogs/ImportDialog.py:318
+msgid "Import error"
+msgstr "가져오기 에러"
+
+#: Koo/Dialogs/ImportDialog.py:312
+msgid "No file specified."
+msgstr "파일을 지정하지 않았음."
+
+#: Koo/Dialogs/ImportDialog.py:332
+msgid "Import Error"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:62
 msgid "Loading..."
@@ -1043,15 +1079,13 @@ msgid ""
 "password are correct."
 msgstr "관리자 패스워드를 변경할 수 없습니다. 서버와 패스워드를 다시 확인해 주십시오."
 
-#: Koo/Dialogs/BatchUpdateDialog.py:132
-#, python-format
-msgid ""
-"Select the fields you want to update in the <b>%d</b> selected records:"
-msgstr ""
-
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "필드"
+
+#: Koo/Dialogs/ImportExportCommon.py:59
+msgid "Database ID"
+msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
@@ -1098,65 +1132,55 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:315
+#: Koo/Dialogs/ExportDialog.py:324
+msgid "Data Export Error"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:329
 msgid "Export Data"
 msgstr "데이터 내보내기"
 
-#: Koo/Dialogs/ExportDialog.py:358
+#: Koo/Dialogs/ExportDialog.py:372
 msgid "What is the name of this export?"
 msgstr "이 내보내기의 이름은?"
 
-#: Koo/Dialogs/ExportDialog.py:376
+#: Koo/Dialogs/ExportDialog.py:390
 msgid "Open with OpenOffice.org"
 msgstr ""
 
-#: Koo/Dialogs/ExportDialog.py:382
+#: Koo/Dialogs/ExportDialog.py:396
 msgid "Open with Excel"
 msgstr "엑셀로 열기"
 
-#: Koo/Dialogs/ExportDialog.py:385
+#: Koo/Dialogs/ExportDialog.py:399
 msgid "Save as CSV"
 msgstr "CSV로 저장"
 
-#: Koo/Dialogs/ExportDialog.py:386
+#: Koo/Dialogs/ExportDialog.py:400
 msgid "Save as HTML"
 msgstr "HTML로 저장"
 
-#: Koo/Dialogs/ExportDialog.py:398
+#: Koo/Dialogs/ExportDialog.py:412
 msgid "Export name"
 msgstr "이름 내보내기"
 
-#: Koo/Dialogs/ExportDialog.py:399
+#: Koo/Dialogs/ExportDialog.py:413
 msgid "Exported fields"
 msgstr "내보낸 필드들"
 
-#: Koo/Dialogs/BatchInsertDialog.py:82
-msgid "Choose field to insert batchly"
-msgstr ""
-
-#: Koo/Dialogs/BatchInsertDialog.py:99
-#: Koo/Dialogs/BatchInsertDialog.py:131
-msgid "Batch Insert"
-msgstr ""
-
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#, python-format
-msgid "Are you sure you want to insert %d records?"
-msgstr ""
-
-#: Koo/Dialogs/TreeWidget.py:64
+#: Koo/Dialogs/TreeWidget.py:66
 msgid "Tree"
 msgstr "트리"
 
-#: Koo/Dialogs/TreeWidget.py:290 Koo/Dialogs/TreeWidget.py:302
+#: Koo/Dialogs/TreeWidget.py:293 Koo/Dialogs/TreeWidget.py:305
 msgid "No resource selected!"
 msgstr "선택된 리소스가 없음!"
 
-#: Koo/Dialogs/TreeWidget.py:319
+#: Koo/Dialogs/TreeWidget.py:322
 msgid "No item selected"
 msgstr "선택된 아이템이 없음"
 
-#: Koo/Dialogs/TreeWidget.py:319
+#: Koo/Dialogs/TreeWidget.py:322
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr "단축키를 추가하려면, 트리에서 원소를 선택하십시오."
 
@@ -1400,14 +1424,18 @@ msgid ""
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
-msgid "&Modify All Selected Records"
+msgid "&Duplicate Selected Records"
 msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:163
 msgid "&Insert Several Records at Once"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Fields/OneToMany/OneToMany.py:168
+msgid "&Modify All Selected Records"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:321
 msgid "No record selected"
 msgstr ""
 
@@ -1434,3 +1462,91 @@ msgstr "현재 날짜와 시각 설정"
 #: Koo/Fields/Calendar/Calendar.py:169 Koo/Fields/Calendar/Calendar.py:227
 msgid "Set current time"
 msgstr "현재 시각 설정"
+
+#~ msgid "No action defined!"
+#~ msgstr "정의된 액션이 없음!"
+
+#~ msgid "Choose a Plugin"
+#~ msgstr "플럭인을 선택하십시오"
+
+#~ msgid "No available plugin for this resource !"
+#~ msgstr "이 리로스에 가용한 플럭인이 없습니다 !"
+
+#~ msgid "specify the user login"
+#~ msgstr "사용자 로그인 지정"
+
+#~ msgid "specify channels to log"
+#~ msgstr "로그할 채널 지정"
+
+#~ msgid "enable basic debugging"
+#~ msgstr "기본 디버깅 활성화"
+
+#~ msgid "specify the log level: INFO, DEBUG, WARNING, ERROR, CRITICAL"
+#~ msgstr "로그 레벨 지정: 정보, 디버그, 경고, 에러, 치명적"
+
+#~ msgid "specify the server ip/name"
+#~ msgstr "서버 ip/name 지정"
+
+#~ msgid "specify the server port"
+#~ msgstr "서버 포트 지정"
+
+#~ msgid "TinyERP exported information"
+#~ msgstr "TinyERP가 정보를 보냈습니다."
+
+#~ msgid "Error exporting data."
+#~ msgstr "데이터 내보내기 에러."
+
+#~ msgid "Error opening Excel !"
+#~ msgstr "엑셀 열기 에러 !"
+
+#~ msgid "Owner"
+#~ msgstr "소유자"
+
+#~ msgid "Group Owner"
+#~ msgstr "그룹 소유자"
+
+#~ msgid "Access Level"
+#~ msgstr "접근 레벨"
+
+#~ msgid "Document saved !"
+#~ msgstr "문서가 저장됨 !"
+
+#~ msgid "Working now on the duplicated document !"
+#~ msgstr "복제된 문서에서 작업 중 !"
+
+#~ msgid "This record has been modified do you want to save it?"
+#~ msgstr "이 레코드는 수정되었습니다. 저장 하시겠습니까?"
+
+#~ msgid "Preferences"
+#~ msgstr "설정"
+
+#~ msgid "Invalid form !"
+#~ msgstr "유효하지 않은 양식 !"
+
+#~ msgid "No record selected!"
+#~ msgstr "선택된 레코드가 없음!"
+
+#, python-format
+#~ msgid "Preference %s"
+#~ msgstr "설정 %s"
+
+#~ msgid "Model ID"
+#~ msgstr "모델 ID"
+
+#~ msgid "Model Name"
+#~ msgstr "모델 이름"
+
+#~ msgid "Type"
+#~ msgstr "타입"
+
+#~ msgid "Text"
+#~ msgstr "텍스트"
+
+#~ msgid "Name"
+#~ msgstr "이름"
+
+#~ msgid "Ranking"
+#~ msgstr "순위"
+
+#~ msgid "NET-RPC (faster)"
+#~ msgstr "NET-RPC (faster)"

@@ -7,17 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 04:03+0000\n"
-"PO-Revision-Date: 2010-11-22 10:04+0000\n"
+"POT-Creation-Date: 2010-12-23 23:02+0000\n"
+"PO-Revision-Date: 2010-12-27 08:59+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: LANGUAGE <LL.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
 "X-Language: ca_ES\n"
+
+#. ts-context ExportDialog
+#: win_export.ui:232
+msgid "Import compatible"
+msgstr "Compatible amb la importaci√≥"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
@@ -123,7 +128,7 @@ msgstr "0"
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:299
 msgid "Repeat admin password"
-msgstr "Repeteix la contrasenya de l'admin"
+msgstr "Repeteix la contrassenya de l'admin"
 
 #. ts-context Form
 #. ts-context FullTextSearchDialog
@@ -135,7 +140,7 @@ msgstr "about:blank"
 #. ts-context KooMainWindow
 #: mainwindow.ui:662
 msgid "Previous Tab"
-msgstr "VÈs a la pestanya anterior"
+msgstr "V√©s a la pestanya anterior"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:727
@@ -174,15 +179,15 @@ msgid ""
 "contain the same root. For example, searching for \"build\", may return "
 "documents which contain the words \"built\", \"build\" or \"building\"."
 msgstr ""
-"AquÌ pot cercar qualsevol terme en tota la base de dades mentres estigui "
+"Aqu√≠ pot cercar qualsevol terme en tota la base de dades mentres estigui "
 "indexat. Si les paraules que cerca no li retornen cap resultat i sap que "
 "existeixen, probablement no estiguin indexades i hauria de posar-se en "
 "contacte amb l'administrador del sistema.\n"
 "\n"
-"La cerca de text nomÈs busca paraules completes perÚ retornar‡ paraules que "
+"La cerca de text nom√©s busca paraules completes per√≤ retornar√† paraules que "
 "continguin la mateixa arrel. Per exmple, cercar \"construir\", pot retornar "
-"documents que continguin les paraules \"construÔt\", \"construir\" o "
-"\"construcciÛ\"."
+"documents que continguin les paraules \"constru√Øt\", \"construir\" o "
+"\"construcci√≥\"."
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
@@ -196,6 +201,11 @@ msgstr "&Cerca"
 msgid "Open view in a background tab"
 msgstr "Obre la vista en una pestanya de fons"
 
+#. ts-context ImportDialog
+#: win_import.ui:175
+msgid "File &type:"
+msgstr "&Tipus de fitxer:"
+
 #. ts-context Form
 #: keyboard.ui:420
 msgid "Tab"
@@ -205,6 +215,11 @@ msgstr "Tab"
 #: win_export.ui:76
 msgid "<b>All fields</b>"
 msgstr "<b>Tots els camps</b>"
+
+#. ts-context ImportDialog
+#: win_import.ui:280
+msgid "Sheet:"
+msgstr "Full:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:676
@@ -234,7 +249,7 @@ msgstr "<b>Exportacions predefinides</b>"
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:113
 msgid "(must not contain any special character)"
-msgstr "(no pot contenir cap car‡cter especial)"
+msgstr "(no pot contenir cap car√†cter especial)"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:286
@@ -243,7 +258,7 @@ msgstr ""
 "<center><i>Quan s'edita un recurs en una finestra emergent</i></center>"
 
 #. ts-context ImportDialog
-#: win_import.ui:195
+#: win_import.ui:212
 msgid "&Text delimiter:"
 msgstr "&Delimitador de text:"
 
@@ -296,11 +311,6 @@ msgstr "Estableix el cursor al contenidor del camp actual"
 msgid "Alt+PgDown"
 msgstr "Alt+PgDown"
 
-#. ts-context ShortcutsDialog
-#: shortcuts.ui:818
-msgid "Set focus to nearest widget"
-msgstr "Estableix el cursor al camp mÈs proper"
-
 #. ts-context ErrorDialog
 #: error.ui:109
 msgid "De&tails"
@@ -314,7 +324,7 @@ msgstr "K"
 #. ts-context KooMainWindow
 #: mainwindow.ui:319
 msgid "Documentation"
-msgstr "DocumentaciÛ"
+msgstr "Documentaci√≥"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:464
@@ -353,7 +363,7 @@ msgid "&Tips"
 msgstr "&Consells"
 
 #. ts-context ImportDialog
-#: win_import.ui:16
+#: win_import.ui:17
 msgid "Import"
 msgstr "Importa"
 
@@ -410,8 +420,8 @@ msgstr "F"
 
 #. ts-context Form
 #: keyboard.ui:225
-msgid "—"
-msgstr "—"
+msgid "√ë"
+msgstr "√ë"
 
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:66
@@ -533,7 +543,7 @@ msgstr ""
 "weight:600;\">About OpenERP</span> </p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">L'ERP &amp; CRM de codi "
-"obert mÈs avanÁat!</p></center></body></html>"
+"obert m√©s avan√ßat!</p></center></body></html>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:523
@@ -541,7 +551,7 @@ msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
 msgstr ""
-"FÛrmula + <Enter>\n"
+"F√≥rmula + <Enter>\n"
 "(Exemple: 3+2*2)"
 
 #. ts-context AboutDialog
@@ -612,7 +622,7 @@ msgstr ""
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP Ès un ERP+CRM de "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP √©s un ERP+CRM de "
 "codi obert</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
@@ -628,13 +638,13 @@ msgstr ""
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
 "style=\" font-family:'Sans Serif'; font-size:9pt;\">les condicions de la "
-"LlicËncia P˙blica de GNU (GPL).</span></p>\n"
+"Llic√®ncia P√∫blica de GNU (GPL).</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
 "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">MÈs informaciÛ a "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">M√©s informaci√≥ a "
 "</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
 "Serif'; font-size:9pt; text-decoration: underline; "
 "color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
@@ -653,7 +663,7 @@ msgstr "&I"
 #. ts-context KooMainWindow
 #: mainwindow.ui:650
 msgid "Next Tab"
-msgstr "VÈs a la pestanya seg¸ent"
+msgstr "V√©s a la pestanya seg√ºent"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:14
@@ -663,17 +673,17 @@ msgstr "Crea una base de dades nova"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:717
 msgid "Middle mouse click on Tab"
-msgstr "Clic amb el botÛ del mig en una pestanya"
+msgstr "Clic amb el bot√≥ del mig en una pestanya"
 
 #. ts-context ImportDialog
-#: win_import.ui:233
+#: win_import.ui:253
 msgid "UTF-8"
 msgstr "UTF-8"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:57
 msgid "&Old password:"
-msgstr "&Contrasenya anterior:"
+msgstr "&Contrassenya anterior:"
 
 #. ts-context Form
 #: keyboard.ui:527
@@ -706,7 +716,7 @@ msgid "Find / Search"
 msgstr "Cerca"
 
 #. ts-context ImportDialog
-#: win_import.ui:130
+#: win_import.ui:131
 msgid "Fields to import"
 msgstr "Camps a importar"
 
@@ -728,10 +738,10 @@ msgstr "<Tab>"
 #. ts-context ManyToOneWidget
 #: one2many_dialog.ui:14
 msgid "OpenERP - Link"
-msgstr "EnllaÁ - OpenERP"
+msgstr "Enlla√ß - OpenERP"
 
 #. ts-context ImportDialog
-#: win_import.ui:153
+#: win_import.ui:151
 msgid "File to &import:"
 msgstr "Fitxer a &importar:"
 
@@ -741,7 +751,7 @@ msgid "Add &field names"
 msgstr "Afegeix els noms dels &camps"
 
 #. ts-context ImportDialog
-#: win_import.ui:109
+#: win_import.ui:110
 msgid "Auto-&detect"
 msgstr "Auto-&detecta"
 
@@ -753,17 +763,17 @@ msgstr "Desa a un fitxer..."
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:55
 msgid "Default &value"
-msgstr "&Valor per omissiÛ"
+msgstr "&Valor per omissi√≥"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:702
 msgid "&Advanced"
-msgstr "&AvanÁat"
+msgstr "&Avan√ßat"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:774
 msgid "&License"
-msgstr "&LlicËncia"
+msgstr "&Llic√®ncia"
 
 #. ts-context Form
 #: calendarview.ui:34
@@ -781,13 +791,13 @@ msgid "&Form designer"
 msgstr "&Dissenyador de formularis"
 
 #. ts-context ImportDialog
-#: win_import.ui:219
+#: win_import.ui:293
 msgid "&Lines to skip:"
-msgstr "&LÌnies a saltar:"
+msgstr "&L√≠nies a saltar:"
 
 #. ts-context Form
 #. ts-context ImportDialog
-#: keyboard.ui:303 win_import.ui:188
+#: keyboard.ui:303 win_import.ui:205
 msgid ","
 msgstr ","
 
@@ -809,13 +819,13 @@ msgstr "Auto-completa el camp de text"
 
 #. ts-context Form
 #: keyboard.ui:631
-msgid "«"
-msgstr "«"
+msgid "√á"
+msgstr "√á"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:500
 msgid "&Administrator Password"
-msgstr "&Contrasenya de l'administrador"
+msgstr "&Contrassenya de l'administrador"
 
 #. ts-context Form
 #: keyboard.ui:212
@@ -833,11 +843,11 @@ msgid ""
 "Connection with the server has been lost. Will retry connection in 10 "
 "seconds."
 msgstr ""
-"S'ha perdut la connexiÛ amb el servidor. Es tornar‡ a intentar d'aquÌ a 10 "
+"S'ha perdut la connexi√≥ amb el servidor. Es tornar√† a intentar d'aqu√≠ a 10 "
 "segons."
 
 #. ts-context ImportDialog
-#: win_import.ui:32
+#: win_import.ui:33
 msgid "All fields"
 msgstr "Tots els camps"
 
@@ -850,7 +860,7 @@ msgstr "Anterior"
 #. ts-context PreferencesDialog
 #: preferences.ui:14
 msgid "Preferences"
-msgstr "PreferËncies"
+msgstr "Prefer√®ncies"
 
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:13
@@ -861,12 +871,12 @@ msgstr "Escull la base de dades..."
 #. ts-context OneToManyWidget
 #: win_attach.ui:98 one2many.ui:234
 msgid "Next"
-msgstr "Seg¸ent"
+msgstr "Seg√ºent"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:91
 msgid "New password &confirmation:"
-msgstr "&ConfirmaciÛ de la contrasenya nova:"
+msgstr "&Confirmaci√≥ de la contrassenya nova:"
 
 #. ts-context AttachmentWindow
 #. ts-context ShortcutsDialog
@@ -921,7 +931,7 @@ msgstr "Selecciona un fitxer..."
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:20
 msgid "<b>Change your database administration password</b>"
-msgstr "<b>Canvia la contrasenya de l'administrador</b>"
+msgstr "<b>Canvia la contrassenya de l'administrador</b>"
 
 #. ts-context Form
 #: keyboard.ui:43
@@ -957,7 +967,7 @@ msgstr "Crea un nou registre"
 #. ts-context KooMainWindow
 #: mainwindow.ui:821
 msgid "&Menu"
-msgstr "&Men˙"
+msgstr "&Men√∫"
 
 #. ts-context FullTextSearchDialog
 #. ts-context KooMainWindow
@@ -969,17 +979,17 @@ msgstr "&Previous"
 #. ts-context KooMainWindow
 #: mainwindow.ui:881
 msgid "Insert Several Records at Once"
-msgstr "Insereix m˙ltiples registres alhora"
+msgstr "Insereix m√∫ltiples registres alhora"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:158
 msgid "Next record"
-msgstr "Registre seg¸ent"
+msgstr "Registre seg√ºent"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:872
 msgid "Push Button of All Selected Records"
-msgstr "PrÈmer un botÛ dels registres seleccionats"
+msgstr "Pr√©mer un bot√≥ dels registres seleccionats"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:297
@@ -987,7 +997,7 @@ msgid "&Actions"
 msgstr "&Accions"
 
 #. ts-context ImportDialog
-#: win_import.ui:205
+#: win_import.ui:222
 msgid "\""
 msgstr "\""
 
@@ -1104,6 +1114,11 @@ msgstr "<b>Codi d'error:</b>"
 msgid "<Alt> + <PgDn>"
 msgstr "<Alt> + <PgDn>"
 
+#. ts-context BatchUpdateDialog
+#: batchupdate.ui:13
+msgid "Batch Update Process"
+msgstr "Proc√©s de modificaci√≥ en bloc"
+
 #. ts-context KooMainWindow
 #: mainwindow.ui:686
 msgid "View Access Log"
@@ -1112,12 +1127,12 @@ msgstr "Veure el registre d'accessos"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:209
 msgid "Next tab"
-msgstr "Pestanya seg¸ent"
+msgstr "Pestanya seg√ºent"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:431
 msgid "Next editable widget"
-msgstr "Seg¸ent camp editable"
+msgstr "Seg√ºent camp editable"
 
 #. ts-context Form
 #. ts-context SearchDateWidget
@@ -1153,7 +1168,7 @@ msgstr "Enter"
 #. ts-context LoginDialog
 #: login.ui:23
 msgid "Login"
-msgstr "AutenticaciÛ"
+msgstr "Autenticaci√≥"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:14
@@ -1163,14 +1178,14 @@ msgstr "Cerca de text"
 #. ts-context ExportDialog
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
-#: win_export.ui:127 win_import.ui:74 many2many.ui:60
+#: win_export.ui:127 win_import.ui:75 many2many.ui:60
 msgid "&Remove"
 msgstr "&Elimina"
 
 #. ts-context AdminPasswordDialog
 #: admin_passwd.ui:74
 msgid "&New password:"
-msgstr "Contrasenya &nova:"
+msgstr "Contrassenya &nova:"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:267
@@ -1178,10 +1193,12 @@ msgid "&Databases"
 msgstr "&Bases de dades"
 
 #. ts-context FullTextSearchDialog
+#. ts-context ImportDialog
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
 #. ts-context TipsDialog
-#: full_text_search.ui:158 mainwindow.ui:674 shortcuts.ui:902 tip.ui:159
+#: full_text_search.ui:158 win_import.ui:335 mainwindow.ui:674
+#: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "&Tanca"
 
@@ -1196,19 +1213,19 @@ msgid "HTML Manual"
 msgstr "Manual HTML"
 
 #. ts-context ImportDialog
-#: win_import.ui:178
+#: win_import.ui:195
 msgid "&Field separator"
 msgstr "&Separador de camp"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:641
 msgid "Open &Menu Tab"
-msgstr "Obre la pestanya de &men˙"
+msgstr "Obre la pestanya de &men√∫"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:518
 msgid "&Send Request"
-msgstr "&Envia una peticiÛ"
+msgstr "&Envia una petici√≥"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:50
@@ -1228,7 +1245,7 @@ msgstr "Color de fons"
 #. ts-context ErrorDialog
 #: error.ui:20
 msgid "Application Error !"
-msgstr "Error de l'aplicaciÛ!"
+msgstr "Error de l'aplicaci√≥!"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:233
@@ -1238,7 +1255,7 @@ msgstr "Servidor &OpenERP:"
 #. ts-context ChooseDatabaseDialog
 #: choosedb.ui:25
 msgid "Action here..."
-msgstr "AcciÛ aquÌ..."
+msgstr "Acci√≥ aqu√≠..."
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:562
@@ -1253,7 +1270,7 @@ msgstr "8"
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:83
 msgid "&only for you"
-msgstr "&nomÈs a vÛs"
+msgstr "&nom√©s a v√≥s"
 
 #. ts-context Form
 #: keyboard.ui:264
@@ -1283,7 +1300,7 @@ msgstr "Ajuda"
 #. ts-context TreeWidget
 #: tree.ui:91
 msgid "Remove Shortcut"
-msgstr "Elimina l'accÈs directe"
+msgstr "Elimina l'acc√©s directe"
 
 #. ts-context FieldDefaultsDialog
 #: field_preferences.ui:21
@@ -1296,13 +1313,13 @@ msgid ""
 "If operator is 'in' or 'not in' you may introduce a list of comma separated "
 "values."
 msgstr ""
-"Si l'operador Ès \"Ès dins de\" o bÈ \"no Ès dins de\" podeu introduir una "
+"Si l'operador √©s \"√©s dins de\" o b√© \"no √©s dins de\" podeu introduir una "
 "llista de valors separats per comes."
 
 #. ts-context ErrorDialog
 #: error.ui:34
 msgid "&Description"
-msgstr "&DescripciÛ"
+msgstr "&Descripci√≥"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:260
@@ -1322,17 +1339,12 @@ msgstr "<b>No s'ha pogut connectar al servidor !</b>"
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:197
 msgid "&Load demonstration data"
-msgstr "Carrega &dades de demostraciÛ"
-
-#. ts-context Dialog
-#: batchupdate_msgbox.ui:14
-msgid "Batch Update"
-msgstr "ActualizaciÛ massiva"
+msgstr "Carrega &dades de demostraci√≥"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:292
 msgid "Admin password:"
-msgstr "Contrasenya de l'admin:"
+msgstr "Contrassenya de l'admin:"
 
 #. ts-context Form
 #: keyboard.ui:514
@@ -1342,12 +1354,12 @@ msgstr "3"
 #. ts-context TranslationDialog
 #: translationdialog.ui:14
 msgid "Translation Dialog"
-msgstr "Di‡leg de traducciÛ"
+msgstr "Di√†leg de traducci√≥"
 
 #. ts-context TreeWidget
 #: tree.ui:111
 msgid "Expand/Collapse"
-msgstr "Expandeix/Col∑lapsa"
+msgstr "Expandeix/Col¬∑lapsa"
 
 #. ts-context FullTextSearchDialog
 #: full_text_search.ui:42
@@ -1383,7 +1395,7 @@ msgid ""
 "this operation may take a while..."
 msgstr ""
 "Si us plau, espereu, \n"
-"aquesta operaciÛ pot tardar una estona..."
+"aquesta operaci√≥ pot tardar una estona..."
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:204
@@ -1402,6 +1414,7 @@ msgstr "Servidor"
 
 #. ts-context AboutDialog
 #. ts-context AdminPasswordDialog
+#. ts-context BatchUpdateDialog
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context CreateDatabaseDialog
@@ -1410,19 +1423,17 @@ msgstr "Servidor"
 #. ts-context ExportDialog
 #. ts-context FieldDefaultsDialog
 #. ts-context GoToIdDialog
-#. ts-context ImportDialog
 #. ts-context LicenseDialog
 #. ts-context LoginDialog
-#. ts-context BatchUpdateDialog
 #. ts-context PreferencesDialog
 #. ts-context SearchWidget
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
-#: about.ui:120 admin_passwd.ui:138 change_server.ui:113 choosedb.ui:161
-#: create_database.ui:343 batchupdate_msgbox.ui:104 error.ui:159
-#: win_export.ui:243 field_preferences.ui:134 gotoid.ui:72 win_import.ui:263
-#: license.ui:148 login.ui:283 batchupdate.ui:44 preferences.ui:45
-#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
+#: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
+#: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
+#: error.ui:159 win_export.ui:265 field_preferences.ui:134 gotoid.ui:72
+#: license.ui:148 login.ui:283 preferences.ui:45 win_search.ui:97
+#: win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
 msgstr "&Accepta"
 
@@ -1449,6 +1460,7 @@ msgid "C&hange"
 msgstr "Can&via"
 
 #. ts-context AdminPasswordDialog
+#. ts-context BatchUpdateDialog
 #. ts-context ChangeServerDialog
 #. ts-context ChooseDatabaseDialog
 #. ts-context CreateDatabaseDialog
@@ -1456,21 +1468,19 @@ msgstr "Can&via"
 #. ts-context ExportDialog
 #. ts-context FieldDefaultsDialog
 #. ts-context GoToIdDialog
-#. ts-context ImportDialog
 #. ts-context LoginDialog
 #. ts-context ManyToOneWidget
-#. ts-context BatchUpdateDialog
 #. ts-context PreferencesDialog
 #. ts-context SearchWidget
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
-#: admin_passwd.ui:149 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:257
-#: field_preferences.ui:144 gotoid.ui:83 win_import.ui:274 login.ui:297
-#: one2many_dialog.ui:129 batchupdate.ui:55 preferences.ui:56
-#: win_search.ui:108 win_selection.ui:57 translationdialog.ui:56
+#: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
+#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:279
+#: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
+#: preferences.ui:56 win_search.ui:108 win_selection.ui:57
+#: translationdialog.ui:56
 msgid "&Cancel"
-msgstr "&Cancel∑la"
+msgstr "&Cancel¬∑la"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:645
@@ -1487,6 +1497,11 @@ msgstr "Elimina la imatge"
 msgid "PDF Manual"
 msgstr "Manual PDF"
 
+#. ts-context ImportDialog
+#: win_import.ui:324
+msgid "&Import"
+msgstr "&Importa"
+
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:134
 msgid "<Alt> + <PgUp>"
@@ -1495,7 +1510,7 @@ msgstr "<Alt> + <PgUp>"
 #. ts-context KooMainWindow
 #: mainwindow.ui:227
 msgid "Send New Request"
-msgstr "Envia una nova peticiÛ"
+msgstr "Envia una nova petici√≥"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:653
@@ -1540,7 +1555,7 @@ msgstr "Consell del dia"
 #. ts-context KooMainWindow
 #: mainwindow.ui:509
 msgid "&Preferences"
-msgstr "&PreferËncies"
+msgstr "&Prefer√®ncies"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:755
@@ -1550,7 +1565,7 @@ msgstr "&Ajuda contextual"
 #. ts-context Dialog
 #: lostconnection.ui:32
 msgid "Connection Lost"
-msgstr "ConnexiÛ perduda"
+msgstr "Connexi√≥ perduda"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:389
@@ -1579,7 +1594,7 @@ msgstr "Space"
 #: admin_passwd.ui:14 win_export.ui:14 field_preferences.ui:13
 #: win_selection.ui:13
 msgid "Dialog"
-msgstr "Di‡leg"
+msgstr "Di√†leg"
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
@@ -1590,12 +1605,47 @@ msgstr "Adjunts"
 #. ts-context KooMainWindow
 #: mainwindow.ui:482
 msgid "&Backup Database"
-msgstr "Fes una cÚpia de seguretat de la &base de dades"
+msgstr "Fes una c√≤pia de seguretat de la &base de dades"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:344
 msgid "General"
 msgstr "General"
+
+#. ts-context ExportDialog
+#: win_export.ui:220
+msgid ""
+"<p>\n"
+"Check this field if you want to be able to import this information back to "
+"OpenERP.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Note that you may also be interested in adding ID or Database ID fields, so "
+"OpenERP can match CSV and database's records when you import it later.\n"
+"</p>\n"
+"<p>\n"
+"On the other hand, import incompatible files will show some information in a "
+"way users can better understand it and it's probably what you expect if you "
+"do not intend to import data back to OpenERP.\n"
+"</p>"
+msgstr ""
+"<p>\n"
+"Marqueu aquesta casella si voleu poder importar aquesta informaci√≥ de nou a "
+"OpenERP.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Pot ser que tamb√© estigueu interessats en afegir els camps ID o ID de base "
+"de dades, per tal que OpenERP pugui casar els registres a importar i els de "
+"la base de dades quan els importeu despr√©s.\n"
+"</p>\n"
+"<p>\n"
+"Per altra banda, els fitxers incompatibles amb la importaci√≥ mostraran "
+"alguna informaci√≥ de forma inteligible pels usuaris i probablement √©s el que "
+"esteu buscant si no teniu intenci√≥ d'importar de nou la informaci√≥ a "
+"OpenERP.\n"
+"</p>"
 
 #. ts-context PanedWidget
 #. ts-context ReferenceWidget
@@ -1612,7 +1662,7 @@ msgstr "Vista setmanal"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:511
 msgid "Numeric fields"
-msgstr "Camps numËrics"
+msgstr "Camps num√®rics"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:746
@@ -1647,7 +1697,7 @@ msgstr "<-"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:757
 msgid "Mouse Wheel on Tab"
-msgstr "Rodeta del ratolÌ en les pestanyes"
+msgstr "Rodeta del ratol√≠ en les pestanyes"
 
 #. ts-context Form
 #: keyboard.ui:488
@@ -1707,7 +1757,7 @@ msgstr ""
 "family:'Sans Serif'; font-size:9pt;\"></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif'; font-size:9pt;\">El Koo Ès un producte de "
+"style=\" font-family:'Sans Serif'; font-size:9pt;\">El Koo √©s un producte de "
 "NaN:</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
 "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
@@ -1768,7 +1818,7 @@ msgstr "Canvia la pestanya actual"
 #. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:112
 msgid "Connect &later"
-msgstr "Connecta &mÈs tard"
+msgstr "Connecta &m√©s tard"
 
 #. ts-context Form
 #: keyboard.ui:82
@@ -1778,7 +1828,7 @@ msgstr "T"
 #. ts-context GoToIdDialog
 #: gotoid.ui:14
 msgid "Go To Id"
-msgstr "VÈs a l'Id"
+msgstr "V√©s a l'Id"
 
 #. ts-context ChangeServerDialog
 #: change_server.ui:71
@@ -1788,7 +1838,7 @@ msgstr "&Port:"
 #. ts-context KooMainWindow
 #: mainwindow.ui:704
 msgid "Go To Resource ID"
-msgstr "VÈs al recurs amb ID"
+msgstr "V√©s al recurs amb ID"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:49
@@ -1828,7 +1878,7 @@ msgstr "<Ctrl> + D"
 #. ts-context TipsDialog
 #: tip.ui:133
 msgid "&Next Tip"
-msgstr "&Seg¸ent consell"
+msgstr "&Seg√ºent consell"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:496
@@ -1886,10 +1936,10 @@ msgstr "<Ctrl> + <PgUp>"
 msgid "(_/0)"
 msgstr "(_/0)"
 
-#. ts-context BatchUpdateDialog
-#: batchupdate.ui:13
-msgid "Batch Update Process"
-msgstr "ProcÈs d'actualitzaciÛ massiva"
+#. ts-context ShortcutsDialog
+#: shortcuts.ui:818
+msgid "Set focus to nearest widget"
+msgstr "Estableix el cursor al camp m√©s proper"
 
 #. ts-context ExportDialog
 #: win_export.ui:116
@@ -1919,7 +1969,7 @@ msgstr "Cerca/edita els registres existents"
 #. ts-context KooMainWindow
 #: mainwindow.ui:695
 msgid "Store View Settings"
-msgstr "Desa la configuraciÛ de la vista"
+msgstr "Desa la configuraci√≥ de la vista"
 
 #. ts-context DateTimeWidget
 #: datetime.ui:41
@@ -1929,12 +1979,12 @@ msgstr "Hora:"
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:152
 msgid "&Super admin password:"
-msgstr "Contrasenya  del &super admin:"
+msgstr "Contrassenya  del &super admin:"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:550
 msgid "Relation fields"
-msgstr "Camps de relaciÛ"
+msgstr "Camps de relaci√≥"
 
 #. ts-context RichTextWidget
 #: richtext.ui:217
@@ -1949,7 +1999,7 @@ msgstr "&OpenERP"
 #. ts-context ExportDialog
 #: win_export.ui:46
 msgid "Re&move Export"
-msgstr "&Elimina l'ExportaciÛ"
+msgstr "&Elimina l'Exportaci√≥"
 
 #. ts-context AttachmentWindow
 #. ts-context ManyToOneWidget
@@ -1962,7 +2012,7 @@ msgid "New"
 msgstr "Nou"
 
 #. ts-context ImportDialog
-#: win_import.ui:85
+#: win_import.ui:86
 msgid "Remo&ve All"
 msgstr "&Elimina'ls tots"
 
@@ -1979,12 +2029,12 @@ msgstr "&Usuari:"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:277
 msgid "Full Text Search current selection"
-msgstr "Cerca la selecciÛ actual mitjanÁant la cerca de text"
+msgstr "Cerca la selecci√≥ actual mitjan√ßant la cerca de text"
 
 #. ts-context TreeWidget
 #: tree.ui:71
 msgid "Add Shortcut"
-msgstr "Afegeix l'accÈs directe"
+msgstr "Afegeix l'acc√©s directe"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:769
@@ -1994,17 +2044,22 @@ msgstr "&Dreceres de teclat"
 #. ts-context Form
 #: calendarview.ui:63
 msgid "Daily View"
-msgstr "Vista di‡ria"
+msgstr "Vista di√†ria"
 
 #. ts-context CreateDatabaseDialog
 #: create_database.ui:181
 msgid "&Default language:"
-msgstr "&Idioma per omissiÛ:"
+msgstr "&Idioma per omissi√≥:"
 
 #. ts-context Form
 #: keyboard.ui:134
 msgid "O"
 msgstr "O"
+
+#. ts-context Dialog
+#: batchupdate_msgbox.ui:14
+msgid "Batch Update"
+msgstr "Modificaci√≥ en bloc"
 
 #. ts-context ManyToManyWidget
 #. ts-context OneToManyWidget
@@ -2051,7 +2106,7 @@ msgstr "Obre un calendari"
 #. ts-context KooMainWindow
 #: mainwindow.ui:716
 msgid "&Reload/Undo"
-msgstr "&Recarrega/DesfÈs"
+msgstr "&Recarrega/Desf√©s"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:202
@@ -2060,7 +2115,7 @@ msgstr "<Ctrl> + <PgDn>"
 
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
-#: win_import.ui:63 many2many.ui:40
+#: win_import.ui:64 many2many.ui:40
 msgid "&Add"
 msgstr "&Afegeix"
 
@@ -2077,7 +2132,7 @@ msgstr "*"
 #. ts-context ProgressDialog
 #: progress.ui:40
 msgid "Operation in progress"
-msgstr "OperaciÛ en progrÈs"
+msgstr "Operaci√≥ en progr√©s"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:660
@@ -2087,7 +2142,7 @@ msgstr "Llistes"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:848
 msgid "<Alt> + Plus"
-msgstr "<Alt> + MÈs"
+msgstr "<Alt> + M√©s"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:428
@@ -2105,7 +2160,7 @@ msgid "&Previous Tip"
 msgstr "Consell &anterior"
 
 #. ts-context ImportDialog
-#: win_import.ui:238
+#: win_import.ui:258
 msgid "Latin1"
 msgstr "Latin1"
 
@@ -3036,7 +3091,7 @@ msgstr "&Esperant peticions"
 #. ts-context LicenseDialog
 #: license.ui:19
 msgid "OpenERP license"
-msgstr "LlicËncia d'OpenERP"
+msgstr "Llic√®ncia d'OpenERP"
 
 #. ts-context Form
 #: keyboard.ui:540
@@ -3056,7 +3111,7 @@ msgstr "Cursiva"
 #. ts-context ErrorDialog
 #: error.ui:40
 msgid "Application Error"
-msgstr "Error de l'aplicaciÛ"
+msgstr "Error de l'aplicaci√≥"
 
 #. ts-context OneToManyWidget
 #: one2many.ui:116
@@ -3104,7 +3159,7 @@ msgstr "Elimina"
 #. ts-context ManyToOneWidget
 #: full_text_search.ui:126 mainwindow.ui:605 one2many_dialog.ui:68
 msgid "&Next"
-msgstr "&Seg¸ent"
+msgstr "&Seg√ºent"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:243
@@ -3129,12 +3184,12 @@ msgstr "<Shift> + Canvia la vista"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:638
 msgid "<Alt> + <Backspace>"
-msgstr "<Alt> + <Tecla de retrocÈs>"
+msgstr "<Alt> + <Tecla de retroc√©s>"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:332
 msgid "&Edition Shortcuts"
-msgstr "Dreceres d'&ediciÛ"
+msgstr "Dreceres d'&edici√≥"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:557
@@ -3151,9 +3206,9 @@ msgstr ""
 "(Resultat de l'exemple: 7)"
 
 #. ts-context ImportDialog
-#: win_import.ui:212
+#: win_import.ui:229
 msgid "&Encoding"
-msgstr "C&odificaciÛ"
+msgstr "C&odificaci√≥"
 
 #. ts-context RichTextWidget
 #: richtext.ui:94
@@ -3164,3 +3219,917 @@ msgstr "Subratllat"
 #: win_attach.ui:49
 msgid "toolBar"
 msgstr "toolBar"
+
+#~ msgid ""
+#~ "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ "
+#~ "\"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'DejaVu Sans'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Numeric fields</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ "
+#~ "\"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'DejaVu Sans'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Camps num√®rics</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ "
+#~ "\"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'DejaVu Sans'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Relation fields</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ "
+#~ "\"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'DejaVu Sans'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Camps de relaci√≥</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ "
+#~ "\"\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "\"#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">You can connect "
+#~ "\"#~ \"to the new database using one of the following accounts:</p>\n"
+#~ "\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "\"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Administrator: "
+#~ "\"#~ \"admin / admin</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"#~ "
+#~ "\"\"http://www.w3.org/TR/REC-html40/strict.dtd\"><html><head><meta \"#~ "
+#~ "\"name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">p, li { \"#~ "
+#~ "\"white-space: pre-wrap; }</style></head><body style=\" font-family:'Sans "
+#~ "\"#~ \"Serif'; font-size:9pt; font-weight:400; font-style:normal;\"><p "
+#~ "style=\" \"#~ \"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; \"#~ \"-qt-block-indent:0; text-indent:0px;\">Us podeu connectar "
+#~ "a la base de \"#~ \"dades nova utilitzant algun dels comptes seg√ºents:</p><p "
+#~ "\"#~ \"style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "\"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\"></p><p style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Administrador: admin / admin</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal; text-"
+#~ "decoration:none;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">-</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal; \"#~ \"text-"
+#~ "decoration:none;\">(new line)<p style=\" margin-top:0px; \"#~ \"margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ "
+#~ "\"text-indent:0px;\"><span style=\" \"#~ \"font-weight:600;\">-"
+#~ "</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal; text-"
+#~ "decoration:none;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Could not connect to server "
+#~ "!</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal; text-"
+#~ "decoration:none;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">No s'ha pogut contactar amb el \"#~ "
+#~ "\"servidor!</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<center><p style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; \"#~ \"margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px;\"><span style=\" \"#~ \"font-weight:600;\">About Tiny ERP</span> "
+#~ "</p>\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The most \"#~ "
+#~ "\"advanced Open Source ERP &amp; CRM !</p></center></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<center><p \"#~ "
+#~ "\"style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-"
+#~ "weight:600;\">About Tiny ERP</span> </p>(new line)<p style=\" \"#~ \"margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-"
+#~ "block-indent:0; text-indent:0px;\">L'ERP i CRM de codi obert m√©s \"#~ "
+#~ "\"avan√ßat!</p></center></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Edit</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; \"#~ \"text-indent:0px;\">Edita</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">New</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; \"#~ \"text-indent:0px;\">Nou</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Open</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; \"#~ \"text-indent:0px;\">Obre</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Remove</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; \"#~ \"text-indent:0px;\">Elimina</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Search</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; \"#~ \"text-indent:0px;\">Cerca</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">&amp;Options</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-"
+#~ "weight:600;\">&amp;Opcions</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">All fields</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-"
+#~ "weight:600;\">Tots els camps</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Fields to export</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-"
+#~ "weight:600;\">Camps a exportar</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Support contract &amp;id</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-"
+#~ "weight:600;\">&amp;id del contracte de \"#~ "
+#~ "\"suport</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+#~ "\"#~ \"font-weight:600;\">Value applicable if:</span></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\"><span style=\" \"#~ \"font-"
+#~ "weight:600;\">Valor aplicable si:</span></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Background \"#~ "
+#~ "\"color</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\">Color de \"#~ "
+#~ "\"fons</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Foreground \"#~ "
+#~ "\"Color</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\">Color de primer \"#~ "
+#~ "\"pla</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Switch \"#~ "
+#~ "\"View</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\">Canvia la \"#~ "
+#~ "\"vista</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">You can connect "
+#~ "\"#~ \"to the new database using one of the following accounts:</p>\n"
+#~ "\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "\"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ "
+#~ "\"margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Administrator: "
+#~ "\"#~ \"admin / admin</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\" "
+#~ "margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; "
+#~ "-qt-block-indent:0; text-indent:0px;\">Podeu \"#~ \"connectar-vos a la nova "
+#~ "base de dades utilitzant algun dels seg√ºents \"#~ \"comptes:</p>(new line)<p "
+#~ "style=\"-qt-paragraph-type:empty; \"#~ \"margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-"
+#~ "indent:0px;\"></p>(new line)<p style=\" \"#~ \"margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; "
+#~ "text-indent:0px;\">Administrador: admin / \"#~ \"admin</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "\"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">(c) 2003-TODAY - Tiny sprl</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Tiny ERP is a product of Tiny sprl:</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "\"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Tiny sprl</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">40 Chaussu√©e de Namur</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">1367 G√©rompont</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Belgium</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "\"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Tel : (+32)81.81.37.00</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Mail: <a href=\"mailto:sales@tiny.be\"><span style=\" \"#~ "
+#~ "\"text-decoration: underline; \"#~ "
+#~ "\"color:#0000ff;\">sales@tiny.be</span></a></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Web: <a href=\"http://www.tinyerp.com\"><span style=\" \"#~ "
+#~ "\"text-decoration: underline; \"#~ "
+#~ "\"color:#0000ff;\">http://tiny.be</span></a></p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\"-"
+#~ "qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\"></p>(new line)<p align=\"center\" style=\" \"#~ \"margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-"
+#~ "block-indent:0; text-indent:0px;\">(c) 2003-AVUI - Tiny sprl</p>(new \"#~ "
+#~ "\"line)<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Tiny ERP √©s un producte de Tiny sprl:</p>(new line)<p \"#~ "
+#~ "\"align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; \"#~ "
+#~ "\"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "\"#~ \"text-indent:0px;\"></p>(new line)<p align=\"center\" style=\" \"#~ "
+#~ "\"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ "
+#~ "\"-qt-block-indent:0; text-indent:0px;\">Tiny sprl</p>(new line)<p \"#~ "
+#~ "\"align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\">40 "
+#~ "Chaussu√©e de Namur</p>(new line)<p align=\"center\" \"#~ \"style=\" margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-right:0px; -qt-"
+#~ "block-indent:0; text-indent:0px;\">1367 \"#~ \"G√©rompont</p>(new line)<p "
+#~ "align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Belgium</p>(new line)<p align=\"center\" \"#~ \"style=\"-qt-"
+#~ "paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\"></p>(new line)<p align=\"center\" style=\" \"#~ \"margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-"
+#~ "block-indent:0; text-indent:0px;\">Tel : (+32)81.81.37.00</p>(new \"#~ "
+#~ "\"line)<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Correu: <a href=\"mailto:sales@tiny.be\"><span \"#~ \"style=\" "
+#~ "text-decoration: underline; \"#~ "
+#~ "\"color:#0000ff;\">sales@tiny.be</span></a></p>(new line)<p \"#~ "
+#~ "\"align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ \"margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Web: <a href=\"http://www.tinyerp.com\"><span style=\" \"#~ "
+#~ "\"text-decoration: underline; \"#~ "
+#~ "\"color:#0000ff;\">http://tiny.be</span></a></p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">\n"
+#~ "\"#~ \"p, li { white-space: pre-wrap; }\n"
+#~ "\"#~ \"</style></head><body style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; \"#~ \"font-weight:400; font-style:normal;\">\n"
+#~ "\"#~ \"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; \"#~ \"margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "\"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Tiny ERP - KDE Client - %s</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "\"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">Tiny ERP is an Open Source ERP+CRM</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">for small to medium businesses.</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "\"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">The whole source code is distributed under </p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">the terms of the GNU Public Licence.</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "\"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">(c) 2003-TODAY, Tiny sprl</p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "\"#~ \"margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-"
+#~ "indent:0; \"#~ \"text-indent:0px;\"></p>\n"
+#~ "\"#~ \"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; \"#~ "
+#~ "\"margin-left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">More Info on <a href=\"http://www.tinyerp.com\"><span \"#~ "
+#~ "\"style=\" text-decoration: underline; \"#~ "
+#~ "\"color:#0000ff;\">www.TinyERP.com</span></a> !</p></body></html>\""
+#~ msgstr ""
+#~ "#~ \"<html><head><meta name=\"qrichtext\" content=\"1\" /><style \"#~ "
+#~ "\"type=\"text/css\">(new line)p, li { white-space: pre-wrap; }(new \"#~ "
+#~ "\"line)</style></head><body style=\" font-family:'Sans Serif'; \"#~ \"font-"
+#~ "size:9pt; font-weight:400; font-style:normal;\">(new line)<p \"#~ \"style=\"-"
+#~ "qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\"></p>(new line)<p align=\"center\" style=\" \"#~ \"margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-"
+#~ "block-indent:0; text-indent:0px;\">Tiny ERP - Client KDE - %s</p>(new \"#~ "
+#~ "\"line)<p align=\"center\" style=\"-qt-paragraph-type:empty; \"#~ \"margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-"
+#~ "block-indent:0; text-indent:0px;\"></p>(new line)<p align=\"center\" \"#~ "
+#~ "\"style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Tiny ERP √©s un \"#~ "
+#~ "\"ERP+CRM de codi obert</p>(new line)<p align=\"center\" style=\" \"#~ "
+#~ "\"margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ "
+#~ "\"-qt-block-indent:0; text-indent:0px;\">per a petites i mitjanes \"#~ "
+#~ "\"empreses.</p>(new line)<p align=\"center\" \"#~ \"style=\"-qt-paragraph-"
+#~ "type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; "
+#~ "margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>(new "
+#~ "line)<p align=\"center\" style=\" \"#~ \"margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-"
+#~ "indent:0px;\">Tot el codi font est√† distribu√Øt \"#~ \"sota </p>(new line)<p "
+#~ "align=\"center\" style=\" margin-top:0px; \"#~ \"margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; \"#~ \"text-"
+#~ "indent:0px;\">les condicions de la GNU Public License.</p>(new \"#~ "
+#~ "\"line)<p align=\"center\" style=\"-qt-paragraph-type:empty; \"#~ \"margin-"
+#~ "top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; \"#~ \"-qt-"
+#~ "block-indent:0; text-indent:0px;\"></p>(new line)<p align=\"center\" \"#~ "
+#~ "\"style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; \"#~ \"margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">(c) 2003-AVUI, \"#~ \"Tiny "
+#~ "sprl</p>(new line)<p align=\"center\" \"#~ \"style=\"-qt-paragraph-"
+#~ "type:empty; margin-top:0px; margin-bottom:0px; \"#~ \"margin-left:0px; "
+#~ "margin-right:0px; -qt-block-indent:0; \"#~ \"text-indent:0px;\"></p>(new "
+#~ "line)<p align=\"center\" style=\" \"#~ \"margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; \"#~ \"-qt-block-indent:0; text-"
+#~ "indent:0px;\">M√©s informaci√≥ a <a \"#~ "
+#~ "\"href=\"http://www.tinyerp.com\"><span style=\" text-decoration: \"#~ "
+#~ "\"underline; color:#0000ff;\">www.TinyERP.com</span></a> "
+#~ "!</p></body></html>\""
+
+#~ msgid ""
+#~ "#~ \"Please wait, \n"
+#~ "\"#~ \"this operation may take a while...\""
+#~ msgstr ""
+#~ "#~ \"Si us plau, espereu, \n"
+#~ "\"#~ \"aquesta operaci√≥ pot tardar una estona...\""
+
+#~ msgid ""
+#~ "#~ \"Your request will be sent to Tiny ERP and we will replay you shortly.\n"
+#~ "\"#~ \"Note that we may not reply you if your Service Company is not a Tiny "
+#~ "ERP \"#~ \"partner.\""
+#~ msgstr ""
+#~ "#~ \"La vostra petici√≥ s'enviar√† a Tiny ERP i us respondrem breument.\n"
+#~ "\"#~ \"Tingueu present que podr√≠eu no rebre cap resposta si la vostra empres "
+#~ "de \"#~ \"serveis no √©s un partner de Tiny ERP.\""
+
+#~ msgid "&File"
+#~ msgstr "&Fitxer"
+
+#~ msgid "&Load"
+#~ msgstr "&Carrega"
+
+#~ msgid "&Open"
+#~ msgstr "&Obre"
+
+#~ msgid "&Play"
+#~ msgstr "&Reprodueix"
+
+#~ msgid "&Stop"
+#~ msgstr "&Atura"
+
+#~ msgid "&Tiny ERP"
+#~ msgstr "&Tiny ERP"
+
+#~ msgid "&TinyERP server:"
+#~ msgstr "&Servidor TinyERP:"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a "
+#~ "href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
+#~ "tic.com</span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo √©s un producte de "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Correu: </span><a "
+#~ "href=\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-"
+#~ "tic.com</span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
+#~ " %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
+#~ "Source ERP+CRM</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+#~ "businesses.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code is "
+#~ "distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </span><a "
+#~ "href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; "
+#~ "font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+#~ "\"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style "
+#~ "type=\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+#~ "weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+#~ "family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE Client -"
+#~ " %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP √©s un ERP+CRM de "
+#~ "codi obert</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">per petites i mitjanes "
+#~ "empreses.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tot el codi est√† "
+#~ "distribu√Øt sota llic√®ncia </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">GNU Public License "
+#~ "(GPL).</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-"
+#~ "bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-"
+#~ "indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">M√©s informaci√≥ a "
+#~ "</span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
+#~ "Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www.nan-"
+#~ "tic.com</span></a></p></body></html>"
+
+#~ msgid "<Ctrl> + Switch View"
+#~ msgstr "<Ctrl> + Switch View"
+
+#~ msgid "<b>Change your database adniminstration password</b>"
+#~ msgstr "<b>Canvia la contrasenya d'administrador de la base de dades</b>"
+
+#~ msgid "<b>Complete this form to submit your bug and/or request support.</b>"
+#~ msgstr ""
+#~ "#~ \"<b>Completeu aquest formulari per enviar una petici√≥ de suport o un "
+#~ "\"#~ \"informe d'error.</b>\""
+
+#~ msgid "<b>Shortcuts</b>"
+#~ msgstr "<b>Accessos directes</b>"
+
+#~ msgid "<center><b>Shortcuts for TinyERP</b></center>"
+#~ msgstr "<center><b>Dreceres del TinyERP</b></center>"
+
+#~ msgid "About Tiny ERP"
+#~ msgstr "Quant a Tiny ERP"
+
+#~ msgid "Advanced search parameters"
+#~ msgstr "Par√†metres de cerca avan√ßats"
+
+#~ msgid "Any"
+#~ msgstr "Qualsevol"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancel¬∑la"
+
+#~ msgid "Click on the Support Request tab if you need more help!"
+#~ msgstr ""
+#~ "#~ \"Feu clic a la pestanya de petici√≥ de suport si necessiteu m√©s ajuda!\""
+
+#~ msgid "Connect to a Tiny ERP Server"
+#~ msgstr "Connectar al servidor Tiny ERP"
+
+#~ msgid "Ctrl+L, Ctrl+Shift+L"
+#~ msgstr "Ctrl+L, Ctrl+Shift+L"
+
+#~ msgctxt "Ctrl+O to Login"
+#~ msgid "Ctrl+O"
+#~ msgstr "Ctrl+O"
+
+#~ msgid "Go"
+#~ msgstr "V√©s"
+
+#~ msgid "KTiny Erp Client"
+#~ msgstr "Client ERP KTiny"
+
+#~ msgid "KTiny"
+#~ msgstr "KTiny"
+
+#~ msgid "Koo"
+#~ msgstr "Koo"
+
+#~ msgid "Limit:"
+#~ msgstr "L√≠mit:"
+
+#~ msgid "Massive Update Process"
+#~ msgstr "Proc√©s d'actualitzaci√≥ massiva"
+
+#~ msgid "OK"
+#~ msgstr "Accepta"
+
+#~ msgid "Offset:"
+#~ msgstr "Despla√ßament:"
+
+#~ msgid "Open Form View in new Tab"
+#~ msgstr "Obre la vista de formulari en una nova pestanya"
+
+#~ msgid "OpenERP"
+#~ msgstr "OpenERP"
+
+#~ msgid "Pause"
+#~ msgstr "Pausa"
+
+#~ msgid "Preview in Editor"
+#~ msgstr "Mostra la vista pr√®via en un editor"
+
+#~ msgid "Preview in PDF"
+#~ msgstr "Mostra la vista pr√®via en PDF"
+
+#~ msgid "Repeat Latest Action"
+#~ msgstr "Repeteix l'√∫ltima acci√≥"
+
+#~ msgid "S&ave"
+#~ msgstr "&Desa"
+
+#~ msgid "S&upport Request"
+#~ msgstr "&Petici√≥ de suport"
+
+#~ msgid "Save Options"
+#~ msgstr "Desa les opcions"
+
+#~ msgid "Support Request"
+#~ msgstr "Petici√≥ de suport"
+
+#~ msgid "Switch to &List/Form"
+#~ msgstr "Canvia a &Llista/Formulari"
+
+#~ msgid "Tiny ERP - Link"
+#~ msgstr "Tiny ERP - Enlla√ß"
+
+#~ msgid "Tiny ERP license"
+#~ msgstr "Llic√®ncia de Tiny ERP"
+
+#~ msgid "TinyERP"
+#~ msgstr "TinyERP"
+
+#~ msgid "Title"
+#~ msgstr "T√≠tol"
+
+#~ msgid "Translation dialog"
+#~ msgstr "Di√†leg de traducci√≥"
+
+#~ msgid "User &Manual"
+#~ msgstr "&Manual d'Usuari"
+
+#~ msgid "User Manual"
+#~ msgstr "Manual d'Usuari"
+
+#~ msgid "`"
+#~ msgstr "`"
+
+#~ msgid "√É¬ë"
+#~ msgstr "√É‚Äò"
+
+#~ msgid "√É¬á"
+#~ msgstr "√É‚Ä°"
+
+#~ msgid "Massive Update"
+#~ msgstr "Actualizaci√≥ massiva"
+
+#~ msgid "&Or"
+#~ msgstr "&O"
