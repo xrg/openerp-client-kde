@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-12-23 21:10+0100\n"
+"POT-Creation-Date: 2010-12-27 23:52+0100\n"
 "PO-Revision-Date: 2010-12-26 09:30+0000\n"
 "Last-Translator: Wei \"oldrev\" Li <oldrev@gmail.com>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
 "X-Generator: Launchpad (build 12138)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -253,7 +253,7 @@ msgid ""
 "seconds."
 msgstr "已失去与服务器的连接，系统将在 %d 秒后重试。"
 
-#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:666
 msgid "Quit"
 msgstr "退出"
 
@@ -338,22 +338,30 @@ msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "指定服务器地址（例如：http://admin@localhost:8069）"
 
 #: Koo/Common/CommandLine.py:47
+msgid "specify model to be opened"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:48
+msgid "specify id to be opened"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:49
 msgid "specify stylesheet to apply"
 msgstr "指定要应用的样式表"
 
-#: Koo/Common/CommandLine.py:48
+#: Koo/Common/CommandLine.py:50
 msgid "use POS (Point of Sales) mode"
 msgstr "使用 POS（销售点）模式"
 
-#: Koo/Common/CommandLine.py:49
+#: Koo/Common/CommandLine.py:51
 msgid "replace enter/return keys with tab hits"
 msgstr ""
 
-#: Koo/Common/CommandLine.py:50
+#: Koo/Common/CommandLine.py:52
 msgid "disable usage of KDE libraries if they are available"
 msgstr "如果 KDE 的库不可用的话就禁用"
 
-#: Koo/Common/CommandLine.py:51
+#: Koo/Common/CommandLine.py:53
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr "打开调试模式。将在所有异常发生的时候显示崩溃对话框。"
 
@@ -403,14 +411,14 @@ msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "是"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "否"
@@ -592,11 +600,11 @@ msgstr ""
 "您知道您可以很容易地导出 OpenERP 中的数据吗？请转到一个表单然后导出数据看看。您设置可以保存您的首选项然后多次使用。\n"
 "</p>\n"
 
-#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
+#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:88
 msgid "Could not connect to server !"
 msgstr "无法连接到服务器！"
 
-#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
+#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:96
 msgid "No database found, you must create one !"
 msgstr "没有找到相应数据库，请创建！"
 
@@ -671,7 +679,15 @@ msgstr "无法删除数据库"
 msgid "Database dropped successfully!"
 msgstr "数据库删除成功！"
 
-#: Koo/Dialogs/WebWidget.py:105
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find"
+msgstr ""
+
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find:"
+msgstr ""
+
+#: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
 msgstr "Web 视图没有可用的帮助"
 
@@ -829,7 +845,7 @@ msgstr "批量插入"
 msgid "Are you sure you want to insert %d records?"
 msgstr "您确定要插入 %d 条记录吗？"
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:519
 msgid "Press Ctrl+O to login"
 msgstr "按 Ctrl+O 登录"
 
@@ -875,39 +891,39 @@ msgstr "新请求"
 msgid "You've received a new request"
 msgstr "您收到一个新请求"
 
-#: Koo/Dialogs/KooMainWindow.py:480 Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:493 Koo/Dialogs/KooMainWindow.py:495
 msgid "Connection error !"
 msgstr "连接错误！"
 
-#: Koo/Dialogs/KooMainWindow.py:480
+#: Koo/Dialogs/KooMainWindow.py:493
 msgid "Unable to connect to the server !"
 msgstr "无法连接服务器！"
 
-#: Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:495
 msgid "Bad username or password !"
 msgstr "无效的用户名或密码！"
 
-#: Koo/Dialogs/KooMainWindow.py:487 Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:500 Koo/Dialogs/KooMainWindow.py:502
 msgid "Connection Error !"
 msgstr "连接错误！"
 
-#: Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:502
 msgid "Error logging into database."
 msgstr "登入数据库时发生错误."
 
-#: Koo/Dialogs/KooMainWindow.py:505
+#: Koo/Dialogs/KooMainWindow.py:518
 msgid "Not logged !"
 msgstr "尚未登录！"
 
-#: Koo/Dialogs/KooMainWindow.py:529
+#: Koo/Dialogs/KooMainWindow.py:542
 msgid "Manual"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid "Access denied"
 msgstr "拒绝访问"
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -917,11 +933,11 @@ msgstr ""
 "请询问管理员\n"
 "是否为该用户定义操作项。"
 
-#: Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Dialogs/KooMainWindow.py:666
 msgid "Do you really want to quit ?"
 msgstr "您确定要退出？"
 
-#: Koo/Dialogs/KooMainWindow.py:687
+#: Koo/Dialogs/KooMainWindow.py:700
 msgid "Wizard"
 msgstr "向导"
 
@@ -1104,6 +1120,14 @@ msgid ""
 "password are correct."
 msgstr ""
 
+#: Koo/Dialogs/LoginDialog.py:161
+msgid "Wallet"
+msgstr ""
+
+#: Koo/Dialogs/LoginDialog.py:162
+msgid "Do you want to store your password in your wallet?"
+msgstr ""
+
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "字段列表"
@@ -1270,23 +1294,23 @@ msgstr "密码错误"
 msgid "Administrator passwords differ."
 msgstr "管理员密码不相同."
 
-#: Koo/Rpc/Rpc.py:316
+#: Koo/Rpc/Rpc.py:317
 msgid "Connection Refused"
 msgstr "连接被拒绝"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "Application Error"
 msgstr "应用程序错误"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "View details"
 msgstr "查阅细节"
 
-#: Koo/Rpc/Rpc.py:415
+#: Koo/Rpc/Rpc.py:416
 msgid "Not logged in"
 msgstr "未登录"
 
-#: Koo/Rpc/Rpc.py:567
+#: Koo/Rpc/Rpc.py:568
 msgid "Could not contact server!"
 msgstr "无法联系服务器！"
 

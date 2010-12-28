@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-23 21:10+0100\n"
-"PO-Revision-Date: 2010-12-23 23:21+0000\n"
+"POT-Creation-Date: 2010-12-27 23:52+0100\n"
+"PO-Revision-Date: 2010-12-28 01:29+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
 "X-Generator: Launchpad (build 12138)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -259,7 +259,7 @@ msgid ""
 msgstr ""
 "S'ha perdut la connexió amb el servidor. Es tornarà a intentar en %d segons."
 
-#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:666
 msgid "Quit"
 msgstr "Sortir"
 
@@ -358,22 +358,30 @@ msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "especifiqueu el servidor (ex: http://admin@localhost:8069)"
 
 #: Koo/Common/CommandLine.py:47
+msgid "specify model to be opened"
+msgstr "especifiqueu el model a obrir"
+
+#: Koo/Common/CommandLine.py:48
+msgid "specify id to be opened"
+msgstr "especifiqueu l'id a obrir"
+
+#: Koo/Common/CommandLine.py:49
 msgid "specify stylesheet to apply"
 msgstr "especificar el full d'estil a aplicar"
 
-#: Koo/Common/CommandLine.py:48
+#: Koo/Common/CommandLine.py:50
 msgid "use POS (Point of Sales) mode"
 msgstr "utilitza el mode TPV (Terminal Punt de Venda)"
 
-#: Koo/Common/CommandLine.py:49
+#: Koo/Common/CommandLine.py:51
 msgid "replace enter/return keys with tab hits"
 msgstr "Reemplaça les tecles intro/retorn per tabulacions"
 
-#: Koo/Common/CommandLine.py:50
+#: Koo/Common/CommandLine.py:52
 msgid "disable usage of KDE libraries if they are available"
 msgstr "deshabilita l'ús de les llibreries KDE si estan disponibles"
 
-#: Koo/Common/CommandLine.py:51
+#: Koo/Common/CommandLine.py:53
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 "permet el mode de depuració. Mostrarà un diàleg d'error en totes les "
@@ -439,14 +447,14 @@ msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "Sí"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "No"
@@ -641,11 +649,11 @@ msgstr ""
 "preferències i utilitzar-les fàcilment sempre que ho necessiteu.\n"
 "</p>\n"
 
-#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
+#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:88
 msgid "Could not connect to server !"
 msgstr "No s'ha pogut connectar amb el servidor."
 
-#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
+#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:96
 msgid "No database found, you must create one !"
 msgstr "No s'ha trobat cap base de dades, abans n'heu de crear una."
 
@@ -720,7 +728,15 @@ msgstr "No s'ha pogut eliminar la base de dades."
 msgid "Database dropped successfully!"
 msgstr "Base de dades eliminada correctament."
 
-#: Koo/Dialogs/WebWidget.py:105
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find"
+msgstr "Cerca"
+
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find:"
+msgstr "Cerca:"
+
+#: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
 msgstr "No hi ha ajuda disponible per les vistes web"
 
@@ -885,7 +901,7 @@ msgstr "Inserció en bloc"
 msgid "Are you sure you want to insert %d records?"
 msgstr "Esteu segur que voleu afegir %d registres?"
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:519
 msgid "Press Ctrl+O to login"
 msgstr "Premeu Ctrl+O per entrar"
 
@@ -931,39 +947,39 @@ msgstr "Nova petició"
 msgid "You've received a new request"
 msgstr "Heu rebut una nova petició"
 
-#: Koo/Dialogs/KooMainWindow.py:480 Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:493 Koo/Dialogs/KooMainWindow.py:495
 msgid "Connection error !"
 msgstr "Error de connexió."
 
-#: Koo/Dialogs/KooMainWindow.py:480
+#: Koo/Dialogs/KooMainWindow.py:493
 msgid "Unable to connect to the server !"
 msgstr "No s'ha pogut connectar amb el servidor."
 
-#: Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:495
 msgid "Bad username or password !"
 msgstr "Nom d'usuari o contrasenya incorrectes."
 
-#: Koo/Dialogs/KooMainWindow.py:487 Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:500 Koo/Dialogs/KooMainWindow.py:502
 msgid "Connection Error !"
 msgstr "Error en la connexió."
 
-#: Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:502
 msgid "Error logging into database."
 msgstr "Error a l'entrar a la base de dades."
 
-#: Koo/Dialogs/KooMainWindow.py:505
+#: Koo/Dialogs/KooMainWindow.py:518
 msgid "Not logged !"
 msgstr "Sense autenticar"
 
-#: Koo/Dialogs/KooMainWindow.py:529
+#: Koo/Dialogs/KooMainWindow.py:542
 msgid "Manual"
 msgstr "Manual"
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid "Access denied"
 msgstr "Accés denegat"
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -973,11 +989,11 @@ msgstr ""
 " Pregunteu a l'administrador per verificar\n"
 "Que teniu una acció definida per al vostre usuari."
 
-#: Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Dialogs/KooMainWindow.py:666
 msgid "Do you really want to quit ?"
 msgstr "Esteu segur que voleu sortir?"
 
-#: Koo/Dialogs/KooMainWindow.py:687
+#: Koo/Dialogs/KooMainWindow.py:700
 msgid "Wizard"
 msgstr "Assistent"
 
@@ -1171,6 +1187,14 @@ msgstr ""
 "No s'ha pogut canviar la contrasenya d'administrador. Si us plau, comproveu "
 "que el servidor i la contrasenya són correctes."
 
+#: Koo/Dialogs/LoginDialog.py:161
+msgid "Wallet"
+msgstr "Cartera"
+
+#: Koo/Dialogs/LoginDialog.py:162
+msgid "Do you want to store your password in your wallet?"
+msgstr "Voleu desar la contrassenya a la cartera del KDE?"
+
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "Camps"
@@ -1340,23 +1364,23 @@ msgstr "La contrasenya és errònia"
 msgid "Administrator passwords differ."
 msgstr "Les contrasenyes d'administrador no coincideixen."
 
-#: Koo/Rpc/Rpc.py:316
+#: Koo/Rpc/Rpc.py:317
 msgid "Connection Refused"
 msgstr "Connexió refusada"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "Application Error"
 msgstr "Error en l'aplicació"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "View details"
 msgstr "Veure els detalls"
 
-#: Koo/Rpc/Rpc.py:415
+#: Koo/Rpc/Rpc.py:416
 msgid "Not logged in"
 msgstr "Sense autenticar"
 
-#: Koo/Rpc/Rpc.py:567
+#: Koo/Rpc/Rpc.py:568
 msgid "Could not contact server!"
 msgstr "No s'ha pogut contactar amb el servidor."
 

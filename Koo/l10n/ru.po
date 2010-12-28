@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-12-23 21:10+0100\n"
+"POT-Creation-Date: 2010-12-27 23:52+0100\n"
 "PO-Revision-Date: 2010-09-07 08:53+0000\n"
 "Last-Translator: vrsb <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-27 09:48+0000\n"
+"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
 "X-Generator: Launchpad (build 12138)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
@@ -253,7 +253,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:666
 msgid "Quit"
 msgstr "Выйти"
 
@@ -340,22 +340,30 @@ msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "укажите сервер (к примеру, http://admin@localhost:8069)"
 
 #: Koo/Common/CommandLine.py:47
-msgid "specify stylesheet to apply"
+msgid "specify model to be opened"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:48
-msgid "use POS (Point of Sales) mode"
-msgstr "использовать режим Точки Продаж"
+msgid "specify id to be opened"
+msgstr ""
 
 #: Koo/Common/CommandLine.py:49
-msgid "replace enter/return keys with tab hits"
+msgid "specify stylesheet to apply"
 msgstr ""
 
 #: Koo/Common/CommandLine.py:50
+msgid "use POS (Point of Sales) mode"
+msgstr "использовать режим Точки Продаж"
+
+#: Koo/Common/CommandLine.py:51
+msgid "replace enter/return keys with tab hits"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:52
 msgid "disable usage of KDE libraries if they are available"
 msgstr "отключить использование библиотек KDE  если они доступны"
 
-#: Koo/Common/CommandLine.py:51
+#: Koo/Common/CommandLine.py:53
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 "Включить debug режим. Будет отображаться диалог ошибки во всех исключениях"
@@ -406,14 +414,14 @@ msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "Да"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:653 Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "Нет"
@@ -602,11 +610,11 @@ msgstr ""
 "можете сохранить настройки экспорта для последующего использования.\n"
 "</p>\n"
 
-#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
+#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:88
 msgid "Could not connect to server !"
 msgstr "Не могу соединится с сервером!"
 
-#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
+#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:96
 msgid "No database found, you must create one !"
 msgstr "Баз данных не найдено, Вы должны создать хотя бы одну"
 
@@ -681,7 +689,15 @@ msgstr "Невозможно удалить базу данных"
 msgid "Database dropped successfully!"
 msgstr "База данных успешно удалена!"
 
-#: Koo/Dialogs/WebWidget.py:105
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find"
+msgstr ""
+
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find:"
+msgstr ""
+
+#: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
 msgstr ""
 
@@ -841,7 +857,7 @@ msgstr ""
 msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:519
 msgid "Press Ctrl+O to login"
 msgstr "Для входа нажмите Ctrl+O"
 
@@ -887,39 +903,39 @@ msgstr "Новый запрос"
 msgid "You've received a new request"
 msgstr "Вы получили новый запрос"
 
-#: Koo/Dialogs/KooMainWindow.py:480 Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:493 Koo/Dialogs/KooMainWindow.py:495
 msgid "Connection error !"
 msgstr "Ошибка соединения !"
 
-#: Koo/Dialogs/KooMainWindow.py:480
+#: Koo/Dialogs/KooMainWindow.py:493
 msgid "Unable to connect to the server !"
 msgstr "Невозможно соединиться с сервером !"
 
-#: Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:495
 msgid "Bad username or password !"
 msgstr "Неверные имя пользователя или пароль !"
 
-#: Koo/Dialogs/KooMainWindow.py:487 Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:500 Koo/Dialogs/KooMainWindow.py:502
 msgid "Connection Error !"
 msgstr "Ошибка соединения !"
 
-#: Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:502
 msgid "Error logging into database."
 msgstr "Ошибка входа в базу данных"
 
-#: Koo/Dialogs/KooMainWindow.py:505
+#: Koo/Dialogs/KooMainWindow.py:518
 msgid "Not logged !"
 msgstr "Не залогинен!"
 
-#: Koo/Dialogs/KooMainWindow.py:529
+#: Koo/Dialogs/KooMainWindow.py:542
 msgid "Manual"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid "Access denied"
 msgstr "Доступ запрещен"
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -929,11 +945,11 @@ msgstr ""
 "Обратитесь к администратору, чтобы проверить,\n"
 "что для вашей пользовательской записи разрашены действия."
 
-#: Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Dialogs/KooMainWindow.py:666
 msgid "Do you really want to quit ?"
 msgstr "Вы действительно хотите выйти ?"
 
-#: Koo/Dialogs/KooMainWindow.py:687
+#: Koo/Dialogs/KooMainWindow.py:700
 msgid "Wizard"
 msgstr "Мастер"
 
@@ -1120,6 +1136,14 @@ msgstr ""
 "Не удалось сменить пароль администратора. Пожалуйста, проверьте правильность "
 "сервера и пароля."
 
+#: Koo/Dialogs/LoginDialog.py:161
+msgid "Wallet"
+msgstr ""
+
+#: Koo/Dialogs/LoginDialog.py:162
+msgid "Do you want to store your password in your wallet?"
+msgstr ""
+
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "Поля"
@@ -1288,23 +1312,23 @@ msgstr "Неверный пароль"
 msgid "Administrator passwords differ."
 msgstr "Пароли администратора отличаются друг от друга"
 
-#: Koo/Rpc/Rpc.py:316
+#: Koo/Rpc/Rpc.py:317
 msgid "Connection Refused"
 msgstr "В соединении отказано"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "Application Error"
 msgstr "Ошибка приложения"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "View details"
 msgstr "Просмотреть подробности"
 
-#: Koo/Rpc/Rpc.py:415
+#: Koo/Rpc/Rpc.py:416
 msgid "Not logged in"
 msgstr "Вы не авторизованы"
 
-#: Koo/Rpc/Rpc.py:567
+#: Koo/Rpc/Rpc.py:568
 msgid "Could not contact server!"
 msgstr "Не могу соединиться с сервером!"
 
