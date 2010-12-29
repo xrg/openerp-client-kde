@@ -465,8 +465,8 @@ class RecordGroup(QObject):
 	## @brief Adds the specified fields to the record group
 	#
 	# Note that it updates 'fields' and 'fieldObjects' in the group.
-	# 'fields' is a dict of dicts as typically returned by 
-	# the server.
+	# 'fields' is a dict of dicts as typically returned by 'fields_get' 
+	# server function.
 	def addFields(self, fields):
 		to_add = []
 		for f in fields.keys():
@@ -712,6 +712,8 @@ class RecordGroup(QObject):
 	#
 	# Domain may be changed using setDomain() function.
 	def setDomainForEmptyGroup(self):
+		if self.isModified():
+			return
 		self.setDomain([('id','in',[])])
 		self.clear()
 
@@ -749,7 +751,7 @@ class RecordGroup(QObject):
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return
 
-		# Check there're no new or modified fields. If there are
+		# Check there're no new or modified records. If there are
 		# we won't sort as it means reloading data from the server
 		# and we'd loose current changes.
 		if self.isModified():
