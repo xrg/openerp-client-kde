@@ -274,7 +274,6 @@ class ToManyField(StringField):
 	def create(self, record):
 		from Koo.Model.Group import RecordGroup
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
-		print "GROUP CREATED: ", self.attrs['relation']
 		group.setDomainForEmptyGroup()
 		group.tomanyfield = self
 		self.connect( group, SIGNAL('modified'), self.groupModified )
