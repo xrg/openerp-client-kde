@@ -56,6 +56,14 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 			self.scTranslate.setContext( Qt.WidgetShortcut )
 			self.connect( self.scTranslate, SIGNAL('activated()'), self.translate )
 
+		from Koo.Common.SpellChecker import SpellCheckHighlighter
+		language = str( Rpc.session.context.get('lang','en_US') )
+		if 'lang' in self.extraAttributes:
+			language = str( self.extraAttributes['lang'] )
+		self._highlighter = SpellCheckHighlighter( self, language )
+		self._highlighter.setDocument( self.uiText.document() )
+
+
 	def translate(self):
 		if not self.record.id:
 			QMessageBox.information( self, _('Translation dialog'), _('You must save the resource before adding translations'))
@@ -63,6 +71,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 		dialog = TranslationDialog( self.record.id, self.record.group.resource, self.attrs['name'], unicode(self.uiText.toPlainText()), TranslationDialog.TextEdit, self )
 		if dialog.exec_() == QDialog.Accepted:
 			self.uiText.setPlainText( dialog.result )
+			self._highlighter.setDocument( self.uiText.document() )
 
 	def setReadOnly(self, value):
 		AbstractFieldWidget.setReadOnly(self, value)
@@ -76,6 +85,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 
 	def clear(self):
 		self.uiText.clear()
+		self._highlighter.setDocument( self.uiText.document() )
 
 	def showValue(self):
 		vScroll = self.uiText.verticalScrollBar().value()
@@ -91,4 +101,5 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 		self.uiText.setTextCursor( cursor )
 		self.uiText.verticalScrollBar().setValue( vScroll )
 		self.uiText.horizontalScrollBar().setValue( hScroll )
+		self._highlighter.setDocument( self.uiText.document() )
 

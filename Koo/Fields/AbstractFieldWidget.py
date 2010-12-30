@@ -65,9 +65,11 @@ class AbstractFieldWidget(QWidget):
 		# can cause some problems with stateAttributes.
 		self._required = self.attrs.get('required', False) not in ('False', '0', False)
 		self._readOnly = self.attrs.get('readonly', False) not in ('False', '0', False)
+
+		self.extraAttributes = eval(self.attrs.get('use', '{}'))
 		
 		# Find Koo specific attributes that OpenObject's Relax NG doesn't allow
-		self.setStyleSheet( eval(self.attrs.get('use', '{}')).get('stylesheet','') )
+		self.setStyleSheet( self.extraAttributes.get('stylesheet','') )
 
 		self.defaultReadOnly= self._readOnly
 		self.defaultMenuEntries = [
