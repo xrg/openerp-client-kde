@@ -566,3 +566,45 @@ Para instalar un idioma, tenemos que seguir los siguientes pasos:
 #. Una vez escojido el idioma, es importante refrescar la ventana con la tecla 'F5'
 
 
+----------------------------------
+El fichero de configuración .koorc
+----------------------------------
+
+Algunos aspectos del funcionamiento y apariencia de Koo pueden alterarse mediante el fichero de configuración .koorc que se puede encontrar en la carpeta principal del usuario que lo ejecuta. Típicamente `c:\\documents and settins\\usuario` en windows y `/home/usuario` en GNU/Linux.
+
+El fichero está dividido en varios grupos:
+
+[koo]
+=====
+
+show_pos_toolbar = True / False
+  Indica si se mostrará o no una barra de herramientas para la versión de pantalla completa de Koo. El koopos.py.
+
+pos_mode = True / False
+  Indica si Koo se iniciará en modo Terminal Punto de Venta. El modo terminal punto de venta muestra un teclado virtual
+  en pantalla cada vez que el usuario hace click en algún elemento de la aplicación que requiera la introducción de texto
+  por parte del usuario.
+
+allow_massive_updates = True / False
+  Indica si se mostrarán las opciones de actualización, inserción y click de botones masivas. 
+
+[login]
+=======
+
+url = http://admin:contraseña@localhost:8069
+  Indica el protocolo, usuario, contraseña, servidor y puerto a utilizar inicialmente para conectarse. Si especifica una contraseña, Koo intentará entrar directamente al sistema.
+
+db = database
+  Indica la base de datos que se va a utilizar por defecto al entrar en la aplicación.
+
+[open]
+======
+
+model = 'res.partner'
+  Indica el modelo de OpenERP a abrir automáticamente cuando se ponga en marcha Koo.
+
+id = 45
+  Indica el id del registro a abrir dentro del model indicado. Si 'id' no se especifica, se mostrará el listado de todos los registros.
+
+always = True/False
+  Si *always* es False (por defecto), Koo limpiará automáticamente los parámetros model e id, de forma que la próxima vez que se inicie la aplicación no entrará automáticamente al model e id indicados.
