@@ -40,8 +40,14 @@ import netsvc
 
 from JasperReports import *
 
+# Determines the port where the JasperServer process should listen with its XML-RPC server for incomming calls
 tools.config['jasperport'] = tools.config.get('jasperport', 8090)
+
+# Determines the file name where the process ID of the JasperServer process should be stored
 tools.config['jasperpid'] = tools.config.get('jasperpid', False)
+
+# Determines if temporary files will be removed
+tools.config['jasperunlink'] = tools.config.get('jasperunlink', True)
 
 class Report:
 	def __init__(self, name, cr, uid, ids, data, context):
@@ -140,12 +146,13 @@ class Report:
 			f.close()
 
 		# Remove all temporary files created during the report
-		for file in self.temporaryFiles:
-			try:
-				os.unlink( file )
-			except os.error, e:
-				logger = netsvc.Logger()
-				logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
+		if tools.config['jasperunlink']:
+			for file in self.temporaryFiles:
+				try:
+					os.unlink( file )
+				except os.error, e:
+					logger = netsvc.Logger()
+					logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
 		self.temporaryFiles = []
 		return ( data, self.outputFormat )
 

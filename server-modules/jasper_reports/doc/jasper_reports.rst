@@ -12,3 +12,14 @@ Dentro del menú /// m: jasper_reports.jasper_reports_menu /// podrá encontrar 
 
 JasperReports es un motor para la generación de informes o impresos de cualquier tipo (albaranes, facturas, cartas, listados, gráficas, tablas...) que dispone de un diseñador muy potente (iReport: http://jasperforge.org/projects/ireport) además de ofrecer la posibilidad de sacar los informes en varios formatos como DOC, XLS, TXT (entre muchos otros) aunque está optimizado para la generación de ficheros PDF y es capaz de crear informes de gran calidad en este formato.
 
+
+||| : after : base.netport |||
+
+jasperport
+  Establece el puerto que se utilizará para escuchar las peticiones XML-RPC del servidor del motor de informes Jasper.
+
+jasperpid
+  Establece el nombre del fichero dónde se almacenará el ID de proceso del servidor JasperServer
+
+jasperunlink
+  Establece si se eliminarán los ficheros temporales utilizados para la generación de los informes Jasper.
