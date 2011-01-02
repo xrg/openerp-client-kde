@@ -338,12 +338,34 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.screen.new()
 	
 	def duplicate(self):
+		# Store selected ids before executing modifiedSave() because, there, the selection is lost.
+		selectedIds = self.screen.selectedIds()
+
 		if not self.modifiedSave():
 			return
-		res_id = self.screen.currentId()
-		new_id = Rpc.session.execute('/object', 'execute', self.model, 'copy', res_id, {}, Rpc.session.context)
-		self.screen.load( [new_id], self.screen.addOnTop() )
+
+		QApplication.setOverrideCursor( Qt.WaitCursor )
+
+		# Duplicate all selected records but, remember the ID of the copy of the 
+		# currently selected record
+		newId = None
+		newIds = []
+		currentId = self.screen.currentId()
+		for id in selectedIds:
+			copyId = Rpc.session.execute('/object', 'execute', self.model, 'copy', id, {}, Rpc.session.context)
+			newIds.append( copyId )
+			if id == currentId:
+				newId = copyId
+
+		# Ensure the copy of the currently selected ID is the first of the list
+		# so it will be the current one, once loaded by screen.
+		if newId in newIds:
+			newIds.remove( newId )
+			newIds.insert(0, newId)
+
+		self.screen.load( newIds, self.screen.addOnTop() )
 		self.updateStatus(_('<font color="orange">Working now on the duplicated document</font>'))
+		QApplication.restoreOverrideCursor()
 
 	def save(self):
 		if not self.screen.currentRecord():
