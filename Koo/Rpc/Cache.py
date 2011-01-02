@@ -65,11 +65,12 @@ class ActionViewCache(AbstractCache):
 		self.cache = {}
 
 	def exists(self, obj, method, *args):
-		if method == 'execute' and len(args) >= 3 and args[1] == 'search' and ( args[2] == [('id','in',[])] or args[2] == [['id','in',[]]] ):
+		if method == 'execute' and len(args) >= 3 and args[1] == 'search':
 			# In cases where search filter only is equal to [('id','in',[])] we will optimize and return
 			# an empty list. This is a usual call produced by empty many2many or one2many relations so it's
 			# worth the taking it into account.
-			return True
+			if isinstance(args[2],list) and len(args[2]) > 0 and ( args[2][0] == ('id','in',[]) or args[2][0] == ['id','in',[]] ):
+				return True
 		if method == 'execute' and len(args) >= 2 and args[1] == 'fields_view_get':
 			return (obj, method, str(args)) in self.cache
 		elif method == 'execute' and len(args) >= 2 and args[0] == 'ir.values' and args[1] == 'get':
@@ -80,11 +81,12 @@ class ActionViewCache(AbstractCache):
 			return False
 			
 	def get(self, obj, method, *args):
-		if method == 'execute' and len(args) >= 3 and args[1] == 'search' and ( args[2] == [('id','in',[])] or args[2] == [['id','in',[]]] ):
+		if method == 'execute' and len(args) >= 3 and args[1] == 'search':
 			# In cases where search filter only is equal to [('id','in',[])] we will optimize and return
 			# an empty list. This is a usual call produced by empty many2many or one2many relations so it's
 			# worth the taking it into account.
-			return []
+			if isinstance(args[2],list) and len(args[2]) > 0 and ( args[2][0] == ('id','in',[]) or args[2][0] == ['id','in',[]] ):
+				return []
 		return copy.deepcopy( self.cache[(obj, method, str(args))] )
 		
 	def add(self, value, obj, method, *args):
