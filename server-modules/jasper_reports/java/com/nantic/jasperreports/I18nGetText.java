@@ -1,5 +1,8 @@
 package com.nantic.jasperreports;
 
+import java.util.Iterator;
+import java.util.ArrayList;
+
 import java.io.PrintStream;
 import net.sf.jasperreports.engine.JasperCompileManager;
 
@@ -14,10 +17,14 @@ public class I18nGetText {
 		System.setProperty("jasper.reports.compiler.class", "com.nantic.jasperreports.I18nGroovyCompiler");
 
 		try {
+			I18nGroovyCompiler.sourceCodeList = new ArrayList();
 			JasperCompileManager.compileReport( fileName );
 			//System.out.println( I18nGroovyCompiler.lastGeneratedSourceCode );
 			PrintStream out = new PrintStream(System.out, true, "UTF-8");
-			out.println( I18nGroovyCompiler.lastGeneratedSourceCode );
+			Iterator<String> iterator = I18nGroovyCompiler.sourceCodeList.iterator();
+			while ( iterator.hasNext() ) {
+				out.println( iterator.next() );
+			}
 			System.exit(0);
 
 		} catch (Exception e) {
