@@ -285,6 +285,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
  		self.uiTitle.setEnabled( not value )
  		self.pushNew.setEnabled( not value )
  		self.pushRemove.setEnabled( not value )
+ 		self.pushActions.setEnabled( not value )
 		self.updateButtons()
 
 	def updateButtons(self):
