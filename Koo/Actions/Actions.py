@@ -95,7 +95,7 @@ def executeReport(name, data, context=None):
 	del datas['ids']
 	try:
 		if not ids:
-			ids = Rpc.session.execute('/object', 'execute', datas['model'], 'search', [])
+			ids = Rpc.session.execute('/object', 'execute', datas['model'], 'search', datas.get('_domain',[]))
 			if ids == []:
 				QApplication.restoreOverrideCursor()
 				QMessageBox.information( None, _('Information'), _('Nothing to print!'))
@@ -221,10 +221,6 @@ def executeAction(action, datas, context=None):
 			win=datas['window']
 			del datas['window']
 		datas.update( action.get('datas', {}) )
-		if not datas.get('ids', False):
-		    log.error("Cannot execute report.xml for datas: %r", action)
-		    Common.error( _('Error at report'), _('Error: cannot locate report to execute: %s') % 'id', 'details' )
-		    return False
 		Api.instance.executeReport(action['report_name'], datas, ctx)
 	elif action['type']=='ir.actions.act_url':
 		Api.instance.createWebWindow( action.get('url'), action.get('name') )
