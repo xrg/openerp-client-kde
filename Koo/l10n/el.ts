@@ -368,17 +368,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="create_database.ui" line="50"/>
         <source>&amp;New database name:</source>
-        <translation type="unfinished">Νέο βάση δεδομένων όνομα:</translation>
+        <translation>Όνομα &amp;νέας βάσης δεδομένων:</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="94"/>
         <source>C&amp;hange</source>
-        <translation type="unfinished">Αλλαγή</translation>
+        <translation>Αλ&amp;λαγή</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="113"/>
         <source>(must not contain any special character)</source>
-        <translation type="unfinished">όχι κάθε</translation>
+        <translation>(δεν επιτρέπονται ειδικοί χαρακτήρες)</translation>
     </message>
     <message>
         <location filename="create_database.ui" line="123"/>
@@ -2785,7 +2785,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="translationdialog.ui" line="14"/>
         <source>Translation Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Διάλογος Μετάφρασης</translation>
     </message>
 </context>
 <context>
