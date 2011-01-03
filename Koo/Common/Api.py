@@ -29,19 +29,19 @@
 # available for their proper use. 
 class KooApi:
 	## @brief Executes the given actionId (which can be a report, keword, etc.).
-	def execute(self, actionId, data={}, type=None, context={}):
+	def execute(self, actionId, data=None, type=None, context=None):
 		pass
 
 	## @brief Executes the server action to open a report.
-	def executeReport(self, name, data={}, context={}):
+	def executeReport(self, name, data=None, context=None):
 		return True
 
 	## @brief Executes the given server action (which can ba report, keyword, etc.).
-	def executeAction(self, action, data={}, context={}):
+	def executeAction(self, action, data=None, context=None):
 		pass
 
 	## @brief Executes the given server keyword action.
-	def executeKeyword(self, keyword, data={}, context={}):
+	def executeKeyword(self, keyword, data=None, context=None):
 		return False
 
 	## @brief Opens a new window (a new tab with Koo application) with the given model.
