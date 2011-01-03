@@ -603,13 +603,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="243"/>
+        <location filename="win_export.ui" line="265"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="257"/>
+        <location filename="win_export.ui" line="279"/>
         <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="220"/>
+        <source>&lt;p&gt;
+Check this field if you want to be able to import this information back to OpenERP.
+&lt;/p&gt;
+
+&lt;p&gt;
+Note that you may also be interested in adding ID or Database ID fields, so OpenERP can match CSV and database&apos;s records when you import it later.
+&lt;/p&gt;
+&lt;p&gt;
+On the other hand, import incompatible files will show some information in a way users can better understand it and it&apos;s probably what you expect if you do not intend to import data back to OpenERP.
+&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="232"/>
+        <source>Import compatible</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1077,93 +1096,103 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ImportDialog</name>
     <message>
-        <location filename="win_import.ui" line="16"/>
+        <location filename="win_import.ui" line="17"/>
         <source>Import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="32"/>
+        <location filename="win_import.ui" line="33"/>
         <source>All fields</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="63"/>
+        <location filename="win_import.ui" line="64"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="74"/>
+        <location filename="win_import.ui" line="75"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="85"/>
+        <location filename="win_import.ui" line="86"/>
         <source>Remo&amp;ve All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="109"/>
+        <location filename="win_import.ui" line="110"/>
         <source>Auto-&amp;detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="130"/>
+        <location filename="win_import.ui" line="131"/>
         <source>Fields to import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="153"/>
+        <location filename="win_import.ui" line="151"/>
         <source>File to &amp;import:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="178"/>
+        <location filename="win_import.ui" line="195"/>
         <source>&amp;Field separator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="188"/>
+        <location filename="win_import.ui" line="205"/>
         <source>,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="195"/>
+        <location filename="win_import.ui" line="212"/>
         <source>&amp;Text delimiter:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="205"/>
+        <location filename="win_import.ui" line="222"/>
         <source>&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="212"/>
+        <location filename="win_import.ui" line="229"/>
         <source>&amp;Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="219"/>
+        <location filename="win_import.ui" line="293"/>
         <source>&amp;Lines to skip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="233"/>
+        <location filename="win_import.ui" line="253"/>
         <source>UTF-8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="238"/>
+        <location filename="win_import.ui" line="258"/>
         <source>Latin1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="263"/>
-        <source>&amp;Accept</source>
+        <location filename="win_import.ui" line="175"/>
+        <source>File &amp;type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="274"/>
-        <source>&amp;Cancel</source>
+        <location filename="win_import.ui" line="280"/>
+        <source>Sheet:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="324"/>
+        <source>&amp;Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="335"/>
+        <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

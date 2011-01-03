@@ -345,22 +345,20 @@ class OneToManyField(ToManyField):
 
 	def setDefault(self, record, value):
 		from Koo.Model.Group import RecordGroup
-		fields = {}
+
+		group = record.values[self.name]
+
 		if value and len(value):
 			assert isinstance(value[0], dict), "%s: %r" %(self.name, value)
 			context = self.context(record)
 			Rpc2 = RpcProxy(self.attrs['relation'])
 			fields = Rpc2.fields_get(value[0].keys(), context)
+			group.addFields( fields )
 
-		newGroup = RecordGroup(resource=self.attrs['relation'],
-			    fields=fields, parent=record, 
-			    context=self.context(record, eval=False))
-		newGroup.tomanyfield = self
 		for rec in (value or []):
-			newRecord = newGroup.create(default=False)
+			newRecord = group.create(default=False)
 			newRecord.setDefaults(rec)
-		record.values[self.name] = newGroup
-		self.connect( newGroup, SIGNAL('modified'), self.groupModified )
+			newRecord.modified = True
 		return True
 
 	def default(self, record):

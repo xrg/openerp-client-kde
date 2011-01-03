@@ -88,7 +88,7 @@ class TranslationDialog( QDialog, TranslationDialogUi ):
 				widget = 'text_tag'
 				fieldType = 'text'
 
-			arch.append( '<field name="%s" widget="%s"/>' % (lang['code'], widget) )
+			arch.append( """<field name="%s" widget="%s" use="{'lang':'%s'}"/>""" % (lang['code'], widget, lang['code']) )
 			fields[lang['code']] = {
 				'string': lang['name'],
 				'type': fieldType,

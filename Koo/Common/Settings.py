@@ -78,22 +78,36 @@ class Settings(object):
 			# variable o standard path
 			Settings.rcFile = os.environ.get('TERPRC') or os.path.join(unicode(QDir.toNativeSeparators(QDir.homePath())), '.koorc')
 		try:
-			p = ConfigParser.ConfigParser()
+			parser = ConfigParser.ConfigParser()
 			sections = {}
-			for o in Settings.options.keys():
-				if not len(o.split('.'))==2:
+			for option in Settings.options.keys():
+				if not len(option.split('.'))==2:
 					continue
-				osection,oname = o.split('.')
-				if not p.has_section(osection):
-					p.add_section(osection)
-				p.set(osection,oname,Settings.options[o])
+
+				optionSection, optionName = option.split('.')
+
+				if not parser.has_section(optionSection):
+					parser.add_section(optionSection)
+
+				# Do not store 'open' settings unless the 'always' flag is
+				# present.
+				value = Settings.options[option]
+				if optionSection == 'open' and not Settings.value('open.always'):
+					value = ''
+
+				parser.set(optionSection, optionName, value)
+
+			# Set umask='077' to ensure file permissions used are '600'.
+			# This way we can store passwords and other information safely.
+			oldUmask = os.umask(63)
 			f = open(Settings.rcFile, 'wb')
 			try:
-				p.write( f )
+				parser.write( f )
 			except:
 				Debug.warning( 'Unable to write config file %s !' % Settings.rcFile )
 			finally:
 				f.close()
+			os.umask(oldUmask)
 		except:
 			Debug.warning( 'Unable to write config file %s !' % Settings.rcFile )
 		return True

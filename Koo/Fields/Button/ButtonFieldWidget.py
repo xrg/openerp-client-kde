@@ -35,6 +35,7 @@ from Koo.Common import Icons
 from Koo.Common import Common
 from Koo.Common import Api
 from Koo.Rpc import Rpc
+import sys
 
 class ButtonFieldWidget( AbstractFieldWidget ):
 	def __init__(self, parent, view, attributes) :
@@ -125,6 +126,8 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		# TODO: Remove screen dependency and thus ViewForm.screen
 		screen = self.view.screen
 		self.view.store()
+		if self.attrs.get('special', '') == 'quit':
+			sys.exit(0)
 		if self.attrs.get('special', '') == 'cancel':
 			screen.close()
 			if 'name' in self.attrs.keys():

@@ -1118,6 +1118,66 @@ msgstr ""
 msgid "Batch Insert"
 msgstr ""
 
+#: Koo/Common/CommandLine.py:47
+msgid "specify model to be opened"
+msgstr ""
+
+#: Koo/Common/CommandLine.py:48
+msgid "specify id to be opened"
+msgstr ""
+
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find"
+msgstr ""
+
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find:"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:628
+msgid "Choose action to apply to selected records"
+msgstr ""
+
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert in batch action"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:98
+msgid "CSV"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:100
+msgid "Excel"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:129
+msgid "Sheet List Error"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:332
+msgid "Import Error"
+msgstr ""
+
+#: Koo/Dialogs/LoginDialog.py:161
+msgid "Wallet"
+msgstr ""
+
+#: Koo/Dialogs/LoginDialog.py:162
+msgid "Do you want to store your password in your wallet?"
+msgstr ""
+
+#: Koo/Dialogs/ImportExportCommon.py:59
+msgid "Database ID"
+msgstr ""
+
+#: Koo/Dialogs/ExportDialog.py:324
+msgid "Data Export Error"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:158
+msgid "&Duplicate Selected Records"
+msgstr ""
+
 #, fuzzy
 #~ msgid "Document saved !"
 #~ msgstr "Volby uloženy!"

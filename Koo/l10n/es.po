@@ -7,23 +7,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 02:25+0100\n"
-"PO-Revision-Date: 2010-11-22 10:02+0000\n"
+"POT-Creation-Date: 2010-12-27 23:52+0100\n"
+"PO-Revision-Date: 2010-12-28 01:32+0000\n"
 "Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
 "tic.com>\n"
 "Language-Team: ES <albert@nan-tic.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
-#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/ImportDialog.py:53
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
-#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:290
-#: Koo/Dialogs/TreeWidget.py:302 Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:293
+#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:321
 msgid "Information"
 msgstr "Información"
 
@@ -58,8 +58,9 @@ msgid "Nothing to print!"
 msgstr "Nada a imprimir!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:48
-#: Koo/Dialogs/ImportDialog.py:58
+#: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:72
+#: Koo/Dialogs/ImportDialog.py:82 Koo/Dialogs/ImportDialog.py:253
+#: Koo/Dialogs/ImportDialog.py:271
 #: Koo/Dialogs/AdministratorPasswordDialog.py:69
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:157 Koo/Dialogs/ExportDialog.py:191
@@ -260,7 +261,7 @@ msgstr ""
 "Se ha perdido la conexión con el servidor. Se volverá a intentar en %d "
 "segundos."
 
-#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Common/Common.py:283 Koo/Dialogs/KooMainWindow.py:666
 msgid "Quit"
 msgstr "Salir"
 
@@ -360,22 +361,30 @@ msgid "specify the server (ie. http://admin@localhost:8069)"
 msgstr "espificar el servidor (ej: http://admin@localhost:8069)"
 
 #: Koo/Common/CommandLine.py:47
+msgid "specify model to be opened"
+msgstr "especifique el modelo a abrir"
+
+#: Koo/Common/CommandLine.py:48
+msgid "specify id to be opened"
+msgstr "especifique el id a abrir"
+
+#: Koo/Common/CommandLine.py:49
 msgid "specify stylesheet to apply"
 msgstr "especifique la hoja de estilo a aplicar"
 
-#: Koo/Common/CommandLine.py:48
+#: Koo/Common/CommandLine.py:50
 msgid "use POS (Point of Sales) mode"
 msgstr "utilizar el modo TPV (Terminal Punto de Venta)"
 
-#: Koo/Common/CommandLine.py:49
+#: Koo/Common/CommandLine.py:51
 msgid "replace enter/return keys with tab hits"
 msgstr "reemplaza las teclas entrar/retorno por la tecla tabulación"
 
-#: Koo/Common/CommandLine.py:50
+#: Koo/Common/CommandLine.py:52
 msgid "disable usage of KDE libraries if they are available"
 msgstr "deshabilitar el uso de las librerías de KDE si están disponibles"
 
-#: Koo/Common/CommandLine.py:51
+#: Koo/Common/CommandLine.py:53
 msgid "enable debug mode. Will show the crash dialog in all exceptions"
 msgstr ""
 "habilitar el modo de depuración. Mostrará el dialogo de errores en todas las "
@@ -440,17 +449,15 @@ msgstr ""
 "menú.</i></p>"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "Yes"
 msgstr "Si"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/KooMainWindow.py:653
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Fields/Button/ButtonFieldWidget.py:140
+#: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:666 Koo/Fields/Button/ButtonFieldWidget.py:140
 #: Koo/Fields/Button/ButtonFieldWidget.py:205
 msgid "No"
 msgstr "No"
@@ -644,11 +651,11 @@ msgstr ""
 "y utilizarlas siempre que las necesite.\n"
 "</p>\n"
 
-#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:85
+#: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:88
 msgid "Could not connect to server !"
 msgstr "No se pudo conectar con el servidor!"
 
-#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:93
+#: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:96
 msgid "No database found, you must create one !"
 msgstr "No se encontrón ninguna base de datos. Debe crear una."
 
@@ -725,7 +732,15 @@ msgstr "No se ha podido borrar la base de datos"
 msgid "Database dropped successfully!"
 msgstr "¡Base de datos borrada con éxito!"
 
-#: Koo/Dialogs/WebWidget.py:105
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find"
+msgstr "Buscar"
+
+#: Koo/Dialogs/WebWidget.py:81
+msgid "Find:"
+msgstr "Buscar:"
+
+#: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
 msgstr "No hay ayuda disponible para vistas web"
 
@@ -750,7 +765,7 @@ msgstr "No hay ningún recurso seleccionado."
 msgid "You have to select one resource!"
 msgstr "Debe seleccionar un recurso."
 
-#: Koo/Dialogs/FormWidget.py:295
+#: Koo/Dialogs/FormWidget.py:295 Koo/Dialogs/ImportExportCommon.py:55
 msgid "ID"
 msgstr "ID"
 
@@ -862,12 +877,12 @@ msgid "No records selected"
 msgstr "Ningún registro seleccionado"
 
 #: Koo/Dialogs/FormWidget.py:628
-msgid "Choose action to apply batchly"
-msgstr "Seleccione la opción a aplicar de forma masiva"
+msgid "Choose action to apply to selected records"
+msgstr "Seleccione la acción a aplicar a los registros seleccionados"
 
 #: Koo/Dialogs/FormWidget.py:635
 msgid "Batch Update"
-msgstr "Actualización masiva"
+msgstr "Cabios en bloque"
 
 #: Koo/Dialogs/FormWidget.py:635
 #, python-format
@@ -876,7 +891,20 @@ msgstr ""
 "Está seguro que quiere pulsar el botón \"%s\" de todos los registros "
 "seleccionados?"
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:506
+#: Koo/Dialogs/BatchInsertDialog.py:82
+msgid "Choose field to insert in batch action"
+msgstr "Seleccione el campo para la acción de inserción en bloque"
+
+#: Koo/Dialogs/BatchInsertDialog.py:99 Koo/Dialogs/BatchInsertDialog.py:131
+msgid "Batch Insert"
+msgstr "Inserción en bloque"
+
+#: Koo/Dialogs/BatchInsertDialog.py:131
+#, python-format
+msgid "Are you sure you want to insert %d records?"
+msgstr "Está seguro que quiere añadir %d registros?"
+
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:519
 msgid "Press Ctrl+O to login"
 msgstr "Pulse Ctrl+O para entrar"
 
@@ -922,39 +950,39 @@ msgstr "Petición Nueva"
 msgid "You've received a new request"
 msgstr "Ha recibido una petición nueva"
 
-#: Koo/Dialogs/KooMainWindow.py:480 Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:493 Koo/Dialogs/KooMainWindow.py:495
 msgid "Connection error !"
 msgstr "Error de Conexión"
 
-#: Koo/Dialogs/KooMainWindow.py:480
+#: Koo/Dialogs/KooMainWindow.py:493
 msgid "Unable to connect to the server !"
 msgstr "No ha sido posible connectar con el servidor."
 
-#: Koo/Dialogs/KooMainWindow.py:482
+#: Koo/Dialogs/KooMainWindow.py:495
 msgid "Bad username or password !"
 msgstr "Usuario o contraseña incorrecto."
 
-#: Koo/Dialogs/KooMainWindow.py:487 Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:500 Koo/Dialogs/KooMainWindow.py:502
 msgid "Connection Error !"
 msgstr "Error de Conexión"
 
-#: Koo/Dialogs/KooMainWindow.py:489
+#: Koo/Dialogs/KooMainWindow.py:502
 msgid "Error logging into database."
 msgstr "Error entrando en la base de datos."
 
-#: Koo/Dialogs/KooMainWindow.py:505
+#: Koo/Dialogs/KooMainWindow.py:518
 msgid "Not logged !"
 msgstr "¡No está conectado!"
 
-#: Koo/Dialogs/KooMainWindow.py:529
+#: Koo/Dialogs/KooMainWindow.py:542
 msgid "Manual"
 msgstr "Manual"
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid "Access denied"
 msgstr "Acceso denegado"
 
-#: Koo/Dialogs/KooMainWindow.py:617
+#: Koo/Dialogs/KooMainWindow.py:630
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
@@ -964,13 +992,21 @@ msgstr ""
 "Pregunte al administrador y verifique\n"
 "que tiene una acción definida para su usuario."
 
-#: Koo/Dialogs/KooMainWindow.py:653
+#: Koo/Dialogs/KooMainWindow.py:666
 msgid "Do you really want to quit ?"
 msgstr "Está seguro que quiere salir?"
 
-#: Koo/Dialogs/KooMainWindow.py:687
+#: Koo/Dialogs/KooMainWindow.py:700
 msgid "Wizard"
 msgstr "Asistente"
+
+#: Koo/Dialogs/BatchUpdateDialog.py:132
+#, python-format
+msgid ""
+"Select the fields you want to update in the <b>%d</b> selected records:"
+msgstr ""
+"Seleccione los campos que desea actualizar en los <b>%d</b> registros "
+"seleccionados:"
 
 #: Koo/Dialogs/SearchDialog.py:90
 #, python-format
@@ -1002,22 +1038,12 @@ msgstr "XML-RPC Seguro"
 msgid "Pyro (faster)"
 msgstr "Pyro (más rápido)"
 
-#: Koo/Dialogs/ImportDialog.py:48
-#, python-format
-msgid "Error opening file: %s"
-msgstr "Error al abrir el archivo: %s"
-
-#: Koo/Dialogs/ImportDialog.py:58
-#, python-format
-msgid "Error reading file: %s"
-msgstr "Error leyendo el fichero: %s"
-
-#: Koo/Dialogs/ImportDialog.py:63
+#: Koo/Dialogs/ImportDialog.py:53
 #, python-format
 msgid "Imported %d objects !"
 msgstr "Se han importado %d objetos!"
 
-#: Koo/Dialogs/ImportDialog.py:68
+#: Koo/Dialogs/ImportDialog.py:58
 #, python-format
 msgid ""
 "Error trying to import this record:\n"
@@ -1034,42 +1060,57 @@ msgstr ""
 "\n"
 "%(error2)s"
 
-#: Koo/Dialogs/ImportDialog.py:73
+#: Koo/Dialogs/ImportDialog.py:63
 msgid "Error importing data"
 msgstr "Error en la importación de los datos"
 
-#: Koo/Dialogs/ImportDialog.py:130
+#: Koo/Dialogs/ImportDialog.py:72
+#, python-format
+msgid "Error opening file: %s"
+msgstr "Error al abrir el archivo: %s"
+
+#: Koo/Dialogs/ImportDialog.py:82 Koo/Dialogs/ImportDialog.py:253
+#: Koo/Dialogs/ImportDialog.py:271
+#, python-format
+msgid "Error reading file: %s"
+msgstr "Error leyendo el fichero: %s"
+
+#: Koo/Dialogs/ImportDialog.py:98
+msgid "CSV"
+msgstr "CSV"
+
+#: Koo/Dialogs/ImportDialog.py:100
+msgid "Excel"
+msgstr "Excel"
+
+#: Koo/Dialogs/ImportDialog.py:129
+msgid "Sheet List Error"
+msgstr "Error en la lista de hojas"
+
+#: Koo/Dialogs/ImportDialog.py:171
 msgid "File to import"
 msgstr "Fichero a importar"
 
-#: Koo/Dialogs/ImportDialog.py:145 Koo/Dialogs/ImportDialog.py:148
-#: Koo/Dialogs/ImportDialog.py:151
-msgid "Import error"
-msgstr "Error de importación"
-
-#: Koo/Dialogs/ImportDialog.py:145
-msgid "No file specified."
-msgstr "No se ha especificado ningún fichero."
-
-#: Koo/Dialogs/ImportDialog.py:148 Koo/Dialogs/ImportDialog.py:209
-msgid "Separator must be a single character."
-msgstr "El separador debe ser un único carácter."
-
-#: Koo/Dialogs/ImportDialog.py:151 Koo/Dialogs/ImportDialog.py:212
-msgid "Delimiter must be a single character."
-msgstr "El delimitador debe ser un único carácter."
-
-#: Koo/Dialogs/ImportDialog.py:201 Koo/Dialogs/ImportDialog.py:209
-#: Koo/Dialogs/ImportDialog.py:212 Koo/Dialogs/ImportDialog.py:218
-#: Koo/Dialogs/ImportDialog.py:228
+#: Koo/Dialogs/ImportDialog.py:217 Koo/Dialogs/ImportDialog.py:225
+#: Koo/Dialogs/ImportDialog.py:228 Koo/Dialogs/ImportDialog.py:234
+#: Koo/Dialogs/ImportDialog.py:247 Koo/Dialogs/ImportDialog.py:281
+#: Koo/Dialogs/ImportDialog.py:289
 msgid "Auto-detect error"
 msgstr "Error en la auto-detección"
 
-#: Koo/Dialogs/ImportDialog.py:218
+#: Koo/Dialogs/ImportDialog.py:225 Koo/Dialogs/ImportDialog.py:315
+msgid "Separator must be a single character."
+msgstr "El separador debe ser un único carácter."
+
+#: Koo/Dialogs/ImportDialog.py:228 Koo/Dialogs/ImportDialog.py:318
+msgid "Delimiter must be a single character."
+msgstr "El delimitador debe ser un único carácter."
+
+#: Koo/Dialogs/ImportDialog.py:234
 msgid "Error opening .CSV file: Input Error."
 msgstr "Error abriendo fichero .CSV: Error de entrada."
 
-#: Koo/Dialogs/ImportDialog.py:228
+#: Koo/Dialogs/ImportDialog.py:247 Koo/Dialogs/ImportDialog.py:289
 #, python-format
 msgid ""
 "Error processing your first line of the file.\n"
@@ -1077,6 +1118,19 @@ msgid ""
 msgstr ""
 "Error al procesar la primera linea del fichero.\n"
 "Campo %s desconocido."
+
+#: Koo/Dialogs/ImportDialog.py:312 Koo/Dialogs/ImportDialog.py:315
+#: Koo/Dialogs/ImportDialog.py:318
+msgid "Import error"
+msgstr "Error de importación"
+
+#: Koo/Dialogs/ImportDialog.py:312
+msgid "No file specified."
+msgstr "No se ha especificado ningún fichero."
+
+#: Koo/Dialogs/ImportDialog.py:332
+msgid "Import Error"
+msgstr "Error de importación"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:62
 msgid "Loading..."
@@ -1136,17 +1190,21 @@ msgstr ""
 "No se pudo cambiar la contraseña de administrador. Por favor, compruebe que "
 "el servidor y la contraseña son correctos."
 
-#: Koo/Dialogs/BatchUpdateDialog.py:132
-#, python-format
-msgid ""
-"Select the fields you want to update in the <b>%d</b> selected records:"
-msgstr ""
-"Seleccione los campos que desea actualizar en los <b>%d</b> registros "
-"seleccionados:"
+#: Koo/Dialogs/LoginDialog.py:161
+msgid "Wallet"
+msgstr "Cartera"
+
+#: Koo/Dialogs/LoginDialog.py:162
+msgid "Do you want to store your password in your wallet?"
+msgstr "Desa guardar su contraseña en la cartera de KDE?"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
 msgstr "Campos"
+
+#: Koo/Dialogs/ImportExportCommon.py:59
+msgid "Database ID"
+msgstr "ID base de datos"
 
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
@@ -1199,65 +1257,55 @@ msgstr ""
 "Error al abrir el OpenOffice.org:\n"
 "%s"
 
-#: Koo/Dialogs/ExportDialog.py:315
+#: Koo/Dialogs/ExportDialog.py:324
+msgid "Data Export Error"
+msgstr "Error de exportación de datos"
+
+#: Koo/Dialogs/ExportDialog.py:329
 msgid "Export Data"
 msgstr "Exportar Datos"
 
-#: Koo/Dialogs/ExportDialog.py:358
+#: Koo/Dialogs/ExportDialog.py:372
 msgid "What is the name of this export?"
 msgstr "Cual es el nombre de esta exportación?"
 
-#: Koo/Dialogs/ExportDialog.py:376
+#: Koo/Dialogs/ExportDialog.py:390
 msgid "Open with OpenOffice.org"
 msgstr "Abrir con OpenOffice.org"
 
-#: Koo/Dialogs/ExportDialog.py:382
+#: Koo/Dialogs/ExportDialog.py:396
 msgid "Open with Excel"
 msgstr "Abrir con el Excel"
 
-#: Koo/Dialogs/ExportDialog.py:385
+#: Koo/Dialogs/ExportDialog.py:399
 msgid "Save as CSV"
 msgstr "Guardar como CSV"
 
-#: Koo/Dialogs/ExportDialog.py:386
+#: Koo/Dialogs/ExportDialog.py:400
 msgid "Save as HTML"
 msgstr "Guardar como HTML"
 
-#: Koo/Dialogs/ExportDialog.py:398
+#: Koo/Dialogs/ExportDialog.py:412
 msgid "Export name"
 msgstr "Nombre de la exportación"
 
-#: Koo/Dialogs/ExportDialog.py:399
+#: Koo/Dialogs/ExportDialog.py:413
 msgid "Exported fields"
 msgstr "Campos a exportar"
 
-#: Koo/Dialogs/BatchInsertDialog.py:82
-msgid "Choose field to insert batchly"
-msgstr "Seleccione el campo para añadir de forma masiva"
-
-#: Koo/Dialogs/BatchInsertDialog.py:99
-#: Koo/Dialogs/BatchInsertDialog.py:131
-msgid "Batch Insert"
-msgstr "Inserción masiva"
-
-#: Koo/Dialogs/BatchInsertDialog.py:131
-#, python-format
-msgid "Are you sure you want to insert %d records?"
-msgstr "Está seguro que quiere añadir %d registros?"
-
-#: Koo/Dialogs/TreeWidget.py:64
+#: Koo/Dialogs/TreeWidget.py:66
 msgid "Tree"
 msgstr "Árbol"
 
-#: Koo/Dialogs/TreeWidget.py:290 Koo/Dialogs/TreeWidget.py:302
+#: Koo/Dialogs/TreeWidget.py:293 Koo/Dialogs/TreeWidget.py:305
 msgid "No resource selected!"
 msgstr "Ninguno recurso seleccionado"
 
-#: Koo/Dialogs/TreeWidget.py:319
+#: Koo/Dialogs/TreeWidget.py:322
 msgid "No item selected"
 msgstr "No hay ningún elemento seleccionado"
 
-#: Koo/Dialogs/TreeWidget.py:319
+#: Koo/Dialogs/TreeWidget.py:322
 msgid "Please select an element from the tree to add a shortcut to it."
 msgstr ""
 "Por favor, seleccione un elemento del árbol para añadir un acceso directo a "
@@ -1321,23 +1369,23 @@ msgstr "Contraseña incorrecta."
 msgid "Administrator passwords differ."
 msgstr "Las contraseñas de administrador difieren."
 
-#: Koo/Rpc/Rpc.py:316
+#: Koo/Rpc/Rpc.py:317
 msgid "Connection Refused"
 msgstr "Conexión rechazada"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "Application Error"
 msgstr "Error de la Apliación"
 
-#: Koo/Rpc/Rpc.py:322 Koo/Rpc/Rpc.py:447
+#: Koo/Rpc/Rpc.py:323 Koo/Rpc/Rpc.py:448
 msgid "View details"
 msgstr "Ver detalles"
 
-#: Koo/Rpc/Rpc.py:415
+#: Koo/Rpc/Rpc.py:416
 msgid "Not logged in"
 msgstr "No autenticado"
 
-#: Koo/Rpc/Rpc.py:567
+#: Koo/Rpc/Rpc.py:568
 msgid "Could not contact server!"
 msgstr "No se ha podido contactar con el servidor!"
 
@@ -1510,14 +1558,18 @@ msgstr ""
 "%s"
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
-msgid "&Modify All Selected Records"
-msgstr "&Modificar todos los registros seleccionados"
+msgid "&Duplicate Selected Records"
+msgstr "&Duplicar los registros seleccionados"
 
 #: Koo/Fields/OneToMany/OneToMany.py:163
 msgid "&Insert Several Records at Once"
 msgstr "&Añadir múltiples registros a la vez"
 
-#: Koo/Fields/OneToMany/OneToMany.py:310
+#: Koo/Fields/OneToMany/OneToMany.py:168
+msgid "&Modify All Selected Records"
+msgstr "&Modificar todos los registros seleccionados"
+
+#: Koo/Fields/OneToMany/OneToMany.py:321
 msgid "No record selected"
 msgstr "Ningún registro seleccionado"
 
@@ -1633,3 +1685,47 @@ msgstr "Establecer la hora actual"
 
 #~ msgid "NET-RPC (faster)"
 #~ msgstr "NET-RPC (Más rápido)"
+
+#~ msgid "Error Opening OpenOffice.org!"
+#~ msgstr "Error abriendo OpenOffice.org."
+
+#~ msgid "Confirmation"
+#~ msgstr "Confirmación"
+
+#, python-format
+#~ msgid ""
+#~ "<p>This process will update the following fields in %(number)d "
+#~ "records:</p>%(records)s<p>Do you want to continue?</p>"
+#~ msgstr ""
+#~ "<p>Este proceso actualizará los siguientes campos en %(number)d "
+#~ "registros:</p>%(records)s<p>Desea continuar?</p>"
+
+#~ msgid "Pyro"
+#~ msgstr "Pyro"
+
+#~ msgid "Sorting not possible."
+#~ msgstr "No es posible ordenar."
+
+#~ msgid "Sorting only groups."
+#~ msgstr "La ordenación sólo agrupa."
+
+#~ msgid "Import Selected Directories"
+#~ msgstr "Importar los directorios selecciondos"
+
+#~ msgid "Import Selected Files"
+#~ msgstr "Importar los ficheros seleccionados"
+
+#~ msgid "Please, how do you want to import documents?"
+#~ msgstr "Por favor, com quiere importar los documentos?"
+
+#~ msgid "Choose action to apply massively"
+#~ msgstr "Seleccione la opción a aplicar de forma masiva"
+
+#~ msgid "Massive Update"
+#~ msgstr "Actualización masiva"
+
+#~ msgid "Choose field to insert massively"
+#~ msgstr "Seleccione el campo para añadir de forma masiva"
+
+#~ msgid "Massive Insert"
+#~ msgstr "Inserción masiva"

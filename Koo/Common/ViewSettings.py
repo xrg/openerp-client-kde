@@ -94,7 +94,6 @@ class ViewSettings:
 			return None
 
 		ViewSettings.checkConnection()
-
 		if id in ViewSettings.cache:
 			# Restore settings from the cache. Note that even if the required koo
 			# module is not installed in the server view settings will be kept
@@ -113,8 +112,10 @@ class ViewSettings:
 		except:
 			ViewSettings.hasSettingsModule = False
 			return None
+
 		# As 'nan.koo.view.settings' is proved to exist we don't need try-except here.
 		if not ids:
+			ViewSettings.cache[id] = None
 			return None
 		settings = Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'read', ids, ['data'] )[0]['data']
 

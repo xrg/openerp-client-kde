@@ -7,17 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 04:03+0000\n"
-"PO-Revision-Date: 2010-07-29 20:53+0000\n"
-"Last-Translator: Albert Cervera i Areny - http://www.NaN-tic.com <albert@nan-"
-"tic.com>\n"
+"POT-Creation-Date: 2010-12-23 23:02+0000\n"
+"PO-Revision-Date: 2010-12-08 14:59+0000\n"
+"Last-Translator: Phong Nguyen <Unknown>\n"
 "Language-Team: Deutsch\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
+"X-Generator: Launchpad (build 12138)\n"
+
+#. ts-context ExportDialog
+#: win_export.ui:232
+msgid "Import compatible"
+msgstr ""
 
 #. ts-context AttachmentWindow
 #. ts-context KooMainWindow
@@ -195,6 +199,11 @@ msgstr "Suchen"
 msgid "Open view in a background tab"
 msgstr "Öffne Ansicht in Hintergrund Reiter"
 
+#. ts-context ImportDialog
+#: win_import.ui:175
+msgid "File &type:"
+msgstr ""
+
 #. ts-context Form
 #: keyboard.ui:420
 msgid "Tab"
@@ -204,6 +213,11 @@ msgstr "Tab"
 #: win_export.ui:76
 msgid "<b>All fields</b>"
 msgstr "<b>Alle Felder</b>"
+
+#. ts-context ImportDialog
+#: win_import.ui:280
+msgid "Sheet:"
+msgstr ""
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:676
@@ -242,7 +256,7 @@ msgstr ""
 "<center><i>Beim Ändern eines Datensatzes in eine PopUp fenster</i></center>"
 
 #. ts-context ImportDialog
-#: win_import.ui:195
+#: win_import.ui:212
 msgid "&Text delimiter:"
 msgstr "&Text Begrenzer:"
 
@@ -347,7 +361,7 @@ msgid "&Tips"
 msgstr "&Tipps"
 
 #. ts-context ImportDialog
-#: win_import.ui:16
+#: win_import.ui:17
 msgid "Import"
 msgstr "Import"
 
@@ -659,7 +673,7 @@ msgid "Middle mouse click on Tab"
 msgstr "Mittleree Mausklick auf Reiter"
 
 #. ts-context ImportDialog
-#: win_import.ui:233
+#: win_import.ui:253
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -699,7 +713,7 @@ msgid "Find / Search"
 msgstr "Finden / Suchen"
 
 #. ts-context ImportDialog
-#: win_import.ui:130
+#: win_import.ui:131
 msgid "Fields to import"
 msgstr "Felder zu importieren"
 
@@ -724,7 +738,7 @@ msgid "OpenERP - Link"
 msgstr "OpenERP - Link"
 
 #. ts-context ImportDialog
-#: win_import.ui:153
+#: win_import.ui:151
 msgid "File to &import:"
 msgstr "Datei zu importieren"
 
@@ -734,7 +748,7 @@ msgid "Add &field names"
 msgstr "&Feldnamen hinzufügen"
 
 #. ts-context ImportDialog
-#: win_import.ui:109
+#: win_import.ui:110
 msgid "Auto-&detect"
 msgstr "automatisch Erkennung"
 
@@ -774,13 +788,13 @@ msgid "&Form designer"
 msgstr "&Formular Desinger"
 
 #. ts-context ImportDialog
-#: win_import.ui:219
+#: win_import.ui:293
 msgid "&Lines to skip:"
 msgstr "überspringe Zei&len:"
 
 #. ts-context Form
 #. ts-context ImportDialog
-#: keyboard.ui:303 win_import.ui:188
+#: keyboard.ui:303 win_import.ui:205
 msgid ","
 msgstr ","
 
@@ -829,7 +843,7 @@ msgstr ""
 "Verbindung mit dem Server wurde getrennt, nächster Versuch in 10 Sekunden."
 
 #. ts-context ImportDialog
-#: win_import.ui:32
+#: win_import.ui:33
 msgid "All fields"
 msgstr "Alle Felder"
 
@@ -979,7 +993,7 @@ msgid "&Actions"
 msgstr "&Aktionen"
 
 #. ts-context ImportDialog
-#: win_import.ui:205
+#: win_import.ui:222
 msgid "\""
 msgstr "\""
 
@@ -1099,7 +1113,7 @@ msgstr "<Alt> + <Bild ab>"
 #. ts-context BatchUpdateDialog
 #: batchupdate.ui:13
 msgid "Batch Update Process"
-msgstr "Mengen Aktualisierungs Prozess"
+msgstr ""
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:686
@@ -1160,7 +1174,7 @@ msgstr "Volltext Suche"
 #. ts-context ExportDialog
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
-#: win_export.ui:127 win_import.ui:74 many2many.ui:60
+#: win_export.ui:127 win_import.ui:75 many2many.ui:60
 msgid "&Remove"
 msgstr "Enfe&rne"
 
@@ -1175,17 +1189,19 @@ msgid "&Databases"
 msgstr "&Datenbanken"
 
 #. ts-context FullTextSearchDialog
+#. ts-context ImportDialog
 #. ts-context KooMainWindow
 #. ts-context ShortcutsDialog
 #. ts-context TipsDialog
-#: full_text_search.ui:158 mainwindow.ui:674 shortcuts.ui:902 tip.ui:159
+#: full_text_search.ui:158 win_import.ui:335 mainwindow.ui:674
+#: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "Sch&ließen"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:253
 msgid "<Ctrl> + <Shift> + D"
-msgstr "<Strg> + <Shift> + D"
+msgstr "<Ctrl> + <Shift> + D"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:858
@@ -1193,7 +1209,7 @@ msgid "HTML Manual"
 msgstr ""
 
 #. ts-context ImportDialog
-#: win_import.ui:178
+#: win_import.ui:195
 msgid "&Field separator"
 msgstr "&Feldtrenner"
 
@@ -1401,7 +1417,6 @@ msgstr "Server"
 #. ts-context ExportDialog
 #. ts-context FieldDefaultsDialog
 #. ts-context GoToIdDialog
-#. ts-context ImportDialog
 #. ts-context LicenseDialog
 #. ts-context LoginDialog
 #. ts-context PreferencesDialog
@@ -1410,9 +1425,9 @@ msgstr "Server"
 #. ts-context TranslationDialog
 #: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
 #: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
-#: error.ui:159 win_export.ui:243 field_preferences.ui:134 gotoid.ui:72
-#: win_import.ui:263 license.ui:148 login.ui:283 preferences.ui:45
-#: win_search.ui:97 win_selection.ui:44 translationdialog.ui:45
+#: error.ui:159 win_export.ui:265 field_preferences.ui:134 gotoid.ui:72
+#: license.ui:148 login.ui:283 preferences.ui:45 win_search.ui:97
+#: win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
 msgstr "&Annehmen"
 
@@ -1447,7 +1462,6 @@ msgstr "Ändern"
 #. ts-context ExportDialog
 #. ts-context FieldDefaultsDialog
 #. ts-context GoToIdDialog
-#. ts-context ImportDialog
 #. ts-context LoginDialog
 #. ts-context ManyToOneWidget
 #. ts-context PreferencesDialog
@@ -1455,10 +1469,10 @@ msgstr "Ändern"
 #. ts-context SelectionDialog
 #. ts-context TranslationDialog
 #: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:257
-#: field_preferences.ui:144 gotoid.ui:83 win_import.ui:274 login.ui:297
-#: one2many_dialog.ui:129 preferences.ui:56 win_search.ui:108
-#: win_selection.ui:57 translationdialog.ui:56
+#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:279
+#: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
+#: preferences.ui:56 win_search.ui:108 win_selection.ui:57
+#: translationdialog.ui:56
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
@@ -1477,6 +1491,11 @@ msgstr "Entferne Bild"
 msgid "PDF Manual"
 msgstr ""
 
+#. ts-context ImportDialog
+#: win_import.ui:324
+msgid "&Import"
+msgstr ""
+
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:134
 msgid "<Alt> + <PgUp>"
@@ -1490,7 +1509,7 @@ msgstr "Sende neue Anfrage"
 #. ts-context KooMainWindow
 #: mainwindow.ui:653
 msgid "Ctrl+PgDown"
-msgstr "Strg + Bild ab"
+msgstr "Ctrl+PgDown"
 
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:624
@@ -1586,6 +1605,25 @@ msgstr "Daten&bank Sichern"
 #: shortcuts.ui:344
 msgid "General"
 msgstr "Allgemein"
+
+#. ts-context ExportDialog
+#: win_export.ui:220
+msgid ""
+"<p>\n"
+"Check this field if you want to be able to import this information back to "
+"OpenERP.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Note that you may also be interested in adding ID or Database ID fields, so "
+"OpenERP can match CSV and database's records when you import it later.\n"
+"</p>\n"
+"<p>\n"
+"On the other hand, import incompatible files will show some information in a "
+"way users can better understand it and it's probably what you expect if you "
+"do not intend to import data back to OpenERP.\n"
+"</p>"
+msgstr ""
 
 #. ts-context PanedWidget
 #. ts-context ReferenceWidget
@@ -1889,7 +1927,7 @@ msgstr "Hinzufügen"
 #. ts-context ShortcutsDialog
 #: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
-msgstr "<Strg> + <Enter>"
+msgstr "<Ctrl> + <Enter>"
 
 #. ts-context KooMainWindow
 #: mainwindow.ui:302
@@ -1952,7 +1990,7 @@ msgid "New"
 msgstr "Neu"
 
 #. ts-context ImportDialog
-#: win_import.ui:85
+#: win_import.ui:86
 msgid "Remo&ve All"
 msgstr "Enferne Alle"
 
@@ -1999,7 +2037,7 @@ msgstr "O"
 #. ts-context Dialog
 #: batchupdate_msgbox.ui:14
 msgid "Batch Update"
-msgstr "Massen Update"
+msgstr ""
 
 #. ts-context ManyToManyWidget
 #. ts-context OneToManyWidget
@@ -2055,7 +2093,7 @@ msgstr "<Strg> + <BildAb>"
 
 #. ts-context ImportDialog
 #. ts-context ManyToManyWidget
-#: win_import.ui:63 many2many.ui:40
+#: win_import.ui:64 many2many.ui:40
 msgid "&Add"
 msgstr "&Hinzufügen"
 
@@ -2100,7 +2138,7 @@ msgid "&Previous Tip"
 msgstr "Voriger Tip"
 
 #. ts-context ImportDialog
-#: win_import.ui:238
+#: win_import.ui:258
 msgid "Latin1"
 msgstr "Latin1"
 
@@ -3215,7 +3253,7 @@ msgstr ""
 "(Beispiel Ergebnis: 7)"
 
 #. ts-context ImportDialog
-#: win_import.ui:212
+#: win_import.ui:229
 msgid "&Encoding"
 msgstr "Kodierung"
 
@@ -3228,3 +3266,199 @@ msgstr "Unterstrichen"
 #: win_attach.ui:49
 msgid "toolBar"
 msgstr "Werkzeugleiste"
+
+#~ msgid "&File"
+#~ msgstr "Datei"
+
+#~ msgid "Massive Update Process"
+#~ msgstr "Mengen Aktualisierungs Prozess"
+
+#~ msgid "User Manual"
+#~ msgstr "Benutzerhandbuch"
+
+#~ msgid "&Open"
+#~ msgstr "Ö&ffnen"
+
+#~ msgid "Koo"
+#~ msgstr "Koo"
+
+#~ msgid "Translation dialog"
+#~ msgstr "Übersetzungs Dialog"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE "
+#~ "Client - %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
+#~ "Source ERP+CRM</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+#~ "businesses.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code "
+#~ "is distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </"
+#~ "span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
+#~ "Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www."
+#~ "nan-tic.com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenObject - KDE "
+#~ "Client - %s</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">OpenERP is an Open "
+#~ "Source ERP+CRM</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">for small to medium "
+#~ "businesses.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">The whole source code "
+#~ "is distributed under </span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">the terms of the GNU "
+#~ "Public Licence.</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">More Info on </"
+#~ "span><a href=\"http://www.nan-tic.com\"><span style=\" font-family:'Sans "
+#~ "Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">www."
+#~ "nan-tic.com</span></a></p></body></html>"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href="
+#~ "\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-tic.com</"
+#~ "span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href="
+#~ "\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
+#~ "com</span></a></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'helvetica'; font-size:12pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; "
+#~ "font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Koo is a product of "
+#~ "NaN:</span></p>\n"
+#~ "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; "
+#~ "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
+#~ "text-indent:0px; font-family:'Sans Serif'; font-size:9pt;\"></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Tel : (+34) 669 40 40 "
+#~ "18</span></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Mail: </span><a href="
+#~ "\"mailto:sales@tiny.be\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">info@nan-tic.com</"
+#~ "span></a></p>\n"
+#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif'; font-size:9pt;\">Web: </span><a href="
+#~ "\"http://www.nan-tic.com\"><span style=\" font-family:'Sans Serif'; font-"
+#~ "size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
+#~ "com</span></a></p></body></html>"
+
+#~ msgid "Ã"
+#~ msgstr "Ã"
+
+#~ msgid "Ã"
+#~ msgstr "Ã"
+
+#~ msgctxt "Ctrl+O to Login"
+#~ msgid "Ctrl+O"
+#~ msgstr "Strg+O"
+
+#~ msgid "Massive Update"
+#~ msgstr "Massen Update"
+
+#~ msgid "&Or"
+#~ msgstr "&Oder"

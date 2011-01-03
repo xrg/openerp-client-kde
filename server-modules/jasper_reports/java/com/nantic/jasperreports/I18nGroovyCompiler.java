@@ -13,10 +13,10 @@ import net.sf.jasperreports.engine.JRExpressionChunk;
 import net.sf.jasperreports.engine.design.JRDesignExpressionChunk;
 import net.sf.jasperreports.engine.JRReport;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class I18nGroovyCompiler extends JRGroovyCompiler {
-	static public String lastGeneratedSourceCode = "";
+	static public List sourceCodeList = null; 
 	static private String newFunction = 
 		"public String tr(Locale locale, String text) {\n" +
 			"return i18n.tr(locale, text);\n" +
@@ -145,7 +145,8 @@ public class I18nGroovyCompiler extends JRGroovyCompiler {
 		}
 		JRDefaultCompilationSourceCode newCode = new JRDefaultCompilationSourceCode( code, expressions );
 		// Store last generated source code so it can be extracted
-		lastGeneratedSourceCode = code;
+		if (sourceCodeList != null)
+			sourceCodeList.add( (Object) code );
 		return newCode;
 	}
 

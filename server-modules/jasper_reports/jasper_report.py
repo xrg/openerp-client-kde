@@ -40,8 +40,14 @@ import netsvc
 
 from JasperReports import *
 
+# Determines the port where the JasperServer process should listen with its XML-RPC server for incomming calls
 tools.config['jasperport'] = tools.config.get('jasperport', 8090)
+
+# Determines the file name where the process ID of the JasperServer process should be stored
 tools.config['jasperpid'] = tools.config.get('jasperpid', False)
+
+# Determines if temporary files will be removed
+tools.config['jasperunlink'] = tools.config.get('jasperunlink', True)
 
 class Report:
 	def __init__(self, name, cr, uid, ids, data, context):
@@ -59,23 +65,24 @@ class Report:
 		self.outputFormat = 'pdf'
 
 	def execute(self):
-		# Get the report path
-		reports = self.pool.get( 'ir.actions.report.xml' )
+		logger = netsvc.Logger()
 
+		# * Get report path *
 		# Not only do we search the report by name but also ensure that 'report_rml' field
 		# has the '.jrxml' postfix. This is needed because adding reports using the <report/>
 		# tag, doesn't remove the old report record if the id already existed (ie. we're trying
 		# to override the 'purchase.order' report in a new module). As the previous record is
 		# not removed, we end up with two records named 'purchase.order' so we need to destinguish
 		# between the two by searching '.jrxml' in report_rml.
-		ids = reports.search(self.cr, self.uid, [('report_name', '=', self.name[7:]),('report_rml','ilike','.jrxml')], context=self.context)
-		data = reports.read(self.cr, self.uid, ids[0], ['report_rml','jasper_output'])
+		ids = self.pool.get('ir.actions.report.xml').search(self.cr, self.uid, [('report_name', '=', self.name[7:]),('report_rml','ilike','.jrxml')], context=self.context)
+		data = self.pool.get('ir.actions.report.xml').read(self.cr, self.uid, ids[0], ['report_rml','jasper_output'])
 		if data['jasper_output']:
 			self.outputFormat = data['jasper_output']
 		self.reportPath = data['report_rml']
 		self.reportPath = os.path.join( self.addonsPath(), self.reportPath )
 
 		# Get report information from the jrxml file
+		logger.notifyChannel("jasper_reports", netsvc.LOG_INFO, "Requested report: '%s'" % self.reportPath)
 		self.report = JasperReport( self.reportPath )
 
 		# Create temporary input (XML) and output (PDF) files 
@@ -85,12 +92,11 @@ class Report:
 		os.close(fd)
 		self.temporaryFiles.append( dataFile )
 		self.temporaryFiles.append( outputFile )
-		print "TEMP DATA FILE: ", dataFile
+		logger.notifyChannel("jasper_reports", netsvc.LOG_INFO, "Temporary data file: '%s'" % dataFile)
 
 		import time
 		start = time.time()
 
-		print "SUBREPORTS: ", self.report.subreports()
 		# If the language used is xpath create the xmlFile in dataFile.
 		if self.report.language() == 'xpath':
 			if self.data.get('data_source','model') == 'records':
@@ -104,8 +110,16 @@ class Report:
 		
 		subreportDataFiles = []
 		for subreportInfo in self.report.subreports():
-			subreport = JasperReport( subreportInfo['filename'], subreportInfo ['pathPrefix'] )
+			subreport = subreportInfo['report']
 			if subreport.language() == 'xpath':
+				message = 'Creating CSV '
+				if subreportInfo['pathPrefix']:
+					message += 'with prefix %s ' % subreportInfo['pathPrefix']
+				else:
+					message += 'without prefix '
+				message += 'for file %s' % subreportInfo['filename']
+				logger.notifyChannel("jasper_reports", netsvc.LOG_INFO, message)
+
 				fd, subreportDataFile = tempfile.mkstemp()
 				os.close(fd)
 				subreportDataFiles.append({
@@ -121,8 +135,8 @@ class Report:
 
 		# Call the external java application that will generate the PDF file in outputFile
 		self.executeReport( dataFile, outputFile, subreportDataFiles )
-		end = time.time()
-		print "ELAPSED: ", ( end - start ) / 60
+		elapsed = (time.time() - start) / 60
+		logger.notifyChannel("jasper_reports", netsvc.LOG_INFO, "ELAPSED: '%f'" % elapsed )
 
 		# Read data from the generated file and return it
 		f = open( outputFile, 'rb')
@@ -132,12 +146,13 @@ class Report:
 			f.close()
 
 		# Remove all temporary files created during the report
-		for file in self.temporaryFiles:
-			try:
-				os.unlink( file )
-			except os.error, e:
-				logger = netsvc.Logger()
-				logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
+		if tools.config['jasperunlink']:
+			for file in self.temporaryFiles:
+				try:
+					os.unlink( file )
+				except os.error, e:
+					logger = netsvc.Logger()
+					logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
 		self.temporaryFiles = []
 		return ( data, self.outputFormat )
 

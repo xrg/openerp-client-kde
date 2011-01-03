@@ -1,6 +1,7 @@
 # Greek translation for openobject-client-kde
 # This file is distributed under the same license as the openobject-client-kde package.
 #
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
@@ -36,8 +37,7 @@ msgid "Back to pending"
 msgstr "Πίσω στα εκκρεμή."
 
 #. module: auto_attach
-#: field:nan.document,document_id:0
-#: field:nan.document.property,document_id:0
+#: field:nan.document,document_id:0 field:nan.document.property,document_id:0
 msgid "Document"
 msgstr "Έγγραφο"
 
@@ -84,8 +84,7 @@ msgid ""
 msgstr ""
 
 #. module: auto_attach
-#: view:nan.document:0
-#: field:nan.document,task:0
+#: view:nan.document:0 field:nan.document,task:0
 msgid "Task"
 msgstr "Εργασία"
 
@@ -126,8 +125,7 @@ msgstr ""
 
 #. module: auto_attach
 #: wizard_view:nan_document_analyze,start:0
-msgid ""
-"The document queue has been analyzed. Now you can verify the documents!"
+msgid "The document queue has been analyzed. Now you can verify the documents!"
 msgstr "Το έγγραφο έχει αναλυθεί . Τώρα μπορείτε να ελέγξετε τα έγγραφα!"
 
 #. module: auto_attach
@@ -205,8 +203,7 @@ msgid "nan.document.property"
 msgstr ""
 
 #. module: auto_attach
-#: field:nan.document,template_id:0
-#: field:nan.template.box,template_id:0
+#: field:nan.document,template_id:0 field:nan.template.box,template_id:0
 msgid "Template"
 msgstr "Πρότυπο"
 
@@ -358,8 +355,7 @@ msgid "Document in Queue"
 msgstr "Έγγραφο στην ουρά."
 
 #. module: auto_attach
-#: view:nan.template:0
-#: field:nan.template,box_ids:0
+#: view:nan.template:0 field:nan.template,box_ids:0
 msgid "Boxes"
 msgstr "Κουτιά"
 
@@ -380,8 +376,7 @@ msgid "Data"
 msgstr "Δεδομένα"
 
 #. module: auto_attach
-#: view:nan.document:0
-#: field:nan.document,property_ids:0
+#: view:nan.document:0 field:nan.document,property_ids:0
 msgid "Properties"
 msgstr "Ιδιότητες"
 
@@ -439,8 +434,7 @@ msgid "Auto Attach"
 msgstr "Αυτόματη επικόλληση."
 
 #. module: auto_attach
-#: field:nan.document.property,name:0
-#: selection:nan.template.box,recognizer:0
+#: field:nan.document.property,name:0 selection:nan.template.box,recognizer:0
 #: field:nan.template.box,text:0
 msgid "Text"
 msgstr "Κείμενο"
@@ -535,8 +529,7 @@ msgid "nan.template"
 msgstr ""
 
 #. module: auto_attach
-#: field:nan.document,name:0
-#: field:nan.template,name:0
+#: field:nan.document,name:0 field:nan.template,name:0
 #: field:nan.template.box,name:0
 msgid "Name"
 msgstr "Όνομα"

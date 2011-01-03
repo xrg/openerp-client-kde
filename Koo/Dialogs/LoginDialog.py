@@ -28,7 +28,6 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from PyQt4.uic import *
-#import options
 from Koo.Common import Common
 from Koo.Common import Url
 from DatabaseDialog import *
@@ -67,6 +66,7 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.slotCancel )
 		self.connect( self.pushAccept, SIGNAL("clicked()"), self.slotAccept )
 		self.connect( self.pushChange, SIGNAL("clicked()"), self.slotChange )
+		self.connect( self.uiDatabase, SIGNAL('currentIndexChanged(int)'), self.checkWallet )
 		self.connect( self.pushCreateDatabase, SIGNAL("clicked()"), self.createDatabase )
 		self.connect( self.pushRestoreDatabase, SIGNAL("clicked()"), self.restoreDatabase )
 
@@ -74,8 +74,11 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		self.uiNoConnection.hide()
 
 		url = QUrl( Settings.value( 'login.url' ) )
+		hasPassword = unicode( url.password() ) and True or False
 		self.uiUserName.setText( url.userName() )
 		url.setUserName( '' )
+		self.uiPassword.setText( url.password() )
+		url.setPassword( '' )
 		self.uiServer.setText( url.toString() )
 		res = self.refreshList()
 
@@ -108,7 +111,23 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			self.pushCreateDatabase.hide()
 			self.pushRestoreDatabase.hide()
 			self.pushAccept.setEnabled(True)
+
 		return res
+
+	def checkWallet(self):
+		if Common.isKdeAvailable:
+			from PyKDE4.kdeui import KWallet
+			KWallet.Wallet.NetworkWallet()
+			wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
+			folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(self.uiDatabase.currentText()))
+			qtValues = wallet.readMap( folder )[1]
+			values = {}
+			for key, value in qtValues.iteritems():
+				values[ unicode(key) ] = unicode( value )
+			if 'username' in values:
+				self.uiUserName.setText( values['username'] )
+			if 'password' in values:
+				self.uiPassword.setText( values['password'] )
 
 	def slotChange(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
@@ -134,6 +153,37 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			Settings.setValue( 'login.db', self.databaseName )
 			Settings.saveToFile()
 			self.accept()
+
+			if Common.isKdeAvailable:
+				storeWallet = Settings.value('kde.wallet','ask')
+				if storeWallet == 'ask':
+					answer = QMessageBox.question(self, 
+						_('Wallet'), 
+						_('Do you want to store your password in your wallet?'), 
+						QMessageBox.Yes | QMessageBox.No | QMessageBox.YesToAll | QMessageBox.NoToAll
+						)
+					if answer == QMessageBox.YesToAll:
+						Settings.setValue('kde.wallet', 'yes') 
+						Settings.saveToFile()
+						storeWallet = True
+					elif answer == QMessageBox.NoToAll:
+						Settings.setValue('kde.wallet', 'no')
+						Settings.saveToFile()
+						storeWallet = False
+					elif answer == QMessageBox.Yes:
+						storeWallet = True
+					else:
+						storeWallet = False
+
+				if storeWallet:
+					from PyKDE4.kdeui import KWallet
+					KWallet.Wallet.NetworkWallet()
+					wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
+					folder = '%s/%s' % (unicode(self.uiServer.text()), self.databaseName)
+					wallet.writeMap( folder, {
+						'username': unicode( self.uiUserName.text() ),
+						'password': unicode( self.uiPassword.text() ),
+					})
 		else:
 			self.reject()
 

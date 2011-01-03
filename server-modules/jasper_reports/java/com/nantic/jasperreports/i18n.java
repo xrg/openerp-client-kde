@@ -35,9 +35,9 @@ public class i18n {
 				bundle = new PropertyResourceBundle(fis);
 				resources.put( locale, new I18n( bundle ) );
 			} catch (Exception e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 				unavailableResources.put( locale, true );
-				System.out.println( "No bundle file named: " + fileName );
+				System.out.println( "JasperServer: No bundle file named: " + fileName );
 				return false;
 			}
 		}

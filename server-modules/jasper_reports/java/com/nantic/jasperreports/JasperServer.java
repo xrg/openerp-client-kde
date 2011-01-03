@@ -129,7 +129,7 @@ class CsvMultiLanguageDataSource implements JRRewindableDataSource {
 			String v = (String) value;
 			String[] p = v.split( "\\|" );
 			for( int j=0; j < p.length ; j++ ) {
-				System.out.println( p[j] );
+				//System.out.println( p[j] );
 				String[] map = p[j].split( "~" );
 				if ( map.length == 2 ) 
 					values.put( map[0], map[1] );
@@ -173,7 +173,7 @@ class XmlMultiLanguageDataSource extends JRXmlDataSource {
 			String v = (String) value;
 			String[] p = v.split( "\\|" );
 			for( int j=0; j < p.length ; j++ ) {
-				System.out.println( p[j] );
+				//System.out.println( p[j] );
 				String[] map = p[j].split( "~" );
 				if ( map.length == 2 ) 
 					values.put( map[0], map[1] );
@@ -198,9 +198,9 @@ public class JasperServer {
 		jrxmlFile = new File( jrxmlPath );
 		jasperFile = new File( jasperPath( jrxmlPath ) );
 		if ( (! jasperFile.exists()) || (jrxmlFile.lastModified() > jasperFile.lastModified()) ) {
-			System.out.println( "Before compiling..") ;
+			System.out.println( "JasperServer: Compiling " + jrxmlPath ) ;
 			JasperCompileManager.compileReportToFile( jrxmlPath, jasperPath( jrxmlPath ) );
-			System.out.println( "compiled...!");
+			System.out.println( "JasperServer: Compiled.");
 		}
 		return true;
 	}
@@ -224,7 +224,7 @@ public class JasperServer {
 		try {
 			return privateExecute( connectionParameters, jrxmlPath, outputPath, parameters );
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			//exception.printStackTrace();
 			throw exception;
 		}
 	}
@@ -240,7 +240,7 @@ public class JasperServer {
 		// Ensure report is compiled
 		compile( jrxmlPath );
 
-		System.out.println( parameters );
+		//System.out.println( "JasperServer: " + parameters );
 
 		report = (JasperReport) JRLoader.loadObject( jasperPath( jrxmlPath ) );
 
@@ -251,7 +251,7 @@ public class JasperServer {
 
 		// Fill in report parameters
 		JRParameter[] reportParameters = report.getParameters();
-		System.out.println( "Parameters.length:"+ reportParameters.length );
+		//System.out.println( "JasperServer: Parameters.length:"+ reportParameters.length );
 		for( int j=0; j < reportParameters.length; j++ ){
 			JRParameter jparam = reportParameters[j];	
 			if ( jparam.getValueClassName().equals( "java.util.Locale" ) ) {
@@ -272,9 +272,9 @@ public class JasperServer {
 
 			} else if( jparam.getValueClassName().equals( "java.lang.BigDecimal" )){
 				Object param = parameters.get( jparam.getName());
-				System.out.println( "1" + jparam.getValueClassName() ) ;
+				//System.out.println( "1" + jparam.getValueClassName() ) ;
 				parameters.put( jparam.getName(), new BigDecimal( (Double) parameters.get(jparam.getName() ) ) );
-				System.out.println( "2" + jparam.getValueClassName() ) ;
+				//System.out.println( "2" + jparam.getValueClassName() ) ;
 			}
 		}
 
@@ -284,17 +284,19 @@ public class JasperServer {
 				Map m = (Map)subreports[i];
 
 				// Ensure subreport is compiled
-				compile( (String)m.get("jrxmlFile") );
+				String jrxmlFile = (String)m.get("jrxmlFile");
+				if ( ! jrxmlFile.equals( "DATASET" ) )
+					compile( (String)m.get("jrxmlFile") );
 
 				// Create DataSource for subreport
 				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)m.get("dataFile"), "utf-8" );
-				System.out.println( "ADDING PARAMETER: " + ( (String)m.get("parameter") ) + " WITH DATASOURCE: " + ( (String)m.get("dataFile") ) );
+				System.out.println( "JasperServer: Adding parameter '" + ( (String)m.get("parameter") ) + "' with datasource '" + ( (String)m.get("dataFile") ) + "'" );
 
 				parameters.put( m.get("parameter"), dataSource );
 			}
 		}
 
-		System.out.println( "Before Filling report " );
+		System.out.println( "JasperServer: Filling report..." );
 
 		// Fill in report
 		String language;
@@ -334,7 +336,7 @@ public class JasperServer {
 		else
 			output = "pdf";
 
-		System.out.println( "EXPORTING..." );
+		System.out.println( "JasperServer: Exporting..." );
 		if ( output.equalsIgnoreCase( "html" ) ) {
 			exporter = new JRHtmlExporter();
 			exporter.setParameter(JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN, Boolean.FALSE);
@@ -362,7 +364,7 @@ public class JasperServer {
 		exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
 		exporter.setParameter(JRExporterParameter.OUTPUT_FILE, outputFile);
 		exporter.exportReport();
-		System.out.println( "EXPORTED." );
+		System.out.println( "JasperServer: Exported." );
 		return true; 
 	}
 
@@ -382,7 +384,7 @@ public class JasperServer {
 				port = java.lang.Integer.parseInt( args[0] );
 			}
 			java.net.InetAddress localhost = java.net.Inet4Address.getByName("localhost");
-			System.out.println("Attempting to start XML-RPC Server at " + localhost.toString() + ":" + port + "...");
+			System.out.println("JasperServer: Attempting to start XML-RPC Server at " + localhost.toString() + ":" + port + "...");
 			WebServer server = new WebServer( port, localhost );
 			XmlRpcServer xmlRpcServer = server.getXmlRpcServer();
 
@@ -391,8 +393,8 @@ public class JasperServer {
 			xmlRpcServer.setHandlerMapping(phm);
 
 			server.start();
-			System.out.println("Started successfully.");
-			System.out.println("Accepting requests. (Halt program to stop.)");
+			System.out.println("JasperServer: Started successfully.");
+			System.out.println("JasperServer: Accepting requests. (Halt program to stop.)");
 		} catch (Exception exception) {
 			System.err.println("Jasper Server: " + exception);
 		}
