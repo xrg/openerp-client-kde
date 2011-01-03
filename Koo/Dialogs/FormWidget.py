@@ -332,7 +332,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 				print "Cannot rev ref id:" % e
 			
 			for (key,val) in todo:
-				if line[key] and key in ('create_uid','write_uid'):
+				if line[key] and key in ('create_uid','write_uid') \
+					    and isinstance(line[key], (tuple, list)):
 					line[key] = line[key][1]
 				message += val + ': ' + unicode(line[key] or '-') + '\n'
 		QMessageBox.information(self, _('Record log'), message)
