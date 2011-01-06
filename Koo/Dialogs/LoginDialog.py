@@ -32,6 +32,7 @@ from Koo.Common import Common
 from Koo.Common import Url
 from DatabaseDialog import *
 import ServerConfigurationDialog
+import logging
 from DatabaseCreationDialog import DatabaseCreationDialog
 
 (LoginDialogUi, LoginDialogBase) = loadUiType( Common.uiPath('login.ui') )
@@ -115,19 +116,30 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		return res
 
 	def checkWallet(self):
-		if Common.isKdeAvailable:
+		if not Common.isKdeAvailable:
+		    return
+		dbname = self.uiDatabase.currentText()
+		if not dbname:
+		    return
+		log = logging.getLogger('koo.login')
+		log.debug("opening KWallet ")
+		try:
 			from PyKDE4.kdeui import KWallet
 			KWallet.Wallet.NetworkWallet()
 			wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
-			folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(self.uiDatabase.currentText()))
+			folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(dbname))
 			qtValues = wallet.readMap( folder )[1]
 			values = {}
 			for key, value in qtValues.iteritems():
 				values[ unicode(key) ] = unicode( value )
 			if 'username' in values:
 				self.uiUserName.setText( values['username'] )
+				log.debug("found user %s from KWallet ", values['username'])
 			if 'password' in values:
 				self.uiPassword.setText( values['password'] )
+				log.debug("found password from KWallet")
+		except Exception, e:
+		    log.exception("Cannot use KWallet")
 
 	def slotChange(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
@@ -142,7 +154,7 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		m = QUrl( self.uiServer.text() )
 		m.setUserName( Url.encodeForUrl( self.uiUserName.text() ) )
 		m.setPassword( Url.encodeForUrl( self.uiPassword.text() ) )
-		if m.isValid():	
+		if m.isValid():
 			self.url = unicode( m.toString() )
 			if self.uiDatabase.isVisible():
 				self.databaseName = unicode( self.uiDatabase.currentText() )
@@ -180,6 +192,7 @@ class LoginDialog( QDialog, LoginDialogUi ):
 					KWallet.Wallet.NetworkWallet()
 					wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
 					folder = '%s/%s' % (unicode(self.uiServer.text()), self.databaseName)
+					logging.getLogger('koo.login').debug("Storing credentials in KWallet")
 					wallet.writeMap( folder, {
 						'username': unicode( self.uiUserName.text() ),
 						'password': unicode( self.uiPassword.text() ),
