@@ -32,6 +32,7 @@ from PyQt4.QtGui import *
 from PyQt4.uic import *
 from Koo.Common import Common
 from Koo.Common import Shortcuts
+from Koo.Common.SpellChecker import *
 from Koo.Fields.TranslationDialog import *
 from Koo.Fields.AbstractFieldWidget import *
 
@@ -74,6 +75,13 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 			self.connect( self.scTranslate, SIGNAL('activated()'), self.translate )
 		else:
 			self.pushTranslate.setVisible( False )
+
+		# Activate Spell Checker
+		language = str( Rpc.session.context.get('lang','en_US') )
+		if 'lang' in self.extraAttributes:
+			language = str( self.extraAttributes['lang'] )
+		self._highlighter = SpellCheckHighlighter( self, language )
+		self._highlighter.setDocument( self.uiText.document() )
 
 	def translate(self):
 		if not self.record.id:
@@ -245,12 +253,14 @@ class RichTextFieldWidget(AbstractFieldWidget, RichTextFieldWidgetUi):
 
 	def clear(self):
 		self.uiText.setHtml('')
+		self._highlighter.setDocument( self.uiText.document() )
 
 	def showValue(self):
 		value = self.record.value(self.name)
 		if not value:
 			value=''
 		self.uiText.setHtml( value )
+		self._highlighter.setDocument( self.uiText.document() )
 		# As the HTML returned can be different than the one we set in 
 		# showValue() even if the text hasn't been modified by the user
 		# we need to track modifications using QTextDocument property
