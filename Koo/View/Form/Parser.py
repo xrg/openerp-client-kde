@@ -122,9 +122,9 @@ class FormParser(AbstractParser):
 				container.newRow()
 
 			elif node.localName=='button':
-				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
 				if not self.isWidgetVisible( attrs ):
 					continue
+				button = FieldWidgetFactory.create( 'button', container, self.view, attrs )
 				name = attrs.get('name')
 				if not name:
 					name = 'unnamed_%d' % self.unnamed
