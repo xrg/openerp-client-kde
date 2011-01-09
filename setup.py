@@ -9,12 +9,23 @@ import imp
 import sys
 import os
 import glob
+import shutil
 
 from stat import ST_MODE
 
 from distutils.file_util import copy_file
 from distutils.sysconfig import get_python_lib
-from distutils.core import setup
+
+if len(sys.argv) < 2:
+	print "Syntax: setup.py command [options]"
+	sys.exit(2)
+
+command = sys.argv[1]
+
+if command == 'py2app': 
+	from setuptools import setup
+else:
+	from distutils.core import setup
 
 try:
 	import py2exe
@@ -84,6 +95,9 @@ def data_files():
 		files.append(
 			(opj('share','Koo','Plugins','RemoteHelp','data'), glob.glob( opj('Koo','Plugins','RemoteHelp','data','*')) ),
 		)
+	elif command == 'py2app':
+		#files.append('lib.xml')
+		pass
 	return files
 
 def findPluginsDir( module ):
@@ -122,14 +136,6 @@ Operating System :: POSIX
 Operating System :: MacOS
 Topic :: Office/Business
 """
-
-                                                      
-if len(sys.argv) < 2:
-	print "Syntax: setup.py command [options]"
-	sys.exit(2)
-
-command = sys.argv[1]
-
 check_modules()
 
 # create startup script
@@ -175,6 +181,11 @@ packages = [
 	'Koo.Fields',
         ] + findPlugins('Plugins') + findPlugins('View') + findPlugins('Fields') + findPlugins('Search')
 
+if command == 'py2app':
+	setup_requires = ['py2app']
+else:
+	setup_requires = ''
+
 setup (
 	name             = name,
 	version          = version,
@@ -195,12 +206,22 @@ setup (
                                 'icon_resources': [(1, opj("nsis", "koo.ico"))],
 			    }],
 	#console          = ['Koo/koo.py'],
-	packages         = packages ,
+	packages         = packages,
 	package_dir      = {'Koo': 'Koo'},
 	provides         = [ 'Koo' ],
+	app		 = ['Koo/koo.py'],
 	options          = { 
 		'py2exe': {
 			'includes': ['sip', 'PyQt4.QtNetwork', 'PyQt4.QtWebKit'] + packages 
+		},
+		'py2app': {
+			'argv_emulation': True,
+			'includes': ['sip'] +  packages
 		}
-	}
+	},
+	setup_requires	= setup_requires
 )
+# Without a invalid qt.conf file, Qt will try to load plugins from the system Qt instead of the packaged Qt.
+# Mixing Qt versions causes things to go wrong
+if command == 'py2app':
+	shutil.copyfile('qt.conf','dist/%s.app/Contents/Resources/qt.conf' % name)
