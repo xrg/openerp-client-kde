@@ -31,9 +31,18 @@ try:
 	import py2exe
 
 	# Override the function in py2exe to determine if a dll should be included
-	dllList = ('mfc90.dll','msvcp90.dll','qtnetwork.pyd','qtxmlpatterns4.dll','qtsvg4.dll')
+        dllList = ['mfc90.dll','msvcp90.dll','qtnetwork.pyd',
+                   'qtxmlpatterns4.dll','qtsvg4.dll']
+        # Needed by enchant
+        dllList += [
+                   'libglib-2.0-0.dll','libgthread-2.0-0.dll',
+                   'libgobject-2.0-0.dll','libgdk-win32-2.0-0.dll',
+                   'libgio-2.0-0.dll','libgtk-win32-2.0-0.dll',
+                   'libgdk_pixbuf-2.0-0.dll','libcairo-2.dll',
+                   'libpango-1.0-0.dll','libgio-2.0-2.dll',
+        ]
 	origIsSystemDLL = py2exe.build_exe.isSystemDLL
-	def isSystemDLL(pathname):
+        def isSystemDLL(pathname):
 		if os.path.basename(pathname).lower() in dllList:
 			return 0
 		return origIsSystemDLL(pathname)
@@ -95,6 +104,12 @@ def data_files():
 		files.append(
 			(opj('share','Koo','Plugins','RemoteHelp','data'), glob.glob( opj('Koo','Plugins','RemoteHelp','data','*')) ),
 		)
+
+                #try:
+                import enchant
+                files += enchant.utils.win32_data_files()
+                #except:                                       
+                #       pass
 	elif command == 'py2app':
 		#files.append('lib.xml')
 		pass
@@ -196,7 +211,7 @@ setup (
 	author_email     = 'info@nan-tic.com',
 	classifiers      = filter(None, classifiers.splitlines()),
 	license          = 'GPL',
-	data_files       = data_files(),
+        data_files       = data_files(),
 	scripts          = script_files,
 	windows          = [{
                                 'script': opj('Koo','koo.py'),
@@ -212,7 +227,32 @@ setup (
 	app		 = ['Koo/koo.py'],
 	options          = { 
 		'py2exe': {
-			'includes': ['sip', 'PyQt4.QtNetwork', 'PyQt4.QtWebKit'] + packages 
+                        'includes': [
+                                 'sip',
+                                 'PyQt4.QtNetwork',
+                                 'PyQt4.QtWebKit',
+                                 ] + packages + [
+                                 'pango',
+                                 'atk',
+                                 'gobject',
+                                 'cairo',
+                                 #'pangocairo',
+                                 ],
+                        # enchant
+                        'excludes': [
+                                 'Tkinter',
+                                 'tcl',
+                                 'TKconstants'
+                                ],
+                        'dll_excludes': [
+                                 'icon.dll','intl.dll','libatk-1.0-0.dll',
+                                 'libgdk_pixbuf-2.0-0.dll','libgdk-win32-2.0-0.dll',
+                                 'libglib-2.0-0.dll','libgmodule-2.0-0.dll',
+                                 'libgobject-2.0-0.dll','libgthread-2.0-0.dll',
+                                 'libgtk-win32-2.0-0.dll','libpango-1.0-0.dll',
+                                 'libpangowin32-1.0-0.dll','wxmsw26uh_vc.dll',
+                                 'libgio-2.0-0.dll','libcairo-2.dll',
+                        ],
 		},
 		'py2app': {
 			'argv_emulation': True,
