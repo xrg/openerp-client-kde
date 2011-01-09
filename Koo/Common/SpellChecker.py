@@ -47,15 +47,20 @@ class SpellCheckHighlighter(QSyntaxHighlighter):
 		QSyntaxHighlighter.__init__(self, parent)
 		self._language = language
 		if not enchantAvailable:
-			self._dictionary = None
+			self._checker = None
 			return
-		self._checker = SpellChecker(self._language)
+		try:
+			self._checker = SpellChecker(self._language)
+		except enchant.errors.DictNotFoundError: 
+			self._checker = None
+			Debug.info(_('SpellChecking: No dictionary available for language "%s"') % self._language)
+
 		self._format = QTextCharFormat()
 		self._format.setUnderlineColor(QColor(Qt.red));
 		self._format.setUnderlineStyle(QTextCharFormat.SpellCheckUnderline);
 
 	def highlightBlock(self, text):
-		if not enchantAvailable:
+		if not enchantAvailable or not self._checker:
 			return
 
 		text = unicode(text)
