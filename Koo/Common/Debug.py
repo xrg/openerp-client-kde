@@ -27,6 +27,7 @@
 
 import gc
 from PyQt4.QtCore import *
+import Common
 
 def printObjects():
 	printList( gc.get_objects() )
@@ -83,4 +84,21 @@ if 'frozen' in dir(sys) and sys.frozen == "windows_exe":
 		def flush(self):
 			pass
 	sys.stdout = Blackhole()
+
+def exceptionHook(type, value, backtrace):
+	from PyQt4.QtGui import QApplication
+	cursor = QApplication.overrideCursor()
+	if cursor:
+		QApplication.restoreOverrideCursor()
+	from Settings import Settings
+	import traceback
+	backtrace = ''.join( traceback.format_tb( backtrace ) )
+	if Settings.value('client.debug'):
+		from Koo.Common import Notifier
+		Notifier.notifyError( type, value, backtrace )
+	else:
+		error( 'Error: %s\n%s\n%s' % (type, value, backtrace) )
+
+def installExceptionHook():
+	sys.excepthook = exceptionHook
 

@@ -73,6 +73,7 @@ from PyQt4.QtGui import *
 from Koo.Common import Notifier, Common
 from Koo.Common import DBus
 
+
 # Declare notifier handlers for the whole application
 Notifier.errorHandler = Common.error
 Notifier.warningHandler = Common.warning
@@ -162,6 +163,9 @@ Api.instance = KooApi()
 
 win.show()
 
+from Koo.Common import Debug
+Debug.installExceptionHook()
+
 if Settings.value('koo.pos_mode'):
         import Koo.Pos
 	app.installEventFilter( Koo.Pos.PosEventFilter(win) )
@@ -182,12 +186,5 @@ if Settings.value('tip.autostart'):
 	dialog.exec_()
 
 win.showLoginDialog()
-
-if Settings.value('client.debug'):
-	def excepthook(type, value, backtrace):
-		import traceback
-		Notifier.notifyError( type, value, ''.join( traceback.format_tb( backtrace ) ) )
-
-	sys.excepthook = excepthook
 
 app.exec_()
