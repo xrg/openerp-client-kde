@@ -32,7 +32,7 @@ from PyQt4.QtCore import *
 import Debug
 
 try:
-	from enchant.checker import SpellChecker
+	import enchant
 
 	enchantAvailable = True
 except:
@@ -50,7 +50,7 @@ class SpellCheckHighlighter(QSyntaxHighlighter):
 			self._checker = None
 			return
 		try:
-			self._checker = SpellChecker(self._language)
+			self._checker = enchant.checker.SpellChecker(self._language)
 		except enchant.errors.DictNotFoundError: 
 			self._checker = None
 			Debug.info(_('SpellChecking: No dictionary available for language "%s"') % self._language)
