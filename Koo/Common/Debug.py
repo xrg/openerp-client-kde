@@ -67,11 +67,14 @@ class DebugEventFilter(QObject):
 import sys
 
 if 'frozen' in dir(sys) and sys.frozen == "windows_exe":
-        fname = sys.executable + '.log'
-        try:
-            sys.stderr = open(fname, 'w')
-        except:
-            warning( 'Error opening file: %s' % fname )
+	now = QDateTime.currentDateTime()
+	now = str( now.toString( Qt.ISODate ) )
+	fname = sys.executable + '.log'
+	try:
+		sys.stderr = open(fname, 'a')
+		sys.stderr.write( '--- %s ---\n' % now )
+	except:
+		warning( 'Error opening file: %s' % fname )
 
 	class Blackhole(object):
 		softspace = 0
