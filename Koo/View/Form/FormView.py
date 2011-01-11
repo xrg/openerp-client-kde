@@ -26,6 +26,7 @@
 #
 ##############################################################################
 
+from Koo.Common.Settings import *
 from Koo.Common import Common
 from Koo import Rpc
 
@@ -103,6 +104,10 @@ class FormContainer( QWidget ):
 
 		colspan = int(attributes.get( 'colspan', 1 ))
 		helpText = attributes.get( 'help', False )
+		if Settings.value('koo.developer_mode',False) and isinstance(widget, AbstractFieldWidget):
+			helpText = (helpText or '') + _('<p><i>Field name: %s</i></p>') % widget.name
+			attributes['help'] = helpText
+
 		stylesheet = attributes.get( 'stylesheet', False )
 
 		if colspan > self.maxColumns:
