@@ -457,7 +457,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dbcreateok.ui" line="112"/>
         <source>Connect &amp;later</source>
-        <translation>Σύνδεση αργότερα</translation>
+        <translation>Σύνδεση αρ&amp;γότερα</translation>
     </message>
 </context>
 <context>
@@ -487,37 +487,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="massiveupdate_msgbox.ui" line="104"/>
         <source>&amp;Accept</source>
-        <translation type="unfinished">&amp;Αποδοχή</translation>
+        <translation>&amp;Αποδοχή</translation>
     </message>
     <message>
         <location filename="massiveupdate_msgbox.ui" line="115"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Ακύρωση</translation>
+        <translation>&amp;Ακύρωση</translation>
     </message>
     <message>
         <location filename="massiveupdate_msgbox.ui" line="122"/>
         <source>Esc</source>
-        <translation type="unfinished"></translation>
+        <translation>Esc</translation>
     </message>
     <message>
         <location filename="lostconnection.ui" line="32"/>
         <source>Connection Lost</source>
-        <translation type="unfinished"></translation>
+        <translation>Η σύνδεση χάθηκε</translation>
     </message>
     <message>
         <location filename="lostconnection.ui" line="45"/>
         <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
-        <translation type="unfinished"></translation>
+        <translation>Η σύνδεση με τον εξυπηρετητή χάθηκε. Θα γίνει νέα απόπειρα σε 10 δευτερόλεπτα.</translation>
     </message>
     <message>
         <location filename="lostconnection.ui" line="73"/>
         <source>&amp;Retry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ξανά</translation>
     </message>
     <message>
         <location filename="lostconnection.ui" line="84"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Τερματισμός</translation>
+        <translation>&amp;Τερματισμός</translation>
     </message>
 </context>
 <context>
@@ -651,7 +651,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="field_preferences.ui" line="21"/>
         <source>Field &amp;Name</source>
-        <translation>Όνομα Πεδίου</translation>
+        <translation>Όνομα &amp;Πεδίου</translation>
     </message>
     <message>
         <location filename="field_preferences.ui" line="38"/>
@@ -2489,12 +2489,12 @@ this operation may take a while...</source>
     <message>
         <location filename="shortcuts.ui" line="465"/>
         <source>Auto-complete text field</source>
-        <translation type="unfinished">Αυτόματο Ολοκληρωμένο κείμενο</translation>
+        <translation>Αυτόματη συμπλήρωση κειμένου</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="475"/>
         <source>&lt;Tab&gt;</source>
-        <translation type="unfinished">&lt;Tab&gt;</translation>
+        <translation>&lt;Tab&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="482"/>
@@ -2524,13 +2524,15 @@ p, li { white-space: pre-wrap; }
         <location filename="shortcuts.ui" line="523"/>
         <source>Formula + &lt;Enter&gt;
 (Example: 3+2*2)</source>
-        <translation type="unfinished">Μαθηματικός τύπος&lt;Enter&gt; Παράδειγμα</translation>
+        <translation>Μαθηματικός τύπος + &lt;Enter&gt;
+(Παράδειγμα: 3+2*2)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="531"/>
         <source>Calculates value
 (Example result: 7)</source>
-        <translation type="unfinished">τιμή Παράδειγμα</translation>
+        <translation>Υπολογίζει τιμή
+(πχ. αποτέλεσμα: 7)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="401"/>
@@ -2544,22 +2546,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="596"/>
         <source>&lt;Ctrl&gt; + Open</source>
-        <translation type="unfinished">&lt;Ctrl&gt; Άνοιγμα</translation>
+        <translation>&lt;Ctrl&gt; + Άνοιγμα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="562"/>
         <source>Opens the record in a new tab</source>
-        <translation type="unfinished">εγγραφή σε a νέο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
+        <translation>Ανοίγει την εγγραφή σε νέα καρτέλα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="610"/>
         <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
-        <translation type="unfinished">&lt;Ctrl&gt;&lt;Shift&gt; Άνοιγμα</translation>
+        <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + Άνοιγμα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="572"/>
         <source>Opens the record in a new background tab</source>
-        <translation type="unfinished">εγγραφή σε a νέο φόντο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
+        <translation>Ανοίγει την εγγραφή σε νέα καρτέλα στο παρασκήνιο</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="702"/>
@@ -2569,42 +2571,42 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="717"/>
         <source>Middle mouse click on Tab</source>
-        <translation type="unfinished">Μεσαίο ιχνοθέτης, ποντίκι κλικ Στηλοθέτης</translation>
+        <translation>Μεσαίο κλίκ στην Καρτέλα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="737"/>
         <source>&lt;Shift&gt; + Switch View</source>
-        <translation type="unfinished">&lt;Shift&gt; Αλλαγή Προβολή</translation>
+        <translation>&lt;Shift&gt; + Αλλαγή Προβολής</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="747"/>
         <source>Open form view in new tab</source>
-        <translation type="unfinished">Άνοιγμα σε νέο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
+        <translation>Ανοίγει την προβολή φόρμας σε νέα καρτέλα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="757"/>
         <source>Mouse Wheel on Tab</source>
-        <translation type="unfinished">Ποντίκι Τροχός Στηλοθέτης</translation>
+        <translation>Ροδάκι Ποντικιού στην Καρτέλα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="767"/>
         <source>Change current tab</source>
-        <translation type="unfinished">Αλλαγή στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
+        <translation>Επιλέγει άλλη καρτέλα</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="777"/>
         <source>&lt;Shift&gt; + Open View</source>
-        <translation type="unfinished">&lt;Shift&gt; Άνοιγμα Προβολή</translation>
+        <translation>&lt;Shift&gt; + Άνοιγμα Προβολής</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="787"/>
         <source>Open view in a background tab</source>
-        <translation type="unfinished">Άνοιγμα σε a φόντο στηλοθέτης (συνταξη κειμένου) ή καρτέλλα (πλαισιο διαλόγου)</translation>
+        <translation>Ανοίγει την προβολή σε καρτέλα στο παρασκήνιο</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="902"/>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Κλείσιμο</translation>
+        <translation>&amp;Κλείσιμο</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="389"/>
@@ -2689,22 +2691,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="shortcuts.ui" line="374"/>
         <source>Clear field</source>
-        <translation type="unfinished"></translation>
+        <translation>Καθαρισμός πεδίου</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="631"/>
         <source>Add new record</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέας εγγραφής</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="638"/>
         <source>&lt;Alt&gt; + &lt;Backspace&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Alt&gt; + &lt;Backspace&gt;</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="645"/>
         <source>Remove current record</source>
-        <translation type="unfinished"></translation>
+        <translation>Διαγραφή τρέχουσας εγγραφής</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="808"/>

@@ -1,21 +1,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# P. Christeas <p_christ@hol.gr>, 2009, 2010.
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# P. Christeas <p_christ@hol.gr>, 2009, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-11-22 02:25+0100\n"
-"PO-Revision-Date: 2010-02-21 20:19+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2011-01-09 23:26+0200\n"
+"Last-Translator: P. Christeas <p_christ@hol.gr>\n"
+"Language-Team: Greek <openerp@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Generator: Lokalize 1.0\n"
+"X-Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: Koo/Screen/Action.py:85 Koo/Screen/Action.py:93
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
@@ -756,8 +758,7 @@ msgstr ""
 msgid "Choose field to insert massively"
 msgstr ""
 
-#: Koo/Dialogs/MassiveInsertDialog.py:99
-#: Koo/Dialogs/MassiveInsertDialog.py:131
+#: Koo/Dialogs/MassiveInsertDialog.py:99 Koo/Dialogs/MassiveInsertDialog.py:131
 msgid "Massive Insert"
 msgstr ""
 
@@ -806,7 +807,7 @@ msgstr "NET-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:67
 msgid "XML-RPC"
-msgstr ""
+msgstr "XML-RPC"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:68
 msgid "Secure XML-RPC"
@@ -879,13 +880,11 @@ msgstr ""
 msgid "Set as default value"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:149
-#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:149 Koo/Fields/AbstractFieldDelegate.py:115
 msgid "Operation not permited"
 msgstr ""
 
-#: Koo/Fields/AbstractFieldWidget.py:149
-#: Koo/Fields/AbstractFieldDelegate.py:115
+#: Koo/Fields/AbstractFieldWidget.py:149 Koo/Fields/AbstractFieldDelegate.py:115
 msgid "You can not set to the default value here !"
 msgstr ""
 
@@ -1075,7 +1074,7 @@ msgstr ""
 
 #: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
-msgstr ""
+msgstr "Μετάφραση Προβολής"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
@@ -1101,7 +1100,7 @@ msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Επιλέξτε Αρχεία"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 #, fuzzy
@@ -1110,12 +1109,11 @@ msgstr "Επιλέξτε ενέργεια"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:47
 msgid "Cancel Import"
-msgstr ""
+msgstr "Ακύρωση Εισαγωγής"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:71
-#, fuzzy
 msgid "document.png"
-msgstr "Νέο έγγραφο"
+msgstr "document.png"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:78
 msgid "Scan Documents"
@@ -1153,7 +1151,7 @@ msgstr ""
 
 #: Koo/Actions/Actions.py:226
 msgid "Error at report"
-msgstr ""
+msgstr "Σφάλμα στην αναφορά"
 
 #: Koo/Actions/Actions.py:226
 #, python-format
@@ -1172,22 +1170,22 @@ msgstr "%d bytes"
 #: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Kb"
-msgstr ""
+msgstr "%.2f Kb"
 
 #: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Mb"
-msgstr ""
+msgstr "%.2f Mb"
 
 #: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Gb"
-msgstr ""
+msgstr "%.2f Gb"
 
 #: Koo/Common/Numeric.py:113
 #, python-format
 msgid "%.2f Tb"
-msgstr ""
+msgstr "%.2f Tb"
 
 #: Koo/Common/Help.py:102
 msgid "Documentation"
@@ -1195,13 +1193,14 @@ msgstr "Τεκμηρίωση"
 
 #: Koo/Common/Help.py:139
 msgid "<p><i>Documentation module is not installed.</i></p>"
-msgstr ""
+msgstr "<p><i>Το άρθρωμα Τεκμηρίωσης δεν έχει εγκατασταθεί.</i></p>"
 
 #: Koo/Common/Help.py:140 Koo/Common/Help.py:147
 msgid ""
-"<p><i>The following sections in the documentation refer to this menu entry:</"
-"i></p>"
+"<p><i>The following sections in the documentation refer to this menu "
+"entry:</i></p>"
 msgstr ""
+"<p><i>Τα παρακάτω κεφάλαια Τεκμηρίωσης αναφέρονται σε αυτό το μενού:</i></p>"
 
 #: Koo/Common/Help.py:142
 msgid ""
@@ -1211,8 +1210,8 @@ msgstr ""
 
 #: Koo/Common/Help.py:145
 msgid ""
-"<p><i>The following sections in the documentation refer to this field:</i></"
-"p>"
+"<p><i>The following sections in the documentation refer to this "
+"field:</i></p>"
 msgstr ""
 
 #: Koo/Common/Help.py:146
@@ -1394,7 +1393,7 @@ msgstr ""
 #: Koo/View/DummyView.py:44
 #, python-format
 msgid "Views of type %s not available in Koo."
-msgstr ""
+msgstr "Προβολές τύπου %s δεν υποστηρίζονται στο Koo."
 
 #: Koo/View/Svg/__init__.py:33
 msgid "SVG View"
@@ -1476,11 +1475,11 @@ msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:98
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: Koo/Dialogs/ImportDialog.py:100
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 #: Koo/Dialogs/ImportDialog.py:129
 msgid "Sheet List Error"
@@ -1488,19 +1487,19 @@ msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:332
 msgid "Import Error"
-msgstr ""
+msgstr "Λάθος εισαγωγής"
 
 #: Koo/Dialogs/LoginDialog.py:161
 msgid "Wallet"
-msgstr ""
+msgstr "Πορτοφόλι"
 
 #: Koo/Dialogs/LoginDialog.py:162
 msgid "Do you want to store your password in your wallet?"
-msgstr ""
+msgstr "Θέλετε να αποθηκευτεί το συνθηματικό σας στο πορτοφόλι;"
 
 #: Koo/Dialogs/ImportExportCommon.py:59
 msgid "Database ID"
-msgstr ""
+msgstr "ID Βάσης"
 
 #: Koo/Dialogs/ExportDialog.py:324
 msgid "Data Export Error"
@@ -1508,7 +1507,7 @@ msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
 msgid "&Duplicate Selected Records"
-msgstr ""
+msgstr "&Διπλασιασμός Επιλεγμένων Εγγραφών"
 
 #~ msgid "Model Name"
 #~ msgstr "Ονομασία Μοντέλου"
