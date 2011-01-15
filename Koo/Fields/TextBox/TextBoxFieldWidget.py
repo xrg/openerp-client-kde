@@ -27,6 +27,7 @@
 ##############################################################################
 
 from Koo.Common import Shortcuts
+from Koo.Common.SpellChecker import *
 
 from Koo.Fields.TranslationDialog import *
 from Koo.Fields.AbstractFieldWidget import *
@@ -56,7 +57,7 @@ class TextBoxFieldWidget(AbstractFieldWidget):
 			self.scTranslate.setContext( Qt.WidgetShortcut )
 			self.connect( self.scTranslate, SIGNAL('activated()'), self.translate )
 
-		from Koo.Common.SpellChecker import SpellCheckHighlighter
+		# Activate Spell Checker
 		language = str( Rpc.session.context.get('lang','en_US') )
 		if 'lang' in self.extraAttributes:
 			language = str( self.extraAttributes['lang'] )

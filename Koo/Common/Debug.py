@@ -27,6 +27,7 @@
 
 import gc
 from PyQt4.QtCore import *
+import Common
 
 def printObjects():
 	printList( gc.get_objects() )
@@ -58,5 +59,46 @@ class DebugEventFilter(QObject):
 		print "EVENT %d THROWN ON OBJECT '%s' OF TYPE '%s'" % ( event.type(), unicode(obj.objectName() ), unicode(obj.staticMetaObject.className()) )
 		return QObject.eventFilter( self, obj, event )
 		
-
 #app.installEventFilter( DebugEventFilter(win) )
+
+#
+# Taken from py2exe's boot_common.py
+#
+
+import sys
+
+if 'frozen' in dir(sys) and sys.frozen == "windows_exe":
+	now = QDateTime.currentDateTime()
+	now = str( now.toString( Qt.ISODate ) )
+	fname = sys.executable + '.log'
+	try:
+		sys.stderr = open(fname, 'a')
+		sys.stderr.write( '--- %s ---\n' % now )
+	except:
+		warning( 'Error opening file: %s' % fname )
+
+	class Blackhole(object):
+		softspace = 0
+		def write(self, text):
+			pass
+		def flush(self):
+			pass
+	sys.stdout = Blackhole()
+
+def exceptionHook(type, value, backtrace):
+	from PyQt4.QtGui import QApplication
+	cursor = QApplication.overrideCursor()
+	if cursor:
+		QApplication.restoreOverrideCursor()
+	from Settings import Settings
+	import traceback
+	backtrace = ''.join( traceback.format_tb( backtrace ) )
+	if Settings.value('client.debug'):
+		from Koo.Common import Notifier
+		Notifier.notifyError( type, value, backtrace )
+	else:
+		error( 'Error: %s\n%s\n%s' % (type, value, backtrace) )
+
+def installExceptionHook():
+	sys.excepthook = exceptionHook
+

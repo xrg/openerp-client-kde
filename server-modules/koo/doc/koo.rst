@@ -295,6 +295,14 @@ Información cromática
 
 	.. _`Funciones de menú`:
 
+        + Las cajas de texto grandes verifican la ortografía mientras se escribe en el idioma con el que trabaja el usuario. 
+
+        .. image:: images/spellchecker1.png
+        
+        En caso de acceder a la pantalla de traducción de dicho texto, la verificación de ortografía se produce en el idioma a traducir.
+
+        .. image:: images/spellchecker2.png
+
 Vistas
 ------
 
