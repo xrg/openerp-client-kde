@@ -68,7 +68,7 @@ class FormParser(AbstractParser):
 			# We want FormContainer parent to be the notebook for the case
 			# when it's a QTabWidget. This way FormContainer can enable/disable
 			# the tab when necessary.
-			container = FormContainer( parent, int(attrs.get('col',4)) )
+			container = FormContainer( parent, int(attrs.get('col',4)), fields )
 		
 		if not self.view.title:
 			self.view.title = attrs.get('string', 'Unknown')
