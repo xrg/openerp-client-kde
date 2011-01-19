@@ -2,17 +2,20 @@
 # This file is distributed under the same license as the openobject-client-kde package.
 #
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# P. Christeas <p_christ@hol.gr>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-05-11 19:23+0000\n"
-"PO-Revision-Date: 2010-09-27 14:52+0000\n"
-"Last-Translator: Βασίλης Τσιβίκης <Unknown>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2011-01-16 00:09+0200\n"
+"Last-Translator: P. Christeas <p_christ@hol.gr>\n"
+"Language-Team: Greek <openerp@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: auto_attach
 #: wizard_view:nan_document_execute,init:0
@@ -44,7 +47,7 @@ msgstr "Έγγραφο"
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_template_box
 msgid "nan.template.box"
-msgstr ""
+msgstr "nan.template.box"
 
 #. module: auto_attach
 #: model:ir.actions.act_window,name:auto_attach.processed_document_tree
@@ -82,6 +85,12 @@ msgid ""
 "[1] http://www.NaN-tic.com/nanscan\n"
 "\t"
 msgstr ""
+"Με αυτό το άρθρωμα είναι εφικτή η αυτόματη σάρωση εγγράφων ως συνημμένα σε "
+"οποιοδήποτε "
+"μοντέλο, με χρήση του NanScan [1].\n"
+"\n"
+"[1] http://www.NaN-tic.com/nanscan\n"
+"\t"
 
 #. module: auto_attach
 #: view:nan.document:0 field:nan.document,task:0
@@ -200,7 +209,7 @@ msgstr "Η ουρά εγγράφων αναλύθηκε"
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_document_property
 msgid "nan.document.property"
-msgstr ""
+msgstr "nan.document.property"
 
 #. module: auto_attach
 #: field:nan.document,template_id:0 field:nan.template.box,template_id:0
@@ -526,7 +535,7 @@ msgstr ""
 #. module: auto_attach
 #: model:ir.model,name:auto_attach.model_nan_template
 msgid "nan.template"
-msgstr ""
+msgstr "nan.template"
 
 #. module: auto_attach
 #: field:nan.document,name:0 field:nan.template,name:0
@@ -569,3 +578,4 @@ msgstr "Έναρξη ανάλυσης."
 #: model:ir.actions.wizard,name:auto_attach.wizard_execute_documents
 msgid "Execute Documents"
 msgstr "Εκτέλεση εγγράφων."
+
