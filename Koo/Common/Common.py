@@ -30,7 +30,7 @@
 import gettext
 
 import Api
-from Settings import *
+from Settings import Settings
 from Koo import Rpc
 
 import os
@@ -49,7 +49,8 @@ try:
 		isKdeAvailable = True
 	else:
 		isKdeAvailable = False
-except:
+except Exception, e:
+	print "Cannot use kde!", e
 	isKdeAvailable = False
 
 def isQtVersion45():
