@@ -72,6 +72,7 @@
 					<field name="use_cache"/>
 					<field name="auto_new"/>
 					<field name="load_on_open"/>
+					<field name="fts_instant"/>
 				</form>
 			</field>
 		</record>

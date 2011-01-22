@@ -247,6 +247,7 @@ class nan_koo_settings(osv.osv):
 		'use_cache': fields.boolean('Allow Client Caching', help="If set, it enables the caching mechanism of the client. Developers will often consider disabling this option so they avoid clicking Clear Cache after changing views and actions."),
 		'auto_new': fields.boolean('Automatically create new record', help="If set, it will put the user in a new document just after saving a new document. This eases creation of many records. Resembles old (4.2) behaviour of the application."),
 		'load_on_open': fields.boolean('Load on Open', help="If set, it will load records the first time a view is opened. Otherwise, the user will have to search before anything is loaded. This may be interesting for performance reasons."),
+		'fts_instant': fields.boolean('Instant Full Text Search', help="If set, full text search dialog will query the server after each key stroke, similar to what Google Instant does. Not recommended in databases with high load or lots of data in their full text search index."),
 	}
 	_defaults = {
 		'show_toolbar': lambda *a: True,

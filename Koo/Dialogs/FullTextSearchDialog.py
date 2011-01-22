@@ -32,6 +32,7 @@ import re
 from Koo.Common import Common
 from Koo.Common import Numeric
 from Koo.Common import Api
+from Koo.Common.Settings import *
 
 from Koo import Rpc
 from Koo.Model.Group import RecordGroup
@@ -72,6 +73,7 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.related = []
 		self.limit = 10 
 		self.offset = 0
+		self.queryThreads = []
 		self.pushNext.setEnabled( False )
 		self.pushPrevious.setEnabled( False )
 
@@ -80,10 +82,18 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
 		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
 		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
+		self.connect( self, SIGNAL('accept()'), self.accepted )
+		if Settings.value('koo.fts_instant',True):
+			self.connect( self.uiText, SIGNAL('textEdited(QString)'), self.find )
 		self.show()
 
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		QTimer.singleShot( 0, self.initGui )
+
+	def accepted(self):
+		for thread in self.queryThreads:
+			thread.terminate()
+			thread.wait()
 
 	def showHelp(self, link):
 		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
@@ -132,8 +142,16 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 			model = False
 		else:
 			model = unicode( self.uiModel.itemData( self.uiModel.currentIndex() ).toString() )
+
 		# We always query for limit+1 items so we can know if there will be more records in the next page
-		answer = Rpc.session.execute('/fulltextsearch', 'search', self.textToQuery(), self.limit+1, self.offset , model, Rpc.session.context)
+		thread = Rpc.session.executeAsync(self.showResults, '/fulltextsearch', 'search', self.textToQuery(), self.limit+1, self.offset , model, Rpc.session.context)
+		self.queryThreads.append( thread )
+
+		QApplication.restoreOverrideCursor()
+
+	def showResults(self, answer, exception):
+		if exception or not answer:
+			answer = []
 		if len(answer) < self.limit:
 			self.pushNext.setEnabled( False )
 		else:
@@ -144,10 +162,9 @@ class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
 			self.pushPrevious.setEnabled( False )
 		else:
 			self.pushPrevious.setEnabled( True )
-		self.showResults( answer )
-		QApplication.restoreOverrideCursor()
+		self.resultsToHtml( answer )
 
-	def showResults(self, answer):
+	def resultsToHtml(self, answer):
 		for shortcut in self.shortcuts.keys():
 			shortcut.setParent( None )
 		self.shortcuts = {}
