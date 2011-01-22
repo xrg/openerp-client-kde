@@ -27,7 +27,6 @@
 
 import gc
 from PyQt4.QtCore import *
-import Common
 
 def printObjects():
 	printList( gc.get_objects() )
