@@ -25,8 +25,8 @@
 #
 ##############################################################################
 
-from osv import osv, fields
-from osv.orm import except_orm
+from osv import osv
+from osv import fields
 
 # This class holds the different priorities available
 class priority(osv.osv):
@@ -56,10 +56,10 @@ class full_text_index(osv.osv):
 		if field.name and field.model_id:
 			# Recheck domain in case it was called from ir_model_fields
 			if not field.ttype in ('char','text','float','integer','date','datetime'):
-				raise except_orm(_('Creation error'), _("Non indexable field type: '%s'") % field.name )
+				raise osv.except_osv(_('Creation error'), _("Non indexable field type: '%s'") % field.name )
 			column = self.pool.get(field.model_id.model)._columns[field.name]
 			if isinstance( column, fields.function ) and not column.store: 
-				raise except_orm(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
+				raise osv.except_osv(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
 		return super(full_text_index,self).create(cr, uid, vals, context)
 
 	def write(self, cr, uid, ids, vals, context=None):
@@ -68,11 +68,11 @@ class full_text_index(osv.osv):
 			field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
 			# Recheck domain in case it was called from ir_model_fields
 			if not field.ttype in ('char','text','float','integer','date','datetime'):
-				raise except_orm(_('Creation error'), _("Non indexable field type."))
+				raise osv.except_osv(_('Creation error'), _("Non indexable field type."))
 			if field.name and field.model_id:
 				column = self.pool.get(field.model_id.model)._columns[field.name]
 				if isinstance( column, fields.function ) and not column.store: 
-					raise except_orm(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
+					raise osv.except_osv(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
 		return super(full_text_index,self).write(cr, uid, ids, vals, context)
 
 full_text_index()
