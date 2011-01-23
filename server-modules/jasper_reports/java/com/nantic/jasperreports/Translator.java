@@ -30,6 +30,7 @@ public class Translator {
 		if ( unavailableResources.containsKey( locale ) )
 			return false;
 		if ( ! resources.containsKey( locale ) ) {
+			
 			String fileName = baseName + "_" + locale.toString() + ".properties";
 			ResourceBundle bundle; 
 			try {
@@ -58,8 +59,9 @@ public class Translator {
 	}
 	/* tr(Locale..) and tr(Locale..Object) functions */
 	public String tr(Locale locale, String text) {
-		if ( ! loadLocale( locale ) )
+		if ( ! loadLocale( locale ) ) {
 			return text;
+		}
 		return resources.get( locale ).tr( text );
 	}
 	public String tr(Locale locale, String text, Object o) {
