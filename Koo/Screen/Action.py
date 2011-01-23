@@ -29,6 +29,7 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Common.Settings import Settings
 from Koo.Plugins import *
 from Koo import Rpc
 import logging
@@ -143,6 +144,7 @@ class ActionFactory:
 		})
 
 		actions = []
+		auto_shortcuts = Settings.value('koo.auto_shortcuts', False, bool)
 		for icontype in ( 'print','action','relate' ):
 			for tool in definition[icontype]:
 				action = Action( parent )
@@ -154,10 +156,10 @@ class ActionFactory:
 
 				number = len(actions)
 				shortcut = 'Ctrl+'
-				if number > 9:
+				if auto_shortcuts and number > 9:
 					shortcut += 'Shift+'
 					number -= 10
-				if number < 10:
+				if auto_shortcuts and number < 10:
 					shortcut += str(number)
 					action.setShortcut( QKeySequence( shortcut ) )
 					action.setToolTip( action.text() + ' (%s)' % shortcut )

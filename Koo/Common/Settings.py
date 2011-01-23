@@ -60,6 +60,7 @@ class Settings(object):
 		'koo.sort_mode' : 'all_items',
 		'koo.pos_mode' : False,
 		'koo.enter_as_tab' : False,
+		'koo.auto_shortcuts': False, # please use with caution!
 		'kde.enabled' : True,
 		'koo.attachments_dialog' : False,
 		'client.devel_mode': False,
