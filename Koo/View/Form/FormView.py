@@ -54,7 +54,7 @@ class FormTabWidget( QTabWidget ):
 ## @brief The FormContainer class is a widget with some functionalities to help
 # the parser construct a Form.
 class FormContainer( QWidget ):
-	def __init__(self, parent=None, maxColumns=4):
+	def __init__(self, parent=None, maxColumns=4, fields=None):
 		QWidget.__init__(self, parent)
 		self.row = 0
 		self.column = 0
@@ -70,6 +70,7 @@ class FormContainer( QWidget ):
 			self.tabWidget = None
 		self.fieldWidgets = []
 		self.containerWidgets = []
+		self.fields = fields
 
 	def setTabEnabled(self, value):
 		if self.tabWidget:
@@ -106,6 +107,9 @@ class FormContainer( QWidget ):
 		helpText = attributes.get( 'help', False )
 		if Settings.value('koo.developer_mode',False) and isinstance(widget, AbstractFieldWidget):
 			helpText = (helpText or '') + _('<p><i>Field name: %s</i></p>') % widget.name
+			helpAttributes = attributes.copy()
+			helpAttributes.update( self.fields.get(widget.name,{}) )
+			helpText += _('<p><i>Attributes: %s</i></p>') % helpAttributes
 			attributes['help'] = helpText
 
 		stylesheet = attributes.get( 'stylesheet', False )

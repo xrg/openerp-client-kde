@@ -10,18 +10,20 @@ import java.util.Enumeration;
 
 import org.xnap.commons.i18n.I18n;
 
-public class i18n {
-	static Hashtable<Locale, I18n> resources = new Hashtable<Locale, I18n>();
-	static String baseName = null;
-	static Locale defaultLocale = null;
-	static Hashtable<Locale, Boolean> unavailableResources = new Hashtable<Locale, Boolean>();
+public class Translator {
+	private Hashtable<Locale, I18n> resources = null;
+	private String baseName = null;
+	private Locale defaultLocale = null;
+	private Hashtable<Locale, Boolean> unavailableResources = null;
 
-	public static void init(String baseName, Locale defaultLocale) {
-		i18n.baseName = baseName;
-		i18n.defaultLocale = defaultLocale;
+	public Translator(String baseName, Locale defaultLocale) {
+		resources = new Hashtable<Locale, I18n>();
+		this.baseName = baseName;
+		this.defaultLocale = defaultLocale;
+		unavailableResources = new Hashtable<Locale, Boolean>();
 	}
 	/* Ensures the given locale is loaded */
-	protected static boolean loadLocale( Locale locale ) {
+	protected boolean loadLocale( Locale locale ) {
 		// If the resource wasn't available don't try to load it each time.
 		if ( baseName == null || locale == null )
 			return false;
@@ -43,7 +45,7 @@ public class i18n {
 		}
 		return true;
 	}
-	public static Locale stringToLocale(String localeCode) {
+	public Locale stringToLocale(String localeCode) {
 		Locale locale;
 		String[] locales = localeCode.split( "_" );
 		if ( locales.length == 1 )
@@ -55,122 +57,122 @@ public class i18n {
 		return locale;
 	}
 	/* tr(Locale..) and tr(Locale..Object) functions */
-	public static String tr(Locale locale, String text) {
+	public String tr(Locale locale, String text) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text );
 	}
-	public static String tr(Locale locale, String text, Object o) {
+	public String tr(Locale locale, String text, Object o) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text, o );
 	}
-	public static String tr(Locale locale, String text, Object o1, Object o2) {
+	public String tr(Locale locale, String text, Object o1, Object o2) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text, o1, o2 );
 	}
-	public static String tr(Locale locale, String text, Object o1, Object o2, Object o3) {
+	public String tr(Locale locale, String text, Object o1, Object o2, Object o3) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text, o1, o2, o3 );
 	}
-	public static String tr(Locale locale, String text, Object o1, Object o2, Object o3, Object o4) {
+	public String tr(Locale locale, String text, Object o1, Object o2, Object o3, Object o4) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text, o1, o2, o3, o4 );
 	}
-	public static String tr(Locale locale, String text, Object[] objects) {
+	public String tr(Locale locale, String text, Object[] objects) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).tr( text, objects );
 	}
 	/* trl() and trl(..Object) functions */
-	public static String trl(String localeCode, String text) {
+	public String trl(String localeCode, String text) {
 		return tr(stringToLocale(localeCode), text);
 	}
-	public static String trl(String localeCode, String text, Object o) {
+	public String trl(String localeCode, String text, Object o) {
 		return tr(stringToLocale(localeCode), text, o);
 	}
-	public static String trl(String localeCode, String text, Object o1, Object o2) {
+	public String trl(String localeCode, String text, Object o1, Object o2) {
 		return tr(stringToLocale(localeCode), text, o1, o2);
 	}
-	public static String trl(String localeCode, String text, Object o1, Object o2, Object o3) {
+	public String trl(String localeCode, String text, Object o1, Object o2, Object o3) {
 		return tr(stringToLocale(localeCode), text, o1, o2, o3);
 	}
-	public static String trl(String localeCode, String text, Object o1, Object o2, Object o3, Object o4) {
+	public String trl(String localeCode, String text, Object o1, Object o2, Object o3, Object o4) {
 		return tr(stringToLocale(localeCode), text, o1, o2, o3, o4);
 	}
-	public static String trl(String localeCode, String text, Object[] objects) {
+	public String trl(String localeCode, String text, Object[] objects) {
 		return tr(stringToLocale(localeCode), text, objects);
 	}
 	/* tr(..) and tr(..Object) functions */
-	public static String tr(String text) {
+	public String tr(String text) {
 		return tr(defaultLocale, text);
 	}
-	public static String tr(String text, Object o) {
+	public String tr(String text, Object o) {
 		return tr(defaultLocale, text, o);
 	}
-	public static String tr(String text, Object o1, Object o2) {
+	public String tr(String text, Object o1, Object o2) {
 		return tr(defaultLocale, text, o1, o2);
 	}
-	public static String tr(String text, Object o1, Object o2, Object o3) {
+	public String tr(String text, Object o1, Object o2, Object o3) {
 		return tr(defaultLocale, text, o1, o2, o3);
 	}
-	public static String tr(String text, Object o1, Object o2, Object o3, Object o4) {
+	public String tr(String text, Object o1, Object o2, Object o3, Object o4) {
 		return tr(defaultLocale, text, o1, o2, o3, o4);
 	}
-	public static String tr(String text, Object[] objects) {
+	public String tr(String text, Object[] objects) {
 		return tr(defaultLocale, text, objects);
 	}
 	/* trn(Locale..) and trn(Locale..Object) functions */
-	public static String trn(Locale locale, String text, String pluralText, long n) {
+	public String trn(Locale locale, String text, String pluralText, long n) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).trn( text, pluralText, n );
 	}
-	public static String trn(Locale locale, String text, String pluralText, long n, Object o) {
+	public String trn(Locale locale, String text, String pluralText, long n, Object o) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).trn( text, pluralText, n, o );
 	}
-	public static String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2) {
+	public String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).trn( text, pluralText, n, o1, o2 );
 	}
-	public static String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2, Object o3) {
+	public String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2, Object o3) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).trn( text, pluralText, n, o1, o2, o3 );
 	}
-	public static String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {
+	public String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).trn( text, pluralText, n, o1, o2, o3, o4 );
 	}
-	public static String trn(Locale locale, String text, String pluralText, long n, Object[] objects) {
+	public String trn(Locale locale, String text, String pluralText, long n, Object[] objects) {
 		if ( ! loadLocale( locale ) )
 			return text;
 		return resources.get( locale ).trn( text, pluralText, n, objects );
 	}
 	/* trn(..) and trn(..Object) functions */
-	public static String trn(String text, String pluralText, long n) {
+	public String trn(String text, String pluralText, long n) {
 		return trn(defaultLocale, text, pluralText, n);
 	}
-	public static String trn(String text, String pluralText, long n, Object o) {
+	public String trn(String text, String pluralText, long n, Object o) {
 		return trn(defaultLocale, text, pluralText, n, o);
 	}
-	public static String trn(String text, String pluralText, long n, Object o1, Object o2) {
+	public String trn(String text, String pluralText, long n, Object o1, Object o2) {
 		return trn(defaultLocale, text, pluralText, n, o1, o2);
 	}
-	public static String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3) {
+	public String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3) {
 		return trn(defaultLocale, text, pluralText, n, o1, o2, o3);
 	}
-	public static String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {
+	public String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {
 		return trn(defaultLocale, text, pluralText, n, o1, o2, o3, o4);
 	}
-	public static String trn(String text, String pluralText, long n, Object[] objects) {
+	public String trn(String text, String pluralText, long n, Object[] objects) {
 		return trn(defaultLocale, text, pluralText, n, objects);
 	}
 }

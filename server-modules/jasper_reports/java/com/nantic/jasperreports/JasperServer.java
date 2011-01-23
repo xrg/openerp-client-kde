@@ -9,7 +9,6 @@ import org.apache.xmlrpc.server.PropertyHandlerMapping;
 
 import net.sf.jasperreports.engine.JRRewindableDataSource;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JRField;
 import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.JasperFillManager; 
@@ -47,7 +46,6 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.ResourceBundle;
-import java.text.SimpleDateFormat;
 import java.util.Hashtable;
 import java.io.ByteArrayInputStream;
 import java.io.*;
@@ -59,135 +57,7 @@ import java.util.Locale;
 
 
 
-/*
-This class overrides Hashtable's get() function to return 
-the default language when the language (key) doesn't exist.
-*/
-class LanguageTable extends Hashtable {
-	private String defaultLanguage;
-
-	public LanguageTable(String defaultLanguage) {
-		super();
-		this.defaultLanguage = defaultLanguage;
-	}
-	public Object get(Object key) {
-		if ( containsKey(key) )
-			return super.get(key);
-		else
-			return super.get(defaultLanguage);
-	}
-}
-
-/*
-This class overrides getFieldValue() from JRCsvDataSource to parse
-java.lang.Object fields that will come from Python coded with data
-for each language.
-*/
-class CsvMultiLanguageDataSource implements JRRewindableDataSource {
-	private JRCsvDataSource csvDataSource;
-	private String fileName;
-	private String charsetName;
-	private java.text.DateFormat dateFormat;
-	private char fieldDelimiter;
-	private java.text.NumberFormat numberFormat;
-	private String recordDelimiter;
-	private String[] columnNames;
-	private boolean useFirstRowAsHeader;
-
-	public CsvMultiLanguageDataSource(String fileName, String charsetName) throws java.io.FileNotFoundException, java.io.UnsupportedEncodingException {
-
-		this.fileName = fileName;
-		this.charsetName = charsetName;
-		csvDataSource = new JRCsvDataSource( new File( fileName ), "utf-8");
-		csvDataSource.setUseFirstRowAsHeader( true );
-		csvDataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
-		csvDataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
-	}
-	public void moveFirst() throws JRException {
-		csvDataSource.close();
-		try {
-			csvDataSource = new JRCsvDataSource( new File( fileName ), "utf-8" );
-			csvDataSource.setUseFirstRowAsHeader( true );
-			csvDataSource.setDateFormat( new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" ) );
-			csvDataSource.setNumberFormat( NumberFormat.getInstance( Locale.ENGLISH ) );
-		} catch ( Exception exception ) {
-			throw new JRException( exception );
-		}
-	}
-
-	public Object getFieldValue(JRField jrField) throws JRException {
-		Object value;
-		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
-			JRDesignField fakeField = new JRDesignField();
-			fakeField.setName( jrField.getName() );
-			fakeField.setDescription( jrField.getDescription() );
-			fakeField.setValueClassName( "java.lang.String" );
-			fakeField.setValueClass( String.class );
-			value = csvDataSource.getFieldValue( fakeField );
-
-			LanguageTable values = new LanguageTable("en_US");
-			String v = (String) value;
-			String[] p = v.split( "\\|" );
-			for( int j=0; j < p.length ; j++ ) {
-				//System.out.println( p[j] );
-				String[] map = p[j].split( "~" );
-				if ( map.length == 2 ) 
-					values.put( map[0], map[1] );
-			}
-			value = (Object)values;
-		} else {
-			value = csvDataSource.getFieldValue(jrField);
-		}
-		return value;
-	}
-	public void close() {
-		csvDataSource.close();
-	}
-	public boolean next() throws JRException {
-		return csvDataSource.next();
-	}
-	
-}
-
-/*
-This class overrides getFieldValue() from JRXmlDataSource to parse
-java.lang.Object fields that will come from Python coded with data
-for each language.
-*/
-class XmlMultiLanguageDataSource extends JRXmlDataSource {
-	public XmlMultiLanguageDataSource(String uri, String selectExpression) throws JRException {
-		super(uri, selectExpression);
-	}
-
-	public Object getFieldValue(JRField jrField) throws JRException {
-		Object value;
-		if ( jrField.getValueClassName().equals( "java.lang.Object" ) ) {
-			JRDesignField fakeField = new JRDesignField();
-			fakeField.setName( jrField.getName() );
-			fakeField.setDescription( jrField.getDescription() );
-			fakeField.setValueClassName( "java.lang.String" );
-			fakeField.setValueClass( String.class );
-			value = super.getFieldValue( fakeField );
-
-			LanguageTable values = new LanguageTable("en_US");
-			String v = (String) value;
-			String[] p = v.split( "\\|" );
-			for( int j=0; j < p.length ; j++ ) {
-				//System.out.println( p[j] );
-				String[] map = p[j].split( "~" );
-				if ( map.length == 2 ) 
-					values.put( map[0], map[1] );
-			}
-			value = (Object)values;
-		} else {
-			value = super.getFieldValue(jrField);
-		}
-		return value;
-	}
-}
-
 public class JasperServer { 
-
 	/* Compiles the given .jrxml (inputFile) */
 	public Boolean compile( String jrxmlPath ) throws java.lang.Exception {
 		File jrxmlFile;
@@ -240,8 +110,6 @@ public class JasperServer {
 		// Ensure report is compiled
 		compile( jrxmlPath );
 
-		//System.out.println( "JasperServer: " + parameters );
-
 		report = (JasperReport) JRLoader.loadObject( jasperPath( jrxmlPath ) );
 
 		// Add SUBREPORT_DIR parameter
@@ -249,9 +117,11 @@ public class JasperServer {
 		if ( index != -1 )
 			parameters.put( "SUBREPORT_DIR", jrxmlPath.substring( 0, index+1 ) );
 
+		// Declare it outside the parameters loop because we'll use it when we will create the data source.
+		Translator translator = null;
+
 		// Fill in report parameters
 		JRParameter[] reportParameters = report.getParameters();
-		//System.out.println( "JasperServer: Parameters.length:"+ reportParameters.length );
 		for( int j=0; j < reportParameters.length; j++ ){
 			JRParameter jparam = reportParameters[j];	
 			if ( jparam.getValueClassName().equals( "java.util.Locale" ) ) {
@@ -259,22 +129,25 @@ public class JasperServer {
 				if ( ! parameters.containsKey( jparam.getName() ) )
 					continue;
 				String[] locales = ((String)parameters.get( jparam.getName() )).split( "_" );
-				Locale locale;
 				
+				Locale locale;
 				if ( locales.length == 1 )
 					locale = new Locale( locales[0] );
 				else
 					locale = new Locale( locales[0], locales[1] );
+
 				parameters.put( jparam.getName(), locale );
 
 				// Initialize translation system
-				i18n.init( bundlePath(jrxmlPath), locale );
+				// SQL reports will need to declare the TRANSLATOR paramter for translations to work.
+				// CSV/XML based ones will not need that because we will integrate the translator 
+				// with the CsvMultiLanguageDataSource.
+				translator = new Translator( bundlePath(jrxmlPath), locale );
+				parameters.put( "TRANSLATOR", translator );
 
 			} else if( jparam.getValueClassName().equals( "java.lang.BigDecimal" )){
 				Object param = parameters.get( jparam.getName());
-				//System.out.println( "1" + jparam.getValueClassName() ) ;
 				parameters.put( jparam.getName(), new BigDecimal( (Double) parameters.get(jparam.getName() ) ) );
-				//System.out.println( "2" + jparam.getValueClassName() ) ;
 			}
 		}
 
@@ -289,7 +162,7 @@ public class JasperServer {
 					compile( (String)m.get("jrxmlFile") );
 
 				// Create DataSource for subreport
-				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)m.get("dataFile"), "utf-8" );
+				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)m.get("dataFile"), "utf-8", translator );
 				System.out.println( "JasperServer: Adding parameter '" + ( (String)m.get("parameter") ) + "' with datasource '" + ( (String)m.get("dataFile") ) + "'" );
 
 				parameters.put( m.get("parameter"), dataSource );
@@ -309,7 +182,7 @@ public class JasperServer {
 			// If available, use a CSV file because it's faster to process.
 			// Otherwise we'll use an XML file.
 			if ( connectionParameters.containsKey("csv") ) {
-				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)connectionParameters.get("csv"), "utf-8" );
+				CsvMultiLanguageDataSource dataSource = new CsvMultiLanguageDataSource( (String)connectionParameters.get("csv"), "utf-8", translator );
 				jasperPrint = JasperFillManager.fillReport( report, parameters, dataSource );
 			} else {
 				JRXmlDataSource dataSource = new JRXmlDataSource( (String)connectionParameters.get("xml"), "/data/record" );

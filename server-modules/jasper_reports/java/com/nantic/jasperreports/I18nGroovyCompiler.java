@@ -17,96 +17,108 @@ import java.util.List;
 
 public class I18nGroovyCompiler extends JRGroovyCompiler {
 	static public List sourceCodeList = null; 
+	static private String newImport = "import com.nantic.jasperreports.Translator;import com.nantic.jasperreports.CsvMultiLanguageDataSource;";
+	static private String newVariable = "public Translator translator = null;\n";
+	static private String returnTranslator = 
+		"if (translator == null)\n" + 
+		"	if (parameter_REPORT_DATA_SOURCE.getValue().class == CsvMultiLanguageDataSource) {\n" + 
+		"		translator = ((CsvMultiLanguageDataSource)parameter_REPORT_DATA_SOURCE.getValue()).getTranslator();\n" +
+		"	} else if (translator == parameter_REPORT_PARAMETERS_MAP.getValue().containsKey(\"TRANSLATOR\")){\n"+
+		"		translator = (CsvMultiLanguageDataSource)parameter_TRANSLATOR.getValue();\n" + 
+		"	} else {\n" +
+		"		translator = new Translator(null, null);\n" +
+		"	}\n" +
+		"return translator";
 	static private String newFunction = 
 		"public String tr(Locale locale, String text) {\n" +
-			"return i18n.tr(locale, text);\n" +
+			"TRANSLATOR.tr(locale, text);\n" +
 		"}\n" +
 		"public String tr(Locale locale, String text, Object o) {\n" +
-			"return i18n.tr(locale, text, o);\n" +
+			"TRANSLATOR.tr(locale, text, o);\n" +
 		"}\n" +
 		"public String tr(Locale locale, String text, Object o1, Object o2) {\n" +
-			"return i18n.tr(locale, text, o1, o2);\n" +
+			"TRANSLATOR.tr(locale, text, o1, o2);\n" +
 		"}\n" +
 		"public String tr(Locale locale, String text, Object o1, Object o2, Object o3) {\n" +
-			"return i18n.tr(locale, text, o1, o2, o3);\n" +
+			"TRANSLATOR.tr(locale, text, o1, o2, o3);\n" +
 		"}\n" +
 		"public String tr(Locale locale, String text, Object o1, Object o2, Object o3, Object o4) {\n" +
-			"return i18n.tr(locale, text, o1, o2, o3, o4);\n" +
+			"TRANSLATOR.tr(locale, text, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String tr(Locale locale, String text, Object[] objects) {\n" +
-			"return i18n.tr(locale, text, objects);\n" +
+			"TRANSLATOR.tr(locale, text, objects);\n" +
 		"}\n" +
 		"public String tr(String text) {\n" +
-			"return i18n.tr(text);\n" +
+			"TRANSLATOR.tr(text);\n" +
 		"}\n" +
 		"public String tr(String text, Object o) {\n" +
-			"return i18n.tr(text, o);\n" +
+			"TRANSLATOR.tr(text, o);\n" +
 		"}\n" +
 		"public String tr(String text, Object o1, Object o2) {\n" +
-			"return i18n.tr(text, o1, o2);\n" +
+			"TRANSLATOR.tr(text, o1, o2);\n" +
 		"}\n" +
 		"public String tr(String text, Object o1, Object o2, Object o3) {\n" +
-			"return i18n.tr(text, o1, o2, o3);\n" +
+			"TRANSLATOR.tr(text, o1, o2, o3);\n" +
 		"}\n" +
 		"public String tr(String text, Object o1, Object o2, Object o3, Object o4) {\n" +
-			"return i18n.tr(text, o1, o2, o3, o4);\n" +
+			"TRANSLATOR.tr(text, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String tr(String text, Object[] objects) {\n" +
-			"return i18n.tr(text, objects);\n" +
+			"TRANSLATOR.tr(text, objects);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n) {\n" +
-			"return i18n.tr(locale, text, pluralText, n);\n" +
+			"TRANSLATOR.trn(locale, text, pluralText, n);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n, Object o) {\n" +
-			"return i18n.tr(locale, text, pluralText, n, o);\n" +
+			"TRANSLATOR.trn(locale, text, pluralText, n, o);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2) {\n" +
-			"return i18n.tr(locale, text, pluralText, n, o1, o2);\n" +
+			"TRANSLATOR.trn(locale, text, pluralText, n, o1, o2);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2, Object o3) {\n" +
-			"return i18n.tr(locale, text, pluralText, n, o1, o2, o3);\n" +
+			"TRANSLATOR.trn(locale, text, pluralText, n, o1, o2, o3);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {\n" +
-			"return i18n.tr(locale, text, pluralText, n, o1, o2, o3, o4);\n" +
+			"TRANSLATOR.trn(locale, text, pluralText, n, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String trn(Locale locale, String text, String pluralText, long n, Object[] objects) {\n" +
-			"return i18n.trn(locale, text, pluralText, n, objects);\n" +
+			"TRANSLATOR.trn(locale, text, pluralText, n, objects);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n) {\n" +
-			"return i18n.trn(text, pluralText, n);\n" +
+			"TRANSLATOR.trn(text, pluralText, n);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o) {\n" +
-			"return i18n.trn(text, pluralText, n, o);\n" +
+			"TRANSLATOR.trn(text, pluralText, n, o);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o1, Object o2) {\n" +
-			"return i18n.trn(text, pluralText, n, o1, o2);\n" +
+			"TRANSLATOR.trn(text, pluralText, n, o1, o2);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3) {\n" +
-			"return i18n.trn(text, pluralText, n, o1, o2, o3);\n" +
+			"TRANSLATOR.trn(text, pluralText, n, o1, o2, o3);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object o1, Object o2, Object o3, Object o4) {\n" +
-			"return i18n.trn(text, pluralText, n, o1, o2, o3, o4);\n" +
+			"TRANSLATOR.trn(text, pluralText, n, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String trn(String text, String pluralText, long n, Object[] objects) {\n" +
-			"return i18n.trn(text, pluralText, n, objects);\n" +
+			"TRANSLATOR.trn(text, pluralText, n, objects);\n" +
 		"}\n" +
 		"public String trl(String localeCode, String text) {\n" +
-			"return i18n.trl(localeCode, text);\n" +
+			"TRANSLATOR.trl(localeCode, text);\n" +
 		"}\n" +
 		"public String trl(String localeCode, String text, Object o) {\n" +
-			"return i18n.trl(localeCode, text, o);\n" +
+			"TRANSLATOR.trl(localeCode, text, o);\n" +
 		"}\n" +
 		"public String trl(String localeCode, String text, Object o1, Object o2) {\n" +
-			"return i18n.trl(localeCode, text, o1, o2);\n" +
+			"TRANSLATOR.trl(localeCode, text, o1, o2);\n" +
 		"}\n" +
 		"public String trl(String localeCode, String text, Object o1, Object o2, Object o3) {\n" +
-			"return i18n.trl(localeCode, text, o1, o2, o3);\n" +
+			"TRANSLATOR.trl(localeCode, text, o1, o2, o3);\n" +
 		"}\n" +
 		"public String trl(String localeCode, String text, Object o1, Object o2, Object o3, Object o4) {\n" +
-			"return i18n.trl(localeCode, text, o1, o2, o3, o4);\n" +
+			"TRANSLATOR.trl(localeCode, text, o1, o2, o3, o4);\n" +
 		"}\n" +
 		"public String trl(String localeCode, String text, Object[] objects) {\n" +
-			"return i18n.trl(localeCode, text, objects);\n" +
+			"TRANSLATOR.trl(localeCode, text, objects);\n" +
 		"}\n";
 
 	public I18nGroovyCompiler() {
@@ -116,11 +128,18 @@ public class I18nGroovyCompiler extends JRGroovyCompiler {
 	protected JRCompilationSourceCode generateSourceCode(JRSourceCompileTask sourceTask) throws JRException {
 		JRCompilationSourceCode superCode = super.generateSourceCode(sourceTask);
 		String code = superCode.getCode();
+		String existingCode;
 
-		String newImport = "import com.nantic.jasperreports.i18n;";
+		existingCode = "import java.net";
+		code = code.replace( existingCode, newImport + "\n" + existingCode );
 
-		code = code.replace( "import java.net", newImport + "\nimport java.net" );
-		code = code.replace( "void customizedInit", newFunction + "\n\nvoid customizedInit" );
+		existingCode = "void customizedInit";
+		String newFunctionCode = newFunction.replaceAll("TRANSLATOR", returnTranslator);
+		code = code.replace( existingCode, newFunctionCode + "\n\n" + existingCode );
+
+		existingCode = "private JRFillParameter parameter_JASPER_REPORT = null;";
+		code = code.replace( existingCode, existingCode + "\n" + newVariable + "\n" );
+
 		JRDesignExpression ee;
 		JRExpression[] expressions = new JRExpression[sourceTask.getExpressions().size()];
 		int i = -1;
