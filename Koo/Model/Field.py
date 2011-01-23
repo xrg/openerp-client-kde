@@ -263,6 +263,9 @@ class ManyToOneField(StringField):
 
 	def set_client(self, record, value, test_state=False):
 		internal = record.values[self.name]
+		if isinstance(internal, list):
+		    # because XML-RPC can only send a list, while we use tuples.
+		    internal = tuple(internal)
 		self.set(record, value, test_state)
 		if internal != record.values[self.name]:
 			self.changed(record)
