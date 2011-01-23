@@ -168,7 +168,7 @@ class Settings(object):
 	@staticmethod
 	def value(key, defaultValue=None, toType=None):
 		value = Settings.options.get(key, defaultValue)
-		if toType == int:
+		if toType in (int, long, bool, str, float):
 			return int( value )
 		return value
 
@@ -184,7 +184,7 @@ class Settings(object):
 	def loadFromServer():
 		try:
 			settings = Rpc.session.call( '/object', 'execute', 'nan.koo.settings', 'get_settings' )
-		except:
+		except Exception:
 			settings = {}
 		new_settings = {}
 		for key, value in settings.iteritems():
