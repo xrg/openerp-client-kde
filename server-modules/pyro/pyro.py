@@ -72,31 +72,33 @@ class PyroDaemon(Thread):
 			raise
 
 
+tools.config['pyro-ssl'] = tools.config.get('pyro-ssl', False)
+
+if tools.config['pyro-ssl']:
+	try:
+		import M2Crypto
+		tools.config['pyroport-ssl'] = tools.config.get('pyroport-ssl', 8072)
+	except ImportError:
+		tools.config['pyro-ssl'] =  False
+	else:
+		try:
+			pyroport_ssl = int(tools.config["pyroport-ssl"])
+		except Exception:
+			logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid ssl port '%s'!" % (tools.config["pyroport-ssl"]) )
+		pyrod_ssl = PyroDaemon(pyroport_ssl,tools.config['pyro-ssl'])
+		pyrod_ssl.start()
+
 tools.config['pyro'] = tools.config.get('pyro', True)
 tools.config['pyroport'] = tools.config.get('pyroport', 8071)
-try:
-	import M2Crypto
-	tools.config['pyro-ssl'] = tools.config.get('pyro-ssl', True)
-	tools.config['pyroport-ssl'] = tools.config.get('pyroport-ssl', 8072)
-except ImportError:
-	tools.config['pyro-ssl'] = tools.config.get('pyro-ssl', False)
 
 if tools.config['pyro']:
 	try:
 		pyroport = int(tools.config["pyroport"])
 	except Exception:
 		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport"]) )
-	try:
-		if tools.config['pyro-ssl']:
-			pyroport_ssl = int(tools.config["pyroport-ssl"])
-		logger.notifyChannel("init", netsvc.LOG_INFO, "Pyro ssl: %s" % tools.config['pyro-ssl'])
-	except Exception:
-		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport-ssl"]) )
-	if tools.config['pyro-ssl']:
-		pyrod_ssl = PyroDaemon(pyroport_ssl,tools.config['pyro-ssl'])
-		pyrod_ssl.start()
 	pyrod = PyroDaemon(pyroport)
 	pyrod.start()
+
 
 
 # vim:noexpandtab:
