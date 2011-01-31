@@ -33,9 +33,10 @@ import tools
 logger = netsvc.Logger()
 
 class PyroDaemon(Thread):
-	def __init__(self, port):
+	def __init__(self, port, ssl=False):
 		Thread.__init__(self)
 		self.__port = port
+		self.__ssl = ssl
 
 	def run(self):
 		class RpcDispatcher(Pyro.core.ObjBase):
@@ -49,21 +50,51 @@ class PyroDaemon(Thread):
 				return result
 
 		Pyro.core.initServer(storageCheck=0)
-		daemon=Pyro.core.Daemon(port=self.__port)
-		uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
-		logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro services, port %s" % self.__port)
-		daemon.requestLoop()
+		try:
+			if self.__ssl:
+				a = '/opt/Pyro-3.9.1/examples/ssl/certs'
+				Pyro.config.PYROSSL_CERTDIR = a
+				Pyro.config.PYROSSL_POSTCONNCHECK = 0
+				#Pyro.config.PYROSSL_SERVER_CERT =
+				#Pyro.config.PYROSSL_CA_CERT =
+				#Pyro.config.PYROSSL_CLIENT_CERT = 
+				Pyro.config.PYRO_TRACELEVEL=3
+				Pyro.config.PYRO_LOGFILE='/tmp/server_log'
+				daemon=Pyro.core.Daemon(port=self.__port,prtcol='PYROSSL')
+			else:
+				daemon=Pyro.core.Daemon(port=self.__port)
+			uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
+			logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro services, port %s" % self.__port)
+			daemon.requestLoop()
+		except Exception, e:
+			import traceback
+			logger.notifyChannel("web-services", netsvc.LOG_ERROR, "Pyro exception: %s\n%s" % (e, traceback.format_exc()))
+			raise
 
 
 tools.config['pyro'] = tools.config.get('pyro', True)
 tools.config['pyroport'] = tools.config.get('pyroport', 8071)
+try:
+	import M2Crypto
+	tools.config['pyro-ssl'] = tools.config.get('pyro-ssl', True)
+	tools.config['pyroport-ssl'] = tools.config.get('pyroport-ssl', 8072)
+except ImportError:
+	tools.config['pyro-ssl'] = tools.config.get('pyro-ssl', False)
 
 if tools.config['pyro']:
 	try:
 		pyroport = int(tools.config["pyroport"])
 	except Exception:
 		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport"]) )
-
+	try:
+		if tools.config['pyro-ssl']:
+			pyroport_ssl = int(tools.config["pyroport-ssl"])
+		logger.notifyChannel("init", netsvc.LOG_INFO, "Pyro ssl: %s" % tools.config['pyro-ssl'])
+	except Exception:
+		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport-ssl"]) )
+	if tools.config['pyro-ssl']:
+		pyrod_ssl = PyroDaemon(pyroport_ssl,tools.config['pyro-ssl'])
+		pyrod_ssl.start()
 	pyrod = PyroDaemon(pyroport)
 	pyrod.start()
 
