@@ -80,6 +80,7 @@ if tools.config['pyro-ssl']:
 		import M2Crypto
 	except ImportError:
 		tools.config['pyro-ssl'] =  False
+		logger.notifyChannel("init", netsvc.LOG_ERROR, "M2Crypto could not be imported, SSL will not work: %s" % (e.message) )
 	else:
 		try:
 			pyroport_ssl = int(tools.config["pyroport-ssl"])
