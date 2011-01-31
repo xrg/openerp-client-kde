@@ -40,6 +40,8 @@ import xmlrpclib
 import base64
 import socket
 
+import sys
+
 ConcurrencyCheckField = '__last_update'
 
 class RpcException(Exception):
@@ -138,7 +140,20 @@ class PyroConnection(Connection):
 	def __init__(self, url):
 		Connection.__init__(self, url)
 		self.url += '/rpc'
-		self.proxy = Pyro.core.getProxyForURI( self.url )
+		if self.url.startswith('PYROLOCSSL'):
+					
+			from Koo.Common.Settings import Settings
+			Pyro.config.PYRO_TRACELEVEL=3
+			Pyro.config.PYRO_LOGFILE='/tmp/client_log'
+
+			Pyro.config.PYROSSL_CERTDIR = Settings.value('pyrossl.certdir')
+			Pyro.config.PYROSSL_CLIENT_CERT = Settings.value('pyrossl.client_cert')
+			Pyro.config.PYROSSL_POSTCONNCHECK = int(Settings.value('pyrossl.postconncheck'))
+		try:
+			self.proxy = Pyro.core.getProxyForURI( self.url )
+		except Exception, e:
+			import traceback
+			print >> sys.stderr, 'Pyro Exception',traceback.format_exc()
 
 	def singleCall(self, obj, method, *args):
 		encodedArgs = self.unicodeToString( args )
@@ -153,7 +168,7 @@ class PyroConnection(Connection):
 			try:
 				#import traceback
 				#traceback.print_stack()
-				#print "CALLING: ", obj, method, args
+				#print >> sys.stderr, "CALLING: ", obj, method, args
 				result = self.singleCall( obj, method, *args )
 			except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), x:
 				# As Pyro is a statefull protocol, network errors
@@ -171,6 +186,7 @@ class PyroConnection(Connection):
 				faultString = u''
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
+				print >> sys.stderr, "Pyro Exception: ", faultCode, faultString
 				raise RpcServerException( faultCode, faultString )
 			raise
 		return result
@@ -237,7 +253,7 @@ def createConnection(url):
 	qUrl = QUrl( url )
 	if qUrl.scheme() == 'socket':
 		con = SocketConnection( url )
-	elif qUrl.scheme() == 'PYROLOC':
+	elif qUrl.scheme() == 'PYROLOC' or qUrl.scheme() == 'PYROLOCSSL':
 		con = PyroConnection( url )
 	else:
 		con = XmlRpcConnection( url )
@@ -298,7 +314,7 @@ class AsynchronousSessionCall(QThread):
 		if self.callback:
 			self.callback( self.result, self.exception )
 
-		# Free session and thus server connections as soon as possible
+		# Free session and thus server  as soon as possible
 		self.session = None
 
 	def run(self):

@@ -67,6 +67,7 @@ class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http' ) )
 		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https' ) )
 		self.uiConnection.addItem( _("Pyro (faster)"), QVariant( 'PYROLOC' ) )
+		self.uiConnection.addItem( _("Pyro SSL (faster)"), QVariant( 'PYROLOCSSL' ) )
 		result = False
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.reject )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )
