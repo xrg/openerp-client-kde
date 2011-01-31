@@ -73,11 +73,11 @@ class PyroDaemon(Thread):
 
 
 tools.config['pyro-ssl'] = tools.config.get('pyro-ssl', False)
+tools.config['pyroport-ssl'] = tools.config.get('pyroport-ssl', 8072)
 
 if tools.config['pyro-ssl']:
 	try:
 		import M2Crypto
-		tools.config['pyroport-ssl'] = tools.config.get('pyroport-ssl', 8072)
 	except ImportError:
 		tools.config['pyro-ssl'] =  False
 	else:
