@@ -119,15 +119,17 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			from PyKDE4.kdeui import KWallet
 			KWallet.Wallet.NetworkWallet()
 			wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
-			folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(self.uiDatabase.currentText()))
-			qtValues = wallet.readMap( folder )[1]
-			values = {}
-			for key, value in qtValues.iteritems():
-				values[ unicode(key) ] = unicode( value )
-			if 'username' in values:
-				self.uiUserName.setText( values['username'] )
-			if 'password' in values:
-				self.uiPassword.setText( values['password'] )
+			# If users presses 'Cancel' in KWallet's dialog it returns None
+			if wallet:
+				folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(self.uiDatabase.currentText()))
+				qtValues = wallet.readMap( folder )[1]
+				values = {}
+				for key, value in qtValues.iteritems():
+					values[ unicode(key) ] = unicode( value )
+				if 'username' in values:
+					self.uiUserName.setText( values['username'] )
+				if 'password' in values:
+					self.uiPassword.setText( values['password'] )
 
 	def slotChange(self):
 		dialog = ServerConfigurationDialog.ServerConfigurationDialog( self )
