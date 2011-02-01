@@ -149,6 +149,8 @@ class PyroConnection(Connection):
 			Pyro.config.PYROSSL_CERTDIR = Settings.value('pyrossl.certdir')
 			Pyro.config.PYROSSL_CLIENT_CERT = Settings.value('pyrossl.client_cert')
 			Pyro.config.PYROSSL_POSTCONNCHECK = int(Settings.value('pyrossl.postconncheck'))
+			Pyro.config.PYRO_DNS_URI = int(Settings.value('pyro.pyro_dns_uri'))
+
 		try:
 			self.proxy = Pyro.core.getProxyForURI( self.url )
 		except Exception, e:
@@ -187,6 +189,10 @@ class PyroConnection(Connection):
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
 				print >> sys.stderr, "Pyro Exception: ", faultCode, faultString
+				if hasattr(err,'fieldName') and err.fieldName == 'commonName':
+					error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck in koorc to override this check.' %(err.expectedHost,err.actualHost)
+					Notifier.notifyError( _('SSL Error'), _(error), faultString)
+				
 				raise RpcServerException( faultCode, faultString )
 			raise
 		return result

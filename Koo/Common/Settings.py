@@ -42,9 +42,10 @@ class Settings(object):
 	options = {
 		'login.db': 'test',
 		'login.url': 'http://admin@localhost:8069',
-		'pyrossl.certdir': '/home/steven/cert/',
+		'pyrossl.certdir':  os.path.expanduser('~') + 'cert',
 		'pyrossl.client_cert': 'client.pem',
 		'pyrossl.postconncheck': 1,
+		'pyro.pyro_dns_uri': 1,
 		'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 		'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
 		'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
