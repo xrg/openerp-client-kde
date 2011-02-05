@@ -92,5 +92,93 @@
   </sect2>
 
  </sect1>
+ <sect1 id="Pyro">
+  <title>Pyro</title>
+  <para>
+  The pyro module is very easy to use. You may download it from the usual location and once in your server, you just need to install it in a given database. From there on, each time you start that database the pyro protocol will be available on port 8071. It's important to note that you need to start the server with that database in order for pyro to be available so you'll need something like <literal>./openerp-server.py -d "database_with_pyro_installed"</literal>
+  </para>
+  <para>If you don't do that, you'll need to login to the database with another protocol, for the service to be available.
+  </para>
+ 
+  <para>It is possible to change the port where the module listens to by adding <literal>pyroport = 4500</literal> to the OpenERP server config file.
+  </para>
+
+ 
+  <para>Installing this module and using it in Koo (you need to specify the protocol with the "Change" button in the login dialog) will by itself give an important performance boost. Specially true on slow networks, or better said, with those with a big delay, such as ADSL or 3G. If you work in a LAN it's also worth using it, even you don't suffer performance problems because it will give users a noticeable sense of immediateness.
+  </para>
+  
+  <sect2>
+   <title>SSL</title>
+   <para>
+	   To enable pyro SSL you must ensure the python module M2Crypto and OpenSSL are available on the server and the client.  You'll need to generate the SSL certificates or for testing you can use the example certifcations provided.  To generate your own certificates, please read the Pyro manual (<ulink url="http://www.xs4all.nl/~irmen/pyro3/manual/9-security.html#ssl" />)
+   </para>
+   <sect3>
+    <title>Server Configuration</title>
+   <para>
+	   Next there are several options which to be set in the OpenERP server config file, options starting with pyrossl_ correspond to options in Pyro.
+   </para>
+   <itemizedlist>
+	   <listitem>
+		   <para>
+			   pyrossl: Must be set to True.  Required.
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyrossl_certdir: The directory of above certificate files. Required.
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyroport-ssl: Defaults to 8072
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyrossl_postconncheck: You can set to 0 (default=1) to circumvent connection/certificate validations when using SSL
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyrossl_server_cert: The file name of the server certificate.  Defaults to server.pem.
+		   </para>
+
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pryprossl_ca_cert: The file name of the CA.  Defaults to client.pem
+	   	   </para>
+	   </listitem>
+   </itemizedlist>
+   </sect3>
+   <sect3>
+    <title>Client Configuration</title>
+    <para>test</para>
+   <itemizedlist>
+	   <listitem>
+		   <para>
+			   pyrossl.certdir: Directory for certificates.  Defaults to &#60;system&#62;/share/Koo/defaults-certs
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyrossl.client_cert: Defaults to client.pem in the certdir.
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyro.dns_uri: Make pyro use DNS names instead of IP addresses.  SSL certificates usually have DNS names, so this usually needs to be set to 1.
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyrossl_postconncheck: You can set to 0 (default=1) to circumvent connection/certificate validations when using SSL
+		   </para>
+	   </listitem>
+   </itemizedlist>
+
+  </sect3>
+  </sect2>
+ </sect1>
 </chapter>
 
