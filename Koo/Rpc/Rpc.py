@@ -41,6 +41,11 @@ import base64
 import socket
 
 import sys
+import os
+
+from M2Crypto.SSL import SSLError
+from M2Crypto.SSL.Checker import WrongHost
+import traceback
 
 ConcurrencyCheckField = '__last_update'
 
@@ -140,22 +145,32 @@ class PyroConnection(Connection):
 	def __init__(self, url):
 		Connection.__init__(self, url)
 		self.url += '/rpc'
-		if self.url.startswith('PYROLOCSSL'):
-					
-			from Koo.Common.Settings import Settings
-			Pyro.config.PYRO_TRACELEVEL=3
-			Pyro.config.PYRO_LOGFILE='/tmp/client_log'
 
+		from Koo.Common.Settings import Settings
+		Pyro.config.PYRO_TRACELEVEL = int(Settings.value('pyro.tracelevel'))
+		Pyro.config.PYRO_LOGFILE = Settings.value('pyro.logfile') 
+		Pyro.config.PYRO_DNS_URI = int(Settings.value('pyro.dns_uri'))
+
+		if self.url.startswith('PYROLOCSSL'):
 			Pyro.config.PYROSSL_CERTDIR = Settings.value('pyrossl.certdir')
 			Pyro.config.PYROSSL_CLIENT_CERT = Settings.value('pyrossl.client_cert')
 			Pyro.config.PYROSSL_POSTCONNCHECK = int(Settings.value('pyrossl.postconncheck'))
-			Pyro.config.PYRO_DNS_URI = int(Settings.value('pyro.pyro_dns_uri'))
 
 		try:
 			self.proxy = Pyro.core.getProxyForURI( self.url )
+		except SSLError, e:
+			title = _('SSL Error')
+			if e.message == 'No such file or directory':
+				msg = _('Please check your SSL certificate: ')
+				msg += e.message
+				msg += '\n%s' % os.path.join(Pyro.config.PYROSSL_CERTDIR,Pyro.config.PYROSSL_CLIENT_CERT)
+				details = traceback.format_exc()
+				Notifier.notifyError(title, msg, details)
+			else:
+				raise
+
 		except Exception, e:
-			import traceback
-			print >> sys.stderr, 'Pyro Exception',traceback.format_exc()
+			raise 
 
 	def singleCall(self, obj, method, *args):
 		encodedArgs = self.unicodeToString( args )
@@ -182,16 +197,16 @@ class PyroConnection(Connection):
 				result = self.singleCall( obj, method, *args )
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
 			raise RpcProtocolException( unicode( err ) )
+		except WrongHost, err:
+			error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck in koorc to override this check.' %(err.expectedHost,err.actualHost)
+			Notifier.notifyError( _('SSL Error'), error, traceback.format_exc())
+
 		except Exception, err:
 			if Pyro.util.getPyroTraceback(err):
 				faultCode = err.message
 				faultString = u''
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
-				print >> sys.stderr, "Pyro Exception: ", faultCode, faultString
-				if hasattr(err,'fieldName') and err.fieldName == 'commonName':
-					error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck in koorc to override this check.' %(err.expectedHost,err.actualHost)
-					Notifier.notifyError( _('SSL Error'), _(error), faultString)
 				
 				raise RpcServerException( faultCode, faultString )
 			raise
@@ -569,9 +584,14 @@ class Database:
 	# was an error trying to fetch the list.
 	def list(self, url):
 		try:
-			return self.call( url, 'list' )
-		except:
-			return -1
+			call = self.call( url, 'list' )
+		except Exception, e: 
+			call = -1
+			from Koo.Common.Settings import Settings
+			if Settings.value('client.debug'):
+				Notifier.notifyError( type(e), e, traceback.format_exc() )
+		finally:
+			return call
 
 	## @brief Calls the specified method
 	# on the given object on the server. If there is an error
