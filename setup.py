@@ -90,6 +90,7 @@ def data_files():
 		(opj('share', 'Koo', 'ui'), glob.glob( opj('Koo','ui','*.ui') ) ),
 		(opj('share', 'Koo', 'l10n'), glob.glob( opj('Koo','l10n','*.qm')) ),
 		(opj('share', 'Koo', 'ui'), [ opj('nsis','koo-icon.png') ] ),
+		(opj('share', 'Koo', 'certs'), glob.glob( opj('ssl-certs','*')) ),
 	]
 	if using_py2exe:
                 # Add NanScan files
