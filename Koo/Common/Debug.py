@@ -101,3 +101,11 @@ def exceptionHook(type, value, backtrace):
 def installExceptionHook():
 	sys.excepthook = exceptionHook
 
+def debug_trace():
+	'''Set a tracepoint in the Python debugger that works with Qt.  
+	Removes "QCoreApplication::exec: The event loop is already running" messages while in pdb'''
+	from PyQt4.QtCore import pyqtRemoveInputHook
+	from pdb import set_trace
+	pyqtRemoveInputHook()
+	set_trace()
+
