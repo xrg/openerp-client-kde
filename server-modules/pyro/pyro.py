@@ -90,7 +90,6 @@ try:
 				settings['PYROSSL_POSTCONNCHECK'] = tools.config.get('pyrossl_postconncheck',1)
 				settings['PYROSSL_SERVER_CERT'] = tools.config.get('pyrossl_server_cert','server.pem')
 				settings['PYROSSL_CA_CERT'] = tools.config.get('pyrossl_ca_cert','ca.pem')
-				settings['PYROSSL_CLIENT_CERT'] = tools.config.get('pyrossl_client_cert','client.pem')
 				settings['PYRO_TRACELEVEL'] = tools.config.get('pyro_tracelevel',0)
 				settings['PYRO_LOGFILE'] = tools.config.get('pyro_logfile','/tmp/Pyro_log')
 				pyrod_ssl = PyroDaemon(pyroport_ssl,True,settings)
