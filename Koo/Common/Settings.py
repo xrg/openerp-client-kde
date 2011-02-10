@@ -47,7 +47,7 @@ class Settings(object):
 		'pyrossl.postconncheck': 1,
 		'pyro.dns_uri': 1,
 		'pyro.tracelevel': 0,
-		'pyro.log_file': '/tmp/pyro_client.log',
+		'pyro.logfile': '/tmp/pyro_client.log',
 		'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 		'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
 		'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
