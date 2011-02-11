@@ -112,6 +112,13 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			self.pushRestoreDatabase.hide()
 			self.pushAccept.setEnabled(True)
 
+		try:
+			Common.serverVersion = Rpc.database.call( str(self.uiServer.text()), 'server_version' )
+			Common.serverMajorVersion = '.'.join( Common.serverVersion.split('.')[0] )
+		except Rpc.RpcException:
+			Common.serverVersion = None
+			Common.serverMajorVersion= None
+
 		return res
 
 	def checkWallet(self):
