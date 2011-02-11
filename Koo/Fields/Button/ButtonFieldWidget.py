@@ -206,7 +206,7 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 			id = screen.save()
 			if not self.attributes.get('confirm',False) or \
 					QMessageBox.question(self,_('Question'),self.attributes['confirm'], _("Yes"), _("No")) == 0:
-				self.executeButton(screen, id)
+				self.executeButton(screen, id, record)
 		else:
 			Notifier.notifyWarning('',_('Invalid Form, correct red fields!'))
 			screen.display()
@@ -221,13 +221,13 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 			return True
 		return False
 
-	def executeButton(self, screen, id):
+	def executeButton(self, screen, id, record):
 		type = self.attributes.get('type', 'workflow')
 		if type == 'workflow':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try:
 				# TODO: Uncomment when our patch will be applied in the server
-				#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, self.record.context())
+				#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, record.context())
 				result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
 				if isinstance( result, dict ):
 					if result['type'] == 'ir.actions.act_window_close':
@@ -254,7 +254,7 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 				return
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try:
-				result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+				result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], record.context())
 			except Rpc.RpcException, e:
 				QApplication.restoreOverrideCursor()
 				return
