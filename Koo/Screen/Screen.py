@@ -210,6 +210,9 @@ class Screen(QScrollArea):
 				self.loadSearchForm()
 
 	def loadSearchForm(self):
+		if not Settings.value('koo.show_search_form', True):
+			self.searchForm.hide()
+			return
 		if self.currentView().showsMultipleRecords() and not self._embedded: 
 			if not self.searchForm.isLoaded():
 				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
