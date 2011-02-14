@@ -74,6 +74,7 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 		self.setupUi( self )
 		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.save )
+		self.connect( self.pushCancel, SIGNAL('clicked()'), self.cancelled )
 
 		self.ids = []
 		self.model = None
@@ -122,7 +123,6 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
                 self.screen.currentView().store()
                 record = self.screen.currentRecord()
 		fields = []
-		print "MODIFIED?", record.isModified()
                 if record.isModified():
 			values = record.get(get_readonly=False, get_modifiedonly=True)
 			for field in values:
@@ -158,4 +158,8 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 			self.group.removeRecord( self.screen.currentRecord() )
 
 		self.accept()
+
+	def cancelled(self):
+		if not self.isGroupNew:
+			self.group.removeRecord( self.screen.currentRecord() )
 
