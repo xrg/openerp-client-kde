@@ -639,7 +639,8 @@ class KooModel(QAbstractItemModel):
 				field = self.buttons.get( self.field( section ) )
 			return QVariant( Common.normalizeLabel( unicode( field['string'] ) ) )
 		elif role == Qt.FontRole and not self._readOnly:
-			if self.group.isFieldRequired( self.field( section ) ):
+			fieldName = self.field( section )
+			if self.group.fieldExists( fieldName ) and self.group.isFieldRequired( fieldName ):
 				font = QFont()
 				font.setBold( True )
 				return QVariant( font )
