@@ -455,6 +455,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			url = QUrl( url )
 			if loginResponse == Rpc.session.LoggedIn:
 				Settings.loadFromServer()
+				if Settings.value('koo.stylesheet'):
+					QApplication.instance().setStyleSheet( Settings.value('koo.stylesheet') )
 				if Settings.value('koo.use_cache'):
 					Rpc.session.cache = Rpc.Cache.ActionViewCache()
 				else:

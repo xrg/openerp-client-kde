@@ -74,9 +74,12 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 		self.setupUi( self )
 		
 		self.connect( self.pushAccept, SIGNAL('clicked()'), self.save )
+		self.connect( self.pushCancel, SIGNAL('clicked()'), self.cancelled )
 
 		self.ids = []
 		self.model = None
+		self.group = None
+		self.isGroupNew = False
 		self.context = None
 		self.updateOnServer = True
 		self.newValues = {}
@@ -87,6 +90,10 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 	def setModel(self, model):
 		self.model = model
 
+	def setGroup(self, group):
+		self.group = group
+		self.isGroupNew = False
+
 	def setContext(self, context):
 		self.context = context
 
@@ -94,8 +101,10 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 		self.updateOnServer = update
 
 	def setup( self, viewTypes, viewIds ):
-		self.group = RecordGroup( self.model, context=self.context )
-		self.group.setDomainForEmptyGroup()
+		if not self.group:
+			self.group = RecordGroup( self.model, context=self.context )
+			self.group.setDomainForEmptyGroup()
+			self.isGroupNew = True
 
 		self.screen.setRecordGroup( self.group )
 		self.screen.setEmbedded( True )
@@ -134,9 +143,23 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 					return
 				self.newValues = {}
 				for field in messageBox.selectedFields():
-					self.newValues[field] = values[field]
+					if self.group.fieldType(field) == 'many2many':
+						if len(values[field]):
+							self.newValues[field] = values[field][0][2]
+						else:
+							self.newValues[field] = []
+					else:
+						self.newValues[field] = values[field]
 
 				if self.updateOnServer:
 					Rpc.session.execute('/object', 'execute', self.model, 'write', self.ids, self.newValues, self.context)
+
+		if not self.isGroupNew:
+			self.group.removeRecord( self.screen.currentRecord() )
+
 		self.accept()
+
+	def cancelled(self):
+		if not self.isGroupNew:
+			self.group.removeRecord( self.screen.currentRecord() )
 
