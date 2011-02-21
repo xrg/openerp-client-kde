@@ -113,6 +113,13 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			self.pushRestoreDatabase.hide()
 			self.pushAccept.setEnabled(True)
 
+		try:
+			Common.serverVersion = Rpc.database.call( str(self.uiServer.text()), 'server_version' )
+			Common.serverMajorVersion = '.'.join( Common.serverVersion.split('.')[0] )
+		except Rpc.RpcException:
+			Common.serverVersion = None
+			Common.serverMajorVersion= None
+
 		return res
 
 	def checkWallet(self):
@@ -127,17 +134,19 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			from PyKDE4.kdeui import KWallet
 			KWallet.Wallet.NetworkWallet()
 			wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
-			folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(dbname))
-			qtValues = wallet.readMap( folder )[1]
-			values = {}
-			for key, value in qtValues.iteritems():
-				values[ unicode(key) ] = unicode( value )
-			if 'username' in values:
-				self.uiUserName.setText( values['username'] )
-				log.debug("found user %s from KWallet ", values['username'])
-			if 'password' in values:
-				self.uiPassword.setText( values['password'] )
-				log.debug("found password from KWallet")
+			# If users presses 'Cancel' in KWallet's dialog it returns None
+			if wallet:
+				folder = '%s/%s' % (unicode(self.uiServer.text()), unicode(dbname))
+				qtValues = wallet.readMap( folder )[1]
+				values = {}
+				for key, value in qtValues.iteritems():
+					values[ unicode(key) ] = unicode( value )
+				if 'username' in values:
+					self.uiUserName.setText( values['username'] )
+				        log.debug("found user %s from KWallet ", values['username'])
+				if 'password' in values:
+					self.uiPassword.setText( values['password'] )
+				        log.debug("found password from KWallet")
 		except Exception, e:
 		    log.exception("Cannot use KWallet")
 

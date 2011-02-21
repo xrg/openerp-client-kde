@@ -215,6 +215,7 @@ class Record(QObject):
 				return False
 		return bool(required)
 
+	## @brief Returns True if the given field name exists in record's group.
 	def fieldExists(self, fieldName):
 		return fieldName in self.group.fieldObjects
 

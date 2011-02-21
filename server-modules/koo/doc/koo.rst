@@ -585,16 +585,25 @@ El fichero está dividido en varios grupos:
 [koo]
 =====
 
-show_pos_toolbar = True / False
+show_pos_toolbar = True / *False*
   Indica si se mostrará o no una barra de herramientas para la versión de pantalla completa de Koo. El koopos.py.
 
-pos_mode = True / False
+show_pos_button_new = *True* / False
+  Indica si se mostrará o no el botón *Nuevo* en la barra de herramientas en la versión de pantalla completa de Koo. El koopos.py.
+
+show_pos_button_switch_view = *True* / False
+  Indica si se mostrará o no el botón *Cambiar Vista* en la barra de herramientas en la versión de pantalla completa de Koo. El koopos.py.
+
+pos_mode = True / *False*
   Indica si Koo se iniciará en modo Terminal Punto de Venta. El modo terminal punto de venta muestra un teclado virtual
   en pantalla cada vez que el usuario hace click en algún elemento de la aplicación que requiera la introducción de texto
   por parte del usuario.
 
-allow_massive_updates = True / False
+allow_massive_updates = *True* / False
   Indica si se mostrarán las opciones de actualización, inserción y click de botones masivas. 
+
+show_search_form = *True* / False
+  Indica si se podrá buscar o no en las vistas que muestran varios registros. 
 
 [login]
 =======

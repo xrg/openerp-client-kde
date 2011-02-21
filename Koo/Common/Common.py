@@ -56,6 +56,10 @@ except Exception, e:
 def isQtVersion45():
 	return PYQT_VERSION >= 0x40500
 
+serverVersion = None
+serverMajorVersion = None
+
+
 # Load Resource
 import common_rc
 # When using loadUiType(), the generated (and executed) code will try to import

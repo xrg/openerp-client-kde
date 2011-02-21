@@ -233,15 +233,18 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.screen.display()
 
 	def batchUpdate(self):
+		selectedRecords = self.screen.selectedRecords()[:]
+
 		dialog = BatchUpdateDialog(self)
 		dialog.setIds( self.screen.selectedIds() )
 		dialog.setModel( self.screen.resource )
 		dialog.setUpdateOnServer( False )
 		dialog.setContext( Rpc.session.context )
+		dialog.setGroup( self.screen.group )
 		dialog.setup( [], [] )
 		if dialog.exec_() == QDialog.Rejected:
 			return
-		for record in self.screen.selectedRecords():
+		for record in selectedRecords:
 			record.set( dialog.newValues, modified=True )
 
 	def batchInsert(self):
