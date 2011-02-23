@@ -96,12 +96,14 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def delayedInitGui( self ):
 		# Name completion can be delayied without side effects.
- 		if self.attrs.get('completion',False):
+ 		if self.attrs.get('completion'):
  			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', Rpc.session.context, False)
  			if ids:
-				self.loadCompletion( ids, self.attrs )
+				self.loadCompletion( ids )
+		elif self.attrs.get('selection'):
+			self.loadCompletion( self.attrs.get('selection') )
 
-	def loadCompletion(self,ids,attrs):
+	def loadCompletion(self,ids):
 		self.completion = QCompleter()
 		self.completion.setCaseSensitivity( Qt.CaseInsensitive )
 		self.uiText.setCompleter( self.completion )
