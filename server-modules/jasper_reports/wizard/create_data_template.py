@@ -5,6 +5,7 @@ import pooler
 import base64
 import osv
 import string
+import unicodedata
 from tools.translate import _
 
 view_form_start = """<?xml version="1.0"?>
@@ -59,6 +60,7 @@ class create_data_template(wizard.interface):
 		output = text
 		for c in xrange(len(src_chars)):
 			output = output.replace( src_chars[c], dst_chars[c] )
+		output = unicodedata.normalize('NFKD', output).encode('ASCII', 'ignore')
 		return output.strip('_').encode( 'utf-8' )
 		
 
