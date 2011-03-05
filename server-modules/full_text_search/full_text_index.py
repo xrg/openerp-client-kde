@@ -30,104 +30,104 @@ from osv import fields
 
 # This class holds the different priorities available
 class priority(osv.osv):
-	_name = 'fts.priority'
-	_columns = {
-		'name' : fields.char('Name', size=1),
-		'value' : fields.float('Value (0-1.0)')
-	}
+    _name = 'fts.priority'
+    _columns = {
+        'name' : fields.char('Name', size=1),
+        'value' : fields.float('Value (0-1.0)')
+    }
 priority()
 
 # This class holds the indexes that we want to be created
 # as soon as we execute the update index functions...
 class full_text_index(osv.osv):
-	_name = 'fts.full_text_index'
-	_columns = {
-		'field_id' : fields.many2one('ir.model.fields', 'Field', required=True, domain=[('ttype','in',['char','text','float','integer','date','datetime'])]),
-		'priority' : fields.many2one('fts.priority', 'Priority', required=True),
-		'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', readonly=True)
-	}
-	_sql_constraints = [
-		('field_id_uniq', 'unique(field_id)', 'You can only have one index entry per field.'),
-	]
+    _name = 'fts.full_text_index'
+    _columns = {
+        'field_id' : fields.many2one('ir.model.fields', 'Field', required=True, domain=[('ttype','in',['char','text','float','integer','date','datetime'])]),
+        'priority' : fields.many2one('fts.priority', 'Priority', required=True),
+        'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', readonly=True)
+    }
+    _sql_constraints = [
+        ('field_id_uniq', 'unique(field_id)', 'You can only have one index entry per field.'),
+    ]
 
-	def create(self, cr, uid, vals, context=None):
-		id = vals['field_id']
-		field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
-		if field.name and field.model_id:
-			# Recheck domain in case it was called from ir_model_fields
-			if not field.ttype in ('char','text','float','integer','date','datetime'):
-				raise osv.except_osv(_('Creation error'), _("Non indexable field type: '%s'") % field.name )
-			column = self.pool.get(field.model_id.model)._columns[field.name]
-			if isinstance( column, fields.function ) and not column.store: 
-				raise osv.except_osv(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
-		return super(full_text_index,self).create(cr, uid, vals, context)
+    def create(self, cr, uid, vals, context=None):
+        id = vals['field_id']
+        field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
+        if field.name and field.model_id:
+            # Recheck domain in case it was called from ir_model_fields
+            if not field.ttype in ('char','text','float','integer','date','datetime'):
+                raise osv.except_osv(_('Creation error'), _("Non indexable field type: '%s'") % field.name )
+            column = self.pool.get(field.model_id.model)._columns[field.name]
+            if isinstance( column, fields.function ) and not column.store:
+                raise osv.except_osv(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
+        return super(full_text_index,self).create(cr, uid, vals, context)
 
-	def write(self, cr, uid, ids, vals, context=None):
-		if 'field_id' in vals:
-			id = vals['field_id']
-			field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
-			# Recheck domain in case it was called from ir_model_fields
-			if not field.ttype in ('char','text','float','integer','date','datetime'):
-				raise osv.except_osv(_('Creation error'), _("Non indexable field type."))
-			if field.name and field.model_id:
-				column = self.pool.get(field.model_id.model)._columns[field.name]
-				if isinstance( column, fields.function ) and not column.store: 
-					raise osv.except_osv(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
-		return super(full_text_index,self).write(cr, uid, ids, vals, context)
+    def write(self, cr, uid, ids, vals, context=None):
+        if 'field_id' in vals:
+            id = vals['field_id']
+            field = self.pool.get('ir.model.fields').browse(cr, uid, id, context)
+            # Recheck domain in case it was called from ir_model_fields
+            if not field.ttype in ('char','text','float','integer','date','datetime'):
+                raise osv.except_osv(_('Creation error'), _("Non indexable field type."))
+            if field.name and field.model_id:
+                column = self.pool.get(field.model_id.model)._columns[field.name]
+                if isinstance( column, fields.function ) and not column.store:
+                    raise osv.except_osv(_('Creation error'), _("Fields of type function can't be indexed: '%s'") % field.name )
+        return super(full_text_index,self).write(cr, uid, ids, vals, context)
 
 full_text_index()
 
 # This class holds the indexes that are currently created
 class current_full_text_index(osv.osv):
-	_name = 'fts.current_full_text_index'
-	_columns = {
-		'field_id' : fields.many2one('ir.model.fields', 'Field', required=True),
-		'priority' : fields.many2one('fts.priority', 'Priority', required=True),
-		'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', reaonly=True)
-	}
+    _name = 'fts.current_full_text_index'
+    _columns = {
+        'field_id' : fields.many2one('ir.model.fields', 'Field', required=True),
+        'priority' : fields.many2one('fts.priority', 'Priority', required=True),
+        'model_id' : fields.related('field_id', 'model_id', type="many2one", relation='ir.model', string='Model', reaonly=True)
+    }
 current_full_text_index()
 
 class ir_model_fields(osv.osv):
-	_inherit = 'ir.model.fields'
+    _inherit = 'ir.model.fields'
 
-	def _fts_priority(self, cr, uid, ids, name, arg, context={}):
-		result = {}
-		for id in ids:
-			result[id] = False
-		index_ids = self.pool.get('fts.full_text_index').search(cr, uid, [('field_id','in',ids)], context=context)
-		for index in self.pool.get('fts.full_text_index').browse(cr, uid, index_ids, context):
-			result[ index.field_id.id ] = index.priority.id
-		return result
+    def _fts_priority(self, cr, uid, ids, name, arg, context={}):
+        result = {}
+        for id in ids:
+            result[id] = False
+        index_ids = self.pool.get('fts.full_text_index').search(cr, uid, [('field_id','in',ids)], context=context)
+        for index in self.pool.get('fts.full_text_index').browse(cr, uid, index_ids, context):
+            result[ index.field_id.id ] = index.priority.id
+        return result
 
-	def _set_fts_priority(self, cr, uid, id, field_name, value, args, context=None):
-		index_ids = self.pool.get('fts.full_text_index').search(cr, uid, [('field_id','=',id)], context=context)
-		if index_ids:
-			if value:
-				self.pool.get('fts.full_text_index').write(cr, uid, index_ids, {
-					'priority': value,
-				}, context)
-			else:
-				self.pool.get('fts.full_text_index').unlink(cr, uid, index_ids, context)
-		elif value:
-			self.pool.get('fts.full_text_index').create(cr, uid, {
-				'field_id': id,
-				'priority': value,
-			}, context)
-		return True
+    def _set_fts_priority(self, cr, uid, id, field_name, value, args, context=None):
+        index_ids = self.pool.get('fts.full_text_index').search(cr, uid, [('field_id','=',id)], context=context)
+        if index_ids:
+            if value:
+                self.pool.get('fts.full_text_index').write(cr, uid, index_ids, {
+                    'priority': value,
+                }, context)
+            else:
+                self.pool.get('fts.full_text_index').unlink(cr, uid, index_ids, context)
+        elif value:
+            self.pool.get('fts.full_text_index').create(cr, uid, {
+                'field_id': id,
+                'priority': value,
+            }, context)
+        return True
 
-	def _fts_current_priority(self, cr, uid, ids, name, arg, context={}):
-		result = {}
-		for id in ids:
-			result[id] = False
-		index_ids = self.pool.get('fts.current_full_text_index').search(cr, uid, [('field_id','in',ids)], context=context)
-		for index in self.pool.get('fts.current_full_text_index').browse(cr, uid, index_ids, context):
-			result[ index.field_id.id ] = index.priority.id
-		return result
+    def _fts_current_priority(self, cr, uid, ids, name, arg, context={}):
+        result = {}
+        for id in ids:
+            result[id] = False
+        index_ids = self.pool.get('fts.current_full_text_index').search(cr, uid, [('field_id','in',ids)], context=context)
+        for index in self.pool.get('fts.current_full_text_index').browse(cr, uid, index_ids, context):
+            result[ index.field_id.id ] = index.priority.id
+        return result
 
-	
 
-	_columns = {
-		'fts_priority': fields.function(_fts_priority, fnct_inv=_set_fts_priority, method=True, type='many2one', relation='fts.priority', string='FTS Priority', help='Fields that should be indexed in the Full Text Search engine should be given a priority here.'),
-		'fts_current_priority': fields.function(_fts_current_priority, method=True, type='many2one', relation='fts.priority', string='FTS Current Priority', help='Shows with which priority this field is being indexed at the moment. It may change after Update Full Text Index process.'),
-	}
+
+    _columns = {
+        'fts_priority': fields.function(_fts_priority, fnct_inv=_set_fts_priority, method=True, type='many2one', relation='fts.priority', string='FTS Priority', help='Fields that should be indexed in the Full Text Search engine should be given a priority here.'),
+        'fts_current_priority': fields.function(_fts_current_priority, method=True, type='many2one', relation='fts.priority', string='FTS Current Priority', help='Shows with which priority this field is being indexed at the moment. It may change after Update Full Text Index process.'),
+    }
 ir_model_fields()
