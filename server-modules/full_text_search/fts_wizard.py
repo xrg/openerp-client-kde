@@ -1,6 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2011 OpenERP SA. (http://www.openerp.com)
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -32,7 +33,7 @@ from osv import osv, fields
 class wizard_start(osv.osv_memory):
     _name = 'fts.wizard'
 
-    def _get_configs(self, cr, uid, context={}):
+    def _get_configs(self, cr, uid, context=None):
         cr.execute( "SELECT cfgname FROM pg_catalog.pg_ts_config WHERE cfgname <> 'default' ORDER BY cfgname" )
         result = []
         for record in cr.fetchall():
@@ -43,10 +44,10 @@ class wizard_start(osv.osv_memory):
         'configuration': fields.selection(_get_configs, 'Configuration', method=True, required=True, help="Choose a PostgreSQL TS configuration"),
     }
 
-    def start(self, cr, uid, ids, context={}):
+    def start(self, cr, uid, ids, context=None):
         pass
 
-    def action_update_index(self, cr, uid, ids, context={}):
+    def action_update_index(self, cr, uid, ids, context=None):
         # Check FTS availability
         cr.execute("SELECT 1 FROM pg_catalog.pg_type WHERE typname='tsvector'")
         if cr.rowcount == 0:

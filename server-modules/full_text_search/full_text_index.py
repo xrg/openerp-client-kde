@@ -1,6 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2011 OpenERP SA. (http://www.openerp.com)
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -90,7 +91,7 @@ current_full_text_index()
 class ir_model_fields(osv.osv):
     _inherit = 'ir.model.fields'
 
-    def _fts_priority(self, cr, uid, ids, name, arg, context={}):
+    def _fts_priority(self, cr, uid, ids, name, arg, context=None):
         result = {}
         for id in ids:
             result[id] = False
@@ -115,7 +116,7 @@ class ir_model_fields(osv.osv):
             }, context)
         return True
 
-    def _fts_current_priority(self, cr, uid, ids, name, arg, context={}):
+    def _fts_current_priority(self, cr, uid, ids, name, arg, context=None):
         result = {}
         for id in ids:
             result[id] = False

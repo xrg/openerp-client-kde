@@ -1,6 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2011 OpenERP SA. (http://www.openerp.com)
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -149,7 +150,7 @@ class fulltextsearch_services(netsvc.Service):
 
     # Returns a list with the models that have any fields
     # indexed with full text index.
-    def indexedModels(self, db, uid, passwd, context={}):
+    def indexedModels(self, db, uid, passwd, context=None):
         security.check(db, uid, passwd)
         conn = sql_db.db_connect(db)
         cr = conn.cursor()
