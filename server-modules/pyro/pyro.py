@@ -29,6 +29,7 @@ from threading import Thread
 import Pyro.core
 import netsvc
 import tools
+import release
 
 logger = netsvc.Logger()
 
