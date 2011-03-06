@@ -38,15 +38,9 @@ class PyroDaemon(Thread):
 		self.__port = port
 
 	def run(self):
-		class RpcDispatcher(Pyro.core.ObjBase):
+		class RpcDispatcher(Pyro.core.ObjBase, netsvc.OpenERPDispatcher):
 			def dispatch(self, obj, methodName, *args):
-				service=netsvc.LocalService(obj)
-				method=getattr(service,methodName)
-				service._service._response=None
-				result=method(*args)
-				if service._service._response!=None:
-					result = service._service._response
-				return result
+				return netsvc.OpenERPDispatcher.dispatch(self, obj, methodName, args)
 
 		Pyro.core.initServer(storageCheck=0)
 		daemon=Pyro.core.Daemon(port=self.__port)
