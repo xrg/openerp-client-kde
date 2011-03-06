@@ -47,6 +47,11 @@ class FieldWidgetFactory:
 	@staticmethod
 	def create(widgetType, parent, view, attributes):
 		FieldWidgetFactory.scan()
+
+		# We do not support relational fields treated as selection ones
+		if widgetType == 'selection' and 'relation' in attributes:
+			widgetType = 'many2one'
+
 		if not widgetType in FieldWidgetFactory.widgets:
 			print "Widget '%s' not available" % widgetType
 			return None
