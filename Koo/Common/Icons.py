@@ -43,6 +43,7 @@ mapIcons = {
 	'gtk-convert' : 'convert.png',
 	'gtk-dialog-info' : 'info.png',
 	'gtk-execute' : 'exec.png',
+	'gtk-find' : 'find.png',
 	'gtk-go-back' : 'previous.png',
 	'gtk-go-down' : 'down.png',
 	'gtk-go-forward' : 'next.png',
