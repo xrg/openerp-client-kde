@@ -109,7 +109,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		self.uiText.setCompleter( self.completion )
 		liststore = []
 		for i,word in enumerate( ids ):
-			if word[1][0] == '[':
+			if word[1] and word[1][0] == '[':
 				i = word[1].find( ']')
 				s = word[1][1:i]
 				s2 = word[1][i+2:]
