@@ -96,7 +96,7 @@ class koo_services(netsvc.Service):
 		if order:
 		    pool.get(model)._check_qorder(order)
 		    m = regex_order.match( order )
-		    field = m.group(2)
+		    field = m.group(2).replace('"', '')
 		    if field in pool.get(model)._columns:
 		    	if isinstance( pool.get(model)._columns[field], fields.many2one ):
 				# USING STANDARD search() FUNCTION

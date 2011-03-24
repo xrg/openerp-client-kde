@@ -585,6 +585,10 @@ class RecordGroup(QObject):
 	def recordExists(self, record):
 		return record in self.records
 
+	## @brief Returns True if the given field name exists in the group.
+	def fieldExists(self, fieldName):
+		return fieldName in self.fieldObjects
+
 	## @brief Returns the record with id 'id'. You can use [] instead.
 	# Note that it will return the record but won't try to load it.
 	def recordById(self, id):

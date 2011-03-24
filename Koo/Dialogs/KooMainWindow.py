@@ -455,6 +455,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			url = QUrl( url )
 			if loginResponse == Rpc.session.LoggedIn:
 				Settings.loadFromServer()
+				if Settings.value('koo.stylesheet'):
+					QApplication.instance().setStyleSheet( Settings.value('koo.stylesheet') )
 				if Settings.value('koo.use_cache'):
 					Rpc.session.cache = Rpc.Cache.ActionViewCache()
 				else:
@@ -620,7 +622,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		data = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], ['menu_id','name','company_id'], Rpc.session.context)
 		record = data[0]
 		user = record['name'] or ''
-		company = record['company_id'][1]
+		company = record['company_id'] and record['company_id'][1] or ''
 		self.uiUserName.setText( '%s (%s)' % (user, company)  )
 		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
 		self.setWindowTitle( "[%s] - %s" % (Rpc.session.databaseName, self.fixedWindowTitle) )

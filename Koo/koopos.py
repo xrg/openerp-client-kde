@@ -129,23 +129,28 @@ import Koo.Actions
 mainWindow = QMainWindow(None, Qt.CustomizeWindowHint)
 
 if Settings.value('koo.show_pos_toolbar'):
-	def executeNew():
-		mainWindow.centralWidget().new()
-
-	def executeSwitchView():
-		mainWindow.centralWidget().switchView()
-
-	actionNew = QAction( mainWindow )
-	actionNew.setIcon( QIcon( ':/images/new.png' ) )
-	QObject.connect(actionNew, SIGNAL('triggered()'), executeNew)
-
-	actionSwitchView = QAction( mainWindow )
-	actionSwitchView.setIcon( QIcon( ':/images/switch_view.png' ) )
-	QObject.connect(actionSwitchView, SIGNAL('triggered()'), executeSwitchView)
 
 	toolBar = QToolBar(mainWindow)
-	toolBar.addAction( actionNew )
-	toolBar.addAction( actionSwitchView )
+
+	if Settings.value('koo.show_pos_button_new', True):
+
+		def executeNew():
+			mainWindow.centralWidget().new()
+
+		actionNew = QAction( mainWindow )
+		actionNew.setIcon( QIcon( ':/images/new.png' ) )
+		QObject.connect(actionNew, SIGNAL('triggered()'), executeNew)
+		toolBar.addAction( actionNew )
+
+	if Settings.value('koo.show_pos_button_switch_view', True):
+
+		def executeSwitchView():
+			mainWindow.centralWidget().switchView()
+
+		actionSwitchView = QAction( mainWindow )
+		actionSwitchView.setIcon( QIcon( ':/images/switch_view.png' ) )
+		QObject.connect(actionSwitchView, SIGNAL('triggered()'), executeSwitchView)
+		toolBar.addAction( actionSwitchView )
 
 	mainWindow.addToolBar( Qt.LeftToolBarArea, toolBar )
 

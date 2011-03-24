@@ -37,6 +37,7 @@ import tempfile
 import codecs
 import sql_db
 import netsvc
+import release
 
 from JasperReports import *
 
@@ -213,8 +214,12 @@ class report_jasper(report.interface.report_int):
 		# exists to avoid report_int's assert. We want to keep the 
 		# automatic registration at login, but at the same time we 
 		# need modules to be able to use a parser for certain reports.
-		if name in netsvc.SERVICES:
-			del netsvc.SERVICES[name]
+		if release.major_version == '5.0':
+			if name in netsvc.SERVICES:
+				del netsvc.SERVICES[name]
+		else:
+			if name in netsvc.Service._services:
+				del netsvc.Service._services[name]
 		super(report_jasper, self).__init__(name)
 		self.model = model
 		self.parser = parser
@@ -237,38 +242,62 @@ class report_jasper(report.interface.report_int):
 		return r.execute()
 
 
-# Ugly hack to avoid developers the need to register reports
 
-import pooler
-import report
+if release.major_version == '5.0':
+	# Version 5.0 specific code
 
-def register_jasper_report(name, model):
-	name = 'report.%s' % name
-	# Register only if it didn't exist another "jasper_report" with the same name
-	# given that developers might prefer/need to register the reports themselves.
-	# For example, if they need their own parser.
-	if netsvc.service_exist( name ):
-		if isinstance( netsvc.SERVICES[name], report_jasper ):
+	# Ugly hack to avoid developers the need to register reports
+	import pooler
+	import report
+
+	def register_jasper_report(name, model):
+		name = 'report.%s' % name
+		# Register only if it didn't exist another "jasper_report" with the same name
+		# given that developers might prefer/need to register the reports themselves.
+		# For example, if they need their own parser.
+		if netsvc.service_exist( name ):
+			if isinstance( netsvc.SERVICES[name], report_jasper ):
+				return
+			del netsvc.SERVICES[name]
+		report_jasper( name, model )
+
+
+	# This hack allows automatic registration of jrxml files without 
+	# the need for developers to register them programatically.
+
+	old_register_all = report.interface.register_all
+	def new_register_all(db):
+		value = old_register_all(db)
+
+		cr = db.cursor()
+		# Originally we had auto=true in the SQL filter but we will register all reports.
+		cr.execute("SELECT * FROM ir_act_report_xml WHERE report_rml ilike '%.jrxml' ORDER BY id")
+		records = cr.dictfetchall()
+		cr.close()
+		for record in records:
+			register_jasper_report( record['report_name'], record['model'] )
+		return value
+
+	report.interface.register_all = new_register_all
+else:
+	# Version 6.0 and later
+
+	def register_jasper_report(report_name, model_name):
+		name = 'report.%s' % report_name
+		if name in netsvc.Service._services:
 			return
-		del netsvc.SERVICES[name]
-	report_jasper( name, model )
+		report_jasper( name, model_name )
 
+	class ir_actions_report_xml(osv.osv):
+		_inherit = 'ir.actions.report.xml'
 
-# This hack allows automatic registration of jrxml files without 
-# the need for developers to register them programatically.
+		def register_all(self, cr):
+			# Originally we had auto=true in the SQL filter but we will register all reports.
+			cr.execute("SELECT * FROM ir_act_report_xml WHERE report_rml ilike '%.jrxml' ORDER BY id")
+			records = cr.dictfetchall()
+			for record in records:
+				register_jasper_report(record['report_name'], record['model'])
+			return super(ir_actions_report_xml, self).register_all(cr)
 
-old_register_all = report.interface.register_all
-def new_register_all(db):
-	value = old_register_all(db)
-
-	cr = db.cursor()
-	# Originally we had auto=true in the SQL filter but we will register all reports.
-	cr.execute("SELECT * FROM ir_act_report_xml WHERE report_rml ilike '%.jrxml' ORDER BY id")
-	records = cr.dictfetchall()
-	cr.close()
-	for record in records:
-		register_jasper_report( record['report_name'], record['model'] )
-	return value
-
-report.interface.register_all = new_register_all
+	ir_actions_report_xml()
 

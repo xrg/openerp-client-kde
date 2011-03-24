@@ -51,6 +51,10 @@ class FieldDelegateFactory:
 		if not delegateType in FieldDelegateFactory.delegates:
 			return AbstractFieldDelegate( parent, attributes )
 
+		# We do not support relational fields treated as selection ones
+		if delegateType == 'selection' and 'relation' in attributes:
+			delegateType = 'many2one'
+
 		delegateClass = FieldDelegateFactory.delegates[delegateType]
 		return delegateClass(parent, attributes)
 
