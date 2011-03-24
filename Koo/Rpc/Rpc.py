@@ -154,6 +154,7 @@ class PyroConnection(Connection):
 		if self.url.startswith('PYROLOCSSL'):
 			Pyro.config.PYROSSL_CERTDIR = Settings.value('pyrossl.certdir')
 			Pyro.config.PYROSSL_CLIENT_CERT = Settings.value('pyrossl.client_cert')
+			Pyro.config.PYROSSL_CA_CERT = Settings.value('pyrossl.ca_cert')
 			Pyro.config.PYROSSL_POSTCONNCHECK = int(Settings.value('pyrossl.postconncheck'))
 
 		try:

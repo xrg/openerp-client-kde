@@ -110,7 +110,7 @@
   <sect2>
    <title>SSL</title>
    <para>
-	   To enable pyro SSL you must ensure the python module M2Crypto and OpenSSL are available on the server and the client.  You'll need to generate the SSL certificates or for testing you can use the example certifcations provided.  To generate your own certificates, please read the Pyro manual (<ulink url="http://www.xs4all.nl/~irmen/pyro3/manual/9-security.html#ssl" />)
+	   To enable pyro SSL you must ensure the python module M2Crypto and OpenSSL are available on the server and the client.  You'll need to generate the SSL certificates or for testing you can use the example certifcations provided.  To generate your own certificates, please read the Pyro manual (<ulink url="http://www.xs4all.nl/~irmen/pyro3/manual/9-security.html#ssl" />). The certificate files need to consist of the private key and certificate concatenated.
    </para>
    <sect3>
     <title>Server Configuration</title>
@@ -130,7 +130,7 @@
 	   </listitem>
 	   <listitem>
 		   <para>
-			   pyroport-ssl: Defaults to 8072
+			   pyrossl_port: Defaults to 8072
 		   </para>
 	   </listitem>
 	   <listitem>
@@ -146,14 +146,19 @@
 	   </listitem>
 	   <listitem>
 		   <para>
-			   pryprossl_ca_cert: The file name of the CA.  Defaults to client.pem
+			   pyrossl_client_cert: The file name of the client certificate to accept.  Defaults to client.pem.
+		   </para>
+
+	   </listitem>
+	   <listitem>
+		   <para>
+			   pyrossl_ca_cert: The file name of the CA.  Defaults to ca.pem
 	   	   </para>
 	   </listitem>
    </itemizedlist>
    </sect3>
    <sect3>
     <title>Client Configuration</title>
-    <para>test</para>
    <itemizedlist>
 	   <listitem>
 		   <para>
@@ -167,12 +172,17 @@
 	   </listitem>
 	   <listitem>
 		   <para>
+			   pyrossl.ca_cert: The file name of the CA.  Defaults to ca.pem
+		   </para>
+	   </listitem>
+	   <listitem>
+		   <para>
 			   pyro.dns_uri: Make pyro use DNS names instead of IP addresses.  SSL certificates usually have DNS names, so this usually needs to be set to 1.
 		   </para>
 	   </listitem>
 	   <listitem>
 		   <para>
-			   pyrossl_postconncheck: You can set to 0 (default=1) to circumvent connection/certificate validations when using SSL
+			   pyrossl.postconncheck: You can set to 0 (default=1) to circumvent connection/certificate validations when using SSL
 		   </para>
 	   </listitem>
    </itemizedlist>

@@ -64,7 +64,7 @@ class PyroDaemon(Thread):
 
 
 tools.config['pyrossl'] = tools.config.get('pyrossl', False)
-tools.config['pyroport-ssl'] = tools.config.get('pyroport-ssl', 8072)
+tools.config['pyrossl_port'] = tools.config.get('pyrossl_port', 8072)
 try:
 	if tools.config['pyrossl']:
 		try:
@@ -74,20 +74,20 @@ try:
 			logger.notifyChannel("init", netsvc.LOG_ERROR, "M2Crypto could not be imported, SSL will not work: %s" % (e.message) )
 		else:
 			try:
-				pyroport_ssl = int(tools.config["pyroport-ssl"])
+				pyrossl_port = int(tools.config["pyrossl_port"])
 			except Exception:
 				logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid ssl port '%s'!" % (tools.config["pyroport-ssl"]) )
 			settings = {}
 			settings['PYROSSL_CERTDIR'] = tools.config.get('pyrossl_certdir', False)
 			if settings['PYROSSL_CERTDIR'] is False:
-				logger.notifyChannel("init", netsvc.LOG_ERROR, "pyrossl_cerdir must be set!" )
+				logger.notifyChannel("init", netsvc.LOG_ERROR, "pyrossl_certdir must be set!" )
 			else:
 				settings['PYROSSL_POSTCONNCHECK'] = tools.config.get('pyrossl_postconncheck',1)
 				settings['PYROSSL_SERVER_CERT'] = tools.config.get('pyrossl_server_cert','server.pem')
 				settings['PYROSSL_CA_CERT'] = tools.config.get('pyrossl_ca_cert','ca.pem')
 				settings['PYRO_TRACELEVEL'] = tools.config.get('pyro_tracelevel',0)
 				settings['PYRO_LOGFILE'] = tools.config.get('pyro_logfile','/tmp/Pyro_log')
-				pyrod_ssl = PyroDaemon(pyroport_ssl,True,settings)
+				pyrod_ssl = PyroDaemon(pyrossl_port,True,settings)
 				pyrod_ssl.start()
 	
 except:
