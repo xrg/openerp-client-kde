@@ -41,7 +41,10 @@ class PyroDaemon(Thread):
 	def run(self):
 		class RpcDispatcher(Pyro.core.ObjBase, netsvc.OpenERPDispatcher):
 			def dispatch(self, obj, methodName, *args):
-				return netsvc.OpenERPDispatcher.dispatch(self, obj, methodName, args)
+				try:
+					return netsvc.OpenERPDispatcher.dispatch(self, obj, methodName, args)
+				except netsvc.OpenERPDispatcherException, e:
+            				raise Pyro.core.PyroError(tools.exception_to_unicode(e.exception), e.traceback)
 
 		Pyro.core.initServer(storageCheck=0)
 		daemon=Pyro.core.Daemon(port=self.__port)
