@@ -203,7 +203,10 @@ class PyroConnection(Connection):
 			error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
 			Notifier.notifyError( _('SSL Error'), error, traceback.format_exc())
 			raise
-
+		except Pyro.core.PyroError, err:
+			faultCode = err.args and err.args[0] or ''
+			faultString = '\n'.join( err.remote_stacktrace )
+			raise RpcServerException( faultCode, faultString )
 		except Exception, err:
 			if Pyro.util.getPyroTraceback(err):
 				faultCode = err.message
