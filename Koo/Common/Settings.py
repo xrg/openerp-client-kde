@@ -43,7 +43,9 @@ class Settings(object):
 		'login.db': 'test',
 		'login.url': 'http://admin@localhost:8069',
 		'pyrossl.certdir':  os.path.join(sys.prefix, 'share/Koo/certs'),
-		'pyrossl.client_cert': 'client.pem',
+		'pyrossl.cert': 'client.pem',
+		'pyrossl.ca_cert': 'ca.pem',
+		'pyrossl.key': None,
 		'pyrossl.postconncheck': 1,
 		'pyro.dns_uri': 1,
 		'pyro.tracelevel': 0,
@@ -134,6 +136,8 @@ class Settings(object):
 						value = True
 					if value=='False' or value=='false':
 						value = False
+					if value=='None' or value=='none':
+						value = None
 					Settings.options[section+'.'+name] = value
 		except Exception, e:
 			Debug.warning( 'Unable to read config file %s !' % Settings.rcFile )

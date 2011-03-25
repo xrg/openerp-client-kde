@@ -153,7 +153,8 @@ class PyroConnection(Connection):
 
 		if self.url.startswith('PYROLOCSSL'):
 			Pyro.config.PYROSSL_CERTDIR = Settings.value('pyrossl.certdir')
-			Pyro.config.PYROSSL_CLIENT_CERT = Settings.value('pyrossl.client_cert')
+			Pyro.config.PYROSSL_CERT = Settings.value('pyrossl.cert')
+			Pyro.config.PYROSSL_KEY = Settings.value('pyrossl.key')
 			Pyro.config.PYROSSL_CA_CERT = Settings.value('pyrossl.ca_cert')
 			Pyro.config.PYROSSL_POSTCONNCHECK = int(Settings.value('pyrossl.postconncheck'))
 
@@ -164,7 +165,7 @@ class PyroConnection(Connection):
 			if e.message == 'No such file or directory':
 				msg = _('Please check your SSL certificate: ')
 				msg += e.message
-				msg += '\n%s' % os.path.join(Pyro.config.PYROSSL_CERTDIR,Pyro.config.PYROSSL_CLIENT_CERT)
+				msg += '\n%s' % os.path.join(Pyro.config.PYROSSL_CERTDIR,Pyro.config.PYROSSL_CERT)
 				details = traceback.format_exc()
 				Notifier.notifyError(title, msg, details)
 			else:
@@ -199,8 +200,9 @@ class PyroConnection(Connection):
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
 			raise RpcProtocolException( unicode( err ) )
 		except WrongHost, err:
-			error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck in koorc to override this check.' %(err.expectedHost,err.actualHost)
+			error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
 			Notifier.notifyError( _('SSL Error'), error, traceback.format_exc())
+			raise
 
 		except Exception, err:
 			if Pyro.util.getPyroTraceback(err):
