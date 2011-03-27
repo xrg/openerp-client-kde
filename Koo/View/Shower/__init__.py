@@ -25,7 +25,13 @@
 #
 ##############################################################################
 
-from Parser import *
-from Koo.View.ViewFactory import *
+import logging
+try:
+    from Parser import *
+    from Koo.View.ViewFactory import *
 
-ViewFactory.register( ShowerParser, 'diagram', _('Diagram View'), ':/images/administration.png' )
+    ViewFactory.register( ShowerParser, 'diagram', _('Diagram View'), ':/images/administration.png' )
+except ImportError:
+    logging.getLogger('Koo.ShowerView').warning("kshowerview library not installed. Unable to use Shower View")
+
+#eof
