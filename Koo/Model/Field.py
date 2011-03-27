@@ -186,6 +186,19 @@ class BinaryField(StringField):
 				record.values[self.name] = ''
 		return record.values[self.name]
 
+	def setDefault(self, record, value):
+		record.values[self.name] = None
+		record.values[self.sizeName] = False
+		if value:
+			value = base64.decodestring(value)
+			record.values[self.name] = value
+			if value:
+				record.values[ self.sizeName ] = Numeric.bytesToText( len(value) )
+			else:
+				record.values[ self.sizeName ] = ''
+		if self.attrs.get('on_change',False):
+			record.callOnChange(self.attrs['on_change'])
+
 class BinarySizeField(StringField):
 	def __init__(self, parent, attrs):
 		StringField.__init__(self, parent, attrs)
@@ -443,9 +456,13 @@ class FieldFactory:
 	## This function creates a new instance of the appropiate class
 	# for the given field type.
 	@staticmethod
-	def create(type, parent, attributes):
-		if type in FieldFactory.types:
-			return FieldFactory.types[type]( parent, attributes )
+	def create(fieldType, parent, attributes):
+		# We do not support relational fields treated as selection ones
+		if fieldType == 'selection' and 'relation' in attributes:
+			fieldType = 'many2one'
+
+		if fieldType in FieldFactory.types:
+			return FieldFactory.types[fieldType]( parent, attributes )
 		else:
 			return FieldFactory.types['char']( parent, attributes )
 

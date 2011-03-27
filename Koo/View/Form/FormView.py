@@ -114,6 +114,7 @@ class FormContainer( QWidget ):
 
 		stylesheet = attributes.get( 'stylesheet', False )
 
+		# Get colspan
 		if colspan > self.maxColumns:
 			colspan = self.maxColumns
 			
@@ -122,6 +123,9 @@ class FormContainer( QWidget ):
 		colspan = max(colspan, 1)
 		if colspan + self.column + a  > self.maxColumns:
 			self.newRow()
+
+		# Get rowspan
+		rowspan = int( attributes.get( 'rowspan', 1 ) )
 
 		if labelText:
 			label  = QLabel( self )
@@ -143,7 +147,7 @@ class FormContainer( QWidget ):
 			self.layout.addWidget( label, self.row, self.column )
 			self.column = self.column + 1
 
-		self.layout.addWidget( widget, self.row, self.column, 1, colspan )
+		self.layout.addWidget( widget, self.row, self.column, rowspan, colspan )
 
 		if stylesheet:
 			widget.setStyleSheet( stylesheet )

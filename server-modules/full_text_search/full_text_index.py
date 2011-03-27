@@ -125,10 +125,21 @@ class ir_model_fields(osv.osv):
             result[ index.field_id.id ] = index.priority.id
         return result
 
+	def write(self, cr, uid, ids, vals, context=None):
+		if 'fts_priority' in vals:
+			for id in ids:
+				self._set_fts_priority(cr, uid, id, 'fts_priority', vals['fts_priority'], None, context)
+			del vals['fts_priority']
+		return super(ir_model_fields, self).write(cr, uid, ids, vals)
 
 
     _columns = {
         'fts_priority': fields.function(_fts_priority, fnct_inv=_set_fts_priority, method=True, type='many2one', relation='fts.priority', string='FTS Priority', help='Fields that should be indexed in the Full Text Search engine should be given a priority here.'),
         'fts_current_priority': fields.function(_fts_current_priority, method=True, type='many2one', relation='fts.priority', string='FTS Current Priority', help='Shows with which priority this field is being indexed at the moment. It may change after Update Full Text Index process.'),
+
+		# Make 'select_level' field NOT required because many python fields do not have that value set anyway and this makes it impossible for users to change
+		# FTS priority. The reason is that they're forced by the client to set a value in this field, but then write() raises an exception because the user is trying
+		# to change a field that was created from python code.
+		'select_level': fields.selection([('0','Not Searchable'),('1','Always Searchable'),('2','Advanced Search (deprecated)')],'Searchable', required=False),
     }
 ir_model_fields()

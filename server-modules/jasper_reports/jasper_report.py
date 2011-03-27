@@ -41,6 +41,7 @@ import release
 
 from JasperReports import *
 
+# FIXME! (perhaps integrate with httpd )
 # Determines the port where the JasperServer process should listen with its XML-RPC server for incomming calls
 tools.config['jasperport'] = tools.config.get('jasperport', 8090)
 
@@ -93,6 +94,7 @@ class Report:
 		os.close(fd)
 		self.temporaryFiles.append( dataFile )
 		self.temporaryFiles.append( outputFile )
+		# FIXME!
 		logger.notifyChannel("jasper_reports", netsvc.LOG_INFO, "Temporary data file: '%s'" % dataFile)
 
 		import time
@@ -243,7 +245,7 @@ class report_jasper(report.interface.report_int):
 
 
 
-if release.major_version == '5.0':
+if release.major_version == '5.0': # FIXME! remove
 	# Version 5.0 specific code
 
 	# Ugly hack to avoid developers the need to register reports
@@ -292,6 +294,7 @@ else:
 		_inherit = 'ir.actions.report.xml'
 
 		def register_all(self, cr):
+			# TODO: RFC
 			# Originally we had auto=true in the SQL filter but we will register all reports.
 			cr.execute("SELECT * FROM ir_act_report_xml WHERE report_rml ilike '%.jrxml' ORDER BY id")
 			records = cr.dictfetchall()

@@ -87,16 +87,21 @@ class FormParser(AbstractParser):
 				caption = attrs.get( 'string', '' )
 
 				separator = QWidget( container )
-				separator.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
 				label = QLabel( separator )
 				label.setText( caption )
 				font = label.font()
 				font.setBold( True )
 				label.setFont( font )
 				line = QFrame( separator )
-				line.setFrameShape( QFrame.HLine )
 				line.setFrameShadow( QFrame.Plain )
-				layout = QVBoxLayout( separator )
+				if attrs.get('orientation') == 'vertical':
+					line.setFrameShape( QFrame.VLine )
+					separator.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Expanding )
+					layout = QHBoxLayout( separator )
+				else:
+					line.setFrameShape( QFrame.HLine )
+					separator.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+					layout = QVBoxLayout( separator )
 				layout.setAlignment( Qt.AlignTop )
 				layout.setContentsMargins( 0, 0, 0, 0 )
 				layout.setSpacing( 0 )
@@ -116,7 +121,12 @@ class FormParser(AbstractParser):
 							text += node.toxml()
 				label = QLabel( text, container )
 				label.setWordWrap( True )
-				label.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
+				if 'width' in attrs:
+					label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+					label.setMinimumWidth( int(attrs['width']) )
+					label.setMaximumWidth( int(attrs['width']) )
+				else:
+					label.setSizePolicy( QSizePolicy.Preferred, QSizePolicy.Fixed )
 				container.addWidget(label, attrs)
 
 			elif node.localName=='newline':

@@ -32,7 +32,6 @@ import netsvc
 import sql_db
 import pooler
 from psycopg2.extensions import adapt as sql_quote
-import SimpleXMLRPCServer
 from operator import itemgetter
 
 
@@ -72,16 +71,29 @@ def noneToFalse(value):
     else:
         return value
 
+if release.major_version == '5.0':
+        netsvc_service = netsvc.Service
+else:
+        import service
+        #netsvc_service = netsvc.ExportService
+        netsvc_service = service.web_services._ObjectService
 
-class fulltextsearch_services(netsvc.Service):
+class fulltextsearch_services(netsvc_service):
     def __init__(self, name="fulltextsearch"):
         netsvc.Service.__init__(self,name)
         self.joinGroup('web-services')
-        self.exportMethod(self.search)
-        self.exportMethod(self.indexedModels)
+        self.exportedMethods = [
+                'search',
+                'indexedModels',
+        ]
         self.postgresVersion = None
         self.hasIntegratedTs = False
         self.postgresKeyWords = {}
+
+    def dispatch(self, method, auth, params):
+        if not method in self.exportedMethods:
+            raise KeyError("Method not found: %s" % method)
+        return self.common_dispatch(method, auth, params)
 
     # This method should not be exported
     def checkPostgresVersion(self, cr):
@@ -148,13 +160,7 @@ class fulltextsearch_services(netsvc.Service):
         record = cr.fetchone()
         return { 'name': record[1], 'headline': record[0] }
 
-    # Returns a list with the models that have any fields
-    # indexed with full text index.
-    def indexedModels(self, db, uid, passwd, context=None):
-        security.check(db, uid, passwd)
-        conn = sql_db.db_connect(db)
-        cr = conn.cursor()
-
+    def exp_indexedModels(self, cr, uid, context=None):
         self.checkPostgresVersion(cr)
 
         cr.execute("""
@@ -176,7 +182,7 @@ class fulltextsearch_services(netsvc.Service):
         else:
             lang = 'en_US'
 
-        pool = pooler.get_pool(db)
+        pool = pooler.get_pool(cr.dbname)
         ret = []
         for x in cr.fetchall():
             # Check security permissions
@@ -194,29 +200,41 @@ class fulltextsearch_services(netsvc.Service):
 
             ret.append( { 'id': x[0], 'name': name } )
         ret.sort( key=itemgetter('name') )
-        cr.close()
         return ret
+        
 
+    # Returns a list with the models that have any fields 
+    # indexed with full text index.
+    def indexedModels(self, db, uid, passwd, context=None):
+        security.check(db, uid, passwd)
+        conn = sql_db.db_connect(db)
+        cr = conn.cursor()
+
+        result = self.exp_indexedModels(cr, uid, context)
+        cr.close()
+        return result
+                
     # Searches limit records that match the text query in the specified model
     # starting at offset.
     # If model is None or False all models are searched. Model should be the
     # identifier of the model.
     def search(self, db, uid, passwd, text, limit, offset, model, context=None):
-        if context is None:
-            context = {}
-
         security.check(db, uid, passwd)
         pool = pooler.get_pool(db)
         conn = sql_db.db_connect(db)
         cr = conn.cursor()
         try:
-            return self.search_internal(pool, cr, uid, text, limit, offset, model, context)
+            return self.exp_search(cr, uid, text, limit, offset, model, context)
         except Exception, e:
             print "EX: ", str(e)
         finally:
             cr.close()
 
-    def search_internal(self, pool, cr, uid, text, limit, offset, model, context=None):
+    def exp_search(self, cr, uid, text, limit, offset, model, context=None):
+        if context is None:
+            context = {}
+
+        pool =  pooler.get_pool(cr.dbname)
 
         self.checkPostgresVersion(cr)
 
@@ -338,8 +356,9 @@ class fulltextsearch_services(netsvc.Service):
         return noneToFalse( ret )
 
 fulltextsearch_services()
-paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/fulltextsearch' ]
-SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
+# FIXME: remove these:
+# paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/fulltextsearch' ]
+# SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths = tuple(paths)
 
 
 # vim:noexpandtab

@@ -242,6 +242,10 @@ class PyroConnection(Connection):
 				result = self.singleCall( obj, method, *args )
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
 			raise RpcProtocolException( unicode( err ) )
+		except Pyro.core.PyroError, err:
+			faultCode = err.args and err.args[0] or ''
+			faultString = '\n'.join( err.remote_stacktrace )
+			raise RpcServerException( faultCode, faultString )
 		except Exception, err:
 			if Pyro.util.getPyroTraceback(err):
 				faultCode = err.message

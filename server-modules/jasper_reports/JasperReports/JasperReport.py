@@ -97,6 +97,9 @@ class JasperReport:
 			for x in path.split('/'):
 				newPath.append( x.split('-')[-1] )
 			path = '/'.join( newPath )
+			if path in fields:
+				# FIXME!
+				print "WARNING: path '%s' already exists in report. This is not supported by the module. Offending fields: %s, %s" % (path, fields[path]['name'], name)
 			fields[ path ] = {
 				'name': name,
 				'type': type,
