@@ -34,7 +34,9 @@ In order to use the pyro (PYROLOC://) protocol you must install this module. Onc
 
 Note that if you restart the server you'll need to ensure the module is started. That can be done in two different ways. Either you start the server using "-d database_name" option or you log in using another protocol first.
 
-This module needs pyro from http://www.xs4all.nl/~irmen/pyro3/download/ and m2crypto from http://chandlerproject.org/Projects/MeTooCrypto on client and server.
+This module requires pyro from http://www.xs4all.nl/~irmen/pyro3/download/ 
+
+In order to use Pyro with SSL m2crypto from http://chandlerproject.org/Projects/MeTooCrypto on client and server is also required.
 """,
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",

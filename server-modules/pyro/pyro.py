@@ -66,7 +66,7 @@ class PyroDaemon(Thread):
 			raise
 
 
-tools.config['pyrossl'] = tools.config.get('pyrossl', False)
+tools.config['pyrossl'] = tools.config.get('pyrossl', True)
 tools.config['pyrossl_port'] = tools.config.get('pyrossl_port', 8072)
 try:
 	if tools.config['pyrossl']:
@@ -75,9 +75,9 @@ try:
 		else:
 			try:
 				import M2Crypto
-			except:
+			except Exception, e:
 				tools.config['pyrossl'] =  False
-				logger.notifyChannel("init", netsvc.LOG_ERROR, "M2Crypto could not be imported, SSL will not work: %s" % (e.message) )
+				logger.notifyChannel("init", netsvc.LOG_ERROR, "M2Crypto could not be imported, SSL will not work: %s" % (e.args) )
 			else:
 				try:
 					pyrossl_port = int(tools.config["pyrossl_port"])
@@ -93,11 +93,12 @@ try:
 					settings['PYROSSL_CA_CERT'] = tools.config.get('pyrossl_ca_cert','ca.pem')
 					settings['PYROSSL_KEY'] = tools.config.get('pyrossl_key',None)
 					settings['PYRO_TRACELEVEL'] = tools.config.get('pyro_tracelevel',0)
-					settings['PYRO_LOGFILE'] = tools.config.get('pyro_logfile','/tmp/Pyro_log')
-					pyrod_ssl = PyroDaemon(pyrossl_port,True,settings)
+					if tools.config.get('pyro_logfile'):
+						settings['PYRO_LOGFILE'] = tools.config.get('pyro_logfile')
+					pyrod_ssl = PyroDaemon(pyrossl_port, True, settings)
 					pyrod_ssl.start()
 	
-except:
+except Exception, e:
 	import traceback
 	logger.notifyChannel("web-services", netsvc.LOG_ERROR, "Pyro exception: %s\n%s" % (e, traceback.format_exc()))
 
