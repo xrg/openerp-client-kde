@@ -40,6 +40,13 @@ import xmlrpclib
 import base64
 import socket
 
+import sys
+import os
+
+from M2Crypto.SSL import SSLError
+from M2Crypto.SSL.Checker import WrongHost
+import traceback
+
 ConcurrencyCheckField = '__last_update'
 
 class RpcException(Exception):
@@ -138,7 +145,34 @@ class PyroConnection(Connection):
 	def __init__(self, url):
 		Connection.__init__(self, url)
 		self.url += '/rpc'
-		self.proxy = Pyro.core.getProxyForURI( self.url )
+
+		from Koo.Common.Settings import Settings
+		Pyro.config.PYRO_TRACELEVEL = int(Settings.value('pyro.tracelevel'))
+		Pyro.config.PYRO_LOGFILE = Settings.value('pyro.logfile') 
+		Pyro.config.PYRO_DNS_URI = int(Settings.value('pyro.dns_uri'))
+
+		if self.url.startswith('PYROLOCSSL'):
+			Pyro.config.PYROSSL_CERTDIR = Settings.value('pyrossl.certdir')
+			Pyro.config.PYROSSL_CERT = Settings.value('pyrossl.cert')
+			Pyro.config.PYROSSL_KEY = Settings.value('pyrossl.key')
+			Pyro.config.PYROSSL_CA_CERT = Settings.value('pyrossl.ca_cert')
+			Pyro.config.PYROSSL_POSTCONNCHECK = int(Settings.value('pyrossl.postconncheck'))
+
+		try:
+			self.proxy = Pyro.core.getProxyForURI( self.url )
+		except SSLError, e:
+			title = _('SSL Error')
+			if e.message == 'No such file or directory':
+				msg = _('Please check your SSL certificate: ')
+				msg += e.message
+				msg += '\n%s' % os.path.join(Pyro.config.PYROSSL_CERTDIR,Pyro.config.PYROSSL_CERT)
+				details = traceback.format_exc()
+				Notifier.notifyError(title, msg, details)
+			else:
+				raise
+
+		except Exception, e:
+			raise 
 
 	def singleCall(self, obj, method, *args):
 		encodedArgs = self.unicodeToString( args )
@@ -153,7 +187,7 @@ class PyroConnection(Connection):
 			try:
 				#import traceback
 				#traceback.print_stack()
-				#print "CALLING: ", obj, method, args
+				#print >> sys.stderr, "CALLING: ", obj, method, args
 				result = self.singleCall( obj, method, *args )
 			except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), x:
 				# As Pyro is a statefull protocol, network errors
@@ -165,18 +199,24 @@ class PyroConnection(Connection):
 				result = self.singleCall( obj, method, *args )
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
 			raise RpcProtocolException( unicode( err ) )
+		except WrongHost, err:
+			faultCode = err.args and err.args[0] or ''
+			faultString = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
+			raise RpcServerException( faultCode, faultString )
 		except Pyro.core.PyroError, err:
 			faultCode = err.args and err.args[0] or ''
 			faultString = '\n'.join( err.remote_stacktrace )
 			raise RpcServerException( faultCode, faultString )
 		except Exception, err:
+			faultCode = err.message
 			if Pyro.util.getPyroTraceback(err):
-				faultCode = err.message
 				faultString = u''
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
-				raise RpcServerException( faultCode, faultString )
-			raise
+				
+			else:
+				faultString = err.message
+			raise RpcServerException( faultCode, faultString )
 		return result
 
 ## @brief The SocketConnection class implements Connection for the OpenERP socket RPC protocol.
@@ -241,7 +281,7 @@ def createConnection(url):
 	qUrl = QUrl( url )
 	if qUrl.scheme() == 'socket':
 		con = SocketConnection( url )
-	elif qUrl.scheme() == 'PYROLOC':
+	elif qUrl.scheme() == 'PYROLOC' or qUrl.scheme() == 'PYROLOCSSL':
 		con = PyroConnection( url )
 	else:
 		con = XmlRpcConnection( url )
@@ -302,7 +342,7 @@ class AsynchronousSessionCall(QThread):
 		if self.callback:
 			self.callback( self.result, self.exception )
 
-		# Free session and thus server connections as soon as possible
+		# Free session and thus server  as soon as possible
 		self.session = None
 
 	def run(self):
@@ -551,9 +591,14 @@ class Database:
 	# was an error trying to fetch the list.
 	def list(self, url):
 		try:
-			return self.call( url, 'list' )
-		except:
-			return -1
+			call = self.call( url, 'list' )
+		except Exception, e: 
+			call = -1
+			from Koo.Common.Settings import Settings
+			if Settings.value('client.debug'):
+				Notifier.notifyError( type(e), e, traceback.format_exc() )
+		finally:
+			return call
 
 	## @brief Calls the specified method
 	# on the given object on the server. If there is an error

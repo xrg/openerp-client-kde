@@ -30,11 +30,11 @@
 	"version" : "0.1",
 	"description" : """This module adds new protocol to OpenERP server.
 
-In order to use the pyro (PYROLOC://) protocol you must install this module. Once installed try to log in again using Koo and choose the same server but with port 8071 and protocol Pyro.
+In order to use the pyro (PYROLOC://) protocol you must install this module. Once installed try to log in again using Koo and choose the same server but with port 8071 and protocol Pyro. Port 8072 is also available, for secure (PYROLOCSSL://) connections.
 
 Note that if you restart the server you'll need to ensure the module is started. That can be done in two different ways. Either you start the server using "-d database_name" option or you log in using another protocol first.
 
-This module needs pyro from http://www.xs4all.nl/~irmen/pyro3/download/ on client and server.
+This module needs pyro from http://www.xs4all.nl/~irmen/pyro3/download/ and m2crypto from http://chandlerproject.org/Projects/MeTooCrypto on client and server.
 """,
 	"author" : "NaN",
 	"website" : "http://www.nan-tic.com",
