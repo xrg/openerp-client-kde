@@ -200,22 +200,23 @@ class PyroConnection(Connection):
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
 			raise RpcProtocolException( unicode( err ) )
 		except WrongHost, err:
-			error = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
-			Notifier.notifyError( _('SSL Error'), error, traceback.format_exc())
-			raise
+			faultCode = err.args and err.args[0] or ''
+			faultString = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
+			raise RpcServerException( faultCode, faultString )
 		except Pyro.core.PyroError, err:
 			faultCode = err.args and err.args[0] or ''
 			faultString = '\n'.join( err.remote_stacktrace )
 			raise RpcServerException( faultCode, faultString )
 		except Exception, err:
+			faultCode = err.message
 			if Pyro.util.getPyroTraceback(err):
-				faultCode = err.message
 				faultString = u''
 				for x in Pyro.util.getPyroTraceback(err):
 					faultString += unicode( x, 'utf-8', errors='ignore' )
 				
-				raise RpcServerException( faultCode, faultString )
-			raise
+			else:
+				faultString = err.message
+			raise RpcServerException( faultCode, faultString )
 		return result
 
 ## @brief The SocketConnection class implements Connection for the OpenERP socket RPC protocol.
