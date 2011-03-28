@@ -43,8 +43,6 @@ import socket
 import sys
 import os
 
-from M2Crypto.SSL import SSLError
-from M2Crypto.SSL.Checker import WrongHost
 import traceback
 
 ConcurrencyCheckField = '__last_update'
@@ -131,12 +129,25 @@ class Connection:
 	def call(self, url, method, *args ):
 		pass
 
-modules = []
 try:
 	import Pyro.core
-	modules.append( 'pyro' )
+	pyroAvailable = True
 except:
-	pass
+	pyroAvailable = False
+
+try:
+	from M2Crypto.SSL import SSLError
+	from M2Crypto.SSL.Checker import WrongHost
+	pyroSslAvailable = pyroAvailable
+except:
+	pyroSslAvailable = False
+	# Create Dummy Exception so we do not have to complicate code in PyroConnection if
+	# SSL is not available.
+	class DummyException(Exception):
+		pass
+	WrongHost = DummyException
+	SSLError = DummyException
+
 
 ## @brief The PyroConnection class implements Connection for the Pyro RPC protocol.
 #
@@ -199,13 +210,13 @@ class PyroConnection(Connection):
 				result = self.singleCall( obj, method, *args )
 		except (Pyro.errors.ConnectionClosedError, Pyro.errors.ProtocolError), err:
 			raise RpcProtocolException( unicode( err ) )
-		except WrongHost, err:
-			faultCode = err.args and err.args[0] or ''
-			faultString = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
-			raise RpcServerException( faultCode, faultString )
 		except Pyro.core.PyroError, err:
 			faultCode = err.args and err.args[0] or ''
 			faultString = '\n'.join( err.remote_stacktrace )
+			raise RpcServerException( faultCode, faultString )
+		except WrongHost, err:
+			faultCode = err.args and err.args[0] or ''
+			faultString = 'The hostname of the server and the SSL certificate do not match.\n  The hostname is %s and the SSL certifcate says %s\n Set postconncheck to 0 in koorc to override this check.' %(err.expectedHost,err.actualHost)
 			raise RpcServerException( faultCode, faultString )
 		except Exception, err:
 			faultCode = err.message
