@@ -73,6 +73,7 @@ mapIcons = {
 	'terp-account' : 'account.png',
 	'terp-calendar': 'calendar.png',
 	'terp-crm' : 'crm.png',
+	'terp-dialog-close': 'close.png',
 	'terp-document-new' : 'new.png',
 	'terp-graph' : 'chart.png',
 	'terp-hr' : 'hr.png',
