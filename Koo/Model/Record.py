@@ -397,7 +397,8 @@ class Record(QObject):
 			return
 		c= Rpc.session.context.copy()
 		c.update(self.context())
-		c['bin_size'] = True
+		if not self.isWizard():
+			c['bin_size'] = True
 		res = self.rpc.read([self.id], self.group.allFieldNames(), c)
 		if res:
 
