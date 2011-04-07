@@ -76,6 +76,8 @@ mapIcons = {
 	'terp-dialog-close': 'close.png',
 	'terp-document-new' : 'new.png',
 	'terp-graph' : 'chart.png',
+	'terp-gtk-go-back-rtl' : 'reload.png',
+	'terp-gtk-jump-to-ltr' : 'next.png',
 	'terp-hr' : 'hr.png',
 	'terp-mrp' : 'mrp.png',
 	'terp-partner' : 'partner.png',
