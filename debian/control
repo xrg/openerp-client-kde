@@ -8,7 +8,7 @@ Standards-Version: 3.8.1
 Package: koo
 Architecture: all
 Homepage: http://www.NaN-tic.com/
-Depends: ${misc:Depends}, ${python:Depends}, python-qt4 (>= 4.4.0), pyro (>= 3.7), xdg-utils
+Depends: ${misc:Depends}, ${python:Depends}, python-qt4 (>= 4.4.0), pyro (>= 3.12), xdg-utils
 Suggests: pyserial
 Description: Qt & KDE based client for OpenERP
  Koo is a Qt/KDE based client for Open ERP, a complete ERP and CRM. Koo 
