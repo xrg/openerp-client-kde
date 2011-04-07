@@ -238,6 +238,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			QObject.connect( self.actionRemoteHelp, SIGNAL('triggered()'), self.remoteHelp )
 			self.menuHelp.addAction( self.actionRemoteHelp )
 
+		self.companyMenu = QMenu( self )
+		self.pushCompany.setMenu( self.companyMenu )
+		self.connect( self.companyMenu, SIGNAL('aboutToShow()'), self.updateCompanyList )
+
 		# Initialize plugins: This allows some plugins (such as SerialBarcodeScanner)
 		# to be available in the LoginDialog.
 		Plugins.list()
@@ -370,6 +374,36 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.showNormal()
 		Api.instance.createWindow(False, 'res.request', False, 
 			[('act_from','=',Rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
+
+	def updateCompanyList(self):
+		self.companyMenu.clear()
+
+		ids = Rpc.session.execute('/object', 'execute', 'res.company', 'search', [], 0, False, 'name ASC')
+		records = Rpc.session.execute('/object', 'execute', 'res.company', 'read', ids, ['id', 'name'])
+
+		for record in records:
+			action = QAction(self)
+			action.setText( record['name'] )
+			action.setData( record['id'] )
+			self.connect( action, SIGNAL('triggered()'), self.changeCompany )
+			self.companyMenu.addAction( action )
+
+	def changeCompany(self):
+		action = self.sender()
+		company_id = action.data().toInt()[0]
+		users = Rpc.RpcProxy('res.users')
+		users.write([Rpc.session.uid], {
+			'company_id': company_id,
+		}, Rpc.session.context)
+		Rpc.session.reloadContext()
+		self.updateCompany()
+
+	def updateCompany(self, company=None):
+		if not company:
+			users = Rpc.RpcProxy('res.users')
+			records = users.read([Rpc.session.uid], ['company_id'], Rpc.session.context)
+			company = records[0]['company_id'][1]
+		self.pushCompany.setText( company )
 
 	## Updates the status bar with the number of pending requests.
 	#
@@ -623,7 +657,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		record = data[0]
 		user = record['name'] or ''
 		company = record['company_id'] and record['company_id'][1] or ''
-		self.uiUserName.setText( '%s (%s)' % (user, company)  )
+		self.updateCompany( company )
+		self.uiUserName.setText( user )
 		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
 		self.setWindowTitle( "[%s] - %s" % (Rpc.session.databaseName, self.fixedWindowTitle) )
 
