@@ -30,37 +30,73 @@ import netsvc
 import time
 from workflow.wkf_service import workflow_service
 import SimpleXMLRPCServer
+import release
 
 class new_workflow_service(workflow_service):
 	def __init__(self, name='workflow', audience='*'):
 		workflow_service.__init__(self, name, audience)
 	
 	def trg_create(self, uid, res_type, res_id, cr):
-		netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
+		if release.major_version == '5.0':
+			netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
+		else:
+			netsvc.ExportService.getService('subscription').publish( 'updated_model:%s' % res_type )
 		return workflow_service.trg_create(self, uid, res_type, res_id, cr)
 
 	def trg_write(self, uid, res_type, res_id, cr):
-		netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
+		if release.major_version == '5.0':
+			netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
+		else:
+			netsvc.ExportService.getService('subscription').publish( 'updated_model:%s' % res_type )
 		return workflow_service.trg_write(self, uid, res_type, res_id, cr)
 
 	def trg_delete(self, uid, res_type, res_id, cr):
-		netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
+		if release.major_version == '5.0':
+			netsvc.LocalService('subscription').publish( 'updated_model:%s' % res_type )
+		else:
+			netsvc.ExportService.getService('subscription').publish( 'updated_model:%s' % res_type )
 		return workflow_service.trg_delete(self, uid, res_type, res_id, cr)
 new_workflow_service()
 
-class subscription_services(netsvc.Service):
+if release.major_version == '5.0':
+	netsvc_service = netsvc.Service
+else:
+	import service
+	netsvc_service = service.web_services._ObjectService
+
+class subscription_services(netsvc_service):
 	def __init__(self, name="subscription"):
-		netsvc.Service.__init__(self,name)
+		netsvc_service.__init__(self,name)
 		self.joinGroup('web-services')
-		self.exportMethod(self.wait)
-		self.exportMethod(self.publish)
+
+		if release.major_version == '5.0':
+			self.exportMethod(self.wait)
+			self.exportMethod(self.publish)
+		else:
+			self.exportedMethods = [
+				'wait',
+				'publish',
+			]
 		self.subscriptions = []
 		self.connections = {}
 		self.lock = Lock()
 		self.queue = []
 		self.waits = []
 
-	def wait(self, db, uid, passwd, expression):
+	def dispatch(self, method, auth, params):
+		if not method in self.exportedMethods:
+			raise KeyError("Method not found: %s" % method)
+		return self.common_dispatch(method, auth, params)
+
+	def wait(self, db, uid, passwd, expression, context=None):
+                security.check(db, uid, passwd)
+                conn = sql_db.db_connect(db)
+                cr = conn.cursor()
+                result = self.exp_wait(cr, uid, expression, context)
+                cr.close()
+                return result
+
+	def exp_wait(self, cr, uid, expression, context=None):
 		self.lock.acquire()
 		currentLock = Semaphore(0)
 		self.waits.append( {'expression': expression, 'lock': currentLock } )
@@ -85,8 +121,7 @@ class subscription_services(netsvc.Service):
 			data = connections[host]
 			return Pyro.core.getProxyForURI( 'PYROLOC://%s:%s' % ( data['host'], data['port'] ) )
 		self.proxy = Pyro.core.getProxyForURI( self.url )
-		
-		
+
 subscription_services()
 
 paths = list(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler.rpc_paths) + ['/xmlrpc/subscription' ]

@@ -34,6 +34,7 @@ import netsvc
 import sql_db
 import pooler
 import operator
+import release
 
 class ir_attachment(osv.osv):
 	_name = 'ir.attachment'
@@ -58,24 +59,41 @@ ir_attachment()
 
 regex_order = re.compile('^(([a-z0-9_]+|"[a-z0-9_]+")( *desc| *asc)?( *, *|))+$', re.I)
 
-class koo_services(netsvc.Service):
+if release.major_version == '5.0':
+	netsvc_service = netsvc.Service
+else:
+	import service
+	netsvc_service = service.web_services._ObjectService
+
+class koo_services(netsvc_service):
 	def __init__(self, name='koo'):
-		netsvc.Service.__init__(self,name)
+		netsvc_service.__init__(self,name)
 		self.joinGroup('web-services')
-		self.exportMethod(self.search)
+
+		if release.major_version == '5.0':
+			self.exportMethod(self.search)
+		else:
+			self.exportedMethods = [
+				'search',
+			]
+
+	def dispatch(self, method, auth, params):
+		if not method in self.exportedMethods:
+			raise KeyError("Method not found: %s" % method)
+		return self.common_dispatch(method, auth, params)
 
 	def search(self, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
 		security.check(db, uid, passwd)
 		conn = sql_db.db_connect(db)
 		cr = conn.cursor()
 		try:
-			return self.internal_search(cr, db, uid, passwd, model, filter, offset, limit, order, context, count, group)
+			return self.exp_search(cr, uid, model, filter, offset, limit, order, context, count, group)
 		finally:
 			cr.close()
 
-	def internal_search(self, cr, db, uid, passwd, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
+	def exp_search(self, cr, uid, model, filter, offset=0, limit=None, order=None, context=None, count=False, group=False):
 
-		pool = pooler.get_pool(db)
+		pool = pooler.get_pool(cr.dbname)
 		if not context:
 			context = {}
 
@@ -84,8 +102,14 @@ class koo_services(netsvc.Service):
 		table = pool.get(model)._table
 
 		# compute the where, order by, limit and offset clauses
-		(qu1, qu2, tables) = pool.get(model)._where_calc(cr, uid, filter, context=context)
-
+		if release.major_Version == '5.0':
+			(qu1, qu2, tables) = pool.get(model)._where_calc(cr, uid, filter, context=context)
+		else:
+			query = pool.get(model)._where_calc(cr, uid, filter, context=context)
+			qu1 = query.where_clause
+			qu2 = query.where_clause_params
+			tables = query.tables
+			
 		if len(qu1):
 		    qu1 = ' where ' + ' and '.join(qu1)
 		else:
@@ -99,11 +123,6 @@ class koo_services(netsvc.Service):
 		    field = m.group(2).replace('"', '')
 		    if field in pool.get(model)._columns:
 		    	if isinstance( pool.get(model)._columns[field], fields.many2one ):
-				# USING STANDARD search() FUNCTION
-				#resortField = field
-				#if m.group(3).strip().upper() in ('ASC', 'DESC'):
-					#resortOrder = m.group(3)
-				
 				# DIRECT JOIN WITH NO TRANSLATION SUPPORT
 				obj = pool.get(model)._columns[field]._obj
 				rec_name = pool.get(obj)._rec_name
@@ -113,6 +132,7 @@ class koo_services(netsvc.Service):
 				order = 'join_sort_field'
 				if m.group(3).strip().upper() in ('ASC', 'DESC'):
 					order += m.group(3)
+
 
 		order_by = order or pool.get(model)._order
 
@@ -358,8 +378,11 @@ osv.orm.orm_template.fields_get = new_fields_get
 
 old_fields_view_get = osv.orm.orm_template.fields_view_get
 
-def new_fields_view_get(self, cr, user, view_id=None, view_type='form', context=None, toolbar=False):
-	result = old_fields_view_get( self, cr, user, view_id, view_type, context, toolbar )
+def new_fields_view_get(self, cr, user, view_id=None, view_type='form', context=None, toolbar=False, submenu=False):
+	if release.major_version == '5.0':
+		result = old_fields_view_get( self, cr, user, view_id, view_type, context, toolbar )
+	else:
+		result = old_fields_view_get( self, cr, user, view_id, view_type, context, toolbar, submenu )
 	if toolbar:
 		def clean(x):
 			x = x[2]
