@@ -177,7 +177,7 @@ class Record(QObject):
 
 			for attribute, condition in attributeChanges.items():
 				for i in range(0, len(condition)):
-					if condition[i][2] and isinstance(condition[i][2], list):
+					if len(condition[i])>=3 and condition[i][2] and isinstance(condition[i][2], list):
 						attributeChanges[attribute][i] = (condition[i][0], condition[i][1], condition[i][2][0])
 			for attribute, condition in attributeChanges.iteritems():
 				value = self.evaluateCondition( condition )
