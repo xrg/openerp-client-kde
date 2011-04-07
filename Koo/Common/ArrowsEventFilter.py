@@ -140,6 +140,10 @@ class ArrowsEventFilter(QObject):
 
 			if nextWidget:
 				nextWidget.setFocus()
+				if isinstance(nextWidget, (QLineEdit, QTextEdit)):
+					nextWidget.selectAll()
+				if isinstance(nextWidget, QComboBox) and nextWidget.lineEdit():
+					nextWidget.lineEdit().selectAll()
 				return True
 		return QObject.eventFilter( self, obj, event )	
 
