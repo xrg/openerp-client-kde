@@ -79,6 +79,11 @@ class SearchFormContainer( QWidget ):
 
 class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
+	# Structure:
+	#   1) Operator used in domain
+	#   2) Label shown to the user
+	#   3) Field types in which the operator should be shown
+	#   4) Whether the user should be able to input a text to search for or not.
 	operators = (
 		('is empty', _('is empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('is not empty', _('is not empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
@@ -92,12 +97,9 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		('<=', _('less or equal to'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('in', _('in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 		('not in', _('not in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
+		('starts_with', _('starts with'), ('char','text'), True),
+		('ends_with', _('ends with'), ('char','text'), True),
 	)
-
-	typeOperators = {
-		'char': ('ilike', 'not ilike', '=', '<', '>', '<>'),
-		'integer': ('=', '<>', '>', '<')
-	}
 
 	typeRelated = ('many2one','many2many','one2many')
 
@@ -349,6 +351,13 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			text = ''
 		else:
 			(value, text) = self.correctValue( value, fieldName, relatedFieldName )
+
+		if operator == 'starts_with':
+			operator = '=ilike'
+			value = value + '%'
+		elif operator == 'ends_with':
+			operator = '=ilike'
+			value = '%' + value
 
 		if fieldType == 'user':
 			data = Rpc.session.execute('/object','execute','res.users','name_search',value)
