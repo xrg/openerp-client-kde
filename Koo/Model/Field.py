@@ -251,7 +251,7 @@ class ManyToOneField(StringField):
 		return False
 
 	def get_client(self, record):
-		if record.values[self.name]:
+		if record.values.get(self.name, False):
 			return record.values[self.name]
 		return False
 
