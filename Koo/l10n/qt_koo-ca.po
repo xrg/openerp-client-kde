@@ -20,155 +20,131 @@ msgstr ""
 "X-Generator: Launchpad (build 12138)\n"
 "X-Language: ca_ES\n"
 
-#. ts-context ExportDialog
 #: win_export.ui:232
 msgid "Import compatible"
 msgstr "Compatible amb la importació"
 
-#. ts-context AttachmentWindow
-#. ts-context KooMainWindow
-#: win_attach.ui:89 mainwindow.ui:584
+#.
+#.
+#: win_attach.ui:89 mainwindow.ui:597
 msgid "Ctrl+D"
 msgstr "Ctrl+D"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:596
+#: mainwindow.ui:609
 msgid "Ctrl+F"
 msgstr "Ctrl+F"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:707
+#: mainwindow.ui:720
 msgid "Ctrl+G"
 msgstr "Ctrl+G"
 
-#. ts-context ExportDialog
 #: win_export.ui:162
 msgid "&Save list"
 msgstr "&Desa la llista"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:807
+#: mainwindow.ui:820
 msgid "Ctrl+J"
 msgstr "Ctrl+J"
 
-#. ts-context AttachmentWindow
 #: win_attach.ui:125
 msgid "Ctrl+L"
 msgstr "Ctrl+L"
 
-#. ts-context AttachmentWindow
-#. ts-context KooMainWindow
-#: win_attach.ui:77 mainwindow.ui:548
+#.
+#.
+#: win_attach.ui:77 mainwindow.ui:561
 msgid "Ctrl+N"
 msgstr "Ctrl+N"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:431
+#: mainwindow.ui:444
 msgid "Ctrl+O"
 msgstr "Ctrl+O"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:858
 msgid "Set focus to one of the widgets in the container"
 msgstr "Estableix el cursor a un dels camps del contenidor"
 
-#. ts-context AttachmentWindow
-#. ts-context KooMainWindow
-#: win_attach.ui:149 mainwindow.ui:560
+#.
+#.
+#: win_attach.ui:149 mainwindow.ui:573
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:795
+#: mainwindow.ui:808
 msgid "Ctrl+T"
 msgstr "Ctrl+T"
 
-#. ts-context Form
-#: keypad.ui:147
+#: keypad.ui:148
 msgid "/"
 msgstr "/"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:677
+#: mainwindow.ui:690
 msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
-#. ts-context KooMainWindow
 #: mainwindow.ui:26
 msgid "Koo: OpenObject KDE Client"
 msgstr "Koo: Client OpenObject KDE"
 
-#. ts-context RichTextWidget
 #: richtext.ui:36
 msgid "Bold"
 msgstr "Negreta"
 
-#. ts-context AdminPasswordDialog
-#. ts-context ChangeServerDialog
-#. ts-context ChooseDatabaseDialog
-#. ts-context LoginDialog
+#.
+#.
+#.
+#.
 #: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:70
 msgid "&Server:"
 msgstr "&Servidor:"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:792
+#: mainwindow.ui:805
 msgid "Full &Text Search"
 msgstr "Cerca de &Text"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:421
 msgid "Paste selected text"
 msgstr "Enganxa el text seleccionat"
 
-#. ts-context Form
-#: keyboard.ui:644
+#: keyboard.ui:645
 msgid "0"
 msgstr "0"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:299
 msgid "Repeat admin password"
 msgstr "Repeteix la contrassenya de l'admin"
 
-#. ts-context Form
-#. ts-context FullTextSearchDialog
-#. ts-context WebWidget
+#.
+#.
+#.
 #: webcontainer.ui:24 full_text_search.ui:86 web.ui:23
 msgid "about:blank"
 msgstr "about:blank"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:662
+#: mainwindow.ui:675
 msgid "Previous Tab"
 msgstr "Vés a la pestanya anterior"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:727
 msgid "Close tab"
 msgstr "Tanca la pestanya"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:610
 msgid "<Ctrl> + <Shift> + Open"
 msgstr "<Ctrl> + <Shift> + Obre"
 
-#. ts-context Form
-#: keyboard.ui:657
+#: keyboard.ui:658
 msgid "P"
 msgstr "P"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:374
 msgid "Clear field"
 msgstr "Neteja el camp"
 
-#. ts-context RichTextWidget
 #: richtext.ui:282
 msgid "Foreground Color"
 msgstr "Color del text"
 
-#. ts-context FullTextSearchDialog
 #: full_text_search.ui:37
 msgid ""
 "Here you can search for any term in the whole database as long as it has "
@@ -190,95 +166,82 @@ msgstr ""
 "documents que continguin les paraules \"construït\", \"construir\" o "
 "\"construcció\"."
 
-#. ts-context FullTextSearchDialog
-#. ts-context KooMainWindow
-#. ts-context SearchWidget
-#: full_text_search.ui:66 mainwindow.ui:593 win_search.ui:86
+#.
+#.
+#.
+#: full_text_search.ui:66 mainwindow.ui:606 win_search.ui:86
 msgid "&Find"
 msgstr "&Cerca"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:787
 msgid "Open view in a background tab"
 msgstr "Obre la vista en una pestanya de fons"
 
-#. ts-context ImportDialog
 #: win_import.ui:175
 msgid "File &type:"
 msgstr "&Tipus de fitxer:"
 
-#. ts-context Form
-#: keyboard.ui:420
+#: keyboard.ui:421
 msgid "Tab"
 msgstr "Tab"
 
-#. ts-context ExportDialog
 #: win_export.ui:76
 msgid "<b>All fields</b>"
 msgstr "<b>Tots els camps</b>"
 
-#. ts-context ImportDialog
 #: win_import.ui:280
 msgid "Sheet:"
 msgstr "Full:"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:676
 msgid "Selects all records"
 msgstr "Selecciona tots els registres"
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:93
 msgid "for all &users"
 msgstr "tots els &usuaris"
 
-#. ts-context SearchDateWidget
 #: search_date.ui:56
 msgid "Choose a date from a calendar"
 msgstr "Escolliu una data del calendari"
 
-#. ts-context SearchFormWidget
-#: searchform.ui:119
+#: searchform.ui:133
 msgid "&Search"
 msgstr "&Cerca"
 
-#. ts-context ExportDialog
 #: win_export.ui:22
 msgid "<b>Predefined exports</b>"
 msgstr "<b>Exportacions predefinides</b>"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:113
 msgid "(must not contain any special character)"
 msgstr "(no pot contenir cap caràcter especial)"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:286
 msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
 "<center><i>Quan s'edita un recurs en una finestra emergent</i></center>"
 
-#. ts-context ImportDialog
 #: win_import.ui:212
 msgid "&Text delimiter:"
 msgstr "&Delimitador de text:"
 
-#. ts-context CalendarWidget
-#. ts-context Form
-#. ts-context FormContainerWidget
-#. ts-context ManyToManyWidget
-#. ts-context ManyToOneWidget
-#. ts-context OneToManyWidget
-#. ts-context PanedWidget
-#. ts-context ReferenceWidget
-#. ts-context RichTextWidget
-#. ts-context SearchDateWidget
-#. ts-context SearchFormWidget
-#. ts-context SearchReferenceWidget
-#. ts-context SearchViewItemWidget
-#. ts-context TreeWidget
-#. ts-context UrlWidget
-#. ts-context WebWidget
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
 #: calendar.ui:20 image.ui:13 formcontainer.ui:13 many2many.ui:14
 #: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:14
 #: search_date.ui:26 searchform.ui:14 searchreference.ui:13
@@ -286,145 +249,120 @@ msgstr "&Delimitador de text:"
 msgid "Form"
 msgstr "Formulari"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:808
 msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr "<Alt> + Fletxa (Esquerra, dreta, amunt, avall)"
 
-#. ts-context Form
-#: keyboard.ui:618
+#: keyboard.ui:619
 msgid "+"
 msgstr "+"
 
-#. ts-context Form
-#: keyboard.ui:433
+#: keyboard.ui:434
 msgid "Caps"
 msgstr "Caps"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:828
 msgid "Set focus to current widget's container"
 msgstr "Estableix el cursor al contenidor del camp actual"
 
-#. ts-context AttachmentWindow
-#. ts-context KooMainWindow
-#: win_attach.ui:101 mainwindow.ui:608
+#.
+#.
+#: win_attach.ui:101 mainwindow.ui:621
 msgid "Alt+PgDown"
 msgstr "Alt+PgDown"
 
-#. ts-context ErrorDialog
 #: error.ui:109
 msgid "De&tails"
 msgstr "&Detalls"
 
-#. ts-context Form
-#: keyboard.ui:173
+#: keyboard.ui:174
 msgid "K"
 msgstr "K"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:319
+#: mainwindow.ui:332
 msgid "Documentation"
 msgstr "Documentació"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:464
+#: mainwindow.ui:477
 msgid "&New Database"
 msgstr "&Base de dades nova"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:572
+#: mainwindow.ui:585
 msgid "Ctrl+Shift+D"
 msgstr "Ctrl+Shift+D"
 
-#. ts-context ChooseDatabaseDialog
-#. ts-context LoginDialog
+#.
+#.
 #: choosedb.ui:95 login.ui:111
 msgid "&Database:"
 msgstr "&Base de dades:"
 
-#. ts-context ErrorDialog
 #: error.ui:135
 msgid "&Remote Help"
 msgstr "Ajuda &Remota"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:411
 msgid "Copy selected text"
 msgstr "Copia el text seleccionat"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:24
 msgid "&Main Shortcuts"
 msgstr "Dreceres &Principals"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:760
+#: mainwindow.ui:773
 msgid "&Tips"
 msgstr "&Consells"
 
-#. ts-context ImportDialog
 #: win_import.ui:17
 msgid "Import"
 msgstr "Importa"
 
-#. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:13
 msgid "Database created"
 msgstr "Base de dades creada"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:26
 msgid "<b>Could not connect to database</b>"
 msgstr "<b>No s'ha pogut connectar amb la base de dades</b>"
 
-#. ts-context SearchDateWidget
 #: search_date.ui:112
 msgid "Choose the date from a calendar"
 msgstr "Escolliu la data d'un calendari"
 
-#. ts-context ExportDialog
 #: win_export.ui:197
 msgid "<b>Options</b>"
 msgstr "<b>Opcions</b>"
 
-#. ts-context Dialog
 #: lostconnection.ui:73
 msgid "&Retry"
 msgstr "&Reintenta"
 
-#. ts-context Form
-#: keyboard.ui:553
+#: keyboard.ui:554
 msgid "6"
 msgstr "6"
 
-#. ts-context AttachmentWindow
-#. ts-context ShortcutsDialog
+#.
+#.
 #: win_attach.ui:86 shortcuts.ui:90
 msgid "Delete"
 msgstr "Elimina"
 
-#. ts-context Form
-#: keyboard.ui:56
+#: keyboard.ui:57
 msgid "E"
 msgstr "E"
 
-#. ts-context RichTextWidget
 #: richtext.ui:331
 msgid "Select font size"
 msgstr "Seleccioneu la mida de la lletra"
 
-#. ts-context Form
-#: keyboard.ui:160
+#: keyboard.ui:161
 msgid "F"
 msgstr "F"
 
-#. ts-context Form
-#: keyboard.ui:225
+#: keyboard.ui:226
 msgid "Ñ"
 msgstr "Ñ"
 
-#. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:66
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -463,63 +401,52 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
 "\">Administrador: admin / admin</p></body></html>"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:343
+#: mainwindow.ui:356
 msgid "&Reports"
 msgstr "&Informes"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:747
 msgid "Open form view in new tab"
 msgstr "Obre la vista de formulari en una nova pestanya"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:596
 msgid "<Ctrl> + Open"
 msgstr "<Ctrl> + Open"
 
-#. ts-context Form
-#: keyboard.ui:290
+#: keyboard.ui:291
 msgid "V"
 msgstr "V"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:603
 msgid "F1"
 msgstr "F1"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:617
 msgid "F2"
 msgstr "F2"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:367
 msgid "F3"
 msgstr "F3"
 
-#. ts-context KooMainWindow
-#. ts-context ShortcutsDialog
-#: mainwindow.ui:719 shortcuts.ui:236
+#.
+#.
+#: mainwindow.ui:732 shortcuts.ui:236
 msgid "F5"
 msgstr "F5"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:632
+#: mainwindow.ui:645
 msgid "F6"
 msgstr "F6"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:446
+#: mainwindow.ui:459
 msgid "&Disconnect"
 msgstr "&Desconnecta"
 
-#. ts-context ChangeServerDialog
 #: change_server.ui:32
 msgid "Connect to a OpenERP Server"
 msgstr "Connectar a un servidor OpenERP"
 
-#. ts-context AboutDialog
 #: about.ui:20
 msgid ""
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
@@ -546,7 +473,6 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">L'ERP &amp; CRM de codi "
 "obert més avançat!</p></center></body></html>"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:523
 msgid ""
 "Formula + <Enter>\n"
@@ -555,7 +481,6 @@ msgstr ""
 "Fórmula + <Enter>\n"
 "(Exemple: 3+2*2)"
 
-#. ts-context AboutDialog
 #: about.ui:48
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -650,195 +575,160 @@ msgstr ""
 "Serif'; font-size:9pt; text-decoration: underline; color:#0000ff;\">http://"
 "www.nan-tic.com</span></a></p></body></html>"
 
-#. ts-context OneToManyWidget
-#. ts-context PanedWidget
+#.
+#.
 #: one2many.ui:263 paned.ui:117
 msgid "Switch View"
 msgstr "Canvia la vista"
 
-#. ts-context Form
 #: customsearchitem.ui:63
 msgid "&And"
 msgstr "&I"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:650
+#: mainwindow.ui:663
 msgid "Next Tab"
 msgstr "Vés a la pestanya següent"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:14
 msgid "Create a new database"
 msgstr "Crea una base de dades nova"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:717
 msgid "Middle mouse click on Tab"
 msgstr "Clic amb el botó del mig en una pestanya"
 
-#. ts-context ImportDialog
 #: win_import.ui:253
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#. ts-context AdminPasswordDialog
 #: admin_passwd.ui:57
 msgid "&Old password:"
 msgstr "&Contrassenya anterior:"
 
-#. ts-context Form
-#: keyboard.ui:527
+#: keyboard.ui:528
 msgid "1"
 msgstr "1"
 
-#. ts-context TipsDialog
 #: tip.ui:96
 msgid "&Display a new tip next time ?"
 msgstr "&Mostra el consell del dia el proper cop?"
 
-#. ts-context Form
-#: keyboard.ui:199
+#: keyboard.ui:200
 msgid "A"
 msgstr "A"
 
-#. ts-context Form
 #: image.ui:56
 msgid "Load Image"
 msgstr "Carrega la imatge"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:527
+#: mainwindow.ui:540
 msgid "&Read My Requests"
 msgstr "&Llegeix les meves peticions"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:107
 msgid "Find / Search"
 msgstr "Cerca"
 
-#. ts-context ImportDialog
 #: win_import.ui:131
 msgid "Fields to import"
 msgstr "Camps a importar"
 
-#. ts-context Form
-#: keyboard.ui:579
+#: keyboard.ui:580
 msgid "Q"
 msgstr "Q"
 
-#. ts-context AboutDialog
 #: about.ui:76
 msgid "&Contact"
 msgstr "&Contata"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:475
 msgid "<Tab>"
 msgstr "<Tab>"
 
-#. ts-context ManyToOneWidget
 #: one2many_dialog.ui:14
 msgid "OpenERP - Link"
 msgstr "Enllaç - OpenERP"
 
-#. ts-context ImportDialog
 #: win_import.ui:151
 msgid "File to &import:"
 msgstr "Fitxer a &importar:"
 
-#. ts-context ExportDialog
 #: win_export.ui:210
 msgid "Add &field names"
 msgstr "Afegeix els noms dels &camps"
 
-#. ts-context ImportDialog
 #: win_import.ui:110
 msgid "Auto-&detect"
 msgstr "Auto-&detecta"
 
-#. ts-context BinaryWidget
 #: binary.ui:64
 msgid "Save file..."
 msgstr "Desa a un fitxer..."
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:55
 msgid "Default &value"
 msgstr "&Valor per omissió"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:702
 msgid "&Advanced"
 msgstr "&Avançat"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:774
+#: mainwindow.ui:787
 msgid "&License"
 msgstr "&Llicència"
 
-#. ts-context Form
 #: calendarview.ui:34
 msgid "Monthly View"
 msgstr "Vista mensual"
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:102
 msgid "<b>Value applicable if:</b>"
 msgstr "<b>Valor aplicable si:</b>"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:816
+#: mainwindow.ui:829
 msgid "&Form designer"
 msgstr "&Dissenyador de formularis"
 
-#. ts-context ImportDialog
 #: win_import.ui:293
 msgid "&Lines to skip:"
 msgstr "&Línies a saltar:"
 
-#. ts-context Form
-#. ts-context ImportDialog
-#: keyboard.ui:303 win_import.ui:205
+#.
+#.
+#: keyboard.ui:304 win_import.ui:205
 msgid ","
 msgstr ","
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:581
+#: mainwindow.ui:594
 msgid "&Delete"
 msgstr "&Elimina"
 
-#. ts-context KooMainWindow
-#. ts-context SearchWidget
-#: mainwindow.ui:545 win_search.ui:67
+#.
+#.
+#: mainwindow.ui:558 win_search.ui:67
 msgid "&New"
 msgstr "&Nou"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:465
 msgid "Auto-complete text field"
 msgstr "Auto-completa el camp de text"
 
-#. ts-context Form
-#: keyboard.ui:631
+#: keyboard.ui:632
 msgid "Ç"
 msgstr "Ç"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:500
+#: mainwindow.ui:513
 msgid "&Administrator Password"
 msgstr "&Contrassenya de l'administrador"
 
-#. ts-context Form
-#: keyboard.ui:212
+#: keyboard.ui:213
 msgid "L"
 msgstr "L"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:830
+#: mainwindow.ui:843
 msgid "Open Home Tab"
 msgstr "Obre la pestanya inicial"
 
-#. ts-context Dialog
 #: lostconnection.ui:45
 msgid ""
 "Connection with the server has been lost. Will retry connection in 10 "
@@ -847,468 +737,395 @@ msgstr ""
 "S'ha perdut la connexió amb el servidor. Es tornarà a intentar d'aquí a 10 "
 "segons."
 
-#. ts-context ImportDialog
 #: win_import.ui:33
 msgid "All fields"
 msgstr "Tots els camps"
 
-#. ts-context AttachmentWindow
-#. ts-context OneToManyWidget
+#.
+#.
 #: win_attach.ui:110 one2many.ui:192
 msgid "Previous"
 msgstr "Anterior"
 
-#. ts-context PreferencesDialog
 #: preferences.ui:14
 msgid "Preferences"
 msgstr "Preferències"
 
-#. ts-context ChooseDatabaseDialog
 #: choosedb.ui:13
 msgid "Choose database..."
 msgstr "Escull la base de dades..."
 
-#. ts-context AttachmentWindow
-#. ts-context OneToManyWidget
+#.
+#.
 #: win_attach.ui:98 one2many.ui:234
 msgid "Next"
 msgstr "Següent"
 
-#. ts-context AdminPasswordDialog
 #: admin_passwd.ui:91
 msgid "New password &confirmation:"
 msgstr "&Confirmació de la contrassenya nova:"
 
-#. ts-context AttachmentWindow
-#. ts-context ShortcutsDialog
+#.
+#.
 #: win_attach.ui:146 shortcuts.ui:73
 msgid "Save"
 msgstr "Desa"
 
-#. ts-context Form
-#: keyboard.ui:605
+#: keyboard.ui:606
 msgid "'"
 msgstr "'"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:839
+#: mainwindow.ui:852
 msgid "&Clear Cache"
 msgstr "&Neteja la cache"
 
-#. ts-context ChooseDatabaseDialog
-#. ts-context Form
-#. ts-context OneToManyWidget
-#. ts-context SearchViewItemWidget
+#.
+#.
+#.
+#.
 #: choosedb.ui:123 image.ui:25 one2many.ui:80 searchviewitem.ui:164
 msgid "TextLabel"
 msgstr "TextLabel"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:799
 msgid "<b>Shortcuts in text entries</b>"
 msgstr "<b>Dreceres en camps de text</b>"
 
-#. ts-context Form
-#: keyboard.ui:475
+#: keyboard.ui:476
 msgid "7"
 msgstr "7"
 
-#. ts-context Form
-#: keyboard.ui:186
+#: keyboard.ui:187
 msgid "G"
 msgstr "G"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:123
 msgid "(use 'admin', if you did not change it)"
 msgstr "(utilitzeu \"admin\", si no ho heu canviat)"
 
-#. ts-context BinaryWidget
-#. ts-context LinkWidget
+#.
+#.
 #: binary.ui:47 link.ui:36
 msgid "Select file..."
 msgstr "Selecciona un fitxer..."
 
-#. ts-context AdminPasswordDialog
 #: admin_passwd.ui:20
 msgid "<b>Change your database administration password</b>"
 msgstr "<b>Canvia la contrassenya de l'administrador</b>"
 
-#. ts-context Form
-#: keyboard.ui:43
+#: keyboard.ui:44
 msgid "W"
 msgstr "W"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:353
 msgid "F10"
 msgstr "F10"
 
-#. ts-context ChooseDatabaseDialog
-#. ts-context LoginDialog
+#.
+#.
 #: choosedb.ui:78 login.ui:221
 msgid "&Password:"
 msgstr "C&ontrasenya:"
 
-#. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:56
 msgid "Database created successfully!"
 msgstr "Base de dades creada correctament!"
 
-#. ts-context ErrorDialog
 #: error.ui:124
 msgid "&Send Error"
 msgstr "&Envia l'error"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:582
 msgid "Create a new record"
 msgstr "Crea un nou registre"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:821
+#: mainwindow.ui:834
 msgid "&Menu"
 msgstr "&Menú"
 
-#. ts-context FullTextSearchDialog
-#. ts-context KooMainWindow
-#. ts-context ManyToOneWidget
-#: full_text_search.ui:115 mainwindow.ui:617 one2many_dialog.ui:57
+#.
+#.
+#.
+#: full_text_search.ui:115 mainwindow.ui:630 one2many_dialog.ui:57
 msgid "&Previous"
 msgstr "&Previous"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:881
+#: mainwindow.ui:894
 msgid "Insert Several Records at Once"
 msgstr "Insereix múltiples registres alhora"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:158
 msgid "Next record"
 msgstr "Registre següent"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:872
+#: mainwindow.ui:885
 msgid "Push Button of All Selected Records"
 msgstr "Prémer un botó dels registres seleccionats"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:297
+#: mainwindow.ui:310
 msgid "&Actions"
 msgstr "&Accions"
 
-#. ts-context ImportDialog
 #: win_import.ui:222
 msgid "\""
 msgstr "\""
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:348
+#: mainwindow.ui:361
 msgid "F&orm"
 msgstr "F&ormulari"
 
-#. ts-context Form
-#: keyboard.ui:501
+#: keyboard.ui:502
 msgid "2"
 msgstr "2"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:263
+#: mainwindow.ui:276
 msgid "&Database"
 msgstr "&Base de dades"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:572
 msgid "Opens the record in a new background tab"
 msgstr "Obre el registre en una nova pestanya de fons"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:783
+#: mainwindow.ui:796
 msgid "&About"
 msgstr "&Quant a"
 
-#. ts-context ManyToOneWidget
-#. ts-context PanedWidget
-#. ts-context SearchWidget
+#.
+#.
+#.
 #: many2one.ui:59 paned.ui:83 win_search.ui:14
 msgid "Search"
 msgstr "Cerca"
 
-#. ts-context Form
-#: keyboard.ui:316
+#: keyboard.ui:317
 msgid "B"
 msgstr "B"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:155
+#: mainwindow.ui:168
 msgid "Requests:"
 msgstr "Peticions:"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:315
+#: mainwindow.ui:328
 msgid "&Help"
 msgstr "&Ajuda"
 
-#. ts-context Form
-#: keyboard.ui:69
+#: keyboard.ui:70
 msgid "R"
 msgstr "R"
 
-#. ts-context ChooseDatabaseDialog
 #: choosedb.ui:64
 msgid "&Change"
 msgstr "Can&via"
 
-#. ts-context ShortcutsDialog
-#. ts-context TreeWidget
+#.
+#.
 #: shortcuts.ui:14 tree.ui:58
 msgid "Shortcuts"
 msgstr "Dreceres de teclat"
 
-#. ts-context RichTextWidget
 #: richtext.ui:123
 msgid "Strikethrough"
 msgstr "Ratllat"
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:74
 msgid "<b>Value applicable for:</b>"
 msgstr "<b>Valor aplicable a:</b>"
 
-#. ts-context Form
-#: keypad.ui:238
+#: keypad.ui:239
 msgid "Intro"
 msgstr "Intro"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:39
 msgid "Connect"
 msgstr "Connecta"
 
-#. ts-context ManyToOneWidget
 #: one2many_dialog.ui:118
 msgid "&OK"
 msgstr "&D'acord"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:285
+#: mainwindow.ui:298
 msgid "&User"
 msgstr "&Usuari"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:665
+#: mainwindow.ui:678
 msgid "Ctrl+PgUp"
 msgstr "Ctrl+PgUp"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:124
 msgid "Full Text Search"
 msgstr "Cerca de text"
 
-#. ts-context ErrorDialog
 #: error.ui:64
 msgid "<b>Error code:</b>"
 msgstr "<b>Codi d'error:</b>"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:151
 msgid "<Alt> + <PgDn>"
 msgstr "<Alt> + <PgDn>"
 
-#. ts-context BatchUpdateDialog
 #: batchupdate.ui:13
 msgid "Batch Update Process"
 msgstr "Procés de modificació en bloc"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:686
+#: mainwindow.ui:699
 msgid "View Access Log"
 msgstr "Veure el registre d'accessos"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:209
 msgid "Next tab"
 msgstr "Pestanya següent"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:431
 msgid "Next editable widget"
 msgstr "Següent camp editable"
 
-#. ts-context Form
-#. ts-context SearchDateWidget
-#: keyboard.ui:355 search_date.ui:81
+#.
+#.
+#: keyboard.ui:356 search_date.ui:81
 msgid "-"
 msgstr "-"
 
-#. ts-context Form
-#: keyboard.ui:147
+#: keyboard.ui:148
 msgid "J"
 msgstr "J"
 
-#. ts-context Form
-#: keyboard.ui:277
+#: keyboard.ui:278
 msgid "M"
 msgstr "M"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:569
+#: mainwindow.ui:582
 msgid "D&uplicate"
 msgstr "D&uplica"
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:38
 msgid "&Domain"
 msgstr "&Domini"
 
-#. ts-context Form
-#: keyboard.ui:407
+#: keyboard.ui:408
 msgid "Enter"
 msgstr "Enter"
 
-#. ts-context LoginDialog
 #: login.ui:23
 msgid "Login"
 msgstr "Autenticació"
 
-#. ts-context FullTextSearchDialog
 #: full_text_search.ui:14
 msgid "Full text search"
 msgstr "Cerca de text"
 
-#. ts-context ExportDialog
-#. ts-context ImportDialog
-#. ts-context ManyToManyWidget
+#.
+#.
+#.
 #: win_export.ui:127 win_import.ui:75 many2many.ui:60
 msgid "&Remove"
 msgstr "&Elimina"
 
-#. ts-context AdminPasswordDialog
 #: admin_passwd.ui:74
 msgid "&New password:"
 msgstr "Contrassenya &nova:"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:267
+#: mainwindow.ui:280
 msgid "&Databases"
 msgstr "&Bases de dades"
 
-#. ts-context FullTextSearchDialog
-#. ts-context ImportDialog
-#. ts-context KooMainWindow
-#. ts-context ShortcutsDialog
-#. ts-context TipsDialog
-#: full_text_search.ui:158 win_import.ui:335 mainwindow.ui:674
+#.
+#.
+#.
+#.
+#.
+#: full_text_search.ui:158 win_import.ui:335 mainwindow.ui:687
 #: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "&Tanca"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:253
 msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:858
+#: mainwindow.ui:871
 msgid "HTML Manual"
 msgstr "Manual HTML"
 
-#. ts-context ImportDialog
 #: win_import.ui:195
 msgid "&Field separator"
 msgstr "&Separador de camp"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:641
+#: mainwindow.ui:654
 msgid "Open &Menu Tab"
 msgstr "Obre la pestanya de &menú"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:518
+#: mainwindow.ui:531
 msgid "&Send Request"
 msgstr "&Envia una petició"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:50
 msgid "&New database name:"
 msgstr "&Nom de la base de dades nova:"
 
-#. ts-context ErrorDialog
 #: error.ui:71
 msgid "View details"
 msgstr "Veure els detalls"
 
-#. ts-context RichTextWidget
 #: richtext.ui:301
 msgid "Background color"
 msgstr "Color de fons"
 
-#. ts-context ErrorDialog
 #: error.ui:20
 msgid "Application Error !"
 msgstr "Error de l'aplicació!"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:233
 msgid "&OpenERP server:"
 msgstr "Servidor &OpenERP:"
 
-#. ts-context ChooseDatabaseDialog
 #: choosedb.ui:25
 msgid "Action here..."
 msgstr "Acció aquí..."
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:562
 msgid "Opens the record in a new tab"
 msgstr "Obre el regsitre en una nova pestanya"
 
-#. ts-context Form
-#: keyboard.ui:566
+#: keyboard.ui:567
 msgid "8"
 msgstr "8"
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:83
 msgid "&only for you"
 msgstr "&només a vós"
 
-#. ts-context Form
-#: keyboard.ui:264
+#: keyboard.ui:265
 msgid "H"
 msgstr "H"
 
-#. ts-context Form
 #: calendarview.ui:83
 msgid "Color Legend"
 msgstr "Llegenda de colors"
 
-#. ts-context Form
 #: image.ui:73
 msgid "Save Image"
 msgstr "Desa la imatge"
 
-#. ts-context Form
-#: keyboard.ui:368
+#: keyboard.ui:369
 msgid "X"
 msgstr "X"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:138
+#: mainwindow.ui:151
 msgid "Help"
 msgstr "Ajuda"
 
-#. ts-context TreeWidget
 #: tree.ui:91
 msgid "Remove Shortcut"
 msgstr "Elimina l'accés directe"
 
-#. ts-context FieldDefaultsDialog
 #: field_preferences.ui:21
 msgid "Field &Name"
 msgstr "Nom del &camp"
 
-#. ts-context Form
+#: translationdialog.ui:14
+msgid "Translation Dialog"
+msgstr "Diàleg de traducció"
+
 #: customsearchitem.ui:56
 msgid ""
 "If operator is 'in' or 'not in' you may introduce a list of comma separated "
@@ -1317,52 +1134,42 @@ msgstr ""
 "Si l'operador és \"és dins de\" o bé \"no és dins de\" podeu introduir una "
 "llista de valors separats per comes."
 
-#. ts-context ErrorDialog
 #: error.ui:34
 msgid "&Description"
 msgstr "&Descripció"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:260
 msgid "Duplicate Record"
 msgstr "Duplica el registre"
 
-#. ts-context Form
-#: keyboard.ui:381
+#: keyboard.ui:382
 msgid "C"
 msgstr "C"
 
-#. ts-context LoginDialog
 #: login.ui:176
 msgid "<b>Could not connect to server !</b>"
 msgstr "<b>No s'ha pogut connectar al servidor !</b>"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:197
 msgid "&Load demonstration data"
 msgstr "Carrega &dades de demostració"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:292
 msgid "Admin password:"
 msgstr "Contrassenya de l'admin:"
 
-#. ts-context Form
-#: keyboard.ui:514
+#: keyboard.ui:515
 msgid "3"
 msgstr "3"
 
-#. ts-context TranslationDialog
-#: translationdialog.ui:14
-msgid "Translation Dialog"
-msgstr "Diàleg de traducció"
+#: keyboard.ui:684
+msgid "Supr"
+msgstr ""
 
-#. ts-context TreeWidget
 #: tree.ui:111
 msgid "Expand/Collapse"
 msgstr "Expandeix/Col·lapsa"
 
-#. ts-context FullTextSearchDialog
 #: full_text_search.ui:42
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -1389,7 +1196,6 @@ msgstr ""
 "style=\" text-decoration: underline; color:#0000ff;\">?</span></a></p></"
 "body></html>"
 
-#. ts-context ProgressDialog
 #: progress.ui:53
 msgid ""
 "Please wait, \n"
@@ -1398,38 +1204,35 @@ msgstr ""
 "Si us plau, espereu, \n"
 "aquesta operació pot tardar una estona..."
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:204
+#: mainwindow.ui:217
 msgid "Read My Requests"
 msgstr "Llegeix les meves peticions"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:141
 msgid "Previous Record"
 msgstr "Registre anterior"
 
-#. ts-context ChangeServerDialog
 #: change_server.ui:20
 msgid "Server"
 msgstr "Servidor"
 
-#. ts-context AboutDialog
-#. ts-context AdminPasswordDialog
-#. ts-context BatchUpdateDialog
-#. ts-context ChangeServerDialog
-#. ts-context ChooseDatabaseDialog
-#. ts-context CreateDatabaseDialog
-#. ts-context Dialog
-#. ts-context ErrorDialog
-#. ts-context ExportDialog
-#. ts-context FieldDefaultsDialog
-#. ts-context GoToIdDialog
-#. ts-context LicenseDialog
-#. ts-context LoginDialog
-#. ts-context PreferencesDialog
-#. ts-context SearchWidget
-#. ts-context SelectionDialog
-#. ts-context TranslationDialog
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
 #: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
 #: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
 #: error.ui:159 win_export.ui:265 field_preferences.ui:134 gotoid.ui:72
@@ -1438,43 +1241,40 @@ msgstr "Servidor"
 msgid "&Accept"
 msgstr "&Accepta"
 
-#. ts-context Form
-#: keyboard.ui:238
+#: keyboard.ui:239
 msgid "S"
 msgstr "S"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:491
+#: mainwindow.ui:504
 msgid "&Drop Database"
 msgstr "&Elimina la base de dades"
 
-#. ts-context SearchFormWidget
-#: searchform.ui:108
+#: searchform.ui:122
 msgid "&Clear"
 msgstr "&Neteja"
 
-#. ts-context AdminPasswordDialog
-#. ts-context CreateDatabaseDialog
-#. ts-context LoginDialog
+#.
+#.
+#.
 #: admin_passwd.ui:46 create_database.ui:94 login.ui:98
 msgid "C&hange"
 msgstr "Can&via"
 
-#. ts-context AdminPasswordDialog
-#. ts-context BatchUpdateDialog
-#. ts-context ChangeServerDialog
-#. ts-context ChooseDatabaseDialog
-#. ts-context CreateDatabaseDialog
-#. ts-context Dialog
-#. ts-context ExportDialog
-#. ts-context FieldDefaultsDialog
-#. ts-context GoToIdDialog
-#. ts-context LoginDialog
-#. ts-context ManyToOneWidget
-#. ts-context PreferencesDialog
-#. ts-context SearchWidget
-#. ts-context SelectionDialog
-#. ts-context TranslationDialog
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
+#.
 #: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
 #: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:279
 #: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
@@ -1483,137 +1283,113 @@ msgstr "Can&via"
 msgid "&Cancel"
 msgstr "&Cancel·la"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:645
 msgid "Remove current record"
 msgstr "Elimina el registre actual"
 
-#. ts-context Form
 #: image.ui:90
 msgid "Remove Image"
 msgstr "Elimina la imatge"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:853
+#: mainwindow.ui:866
 msgid "PDF Manual"
 msgstr "Manual PDF"
 
-#. ts-context ImportDialog
 #: win_import.ui:324
 msgid "&Import"
 msgstr "&Importa"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:134
 msgid "<Alt> + <PgUp>"
 msgstr "<Alt> + <PgUp>"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:227
+#: mainwindow.ui:240
 msgid "Send New Request"
 msgstr "Envia una nova petició"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:653
+#: mainwindow.ui:666
 msgid "Ctrl+PgDown"
 msgstr "Ctrl+PgDown"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:624
 msgid "<Enter>"
 msgstr "<Enter>"
 
-#. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:98
 msgid "Connect &now"
 msgstr "Connecta &ara"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:737
+#: mainwindow.ui:750
 msgid "&Import Data"
 msgstr "&Importa dades"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:258
+#: mainwindow.ui:271
 msgid "&Plugins"
 msgstr "&Extensions"
 
-#. ts-context RichTextWidget
 #: richtext.ui:159
 msgid "Left Justify"
 msgstr "Alineat a l'esquerra"
 
-#. ts-context Form
-#: keyboard.ui:342
+#: keyboard.ui:343
 msgid "."
 msgstr "."
 
-#. ts-context TipsDialog
 #: tip.ui:20
 msgid "Tip of the Day"
 msgstr "Consell del dia"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:509
+#: mainwindow.ui:522
 msgid "&Preferences"
 msgstr "&Preferències"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:755
+#: mainwindow.ui:768
 msgid "&Contextual Help"
 msgstr "&Ajuda contextual"
 
-#. ts-context Dialog
 #: lostconnection.ui:32
 msgid "Connection Lost"
 msgstr "Connexió perduda"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:389
 msgid "Shortcuts in text entries"
 msgstr "Dreceres en camps de text"
 
-#. ts-context Form
-#: keyboard.ui:394
+#: keyboard.ui:395
 msgid "N"
 msgstr "N"
 
-#. ts-context AttachmentWindow
 #: win_attach.ui:122
 msgid "Switch"
 msgstr "Canvia"
 
-#. ts-context Form
-#: keyboard.ui:462
+#: keyboard.ui:463
 msgid "Space"
 msgstr "Space"
 
-#. ts-context AdminPasswordDialog
-#. ts-context ExportDialog
-#. ts-context FieldDefaultsDialog
-#. ts-context SelectionDialog
+#.
+#.
+#.
+#.
 #: admin_passwd.ui:14 win_export.ui:14 field_preferences.ui:13
 #: win_selection.ui:13
 msgid "Dialog"
 msgstr "Diàleg"
 
-#. ts-context AttachmentWindow
-#. ts-context KooMainWindow
-#: win_attach.ui:16 mainwindow.ui:804
+#.
+#.
+#: win_attach.ui:16 mainwindow.ui:817
 msgid "Attachments"
 msgstr "Adjunts"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:482
+#: mainwindow.ui:495
 msgid "&Backup Database"
 msgstr "Fes una còpia de seguretat de la &base de dades"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:344
 msgid "General"
 msgstr "General"
 
-#. ts-context ExportDialog
 #: win_export.ui:220
 msgid ""
 "<p>\n"
@@ -1648,69 +1424,57 @@ msgstr ""
 "OpenERP.\n"
 "</p>"
 
-#. ts-context PanedWidget
-#. ts-context ReferenceWidget
-#. ts-context UrlWidget
+#.
+#.
+#.
 #: paned.ui:100 reference.ui:49 url.ui:51
 msgid "Open"
 msgstr "Obre"
 
-#. ts-context Form
 #: calendarview.ui:50
 msgid "Weekly View"
 msgstr "Vista setmanal"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:511
 msgid "Numeric fields"
 msgstr "Camps numèrics"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:746
+#: mainwindow.ui:759
 msgid "&Execute Plugins"
 msgstr "&Executa extensions"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:631
 msgid "Add new record"
 msgstr "Afegeix un nou registre"
 
-#. ts-context ProgressDialog
 #: progress.ui:14
 msgid "Progress..."
 msgstr "Progress..."
 
-#. ts-context GoToIdDialog
 #: gotoid.ui:22
 msgid "&Search Id:"
 msgstr "&Cerca l'id:"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:312
 msgid "<Ctrl> + <Esc>"
 msgstr "<Ctrl> + <Esc>"
 
-#. ts-context Form
-#: keyboard.ui:592
+#: keyboard.ui:593
 msgid "<-"
 msgstr "<-"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:757
 msgid "Mouse Wheel on Tab"
 msgstr "Rodeta del ratolí en les pestanyes"
 
-#. ts-context Form
-#: keyboard.ui:488
+#: keyboard.ui:489
 msgid "9"
 msgstr "9"
 
-#. ts-context FormContainerWidget
 #: formcontainer.ui:56
 msgid "State:"
 msgstr "Estat:"
 
-#. ts-context AboutDialog
 #: about.ui:82
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -1779,399 +1543,330 @@ msgstr ""
 "size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-tic."
 "com</span></a></p></body></html>"
 
-#. ts-context KooMainWindow
-#. ts-context LoginDialog
-#: mainwindow.ui:473 login.ui:143
+#.
+#.
+#: mainwindow.ui:486 login.ui:143
 msgid "&Restore Database"
 msgstr "&Restaura una base de dades"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:448
 msgid "Previous editable widget"
 msgstr "Camp editable anterior"
 
-#. ts-context Form
-#: keyboard.ui:121
+#: keyboard.ui:122
 msgid "I"
 msgstr "I"
 
-#. ts-context BinaryWidget
-#. ts-context ReferenceWidget
+#.
+#.
 #: binary.ui:81 reference.ui:83
 msgid "Clear"
 msgstr "Elimina"
 
-#. ts-context RichTextWidget
 #: richtext.ui:318
 msgid "Select font"
 msgstr "Seleccioneu el tipus de lletra"
 
-#. ts-context Form
-#: keyboard.ui:95
+#: keyboard.ui:96
 msgid "Y"
 msgstr "Y"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:767
 msgid "Change current tab"
 msgstr "Canvia la pestanya actual"
 
-#. ts-context DatabaseCreatedDialog
 #: dbcreateok.ui:112
 msgid "Connect &later"
 msgstr "Connecta &més tard"
 
-#. ts-context Form
-#: keyboard.ui:82
+#: keyboard.ui:83
 msgid "T"
 msgstr "T"
 
-#. ts-context GoToIdDialog
 #: gotoid.ui:14
 msgid "Go To Id"
 msgstr "Vés a l'Id"
 
-#. ts-context ChangeServerDialog
 #: change_server.ui:71
 msgid "&Port:"
 msgstr "&Port:"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:704
+#: mainwindow.ui:717
 msgid "Go To Resource ID"
 msgstr "Vés al recurs amb ID"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:49
 msgid "<Ctrl> + N"
 msgstr "<Ctrl> + N"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:32
 msgid "<Ctrl> + O"
 msgstr "<Ctrl> + O"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:168
 msgid "<Ctrl> + L"
 msgstr "<Ctrl> + L"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:482
 msgid "<Ctrl> + C"
 msgstr "<Ctrl> + C"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:669
 msgid "<Ctrl> + A"
 msgstr "<Ctrl> + A"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:100
 msgid "<Ctrl> + F"
 msgstr "<Ctrl> + F"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:83
 msgid "<Ctrl> + D"
 msgstr "<Ctrl> + D"
 
-#. ts-context TipsDialog
 #: tip.ui:133
 msgid "&Next Tip"
 msgstr "&Següent consell"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:496
 msgid "<Ctrl> + X"
 msgstr "<Ctrl> + X"
 
-#. ts-context Form
-#: keyboard.ui:670
+#: keyboard.ui:671
 msgid "4"
 msgstr "4"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:66
 msgid "<Ctrl> + S"
 msgstr "<Ctrl> + S"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:489
 msgid "<Ctrl> + V"
 msgstr "<Ctrl> + V"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:219
 msgid "<Ctrl> + W"
 msgstr "<Ctrl> + W"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:117
 msgid "<Ctrl> + T"
 msgstr "<Ctrl> + T"
 
-#. ts-context ManyToManyWidget
-#. ts-context OneToManyWidget
+#.
+#.
 #: many2many.ui:96 one2many.ui:165
 msgid "..."
 msgstr "..."
 
-#. ts-context SelectionDialog
 #: win_selection.ui:19
 msgid "<center><b>Choose a plug-in</b></center>"
 msgstr "<center><b>Escull un connector</b></center>"
 
-#. ts-context Form
-#: keyboard.ui:251
+#: keyboard.ui:252
 msgid "D"
 msgstr "D"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:185
 msgid "<Ctrl> + <PgUp>"
 msgstr "<Ctrl> + <PgUp>"
 
-#. ts-context ManyToOneWidget
 #: one2many_dialog.ui:95
 msgid "(_/0)"
 msgstr "(_/0)"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:818
 msgid "Set focus to nearest widget"
 msgstr "Estableix el cursor al camp més proper"
 
-#. ts-context ExportDialog
 #: win_export.ui:116
 msgid "A&dd"
 msgstr "&Afegeix"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:295
 msgid "<Ctrl> + <Enter>"
 msgstr "<Ctrl> + <Enter>"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:302
+#: mainwindow.ui:315
 msgid "&Window"
 msgstr "&Finestra"
 
-#. ts-context LoginDialog
 #: login.ui:132
 msgid "Create &Database"
 msgstr "Crea una base de &dades"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:589
 msgid "Search/edit existing records"
 msgstr "Cerca/edita els registres existents"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:695
+#: mainwindow.ui:708
 msgid "Store View Settings"
 msgstr "Desa la configuració de la vista"
 
-#. ts-context DateTimeWidget
 #: datetime.ui:41
 msgid "Time:"
 msgstr "Hora:"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:152
 msgid "&Super admin password:"
 msgstr "Contrassenya  del &super admin:"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:550
 msgid "Relation fields"
 msgstr "Camps de relació"
 
-#. ts-context RichTextWidget
 #: richtext.ui:217
 msgid "Right Justify"
 msgstr "Alineat a la dreta"
 
-#. ts-context AboutDialog
 #: about.ui:42
 msgid "&OpenERP"
 msgstr "&OpenERP"
 
-#. ts-context ExportDialog
 #: win_export.ui:46
 msgid "Re&move Export"
 msgstr "&Elimina l'Exportació"
 
-#. ts-context AttachmentWindow
-#. ts-context ManyToOneWidget
-#. ts-context OneToManyWidget
-#. ts-context ReferenceWidget
-#. ts-context ShortcutsDialog
+#.
+#.
+#.
+#.
+#.
 #: win_attach.ui:74 many2one.ui:82 one2many.ui:96 reference.ui:66
 #: shortcuts.ui:56
 msgid "New"
 msgstr "Nou"
 
-#. ts-context ImportDialog
 #: win_import.ui:86
 msgid "Remo&ve All"
 msgstr "&Elimina'ls tots"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:175
 msgid "Switch view mode"
 msgstr "Canvia la vista"
 
-#. ts-context LoginDialog
 #: login.ui:247
 msgid "&User:"
 msgstr "&Usuari:"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:277
 msgid "Full Text Search current selection"
 msgstr "Cerca la selecció actual mitjançant la cerca de text"
 
-#. ts-context TreeWidget
 #: tree.ui:71
 msgid "Add Shortcut"
 msgstr "Afegeix l'accés directe"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:769
+#: mainwindow.ui:782
 msgid "&Keyboard Shortcut"
 msgstr "&Dreceres de teclat"
 
-#. ts-context Form
 #: calendarview.ui:63
 msgid "Daily View"
 msgstr "Vista diària"
 
-#. ts-context CreateDatabaseDialog
 #: create_database.ui:181
 msgid "&Default language:"
 msgstr "&Idioma per omissió:"
 
-#. ts-context Form
-#: keyboard.ui:134
+#: keyboard.ui:135
 msgid "O"
 msgstr "O"
 
-#. ts-context Dialog
 #: batchupdate_msgbox.ui:14
 msgid "Batch Update"
 msgstr "Modificació en bloc"
 
-#. ts-context ManyToManyWidget
-#. ts-context OneToManyWidget
+#.
+#.
 #: many2many.ui:89 one2many.ui:218
 msgid "(0/0)"
 msgstr "(0/0)"
 
-#. ts-context AboutDialog
 #: about.ui:14
 msgid "About OpenERP"
 msgstr "Quant a OpenERP"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:302
 msgid "Save and close window"
 msgstr "Desa i tanca la finestra"
 
-#. ts-context ExportDialog
 #: win_export.ui:177
 msgid "<b>Fields to export</b>"
 msgstr "<b>Camps a exportar</b>"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:838
 msgid "<Alt> + Minus"
 msgstr "<Alt> + Menys"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:401
 msgid "Cut selected text"
 msgstr "Talla el text seleccionat"
 
-#. ts-context AttachmentWindow
-#. ts-context KooMainWindow
-#: win_attach.ui:113 mainwindow.ui:620
+#.
+#.
+#: win_attach.ui:113 mainwindow.ui:633
 msgid "Alt+PgUp"
 msgstr "Alt+PgUp"
 
-#. ts-context CalendarWidget
 #: calendar.ui:51
 msgid "Open Calendar"
 msgstr "Obre un calendari"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:716
+#: mainwindow.ui:729
 msgid "&Reload/Undo"
 msgstr "&Recarrega/Desfés"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:202
 msgid "<Ctrl> + <PgDn>"
 msgstr "<Ctrl> + <PgDn>"
 
-#. ts-context ImportDialog
-#. ts-context ManyToManyWidget
+#.
+#.
 #: win_import.ui:64 many2many.ui:40
 msgid "&Add"
 msgstr "&Afegeix"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:270
 msgid "<Ctrl> + <Alt> + T"
 msgstr "<Ctrl> + <Alt> + T"
 
-#. ts-context Form
-#: keypad.ui:95
+#: keypad.ui:96
 msgid "*"
 msgstr "*"
 
-#. ts-context ProgressDialog
 #: progress.ui:40
 msgid "Operation in progress"
 msgstr "Operació en progrés"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:660
 msgid "Lists"
 msgstr "Llistes"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:848
 msgid "<Alt> + Plus"
 msgstr "<Alt> + Més"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:428
+#: mainwindow.ui:441
 msgid "&Connect"
 msgstr "&Connecta"
 
-#. ts-context RichTextWidget
 #: richtext.ui:246
 msgid "Justify"
 msgstr "Justificat"
 
-#. ts-context TipsDialog
 #: tip.ui:122
 msgid "&Previous Tip"
 msgstr "Consell &anterior"
 
-#. ts-context ImportDialog
 #: win_import.ui:258
 msgid "Latin1"
 msgstr "Latin1"
 
-#. ts-context Dialog
-#. ts-context KooMainWindow
-#: lostconnection.ui:84 mainwindow.ui:455
+#.
+#.
+#: lostconnection.ui:84 mainwindow.ui:468
 msgid "&Quit"
 msgstr "&Surt"
 
-#. ts-context LicenseDialog
 #: license.ui:29
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -3014,116 +2709,95 @@ msgstr ""
 "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
 "text-indent:0px;\"></p></body></html>"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:848
+#: mainwindow.ui:861
 msgid "Modify All Selected Records"
 msgstr "Modifica tots els registres seleccionats"
 
-#. ts-context ErrorDialog
 #: error.ui:14
 msgid "Error"
 msgstr "Error"
 
-#. ts-context Form
-#: keyboard.ui:329
+#: keyboard.ui:330
 msgid "Z"
 msgstr "Z"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:192
 msgid "Previous tab"
 msgstr "Pestanya anterior"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:629
+#: mainwindow.ui:642
 msgid "Switch &View"
 msgstr "Canvia la &vista"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:360
 msgid "Show field's help information"
 msgstr "Mostra l'ajuda del camp"
 
-#. ts-context AttachmentWindow
 #: win_attach.ui:134
 msgid "Close"
 msgstr "Tanca"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:777
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Obre la vista"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:728
+#: mainwindow.ui:741
 msgid "E&xport Data"
 msgstr "E&xporta dades"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:338
+#: mainwindow.ui:351
 msgid "&Browse"
 msgstr "&Navega"
 
-#. ts-context ExportDialog
 #: win_export.ui:138
 msgid "Remo&ve all"
 msgstr "&Elimina'ls tots"
 
-#. ts-context AttachmentWindow
-#. ts-context Dialog
-#. ts-context Form
-#. ts-context SearchWidget
-#: win_attach.ui:137 batchupdate_msgbox.ui:122 keyboard.ui:449
+#.
+#.
+#.
+#.
+#: win_attach.ui:137 batchupdate_msgbox.ui:122 keyboard.ui:450
 #: win_search.ui:115
 msgid "Esc"
 msgstr "Esc"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:319
 msgid "Close window without saving"
 msgstr "Tanca la finestra sense desar"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:536
+#: mainwindow.ui:549
 msgid "&Waiting Requests"
 msgstr "&Esperant peticions"
 
-#. ts-context LicenseDialog
 #: license.ui:19
 msgid "OpenERP license"
 msgstr "Llicència d'OpenERP"
 
-#. ts-context Form
-#: keyboard.ui:540
+#: keyboard.ui:541
 msgid "5"
 msgstr "5"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:863
+#: mainwindow.ui:876
 msgid "doc.openerp.com"
 msgstr "doc.openerp.com"
 
-#. ts-context RichTextWidget
 #: richtext.ui:65
 msgid "Italics"
 msgstr "Cursiva"
 
-#. ts-context ErrorDialog
 #: error.ui:40
 msgid "Application Error"
 msgstr "Error de l'aplicació"
 
-#. ts-context OneToManyWidget
 #: one2many.ui:116
 msgid "Edit"
 msgstr "Edita"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:441
 msgid "<Shift> + <Tab>"
 msgstr "<Shift> + <Tab>"
 
-#. ts-context Dialog
 #: batchupdate_msgbox.ui:49
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -3148,55 +2822,47 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\">Seleccioneu els camps que "
 "voleu actualitzar en els %d registres seleccionats:</p></body></html>"
 
-#. ts-context ManyToOneWidget
-#. ts-context OneToManyWidget
+#.
+#.
 #: many2one.ui:105 one2many.ui:136
 msgid "Remove"
 msgstr "Elimina"
 
-#. ts-context FullTextSearchDialog
-#. ts-context KooMainWindow
-#. ts-context ManyToOneWidget
-#: full_text_search.ui:126 mainwindow.ui:605 one2many_dialog.ui:68
+#.
+#.
+#.
+#: full_text_search.ui:126 mainwindow.ui:618 one2many_dialog.ui:68
 msgid "&Next"
 msgstr "&Següent"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:243
 msgid "Reload"
 msgstr "Recarrega"
 
-#. ts-context Form
-#: keyboard.ui:108
+#: keyboard.ui:109
 msgid "U"
 msgstr "U"
 
-#. ts-context RichTextWidget
 #: richtext.ui:188
 msgid "Center"
 msgstr "Centrat"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:737
 msgid "<Shift> + Switch View"
 msgstr "<Shift> + Canvia la vista"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:638
 msgid "<Alt> + <Backspace>"
 msgstr "<Alt> + <Tecla de retrocés>"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:332
 msgid "&Edition Shortcuts"
 msgstr "Dreceres d'&edició"
 
-#. ts-context KooMainWindow
-#: mainwindow.ui:557
+#: mainwindow.ui:570
 msgid "&Save"
 msgstr "&Desa"
 
-#. ts-context ShortcutsDialog
 #: shortcuts.ui:531
 msgid ""
 "Calculates value\n"
@@ -3205,17 +2871,14 @@ msgstr ""
 "Calcula el valor\n"
 "(Resultat de l'exemple: 7)"
 
-#. ts-context ImportDialog
 #: win_import.ui:229
 msgid "&Encoding"
 msgstr "C&odificació"
 
-#. ts-context RichTextWidget
 #: richtext.ui:94
 msgid "Underline"
 msgstr "Subratllat"
 
-#. ts-context AttachmentWindow
 #: win_attach.ui:49
 msgid "toolBar"
 msgstr "toolBar"
