@@ -235,6 +235,8 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.load()
 
 	def load(self):
+		if Common.serverMajorVersion == '5.0':
+			return
 		ids = Rpc.session.execute('/object', 'execute', 'ir.filters', 'search', [
 			('user_id','=',Rpc.session.uid),
 			('model_id','=',self.model)
@@ -417,3 +419,4 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			if x in self.widgets:
 				self.widgets[x].value = val[x]
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
