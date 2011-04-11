@@ -56,7 +56,7 @@ class FieldsModel( QStandardItemModel ):
 			'string': _('ID'),
 			'type': 'integer',
 		}
-		if Common.serverMajorVersion == '5.0':
+		if Common.serverMajorVersion == '5':
 			db_id_key = 'db_id'
 		else:
 			db_id_key = '.id'

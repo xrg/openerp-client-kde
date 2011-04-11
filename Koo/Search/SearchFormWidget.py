@@ -176,7 +176,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSave.setMenu( self.filtersMenu )
 		self.pushSave.setDefaultAction( self.actionSave )
 
-		if Common.serverMajorVersion == '5.0':
+		if Common.serverMajorVersion == '5':
 			self.pushSave.hide()
 			self.uiStoredFilters.hide()
 
@@ -235,7 +235,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.load()
 
 	def load(self):
-		if Common.serverMajorVersion == '5.0':
+		if Common.serverMajorVersion == '5':
 			return
 		ids = Rpc.session.execute('/object', 'execute', 'ir.filters', 'search', [
 			('user_id','=',Rpc.session.uid),
