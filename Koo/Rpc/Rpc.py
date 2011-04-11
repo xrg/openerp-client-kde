@@ -32,6 +32,7 @@ from PyQt4.QtNetwork import *
 from Koo.Common import Notifier
 from Koo.Common import Url
 from Koo.Common import Api 
+from Common import Debug
 
 from Cache import *
 import tiny_socket
@@ -136,11 +137,16 @@ except:
 	pyroAvailable = False
 
 try:
-	from M2Crypto.SSL import SSLError
-	from M2Crypto.SSL.Checker import WrongHost
-	pyroSslAvailable = pyroAvailable
-except:
 	pyroSslAvailable = False
+	if pyroAvailable:
+		version = Pyro.core.Pyro.constants.VERSION.split('.')
+		if int(version[0]) <= 3 and int(version[1]) <= 10:
+			Debug.info('To use SSL, Pyro must be version 3.10 or higher; Pyro version %s was found' % Pyro.core.Pyro.constants.VERSION)
+		else:
+			from M2Crypto.SSL import SSLError
+			from M2Crypto.SSL.Checker import WrongHost
+			pyroSslAvailable = True
+except:
 	# Create Dummy Exception so we do not have to complicate code in PyroConnection if
 	# SSL is not available.
 	class DummyException(Exception):
