@@ -762,7 +762,7 @@ class Session:
 		    # TODO diagnose other faults.
 		    self.server_options = []
 		except Exception, e:
-		    self._log.warning("Could not get server's options: %s", exc_info=True)
+		    self._log.warning("Could not get server's options:", exc_info=True)
 		    self.server_options = []
 
 	## @brief Returns whether the login function has been called and was successfull
