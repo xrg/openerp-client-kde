@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: Koo_l10n_qt-koo-de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-23 23:02+0000\n"
-"PO-Revision-Date: 2010-12-08 14:59+0000\n"
-"Last-Translator: Phong Nguyen <Unknown>\n"
+"PO-Revision-Date: 2011-01-05 16:47+0000\n"
+"Last-Translator: Ferdinand @ Camptocamp <Unknown>\n"
 "Language-Team: Deutsch\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
-"X-Generator: Launchpad (build 12138)\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #: win_export.ui:232
 msgid "Import compatible"
-msgstr ""
+msgstr "Import kompatibel"
 
 #.
 #.
@@ -137,7 +137,7 @@ msgstr "P"
 
 #: shortcuts.ui:374
 msgid "Clear field"
-msgstr ""
+msgstr "Lösche Feld"
 
 #: richtext.ui:282
 msgid "Foreground Color"
@@ -176,7 +176,7 @@ msgstr "Öffne Ansicht in Hintergrund Reiter"
 
 #: win_import.ui:175
 msgid "File &type:"
-msgstr ""
+msgstr "Datei Typ"
 
 #: keyboard.ui:421
 msgid "Tab"
@@ -188,7 +188,7 @@ msgstr "<b>Alle Felder</b>"
 
 #: win_import.ui:280
 msgid "Sheet:"
-msgstr ""
+msgstr "Tabelle:"
 
 #: shortcuts.ui:676
 msgid "Selects all records"
@@ -423,7 +423,7 @@ msgstr "F2"
 
 #: shortcuts.ui:367
 msgid "F3"
-msgstr ""
+msgstr "F3"
 
 #.
 #.
@@ -828,7 +828,7 @@ msgstr "Datenbank erfolgreich erzeugt!"
 
 #: error.ui:124
 msgid "&Send Error"
-msgstr ""
+msgstr "Sende Fehler"
 
 #: shortcuts.ui:582
 msgid "Create a new record"
@@ -847,7 +847,7 @@ msgstr "&Zurück"
 
 #: mainwindow.ui:894
 msgid "Insert Several Records at Once"
-msgstr ""
+msgstr "Mehrere Datensätze auf einmal einfügen"
 
 #: shortcuts.ui:158
 msgid "Next record"
@@ -855,7 +855,7 @@ msgstr "Nächster Datensatz"
 
 #: mainwindow.ui:885
 msgid "Push Button of All Selected Records"
-msgstr ""
+msgstr "Schaltfläche für alle ausgewählten Datensätze drücken"
 
 #: mainwindow.ui:310
 msgid "&Actions"
@@ -960,7 +960,7 @@ msgstr "<Alt> + <Bild ab>"
 
 #: batchupdate.ui:13
 msgid "Batch Update Process"
-msgstr ""
+msgstr "Batch Upadate Prozess"
 
 #: mainwindow.ui:699
 msgid "View Access Log"
@@ -1039,7 +1039,7 @@ msgstr "<Ctrl> + <Shift> + D"
 
 #: mainwindow.ui:871
 msgid "HTML Manual"
-msgstr ""
+msgstr "HTML Handbuch"
 
 #: win_import.ui:195
 msgid "&Field separator"
@@ -1107,7 +1107,7 @@ msgstr "X"
 
 #: mainwindow.ui:151
 msgid "Help"
-msgstr ""
+msgstr "Hilfe"
 
 #: tree.ui:91
 msgid "Remove Shortcut"
@@ -1119,13 +1119,15 @@ msgstr "Feld &Name"
 
 #: translationdialog.ui:14
 msgid "Translation Dialog"
-msgstr ""
+msgstr "Übersetzungsdialog"
 
 #: customsearchitem.ui:56
 msgid ""
 "If operator is 'in' or 'not in' you may introduce a list of comma separated "
 "values."
 msgstr ""
+"Wenn der Operator 'in' oder 'not in' ist, sind die Suchbegriffe mit ',' "
+"getrennt einzugeben."
 
 #: error.ui:34
 msgid "&Description"
@@ -1278,7 +1280,7 @@ msgstr "&Abbrechen"
 
 #: shortcuts.ui:645
 msgid "Remove current record"
-msgstr ""
+msgstr "Aktuellen Datensatz entfernen"
 
 #: image.ui:90
 msgid "Remove Image"
@@ -1286,11 +1288,11 @@ msgstr "Entferne Bild"
 
 #: mainwindow.ui:866
 msgid "PDF Manual"
-msgstr ""
+msgstr "PDF Handbuch"
 
 #: win_import.ui:324
 msgid "&Import"
-msgstr ""
+msgstr "Importiere"
 
 #: shortcuts.ui:134
 msgid "<Alt> + <PgUp>"
@@ -1422,7 +1424,7 @@ msgstr "Zusatzmodule ausführen"
 
 #: shortcuts.ui:631
 msgid "Add new record"
-msgstr ""
+msgstr "Neuen Datensatz anlegen"
 
 #: progress.ui:14
 msgid "Progress..."
@@ -1632,7 +1634,7 @@ msgstr "<Ctrl> + T"
 #.
 #: many2many.ui:96 one2many.ui:165
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: win_selection.ui:19
 msgid "<center><b>Choose a plug-in</b></center>"
@@ -1750,7 +1752,7 @@ msgstr "O"
 
 #: batchupdate_msgbox.ui:14
 msgid "Batch Update"
-msgstr ""
+msgstr "Batch Aktualisierung"
 
 #.
 #.
@@ -2827,7 +2829,7 @@ msgstr "5"
 
 #: mainwindow.ui:876
 msgid "doc.openerp.com"
-msgstr ""
+msgstr "doc.openerp.com"
 
 #: richtext.ui:65
 msgid "Italics"
@@ -2900,7 +2902,7 @@ msgstr "<Shift> + Umschalten Ansicht"
 
 #: shortcuts.ui:638
 msgid "<Alt> + <Backspace>"
-msgstr ""
+msgstr "<Alt> + <Rücktaste>"
 
 #: shortcuts.ui:332
 msgid "&Edition Shortcuts"

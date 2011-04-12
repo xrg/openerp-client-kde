@@ -11,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _koo-de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-27 23:52+0100\n"
-"PO-Revision-Date: 2010-06-27 20:08+0000\n"
+"POT-Creation-Date: 2010-12-28 07:25+0100\n"
+"PO-Revision-Date: 2011-01-05 17:18+0000\n"
 "Last-Translator: Ferdinand @ Camptocamp <Unknown>\n"
 "Language-Team: Deutsch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
-"X-Generator: Launchpad (build 12138)\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
@@ -83,7 +83,7 @@ msgstr "Wählen Sie eine Aktion"
 
 #: Koo/Plugins/ScreenDocs/__init__.py:89
 msgid "Create Screenshots"
-msgstr ""
+msgstr "Erzeuge Bildschirmfoto"
 
 #: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
@@ -230,7 +230,7 @@ msgstr "Nicht Speichern"
 
 #: Koo/Common/Common.py:212 Koo/Common/Common.py:226 Koo/Common/Common.py:229
 msgid "Send Error Information"
-msgstr ""
+msgstr "Sende Fehlermeldung"
 
 #: Koo/Common/Common.py:212
 #, python-format
@@ -238,14 +238,16 @@ msgid ""
 "You are about to send the details of this error, database name, user ID, and "
 "server URL to %s. Do you want to proceed?"
 msgstr ""
+"Folgende Details dieses Fehlers werden an %s übermittelt: Datenbankname, "
+"Benutzer ID, and Server URL . Wollen Sie fortsetzen?"
 
 #: Koo/Common/Common.py:226
 msgid "Error information could not be sent."
-msgstr ""
+msgstr "Fehlermeldung konnte nicht versandt werden."
 
 #: Koo/Common/Common.py:229
 msgid "Error information was successfully sent."
-msgstr ""
+msgstr "Fehlermeldung wurde erfolgreich versandt"
 
 #: Koo/Common/Common.py:259
 #, python-format
@@ -326,11 +328,11 @@ msgstr ""
 
 #: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:237
 msgid "Remote Help"
-msgstr ""
+msgstr "Entfernte Hilfe"
 
 #: Koo/Common/RemoteHelp.py:57
 msgid "Proceed"
-msgstr ""
+msgstr "Ausführen"
 
 #: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:518
 msgid "Cancel"
@@ -350,11 +352,11 @@ msgstr "Servername oder -adresse definieren (zB http://admin@localhost:8069)"
 
 #: Koo/Common/CommandLine.py:47
 msgid "specify model to be opened"
-msgstr ""
+msgstr "Auswahl des Modells das geöffnet werden soll"
 
 #: Koo/Common/CommandLine.py:48
 msgid "specify id to be opened"
-msgstr ""
+msgstr "Auswahl der ID die geöffnet werden soll."
 
 #: Koo/Common/CommandLine.py:49
 msgid "specify stylesheet to apply"
@@ -380,47 +382,61 @@ msgstr "Debug Mode einschalten. Zeigt den Crahs dialog in allen Situationen"
 
 #: Koo/Common/Help.py:102
 msgid "Documentation"
-msgstr ""
+msgstr "Handbuch"
 
 #: Koo/Common/Help.py:139
 msgid "<p><i>Documentation module is not installed.</i></p>"
-msgstr ""
+msgstr "<p><i>Das Dokumentations Modul ist nicht installiert.</i></p>"
 
 #: Koo/Common/Help.py:140 Koo/Common/Help.py:147
 msgid ""
 "<p><i>The following sections in the documentation refer to this menu "
 "entry:</i></p>"
 msgstr ""
+"<p><i>Die folgenden Sektionen im Handbuch beziehen sich auf diesen "
+"Menüeintrag:</i></p>"
 
 #: Koo/Common/Help.py:142
 msgid ""
 "<p><i>You may want to install the 'documentation' module for more "
 "information.</i></p>"
 msgstr ""
+"<p><i>Sie sollten das 'Dokumentations' Module für weiterführende Information "
+"installieren.</i></p>"
 
 #: Koo/Common/Help.py:145
 msgid ""
 "<p><i>The following sections in the documentation refer to this "
 "field:</i></p>"
 msgstr ""
+"<p><i>Die folgenden Sektionen im Handbuch beziehen sich auf dieses "
+"Feld:</i></p>"
 
 #: Koo/Common/Help.py:146
 msgid ""
 "<p><i>The following sections in the documentation refer to this view:</i></p>"
 msgstr ""
+"<p><i>Die folgenden Sektionen im Handbuch beziehen sich auf diese "
+"Sicht:</i></p>"
 
 #: Koo/Common/Help.py:153
 msgid "<p><i>No sections in the documentation refer to this field.</i></p>"
 msgstr ""
+"<p><i>Auf dieses Feld beziehen sich keine Sektionen der "
+"Dokumentation.</i></p>"
 
 #: Koo/Common/Help.py:154
 msgid "<p><i>No sections in the documentation refer to this view.</i></p>"
 msgstr ""
+"<p><i>Auf diese Sicht  beziehen sich keine Sektionen der "
+"Dokumentation.</i></p>"
 
 #: Koo/Common/Help.py:155
 msgid ""
 "<p><i>No sections in the documentation refer to this menu entry.</i></p>"
 msgstr ""
+"<p><i>Auf diesen Menüeintrag beziehen sich keine Sektionen der "
+"Dokumentation.</i></p>"
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
 #: Koo/Dialogs/FormWidget.py:635 Koo/Dialogs/BatchInsertDialog.py:131
@@ -438,97 +454,99 @@ msgstr "Nein"
 
 #: Koo/Search/SearchFormWidget.py:248
 msgid "Search Error"
-msgstr ""
+msgstr "Fehler bei der Suche"
 
 #: Koo/Search/SearchFormWidget.py:248
 msgid ""
 "Some items of custom search cannot be used. Please, change those in red and "
 "try again."
 msgstr ""
+"Einige Bedingungen der benutzerdefinierten Suche können nicht verwendet "
+"werden. Bitte die roten korrigieren und nochmals versuchen."
 
 #: Koo/Search/CustomSearchFormWidget.py:83
 msgid "is empty"
-msgstr ""
+msgstr "ist leer"
 
 #: Koo/Search/CustomSearchFormWidget.py:84
 msgid "is not empty"
-msgstr ""
+msgstr "ist nicht leer"
 
 #: Koo/Search/CustomSearchFormWidget.py:85
 msgid "contains"
-msgstr ""
+msgstr "enthält"
 
 #: Koo/Search/CustomSearchFormWidget.py:86
 msgid "does not contain"
-msgstr ""
+msgstr "enthält nicht"
 
 #: Koo/Search/CustomSearchFormWidget.py:87
 msgid "is equal to"
-msgstr ""
+msgstr "ist gleich"
 
 #: Koo/Search/CustomSearchFormWidget.py:88
 msgid "is not equal to"
-msgstr ""
+msgstr "ist nicht gleich"
 
 #: Koo/Search/CustomSearchFormWidget.py:89
 msgid "greater than"
-msgstr ""
+msgstr "ist größer als"
 
 #: Koo/Search/CustomSearchFormWidget.py:90
 msgid "less than"
-msgstr ""
+msgstr "ist kleiner als"
 
 #: Koo/Search/CustomSearchFormWidget.py:91
 msgid "greater or equal to"
-msgstr ""
+msgstr "größer als oder gleich"
 
 #: Koo/Search/CustomSearchFormWidget.py:92
 msgid "less or equal to"
-msgstr ""
+msgstr "kleiner als oder gleich"
 
 #: Koo/Search/CustomSearchFormWidget.py:93
 msgid "in"
-msgstr ""
+msgstr "enthält"
 
 #: Koo/Search/CustomSearchFormWidget.py:94
 msgid "not in"
-msgstr ""
+msgstr "enthält nicht"
 
 #: Koo/Search/CustomSearchFormWidget.py:159
 msgid "&And"
-msgstr ""
+msgstr "&Und"
 
 #: Koo/Search/CustomSearchFormWidget.py:163
 msgid "&Or"
-msgstr ""
+msgstr "&Oder"
 
 #: Koo/Search/CustomSearchFormWidget.py:298
 msgid "True"
-msgstr ""
+msgstr "Wahr"
 
 #: Koo/Search/CustomSearchFormWidget.py:299
 msgid "False"
-msgstr ""
+msgstr "Falsch"
 
 #: Koo/Search/CustomSearchFormWidget.py:458
 msgid "( ID )"
-msgstr ""
+msgstr "( ID )"
 
 #: Koo/Search/CustomSearchFormWidget.py:462
 msgid "( Created By )"
-msgstr ""
+msgstr "( Erzeugt von )"
 
 #: Koo/Search/CustomSearchFormWidget.py:466
 msgid "( Creation Date )"
-msgstr ""
+msgstr "( Erzeugungsdatum )"
 
 #: Koo/Search/CustomSearchFormWidget.py:470
 msgid "( Last Modified By )"
-msgstr ""
+msgstr "( letzte Änderung durch )"
 
 #: Koo/Search/CustomSearchFormWidget.py:474
 msgid "( Last Modification Date )"
-msgstr ""
+msgstr "( letzte Änderung von )"
 
 #: Koo/Dialogs/TipOfTheDayDialog.py:36
 msgid ""
@@ -709,15 +727,15 @@ msgstr "Datenbank wurde erfolgreich entfernt!"
 
 #: Koo/Dialogs/WebWidget.py:81
 msgid "Find"
-msgstr ""
+msgstr "Suche"
 
 #: Koo/Dialogs/WebWidget.py:81
 msgid "Find:"
-msgstr ""
+msgstr "Suche:"
 
 #: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
-msgstr ""
+msgstr "Keine Hilfe für Web Sichten"
 
 #: Koo/Dialogs/FormWidget.py:187
 msgid "<font color=\"blue\">Document modified</font>"
@@ -855,28 +873,32 @@ msgstr "Keine Datensätze ausgewählt!"
 #: Koo/Dialogs/FormWidget.py:628
 msgid "Choose action to apply to selected records"
 msgstr ""
+"Wähle Aktien die auf die ausgewählten Datensätze angewandt werden soll."
 
 #: Koo/Dialogs/FormWidget.py:635
 msgid "Batch Update"
-msgstr ""
+msgstr "Batch Aktualisierung"
 
 #: Koo/Dialogs/FormWidget.py:635
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
 msgstr ""
+"Wollen Sie die Schaltfläche '%s' für alle gewählten Datensätze wirklich "
+"drücken?"
 
 #: Koo/Dialogs/BatchInsertDialog.py:82
 msgid "Choose field to insert in batch action"
 msgstr ""
+"Wählen Sie das Feld, dass in der Batchaktualisierung eingfügt werden soll."
 
 #: Koo/Dialogs/BatchInsertDialog.py:99 Koo/Dialogs/BatchInsertDialog.py:131
 msgid "Batch Insert"
-msgstr ""
+msgstr "Batch Einfügen"
 
 #: Koo/Dialogs/BatchInsertDialog.py:131
 #, python-format
 msgid "Are you sure you want to insert %d records?"
-msgstr ""
+msgstr "Wollen Sie wirklich %d Datensätze einfügen?"
 
 #: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:519
 msgid "Press Ctrl+O to login"
@@ -950,7 +972,7 @@ msgstr "Nicht angemeldet!"
 
 #: Koo/Dialogs/KooMainWindow.py:542
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 #: Koo/Dialogs/KooMainWindow.py:630
 msgid "Access denied"
@@ -994,7 +1016,7 @@ msgstr "Suche: %s (%%d Treffer)"
 
 #: Koo/Dialogs/WindowService.py:92
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "NET-RPC"
@@ -1051,15 +1073,15 @@ msgstr "Fehler beim Lesen der Datei: %s"
 
 #: Koo/Dialogs/ImportDialog.py:98
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 #: Koo/Dialogs/ImportDialog.py:100
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 #: Koo/Dialogs/ImportDialog.py:129
 msgid "Sheet List Error"
-msgstr ""
+msgstr "Tabellen Listen Fehler"
 
 #: Koo/Dialogs/ImportDialog.py:171
 msgid "File to import"
@@ -1104,7 +1126,7 @@ msgstr "Datei fehlt"
 
 #: Koo/Dialogs/ImportDialog.py:332
 msgid "Import Error"
-msgstr ""
+msgstr "Import Fehler"
 
 #: Koo/Dialogs/FullTextSearchDialog.py:62
 msgid "Loading..."
@@ -1166,11 +1188,11 @@ msgstr ""
 
 #: Koo/Dialogs/LoginDialog.py:161
 msgid "Wallet"
-msgstr ""
+msgstr "Digitale Brieftasche"
 
 #: Koo/Dialogs/LoginDialog.py:162
 msgid "Do you want to store your password in your wallet?"
-msgstr ""
+msgstr "Wollen Sie Ihr Passwort in der digitalen Brieftasche spreichern?"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
@@ -1178,7 +1200,7 @@ msgstr "Felder"
 
 #: Koo/Dialogs/ImportExportCommon.py:59
 msgid "Database ID"
-msgstr ""
+msgstr "Databank ID"
 
 #: Koo/Dialogs/ExportDialog.py:54 Koo/Dialogs/ExportDialog.py:80
 #: Koo/Dialogs/ExportDialog.py:93 Koo/Dialogs/ExportDialog.py:112
@@ -1227,7 +1249,7 @@ msgstr "Fehler beim Öffnen von OpenOffice:<br> %s"
 
 #: Koo/Dialogs/ExportDialog.py:324
 msgid "Data Export Error"
-msgstr ""
+msgstr "Daten Export fehler"
 
 #: Koo/Dialogs/ExportDialog.py:329
 msgid "Export Data"
@@ -1388,7 +1410,7 @@ msgstr "Ungültige Formulardaten! Rot markierte Felder korrigieren."
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:150
 msgid "You do not have permission to execute this action."
-msgstr ""
+msgstr "Sie haben keine Berechtigung für diese Aktion"
 
 #: Koo/Fields/AbstractFieldDelegate.py:115
 #: Koo/Fields/AbstractFieldWidget.py:149
@@ -1525,15 +1547,15 @@ msgstr "Fehler beim Schreiben einer Datei:<br> %s"
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
 msgid "&Duplicate Selected Records"
-msgstr ""
+msgstr "&Dupliziere ausgewählte Datensätze"
 
 #: Koo/Fields/OneToMany/OneToMany.py:163
 msgid "&Insert Several Records at Once"
-msgstr ""
+msgstr "Mehrere Datensätze auf einmal &einfügen"
 
 #: Koo/Fields/OneToMany/OneToMany.py:168
 msgid "&Modify All Selected Records"
-msgstr ""
+msgstr "Alle ausgewählten Datensätze &verändern"
 
 #: Koo/Fields/OneToMany/OneToMany.py:321
 msgid "No record selected"

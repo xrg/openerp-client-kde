@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-12-27 23:52+0100\n"
-"PO-Revision-Date: 2010-12-15 10:18+0000\n"
-"Last-Translator: Dukai Gábor <Unknown>\n"
+"POT-Creation-Date: 2010-12-28 07:25+0100\n"
+"PO-Revision-Date: 2011-02-25 11:45+0000\n"
+"Last-Translator: Attila Tatár (Elastoffice) <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
-"X-Generator: Launchpad (build 12138)\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
@@ -29,11 +29,11 @@ msgstr "Információ"
 
 #: Koo/Screen/Action.py:82
 msgid "You must select a record to use the relate button !"
-msgstr ""
+msgstr "Ki kell választani egy rekordot a Kapcsolódási gomb használatához!"
 
 #: Koo/Screen/Action.py:90
 msgid "You must save this record to use the relate button !"
-msgstr ""
+msgstr "El kell menteni a rekordot a Kapcsolási gomb használatához!"
 
 #: Koo/Screen/Action.py:136
 msgid "Print Screen"
@@ -42,11 +42,11 @@ msgstr "Képernyőkép"
 #: Koo/Actions/Actions.py:61 Koo/Actions/Actions.py:85
 #, python-format
 msgid "Error: %s"
-msgstr ""
+msgstr "Hiba: %s"
 
 #: Koo/Actions/Actions.py:65
 msgid "Nothing to print."
-msgstr ""
+msgstr "Nincs nyomtatandó anyag."
 
 #: Koo/Actions/Actions.py:81
 msgid "Printing aborted. Delay too long."
@@ -54,7 +54,7 @@ msgstr ""
 
 #: Koo/Actions/Actions.py:100
 msgid "Nothing to print!"
-msgstr ""
+msgstr "Nincs mit nyomtatni!"
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
 #: Koo/Dialogs/FormWidget.py:375 Koo/Dialogs/ImportDialog.py:72
@@ -76,11 +76,11 @@ msgstr ""
 
 #: Koo/Actions/Actions.py:241
 msgid "Select your action"
-msgstr ""
+msgstr "Válasszon műveletet"
 
 #: Koo/Plugins/ScreenDocs/__init__.py:89
 msgid "Create Screenshots"
-msgstr ""
+msgstr "Hozzon létre képernyőmentést"
 
 #: Koo/Plugins/SearchModelData/__init__.py:40
 msgid "Search Model Data"
@@ -92,7 +92,7 @@ msgstr "Nézet szerkesztése"
 
 #: Koo/Plugins/Semantic/__init__.py:48
 msgid "Semantic Info"
-msgstr ""
+msgstr "Szemantikus info"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:62
 msgid "Print Workflow"
@@ -104,7 +104,7 @@ msgstr "Folyamatlista nyomtatása (komplex)"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:42
 msgid "Translate View"
-msgstr ""
+msgstr "Forditások nézet"
 
 #: Koo/Plugins/DocumentScanner/__init__.py:71
 msgid "document.png"
@@ -125,7 +125,7 @@ msgstr ""
 
 #: Koo/Plugins/DocumentImporter/__init__.py:45
 msgid "Select Files"
-msgstr ""
+msgstr "Válasszon fájlokat"
 
 #: Koo/Plugins/DocumentImporter/__init__.py:46
 msgid "Selected Directory"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-12-27 23:52+0100\n"
-"PO-Revision-Date: 2010-12-26 09:30+0000\n"
+"POT-Creation-Date: 2010-12-28 07:25+0100\n"
+"PO-Revision-Date: 2011-01-23 03:08+0000\n"
 "Last-Translator: Wei \"oldrev\" Li <oldrev@gmail.com>\n"
 "Language-Team: Simplified Chinese <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
-"X-Generator: Launchpad (build 12138)\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #: Koo/Screen/Action.py:82 Koo/Screen/Action.py:90 Koo/Actions/Actions.py:100
 #: Koo/Dialogs/DatabaseDialog.py:129 Koo/Dialogs/DatabaseDialog.py:151
@@ -231,7 +231,7 @@ msgstr "发送错误信息"
 msgid ""
 "You are about to send the details of this error, database name, user ID, and "
 "server URL to %s. Do you want to proceed?"
-msgstr ""
+msgstr "大概将发送此错误的详情、数据库名称、用户标识和服务器 URL 到 %s。您要继续嘛？"
 
 #: Koo/Common/Common.py:226
 msgid "Error information could not be sent."
@@ -339,11 +339,11 @@ msgstr "指定服务器地址（例如：http://admin@localhost:8069）"
 
 #: Koo/Common/CommandLine.py:47
 msgid "specify model to be opened"
-msgstr ""
+msgstr "指定要打开的模型"
 
 #: Koo/Common/CommandLine.py:48
 msgid "specify id to be opened"
-msgstr ""
+msgstr "指定要打开的标识"
 
 #: Koo/Common/CommandLine.py:49
 msgid "specify stylesheet to apply"
@@ -355,7 +355,7 @@ msgstr "使用 POS（销售点）模式"
 
 #: Koo/Common/CommandLine.py:51
 msgid "replace enter/return keys with tab hits"
-msgstr ""
+msgstr "使用 TAB 替换回车键"
 
 #: Koo/Common/CommandLine.py:52
 msgid "disable usage of KDE libraries if they are available"
@@ -681,11 +681,11 @@ msgstr "数据库删除成功！"
 
 #: Koo/Dialogs/WebWidget.py:81
 msgid "Find"
-msgstr ""
+msgstr "查找"
 
 #: Koo/Dialogs/WebWidget.py:81
 msgid "Find:"
-msgstr ""
+msgstr "查找："
 
 #: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
@@ -756,7 +756,7 @@ msgstr "资源已删除。"
 
 #: Koo/Dialogs/FormWidget.py:346
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
-msgstr ""
+msgstr "<font color=\"orange\">现在在副本单据上工作</font>"
 
 #: Koo/Dialogs/FormWidget.py:356
 msgid "<font color=\"green\">Document saved</font>"
@@ -830,7 +830,7 @@ msgstr "批量更新"
 #: Koo/Dialogs/FormWidget.py:635
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
-msgstr ""
+msgstr "您希望对所有记录执行按钮“%s”吗？"
 
 #: Koo/Dialogs/BatchInsertDialog.py:82
 msgid "Choose field to insert in batch action"
@@ -959,7 +959,7 @@ msgstr "搜索: %s (%%d 结果)"
 
 #: Koo/Dialogs/WindowService.py:92
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "NET-RPC"
@@ -1118,15 +1118,15 @@ msgstr "密码已经成功更改"
 msgid ""
 "Could not change administrator password. Please, check the server and "
 "password are correct."
-msgstr ""
+msgstr "不能更改管理员密码。请检查服务器与密码均正确。"
 
 #: Koo/Dialogs/LoginDialog.py:161
 msgid "Wallet"
-msgstr ""
+msgstr "KDE 钱包"
 
 #: Koo/Dialogs/LoginDialog.py:162
 msgid "Do you want to store your password in your wallet?"
-msgstr ""
+msgstr "您希望把密码存储到您的 KDE 钱包里吗？"
 
 #: Koo/Dialogs/ImportExportCommon.py:37
 msgid "Fields"
