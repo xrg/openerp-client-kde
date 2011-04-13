@@ -299,7 +299,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 				('write_date', _('Latest Modification Date')),
 			]
 			for (key,val) in todo:
-				if line[key] and key in ('create_uid','write_uid'):
+				if line[key] and key in ('create_uid','write_uid') and isinstance(line[key], tuple):
 					line[key] = line[key][1]
 				message += val + ': ' + unicode(line[key] or '-') + '\n'
 		QMessageBox.information(self, _('Record log'), message)
@@ -663,3 +663,4 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.reload()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
