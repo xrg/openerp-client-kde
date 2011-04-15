@@ -32,6 +32,7 @@ from PyQt4.QtNetwork import *
 from Koo.Common import Notifier
 from Koo.Common import Url
 from Koo.Common import Api 
+from Koo.Common import Debug
 
 from Cache import *
 import tiny_socket
