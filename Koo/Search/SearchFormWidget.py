@@ -384,11 +384,12 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	# Note you can optionally give a 'domain' parameter which will be added to
 	# the filters the widget will return.
 	def value(self, domain=[]):
-		index = self.uiStoredFilters.currentIndex()
-		if index:
-			id = self.uiStoredFilters.itemData( index ).toInt()[0]
-			storedDomain = eval( self._storedFilters[id]['domain'] )
-			domain = domain[:] + storedDomain
+		if Common.serverMajorVersion != '5':
+			index = self.uiStoredFilters.currentIndex()
+			if index:
+				id = self.uiStoredFilters.itemData( index ).toInt()[0]
+				storedDomain = eval( self._storedFilters[id]['domain'] )
+				domain = domain + storedDomain
 
 		if self.pushSwitchView.isChecked():
 			return self.uiCustomContainer.value( domain )
