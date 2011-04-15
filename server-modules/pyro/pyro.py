@@ -70,7 +70,8 @@ tools.config['pyrossl'] = tools.config.get('pyrossl', True)
 tools.config['pyrossl_port'] = tools.config.get('pyrossl_port', 8072)
 try:
 	if tools.config['pyrossl']:
-		if Pyro.core.Pyro.constants.VERSION[0] <= 3 and int(Pyro.core.Pyro.constants.VERSION[2:]) <= 10:
+		version = Pyro.core.Pyro.constants.VERSION.split('.')
+		if int(version[0]) <= 3 and int(version[1]) <= 10:
 			logger.notifyChannel("init", netsvc.LOG_ERROR, "Need at least Pyro version 3.10 for SSL, found %s" % Pyro.core.Pyro.constants.VERSION)
 		else:
 			try:

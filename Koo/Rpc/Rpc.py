@@ -135,12 +135,20 @@ try:
 except:
 	pyroAvailable = False
 
-try:
-	from M2Crypto.SSL import SSLError
-	from M2Crypto.SSL.Checker import WrongHost
-	pyroSslAvailable = pyroAvailable
-except:
+if pyroAvailable:
 	pyroSslAvailable = False
+	version = Pyro.core.Pyro.constants.VERSION.split('.')
+	if int(version[0]) <= 3 and int(version[1]) <= 10:
+		Debug.info('To use SSL, Pyro must be version 3.10 or higher; Pyro version %s was found.' % Pyro.core.Pyro.constants.VERSION)
+	else:
+		try:
+			from M2Crypto.SSL import SSLError
+			from M2Crypto.SSL.Checker import WrongHost
+			pyroSslAvailable = True
+		except:
+			Debug.info('M2Crypto not found. Consider installing in order to use Pryo with SSL.')
+
+if not pyroSslAvailable:
 	# Create Dummy Exception so we do not have to complicate code in PyroConnection if
 	# SSL is not available.
 	class DummyException(Exception):
@@ -746,3 +754,4 @@ class RpcNetworkAccessManager( QNetworkAccessManager ):
 
 		return RpcReply(self, request.url(), self.GetOperation)
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
