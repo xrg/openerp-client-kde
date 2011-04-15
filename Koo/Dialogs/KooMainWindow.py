@@ -397,6 +397,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		}, Rpc.session.context)
 		Rpc.session.reloadContext()
 		self.updateCompany()
+		self.closeAllTabs()
+		self.openMenuTab()
 
 	def updateCompany(self, company=None):
 		if not company:
@@ -503,7 +505,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				# the request interval can be configured
 				self.startRequestsTimer()
 
-			        self.openMenuTab()
+				self.openMenuTab()
 				self.openHomeTab()
 
 				if Settings.value('open.model'):
@@ -852,3 +854,4 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		dialog = AdministratorPasswordDialog( self )
 		dialog.exec_()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
