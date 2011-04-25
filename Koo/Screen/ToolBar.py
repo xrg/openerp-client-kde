@@ -29,6 +29,20 @@ from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 from Koo import Rpc
 
+def wordWrap(txt, size):
+    # please improve this..
+    lines = []
+    cur_line = ''
+    for word in map(unicode,txt.split(' ')):
+        if len(cur_line) + len(word) >= size:
+            lines.append(cur_line)
+            cur_line = ''
+        else:
+            cur_line += ' '
+        cur_line += word
+    lines.append(cur_line)
+    return '\n'.join(lines)
+    
 ## @brief The ToolBar class is a widget (which inherits QToolBar) and is used
 # as the toolbar in forms.
 #
@@ -58,4 +72,10 @@ class ToolBar(QToolBar):
 				self.addSeparator()
 			last = action.type()
 			self.addAction( action )
-
+			button = self.widgetForAction(action)
+			if isinstance(button, QAbstractButton):
+                            txt = button.text()
+                            if len(txt) > 20:
+                                txt = wordWrap(txt, 20)
+                                button.setText(txt)
+                        

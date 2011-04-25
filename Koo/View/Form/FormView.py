@@ -128,10 +128,11 @@ class FormContainer( QWidget ):
 		rowspan = int( attributes.get( 'rowspan', 1 ) )
 
 		if labelText:
-			label  = QLabel( self )
+			label = QLabel( self )
 			label.setText( unicode( Common.normalizeLabel( labelText ) ) )
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+			label.setWordWrap(True)
 			if helpText:
 				color = 'blue'
 				helpText = '<b>%s</b><br/>%s' % (labelText, helpText)
