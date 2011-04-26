@@ -48,7 +48,7 @@ except:
 from ImportExportCommon import *
 
 def executeImport(datas, model, fields):
-	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas)
+	res = Rpc.session.execute('/object', 'execute', model, 'import_data', fields, datas, 'init', '', noupdate=False, Rpc.session.context)
 	if res[0]>=0:
 		QMessageBox.information( None, _('Information'), _('Imported %d objects !') % (res[0]))
 	else:
