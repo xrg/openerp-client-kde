@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2007-2011 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -57,5 +57,32 @@ class ToolBar(QToolBar):
 			if last and last != action.type():
 				self.addSeparator()
 			last = action.type()
-			self.addAction( action )
 
+			# Create a QToolButton and then add it with addWidget() instead of
+			# directly using addAction() because this way buttons are left aligned
+			# which looks better.
+			button = QToolButton( self )
+			button.setDefaultAction( action )
+			button.setToolButtonStyle( Qt.ToolButtonTextBesideIcon )
+			button.setAutoRaise( True )
+			button.setText( self.wordWrap( unicode(button.text()), 25) )
+
+			self.addWidget( button )
+
+
+	def wordWrap(self, text, size):
+		lines = []
+		currentLine = []
+		currentLength = 0
+		for word in text.split(' '):
+			if currentLine and currentLength + len(word) + 1 >= size:
+				lines.append( ' '.join(currentLine) )
+				currentLine = []
+				currentLength = 0
+			currentLine.append( word )
+			currentLength += len(word)
+		lines.append( ' '.join(currentLine) )
+		return '\n'.join(lines)
+
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
