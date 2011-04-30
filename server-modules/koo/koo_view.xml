@@ -28,8 +28,19 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Configuration/Koo/View Cache Exceptions" 
-			action="koo_cache_exception_action" id="koo_cache_exception_menu"/>
+
+		<menuitem 
+			id="koo_menu_config"
+			parent="base.menu_config"
+			name="Koo" 
+			action="koo_cache_exception_action"
+			/>
+		<menuitem 
+			parent="koo_menu_config"
+			name="View Cache Exceptions" 
+			action="koo_cache_exception_action" 
+			id="koo_cache_exception_menu"
+			/>
 
 		<!-- User Koo Settings -->
 		<record model="ir.ui.view" id="view_users_form_koo_settings">
@@ -97,8 +108,13 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
-		<menuitem name="Administration/Configuration/Koo/Settings" 
-			action="koo_settings_action" id="koo_settings_menu"/>
+
+		<menuitem 
+			id="koo_settings_menu"
+			parent="koo_menu_config"
+			name="Settings" 
+			action="koo_settings_action" 
+			/>
 
 		<!-- Koo Releases Views -->
 		<record model='ir.ui.view' id='koo_release_form'>
@@ -137,10 +153,13 @@
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
+
 		<menuitem 
-			name="Administration/Configuration/Koo/Releases" 
+			id="koo_release_menu"
+			parent="koo_menu_config"
+			name="Releases" 
 			action="koo_release_action" 
-			id="koo_release_menu"/>
+			/>
 
 		<!-- Attachment updates for Koo -->
 

@@ -79,6 +79,11 @@ class SearchFormContainer( QWidget ):
 
 class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
+	# Structure:
+	#   1) Operator used in domain
+	#   2) Label shown to the user
+	#   3) Field types in which the operator should be shown
+	#   4) Whether the user should be able to input a text to search for or not.
 	operators = (
 		('is empty', _('is empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('is not empty', _('is not empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
@@ -92,12 +97,10 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		('<=', _('less or equal to'), ('char','text','integer','float','date','time','datetime','float_time'), True), 
 		('in', _('in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
 		('not in', _('not in'), ('selection','char','text','integer','float','date','time','datetime','float_time'), True),
+		('starts_with', _('starts with'), ('char','text'), True),
+		('ends_with', _('ends with'), ('char','text'), True),
+		('=ilike', _('similar to'), ('char','text'), True),
 	)
-
-	typeOperators = {
-		'char': ('ilike', 'not ilike', '=', '<', '>', '<>'),
-		'integer': ('=', '<>', '>', '<')
-	}
 
 	typeRelated = ('many2one','many2many','one2many')
 
@@ -181,7 +184,7 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		else:
 			self.setAndSelected()
 
-	def updateRelatedAndOperators(self, index):
+	def updateRelatedAndOperators(self, index=None):
 		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
 		if not fieldName:
 			return
@@ -350,9 +353,16 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 		else:
 			(value, text) = self.correctValue( value, fieldName, relatedFieldName )
 
+		if operator == 'starts_with':
+			operator = '=ilike'
+			value = value + '%'
+		elif operator == 'ends_with':
+			operator = '=ilike'
+			value = '%' + value
+
 		if fieldType == 'user':
 			data = Rpc.session.execute('/object','execute','res.users','name_search',value)
-			if value:
+			if data:
 				value = data[0][0]
 				text = data[0][1]
 			else:
@@ -372,6 +382,39 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 			queryFieldName = fieldName
 		return [condition,(queryFieldName, operator, value)]
 
+	def setValue(self, domainItem):
+		field = domainItem[0]
+		operator = domainItem[1]
+		value = domainItem[2]
+
+		relatedField = field.split('.')[-1]
+		field = field.split('.')[0]
+		fieldType = self.fields[field].get('type')
+
+		index = self.uiField.findData( QVariant( field ) )
+		self.uiField.setCurrentIndex( index )
+
+		self.updateRelatedAndOperators()
+
+		if relatedField != field:
+			fieldType = self.fields[relatedField].get('type')
+			index = self.uiRelatedField.findData( QVariant( relatedField ) )
+			self.uiRelatedField.setCurrentIndex( index )
+
+		self.updateOperators()
+
+			
+		# Start with 1 because first item is empty
+		i = 1
+		for x in self.operators:
+			if x[0] == operator and fieldType in x[2]:
+				index = self.uiOperator.findData( x[0] )
+				self.uiOperator.setCurrentIndex( index )
+				break
+			i += 1
+		self.uiValue.setText( unicode(value) )	
+		
+
 class CustomSearchFormWidget(AbstractSearchWidget):
 	def __init__(self, parent=None):
 		AbstractSearchWidget.__init__(self, '', parent)
@@ -384,8 +427,6 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 		self.expanded = True
 		self._loaded = False
 		self.fields = None
-		self.widgets = []
-
 		self.widgets = []
 
 	## @brief Returns True if it's been already loaded. That is: setup has been called.
@@ -424,9 +465,10 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 			self.widgets.append( filterItem )
 		self.connect( filterItem, SIGNAL('newItem()'), self.newItem )
 		self.connect( filterItem, SIGNAL('removeItem()'), self.removeItem )
+		return filterItem
 
-	def dropItem(self, item):
-		if len(self.widgets) > 1:
+	def dropItem(self, item, force=False):
+		if len(self.widgets) > 1 or force:
 			self.layout.removeWidget( item )
 			item.hide()
 			self.widgets.remove( item )
@@ -495,9 +537,9 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 	## @brief Clears all search fields.
 	#
 	# Calling 'value()' after this function should return an empty list.
-	def clear(self):
+	def clear(self, force=False):
 		for item in self.widgets[:]:
-			self.dropItem( item )
+			self.dropItem( item, force )
 		self.setAllItemsValid(True)
 
 	## @brief Returns a domain-like list for the current search parameters.
@@ -528,9 +570,19 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 	#	'name': 'enterprise',
 	#	'income': 24
 	# })
-	def setValue(self, val):
-		pass
-		#for x in val:
-			#if x in self.widgets:
-				#self.widgets[x].value = val[x]
+	def setValue(self, domain):
+		if not domain:
+			self.clear()
+			return
+		self.clear(force=True)
+		nextOr = False
+		for item in domain:
+			if isinstance(item, tuple):
+				widgetItem = self.insertItem()
+				widgetItem.setValue( item )
+				if nextOr:
+					widgetItem.setOrSelected()
+				nextOr = False
+			elif item == '|':
+				nextOr = True
 

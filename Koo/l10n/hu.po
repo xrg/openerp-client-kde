@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-12-27 23:52+0100\n"
-"PO-Revision-Date: 2010-12-15 10:18+0000\n"
-"Last-Translator: Dukai Gábor <Unknown>\n"
+"POT-Creation-Date: 2010-12-28 07:25+0100\n"
+"PO-Revision-Date: 2011-02-25 11:45+0000\n"
+"Last-Translator: Attila Tatár (Elastoffice) <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-12-28 01:36+0000\n"
-"X-Generator: Launchpad (build 12138)\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
 
 #: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
 #: Koo/Dialogs/KooMainWindow.py:740 Koo/Dialogs/KooMainWindow.py:764
@@ -28,12 +28,20 @@ msgid "Information"
 msgstr ""
 
 #: Koo/Screen/Action.py:81
+#, fuzzy
 msgid "You must select a record to use the relate button !"
 msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"Ki kell választani egy rekordot a Kapcsolódási gomb használatához!"
 
 #: Koo/Screen/Action.py:87
+#, fuzzy
 msgid "You must save this record to use the relate button !"
 msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"El kell menteni a rekordot a Kapcsolási gomb használatához!"
 
 #: Koo/Screen/Action.py:130
 #, fuzzy
@@ -893,12 +901,20 @@ msgid ""
 msgstr "Fájlírási hiba!"
 
 #: Koo/Plugins/Semantic/__init__.py:46
+#, fuzzy
 msgid "Semantic Info"
 msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"Szemantikus info"
 
 #: Koo/Plugins/ViewTranslator/__init__.py:40
+#, fuzzy
 msgid "Translate View"
 msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"Forditások nézet"
 
 #: Koo/Plugins/WorkflowPrinter/__init__.py:54
 msgid "Print Workflow"
@@ -909,13 +925,17 @@ msgid "Print Workflow (Complex)"
 msgstr ""
 
 #: Koo/Actions/Actions.py:58 Koo/Actions/Actions.py:82
-#, fuzzy, python-format
+#, python-format
 msgid "Error: %s"
-msgstr "Hiba: "
+msgstr "Hiba: %s"
 
 #: Koo/Actions/Actions.py:62
+#, fuzzy
 msgid "Nothing to print."
 msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"Nincs nyomtatandó anyag."
 
 #: Koo/Actions/Actions.py:78
 #, fuzzy
@@ -923,16 +943,25 @@ msgid "Printing aborted. Delay too long."
 msgstr "Nyomtatás megszakítva időtúllépés miatt!"
 
 #: Koo/Actions/Actions.py:95
+#, fuzzy
 msgid "Nothing to print!"
 msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"Nincs mit nyomtatni!"
 
 #: Koo/Actions/Actions.py:111
 msgid "Printing aborted, too long delay !"
 msgstr "Nyomtatás megszakítva időtúllépés miatt!"
 
 #: Koo/Actions/Actions.py:232
+#, fuzzy
 msgid "Select your action"
-msgstr "Válasszon feladatot"
+msgstr ""
+"#-#-#-#-#  .merge_file_BrTxYw (openobject-client-kde)  #-#-#-#-#\n"
+"Válasszon feladatot\n"
+"#-#-#-#-#  .merge_file_Ak1bmk (openobject-client-kde)  #-#-#-#-#\n"
+"Válasszon műveletet"
 
 #: Koo/Common/Common.py:178
 msgid "Concurrency warning"
@@ -1241,6 +1270,14 @@ msgstr ""
 #: Koo/Fields/OneToMany/OneToMany.py:158
 msgid "&Duplicate Selected Records"
 msgstr "&Duplázza a kiválasztott rekordokat"
+
+#: Koo/Plugins/ScreenDocs/__init__.py:89
+msgid "Create Screenshots"
+msgstr "Hozzon létre képernyőmentést"
+
+#: Koo/Plugins/DocumentImporter/__init__.py:45
+msgid "Select Files"
+msgstr "Válasszon fájlokat"
 
 #, fuzzy
 #~ msgid "Document saved !"

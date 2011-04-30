@@ -105,7 +105,7 @@ class subscription_services(baseExportService):
 			data = connections[host]
 			return Pyro.core.getProxyForURI( 'PYROLOC://%s:%s' % ( data['host'], data['port'] ) )
 		self.proxy = Pyro.core.getProxyForURI( self.url )
-		
+
 
 class WaitServer(netsvc.Server):
     """ A dummy server that controls the wait service.

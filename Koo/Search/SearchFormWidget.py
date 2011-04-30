@@ -36,6 +36,7 @@ from CustomSearchFormWidget import *
 from SearchWidgetFactory import *
 from AbstractSearchWidget import *
 from Koo.Common import Common
+from Koo.Common import Api
 from Koo import Rpc
 
 from PyQt4.QtGui import *
@@ -162,16 +163,50 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.expanded = True
 		self._loaded = False
 		self.shortcuts = []
-
-		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
-		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
-		self.connect( self.pushSearch, SIGNAL('clicked()'), self.search )
-		self.connect( self.pushSwitchView, SIGNAL('clicked()'), self.toggleView )
+		self._storedFilters = {}
 
 		self.pushExpander.setEnabled( False )
 		self.pushClear.setEnabled( False )
 		self.pushSearch.setEnabled( False )
 		self.toggleView()
+
+		# Fill in filters menu
+		self.actionSave = QAction(self)
+		self.actionSave.setText( _('&Save Current Filter') )
+		self.actionSave.setIcon( QIcon( ':/images/save.png' ) )
+
+		self.actionManage = QAction(self)
+		self.actionManage.setText( _('&Manage Filters') )
+		self.actionManage.setIcon( QIcon( ':/images/administration.png' ) )
+
+		self.filtersMenu = QMenu( self )
+		self.filtersMenu.addAction( self.actionSave )
+		self.filtersMenu.addAction( self.actionManage )
+		self.pushSave.setMenu( self.filtersMenu )
+		self.pushSave.setDefaultAction( self.actionSave )
+
+		if Common.serverMajorVersion == '5':
+			self.pushSave.hide()
+			self.uiStoredFilters.hide()
+
+		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
+		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
+		self.connect( self.pushSearch, SIGNAL('clicked()'), self.search )
+		self.connect( self.pushSwitchView, SIGNAL('clicked()'), self.toggleView )
+		self.connect( self.actionSave, SIGNAL('triggered()'), self.save )
+		self.connect( self.actionManage, SIGNAL('triggered()'), self.manage )
+		self.connect( self.uiStoredFilters, SIGNAL('currentIndexChanged(int)'), self.setStoredFilter )
+
+	def setStoredFilter(self, index):
+		if index >= 0:
+			id = self.uiStoredFilters.itemData( index ).toInt()[0]
+			if id:
+				storedDomain = eval( self._storedFilters[id]['domain'] )
+			else:
+				storedDomain = []
+			self.uiCustomContainer.setValue( storedDomain )
+		else:
+			self.uiCustomContainer.setValue( [] )
 
 	## @brief Returns True if it's been already loaded. That is: setup has been called.
 	def isLoaded(self):
@@ -179,10 +214,48 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 
 	## @brief Returns True if it has no widgets.
 	def isEmpty(self):
-		if len(self.widgets):
-			return False
+		if len(self.widgets): return False
 		else:
 			return True
+
+	# @brief Store current search
+	def manage(self):
+		Api.instance.executeAction({
+			'name': _('Manage Filters'),
+			'res_model': 'ir.filters',
+			'type': 'ir.actions.act_window',
+			'view_type': 'form',
+			'view_mode': 'tree,form',
+			'domain': "[('model_id','=','%s'),('user_id','=',%s)]" % (self.model, Rpc.session.uid)
+		}, data={}, context=Rpc.session.context)
+
+	# @brief Store current search
+	def save(self):
+		name, ok = QInputDialog.getText(self, _('Save Filter'), _('What is the name of this filter?'))
+		if not ok or not name:
+			return
+		Rpc.session.execute('/object', 'execute', 'ir.filters', 'create_or_replace', {
+			'name': unicode(name), 
+			'user_id': Rpc.session.uid,
+			'model_id': self.model,
+			'domain': str(self.value()),
+			'context': str(Rpc.session.context),
+		}, Rpc.session.context)
+		self.load()
+
+	def load(self):
+		if Common.serverMajorVersion == '5':
+			return
+		ids = Rpc.session.execute('/object', 'execute', 'ir.filters', 'search', [
+			('user_id','=',Rpc.session.uid),
+			('model_id','=',self.model)
+		])
+		records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [])
+		self.uiStoredFilters.clear()
+		self.uiStoredFilters.addItem( '' )
+		for record in records:
+			self.uiStoredFilters.addItem( record['name'], record['id'] )
+			self._storedFilters[ record['id'] ] = record
 
 	## @brief Initializes the widget with the appropiate widgets to search.
 	#
@@ -232,7 +305,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.toggleExpansion()
 
 		self.uiCustomContainer.setup( fields, domain )
-		return 
+		self.load()
 
 	def keyPressEvent(self, event):
 		if event.key() in ( Qt.Key_Return, Qt.Key_Enter ):
@@ -329,6 +402,13 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	# Note you can optionally give a 'domain' parameter which will be added to
 	# the filters the widget will return.
 	def value(self, domain=[]):
+		if Common.serverMajorVersion != '5':
+			index = self.uiStoredFilters.currentIndex()
+			if index:
+				id = self.uiStoredFilters.itemData( index ).toInt()[0]
+				storedDomain = eval( self._storedFilters[id]['domain'] )
+				domain = domain + storedDomain
+
 		if self.pushSwitchView.isChecked():
 			return self.uiCustomContainer.value( domain )
 
@@ -358,3 +438,4 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			if x in self.widgets:
 				self.widgets[x].value = val[x]
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

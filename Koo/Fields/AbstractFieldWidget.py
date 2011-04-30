@@ -242,7 +242,12 @@ class AbstractFieldWidget(QWidget):
 		new = self.menuEntries()
 		if len(new) > 0:
 			entries = entries + [(None, None, None)] + new
-		menu = QMenu( parent )
+		try:
+			menu = parent.createStandardContextMenu()
+			menu.setParent( parent )
+			menu.addSeparator()
+		except:
+			menu = QMenu( parent )
 		for title, slot, enabled in entries:
 			if title:
 				item = QAction( title, menu )

@@ -1,15 +1,16 @@
 Source: koo
 Section: shells
 Priority: optional
-Maintainer: Albert Cervera i Areny
-Build-Depends: debhelper (>=7.0.0), python-support (>= 0.6), python-all-dev
+Maintainer: Albert Cervera i Areny <albert@nan-tic.com> 
+Build-Depends: debhelper (>=7.0.0), python-central (>= 0.6), python-all-dev, cdbs, python-qt4-dev, python-qt4
 Standards-Version: 3.8.1
-
+XS-Python-Version: >= 2.5
+ 
 Package: koo
 Architecture: all
 Homepage: http://www.NaN-tic.com/
 Depends: ${misc:Depends}, ${python:Depends}, python-qt4 (>= 4.4.0), pyro (>= 3.7), xdg-utils
-Suggests: pyserial
+Suggests: pyserial, python-enchant
 Description: Qt & KDE based client for OpenERP
  Koo is a Qt/KDE based client for Open ERP, a complete ERP and CRM. Koo 
  aims for great flexibility allowing easy creation of plugins and views, high

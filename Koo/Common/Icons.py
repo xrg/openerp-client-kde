@@ -58,6 +58,7 @@ mapIcons = {
 	'gtk-open' : 'open.png',
 	'gtk-print' : 'print.png',
 	'gtk-save' : 'save.png',
+	'gtk-select-all' : 'text_block.png',
 	'gtk-undo' : 'undo.png',
 	'STOCK_CONVERT' : 'convert.png',
 	'STOCK_EXECUTE' : 'action.png',
@@ -73,13 +74,18 @@ mapIcons = {
 	'terp-account' : 'account.png',
 	'terp-calendar': 'calendar.png',
 	'terp-crm' : 'crm.png',
+	'terp-dialog-close': 'close.png',
 	'terp-document-new' : 'new.png',
 	'terp-graph' : 'chart.png',
+	'terp-gtk-go-back-rtl' : 'reload.png',
+	'terp-gtk-jump-to-ltr' : 'next.png',
 	'terp-hr' : 'hr.png',
 	'terp-mrp' : 'mrp.png',
 	'terp-partner' : 'partner.png',
+	'terp-personal' : 'partner.png',
 	'terp-product' : 'product.png',
 	'terp-project': 'clock.png',
+	'terp-accessories-archiver' : 'product.png',
 	'terp-purchase' : 'purchase.png',
 	'terp-sale' : 'sale.png',
 	'terp-stock' : 'stock.png',
@@ -107,3 +113,4 @@ def kdePixmap(icon):
 			print "KDE ICON '%s' NOT FOUND" % icon
 		return QPixmap()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

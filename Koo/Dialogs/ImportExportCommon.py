@@ -28,6 +28,7 @@
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from Koo import Rpc
+from Koo.Common import Common
 
 class FieldsModel( QStandardItemModel ):
 	def __init__(self):
@@ -55,7 +56,11 @@ class FieldsModel( QStandardItemModel ):
 			'string': _('ID'),
 			'type': 'integer',
 		}
-		fields['db_id'] = {
+		if Common.serverMajorVersion == '5':
+			db_id_key = 'db_id'
+		else:
+			db_id_key = '.id'
+		fields[db_id_key] = {
 			'string': _('Database ID'),
 			'type': 'integer',
 		}

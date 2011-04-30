@@ -697,3 +697,4 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		self.reload()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

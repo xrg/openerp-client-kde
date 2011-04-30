@@ -104,20 +104,25 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 			self.loadCompletion( self.attrs.get('selection') )
 
 	def loadCompletion(self,ids):
-		self.completion = QCompleter()
-		self.completion.setCaseSensitivity( Qt.CaseInsensitive )
-		self.uiText.setCompleter( self.completion )
-		liststore = []
-		for i,word in enumerate( ids ):
-			if word[1] and word[1][0] == '[':
-				i = word[1].find( ']')
-				s = word[1][1:i]
-				s2 = word[1][i+2:]
-				liststore.append( s2 )
+		self.completer = QCompleter()
+		self.completer.setCaseSensitivity( Qt.CaseInsensitive )
+		self.completer.setCompletionMode( QCompleter.UnfilteredPopupCompletion )
+		self.connect( self.completer, SIGNAL('activated(QModelIndex)'), self.completerActivated )
+		self.uiText.setCompleter( self.completer )
+
+		model = QStandardItemModel( self )
+		self.completerList = []
+		for key, value in enumerate( ids ):
+			if value[1] and value[1][0] == '[':
+				i = value[1].find( ']')
+				text = value[1][i+2:]
 			else:
-				liststore.append( word[1] )
-		self.completion.setModel( QStringListModel( liststore ) )
-		self.completion.setCompletionColumn( 0 )
+				text = value[1]
+			self.completerList.append( (key, text) )
+			model.appendRow( [QStandardItem( key ), QStandardItem( text )] )
+
+		self.completer.setModel( model )
+		self.completer.setCompletionColumn( 1 )
 
 	def clear( self ):
 		# As the 'clear' button might modify the model we need to be sure all other fields/widgets
@@ -144,6 +149,11 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def colorWidget(self):
 		return self.uiText
+
+	def completerActivated(self, index):
+		id = self.completerList[ index.row() ]
+		text = unicode( index.data().toString() )
+		self.record.setValue(self.name, (id, text))
 
 	def match(self):
 		if self.searching:

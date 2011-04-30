@@ -35,6 +35,7 @@ from service.web_services import baseExportService
 import sql_db
 import pooler
 import operator
+import release
 
 class ir_attachment(osv.osv):
 	_name = 'ir.attachment'

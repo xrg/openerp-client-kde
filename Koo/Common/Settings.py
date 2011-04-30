@@ -42,6 +42,14 @@ class Settings(object):
 	options = {
 		'login.db': 'test',
 		'login.url': 'http://admin@localhost:8069',
+		'pyrossl.certdir':  os.path.join(sys.prefix, 'share/Koo/certs'),
+		'pyrossl.cert': 'client.pem',
+		'pyrossl.ca_cert': 'ca.pem',
+		'pyrossl.key': None,
+		'pyrossl.postconncheck': 1,
+		'pyro.dns_uri': 1,
+		'pyro.tracelevel': 0,
+		'pyro.logfile': '/tmp/pyro_client.log',
 		'path.share': os.path.join(sys.prefix, 'share/Koo/'),
 		'path.pixmaps': os.path.join(sys.prefix, 'share/pixmaps/Koo/'),
 		'path.ui': os.path.join(sys.prefix, 'share/Koo/ui'), 
@@ -133,6 +141,8 @@ class Settings(object):
 						value = True
 					if value=='False' or value=='false':
 						value = False
+					if value=='None' or value=='none':
+						value = None
 					Settings.options[section+'.'+name] = value
 		except Exception, e:
 			Debug.warning( 'Unable to read config file %s !' % Settings.rcFile )

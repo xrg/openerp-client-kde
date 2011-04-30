@@ -34,9 +34,11 @@ import release
 logger = netsvc.Logger()
 
 class PyroDaemon(Thread):
-	def __init__(self, port):
+	def __init__(self, port, ssl=False, settings=False):
 		Thread.__init__(self)
 		self.__port = port
+		self.__ssl = ssl
+		self.__settings = settings
 
 	def run(self):
 		class RpcDispatcher(Pyro.core.ObjBase, netsvc.OpenERPDispatcher):
@@ -47,11 +49,59 @@ class PyroDaemon(Thread):
             				raise Pyro.core.PyroError(tools.exception_to_unicode(e.exception), e.traceback)
 
 		Pyro.core.initServer(storageCheck=0)
-		daemon=Pyro.core.Daemon(port=self.__port)
-		uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
-		logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro services, port %s" % self.__port)
-		daemon.requestLoop()
+		try:
+			if self.__settings is not False:
+				for k,v in self.__settings.items():
+					setattr(Pyro.config,k,v)
+			if self.__ssl is True:
+				daemon=Pyro.core.Daemon(port=self.__port,prtcol='PYROSSL')
+			else:
+				daemon=Pyro.core.Daemon(port=self.__port)
+			uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
+			logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro %s services, port %s" % (Pyro.core.Pyro.constants.VERSION,self.__port))
+			daemon.requestLoop()
+		except Exception, e:
+			import traceback
+			logger.notifyChannel("web-services", netsvc.LOG_ERROR, "Pyro exception: %s\n%s" % (e, traceback.format_exc()))
+			raise
 
+
+tools.config['pyrossl'] = tools.config.get('pyrossl', True)
+tools.config['pyrossl_port'] = tools.config.get('pyrossl_port', 8072)
+try:
+	if tools.config['pyrossl']:
+		version = Pyro.core.Pyro.constants.VERSION.split('.')
+		if int(version[0]) <= 3 and int(version[1]) <= 10:
+			logger.notifyChannel("init", netsvc.LOG_ERROR, "Need at least Pyro version 3.10 for SSL, found %s" % Pyro.core.Pyro.constants.VERSION)
+		else:
+			try:
+				import M2Crypto
+			except Exception, e:
+				tools.config['pyrossl'] =  False
+				logger.notifyChannel("init", netsvc.LOG_ERROR, "M2Crypto could not be imported, SSL will not work: %s" % (e.args) )
+			else:
+				try:
+					pyrossl_port = int(tools.config["pyrossl_port"])
+				except Exception:
+					logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid ssl port '%s'!" % (tools.config["pyroport-ssl"]) )
+				settings = {}
+				settings['PYROSSL_CERTDIR'] = tools.config.get('pyrossl_certdir', False)
+				if settings['PYROSSL_CERTDIR'] is False:
+					logger.notifyChannel("init", netsvc.LOG_ERROR, "pyrossl_certdir must be set!" )
+				else:
+					settings['PYROSSL_POSTCONNCHECK'] = tools.config.get('pyrossl_postconncheck',1)
+					settings['PYROSSL_CERT'] = tools.config.get('pyrossl_cert','server.pem')
+					settings['PYROSSL_CA_CERT'] = tools.config.get('pyrossl_ca_cert','ca.pem')
+					settings['PYROSSL_KEY'] = tools.config.get('pyrossl_key',None)
+					settings['PYRO_TRACELEVEL'] = tools.config.get('pyro_tracelevel',0)
+					if tools.config.get('pyro_logfile'):
+						settings['PYRO_LOGFILE'] = tools.config.get('pyro_logfile')
+					pyrod_ssl = PyroDaemon(pyrossl_port, True, settings)
+					pyrod_ssl.start()
+	
+except Exception, e:
+	import traceback
+	logger.notifyChannel("web-services", netsvc.LOG_ERROR, "Pyro exception: %s\n%s" % (e, traceback.format_exc()))
 
 # FIXME!
 tools.config['pyro'] = tools.config.get('pyro', True)
@@ -62,9 +112,9 @@ if tools.config['pyro']:
 		pyroport = int(tools.config["pyroport"])
 	except Exception:
 		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport"]) )
-
 	pyrod = PyroDaemon(pyroport)
 	pyrod.start()
+
 
 
 # vim:noexpandtab:
