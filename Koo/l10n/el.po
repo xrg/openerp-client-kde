@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-23 12:56+0200\n"
-"PO-Revision-Date: 2011-01-23 12:57+0200\n"
+"PO-Revision-Date: 2011-04-26 20:30+0300\n"
 "Last-Translator: P. Christeas <p_christ@hol.gr>\n"
 "Language-Team: Greek <openerp@lists.hellug.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.2\n"
 "X-Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: el\n"
 
 #: Koo/Screen/Action.py:85 Koo/Screen/Action.py:93
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
@@ -281,11 +282,12 @@ msgstr ""
 #: Koo/Dialogs/KooMainWindow.py:545
 #, fuzzy
 msgid "Manual"
-msgstr "Manual"
+msgstr "Χειροκίνητα"
 
 #: Koo/Dialogs/KooMainWindow.py:633
+#, fuzzy
 msgid "Access denied"
-msgstr ""
+msgstr "Άρνηση αδειών"
 
 #: Koo/Dialogs/KooMainWindow.py:633
 msgid ""
@@ -338,8 +340,9 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:63
+#, fuzzy
 msgid "Loading..."
-msgstr ""
+msgstr "Φόρτωση..."
 
 #: Koo/Dialogs/FullTextSearchDialog.py:65
 msgid "Full Text Search"
@@ -369,8 +372,9 @@ msgid ""
 msgstr ""
 
 #: Koo/Dialogs/DatabaseDialog.py:73 Koo/Dialogs/LoginDialog.py:89
+#, fuzzy
 msgid "Could not connect to server !"
-msgstr ""
+msgstr "Είναι αδύνατη η σύνδεση στον εξυπηρετητή"
 
 #: Koo/Dialogs/DatabaseDialog.py:79 Koo/Dialogs/LoginDialog.py:97
 msgid "No database found, you must create one !"
@@ -492,13 +496,13 @@ msgid "Data Export Error"
 msgstr ""
 
 #: Koo/Dialogs/ExportDialog.py:329
-#, fuzzy
 msgid "Export Data"
 msgstr "Εξαγωγή Δεδομένων"
 
 #: Koo/Dialogs/ExportDialog.py:372
+#, fuzzy
 msgid "What is the name of this export?"
-msgstr ""
+msgstr "Ποιο είναι το όνομα αυτής της εξαγωγής;"
 
 #: Koo/Dialogs/ExportDialog.py:390
 msgid "Open with OpenOffice.org"
@@ -526,12 +530,14 @@ msgid "Exported fields"
 msgstr ""
 
 #: Koo/Dialogs/WebWidget.py:81
+#, fuzzy
 msgid "Find"
-msgstr ""
+msgstr "Αναζήτηση"
 
 #: Koo/Dialogs/WebWidget.py:81
+#, fuzzy
 msgid "Find:"
-msgstr ""
+msgstr "Αναζήτηση:"
 
 #: Koo/Dialogs/WebWidget.py:113
 msgid "No help available for web views"
@@ -606,7 +612,7 @@ msgstr "Καμία εγγραφή"
 
 #: Koo/Dialogs/FormWidget.py:548
 msgid "No document selected"
-msgstr ""
+msgstr "Δεν επιλέχθηκε έγγραφο"
 
 #: Koo/Dialogs/FormWidget.py:552
 msgid "New document"
@@ -728,9 +734,9 @@ msgid "Select the fields you want to update in the <b>%d</b> selected records:"
 msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:53
-#, python-format
+#, fuzzy, python-format
 msgid "Imported %d objects !"
-msgstr ""
+msgstr "Εισήχθησαν %d αντικείμενα"
 
 #: Koo/Dialogs/ImportDialog.py:58
 #, python-format
@@ -799,11 +805,14 @@ msgid ""
 "Error processing your first line of the file.\n"
 "Field %s is unknown !"
 msgstr ""
+"Σφάλμα στην πρώτη γραμμή του αρχείου.\n"
+"Το πεδίο %s είναι άγνωστο!"
 
 #: Koo/Dialogs/ImportDialog.py:312 Koo/Dialogs/ImportDialog.py:315
+#, fuzzy
 #: Koo/Dialogs/ImportDialog.py:318
 msgid "Import error"
-msgstr ""
+msgstr "Λάθος εισαγωγής"
 
 #: Koo/Dialogs/ImportDialog.py:312
 msgid "No file specified."
@@ -845,7 +854,7 @@ msgstr "Ιστός"
 
 #: Koo/Dialogs/PreferencesDialog.py:54
 msgid "User Preferences"
-msgstr ""
+msgstr "Προτιμήσεις χρήστη"
 
 #: Koo/Dialogs/ServerConfigurationDialog.py:66
 msgid "NET-RPC"
@@ -879,8 +888,9 @@ msgid "Error during database creation"
 msgstr "Σφάλμα κατά την δημιουργία βάσης δεδομένων"
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:86
+#, fuzzy
 msgid "Could not create database."
-msgstr ""
+msgstr "Αδυναμία δημιουργίας της βάσης δεδομένων \"%1\"."
 
 #: Koo/Dialogs/DatabaseCreationDialog.py:93
 msgid "Error during database creation !"
@@ -929,12 +939,12 @@ msgstr ""
 #: Koo/Fields/AbstractFieldWidget.py:151
 #: Koo/Fields/AbstractFieldDelegate.py:115
 msgid "Operation not permited"
-msgstr ""
+msgstr "Μη Επιτρεπτή Λειτουργία"
 
 #: Koo/Fields/AbstractFieldWidget.py:151
 #: Koo/Fields/AbstractFieldDelegate.py:115
 msgid "You can not set to the default value here !"
-msgstr ""
+msgstr "Δεν μπορείτε να ορίσετε την προεπιλεγμένη τιμή εδώ!"
 
 #: Koo/Fields/Char/CharFieldWidget.py:80
 #: Koo/Fields/RichText/RichTextFieldWidget.py:88
@@ -964,8 +974,9 @@ msgid "Save image as..."
 msgstr "Αποθήκευση εικόνας ως..."
 
 #: Koo/Fields/Image/ImageFieldWidget.py:134
+#, fuzzy
 msgid "Error saving file"
-msgstr ""
+msgstr "Σφάλμα αποθήκευσης αρχείου %1"
 
 #: Koo/Fields/Image/ImageFieldWidget.py:134
 msgid ""
@@ -1032,9 +1043,10 @@ msgid "Button type not allowed"
 msgstr ""
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:148
+#, fuzzy
 #: Koo/Fields/Button/ButtonFieldWidget.py:213
 msgid "Invalid Form, correct red fields!"
-msgstr ""
+msgstr "Άκυρη φόρμα, διορθώστε τα κόκκινα πεδία."
 
 #: Koo/Fields/Button/ButtonFieldWidget.py:155
 msgid "You do not have permission to execute this action."
@@ -1061,8 +1073,9 @@ msgid "Translation Dialog"
 msgstr ""
 
 #: Koo/Fields/FieldPreferencesDialog.py:64
+#, fuzzy
 msgid "<center>Always applicable!</center>"
-msgstr ""
+msgstr "Πάντα σε ισχύ !"
 
 #: Koo/Fields/Video/VideoFieldWidget.py:72
 #: Koo/Fields/Binary/BinaryFieldWidget.py:226
@@ -1198,8 +1211,9 @@ msgid "Nothing to print!"
 msgstr "Τίποτα προς εκτύπωση!"
 
 #: Koo/Actions/Actions.py:117
+#, fuzzy
 msgid "Printing aborted, too long delay !"
-msgstr ""
+msgstr "Η εκτύπωση ακυρώθηκε, τέλος χρόνου"
 
 #: Koo/Actions/Actions.py:253
 msgid "Select your action"
@@ -1355,8 +1369,9 @@ msgid ""
 msgstr ""
 
 #: Koo/Common/RemoteHelp.py:57
+#, fuzzy
 msgid "Proceed"
-msgstr ""
+msgstr "Συνέχεια;"
 
 #: Koo/Common/CommandLine.py:44
 msgid "specify database"
@@ -1501,7 +1516,7 @@ msgstr "Λεπτομέρειες: %s"
 
 #: Koo/Rpc/Rpc.py:652
 msgid "Not logged in"
-msgstr ""
+msgstr "Δε συνδέθηκε"
 
 #: Koo/Rpc/Rpc.py:841
 msgid "Could not contact server!"
