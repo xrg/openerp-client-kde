@@ -446,7 +446,8 @@ class Record(QObject):
 				self.group.ensureRecordLoaded( self )
 				val = self.evaluateExpression( dom, checkLoad, firstTry=False )
 			else:
-				raise exception
+				Debug.error(_('Error evaluating expression: %s') % exception.args)
+				val = False
 		return val
 
 	# @brief Evaluates the given condition.
@@ -570,3 +571,5 @@ class Record(QObject):
 			self.values[key] = val.create(self)
 			if (self.new and val.attrs['type']=='one2many') and (val.attrs.get('mode','tree,form').startswith('form')):
 				self.values[key].create()
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
