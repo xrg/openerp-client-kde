@@ -240,10 +240,7 @@ class Screen(QScrollArea):
 
 				self.searchForm.setup( arch, fields, self.resource, self.group.domain() )
 
-			if self.searchForm.isEmpty():
-				self.searchForm.hide()
-			else:
-				self.searchForm.show()
+			self.searchForm.show()
 		else:
 			self.searchForm.hide()
 
