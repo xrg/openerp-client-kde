@@ -200,12 +200,15 @@ class LoginDialog( QDialog, LoginDialogUi ):
 					from PyKDE4.kdeui import KWallet
 					KWallet.Wallet.NetworkWallet()
 					wallet = KWallet.Wallet.openWallet( KWallet.Wallet.NetworkWallet(), self.winId() )
-					folder = '%s/%s' % (unicode(self.uiServer.text()), self.databaseName)
-					logging.getLogger('koo.login').debug("Storing credentials in KWallet")
-					wallet.writeMap( folder, {
-						'username': unicode( self.uiUserName.text() ),
-						'password': unicode( self.uiPassword.text() ),
-					})
+					if wallet:
+                                            folder = '%s/%s' % (unicode(self.uiServer.text()), self.databaseName)
+                                            logging.getLogger('koo.login').debug("Storing credentials in KWallet")
+                                            wallet.writeMap( folder, {
+                                                    'username': unicode( self.uiUserName.text() ),
+                                                    'password': unicode( self.uiPassword.text() ),
+                                            })
+                                        else:
+                                            logging.getLogger('koo.login').info("Wallet not opened, not storing credentials")
 		else:
 			self.reject()
 
