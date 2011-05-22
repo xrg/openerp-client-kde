@@ -92,9 +92,6 @@ class Record(QObject):
 				value.__del__()
 		self.values = {}
 		self.invalidFields = []
-		from Koo.Common import Debug
-		if self.id == 2:
-			Debug.printReferrers( self )
 		self.group = None
 
 	def _getModified(self):
