@@ -41,9 +41,18 @@ import StringIO
 
 try:
 	import xlrd
-	isExcelAvailable = True
+	isXlsAvailable = True
 except:
-	isExcelAvailable = False
+	isXlsAvailable = False
+
+try:
+	import odf.text 
+	import odf.table
+	import odf.opendocument
+	isOdsAvailable = True
+except:
+	isOdsAvailable = False
+
 
 from ImportExportCommon import *
 
@@ -96,8 +105,10 @@ class ImportDialog(QDialog, ImportDialogUi):
 		self.fields = None
 
 		self.uiFileFormat.addItem( _('CSV'), 'csv' )
-		if isExcelAvailable:
-			self.uiFileFormat.addItem( _('Excel'), 'excel' )
+		if isXlsAvailable:
+			self.uiFileFormat.addItem( _('Excel (XLS)'), 'xls' )
+		if isOdsAvailable:
+			self.uiFileFormat.addItem( _('Open Document (ODS)'), 'ods' )
 		self.uiFileFormat.setCurrentIndex( 0 )
 		self.updateFileFormat()
 
@@ -118,18 +129,32 @@ class ImportDialog(QDialog, ImportDialogUi):
 		if self.fileFormat() == 'csv':
 			self.uiCsvContainer.show()
 			self.uiSpreadSheetContainer.hide()
+		elif self.fileFormat() == 'xls':
+			self.uiCsvContainer.hide()
+			self.uiSpreadSheetContainer.show()
+			self.updateXlsFields()
 		else:
 			self.uiCsvContainer.hide()
 			self.uiSpreadSheetContainer.show()
-			self.updateExcelFields()
+			self.updateOdsFields()
 
-	def updateExcelFields(self):
+	def updateXlsFields(self):
 		fileName = unicode(self.uiFileName.text())
 		if not fileName:
 			QMessageBox.information(self, _('Sheet List Error'), 'You must select an import file first !')
 			return 
 		self.uiSpreadSheetSheet.clear()
-		for sheet in self.excelSheets(fileName):
+		for sheet in self.xlsSheets(fileName):
+			self.uiSpreadSheetSheet.addItem( sheet, 0 )
+		self.uiSpreadSheetSheet.setCurrentIndex( 0 )
+
+	def updateOdsFields(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
+			QMessageBox.information(self, _('Sheet List Error'), 'You must select an import file first !')
+			return 
+		self.uiSpreadSheetSheet.clear()
+		for sheet in self.odsSheets(fileName):
 			self.uiSpreadSheetSheet.addItem( sheet, 0 )
 		self.uiSpreadSheetSheet.setCurrentIndex( 0 )
 
@@ -168,12 +193,22 @@ class ImportDialog(QDialog, ImportDialogUi):
 		QApplication.restoreOverrideCursor()
 
 	def slotOpenFile(self):
-		file = QFileDialog.getOpenFileName(self, _('File to import'))
-		if file.isNull():
+		fileName = QFileDialog.getOpenFileName(self, _('File to import'))
+		if fileName.isNull():
 			return
-		self.uiFileName.setText( file )
-
-		
+		self.uiFileName.setText( fileName )
+		index = self.uiFileFormat.currentIndex()
+		fileName = unicode( fileName )
+		if fileName.lower().endswith('.csv'):
+			index = self.uiFileFormat.findData( 'csv' )
+		if isXlsAvailable:
+			if fileName.lower().endswith('.xls'):
+				index = self.uiFileFormat.findData( 'xls' )
+		if isOdsAvailable:
+			if fileName.lower().endswith('.ods'):
+				index = self.uiFileFormat.findData( 'ods' )
+		self.uiFileFormat.setCurrentIndex( index )
+		self.updateFileFormat()
 
 	def slotAdd(self):
 		idx = self.uiAllFields.selectionModel().selectedRows()
@@ -246,7 +281,45 @@ class ImportDialog(QDialog, ImportDialogUi):
 		except:
 			QMessageBox.warning(self, _('Auto-detect error'), _('Error processing your first line of the file.\nField %s is unknown !') % (field) )
 
-	def excelRecords(self, fileName, sheet):
+	def odsRecords(self, fileName, sheet):
+		try:
+			doc = odf.opendocument.load(fileName)
+		except Exception, e:
+			QMessageBox.information( None, _('Error'), _('Error reading file: %s') % unicode(e.args) )
+			return []
+
+		key = ('urn:oasis:names:tc:opendocument:xmlns:table:1.0', u'name')
+		for x in doc.getElementsByType(odf.table.Table):
+			if key in x.attributes and x.attributes[key] == sheet:
+				#d = doc.spreadsheet
+				rows = x.getElementsByType(odf.table.TableRow)
+				records = []
+				for row in rows:
+					cells = row.getElementsByType(odf.table.TableCell)
+					record = []
+					for cell in cells:
+						tps = cell.getElementsByType(odf.text.P)
+						for x in tps:
+							record.append( unicode( x.firstChild ) )
+					if record:
+						records.append( record )
+				break
+		return records
+
+	def odsSheets(self, fileName):
+		try:
+			doc = odf.opendocument.load(fileName)
+		except Exception, e:
+			QMessageBox.information( None, _('Error'), _('Error reading file: %s') % unicode(e.args) )
+			return []
+		key = ('urn:oasis:names:tc:opendocument:xmlns:table:1.0', u'name')
+		sheets = []
+		for x in doc.getElementsByType(odf.table.Table):
+			if key in x.attributes:
+				sheets.append( x.attributes[key] )
+		return sheets
+
+	def xlsRecords(self, fileName, sheet):
 		try:
 			book = xlrd.open_workbook( fileName )
 		except Exception, e:
@@ -264,7 +337,7 @@ class ImportDialog(QDialog, ImportDialogUi):
 			records.append( record )
 		return records
 
-	def excelSheets(self, fileName):
+	def xlsSheets(self, fileName):
 		try:
 			book = xlrd.open_workbook( fileName )
 		except Exception, e:
@@ -273,15 +346,32 @@ class ImportDialog(QDialog, ImportDialogUi):
 		sheets = []
 		for i in xrange(book.nsheets):
 			sheets.append( book.sheet_by_index( i ).name )
-		return sheets	
+		return sheets
 
-	def excelAutoDetect(self):
+	def xlsAutoDetect(self):
 		fileName = unicode(self.uiFileName.text())
 		if not fileName:
 			QMessageBox.information(self, _('Auto-detect error'), 'You must select an import file first !')
 			return 
 		sheet = unicode( self.uiSpreadSheetSheet.currentText() )
-		records = self.excelRecords( fileName, sheet )
+		records = self.xlsRecords( fileName, sheet )
+		if records:
+			record = records[0]
+			for field in record:
+				if not field in self.fieldsInvertedInfo:
+					QMessageBox.warning(self, _('Auto-detect error'), _('Error processing your first line of the file.\nField %s is unknown !') % (field) )
+					return
+				self.selectedModel.addField( field, self.fieldsInvertedInfo[field] )
+			if self.uiSpreadSheetLinesToSkip.value() == 0:
+				self.uiSpreadSheetLinesToSkip.setValue( 1 )
+
+	def odsAutoDetect(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
+			QMessageBox.information(self, _('Auto-detect error'), 'You must select an import file first !')
+			return 
+		sheet = unicode( self.uiSpreadSheetSheet.currentText() )
+		records = self.odsRecords( fileName, sheet )
 		if records:
 			record = records[0]
 			for field in record:
@@ -296,8 +386,10 @@ class ImportDialog(QDialog, ImportDialogUi):
 		self.slotRemoveAll()
 		if self.fileFormat() == 'csv':
 			self.csvAutoDetect()
+		elif self.fileFormat() == 'xls':
+			self.xlsAutoDetect()
 		else:
-			self.excelAutoDetect()
+			self.odsAutoDetect()
 
 	def importCsv(self):
 		self.uiLinesToSkip.setValue(1)
@@ -326,7 +418,7 @@ class ImportDialog(QDialog, ImportDialogUi):
 				return
 		self.accept()
 
-	def importExcel(self):
+	def importXls(self):
 		fileName = unicode(self.uiFileName.text())
 		if not fileName:
 			QMessageBox.information(self, _('Import Error'), 'You must select an import file first !')
@@ -339,16 +431,35 @@ class ImportDialog(QDialog, ImportDialogUi):
 		for x in range(0, self.selectedModel.rowCount() ):
 			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
 
-
-		records = self.excelRecords( fileName, sheet )
+		records = self.xlsRecords( fileName, sheet )
 		records = records[linesToSkip:]
 		executeImport( records, self.model, fieldsData )
 		return records
-			
+
+	def importOds(self):
+		fileName = unicode(self.uiFileName.text())
+		if not fileName:
+			QMessageBox.information(self, _('Import Error'), 'You must select an import file first !')
+			return 
+		sheet = unicode( self.uiSpreadSheetSheet.currentText() )
+
+		linesToSkip = self.uiSpreadSheetLinesToSkip.value()
+
+		fieldsData = []
+		for x in range(0, self.selectedModel.rowCount() ):
+			fieldsData.append( unicode( self.selectedModel.item( x ).data().toString() ) )
+
+		records = self.odsRecords( fileName, sheet )
+		records = records[linesToSkip:]
+		executeImport( records, self.model, fieldsData )
+		return records
 
 	def import_(self):
 		if self.fileFormat() == 'csv':
 			self.importCsv()
+		elif self.fileFormat() == 'xls':
+			self.importXls()
 		else:
-			self.importExcel()
+			self.importOds()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

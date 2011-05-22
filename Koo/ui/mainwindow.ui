@@ -656,6 +656,9 @@
    <property name="text">
     <string>Open &amp;Menu Tab</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
   </action>
   <action name="actionNextTab">
    <property name="icon">
