@@ -34,7 +34,6 @@ from Koo.View.AbstractView import *
 from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.QtWebKit import *
 
 ## @brief The FormTabWidget class is the widget used instead of QTabWidget in forms.
 #
@@ -97,7 +96,9 @@ class FormContainer( QWidget ):
 					break
 		return valid
 
-	def addWidget(self, widget, attributes={}, labelText=None):
+	def addWidget(self, widget, attributes=None, labelText=None):
+		if attributes is None:
+			attributes = {}
 		if widget.inherits( 'AbstractFieldWidget' ):
 			self.fieldWidgets.append( widget )
 		if widget.inherits( 'FormContainer' ):
@@ -356,3 +357,5 @@ class FormView( AbstractView ):
 
 	def showsMultipleRecords(self):
 		return False
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
