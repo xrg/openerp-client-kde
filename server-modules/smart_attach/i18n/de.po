@@ -1,0 +1,28 @@
+# German translation for openobject-client-kde
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-06-27 14:40+0000\n"
+"PO-Revision-Date: 2011-01-05 16:41+0000\n"
+"Last-Translator: Ferdinand @ Camptocamp <Unknown>\n"
+"Language-Team: German <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
+
+#. module: smart_attach
+#: model:ir.module.module,description:smart_attach.module_meta_information
+msgid "This module adds the ability to extract text from the attached files."
+msgstr "Dieses Modul extrahiert Text aus den Anhängen"
+
+#. module: smart_attach
+#: model:ir.module.module,shortdesc:smart_attach.module_meta_information
+msgid "Smart Attach"
+msgstr "Intelligente Anhänge"

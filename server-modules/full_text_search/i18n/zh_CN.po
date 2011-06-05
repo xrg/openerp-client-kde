@@ -1,0 +1,219 @@
+# Chinese (Simplified) translation for openobject-client-kde
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-06-27 14:38+0000\n"
+"PO-Revision-Date: 2011-01-06 09:35+0000\n"
+"Last-Translator: Wei \"oldrev\" Li <oldrev@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
+"X-Generator: Launchpad (build 12792)\n"
+
+#. module: full_text_search
+#: model:ir.module.module,description:full_text_search.module_meta_information
+msgid ""
+"This module adds full text search capabilities to OpenERP if used in "
+"conjunction with the Koo client.\n"
+"\n"
+"Note that this module requires the server to connect to an administrator "
+"user in PostgreSQL because it uses PL/PythonU. Be advised that this might be "
+"a security risk.\n"
+"\n"
+"The module will try to load PL/PythonU language if it doesn't already exist "
+"in the database."
+msgstr ""
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_full_text_index
+msgid "fts.full_text_index"
+msgstr ""
+
+#. module: full_text_search
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr "对象名称必须以“x_”开头且不能包含任何特殊字符！"
+
+#. module: full_text_search
+#: help:ir.model.fields,fts_priority:0
+msgid ""
+"Fields that should be indexed in the Full Text Search engine should be given "
+"a priority here."
+msgstr ""
+
+#. module: full_text_search
+#: help:fts.wizard,configuration:0
+msgid "Choose a PostgreSQL TS configuration"
+msgstr "选择一个 PostgreSQL TS 配置"
+
+#. module: full_text_search
+#: model:ir.actions.act_window,name:full_text_search.fts_priorities_action
+msgid "Full Text Index Priorities"
+msgstr "全文搜索索引优先级"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_wizard
+msgid "fts.wizard"
+msgstr ""
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.fts_full_text_index_menu
+msgid "Indexes"
+msgstr "索引"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,priority:0
+#: field:fts.full_text_index,priority:0
+msgid "Priority"
+msgstr "优先级"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,field_id:0
+#: field:fts.full_text_index,field_id:0
+msgid "Field"
+msgstr "字段"
+
+#. module: full_text_search
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "在动作定义使用了无效的模型名。"
+
+#. module: full_text_search
+#: model:ir.module.module,shortdesc:full_text_search.module_meta_information
+#: model:ir.ui.menu,name:full_text_search.fts_menu
+msgid "Full Text Search"
+msgstr "全文搜索"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Full Text Index Creation Wizard"
+msgstr "全文索引创建向导"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.menu_fts_wizard
+msgid "Update Full Text Index"
+msgstr "更新全文索引"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_current_full_text_index
+msgid "fts.current_full_text_index"
+msgstr "fts.current_full_text_index"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Non indexable field type."
+msgstr "非可索引字段类型"
+
+#. module: full_text_search
+#: field:fts.priority,value:0
+msgid "Value (0-1.0)"
+msgstr "值 (0-1.0)"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_priority
+msgid "fts.priority"
+msgstr "fts.priority"
+
+#. module: full_text_search
+#: model:ir.actions.act_window,name:full_text_search.action_fts_wizard
+msgid "Full Text Search Configuration Wizard"
+msgstr "全文搜索配置向导"
+
+#. module: full_text_search
+#: field:fts.wizard,configuration:0
+msgid "Configuration"
+msgstr "配置"
+
+#. module: full_text_search
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "无效XML视图结构!"
+
+#. module: full_text_search
+#: field:fts.priority,name:0
+msgid "Name"
+msgstr "名称"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.fts_priorities_menu
+msgid "Priorities"
+msgstr "优先级"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Creation error"
+msgstr "创建错误"
+
+#. module: full_text_search
+#: view:fts.full_text_index:0
+#: view:fts.priority:0
+#: model:ir.actions.act_window,name:full_text_search.fts_full_text_index_action
+msgid "Full Text Indexes"
+msgstr "全文索引"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,model_id:0
+#: field:fts.full_text_index,model_id:0
+msgid "Model"
+msgstr "模型"
+
+#. module: full_text_search
+#: help:ir.model.fields,fts_current_priority:0
+msgid ""
+"Shows with which priority this field is being indexed at the moment. It may "
+"change after Update Full Text Index process."
+msgstr ""
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid ""
+"Note that this operation may take a long time depending on the number of "
+"indexes and database size."
+msgstr ""
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Create Index"
+msgstr "创建索引"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Fields of type function can't be indexed: '%s'"
+msgstr "不能索引函数类型的字段：\"%s\""
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "This wizard will recreate full text indexes."
+msgstr "本向导将创建全文索引。"
+
+#. module: full_text_search
+#: field:ir.model.fields,fts_priority:0
+msgid "FTS Priority"
+msgstr "全文搜索优先级"
+
+#. module: full_text_search
+#: field:ir.model.fields,fts_current_priority:0
+msgid "FTS Current Priority"
+msgstr "全文搜索当前优先级"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Cancel"
+msgstr ""
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Non indexable field type: '%s'"
+msgstr ""
