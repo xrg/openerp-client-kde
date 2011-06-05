@@ -30,7 +30,7 @@ import base64
 from Koo import Rpc
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.uic import *
+from Common.Ui import *
 from Koo.Plugins import Plugins
 from Koo.Screen.Screen import *
 from Koo.Dialogs import FormWidget

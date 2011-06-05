@@ -33,7 +33,7 @@ from Koo.Common.Numeric import *
 from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 class IntegerSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):

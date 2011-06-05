@@ -25,23 +25,7 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from Common.Ui import *
-from Koo.Common import Common
+from ButtonSearchWidget import *
+from Koo.Search.SearchWidgetFactory import *
 
-(GoToIdDialogUi, GoToIdDialogBase) = loadUiType( Common.uiPath('gotoid.ui') )
-
-class GoToIdDialog( QDialog, GoToIdDialogUi ):
-	def __init__( self, parent=None ):
-		QDialog.__init__(self, parent)
-		GoToIdDialogUi.__init__(self)
-		self.setupUi( self )
-		self.uiId.selectAll()
-		
-		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
-
-	def slotAccept( self ):
-		self.result = self.uiId.value()
-		self.accept()	
-
+SearchWidgetFactory.register( 'button', ButtonSearchWidget )

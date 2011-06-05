@@ -46,7 +46,7 @@ from Koo.Model.Group import *
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 ## @brief The TreeParser class parses the arch (XML) of tree views.
 #
@@ -407,6 +407,9 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if not record:
 			return
 
+		if not Help.isHelpWidgetAvailable:
+			return
+
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		helpWidget = Help.HelpWidget( button )
 		helpWidget.setLabel( record.value('name') )
@@ -415,4 +418,4 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		helpWidget.show()
 		QApplication.restoreOverrideCursor()
 		
-
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

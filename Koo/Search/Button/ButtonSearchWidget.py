@@ -1,6 +1,7 @@
 ##############################################################################
 #
-# Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
+# Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
+#                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -28,61 +29,34 @@
 
 from Koo.Common import Common
 
-from Koo.Common.Calendar import *
 from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common.Ui import *
 
-class TimeSearchWidget(AbstractSearchWidget):
-	def __init__(self, name, parent, attrs={}):
-		AbstractSearchWidget.__init__(self, name, parent, attrs)
-		self.uiStart = QLineEdit( self )
-		label = QLabel( "-", self)
-		self.uiEnd = QLineEdit( self )
-		layout = QHBoxLayout( self )
-		layout.setContentsMargins( 0, 0, 0, 0 )
+class ButtonSearchWidget(AbstractSearchWidget):
+	def __init__(self, name, parent, attributes=None):
+		if attributes is None:
+			attributes = {}
+		AbstractSearchWidget.__init__(self, name, parent, attributes)
+		self.pushButton = QPushButton( self )
+		self.pushButton.setText( attributes.get('string', '') )
+		self.pushButton.setCheckable( True )
+		layout = QVBoxLayout( self )
+		layout.addWidget( self.pushButton )
 		layout.setSpacing( 0 )
-		layout.addWidget(self.uiStart)
-		layout.addWidget(label)
-		layout.addWidget(self.uiEnd)
+		layout.setContentsMargins( 0, 0, 0, 0 )
+		self.focusWidget = self.pushButton
 
-		# Catch keyDownPressed
-		self.uiStart.installEventFilter( self )
-		self.uiEnd.installEventFilter( self )
-
-		self.focusWidget = self.uiStart
-
-	def _getTime(self, text):
-		time = textToTime( text )
-		if time.isValid():
-			return str( time.toString( 'hh:mm:ss' ) )
-		else:
-			return False
+		self.domain = attributes.get('domain', "[]")
+		self.context = attributes.get('context', "{}")
 
 	def value(self):
-		res = []
-		val = self._getTime( str( self.uiStart.text() ) )
- 		if val:
-			res.append((self.name, '>=', val ))
-		else:
-			self.uiStart.clear()
-		val = self._getTime( str( self.uiEnd.text()) )
-	 	if val:
-			res.append((self.name, '<=', val ))
-		else:
-			self.uiEnd.clear()
-		return res
+		return Rpc.session.evaluateExpression( self.domain, Rpc.session.context )
 
 	def clear(self):
-		self.uiStart.clear()
-		self.uiEnd.clear()
+		self.pushButton.setDown( False )
 
 	def setValue(self, value):
-		if value:
-			self.uiStart.setText( unicode(value) )
-			self.uiEnd.setText( unicode(value) )
-		else:
-			self.uiStart.clear()
-			self.uiEnd.clear()
+		pass
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

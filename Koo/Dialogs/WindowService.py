@@ -84,7 +84,9 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 
 def createWebWindow(url, title):
 	url = url or ''
-	if QApplication.keyboardModifiers() & Qt.ControlModifier:
+	if QApplication.keyboardModifiers() & Qt.ControlModifier or \
+		not isWebWidgetAvailable:
+
 		QDesktopServices.openUrl( QUrl( url ) )
 		return
 	QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -93,3 +95,5 @@ def createWebWindow(url, title):
 	widget.setUrl( QUrl( url ) )
 	QApplication.restoreOverrideCursor()
 	Api.instance.windowCreated(widget, 'current')
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

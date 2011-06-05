@@ -1,6 +1,7 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2011 NaN Projectes de Programari Lliure, S.L.
+#                    http://www.NaN-tic.com
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,23 +26,26 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from Common.Ui import *
-from Koo.Common import Common
+import os
 
-(GoToIdDialogUi, GoToIdDialogBase) = loadUiType( Common.uiPath('gotoid.ui') )
+try:
+	from PyQt4 import uic
+	isUicAvailable = True
+except:
+	isUicAvailabe = False
 
-class GoToIdDialog( QDialog, GoToIdDialogUi ):
-	def __init__( self, parent=None ):
-		QDialog.__init__(self, parent)
-		GoToIdDialogUi.__init__(self)
-		self.setupUi( self )
-		self.uiId.selectAll()
-		
-		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
+def uiToModule( filePath):
+	return os.path.split( filePath[:-3] )[-1]
 
-	def slotAccept( self ):
-		self.result = self.uiId.value()
-		self.accept()	
+if isUicAvailable:
+	def loadUiType( fileName  ):
+		return uic.loadUiType( fileName  )
+else:
+	def loadUiType( fileName ):
+		module = uiToModule( fileName )
+		module = __import__( 'ui.%s' % module, globals(), locals(), [module] )
+		uiClasses = [x for x in dir(module) if x.startswith('Ui_')]
+		ui = eval( 'module.%s' % uiClasses[0] )
+		return (ui, None)
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

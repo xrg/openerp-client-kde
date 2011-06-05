@@ -27,7 +27,11 @@
 ##############################################################################
 
 from PyQt4.QtCore import *
-from PyQt4.QtNetwork import *
+try:
+	from PyQt4.QtNetwork import *
+	isQtNetworkAvailable = True
+except:
+	isQtNetworkAvailable = False
 
 from Koo.Common import Notifier
 from Koo.Common import Url
@@ -35,7 +39,11 @@ from Koo.Common import Api
 from Koo.Common import Debug
 
 from Cache import *
-import tiny_socket
+try:
+	import tiny_socket
+	isNetRpcAvailable = True
+except:
+	isNetRpcAvailable = False
 
 import xmlrpclib
 import base64
@@ -132,12 +140,12 @@ class Connection:
 
 try:
 	import Pyro.core
-	pyroAvailable = True
+	isPyroAvailable = True
 except:
-	pyroAvailable = False
+	isPyroAvailable = False
 
-if pyroAvailable:
-	pyroSslAvailable = False
+if isPyroAvailable:
+	isPyroSslAvailable = False
 	version = Pyro.core.Pyro.constants.VERSION.split('.')
 	if int(version[0]) <= 3 and int(version[1]) <= 10:
 		Debug.info('To use SSL, Pyro must be version 3.10 or higher; Pyro version %s was found.' % Pyro.core.Pyro.constants.VERSION)
@@ -145,11 +153,11 @@ if pyroAvailable:
 		try:
 			from M2Crypto.SSL import SSLError
 			from M2Crypto.SSL.Checker import WrongHost
-			pyroSslAvailable = True
+			isPyroSslAvailable = True
 		except:
 			Debug.info('M2Crypto not found. Consider installing in order to use Pryo with SSL.')
 
-if not pyroSslAvailable:
+if not isPyroSslAvailable:
 	# Create Dummy Exception so we do not have to complicate code in PyroConnection if
 	# SSL is not available.
 	class DummyException(Exception):
@@ -669,90 +677,88 @@ class RpcFunction(object):
 
 
 
-# @brief RpcReply class extends QNetworkReply and adds a new 'openerp://' protocol to access content through the current Rpc.session connection.
-#
-# URL should be of the form openerp://res.model/function/path_sent_to_the_function
+if isQtNetworkAvailable:
+	# @brief RpcReply class extends QNetworkReply and adds a new 'openerp://' protocol to access content through the current Rpc.session connection.
+	#
+	# URL should be of the form openerp://res.model/function/path_sent_to_the_function
+	class RpcReply(QNetworkReply):
+		def __init__(self, parent, url, operation):
+			QNetworkReply.__init__(self, parent)
 
-class RpcReply(QNetworkReply):
-	def __init__(self, parent, url, operation):
-		QNetworkReply.__init__(self, parent)
+			path = unicode( url.path() )
+			path = path.split('/')
+			if unicode( url.host() ) == 'client':
+				function = path[-1]
+				parameters = [[unicode(x[0]), unicode(x[1])] for x in url.queryItems()]
+				parameters = dict(parameters)
+				if 'res_id' in parameters:
+					try:
+						parameters['res_id'] = int(parameters['res_id'])
+					except ValueError:
+						parameters['res_id'] = False
 
-		path = unicode( url.path() )
-		path = path.split('/')
-		if unicode( url.host() ) == 'client':
-			function = path[-1]
-			parameters = [[unicode(x[0]), unicode(x[1])] for x in url.queryItems()]
-			parameters = dict(parameters)
-			if 'res_id' in parameters:
+				if function == 'action':
+					Api.instance.executeAction(parameters, data={}, context=session.context)
+					
+				return
+			elif len(path) >= 3:
+				model = unicode( url.host() )
+				function = path[1]
+				parameter = '/%s' % '/'.join( path[2:] )
+
 				try:
-					parameters['res_id'] = int(parameters['res_id'])
-				except ValueError:
-					parameters['res_id'] = False
-
-			if function == 'action':
-				Api.instance.executeAction(parameters, data={}, context=session.context)
-				
-			return
-		elif len(path) >= 3:
-			model = unicode( url.host() )
-			function = path[1]
-			parameter = '/%s' % '/'.join( path[2:] )
-
-			try:
-				self.content = session.call('/object','execute', model, function, parameter, session.context)
-			except:
-				self.content = ''
-			if self.content:
-				self.content = base64.decodestring( self.content )
+					self.content = session.call('/object','execute', model, function, parameter, session.context)
+				except:
+					self.content = ''
+				if self.content:
+					self.content = base64.decodestring( self.content )
+				else:
+					self.content = ''
 			else:
 				self.content = ''
-		else:
-			self.content = ''
 
-		self.offset = 0
+			self.offset = 0
 
-		self.setHeader(QNetworkRequest.ContentTypeHeader, QVariant("text/html; charset=utf-8"))
-		self.setHeader(QNetworkRequest.ContentLengthHeader, QVariant(len(self.content)))
-		QTimer.singleShot(0, self, SIGNAL("readyRead()"))
-		QTimer.singleShot(0, self, SIGNAL("finished()"))
-		self.open(self.ReadOnly | self.Unbuffered)
-		self.setUrl(url)
+			self.setHeader(QNetworkRequest.ContentTypeHeader, QVariant("text/html; charset=utf-8"))
+			self.setHeader(QNetworkRequest.ContentLengthHeader, QVariant(len(self.content)))
+			QTimer.singleShot(0, self, SIGNAL("readyRead()"))
+			QTimer.singleShot(0, self, SIGNAL("finished()"))
+			self.open(self.ReadOnly | self.Unbuffered)
+			self.setUrl(url)
 
-	def abort(self):
-		pass
+		def abort(self):
+			pass
 
-	def bytesAvailable(self):
-		return len(self.content) - self.offset
+		def bytesAvailable(self):
+			return len(self.content) - self.offset
 
-	def isSequential(self):
-		return True
+		def isSequential(self):
+			return True
 
-	def readData(self, maxSize):
-		if self.offset < len(self.content):
-			end = min(self.offset + maxSize, len(self.content))
-			data = self.content[self.offset:end]
-			self.offset = end
-			return data
+		def readData(self, maxSize):
+			if self.offset < len(self.content):
+				end = min(self.offset + maxSize, len(self.content))
+				data = self.content[self.offset:end]
+				self.offset = end
+				return data
 
-# @brief RpcNetworkAccessManager class extends QNetworkAccessManager and adds a new 'openerp://' protocol to access content through the current Rpc.session connection.
-#
-# The 
-class RpcNetworkAccessManager( QNetworkAccessManager ):
-	def __init__(self, oldManager):
-		QNetworkAccessManager.__init__(self)
-		self.oldManager = oldManager
-		self.setCache(oldManager.cache())
-		self.setCookieJar(oldManager.cookieJar())
-		self.setProxy(oldManager.proxy())
-		self.setProxyFactory(oldManager.proxyFactory())
+	# @brief RpcNetworkAccessManager class extends QNetworkAccessManager and adds a new 'openerp://' protocol to access content through the current Rpc.session connection.
+	class RpcNetworkAccessManager( QNetworkAccessManager ):
+		def __init__(self, oldManager):
+			QNetworkAccessManager.__init__(self)
+			self.oldManager = oldManager
+			self.setCache(oldManager.cache())
+			self.setCookieJar(oldManager.cookieJar())
+			self.setProxy(oldManager.proxy())
+			self.setProxyFactory(oldManager.proxyFactory())
 
-	def createRequest(self, operation, request, data):
-		if request.url().scheme() != 'openerp':
-			return QNetworkAccessManager.createRequest(self, operation, request, data)
+		def createRequest(self, operation, request, data):
+			if request.url().scheme() != 'openerp':
+				return QNetworkAccessManager.createRequest(self, operation, request, data)
 
-		if operation != self.GetOperation:
-			return QNetworkAccessManager.createRequest(self, operation, request, data)
+			if operation != self.GetOperation:
+				return QNetworkAccessManager.createRequest(self, operation, request, data)
 
-		return RpcReply(self, request.url(), self.GetOperation)
+			return RpcReply(self, request.url(), self.GetOperation)
 
 # vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

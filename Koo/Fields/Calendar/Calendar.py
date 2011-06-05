@@ -34,7 +34,7 @@ from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common.Calendar import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 (DateFieldWidgetUi, DateFieldWidgetBase ) = loadUiType( Common.uiPath('calendar.ui') ) 
 

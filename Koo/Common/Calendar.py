@@ -37,7 +37,7 @@
 #
 from PyQt4.QtCore import *
 from PyQt4.QtGui import * 
-from PyQt4.uic import *
+from Ui import *
 import math
 import locale
 import Common

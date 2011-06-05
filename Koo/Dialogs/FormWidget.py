@@ -48,7 +48,7 @@ from Koo.Screen.Screen import *
 from Koo.Model.Group import RecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 (FormWidgetUi, FormWidgetBase) = loadUiType( Common.uiPath('formcontainer.ui') )
 
@@ -606,6 +606,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		return self._switchViewMenu
 
 	def help(self, button):
+		if not isHelpWidgetAvailable:
+			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		helpWidget = Help.HelpWidget( button )
 		helpWidget.setLabel( self.name )

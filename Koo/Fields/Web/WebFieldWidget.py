@@ -27,9 +27,10 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 from PyQt4.QtWebKit import *
 from PyQt4.QtNetwork import *
+
 from Koo.Common import Common
 from Koo.Fields.AbstractFieldWidget import *
 
@@ -126,5 +127,4 @@ class WebFieldWidget(AbstractFieldWidget, WebFieldWidgetUi):
 		self.cookieJar.setAllCookies( cookieList )
 		self.uiWeb.page().networkAccessManager().setCookieJar( self.cookieJar )
 
-# vim:noexpandtab:
-
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

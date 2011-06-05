@@ -27,7 +27,7 @@
 
 from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 from Koo.Common import Common
 
 (ReferenceSearchWidgetUi, ReferenceSearchWidgetBase) = loadUiType( Common.uiPath('searchreference.ui') )

@@ -33,6 +33,7 @@ import sys
 import gettext
 
 from CustomSearchFormWidget import *
+from SearchViewWidget import *
 from SearchWidgetFactory import *
 from AbstractSearchWidget import *
 from Koo.Common import Common
@@ -41,7 +42,7 @@ from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 class SearchFormContainer( QWidget ):
 	def __init__(self, parent):
@@ -209,7 +210,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		else:
 			return True
 
-	# @brief Store current search
+	# @brief Manage stored filters
 	def manage(self):
 		Api.instance.executeAction({
 			'name': _('Manage Filters'),
@@ -287,6 +288,8 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.toggleExpansion()
 
 		self.uiCustomContainer.setup( fields, domain )
+
+		#self.uiSearchView.setup( xml, fields, model, domain )
 		self.load()
 
 	def keyPressEvent(self, event):
@@ -355,10 +358,12 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 
 	def toggleView(self):
 		if self.pushSwitchView.isChecked():
+			self.uiSearchView.hide()
 			self.uiSimpleContainer.hide()
 			self.pushExpander.hide()
 			self.uiCustomContainer.show()
 		else:
+			self.uiSearchView.hide()
 			self.uiSimpleContainer.show()
 			self.pushExpander.show()
 			self.uiCustomContainer.hide()

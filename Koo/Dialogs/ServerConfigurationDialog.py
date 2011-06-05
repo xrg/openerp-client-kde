@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 import re
 from Koo.Common import Common
 from Koo.Common.Settings import *
@@ -63,12 +63,13 @@ class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 		ServerConfigurationDialogUi.__init__(self)
 		self.setupUi(self)
 
-		self.uiConnection.addItem( _("NET-RPC"), QVariant( 'socket' ) )
+		if Rpc.isNetRpcAvailable:
+			self.uiConnection.addItem( _("NET-RPC"), QVariant( 'socket' ) )
 		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http' ) )
 		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https' ) )
-		if Rpc.pyroAvailable:
+		if Rpc.isPyroAvailable:
 			self.uiConnection.addItem( _("Pyro (faster)"), QVariant( 'PYROLOC' ) )
-		if Rpc.pyroSslAvailable:
+		if Rpc.isPyroSslAvailable:
 			self.uiConnection.addItem( _("Pyro SSL (faster)"), QVariant( 'PYROLOCSSL' ) )
 		result = False
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.reject )
@@ -96,3 +97,4 @@ class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 		self.url = unicode( url.toString() )
 		self.accept()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
