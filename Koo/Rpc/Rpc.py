@@ -140,10 +140,19 @@ class Connection:
 
 try:
 	import Pyro.core
+<<<<<<< TREE
 	isPyroAvailable = True
+=======
+	pyroAvailable = True
+>>>>>>> MERGE-SOURCE
 except:
+<<<<<<< TREE
 	isPyroAvailable = False
+=======
+	pyroAvailable = False
+>>>>>>> MERGE-SOURCE
 
+<<<<<<< TREE
 if isPyroAvailable:
 	isPyroSslAvailable = False
 	version = Pyro.core.Pyro.constants.VERSION.split('.')
@@ -151,13 +160,27 @@ if isPyroAvailable:
 		Debug.info('To use SSL, Pyro must be version 3.10 or higher; Pyro version %s was found.' % Pyro.core.Pyro.constants.VERSION)
 	else:
 		try:
+=======
+try:
+	pyroSslAvailable = False
+	if pyroAvailable:
+		version = Pyro.core.Pyro.constants.VERSION.split('.')
+		if int(version[0]) <= 3 and int(version[1]) <= 10:
+			Debug.info('To use SSL, Pyro must be version 3.10 or higher; Pyro version %s was found' % Pyro.core.Pyro.constants.VERSION)
+		else:
+>>>>>>> MERGE-SOURCE
 			from M2Crypto.SSL import SSLError
 			from M2Crypto.SSL.Checker import WrongHost
+<<<<<<< TREE
 			isPyroSslAvailable = True
 		except:
 			Debug.info('M2Crypto not found. Consider installing in order to use Pryo with SSL.')
 
 if not isPyroSslAvailable:
+=======
+			pyroSslAvailable = True
+except:
+>>>>>>> MERGE-SOURCE
 	# Create Dummy Exception so we do not have to complicate code in PyroConnection if
 	# SSL is not available.
 	class DummyException(Exception):
