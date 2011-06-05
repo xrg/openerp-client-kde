@@ -611,8 +611,15 @@ class KooModel(QAbstractItemModel):
 		if group.count():
 			idx = group.indexOfId( id )
 			idx -= 1
-			while idx >= 0 and group.records[idx].value('sequence') == seq:
-				group.records[idx].setValue('sequence', seq + increment)
+			while idx >= 0: 
+				if increment < 0 and group.records[idx].value('sequence') <= seq:
+					idx -= 1
+					continue
+				if increment > 0 and group.records[idx].value('sequence') >= seq:
+					idx -= 1
+					continue
+				seq = seq + increment
+				group.records[idx].setValue('sequence', seq )
 				idx -= 1
 		self.reset()
 		return True
@@ -824,3 +831,5 @@ class KooGroupedModel( QAbstractProxyModel ):
 		
 	def index(self, row, column, parent = QModelIndex() ):
 		return self.createIndex( row, column, parent )
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
