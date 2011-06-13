@@ -216,15 +216,20 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 					self.generateXmlRecord(value[0], records, fieldNode, currentPath, fields2)
 				continue
 
+			if field in record._table._columns:
+				field_type = record._table._columns[field]._type
+			elif field in record._table._inherit_fields:
+				field_type = record._table._inherit_fields[field][2]._type
+
 			# The rest of field types must be converted into str
 			if field == 'id':
 				# Check for field 'id' because we can't find it's type in _columns
 				value = str(value)
 			elif value == False:
 				value = ''
-			elif record._table._columns[field]._type == 'date':
+			elif field_type == 'date':
 				value = '%s 00:00:00' % str(value) 
-			elif record._table._columns[field]._type == 'binary':
+			elif field_type == 'binary':
 				imageId = (record.id, field)
 				if imageId in self.imageFiles:
 					fileName = self.imageFiles[ imageId ]
@@ -344,15 +349,20 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 			if type == 'java.lang.Object':
 				value = self.valueInAllLanguages(record._table, record.id, root)
 
+			if field in record._table._columns:
+				field_type = record._table._columns[field]._type
+			elif field in record._table._inherit_fields:
+				field_type = record._table._inherit_fields[field][2]._type
+
 			# The rest of field types must be converted into str
 			if field == 'id':
 				# Check for field 'id' because we can't find it's type in _columns
 				value = str(value)
 			elif value in (False,None):
 				value = ''
-			elif record._table._columns[field]._type == 'date':
+			elif field_type == 'date':
 				value = '%s 00:00:00' % str(value) 
-			elif record._table._columns[field]._type == 'binary':
+			elif field_type == 'binary':
 				imageId = (record.id, field)
 				if imageId in self.imageFiles:
 					fileName = self.imageFiles[ imageId ]
@@ -371,3 +381,4 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 				value = str(value)
 			row[ self.report.fields()[currentPath]['name'] ] = value
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

@@ -1,3 +1,4 @@
+# encoding: iso-8859-15
 ##############################################################################
 #
 # Copyright (c) 2009 Albert Cervera i Areny <albert@nan-tic.com>
@@ -39,6 +40,16 @@ import sql_db
 import netsvc
 import jasper_report
 from tools.translate import _
+
+import string
+import unicodedata
+from xml.dom.minidom import getDOMImplementation
+
+src_chars = """ '"()/*-+?¿!&$[]{}@#`'^:;<>=~%,\\""" 
+src_chars = unicode( src_chars, 'iso-8859-1' )
+dst_chars = """________________________________"""
+dst_chars = unicode( dst_chars, 'iso-8859-1' )
+
 
 class report_xml_file(osv.osv):
 	_name = 'ir.actions.report.xml.file'
@@ -146,5 +157,111 @@ class report_xml(osv.osv):
 			f.close()
 		path = 'jasper_reports/custom_reports/%s' % name
 		return path
+
+	def normalize(self, text):
+		if isinstance( text, unicode ):
+			text = text.encode('utf-8')
+		return text
+
+	def unaccent(self, text):
+		if isinstance( text, str ):
+			text = unicode( text, 'utf-8' )
+		output = text
+		for c in xrange(len(src_chars)):
+			if c >= len(dst_chars):
+				break
+			output = output.replace( src_chars[c], dst_chars[c] )
+		output = unicodedata.normalize('NFKD', output).encode('ASCII', 'ignore')
+		return output.strip('_').encode( 'utf-8' )
+
+	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth, first_call):
+		# First of all add "id" field
+		fieldNode = document.createElement('id')
+		parentNode.appendChild( fieldNode )
+		valueNode = document.createTextNode( '1' )
+		fieldNode.appendChild( valueNode )
+		language = context.get('lang')
+		if language == 'en_US':
+			language = False
+
+		# Then add all fields in alphabetical order
+		model = pool.get(modelName)
+		fields = model._columns.keys()
+		fields += model._inherit_fields.keys()
+		# Remove duplicates because model may have fields with the 
+		# same name as it's parent
+		fields = sorted( list( set( fields ) ) )
+		for field in fields:
+			name = False
+			if language:
+				# Obtain field string for user's language.
+				name = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'field', language)
+			if not name:
+				# If there's not description in user's language, use default (english) one.
+				if field  in model._columns.keys():
+					name = model._columns[field].string
+				else:
+					name = model._inherit_fields[field][2].string
+
+			if name:
+				name = self.unaccent( name )
+			# After unaccent the name might result in an empty string
+			if name:
+				name = '%s-%s' % (self.unaccent( name ), field )
+			else:
+				name = field
+			fieldNode = document.createElement( name )
+
+			parentNode.appendChild( fieldNode )
+			if field in pool.get(modelName)._columns:
+				fieldType = model._columns[field]._type
+			else:
+				fieldType = model._inherit_fields[field][2]._type
+			if fieldType in ('many2one','one2many','many2many'):
+				if depth <= 1:
+					continue
+				if field in model._columns:
+					newName = model._columns[field]._obj
+				else:
+					newName = model._inherit_fields[field][2]._obj
+				self.generate_xml(cr, uid, context, pool, newName, fieldNode, document, depth-1, False)
+				continue
+			
+			if fieldType == 'float':
+				value = '12345.67'
+			elif fieldType == 'integer':
+				value = '12345'
+			elif fieldType == 'date':
+				value = '2009-12-31 00:00:00'
+			elif fieldType == 'time':
+				value = '12:34:56'
+			elif fieldType == 'datetime':
+				value = '2009-12-31 12:34:56'
+			else:
+				value = field
+
+			valueNode = document.createTextNode( value )
+			fieldNode.appendChild( valueNode )
+
+		if depth > 1 and modelName != 'Attachments':
+			# Create relation with attachments
+			fieldNode = document.createElement( '%s-Attachments' % _('Attachments') )
+			parentNode.appendChild( fieldNode )
+			self.generate_xml(cr, uid, context, pool, 'ir.attachment', fieldNode, document, depth-1, False)
+
+		if first_call:
+			# Create relation with user
+			fieldNode = document.createElement( '%s-User' % _('User') )
+			parentNode.appendChild( fieldNode )
+			self.generate_xml(cr, uid, context, pool, 'res.users', fieldNode, document, depth-1, False)
+
+	def create_xml(self, cr, uid, model, depth, context):
+		document = getDOMImplementation().createDocument(None, 'data', None)
+		topNode = document.documentElement
+		recordNode = document.createElement('record')
+		topNode.appendChild( recordNode )
+		self.generate_xml( cr, uid, context, self.pool, model, recordNode, document, depth, True )
+		topNode.toxml()
+		return topNode.toxml()
 
 report_xml()

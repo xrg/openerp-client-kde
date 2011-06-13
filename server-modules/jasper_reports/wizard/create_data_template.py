@@ -1,11 +1,8 @@
 # encoding: iso-8859-15
-from xml.dom.minidom import getDOMImplementation
 import wizard
 import pooler
 import base64
 import osv
-import string
-import unicodedata
 from tools.translate import _
 
 view_form_start = """<?xml version="1.0"?>
@@ -36,11 +33,6 @@ view_fields_end = {
 	'filename': { 'string': 'File Name', 'type': 'char' },
 }
 
-src_chars = """àáäâÀÁÄÂèéëêÈÉËÊìíïîÌÍÏÎòóöôÒÓÖÔùúüûÙÚÜÛçñºª·€ '"()/*-+?¿!&$[]{}@#`'^:;<>=~%,\\""" 
-src_chars = unicode( src_chars, 'iso-8859-1' )
-dst_chars = """aaaaAAAAeeeeEEEEiiiiIIIIooooOOOOuuuuUUUUcnoa_e________________________________"""
-dst_chars = unicode( dst_chars, 'iso-8859-1' )
-
 class create_data_template(wizard.interface):
 	
 	def _action_start(self, cr, uid, data, context):
@@ -49,100 +41,6 @@ class create_data_template(wizard.interface):
 		}
 		return res
 
-	def normalize(self, text):
-		if isinstance( text, unicode ):
-			text = text.encode('utf-8')
-		return text
-
-	def unaccent(self, text):
-		if isinstance( text, str ):
-			text = unicode( text, 'utf-8' )
-		output = text
-		for c in xrange(len(src_chars)):
-			output = output.replace( src_chars[c], dst_chars[c] )
-		output = unicodedata.normalize('NFKD', output).encode('ASCII', 'ignore')
-		return output.strip('_').encode( 'utf-8' )
-		
-
-	def generate_xml(self, cr, uid, context, pool, modelName, parentNode, document, depth, first_call):
-		# First of all add "id" field
-		fieldNode = document.createElement('id')
-		parentNode.appendChild( fieldNode )
-		valueNode = document.createTextNode( '1' )
-		fieldNode.appendChild( valueNode )
-		language = context.get('lang')
-		if language == 'en_US':
-			language = False
-
-		# Then add all fields in alphabetical order
-		model = pool.get(modelName)
-		fields = model._columns.keys()
-		fields.sort()
-		for field in fields:
-			name = False
-			if language:
-				# Obtain field string for user's language.
-				name = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'field', language)
-				#name = self.unaccent( name )
-				#name = self.normalize( name )
-				#help = pool.get('ir.translation')._get_source(cr, uid, modelName + ',' + field, 'help', language)
-				#help = self.normalize( help )
-			if not name:
-				# If there's not description in user's language, use default (english) one.
-				name = pool.get(modelName)._columns[field].string
-				#help = pool.get(modelName)._columns[field].help
-
-			if name:
-				name = self.unaccent( name )
-			# After unaccent the name might result in an empty string
-			if name:
-				name = '%s-%s' % (self.unaccent( name ), field )
-			else:
-				name = field
-			fieldNode = document.createElement( name )
-			#if name:
-				#fieldNode.setAttribute( 'name', name )
-			#if help:
-				#fieldNode.setAttribute( 'help', help )
-
-			parentNode.appendChild( fieldNode )
-			fieldType = model._columns[field]._type
-			if fieldType in ('many2one','one2many','many2many'):
-				if depth <= 1:
-					continue
-				newName = model._columns[field]._obj
-				self.generate_xml(cr, uid, context, pool, newName, fieldNode, document, depth-1, False)
-				continue
-			
-			if fieldType == 'float':
-				value = '12345.67'
-			elif fieldType == 'integer':
-				value = '12345'
-			elif fieldType == 'date':
-				value = '2009-12-31 00:00:00'
-			elif fieldType == 'time':
-				value = '12:34:56'
-			elif fieldType == 'datetime':
-				value = '2009-12-31 12:34:56'
-			else:
-				value = field
-
-			valueNode = document.createTextNode( value )
-			fieldNode.appendChild( valueNode )
-
-		if depth > 1 and modelName != 'Attachments':
-			# Create relation with attachments
-			fieldNode = document.createElement( '%s-Attachments' % _('Attachments') )
-			parentNode.appendChild( fieldNode )
-			self.generate_xml(cr, uid, context, pool, 'ir.attachment', fieldNode, document, depth-1, False)
-
-		if first_call:
-			# Create relation with user
-			fieldNode = document.createElement( '%s-User' % _('User') )
-			parentNode.appendChild( fieldNode )
-			self.generate_xml(cr, uid, context, pool, 'res.users', fieldNode, document, depth-1, False)
-			
-
 	def _action_create_xml(self, cr, uid, data, context):
 		pool = pooler.get_pool(cr.dbname)
 		form = data['form']
@@ -150,19 +48,14 @@ class create_data_template(wizard.interface):
 		name = values['name']
 		model = values['model']
 
-		document = getDOMImplementation().createDocument(None, 'data', None)
-		topNode = document.documentElement
-		recordNode = document.createElement('record')
-		topNode.appendChild( recordNode )
-		self.generate_xml( cr, uid, context, pool, model, recordNode, document, form['depth'], True )
-		topNode.toxml()
+		
+		xml = pool.get('ir.actions.report.xml').create_xml(cr, uid, model, form['depth'], context)
 
-		res = {
+		return {
 			'model': name,
-			'data': base64.encodestring( topNode.toxml() ),
+			'data': base64.encodestring( xml ),
 			'filename': 'jasper.xml',
 		}
-		return res
 
 	states = {
 		'init': {
