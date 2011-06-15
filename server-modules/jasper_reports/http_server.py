@@ -51,14 +51,19 @@ class JasperHandler(netsvc.OpenERPDispatcher, BaseHTTPRequestHandler):
         user = arguments.get('user', tools.config.get('jasper_user', 'admin') )
         password = arguments.get('password', tools.config.get('jasper_password', 'admin') )
         depth = int( arguments.get('depth', tools.config.get('jasper_depth', 3) ) )
+        language = arguments.get('language', tools.config.get('jasper_language', 'en'))
 
         # Check if data is in cache already
-        key = '%s|%s|%s|%s' % (model, database, user, depth)
+        key = '%s|%s|%s|%s|%s' % (model, database, user, depth, language)
         if key in self.cache:
             return self.cache[key]
 
+        context = {
+            'lang': language,
+        }
+
         uid = self.dispatch('common', 'login', (database, user, password) )
-        result = self.dispatch('object', 'execute', (database, uid, password, 'ir.actions.report.xml', 'create_xml', model, depth, {}) )
+        result = self.dispatch('object', 'execute', (database, uid, password, 'ir.actions.report.xml', 'create_xml', model, depth, context) )
 
         if use_cache:
             self.cache[key] = result
