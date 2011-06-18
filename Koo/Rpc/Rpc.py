@@ -508,7 +508,7 @@ class XmlRpc2Connection(Connection):
 	def login(self, database, user, password):
 		saved_creds = (self.databaseName, self.username, self.uid, self.password, self._authclient)
 		try:
-			self.databaseName = database
+			self.databaseName = str(database)
 			self.username = user
 			self.uid = None
 			self.password = password
