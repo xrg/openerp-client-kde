@@ -325,7 +325,7 @@ class SocketConnection(Connection):
 			s = tiny_socket.mysocket()
 			s.connect( self.url )
 		except socket.error, err:
-			raise RpcProtocolException( unicode(err) )
+			raise RpcProtocolException(err)
 		try:
 			# Remove leading slash (ie. '/object' -> 'object')
 			obj = obj[1:]
