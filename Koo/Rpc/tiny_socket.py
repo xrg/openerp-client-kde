@@ -237,11 +237,6 @@ class PersistentTransport(Transport):
 
 		self.verbose = verbose
 
-		try:
-		    sock = h._conn.sock
-		except AttributeError:
-		    sock = None
-
 		return self._parse_response(resp)
 	finally:
 		if resp: resp.close()
@@ -273,7 +268,7 @@ class PersistentTransport(Transport):
         if conn._HTTPConnection__state == httplib._CS_REQ_STARTED:
             conn._HTTPConnection__state = httplib._CS_REQ_SENT
         else:
-            raise CannotSendHeader()
+            raise httplib.CannotSendHeader()
         conn._buffer.extend(("", ""))
         for b in conn._buffer:
             assert isinstance(b, str), "%s: %r" % (type(b), b)
@@ -304,7 +299,6 @@ class SafePersistentTransport(PersistentTransport):
         # create a HTTPS connection object from a host descriptor
         # host may be a string, or a (host, x509-dict) tuple
 	if not self._http.has_key(host):
-		import httplib
 		host, extra_headers, x509 = self.get_host_info(host)
 		self._http[host] = HTTPS(host, None, **(x509 or {}))
 	return self._http[host]
@@ -403,7 +397,7 @@ class addAuthTransport:
 	    if resp.status == 401:
 		if 'www-authenticate' in resp.msg:
 		    (atype,realm) = resp.msg.getheader('www-authenticate').split(' ',1)
-		    data1 = resp.read()
+		    resp.read()
 		    if realm.startswith('realm="') and realm.endswith('"'):
 		        realm = realm[7:-1]
 		    # print "Resp:", resp.version,resp.isclosed(), resp.will_close
@@ -419,14 +413,8 @@ class addAuthTransport:
             if resp.status != 200:
                 raise ProtocolError( host + handler,
                     resp.status, resp.reason, resp.msg )
-    
+
             self.verbose = verbose
-    
-            try:
-                sock = h._conn.sock
-            except AttributeError:
-                sock = None
-    
             return self._parse_response(resp)
 
 	raise ProtocolError(host+handler, 403, "No authentication",'')
