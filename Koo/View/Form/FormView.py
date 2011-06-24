@@ -110,7 +110,9 @@ class FormContainer( QWidget ):
 			helpText = (helpText or '') + _('<p><i>Field name: %s</i></p>') % widget.name
 			helpAttributes = attributes.copy()
 			helpAttributes.update( self.fields.get(widget.name,{}) )
-			helpText += _('<p><i>Attributes: %s</i></p>') % helpAttributes
+			helpAttributes = [ '<b>%s</b>: %s<br/>' % (x, helpAttributes[x]) for x in sorted( helpAttributes.keys() ) ]
+			helpAttributes = '\n'.join( helpAttributes )
+			helpText += _('<p><i>Attributes:<br/>%s</i></p>') % helpAttributes
 			attributes['help'] = helpText
 
 		stylesheet = attributes.get( 'stylesheet', False )
