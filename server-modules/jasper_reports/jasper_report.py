@@ -45,7 +45,7 @@ from JasperReports import *
 tools.config['jasperport'] = tools.config.get('jasperport', 8090)
 
 # Determines the file name where the process ID of the JasperServer process should be stored
-tools.config['jasperpid'] = tools.config.get('jasperpid', False)
+tools.config['jasperpid'] = tools.config.get('jasperpid', 'openerp-jasper.pid')
 
 # Determines if temporary files will be removed
 tools.config['jasperunlink'] = tools.config.get('jasperunlink', True)
