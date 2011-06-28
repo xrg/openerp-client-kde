@@ -1,7 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_nan_template","nan.template","model_nan_template","group_auto_attach_user",1,0,0,0
-"access_nan_template","nan.template","model_nan_template","group_auto_attach_manager",1,1,1,1
-"access_nan_template_box","nan.template.box","model_nan_template_box","group_auto_attach_user",1,0,0,0
-"access_nan_template_box","nan.template.box","model_nan_template_box","group_auto_attach_manager",1,1,1,1
-"access_nan_document","nan.document","model_nan_document","group_auto_attach_user",1,1,1,1
-"access_nan_document_property","nan.document.property","model_nan_document_property","group_auto_attach_user",1,1,1,1

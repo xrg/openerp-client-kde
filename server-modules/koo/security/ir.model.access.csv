@@ -1,8 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_nan_koo_settings_system","nan.koo.settings","model_nan_koo_settings",base.group_system,1,1,1,1
-"access_nan_koo_settings_all","nan.koo.settings","model_nan_koo_settings",,1,0,0,0
-"access_nan_koo_view_settings_all","nan.koo.view.settings","model_nan_koo_view_settings",,1,1,1,1
-"access_nan_koo_cache_exception_system","nan.koo.cache.exception","model_nan_koo_cache_exception",base.group_system,1,1,1,1
-"access_nan_koo_cache_exception_all","nan.koo.cache.exception","model_nan_koo_cache_exception",,1,0,0,0
-"access_nan_koo_release_system","nan.koo.release","model_nan_koo_release",base.group_system,1,1,1,1
-"access_nan_koo_release_all","nan.koo.release","model_nan_koo_release",,1,0,0,0
