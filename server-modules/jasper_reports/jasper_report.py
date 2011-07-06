@@ -101,10 +101,8 @@ class Report:
 		# If the language used is xpath create the xmlFile in dataFile.
 		if self.report.language() == 'xpath':
 			if self.data.get('data_source','model') == 'records':
-				#generator = XmlRecordDataGenerator()
-				generator = CsvRecordDataGenerator()
+				generator = CsvRecordDataGenerator(self.report, self.data['records'] )
 			else:
-				#generator = XmlBrowseDataGenerator( self.report, self.model, self.pool, self.cr, self.uid, self.ids, self.context )
 				generator = CsvBrowseDataGenerator( self.report, self.model, self.pool, self.cr, self.uid, self.ids, self.context )
 			generator.generate( dataFile )
 			self.temporaryFiles += generator.temporaryFiles
@@ -130,7 +128,12 @@ class Report:
 				})
 				self.temporaryFiles.append( subreportDataFile )
 
-				generator = CsvBrowseDataGenerator( subreport, self.model, self.pool, self.cr, self.uid, self.ids, self.context )
+				if subreport.isHeader():
+					generator = CsvBrowseDataGenerator( subreport, 'res.users', self.pool, self.cr, self.uid, [self.uid], self.context )
+				elif self.data.get('data_source','model') == 'records':
+					generator = CsvRecordDataGenerator( subreport, self.data['records'] )
+				else:
+					generator = CsvBrowseDataGenerator( subreport, self.model, self.pool, self.cr, self.uid, self.ids, self.context )
 				generator.generate( subreportDataFile )
 				
 
@@ -301,3 +304,4 @@ else:
 
 	ir_actions_report_xml()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

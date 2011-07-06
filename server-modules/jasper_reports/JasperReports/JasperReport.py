@@ -46,6 +46,7 @@ class JasperReport:
 		self._subreports = []
 		self._datasets = []
 		self._copiesField = False
+		self._isHeader = False
 		if fileName:
 			self.extractProperties()
 
@@ -69,6 +70,9 @@ class JasperReport:
 
 	def copiesField(self):
 		return self._copiesField
+
+	def isHeader(self):
+		return self._isHeader
 
 	def subreportDirectory(self):
 		return os.path.join( os.path.abspath(os.path.dirname( self._reportPath )), '' )
@@ -141,6 +145,10 @@ class JasperReport:
 		if copiesFieldTags and 'value' in copiesFieldTags[0].keys():
 			self._copiesField = self._pathPrefix + copiesFieldTags[0].get('value')
 
+		self._isHeader = False
+		headerTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_HEADER"]', namespaces=nss )
+		if headerTags and 'value' in headerTags[0].keys():
+			self._isHeader = True
 
 		fieldTags = doc.xpath( '/jr:jasperReport/jr:field', namespaces=nss )
 		self._fields, self._fieldNames = self.extractFields( fieldTags, ns )
@@ -189,6 +197,11 @@ class JasperReport:
 			pathPrefixTags = tag.xpath( '//jr:reportElement/jr:property[@name="OPENERP_PATH_PREFIX"]', namespaces=nss )
 			if pathPrefixTags and 'value' in pathPrefixTags[0].keys():
 				pathPrefix = pathPrefixTags[0].get('value')
+
+			isHeader = False
+			headerTags = tag.xpath( '//jr:reportElement/jr:property[@name="OPENERP_HEADER"]', namespaces=nss )
+			if headerTags and 'value' in headerTags[0].keys():
+				isHeader = True
 
 			# Add our own pathPrefix to subreport's pathPrefix
 			subPrefix = []
@@ -281,3 +294,5 @@ class JasperReport:
 				'report': dataset,
 				'filename': 'DATASET',
 			})
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

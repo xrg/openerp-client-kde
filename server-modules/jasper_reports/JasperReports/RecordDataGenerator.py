@@ -35,8 +35,10 @@ from JasperReport import *
 from AbstractDataGenerator import *
 
 class CsvRecordDataGenerator(AbstractDataGenerator):
-	def __init__(self, report):
+	def __init__(self, report, records):
 		self.report = report
+		self.records = records
+		self.temporaryFiles = []
 
 	# CSV file generation using a list of dictionaries provided by the parser function.
 	def generate(self, fileName):
@@ -50,17 +52,22 @@ class CsvRecordDataGenerator(AbstractDataGenerator):
 			for field in fieldNames + ['']:
 				header[ field ] = field
 			writer.writerow( header )
-			for record in self.data['records']:
+			error_reported_fields = []
+			for record in self.records:
 				row = {}
 				for field in record:
 					if field not in self.report.fields():
-						print "FIELD '%s' NOT FOUND IN REPORT." % field 
+						if not field in error_reported_fields:
+							print "FIELD '%s' NOT FOUND IN REPORT." % field 
+							error_reported_fields.append( field )
 						continue
 					value = record.get(field, False)
 					if value == False:
 						value = ''
 					elif isinstance(value, unicode):
 						value = value.encode('utf-8')
+					elif isinstance(value, float):
+						value = '%.10f' % value
 					elif not isinstance(value, str):
 						value = str(value)
 					row[self.report.fields()[field]['name']] = value
@@ -87,6 +94,8 @@ class XmlRecordDataGenerator(AbstractDataGenerator):
 					value = ''
 				elif isinstance(value, str):
 					value = unicode(value, 'utf-8')
+				elif isinstance(value, float):
+					value = '%.10f' % value
 				elif not isinstance(value, unicode):
 					value = unicode(value)
 				valueNode = self.document.createTextNode( value )
@@ -97,3 +106,5 @@ class XmlRecordDataGenerator(AbstractDataGenerator):
 			topNode.writexml( f )
 		finally:
 			f.close()
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
