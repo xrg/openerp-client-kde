@@ -244,6 +244,8 @@ class XmlBrowseDataGenerator(BrowseDataGenerator):
 				value = fileName
 			elif isinstance(value, str):
 				value = unicode(value, 'utf-8')
+			elif isinstance(value, float):
+				value = '%.10f' % value
 			elif not isinstance(value, unicode):
 				value = unicode(value)
 
@@ -377,6 +379,8 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 				value = fileName
 			elif isinstance(value, unicode):
 				value = value.encode('utf-8')
+			elif isinstance(value, float):
+				value = '%.10f' % value
 			elif not isinstance(value, str):
 				value = str(value)
 			row[ self.report.fields()[currentPath]['name'] ] = value
