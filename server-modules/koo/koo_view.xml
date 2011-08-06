@@ -1,6 +1,53 @@
 <?xml version="1.0"?>
 <openerp>
 	<data>
+		<menuitem 
+			id="koo_menu_config"
+			parent="base.menu_config"
+			name="Koo" 
+			/>
+
+		<!-- View settings -->
+		<record model='ir.ui.view' id='koo_view_settings_form'>
+			<field name="name">nan.koo.view.settings.form</field>
+			<field name="model">nan.koo.view.settings</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="View Settings">
+					<field name="user" select="1"/>
+					<field name="view" select="1"/>
+					<field name="model" select="1"/>
+					<newline/>
+					<field name="data" colspan="4"/>
+				</form>
+			</field>
+		</record>
+		<record model='ir.ui.view' id='koo_view_settings_tree'>
+			<field name="name">nan.koo.view.settings.tree</field>
+			<field name="model">nan.koo.view.settings</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="View Settings">
+					<field name="user"/>
+					<field name="view"/>
+					<field name="model"/>
+					<field name="data"/>
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="koo_view_settings_action">
+			<field name="name">View Settings</field>
+			<field name="res_model">nan.koo.view.settings</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+			parent="koo_menu_config"
+			name="View Settings" 
+			action="koo_view_settings_action" 
+			id="koo_view_settings_menu"
+			/>
 		<!-- View cache exceptions -->
 		<record model='ir.ui.view' id='koo_cache_exception_form'>
 			<field name="name">nan.koo.cache_exception.form</field>
@@ -8,7 +55,7 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="View Cache Exceptions">
-					<field name="name"/>
+					<field name="name" select="1"/>
 				</form>
 			</field>
 		</record>
@@ -29,12 +76,6 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
-		<menuitem 
-			id="koo_menu_config"
-			parent="base.menu_config"
-			name="Koo" 
-			action="koo_cache_exception_action"
-			/>
 		<menuitem 
 			parent="koo_menu_config"
 			name="View Cache Exceptions" 
@@ -62,11 +103,11 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Koo Settings">
-					<field name="name" colspan="4"/>
+					<field name="name" colspan="4" select="1"/>
 					<separator colspan="4" string="Appearance"/>
 					<field name="tabs_position"/>
 					<field name="tabs_closable"/>
-					<field name="show_toolbar"/>
+					<field name="show_toolbar" select="1"/>
 					<newline/>
 					<separator colspan="4" string="Stylesheet"/>
 					<field name="stylesheet" colspan="4" nolabel="1"/>
@@ -74,16 +115,16 @@
 					<field name="sort_mode"/>
 					<field name="limit"/>
 					<field name="requests_refresh_interval"/>
-					<field name="show_system_tray_icon"/>
+					<field name="show_system_tray_icon" select="1"/>
 					<field name="print_directly"/>
 					<field name="auto_reload"/>
 					<field name="allow_massive_updates"/>
 					<field name="allow_import_export"/>
 					<field name="attachments_dialog"/>
-					<field name="use_cache"/>
+					<field name="use_cache" select="1"/>
 					<field name="auto_new"/>
 					<field name="load_on_open"/>
-					<field name="fts_instant"/>
+					<field name="fts_instant" select="1"/>
 				</form>
 			</field>
 		</record>
@@ -123,14 +164,14 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Koo Releases">
-					<field name="version"/>
-					<field name="platform"/>
+					<field name="version" select="1"/>
+					<field name="platform" select="1"/>
 					<field name="installer" filename="filename"/>
-					<field name="filename"/>
-					<field name="command_line"/>
-					<field name="downloads"/>
+					<field name="filename" select="1"/>
+					<field name="command_line" select="2"/>
+					<field name="downloads" select="2"/>
 					<separator string="Release Notes" colspan="4"/>
-					<field name="release_notes" colspan="4"/>
+					<field name="release_notes" colspan="4" select="1"/>
 				</form>
 			</field>
 		</record>

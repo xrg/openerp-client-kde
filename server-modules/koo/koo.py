@@ -331,8 +331,16 @@ class nan_koo_view_settings(osv.osv):
 	_columns = {
 		'user': fields.many2one('res.users', 'User'),
 		'view': fields.many2one('ir.ui.view', 'View'),
+		'model': fields.related('view', 'model', type='char', string='Model'),
 		'data': fields.text('Data')
 	}
+
+	def name_get(self, cr, uid, ids, context=None):
+		result = []
+		for setting in self.browse(cr, uid, ids, context):
+			result.append( (setting.id, '%s (%s)' % (settings.view.name, settings.user.name)) )
+		return result
+
 nan_koo_view_settings()
 
 class nan_koo_cache_exceptions(osv.osv):
@@ -418,3 +426,5 @@ def new_fields_view_get(self, cr, user, view_id=None, view_type='form', context=
 	return result
 
 osv.orm.orm_template.fields_view_get = new_fields_view_get
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
