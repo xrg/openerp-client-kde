@@ -620,11 +620,15 @@ class Database:
 	def list(self, url):
 		try:
 			call = self.call( url, 'list' )
+		except RpcServerException, e:
+			if e.type == 'AccessDenied':
+				# The server has been configured to not return
+				# the list of available databases.
+				call = False
+			else:
+				call = -1
 		except Exception, e: 
 			call = -1
-			from Koo.Common.Settings import Settings
-			if Settings.value('client.debug'):
-				Notifier.notifyError( type(e), e, traceback.format_exc() )
 		finally:
 			return call
 
