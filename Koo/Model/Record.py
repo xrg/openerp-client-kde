@@ -34,6 +34,7 @@ from Koo.Common import Notifier
 from Koo.Rpc import RpcProxy
 from Field import ToManyField
 import gettext
+from Koo.Common import Debug
 
 from PyQt4.QtCore import *
 
@@ -85,7 +86,6 @@ class Record(QObject):
 				value.__del__()
 		self.values = {}
 		self.invalidFields = []
-		from Koo.Common import Debug
 		if self.id == 2:
 			Debug.printReferrers( self )
 		self.group = None
