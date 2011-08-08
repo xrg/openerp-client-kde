@@ -55,9 +55,9 @@ class JasperServer:
 				f.close()
 
 	def execute(self, *args):
-        """
-        Render report and return the number of pages generated.
-        """
+		"""
+		Render report and return the number of pages generated.
+		"""
 		try: 
 			return self.proxy.Report.execute( *args )
 		except (xmlrpclib.ProtocolError, socket.error), e:
@@ -71,3 +71,4 @@ class JasperServer:
 					self.error("EXCEPTION: %s %s" % ( str(e), str(e.args) ))
 					pass
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
