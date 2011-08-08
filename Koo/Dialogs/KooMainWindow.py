@@ -404,7 +404,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not company:
 			users = Rpc.RpcProxy('res.users')
 			records = users.read([Rpc.session.uid], ['company_id'], Rpc.session.context)
-			company = records[0]['company_id'][1]
+			company = records[0]['company_id']
+			if company:
+				company = company[1]
+			else:
+				company = ''
 		self.pushCompany.setText( company )
 
 	## Updates the status bar with the number of pending requests.
