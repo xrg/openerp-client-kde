@@ -26,6 +26,10 @@
 #
 ##############################################################################
 
+import os
+import re
+import tempfile
+
 from Koo.Common.Settings import *
 from Koo.Common import Common
 from Koo import Rpc
@@ -48,6 +52,54 @@ class FormTabWidget( QTabWidget ):
 			self.setTabIcon( index, QIcon() )
 		else:
 			self.setTabIcon( index, QIcon( ':/images/warning.png' ) )
+
+class LabelWidget( QLabel ):
+	def __init__(self, parent=None):
+		QLabel.__init__(self, parent)
+		self._attributes = {}
+
+	def setAttributes(self, attributes):
+		self._attributes = attributes.copy()
+
+	def mouseDoubleClickEvent(self, event):
+		
+		view_id = self._attributes.get('x-view')
+		if not view_id:
+			return
+		view_id = re.findall('\d+',view_id)
+		if not view_id:
+			return
+		view_id = int(view_id[0])
+		view = Rpc.RpcProxy('ir.ui.view')
+		records = view.read([view_id], ['name','model','xml_id'])
+		record = records[0]
+
+		id = record['xml_id'].split('.')[-1]
+
+		arch =  """
+<openerp>
+<data>
+    <record model="ir.ui.view" id="%(id)s">
+        <field name="name">%(name)s</field>
+        <field name="model">%(model)s</field>
+        <field name="inherit_id" ref="%(xml_id)s"/>
+        <field name="arch">
+            <field name="%(field)s" position="after">
+            </field>
+        </field>
+    </record>
+</data>
+</openerp>"""		% {
+				'id': id,
+				'name': record['name'],
+				'model': record['model'],
+				'xml_id': record['xml_id'],
+				'field': self._attributes.get('name',''),
+			}
+		fd, fileName = tempfile.mkstemp(suffix='.txt')
+		os.write(fd, arch)
+		os.close(fd)
+		Common.openFile( fileName )
 
 	
 ## @brief The FormContainer class is a widget with some functionalities to help
@@ -131,10 +183,15 @@ class FormContainer( QWidget ):
 		rowspan = int( attributes.get( 'rowspan', 1 ) )
 
 		if labelText:
-			label  = QLabel( self )
+			label  = LabelWidget( self )
 			label.setText( unicode( Common.normalizeLabel( labelText ) ) )
 			label.setAlignment( Qt.AlignRight | Qt.AlignVCenter )
 			label.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Fixed )
+
+			labelAttributes = attributes.copy()
+			labelAttributes.update( self.fields.get(widget.name,{}) )
+			if Settings.value('koo.developer_mode',False):
+				label.setAttributes( labelAttributes )
 			if helpText:
 				color = 'blue'
 				helpText = '<b>%s</b><br/>%s' % (labelText, helpText)
