@@ -66,6 +66,10 @@ class Report:
 		self.outputFormat = 'pdf'
 
 	def execute(self):
+		"""
+		If self.context contains "return_pages = True" it will return the number of pages
+		of the generated report.
+		"""
 		logger = netsvc.Logger()
 
 		# * Get report path *
@@ -138,7 +142,7 @@ class Report:
 				
 
 		# Call the external java application that will generate the PDF file in outputFile
-		self.executeReport( dataFile, outputFile, subreportDataFiles )
+		pages = self.executeReport( dataFile, outputFile, subreportDataFiles )
 		elapsed = (time.time() - start) / 60
 		logger.notifyChannel("jasper_reports", netsvc.LOG_INFO, "ELAPSED: '%f'" % elapsed )
 
@@ -158,7 +162,11 @@ class Report:
 					logger = netsvc.Logger()
 					logger.notifyChannel("jasper_reports", netsvc.LOG_WARNING, "Could not remove file '%s'." % file )
 		self.temporaryFiles = []
-		return ( data, self.outputFormat )
+
+		if self.context.get('return_pages'):
+			return ( data, self.outputFormat, pages )
+		else:
+			return ( data, self.outputFormat )
 
 	def path(self):
 		return os.path.abspath(os.path.dirname(__file__))
@@ -208,7 +216,7 @@ class Report:
 
 		server = JasperServer( int( tools.config['jasperport'] ) )
 		server.setPidFile( tools.config['jasperpid'] )
-		server.execute( connectionParameters, self.reportPath, outputFile, parameters )
+		return server.execute( connectionParameters, self.reportPath, outputFile, parameters )
 
 
 class report_jasper(report.interface.report_int):
@@ -287,8 +295,6 @@ else:
 
 	def register_jasper_report(report_name, model_name):
 		name = 'report.%s' % report_name
-		if name in netsvc.Service._services:
-			return
 		report_jasper( name, model_name )
 
 	class ir_actions_report_xml(osv.osv):

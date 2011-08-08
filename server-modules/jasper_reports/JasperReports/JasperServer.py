@@ -55,8 +55,11 @@ class JasperServer:
 				f.close()
 
 	def execute(self, *args):
+        """
+        Render report and return the number of pages generated.
+        """
 		try: 
-			self.proxy.Report.execute( *args )
+			return self.proxy.Report.execute( *args )
 		except (xmlrpclib.ProtocolError, socket.error), e:
 			#self.info("First try did not work: %s / %s" % (str(e), str(e.args)) )
 			self.start()

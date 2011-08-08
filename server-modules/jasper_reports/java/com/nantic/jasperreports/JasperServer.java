@@ -90,7 +90,7 @@ public class JasperServer {
 		return bundlePath( jrxmlPath ) + ".jasper";
 	}
 
-	public Boolean execute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
+	public int execute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
 		try {
 			return privateExecute( connectionParameters, jrxmlPath, outputPath, parameters );
 		} catch (Exception exception) {
@@ -99,7 +99,7 @@ public class JasperServer {
 		}
 	}
 
-	public Boolean privateExecute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
+	public int privateExecute( Hashtable connectionParameters, String jrxmlPath, String outputPath, Hashtable parameters) throws java.lang.Exception {
 
 		JasperReport report = null;
 		byte[] result = null;
@@ -238,7 +238,7 @@ public class JasperServer {
 		exporter.setParameter(JRExporterParameter.OUTPUT_FILE, outputFile);
 		exporter.exportReport();
 		System.out.println( "JasperServer: Exported." );
-		return true; 
+		return jasperPrint.getPages().size(); 
 	}
 
 	public static Connection getConnection( Hashtable datasource ) throws java.lang.ClassNotFoundException, java.sql.SQLException { 
