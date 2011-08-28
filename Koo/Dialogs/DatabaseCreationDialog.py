@@ -200,7 +200,7 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		if r == QDialog.Accepted:
 			m = QUrl( url )
 			m.setUserName( 'admin' )
-			m.setPassword( password or 'admin' )
+			m.setPassword( adminPassword or 'admin' )
 			self.url = unicode( m.toString() )
 			self.databaseName = databaseName
 		self.done( r )
