@@ -587,14 +587,14 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.emit( SIGNAL('closed()') )
 
 	def canClose(self, urgent=False):
-		# Store settings of all opened views before closing the tab.
-		self.screen.storeViewSettings()
 		if self.modifiedSave():
 			# Here suppose that if we return True the form/tab will
 			# actually be closed, so stop reload timer so it doesn't
 			# remain active if the object is freed.
 			self.reloadTimer.stop()
 			self.subscriber.unsubscribe()
+			# Store settings of all opened views before closing the tab.
+			self.screen.storeViewSettings()
 			return True
 		else:
 			return False
