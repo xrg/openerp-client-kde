@@ -208,9 +208,11 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.scSwitchView.setContext( Qt.WidgetWithChildrenShortcut )
 		self.connect( self.scSwitchView, SIGNAL('activated()'), self.switchView )
 
-		# Do not install Popup Menu because setting and getting default values
-		# is not supported for OneToMany fields.
-		#self.installPopupMenu( self.uiTitle )
+		# remove default menu entries because setting and getting default values
+		# is not supported for OneToMany fields. However, other options such as 
+		# Inherit View in 'developer_mode' should be available.
+		self.defaultMenuEntries = []
+		self.installPopupMenu( self.uiTitle )
 
 	def initGui(self):
 		if self.record:
