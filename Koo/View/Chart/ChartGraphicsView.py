@@ -151,7 +151,7 @@ class ChartGraphicsView( QGraphicsView ):
 						else:
 							res[x] = ''
 					else:
-						res[x] = float(m.value(x))
+						res[x] = float(m.value(x) or 0.0)
 				records.append(res)
 
 		# Calculate the rest of values
@@ -243,3 +243,4 @@ class ChartGraphicsView( QGraphicsView ):
 			# Ensure all categories are strings
 			self.chart.setCategories( self.replaceFalse(categories) )
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
