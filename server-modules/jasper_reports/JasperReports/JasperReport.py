@@ -29,6 +29,7 @@ import os
 from lxml import etree
 import re
 from tools.safe_eval import safe_eval
+import tools
 
 dataSourceExpressionRegExp = re.compile( r"""\$P\{(\w+)\}""" )
 
@@ -78,6 +79,12 @@ class JasperReport:
 		return os.path.join( os.path.abspath(os.path.dirname( self._reportPath )), '' )
 
 	def standardDirectory(self):
+		jasperdir = tools.config.get('jasperdir')
+		if jasperdir:
+			if jasperdir.endswith( os.sep ):
+				return jasperdir
+			else:
+				return os.path.join( jasperdir, '' )
 		return os.path.join( os.path.abspath(os.path.dirname(__file__)), '..', 'report', '' )
 
 	def extractFields(self, fieldTags, ns):
@@ -89,7 +96,7 @@ class JasperReport:
 			name = tag.get('name')
 			type = tag.get('class')
 			children = tag.getchildren()
-			path = tag.findtext('{%s}fieldDescription' % ns, '')
+			path = tag.findtext('{%s}fieldDescription' % ns, '').strip()
 			# Make the path relative if it isn't already
 			if path.startswith('/data/record/'):
 				path = self._pathPrefix + path[13:]

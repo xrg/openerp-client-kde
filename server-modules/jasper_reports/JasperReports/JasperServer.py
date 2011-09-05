@@ -1,9 +1,11 @@
 import os
+from osv import osv
 import glob
 import time
 import socket
 import subprocess
 import xmlrpclib
+from tools.translate import _
 
 class JasperServer:
 	def __init__(self, port=8090):
@@ -70,5 +72,9 @@ class JasperServer:
 				except (xmlrpclib.ProtocolError, socket.error), e:
 					self.error("EXCEPTION: %s %s" % ( str(e), str(e.args) ))
 					pass
+				except xmlrpclib.Fault, e:
+					raise osv.except_osv(_('Report Error'), e.faultString)
+		except xmlrpclib.Fault, e:
+			raise osv.except_osv(_('Report Error'), e.faultString)
 
 # vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

@@ -23,3 +23,6 @@ jasperpid
 
 jasperunlink
   Establece si se eliminarán los ficheros temporales utilizados para la generación de los informes Jasper.
+
+jasperdir
+  Establece el directorio que se utilizará para ser pasado a los informes con el parámetro STANDARD_DIR. Típicamente se podrá utilizar para establecer la ubicación de los informes cabecera para que puedan ser fácilmente configurados para una empresa.
