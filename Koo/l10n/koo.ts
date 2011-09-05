@@ -593,27 +593,27 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="197"/>
+        <location filename="win_export.ui" line="203"/>
         <source>&lt;b&gt;Options&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="210"/>
+        <location filename="win_export.ui" line="216"/>
         <source>Add &amp;field names</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="265"/>
+        <location filename="win_export.ui" line="271"/>
         <source>&amp;Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="279"/>
+        <location filename="win_export.ui" line="285"/>
         <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="220"/>
+        <location filename="win_export.ui" line="226"/>
         <source>&lt;p&gt;
 Check this field if you want to be able to import this information back to OpenERP.
 &lt;/p&gt;
@@ -627,7 +627,7 @@ On the other hand, import incompatible files will show some information in a way
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="232"/>
+        <location filename="win_export.ui" line="238"/>
         <source>Import compatible</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1136,67 +1136,67 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="151"/>
+        <location filename="win_import.ui" line="157"/>
         <source>File to &amp;import:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="195"/>
+        <location filename="win_import.ui" line="201"/>
         <source>&amp;Field separator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="205"/>
+        <location filename="win_import.ui" line="211"/>
         <source>,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="212"/>
+        <location filename="win_import.ui" line="218"/>
         <source>&amp;Text delimiter:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="222"/>
+        <location filename="win_import.ui" line="228"/>
         <source>&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="229"/>
+        <location filename="win_import.ui" line="235"/>
         <source>&amp;Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="293"/>
+        <location filename="win_import.ui" line="299"/>
         <source>&amp;Lines to skip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="253"/>
+        <location filename="win_import.ui" line="259"/>
         <source>UTF-8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="258"/>
+        <location filename="win_import.ui" line="264"/>
         <source>Latin1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="175"/>
+        <location filename="win_import.ui" line="181"/>
         <source>File &amp;type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="280"/>
+        <location filename="win_import.ui" line="286"/>
         <source>Sheet:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="324"/>
+        <location filename="win_import.ui" line="330"/>
         <source>&amp;Import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="335"/>
+        <location filename="win_import.ui" line="341"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1415,122 +1415,122 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="663"/>
+        <location filename="mainwindow.ui" line="666"/>
         <source>Next Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="666"/>
+        <location filename="mainwindow.ui" line="669"/>
         <source>Ctrl+PgDown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="675"/>
+        <location filename="mainwindow.ui" line="678"/>
         <source>Previous Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="678"/>
+        <location filename="mainwindow.ui" line="681"/>
         <source>Ctrl+PgUp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="687"/>
+        <location filename="mainwindow.ui" line="690"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="690"/>
+        <location filename="mainwindow.ui" line="693"/>
         <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="699"/>
+        <location filename="mainwindow.ui" line="702"/>
         <source>View Access Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="717"/>
+        <location filename="mainwindow.ui" line="720"/>
         <source>Go To Resource ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="729"/>
+        <location filename="mainwindow.ui" line="732"/>
         <source>&amp;Reload/Undo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="732"/>
+        <location filename="mainwindow.ui" line="735"/>
         <source>F5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="741"/>
+        <location filename="mainwindow.ui" line="744"/>
         <source>E&amp;xport Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="750"/>
+        <location filename="mainwindow.ui" line="753"/>
         <source>&amp;Import Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="759"/>
+        <location filename="mainwindow.ui" line="762"/>
         <source>&amp;Execute Plugins</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="768"/>
+        <location filename="mainwindow.ui" line="771"/>
         <source>&amp;Contextual Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="773"/>
+        <location filename="mainwindow.ui" line="776"/>
         <source>&amp;Tips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="782"/>
+        <location filename="mainwindow.ui" line="785"/>
         <source>&amp;Keyboard Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="787"/>
+        <location filename="mainwindow.ui" line="790"/>
         <source>&amp;License</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="796"/>
+        <location filename="mainwindow.ui" line="799"/>
         <source>&amp;About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="805"/>
+        <location filename="mainwindow.ui" line="808"/>
         <source>Full &amp;Text Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="808"/>
+        <location filename="mainwindow.ui" line="811"/>
         <source>Ctrl+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="817"/>
+        <location filename="mainwindow.ui" line="820"/>
         <source>Attachments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="820"/>
+        <location filename="mainwindow.ui" line="823"/>
         <source>Ctrl+J</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="829"/>
+        <location filename="mainwindow.ui" line="832"/>
         <source>&amp;Form designer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="834"/>
+        <location filename="mainwindow.ui" line="837"/>
         <source>&amp;Menu</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1540,17 +1540,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="843"/>
+        <location filename="mainwindow.ui" line="846"/>
         <source>Open Home Tab</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="852"/>
+        <location filename="mainwindow.ui" line="855"/>
         <source>&amp;Clear Cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="861"/>
+        <location filename="mainwindow.ui" line="864"/>
         <source>Modify All Selected Records</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1565,12 +1565,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="708"/>
+        <location filename="mainwindow.ui" line="711"/>
         <source>Store View Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="720"/>
+        <location filename="mainwindow.ui" line="723"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1580,28 +1580,33 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="866"/>
+        <location filename="mainwindow.ui" line="869"/>
         <source>PDF Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="871"/>
+        <location filename="mainwindow.ui" line="874"/>
         <source>HTML Manual</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="876"/>
+        <location filename="mainwindow.ui" line="879"/>
         <source>doc.openerp.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="885"/>
+        <location filename="mainwindow.ui" line="888"/>
         <source>Push Button of All Selected Records</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="894"/>
+        <location filename="mainwindow.ui" line="897"/>
         <source>Insert Several Records at Once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="657"/>
+        <source>Ctrl+M</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2102,12 +2107,12 @@ this operation may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="122"/>
+        <location filename="searchform.ui" line="127"/>
         <source>&amp;Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="searchform.ui" line="133"/>
+        <location filename="searchform.ui" line="138"/>
         <source>&amp;Search</source>
         <translation type="unfinished"></translation>
     </message>
