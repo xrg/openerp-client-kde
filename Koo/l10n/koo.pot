@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-05 02:07+0200\n"
+"POT-Creation-Date: 2011-09-05 02:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:62
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:293
-#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:327
+#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:355
 msgid "Information"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgid "Nothing to print!"
 msgstr ""
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:397 Koo/Dialogs/ImportDialog.py:81
+#: Koo/Dialogs/FormWidget.py:398 Koo/Dialogs/ImportDialog.py:81
 #: Koo/Dialogs/ImportDialog.py:91 Koo/Dialogs/ImportDialog.py:288
 #: Koo/Dialogs/ImportDialog.py:313 Koo/Dialogs/ImportDialog.py:326
 #: Koo/Dialogs/ImportDialog.py:344
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Edit View Settings"
 msgstr ""
 
-#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:399
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:400
 msgid "Ok"
 msgstr ""
 
@@ -281,7 +281,7 @@ msgid ""
 "seconds."
 msgstr ""
 
-#: Koo/Common/Common.py:287 Koo/Dialogs/KooMainWindow.py:709
+#: Koo/Common/Common.py:287 Koo/Dialogs/KooMainWindow.py:712
 msgid "Quit"
 msgstr ""
 
@@ -341,7 +341,7 @@ msgid ""
 "experts you can proceed.</p>"
 msgstr ""
 
-#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:237
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:240
 msgid "Remote Help"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Proceed"
 msgstr ""
 
-#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:540
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:541
 msgid "Cancel"
 msgstr ""
 
@@ -437,16 +437,16 @@ msgid ""
 "<p><i>No sections in the documentation refer to this menu entry.</i></p>"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:659 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:709 Koo/Fields/Button/ButtonFieldWidget.py:143
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:309
+#: Koo/Dialogs/FormWidget.py:682 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:712 Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "Yes"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:308
-#: Koo/Dialogs/FormWidget.py:659 Koo/Dialogs/BatchInsertDialog.py:131
-#: Koo/Dialogs/KooMainWindow.py:709 Koo/Fields/Button/ButtonFieldWidget.py:143
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:309
+#: Koo/Dialogs/FormWidget.py:682 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/KooMainWindow.py:712 Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "No"
 msgstr ""
@@ -720,143 +720,154 @@ msgstr ""
 msgid "No help available for web views"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:187
+#: Koo/Dialogs/FormWidget.py:188
 msgid "<font color=\"blue\">Document modified</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:217
+#: Koo/Dialogs/FormWidget.py:218
 msgid "Go To Id"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:217
+#: Koo/Dialogs/FormWidget.py:218
 #, python-format
 msgid "Resouce with ID '%s' not found."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:248
+#: Koo/Dialogs/FormWidget.py:249
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:289
+#: Koo/Dialogs/FormWidget.py:290
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:295 Koo/Dialogs/ImportExportCommon.py:56
+#: Koo/Dialogs/FormWidget.py:296 Koo/Dialogs/ImportExportCommon.py:56
 msgid "ID"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:296
+#: Koo/Dialogs/FormWidget.py:297
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:297
+#: Koo/Dialogs/FormWidget.py:298
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:299
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:299
+#: Koo/Dialogs/FormWidget.py:300
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:305
+#: Koo/Dialogs/FormWidget.py:306
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:308 Koo/Dialogs/FormWidget.py:538
+#: Koo/Dialogs/FormWidget.py:309 Koo/Dialogs/FormWidget.py:539
 #: Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "Question"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:308
+#: Koo/Dialogs/FormWidget.py:309
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:313
+#: Koo/Dialogs/FormWidget.py:314
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:315
+#: Koo/Dialogs/FormWidget.py:316
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:367
+#: Koo/Dialogs/FormWidget.py:368
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:378
+#: Koo/Dialogs/FormWidget.py:379
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:383
+#: Koo/Dialogs/FormWidget.py:384
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:398
+#: Koo/Dialogs/FormWidget.py:399
 #, python-format
 msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:496
+#: Koo/Dialogs/FormWidget.py:497
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:507
+#: Koo/Dialogs/FormWidget.py:508
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:514
+#: Koo/Dialogs/FormWidget.py:515
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:518
+#: Koo/Dialogs/FormWidget.py:519
 msgid "New document"
-msgstr ""
-
-#: Koo/Dialogs/FormWidget.py:520
-#, python-format
-msgid "Editing document (id: %s)"
 msgstr ""
 
 #: Koo/Dialogs/FormWidget.py:521
 #, python-format
+msgid "Editing document (id: %s)"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:522
+#, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:539
+#: Koo/Dialogs/FormWidget.py:540
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:540
+#: Koo/Dialogs/FormWidget.py:541
 msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:540
+#: Koo/Dialogs/FormWidget.py:541
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:569
+#: Koo/Dialogs/FormWidget.py:570
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:652
+#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+msgid "Batch Field Update"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+#, python-format
+msgid ""
+"The number of selected records (%d) does not match the number of records to "
+"be inserted in fields (%d)."
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:675
 msgid "Choose action to apply to selected records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:659
+#: Koo/Dialogs/FormWidget.py:682
 msgid "Batch Update"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:659
+#: Koo/Dialogs/FormWidget.py:682
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
 msgstr ""
@@ -874,7 +885,7 @@ msgstr ""
 msgid "Are you sure you want to insert %d records?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:561
+#: Koo/Dialogs/KooMainWindow.py:110 Koo/Dialogs/KooMainWindow.py:564
 msgid "Press Ctrl+O to login"
 msgstr ""
 
@@ -882,88 +893,88 @@ msgstr ""
 msgid "Close tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:208
+#: Koo/Dialogs/KooMainWindow.py:211
 msgid "Open partners tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:213
+#: Koo/Dialogs/KooMainWindow.py:216
 msgid "Open products tab"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:270
+#: Koo/Dialogs/KooMainWindow.py:273
 msgid "Products"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:270
+#: Koo/Dialogs/KooMainWindow.py:273
 msgid "Products module is not installed."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:429
+#: Koo/Dialogs/KooMainWindow.py:432
 #, python-format
 msgid "%s request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:431
+#: Koo/Dialogs/KooMainWindow.py:434
 msgid "No request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:433
+#: Koo/Dialogs/KooMainWindow.py:436
 #, python-format
 msgid " - %s pending request(s)"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:440
+#: Koo/Dialogs/KooMainWindow.py:443
 msgid "New Request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:440
+#: Koo/Dialogs/KooMainWindow.py:443
 msgid "You've received a new request"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:535 Koo/Dialogs/KooMainWindow.py:537
+#: Koo/Dialogs/KooMainWindow.py:538 Koo/Dialogs/KooMainWindow.py:540
 msgid "Connection error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:535
+#: Koo/Dialogs/KooMainWindow.py:538
 msgid "Unable to connect to the server !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:537
+#: Koo/Dialogs/KooMainWindow.py:540
 msgid "Bad username or password !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:542 Koo/Dialogs/KooMainWindow.py:544
+#: Koo/Dialogs/KooMainWindow.py:545 Koo/Dialogs/KooMainWindow.py:547
 msgid "Connection Error !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:544
+#: Koo/Dialogs/KooMainWindow.py:547
 msgid "Error logging into database."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:560
+#: Koo/Dialogs/KooMainWindow.py:563
 msgid "Not logged !"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:584
+#: Koo/Dialogs/KooMainWindow.py:587
 msgid "Manual"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:673
+#: Koo/Dialogs/KooMainWindow.py:676
 msgid "Access denied"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:673
+#: Koo/Dialogs/KooMainWindow.py:676
 msgid ""
 "You can not log into the system !\n"
 "Ask the administrator to verify\n"
 "you have an action defined for your user."
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:709
+#: Koo/Dialogs/KooMainWindow.py:712
 msgid "Do you really want to quit ?"
 msgstr ""
 
-#: Koo/Dialogs/KooMainWindow.py:743
+#: Koo/Dialogs/KooMainWindow.py:746
 msgid "Wizard"
 msgstr ""
 
@@ -1509,19 +1520,23 @@ msgid ""
 "%s"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:158
+#: Koo/Fields/OneToMany/OneToMany.py:159
 msgid "&Duplicate Selected Records"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:163
+#: Koo/Fields/OneToMany/OneToMany.py:164
 msgid "&Insert Several Records at Once"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:168
+#: Koo/Fields/OneToMany/OneToMany.py:169
 msgid "&Modify All Selected Records"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:327
+#: Koo/Fields/OneToMany/OneToMany.py:174
+msgid "&Modify Field of Selected Records"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:355
 msgid "No record selected"
 msgstr ""
 

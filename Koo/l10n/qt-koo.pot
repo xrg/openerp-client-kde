@@ -12,15 +12,15 @@ msgstr ""
 
 #. 
 #. 
-#: win_attach.ui:89 mainwindow.ui:597
+#: win_attach.ui:89 mainwindow.ui:598
 msgid "Ctrl+D"
 msgstr ""
 
-#: mainwindow.ui:609
+#: mainwindow.ui:610
 msgid "Ctrl+F"
 msgstr ""
 
-#: mainwindow.ui:723
+#: mainwindow.ui:724
 msgid "Ctrl+G"
 msgstr ""
 
@@ -28,7 +28,7 @@ msgstr ""
 msgid "&Save list"
 msgstr ""
 
-#: mainwindow.ui:823
+#: mainwindow.ui:824
 msgid "Ctrl+J"
 msgstr ""
 
@@ -36,17 +36,17 @@ msgstr ""
 msgid "Ctrl+L"
 msgstr ""
 
-#: mainwindow.ui:657
+#: mainwindow.ui:658
 msgid "Ctrl+M"
 msgstr ""
 
 #. 
 #. 
-#: win_attach.ui:77 mainwindow.ui:561
+#: win_attach.ui:77 mainwindow.ui:562
 msgid "Ctrl+N"
 msgstr ""
 
-#: mainwindow.ui:444
+#: mainwindow.ui:445
 msgid "Ctrl+O"
 msgstr ""
 
@@ -56,11 +56,11 @@ msgstr ""
 
 #. 
 #. 
-#: win_attach.ui:149 mainwindow.ui:573
+#: win_attach.ui:149 mainwindow.ui:574
 msgid "Ctrl+S"
 msgstr ""
 
-#: mainwindow.ui:811
+#: mainwindow.ui:812
 msgid "Ctrl+T"
 msgstr ""
 
@@ -68,7 +68,7 @@ msgstr ""
 msgid "/"
 msgstr ""
 
-#: mainwindow.ui:693
+#: mainwindow.ui:694
 msgid "Ctrl+W"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 msgid "&Server:"
 msgstr ""
 
-#: mainwindow.ui:808
+#: mainwindow.ui:809
 msgid "Full &Text Search"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 msgid "about:blank"
 msgstr ""
 
-#: mainwindow.ui:678
+#: mainwindow.ui:679
 msgid "Previous Tab"
 msgstr ""
 
@@ -145,7 +145,7 @@ msgstr ""
 #. 
 #. 
 #. 
-#: full_text_search.ui:66 mainwindow.ui:606 win_search.ui:86
+#: full_text_search.ui:66 mainwindow.ui:607 win_search.ui:86
 msgid "&Find"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 
 #. 
 #. 
-#: win_attach.ui:101 mainwindow.ui:621
+#: win_attach.ui:101 mainwindow.ui:622
 msgid "Alt+PgDown"
 msgstr ""
 
@@ -258,12 +258,16 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: mainwindow.ui:477
+#: mainwindow.ui:478
 msgid "&New Database"
 msgstr ""
 
-#: mainwindow.ui:585
+#: mainwindow.ui:586
 msgid "Ctrl+Shift+D"
+msgstr ""
+
+#: mainwindow.ui:922
+msgid "Ne&w Attachment"
 msgstr ""
 
 #. 
@@ -284,7 +288,7 @@ msgstr ""
 msgid "&Main Shortcuts"
 msgstr ""
 
-#: mainwindow.ui:776
+#: mainwindow.ui:777
 msgid "&Tips"
 msgstr ""
 
@@ -349,7 +353,7 @@ msgid ""
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';\">Administrator: admin / admin</p></body></html>"
 msgstr ""
 
-#: mainwindow.ui:356
+#: mainwindow.ui:386
 msgid "&Reports"
 msgstr ""
 
@@ -379,15 +383,15 @@ msgstr ""
 
 #. 
 #. 
-#: mainwindow.ui:735 shortcuts.ui:236
+#: mainwindow.ui:736 shortcuts.ui:236
 msgid "F5"
 msgstr ""
 
-#: mainwindow.ui:645
+#: mainwindow.ui:646
 msgid "F6"
 msgstr ""
 
-#: mainwindow.ui:459
+#: mainwindow.ui:460
 msgid "&Disconnect"
 msgstr ""
 
@@ -438,7 +442,7 @@ msgstr ""
 msgid "&And"
 msgstr ""
 
-#: mainwindow.ui:666
+#: mainwindow.ui:667
 msgid "Next Tab"
 msgstr ""
 
@@ -474,7 +478,7 @@ msgstr ""
 msgid "Load Image"
 msgstr ""
 
-#: mainwindow.ui:540
+#: mainwindow.ui:541
 msgid "&Read My Requests"
 msgstr ""
 
@@ -490,8 +494,8 @@ msgstr ""
 msgid "Q"
 msgstr ""
 
-#: about.ui:76
-msgid "&Contact"
+#: mainwindow.ui:931
+msgid "Sca&n Attachment"
 msgstr ""
 
 #: shortcuts.ui:475
@@ -526,7 +530,7 @@ msgstr ""
 msgid "&Advanced"
 msgstr ""
 
-#: mainwindow.ui:790
+#: mainwindow.ui:791
 msgid "&License"
 msgstr ""
 
@@ -538,7 +542,7 @@ msgstr ""
 msgid "<b>Value applicable if:</b>"
 msgstr ""
 
-#: mainwindow.ui:832
+#: mainwindow.ui:833
 msgid "&Form designer"
 msgstr ""
 
@@ -552,13 +556,13 @@ msgstr ""
 msgid ","
 msgstr ""
 
-#: mainwindow.ui:594
+#: mainwindow.ui:595
 msgid "&Delete"
 msgstr ""
 
 #. 
 #. 
-#: mainwindow.ui:558 win_search.ui:67
+#: mainwindow.ui:559 win_search.ui:67
 msgid "&New"
 msgstr ""
 
@@ -570,7 +574,7 @@ msgstr ""
 msgid "Ç"
 msgstr ""
 
-#: mainwindow.ui:513
+#: mainwindow.ui:514
 msgid "&Administrator Password"
 msgstr ""
 
@@ -578,7 +582,7 @@ msgstr ""
 msgid "L"
 msgstr ""
 
-#: mainwindow.ui:846
+#: mainwindow.ui:847
 msgid "Open Home Tab"
 msgstr ""
 
@@ -626,7 +630,7 @@ msgstr ""
 msgid "'"
 msgstr ""
 
-#: mainwindow.ui:855
+#: mainwindow.ui:856
 msgid "&Clear Cache"
 msgstr ""
 
@@ -690,18 +694,22 @@ msgstr ""
 msgid "Create a new record"
 msgstr ""
 
-#: mainwindow.ui:837
+#: mainwindow.ui:838
 msgid "&Menu"
 msgstr ""
 
 #. 
 #. 
 #. 
-#: full_text_search.ui:115 mainwindow.ui:630 one2many_dialog.ui:57
+#: full_text_search.ui:115 mainwindow.ui:631 one2many_dialog.ui:57
 msgid "&Previous"
 msgstr ""
 
-#: mainwindow.ui:897
+#: about.ui:76
+msgid "&Contact"
+msgstr ""
+
+#: mainwindow.ui:898
 msgid "Insert Several Records at Once"
 msgstr ""
 
@@ -709,7 +717,7 @@ msgstr ""
 msgid "Next record"
 msgstr ""
 
-#: mainwindow.ui:888
+#: mainwindow.ui:889
 msgid "Push Button of All Selected Records"
 msgstr ""
 
@@ -721,7 +729,7 @@ msgstr ""
 msgid "\""
 msgstr ""
 
-#: mainwindow.ui:361
+#: mainwindow.ui:356
 msgid "F&orm"
 msgstr ""
 
@@ -737,7 +745,7 @@ msgstr ""
 msgid "Opens the record in a new background tab"
 msgstr ""
 
-#: mainwindow.ui:799
+#: mainwindow.ui:800
 msgid "&About"
 msgstr ""
 
@@ -798,7 +806,7 @@ msgstr ""
 msgid "&User"
 msgstr ""
 
-#: mainwindow.ui:681
+#: mainwindow.ui:682
 msgid "Ctrl+PgUp"
 msgstr ""
 
@@ -818,7 +826,7 @@ msgstr ""
 msgid "Batch Update Process"
 msgstr ""
 
-#: mainwindow.ui:702
+#: mainwindow.ui:703
 msgid "View Access Log"
 msgstr ""
 
@@ -844,7 +852,7 @@ msgstr ""
 msgid "M"
 msgstr ""
 
-#: mainwindow.ui:582
+#: mainwindow.ui:583
 msgid "D&uplicate"
 msgstr ""
 
@@ -884,7 +892,7 @@ msgstr ""
 #. 
 #. 
 #. 
-#: full_text_search.ui:158 win_import.ui:341 mainwindow.ui:690
+#: full_text_search.ui:158 win_import.ui:341 mainwindow.ui:691
 #: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr ""
@@ -893,7 +901,7 @@ msgstr ""
 msgid "<Ctrl> + <Shift> + D"
 msgstr ""
 
-#: mainwindow.ui:874
+#: mainwindow.ui:875
 msgid "HTML Manual"
 msgstr ""
 
@@ -901,11 +909,11 @@ msgstr ""
 msgid "&Field separator"
 msgstr ""
 
-#: mainwindow.ui:654
+#: mainwindow.ui:655
 msgid "Open &Menu Tab"
 msgstr ""
 
-#: mainwindow.ui:531
+#: mainwindow.ui:532
 msgid "&Send Request"
 msgstr ""
 
@@ -1075,7 +1083,7 @@ msgstr ""
 msgid "S"
 msgstr ""
 
-#: mainwindow.ui:504
+#: mainwindow.ui:505
 msgid "&Drop Database"
 msgstr ""
 
@@ -1121,7 +1129,7 @@ msgstr ""
 msgid "Remove Image"
 msgstr ""
 
-#: mainwindow.ui:869
+#: mainwindow.ui:870
 msgid "PDF Manual"
 msgstr ""
 
@@ -1137,7 +1145,7 @@ msgstr ""
 msgid "Send New Request"
 msgstr ""
 
-#: mainwindow.ui:669
+#: mainwindow.ui:670
 msgid "Ctrl+PgDown"
 msgstr ""
 
@@ -1149,7 +1157,7 @@ msgstr ""
 msgid "Connect &now"
 msgstr ""
 
-#: mainwindow.ui:753
+#: mainwindow.ui:754
 msgid "&Import Data"
 msgstr ""
 
@@ -1169,11 +1177,11 @@ msgstr ""
 msgid "Tip of the Day"
 msgstr ""
 
-#: mainwindow.ui:522
+#: mainwindow.ui:523
 msgid "&Preferences"
 msgstr ""
 
-#: mainwindow.ui:771
+#: mainwindow.ui:772
 msgid "&Contextual Help"
 msgstr ""
 
@@ -1208,11 +1216,11 @@ msgstr ""
 
 #. 
 #. 
-#: win_attach.ui:16 mainwindow.ui:820
+#: win_attach.ui:16 mainwindow.ui:821
 msgid "Attachments"
 msgstr ""
 
-#: mainwindow.ui:495
+#: mainwindow.ui:496
 msgid "&Backup Database"
 msgstr ""
 
@@ -1249,7 +1257,7 @@ msgstr ""
 msgid "Numeric fields"
 msgstr ""
 
-#: mainwindow.ui:762
+#: mainwindow.ui:763
 msgid "&Execute Plugins"
 msgstr ""
 
@@ -1301,7 +1309,7 @@ msgstr ""
 
 #. 
 #. 
-#: mainwindow.ui:486 login.ui:143
+#: mainwindow.ui:487 login.ui:143
 msgid "&Restore Database"
 msgstr ""
 
@@ -1347,7 +1355,7 @@ msgstr ""
 msgid "&Port:"
 msgstr ""
 
-#: mainwindow.ui:720
+#: mainwindow.ui:721
 msgid "Go To Resource ID"
 msgstr ""
 
@@ -1453,7 +1461,7 @@ msgstr ""
 msgid "Search/edit existing records"
 msgstr ""
 
-#: mainwindow.ui:711
+#: mainwindow.ui:712
 msgid "Store View Settings"
 msgstr ""
 
@@ -1511,7 +1519,7 @@ msgstr ""
 msgid "Add Shortcut"
 msgstr ""
 
-#: mainwindow.ui:785
+#: mainwindow.ui:786
 msgid "&Keyboard Shortcut"
 msgstr ""
 
@@ -1559,7 +1567,7 @@ msgstr ""
 
 #. 
 #. 
-#: win_attach.ui:113 mainwindow.ui:633
+#: win_attach.ui:113 mainwindow.ui:634
 msgid "Alt+PgUp"
 msgstr ""
 
@@ -1567,7 +1575,7 @@ msgstr ""
 msgid "Open Calendar"
 msgstr ""
 
-#: mainwindow.ui:732
+#: mainwindow.ui:733
 msgid "&Reload/Undo"
 msgstr ""
 
@@ -1601,7 +1609,7 @@ msgstr ""
 msgid "<Alt> + Plus"
 msgstr ""
 
-#: mainwindow.ui:441
+#: mainwindow.ui:442
 msgid "&Connect"
 msgstr ""
 
@@ -1619,7 +1627,7 @@ msgstr ""
 
 #. 
 #. 
-#: lostconnection.ui:84 mainwindow.ui:468
+#: lostconnection.ui:84 mainwindow.ui:469
 msgid "&Quit"
 msgstr ""
 
@@ -1725,7 +1733,7 @@ msgid ""
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></p></body></html>"
 msgstr ""
 
-#: mainwindow.ui:864
+#: mainwindow.ui:865
 msgid "Modify All Selected Records"
 msgstr ""
 
@@ -1741,7 +1749,7 @@ msgstr ""
 msgid "Previous tab"
 msgstr ""
 
-#: mainwindow.ui:642
+#: mainwindow.ui:643
 msgid "Switch &View"
 msgstr ""
 
@@ -1757,7 +1765,7 @@ msgstr ""
 msgid "<Shift> + Open View"
 msgstr ""
 
-#: mainwindow.ui:744
+#: mainwindow.ui:745
 msgid "E&xport Data"
 msgstr ""
 
@@ -1782,7 +1790,7 @@ msgstr ""
 msgid "Close window without saving"
 msgstr ""
 
-#: mainwindow.ui:549
+#: mainwindow.ui:550
 msgid "&Waiting Requests"
 msgstr ""
 
@@ -1794,7 +1802,7 @@ msgstr ""
 msgid "5"
 msgstr ""
 
-#: mainwindow.ui:879
+#: mainwindow.ui:880
 msgid "doc.openerp.com"
 msgstr ""
 
@@ -1832,7 +1840,7 @@ msgstr ""
 #. 
 #. 
 #. 
-#: full_text_search.ui:126 mainwindow.ui:618 one2many_dialog.ui:68
+#: full_text_search.ui:126 mainwindow.ui:619 one2many_dialog.ui:68
 msgid "&Next"
 msgstr ""
 
@@ -1860,7 +1868,7 @@ msgstr ""
 msgid "&Edition Shortcuts"
 msgstr ""
 
-#: mainwindow.ui:570
+#: mainwindow.ui:571
 msgid "&Save"
 msgstr ""
 
@@ -1872,6 +1880,10 @@ msgstr ""
 
 #: win_import.ui:235
 msgid "&Encoding"
+msgstr ""
+
+#: mainwindow.ui:910
+msgid "Modify Field in Selected Records"
 msgstr ""
 
 #: richtext.ui:94
