@@ -38,6 +38,7 @@ from Koo.Fields.AbstractFieldDelegate import *
 from Koo.Common import Api
 from Koo.Common import Common
 from Koo.Common import Shortcuts
+from Koo.Common.Settings import Settings
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
 
@@ -168,11 +169,18 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		self.actionBatchUpdate.setText( _('&Modify All Selected Records') )
 		self.actionBatchUpdate.setIcon( QIcon( ':/images/edit.png' ) )
 		self.connect(self.actionBatchUpdate, SIGNAL('triggered()'), self.batchUpdate)
+
+		self.actionBatchUpdateField = QAction(self)
+		self.actionBatchUpdateField.setText( _('&Modify Field of Selected Records') )
+		self.actionBatchUpdateField.setIcon( QIcon( ':/images/colorpicker.png' ) )
+		self.connect(self.actionBatchUpdateField, SIGNAL('triggered()'), self.batchUpdateField)
 		
 		self.actionsMenu = QMenu( self )
 		self.actionsMenu.addAction( self.actionDuplicate )
 		self.actionsMenu.addAction( self.actionBatchInsert )
 		self.actionsMenu.addAction( self.actionBatchUpdate )
+		if Settings.value('koo.enable_batch_update_field'):
+			self.actionsMenu.addAction( self.actionBatchUpdateField )
 		self.pushActions.setMenu( self.actionsMenu )
 
 		#self.colors['normal'] = self.palette().color( self.backgroundRole() )
@@ -262,6 +270,26 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		for value in dialog.newValues:
 			record = self.screen.group.create()
 			record.setValue( dialog.newField, value )
+		self.screen.display()
+
+	def batchUpdateField(self):
+		dialog = BatchInsertDialog(self)
+		dialog.setModel( self.screen.resource )
+		dialog.setAvailableFields( [x for x in self.screen.group.fields] )
+		dialog.setUpdateOnServer( False )
+		dialog.setContext( Rpc.session.context )
+		if not dialog.setup():
+			return
+		if dialog.exec_() == QDialog.Rejected:
+			return
+		if len(dialog.newValues) != len(self.screen.selectedRecords()):
+			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%d) does not match the number of records to be inserted in fields (%d).') % (len(dialog.newValues), len(self.screen.selectedRecords())) )
+			return
+
+		i = 0
+		for record in self.screen.selectedRecords():
+			record.setValue( dialog.newField, dialog.newValues[i] )
+			i += 1
 		self.screen.display()
 
 	def switchView(self):
@@ -384,3 +412,4 @@ class OneToManyFieldDelegate( AbstractFieldDelegate ):
 	def setModelData(self, editor, model, index):
 		pass
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

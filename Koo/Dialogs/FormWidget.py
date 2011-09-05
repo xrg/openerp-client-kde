@@ -160,6 +160,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'BatchInsert': self.batchInsert,
 			'BatchUpdate': self.batchUpdate,
 			'BatchButton': self.batchButton,
+			'BatchUpdateField': self.batchUpdateField,
 			'StoreViewSettings': self.storeViewSettings,
 		}
 
@@ -575,6 +576,28 @@ class FormWidget( QWidget, FormWidgetUi ):
 		dialog.setup( self.viewTypes, self.viewIds )
 		if dialog.exec_() == QDialog.Rejected:
 			return
+		self.reload()
+
+	def batchUpdateField(self):
+		dialog = BatchInsertDialog( self )
+		dialog.setModel( self.model )
+		dialog.setContext( self.context )
+		dialog.setUpdateOnServer( False )
+		dialog.setViewTypes( self.viewTypes )
+		dialog.setViewIds( self.viewIds )
+		dialog.setup()
+		if dialog.exec_() == QDialog.Rejected:
+			return
+
+		if len(dialog.newValues) != len(self.screen.selectedRecords()):
+			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%d) does not match the number of records to be inserted in fields (%d).') % (len(dialog.newValues), len(self.screen.selectedRecords())) )
+			return
+
+		i = 0
+		for record in self.screen.selectedRecords():
+			record.setValue( dialog.newField, dialog.newValues[i] )
+			i += 1
+		self.save()
 		self.reload()
 
 	def storeViewSettings(self):

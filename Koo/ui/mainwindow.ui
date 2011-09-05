@@ -351,11 +351,6 @@
      <string>&amp;Browse</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuReports">
-    <property name="title">
-     <string>&amp;Reports</string>
-    </property>
-   </widget>
    <widget class="QMenu" name="menuForm">
     <property name="title">
      <string>F&amp;orm</string>
@@ -368,6 +363,7 @@
     <addaction name="separator"/>
     <addaction name="actionBatchInsert"/>
     <addaction name="actionBatchUpdate"/>
+    <addaction name="actionBatchUpdateField"/>
     <addaction name="actionBatchButton"/>
     <addaction name="separator"/>
     <addaction name="actionFind"/>
@@ -384,6 +380,11 @@
     <addaction name="separator"/>
     <addaction name="actionExport"/>
     <addaction name="actionImport"/>
+   </widget>
+   <widget class="QMenu" name="menuReports">
+    <property name="title">
+     <string>&amp;Reports</string>
+    </property>
    </widget>
    <addaction name="menuDatabase"/>
    <addaction name="menuUser"/>
@@ -895,6 +896,39 @@
    </property>
    <property name="text">
     <string>Insert Several Records at Once</string>
+   </property>
+  </action>
+  <action name="actionBatchUpdateField">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/colorpicker.png</normaloff>:/images/colorpicker.png</iconset>
+   </property>
+   <property name="text">
+    <string>Modify Field in Selected Records</string>
+   </property>
+   <property name="toolTip">
+    <string>Modify Field in Selected Records</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionNewAttachment">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/new.png</normaloff>:/images/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>Ne&amp;w Attachment</string>
+   </property>
+  </action>
+  <action name="actionScanAttachment">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/scanner.png</normaloff>:/images/scanner.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sca&amp;n Attachment</string>
    </property>
   </action>
  </widget>

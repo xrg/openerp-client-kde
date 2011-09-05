@@ -166,6 +166,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 		self.connect( self.pushHelp, SIGNAL('clicked()'), self.help )
 
+		if Settings.value('koo.enable_batch_update_field'):
+			self.actionBatchUpdateField.setVisible( True )
+
 		# These actions are not handled by the Main Window but by the currently opened tab.
 		# What we do here, is connect all these actions to a single handler that will
 		# call the current child/tab/form. This is handled this way instead of signals because we
@@ -174,7 +177,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.actions = [ 
 			'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 'Reload', 'Switch', 
 			'Attach', 'Export', 'Import', 'GoToResourceId', 'Duplicate', 'AccessLog', 
-			'BatchInsert', 'BatchUpdate', 'BatchButton', 'StoreViewSettings' 
+			'BatchInsert', 'BatchUpdate', 'BatchUpdateField', 'BatchButton', 'StoreViewSettings' 
 		]
 		for x in self.actions:
 			action = eval('self.action'+ x)
