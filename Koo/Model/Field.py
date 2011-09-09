@@ -34,9 +34,8 @@ from Koo.Common import Numeric
 # import logging
 
 
-class StringField(QObject):
+class StringField:
 	def __init__(self, parent, attrs):
-		QObject.__init__(self)
 		self.parent = parent
 		self.attrs = attrs
 		self.name = attrs['name']
@@ -212,7 +211,7 @@ class BinarySizeField(StringField):
 class SelectionField(StringField):
 	def set(self, record, value, test_state=True, modified=False):
 		if value in [sel[0] for sel in self.attrs['selection']]:
-			super(SelectionField, self).set(record, value, test_state, modified)
+			StringField.set(self, record, value, test_state, modified)
 
 class FloatField(StringField):
 	def validate(self, record):
@@ -290,7 +289,13 @@ class ManyToOneField(StringField):
 # In the case of OneToMany we only return those objects that have 
 # been modified because the pointed object stores the relation to the
 # parent.
-class ToManyField(StringField):
+class ToManyField(QObject, StringField):
+	def __init__(self, parent, attrs):
+		QObject.__init__(self)
+		self.parent = parent
+		self.attrs = attrs
+		self.name = attrs['name']
+		
 	def create(self, record):
 		from Koo.Model.Group import RecordGroup
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))

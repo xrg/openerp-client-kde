@@ -28,7 +28,7 @@
 import base64
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 import ServerConfigurationDialog
 from Koo.Common import Common
 from Koo.Common.Settings import *

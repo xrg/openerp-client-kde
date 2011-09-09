@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Launchpad (build 12792)\n"
 "X-Language: ca_ES\n"
 
-#: win_export.ui:232
+#: win_export.ui:238
 msgid "Import compatible"
 msgstr "Compatible amb la importació"
 
@@ -34,7 +34,7 @@ msgstr "Ctrl+D"
 msgid "Ctrl+F"
 msgstr "Ctrl+F"
 
-#: mainwindow.ui:720
+#: mainwindow.ui:723
 msgid "Ctrl+G"
 msgstr "Ctrl+G"
 
@@ -42,13 +42,18 @@ msgstr "Ctrl+G"
 msgid "&Save list"
 msgstr "&Desa la llista"
 
-#: mainwindow.ui:820
+#: mainwindow.ui:823
 msgid "Ctrl+J"
 msgstr "Ctrl+J"
 
 #: win_attach.ui:125
 msgid "Ctrl+L"
 msgstr "Ctrl+L"
+
+#: mainwindow.ui:657
+#, fuzzy
+msgid "Ctrl+M"
+msgstr "Ctrl+D"
 
 #.
 #.
@@ -70,7 +75,7 @@ msgstr "Estableix el cursor a un dels camps del contenidor"
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
-#: mainwindow.ui:808
+#: mainwindow.ui:811
 msgid "Ctrl+T"
 msgstr "Ctrl+T"
 
@@ -78,7 +83,7 @@ msgstr "Ctrl+T"
 msgid "/"
 msgstr "/"
 
-#: mainwindow.ui:690
+#: mainwindow.ui:693
 msgid "Ctrl+W"
 msgstr "Ctrl+W"
 
@@ -98,7 +103,7 @@ msgstr "Negreta"
 msgid "&Server:"
 msgstr "&Servidor:"
 
-#: mainwindow.ui:805
+#: mainwindow.ui:808
 msgid "Full &Text Search"
 msgstr "Cerca de &Text"
 
@@ -121,7 +126,7 @@ msgstr "Repeteix la contrassenya de l'admin"
 msgid "about:blank"
 msgstr "about:blank"
 
-#: mainwindow.ui:675
+#: mainwindow.ui:678
 msgid "Previous Tab"
 msgstr "Vés a la pestanya anterior"
 
@@ -177,7 +182,7 @@ msgstr "&Cerca"
 msgid "Open view in a background tab"
 msgstr "Obre la vista en una pestanya de fons"
 
-#: win_import.ui:175
+#: win_import.ui:181
 msgid "File &type:"
 msgstr "&Tipus de fitxer:"
 
@@ -189,7 +194,7 @@ msgstr "Tab"
 msgid "<b>All fields</b>"
 msgstr "<b>Tots els camps</b>"
 
-#: win_import.ui:280
+#: win_import.ui:286
 msgid "Sheet:"
 msgstr "Full:"
 
@@ -205,7 +210,7 @@ msgstr "tots els &usuaris"
 msgid "Choose a date from a calendar"
 msgstr "Escolliu una data del calendari"
 
-#: searchform.ui:133
+#: searchform.ui:138
 msgid "&Search"
 msgstr "&Cerca"
 
@@ -222,7 +227,7 @@ msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
 "<center><i>Quan s'edita un recurs en una finestra emergent</i></center>"
 
-#: win_import.ui:212
+#: win_import.ui:218
 msgid "&Text delimiter:"
 msgstr "&Delimitador de text:"
 
@@ -309,7 +314,7 @@ msgstr "Copia el text seleccionat"
 msgid "&Main Shortcuts"
 msgstr "Dreceres &Principals"
 
-#: mainwindow.ui:773
+#: mainwindow.ui:776
 msgid "&Tips"
 msgstr "&Consells"
 
@@ -329,7 +334,7 @@ msgstr "<b>No s'ha pogut connectar amb la base de dades</b>"
 msgid "Choose the date from a calendar"
 msgstr "Escolliu la data d'un calendari"
 
-#: win_export.ui:197
+#: win_export.ui:203
 msgid "<b>Options</b>"
 msgstr "<b>Opcions</b>"
 
@@ -431,7 +436,7 @@ msgstr "F3"
 
 #.
 #.
-#: mainwindow.ui:732 shortcuts.ui:236
+#: mainwindow.ui:735 shortcuts.ui:236
 msgid "F5"
 msgstr "F5"
 
@@ -585,7 +590,7 @@ msgstr "Canvia la vista"
 msgid "&And"
 msgstr "&I"
 
-#: mainwindow.ui:663
+#: mainwindow.ui:666
 msgid "Next Tab"
 msgstr "Vés a la pestanya següent"
 
@@ -597,7 +602,7 @@ msgstr "Crea una base de dades nova"
 msgid "Middle mouse click on Tab"
 msgstr "Clic amb el botó del mig en una pestanya"
 
-#: win_import.ui:253
+#: win_import.ui:259
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -649,11 +654,11 @@ msgstr "<Tab>"
 msgid "OpenERP - Link"
 msgstr "Enllaç - OpenERP"
 
-#: win_import.ui:151
+#: win_import.ui:157
 msgid "File to &import:"
 msgstr "Fitxer a &importar:"
 
-#: win_export.ui:210
+#: win_export.ui:216
 msgid "Add &field names"
 msgstr "Afegeix els noms dels &camps"
 
@@ -673,7 +678,7 @@ msgstr "&Valor per omissió"
 msgid "&Advanced"
 msgstr "&Avançat"
 
-#: mainwindow.ui:787
+#: mainwindow.ui:790
 msgid "&License"
 msgstr "&Llicència"
 
@@ -685,17 +690,17 @@ msgstr "Vista mensual"
 msgid "<b>Value applicable if:</b>"
 msgstr "<b>Valor aplicable si:</b>"
 
-#: mainwindow.ui:829
+#: mainwindow.ui:832
 msgid "&Form designer"
 msgstr "&Dissenyador de formularis"
 
-#: win_import.ui:293
+#: win_import.ui:299
 msgid "&Lines to skip:"
 msgstr "&Línies a saltar:"
 
 #.
 #.
-#: keyboard.ui:304 win_import.ui:205
+#: keyboard.ui:304 win_import.ui:211
 msgid ","
 msgstr ","
 
@@ -725,7 +730,7 @@ msgstr "&Contrassenya de l'administrador"
 msgid "L"
 msgstr "L"
 
-#: mainwindow.ui:843
+#: mainwindow.ui:846
 msgid "Open Home Tab"
 msgstr "Obre la pestanya inicial"
 
@@ -775,7 +780,7 @@ msgstr "Desa"
 msgid "'"
 msgstr "'"
 
-#: mainwindow.ui:852
+#: mainwindow.ui:855
 msgid "&Clear Cache"
 msgstr "&Neteja la cache"
 
@@ -839,7 +844,7 @@ msgstr "&Envia l'error"
 msgid "Create a new record"
 msgstr "Crea un nou registre"
 
-#: mainwindow.ui:834
+#: mainwindow.ui:837
 msgid "&Menu"
 msgstr "&Menú"
 
@@ -850,7 +855,7 @@ msgstr "&Menú"
 msgid "&Previous"
 msgstr "&Previous"
 
-#: mainwindow.ui:894
+#: mainwindow.ui:897
 msgid "Insert Several Records at Once"
 msgstr "Insereix múltiples registres alhora"
 
@@ -858,7 +863,7 @@ msgstr "Insereix múltiples registres alhora"
 msgid "Next record"
 msgstr "Registre següent"
 
-#: mainwindow.ui:885
+#: mainwindow.ui:888
 msgid "Push Button of All Selected Records"
 msgstr "Prémer un botó dels registres seleccionats"
 
@@ -866,7 +871,7 @@ msgstr "Prémer un botó dels registres seleccionats"
 msgid "&Actions"
 msgstr "&Accions"
 
-#: win_import.ui:222
+#: win_import.ui:228
 msgid "\""
 msgstr "\""
 
@@ -886,7 +891,7 @@ msgstr "&Base de dades"
 msgid "Opens the record in a new background tab"
 msgstr "Obre el registre en una nova pestanya de fons"
 
-#: mainwindow.ui:796
+#: mainwindow.ui:799
 msgid "&About"
 msgstr "&Quant a"
 
@@ -947,7 +952,7 @@ msgstr "&D'acord"
 msgid "&User"
 msgstr "&Usuari"
 
-#: mainwindow.ui:678
+#: mainwindow.ui:681
 msgid "Ctrl+PgUp"
 msgstr "Ctrl+PgUp"
 
@@ -967,7 +972,7 @@ msgstr "<Alt> + <PgDn>"
 msgid "Batch Update Process"
 msgstr "Procés de modificació en bloc"
 
-#: mainwindow.ui:699
+#: mainwindow.ui:702
 msgid "View Access Log"
 msgstr "Veure el registre d'accessos"
 
@@ -1033,7 +1038,7 @@ msgstr "&Bases de dades"
 #.
 #.
 #.
-#: full_text_search.ui:158 win_import.ui:335 mainwindow.ui:687
+#: full_text_search.ui:158 win_import.ui:341 mainwindow.ui:690
 #: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "&Tanca"
@@ -1042,11 +1047,11 @@ msgstr "&Tanca"
 msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
-#: mainwindow.ui:871
+#: mainwindow.ui:874
 msgid "HTML Manual"
 msgstr "Manual HTML"
 
-#: win_import.ui:195
+#: win_import.ui:201
 msgid "&Field separator"
 msgstr "&Separador de camp"
 
@@ -1235,7 +1240,7 @@ msgstr "Servidor"
 #.
 #: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
 #: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
-#: error.ui:159 win_export.ui:265 field_preferences.ui:134 gotoid.ui:72
+#: error.ui:159 win_export.ui:271 field_preferences.ui:134 gotoid.ui:72
 #: license.ui:148 login.ui:283 preferences.ui:45 win_search.ui:97
 #: win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
@@ -1249,7 +1254,7 @@ msgstr "S"
 msgid "&Drop Database"
 msgstr "&Elimina la base de dades"
 
-#: searchform.ui:122
+#: searchform.ui:127
 msgid "&Clear"
 msgstr "&Neteja"
 
@@ -1276,7 +1281,7 @@ msgstr "Can&via"
 #.
 #.
 #: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:279
+#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:285
 #: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
 #: preferences.ui:56 win_search.ui:108 win_selection.ui:57
 #: translationdialog.ui:56
@@ -1291,11 +1296,11 @@ msgstr "Elimina el registre actual"
 msgid "Remove Image"
 msgstr "Elimina la imatge"
 
-#: mainwindow.ui:866
+#: mainwindow.ui:869
 msgid "PDF Manual"
 msgstr "Manual PDF"
 
-#: win_import.ui:324
+#: win_import.ui:330
 msgid "&Import"
 msgstr "&Importa"
 
@@ -1307,7 +1312,7 @@ msgstr "<Alt> + <PgUp>"
 msgid "Send New Request"
 msgstr "Envia una nova petició"
 
-#: mainwindow.ui:666
+#: mainwindow.ui:669
 msgid "Ctrl+PgDown"
 msgstr "Ctrl+PgDown"
 
@@ -1319,7 +1324,7 @@ msgstr "<Enter>"
 msgid "Connect &now"
 msgstr "Connecta &ara"
 
-#: mainwindow.ui:750
+#: mainwindow.ui:753
 msgid "&Import Data"
 msgstr "&Importa dades"
 
@@ -1343,7 +1348,7 @@ msgstr "Consell del dia"
 msgid "&Preferences"
 msgstr "&Preferències"
 
-#: mainwindow.ui:768
+#: mainwindow.ui:771
 msgid "&Contextual Help"
 msgstr "&Ajuda contextual"
 
@@ -1378,7 +1383,7 @@ msgstr "Diàleg"
 
 #.
 #.
-#: win_attach.ui:16 mainwindow.ui:817
+#: win_attach.ui:16 mainwindow.ui:820
 msgid "Attachments"
 msgstr "Adjunts"
 
@@ -1390,7 +1395,7 @@ msgstr "Fes una còpia de seguretat de la &base de dades"
 msgid "General"
 msgstr "General"
 
-#: win_export.ui:220
+#: win_export.ui:226
 msgid ""
 "<p>\n"
 "Check this field if you want to be able to import this information back to "
@@ -1439,7 +1444,7 @@ msgstr "Vista setmanal"
 msgid "Numeric fields"
 msgstr "Camps numèrics"
 
-#: mainwindow.ui:759
+#: mainwindow.ui:762
 msgid "&Execute Plugins"
 msgstr "&Executa extensions"
 
@@ -1591,7 +1596,7 @@ msgstr "Vés a l'Id"
 msgid "&Port:"
 msgstr "&Port:"
 
-#: mainwindow.ui:717
+#: mainwindow.ui:720
 msgid "Go To Resource ID"
 msgstr "Vés al recurs amb ID"
 
@@ -1697,7 +1702,7 @@ msgstr "Crea una base de &dades"
 msgid "Search/edit existing records"
 msgstr "Cerca/edita els registres existents"
 
-#: mainwindow.ui:708
+#: mainwindow.ui:711
 msgid "Store View Settings"
 msgstr "Desa la configuració de la vista"
 
@@ -1755,7 +1760,7 @@ msgstr "Cerca la selecció actual mitjançant la cerca de text"
 msgid "Add Shortcut"
 msgstr "Afegeix l'accés directe"
 
-#: mainwindow.ui:782
+#: mainwindow.ui:785
 msgid "&Keyboard Shortcut"
 msgstr "&Dreceres de teclat"
 
@@ -1811,7 +1816,7 @@ msgstr "Alt+PgUp"
 msgid "Open Calendar"
 msgstr "Obre un calendari"
 
-#: mainwindow.ui:729
+#: mainwindow.ui:732
 msgid "&Reload/Undo"
 msgstr "&Recarrega/Desfés"
 
@@ -1857,7 +1862,7 @@ msgstr "Justificat"
 msgid "&Previous Tip"
 msgstr "Consell &anterior"
 
-#: win_import.ui:258
+#: win_import.ui:264
 msgid "Latin1"
 msgstr "Latin1"
 
@@ -2709,7 +2714,7 @@ msgstr ""
 "margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; "
 "text-indent:0px;\"></p></body></html>"
 
-#: mainwindow.ui:861
+#: mainwindow.ui:864
 msgid "Modify All Selected Records"
 msgstr "Modifica tots els registres seleccionats"
 
@@ -2741,7 +2746,7 @@ msgstr "Tanca"
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Obre la vista"
 
-#: mainwindow.ui:741
+#: mainwindow.ui:744
 msgid "E&xport Data"
 msgstr "E&xporta dades"
 
@@ -2778,7 +2783,7 @@ msgstr "Llicència d'OpenERP"
 msgid "5"
 msgstr "5"
 
-#: mainwindow.ui:876
+#: mainwindow.ui:879
 msgid "doc.openerp.com"
 msgstr "doc.openerp.com"
 
@@ -2871,7 +2876,7 @@ msgstr ""
 "Calcula el valor\n"
 "(Resultat de l'exemple: 7)"
 
-#: win_import.ui:229
+#: win_import.ui:235
 msgid "&Encoding"
 msgstr "C&odificació"
 

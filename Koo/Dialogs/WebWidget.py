@@ -32,90 +32,100 @@ from Koo.Common import Common
 from Koo.Common.Settings import *
 from Koo.Common import Help
 
-from PyQt4.QtWebKit import * 
+try:
+	from PyQt4.QtWebKit import * 
+	isWebWidgetAvailable = True
+except:
+	isWebWidgetAvailable = False
+    
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 
-(WebWidgetUi, WebWidgetBase) = loadUiType( Common.uiPath('webcontainer.ui') )
+if isWebWidgetAvailable:
 
-class WebWidget( QWidget, WebWidgetUi ):
-	# form constructor:
-	# model -> Name of the model the form should handle
-	# res_id -> List of ids of type 'model' to load
-	# domain -> Domain the models should be in
-	# view_type -> type of view: form, tree, graph, calendar, ...
-	# view_ids -> Id's of the views 'ir.ui.view' to show
-	# context -> Context for the current data set
-	# parent -> Parent widget of the form
-	# name -> User visible title of the form
-	def __init__(self, parent=None):
-		QWidget.__init__(self, parent)
-		WebWidgetUi.__init__(self)
-		self.setupUi( self )
+	(WebWidgetUi, WebWidgetBase) = loadUiType( Common.uiPath('webcontainer.ui') )
 
-		self.manager = Rpc.RpcNetworkAccessManager( self.uiWeb.page().networkAccessManager() )
-		self.uiWeb.page().setNetworkAccessManager( self.manager )
+	class WebWidget( QWidget, WebWidgetUi ):
+		# form constructor:
+		# model -> Name of the model the form should handle
+		# res_id -> List of ids of type 'model' to load
+		# domain -> Domain the models should be in
+		# view_type -> type of view: form, tree, graph, calendar, ...
+		# view_ids -> Id's of the views 'ir.ui.view' to show
+		# context -> Context for the current data set
+		# parent -> Parent widget of the form
+		# name -> User visible title of the form
+		def __init__(self, parent=None):
+			QWidget.__init__(self, parent)
+			WebWidgetUi.__init__(self)
+			self.setupUi( self )
 
-		self.name = ''
-		self.handlers = {
-			'Previous': self.previous,
-			'Next': self.next,
-			'Reload': self.reload,
-			'Find': self.find,
-		}
+			self.manager = Rpc.RpcNetworkAccessManager( self.uiWeb.page().networkAccessManager() )
+			self.uiWeb.page().setNetworkAccessManager( self.manager )
 
-	def switchViewMenu(self):
-		return None
+			self.name = ''
+			self.handlers = {
+				'Previous': self.previous,
+				'Next': self.next,
+				'Reload': self.reload,
+				'Find': self.find,
+			}
 
-	def setUrl(self, url):
-		self.uiWeb.load( url )
+		def switchViewMenu(self):
+			return None
 
-	def setTitle(self, title):
-		if len(title) > 20:
-			self.name = '%s...' % title[:20]
-		else:
-			self.name = title
+		def setUrl(self, url):
+			self.uiWeb.load( url )
 
-	def find(self):
-		text, ok = QInputDialog.getText( self, _('Find'), _('Find:') )
-		if not ok:
+		def setTitle(self, title):
+			if len(title) > 20:
+				self.name = '%s...' % title[:20]
+			else:
+				self.name = title
+
+		def find(self):
+			text, ok = QInputDialog.getText( self, _('Find'), _('Find:') )
+			if not ok:
+				return
+			self.uiWeb.findText( text, QWebPage.HighlightAllOccurrences )
+
+		def previous(self):
+			self.uiWeb.back()
+
+		def next(self):
+			self.uiWeb.forward()
+
+		def reload(self):
+			self.uiWeb.reload()
+
+		def storeViewSettings(self):
+			pass
+
+		def closeWidget(self):
+			self.screen.storeViewSettings()
+			self.emit( SIGNAL('closed()') )
+
+		def canClose(self, urgent=False):
+			# Store settings of all opened views before closing the tab.
+			#self.screen.storeViewSettings()
+			return True
+
+		def actions(self):
+			return []
+
+		def help(self, button):
+			if not Help.isHelpWidgetAvailable:
+				return
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			helpWidget = Help.HelpWidget( button )
+			helpWidget.setLabel( _('No help available for web views') )
+			helpWidget.setType( helpWidget.ViewType )
+			helpWidget.show()
+			QApplication.restoreOverrideCursor()
 			return
-		self.uiWeb.findText( text, QWebPage.HighlightAllOccurrences )
 
-	def previous(self):
-		self.uiWeb.back()
+		def __del__(self):
+			pass
 
-	def next(self):
-		self.uiWeb.forward()
-
-	def reload(self):
-		self.uiWeb.reload()
-
-	def storeViewSettings(self):
-		pass
-
-	def closeWidget(self):
-		self.screen.storeViewSettings()
-		self.emit( SIGNAL('closed()') )
-
-	def canClose(self, urgent=False):
-		# Store settings of all opened views before closing the tab.
-		#self.screen.storeViewSettings()
-		return True
-
-	def actions(self):
-		return []
-
-	def help(self, button):
-		QApplication.setOverrideCursor( Qt.WaitCursor )
-		helpWidget = Help.HelpWidget( button )
-		helpWidget.setLabel( _('No help available for web views') )
-		helpWidget.setType( helpWidget.ViewType )
-		helpWidget.show()
-		QApplication.restoreOverrideCursor()
-		return
-
-	def __del__(self):
-		pass
-
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

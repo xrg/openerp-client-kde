@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 from Koo.Common import Common
 from Koo.Common import Url
 from DatabaseDialog import *
@@ -60,9 +60,6 @@ class LoginDialog( QDialog, LoginDialogUi ):
 
 		QTimer.singleShot( 0, self.initGui )
 	
-	def setDatabaseName( self, name ):
-		self.databaseName = name
-
 	def initGui(self):
 		self.connect( self.pushCancel, SIGNAL("clicked()"), self.slotCancel )
 		self.connect( self.pushAccept, SIGNAL("clicked()"), self.slotAccept )
@@ -81,7 +78,9 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		self.uiPassword.setText( url.password() )
 		url.setPassword( '' )
 		self.uiServer.setText( url.toString() )
-		res = self.refreshList()
+
+		self.databaseName = Settings.value( 'login.db' )
+		self.refreshList()
 
 	def refreshList(self):
 		res = ServerConfigurationDialog.refreshDatabaseList(self.uiDatabase, str( self.uiServer.text() ), self.databaseName )
@@ -109,6 +108,7 @@ class LoginDialog( QDialog, LoginDialogUi ):
 			else:
 				self.uiDatabase.show()
 				self.uiTextDatabase.hide()
+			self.uiTextDatabase.setText( self.databaseName or '' )
 			self.pushCreateDatabase.hide()
 			self.pushRestoreDatabase.hide()
 			self.pushAccept.setEnabled(True)
@@ -228,3 +228,4 @@ class LoginDialog( QDialog, LoginDialogUi ):
 		self.refreshList()
 		QApplication.restoreOverrideCursor()
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

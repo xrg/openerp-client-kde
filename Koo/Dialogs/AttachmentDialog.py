@@ -30,7 +30,7 @@ import FormWidget
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import * 
+from Common.Ui import * 
 
 (AttachmentDialogUi, AttachmentDialogBase) = loadUiType( Common.uiPath('win_attach.ui') )
 

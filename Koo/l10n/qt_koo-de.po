@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
 "X-Generator: Launchpad (build 12792)\n"
 
-#: win_export.ui:232
+#: win_export.ui:238
 msgid "Import compatible"
 msgstr "Import kompatibel"
 
@@ -32,7 +32,7 @@ msgstr "Strg+D"
 msgid "Ctrl+F"
 msgstr "Strg+F"
 
-#: mainwindow.ui:720
+#: mainwindow.ui:723
 msgid "Ctrl+G"
 msgstr "Strg+G"
 
@@ -40,13 +40,18 @@ msgstr "Strg+G"
 msgid "&Save list"
 msgstr "&Speichere Liste"
 
-#: mainwindow.ui:820
+#: mainwindow.ui:823
 msgid "Ctrl+J"
 msgstr "Strg+J"
 
 #: win_attach.ui:125
 msgid "Ctrl+L"
 msgstr "Strg+L"
+
+#: mainwindow.ui:657
+#, fuzzy
+msgid "Ctrl+M"
+msgstr "Strg+D"
 
 #.
 #.
@@ -68,7 +73,7 @@ msgstr "Setze Fokus auf ein Widget im Kontainer"
 msgid "Ctrl+S"
 msgstr "Strg+S"
 
-#: mainwindow.ui:808
+#: mainwindow.ui:811
 msgid "Ctrl+T"
 msgstr "Strg+T"
 
@@ -76,7 +81,7 @@ msgstr "Strg+T"
 msgid "/"
 msgstr "/"
 
-#: mainwindow.ui:690
+#: mainwindow.ui:693
 msgid "Ctrl+W"
 msgstr "Strg+W"
 
@@ -96,7 +101,7 @@ msgstr "Fett"
 msgid "&Server:"
 msgstr "&Server:"
 
-#: mainwindow.ui:805
+#: mainwindow.ui:808
 msgid "Full &Text Search"
 msgstr "& Volltext Suche"
 
@@ -119,7 +124,7 @@ msgstr "Wiederholen admin Kennwort"
 msgid "about:blank"
 msgstr "über:leer"
 
-#: mainwindow.ui:675
+#: mainwindow.ui:678
 msgid "Previous Tab"
 msgstr "Voriger Reiter"
 
@@ -174,7 +179,7 @@ msgstr "Suchen"
 msgid "Open view in a background tab"
 msgstr "Öffne Ansicht in Hintergrund Reiter"
 
-#: win_import.ui:175
+#: win_import.ui:181
 msgid "File &type:"
 msgstr "Datei Typ"
 
@@ -186,7 +191,7 @@ msgstr "Tab"
 msgid "<b>All fields</b>"
 msgstr "<b>Alle Felder</b>"
 
-#: win_import.ui:280
+#: win_import.ui:286
 msgid "Sheet:"
 msgstr "Tabelle:"
 
@@ -202,7 +207,7 @@ msgstr "für alle Benutzer"
 msgid "Choose a date from a calendar"
 msgstr "Datum vom Kalender wählen"
 
-#: searchform.ui:133
+#: searchform.ui:138
 msgid "&Search"
 msgstr "&Suchen"
 
@@ -219,7 +224,7 @@ msgid "<center><i>When editing a resource in a popup window</i></center>"
 msgstr ""
 "<center><i>Beim Ändern eines Datensatzes in eine PopUp fenster</i></center>"
 
-#: win_import.ui:212
+#: win_import.ui:218
 msgid "&Text delimiter:"
 msgstr "&Text Begrenzer:"
 
@@ -306,7 +311,7 @@ msgstr "Kopiere ausgewählten Text"
 msgid "&Main Shortcuts"
 msgstr "wichtige Kürzel"
 
-#: mainwindow.ui:773
+#: mainwindow.ui:776
 msgid "&Tips"
 msgstr "&Tipps"
 
@@ -326,7 +331,7 @@ msgstr "<b>Kann nicht mit Datenbank verbinden</b>"
 msgid "Choose the date from a calendar"
 msgstr "Datum vom Kalender wählen"
 
-#: win_export.ui:197
+#: win_export.ui:203
 msgid "<b>Options</b>"
 msgstr "<b>Optionen</b>"
 
@@ -427,7 +432,7 @@ msgstr "F3"
 
 #.
 #.
-#: mainwindow.ui:732 shortcuts.ui:236
+#: mainwindow.ui:735 shortcuts.ui:236
 msgid "F5"
 msgstr "F5"
 
@@ -581,7 +586,7 @@ msgstr "Ansicht Umschalten"
 msgid "&And"
 msgstr "&Und"
 
-#: mainwindow.ui:663
+#: mainwindow.ui:666
 msgid "Next Tab"
 msgstr "Nächster Reiter"
 
@@ -593,7 +598,7 @@ msgstr "Erstelle neue Datenbank"
 msgid "Middle mouse click on Tab"
 msgstr "Mittleree Mausklick auf Reiter"
 
-#: win_import.ui:253
+#: win_import.ui:259
 msgid "UTF-8"
 msgstr "UTF-8"
 
@@ -645,11 +650,11 @@ msgstr "<Tab>"
 msgid "OpenERP - Link"
 msgstr "OpenERP - Link"
 
-#: win_import.ui:151
+#: win_import.ui:157
 msgid "File to &import:"
 msgstr "Datei zu importieren"
 
-#: win_export.ui:210
+#: win_export.ui:216
 msgid "Add &field names"
 msgstr "&Feldnamen hinzufügen"
 
@@ -669,7 +674,7 @@ msgstr "&Voreinstellung Wert"
 msgid "&Advanced"
 msgstr "Fortgeschritten"
 
-#: mainwindow.ui:787
+#: mainwindow.ui:790
 msgid "&License"
 msgstr "&Lizenz"
 
@@ -681,17 +686,17 @@ msgstr "Monatsansicht"
 msgid "<b>Value applicable if:</b>"
 msgstr "<b>Wert anzuwenden, wenn:</b>"
 
-#: mainwindow.ui:829
+#: mainwindow.ui:832
 msgid "&Form designer"
 msgstr "&Formular Desinger"
 
-#: win_import.ui:293
+#: win_import.ui:299
 msgid "&Lines to skip:"
 msgstr "überspringe Zei&len:"
 
 #.
 #.
-#: keyboard.ui:304 win_import.ui:205
+#: keyboard.ui:304 win_import.ui:211
 msgid ","
 msgstr ","
 
@@ -721,7 +726,7 @@ msgstr "&Administrator Kennwort"
 msgid "L"
 msgstr "L"
 
-#: mainwindow.ui:843
+#: mainwindow.ui:846
 msgid "Open Home Tab"
 msgstr "Öffne persönlichen Reiter"
 
@@ -770,7 +775,7 @@ msgstr "Speichern"
 msgid "'"
 msgstr "'"
 
-#: mainwindow.ui:852
+#: mainwindow.ui:855
 msgid "&Clear Cache"
 msgstr "Zwischenspeicher &leeren"
 
@@ -834,7 +839,7 @@ msgstr "Sende Fehler"
 msgid "Create a new record"
 msgstr "Erzeuge neue Resource"
 
-#: mainwindow.ui:834
+#: mainwindow.ui:837
 msgid "&Menu"
 msgstr "&Menü"
 
@@ -845,7 +850,7 @@ msgstr "&Menü"
 msgid "&Previous"
 msgstr "&Zurück"
 
-#: mainwindow.ui:894
+#: mainwindow.ui:897
 msgid "Insert Several Records at Once"
 msgstr "Mehrere Datensätze auf einmal einfügen"
 
@@ -853,7 +858,7 @@ msgstr "Mehrere Datensätze auf einmal einfügen"
 msgid "Next record"
 msgstr "Nächster Datensatz"
 
-#: mainwindow.ui:885
+#: mainwindow.ui:888
 msgid "Push Button of All Selected Records"
 msgstr "Schaltfläche für alle ausgewählten Datensätze drücken"
 
@@ -861,7 +866,7 @@ msgstr "Schaltfläche für alle ausgewählten Datensätze drücken"
 msgid "&Actions"
 msgstr "&Aktionen"
 
-#: win_import.ui:222
+#: win_import.ui:228
 msgid "\""
 msgstr "\""
 
@@ -881,7 +886,7 @@ msgstr "&Datenbank"
 msgid "Opens the record in a new background tab"
 msgstr "Öffnet Datensatz in Hintergrund Reiter"
 
-#: mainwindow.ui:796
+#: mainwindow.ui:799
 msgid "&About"
 msgstr "Über"
 
@@ -942,7 +947,7 @@ msgstr "&OK"
 msgid "&User"
 msgstr "&Benutzer"
 
-#: mainwindow.ui:678
+#: mainwindow.ui:681
 msgid "Ctrl+PgUp"
 msgstr "Strg+Bild auf"
 
@@ -962,7 +967,7 @@ msgstr "<Alt> + <Bild ab>"
 msgid "Batch Update Process"
 msgstr "Batch Upadate Prozess"
 
-#: mainwindow.ui:699
+#: mainwindow.ui:702
 msgid "View Access Log"
 msgstr "Zeige Zugriffs Log"
 
@@ -1028,7 +1033,7 @@ msgstr "&Datenbanken"
 #.
 #.
 #.
-#: full_text_search.ui:158 win_import.ui:335 mainwindow.ui:687
+#: full_text_search.ui:158 win_import.ui:341 mainwindow.ui:690
 #: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
 msgstr "Sch&ließen"
@@ -1037,11 +1042,11 @@ msgstr "Sch&ließen"
 msgid "<Ctrl> + <Shift> + D"
 msgstr "<Ctrl> + <Shift> + D"
 
-#: mainwindow.ui:871
+#: mainwindow.ui:874
 msgid "HTML Manual"
 msgstr "HTML Handbuch"
 
-#: win_import.ui:195
+#: win_import.ui:201
 msgid "&Field separator"
 msgstr "&Feldtrenner"
 
@@ -1230,7 +1235,7 @@ msgstr "Server"
 #.
 #: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
 #: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
-#: error.ui:159 win_export.ui:265 field_preferences.ui:134 gotoid.ui:72
+#: error.ui:159 win_export.ui:271 field_preferences.ui:134 gotoid.ui:72
 #: license.ui:148 login.ui:283 preferences.ui:45 win_search.ui:97
 #: win_selection.ui:44 translationdialog.ui:45
 msgid "&Accept"
@@ -1244,7 +1249,7 @@ msgstr "S"
 msgid "&Drop Database"
 msgstr "&Datenbank löschen"
 
-#: searchform.ui:122
+#: searchform.ui:127
 msgid "&Clear"
 msgstr "Leeren"
 
@@ -1271,7 +1276,7 @@ msgstr "Ändern"
 #.
 #.
 #: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:279
+#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:285
 #: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
 #: preferences.ui:56 win_search.ui:108 win_selection.ui:57
 #: translationdialog.ui:56
@@ -1286,11 +1291,11 @@ msgstr "Aktuellen Datensatz entfernen"
 msgid "Remove Image"
 msgstr "Entferne Bild"
 
-#: mainwindow.ui:866
+#: mainwindow.ui:869
 msgid "PDF Manual"
 msgstr "PDF Handbuch"
 
-#: win_import.ui:324
+#: win_import.ui:330
 msgid "&Import"
 msgstr "Importiere"
 
@@ -1302,7 +1307,7 @@ msgstr "<Alt> + <Bild auf>"
 msgid "Send New Request"
 msgstr "Sende neue Anfrage"
 
-#: mainwindow.ui:666
+#: mainwindow.ui:669
 msgid "Ctrl+PgDown"
 msgstr "Ctrl+PgDown"
 
@@ -1314,7 +1319,7 @@ msgstr "<Eingabe>"
 msgid "Connect &now"
 msgstr "Verbi&nde jetzt"
 
-#: mainwindow.ui:750
+#: mainwindow.ui:753
 msgid "&Import Data"
 msgstr "&Importiere Daten"
 
@@ -1338,7 +1343,7 @@ msgstr "Tip des Tages"
 msgid "&Preferences"
 msgstr "&Persönliche Einstellungen"
 
-#: mainwindow.ui:768
+#: mainwindow.ui:771
 msgid "&Contextual Help"
 msgstr "Kontext Hilfe"
 
@@ -1373,7 +1378,7 @@ msgstr "Dialog"
 
 #.
 #.
-#: win_attach.ui:16 mainwindow.ui:817
+#: win_attach.ui:16 mainwindow.ui:820
 msgid "Attachments"
 msgstr "Anhänge"
 
@@ -1385,7 +1390,7 @@ msgstr "Daten&bank Sichern"
 msgid "General"
 msgstr "Allgemein"
 
-#: win_export.ui:220
+#: win_export.ui:226
 msgid ""
 "<p>\n"
 "Check this field if you want to be able to import this information back to "
@@ -1418,7 +1423,7 @@ msgstr "Wochenansicht"
 msgid "Numeric fields"
 msgstr "Numerische Felder"
 
-#: mainwindow.ui:759
+#: mainwindow.ui:762
 msgid "&Execute Plugins"
 msgstr "Zusatzmodule ausführen"
 
@@ -1570,7 +1575,7 @@ msgstr "Gehe zu ID"
 msgid "&Port:"
 msgstr "&Port:"
 
-#: mainwindow.ui:717
+#: mainwindow.ui:720
 msgid "Go To Resource ID"
 msgstr "Gehe zu Resource ID"
 
@@ -1676,7 +1681,7 @@ msgstr "DAtenbank erstellen"
 msgid "Search/edit existing records"
 msgstr "Suche / Editiere bestehende Datensätze"
 
-#: mainwindow.ui:708
+#: mainwindow.ui:711
 msgid "Store View Settings"
 msgstr "Speichere die Sicht Einstellungen"
 
@@ -1734,7 +1739,7 @@ msgstr "Volltextsuche aktuelle Auswahl"
 msgid "Add Shortcut"
 msgstr "Kürzle hinzufügen"
 
-#: mainwindow.ui:782
+#: mainwindow.ui:785
 msgid "&Keyboard Shortcut"
 msgstr "Tastatur &Kürzel"
 
@@ -1790,7 +1795,7 @@ msgstr "Alt Bild auf"
 msgid "Open Calendar"
 msgstr "Öffne Kalender"
 
-#: mainwindow.ui:729
+#: mainwindow.ui:732
 msgid "&Reload/Undo"
 msgstr "Neu Laden/&Rückgängig"
 
@@ -1836,7 +1841,7 @@ msgstr "Justiere"
 msgid "&Previous Tip"
 msgstr "Voriger Tip"
 
-#: win_import.ui:258
+#: win_import.ui:264
 msgid "Latin1"
 msgstr "Latin1"
 
@@ -2758,7 +2763,7 @@ msgstr ""
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
 "p></body></html>"
 
-#: mainwindow.ui:861
+#: mainwindow.ui:864
 msgid "Modify All Selected Records"
 msgstr "Alle ausgewählten Daten speichern"
 
@@ -2790,7 +2795,7 @@ msgstr "Schließen"
 msgid "<Shift> + Open View"
 msgstr "<Shift> + Öffne Ansicht"
 
-#: mainwindow.ui:741
+#: mainwindow.ui:744
 msgid "E&xport Data"
 msgstr "E&xportiere Daten"
 
@@ -2827,7 +2832,7 @@ msgstr "OpenERP Lizenz"
 msgid "5"
 msgstr "5"
 
-#: mainwindow.ui:876
+#: mainwindow.ui:879
 msgid "doc.openerp.com"
 msgstr "doc.openerp.com"
 
@@ -2920,7 +2925,7 @@ msgstr ""
 "Berechnet Wert\n"
 "(Beispiel Ergebnis: 7)"
 
-#: win_import.ui:229
+#: win_import.ui:235
 msgid "&Encoding"
 msgstr "Kodierung"
 

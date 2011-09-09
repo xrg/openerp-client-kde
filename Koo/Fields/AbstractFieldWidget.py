@@ -27,9 +27,15 @@
 #
 ##############################################################################
 
+import os
+import re
+import tempfile
+
 from Koo import Rpc
 from Koo.Common import Api
 from Koo.Common import Help
+from Koo.Common import Common
+from Koo.Common.Settings import *
 from FieldPreferencesDialog import *
 
 from PyQt4.QtGui import *
@@ -75,7 +81,6 @@ class AbstractFieldWidget(QWidget):
 		self.defaultMenuEntries = [
 			(_('Set to default value'), self.setToDefault, 1),
 		]
-
 		# As currently slotSetDefault needs view to be set we use it
 		# only in form views.
 		if self.view:
@@ -150,6 +155,47 @@ class AbstractFieldWidget(QWidget):
 		except:
 			QMessageBox.warning(None, _('Operation not permited'), _('You can not set to the default value here !') )
 			return False
+
+	def inheritView(self):
+		view_id = self.attrs.get('x-view')
+		if not view_id:
+			return
+		view_id = re.findall('\d+',view_id)
+		if not view_id:
+			return
+		view_id = int(view_id[0])
+		view = Rpc.RpcProxy('ir.ui.view')
+		records = view.read([view_id], ['name','model','xml_id'])
+		record = records[0]
+
+		id = record['xml_id'].split('.')[-1]
+
+		arch =  """
+<openerp>
+<data>
+    <record model="ir.ui.view" id="%(id)s">
+        <field name="name">%(name)s</field>
+        <field name="model">%(model)s</field>
+	<field name="type">form</field>
+        <field name="inherit_id" ref="%(xml_id)s"/>
+        <field name="arch" type="xml">
+            <field name="%(field)s" position="after">
+		<field name=""/>
+            </field>
+        </field>
+    </record>
+</data>
+</openerp>"""		% {
+				'id': id,
+				'name': record['name'],
+				'model': record['model'],
+				'xml_id': record['xml_id'],
+				'field': self.attrs.get('name',''),
+			}
+		fd, fileName = tempfile.mkstemp(suffix='.txt')
+		os.write(fd, arch)
+		os.close(fd)
+		Common.openFile( fileName )
 
 	## @brief Opens the FieldPreferencesDialog to set the current value as default for this field.
 	def setAsDefault(self):
@@ -240,8 +286,17 @@ class AbstractFieldWidget(QWidget):
 	def showPopupMenu(self, parent, position):
 		entries = self.defaultMenuEntries[:]
 		new = self.menuEntries()
+
 		if len(new) > 0:
 			entries = entries + [(None, None, None)] + new
+
+		if Settings.value('koo.developer_mode',False):
+			entries.append( (None, None, None) )
+			entries.append( (_('Inherit View'), self.inheritView, 1) )
+
+		if not entries:
+			return
+
 		try:
 			menu = parent.createStandardContextMenu()
 			menu.setParent( parent )
@@ -328,3 +383,5 @@ class AbstractFieldWidget(QWidget):
 
 	def restoreState(self, state):
 		pass
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

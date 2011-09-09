@@ -26,6 +26,10 @@
 #
 ##############################################################################
 
+import os
+import re
+import tempfile
+
 from Koo.Common.Settings import *
 from Koo.Common import Common
 from Koo import Rpc
@@ -34,7 +38,6 @@ from Koo.View.AbstractView import *
 from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.QtWebKit import *
 
 ## @brief The FormTabWidget class is the widget used instead of QTabWidget in forms.
 #
@@ -50,7 +53,7 @@ class FormTabWidget( QTabWidget ):
 		else:
 			self.setTabIcon( index, QIcon( ':/images/warning.png' ) )
 
-	
+
 ## @brief The FormContainer class is a widget with some functionalities to help
 # the parser construct a Form.
 class FormContainer( QWidget ):
@@ -97,7 +100,9 @@ class FormContainer( QWidget ):
 					break
 		return valid
 
-	def addWidget(self, widget, attributes={}, labelText=None):
+	def addWidget(self, widget, attributes=None, labelText=None):
+		if attributes is None:
+			attributes = {}
 		if widget.inherits( 'AbstractFieldWidget' ):
 			self.fieldWidgets.append( widget )
 		if widget.inherits( 'FormContainer' ):
@@ -109,7 +114,9 @@ class FormContainer( QWidget ):
 			helpText = (helpText or '') + _('<p><i>Field name: %s</i></p>') % widget.name
 			helpAttributes = attributes.copy()
 			helpAttributes.update( self.fields.get(widget.name,{}) )
-			helpText += _('<p><i>Attributes: %s</i></p>') % helpAttributes
+			helpAttributes = [ '<b>%s</b>: %s<br/>' % (x, helpAttributes[x]) for x in sorted( helpAttributes.keys() ) ]
+			helpAttributes = '\n'.join( helpAttributes )
+			helpText += _('<p><i>Attributes:<br/>%s</i></p>') % helpAttributes
 			attributes['help'] = helpText
 
 		stylesheet = attributes.get( 'stylesheet', False )
@@ -357,3 +364,5 @@ class FormView( AbstractView ):
 
 	def showsMultipleRecords(self):
 		return False
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

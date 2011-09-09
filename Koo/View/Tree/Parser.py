@@ -33,7 +33,7 @@ import time
 from Koo.Model import KooModel
 
 from TreeView import *
-from PyQt4.uic import *
+from Common.Ui import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 

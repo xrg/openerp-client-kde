@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2009 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,23 +25,14 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common import Api
 from Koo.Common import Common
+from Koo.Plugins import Plugins
+from Koo import Rpc
 
-(GoToIdDialogUi, GoToIdDialogBase) = loadUiType( Common.uiPath('gotoid.ui') )
+## @brief Opens a new window with the current model (ir.model) so the user can modify its fields.
+def editModel(model, id, ids, context):
+	domain = [('model','=',model)]
+	Api.instance.createWindow( None, 'ir.model', mode='tree,form', domain=domain, context=context )
 
-class GoToIdDialog( QDialog, GoToIdDialogUi ):
-	def __init__( self, parent=None ):
-		QDialog.__init__(self, parent)
-		GoToIdDialogUi.__init__(self)
-		self.setupUi( self )
-		self.uiId.selectAll()
-		
-		self.connect( self.pushAccept, SIGNAL('clicked()'), self.slotAccept )
-
-	def slotAccept( self ):
-		self.result = self.uiId.value()
-		self.accept()	
-
+Plugins.register( 'ModelEditor', '.*', _('Edit Model'), editModel )

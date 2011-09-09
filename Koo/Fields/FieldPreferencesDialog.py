@@ -33,7 +33,7 @@ from Koo import Rpc
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 (FieldPreferencesDialogUi, FieldPreferencesDialogBase) = loadUiType( Common.uiPath('field_preferences.ui') ) 
 

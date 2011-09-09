@@ -25,7 +25,18 @@
 #
 ##############################################################################
 
+from Common import Debug
+
 from WebFieldWidget import *
 from Koo.Fields.FieldWidgetFactory import *
 
-FieldWidgetFactory.register( 'web', WebFieldWidget )
+try:
+	from PyQt4.QtWebKit import *
+	from PyQt4.QtNetwork import *
+
+	FieldWidgetFactory.register( 'web', WebFieldWidget )
+
+except:
+	Debug.warning(_('QtWebKit or QtNetwork not found. Web field will not be available.'))
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 import ServerConfigurationDialog
 from Koo.Common import Common
 from Koo.Common.Settings import *
@@ -200,7 +200,7 @@ class DatabaseCreationDialog( QDialog, DatabaseCreationDialogUi ):
 		if r == QDialog.Accepted:
 			m = QUrl( url )
 			m.setUserName( 'admin' )
-			m.setPassword( password or 'admin' )
+			m.setPassword( adminPassword or 'admin' )
 			self.url = unicode( m.toString() )
 			self.databaseName = databaseName
 		self.done( r )

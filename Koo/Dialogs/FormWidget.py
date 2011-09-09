@@ -48,7 +48,7 @@ from Koo.Screen.Screen import *
 from Koo.Model.Group import RecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from PyQt4.uic import *
+from Common.Ui import *
 
 (FormWidgetUi, FormWidgetBase) = loadUiType( Common.uiPath('formcontainer.ui') )
 
@@ -161,6 +161,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			'BatchInsert': self.batchInsert,
 			'BatchUpdate': self.batchUpdate,
 			'BatchButton': self.batchButton,
+			'BatchUpdateField': self.batchUpdateField,
 			'StoreViewSettings': self.storeViewSettings,
 		}
 
@@ -611,6 +612,28 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 		self.reload()
 
+	def batchUpdateField(self):
+		dialog = BatchInsertDialog( self )
+		dialog.setModel( self.model )
+		dialog.setContext( self.context )
+		dialog.setUpdateOnServer( False )
+		dialog.setViewTypes( self.viewTypes )
+		dialog.setViewIds( self.viewIds )
+		dialog.setup()
+		if dialog.exec_() == QDialog.Rejected:
+			return
+
+		if len(dialog.newValues) != len(self.screen.selectedRecords()):
+			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%d) does not match the number of records to be inserted in fields (%d).') % (len(dialog.newValues), len(self.screen.selectedRecords())) )
+			return
+
+		i = 0
+		for record in self.screen.selectedRecords():
+			record.setValue( dialog.newField, dialog.newValues[i] )
+			i += 1
+		self.save()
+		self.reload()
+
 	def storeViewSettings(self):
 		self.screen.storeViewSettings()
 
@@ -621,14 +644,14 @@ class FormWidget( QWidget, FormWidgetUi ):
 		self.emit( SIGNAL('closed()') )
 
 	def canClose(self, urgent=False):
-		# Store settings of all opened views before closing the tab.
-		self.screen.storeViewSettings()
 		if self.modifiedSave():
 			# Here suppose that if we return True the form/tab will
 			# actually be closed, so stop reload timer so it doesn't
 			# remain active if the object is freed.
 			self.reloadTimer.stop()
 			self.subscriber.unsubscribe()
+			# Store settings of all opened views before closing the tab.
+			self.screen.storeViewSettings()
 			return True
 		else:
 			return False
@@ -640,6 +663,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		return self._switchViewMenu
 
 	def help(self, button):
+		if not isHelpWidgetAvailable:
+			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		helpWidget = Help.HelpWidget( button )
 		helpWidget.setLabel( self.name )

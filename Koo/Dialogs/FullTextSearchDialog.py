@@ -39,247 +39,253 @@ from Koo.Model.Group import RecordGroup
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from PyQt4.uic import *
-from PyQt4.QtWebKit import *
-from PyQt4.QtNetwork import *
+from Common.Ui import *
+
+try:
+	from PyQt4.QtWebKit import *
+	from PyQt4.QtNetwork import *
+	isWebKitAvailable = True
+except:
+	isWebKitAvailable = False
 
 
-(FullTextSearchDialogUi, FullTextSearchDialogBase) = loadUiType( Common.uiPath('full_text_search.ui') )
+if isWebKitAvailable:
+	(FullTextSearchDialogUi, FullTextSearchDialogBase) = loadUiType( Common.uiPath('full_text_search.ui') )
 
-## @brief The FullTextSearchDialog class shows a dialog for searching text at all indexed models.
-#
-# The dialog has a text box for the user input and a combo box to search at one specific
-# model or all models that have at least one field indexed.
-class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
-	def __init__(self, parent = None):
-		QDialog.__init__( self, parent )
-		FullTextSearchDialogUi.__init__( self )
-		self.setupUi( self )
-		
-		self.setModal( True )
+	## @brief The FullTextSearchDialog class shows a dialog for searching text at all indexed models.
+	#
+	# The dialog has a text box for the user input and a combo box to search at one specific
+	# model or all models that have at least one field indexed.
+	class FullTextSearchDialog( QDialog, FullTextSearchDialogUi ):
+		def __init__(self, parent = None):
+			QDialog.__init__( self, parent )
+			FullTextSearchDialogUi.__init__( self )
+			self.setupUi( self )
+			
+			self.setModal( True )
 
-		self.result = None
+			self.result = None
 
-		self.setQueriesEnabled( False, _('Loading...') )
+			self.setQueriesEnabled( False, _('Loading...') )
 
-		self.title = _('Full Text Search')
-		self.title_results = _('Full Text Search (%%d result(s))')
+			self.title = _('Full Text Search')
+			self.title_results = _('Full Text Search (%%d result(s))')
 
-		self.setWindowTitle( self.title )
-		self.uiWeb.page().setLinkDelegationPolicy( QWebPage.DelegateAllLinks )
-		self.connect( self.uiWeb, SIGNAL('linkClicked(QUrl)'), self.open )
+			self.setWindowTitle( self.title )
+			self.uiWeb.page().setLinkDelegationPolicy( QWebPage.DelegateAllLinks )
+			self.connect( self.uiWeb, SIGNAL('linkClicked(QUrl)'), self.open )
 
-		self.shortcuts = {}
-		self.related = []
-		self.limit = 10 
-		self.offset = 0
-		self.queryThreads = []
-		self.pushNext.setEnabled( False )
-		self.pushPrevious.setEnabled( False )
+			self.shortcuts = {}
+			self.related = []
+			self.limit = 10 
+			self.offset = 0
+			self.queryThreads = []
+			self.pushNext.setEnabled( False )
+			self.pushPrevious.setEnabled( False )
 
-		self.connect( self.uiHelp, SIGNAL('linkActivated(QString)'), self.showHelp )
-		self.connect( self.pushClose, SIGNAL( "clicked()"), self.accept )
-		self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
-		self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
-		self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
-		self.connect( self, SIGNAL('accept()'), self.accepted )
-		if Settings.value('koo.fts_instant',True):
-			self.connect( self.uiText, SIGNAL('textEdited(QString)'), self.find )
-		self.show()
+			self.connect( self.uiHelp, SIGNAL('linkActivated(QString)'), self.showHelp )
+			self.connect( self.pushClose, SIGNAL( "clicked()"), self.accept )
+			self.connect( self.pushFind, SIGNAL( "clicked()"), self.find )
+			self.connect( self.pushPrevious, SIGNAL( "clicked()" ), self.previous )
+			self.connect( self.pushNext, SIGNAL( "clicked()" ), self.next )
+			self.connect( self, SIGNAL('accept()'), self.accepted )
+			if Settings.value('koo.fts_instant',True):
+				self.connect( self.uiText, SIGNAL('textEdited(QString)'), self.find )
+			self.show()
 
-		QApplication.setOverrideCursor( Qt.WaitCursor )
-		QTimer.singleShot( 0, self.initGui )
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			QTimer.singleShot( 0, self.initGui )
 
-	def accepted(self):
-		for thread in self.queryThreads:
-			thread.terminate()
-			thread.wait()
+		def accepted(self):
+			for thread in self.queryThreads:
+				thread.terminate()
+				thread.wait()
 
-	def showHelp(self, link):
-		QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
+		def showHelp(self, link):
+			QApplication.postEvent( self.sender(), QEvent( QEvent.WhatsThis ) )
 
-	def initGui(self):
-		try:
-			answer = Rpc.session.call('/fulltextsearch', 'indexedModels', Rpc.session.context )
-			self.uiModel.addItem( _('(Everywhere)'), QVariant( False ) )	
-			for x in answer:
-				self.uiModel.addItem( x['name'], QVariant( x['id'] ) )
-			if len(answer) == 0:
-				self.setQueriesEnabled( False, _('<b>Full text search is not configured.</b><br/>Go to <i>Administration - Configuration - Full Text Search - Indexes</i>. Then add the fields you want to be indexed and finally use <i>Update Full Text Search</i>.') )
+		def initGui(self):
+			try:
+				answer = Rpc.session.call('/fulltextsearch', 'indexedModels', Rpc.session.context )
+				self.uiModel.addItem( _('(Everywhere)'), QVariant( False ) )	
+				for x in answer:
+					self.uiModel.addItem( x['name'], QVariant( x['id'] ) )
+				if len(answer) == 0:
+					self.setQueriesEnabled( False, _('<b>Full text search is not configured.</b><br/>Go to <i>Administration - Configuration - Full Text Search - Indexes</i>. Then add the fields you want to be indexed and finally use <i>Update Full Text Search</i>.') )
+					QApplication.restoreOverrideCursor()
+					return
+			except:
+				self.setQueriesEnabled( False, _('<b>Full text search module not installed.</b><br/>Go to <i>Administration - Modules administration - Uninstalled Modules</i> and add the <i>full_text_search</i> module.') )
 				QApplication.restoreOverrideCursor()
 				return
-		except:
-			self.setQueriesEnabled( False, _('<b>Full text search module not installed.</b><br/>Go to <i>Administration - Modules administration - Uninstalled Modules</i> and add the <i>full_text_search</i> module.') )
-			QApplication.restoreOverrideCursor()
-			return
-		self.setQueriesEnabled( True )
-		self.uiText.setFocus()
-		if QApplication.keyboardModifiers() & Qt.AltModifier:
-			clipboard = QApplication.clipboard()
-			if clipboard.supportsFindBuffer():
-				text = clipboard.text( QClipboard.FindBuffer )
-			elif clipboard.supportsSelection():
-				text = clipboard.text( QClipboard.Selection )
-			else:
-				text = clipboard.text( QClipboard.Clipboard )
-			self.uiText.setText( text )
-			self.find()
-		QApplication.restoreOverrideCursor()
-
-	def setQueriesEnabled(self, value, text = ''): 
-		self.uiModel.setEnabled( value )
-		self.pushFind.setEnabled( value )
-		self.uiText.setEnabled( value )
-		self.uiWeb.page().mainFrame().setHtml( "<span style='font-size: large'>%s</span>" % text )
-
-	def textToQuery(self):
-		q = unicode( self.uiText.text() ).strip()
-		return re.sub(' +', '|', q)
-
-	def query(self):
-		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if self.uiModel.currentIndex() == 0:
-			model = False
-		else:
-			model = unicode( self.uiModel.itemData( self.uiModel.currentIndex() ).toString() )
-
-		# We always query for limit+1 items so we can know if there will be more records in the next page
-		thread = Rpc.session.executeAsync(self.showResults, '/fulltextsearch', 'search', self.textToQuery(), self.limit+1, self.offset , model, Rpc.session.context)
-		self.queryThreads.append( thread )
-
-		QApplication.restoreOverrideCursor()
-
-	def showResults(self, answer, exception):
-		if exception or not answer:
-			answer = []
-		if len(answer) < self.limit:
-			self.pushNext.setEnabled( False )
-		else:
-			# If there are more pages, we just show 'limit' items.
-			answer = answer[:-1]
-			self.pushNext.setEnabled( True )
-		if self.offset == 0:
-			self.pushPrevious.setEnabled( False )
-		else:
-			self.pushPrevious.setEnabled( True )
-		self.resultsToHtml( answer )
-
-	def resultsToHtml(self, answer):
-		for shortcut in self.shortcuts.keys():
-			shortcut.setParent( None )
-		self.shortcuts = {}
-		number = 1
-		page = ''
-		for item in answer:
-			# Prepare relations
-			related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(item['model_name'], False)], False, Rpc.session.context)
-			actions = [x[2] for x in related]
-			block = []
-			related = ''
-			for action in actions:
-				f = lambda action: lambda: self.executeRelation(action)
-				action['model_name'] = item['model_name']
-				self.related.append( action )
-				block.append( "<a href='relate/%d/%d'>%s</a>" % ( len(self.related)-1, item['id'], action['name'] ) )
-				if len(block) == 3:
-					related += '<div style="padding-left: 40px">%s</div>' % ' - '.join( block )
-					block = []
-			if block:
-				related += '<div style="padding-left: 40px">%s</div>' % ' - '.join( block )
-
-			if related:
-				related = '<div style="padding-top: 5px">%s</div>' % related
-
-			# Prepare URL
-			url = 'open/%s/%s' % ( item['model_name'], item['id'] )
-
-			# Prepare Shortcut
-			# TODO: Implement shortcuts
-			if number <= 10:
-				self.shortcut = QShortcut( self )
-				self.shortcut.setKey( 'Ctrl+%s' % number )
-				self.shortcut.setContext( Qt.WidgetWithChildrenShortcut )
-				self.connect( self.shortcut, SIGNAL('activated()'), self.openShortcut )
-				self.shortcuts[ self.shortcut ] = url
-				shortcut = ' - <span style="color: green; font-size: medium">[Ctrl+%d]</span>' % ( number % 10 )
-			else:
-				shortcut = ''
-			number += 1
-
-			# Prepare Item
-			page += """
-				<div style="padding: 5px; font-size: large">
-				<a href="%(url)s">%(model_label)s: %(name)s</a> &nbsp;%(shortcut)s - <span style="font-size: medium">[ %(ranking).2f ]</span></a>
-				<div style="font-size: medium">%(headline)s</div>
-				<div style="font-size: medium">%(related)s</div>
-				</div>""" % {
-				'url': url,
-				'model_label': item['model_label'],
-				'name': item['name'],
-				'shortcut': shortcut,
-				'ranking': item['ranking'],
-				'headline': item['headline'],
-				'related': related,
-			}
-
-		page = '<html>%s</html>' % page
-		self.uiWeb.page().mainFrame().setHtml( page )
-		#self.serverOrder = ['id', 'model_id', 'model_name', 'model_label', 'name', 'headline', 'ranking']
-		
-	def previous(self):
-		self.offset = max(0, self.offset - self.limit )
-		self.query()
-		
-	def next(self):
-		self.offset = self.offset + self.limit
-		self.query()
-
-	def find(self):
-		self.offset = 0
-		self.query()
-
-	def openShortcut( self ):
-		self.open( self.shortcuts[ self.sender() ] )
-
-	def open( self, url ):
-		QApplication.setOverrideCursor( Qt.WaitCursor )
-		if isinstance( url, QUrl ):
-			url = unicode( url.toString() )
-		url = url.split('/')
-		if url[0] == 'open':
-			model = url[1]
-			id = int(url[2])
-
-			if model == 'ir.ui.menu':
-				Api.instance.executeKeyword('tree_but_open', {
-					'model': model, 
-					'id': id, 
-					'report_type': 'pdf', 
-					'ids': [id]
-				}, Rpc.session.context)
-			else:
-				if QApplication.keyboardModifiers() & Qt.ShiftModifier:
-					target = 'background'
+			self.setQueriesEnabled( True )
+			self.uiText.setFocus()
+			if QApplication.keyboardModifiers() & Qt.AltModifier:
+				clipboard = QApplication.clipboard()
+				if clipboard.supportsFindBuffer():
+					text = clipboard.text( QClipboard.FindBuffer )
+				elif clipboard.supportsSelection():
+					text = clipboard.text( QClipboard.Selection )
 				else:
-					target = 'current'
-				Api.instance.createWindow(None, model, id, view_type='form', mode='form,tree', target=target)
-		elif url[0] == 'relate':
-			action = int(url[1])
-			id = int(url[2])
-			self.executeRelation( self.related[ action ], id )
-		QApplication.restoreOverrideCursor()
+					text = clipboard.text( QClipboard.Clipboard )
+				self.uiText.setText( text )
+				self.find()
+			QApplication.restoreOverrideCursor()
 
-		if QApplication.keyboardModifiers() & Qt.ControlModifier:
-			# If user is pressing Control do not close current dialog
-			return
-		self.accept()
-	
-	def executeRelation(self, action, id):
-		group = RecordGroup( action['model_name'] )
-		group.load( [id] )
-		record = group.modelByIndex( 0 )
-		action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
-		action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
-		Api.instance.executeAction( action )
+		def setQueriesEnabled(self, value, text = ''): 
+			self.uiModel.setEnabled( value )
+			self.pushFind.setEnabled( value )
+			self.uiText.setEnabled( value )
+			self.uiWeb.page().mainFrame().setHtml( "<span style='font-size: large'>%s</span>" % text )
 
-# vim:noexpandtab:
+		def textToQuery(self):
+			q = unicode( self.uiText.text() ).strip()
+			return re.sub(' +', '|', q)
+
+		def query(self):
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			if self.uiModel.currentIndex() == 0:
+				model = False
+			else:
+				model = unicode( self.uiModel.itemData( self.uiModel.currentIndex() ).toString() )
+
+			# We always query for limit+1 items so we can know if there will be more records in the next page
+			thread = Rpc.session.executeAsync(self.showResults, '/fulltextsearch', 'search', self.textToQuery(), self.limit+1, self.offset , model, Rpc.session.context)
+			self.queryThreads.append( thread )
+
+			QApplication.restoreOverrideCursor()
+
+		def showResults(self, answer, exception):
+			if exception or not answer:
+				answer = []
+			if len(answer) < self.limit:
+				self.pushNext.setEnabled( False )
+			else:
+				# If there are more pages, we just show 'limit' items.
+				answer = answer[:-1]
+				self.pushNext.setEnabled( True )
+			if self.offset == 0:
+				self.pushPrevious.setEnabled( False )
+			else:
+				self.pushPrevious.setEnabled( True )
+			self.resultsToHtml( answer )
+
+		def resultsToHtml(self, answer):
+			for shortcut in self.shortcuts.keys():
+				shortcut.setParent( None )
+			self.shortcuts = {}
+			number = 1
+			page = ''
+			for item in answer:
+				# Prepare relations
+				related = Rpc.session.execute('/object', 'execute', 'ir.values', 'get', 'action', 'client_action_relate', [(item['model_name'], False)], False, Rpc.session.context)
+				actions = [x[2] for x in related]
+				block = []
+				related = ''
+				for action in actions:
+					f = lambda action: lambda: self.executeRelation(action)
+					action['model_name'] = item['model_name']
+					self.related.append( action )
+					block.append( "<a href='relate/%d/%d'>%s</a>" % ( len(self.related)-1, item['id'], action['name'] ) )
+					if len(block) == 3:
+						related += '<div style="padding-left: 40px">%s</div>' % ' - '.join( block )
+						block = []
+				if block:
+					related += '<div style="padding-left: 40px">%s</div>' % ' - '.join( block )
+
+				if related:
+					related = '<div style="padding-top: 5px">%s</div>' % related
+
+				# Prepare URL
+				url = 'open/%s/%s' % ( item['model_name'], item['id'] )
+
+				# Prepare Shortcut
+				# TODO: Implement shortcuts
+				if number <= 10:
+					self.shortcut = QShortcut( self )
+					self.shortcut.setKey( 'Ctrl+%s' % number )
+					self.shortcut.setContext( Qt.WidgetWithChildrenShortcut )
+					self.connect( self.shortcut, SIGNAL('activated()'), self.openShortcut )
+					self.shortcuts[ self.shortcut ] = url
+					shortcut = ' - <span style="color: green; font-size: medium">[Ctrl+%d]</span>' % ( number % 10 )
+				else:
+					shortcut = ''
+				number += 1
+
+				# Prepare Item
+				page += """
+					<div style="padding: 5px; font-size: large">
+					<a href="%(url)s">%(model_label)s: %(name)s</a> &nbsp;%(shortcut)s - <span style="font-size: medium">[ %(ranking).2f ]</span></a>
+					<div style="font-size: medium">%(headline)s</div>
+					<div style="font-size: medium">%(related)s</div>
+					</div>""" % {
+					'url': url,
+					'model_label': item['model_label'],
+					'name': item['name'],
+					'shortcut': shortcut,
+					'ranking': item['ranking'],
+					'headline': item['headline'],
+					'related': related,
+				}
+
+			page = '<html>%s</html>' % page
+			self.uiWeb.page().mainFrame().setHtml( page )
+			#self.serverOrder = ['id', 'model_id', 'model_name', 'model_label', 'name', 'headline', 'ranking']
+			
+		def previous(self):
+			self.offset = max(0, self.offset - self.limit )
+			self.query()
+			
+		def next(self):
+			self.offset = self.offset + self.limit
+			self.query()
+
+		def find(self):
+			self.offset = 0
+			self.query()
+
+		def openShortcut( self ):
+			self.open( self.shortcuts[ self.sender() ] )
+
+		def open( self, url ):
+			QApplication.setOverrideCursor( Qt.WaitCursor )
+			if isinstance( url, QUrl ):
+				url = unicode( url.toString() )
+			url = url.split('/')
+			if url[0] == 'open':
+				model = url[1]
+				id = int(url[2])
+
+				if model == 'ir.ui.menu':
+					Api.instance.executeKeyword('tree_but_open', {
+						'model': model, 
+						'id': id, 
+						'report_type': 'pdf', 
+						'ids': [id]
+					}, Rpc.session.context)
+				else:
+					if QApplication.keyboardModifiers() & Qt.ShiftModifier:
+						target = 'background'
+					else:
+						target = 'current'
+					Api.instance.createWindow(None, model, id, view_type='form', mode='form,tree', target=target)
+			elif url[0] == 'relate':
+				action = int(url[1])
+				id = int(url[2])
+				self.executeRelation( self.related[ action ], id )
+			QApplication.restoreOverrideCursor()
+
+			if QApplication.keyboardModifiers() & Qt.ControlModifier:
+				# If user is pressing Control do not close current dialog
+				return
+			self.accept()
+		
+		def executeRelation(self, action, id):
+			group = RecordGroup( action['model_name'] )
+			group.load( [id] )
+			record = group.modelByIndex( 0 )
+			action['domain'] = record.evaluateExpression( action['domain'], checkLoad=False)
+			action['context'] = str( record.evaluateExpression( action['context'], checkLoad=False) )
+			Api.instance.executeAction( action )
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
