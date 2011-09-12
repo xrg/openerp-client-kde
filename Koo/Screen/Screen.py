@@ -561,6 +561,7 @@ class Screen(QScrollArea):
 					try:
 						fields[attrs['name']].update(attrs)
 					except:
+                                                # FIXME
 						print "-"*30,"\n malformed tag for :", attrs
 						print "-"*30
 						raise
@@ -573,7 +574,6 @@ class Screen(QScrollArea):
 
 		self.fields = self.group.fields
 
-		dom = xml.dom.minidom.parseString(arch.encode('utf-8'))
 		view = ViewFactory.create(id, self, self.resource, dom, self.fields)
 		self.viewLayout.addWidget( view )
 		self.setOnWriteFunction( view.onWriteFunction() )
