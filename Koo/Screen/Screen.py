@@ -283,9 +283,9 @@ class Screen(QScrollArea):
 			self.display()
 
 		context = self.context.copy()
-		if self.currentRecord():
-			# Plugins may be executed even if there's no current record.
-			context.update( self.currentRecord().get() )
+		#if self.currentRecord():
+		#	# Plugins may be executed even if there's no current record.
+		#	context.update( self.currentRecord().get() )
 
 		action.execute( id, ids, context )
 
