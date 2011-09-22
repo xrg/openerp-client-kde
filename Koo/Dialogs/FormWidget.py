@@ -93,11 +93,12 @@ class FormWidget( QWidget, FormWidgetUi ):
 			view_ids = new_view_ids
 			view_type = new_view_type
 
+                self.model_proxy = Rpc.RpcProxy(model)
 		if not view_type:
 			view_type = ['form','tree']
 		else:
 			if view_type[0] in ['graph'] and not res_id:
-				res_id = Rpc.session.execute('/object', 'execute', model, 'search', domain)
+				res_id = self.model_proxy.search(domain) # context?
 		fields = {}
 		self.model = model
 		self.previousAction = None
@@ -241,7 +242,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			else:
 				context = self.context.copy()
 				context.update(Rpc.session.context)
-				action = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'action_get', context)
+				action = Rpc.RpcProxy('ir.attachment').action_get(context)
 				action['domain'] = [('res_model', '=', self.model), ('res_id', '=', id)]
 				context['default_res_model'] = self.model
 				context['default_res_id'] = id
@@ -297,7 +298,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.updateStatus(_('You have to select one resource!'))
 			return False
 		if id:
-			res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
+			res = self.model_proxy.perm_read([id])
 		else:
 			res = []
 		message = ''
@@ -319,9 +320,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 		for line in res:
 			line['str_id'] = None
 			try:
-				# Using call() because we don't want exception handling
-				res2 = Rpc.session.call('/object', 'execute',
-					'ir.model.data', 'get_rev_ref', self.model, line['id'])
+                                # TODO: support the 6.0 official method, too
+
+				# Using notify=False because we don't want exception handling
+				res2 = Rpc.RpcProxy('ir.model.data',notify=False).\
+                                        get_rev_ref(self.model, line['id'])
 				
 				if res2 and res2[1]:
 					line['str_id'] = ', '.join(res2[1])
@@ -387,7 +390,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 		newIds = []
 		currentId = self.screen.currentId()
 		for id in selectedIds:
-			copyId = Rpc.session.execute('/object', 'execute', self.model, 'copy', id, {}, Rpc.session.context)
+			copyId = self.model_proxy.copy(id, {}, Rpc.session.context)
 			newIds.append( copyId )
 			if id == currentId:
 				newId = copyId
@@ -519,7 +522,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			# has not changed since list update.
 			id = self.screen.currentRecord().id
 			if id != self.previousId:
-				ids = Rpc.session.execute('/object', 'execute', 'ir.attachment', 'search', [('res_model','=',self.model),('res_id','=',id)])
+				ids = Rpc.RpcProxy('ir.attachment').search([('res_model','=',self.model),('res_id','=',id)])
 				self.previousAttachments = ids
 				self.previousId = id
 			else:

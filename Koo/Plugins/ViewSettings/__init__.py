@@ -33,7 +33,7 @@ from Koo import Rpc
 def editViewSettings(model, id, ids, context):
 	domain = [
 		('model', '=', model), 
-		('user', '=', Rpc.session.uid)
+		('user', '=', Rpc.session.get_uid())
 	]
 	Api.instance.createWindow( None, 'nan.koo.view.settings', mode='tree,form', domain=domain, context=context )
 

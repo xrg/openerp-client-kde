@@ -41,7 +41,7 @@ def createScreenshots(model, id, ids, context):
 		return
 
 	# Remove existing screenshots
-	screenshot_ids = Rpc.session.execute('/object', 'execute', 'ir.documentation.screenshot', 'search', [('paragraph_id','in',ids),('user_id','=',Rpc.session.uid)])
+	screenshot_ids = Rpc.session.execute('/object', 'execute', 'ir.documentation.screenshot', 'search', [('paragraph_id','in',ids),('user_id','=',Rpc.session.get_uid())])
 	Rpc.session.execute('/object', 'execute', 'ir.documentation.screenshot', 'unlink', screenshot_ids)
 
 	# Search views to be rendered
@@ -71,7 +71,7 @@ def createScreenshots(model, id, ids, context):
 		Rpc.session.execute('/object', 'execute', 'ir.documentation.screenshot', 'create', {
 			'paragraph_id': paragraph_id,
 			'view_id': view_id,
-			'user_id': Rpc.session.uid,
+			'user_id': Rpc.session.get_uid(),
 			'reference': reference,
 			'field': field,
 			'image': base64.encodestring( pixmapToData( pixmap ) )

@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
+from PyQt4.QtCore import QThread, SIGNAL
 from time import sleep
 
 ## @brief The Subscriber class provides a mechanisme for subscribing to server events.
@@ -50,7 +50,7 @@ class Subscriber(QThread):
 	## @brief Creates a new Subscriber object from the given session and with 'parent' as QObject parent.
 	def __init__(self, session, parent=None):
 		QThread.__init__(self, parent)
-		self.session = session.copy()
+		self.session = session
 		self.slot = None
 
 	## @brief Subscribes to the given 'expression' event on the server. And calls 'slot' each
@@ -73,12 +73,14 @@ class Subscriber(QThread):
 	def run(self):
 		while True:
 			try:
-				self.result = self.session.call( '/subscription', 'wait', self.expression )
+				self.result = self.session.call( '/subscription', 'wait', (self.expression,) )
 				if self.result:
 					self.emit( SIGNAL('published()') )
 				else:
 					print "cannot subscribe to %s, waiting 5min" % (self.expression)
 					sleep(300)
 			except Exception, err:
+                                print "Exc:", err
 				sleep( 60 )
 
+#eof

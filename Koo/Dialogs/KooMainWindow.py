@@ -268,7 +268,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not self.isVisible():
 			self.showNormal()
 
-		model =	Rpc.session.execute('/object', 'execute', 'ir.model', 'search', [('model','=','product.product')], 0, 1, False, Rpc.session.context )
+		model = Rpc.session.call_orm('ir.model', 'search', ([('model','=','product.product')], 0, 1, False, Rpc.session.context ),{})
 		if not model:
 			QMessageBox.information(self, _('Products'), _('Products module is not installed.') )
 			return
@@ -365,27 +365,28 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if not self.isVisible():
 			self.showNormal()
 		Api.instance.createWindow(None, 'res.request', False, 
-			[('act_from','=',Rpc.session.uid)], 'form', mode='form,tree')
+			[('act_from','=',Rpc.session.get_uid())], 'form', mode='form,tree')
 
 	## Opens a new tab with requests pending for the user to resolve
 	def pendingRequests(self):
 		if not self.isVisible():
 			self.showNormal()
 		Api.instance.createWindow(False, 'res.request', False, 
-			[('act_to','=',Rpc.session.uid)], 'form', mode='tree,form')
+			[('act_to','=',Rpc.session.get_uid())], 'form', mode='tree,form')
 
 	## Opens a new tab with all unsolved requests posted by the user
 	def waitingRequests(self):
 		if not self.isVisible():
 			self.showNormal()
 		Api.instance.createWindow(False, 'res.request', False, 
-			[('act_from','=',Rpc.session.uid), ('state','=','waiting')], 'form', mode='tree,form')
+			[('act_from','=',Rpc.session.get_uid()), ('state','=','waiting')], 'form', mode='tree,form')
 
 	def updateCompanyList(self):
 		self.companyMenu.clear()
 
-		ids = Rpc.session.execute('/object', 'execute', 'res.company', 'search', [], 0, False, 'name ASC')
-		records = Rpc.session.execute('/object', 'execute', 'res.company', 'read', ids, ['id', 'name'])
+                company_obj = Rpc.RpcProxy('res.company')
+		ids = company_obj.search([], 0, False, 'name ASC') # FIXME
+		records = company_obj.read(ids, ['id', 'name'])
 
 		for record in records:
 			action = QAction(self)
@@ -398,7 +399,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		action = self.sender()
 		company_id = action.data().toInt()[0]
 		users = Rpc.RpcProxy('res.users')
-		users.write([Rpc.session.uid], {
+		users.write([Rpc.session.get_uid()], {
 			'company_id': company_id,
 		}, Rpc.session.context)
 		Rpc.session.reloadContext()
@@ -409,7 +410,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def updateCompany(self, company=None):
 		if not company:
 			users = Rpc.RpcProxy('res.users')
-			records = users.read([Rpc.session.uid], ['company_id'], Rpc.session.context)
+			records = users.read([Rpc.session.get_uid()], ['company_id'], Rpc.session.context)
 			company = records[0]['company_id']
 			if company:
 				company = company[1]
@@ -425,9 +426,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def updateRequestsStatus(self):
 		# We use 'try' because we might not have logged in or the server might
 		# be down temporarily. This way the user isn't notified unnecessarily.
-		uid = Rpc.session.uid
+		uid = Rpc.session.get_uid()
 		try:
-			ids,ids2 = Rpc.session.call('/object', 'execute', 'res.request', 'request_get')
+			ids,ids2 = Rpc.session.call_orm('res.request', 'request_get',[],{})
 		except Rpc.RpcException, e:
 			return ([], [])
 
@@ -438,7 +439,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		if len(ids2):
 			message += _(' - %s pending request(s)') % len(ids2)
 		self.uiRequests.setText( message )
-		message = "%s - [%s]" % (message, Rpc.session.databaseName)
+		message = "%s - [%s]" % (message, Rpc.session.get_dbname())
 		self.systemTrayIcon.setToolTip( message )
 		if self.pendingRequests != -1 and self.pendingRequests < len(ids):
 			QApplication.alert( self )
@@ -454,10 +455,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 	def checkNewRelease(self):
 		from Koo.Common import Version
-
 		Rpc.session.callAsync(self.newReleaseInformation, '/object', 'execute', 'nan.koo.release', 'needs_update', Version.Version, os.name, True, Rpc.session.context)
 		
 	def newReleaseInformation(self, value, exception):
+                # FIXME: it is UNACCEPTABLE to distribute like that!
 		if exception:
 			return
 
@@ -476,9 +477,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def showLoginDialog(self):
 		dialog = LoginDialog( self )
 		while dialog.exec_() == QDialog.Accepted:
-			self.login( dialog.url, dialog.databaseName )
-			if Rpc.session.open:
-				return
+			if self.login( dialog.url, dialog.databaseName ):
+                                break
 
 	## Logs into the specified database and server.
 	#
@@ -489,24 +489,26 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	# opened or non of them have been modified, then no questions are asked.
 	# @param url string describing the server
 	# @param databaseName name of the database to log into
+	# @return True if login is successful
 	def login(self, url, databaseName):
 		# Before connecting to the specified database
 		# try to logout from the previous one. That will allow the
 		# user to cancel the operation if any of the tabs is modified
 		# and it will stop requests timer and subscription.
 		if not self.logout():
-			return
+			return True
 		try:
-			loginResponse = Rpc.session.login(url, databaseName)
-			url = QUrl( url )
-			if loginResponse == Rpc.session.LoggedIn:
+			loginResponse = Rpc.login_session(url, databaseName)
+			if loginResponse:
+                                assert Rpc.session
 				Settings.loadFromServer()
 				if Settings.value('koo.stylesheet'):
 					QApplication.instance().setStyleSheet( Settings.value('koo.stylesheet') )
-				if Settings.value('koo.use_cache'):
-					Rpc.session.cache = Rpc.Cache.ActionViewCache()
-				else:
-					Rpc.session.cache = None
+                                # TODO
+				#if Settings.value('koo.use_cache'):
+					#Rpc.session.cache = Rpc.Cache.ActionViewCache()
+				#else:
+					#Rpc.session.cache = None
 
 				iconVisible = Settings.value('koo.show_system_tray_icon', True )
 				self.systemTrayIcon.setVisible( iconVisible )
@@ -536,10 +538,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 				self.updateRequestsStatus()
 				self.updateUserShortcuts()
+				
+				return True
 
-			elif loginResponse == Rpc.session.Exception:
-				QMessageBox.warning(self, _('Connection error !'), _('Unable to connect to the server !')) 
-			elif loginResponse == Rpc.session.InvalidCredentials:
+			else:
 				QMessageBox.warning(self, _('Connection error !'), _('Bad username or password !'))
 
 		except Rpc.RpcException, e:
@@ -548,7 +550,6 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				Common.error(_('Connection Error !'), e.args[0], e.args[1])
 			else:
 				Common.error(_('Connection Error !'), _('Error logging into database.'), e)
-			Rpc.session.logout()
 
 
 	## Closes all tabs smartly, that is using closeCurrentTab()
@@ -566,14 +567,15 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.uiUserName.setText( _('Not logged !') )
 		self.uiServerInformation.setText( _('Press Ctrl+O to login') )
 		self.setWindowTitle( self.fixedWindowTitle )
-		Rpc.session.logout()
+		if Rpc.session:
+                    Rpc.session.logout()
 		self.updateEnabledActions()
 		self.updateUserShortcuts()
 		return True
 
 	def openPdfManual(self):
 		try:
-			pdf = Rpc.session.call('/object', 'execute', 'ir.documentation.paragraph', 'export_to_pdf', Rpc.session.context)
+			pdf = Rpc.session.call_orm('ir.documentation.paragraph', 'export_to_pdf', [Rpc.session.context,],{})
 		except:
 			return False
 		if not pdf:
@@ -623,11 +625,11 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.menuWindow.removeAction( action )
 		self.shortcutActions = []
 
-		if not Rpc.session.logged():
+		if not (Rpc.session and Rpc.session.logged()):
 			return
-		fields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
+		fields = Rpc.session.call_orm('ir.ui.view_sc', 'fields_get', [['res_id', 'name'],],{})
 		self.shortcutsGroup = RecordGroup( 'ir.ui.view_sc', fields )
-		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=','ir.ui.menu')] )
+		self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.get_uid()), ('resource','=','ir.ui.menu')] )
 		self.shortcutActions.append( self.menuWindow.addSeparator() )
 		for record in self.shortcutsGroup:
 			action = QAction( self )
@@ -665,19 +667,21 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				return 
 
 		# If no menu tab exists query the server and open it
-		data = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], ['menu_id','name','company_id'], Rpc.session.context)
+		data = Rpc.session.call_orm('res.users', 'read',
+                        [[Rpc.session.get_uid()], ['menu_id','name','company_id'], Rpc.session.context],{})
 		record = data[0]
 		user = record['name'] or ''
 		company = record['company_id'] and record['company_id'][1] or ''
 		self.updateCompany( company )
 		self.uiUserName.setText( user )
-		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
-		self.setWindowTitle( "[%s] - %s" % (Rpc.session.databaseName, self.fixedWindowTitle) )
+		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.conn_url, Rpc.session.get_dbname()) )
+		self.setWindowTitle( "[%s] - %s" % (Rpc.session.get_dbname(), self.fixedWindowTitle) )
 
 
  		if not record['menu_id']:
 			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
- 			Rpc.session.logout()
+			if Rpc.session:
+                                Rpc.session.logout()
 			self.menuId = False
 			return 
 
@@ -693,7 +697,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	# Home tab is an action specified in the server which usually is a 
 	# dashboard, but could be anything.
 	def openHomeTab(self):
-		id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], [ 'action_id','name'], Rpc.session.context)
+		id = Rpc.session.call_orm('res.users', 'read', ([Rpc.session.get_uid()], [ 'action_id','name'], Rpc.session.context),{})
 
  		if not id[0]['action_id']:
 			return 
@@ -708,7 +712,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 	def clearCache(self):
 		ViewSettings.ViewSettings.clear()
-		if Rpc.session.cache:
+		if hasattr(Rpc.session, 'cache') and Rpc.session.cache:
 			Rpc.session.cache.clear()
 
 	def closeEvent(self, event):
@@ -721,7 +725,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			if not wid.canClose():
 				event.ignore()
 				return
-		Rpc.session.logout()
+                if Rpc.session:
+                        Rpc.session.logout()
 		self.systemTrayIcon.setVisible( False )
 
 	def closeTabForced(self):
@@ -765,7 +770,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			else:
 				action.setEnabled( False )
 
-		if Rpc.session.open:
+		if Rpc.session and Rpc.session.logged():
 			self.actionFullTextSearch.setEnabled( True )
 		else:
 			self.actionFullTextSearch.setEnabled( False )
@@ -816,7 +821,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.menuActions.setEnabled( actions )
 		self.menuPlugins.setEnabled( plugins )
 
-		value = Rpc.session.logged()
+		value = bool(Rpc.session and Rpc.session.logged())
 		self.actionOpenMenuTab.setEnabled( value )
 		self.actionOpenHomeTab.setEnabled( value )
 		self.actionPreferences.setEnabled( value )

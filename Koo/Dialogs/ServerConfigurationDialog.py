@@ -62,15 +62,23 @@ class ServerConfigurationDialog( QDialog, ServerConfigurationDialogUi ):
 		QDialog.__init__(self, parent)
 		ServerConfigurationDialogUi.__init__(self)
 		self.setupUi(self)
-
-		if Rpc.isNetRpcAvailable:
-			self.uiConnection.addItem( _("NET-RPC"), QVariant( 'socket' ) )
-		self.uiConnection.addItem( _("XML-RPC"), QVariant( 'http' ) )
-		self.uiConnection.addItem( _("Secure XML-RPC"), QVariant( 'https' ) )
-		if Rpc.isPyroAvailable:
-			self.uiConnection.addItem( _("Pyro (faster)"), QVariant( 'PYROLOC' ) )
-		if Rpc.isPyroSslAvailable:
-			self.uiConnection.addItem( _("Pyro SSL (faster)"), QVariant( 'PYROLOCSSL' ) )
+                avail_protos = {} # dict of lists 'proto'-> [Name,..]
+                try:
+                    # Scan the available protocols directly from libclient
+                    # note the capital 'S', we mean the libclient class!
+                    for p in Rpc.Session.proto_handlers:
+                        avail_protos.setdefault(p.codename,[]).append(p.name)
+                except Exception:
+                    # anything we can do here?
+                    raise
+                
+                for proto, names in avail_protos.items():
+                    if proto in ('https','PYRLOCSSL'):
+                        prname = _("Secure %s")
+                    else:
+                        prname = "%s"
+                    nname = prname % (', '.join(names))
+                    self.uiConnection.addItem( nname, QVariant( proto ) )
 		result = False
 		self.connect(self.pushCancel,SIGNAL("clicked()"),self.reject )
 		self.connect(self.pushAccept,SIGNAL("clicked()"),self.slotAccept )

@@ -227,7 +227,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			'type': 'ir.actions.act_window',
 			'view_type': 'form',
 			'view_mode': 'tree,form',
-			'domain': "[('model_id','=','%s'),('user_id','=',%s)]" % (self.model, Rpc.session.uid)
+			'domain': "[('model_id','=','%s'),('user_id','=',%s)]" % (self.model, Rpc.session.get_uid())
 		}, data={}, context=Rpc.session.context)
 
 	# @brief Store current search
@@ -237,7 +237,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			return
 		Rpc.session.execute('/object', 'execute', 'ir.filters', 'create_or_replace', {
 			'name': unicode(name), 
-			'user_id': Rpc.session.uid,
+			'user_id': Rpc.session.get_uid(),
 			'model_id': self.model,
 			'domain': str(self.value()),
 			'context': str(Rpc.session.context),
@@ -248,7 +248,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		if Common.serverMajorVersion == '5':
 			return
 		ids = Rpc.session.execute('/object', 'execute', 'ir.filters', 'search', [
-			('user_id','=',Rpc.session.uid),
+			('user_id','=',Rpc.session.get_uid()),
 			('model_id','=',self.model)
 		])
 		records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [])

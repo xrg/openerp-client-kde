@@ -56,8 +56,8 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 		QTimer.singleShot( 0, self.initGui )
 
 	def initGui(self):
-		actionId = Rpc.session.execute('/object', 'execute', 'res.users', 'action_get', {})
-		action = Rpc.session.execute('/object', 'execute', 'ir.actions.act_window', 'read', [actionId], False, Rpc.session.context)[0]
+		actionId = Rpc.session.call_orm('res.users', 'action_get',[{},], {})
+		action = Rpc.session.call_orm('ir.actions.act_window', 'read',( [actionId], False, Rpc.session.context), {})[0]
 
 		viewIds=[]
 		if action.get('views', []):
@@ -66,10 +66,10 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 			viewIds=[action['view_id'][0]]
 
 		self.group = RecordGroup('res.users')
-		self.group.load( [Rpc.session.uid] )
+		self.group.load( [Rpc.session.get_uid()] )
 		self.screen.setRecordGroup( self.group )
 		self.screen.setupViews( ['form'], [viewIds[0]] )
-		self.screen.display( Rpc.session.uid )
+		self.screen.display( Rpc.session.get_uid() )
 
 		# Adjust size and center the dialog
 		self.adjustSize()
@@ -90,6 +90,8 @@ class PreferencesDialog(QDialog, PreferencesDialogUi):
 			Settings.setValue( 'client.language', self.screen.currentRecord().value( 'context_lang' ) )
 			Settings.saveToFile()
 
-		Rpc.session.execute('/object', 'execute', 'res.users', 'write', [Rpc.session.uid], self.screen.get())
+		Rpc.session.call_orm('res.users', 'write', ([Rpc.session.get_uid()], self.screen.get()), {})
 		Rpc.session.reloadContext()
 		self.accept()
+
+#eof

@@ -204,12 +204,10 @@ if not Settings.value( 'login.url'):
 if not Settings.value( 'login.db'):
 	sys.exit( "Error: No database given." )
 
-Rpc.session.login( Settings.value('login.url'), Settings.value('login.db') )
-
-if not Rpc.session.logged():
+if not Rpc.login_session( Settings.value('login.url'), Settings.value('login.db') ):
 	sys.exit( "Error: Invalid credentials." )
 
-id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], ['action_id','name'], Rpc.session.context)
+id = Rpc.RpcProxy('res.users').read([Rpc.session.get_uid()], ['action_id','name'], Rpc.session.context)
 
 # Store the menuId so we ensure we don't open the menu twice when
 # calling openHomeTab()

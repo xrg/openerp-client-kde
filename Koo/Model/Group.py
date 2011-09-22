@@ -799,7 +799,7 @@ class RecordGroup(QObject):
 				else:
 					orderby += " DESC"
 				try:
-					ids = Rpc.session.call('/koo', 'search', self.resource, self._domain + self._filter, 0, 0, orderby, self._context )
+					ids = Rpc.session.call('/koo', 'search', (self.resource, self._domain + self._filter, 0, 0, orderby, self._context) )
 					sortingResult = self.SortingPossible
 					sorted = True
 				except Exception:
@@ -828,8 +828,9 @@ class RecordGroup(QObject):
 
 				try:
 					# Use call to catch exceptions
-					ids = Rpc.session.call('/object', 'execute', self.resource, 'search', self._domain + self._filter, 0, 0, orderby, self._context )
-				except:
+					ids = Rpc.RpcProxy(self.resource, notify=False).\
+                                                search(self._domain + self._filter, 0, 0, orderby, self._context )
+				except Exception:
 					# In functional fields not stored in the database this will
 					# cause an exception :(
 					sortingResult = self.SortingNotPossible
@@ -847,6 +848,8 @@ class RecordGroup(QObject):
 			self.clear()
 			# The load function will be in charge of loading and sorting elements
 			self.load( ids )
+
+                # FIXME: this fn needs cleanup, sad trombone
 
 		self.emit( SIGNAL("sorting"), sortingResult )
 

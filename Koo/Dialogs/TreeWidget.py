@@ -194,7 +194,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		if self.model == 'ir.ui.menu':
 			scFields = Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'fields_get', ['res_id', 'name'])
 			self.shortcutsGroup = RecordGroup( 'ir.ui.view_sc', scFields, context = self.context )
-			self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.uid), ('resource','=',model)] )
+			self.shortcutsGroup.setDomain( [('user_id','=',Rpc.session.get_uid()), ('resource','=',model)] )
 			self.shortcutsModel = KooModel( self )
 			self.shortcutsModel.setMode( KooModel.ListMode )
 			self.shortcutsModel.setFields( scFields )
@@ -315,7 +315,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.emit(SIGNAL('shortcutsChanged'), self.model)
 
 	def editShortcuts(self):
-	        domain = [('user_id', '=', Rpc.session.uid), ('resource', '=', self.model)]
+	        domain = [('user_id', '=', Rpc.session.get_uid()), ('resource', '=', self.model)]
 		Api.instance.createWindow(None, 'ir.ui.view_sc', domain=domain, context=self.context, mode='tree,form')
 
 	def addShortcut(self):
@@ -325,7 +325,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 			return
 		res = Rpc.session.execute('/object', 'execute', self.model, 'name_get', [id], Rpc.session.context)
 		for (id,name) in res:
-			uid = Rpc.session.uid
+			uid = Rpc.session.get_uid()
 			Rpc.session.execute('/object', 'execute', 'ir.ui.view_sc', 'create', {'resource':self.model, 'user_id':uid, 'res_id':id, 'name':name}, self.context)
 		self.shortcutsGroup.update()
 		self.emit( SIGNAL('shortcutsChanged'), self.model )

@@ -41,6 +41,8 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 import logging
 
+MAX_REPORT_ATTEMPTS = 200
+
 class ExecuteReportThread(QThread):
 	def __init__(self, name, data, context=None, parent=None):
 		QThread.__init__(self, parent)
@@ -50,14 +52,13 @@ class ExecuteReportThread(QThread):
 		self.datas = data.copy()
 		self.context = context
 		self.status = ''
-		self.session = Rpc.session.copy()
 
 	def run(self):
 		ids = self.datas['ids']
 		del self.datas['ids']
 		if not ids:
 			try:
-				ids = self.session.call('/object', 'execute', self.datas['model'], 'search', [])
+				ids = Rpc.RpcProxy(self.datas['model']).search([],)
 			except Rpc.RpcException, e:
 				self.emit( SIGNAL('error'), ( _('Error: %s') % unicode(e.type), e.message, e.data ) )
 				return
@@ -67,18 +68,19 @@ class ExecuteReportThread(QThread):
 				return 
 			self.datas['id'] = ids[0]
 		try:
-			ctx = self.session.context.copy()
+			ctx = Rpc.session.context.copy()
 			ctx.update(self.context)
-			report_id = self.session.call('/report', 'report', self.name, ids, self.datas, ctx)
+			report_obj = Rpc.RpcCustomProxy('/report', auth_level='db', notify=True)
+			report_id = report_obj.report(self.name, ids, self.datas, ctx)
 			state = False
 			attempt = 0
 			while not state:
-				val = self.session.call('/report', 'report_get', report_id)
+				val = report_obj.report_get(report_id)
 				state = val['state']
 				if not state:
 					time.sleep(1)
 					attempt += 1
-				if attempt>200:
+				if attempt > MAX_REPORT_ATTEMPTS:
 					self.emit( SIGNAL('warning'), _('Printing aborted. Delay too long.') )
 					return False
 			Printer.printData(val)
@@ -95,7 +97,7 @@ def executeReport(name, data, context=None):
 	del datas['ids']
 	try:
 		if not ids:
-			ids = Rpc.session.execute('/object', 'execute', datas['model'], 'search', datas.get('_domain',[]))
+			ids = Rpc.RpcProxy(datas['model']).search(datas.get('_domain',[]))
 			if ids == []:
 				QApplication.restoreOverrideCursor()
 				QMessageBox.information( None, _('Information'), _('Nothing to print!'))
@@ -103,16 +105,17 @@ def executeReport(name, data, context=None):
 			datas['id'] = ids[0]
 		ctx = Rpc.session.context.copy()
 		ctx.update(context)
-		report_id = Rpc.session.execute('/report', 'report', name, ids, datas, ctx)
+		report_obj = Rpc.RpcCustomProxy('/report', auth_level='db', notify=True)
+		report_id = report_obj.report(name, ids, datas, ctx)
 		state = False
 		attempt = 0
 		while not state:
-			val = Rpc.session.execute('/report', 'report_get', report_id)
+			val = report_obj.report_get(report_id)
 			state = val['state']
 			if not state:
 				time.sleep(1)
 				attempt += 1
-			if attempt>200:
+			if attempt > MAX_REPORT_ATTEMPTS:
 				QApplication.restoreOverrideCursor()
 				QMessageBox.information( None, _('Error'), _('Printing aborted, too long delay !'))
 				return False
@@ -133,11 +136,11 @@ def execute(act_id, datas, type=None, context=None):
 		ctx.update(context)
 	log.debug("Context for action: %r" % ctx)
 	if type==None:
-		res = Rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [act_id], ['type'], ctx)
+		res = Rpc.RpcProxy('ir.actions.actions').read([act_id], ['type'], ctx)
 		if not len(res):
 			raise Exception, 'ActionNotFound'
 		type=res[0]['type']
-	res = Rpc.session.execute('/object', 'execute', type, 'read', [act_id], False, ctx)[0]
+	res = Rpc.RpcProxy(type).read([act_id], False, ctx)[0]
 	Api.instance.executeAction(res,datas,context)
 
 ## @brief Executes the given action (it could be a report, wizard, etc).
@@ -198,7 +201,7 @@ def executeAction(action, datas, context=None):
 		#	del Rpc.session.context[key]
 
 	elif action['type']=='ir.actions.server':
-		res = Rpc.session.execute('/object', 'execute', 'ir.actions.server', 'run', [action['id']], ctx)
+		res = Rpc.RpcProxy('ir.actions.server').run([action['id']], ctx)
 		if res:
 			Api.instance.executeAction( res, datas, ctx )
 
@@ -235,9 +238,9 @@ def executeKeyword(keyword, data=None, context=None):
 	if 'id' in data:
 		try:
 			id = data.get('id', False) 
-			actions = Rpc.session.execute('/object', 'execute',
-					'ir.values', 'get', 'action', keyword,
-					[(data['model'], id)], False, Rpc.session.context)
+			actions = Rpc.RpcProxy('ir.values', notify=False).\
+                                get('action', keyword, [(data['model'], id)],
+                                    False, Rpc.session.context)
 			if (actions):
 				actions = map(lambda x: x[2], actions)
 		except Rpc.RpcException, e:
@@ -257,3 +260,4 @@ def executeKeyword(keyword, data=None, context=None):
 	Api.instance.executeAction(action, data, context=context)
 	return (name, action)
 
+#eof

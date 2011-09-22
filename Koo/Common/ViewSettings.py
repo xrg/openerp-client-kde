@@ -65,27 +65,25 @@ class ViewSettings:
 		if not ViewSettings.hasSettingsModule:
 			return
 			
+
 		try:
+                        settings_obj = Rpc.RpcProxy('nan.koo.view.settings', notify=False)
 			# We don't want to crash if the koo module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
-			ids = Rpc.session.call( '/object', 'execute', 'nan.koo.view.settings', 'search', [
-				('user','=',Rpc.session.uid),('view','=',id)
-			])
-		except:
+			ids = settings_obj.search([('user','=',Rpc.session.get_uid()),('view','=',id) ])
+			settings_obj.notify = True
+		except Rpc.RpcServerException:
 			ViewSettings.hasSettingsModule = False
 			return
 		# As 'nan.koo.view.settings' is proved to exist we don't need try-except here. And we
 		# can use execute() instead of call().
 		if ids:
-			Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'write', ids, {
-				'data': settings 
-			})
+			settings_obj.write(ids, { 'data': settings })
 		else:
-			Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'create', {
-				'user': Rpc.session.uid, 
-				'view': id, 
-				'data': settings 
-			})
+			settings_obj.create({ 'user': Rpc.session.get_uid(),
+				'view': id,
+				'data': settings,
+                                })
 
 	## @brief Loads information for the given view id.
 	@staticmethod
@@ -106,10 +104,11 @@ class ViewSettings:
 		try:
 			# We don't want to crash if the koo module is not installed on the server
 			# but we do want to crash if there are mistakes in setViewSettings() code.
-			ids = Rpc.session.call( '/object', 'execute', 'nan.koo.view.settings', 'search', [
-				('user','=',Rpc.session.uid),('view','=',id)
-			])
-		except:
+			settings_obj = Rpc.RpcProxy('nan.koo.view.settings', notify=False)
+			
+			ids = settings_obj.search([ ('user','=',Rpc.session.get_uid()),('view','=',id) ])
+			settings_obj.notify = True
+		except Rpc.RpcServerException:
 			ViewSettings.hasSettingsModule = False
 			return None
 
@@ -117,7 +116,7 @@ class ViewSettings:
 		if not ids:
 			ViewSettings.cache[id] = None
 			return None
-		settings = Rpc.session.execute( '/object', 'execute', 'nan.koo.view.settings', 'read', ids, ['data'] )[0]['data']
+		settings = settings_obj.read(ids, ['data'] )[0]['data']
 
 		if settings:
 			# Ensure it's a string and not unicode
@@ -130,7 +129,7 @@ class ViewSettings:
 	## @brief Checks if connection has changed and clears cache and hasSettingsModule flag
 	@staticmethod
 	def checkConnection():
-		if ViewSettings.databaseName != Rpc.session.databaseName or ViewSettings.uid != Rpc.session.uid:
+		if ViewSettings.databaseName != Rpc.session.get_dbname() or ViewSettings.uid != Rpc.session.get_uid():
 			ViewSettings.clear()
 
 	## @brief Clears cache and resets state. This means that after installing the koo
@@ -138,8 +137,9 @@ class ViewSettings:
 	# hasSettingsModule is reset to True.
 	@staticmethod
 	def clear():
-		ViewSettings.databaseName = Rpc.session.databaseName
-		ViewSettings.uid = Rpc.session.uid
+		ViewSettings.databaseName = Rpc.session.get_dbname()
+		ViewSettings.uid = Rpc.session.get_uid()
 		ViewSettings.hasSettingsModule = True
 		ViewSettings.cache = {}
 
+#eof

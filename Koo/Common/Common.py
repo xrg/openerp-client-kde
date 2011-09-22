@@ -218,11 +218,11 @@ class ErrorDialog( QDialog, ErrorDialogUi ):
 		if button == QMessageBox.No:
 			return
 
-		subject = 'Backtrace information: %s' % Rpc.session.databaseName
+		subject = 'Backtrace information: %s' % Rpc.session.get_dbname()
 		body = ''
-		body += 'Database: %s\n' % Rpc.session.databaseName
-		body += 'User ID: %s\n' % Rpc.session.uid
-		body += 'URL: %s\n\n' % Rpc.session.url
+		body += 'Database: %s\n' % Rpc.session.get_dbname()
+		body += 'User ID: %s\n' % Rpc.session.get_uid()
+		body += 'URL: %s\n\n' % Rpc.session.get_url()
 		body += 'Backtrace:\n\n'
 		body += unicode( self.uiDetails.toPlainText() ).encode('ascii', 'replace')
 		try:

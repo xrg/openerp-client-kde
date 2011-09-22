@@ -194,7 +194,7 @@ class Settings(object):
 	@staticmethod
 	def loadFromServer():
 		try:
-			settings = Rpc.session.call( '/object', 'execute', 'nan.koo.settings', 'get_settings' )
+			settings = Rpc.session.call_orm('nan.koo.settings', 'get_settings' , [], {})
 		except Exception:
 			settings = {}
 		new_settings = {}
