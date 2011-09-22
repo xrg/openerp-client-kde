@@ -44,11 +44,13 @@ from Koo.Common import Debug # TODO
 
 import logging
 import base64 # FIXME
+import traceback
 from Koo.Common.safe_eval import safe_eval
 
 from openerp_libclient.rpc import RpcFunction, RpcProxy
 from openerp_libclient.session import Session
 from openerp_libclient import rpc as client_rpc
+from openerp_libclient.interface import RPCNotifier
 from openerp_libclient.errors import RpcException, RpcNetworkException, RpcProtocolException, RpcServerException
 
 ConcurrencyCheckField = '__last_update'
@@ -281,6 +283,74 @@ class Database:
 database = Database()
 
 
+class KooNotifier(RPCNotifier):
+    """ Notifications using the GUI
+    """
+
+    def __init__(self):
+        RPCNotifier.__init__(self)
+
+    def handleException(self, msg, *args, **kwargs):
+        """
+            @param exc must be a tuple of exception information, from sys.exc_info(), or None
+        """
+        exc_info = None
+        title = _("Koo Error!")
+        do_traceback = True
+        if 'exc_info' in kwargs:
+            exc_info = kwargs['exc_info']
+            if exc_info[0] == RpcNetworkException:
+                title = _("Network Error!")
+                do_traceback = False
+        if do_traceback:
+            details = traceback.format_exc(8)
+        else:
+            details = ''
+        Notifier.notifyError(title, msg % args, details)
+        super(KooNotifier, self).handleException(msg, *args, **kwargs)
+
+    def handleRemoteException(self, msg, *args, **kwargs):
+        """
+            @param exc must be a tuple of exception information, from sys.exc_info(), or None
+        """
+        exc_info = kwargs.get('exc_info', False)
+        title = _("Exception at Server!")
+        message = msg % args
+        details = ''
+        if kwargs.get('frame_info'):
+            details += "Local Traceback (most recent call last):\n" \
+                    + ''.join(traceback.format_stack(kwargs['frame_info'], 8))
+        if exc_info:
+            details += "\nRemote %s" % exc_info[1].backtrace
+        if isinstance(exc_info[1], RpcServerException):
+            title = exc_info[1].get_title()
+            message = exc_info[1].get_details()
+            if exc_info[1].type == 'warning':
+                Notifier.notifyWarning(title, message)
+                return
+            else:
+                message += '\n' + message
+
+        Notifier.notifyError(title, message, details)
+        super(KooNotifier, self).handleRemoteException(msg, *args, **kwargs)
+
+    def handleError(self, msg, *args):
+        Notifier.notifyWarning(_("Error!"), msg % args)
+        super(KooNotifier, self).handleError(msg, *args)
+
+    def handleWarning(self, msg, *args, **kwargs):
+        """ Issue a warning to user.
+            TODO: auto_close
+        """
+        Notifier.notifyWarning(_("Warning"), msg % args)
+        super(KooNotifier, self).warning(msg, *args, **kwargs)
+
+    def userAlert(self, msg, *args):
+        """Tell the user that something happened and continue
+        """
+        Notifier.notifyWarning(_("Notice"), msg % args)
+        super(KooNotifier, self).userAlert(msg, *args)
+
 def login_session(url, dbname):
     """ Initialize the global session and open it to url/dbname
     """
@@ -290,6 +360,7 @@ def login_session(url, dbname):
     udict = _url2conndict(url)
     if dbname:
         udict['dbname'] = dbname
+    udict['notifier'] = KooNotifier()
     client_rpc.openSession(**udict)
     l = client_rpc.login()
     if not l:
