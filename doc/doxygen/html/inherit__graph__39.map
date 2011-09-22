@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$classKoo_1_1Rpc_1_1Rpc_1_1Connection.html" title="The Connection class provides an abstract interface for a RPC protocol." alt="" coords="7,59,193,88"/>
-<area shape="rect" id="node3" href="$classKoo_1_1Rpc_1_1Rpc_1_1PyroConnection.html" title="The PyroConnection class implements Connection for the Pyro RPC protocol." alt="" coords="253,5,469,35"/>
-<area shape="rect" id="node5" href="$classKoo_1_1Rpc_1_1Rpc_1_1SocketConnection.html" title="The SocketConnection class implements Connection for the OpenERP socket RPC protocol." alt="" coords="245,59,477,88"/>
-<area shape="rect" id="node7" href="$classKoo_1_1Rpc_1_1Rpc_1_1XmlRpcConnection.html" title="The XmlRpcConnection class implements Connection class for XML&#45;RPC." alt="" coords="243,112,480,141"/>
-</map>
