@@ -27,6 +27,7 @@
 
 from PyQt4.QtCore import QThread, SIGNAL
 from time import sleep
+import logging
 
 ## @brief The Subscriber class provides a mechanisme for subscribing to server events.
 #
@@ -71,16 +72,17 @@ class Subscriber(QThread):
 		self.terminate()
 
 	def run(self):
+                logger = logging.getLogger('Koo.Subscriber')
 		while True:
 			try:
-				self.result = self.session.call( '/subscription', 'wait', (self.expression,) )
+				self.result = self.session.call( '/subscription', 'wait', (self.expression,), notify=False)
 				if self.result:
 					self.emit( SIGNAL('published()') )
 				else:
-					print "cannot subscribe to %s, waiting 5min" % (self.expression)
+					logger.warning("cannot subscribe to %s, waiting 5min", self.expression)
 					sleep(300)
 			except Exception, err:
-                                print "Exc:", err
+                                logger.exception("Exception:")
 				sleep( 60 )
 
 #eof
