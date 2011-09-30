@@ -47,7 +47,7 @@ import base64 # FIXME
 import traceback
 from Koo.Common.safe_eval import safe_eval
 
-from openerp_libclient.rpc import RpcFunction, RpcProxy
+from openerp_libclient.rpc import RpcFunction, RpcProxy, RpcCustomProxy
 from openerp_libclient.session import Session
 from openerp_libclient import rpc as client_rpc
 from openerp_libclient.interface import RPCNotifier
