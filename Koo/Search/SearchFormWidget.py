@@ -320,10 +320,11 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			# which unfortunately can happen in some cases such as some searches with properties.
 			# (ie. [('property_product_pricelist.name','ilike','a')])
 			value = self.value()
-			proxy = Rpc.RpcProxy( self.model, useExecute=False )
+			proxy = Rpc.RpcProxy( self.model,)
 			try:
 				proxy.search( value, 0, False, False, Rpc.session.context )
 			except Rpc.RpcException, e:
+                                # FIXME: remove all that:
 				number = 0
 				for item in value:
 					if not isinstance(item, tuple):
