@@ -799,7 +799,7 @@ class RecordGroup(QObject):
 				else:
 					orderby += " DESC"
 				try:
-					ids = Rpc.session.call('/koo', 'search', (self.resource, self._domain + self._filter, 0, 0, orderby, self._context) )
+					ids = Rpc.session.call('/koo', 'search', (self.resource, self._domain + self._filter, 0, 0, orderby, self._context), notify=False)
 					sortingResult = self.SortingPossible
 					sorted = True
 				except Exception:
