@@ -258,6 +258,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.switchView()
 
 	def switchView(self, viewType=None):
+		selectedIds = self.screen.selectedIds()
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -267,8 +268,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 					target = 'background'
 				else:
 					target = 'current'
-				Api.instance.createWindow( None, self.model, [self.screen.currentId()], 
-					view_type='form', mode='form,tree', target=target)
+				for id in selectedIds:
+					Api.instance.createWindow( None, self.model, [id], 
+						view_type='form', mode='form,tree', target=target)
 			else:
 				sender = self.sender()
 				name = unicode( sender.objectName()  )
