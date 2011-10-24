@@ -151,7 +151,8 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		return self.uiText
 
 	def completerActivated(self, index):
-		id = self.completerList[ index.row() ]
+		id = self.completerList[index.row()][0]
+		assert isinstance(id, (int, long)), id
 		text = unicode( index.data().toString() )
 		self.record.setValue(self.name, (id, text))
 
@@ -465,3 +466,5 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 				#value = [ QVariant( name[0] ), QVariant( name[1] ) ]
 				#kooModel.setData( index, QVariant( value ), Qt.EditRole )
 				model.setValue( self.name, name )
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
