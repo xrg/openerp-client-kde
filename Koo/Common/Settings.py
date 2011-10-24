@@ -199,3 +199,4 @@ class Settings(object):
 		Settings.options.update( new_settings )
 		Rpc.ViewCache.exceptions = Settings.options.get('koo.cache_exceptions', [])
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
