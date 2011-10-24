@@ -299,17 +299,15 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		if QApplication.keyboardModifiers() & Qt.ControlModifier:
 			if not self.screen.currentRecord():
 				return
-			id = self.screen.currentRecord().id 
-			if not id:
-				return
 
 			if QApplication.keyboardModifiers() & Qt.ShiftModifier:
 				target = 'background'
 			else:
 				target = 'current'
 
-			Api.instance.createWindow( False, self.attrs['relation'], id, [('id','=',id)], 'form', 
-				mode='form,tree', target=target )	
+			for id in self.screen.selectedIds():
+				Api.instance.createWindow( False, self.attrs['relation'], id, [('id','=',id)], 'form', 
+					mode='form,tree', target=target )	
 		else:
 			self.screen.switchView()
 
