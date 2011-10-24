@@ -295,6 +295,13 @@ else:
 
 	def register_jasper_report(report_name, model_name):
 		name = 'report.%s' % report_name
+		# Register only if it didn't exist another "jasper_report" with the same name
+		# given that developers might prefer/need to register the reports themselves.
+		# For example, if they need their own parser.
+		if name in netsvc.Service._services:
+			if isinstance(netsvc.Service._services[name], report_jasper):
+				return
+			del netsvc.Service._services[name]
 		report_jasper( name, model_name )
 
 	class ir_actions_report_xml(osv.osv):
