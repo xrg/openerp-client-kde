@@ -227,5 +227,47 @@
 				</field>
 			</field>
 		</record>
+
+        <!-- ir.filters -->
+        <record id="ir_filters_view_form" model="ir.ui.view">
+            <field name="name">ir.filters.form</field>
+            <!-- Reduce priority to avoid issues in v6 -->
+            <field name="priority">20</field>
+            <field name="model">ir.filters</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Filters">
+                    <group colspan="4" col="6" >
+                        <field name="name"/>
+                        <field name="model_id"/>
+                        <field name="user_id"/>
+                    </group>
+                    <group col="4" colspan="4">
+                        <separator string="Domain" colspan="2" />
+                        <separator string="Context" colspan="2" />
+                        <field name="domain" nolabel="1" colspan="2"/>
+                        <field name="context" nolabel="1" colspan="2"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="ir_filters_view_tree" model="ir.ui.view">
+            <field name="name">ir.filters.tree</field>
+            <field name="model">ir.filters</field>
+            <!-- Reduce priority to avoid issues in v6 -->
+            <field name="priority">20</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Filters">
+                    <field name="name" select="1"/>
+                    <field name="user_id" select="1"/>
+                    <field name="model_id" select="1"/>
+                    <field name="domain" select="1"/>
+                    <field name="context" select="1"/>
+                </tree>
+            </field>
+        </record>
+
 	</data>
 </openerp>
