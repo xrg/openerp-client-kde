@@ -286,7 +286,7 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%(records)d) does not match the number of records to be inserted in fields (%(fields)d).') % {
 				'records': len(dialog.newValues), 
 				'fields': len(self.screen.selectedRecords())
-			))
+			})
 			return
 
 		i = 0
