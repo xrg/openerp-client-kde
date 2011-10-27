@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-27 08:39+0200\n"
+"POT-Creation-Date: 2011-10-27 10:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:62
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:293
-#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:353
+#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:356
 msgid "Information"
 msgstr ""
 
@@ -438,14 +438,14 @@ msgid ""
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:311
-#: Koo/Dialogs/FormWidget.py:684 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/FormWidget.py:687 Koo/Dialogs/BatchInsertDialog.py:131
 #: Koo/Dialogs/KooMainWindow.py:712 Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "Yes"
 msgstr ""
 
 #: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:311
-#: Koo/Dialogs/FormWidget.py:684 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Dialogs/FormWidget.py:687 Koo/Dialogs/BatchInsertDialog.py:131
 #: Koo/Dialogs/KooMainWindow.py:712 Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "No"
@@ -855,19 +855,19 @@ msgstr ""
 #: Koo/Dialogs/FormWidget.py:595 Koo/Fields/OneToMany/OneToMany.py:286
 #, python-format
 msgid ""
-"The number of selected records (%d) does not match the number of records to "
-"be inserted in fields (%d)."
+"The number of selected records (%(records)d) does not match the number of "
+"records to be inserted in fields (%(fields)d)."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:677
+#: Koo/Dialogs/FormWidget.py:680
 msgid "Choose action to apply to selected records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:684
+#: Koo/Dialogs/FormWidget.py:687
 msgid "Batch Update"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:684
+#: Koo/Dialogs/FormWidget.py:687
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
 msgstr ""
@@ -1536,7 +1536,7 @@ msgstr ""
 msgid "&Modify Field of Selected Records"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:353
+#: Koo/Fields/OneToMany/OneToMany.py:356
 msgid "No record selected"
 msgstr ""
 

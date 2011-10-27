@@ -21,8 +21,6 @@ msgstr ""
 msgid "Import compatible"
 msgstr ""
 
-#. 
-#. 
 #: win_attach.ui:89 mainwindow.ui:598
 msgid "Ctrl+D"
 msgstr "Ctrl+D"
@@ -51,8 +49,6 @@ msgstr "Ctrl+L"
 msgid "Ctrl+M"
 msgstr ""
 
-#. 
-#. 
 #: win_attach.ui:77 mainwindow.ui:562
 msgid "Ctrl+N"
 msgstr "Ctrl+N"
@@ -65,8 +61,6 @@ msgstr "Ctrl+O"
 msgid "Set focus to one of the widgets in the container"
 msgstr "Imposta fuoco su uno dei widgets del contenitore"
 
-#. 
-#. 
 #: win_attach.ui:149 mainwindow.ui:574
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
@@ -91,10 +85,6 @@ msgstr "Koo: OpenObject KDE Client"
 msgid "Bold"
 msgstr "Grassetto"
 
-#. 
-#. 
-#. 
-#. 
 #: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:70
 msgid "&Server:"
 msgstr "&Server:"
@@ -115,9 +105,6 @@ msgstr "0"
 msgid "Repeat admin password"
 msgstr "Ripeti password di amministrazione"
 
-#. 
-#. 
-#. 
 #: webcontainer.ui:24 full_text_search.ui:86 web.ui:23
 msgid "about:blank"
 msgstr "about:blank"
@@ -163,9 +150,6 @@ msgstr ""
 "dare, probabilmente non sono indicizzati. In questo caso chiedi assisitenza "
 "all'amministratore di sistema."
 
-#. 
-#. 
-#. 
 #: full_text_search.ui:66 mainwindow.ui:607 win_search.ui:86
 msgid "&Find"
 msgstr "&Cerca"
@@ -223,22 +207,6 @@ msgstr ""
 msgid "&Text delimiter:"
 msgstr "Delimitatore del &testo"
 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
 #: calendar.ui:20 image.ui:13 formcontainer.ui:13 many2many.ui:14
 #: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:14
 #: search_date.ui:26 searchform.ui:14 searchreference.ui:13
@@ -262,8 +230,6 @@ msgstr "Tutto maiuscole"
 msgid "Set focus to current widget's container"
 msgstr "Imposta fuoco sul contenitore del widget corrente"
 
-#. 
-#. 
 #: win_attach.ui:101 mainwindow.ui:622
 msgid "Alt+PgDown"
 msgstr "Alt+PaginaGiu"
@@ -292,8 +258,6 @@ msgstr "Ctrl+Shift+D"
 msgid "Ne&w Attachment"
 msgstr ""
 
-#. 
-#. 
 #: choosedb.ui:95 login.ui:111
 msgid "&Database:"
 msgstr "&Database:"
@@ -342,8 +306,6 @@ msgstr "&Riprova"
 msgid "6"
 msgstr "6"
 
-#. 
-#. 
 #: win_attach.ui:86 shortcuts.ui:90
 msgid "Delete"
 msgstr "Elimina"
@@ -430,8 +392,6 @@ msgstr "F2"
 msgid "F3"
 msgstr "F3"
 
-#. 
-#. 
 #: mainwindow.ui:736 shortcuts.ui:236
 msgid "F5"
 msgstr "F5"
@@ -576,8 +536,6 @@ msgstr ""
 "Serif'; font-size:9pt; text-decoration: underline; "
 "color:#0000ff;\">http://www.nan-tic.com</span></a></p></body></html>"
 
-#. 
-#. 
 #: one2many.ui:263 paned.ui:117
 msgid "Switch View"
 msgstr "Cambia Vista"
@@ -694,8 +652,6 @@ msgstr "&Form designer"
 msgid "&Lines to skip:"
 msgstr "&Linee da saltare"
 
-#. 
-#. 
 #: keyboard.ui:304 win_import.ui:211
 msgid ","
 msgstr ","
@@ -704,8 +660,6 @@ msgstr ","
 msgid "&Delete"
 msgstr "&Elimina"
 
-#. 
-#. 
 #: mainwindow.ui:559 win_search.ui:67
 msgid "&New"
 msgstr "&Nuovo"
@@ -742,8 +696,6 @@ msgstr ""
 msgid "All fields"
 msgstr "Tutti i campi"
 
-#. 
-#. 
 #: win_attach.ui:110 one2many.ui:192
 msgid "Previous"
 msgstr "Precedente"
@@ -756,8 +708,6 @@ msgstr "Preferenze"
 msgid "Choose database..."
 msgstr "Seleziona database..."
 
-#. 
-#. 
 #: win_attach.ui:98 one2many.ui:234
 msgid "Next"
 msgstr "Successivo"
@@ -766,8 +716,6 @@ msgstr "Successivo"
 msgid "New password &confirmation:"
 msgstr "Nuova password &conferma:"
 
-#. 
-#. 
 #: win_attach.ui:146 shortcuts.ui:73
 msgid "Save"
 msgstr "Salva"
@@ -780,10 +728,6 @@ msgstr "'"
 msgid "&Clear Cache"
 msgstr "Svuota la &cache"
 
-#. 
-#. 
-#. 
-#. 
 #: choosedb.ui:123 image.ui:25 one2many.ui:80 searchviewitem.ui:164
 msgid "TextLabel"
 msgstr "EtichettaDiTesto"
@@ -804,8 +748,6 @@ msgstr "G"
 msgid "(use 'admin', if you did not change it)"
 msgstr "(utilizza 'admin' se non l'hai cambiato)"
 
-#. 
-#. 
 #: binary.ui:47 link.ui:36
 msgid "Select file..."
 msgstr "Seleziona file..."
@@ -822,8 +764,6 @@ msgstr "W"
 msgid "F10"
 msgstr "F10"
 
-#. 
-#. 
 #: choosedb.ui:78 login.ui:221
 msgid "&Password:"
 msgstr "&Password:"
@@ -844,9 +784,6 @@ msgstr "Crea un nuovo record"
 msgid "&Menu"
 msgstr "&Menu"
 
-#. 
-#. 
-#. 
 #: full_text_search.ui:115 mainwindow.ui:631 one2many_dialog.ui:57
 msgid "&Previous"
 msgstr "&Precedente"
@@ -895,9 +832,6 @@ msgstr "Apri il record in una nuova scheda secondaria"
 msgid "&About"
 msgstr "Inform&azioni su"
 
-#. 
-#. 
-#. 
 #: many2one.ui:59 paned.ui:83 win_search.ui:14
 msgid "Search"
 msgstr "Cerca"
@@ -922,8 +856,6 @@ msgstr "R"
 msgid "&Change"
 msgstr "&Cambia"
 
-#. 
-#. 
 #: shortcuts.ui:14 tree.ui:58
 msgid "Shortcuts"
 msgstr "Scorciatoie"
@@ -984,8 +916,6 @@ msgstr "Scheda successiva"
 msgid "Next editable widget"
 msgstr "Widget modificabile successivo"
 
-#. 
-#. 
 #: keyboard.ui:356 search_date.ui:81
 msgid "-"
 msgstr "-"
@@ -1018,9 +948,6 @@ msgstr "Accesso"
 msgid "Full text search"
 msgstr "Ricerca testo completa"
 
-#. 
-#. 
-#. 
 #: win_export.ui:127 win_import.ui:75 many2many.ui:60
 msgid "&Remove"
 msgstr "&Rimuovi"
@@ -1033,11 +960,6 @@ msgstr "&Nuova password:"
 msgid "&Databases"
 msgstr "&Databases"
 
-#. 
-#. 
-#. 
-#. 
-#. 
 #: full_text_search.ui:158 win_import.ui:341 mainwindow.ui:691
 #: shortcuts.ui:902 tip.ui:159
 msgid "&Close"
@@ -1219,23 +1141,6 @@ msgstr "Record Precedente"
 msgid "Server"
 msgstr "Server"
 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
 #: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
 #: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
 #: error.ui:159 win_export.ui:271 field_preferences.ui:134 gotoid.ui:72
@@ -1256,28 +1161,10 @@ msgstr "&Rimuovi Database"
 msgid "&Clear"
 msgstr "Pulis&ci"
 
-#. 
-#. 
-#. 
 #: admin_passwd.ui:46 create_database.ui:94 login.ui:98
 msgid "C&hange"
 msgstr "Ca&mbia"
 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
-#. 
 #: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
 #: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:285
 #: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
@@ -1370,17 +1257,11 @@ msgstr "Cambia"
 msgid "Space"
 msgstr "Spazio"
 
-#. 
-#. 
-#. 
-#. 
 #: admin_passwd.ui:14 win_export.ui:14 field_preferences.ui:13
 #: win_selection.ui:13
 msgid "Dialog"
 msgstr "Finestra di dialogo"
 
-#. 
-#. 
 #: win_attach.ui:16 mainwindow.ui:821
 msgid "Attachments"
 msgstr "Allegati"
@@ -1411,9 +1292,6 @@ msgid ""
 "</p>"
 msgstr ""
 
-#. 
-#. 
-#. 
 #: paned.ui:100 reference.ui:49 url.ui:51
 msgid "Open"
 msgstr "Apri"
@@ -1530,8 +1408,6 @@ msgstr ""
 "font-size:9pt; text-decoration: underline; color:#0000ff;\">http://www.nan-"
 "tic.com</span></a></p></body></html>"
 
-#. 
-#. 
 #: mainwindow.ui:487 login.ui:143
 msgid "&Restore Database"
 msgstr "&Ripristina Database"
@@ -1544,8 +1420,6 @@ msgstr "Widget modificabile precedente"
 msgid "I"
 msgstr "I"
 
-#. 
-#. 
 #: binary.ui:81 reference.ui:83
 msgid "Clear"
 msgstr "Pulisci"
@@ -1638,8 +1512,6 @@ msgstr "<Ctrl> + W"
 msgid "<Ctrl> + T"
 msgstr "<Ctrl> + T"
 
-#. 
-#. 
 #: many2many.ui:96 one2many.ui:165
 msgid "..."
 msgstr "..."
@@ -1712,11 +1584,6 @@ msgstr "&OpenERP"
 msgid "Re&move Export"
 msgstr "Ri&muovi Esportazione"
 
-#. 
-#. 
-#. 
-#. 
-#. 
 #: win_attach.ui:74 many2one.ui:82 one2many.ui:96 reference.ui:66
 #: shortcuts.ui:56
 msgid "New"
@@ -1762,8 +1629,6 @@ msgstr "O"
 msgid "Batch Update"
 msgstr ""
 
-#. 
-#. 
 #: many2many.ui:89 one2many.ui:218
 msgid "(0/0)"
 msgstr "(0/0)"
@@ -1788,8 +1653,6 @@ msgstr "<Alt> + Meno"
 msgid "Cut selected text"
 msgstr "Taglia il testo selezionato"
 
-#. 
-#. 
 #: win_attach.ui:113 mainwindow.ui:634
 msgid "Alt+PgUp"
 msgstr "Alt+PaginaSu"
@@ -1806,8 +1669,6 @@ msgstr "&Ricarica/Annulla"
 msgid "<Ctrl> + <PgDn>"
 msgstr "<Ctrl> + <PaginaGiu>"
 
-#. 
-#. 
 #: win_import.ui:64 many2many.ui:40
 msgid "&Add"
 msgstr "&Aggiungi"
@@ -1848,8 +1709,6 @@ msgstr "Suggerimento &Precedente"
 msgid "Latin1"
 msgstr "Latin1"
 
-#. 
-#. 
 #: lostconnection.ui:84 mainwindow.ui:469
 msgid "&Quit"
 msgstr "&Esci"
@@ -2807,10 +2666,6 @@ msgstr "&Sfoglia"
 msgid "Remo&ve all"
 msgstr "Rimuo&vi tutti"
 
-#. 
-#. 
-#. 
-#. 
 #: win_attach.ui:137 batchupdate_msgbox.ui:122 keyboard.ui:450
 #: win_search.ui:115
 msgid "Esc"
@@ -2866,15 +2721,10 @@ msgid ""
 "to update in the %d selected records:</p></body></html>"
 msgstr ""
 
-#. 
-#. 
 #: many2one.ui:105 one2many.ui:136
 msgid "Remove"
 msgstr "Rimuovi"
 
-#. 
-#. 
-#. 
 #: full_text_search.ui:126 mainwindow.ui:619 one2many_dialog.ui:68
 msgid "&Next"
 msgstr "A&vanti"

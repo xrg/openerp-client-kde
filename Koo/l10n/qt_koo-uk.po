@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-12-23 23:02+0000\n"
+"POT-Creation-Date: 2011-10-24 08:02+0000\n"
 "PO-Revision-Date: 2009-08-30 16:54+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -15,418 +15,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-12 10:48+0000\n"
-"X-Generator: Launchpad (build 12792)\n"
-
-#: win_export.ui:238
-msgid "Import compatible"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:89 mainwindow.ui:598
-msgid "Ctrl+D"
-msgstr ""
-
-#: mainwindow.ui:610
-msgid "Ctrl+F"
-msgstr ""
-
-#: mainwindow.ui:724
-msgid "Ctrl+G"
-msgstr ""
-
-#: win_export.ui:162
-msgid "&Save list"
-msgstr ""
-
-#: mainwindow.ui:824
-msgid "Ctrl+J"
-msgstr ""
-
-#: win_attach.ui:125
-msgid "Ctrl+L"
-msgstr ""
-
-#: mainwindow.ui:658
-msgid "Ctrl+M"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:77 mainwindow.ui:562
-msgid "Ctrl+N"
-msgstr ""
-
-#: mainwindow.ui:445
-msgid "Ctrl+O"
-msgstr ""
-
-#: shortcuts.ui:858
-msgid "Set focus to one of the widgets in the container"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:149 mainwindow.ui:574
-msgid "Ctrl+S"
-msgstr ""
-
-#: mainwindow.ui:812
-msgid "Ctrl+T"
-msgstr ""
-
-#: keypad.ui:148
-msgid "/"
-msgstr ""
-
-#: mainwindow.ui:694
-msgid "Ctrl+W"
-msgstr ""
-
-#: mainwindow.ui:26
-msgid "Koo: OpenObject KDE Client"
-msgstr ""
-
-#: richtext.ui:36
-msgid "Bold"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#: admin_passwd.ui:29 change_server.ui:52 choosedb.ui:47 login.ui:70
-msgid "&Server:"
-msgstr ""
-
-#: mainwindow.ui:809
-msgid "Full &Text Search"
-msgstr ""
-
-#: shortcuts.ui:421
-msgid "Paste selected text"
-msgstr ""
-
-#: keyboard.ui:645
-msgid "0"
-msgstr ""
-
-#: create_database.ui:299
-msgid "Repeat admin password"
-msgstr ""
-
-#.
-#.
-#.
-#: webcontainer.ui:24 full_text_search.ui:86 web.ui:23
-msgid "about:blank"
-msgstr ""
-
-#: mainwindow.ui:679
-msgid "Previous Tab"
-msgstr ""
-
-#: shortcuts.ui:727
-msgid "Close tab"
-msgstr ""
-
-#: shortcuts.ui:610
-msgid "<Ctrl> + <Shift> + Open"
-msgstr ""
-
-#: keyboard.ui:658
-msgid "P"
-msgstr ""
-
-#: shortcuts.ui:374
-msgid "Clear field"
-msgstr ""
-
-#: richtext.ui:282
-msgid "Foreground Color"
-msgstr ""
-
-#: full_text_search.ui:37
-msgid ""
-"Here you can search for any term in the whole database as long as it has "
-"been indexed. If the words you're searching don't don't return any results "
-"and you know they exist, they're probably not indexed and you should ask the "
-"system administrator.\n"
-"\n"
-"Text search only searches for complete words but it will return words that "
-"contain the same root. For example, searching for \"build\", may return "
-"documents which contain the words \"built\", \"build\" or \"building\"."
-msgstr ""
-
-#.
-#.
-#.
-#: full_text_search.ui:66 mainwindow.ui:607 win_search.ui:86
-msgid "&Find"
-msgstr ""
-
-#: shortcuts.ui:787
-msgid "Open view in a background tab"
-msgstr ""
-
-#: win_import.ui:181
-msgid "File &type:"
-msgstr ""
-
-#: keyboard.ui:421
-msgid "Tab"
-msgstr ""
-
-#: win_export.ui:76
-msgid "<b>All fields</b>"
-msgstr ""
-
-#: win_import.ui:286
-msgid "Sheet:"
-msgstr ""
-
-#: shortcuts.ui:676
-msgid "Selects all records"
-msgstr ""
-
-#: field_preferences.ui:93
-msgid "for all &users"
-msgstr ""
-
-#: search_date.ui:56
-msgid "Choose a date from a calendar"
-msgstr ""
-
-#: searchform.ui:138
-msgid "&Search"
-msgstr ""
-
-#: win_export.ui:22
-msgid "<b>Predefined exports</b>"
-msgstr ""
-
-#: create_database.ui:113
-msgid "(must not contain any special character)"
-msgstr ""
-
-#: shortcuts.ui:286
-msgid "<center><i>When editing a resource in a popup window</i></center>"
-msgstr ""
-
-#: win_import.ui:218
-msgid "&Text delimiter:"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#: calendar.ui:20 image.ui:13 formcontainer.ui:13 many2many.ui:14
-#: many2one.ui:20 one2many.ui:14 paned.ui:19 reference.ui:20 richtext.ui:14
-#: search_date.ui:26 searchform.ui:14 searchreference.ui:13
-#: searchviewitem.ui:19 tree.ui:14 url.ui:20 web.ui:13
-msgid "Form"
-msgstr ""
-
-#: shortcuts.ui:808
-msgid "<Alt> + Arrow (Left, Right, Up, Down)"
-msgstr ""
-
-#: keyboard.ui:619
-msgid "+"
-msgstr ""
-
-#: keyboard.ui:434
-msgid "Caps"
-msgstr ""
-
-#: shortcuts.ui:828
-msgid "Set focus to current widget's container"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:101 mainwindow.ui:622
-msgid "Alt+PgDown"
-msgstr ""
-
-#: error.ui:109
-msgid "De&tails"
-msgstr ""
-
-#: keyboard.ui:174
-msgid "K"
-msgstr ""
-
-#: mainwindow.ui:332
-msgid "Documentation"
-msgstr ""
-
-#: mainwindow.ui:478
-msgid "&New Database"
-msgstr ""
-
-#: mainwindow.ui:586
-msgid "Ctrl+Shift+D"
-msgstr ""
-
-#: mainwindow.ui:922
-msgid "Ne&w Attachment"
-msgstr ""
-
-#.
-#.
-#: choosedb.ui:95 login.ui:111
-msgid "&Database:"
-msgstr ""
-
-#: error.ui:135
-msgid "&Remote Help"
-msgstr ""
-
-#: shortcuts.ui:411
-msgid "Copy selected text"
-msgstr ""
-
-#: shortcuts.ui:24
-msgid "&Main Shortcuts"
-msgstr ""
-
-#: mainwindow.ui:777
-msgid "&Tips"
-msgstr ""
-
-#: win_import.ui:17
-msgid "Import"
-msgstr ""
-
-#: dbcreateok.ui:13
-msgid "Database created"
-msgstr ""
-
-#: create_database.ui:26
-msgid "<b>Could not connect to database</b>"
-msgstr ""
-
-#: search_date.ui:112
-msgid "Choose the date from a calendar"
-msgstr ""
-
-#: win_export.ui:203
-msgid "<b>Options</b>"
-msgstr ""
-
-#: lostconnection.ui:73
-msgid "&Retry"
-msgstr ""
-
-#: keyboard.ui:554
-msgid "6"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:86 shortcuts.ui:90
-msgid "Delete"
-msgstr ""
-
-#: keyboard.ui:57
-msgid "E"
-msgstr ""
-
-#: richtext.ui:331
-msgid "Select font size"
-msgstr ""
-
-#: keyboard.ui:161
-msgid "F"
-msgstr ""
-
-#: keyboard.ui:226
-msgid "Ñ"
-msgstr ""
-
-#: dbcreateok.ui:66
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
-"\">You can connect to the new database using one of the following accounts:</"
-"p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
-"family:'Sans Serif';\"></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
-"\">Administrator: admin / admin</p></body></html>"
-msgstr ""
-
-#: mainwindow.ui:386
-msgid "&Reports"
-msgstr ""
-
-#: shortcuts.ui:747
-msgid "Open form view in new tab"
-msgstr ""
-
-#: shortcuts.ui:596
-msgid "<Ctrl> + Open"
-msgstr ""
-
-#: keyboard.ui:291
-msgid "V"
-msgstr ""
-
-#: shortcuts.ui:603
-msgid "F1"
-msgstr ""
-
-#: shortcuts.ui:617
-msgid "F2"
-msgstr ""
-
-#: shortcuts.ui:367
-msgid "F3"
-msgstr ""
-
-#.
-#.
-#: mainwindow.ui:736 shortcuts.ui:236
-msgid "F5"
-msgstr ""
-
-#: mainwindow.ui:646
-msgid "F6"
-msgstr ""
-
-#: mainwindow.ui:460
-msgid "&Disconnect"
-msgstr ""
-
-#: change_server.ui:32
-msgid "Connect to a OpenERP Server"
+"X-Launchpad-Export-Date: 2011-10-27 06:52+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
+
+#: about.ui:14
+msgctxt "AboutDialog|"
+msgid "About OpenERP"
 msgstr ""
 
 #: about.ui:20
+msgctxt "AboutDialog|"
 msgid ""
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
 "\">\n"
@@ -441,13 +39,23 @@ msgid ""
 "Source ERP &amp; CRM !</p></center></body></html>"
 msgstr ""
 
-#: shortcuts.ui:523
-msgid ""
-"Formula + <Enter>\n"
-"(Example: 3+2*2)"
+#: about.ui:42
+msgctxt "AboutDialog|"
+msgid "&OpenERP"
+msgstr ""
+
+#: about.ui:76
+msgctxt "AboutDialog|"
+msgid "&Contact"
+msgstr ""
+
+#: about.ui:120
+msgctxt "AboutDialog|"
+msgid "&Accept"
 msgstr ""
 
 #: about.ui:48
+msgctxt "AboutDialog|"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -496,878 +104,8 @@ msgid ""
 "tic.com</span></a></p></body></html>"
 msgstr ""
 
-#.
-#.
-#: one2many.ui:263 paned.ui:117
-msgid "Switch View"
-msgstr ""
-
-#: customsearchitem.ui:63
-msgid "&And"
-msgstr ""
-
-#: mainwindow.ui:667
-msgid "Next Tab"
-msgstr ""
-
-#: create_database.ui:14
-msgid "Create a new database"
-msgstr ""
-
-#: shortcuts.ui:717
-msgid "Middle mouse click on Tab"
-msgstr ""
-
-#: win_import.ui:259
-msgid "UTF-8"
-msgstr ""
-
-#: admin_passwd.ui:57
-msgid "&Old password:"
-msgstr ""
-
-#: keyboard.ui:528
-msgid "1"
-msgstr ""
-
-#: tip.ui:96
-msgid "&Display a new tip next time ?"
-msgstr ""
-
-#: keyboard.ui:200
-msgid "A"
-msgstr ""
-
-#: image.ui:56
-msgid "Load Image"
-msgstr ""
-
-#: mainwindow.ui:541
-msgid "&Read My Requests"
-msgstr ""
-
-#: shortcuts.ui:107
-msgid "Find / Search"
-msgstr ""
-
-#: win_import.ui:131
-msgid "Fields to import"
-msgstr ""
-
-#: keyboard.ui:580
-msgid "Q"
-msgstr ""
-
-#: mainwindow.ui:931
-msgid "Sca&n Attachment"
-msgstr ""
-
-#: shortcuts.ui:475
-msgid "<Tab>"
-msgstr ""
-
-#: one2many_dialog.ui:14
-msgid "OpenERP - Link"
-msgstr ""
-
-#: win_import.ui:157
-msgid "File to &import:"
-msgstr ""
-
-#: win_export.ui:216
-msgid "Add &field names"
-msgstr ""
-
-#: win_import.ui:110
-msgid "Auto-&detect"
-msgstr ""
-
-#: binary.ui:64
-msgid "Save file..."
-msgstr ""
-
-#: field_preferences.ui:55
-msgid "Default &value"
-msgstr ""
-
-#: shortcuts.ui:702
-msgid "&Advanced"
-msgstr ""
-
-#: mainwindow.ui:791
-msgid "&License"
-msgstr ""
-
-#: calendarview.ui:34
-msgid "Monthly View"
-msgstr ""
-
-#: field_preferences.ui:102
-msgid "<b>Value applicable if:</b>"
-msgstr ""
-
-#: mainwindow.ui:833
-msgid "&Form designer"
-msgstr ""
-
-#: win_import.ui:299
-msgid "&Lines to skip:"
-msgstr ""
-
-#.
-#.
-#: keyboard.ui:304 win_import.ui:211
-msgid ","
-msgstr ""
-
-#: mainwindow.ui:595
-msgid "&Delete"
-msgstr ""
-
-#.
-#.
-#: mainwindow.ui:559 win_search.ui:67
-msgid "&New"
-msgstr ""
-
-#: shortcuts.ui:465
-msgid "Auto-complete text field"
-msgstr ""
-
-#: keyboard.ui:632
-msgid "Ç"
-msgstr ""
-
-#: mainwindow.ui:514
-msgid "&Administrator Password"
-msgstr ""
-
-#: keyboard.ui:213
-msgid "L"
-msgstr ""
-
-#: mainwindow.ui:847
-msgid "Open Home Tab"
-msgstr ""
-
-#: lostconnection.ui:45
-msgid ""
-"Connection with the server has been lost. Will retry connection in 10 "
-"seconds."
-msgstr ""
-
-#: win_import.ui:33
-msgid "All fields"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:110 one2many.ui:192
-msgid "Previous"
-msgstr ""
-
-#: preferences.ui:14
-msgid "Preferences"
-msgstr ""
-
-#: choosedb.ui:13
-msgid "Choose database..."
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:98 one2many.ui:234
-msgid "Next"
-msgstr ""
-
-#: admin_passwd.ui:91
-msgid "New password &confirmation:"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:146 shortcuts.ui:73
-msgid "Save"
-msgstr ""
-
-#: keyboard.ui:606
-msgid "'"
-msgstr ""
-
-#: mainwindow.ui:856
-msgid "&Clear Cache"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#: choosedb.ui:123 image.ui:25 one2many.ui:80 searchviewitem.ui:164
-msgid "TextLabel"
-msgstr ""
-
-#: shortcuts.ui:799
-msgid "<b>Shortcuts in text entries</b>"
-msgstr ""
-
-#: keyboard.ui:476
-msgid "7"
-msgstr ""
-
-#: keyboard.ui:187
-msgid "G"
-msgstr ""
-
-#: create_database.ui:123
-msgid "(use 'admin', if you did not change it)"
-msgstr ""
-
-#.
-#.
-#: binary.ui:47 link.ui:36
-msgid "Select file..."
-msgstr ""
-
-#: admin_passwd.ui:20
-msgid "<b>Change your database administration password</b>"
-msgstr ""
-
-#: keyboard.ui:44
-msgid "W"
-msgstr ""
-
-#: shortcuts.ui:353
-msgid "F10"
-msgstr ""
-
-#.
-#.
-#: choosedb.ui:78 login.ui:221
-msgid "&Password:"
-msgstr ""
-
-#: dbcreateok.ui:56
-msgid "Database created successfully!"
-msgstr ""
-
-#: error.ui:124
-msgid "&Send Error"
-msgstr ""
-
-#: shortcuts.ui:582
-msgid "Create a new record"
-msgstr ""
-
-#: mainwindow.ui:838
-msgid "&Menu"
-msgstr ""
-
-#.
-#.
-#.
-#: full_text_search.ui:115 mainwindow.ui:631 one2many_dialog.ui:57
-msgid "&Previous"
-msgstr ""
-
-#: about.ui:76
-msgid "&Contact"
-msgstr ""
-
-#: mainwindow.ui:898
-msgid "Insert Several Records at Once"
-msgstr ""
-
-#: shortcuts.ui:158
-msgid "Next record"
-msgstr ""
-
-#: mainwindow.ui:889
-msgid "Push Button of All Selected Records"
-msgstr ""
-
-#: mainwindow.ui:310
-msgid "&Actions"
-msgstr ""
-
-#: win_import.ui:228
-msgid "\""
-msgstr ""
-
-#: mainwindow.ui:356
-msgid "F&orm"
-msgstr ""
-
-#: keyboard.ui:502
-msgid "2"
-msgstr ""
-
-#: mainwindow.ui:276
-msgid "&Database"
-msgstr ""
-
-#: shortcuts.ui:572
-msgid "Opens the record in a new background tab"
-msgstr ""
-
-#: mainwindow.ui:800
-msgid "&About"
-msgstr ""
-
-#.
-#.
-#.
-#: many2one.ui:59 paned.ui:83 win_search.ui:14
-msgid "Search"
-msgstr ""
-
-#: keyboard.ui:317
-msgid "B"
-msgstr ""
-
-#: mainwindow.ui:168
-msgid "Requests:"
-msgstr ""
-
-#: mainwindow.ui:328
-msgid "&Help"
-msgstr ""
-
-#: keyboard.ui:70
-msgid "R"
-msgstr ""
-
-#: choosedb.ui:64
-msgid "&Change"
-msgstr ""
-
-#.
-#.
-#: shortcuts.ui:14 tree.ui:58
-msgid "Shortcuts"
-msgstr ""
-
-#: richtext.ui:123
-msgid "Strikethrough"
-msgstr ""
-
-#: field_preferences.ui:74
-msgid "<b>Value applicable for:</b>"
-msgstr ""
-
-#: keypad.ui:239
-msgid "Intro"
-msgstr ""
-
-#: shortcuts.ui:39
-msgid "Connect"
-msgstr ""
-
-#: one2many_dialog.ui:118
-msgid "&OK"
-msgstr ""
-
-#: mainwindow.ui:298
-msgid "&User"
-msgstr ""
-
-#: mainwindow.ui:682
-msgid "Ctrl+PgUp"
-msgstr ""
-
-#: shortcuts.ui:124
-msgid "Full Text Search"
-msgstr ""
-
-#: error.ui:64
-msgid "<b>Error code:</b>"
-msgstr ""
-
-#: shortcuts.ui:151
-msgid "<Alt> + <PgDn>"
-msgstr ""
-
-#: batchupdate.ui:13
-msgid "Batch Update Process"
-msgstr ""
-
-#: mainwindow.ui:703
-msgid "View Access Log"
-msgstr ""
-
-#: shortcuts.ui:209
-msgid "Next tab"
-msgstr ""
-
-#: shortcuts.ui:431
-msgid "Next editable widget"
-msgstr ""
-
-#.
-#.
-#: keyboard.ui:356 search_date.ui:81
-msgid "-"
-msgstr ""
-
-#: keyboard.ui:148
-msgid "J"
-msgstr ""
-
-#: keyboard.ui:278
-msgid "M"
-msgstr ""
-
-#: mainwindow.ui:583
-msgid "D&uplicate"
-msgstr ""
-
-#: field_preferences.ui:38
-msgid "&Domain"
-msgstr ""
-
-#: keyboard.ui:408
-msgid "Enter"
-msgstr ""
-
-#: login.ui:23
-msgid "Login"
-msgstr ""
-
-#: full_text_search.ui:14
-msgid "Full text search"
-msgstr ""
-
-#.
-#.
-#.
-#: win_export.ui:127 win_import.ui:75 many2many.ui:60
-msgid "&Remove"
-msgstr ""
-
-#: admin_passwd.ui:74
-msgid "&New password:"
-msgstr ""
-
-#: mainwindow.ui:280
-msgid "&Databases"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#.
-#: full_text_search.ui:158 win_import.ui:341 mainwindow.ui:691
-#: shortcuts.ui:902 tip.ui:159
-msgid "&Close"
-msgstr ""
-
-#: shortcuts.ui:253
-msgid "<Ctrl> + <Shift> + D"
-msgstr ""
-
-#: mainwindow.ui:875
-msgid "HTML Manual"
-msgstr ""
-
-#: win_import.ui:201
-msgid "&Field separator"
-msgstr ""
-
-#: mainwindow.ui:655
-msgid "Open &Menu Tab"
-msgstr ""
-
-#: mainwindow.ui:532
-msgid "&Send Request"
-msgstr ""
-
-#: create_database.ui:50
-msgid "&New database name:"
-msgstr ""
-
-#: error.ui:71
-msgid "View details"
-msgstr ""
-
-#: richtext.ui:301
-msgid "Background color"
-msgstr ""
-
-#: error.ui:20
-msgid "Application Error !"
-msgstr ""
-
-#: create_database.ui:233
-msgid "&OpenERP server:"
-msgstr ""
-
-#: choosedb.ui:25
-msgid "Action here..."
-msgstr ""
-
-#: shortcuts.ui:562
-msgid "Opens the record in a new tab"
-msgstr ""
-
-#: keyboard.ui:567
-msgid "8"
-msgstr ""
-
-#: field_preferences.ui:83
-msgid "&only for you"
-msgstr ""
-
-#: keyboard.ui:265
-msgid "H"
-msgstr ""
-
-#: calendarview.ui:83
-msgid "Color Legend"
-msgstr ""
-
-#: image.ui:73
-msgid "Save Image"
-msgstr ""
-
-#: keyboard.ui:369
-msgid "X"
-msgstr ""
-
-#: mainwindow.ui:151
-msgid "Help"
-msgstr ""
-
-#: tree.ui:91
-msgid "Remove Shortcut"
-msgstr ""
-
-#: field_preferences.ui:21
-msgid "Field &Name"
-msgstr ""
-
-#: translationdialog.ui:14
-msgid "Translation Dialog"
-msgstr ""
-
-#: customsearchitem.ui:56
-msgid ""
-"If operator is 'in' or 'not in' you may introduce a list of comma separated "
-"values."
-msgstr ""
-
-#: error.ui:34
-msgid "&Description"
-msgstr ""
-
-#: shortcuts.ui:260
-msgid "Duplicate Record"
-msgstr ""
-
-#: keyboard.ui:382
-msgid "C"
-msgstr ""
-
-#: login.ui:176
-msgid "<b>Could not connect to server !</b>"
-msgstr ""
-
-#: create_database.ui:197
-msgid "&Load demonstration data"
-msgstr ""
-
-#: create_database.ui:292
-msgid "Admin password:"
-msgstr ""
-
-#: keyboard.ui:515
-msgid "3"
-msgstr ""
-
-#: keyboard.ui:684
-msgid "Supr"
-msgstr ""
-
-#: tree.ui:111
-msgid "Expand/Collapse"
-msgstr ""
-
-#: full_text_search.ui:42
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
-"style=\" text-decoration: underline; color:#0000ff;\">?</span></a></p></"
-"body></html>"
-msgstr ""
-
-#: progress.ui:53
-msgid ""
-"Please wait, \n"
-"this operation may take a while..."
-msgstr ""
-
-#: mainwindow.ui:217
-msgid "Read My Requests"
-msgstr ""
-
-#: shortcuts.ui:141
-msgid "Previous Record"
-msgstr ""
-
-#: change_server.ui:20
-msgid "Server"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#: about.ui:120 admin_passwd.ui:138 batchupdate.ui:44 change_server.ui:113
-#: choosedb.ui:161 create_database.ui:343 batchupdate_msgbox.ui:104
-#: error.ui:159 win_export.ui:271 field_preferences.ui:134 gotoid.ui:72
-#: license.ui:148 login.ui:283 preferences.ui:45 win_search.ui:97
-#: win_selection.ui:44 translationdialog.ui:45
-msgid "&Accept"
-msgstr ""
-
-#: keyboard.ui:239
-msgid "S"
-msgstr ""
-
-#: mainwindow.ui:505
-msgid "&Drop Database"
-msgstr ""
-
-#: searchform.ui:127
-msgid "&Clear"
-msgstr ""
-
-#.
-#.
-#.
-#: admin_passwd.ui:46 create_database.ui:94 login.ui:98
-msgid "C&hange"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#.
-#: admin_passwd.ui:149 batchupdate.ui:55 change_server.ui:133 choosedb.ui:175
-#: create_database.ui:357 batchupdate_msgbox.ui:115 win_export.ui:285
-#: field_preferences.ui:144 gotoid.ui:83 login.ui:297 one2many_dialog.ui:129
-#: preferences.ui:56 win_search.ui:108 win_selection.ui:57
-#: translationdialog.ui:56
-msgid "&Cancel"
-msgstr ""
-
-#: shortcuts.ui:645
-msgid "Remove current record"
-msgstr ""
-
-#: image.ui:90
-msgid "Remove Image"
-msgstr ""
-
-#: mainwindow.ui:870
-msgid "PDF Manual"
-msgstr ""
-
-#: win_import.ui:330
-msgid "&Import"
-msgstr ""
-
-#: shortcuts.ui:134
-msgid "<Alt> + <PgUp>"
-msgstr ""
-
-#: mainwindow.ui:240
-msgid "Send New Request"
-msgstr ""
-
-#: mainwindow.ui:670
-msgid "Ctrl+PgDown"
-msgstr ""
-
-#: shortcuts.ui:624
-msgid "<Enter>"
-msgstr ""
-
-#: dbcreateok.ui:98
-msgid "Connect &now"
-msgstr ""
-
-#: mainwindow.ui:754
-msgid "&Import Data"
-msgstr ""
-
-#: mainwindow.ui:271
-msgid "&Plugins"
-msgstr ""
-
-#: richtext.ui:159
-msgid "Left Justify"
-msgstr ""
-
-#: keyboard.ui:343
-msgid "."
-msgstr ""
-
-#: tip.ui:20
-msgid "Tip of the Day"
-msgstr ""
-
-#: mainwindow.ui:523
-msgid "&Preferences"
-msgstr ""
-
-#: mainwindow.ui:772
-msgid "&Contextual Help"
-msgstr ""
-
-#: lostconnection.ui:32
-msgid "Connection Lost"
-msgstr ""
-
-#: shortcuts.ui:389
-msgid "Shortcuts in text entries"
-msgstr ""
-
-#: keyboard.ui:395
-msgid "N"
-msgstr ""
-
-#: win_attach.ui:122
-msgid "Switch"
-msgstr ""
-
-#: keyboard.ui:463
-msgid "Space"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#: admin_passwd.ui:14 win_export.ui:14 field_preferences.ui:13
-#: win_selection.ui:13
-msgid "Dialog"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:16 mainwindow.ui:821
-msgid "Attachments"
-msgstr ""
-
-#: mainwindow.ui:496
-msgid "&Backup Database"
-msgstr ""
-
-#: shortcuts.ui:344
-msgid "General"
-msgstr ""
-
-#: win_export.ui:226
-msgid ""
-"<p>\n"
-"Check this field if you want to be able to import this information back to "
-"OpenERP.\n"
-"</p>\n"
-"\n"
-"<p>\n"
-"Note that you may also be interested in adding ID or Database ID fields, so "
-"OpenERP can match CSV and database's records when you import it later.\n"
-"</p>\n"
-"<p>\n"
-"On the other hand, import incompatible files will show some information in a "
-"way users can better understand it and it's probably what you expect if you "
-"do not intend to import data back to OpenERP.\n"
-"</p>"
-msgstr ""
-
-#.
-#.
-#.
-#: paned.ui:100 reference.ui:49 url.ui:51
-msgid "Open"
-msgstr ""
-
-#: calendarview.ui:50
-msgid "Weekly View"
-msgstr ""
-
-#: shortcuts.ui:511
-msgid "Numeric fields"
-msgstr ""
-
-#: mainwindow.ui:763
-msgid "&Execute Plugins"
-msgstr ""
-
-#: shortcuts.ui:631
-msgid "Add new record"
-msgstr ""
-
-#: progress.ui:14
-msgid "Progress..."
-msgstr ""
-
-#: gotoid.ui:22
-msgid "&Search Id:"
-msgstr ""
-
-#: shortcuts.ui:312
-msgid "<Ctrl> + <Esc>"
-msgstr ""
-
-#: keyboard.ui:593
-msgid "<-"
-msgstr ""
-
-#: shortcuts.ui:757
-msgid "Mouse Wheel on Tab"
-msgstr ""
-
-#: keyboard.ui:489
-msgid "9"
-msgstr ""
-
-#: formcontainer.ui:56
-msgid "State:"
-msgstr ""
-
 #: about.ui:82
+msgctxt "AboutDialog|"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -1403,331 +141,1552 @@ msgid ""
 "com</span></a></p></body></html>"
 msgstr ""
 
-#.
-#.
-#: mainwindow.ui:487 login.ui:143
-msgid "&Restore Database"
+#: admin_passwd.ui:14
+msgctxt "AdminPasswordDialog|"
+msgid "Dialog"
 msgstr ""
 
-#: shortcuts.ui:448
-msgid "Previous editable widget"
+#: admin_passwd.ui:20
+msgctxt "AdminPasswordDialog|"
+msgid "<b>Change your database administration password</b>"
 msgstr ""
 
-#: keyboard.ui:122
-msgid "I"
+#: admin_passwd.ui:29
+msgctxt "AdminPasswordDialog|"
+msgid "&Server:"
 msgstr ""
 
-#.
-#.
-#: binary.ui:81 reference.ui:83
-msgid "Clear"
+#: admin_passwd.ui:46
+msgctxt "AdminPasswordDialog|"
+msgid "C&hange"
 msgstr ""
 
-#: richtext.ui:318
-msgid "Select font"
+#: admin_passwd.ui:57
+msgctxt "AdminPasswordDialog|"
+msgid "&Old password:"
 msgstr ""
 
-#: keyboard.ui:96
-msgid "Y"
+#: admin_passwd.ui:74
+msgctxt "AdminPasswordDialog|"
+msgid "&New password:"
 msgstr ""
 
-#: shortcuts.ui:767
-msgid "Change current tab"
+#: admin_passwd.ui:91
+msgctxt "AdminPasswordDialog|"
+msgid "New password &confirmation:"
 msgstr ""
 
-#: dbcreateok.ui:112
-msgid "Connect &later"
+#: admin_passwd.ui:138
+msgctxt "AdminPasswordDialog|"
+msgid "&Accept"
 msgstr ""
 
-#: keyboard.ui:83
-msgid "T"
+#: admin_passwd.ui:149
+msgctxt "AdminPasswordDialog|"
+msgid "&Cancel"
 msgstr ""
 
-#: gotoid.ui:14
-msgid "Go To Id"
+#: win_attach.ui:16
+msgctxt "AttachmentWindow|"
+msgid "Attachments"
 msgstr ""
 
-#: change_server.ui:71
-msgid "&Port:"
+#: win_attach.ui:49
+msgctxt "AttachmentWindow|"
+msgid "toolBar"
 msgstr ""
 
-#: mainwindow.ui:721
-msgid "Go To Resource ID"
-msgstr ""
-
-#: shortcuts.ui:49
-msgid "<Ctrl> + N"
-msgstr ""
-
-#: shortcuts.ui:32
-msgid "<Ctrl> + O"
-msgstr ""
-
-#: shortcuts.ui:168
-msgid "<Ctrl> + L"
-msgstr ""
-
-#: shortcuts.ui:482
-msgid "<Ctrl> + C"
-msgstr ""
-
-#: shortcuts.ui:669
-msgid "<Ctrl> + A"
-msgstr ""
-
-#: shortcuts.ui:100
-msgid "<Ctrl> + F"
-msgstr ""
-
-#: shortcuts.ui:83
-msgid "<Ctrl> + D"
-msgstr ""
-
-#: tip.ui:133
-msgid "&Next Tip"
-msgstr ""
-
-#: shortcuts.ui:496
-msgid "<Ctrl> + X"
-msgstr ""
-
-#: keyboard.ui:671
-msgid "4"
-msgstr ""
-
-#: shortcuts.ui:66
-msgid "<Ctrl> + S"
-msgstr ""
-
-#: shortcuts.ui:489
-msgid "<Ctrl> + V"
-msgstr ""
-
-#: shortcuts.ui:219
-msgid "<Ctrl> + W"
-msgstr ""
-
-#: shortcuts.ui:117
-msgid "<Ctrl> + T"
-msgstr ""
-
-#.
-#.
-#: many2many.ui:96 one2many.ui:165
-msgid "..."
-msgstr ""
-
-#: win_selection.ui:19
-msgid "<center><b>Choose a plug-in</b></center>"
-msgstr ""
-
-#: keyboard.ui:252
-msgid "D"
-msgstr ""
-
-#: shortcuts.ui:185
-msgid "<Ctrl> + <PgUp>"
-msgstr ""
-
-#: one2many_dialog.ui:95
-msgid "(_/0)"
-msgstr ""
-
-#: shortcuts.ui:818
-msgid "Set focus to nearest widget"
-msgstr ""
-
-#: win_export.ui:116
-msgid "A&dd"
-msgstr ""
-
-#: shortcuts.ui:295
-msgid "<Ctrl> + <Enter>"
-msgstr ""
-
-#: mainwindow.ui:315
-msgid "&Window"
-msgstr ""
-
-#: login.ui:132
-msgid "Create &Database"
-msgstr ""
-
-#: shortcuts.ui:589
-msgid "Search/edit existing records"
-msgstr ""
-
-#: mainwindow.ui:712
-msgid "Store View Settings"
-msgstr ""
-
-#: datetime.ui:41
-msgid "Time:"
-msgstr ""
-
-#: create_database.ui:152
-msgid "&Super admin password:"
-msgstr ""
-
-#: shortcuts.ui:550
-msgid "Relation fields"
-msgstr ""
-
-#: richtext.ui:217
-msgid "Right Justify"
-msgstr ""
-
-#: about.ui:42
-msgid "&OpenERP"
-msgstr ""
-
-#: win_export.ui:46
-msgid "Re&move Export"
-msgstr ""
-
-#.
-#.
-#.
-#.
-#.
-#: win_attach.ui:74 many2one.ui:82 one2many.ui:96 reference.ui:66
-#: shortcuts.ui:56
+#: win_attach.ui:74
+msgctxt "AttachmentWindow|"
 msgid "New"
 msgstr ""
 
-#: win_import.ui:86
-msgid "Remo&ve All"
+#: win_attach.ui:77
+msgctxt "AttachmentWindow|"
+msgid "Ctrl+N"
 msgstr ""
 
-#: shortcuts.ui:175
-msgid "Switch view mode"
+#: win_attach.ui:86
+msgctxt "AttachmentWindow|"
+msgid "Delete"
 msgstr ""
 
-#: login.ui:247
-msgid "&User:"
+#: win_attach.ui:89
+msgctxt "AttachmentWindow|"
+msgid "Ctrl+D"
 msgstr ""
 
-#: shortcuts.ui:277
-msgid "Full Text Search current selection"
+#: win_attach.ui:98
+msgctxt "AttachmentWindow|"
+msgid "Next"
 msgstr ""
 
-#: tree.ui:71
-msgid "Add Shortcut"
+#: win_attach.ui:101
+msgctxt "AttachmentWindow|"
+msgid "Alt+PgDown"
 msgstr ""
 
-#: mainwindow.ui:786
-msgid "&Keyboard Shortcut"
+#: win_attach.ui:110
+msgctxt "AttachmentWindow|"
+msgid "Previous"
 msgstr ""
 
-#: calendarview.ui:63
-msgid "Daily View"
-msgstr ""
-
-#: create_database.ui:181
-msgid "&Default language:"
-msgstr ""
-
-#: keyboard.ui:135
-msgid "O"
-msgstr ""
-
-#: batchupdate_msgbox.ui:14
-msgid "Batch Update"
-msgstr ""
-
-#.
-#.
-#: many2many.ui:89 one2many.ui:218
-msgid "(0/0)"
-msgstr ""
-
-#: about.ui:14
-msgid "About OpenERP"
-msgstr ""
-
-#: shortcuts.ui:302
-msgid "Save and close window"
-msgstr ""
-
-#: win_export.ui:177
-msgid "<b>Fields to export</b>"
-msgstr ""
-
-#: shortcuts.ui:838
-msgid "<Alt> + Minus"
-msgstr ""
-
-#: shortcuts.ui:401
-msgid "Cut selected text"
-msgstr ""
-
-#.
-#.
-#: win_attach.ui:113 mainwindow.ui:634
+#: win_attach.ui:113
+msgctxt "AttachmentWindow|"
 msgid "Alt+PgUp"
 msgstr ""
 
+#: win_attach.ui:122
+msgctxt "AttachmentWindow|"
+msgid "Switch"
+msgstr ""
+
+#: win_attach.ui:125
+msgctxt "AttachmentWindow|"
+msgid "Ctrl+L"
+msgstr ""
+
+#: win_attach.ui:134
+msgctxt "AttachmentWindow|"
+msgid "Close"
+msgstr ""
+
+#: win_attach.ui:137
+msgctxt "AttachmentWindow|"
+msgid "Esc"
+msgstr ""
+
+#: win_attach.ui:146
+msgctxt "AttachmentWindow|"
+msgid "Save"
+msgstr ""
+
+#: win_attach.ui:149
+msgctxt "AttachmentWindow|"
+msgid "Ctrl+S"
+msgstr ""
+
+#: batchupdate.ui:13
+msgctxt "BatchUpdateDialog|"
+msgid "Batch Update Process"
+msgstr ""
+
+#: batchupdate.ui:44
+msgctxt "BatchUpdateDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: batchupdate.ui:55
+msgctxt "BatchUpdateDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: binary.ui:47
+msgctxt "BinaryWidget|"
+msgid "Select file..."
+msgstr ""
+
+#: binary.ui:64
+msgctxt "BinaryWidget|"
+msgid "Save file..."
+msgstr ""
+
+#: binary.ui:81
+msgctxt "BinaryWidget|"
+msgid "Clear"
+msgstr ""
+
+#: calendar.ui:20
+msgctxt "CalendarWidget|"
+msgid "Form"
+msgstr ""
+
 #: calendar.ui:51
+msgctxt "CalendarWidget|"
 msgid "Open Calendar"
 msgstr ""
 
-#: mainwindow.ui:733
-msgid "&Reload/Undo"
+#: change_server.ui:20
+msgctxt "ChangeServerDialog|"
+msgid "Server"
 msgstr ""
 
-#: shortcuts.ui:202
-msgid "<Ctrl> + <PgDn>"
+#: change_server.ui:32
+msgctxt "ChangeServerDialog|"
+msgid "Connect to a OpenERP Server"
 msgstr ""
 
-#.
-#.
-#: win_import.ui:64 many2many.ui:40
-msgid "&Add"
+#: change_server.ui:52
+msgctxt "ChangeServerDialog|"
+msgid "&Server:"
 msgstr ""
 
-#: shortcuts.ui:270
-msgid "<Ctrl> + <Alt> + T"
+#: change_server.ui:71
+msgctxt "ChangeServerDialog|"
+msgid "&Port:"
 msgstr ""
 
-#: keypad.ui:96
-msgid "*"
+#: change_server.ui:113
+msgctxt "ChangeServerDialog|"
+msgid "&Accept"
 msgstr ""
 
-#: progress.ui:40
-msgid "Operation in progress"
+#: change_server.ui:133
+msgctxt "ChangeServerDialog|"
+msgid "&Cancel"
 msgstr ""
 
-#: shortcuts.ui:660
-msgid "Lists"
+#: choosedb.ui:13
+msgctxt "ChooseDatabaseDialog|"
+msgid "Choose database..."
 msgstr ""
 
-#: shortcuts.ui:848
-msgid "<Alt> + Plus"
+#: choosedb.ui:25
+msgctxt "ChooseDatabaseDialog|"
+msgid "Action here..."
 msgstr ""
 
-#: mainwindow.ui:442
-msgid "&Connect"
+#: choosedb.ui:47
+msgctxt "ChooseDatabaseDialog|"
+msgid "&Server:"
 msgstr ""
 
-#: richtext.ui:246
-msgid "Justify"
+#: choosedb.ui:64
+msgctxt "ChooseDatabaseDialog|"
+msgid "&Change"
 msgstr ""
 
-#: tip.ui:122
-msgid "&Previous Tip"
+#: choosedb.ui:78
+msgctxt "ChooseDatabaseDialog|"
+msgid "&Password:"
 msgstr ""
 
-#: win_import.ui:264
-msgid "Latin1"
+#: choosedb.ui:95
+msgctxt "ChooseDatabaseDialog|"
+msgid "&Database:"
 msgstr ""
 
-#.
-#.
-#: lostconnection.ui:84 mainwindow.ui:469
+#: choosedb.ui:123
+msgctxt "ChooseDatabaseDialog|"
+msgid "TextLabel"
+msgstr ""
+
+#: choosedb.ui:161
+msgctxt "ChooseDatabaseDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: choosedb.ui:175
+msgctxt "ChooseDatabaseDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: create_database.ui:14
+msgctxt "CreateDatabaseDialog|"
+msgid "Create a new database"
+msgstr ""
+
+#: create_database.ui:26
+msgctxt "CreateDatabaseDialog|"
+msgid "<b>Could not connect to database</b>"
+msgstr ""
+
+#: create_database.ui:50
+msgctxt "CreateDatabaseDialog|"
+msgid "&New database name:"
+msgstr ""
+
+#: create_database.ui:94
+msgctxt "CreateDatabaseDialog|"
+msgid "C&hange"
+msgstr ""
+
+#: create_database.ui:113
+msgctxt "CreateDatabaseDialog|"
+msgid "(must not contain any special character)"
+msgstr ""
+
+#: create_database.ui:123
+msgctxt "CreateDatabaseDialog|"
+msgid "(use 'admin', if you did not change it)"
+msgstr ""
+
+#: create_database.ui:152
+msgctxt "CreateDatabaseDialog|"
+msgid "&Super admin password:"
+msgstr ""
+
+#: create_database.ui:181
+msgctxt "CreateDatabaseDialog|"
+msgid "&Default language:"
+msgstr ""
+
+#: create_database.ui:197
+msgctxt "CreateDatabaseDialog|"
+msgid "&Load demonstration data"
+msgstr ""
+
+#: create_database.ui:233
+msgctxt "CreateDatabaseDialog|"
+msgid "&OpenERP server:"
+msgstr ""
+
+#: create_database.ui:292
+msgctxt "CreateDatabaseDialog|"
+msgid "Admin password:"
+msgstr ""
+
+#: create_database.ui:299
+msgctxt "CreateDatabaseDialog|"
+msgid "Repeat admin password"
+msgstr ""
+
+#: create_database.ui:343
+msgctxt "CreateDatabaseDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: create_database.ui:357
+msgctxt "CreateDatabaseDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: dbcreateok.ui:13
+msgctxt "DatabaseCreatedDialog|"
+msgid "Database created"
+msgstr ""
+
+#: dbcreateok.ui:56
+msgctxt "DatabaseCreatedDialog|"
+msgid "Database created successfully!"
+msgstr ""
+
+#: dbcreateok.ui:66
+msgctxt "DatabaseCreatedDialog|"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
+"\">You can connect to the new database using one of the following accounts:</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-"
+"family:'Sans Serif';\"></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"
+"\">Administrator: admin / admin</p></body></html>"
+msgstr ""
+
+#: dbcreateok.ui:98
+msgctxt "DatabaseCreatedDialog|"
+msgid "Connect &now"
+msgstr ""
+
+#: dbcreateok.ui:112
+msgctxt "DatabaseCreatedDialog|"
+msgid "Connect &later"
+msgstr ""
+
+#: datetime.ui:41
+msgctxt "DateTimeWidget|"
+msgid "Time:"
+msgstr ""
+
+#: batchupdate_msgbox.ui:14
+msgctxt "Dialog|"
+msgid "Batch Update"
+msgstr ""
+
+#: batchupdate_msgbox.ui:49
+msgctxt "Dialog|"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
+"font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">Select the fields you want "
+"to update in the %d selected records:</p></body></html>"
+msgstr ""
+
+#: batchupdate_msgbox.ui:104
+msgctxt "Dialog|"
+msgid "&Accept"
+msgstr ""
+
+#: batchupdate_msgbox.ui:115
+msgctxt "Dialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: batchupdate_msgbox.ui:122
+msgctxt "Dialog|"
+msgid "Esc"
+msgstr ""
+
+#: lostconnection.ui:32
+msgctxt "Dialog|"
+msgid "Connection Lost"
+msgstr ""
+
+#: lostconnection.ui:45
+msgctxt "Dialog|"
+msgid ""
+"Connection with the server has been lost. Will retry connection in 10 "
+"seconds."
+msgstr ""
+
+#: lostconnection.ui:73
+msgctxt "Dialog|"
+msgid "&Retry"
+msgstr ""
+
+#: lostconnection.ui:84
+msgctxt "Dialog|"
 msgid "&Quit"
 msgstr ""
 
+#: error.ui:14
+msgctxt "ErrorDialog|"
+msgid "Error"
+msgstr ""
+
+#: error.ui:20
+msgctxt "ErrorDialog|"
+msgid "Application Error !"
+msgstr ""
+
+#: error.ui:34
+msgctxt "ErrorDialog|"
+msgid "&Description"
+msgstr ""
+
+#: error.ui:40
+msgctxt "ErrorDialog|"
+msgid "Application Error"
+msgstr ""
+
+#: error.ui:64
+msgctxt "ErrorDialog|"
+msgid "<b>Error code:</b>"
+msgstr ""
+
+#: error.ui:71
+msgctxt "ErrorDialog|"
+msgid "View details"
+msgstr ""
+
+#: error.ui:109
+msgctxt "ErrorDialog|"
+msgid "De&tails"
+msgstr ""
+
+#: error.ui:159
+msgctxt "ErrorDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: error.ui:124
+msgctxt "ErrorDialog|"
+msgid "&Send Error"
+msgstr ""
+
+#: error.ui:135
+msgctxt "ErrorDialog|"
+msgid "&Remote Help"
+msgstr ""
+
+#: win_export.ui:14
+msgctxt "ExportDialog|"
+msgid "Dialog"
+msgstr ""
+
+#: win_export.ui:22
+msgctxt "ExportDialog|"
+msgid "<b>Predefined exports</b>"
+msgstr ""
+
+#: win_export.ui:46
+msgctxt "ExportDialog|"
+msgid "Re&move Export"
+msgstr ""
+
+#: win_export.ui:76
+msgctxt "ExportDialog|"
+msgid "<b>All fields</b>"
+msgstr ""
+
+#: win_export.ui:116
+msgctxt "ExportDialog|"
+msgid "A&dd"
+msgstr ""
+
+#: win_export.ui:127
+msgctxt "ExportDialog|"
+msgid "&Remove"
+msgstr ""
+
+#: win_export.ui:138
+msgctxt "ExportDialog|"
+msgid "Remo&ve all"
+msgstr ""
+
+#: win_export.ui:162
+msgctxt "ExportDialog|"
+msgid "&Save list"
+msgstr ""
+
+#: win_export.ui:177
+msgctxt "ExportDialog|"
+msgid "<b>Fields to export</b>"
+msgstr ""
+
+#: win_export.ui:203
+msgctxt "ExportDialog|"
+msgid "<b>Options</b>"
+msgstr ""
+
+#: win_export.ui:216
+msgctxt "ExportDialog|"
+msgid "Add &field names"
+msgstr ""
+
+#: win_export.ui:271
+msgctxt "ExportDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: win_export.ui:285
+msgctxt "ExportDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: win_export.ui:226
+msgctxt "ExportDialog|"
+msgid ""
+"<p>\n"
+"Check this field if you want to be able to import this information back to "
+"OpenERP.\n"
+"</p>\n"
+"\n"
+"<p>\n"
+"Note that you may also be interested in adding ID or Database ID fields, so "
+"OpenERP can match CSV and database's records when you import it later.\n"
+"</p>\n"
+"<p>\n"
+"On the other hand, import incompatible files will show some information in a "
+"way users can better understand it and it's probably what you expect if you "
+"do not intend to import data back to OpenERP.\n"
+"</p>"
+msgstr ""
+
+#: win_export.ui:238
+msgctxt "ExportDialog|"
+msgid "Import compatible"
+msgstr ""
+
+#: field_preferences.ui:13
+msgctxt "FieldDefaultsDialog|"
+msgid "Dialog"
+msgstr ""
+
+#: field_preferences.ui:21
+msgctxt "FieldDefaultsDialog|"
+msgid "Field &Name"
+msgstr ""
+
+#: field_preferences.ui:38
+msgctxt "FieldDefaultsDialog|"
+msgid "&Domain"
+msgstr ""
+
+#: field_preferences.ui:55
+msgctxt "FieldDefaultsDialog|"
+msgid "Default &value"
+msgstr ""
+
+#: field_preferences.ui:74
+msgctxt "FieldDefaultsDialog|"
+msgid "<b>Value applicable for:</b>"
+msgstr ""
+
+#: field_preferences.ui:83
+msgctxt "FieldDefaultsDialog|"
+msgid "&only for you"
+msgstr ""
+
+#: field_preferences.ui:93
+msgctxt "FieldDefaultsDialog|"
+msgid "for all &users"
+msgstr ""
+
+#: field_preferences.ui:102
+msgctxt "FieldDefaultsDialog|"
+msgid "<b>Value applicable if:</b>"
+msgstr ""
+
+#: field_preferences.ui:134
+msgctxt "FieldDefaultsDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: field_preferences.ui:144
+msgctxt "FieldDefaultsDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: image.ui:13
+msgctxt "Form|"
+msgid "Form"
+msgstr ""
+
+#: image.ui:25
+msgctxt "Form|"
+msgid "TextLabel"
+msgstr ""
+
+#: image.ui:56
+msgctxt "Form|"
+msgid "Load Image"
+msgstr ""
+
+#: image.ui:73
+msgctxt "Form|"
+msgid "Save Image"
+msgstr ""
+
+#: image.ui:90
+msgctxt "Form|"
+msgid "Remove Image"
+msgstr ""
+
+#: keyboard.ui:619
+msgctxt "Form|"
+msgid "+"
+msgstr ""
+
+#: keyboard.ui:356
+msgctxt "Form|"
+msgid "-"
+msgstr ""
+
+#: keyboard.ui:554
+msgctxt "Form|"
+msgid "6"
+msgstr ""
+
+#: keyboard.ui:489
+msgctxt "Form|"
+msgid "9"
+msgstr ""
+
+#: keypad.ui:96
+msgctxt "Form|"
+msgid "*"
+msgstr ""
+
+#: keyboard.ui:502
+msgctxt "Form|"
+msgid "2"
+msgstr ""
+
+#: keyboard.ui:541
+msgctxt "Form|"
+msgid "5"
+msgstr ""
+
+#: keyboard.ui:567
+msgctxt "Form|"
+msgid "8"
+msgstr ""
+
+#: keypad.ui:148
+msgctxt "Form|"
+msgid "/"
+msgstr ""
+
+#: keyboard.ui:528
+msgctxt "Form|"
+msgid "1"
+msgstr ""
+
+#: keyboard.ui:671
+msgctxt "Form|"
+msgid "4"
+msgstr ""
+
+#: keyboard.ui:476
+msgctxt "Form|"
+msgid "7"
+msgstr ""
+
+#: keyboard.ui:450
+msgctxt "Form|"
+msgid "Esc"
+msgstr ""
+
+#: keyboard.ui:645
+msgctxt "Form|"
+msgid "0"
+msgstr ""
+
+#: keyboard.ui:343
+msgctxt "Form|"
+msgid "."
+msgstr ""
+
+#: keypad.ui:239
+msgctxt "Form|"
+msgid "Intro"
+msgstr ""
+
+#: keyboard.ui:515
+msgctxt "Form|"
+msgid "3"
+msgstr ""
+
+#: keyboard.ui:44
+msgctxt "Form|"
+msgid "W"
+msgstr ""
+
+#: keyboard.ui:57
+msgctxt "Form|"
+msgid "E"
+msgstr ""
+
+#: keyboard.ui:70
+msgctxt "Form|"
+msgid "R"
+msgstr ""
+
+#: keyboard.ui:83
+msgctxt "Form|"
+msgid "T"
+msgstr ""
+
+#: keyboard.ui:96
+msgctxt "Form|"
+msgid "Y"
+msgstr ""
+
+#: keyboard.ui:109
+msgctxt "Form|"
+msgid "U"
+msgstr ""
+
+#: keyboard.ui:122
+msgctxt "Form|"
+msgid "I"
+msgstr ""
+
+#: keyboard.ui:135
+msgctxt "Form|"
+msgid "O"
+msgstr ""
+
+#: keyboard.ui:148
+msgctxt "Form|"
+msgid "J"
+msgstr ""
+
+#: keyboard.ui:161
+msgctxt "Form|"
+msgid "F"
+msgstr ""
+
+#: keyboard.ui:174
+msgctxt "Form|"
+msgid "K"
+msgstr ""
+
+#: keyboard.ui:187
+msgctxt "Form|"
+msgid "G"
+msgstr ""
+
+#: keyboard.ui:200
+msgctxt "Form|"
+msgid "A"
+msgstr ""
+
+#: keyboard.ui:213
+msgctxt "Form|"
+msgid "L"
+msgstr ""
+
+#: keyboard.ui:226
+msgctxt "Form|"
+msgid "Ñ"
+msgstr ""
+
+#: keyboard.ui:239
+msgctxt "Form|"
+msgid "S"
+msgstr ""
+
+#: keyboard.ui:252
+msgctxt "Form|"
+msgid "D"
+msgstr ""
+
+#: keyboard.ui:265
+msgctxt "Form|"
+msgid "H"
+msgstr ""
+
+#: keyboard.ui:278
+msgctxt "Form|"
+msgid "M"
+msgstr ""
+
+#: keyboard.ui:291
+msgctxt "Form|"
+msgid "V"
+msgstr ""
+
+#: keyboard.ui:304
+msgctxt "Form|"
+msgid ","
+msgstr ""
+
+#: keyboard.ui:317
+msgctxt "Form|"
+msgid "B"
+msgstr ""
+
+#: keyboard.ui:330
+msgctxt "Form|"
+msgid "Z"
+msgstr ""
+
+#: keyboard.ui:369
+msgctxt "Form|"
+msgid "X"
+msgstr ""
+
+#: keyboard.ui:382
+msgctxt "Form|"
+msgid "C"
+msgstr ""
+
+#: keyboard.ui:395
+msgctxt "Form|"
+msgid "N"
+msgstr ""
+
+#: keyboard.ui:408
+msgctxt "Form|"
+msgid "Enter"
+msgstr ""
+
+#: keyboard.ui:421
+msgctxt "Form|"
+msgid "Tab"
+msgstr ""
+
+#: keyboard.ui:434
+msgctxt "Form|"
+msgid "Caps"
+msgstr ""
+
+#: keyboard.ui:463
+msgctxt "Form|"
+msgid "Space"
+msgstr ""
+
+#: keyboard.ui:580
+msgctxt "Form|"
+msgid "Q"
+msgstr ""
+
+#: keyboard.ui:593
+msgctxt "Form|"
+msgid "<-"
+msgstr ""
+
+#: keyboard.ui:606
+msgctxt "Form|"
+msgid "'"
+msgstr ""
+
+#: keyboard.ui:632
+msgctxt "Form|"
+msgid "Ç"
+msgstr ""
+
+#: keyboard.ui:658
+msgctxt "Form|"
+msgid "P"
+msgstr ""
+
+#: calendarview.ui:34
+msgctxt "Form|"
+msgid "Monthly View"
+msgstr ""
+
+#: calendarview.ui:50
+msgctxt "Form|"
+msgid "Weekly View"
+msgstr ""
+
+#: calendarview.ui:63
+msgctxt "Form|"
+msgid "Daily View"
+msgstr ""
+
+#: calendarview.ui:83
+msgctxt "Form|"
+msgid "Color Legend"
+msgstr ""
+
+#: customsearchitem.ui:56
+msgctxt "Form|"
+msgid ""
+"If operator is 'in' or 'not in' you may introduce a list of comma separated "
+"values."
+msgstr ""
+
+#: customsearchitem.ui:63
+msgctxt "Form|"
+msgid "&And"
+msgstr ""
+
+#: webcontainer.ui:24
+msgctxt "Form|"
+msgid "about:blank"
+msgstr ""
+
+#: keyboard.ui:684
+msgctxt "Form|"
+msgid "Supr"
+msgstr ""
+
+#: formcontainer.ui:13
+msgctxt "FormContainerWidget|"
+msgid "Form"
+msgstr ""
+
+#: formcontainer.ui:56
+msgctxt "FormContainerWidget|"
+msgid "State:"
+msgstr ""
+
+#: full_text_search.ui:14
+msgctxt "FullTextSearchDialog|"
+msgid "Full text search"
+msgstr ""
+
+#: full_text_search.ui:66
+msgctxt "FullTextSearchDialog|"
+msgid "&Find"
+msgstr ""
+
+#: full_text_search.ui:115
+msgctxt "FullTextSearchDialog|"
+msgid "&Previous"
+msgstr ""
+
+#: full_text_search.ui:126
+msgctxt "FullTextSearchDialog|"
+msgid "&Next"
+msgstr ""
+
+#: full_text_search.ui:37
+msgctxt "FullTextSearchDialog|"
+msgid ""
+"Here you can search for any term in the whole database as long as it has "
+"been indexed. If the words you're searching don't don't return any results "
+"and you know they exist, they're probably not indexed and you should ask the "
+"system administrator.\n"
+"\n"
+"Text search only searches for complete words but it will return words that "
+"contain the same root. For example, searching for \"build\", may return "
+"documents which contain the words \"built\", \"build\" or \"building\"."
+msgstr ""
+
+#: full_text_search.ui:42
+msgctxt "FullTextSearchDialog|"
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'helvetica'; font-size:12pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"help\"><span "
+"style=\" text-decoration: underline; color:#0000ff;\">?</span></a></p></"
+"body></html>"
+msgstr ""
+
+#: full_text_search.ui:86
+msgctxt "FullTextSearchDialog|"
+msgid "about:blank"
+msgstr ""
+
+#: full_text_search.ui:158
+msgctxt "FullTextSearchDialog|"
+msgid "&Close"
+msgstr ""
+
+#: gotoid.ui:14
+msgctxt "GoToIdDialog|"
+msgid "Go To Id"
+msgstr ""
+
+#: gotoid.ui:22
+msgctxt "GoToIdDialog|"
+msgid "&Search Id:"
+msgstr ""
+
+#: gotoid.ui:72
+msgctxt "GoToIdDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: gotoid.ui:83
+msgctxt "GoToIdDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: win_import.ui:17
+msgctxt "ImportDialog|"
+msgid "Import"
+msgstr ""
+
+#: win_import.ui:33
+msgctxt "ImportDialog|"
+msgid "All fields"
+msgstr ""
+
+#: win_import.ui:64
+msgctxt "ImportDialog|"
+msgid "&Add"
+msgstr ""
+
+#: win_import.ui:75
+msgctxt "ImportDialog|"
+msgid "&Remove"
+msgstr ""
+
+#: win_import.ui:86
+msgctxt "ImportDialog|"
+msgid "Remo&ve All"
+msgstr ""
+
+#: win_import.ui:110
+msgctxt "ImportDialog|"
+msgid "Auto-&detect"
+msgstr ""
+
+#: win_import.ui:131
+msgctxt "ImportDialog|"
+msgid "Fields to import"
+msgstr ""
+
+#: win_import.ui:157
+msgctxt "ImportDialog|"
+msgid "File to &import:"
+msgstr ""
+
+#: win_import.ui:201
+msgctxt "ImportDialog|"
+msgid "&Field separator"
+msgstr ""
+
+#: win_import.ui:211
+msgctxt "ImportDialog|"
+msgid ","
+msgstr ""
+
+#: win_import.ui:218
+msgctxt "ImportDialog|"
+msgid "&Text delimiter:"
+msgstr ""
+
+#: win_import.ui:228
+msgctxt "ImportDialog|"
+msgid "\""
+msgstr ""
+
+#: win_import.ui:235
+msgctxt "ImportDialog|"
+msgid "&Encoding"
+msgstr ""
+
+#: win_import.ui:299
+msgctxt "ImportDialog|"
+msgid "&Lines to skip:"
+msgstr ""
+
+#: win_import.ui:259
+msgctxt "ImportDialog|"
+msgid "UTF-8"
+msgstr ""
+
+#: win_import.ui:264
+msgctxt "ImportDialog|"
+msgid "Latin1"
+msgstr ""
+
+#: win_import.ui:181
+msgctxt "ImportDialog|"
+msgid "File &type:"
+msgstr ""
+
+#: win_import.ui:286
+msgctxt "ImportDialog|"
+msgid "Sheet:"
+msgstr ""
+
+#: win_import.ui:330
+msgctxt "ImportDialog|"
+msgid "&Import"
+msgstr ""
+
+#: win_import.ui:341
+msgctxt "ImportDialog|"
+msgid "&Close"
+msgstr ""
+
+#: mainwindow.ui:26
+msgctxt "KooMainWindow|"
+msgid "Koo: OpenObject KDE Client"
+msgstr ""
+
+#: mainwindow.ui:168
+msgctxt "KooMainWindow|"
+msgid "Requests:"
+msgstr ""
+
+#: mainwindow.ui:217
+msgctxt "KooMainWindow|"
+msgid "Read My Requests"
+msgstr ""
+
+#: mainwindow.ui:240
+msgctxt "KooMainWindow|"
+msgid "Send New Request"
+msgstr ""
+
+#: mainwindow.ui:271
+msgctxt "KooMainWindow|"
+msgid "&Plugins"
+msgstr ""
+
+#: mainwindow.ui:328
+msgctxt "KooMainWindow|"
+msgid "&Help"
+msgstr ""
+
+#: mainwindow.ui:356
+msgctxt "KooMainWindow|"
+msgid "F&orm"
+msgstr ""
+
+#: mainwindow.ui:280
+msgctxt "KooMainWindow|"
+msgid "&Databases"
+msgstr ""
+
+#: mainwindow.ui:298
+msgctxt "KooMainWindow|"
+msgid "&User"
+msgstr ""
+
+#: mainwindow.ui:310
+msgctxt "KooMainWindow|"
+msgid "&Actions"
+msgstr ""
+
+#: mainwindow.ui:386
+msgctxt "KooMainWindow|"
+msgid "&Reports"
+msgstr ""
+
+#: mainwindow.ui:351
+msgctxt "KooMainWindow|"
+msgid "&Browse"
+msgstr ""
+
+#: mainwindow.ui:315
+msgctxt "KooMainWindow|"
+msgid "&Window"
+msgstr ""
+
+#: mainwindow.ui:442
+msgctxt "KooMainWindow|"
+msgid "&Connect"
+msgstr ""
+
+#: mainwindow.ui:445
+msgctxt "KooMainWindow|Ctrl+O to Login"
+msgid "Ctrl+O"
+msgstr ""
+
+#: mainwindow.ui:460
+msgctxt "KooMainWindow|"
+msgid "&Disconnect"
+msgstr ""
+
+#: mainwindow.ui:469
+msgctxt "KooMainWindow|"
+msgid "&Quit"
+msgstr ""
+
+#: mainwindow.ui:478
+msgctxt "KooMainWindow|"
+msgid "&New Database"
+msgstr ""
+
+#: mainwindow.ui:487
+msgctxt "KooMainWindow|"
+msgid "&Restore Database"
+msgstr ""
+
+#: mainwindow.ui:496
+msgctxt "KooMainWindow|"
+msgid "&Backup Database"
+msgstr ""
+
+#: mainwindow.ui:505
+msgctxt "KooMainWindow|"
+msgid "&Drop Database"
+msgstr ""
+
+#: mainwindow.ui:514
+msgctxt "KooMainWindow|"
+msgid "&Administrator Password"
+msgstr ""
+
+#: mainwindow.ui:523
+msgctxt "KooMainWindow|"
+msgid "&Preferences"
+msgstr ""
+
+#: mainwindow.ui:532
+msgctxt "KooMainWindow|"
+msgid "&Send Request"
+msgstr ""
+
+#: mainwindow.ui:541
+msgctxt "KooMainWindow|"
+msgid "&Read My Requests"
+msgstr ""
+
+#: mainwindow.ui:550
+msgctxt "KooMainWindow|"
+msgid "&Waiting Requests"
+msgstr ""
+
+#: mainwindow.ui:559
+msgctxt "KooMainWindow|"
+msgid "&New"
+msgstr ""
+
+#: mainwindow.ui:562
+msgctxt "KooMainWindow|"
+msgid "Ctrl+N"
+msgstr ""
+
+#: mainwindow.ui:571
+msgctxt "KooMainWindow|"
+msgid "&Save"
+msgstr ""
+
+#: mainwindow.ui:574
+msgctxt "KooMainWindow|"
+msgid "Ctrl+S"
+msgstr ""
+
+#: mainwindow.ui:583
+msgctxt "KooMainWindow|"
+msgid "D&uplicate"
+msgstr ""
+
+#: mainwindow.ui:586
+msgctxt "KooMainWindow|"
+msgid "Ctrl+Shift+D"
+msgstr ""
+
+#: mainwindow.ui:595
+msgctxt "KooMainWindow|"
+msgid "&Delete"
+msgstr ""
+
+#: mainwindow.ui:598
+msgctxt "KooMainWindow|"
+msgid "Ctrl+D"
+msgstr ""
+
+#: mainwindow.ui:607
+msgctxt "KooMainWindow|"
+msgid "&Find"
+msgstr ""
+
+#: mainwindow.ui:610
+msgctxt "KooMainWindow|"
+msgid "Ctrl+F"
+msgstr ""
+
+#: mainwindow.ui:619
+msgctxt "KooMainWindow|"
+msgid "&Next"
+msgstr ""
+
+#: mainwindow.ui:622
+msgctxt "KooMainWindow|"
+msgid "Alt+PgDown"
+msgstr ""
+
+#: mainwindow.ui:631
+msgctxt "KooMainWindow|"
+msgid "&Previous"
+msgstr ""
+
+#: mainwindow.ui:634
+msgctxt "KooMainWindow|"
+msgid "Alt+PgUp"
+msgstr ""
+
+#: mainwindow.ui:643
+msgctxt "KooMainWindow|"
+msgid "Switch &View"
+msgstr ""
+
+#: mainwindow.ui:655
+msgctxt "KooMainWindow|"
+msgid "Open &Menu Tab"
+msgstr ""
+
+#: mainwindow.ui:667
+msgctxt "KooMainWindow|"
+msgid "Next Tab"
+msgstr ""
+
+#: mainwindow.ui:670
+msgctxt "KooMainWindow|"
+msgid "Ctrl+PgDown"
+msgstr ""
+
+#: mainwindow.ui:679
+msgctxt "KooMainWindow|"
+msgid "Previous Tab"
+msgstr ""
+
+#: mainwindow.ui:682
+msgctxt "KooMainWindow|"
+msgid "Ctrl+PgUp"
+msgstr ""
+
+#: mainwindow.ui:691
+msgctxt "KooMainWindow|"
+msgid "&Close"
+msgstr ""
+
+#: mainwindow.ui:694
+msgctxt "KooMainWindow|"
+msgid "Ctrl+W"
+msgstr ""
+
+#: mainwindow.ui:703
+msgctxt "KooMainWindow|"
+msgid "View Access Log"
+msgstr ""
+
+#: mainwindow.ui:721
+msgctxt "KooMainWindow|"
+msgid "Go To Resource ID"
+msgstr ""
+
+#: mainwindow.ui:733
+msgctxt "KooMainWindow|"
+msgid "&Reload/Undo"
+msgstr ""
+
+#: mainwindow.ui:736
+msgctxt "KooMainWindow|"
+msgid "F5"
+msgstr ""
+
+#: mainwindow.ui:745
+msgctxt "KooMainWindow|"
+msgid "E&xport Data"
+msgstr ""
+
+#: mainwindow.ui:754
+msgctxt "KooMainWindow|"
+msgid "&Import Data"
+msgstr ""
+
+#: mainwindow.ui:763
+msgctxt "KooMainWindow|"
+msgid "&Execute Plugins"
+msgstr ""
+
+#: mainwindow.ui:772
+msgctxt "KooMainWindow|"
+msgid "&Contextual Help"
+msgstr ""
+
+#: mainwindow.ui:777
+msgctxt "KooMainWindow|"
+msgid "&Tips"
+msgstr ""
+
+#: mainwindow.ui:786
+msgctxt "KooMainWindow|"
+msgid "&Keyboard Shortcut"
+msgstr ""
+
+#: mainwindow.ui:791
+msgctxt "KooMainWindow|"
+msgid "&License"
+msgstr ""
+
+#: mainwindow.ui:800
+msgctxt "KooMainWindow|"
+msgid "&About"
+msgstr ""
+
+#: mainwindow.ui:809
+msgctxt "KooMainWindow|"
+msgid "Full &Text Search"
+msgstr ""
+
+#: mainwindow.ui:812
+msgctxt "KooMainWindow|"
+msgid "Ctrl+T"
+msgstr ""
+
+#: mainwindow.ui:821
+msgctxt "KooMainWindow|"
+msgid "Attachments"
+msgstr ""
+
+#: mainwindow.ui:824
+msgctxt "KooMainWindow|"
+msgid "Ctrl+J"
+msgstr ""
+
+#: mainwindow.ui:833
+msgctxt "KooMainWindow|"
+msgid "&Form designer"
+msgstr ""
+
+#: mainwindow.ui:838
+msgctxt "KooMainWindow|"
+msgid "&Menu"
+msgstr ""
+
+#: mainwindow.ui:332
+msgctxt "KooMainWindow|"
+msgid "Documentation"
+msgstr ""
+
+#: mainwindow.ui:847
+msgctxt "KooMainWindow|"
+msgid "Open Home Tab"
+msgstr ""
+
+#: mainwindow.ui:856
+msgctxt "KooMainWindow|"
+msgid "&Clear Cache"
+msgstr ""
+
+#: mainwindow.ui:865
+msgctxt "KooMainWindow|"
+msgid "Modify All Selected Records"
+msgstr ""
+
+#: mainwindow.ui:646
+msgctxt "KooMainWindow|"
+msgid "F6"
+msgstr ""
+
+#: mainwindow.ui:276
+msgctxt "KooMainWindow|"
+msgid "&Database"
+msgstr ""
+
+#: mainwindow.ui:712
+msgctxt "KooMainWindow|"
+msgid "Store View Settings"
+msgstr ""
+
+#: mainwindow.ui:724
+msgctxt "KooMainWindow|"
+msgid "Ctrl+G"
+msgstr ""
+
+#: mainwindow.ui:151
+msgctxt "KooMainWindow|"
+msgid "Help"
+msgstr ""
+
+#: mainwindow.ui:870
+msgctxt "KooMainWindow|"
+msgid "PDF Manual"
+msgstr ""
+
+#: mainwindow.ui:875
+msgctxt "KooMainWindow|"
+msgid "HTML Manual"
+msgstr ""
+
+#: mainwindow.ui:880
+msgctxt "KooMainWindow|"
+msgid "doc.openerp.com"
+msgstr ""
+
+#: mainwindow.ui:889
+msgctxt "KooMainWindow|"
+msgid "Push Button of All Selected Records"
+msgstr ""
+
+#: mainwindow.ui:898
+msgctxt "KooMainWindow|"
+msgid "Insert Several Records at Once"
+msgstr ""
+
+#: mainwindow.ui:658
+msgctxt "KooMainWindow|"
+msgid "Ctrl+M"
+msgstr ""
+
+#: mainwindow.ui:910
+msgctxt "KooMainWindow|"
+msgid "Modify Field in Selected Records"
+msgstr ""
+
+#: mainwindow.ui:922
+msgctxt "KooMainWindow|"
+msgid "Ne&w Attachment"
+msgstr ""
+
+#: mainwindow.ui:931
+msgctxt "KooMainWindow|"
+msgid "Sca&n Attachment"
+msgstr ""
+
+#: license.ui:19
+msgctxt "LicenseDialog|"
+msgid "OpenERP license"
+msgstr ""
+
 #: license.ui:29
+msgctxt "LicenseDialog|"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -2185,168 +2144,968 @@ msgid ""
 "p></body></html>"
 msgstr ""
 
-#: mainwindow.ui:865
-msgid "Modify All Selected Records"
+#: license.ui:148
+msgctxt "LicenseDialog|"
+msgid "&Accept"
 msgstr ""
 
-#: error.ui:14
-msgid "Error"
+#: link.ui:36
+msgctxt "LinkWidget|"
+msgid "Select file..."
 msgstr ""
 
-#: keyboard.ui:330
-msgid "Z"
+#: login.ui:23
+msgctxt "LoginDialog|"
+msgid "Login"
 msgstr ""
 
-#: shortcuts.ui:192
-msgid "Previous tab"
+#: login.ui:111
+msgctxt "LoginDialog|"
+msgid "&Database:"
 msgstr ""
 
-#: mainwindow.ui:643
-msgid "Switch &View"
+#: login.ui:98
+msgctxt "LoginDialog|"
+msgid "C&hange"
 msgstr ""
 
-#: shortcuts.ui:360
-msgid "Show field's help information"
+#: login.ui:70
+msgctxt "LoginDialog|"
+msgid "&Server:"
 msgstr ""
 
-#: win_attach.ui:134
-msgid "Close"
+#: login.ui:176
+msgctxt "LoginDialog|"
+msgid "<b>Could not connect to server !</b>"
 msgstr ""
 
-#: shortcuts.ui:777
-msgid "<Shift> + Open View"
+#: login.ui:221
+msgctxt "LoginDialog|"
+msgid "&Password:"
 msgstr ""
 
-#: mainwindow.ui:745
-msgid "E&xport Data"
+#: login.ui:247
+msgctxt "LoginDialog|"
+msgid "&User:"
 msgstr ""
 
-#: mainwindow.ui:351
-msgid "&Browse"
+#: login.ui:283
+msgctxt "LoginDialog|"
+msgid "&Accept"
 msgstr ""
 
-#: win_export.ui:138
-msgid "Remo&ve all"
+#: login.ui:297
+msgctxt "LoginDialog|"
+msgid "&Cancel"
 msgstr ""
 
-#.
-#.
-#.
-#.
-#: win_attach.ui:137 batchupdate_msgbox.ui:122 keyboard.ui:450
-#: win_search.ui:115
-msgid "Esc"
+#: login.ui:132
+msgctxt "LoginDialog|"
+msgid "Create &Database"
 msgstr ""
 
-#: shortcuts.ui:319
-msgid "Close window without saving"
+#: login.ui:143
+msgctxt "LoginDialog|"
+msgid "&Restore Database"
 msgstr ""
 
-#: mainwindow.ui:550
-msgid "&Waiting Requests"
+#: many2many.ui:14
+msgctxt "ManyToManyWidget|"
+msgid "Form"
 msgstr ""
 
-#: license.ui:19
-msgid "OpenERP license"
+#: many2many.ui:40
+msgctxt "ManyToManyWidget|"
+msgid "&Add"
 msgstr ""
 
-#: keyboard.ui:541
-msgid "5"
+#: many2many.ui:60
+msgctxt "ManyToManyWidget|"
+msgid "&Remove"
 msgstr ""
 
-#: mainwindow.ui:880
-msgid "doc.openerp.com"
+#: many2many.ui:96
+msgctxt "ManyToManyWidget|"
+msgid "..."
 msgstr ""
 
-#: richtext.ui:65
-msgid "Italics"
+#: many2many.ui:89
+msgctxt "ManyToManyWidget|"
+msgid "(0/0)"
 msgstr ""
 
-#: error.ui:40
-msgid "Application Error"
+#: one2many_dialog.ui:14
+msgctxt "ManyToOneWidget|"
+msgid "OpenERP - Link"
 msgstr ""
 
-#: one2many.ui:116
-msgid "Edit"
+#: one2many_dialog.ui:118
+msgctxt "ManyToOneWidget|"
+msgid "&OK"
 msgstr ""
 
-#: shortcuts.ui:441
-msgid "<Shift> + <Tab>"
+#: one2many_dialog.ui:129
+msgctxt "ManyToOneWidget|"
+msgid "&Cancel"
 msgstr ""
 
-#: batchupdate_msgbox.ui:49
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:12pt; "
-"font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">Select the fields you want "
-"to update in the %d selected records:</p></body></html>"
+#: many2one.ui:20
+msgctxt "ManyToOneWidget|"
+msgid "Form"
 msgstr ""
 
-#.
-#.
-#: many2one.ui:105 one2many.ui:136
+#: many2one.ui:59
+msgctxt "ManyToOneWidget|"
+msgid "Search"
+msgstr ""
+
+#: many2one.ui:82
+msgctxt "ManyToOneWidget|"
+msgid "New"
+msgstr ""
+
+#: many2one.ui:105
+msgctxt "ManyToOneWidget|"
 msgid "Remove"
 msgstr ""
 
-#.
-#.
-#.
-#: full_text_search.ui:126 mainwindow.ui:619 one2many_dialog.ui:68
+#: one2many_dialog.ui:57
+msgctxt "ManyToOneWidget|"
+msgid "&Previous"
+msgstr ""
+
+#: one2many_dialog.ui:68
+msgctxt "ManyToOneWidget|"
 msgid "&Next"
 msgstr ""
 
-#: shortcuts.ui:243
-msgid "Reload"
+#: one2many_dialog.ui:95
+msgctxt "ManyToOneWidget|"
+msgid "(_/0)"
 msgstr ""
 
-#: keyboard.ui:109
-msgid "U"
+#: one2many.ui:14
+msgctxt "OneToManyWidget|"
+msgid "Form"
+msgstr ""
+
+#: one2many.ui:80
+msgctxt "OneToManyWidget|"
+msgid "TextLabel"
+msgstr ""
+
+#: one2many.ui:96
+msgctxt "OneToManyWidget|"
+msgid "New"
+msgstr ""
+
+#: one2many.ui:116
+msgctxt "OneToManyWidget|"
+msgid "Edit"
+msgstr ""
+
+#: one2many.ui:136
+msgctxt "OneToManyWidget|"
+msgid "Remove"
+msgstr ""
+
+#: one2many.ui:192
+msgctxt "OneToManyWidget|"
+msgid "Previous"
+msgstr ""
+
+#: one2many.ui:218
+msgctxt "OneToManyWidget|"
+msgid "(0/0)"
+msgstr ""
+
+#: one2many.ui:234
+msgctxt "OneToManyWidget|"
+msgid "Next"
+msgstr ""
+
+#: one2many.ui:263
+msgctxt "OneToManyWidget|"
+msgid "Switch View"
+msgstr ""
+
+#: one2many.ui:165
+msgctxt "OneToManyWidget|"
+msgid "..."
+msgstr ""
+
+#: paned.ui:19
+msgctxt "PanedWidget|"
+msgid "Form"
+msgstr ""
+
+#: paned.ui:83
+msgctxt "PanedWidget|"
+msgid "Search"
+msgstr ""
+
+#: paned.ui:100
+msgctxt "PanedWidget|"
+msgid "Open"
+msgstr ""
+
+#: paned.ui:117
+msgctxt "PanedWidget|"
+msgid "Switch View"
+msgstr ""
+
+#: preferences.ui:14
+msgctxt "PreferencesDialog|"
+msgid "Preferences"
+msgstr ""
+
+#: preferences.ui:45
+msgctxt "PreferencesDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: preferences.ui:56
+msgctxt "PreferencesDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: progress.ui:14
+msgctxt "ProgressDialog|"
+msgid "Progress..."
+msgstr ""
+
+#: progress.ui:40
+msgctxt "ProgressDialog|"
+msgid "Operation in progress"
+msgstr ""
+
+#: progress.ui:53
+msgctxt "ProgressDialog|"
+msgid ""
+"Please wait, \n"
+"this operation may take a while..."
+msgstr ""
+
+#: reference.ui:20
+msgctxt "ReferenceWidget|"
+msgid "Form"
+msgstr ""
+
+#: reference.ui:83
+msgctxt "ReferenceWidget|"
+msgid "Clear"
+msgstr ""
+
+#: reference.ui:66
+msgctxt "ReferenceWidget|"
+msgid "New"
+msgstr ""
+
+#: reference.ui:49
+msgctxt "ReferenceWidget|"
+msgid "Open"
+msgstr ""
+
+#: richtext.ui:14
+msgctxt "RichTextWidget|"
+msgid "Form"
+msgstr ""
+
+#: richtext.ui:36
+msgctxt "RichTextWidget|"
+msgid "Bold"
+msgstr ""
+
+#: richtext.ui:65
+msgctxt "RichTextWidget|"
+msgid "Italics"
+msgstr ""
+
+#: richtext.ui:94
+msgctxt "RichTextWidget|"
+msgid "Underline"
+msgstr ""
+
+#: richtext.ui:123
+msgctxt "RichTextWidget|"
+msgid "Strikethrough"
+msgstr ""
+
+#: richtext.ui:159
+msgctxt "RichTextWidget|"
+msgid "Left Justify"
 msgstr ""
 
 #: richtext.ui:188
+msgctxt "RichTextWidget|"
 msgid "Center"
 msgstr ""
 
-#: shortcuts.ui:737
-msgid "<Shift> + Switch View"
+#: richtext.ui:217
+msgctxt "RichTextWidget|"
+msgid "Right Justify"
 msgstr ""
 
-#: shortcuts.ui:638
-msgid "<Alt> + <Backspace>"
+#: richtext.ui:246
+msgctxt "RichTextWidget|"
+msgid "Justify"
+msgstr ""
+
+#: richtext.ui:282
+msgctxt "RichTextWidget|"
+msgid "Foreground Color"
+msgstr ""
+
+#: richtext.ui:301
+msgctxt "RichTextWidget|"
+msgid "Background color"
+msgstr ""
+
+#: richtext.ui:318
+msgctxt "RichTextWidget|"
+msgid "Select font"
+msgstr ""
+
+#: richtext.ui:331
+msgctxt "RichTextWidget|"
+msgid "Select font size"
+msgstr ""
+
+#: search_date.ui:26
+msgctxt "SearchDateWidget|"
+msgid "Form"
+msgstr ""
+
+#: search_date.ui:56
+msgctxt "SearchDateWidget|"
+msgid "Choose a date from a calendar"
+msgstr ""
+
+#: search_date.ui:81
+msgctxt "SearchDateWidget|"
+msgid "-"
+msgstr ""
+
+#: search_date.ui:112
+msgctxt "SearchDateWidget|"
+msgid "Choose the date from a calendar"
+msgstr ""
+
+#: searchform.ui:14
+msgctxt "SearchFormWidget|"
+msgid "Form"
+msgstr ""
+
+#: searchform.ui:127
+msgctxt "SearchFormWidget|"
+msgid "&Clear"
+msgstr ""
+
+#: searchform.ui:138
+msgctxt "SearchFormWidget|"
+msgid "&Search"
+msgstr ""
+
+#: searchreference.ui:13
+msgctxt "SearchReferenceWidget|"
+msgid "Form"
+msgstr ""
+
+#: searchviewitem.ui:19
+msgctxt "SearchViewItemWidget|"
+msgid "Form"
+msgstr ""
+
+#: searchviewitem.ui:164
+msgctxt "SearchViewItemWidget|"
+msgid "TextLabel"
+msgstr ""
+
+#: win_search.ui:14
+msgctxt "SearchWidget|"
+msgid "Search"
+msgstr ""
+
+#: win_search.ui:67
+msgctxt "SearchWidget|"
+msgid "&New"
+msgstr ""
+
+#: win_search.ui:86
+msgctxt "SearchWidget|"
+msgid "&Find"
+msgstr ""
+
+#: win_search.ui:97
+msgctxt "SearchWidget|"
+msgid "&Accept"
+msgstr ""
+
+#: win_search.ui:108
+msgctxt "SearchWidget|"
+msgid "&Cancel"
+msgstr ""
+
+#: win_search.ui:115
+msgctxt "SearchWidget|"
+msgid "Esc"
+msgstr ""
+
+#: win_selection.ui:13
+msgctxt "SelectionDialog|"
+msgid "Dialog"
+msgstr ""
+
+#: win_selection.ui:19
+msgctxt "SelectionDialog|"
+msgid "<center><b>Choose a plug-in</b></center>"
+msgstr ""
+
+#: win_selection.ui:44
+msgctxt "SelectionDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: win_selection.ui:57
+msgctxt "SelectionDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: shortcuts.ui:14
+msgctxt "ShortcutsDialog|"
+msgid "Shortcuts"
+msgstr ""
+
+#: shortcuts.ui:24
+msgctxt "ShortcutsDialog|"
+msgid "&Main Shortcuts"
+msgstr ""
+
+#: shortcuts.ui:32
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + O"
+msgstr ""
+
+#: shortcuts.ui:39
+msgctxt "ShortcutsDialog|"
+msgid "Connect"
+msgstr ""
+
+#: shortcuts.ui:49
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + N"
+msgstr ""
+
+#: shortcuts.ui:56
+msgctxt "ShortcutsDialog|"
+msgid "New"
+msgstr ""
+
+#: shortcuts.ui:66
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + S"
+msgstr ""
+
+#: shortcuts.ui:73
+msgctxt "ShortcutsDialog|"
+msgid "Save"
+msgstr ""
+
+#: shortcuts.ui:83
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + D"
+msgstr ""
+
+#: shortcuts.ui:90
+msgctxt "ShortcutsDialog|"
+msgid "Delete"
+msgstr ""
+
+#: shortcuts.ui:100
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + F"
+msgstr ""
+
+#: shortcuts.ui:107
+msgctxt "ShortcutsDialog|"
+msgid "Find / Search"
+msgstr ""
+
+#: shortcuts.ui:117
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + T"
+msgstr ""
+
+#: shortcuts.ui:124
+msgctxt "ShortcutsDialog|"
+msgid "Full Text Search"
+msgstr ""
+
+#: shortcuts.ui:134
+msgctxt "ShortcutsDialog|"
+msgid "<Alt> + <PgUp>"
+msgstr ""
+
+#: shortcuts.ui:141
+msgctxt "ShortcutsDialog|"
+msgid "Previous Record"
+msgstr ""
+
+#: shortcuts.ui:151
+msgctxt "ShortcutsDialog|"
+msgid "<Alt> + <PgDn>"
+msgstr ""
+
+#: shortcuts.ui:158
+msgctxt "ShortcutsDialog|"
+msgid "Next record"
+msgstr ""
+
+#: shortcuts.ui:168
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + L"
+msgstr ""
+
+#: shortcuts.ui:175
+msgctxt "ShortcutsDialog|"
+msgid "Switch view mode"
+msgstr ""
+
+#: shortcuts.ui:185
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <PgUp>"
+msgstr ""
+
+#: shortcuts.ui:192
+msgctxt "ShortcutsDialog|"
+msgid "Previous tab"
+msgstr ""
+
+#: shortcuts.ui:202
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <PgDn>"
+msgstr ""
+
+#: shortcuts.ui:209
+msgctxt "ShortcutsDialog|"
+msgid "Next tab"
+msgstr ""
+
+#: shortcuts.ui:219
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + W"
+msgstr ""
+
+#: shortcuts.ui:727
+msgctxt "ShortcutsDialog|"
+msgid "Close tab"
+msgstr ""
+
+#: shortcuts.ui:236
+msgctxt "ShortcutsDialog|"
+msgid "F5"
+msgstr ""
+
+#: shortcuts.ui:243
+msgctxt "ShortcutsDialog|"
+msgid "Reload"
+msgstr ""
+
+#: shortcuts.ui:253
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <Shift> + D"
+msgstr ""
+
+#: shortcuts.ui:260
+msgctxt "ShortcutsDialog|"
+msgid "Duplicate Record"
+msgstr ""
+
+#: shortcuts.ui:286
+msgctxt "ShortcutsDialog|"
+msgid "<center><i>When editing a resource in a popup window</i></center>"
+msgstr ""
+
+#: shortcuts.ui:295
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <Enter>"
+msgstr ""
+
+#: shortcuts.ui:302
+msgctxt "ShortcutsDialog|"
+msgid "Save and close window"
+msgstr ""
+
+#: shortcuts.ui:312
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <Esc>"
+msgstr ""
+
+#: shortcuts.ui:319
+msgctxt "ShortcutsDialog|"
+msgid "Close window without saving"
 msgstr ""
 
 #: shortcuts.ui:332
+msgctxt "ShortcutsDialog|"
 msgid "&Edition Shortcuts"
 msgstr ""
 
-#: mainwindow.ui:571
-msgid "&Save"
+#: shortcuts.ui:389
+msgctxt "ShortcutsDialog|"
+msgid "Shortcuts in text entries"
+msgstr ""
+
+#: shortcuts.ui:401
+msgctxt "ShortcutsDialog|"
+msgid "Cut selected text"
+msgstr ""
+
+#: shortcuts.ui:411
+msgctxt "ShortcutsDialog|"
+msgid "Copy selected text"
+msgstr ""
+
+#: shortcuts.ui:421
+msgctxt "ShortcutsDialog|"
+msgid "Paste selected text"
+msgstr ""
+
+#: shortcuts.ui:431
+msgctxt "ShortcutsDialog|"
+msgid "Next editable widget"
+msgstr ""
+
+#: shortcuts.ui:441
+msgctxt "ShortcutsDialog|"
+msgid "<Shift> + <Tab>"
+msgstr ""
+
+#: shortcuts.ui:448
+msgctxt "ShortcutsDialog|"
+msgid "Previous editable widget"
+msgstr ""
+
+#: shortcuts.ui:624
+msgctxt "ShortcutsDialog|"
+msgid "<Enter>"
+msgstr ""
+
+#: shortcuts.ui:465
+msgctxt "ShortcutsDialog|"
+msgid "Auto-complete text field"
+msgstr ""
+
+#: shortcuts.ui:475
+msgctxt "ShortcutsDialog|"
+msgid "<Tab>"
+msgstr ""
+
+#: shortcuts.ui:482
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + C"
+msgstr ""
+
+#: shortcuts.ui:489
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + V"
+msgstr ""
+
+#: shortcuts.ui:496
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + X"
+msgstr ""
+
+#: shortcuts.ui:511
+msgctxt "ShortcutsDialog|"
+msgid "Numeric fields"
+msgstr ""
+
+#: shortcuts.ui:523
+msgctxt "ShortcutsDialog|"
+msgid ""
+"Formula + <Enter>\n"
+"(Example: 3+2*2)"
 msgstr ""
 
 #: shortcuts.ui:531
+msgctxt "ShortcutsDialog|"
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
 msgstr ""
 
-#: win_import.ui:235
-msgid "&Encoding"
+#: shortcuts.ui:550
+msgctxt "ShortcutsDialog|"
+msgid "Relation fields"
 msgstr ""
 
-#: mainwindow.ui:910
-msgid "Modify Field in Selected Records"
+#: shortcuts.ui:596
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + Open"
 msgstr ""
 
-#: richtext.ui:94
-msgid "Underline"
+#: shortcuts.ui:562
+msgctxt "ShortcutsDialog|"
+msgid "Opens the record in a new tab"
 msgstr ""
 
-#: win_attach.ui:49
-msgid "toolBar"
+#: shortcuts.ui:610
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <Shift> + Open"
+msgstr ""
+
+#: shortcuts.ui:572
+msgctxt "ShortcutsDialog|"
+msgid "Opens the record in a new background tab"
+msgstr ""
+
+#: shortcuts.ui:660
+msgctxt "ShortcutsDialog|"
+msgid "Lists"
+msgstr ""
+
+#: shortcuts.ui:669
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + A"
+msgstr ""
+
+#: shortcuts.ui:676
+msgctxt "ShortcutsDialog|"
+msgid "Selects all records"
+msgstr ""
+
+#: shortcuts.ui:702
+msgctxt "ShortcutsDialog|"
+msgid "&Advanced"
+msgstr ""
+
+#: shortcuts.ui:799
+msgctxt "ShortcutsDialog|"
+msgid "<b>Shortcuts in text entries</b>"
+msgstr ""
+
+#: shortcuts.ui:717
+msgctxt "ShortcutsDialog|"
+msgid "Middle mouse click on Tab"
+msgstr ""
+
+#: shortcuts.ui:737
+msgctxt "ShortcutsDialog|"
+msgid "<Shift> + Switch View"
+msgstr ""
+
+#: shortcuts.ui:747
+msgctxt "ShortcutsDialog|"
+msgid "Open form view in new tab"
+msgstr ""
+
+#: shortcuts.ui:757
+msgctxt "ShortcutsDialog|"
+msgid "Mouse Wheel on Tab"
+msgstr ""
+
+#: shortcuts.ui:767
+msgctxt "ShortcutsDialog|"
+msgid "Change current tab"
+msgstr ""
+
+#: shortcuts.ui:777
+msgctxt "ShortcutsDialog|"
+msgid "<Shift> + Open View"
+msgstr ""
+
+#: shortcuts.ui:787
+msgctxt "ShortcutsDialog|"
+msgid "Open view in a background tab"
+msgstr ""
+
+#: shortcuts.ui:902
+msgctxt "ShortcutsDialog|"
+msgid "&Close"
+msgstr ""
+
+#: shortcuts.ui:344
+msgctxt "ShortcutsDialog|"
+msgid "General"
+msgstr ""
+
+#: shortcuts.ui:353
+msgctxt "ShortcutsDialog|"
+msgid "F10"
+msgstr ""
+
+#: shortcuts.ui:360
+msgctxt "ShortcutsDialog|"
+msgid "Show field's help information"
+msgstr ""
+
+#: shortcuts.ui:582
+msgctxt "ShortcutsDialog|"
+msgid "Create a new record"
+msgstr ""
+
+#: shortcuts.ui:589
+msgctxt "ShortcutsDialog|"
+msgid "Search/edit existing records"
+msgstr ""
+
+#: shortcuts.ui:603
+msgctxt "ShortcutsDialog|"
+msgid "F1"
+msgstr ""
+
+#: shortcuts.ui:617
+msgctxt "ShortcutsDialog|"
+msgid "F2"
+msgstr ""
+
+#: shortcuts.ui:808
+msgctxt "ShortcutsDialog|"
+msgid "<Alt> + Arrow (Left, Right, Up, Down)"
+msgstr ""
+
+#: shortcuts.ui:818
+msgctxt "ShortcutsDialog|"
+msgid "Set focus to nearest widget"
+msgstr ""
+
+#: shortcuts.ui:828
+msgctxt "ShortcutsDialog|"
+msgid "Set focus to current widget's container"
+msgstr ""
+
+#: shortcuts.ui:838
+msgctxt "ShortcutsDialog|"
+msgid "<Alt> + Minus"
+msgstr ""
+
+#: shortcuts.ui:848
+msgctxt "ShortcutsDialog|"
+msgid "<Alt> + Plus"
+msgstr ""
+
+#: shortcuts.ui:858
+msgctxt "ShortcutsDialog|"
+msgid "Set focus to one of the widgets in the container"
+msgstr ""
+
+#: shortcuts.ui:270
+msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <Alt> + T"
+msgstr ""
+
+#: shortcuts.ui:277
+msgctxt "ShortcutsDialog|"
+msgid "Full Text Search current selection"
+msgstr ""
+
+#: shortcuts.ui:367
+msgctxt "ShortcutsDialog|"
+msgid "F3"
+msgstr ""
+
+#: shortcuts.ui:374
+msgctxt "ShortcutsDialog|"
+msgid "Clear field"
+msgstr ""
+
+#: shortcuts.ui:631
+msgctxt "ShortcutsDialog|"
+msgid "Add new record"
+msgstr ""
+
+#: shortcuts.ui:638
+msgctxt "ShortcutsDialog|"
+msgid "<Alt> + <Backspace>"
+msgstr ""
+
+#: shortcuts.ui:645
+msgctxt "ShortcutsDialog|"
+msgid "Remove current record"
+msgstr ""
+
+#: tip.ui:20
+msgctxt "TipsDialog|"
+msgid "Tip of the Day"
+msgstr ""
+
+#: tip.ui:96
+msgctxt "TipsDialog|"
+msgid "&Display a new tip next time ?"
+msgstr ""
+
+#: tip.ui:122
+msgctxt "TipsDialog|"
+msgid "&Previous Tip"
+msgstr ""
+
+#: tip.ui:133
+msgctxt "TipsDialog|"
+msgid "&Next Tip"
+msgstr ""
+
+#: tip.ui:159
+msgctxt "TipsDialog|"
+msgid "&Close"
+msgstr ""
+
+#: translationdialog.ui:45
+msgctxt "TranslationDialog|"
+msgid "&Accept"
+msgstr ""
+
+#: translationdialog.ui:56
+msgctxt "TranslationDialog|"
+msgid "&Cancel"
+msgstr ""
+
+#: translationdialog.ui:14
+msgctxt "TranslationDialog|"
+msgid "Translation Dialog"
+msgstr ""
+
+#: tree.ui:14
+msgctxt "TreeWidget|"
+msgid "Form"
+msgstr ""
+
+#: tree.ui:58
+msgctxt "TreeWidget|"
+msgid "Shortcuts"
+msgstr ""
+
+#: tree.ui:71
+msgctxt "TreeWidget|"
+msgid "Add Shortcut"
+msgstr ""
+
+#: tree.ui:91
+msgctxt "TreeWidget|"
+msgid "Remove Shortcut"
+msgstr ""
+
+#: tree.ui:111
+msgctxt "TreeWidget|"
+msgid "Expand/Collapse"
+msgstr ""
+
+#: url.ui:20
+msgctxt "UrlWidget|"
+msgid "Form"
+msgstr ""
+
+#: url.ui:51
+msgctxt "UrlWidget|"
+msgid "Open"
+msgstr ""
+
+#: web.ui:13
+msgctxt "WebWidget|"
+msgid "Form"
+msgstr ""
+
+#: web.ui:23
+msgctxt "WebWidget|"
+msgid "about:blank"
 msgstr ""
