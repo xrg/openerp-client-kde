@@ -3,12 +3,13 @@
 <TS version="2.0">
     <extra-po-header-po_revision_date>2011-10-25 10:38+0000</extra-po-header-po_revision_date>
     <extra-po-header-x_launchpad_export_date>2011-10-27 06:52+0000</extra-po-header-x_launchpad_export_date>
-    <extra-po-headers>Project-Id-Version,Report-Msgid-Bugs-To,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,MIME-Version,Content-Type,Content-Transfer-Encoding,X-Launchpad-Export-Date,X-Generator</extra-po-headers>
+    <extra-po-headers>Project-Id-Version,Report-Msgid-Bugs-To,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,Language,MIME-Version,Content-Type,Content-Transfer-Encoding,X-Launchpad-Export-Date,X-Qt-Contexts,X-Generator</extra-po-headers>
     <extra-po-header-x_generator>Launchpad (build 14197)</extra-po-header-x_generator>
     <extra-po-header-report_msgid_bugs_to>FULL NAME &lt;EMAIL@ADDRESS&gt;</extra-po-header-report_msgid_bugs_to>
     <extra-po-header-language_team>Arabic &lt;ar@li.org&gt;</extra-po-header-language_team>
     <extra-po-header-project_id_version>openobject-client-kde</extra-po-header-project_id_version>
     <extra-po-header-pot_creation_date>2011-10-24 08:02+0000</extra-po-header-pot_creation_date>
+    <extra-po-header-language>ar</extra-po-header-language>
     <extra-po-header_comment># Arabic translation for openobject-client-kde
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the openobject-client-kde package.
@@ -16,475 +17,11 @@
 #</extra-po-header_comment>
     <extra-po-header-last_translator>kifcaliph &lt;kifcaliph@hotmail.com&gt;</extra-po-header-last_translator>
 <context>
-    <name></name>
-    <message>
-        <location filename="win_export.ui" line="238"/>
-        <source>Import compatible</source>
-        <translation>متوافق الإستيراد</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="89"/>
-        <location filename="mainwindow.ui" line="598"/>
-        <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="610"/>
-        <source>Ctrl+F</source>
-        <translation>Ctrl+F</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="724"/>
-        <source>Ctrl+G</source>
-        <translation>Ctrl+G</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="162"/>
-        <source>&amp;Save list</source>
-        <translation>&amp;حفظ القائمة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="824"/>
-        <source>Ctrl+J</source>
-        <translation>Ctrl+J</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="125"/>
-        <source>Ctrl+L</source>
-        <translation>Ctrl+L</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="658"/>
-        <source>Ctrl+M</source>
-        <translation>Ctrl+M</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="77"/>
-        <location filename="mainwindow.ui" line="562"/>
-        <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="445"/>
-        <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="858"/>
-        <source>Set focus to one of the widgets in the container</source>
-        <translation>تعيين التركيز علي واحد من الأيكونات في المحتوي</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="149"/>
-        <location filename="mainwindow.ui" line="574"/>
-        <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="812"/>
-        <source>Ctrl+T</source>
-        <translation>Ctrl+T</translation>
-    </message>
-    <message>
-        <location filename="keypad.ui" line="148"/>
-        <source>/</source>
-        <translation>/</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="694"/>
-        <source>Ctrl+W</source>
-        <translation>Ctrl+W</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="26"/>
-        <source>Koo: OpenObject KDE Client</source>
-        <translation>Koo: برنامج طرفي لـ KDE</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="36"/>
-        <source>Bold</source>
-        <translation>سميك</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="29"/>
-        <location filename="change_server.ui" line="52"/>
-        <location filename="choosedb.ui" line="47"/>
-        <location filename="login.ui" line="70"/>
-        <source>&amp;Server:</source>
-        <translation>&amp;خادم:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="809"/>
-        <source>Full &amp;Text Search</source>
-        <translation>&amp;بحث نصي بالكامل</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="421"/>
-        <source>Paste selected text</source>
-        <translation>لصق النص المحدد</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="645"/>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="299"/>
-        <source>Repeat admin password</source>
-        <translation>كرر كلمة مرور المشرف</translation>
-    </message>
-    <message>
-        <location filename="webcontainer.ui" line="24"/>
-        <location filename="full_text_search.ui" line="86"/>
-        <location filename="web.ui" line="23"/>
-        <source>about:blank</source>
-        <translation>about:blank</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="679"/>
-        <source>Previous Tab</source>
-        <translation>التبويب السابق</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="727"/>
-        <source>Close tab</source>
-        <translation>إغلاق التبويب</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="610"/>
-        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
-        <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="658"/>
-        <source>P</source>
-        <translation>P</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="374"/>
-        <source>Clear field</source>
-        <translation>مسح الحقل</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="282"/>
-        <source>Foreground Color</source>
-        <translation>الألوان الأمامية</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="37"/>
-        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
-
-Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
-        <translation>هنا يمكنك البحث عن أي مصطلح في قاعدة البيانات كاملة طالما تم فهرسته. إذا كانت الكلمات التي تبحث عنها لا ترجع نتائج و أنت متأكد من أنها موجودة لكن على الأرجح أنها لم تفهرس فيجب عليك أن تسأل مدير النظام.
-البحث عن نص يبحث فقط عن الكلمات الكاملة لكنه يمكن أن يرجع الكلمات التي تحتوي على نفس الجزر. مثلاً , البحث عن كلمة &quot; بناء &quot; يمكن أن ترجع المستندات التي تحتوي على كلمة &quot;بنا&quot; ، &quot;بناء&quot; ، أو &quot; بنايات&quot;</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="66"/>
-        <location filename="mainwindow.ui" line="607"/>
-        <location filename="win_search.ui" line="86"/>
-        <source>&amp;Find</source>
-        <translation>&amp;بحث</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="787"/>
-        <source>Open view in a background tab</source>
-        <translation>فتح العرض في التبويب الخلفي</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="181"/>
-        <source>File &amp;type:</source>
-        <translation>&amp;نوع الملف:</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="421"/>
-        <source>Tab</source>
-        <translation>تبويب</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="76"/>
-        <source>&lt;b&gt;All fields&lt;/b&gt;</source>
-        <translation>&lt;b&gt;جميع الحقول&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="286"/>
-        <source>Sheet:</source>
-        <translation>ورقة:</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="676"/>
-        <source>Selects all records</source>
-        <translation>حدد كل السجلات</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="93"/>
-        <source>for all &amp;users</source>
-        <translation>&amp;لكل المستخدمين</translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="56"/>
-        <source>Choose a date from a calendar</source>
-        <translation>اختر التاريخ من النتيجة</translation>
-    </message>
-    <message>
-        <location filename="searchform.ui" line="138"/>
-        <source>&amp;Search</source>
-        <translation>&amp;بحث</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="22"/>
-        <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation>&lt;b&gt;صادرات معرفة مسبقاً&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="113"/>
-        <source>(must not contain any special character)</source>
-        <translation>(يجب ألا تشمل علي رموز خاصة )</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="286"/>
-        <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;i&gt;حين يتم تحرير مصدر في شباك آخر&lt;/i&gt;&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="218"/>
-        <source>&amp;Text delimiter:</source>
-        <translation>&amp;مؤشر النص:</translation>
-    </message>
-    <message>
-        <location filename="calendar.ui" line="20"/>
-        <location filename="image.ui" line="13"/>
-        <location filename="formcontainer.ui" line="13"/>
-        <location filename="many2many.ui" line="14"/>
-        <location filename="many2one.ui" line="20"/>
-        <location filename="one2many.ui" line="14"/>
-        <location filename="paned.ui" line="19"/>
-        <location filename="reference.ui" line="20"/>
-        <location filename="richtext.ui" line="14"/>
-        <location filename="search_date.ui" line="26"/>
-        <location filename="searchform.ui" line="14"/>
-        <location filename="searchreference.ui" line="13"/>
-        <location filename="searchviewitem.ui" line="19"/>
-        <location filename="tree.ui" line="14"/>
-        <location filename="url.ui" line="20"/>
-        <location filename="web.ui" line="13"/>
-        <source>Form</source>
-        <translation>نموذج</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="808"/>
-        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
-        <translation>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="619"/>
-        <source>+</source>
-        <translation>+</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="434"/>
-        <source>Caps</source>
-        <translation>Caps</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="828"/>
-        <source>Set focus to current widget&apos;s container</source>
-        <translation>تعيين التركيز علي الأيقونة الحالية من المحتوي</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="101"/>
-        <location filename="mainwindow.ui" line="622"/>
-        <source>Alt+PgDown</source>
-        <translation>Alt+PgDown</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="109"/>
-        <source>De&amp;tails</source>
-        <translation>&amp;تفاصيل</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="174"/>
-        <source>K</source>
-        <translation>K</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="332"/>
-        <source>Documentation</source>
-        <translation>التوثيق</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="478"/>
-        <source>&amp;New Database</source>
-        <translation>&amp;قاعدة بيانات جديدة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="586"/>
-        <source>Ctrl+Shift+D</source>
-        <translation>Ctrl+Shift+D</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="922"/>
-        <source>Ne&amp;w Attachment</source>
-        <translation>مر&amp;فق جديد</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="95"/>
-        <location filename="login.ui" line="111"/>
-        <source>&amp;Database:</source>
-        <translation>&amp;قاعدة بيانات:</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="135"/>
-        <source>&amp;Remote Help</source>
-        <translation>&amp;مساعدة من بعد</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="411"/>
-        <source>Copy selected text</source>
-        <translation>انسخ النص المحدد</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="24"/>
-        <source>&amp;Main Shortcuts</source>
-        <translation>&amp;الإختصارات الرئيسية</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="777"/>
-        <source>&amp;Tips</source>
-        <translation>&amp;نصائح</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="17"/>
-        <source>Import</source>
-        <translation>إستيراد</translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="13"/>
-        <source>Database created</source>
-        <translation>تم إنشاء قاعدة البيانات</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="26"/>
-        <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
-        <translation>&lt;b&gt;لم يتمكن من الإتصال بقاعدة البيانات&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="112"/>
-        <source>Choose the date from a calendar</source>
-        <translation>اختر تاريخ من النتيجة</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="203"/>
-        <source>&lt;b&gt;Options&lt;/b&gt;</source>
-        <translation>&lt;b&gt;خيارات&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="lostconnection.ui" line="73"/>
-        <source>&amp;Retry</source>
-        <translation>&amp;اعد المحاولة</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="554"/>
-        <source>6</source>
-        <translation>6</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="86"/>
-        <location filename="shortcuts.ui" line="90"/>
-        <source>Delete</source>
-        <translation>حذف</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="57"/>
-        <source>E</source>
-        <translation>E</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="331"/>
-        <source>Select font size</source>
-        <translation>اختر حجم الخط</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="161"/>
-        <source>F</source>
-        <translation>F</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="226"/>
-        <source>Ñ</source>
-        <translation>Ñ</translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="66"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;يمكنك الإتصال بقاعدة البيانات بإستخدام الحسابات التالية:&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="386"/>
-        <source>&amp;Reports</source>
-        <translation>&amp;تقارير</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="747"/>
-        <source>Open form view in new tab</source>
-        <translation>فتح عرض النموذج في مبوبة جديدة</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="596"/>
-        <source>&lt;Ctrl&gt; + Open</source>
-        <translation>&lt;Ctrl&gt; + Open</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="291"/>
-        <source>V</source>
-        <translation>V</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="603"/>
-        <source>F1</source>
-        <translation>F1</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="617"/>
-        <source>F2</source>
-        <translation>F2</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="367"/>
-        <source>F3</source>
-        <translation>F3</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="736"/>
-        <location filename="shortcuts.ui" line="236"/>
-        <source>F5</source>
-        <translation>F5</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="646"/>
-        <source>F6</source>
-        <translation>F6</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="460"/>
-        <source>&amp;Disconnect</source>
-        <translation>&amp;قطع الإتصال</translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="32"/>
-        <source>Connect to a OpenERP Server</source>
-        <translation>اتصل بخادم OpenERP</translation>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="about.ui" line="14"/>
+        <source>About OpenERP</source>
+        <translation type="unfinished">عن OpenERP</translation>
     </message>
     <message>
         <location filename="about.ui" line="20"/>
@@ -493,18 +30,26 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;About OpenERP&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The most advanced Open Source ERP &amp;amp; CRM !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <translation type="unfinished">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;center&gt;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;عن OpenERP&lt;/span&gt; &lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The most advanced Open Source ERP &amp;amp; CRM !&lt;/p&gt;&lt;/center&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="523"/>
-        <source>Formula + &lt;Enter&gt;
-(Example: 3+2*2)</source>
-        <translation>Formula + &lt;Enter&gt;
-(مثال: 3+2*2)</translation>
+        <location filename="about.ui" line="42"/>
+        <source>&amp;OpenERP</source>
+        <translation type="unfinished">&amp;OpenERP</translation>
+    </message>
+    <message>
+        <location filename="about.ui" line="76"/>
+        <source>&amp;Contact</source>
+        <translation type="unfinished">&amp;جهة الإتصال</translation>
+    </message>
+    <message>
+        <location filename="about.ui" line="120"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
     </message>
     <message>
         <location filename="about.ui" line="48"/>
@@ -522,7 +67,7 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;the terms of the GNU Public Licence.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;More Info on &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -538,943 +83,586 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;More Info on &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="263"/>
-        <location filename="paned.ui" line="117"/>
-        <source>Switch View</source>
-        <translation>تبديل العرض</translation>
-    </message>
-    <message>
-        <location filename="customsearchitem.ui" line="63"/>
-        <source>&amp;And</source>
-        <translation>&amp;و</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="667"/>
-        <source>Next Tab</source>
-        <translation>التبويب التالي</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="14"/>
-        <source>Create a new database</source>
-        <translation>إنشاء قاعدة بيانات جديدة</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="717"/>
-        <source>Middle mouse click on Tab</source>
-        <translation>ضغط بزر الوسط للفأرة علي التبويب</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="259"/>
-        <source>UTF-8</source>
-        <translation>UTF-8</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="57"/>
-        <source>&amp;Old password:</source>
-        <translation>&amp;كلمة المرور القديمة:</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="528"/>
-        <source>1</source>
-        <translation>1</translation>
-    </message>
-    <message>
-        <location filename="tip.ui" line="96"/>
-        <source>&amp;Display a new tip next time ?</source>
-        <translation>&amp;عرض إرشاد جديد المرة القادمة؟</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="200"/>
-        <source>A</source>
-        <translation>A</translation>
-    </message>
-    <message>
-        <location filename="image.ui" line="56"/>
-        <source>Load Image</source>
-        <translation>تحميل الصورة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="541"/>
-        <source>&amp;Read My Requests</source>
-        <translation>&amp;اقرأ طلباتي</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="107"/>
-        <source>Find / Search</source>
-        <translation>إيجاد / بحث</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="131"/>
-        <source>Fields to import</source>
-        <translation>الحقول للتصدير</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="580"/>
-        <source>Q</source>
-        <translation>Q</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="931"/>
-        <source>Sca&amp;n Attachment</source>
-        <translation>مسح المرفقات</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="475"/>
-        <source>&lt;Tab&gt;</source>
-        <translation>&lt;Tab&gt;</translation>
-    </message>
-    <message>
-        <location filename="one2many_dialog.ui" line="14"/>
-        <source>OpenERP - Link</source>
-        <translation>رابط - OpenERP</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="157"/>
-        <source>File to &amp;import:</source>
-        <translation>ملف &amp;للتصدير</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="216"/>
-        <source>Add &amp;field names</source>
-        <translation>&amp;اضف أسماء للحقل</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="110"/>
-        <source>Auto-&amp;detect</source>
-        <translation>إ&amp;ستنباط تلقائي</translation>
-    </message>
-    <message>
-        <location filename="binary.ui" line="64"/>
-        <source>Save file...</source>
-        <translation>حفظ الملف...</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="55"/>
-        <source>Default &amp;value</source>
-        <translation>&amp;قيم إفتراضية</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="702"/>
-        <source>&amp;Advanced</source>
-        <translation>&amp;متقدم</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="791"/>
-        <source>&amp;License</source>
-        <translation>&amp;رخصة</translation>
-    </message>
-    <message>
-        <location filename="calendarview.ui" line="34"/>
-        <source>Monthly View</source>
-        <translation>العرض الشهري</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="102"/>
-        <source>&lt;b&gt;Value applicable if:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;تنطبق القيمة لو:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="833"/>
-        <source>&amp;Form designer</source>
-        <translation>&amp;محرر النموذج</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="299"/>
-        <source>&amp;Lines to skip:</source>
-        <translation>&amp;تخطي الخطوط</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="304"/>
-        <location filename="win_import.ui" line="211"/>
-        <source>,</source>
-        <translation>،</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="595"/>
-        <source>&amp;Delete</source>
-        <translation>&amp;حذف</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="559"/>
-        <location filename="win_search.ui" line="67"/>
-        <source>&amp;New</source>
-        <translation>&amp;جديد</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="465"/>
-        <source>Auto-complete text field</source>
-        <translation>إكمال تلقائي للحقل النصي</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="632"/>
-        <source>Ç</source>
-        <translation>Ç</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="514"/>
-        <source>&amp;Administrator Password</source>
-        <translation>&amp;كلمة مرور المشرف العام</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="213"/>
-        <source>L</source>
-        <translation>L</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="847"/>
-        <source>Open Home Tab</source>
-        <translation>فتح المبوبة الرئيسية</translation>
-    </message>
-    <message>
-        <location filename="lostconnection.ui" line="45"/>
-        <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
-        <translation>فقد الإتصال بالخادم، سيعاود محاولة الإتصال خلال 10 ثوان.</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="33"/>
-        <source>All fields</source>
-        <translation>كل الحقول</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="110"/>
-        <location filename="one2many.ui" line="192"/>
-        <source>Previous</source>
-        <translation>السابق</translation>
-    </message>
-    <message>
-        <location filename="preferences.ui" line="14"/>
-        <source>Preferences</source>
-        <translation>تفضيلات</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="13"/>
-        <source>Choose database...</source>
-        <translation>اختر قاعدة البيانات...</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="98"/>
-        <location filename="one2many.ui" line="234"/>
-        <source>Next</source>
-        <translation>التالي</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="91"/>
-        <source>New password &amp;confirmation:</source>
-        <translation>&amp;تأكيد كلمة المرور:</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="146"/>
-        <location filename="shortcuts.ui" line="73"/>
-        <source>Save</source>
-        <translation>حفظ</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="606"/>
-        <source>&apos;</source>
-        <translation>&apos;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="856"/>
-        <source>&amp;Clear Cache</source>
-        <translation>تن&amp;ظيف المخبأة</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="123"/>
-        <location filename="image.ui" line="25"/>
-        <location filename="one2many.ui" line="80"/>
-        <location filename="searchviewitem.ui" line="164"/>
-        <source>TextLabel</source>
-        <translation>تسمية النصّ</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="799"/>
-        <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
-        <translation>&lt;b&gt;الإختصارات للمدخلات النصية&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="476"/>
-        <source>7</source>
-        <translation>7</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="187"/>
-        <source>G</source>
-        <translation>G</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="123"/>
-        <source>(use &apos;admin&apos;, if you did not change it)</source>
-        <translation>( إستخدم &quot;Admin&quot;، إذا لم تقم بالتغيير )</translation>
-    </message>
-    <message>
-        <location filename="binary.ui" line="47"/>
-        <location filename="link.ui" line="36"/>
-        <source>Select file...</source>
-        <translation>اختر ملف...</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="20"/>
-        <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
-        <translation>&lt;b&gt;تغيير كلمة مرور المشرف العام&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="44"/>
-        <source>W</source>
-        <translation>W</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="353"/>
-        <source>F10</source>
-        <translation>F10</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="78"/>
-        <location filename="login.ui" line="221"/>
-        <source>&amp;Password:</source>
-        <translation>&amp;كلمة المرور:</translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="56"/>
-        <source>Database created successfully!</source>
-        <translation>تم إنشاء قاعدة البيانات بنجاح!</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="124"/>
-        <source>&amp;Send Error</source>
-        <translation>&amp;خطأ في الإرسال</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="582"/>
-        <source>Create a new record</source>
-        <translation>إنشاء سجل جديد</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="838"/>
-        <source>&amp;Menu</source>
-        <translation>&amp;قائمة</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="115"/>
-        <location filename="mainwindow.ui" line="631"/>
-        <location filename="one2many_dialog.ui" line="57"/>
-        <source>&amp;Previous</source>
-        <translation>&amp;سابق</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="76"/>
-        <source>&amp;Contact</source>
-        <translation>&amp;جهة الإتصال</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="898"/>
-        <source>Insert Several Records at Once</source>
-        <translation>إدراج عدة سجلات مرة واحدة</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="158"/>
-        <source>Next record</source>
-        <translation>السجل التالي</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="889"/>
-        <source>Push Button of All Selected Records</source>
-        <translation>اضغط زر الجلات المحددة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="310"/>
-        <source>&amp;Actions</source>
-        <translation>&amp;إجراءات</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="228"/>
-        <source>&quot;</source>
-        <translation>&quot;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="356"/>
-        <source>F&amp;orm</source>
-        <translation>&amp;نموذج</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="502"/>
-        <source>2</source>
-        <translation>2</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="276"/>
-        <source>&amp;Database</source>
-        <translation>&amp;قاعدة بيانات</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="572"/>
-        <source>Opens the record in a new background tab</source>
-        <translation>فتح السجل في بوابة جديدة بالخلفية</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="800"/>
-        <source>&amp;About</source>
-        <translation>&amp;حول</translation>
-    </message>
-    <message>
-        <location filename="many2one.ui" line="59"/>
-        <location filename="paned.ui" line="83"/>
-        <location filename="win_search.ui" line="14"/>
-        <source>Search</source>
-        <translation>بحث</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="317"/>
-        <source>B</source>
-        <translation>B</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="168"/>
-        <source>Requests:</source>
-        <translation>طلبات:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="328"/>
-        <source>&amp;Help</source>
-        <translation>&amp;مساعدة</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="70"/>
-        <source>R</source>
-        <translation>R</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="64"/>
-        <source>&amp;Change</source>
-        <translation>&amp;تغيير</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="14"/>
-        <location filename="tree.ui" line="58"/>
-        <source>Shortcuts</source>
-        <translation>إختصارات</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="123"/>
-        <source>Strikethrough</source>
-        <translation>مشطوب / يتوسطه خط</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="74"/>
-        <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;القيمة تنطبق لـ:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="keypad.ui" line="239"/>
-        <source>Intro</source>
-        <translation>مدخل</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="39"/>
-        <source>Connect</source>
-        <translation>اتصل</translation>
-    </message>
-    <message>
-        <location filename="one2many_dialog.ui" line="118"/>
-        <source>&amp;OK</source>
-        <translation>&amp;تم</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="298"/>
-        <source>&amp;User</source>
-        <translation>&amp;مستخدم</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="682"/>
-        <source>Ctrl+PgUp</source>
-        <translation>Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="124"/>
-        <source>Full Text Search</source>
-        <translation>بحث نصي بالكامل</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="64"/>
-        <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
-        <translation>&lt;b&gt;خطأ رمز:&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="151"/>
-        <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
-        <translation>&lt;Alt&gt; + &lt;PgDn&gt;</translation>
-    </message>
-    <message>
-        <location filename="batchupdate.ui" line="13"/>
-        <source>Batch Update Process</source>
-        <translation>عملية تحديث الدفعات</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="703"/>
-        <source>View Access Log</source>
-        <translation>عرض سجل الدخول</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="209"/>
-        <source>Next tab</source>
-        <translation>التبويب التالي</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="431"/>
-        <source>Next editable widget</source>
-        <translation>الأيقونة التالية قابلة التحرير</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="356"/>
-        <location filename="search_date.ui" line="81"/>
-        <source>-</source>
-        <translation>-</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="148"/>
-        <source>J</source>
-        <translation>J</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="278"/>
-        <source>M</source>
-        <translation>M</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="583"/>
-        <source>D&amp;uplicate</source>
-        <translation>مك&amp;رر</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="38"/>
-        <source>&amp;Domain</source>
-        <translation>ن&amp;طاق</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="408"/>
-        <source>Enter</source>
-        <translation>مفتاح Enter</translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="23"/>
-        <source>Login</source>
-        <translation>تسجيل الدخول</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="14"/>
-        <source>Full text search</source>
-        <translation>بحث نصي كامل</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="127"/>
-        <location filename="win_import.ui" line="75"/>
-        <location filename="many2many.ui" line="60"/>
-        <source>&amp;Remove</source>
-        <translation>&amp;إزالة</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="74"/>
-        <source>&amp;New password:</source>
-        <translation>&amp;كلمة مرور جديدة:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="280"/>
-        <source>&amp;Databases</source>
-        <translation>&amp;قواعد بيانات</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="158"/>
-        <location filename="win_import.ui" line="341"/>
-        <location filename="mainwindow.ui" line="691"/>
-        <location filename="shortcuts.ui" line="902"/>
-        <location filename="tip.ui" line="159"/>
-        <source>&amp;Close</source>
-        <translation>&amp;إغلاق</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="253"/>
-        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
-        <translation>&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="875"/>
-        <source>HTML Manual</source>
-        <translation>مساعد HTML</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="201"/>
-        <source>&amp;Field separator</source>
-        <translation>&amp;فاصل الحقل</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="655"/>
-        <source>Open &amp;Menu Tab</source>
-        <translation>فتح مبوبة ال&amp;قائمة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="532"/>
-        <source>&amp;Send Request</source>
-        <translation>إر&amp;سال طلب</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="50"/>
-        <source>&amp;New database name:</source>
-        <translation>قاعدة بيانات &amp;جديدة:</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="71"/>
-        <source>View details</source>
-        <translation>عرض التفاصيل</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="301"/>
-        <source>Background color</source>
-        <translation>لون الخلفية</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="20"/>
-        <source>Application Error !</source>
-        <translation>خطأ في التطبيق !</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="233"/>
-        <source>&amp;OpenERP server:</source>
-        <translation>خادم ن&amp;ظام OpenERP:</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="25"/>
-        <source>Action here...</source>
-        <translation>الإجراء هنا...</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="562"/>
-        <source>Opens the record in a new tab</source>
-        <translation>فتح السجل في مبوبة جديدة</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="567"/>
-        <source>8</source>
-        <translation>8</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="83"/>
-        <source>&amp;only for you</source>
-        <translation>خاص &amp;بك فقط</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="265"/>
-        <source>H</source>
-        <translation>H</translation>
-    </message>
-    <message>
-        <location filename="calendarview.ui" line="83"/>
-        <source>Color Legend</source>
-        <translation>لون الأيقونات</translation>
-    </message>
-    <message>
-        <location filename="image.ui" line="73"/>
-        <source>Save Image</source>
-        <translation>احفظ الصورة</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="369"/>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="151"/>
-        <source>Help</source>
-        <translation>مساعدة</translation>
-    </message>
-    <message>
-        <location filename="tree.ui" line="91"/>
-        <source>Remove Shortcut</source>
-        <translation>إزلة المختصر</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="21"/>
-        <source>Field &amp;Name</source>
-        <translation>ا&amp;سم الحقل</translation>
-    </message>
-    <message>
-        <location filename="translationdialog.ui" line="14"/>
-        <source>Translation Dialog</source>
-        <translation>مربع الترجمة</translation>
-    </message>
-    <message>
-        <location filename="customsearchitem.ui" line="56"/>
-        <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
-        <translation>إذا كان المعامل هو &quot;in&quot; أو &quot;not&quot; ربما يتم عرض قائمة من القيم مفصولة بفاصلة</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="34"/>
-        <source>&amp;Description</source>
-        <translation>ال&amp;وصف</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="260"/>
-        <source>Duplicate Record</source>
-        <translation>سجل مكرر</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="382"/>
-        <source>C</source>
-        <translation>C</translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="176"/>
-        <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
-        <translation>&lt;b&gt;لم يتمكن من الإتصال بالخادم !&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="197"/>
-        <source>&amp;Load demonstration data</source>
-        <translation>تحميل البيانات الو&amp;همية التجريبية</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="292"/>
-        <source>Admin password:</source>
-        <translation>كلمة مرور المشرف:</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="515"/>
-        <source>3</source>
-        <translation>3</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="684"/>
-        <source>Supr</source>
-        <translation>Supr</translation>
-    </message>
-    <message>
-        <location filename="tree.ui" line="111"/>
-        <source>Expand/Collapse</source>
-        <translation>توسيع/طي</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="42"/>
+        <location filename="about.ui" line="82"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo is a product of NaN:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;؟&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo هو منتج لشركة  NaN:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>AdminPasswordDialog</name>
+    <message>
+        <location filename="admin_passwd.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished">مربح حواري</translation>
     </message>
     <message>
-        <location filename="progress.ui" line="53"/>
-        <source>Please wait, 
-this operation may take a while...</source>
-        <translation>رجاء الإنتظار،
-هذه العملية قد تستغرق بعض الوقت...</translation>
+        <location filename="admin_passwd.ui" line="20"/>
+        <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;تغيير كلمة مرور المشرف العام&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="217"/>
-        <source>Read My Requests</source>
-        <translation>اقرأ طلباتي</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="141"/>
-        <source>Previous Record</source>
-        <translation>السجل السابق</translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="20"/>
-        <source>Server</source>
-        <translation>خادم</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="120"/>
-        <location filename="admin_passwd.ui" line="138"/>
-        <location filename="batchupdate.ui" line="44"/>
-        <location filename="change_server.ui" line="113"/>
-        <location filename="choosedb.ui" line="161"/>
-        <location filename="create_database.ui" line="343"/>
-        <location filename="batchupdate_msgbox.ui" line="104"/>
-        <location filename="error.ui" line="159"/>
-        <location filename="win_export.ui" line="271"/>
-        <location filename="field_preferences.ui" line="134"/>
-        <location filename="gotoid.ui" line="72"/>
-        <location filename="license.ui" line="148"/>
-        <location filename="login.ui" line="283"/>
-        <location filename="preferences.ui" line="45"/>
-        <location filename="win_search.ui" line="97"/>
-        <location filename="win_selection.ui" line="44"/>
-        <location filename="translationdialog.ui" line="45"/>
-        <source>&amp;Accept</source>
-        <translation>&amp;قبول</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="239"/>
-        <source>S</source>
-        <translation>S</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="505"/>
-        <source>&amp;Drop Database</source>
-        <translation>إ&amp;زالة قاعدة البيانات</translation>
-    </message>
-    <message>
-        <location filename="searchform.ui" line="127"/>
-        <source>&amp;Clear</source>
-        <translation>&amp;مسح</translation>
+        <location filename="admin_passwd.ui" line="29"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">&amp;خادم:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="46"/>
-        <location filename="create_database.ui" line="94"/>
-        <location filename="login.ui" line="98"/>
         <source>C&amp;hange</source>
-        <translation>ت&amp;غيير</translation>
+        <translation type="unfinished">ت&amp;غيير</translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="57"/>
+        <source>&amp;Old password:</source>
+        <translation type="unfinished">&amp;كلمة المرور القديمة:</translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="74"/>
+        <source>&amp;New password:</source>
+        <translation type="unfinished">&amp;كلمة مرور جديدة:</translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="91"/>
+        <source>New password &amp;confirmation:</source>
+        <translation type="unfinished">&amp;تأكيد كلمة المرور:</translation>
+    </message>
+    <message>
+        <location filename="admin_passwd.ui" line="138"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="149"/>
-        <location filename="batchupdate.ui" line="55"/>
-        <location filename="change_server.ui" line="133"/>
-        <location filename="choosedb.ui" line="175"/>
-        <location filename="create_database.ui" line="357"/>
-        <location filename="batchupdate_msgbox.ui" line="115"/>
-        <location filename="win_export.ui" line="285"/>
-        <location filename="field_preferences.ui" line="144"/>
-        <location filename="gotoid.ui" line="83"/>
-        <location filename="login.ui" line="297"/>
-        <location filename="one2many_dialog.ui" line="129"/>
-        <location filename="preferences.ui" line="56"/>
-        <location filename="win_search.ui" line="108"/>
-        <location filename="win_selection.ui" line="57"/>
-        <location filename="translationdialog.ui" line="56"/>
         <source>&amp;Cancel</source>
-        <translation>إل&amp;غاء</translation>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>AttachmentWindow</name>
+    <message>
+        <location filename="win_attach.ui" line="16"/>
+        <source>Attachments</source>
+        <translation type="unfinished">مرفقات</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="645"/>
-        <source>Remove current record</source>
-        <translation>إزالة السجل الحالي</translation>
+        <location filename="win_attach.ui" line="49"/>
+        <source>toolBar</source>
+        <translation type="unfinished">شريط الأدوات</translation>
     </message>
     <message>
-        <location filename="image.ui" line="90"/>
-        <source>Remove Image</source>
-        <translation>إزالة الصورة</translation>
+        <location filename="win_attach.ui" line="74"/>
+        <source>New</source>
+        <translation type="unfinished">جديد</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="870"/>
-        <source>PDF Manual</source>
-        <translation>ملف الإستخدام كـ PDF</translation>
+        <location filename="win_attach.ui" line="77"/>
+        <source>Ctrl+N</source>
+        <translation type="unfinished">Ctrl+N</translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="330"/>
-        <source>&amp;Import</source>
-        <translation>إ&amp;ستيراد</translation>
+        <location filename="win_attach.ui" line="86"/>
+        <source>Delete</source>
+        <translation type="unfinished">حذف</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="134"/>
-        <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
-        <translation>&lt;Alt&gt; + &lt;PgUp&gt;</translation>
+        <location filename="win_attach.ui" line="89"/>
+        <source>Ctrl+D</source>
+        <translation type="unfinished">Ctrl+D</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="240"/>
-        <source>Send New Request</source>
-        <translation>إرسال طلب جدبد</translation>
+        <location filename="win_attach.ui" line="98"/>
+        <source>Next</source>
+        <translation type="unfinished">التالي</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="670"/>
-        <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <location filename="win_attach.ui" line="101"/>
+        <source>Alt+PgDown</source>
+        <translation type="unfinished">Alt+PgDown</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="624"/>
-        <source>&lt;Enter&gt;</source>
-        <translation>&lt;Enter&gt;</translation>
+        <location filename="win_attach.ui" line="110"/>
+        <source>Previous</source>
+        <translation type="unfinished">السابق</translation>
     </message>
     <message>
-        <location filename="dbcreateok.ui" line="98"/>
-        <source>Connect &amp;now</source>
-        <translation>الإتصال الأ&amp;ن</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="754"/>
-        <source>&amp;Import Data</source>
-        <translation>&amp;إستراد البيانات</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="271"/>
-        <source>&amp;Plugins</source>
-        <translation>الملح&amp;قات</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="159"/>
-        <source>Left Justify</source>
-        <translation>إمالة لليسار</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="343"/>
-        <source>.</source>
-        <translation>.</translation>
-    </message>
-    <message>
-        <location filename="tip.ui" line="20"/>
-        <source>Tip of the Day</source>
-        <translation>تذكرة اليوم</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="523"/>
-        <source>&amp;Preferences</source>
-        <translation>&amp;تفضيلات</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="772"/>
-        <source>&amp;Contextual Help</source>
-        <translation>المساعدة ال&amp;نصية</translation>
-    </message>
-    <message>
-        <location filename="lostconnection.ui" line="32"/>
-        <source>Connection Lost</source>
-        <translation>انقطع الإتصال</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="389"/>
-        <source>Shortcuts in text entries</source>
-        <translation>مختصارات المدخلات النصية</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="395"/>
-        <source>N</source>
-        <translation>N</translation>
+        <location filename="win_attach.ui" line="113"/>
+        <source>Alt+PgUp</source>
+        <translation type="unfinished">Alt+PgUp</translation>
     </message>
     <message>
         <location filename="win_attach.ui" line="122"/>
         <source>Switch</source>
-        <translation>تحويل</translation>
+        <translation type="unfinished">تحويل</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="463"/>
-        <source>Space</source>
-        <translation>مسافة</translation>
+        <location filename="win_attach.ui" line="125"/>
+        <source>Ctrl+L</source>
+        <translation type="unfinished">Ctrl+L</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="14"/>
+        <location filename="win_attach.ui" line="134"/>
+        <source>Close</source>
+        <translation type="unfinished">إغلاق</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="137"/>
+        <source>Esc</source>
+        <translation type="unfinished">Esc</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="146"/>
+        <source>Save</source>
+        <translation type="unfinished">حفظ</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="149"/>
+        <source>Ctrl+S</source>
+        <translation type="unfinished">Ctrl+S</translation>
+    </message>
+</context>
+<context>
+    <name>BatchUpdateDialog</name>
+    <message>
+        <location filename="batchupdate.ui" line="13"/>
+        <source>Batch Update Process</source>
+        <translation type="unfinished">عملية تحديث الدفعات</translation>
+    </message>
+    <message>
+        <location filename="batchupdate.ui" line="44"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="batchupdate.ui" line="55"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>BinaryWidget</name>
+    <message>
+        <location filename="binary.ui" line="47"/>
+        <source>Select file...</source>
+        <translation type="unfinished">اختر ملف...</translation>
+    </message>
+    <message>
+        <location filename="binary.ui" line="64"/>
+        <source>Save file...</source>
+        <translation type="unfinished">حفظ الملف...</translation>
+    </message>
+    <message>
+        <location filename="binary.ui" line="81"/>
+        <source>Clear</source>
+        <translation type="unfinished">إفراغ</translation>
+    </message>
+</context>
+<context>
+    <name>CalendarWidget</name>
+    <message>
+        <location filename="calendar.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="calendar.ui" line="51"/>
+        <source>Open Calendar</source>
+        <translation type="unfinished">فتح النتيجة</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeServerDialog</name>
+    <message>
+        <location filename="change_server.ui" line="20"/>
+        <source>Server</source>
+        <translation type="unfinished">خادم</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="32"/>
+        <source>Connect to a OpenERP Server</source>
+        <translation type="unfinished">اتصل بخادم OpenERP</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="52"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">&amp;خادم:</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="71"/>
+        <source>&amp;Port:</source>
+        <translation type="unfinished">المن&amp;فذ:</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="113"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="133"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>ChooseDatabaseDialog</name>
+    <message>
+        <location filename="choosedb.ui" line="13"/>
+        <source>Choose database...</source>
+        <translation type="unfinished">اختر قاعدة البيانات...</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="25"/>
+        <source>Action here...</source>
+        <translation type="unfinished">الإجراء هنا...</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="47"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">&amp;خادم:</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="64"/>
+        <source>&amp;Change</source>
+        <translation type="unfinished">&amp;تغيير</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="78"/>
+        <source>&amp;Password:</source>
+        <translation type="unfinished">&amp;كلمة المرور:</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="95"/>
+        <source>&amp;Database:</source>
+        <translation type="unfinished">&amp;قاعدة بيانات:</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="123"/>
+        <source>TextLabel</source>
+        <translation type="unfinished">تسمية النصّ</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="161"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="175"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>CreateDatabaseDialog</name>
+    <message>
+        <location filename="create_database.ui" line="14"/>
+        <source>Create a new database</source>
+        <translation type="unfinished">إنشاء قاعدة بيانات جديدة</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="26"/>
+        <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;لم يتمكن من الإتصال بقاعدة البيانات&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="50"/>
+        <source>&amp;New database name:</source>
+        <translation type="unfinished">قاعدة بيانات &amp;جديدة:</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="94"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished">ت&amp;غيير</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="113"/>
+        <source>(must not contain any special character)</source>
+        <translation type="unfinished">(يجب ألا تشمل علي رموز خاصة )</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="123"/>
+        <source>(use &apos;admin&apos;, if you did not change it)</source>
+        <translation type="unfinished">( إستخدم &quot;Admin&quot;، إذا لم تقم بالتغيير )</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="152"/>
+        <source>&amp;Super admin password:</source>
+        <translation type="unfinished">كلمة مرور الم&amp;شرف العام:</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="181"/>
+        <source>&amp;Default language:</source>
+        <translation type="unfinished">الل&amp;غة الإفتراضية</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="197"/>
+        <source>&amp;Load demonstration data</source>
+        <translation type="unfinished">تحميل البيانات الو&amp;همية التجريبية</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="233"/>
+        <source>&amp;OpenERP server:</source>
+        <translation type="unfinished">خادم ن&amp;ظام OpenERP:</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="292"/>
+        <source>Admin password:</source>
+        <translation type="unfinished">كلمة مرور المشرف:</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="299"/>
+        <source>Repeat admin password</source>
+        <translation type="unfinished">كرر كلمة مرور المشرف</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="343"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="357"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>DatabaseCreatedDialog</name>
+    <message>
+        <location filename="dbcreateok.ui" line="13"/>
+        <source>Database created</source>
+        <translation type="unfinished">تم إنشاء قاعدة البيانات</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="56"/>
+        <source>Database created successfully!</source>
+        <translation type="unfinished">تم إنشاء قاعدة البيانات بنجاح!</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="66"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;يمكنك الإتصال بقاعدة البيانات بإستخدام الحسابات التالية:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="98"/>
+        <source>Connect &amp;now</source>
+        <translation type="unfinished">الإتصال الأ&amp;ن</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="112"/>
+        <source>Connect &amp;later</source>
+        <translation type="unfinished">الإتصال لا&amp;حقاً</translation>
+    </message>
+</context>
+<context>
+    <name>DateTimeWidget</name>
+    <message>
+        <location filename="datetime.ui" line="41"/>
+        <source>Time:</source>
+        <translation type="unfinished">الوقت:</translation>
+    </message>
+</context>
+<context>
+    <name>Dialog</name>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="14"/>
+        <source>Batch Update</source>
+        <translation type="unfinished">حزمة تحديث</translation>
+    </message>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="49"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the fields you want to update in the %d selected records:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;اختر الحقول التي تريد تحديثها من %d السجلات المختارة:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="104"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="115"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="122"/>
+        <source>Esc</source>
+        <translation type="unfinished">Esc</translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="32"/>
+        <source>Connection Lost</source>
+        <translation type="unfinished">انقطع الإتصال</translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="45"/>
+        <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
+        <translation type="unfinished">فقد الإتصال بالخادم، سيعاود محاولة الإتصال خلال 10 ثوان.</translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="73"/>
+        <source>&amp;Retry</source>
+        <translation type="unfinished">&amp;اعد المحاولة</translation>
+    </message>
+    <message>
+        <location filename="lostconnection.ui" line="84"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">خ&amp;روج</translation>
+    </message>
+</context>
+<context>
+    <name>ErrorDialog</name>
+    <message>
+        <location filename="error.ui" line="14"/>
+        <source>Error</source>
+        <translation type="unfinished">خطأ</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="20"/>
+        <source>Application Error !</source>
+        <translation type="unfinished">خطأ في التطبيق !</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="34"/>
+        <source>&amp;Description</source>
+        <translation type="unfinished">ال&amp;وصف</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="40"/>
+        <source>Application Error</source>
+        <translation type="unfinished">خطأ في البرنامج</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="64"/>
+        <source>&lt;b&gt;Error code:&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;خطأ رمز:&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="71"/>
+        <source>View details</source>
+        <translation type="unfinished">عرض التفاصيل</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="109"/>
+        <source>De&amp;tails</source>
+        <translation type="unfinished">&amp;تفاصيل</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="159"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="124"/>
+        <source>&amp;Send Error</source>
+        <translation type="unfinished">&amp;خطأ في الإرسال</translation>
+    </message>
+    <message>
+        <location filename="error.ui" line="135"/>
+        <source>&amp;Remote Help</source>
+        <translation type="unfinished">&amp;مساعدة من بعد</translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
         <location filename="win_export.ui" line="14"/>
-        <location filename="field_preferences.ui" line="13"/>
-        <location filename="win_selection.ui" line="13"/>
         <source>Dialog</source>
-        <translation>مربح حواري</translation>
+        <translation type="unfinished">مربح حواري</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="16"/>
-        <location filename="mainwindow.ui" line="821"/>
-        <source>Attachments</source>
-        <translation>مرفقات</translation>
+        <location filename="win_export.ui" line="22"/>
+        <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;صادرات معرفة مسبقاً&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="496"/>
-        <source>&amp;Backup Database</source>
-        <translation>نس&amp;خ إحتياطي لقاعدة البيانات</translation>
+        <location filename="win_export.ui" line="46"/>
+        <source>Re&amp;move Export</source>
+        <translation type="unfinished">إز&amp;الة التصدير</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="344"/>
-        <source>General</source>
-        <translation>عام</translation>
+        <location filename="win_export.ui" line="76"/>
+        <source>&lt;b&gt;All fields&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;جميع الحقول&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="116"/>
+        <source>A&amp;dd</source>
+        <translation type="unfinished">ا&amp;ضف</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="127"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">&amp;إزالة</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="138"/>
+        <source>Remo&amp;ve all</source>
+        <translation type="unfinished">إ&amp;زالة الكل</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="162"/>
+        <source>&amp;Save list</source>
+        <translation type="unfinished">&amp;حفظ القائمة</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="177"/>
+        <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;الحقول للتصدير&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="203"/>
+        <source>&lt;b&gt;Options&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;خيارات&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="216"/>
+        <source>Add &amp;field names</source>
+        <translation type="unfinished">&amp;اضف أسماء للحقل</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="271"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="win_export.ui" line="285"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="226"/>
@@ -1488,7 +676,7 @@ Note that you may also be interested in adding ID or Database ID fields, so Open
 &lt;p&gt;
 On the other hand, import incompatible files will show some information in a way users can better understand it and it&apos;s probably what you expect if you do not intend to import data back to OpenERP.
 &lt;/p&gt;</source>
-        <translation>&lt;p&gt;
+        <translation type="unfinished">&lt;p&gt;
 علم هذا الحقل لإستيراد بيانات لنظام OpenERP.
 &lt;/p&gt;
 
@@ -1500,480 +688,1015 @@ On the other hand, import incompatible files will show some information in a way
 &lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="paned.ui" line="100"/>
-        <location filename="reference.ui" line="49"/>
-        <location filename="url.ui" line="51"/>
-        <source>Open</source>
-        <translation>فتح</translation>
+        <location filename="win_export.ui" line="238"/>
+        <source>Import compatible</source>
+        <translation type="unfinished">متوافق الإستيراد</translation>
+    </message>
+</context>
+<context>
+    <name>FieldDefaultsDialog</name>
+    <message>
+        <location filename="field_preferences.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished">مربح حواري</translation>
     </message>
     <message>
-        <location filename="calendarview.ui" line="50"/>
-        <source>Weekly View</source>
-        <translation>عرض اسبوعي</translation>
+        <location filename="field_preferences.ui" line="21"/>
+        <source>Field &amp;Name</source>
+        <translation type="unfinished">ا&amp;سم الحقل</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="511"/>
-        <source>Numeric fields</source>
-        <translation>حقول رقمية</translation>
+        <location filename="field_preferences.ui" line="38"/>
+        <source>&amp;Domain</source>
+        <translation type="unfinished">ن&amp;طاق</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="763"/>
-        <source>&amp;Execute Plugins</source>
-        <translation>&amp; تنفيذ الإضافات</translation>
+        <location filename="field_preferences.ui" line="55"/>
+        <source>Default &amp;value</source>
+        <translation type="unfinished">&amp;قيم إفتراضية</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="631"/>
-        <source>Add new record</source>
-        <translation>إضافة سجل جديد</translation>
+        <location filename="field_preferences.ui" line="74"/>
+        <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;القيمة تنطبق لـ:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="progress.ui" line="14"/>
-        <source>Progress...</source>
-        <translation>التقدم المحرز...</translation>
+        <location filename="field_preferences.ui" line="83"/>
+        <source>&amp;only for you</source>
+        <translation type="unfinished">خاص &amp;بك فقط</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="22"/>
-        <source>&amp;Search Id:</source>
-        <translation>ب&amp;حث معرف:</translation>
+        <location filename="field_preferences.ui" line="93"/>
+        <source>for all &amp;users</source>
+        <translation type="unfinished">&amp;لكل المستخدمين</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="312"/>
-        <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
-        <translation>&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
+        <location filename="field_preferences.ui" line="102"/>
+        <source>&lt;b&gt;Value applicable if:&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;تنطبق القيمة لو:&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="593"/>
-        <source>&lt;-</source>
-        <translation>-&gt;</translation>
+        <location filename="field_preferences.ui" line="134"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="757"/>
-        <source>Mouse Wheel on Tab</source>
-        <translation>عجلة الفأرة علي المبوبة</translation>
+        <location filename="field_preferences.ui" line="144"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>Form</name>
+    <message>
+        <location filename="image.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="25"/>
+        <source>TextLabel</source>
+        <translation type="unfinished">تسمية النصّ</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="56"/>
+        <source>Load Image</source>
+        <translation type="unfinished">تحميل الصورة</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="73"/>
+        <source>Save Image</source>
+        <translation type="unfinished">احفظ الصورة</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="90"/>
+        <source>Remove Image</source>
+        <translation type="unfinished">إزالة الصورة</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="619"/>
+        <source>+</source>
+        <translation type="unfinished">+</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="356"/>
+        <source>-</source>
+        <translation type="unfinished">-</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="554"/>
+        <source>6</source>
+        <translation type="unfinished">6</translation>
     </message>
     <message>
         <location filename="keyboard.ui" line="489"/>
         <source>9</source>
-        <translation>9</translation>
-    </message>
-    <message>
-        <location filename="formcontainer.ui" line="56"/>
-        <source>State:</source>
-        <translation>حالة:</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="82"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo is a product of NaN:&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo هو منتج لشركة  NaN:&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="487"/>
-        <location filename="login.ui" line="143"/>
-        <source>&amp;Restore Database</source>
-        <translation>إست&amp;عادة قاعدة البيانات</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="448"/>
-        <source>Previous editable widget</source>
-        <translation>تحرير القطعة السابقة</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="122"/>
-        <source>I</source>
-        <translation>I</translation>
-    </message>
-    <message>
-        <location filename="binary.ui" line="81"/>
-        <location filename="reference.ui" line="83"/>
-        <source>Clear</source>
-        <translation>إفراغ</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="318"/>
-        <source>Select font</source>
-        <translation>إختيار خط</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="96"/>
-        <source>Y</source>
-        <translation>Y</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="767"/>
-        <source>Change current tab</source>
-        <translation>تغيير المبوبة الحالية</translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="112"/>
-        <source>Connect &amp;later</source>
-        <translation>الإتصال لا&amp;حقاً</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="83"/>
-        <source>T</source>
-        <translation>T</translation>
-    </message>
-    <message>
-        <location filename="gotoid.ui" line="14"/>
-        <source>Go To Id</source>
-        <translation>اذهب للمعرف</translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="71"/>
-        <source>&amp;Port:</source>
-        <translation>المن&amp;فذ:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="721"/>
-        <source>Go To Resource ID</source>
-        <translation>ذهاب لمعرف المصدر</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="49"/>
-        <source>&lt;Ctrl&gt; + N</source>
-        <translation>&lt;Ctrl&gt; + N</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="32"/>
-        <source>&lt;Ctrl&gt; + O</source>
-        <translation>&lt;Ctrl&gt; + O</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="168"/>
-        <source>&lt;Ctrl&gt; + L</source>
-        <translation>&lt;Ctrl&gt; + L</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="482"/>
-        <source>&lt;Ctrl&gt; + C</source>
-        <translation>&lt;Ctrl&gt; + C</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="669"/>
-        <source>&lt;Ctrl&gt; + A</source>
-        <translation>&lt;Ctrl&gt; + A</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="100"/>
-        <source>&lt;Ctrl&gt; + F</source>
-        <translation>&lt;Ctrl&gt; + F</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="83"/>
-        <source>&lt;Ctrl&gt; + D</source>
-        <translation>&lt;Ctrl&gt; + D</translation>
-    </message>
-    <message>
-        <location filename="tip.ui" line="133"/>
-        <source>&amp;Next Tip</source>
-        <translation>الملحوظ ال&amp;تالية</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="496"/>
-        <source>&lt;Ctrl&gt; + X</source>
-        <translation>&lt;Ctrl&gt; + X</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="671"/>
-        <source>4</source>
-        <translation>4</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="66"/>
-        <source>&lt;Ctrl&gt; + S</source>
-        <translation>&lt;Ctrl&gt; + S</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="489"/>
-        <source>&lt;Ctrl&gt; + V</source>
-        <translation>&lt;Ctrl&gt; + V</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="219"/>
-        <source>&lt;Ctrl&gt; + W</source>
-        <translation>&lt;Ctrl&gt; + W</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="117"/>
-        <source>&lt;Ctrl&gt; + T</source>
-        <translation>&lt;Ctrl&gt; + T</translation>
-    </message>
-    <message>
-        <location filename="many2many.ui" line="96"/>
-        <location filename="one2many.ui" line="165"/>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <location filename="win_selection.ui" line="19"/>
-        <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;b&gt;اختر برنامج ملحق&lt;/b&gt;&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="252"/>
-        <source>D</source>
-        <translation>D</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="185"/>
-        <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
-        <translation>&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
-    </message>
-    <message>
-        <location filename="one2many_dialog.ui" line="95"/>
-        <source>(_/0)</source>
-        <translation>(_/0)</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="818"/>
-        <source>Set focus to nearest widget</source>
-        <translation>تعيين التركيز ﻷقب أيقونة</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="116"/>
-        <source>A&amp;dd</source>
-        <translation>ا&amp;ضف</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="295"/>
-        <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
-        <translation>&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="315"/>
-        <source>&amp;Window</source>
-        <translation>نا&amp;فذة</translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="132"/>
-        <source>Create &amp;Database</source>
-        <translation>إن&amp;شاء قاعدة بيانات</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="589"/>
-        <source>Search/edit existing records</source>
-        <translation>بحث/تحرير سجلات موجودة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="712"/>
-        <source>Store View Settings</source>
-        <translation>حفظ أوضاع العرض:</translation>
-    </message>
-    <message>
-        <location filename="datetime.ui" line="41"/>
-        <source>Time:</source>
-        <translation>الوقت:</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="152"/>
-        <source>&amp;Super admin password:</source>
-        <translation>كلمة مرور الم&amp;شرف العام:</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="550"/>
-        <source>Relation fields</source>
-        <translation>حقول مرتبطة</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="217"/>
-        <source>Right Justify</source>
-        <translation>ضبط لليمين</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="42"/>
-        <source>&amp;OpenERP</source>
-        <translation>&amp;OpenERP</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="46"/>
-        <source>Re&amp;move Export</source>
-        <translation>إز&amp;الة التصدير</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="74"/>
-        <location filename="many2one.ui" line="82"/>
-        <location filename="one2many.ui" line="96"/>
-        <location filename="reference.ui" line="66"/>
-        <location filename="shortcuts.ui" line="56"/>
-        <source>New</source>
-        <translation>جديد</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="86"/>
-        <source>Remo&amp;ve All</source>
-        <translation>إ&amp;زالة الكل</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="175"/>
-        <source>Switch view mode</source>
-        <translation>تحويل وضع العرض</translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="247"/>
-        <source>&amp;User:</source>
-        <translation>المست&amp;خدم:</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="277"/>
-        <source>Full Text Search current selection</source>
-        <translation>بحث نصي كامل للعنصر المختار</translation>
-    </message>
-    <message>
-        <location filename="tree.ui" line="71"/>
-        <source>Add Shortcut</source>
-        <translation>أضف مختصر</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="786"/>
-        <source>&amp;Keyboard Shortcut</source>
-        <translation>إ&amp;ختصارات لوحة المفاتيح</translation>
-    </message>
-    <message>
-        <location filename="calendarview.ui" line="63"/>
-        <source>Daily View</source>
-        <translation>العرض اليومي</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="181"/>
-        <source>&amp;Default language:</source>
-        <translation>الل&amp;غة الإفتراضية</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="135"/>
-        <source>O</source>
-        <translation>O</translation>
-    </message>
-    <message>
-        <location filename="batchupdate_msgbox.ui" line="14"/>
-        <source>Batch Update</source>
-        <translation>حزمة تحديث</translation>
-    </message>
-    <message>
-        <location filename="many2many.ui" line="89"/>
-        <location filename="one2many.ui" line="218"/>
-        <source>(0/0)</source>
-        <translation>(0/0)</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="14"/>
-        <source>About OpenERP</source>
-        <translation>عن OpenERP</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="302"/>
-        <source>Save and close window</source>
-        <translation>حفظ و غلق الشباك</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="177"/>
-        <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
-        <translation>&lt;b&gt;الحقول للتصدير&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="838"/>
-        <source>&lt;Alt&gt; + Minus</source>
-        <translation>&lt;Alt&gt; + Minus</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="401"/>
-        <source>Cut selected text</source>
-        <translation>قطع النص المختار</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="113"/>
-        <location filename="mainwindow.ui" line="634"/>
-        <source>Alt+PgUp</source>
-        <translation>Alt+PgUp</translation>
-    </message>
-    <message>
-        <location filename="calendar.ui" line="51"/>
-        <source>Open Calendar</source>
-        <translation>فتح النتيجة</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="733"/>
-        <source>&amp;Reload/Undo</source>
-        <translation>إعادة تحميل/إسترجاع</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="202"/>
-        <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
-        <translation>&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="64"/>
-        <location filename="many2many.ui" line="40"/>
-        <source>&amp;Add</source>
-        <translation>ا&amp;ضف</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="270"/>
-        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
-        <translation>&lt;Ctrl&gt; + &lt;Alt&gt; + T</translation>
+        <translation type="unfinished">9</translation>
     </message>
     <message>
         <location filename="keypad.ui" line="96"/>
         <source>*</source>
-        <translation>*</translation>
+        <translation type="unfinished">*</translation>
     </message>
     <message>
-        <location filename="progress.ui" line="40"/>
-        <source>Operation in progress</source>
-        <translation>تقدم العملية</translation>
+        <location filename="keyboard.ui" line="502"/>
+        <source>2</source>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="660"/>
-        <source>Lists</source>
-        <translation>قوائم</translation>
+        <location filename="keyboard.ui" line="541"/>
+        <source>5</source>
+        <translation type="unfinished">5</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="848"/>
-        <source>&lt;Alt&gt; + Plus</source>
-        <translation>&lt;Alt&gt; + Plus</translation>
+        <location filename="keyboard.ui" line="567"/>
+        <source>8</source>
+        <translation type="unfinished">8</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="442"/>
-        <source>&amp;Connect</source>
-        <translation>ا&amp;تصل</translation>
+        <location filename="keypad.ui" line="148"/>
+        <source>/</source>
+        <translation type="unfinished">/</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="246"/>
-        <source>Justify</source>
-        <translation>ضبط</translation>
+        <location filename="keyboard.ui" line="528"/>
+        <source>1</source>
+        <translation type="unfinished">1</translation>
     </message>
     <message>
-        <location filename="tip.ui" line="122"/>
-        <source>&amp;Previous Tip</source>
-        <translation>ال&amp;ملحوظة السابقة</translation>
+        <location filename="keyboard.ui" line="671"/>
+        <source>4</source>
+        <translation type="unfinished">4</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="476"/>
+        <source>7</source>
+        <translation type="unfinished">7</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="450"/>
+        <source>Esc</source>
+        <translation type="unfinished">Esc</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="645"/>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="343"/>
+        <source>.</source>
+        <translation type="unfinished">.</translation>
+    </message>
+    <message>
+        <location filename="keypad.ui" line="239"/>
+        <source>Intro</source>
+        <translation type="unfinished">مدخل</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="515"/>
+        <source>3</source>
+        <translation type="unfinished">3</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="44"/>
+        <source>W</source>
+        <translation type="unfinished">W</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="57"/>
+        <source>E</source>
+        <translation type="unfinished">E</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="70"/>
+        <source>R</source>
+        <translation type="unfinished">R</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="83"/>
+        <source>T</source>
+        <translation type="unfinished">T</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="96"/>
+        <source>Y</source>
+        <translation type="unfinished">Y</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="109"/>
+        <source>U</source>
+        <translation type="unfinished">U</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="122"/>
+        <source>I</source>
+        <translation type="unfinished">I</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="135"/>
+        <source>O</source>
+        <translation type="unfinished">O</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="148"/>
+        <source>J</source>
+        <translation type="unfinished">J</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="161"/>
+        <source>F</source>
+        <translation type="unfinished">F</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="174"/>
+        <source>K</source>
+        <translation type="unfinished">K</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="187"/>
+        <source>G</source>
+        <translation type="unfinished">G</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="200"/>
+        <source>A</source>
+        <translation type="unfinished">A</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="213"/>
+        <source>L</source>
+        <translation type="unfinished">L</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="226"/>
+        <source>Ñ</source>
+        <translation type="unfinished">Ñ</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="239"/>
+        <source>S</source>
+        <translation type="unfinished">S</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="252"/>
+        <source>D</source>
+        <translation type="unfinished">D</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="265"/>
+        <source>H</source>
+        <translation type="unfinished">H</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="278"/>
+        <source>M</source>
+        <translation type="unfinished">M</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="291"/>
+        <source>V</source>
+        <translation type="unfinished">V</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="304"/>
+        <source>,</source>
+        <translation type="unfinished">،</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="317"/>
+        <source>B</source>
+        <translation type="unfinished">B</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="330"/>
+        <source>Z</source>
+        <translation type="unfinished">Z</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="369"/>
+        <source>X</source>
+        <translation type="unfinished">X</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="382"/>
+        <source>C</source>
+        <translation type="unfinished">C</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="395"/>
+        <source>N</source>
+        <translation type="unfinished">N</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="408"/>
+        <source>Enter</source>
+        <translation type="unfinished">مفتاح Enter</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="421"/>
+        <source>Tab</source>
+        <translation type="unfinished">تبويب</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="434"/>
+        <source>Caps</source>
+        <translation type="unfinished">Caps</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="463"/>
+        <source>Space</source>
+        <translation type="unfinished">مسافة</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="580"/>
+        <source>Q</source>
+        <translation type="unfinished">Q</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="593"/>
+        <source>&lt;-</source>
+        <translation type="unfinished">-&gt;</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="606"/>
+        <source>&apos;</source>
+        <translation type="unfinished">&apos;</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="632"/>
+        <source>Ç</source>
+        <translation type="unfinished">Ç</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="658"/>
+        <source>P</source>
+        <translation type="unfinished">P</translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="34"/>
+        <source>Monthly View</source>
+        <translation type="unfinished">العرض الشهري</translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="50"/>
+        <source>Weekly View</source>
+        <translation type="unfinished">عرض اسبوعي</translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="63"/>
+        <source>Daily View</source>
+        <translation type="unfinished">العرض اليومي</translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="83"/>
+        <source>Color Legend</source>
+        <translation type="unfinished">لون الأيقونات</translation>
+    </message>
+    <message>
+        <location filename="customsearchitem.ui" line="56"/>
+        <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
+        <translation type="unfinished">إذا كان المعامل هو &quot;in&quot; أو &quot;not&quot; ربما يتم عرض قائمة من القيم مفصولة بفاصلة</translation>
+    </message>
+    <message>
+        <location filename="customsearchitem.ui" line="63"/>
+        <source>&amp;And</source>
+        <translation type="unfinished">&amp;و</translation>
+    </message>
+    <message>
+        <location filename="webcontainer.ui" line="24"/>
+        <source>about:blank</source>
+        <translation type="unfinished">about:blank</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="684"/>
+        <source>Supr</source>
+        <translation type="unfinished">Supr</translation>
+    </message>
+</context>
+<context>
+    <name>FormContainerWidget</name>
+    <message>
+        <location filename="formcontainer.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="formcontainer.ui" line="56"/>
+        <source>State:</source>
+        <translation type="unfinished">حالة:</translation>
+    </message>
+</context>
+<context>
+    <name>FullTextSearchDialog</name>
+    <message>
+        <location filename="full_text_search.ui" line="14"/>
+        <source>Full text search</source>
+        <translation type="unfinished">بحث نصي كامل</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="66"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;بحث</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="115"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished">&amp;سابق</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="126"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">ال&amp;تالي</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
+        <translation type="unfinished">هنا يمكنك البحث عن أي مصطلح في قاعدة البيانات كاملة طالما تم فهرسته. إذا كانت الكلمات التي تبحث عنها لا ترجع نتائج و أنت متأكد من أنها موجودة لكن على الأرجح أنها لم تفهرس فيجب عليك أن تسأل مدير النظام.
+البحث عن نص يبحث فقط عن الكلمات الكاملة لكنه يمكن أن يرجع الكلمات التي تحتوي على نفس الجزر. مثلاً , البحث عن كلمة &quot; بناء &quot; يمكن أن ترجع المستندات التي تحتوي على كلمة &quot;بنا&quot; ، &quot;بناء&quot; ، أو &quot; بنايات&quot;</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;؟&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="86"/>
+        <source>about:blank</source>
+        <translation type="unfinished">about:blank</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="158"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;إغلاق</translation>
+    </message>
+</context>
+<context>
+    <name>GoToIdDialog</name>
+    <message>
+        <location filename="gotoid.ui" line="14"/>
+        <source>Go To Id</source>
+        <translation type="unfinished">اذهب للمعرف</translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="22"/>
+        <source>&amp;Search Id:</source>
+        <translation type="unfinished">ب&amp;حث معرف:</translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="72"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="83"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>ImportDialog</name>
+    <message>
+        <location filename="win_import.ui" line="17"/>
+        <source>Import</source>
+        <translation type="unfinished">إستيراد</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="33"/>
+        <source>All fields</source>
+        <translation type="unfinished">كل الحقول</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="64"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished">ا&amp;ضف</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="75"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">&amp;إزالة</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="86"/>
+        <source>Remo&amp;ve All</source>
+        <translation type="unfinished">إ&amp;زالة الكل</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="110"/>
+        <source>Auto-&amp;detect</source>
+        <translation type="unfinished">إ&amp;ستنباط تلقائي</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="131"/>
+        <source>Fields to import</source>
+        <translation type="unfinished">الحقول للتصدير</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="157"/>
+        <source>File to &amp;import:</source>
+        <translation type="unfinished">ملف &amp;للتصدير</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="201"/>
+        <source>&amp;Field separator</source>
+        <translation type="unfinished">&amp;فاصل الحقل</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="211"/>
+        <source>,</source>
+        <translation type="unfinished">،</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="218"/>
+        <source>&amp;Text delimiter:</source>
+        <translation type="unfinished">&amp;مؤشر النص:</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="228"/>
+        <source>&quot;</source>
+        <translation type="unfinished">&quot;</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="235"/>
+        <source>&amp;Encoding</source>
+        <translation type="unfinished">تر&amp;ميز</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="299"/>
+        <source>&amp;Lines to skip:</source>
+        <translation type="unfinished">&amp;تخطي الخطوط</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="259"/>
+        <source>UTF-8</source>
+        <translation type="unfinished">UTF-8</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="264"/>
         <source>Latin1</source>
-        <translation>Latin1</translation>
+        <translation type="unfinished">Latin1</translation>
     </message>
     <message>
-        <location filename="lostconnection.ui" line="84"/>
+        <location filename="win_import.ui" line="181"/>
+        <source>File &amp;type:</source>
+        <translation type="unfinished">&amp;نوع الملف:</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="286"/>
+        <source>Sheet:</source>
+        <translation type="unfinished">ورقة:</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="330"/>
+        <source>&amp;Import</source>
+        <translation type="unfinished">إ&amp;ستيراد</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="341"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;إغلاق</translation>
+    </message>
+</context>
+<context>
+    <name>KooMainWindow</name>
+    <message>
+        <location filename="mainwindow.ui" line="26"/>
+        <source>Koo: OpenObject KDE Client</source>
+        <translation type="unfinished">Koo: برنامج طرفي لـ KDE</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="168"/>
+        <source>Requests:</source>
+        <translation type="unfinished">طلبات:</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="217"/>
+        <source>Read My Requests</source>
+        <translation type="unfinished">اقرأ طلباتي</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="240"/>
+        <source>Send New Request</source>
+        <translation type="unfinished">إرسال طلب جدبد</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="271"/>
+        <source>&amp;Plugins</source>
+        <translation type="unfinished">الملح&amp;قات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="328"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished">&amp;مساعدة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="356"/>
+        <source>F&amp;orm</source>
+        <translation type="unfinished">&amp;نموذج</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="280"/>
+        <source>&amp;Databases</source>
+        <translation type="unfinished">&amp;قواعد بيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="298"/>
+        <source>&amp;User</source>
+        <translation type="unfinished">&amp;مستخدم</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="310"/>
+        <source>&amp;Actions</source>
+        <translation type="unfinished">&amp;إجراءات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="386"/>
+        <source>&amp;Reports</source>
+        <translation type="unfinished">&amp;تقارير</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="351"/>
+        <source>&amp;Browse</source>
+        <translation type="unfinished">تصف&amp;ح</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="315"/>
+        <source>&amp;Window</source>
+        <translation type="unfinished">نا&amp;فذة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="442"/>
+        <source>&amp;Connect</source>
+        <translation type="unfinished">ا&amp;تصل</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="445"/>
+        <source>Ctrl+O</source>
+        <comment>Ctrl+O to Login</comment>
+        <translation type="unfinished">Ctrl+O</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="460"/>
+        <source>&amp;Disconnect</source>
+        <translation type="unfinished">&amp;قطع الإتصال</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="469"/>
         <source>&amp;Quit</source>
-        <translation>خ&amp;روج</translation>
+        <translation type="unfinished">خ&amp;روج</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="478"/>
+        <source>&amp;New Database</source>
+        <translation type="unfinished">&amp;قاعدة بيانات جديدة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="487"/>
+        <source>&amp;Restore Database</source>
+        <translation type="unfinished">إست&amp;عادة قاعدة البيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="496"/>
+        <source>&amp;Backup Database</source>
+        <translation type="unfinished">نس&amp;خ إحتياطي لقاعدة البيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="505"/>
+        <source>&amp;Drop Database</source>
+        <translation type="unfinished">إ&amp;زالة قاعدة البيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="514"/>
+        <source>&amp;Administrator Password</source>
+        <translation type="unfinished">&amp;كلمة مرور المشرف العام</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="523"/>
+        <source>&amp;Preferences</source>
+        <translation type="unfinished">&amp;تفضيلات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="532"/>
+        <source>&amp;Send Request</source>
+        <translation type="unfinished">إر&amp;سال طلب</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="541"/>
+        <source>&amp;Read My Requests</source>
+        <translation type="unfinished">&amp;اقرأ طلباتي</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="550"/>
+        <source>&amp;Waiting Requests</source>
+        <translation type="unfinished">طلبات الإن&amp;تظار</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="559"/>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;جديد</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="562"/>
+        <source>Ctrl+N</source>
+        <translation type="unfinished">Ctrl+N</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="571"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished">حف&amp;ظ</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="574"/>
+        <source>Ctrl+S</source>
+        <translation type="unfinished">Ctrl+S</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="583"/>
+        <source>D&amp;uplicate</source>
+        <translation type="unfinished">مك&amp;رر</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="586"/>
+        <source>Ctrl+Shift+D</source>
+        <translation type="unfinished">Ctrl+Shift+D</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="595"/>
+        <source>&amp;Delete</source>
+        <translation type="unfinished">&amp;حذف</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="598"/>
+        <source>Ctrl+D</source>
+        <translation type="unfinished">Ctrl+D</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="607"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;بحث</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="610"/>
+        <source>Ctrl+F</source>
+        <translation type="unfinished">Ctrl+F</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="619"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">ال&amp;تالي</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="622"/>
+        <source>Alt+PgDown</source>
+        <translation type="unfinished">Alt+PgDown</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="631"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished">&amp;سابق</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="634"/>
+        <source>Alt+PgUp</source>
+        <translation type="unfinished">Alt+PgUp</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="643"/>
+        <source>Switch &amp;View</source>
+        <translation type="unfinished">تحويل ال&amp;عرض</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="655"/>
+        <source>Open &amp;Menu Tab</source>
+        <translation type="unfinished">فتح مبوبة ال&amp;قائمة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="667"/>
+        <source>Next Tab</source>
+        <translation type="unfinished">التبويب التالي</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="670"/>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished">Ctrl+PgDown</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="679"/>
+        <source>Previous Tab</source>
+        <translation type="unfinished">التبويب السابق</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="682"/>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished">Ctrl+PgUp</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="691"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;إغلاق</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="694"/>
+        <source>Ctrl+W</source>
+        <translation type="unfinished">Ctrl+W</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="703"/>
+        <source>View Access Log</source>
+        <translation type="unfinished">عرض سجل الدخول</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="721"/>
+        <source>Go To Resource ID</source>
+        <translation type="unfinished">ذهاب لمعرف المصدر</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="733"/>
+        <source>&amp;Reload/Undo</source>
+        <translation type="unfinished">إعادة تحميل/إسترجاع</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="736"/>
+        <source>F5</source>
+        <translation type="unfinished">F5</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="745"/>
+        <source>E&amp;xport Data</source>
+        <translation type="unfinished">تص&amp;دير البيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="754"/>
+        <source>&amp;Import Data</source>
+        <translation type="unfinished">&amp;إستراد البيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="763"/>
+        <source>&amp;Execute Plugins</source>
+        <translation type="unfinished">&amp; تنفيذ الإضافات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="772"/>
+        <source>&amp;Contextual Help</source>
+        <translation type="unfinished">المساعدة ال&amp;نصية</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="777"/>
+        <source>&amp;Tips</source>
+        <translation type="unfinished">&amp;نصائح</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="786"/>
+        <source>&amp;Keyboard Shortcut</source>
+        <translation type="unfinished">إ&amp;ختصارات لوحة المفاتيح</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="791"/>
+        <source>&amp;License</source>
+        <translation type="unfinished">&amp;رخصة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="800"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;حول</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="809"/>
+        <source>Full &amp;Text Search</source>
+        <translation type="unfinished">&amp;بحث نصي بالكامل</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="812"/>
+        <source>Ctrl+T</source>
+        <translation type="unfinished">Ctrl+T</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="821"/>
+        <source>Attachments</source>
+        <translation type="unfinished">مرفقات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="824"/>
+        <source>Ctrl+J</source>
+        <translation type="unfinished">Ctrl+J</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="833"/>
+        <source>&amp;Form designer</source>
+        <translation type="unfinished">&amp;محرر النموذج</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="838"/>
+        <source>&amp;Menu</source>
+        <translation type="unfinished">&amp;قائمة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="332"/>
+        <source>Documentation</source>
+        <translation type="unfinished">التوثيق</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="847"/>
+        <source>Open Home Tab</source>
+        <translation type="unfinished">فتح المبوبة الرئيسية</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="856"/>
+        <source>&amp;Clear Cache</source>
+        <translation type="unfinished">تن&amp;ظيف المخبأة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="865"/>
+        <source>Modify All Selected Records</source>
+        <translation type="unfinished">تعديل السجلات المختارة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="646"/>
+        <source>F6</source>
+        <translation type="unfinished">F6</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="276"/>
+        <source>&amp;Database</source>
+        <translation type="unfinished">&amp;قاعدة بيانات</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="712"/>
+        <source>Store View Settings</source>
+        <translation type="unfinished">حفظ أوضاع العرض:</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="724"/>
+        <source>Ctrl+G</source>
+        <translation type="unfinished">Ctrl+G</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="151"/>
+        <source>Help</source>
+        <translation type="unfinished">مساعدة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="870"/>
+        <source>PDF Manual</source>
+        <translation type="unfinished">ملف الإستخدام كـ PDF</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="875"/>
+        <source>HTML Manual</source>
+        <translation type="unfinished">مساعد HTML</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="880"/>
+        <source>doc.openerp.com</source>
+        <translation type="unfinished">doc.openerp.com</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="889"/>
+        <source>Push Button of All Selected Records</source>
+        <translation type="unfinished">اضغط زر الجلات المحددة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="898"/>
+        <source>Insert Several Records at Once</source>
+        <translation type="unfinished">إدراج عدة سجلات مرة واحدة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="658"/>
+        <source>Ctrl+M</source>
+        <translation type="unfinished">Ctrl+M</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="910"/>
+        <source>Modify Field in Selected Records</source>
+        <translation type="unfinished">تعديل حقول السجلات المختارة</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="922"/>
+        <source>Ne&amp;w Attachment</source>
+        <translation type="unfinished">مر&amp;فق جديد</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="931"/>
+        <source>Sca&amp;n Attachment</source>
+        <translation type="unfinished">مسح المرفقات</translation>
+    </message>
+</context>
+<context>
+    <name>LicenseDialog</name>
+    <message>
+        <location filename="license.ui" line="19"/>
+        <source>OpenERP license</source>
+        <translation type="unfinished">رخصة نظام OpenERP</translation>
     </message>
     <message>
         <location filename="license.ui" line="29"/>
@@ -2075,7 +1798,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;             END OF TERMS AND CONDITIONS&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -2175,200 +1898,1036 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="865"/>
-        <source>Modify All Selected Records</source>
-        <translation>تعديل السجلات المختارة</translation>
+        <location filename="license.ui" line="148"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+</context>
+<context>
+    <name>LinkWidget</name>
+    <message>
+        <location filename="link.ui" line="36"/>
+        <source>Select file...</source>
+        <translation type="unfinished">اختر ملف...</translation>
+    </message>
+</context>
+<context>
+    <name>LoginDialog</name>
+    <message>
+        <location filename="login.ui" line="23"/>
+        <source>Login</source>
+        <translation type="unfinished">تسجيل الدخول</translation>
     </message>
     <message>
-        <location filename="error.ui" line="14"/>
-        <source>Error</source>
-        <translation>خطأ</translation>
+        <location filename="login.ui" line="111"/>
+        <source>&amp;Database:</source>
+        <translation type="unfinished">&amp;قاعدة بيانات:</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="330"/>
-        <source>Z</source>
-        <translation>Z</translation>
+        <location filename="login.ui" line="98"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished">ت&amp;غيير</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="192"/>
-        <source>Previous tab</source>
-        <translation>مبوبة سابقة</translation>
+        <location filename="login.ui" line="70"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">&amp;خادم:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="643"/>
-        <source>Switch &amp;View</source>
-        <translation>تحويل ال&amp;عرض</translation>
+        <location filename="login.ui" line="176"/>
+        <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;لم يتمكن من الإتصال بالخادم !&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="360"/>
-        <source>Show field&apos;s help information</source>
-        <translation>عرض المعلومات المساعدة للحقل</translation>
+        <location filename="login.ui" line="221"/>
+        <source>&amp;Password:</source>
+        <translation type="unfinished">&amp;كلمة المرور:</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="134"/>
-        <source>Close</source>
-        <translation>إغلاق</translation>
+        <location filename="login.ui" line="247"/>
+        <source>&amp;User:</source>
+        <translation type="unfinished">المست&amp;خدم:</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="777"/>
-        <source>&lt;Shift&gt; + Open View</source>
-        <translation>&lt;Shift&gt; + Open View</translation>
+        <location filename="login.ui" line="283"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="745"/>
-        <source>E&amp;xport Data</source>
-        <translation>تص&amp;دير البيانات</translation>
+        <location filename="login.ui" line="297"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="351"/>
-        <source>&amp;Browse</source>
-        <translation>تصف&amp;ح</translation>
+        <location filename="login.ui" line="132"/>
+        <source>Create &amp;Database</source>
+        <translation type="unfinished">إن&amp;شاء قاعدة بيانات</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="138"/>
-        <source>Remo&amp;ve all</source>
-        <translation>إ&amp;زالة الكل</translation>
+        <location filename="login.ui" line="143"/>
+        <source>&amp;Restore Database</source>
+        <translation type="unfinished">إست&amp;عادة قاعدة البيانات</translation>
+    </message>
+</context>
+<context>
+    <name>ManyToManyWidget</name>
+    <message>
+        <location filename="many2many.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="137"/>
-        <location filename="batchupdate_msgbox.ui" line="122"/>
-        <location filename="keyboard.ui" line="450"/>
-        <location filename="win_search.ui" line="115"/>
-        <source>Esc</source>
-        <translation>Esc</translation>
+        <location filename="many2many.ui" line="40"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished">ا&amp;ضف</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="319"/>
-        <source>Close window without saving</source>
-        <translation>غلق الشاشة دون الحفظ</translation>
+        <location filename="many2many.ui" line="60"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">&amp;إزالة</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="550"/>
-        <source>&amp;Waiting Requests</source>
-        <translation>طلبات الإن&amp;تظار</translation>
+        <location filename="many2many.ui" line="96"/>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
     </message>
     <message>
-        <location filename="license.ui" line="19"/>
-        <source>OpenERP license</source>
-        <translation>رخصة نظام OpenERP</translation>
+        <location filename="many2many.ui" line="89"/>
+        <source>(0/0)</source>
+        <translation type="unfinished">(0/0)</translation>
+    </message>
+</context>
+<context>
+    <name>ManyToOneWidget</name>
+    <message>
+        <location filename="one2many_dialog.ui" line="14"/>
+        <source>OpenERP - Link</source>
+        <translation type="unfinished">رابط - OpenERP</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="541"/>
-        <source>5</source>
-        <translation>5</translation>
+        <location filename="one2many_dialog.ui" line="118"/>
+        <source>&amp;OK</source>
+        <translation type="unfinished">&amp;تم</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="880"/>
-        <source>doc.openerp.com</source>
-        <translation>doc.openerp.com</translation>
+        <location filename="one2many_dialog.ui" line="129"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="65"/>
-        <source>Italics</source>
-        <translation>مائل</translation>
+        <location filename="many2one.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
     </message>
     <message>
-        <location filename="error.ui" line="40"/>
-        <source>Application Error</source>
-        <translation>خطأ في البرنامج</translation>
+        <location filename="many2one.ui" line="59"/>
+        <source>Search</source>
+        <translation type="unfinished">بحث</translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="82"/>
+        <source>New</source>
+        <translation type="unfinished">جديد</translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="105"/>
+        <source>Remove</source>
+        <translation type="unfinished">إزالة</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="57"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished">&amp;سابق</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="68"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">ال&amp;تالي</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="95"/>
+        <source>(_/0)</source>
+        <translation type="unfinished">(_/0)</translation>
+    </message>
+</context>
+<context>
+    <name>OneToManyWidget</name>
+    <message>
+        <location filename="one2many.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="80"/>
+        <source>TextLabel</source>
+        <translation type="unfinished">تسمية النصّ</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="96"/>
+        <source>New</source>
+        <translation type="unfinished">جديد</translation>
     </message>
     <message>
         <location filename="one2many.ui" line="116"/>
         <source>Edit</source>
-        <translation>تحرير</translation>
+        <translation type="unfinished">تحرير</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="441"/>
-        <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
-        <translation>&lt;Shift&gt; + &lt;Tab&gt;</translation>
-    </message>
-    <message>
-        <location filename="batchupdate_msgbox.ui" line="49"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the fields you want to update in the %d selected records:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;اختر الحقول التي تريد تحديثها من %d السجلات المختارة:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="many2one.ui" line="105"/>
         <location filename="one2many.ui" line="136"/>
         <source>Remove</source>
-        <translation>إزالة</translation>
+        <translation type="unfinished">إزالة</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="126"/>
-        <location filename="mainwindow.ui" line="619"/>
-        <location filename="one2many_dialog.ui" line="68"/>
-        <source>&amp;Next</source>
-        <translation>ال&amp;تالي</translation>
+        <location filename="one2many.ui" line="192"/>
+        <source>Previous</source>
+        <translation type="unfinished">السابق</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="243"/>
-        <source>Reload</source>
-        <translation>إعادة تحميل</translation>
+        <location filename="one2many.ui" line="218"/>
+        <source>(0/0)</source>
+        <translation type="unfinished">(0/0)</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="109"/>
-        <source>U</source>
-        <translation>U</translation>
+        <location filename="one2many.ui" line="234"/>
+        <source>Next</source>
+        <translation type="unfinished">التالي</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="263"/>
+        <source>Switch View</source>
+        <translation type="unfinished">تبديل العرض</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="165"/>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
+    <name>PanedWidget</name>
+    <message>
+        <location filename="paned.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="83"/>
+        <source>Search</source>
+        <translation type="unfinished">بحث</translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="100"/>
+        <source>Open</source>
+        <translation type="unfinished">فتح</translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="117"/>
+        <source>Switch View</source>
+        <translation type="unfinished">تبديل العرض</translation>
+    </message>
+</context>
+<context>
+    <name>PreferencesDialog</name>
+    <message>
+        <location filename="preferences.ui" line="14"/>
+        <source>Preferences</source>
+        <translation type="unfinished">تفضيلات</translation>
+    </message>
+    <message>
+        <location filename="preferences.ui" line="45"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="preferences.ui" line="56"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>ProgressDialog</name>
+    <message>
+        <location filename="progress.ui" line="14"/>
+        <source>Progress...</source>
+        <translation type="unfinished">التقدم المحرز...</translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="40"/>
+        <source>Operation in progress</source>
+        <translation type="unfinished">تقدم العملية</translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="53"/>
+        <source>Please wait, 
+this operation may take a while...</source>
+        <translation type="unfinished">رجاء الإنتظار،
+هذه العملية قد تستغرق بعض الوقت...</translation>
+    </message>
+</context>
+<context>
+    <name>ReferenceWidget</name>
+    <message>
+        <location filename="reference.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="83"/>
+        <source>Clear</source>
+        <translation type="unfinished">إفراغ</translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="66"/>
+        <source>New</source>
+        <translation type="unfinished">جديد</translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="49"/>
+        <source>Open</source>
+        <translation type="unfinished">فتح</translation>
+    </message>
+</context>
+<context>
+    <name>RichTextWidget</name>
+    <message>
+        <location filename="richtext.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="36"/>
+        <source>Bold</source>
+        <translation type="unfinished">سميك</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="65"/>
+        <source>Italics</source>
+        <translation type="unfinished">مائل</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="94"/>
+        <source>Underline</source>
+        <translation type="unfinished">تسطير</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="123"/>
+        <source>Strikethrough</source>
+        <translation type="unfinished">مشطوب / يتوسطه خط</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="159"/>
+        <source>Left Justify</source>
+        <translation type="unfinished">إمالة لليسار</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="188"/>
         <source>Center</source>
-        <translation>وسط</translation>
+        <translation type="unfinished">وسط</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="737"/>
-        <source>&lt;Shift&gt; + Switch View</source>
-        <translation>&lt;Shift&gt; + Switch View</translation>
+        <location filename="richtext.ui" line="217"/>
+        <source>Right Justify</source>
+        <translation type="unfinished">ضبط لليمين</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="638"/>
-        <source>&lt;Alt&gt; + &lt;Backspace&gt;</source>
-        <translation>&lt;Alt&gt; + &lt;Backspace&gt;</translation>
+        <location filename="richtext.ui" line="246"/>
+        <source>Justify</source>
+        <translation type="unfinished">ضبط</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="282"/>
+        <source>Foreground Color</source>
+        <translation type="unfinished">الألوان الأمامية</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="301"/>
+        <source>Background color</source>
+        <translation type="unfinished">لون الخلفية</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="318"/>
+        <source>Select font</source>
+        <translation type="unfinished">إختيار خط</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="331"/>
+        <source>Select font size</source>
+        <translation type="unfinished">اختر حجم الخط</translation>
+    </message>
+</context>
+<context>
+    <name>SearchDateWidget</name>
+    <message>
+        <location filename="search_date.ui" line="26"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="56"/>
+        <source>Choose a date from a calendar</source>
+        <translation type="unfinished">اختر التاريخ من النتيجة</translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="81"/>
+        <source>-</source>
+        <translation type="unfinished">-</translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="112"/>
+        <source>Choose the date from a calendar</source>
+        <translation type="unfinished">اختر تاريخ من النتيجة</translation>
+    </message>
+</context>
+<context>
+    <name>SearchFormWidget</name>
+    <message>
+        <location filename="searchform.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="searchform.ui" line="127"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished">&amp;مسح</translation>
+    </message>
+    <message>
+        <location filename="searchform.ui" line="138"/>
+        <source>&amp;Search</source>
+        <translation type="unfinished">&amp;بحث</translation>
+    </message>
+</context>
+<context>
+    <name>SearchReferenceWidget</name>
+    <message>
+        <location filename="searchreference.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+</context>
+<context>
+    <name>SearchViewItemWidget</name>
+    <message>
+        <location filename="searchviewitem.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="searchviewitem.ui" line="164"/>
+        <source>TextLabel</source>
+        <translation type="unfinished">تسمية النصّ</translation>
+    </message>
+</context>
+<context>
+    <name>SearchWidget</name>
+    <message>
+        <location filename="win_search.ui" line="14"/>
+        <source>Search</source>
+        <translation type="unfinished">بحث</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="67"/>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;جديد</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="86"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;بحث</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="97"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="108"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="115"/>
+        <source>Esc</source>
+        <translation type="unfinished">Esc</translation>
+    </message>
+</context>
+<context>
+    <name>SelectionDialog</name>
+    <message>
+        <location filename="win_selection.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished">مربح حواري</translation>
+    </message>
+    <message>
+        <location filename="win_selection.ui" line="19"/>
+        <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
+        <translation type="unfinished">&lt;center&gt;&lt;b&gt;اختر برنامج ملحق&lt;/b&gt;&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <location filename="win_selection.ui" line="44"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="win_selection.ui" line="57"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsDialog</name>
+    <message>
+        <location filename="shortcuts.ui" line="14"/>
+        <source>Shortcuts</source>
+        <translation type="unfinished">إختصارات</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="24"/>
+        <source>&amp;Main Shortcuts</source>
+        <translation type="unfinished">&amp;الإختصارات الرئيسية</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="32"/>
+        <source>&lt;Ctrl&gt; + O</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + O</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="39"/>
+        <source>Connect</source>
+        <translation type="unfinished">اتصل</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="49"/>
+        <source>&lt;Ctrl&gt; + N</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + N</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="56"/>
+        <source>New</source>
+        <translation type="unfinished">جديد</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="66"/>
+        <source>&lt;Ctrl&gt; + S</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + S</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="73"/>
+        <source>Save</source>
+        <translation type="unfinished">حفظ</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="83"/>
+        <source>&lt;Ctrl&gt; + D</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + D</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="90"/>
+        <source>Delete</source>
+        <translation type="unfinished">حذف</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="100"/>
+        <source>&lt;Ctrl&gt; + F</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + F</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="107"/>
+        <source>Find / Search</source>
+        <translation type="unfinished">إيجاد / بحث</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="117"/>
+        <source>&lt;Ctrl&gt; + T</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + T</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="124"/>
+        <source>Full Text Search</source>
+        <translation type="unfinished">بحث نصي بالكامل</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="134"/>
+        <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
+        <translation type="unfinished">&lt;Alt&gt; + &lt;PgUp&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="141"/>
+        <source>Previous Record</source>
+        <translation type="unfinished">السجل السابق</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="151"/>
+        <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
+        <translation type="unfinished">&lt;Alt&gt; + &lt;PgDn&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="158"/>
+        <source>Next record</source>
+        <translation type="unfinished">السجل التالي</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="168"/>
+        <source>&lt;Ctrl&gt; + L</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + L</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="175"/>
+        <source>Switch view mode</source>
+        <translation type="unfinished">تحويل وضع العرض</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="185"/>
+        <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;PgUp&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="192"/>
+        <source>Previous tab</source>
+        <translation type="unfinished">مبوبة سابقة</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="202"/>
+        <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;PgDn&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="209"/>
+        <source>Next tab</source>
+        <translation type="unfinished">التبويب التالي</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="219"/>
+        <source>&lt;Ctrl&gt; + W</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + W</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="727"/>
+        <source>Close tab</source>
+        <translation type="unfinished">إغلاق التبويب</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="236"/>
+        <source>F5</source>
+        <translation type="unfinished">F5</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="243"/>
+        <source>Reload</source>
+        <translation type="unfinished">إعادة تحميل</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="253"/>
+        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;Shift&gt; + D</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="260"/>
+        <source>Duplicate Record</source>
+        <translation type="unfinished">سجل مكرر</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="286"/>
+        <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
+        <translation type="unfinished">&lt;center&gt;&lt;i&gt;حين يتم تحرير مصدر في شباك آخر&lt;/i&gt;&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="295"/>
+        <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;Enter&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="302"/>
+        <source>Save and close window</source>
+        <translation type="unfinished">حفظ و غلق الشباك</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="312"/>
+        <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;Esc&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="319"/>
+        <source>Close window without saving</source>
+        <translation type="unfinished">غلق الشاشة دون الحفظ</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="332"/>
         <source>&amp;Edition Shortcuts</source>
-        <translation>مختصارات الإ&amp;صدار</translation>
+        <translation type="unfinished">مختصارات الإ&amp;صدار</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="571"/>
-        <source>&amp;Save</source>
-        <translation>حف&amp;ظ</translation>
+        <location filename="shortcuts.ui" line="389"/>
+        <source>Shortcuts in text entries</source>
+        <translation type="unfinished">مختصارات المدخلات النصية</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="401"/>
+        <source>Cut selected text</source>
+        <translation type="unfinished">قطع النص المختار</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="411"/>
+        <source>Copy selected text</source>
+        <translation type="unfinished">انسخ النص المحدد</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="421"/>
+        <source>Paste selected text</source>
+        <translation type="unfinished">لصق النص المحدد</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="431"/>
+        <source>Next editable widget</source>
+        <translation type="unfinished">الأيقونة التالية قابلة التحرير</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="441"/>
+        <source>&lt;Shift&gt; + &lt;Tab&gt;</source>
+        <translation type="unfinished">&lt;Shift&gt; + &lt;Tab&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="448"/>
+        <source>Previous editable widget</source>
+        <translation type="unfinished">تحرير القطعة السابقة</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="624"/>
+        <source>&lt;Enter&gt;</source>
+        <translation type="unfinished">&lt;Enter&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="465"/>
+        <source>Auto-complete text field</source>
+        <translation type="unfinished">إكمال تلقائي للحقل النصي</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="475"/>
+        <source>&lt;Tab&gt;</source>
+        <translation type="unfinished">&lt;Tab&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="482"/>
+        <source>&lt;Ctrl&gt; + C</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + C</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="489"/>
+        <source>&lt;Ctrl&gt; + V</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + V</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="496"/>
+        <source>&lt;Ctrl&gt; + X</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + X</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="511"/>
+        <source>Numeric fields</source>
+        <translation type="unfinished">حقول رقمية</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="523"/>
+        <source>Formula + &lt;Enter&gt;
+(Example: 3+2*2)</source>
+        <translation type="unfinished">Formula + &lt;Enter&gt;
+(مثال: 3+2*2)</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="531"/>
         <source>Calculates value
 (Example result: 7)</source>
-        <translation>حساب القيمة
+        <translation type="unfinished">حساب القيمة
 (مثال، نتيجة: 7)</translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="235"/>
-        <source>&amp;Encoding</source>
-        <translation>تر&amp;ميز</translation>
+        <location filename="shortcuts.ui" line="550"/>
+        <source>Relation fields</source>
+        <translation type="unfinished">حقول مرتبطة</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="910"/>
-        <source>Modify Field in Selected Records</source>
-        <translation>تعديل حقول السجلات المختارة</translation>
+        <location filename="shortcuts.ui" line="596"/>
+        <source>&lt;Ctrl&gt; + Open</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + Open</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="94"/>
-        <source>Underline</source>
-        <translation>تسطير</translation>
+        <location filename="shortcuts.ui" line="562"/>
+        <source>Opens the record in a new tab</source>
+        <translation type="unfinished">فتح السجل في مبوبة جديدة</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="49"/>
-        <source>toolBar</source>
-        <translation>شريط الأدوات</translation>
+        <location filename="shortcuts.ui" line="610"/>
+        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;Shift&gt; + Open</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="572"/>
+        <source>Opens the record in a new background tab</source>
+        <translation type="unfinished">فتح السجل في بوابة جديدة بالخلفية</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="660"/>
+        <source>Lists</source>
+        <translation type="unfinished">قوائم</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="669"/>
+        <source>&lt;Ctrl&gt; + A</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + A</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="676"/>
+        <source>Selects all records</source>
+        <translation type="unfinished">حدد كل السجلات</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="702"/>
+        <source>&amp;Advanced</source>
+        <translation type="unfinished">&amp;متقدم</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="799"/>
+        <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;الإختصارات للمدخلات النصية&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="717"/>
+        <source>Middle mouse click on Tab</source>
+        <translation type="unfinished">ضغط بزر الوسط للفأرة علي التبويب</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="737"/>
+        <source>&lt;Shift&gt; + Switch View</source>
+        <translation type="unfinished">&lt;Shift&gt; + Switch View</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="747"/>
+        <source>Open form view in new tab</source>
+        <translation type="unfinished">فتح عرض النموذج في مبوبة جديدة</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="757"/>
+        <source>Mouse Wheel on Tab</source>
+        <translation type="unfinished">عجلة الفأرة علي المبوبة</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="767"/>
+        <source>Change current tab</source>
+        <translation type="unfinished">تغيير المبوبة الحالية</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="777"/>
+        <source>&lt;Shift&gt; + Open View</source>
+        <translation type="unfinished">&lt;Shift&gt; + Open View</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="787"/>
+        <source>Open view in a background tab</source>
+        <translation type="unfinished">فتح العرض في التبويب الخلفي</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="902"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;إغلاق</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="344"/>
+        <source>General</source>
+        <translation type="unfinished">عام</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="353"/>
+        <source>F10</source>
+        <translation type="unfinished">F10</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="360"/>
+        <source>Show field&apos;s help information</source>
+        <translation type="unfinished">عرض المعلومات المساعدة للحقل</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="582"/>
+        <source>Create a new record</source>
+        <translation type="unfinished">إنشاء سجل جديد</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="589"/>
+        <source>Search/edit existing records</source>
+        <translation type="unfinished">بحث/تحرير سجلات موجودة</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="603"/>
+        <source>F1</source>
+        <translation type="unfinished">F1</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="617"/>
+        <source>F2</source>
+        <translation type="unfinished">F2</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="808"/>
+        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
+        <translation type="unfinished">&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="818"/>
+        <source>Set focus to nearest widget</source>
+        <translation type="unfinished">تعيين التركيز ﻷقب أيقونة</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="828"/>
+        <source>Set focus to current widget&apos;s container</source>
+        <translation type="unfinished">تعيين التركيز علي الأيقونة الحالية من المحتوي</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="838"/>
+        <source>&lt;Alt&gt; + Minus</source>
+        <translation type="unfinished">&lt;Alt&gt; + Minus</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="848"/>
+        <source>&lt;Alt&gt; + Plus</source>
+        <translation type="unfinished">&lt;Alt&gt; + Plus</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="858"/>
+        <source>Set focus to one of the widgets in the container</source>
+        <translation type="unfinished">تعيين التركيز علي واحد من الأيكونات في المحتوي</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="270"/>
+        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
+        <translation type="unfinished">&lt;Ctrl&gt; + &lt;Alt&gt; + T</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="277"/>
+        <source>Full Text Search current selection</source>
+        <translation type="unfinished">بحث نصي كامل للعنصر المختار</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="367"/>
+        <source>F3</source>
+        <translation type="unfinished">F3</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="374"/>
+        <source>Clear field</source>
+        <translation type="unfinished">مسح الحقل</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="631"/>
+        <source>Add new record</source>
+        <translation type="unfinished">إضافة سجل جديد</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="638"/>
+        <source>&lt;Alt&gt; + &lt;Backspace&gt;</source>
+        <translation type="unfinished">&lt;Alt&gt; + &lt;Backspace&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="645"/>
+        <source>Remove current record</source>
+        <translation type="unfinished">إزالة السجل الحالي</translation>
+    </message>
+</context>
+<context>
+    <name>TipsDialog</name>
+    <message>
+        <location filename="tip.ui" line="20"/>
+        <source>Tip of the Day</source>
+        <translation type="unfinished">تذكرة اليوم</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="96"/>
+        <source>&amp;Display a new tip next time ?</source>
+        <translation type="unfinished">&amp;عرض إرشاد جديد المرة القادمة؟</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="122"/>
+        <source>&amp;Previous Tip</source>
+        <translation type="unfinished">ال&amp;ملحوظة السابقة</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="133"/>
+        <source>&amp;Next Tip</source>
+        <translation type="unfinished">الملحوظ ال&amp;تالية</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="159"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;إغلاق</translation>
+    </message>
+</context>
+<context>
+    <name>TranslationDialog</name>
+    <message>
+        <location filename="translationdialog.ui" line="45"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">&amp;قبول</translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="56"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">إل&amp;غاء</translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="14"/>
+        <source>Translation Dialog</source>
+        <translation type="unfinished">مربع الترجمة</translation>
+    </message>
+</context>
+<context>
+    <name>TreeWidget</name>
+    <message>
+        <location filename="tree.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="58"/>
+        <source>Shortcuts</source>
+        <translation type="unfinished">إختصارات</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="71"/>
+        <source>Add Shortcut</source>
+        <translation type="unfinished">أضف مختصر</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="91"/>
+        <source>Remove Shortcut</source>
+        <translation type="unfinished">إزلة المختصر</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="111"/>
+        <source>Expand/Collapse</source>
+        <translation type="unfinished">توسيع/طي</translation>
+    </message>
+</context>
+<context>
+    <name>UrlWidget</name>
+    <message>
+        <location filename="url.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="url.ui" line="51"/>
+        <source>Open</source>
+        <translation type="unfinished">فتح</translation>
+    </message>
+</context>
+<context>
+    <name>WebWidget</name>
+    <message>
+        <location filename="web.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">نموذج</translation>
+    </message>
+    <message>
+        <location filename="web.ui" line="23"/>
+        <source>about:blank</source>
+        <translation type="unfinished">about:blank</translation>
     </message>
 </context>
 </TS>

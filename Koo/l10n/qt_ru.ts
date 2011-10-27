@@ -3,12 +3,13 @@
 <TS version="2.0">
     <extra-po-header-po_revision_date>2010-09-08 08:03+0000</extra-po-header-po_revision_date>
     <extra-po-header-x_launchpad_export_date>2011-10-27 06:52+0000</extra-po-header-x_launchpad_export_date>
-    <extra-po-headers>Project-Id-Version,Report-Msgid-Bugs-To,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,MIME-Version,Content-Type,Content-Transfer-Encoding,X-Launchpad-Export-Date,X-Generator</extra-po-headers>
+    <extra-po-headers>Project-Id-Version,Report-Msgid-Bugs-To,POT-Creation-Date,PO-Revision-Date,Last-Translator,Language-Team,Language,MIME-Version,Content-Type,Content-Transfer-Encoding,X-Launchpad-Export-Date,X-Qt-Contexts,X-Generator</extra-po-headers>
     <extra-po-header-x_generator>Launchpad (build 14197)</extra-po-header-x_generator>
     <extra-po-header-report_msgid_bugs_to>FULL NAME &lt;EMAIL@ADDRESS&gt;</extra-po-header-report_msgid_bugs_to>
     <extra-po-header-language_team>Russian &lt;ru@li.org&gt;</extra-po-header-language_team>
     <extra-po-header-project_id_version>openobject-client-kde</extra-po-header-project_id_version>
     <extra-po-header-pot_creation_date>2011-10-24 08:02+0000</extra-po-header-pot_creation_date>
+    <extra-po-header-language>ru</extra-po-header-language>
     <extra-po-header_comment># Russian translation for openobject-client-kde
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-client-kde package.
@@ -16,468 +17,11 @@
 #</extra-po-header_comment>
     <extra-po-header-last_translator>vrsb &lt;Unknown&gt;</extra-po-header-last_translator>
 <context>
-    <name></name>
-    <message>
-        <location filename="win_export.ui" line="238"/>
-        <source>Import compatible</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="89"/>
-        <location filename="mainwindow.ui" line="598"/>
-        <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="610"/>
-        <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="724"/>
-        <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="162"/>
-        <source>&amp;Save list</source>
-        <translation>Сохранить список полей</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="824"/>
-        <source>Ctrl+J</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="125"/>
-        <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="658"/>
-        <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="77"/>
-        <location filename="mainwindow.ui" line="562"/>
-        <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="445"/>
-        <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="858"/>
-        <source>Set focus to one of the widgets in the container</source>
-        <translation>Фокус ввода на один из элементов управления в контейнере</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="149"/>
-        <location filename="mainwindow.ui" line="574"/>
-        <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="812"/>
-        <source>Ctrl+T</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keypad.ui" line="148"/>
-        <source>/</source>
-        <translation>/</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="694"/>
-        <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="26"/>
-        <source>Koo: OpenObject KDE Client</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="36"/>
-        <source>Bold</source>
-        <translation>Полужирный</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="29"/>
-        <location filename="change_server.ui" line="52"/>
-        <location filename="choosedb.ui" line="47"/>
-        <location filename="login.ui" line="70"/>
-        <source>&amp;Server:</source>
-        <translation>Сервер:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="809"/>
-        <source>Full &amp;Text Search</source>
-        <translation>Полнотекстовый поиск</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="421"/>
-        <source>Paste selected text</source>
-        <translation>Вставить выделенный текст</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="645"/>
-        <source>0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="299"/>
-        <source>Repeat admin password</source>
-        <translation>Подтверждение пароля администратора</translation>
-    </message>
-    <message>
-        <location filename="webcontainer.ui" line="24"/>
-        <location filename="full_text_search.ui" line="86"/>
-        <location filename="web.ui" line="23"/>
-        <source>about:blank</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="679"/>
-        <source>Previous Tab</source>
-        <translation>Предыдущая вкладка</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="727"/>
-        <source>Close tab</source>
-        <translation>Закрыть вкладку</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="610"/>
-        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="658"/>
-        <source>P</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="374"/>
-        <source>Clear field</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="282"/>
-        <source>Foreground Color</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="37"/>
-        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
-
-Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="66"/>
-        <location filename="mainwindow.ui" line="607"/>
-        <location filename="win_search.ui" line="86"/>
-        <source>&amp;Find</source>
-        <translation>&amp;Поиск</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="787"/>
-        <source>Open view in a background tab</source>
-        <translation>Открыть в новой вкладке, но не переключаться туда</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="181"/>
-        <source>File &amp;type:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="421"/>
-        <source>Tab</source>
-        <translation>Вкладка</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="76"/>
-        <source>&lt;b&gt;All fields&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Все поля&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="286"/>
-        <source>Sheet:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="676"/>
-        <source>Selects all records</source>
-        <translation>Выбрать все записи</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="93"/>
-        <source>for all &amp;users</source>
-        <translation>для всех пользователей</translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="56"/>
-        <source>Choose a date from a calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="searchform.ui" line="138"/>
-        <source>&amp;Search</source>
-        <translation>&amp;Поиск</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="22"/>
-        <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
-        <translation>Сохранённые списки полей для экспорта</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="113"/>
-        <source>(must not contain any special character)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="286"/>
-        <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
-        <translation>&lt;center&gt;&lt;i&gt;Редактирование записи во всплывающем окне&lt;/i&gt;&lt;/center&gt;</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="218"/>
-        <source>&amp;Text delimiter:</source>
-        <translation>Разделитель</translation>
-    </message>
-    <message>
-        <location filename="calendar.ui" line="20"/>
-        <location filename="image.ui" line="13"/>
-        <location filename="formcontainer.ui" line="13"/>
-        <location filename="many2many.ui" line="14"/>
-        <location filename="many2one.ui" line="20"/>
-        <location filename="one2many.ui" line="14"/>
-        <location filename="paned.ui" line="19"/>
-        <location filename="reference.ui" line="20"/>
-        <location filename="richtext.ui" line="14"/>
-        <location filename="search_date.ui" line="26"/>
-        <location filename="searchform.ui" line="14"/>
-        <location filename="searchreference.ui" line="13"/>
-        <location filename="searchviewitem.ui" line="19"/>
-        <location filename="tree.ui" line="14"/>
-        <location filename="url.ui" line="20"/>
-        <location filename="web.ui" line="13"/>
-        <source>Form</source>
-        <translation>Форма</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="808"/>
-        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="619"/>
-        <source>+</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="434"/>
-        <source>Caps</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="828"/>
-        <source>Set focus to current widget&apos;s container</source>
-        <translation>Фокус ввода на контейнер ближайшего элемента управления</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="101"/>
-        <location filename="mainwindow.ui" line="622"/>
-        <source>Alt+PgDown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="109"/>
-        <source>De&amp;tails</source>
-        <translation>Подробности</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="174"/>
-        <source>K</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="332"/>
-        <source>Documentation</source>
-        <translation>Руководство</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="478"/>
-        <source>&amp;New Database</source>
-        <translation>Новая база данных</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="586"/>
-        <source>Ctrl+Shift+D</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="922"/>
-        <source>Ne&amp;w Attachment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="95"/>
-        <location filename="login.ui" line="111"/>
-        <source>&amp;Database:</source>
-        <translation>&amp;База данных:</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="135"/>
-        <source>&amp;Remote Help</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="411"/>
-        <source>Copy selected text</source>
-        <translation>Скопировать выделенный текст</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="24"/>
-        <source>&amp;Main Shortcuts</source>
-        <translation>Горячие клавиши</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="777"/>
-        <source>&amp;Tips</source>
-        <translation>&amp;Советы</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="17"/>
-        <source>Import</source>
-        <translation>Импорт</translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="13"/>
-        <source>Database created</source>
-        <translation>База данных создана</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="26"/>
-        <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="search_date.ui" line="112"/>
-        <source>Choose the date from a calendar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="203"/>
-        <source>&lt;b&gt;Options&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Настройки&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="lostconnection.ui" line="73"/>
-        <source>&amp;Retry</source>
-        <translation>&amp;Повтор</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="554"/>
-        <source>6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="86"/>
-        <location filename="shortcuts.ui" line="90"/>
-        <source>Delete</source>
-        <translation>Удалить</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="57"/>
-        <source>E</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="331"/>
-        <source>Select font size</source>
-        <translation>Выберите размер шрифта</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="161"/>
-        <source>F</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="226"/>
-        <source>Ñ</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="66"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="386"/>
-        <source>&amp;Reports</source>
-        <translation>&amp;Отчёты</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="747"/>
-        <source>Open form view in new tab</source>
-        <translation>Открыть форму в новой вкладке</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="596"/>
-        <source>&lt;Ctrl&gt; + Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="291"/>
-        <source>V</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="603"/>
-        <source>F1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="617"/>
-        <source>F2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="367"/>
-        <source>F3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="736"/>
-        <location filename="shortcuts.ui" line="236"/>
-        <source>F5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="646"/>
-        <source>F6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="460"/>
-        <source>&amp;Disconnect</source>
-        <translation>Разорвать соединение</translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="32"/>
-        <source>Connect to a OpenERP Server</source>
-        <translation>Подключиться к серверу OpenERP</translation>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="about.ui" line="14"/>
+        <source>About OpenERP</source>
+        <translation type="unfinished">Об OpenERP</translation>
     </message>
     <message>
         <location filename="about.ui" line="20"/>
@@ -489,10 +33,19 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="523"/>
-        <source>Formula + &lt;Enter&gt;
-(Example: 3+2*2)</source>
-        <translation type="unfinished"></translation>
+        <location filename="about.ui" line="42"/>
+        <source>&amp;OpenERP</source>
+        <translation type="unfinished">Сервер OpenERP</translation>
+    </message>
+    <message>
+        <location filename="about.ui" line="76"/>
+        <source>&amp;Contact</source>
+        <translation type="unfinished">Подключиться</translation>
+    </message>
+    <message>
+        <location filename="about.ui" line="120"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
     </message>
     <message>
         <location filename="about.ui" line="48"/>
@@ -513,267 +66,306 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="263"/>
-        <location filename="paned.ui" line="117"/>
-        <source>Switch View</source>
-        <translation>Переключение форма/список</translation>
-    </message>
-    <message>
-        <location filename="customsearchitem.ui" line="63"/>
-        <source>&amp;And</source>
+        <location filename="about.ui" line="82"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo is a product of NaN:&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>AdminPasswordDialog</name>
     <message>
-        <location filename="mainwindow.ui" line="667"/>
-        <source>Next Tab</source>
-        <translation>Следующая вкладка</translation>
+        <location filename="admin_passwd.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished">Диалог</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="14"/>
-        <source>Create a new database</source>
-        <translation>Создать новую базу данных</translation>
+        <location filename="admin_passwd.ui" line="20"/>
+        <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;Смените пароль администратора базы данных&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="717"/>
-        <source>Middle mouse click on Tab</source>
-        <translation>Средняя кнопка мыши на вкладке</translation>
+        <location filename="admin_passwd.ui" line="29"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">Сервер:</translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="259"/>
-        <source>UTF-8</source>
-        <translation type="unfinished"></translation>
+        <location filename="admin_passwd.ui" line="46"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished">Изменить</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="57"/>
         <source>&amp;Old password:</source>
-        <translation>Старый пароль:</translation>
+        <translation type="unfinished">Старый пароль:</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="528"/>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="tip.ui" line="96"/>
-        <source>&amp;Display a new tip next time ?</source>
-        <translation>Показывать советы при запуске?</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="200"/>
-        <source>A</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="image.ui" line="56"/>
-        <source>Load Image</source>
-        <translation>Загрузить изображение</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="541"/>
-        <source>&amp;Read My Requests</source>
-        <translation>Прочесть мои запросы</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="107"/>
-        <source>Find / Search</source>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="131"/>
-        <source>Fields to import</source>
-        <translation>Поля для импорта</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="580"/>
-        <source>Q</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="931"/>
-        <source>Sca&amp;n Attachment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="475"/>
-        <source>&lt;Tab&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="one2many_dialog.ui" line="14"/>
-        <source>OpenERP - Link</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="157"/>
-        <source>File to &amp;import:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="216"/>
-        <source>Add &amp;field names</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="110"/>
-        <source>Auto-&amp;detect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="binary.ui" line="64"/>
-        <source>Save file...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="55"/>
-        <source>Default &amp;value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="702"/>
-        <source>&amp;Advanced</source>
-        <translation>Дополнительно</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="791"/>
-        <source>&amp;License</source>
-        <translation>Лицензия</translation>
-    </message>
-    <message>
-        <location filename="calendarview.ui" line="34"/>
-        <source>Monthly View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="102"/>
-        <source>&lt;b&gt;Value applicable if:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="833"/>
-        <source>&amp;Form designer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="299"/>
-        <source>&amp;Lines to skip:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="304"/>
-        <location filename="win_import.ui" line="211"/>
-        <source>,</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="595"/>
-        <source>&amp;Delete</source>
-        <translation>Удалить</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="559"/>
-        <location filename="win_search.ui" line="67"/>
-        <source>&amp;New</source>
-        <translation>&amp;Создать</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="465"/>
-        <source>Auto-complete text field</source>
-        <translation>Автодополнение</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="632"/>
-        <source>Ç</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="514"/>
-        <source>&amp;Administrator Password</source>
-        <translation>Пароль администратора</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="213"/>
-        <source>L</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="847"/>
-        <source>Open Home Tab</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="lostconnection.ui" line="45"/>
-        <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
-        <translation>Связь с сервером утеряна. Повторное подключение через 10 секунд.</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="33"/>
-        <source>All fields</source>
-        <translation>Все поля</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="110"/>
-        <location filename="one2many.ui" line="192"/>
-        <source>Previous</source>
-        <translation>Предыдущее</translation>
-    </message>
-    <message>
-        <location filename="preferences.ui" line="14"/>
-        <source>Preferences</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="13"/>
-        <source>Choose database...</source>
-        <translation>Выбрать базу данных</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="98"/>
-        <location filename="one2many.ui" line="234"/>
-        <source>Next</source>
-        <translation>Следующее</translation>
+        <location filename="admin_passwd.ui" line="74"/>
+        <source>&amp;New password:</source>
+        <translation type="unfinished">Новый пароль:</translation>
     </message>
     <message>
         <location filename="admin_passwd.ui" line="91"/>
         <source>New password &amp;confirmation:</source>
-        <translation>Новый пароль</translation>
+        <translation type="unfinished">Новый пароль</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="146"/>
-        <location filename="shortcuts.ui" line="73"/>
-        <source>Save</source>
-        <translation>Сохранить</translation>
+        <location filename="admin_passwd.ui" line="138"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="606"/>
-        <source>&apos;</source>
+        <location filename="admin_passwd.ui" line="149"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>AttachmentWindow</name>
+    <message>
+        <location filename="win_attach.ui" line="16"/>
+        <source>Attachments</source>
+        <translation type="unfinished">Прикрепленные файлы</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="49"/>
+        <source>toolBar</source>
+        <translation type="unfinished">Панель инструментов</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="74"/>
+        <source>New</source>
+        <translation type="unfinished">Создать</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="77"/>
+        <source>Ctrl+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="856"/>
-        <source>&amp;Clear Cache</source>
-        <translation>&amp;Очистить кеш</translation>
+        <location filename="win_attach.ui" line="86"/>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="89"/>
+        <source>Ctrl+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="98"/>
+        <source>Next</source>
+        <translation type="unfinished">Следующее</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="101"/>
+        <source>Alt+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="110"/>
+        <source>Previous</source>
+        <translation type="unfinished">Предыдущее</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="113"/>
+        <source>Alt+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="122"/>
+        <source>Switch</source>
+        <translation type="unfinished">Сменить</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="125"/>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="134"/>
+        <source>Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="137"/>
+        <source>Esc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="146"/>
+        <source>Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <location filename="win_attach.ui" line="149"/>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>BatchUpdateDialog</name>
+    <message>
+        <location filename="batchupdate.ui" line="13"/>
+        <source>Batch Update Process</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="batchupdate.ui" line="44"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="batchupdate.ui" line="55"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>BinaryWidget</name>
+    <message>
+        <location filename="binary.ui" line="47"/>
+        <source>Select file...</source>
+        <translation type="unfinished">Выберите файл...</translation>
+    </message>
+    <message>
+        <location filename="binary.ui" line="64"/>
+        <source>Save file...</source>
+        <translation type="unfinished">Выберите файл...</translation>
+    </message>
+    <message>
+        <location filename="binary.ui" line="81"/>
+        <source>Clear</source>
+        <translation type="unfinished">Очистить</translation>
+    </message>
+</context>
+<context>
+    <name>CalendarWidget</name>
+    <message>
+        <location filename="calendar.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="calendar.ui" line="51"/>
+        <source>Open Calendar</source>
+        <translation type="unfinished">Открыть календарь</translation>
+    </message>
+</context>
+<context>
+    <name>ChangeServerDialog</name>
+    <message>
+        <location filename="change_server.ui" line="20"/>
+        <source>Server</source>
+        <translation type="unfinished">Сервер</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="32"/>
+        <source>Connect to a OpenERP Server</source>
+        <translation type="unfinished">Подключиться к серверу OpenERP</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="52"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">Сервер:</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="71"/>
+        <source>&amp;Port:</source>
+        <translation type="unfinished">Порт</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="113"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="change_server.ui" line="133"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>ChooseDatabaseDialog</name>
+    <message>
+        <location filename="choosedb.ui" line="13"/>
+        <source>Choose database...</source>
+        <translation type="unfinished">Выбрать базу данных</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="25"/>
+        <source>Action here...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="47"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">Сервер:</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="64"/>
+        <source>&amp;Change</source>
+        <translation type="unfinished">Изменить</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="78"/>
+        <source>&amp;Password:</source>
+        <translation type="unfinished">Пароль:</translation>
+    </message>
+    <message>
+        <location filename="choosedb.ui" line="95"/>
+        <source>&amp;Database:</source>
+        <translation type="unfinished">&amp;База данных:</translation>
     </message>
     <message>
         <location filename="choosedb.ui" line="123"/>
-        <location filename="image.ui" line="25"/>
-        <location filename="one2many.ui" line="80"/>
-        <location filename="searchviewitem.ui" line="164"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="799"/>
-        <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Горячие клавиши в текстовых полях&lt;/b&gt;</translation>
+        <location filename="choosedb.ui" line="161"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="476"/>
-        <source>7</source>
-        <translation type="unfinished"></translation>
+        <location filename="choosedb.ui" line="175"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>CreateDatabaseDialog</name>
+    <message>
+        <location filename="create_database.ui" line="14"/>
+        <source>Create a new database</source>
+        <translation type="unfinished">Создать новую базу данных</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="187"/>
-        <source>G</source>
+        <location filename="create_database.ui" line="26"/>
+        <source>&lt;b&gt;Could not connect to database&lt;/b&gt;</source>
+        <translation type="unfinished">Невозможно соединиться с сервером!</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="50"/>
+        <source>&amp;New database name:</source>
+        <translation type="unfinished">Название новой базы данных</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="94"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished">Изменить</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="113"/>
+        <source>(must not contain any special character)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -782,191 +374,161 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="47"/>
-        <location filename="link.ui" line="36"/>
-        <source>Select file...</source>
-        <translation>Выберите файл...</translation>
+        <location filename="create_database.ui" line="152"/>
+        <source>&amp;Super admin password:</source>
+        <translation type="unfinished">Пароль главного администратора:</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="20"/>
-        <source>&lt;b&gt;Change your database administration password&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Смените пароль администратора базы данных&lt;/b&gt;</translation>
+        <location filename="create_database.ui" line="181"/>
+        <source>&amp;Default language:</source>
+        <translation type="unfinished">Язык по умолчанию</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="44"/>
-        <source>W</source>
-        <translation type="unfinished"></translation>
+        <location filename="create_database.ui" line="197"/>
+        <source>&amp;Load demonstration data</source>
+        <translation type="unfinished">Загрузить демо-данные</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="353"/>
-        <source>F10</source>
-        <translation type="unfinished"></translation>
+        <location filename="create_database.ui" line="233"/>
+        <source>&amp;OpenERP server:</source>
+        <translation type="unfinished">Сервер OpenERP</translation>
     </message>
     <message>
-        <location filename="choosedb.ui" line="78"/>
-        <location filename="login.ui" line="221"/>
-        <source>&amp;Password:</source>
-        <translation>Пароль:</translation>
+        <location filename="create_database.ui" line="292"/>
+        <source>Admin password:</source>
+        <translation type="unfinished">Пароль администратора</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="299"/>
+        <source>Repeat admin password</source>
+        <translation type="unfinished">Подтверждение пароля администратора</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="343"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="create_database.ui" line="357"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>DatabaseCreatedDialog</name>
+    <message>
+        <location filename="dbcreateok.ui" line="13"/>
+        <source>Database created</source>
+        <translation type="unfinished">База данных создана</translation>
     </message>
     <message>
         <location filename="dbcreateok.ui" line="56"/>
         <source>Database created successfully!</source>
+        <translation type="unfinished">База данных создана</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="66"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;You can connect to the new database using one of the following accounts:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Administrator: admin / admin&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="error.ui" line="124"/>
-        <source>&amp;Send Error</source>
+        <location filename="dbcreateok.ui" line="98"/>
+        <source>Connect &amp;now</source>
+        <translation type="unfinished">Подключиться</translation>
+    </message>
+    <message>
+        <location filename="dbcreateok.ui" line="112"/>
+        <source>Connect &amp;later</source>
+        <translation type="unfinished">Подключиться</translation>
+    </message>
+</context>
+<context>
+    <name>DateTimeWidget</name>
+    <message>
+        <location filename="datetime.ui" line="41"/>
+        <source>Time:</source>
+        <translation type="unfinished">Время:</translation>
+    </message>
+</context>
+<context>
+    <name>Dialog</name>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="14"/>
+        <source>Batch Update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="582"/>
-        <source>Create a new record</source>
-        <translation>Создать новую запись</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="838"/>
-        <source>&amp;Menu</source>
-        <translation>&amp;Меню</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="115"/>
-        <location filename="mainwindow.ui" line="631"/>
-        <location filename="one2many_dialog.ui" line="57"/>
-        <source>&amp;Previous</source>
-        <translation>&amp;Предыдущее</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="76"/>
-        <source>&amp;Contact</source>
+        <location filename="batchupdate_msgbox.ui" line="49"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the fields you want to update in the %d selected records:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="898"/>
-        <source>Insert Several Records at Once</source>
+        <location filename="batchupdate_msgbox.ui" line="104"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="115"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <location filename="batchupdate_msgbox.ui" line="122"/>
+        <source>Esc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="158"/>
-        <source>Next record</source>
-        <translation>Следующая запись</translation>
+        <location filename="lostconnection.ui" line="32"/>
+        <source>Connection Lost</source>
+        <translation type="unfinished">Соединение потеряно</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="889"/>
-        <source>Push Button of All Selected Records</source>
-        <translation type="unfinished"></translation>
+        <location filename="lostconnection.ui" line="45"/>
+        <source>Connection with the server has been lost. Will retry connection in 10 seconds.</source>
+        <translation type="unfinished">Связь с сервером утеряна. Повторное подключение через 10 секунд.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="310"/>
-        <source>&amp;Actions</source>
-        <translation>&amp;Действия</translation>
+        <location filename="lostconnection.ui" line="73"/>
+        <source>&amp;Retry</source>
+        <translation type="unfinished">&amp;Повтор</translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="228"/>
-        <source>&quot;</source>
-        <translation type="unfinished"></translation>
+        <location filename="lostconnection.ui" line="84"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">Выход</translation>
+    </message>
+</context>
+<context>
+    <name>ErrorDialog</name>
+    <message>
+        <location filename="error.ui" line="14"/>
+        <source>Error</source>
+        <translation type="unfinished">Ошибка</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="356"/>
-        <source>F&amp;orm</source>
-        <translation>Форма</translation>
+        <location filename="error.ui" line="20"/>
+        <source>Application Error !</source>
+        <translation type="unfinished">Ошибка приложения!</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="502"/>
-        <source>2</source>
-        <translation type="unfinished"></translation>
+        <location filename="error.ui" line="34"/>
+        <source>&amp;Description</source>
+        <translation type="unfinished">Описание</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="276"/>
-        <source>&amp;Database</source>
-        <translation>База данных</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="572"/>
-        <source>Opens the record in a new background tab</source>
-        <translation>Открыть в новой вкладке, но не переключаться туда</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="800"/>
-        <source>&amp;About</source>
-        <translation>&amp;О программе</translation>
-    </message>
-    <message>
-        <location filename="many2one.ui" line="59"/>
-        <location filename="paned.ui" line="83"/>
-        <location filename="win_search.ui" line="14"/>
-        <source>Search</source>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="317"/>
-        <source>B</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="168"/>
-        <source>Requests:</source>
-        <translation>Запросы:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="328"/>
-        <source>&amp;Help</source>
-        <translation>Справка</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="70"/>
-        <source>R</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="64"/>
-        <source>&amp;Change</source>
-        <translation>Изменить</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="14"/>
-        <location filename="tree.ui" line="58"/>
-        <source>Shortcuts</source>
-        <translation>Ярлыки</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="123"/>
-        <source>Strikethrough</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="74"/>
-        <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keypad.ui" line="239"/>
-        <source>Intro</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="39"/>
-        <source>Connect</source>
-        <translation>Подключиться</translation>
-    </message>
-    <message>
-        <location filename="one2many_dialog.ui" line="118"/>
-        <source>&amp;OK</source>
-        <translation>Ок</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="298"/>
-        <source>&amp;User</source>
-        <translation>Пользователь</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="682"/>
-        <source>Ctrl+PgUp</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="124"/>
-        <source>Full Text Search</source>
-        <translation>Полнотекстовый поиск</translation>
+        <location filename="error.ui" line="40"/>
+        <source>Application Error</source>
+        <translation type="unfinished">Ошибка приложения</translation>
     </message>
     <message>
         <location filename="error.ui" line="64"/>
@@ -974,477 +536,97 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="151"/>
-        <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
-        <translation type="unfinished"></translation>
+        <location filename="error.ui" line="71"/>
+        <source>View details</source>
+        <translation type="unfinished">Просмотреть подробности</translation>
     </message>
     <message>
-        <location filename="batchupdate.ui" line="13"/>
-        <source>Batch Update Process</source>
-        <translation type="unfinished"></translation>
+        <location filename="error.ui" line="109"/>
+        <source>De&amp;tails</source>
+        <translation type="unfinished">Подробности</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="703"/>
-        <source>View Access Log</source>
-        <translation>Подробно об этой  записи в базе данных</translation>
+        <location filename="error.ui" line="159"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="209"/>
-        <source>Next tab</source>
-        <translation>Следующая вкладка</translation>
+        <location filename="error.ui" line="124"/>
+        <source>&amp;Send Error</source>
+        <translation type="unfinished">Ошибка</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="431"/>
-        <source>Next editable widget</source>
-        <translation>Следующий изменяемый виджет</translation>
+        <location filename="error.ui" line="135"/>
+        <source>&amp;Remote Help</source>
+        <translation type="unfinished">Контекстная справка</translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
+        <location filename="win_export.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished">Диалог</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="356"/>
-        <location filename="search_date.ui" line="81"/>
-        <source>-</source>
-        <translation type="unfinished"></translation>
+        <location filename="win_export.ui" line="22"/>
+        <source>&lt;b&gt;Predefined exports&lt;/b&gt;</source>
+        <translation type="unfinished">Сохранённые списки полей для экспорта</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="148"/>
-        <source>J</source>
-        <translation type="unfinished"></translation>
+        <location filename="win_export.ui" line="46"/>
+        <source>Re&amp;move Export</source>
+        <translation type="unfinished">Удалить сохранённые списки полей для экспорта</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="278"/>
-        <source>M</source>
-        <translation type="unfinished"></translation>
+        <location filename="win_export.ui" line="76"/>
+        <source>&lt;b&gt;All fields&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;Все поля&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="583"/>
-        <source>D&amp;uplicate</source>
-        <translation>Продублировать</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="38"/>
-        <source>&amp;Domain</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="408"/>
-        <source>Enter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="23"/>
-        <source>Login</source>
-        <translation>Вход</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="14"/>
-        <source>Full text search</source>
-        <translation>Полнотекстовый поиск</translation>
+        <location filename="win_export.ui" line="116"/>
+        <source>A&amp;dd</source>
+        <translation type="unfinished">Добавить</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="127"/>
-        <location filename="win_import.ui" line="75"/>
-        <location filename="many2many.ui" line="60"/>
         <source>&amp;Remove</source>
-        <translation>Удалить</translation>
+        <translation type="unfinished">Удалить</translation>
     </message>
     <message>
-        <location filename="admin_passwd.ui" line="74"/>
-        <source>&amp;New password:</source>
-        <translation>Новый пароль:</translation>
+        <location filename="win_export.ui" line="138"/>
+        <source>Remo&amp;ve all</source>
+        <translation type="unfinished">Удалить всё</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="280"/>
-        <source>&amp;Databases</source>
-        <translation>Базы данных</translation>
+        <location filename="win_export.ui" line="162"/>
+        <source>&amp;Save list</source>
+        <translation type="unfinished">Сохранить список полей</translation>
     </message>
     <message>
-        <location filename="full_text_search.ui" line="158"/>
-        <location filename="win_import.ui" line="341"/>
-        <location filename="mainwindow.ui" line="691"/>
-        <location filename="shortcuts.ui" line="902"/>
-        <location filename="tip.ui" line="159"/>
-        <source>&amp;Close</source>
-        <translation>Закрыть</translation>
+        <location filename="win_export.ui" line="177"/>
+        <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;Поля для экспорта&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="253"/>
-        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
-        <translation type="unfinished"></translation>
+        <location filename="win_export.ui" line="203"/>
+        <source>&lt;b&gt;Options&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;Настройки&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="875"/>
-        <source>HTML Manual</source>
-        <translation type="unfinished"></translation>
+        <location filename="win_export.ui" line="216"/>
+        <source>Add &amp;field names</source>
+        <translation type="unfinished">Все поля</translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="201"/>
-        <source>&amp;Field separator</source>
-        <translation>Разделитель полей</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="655"/>
-        <source>Open &amp;Menu Tab</source>
-        <translation>Открыть меню</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="532"/>
-        <source>&amp;Send Request</source>
-        <translation>Отправить запрос</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="50"/>
-        <source>&amp;New database name:</source>
-        <translation>Название новой базы данных</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="71"/>
-        <source>View details</source>
-        <translation>Просмотреть подробности</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="301"/>
-        <source>Background color</source>
-        <translation>Цвет фона</translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="20"/>
-        <source>Application Error !</source>
-        <translation>Ошибка приложения!</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="233"/>
-        <source>&amp;OpenERP server:</source>
-        <translation>Сервер OpenERP</translation>
-    </message>
-    <message>
-        <location filename="choosedb.ui" line="25"/>
-        <source>Action here...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="562"/>
-        <source>Opens the record in a new tab</source>
-        <translation>Открыть запись в новой вкладке</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="567"/>
-        <source>8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="83"/>
-        <source>&amp;only for you</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="265"/>
-        <source>H</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="calendarview.ui" line="83"/>
-        <source>Color Legend</source>
-        <translation>Цетная подпись</translation>
-    </message>
-    <message>
-        <location filename="image.ui" line="73"/>
-        <source>Save Image</source>
-        <translation>Сохранить изображение</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="369"/>
-        <source>X</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="151"/>
-        <source>Help</source>
-        <translation>Справка</translation>
-    </message>
-    <message>
-        <location filename="tree.ui" line="91"/>
-        <source>Remove Shortcut</source>
-        <translation>Удалить ярлык</translation>
-    </message>
-    <message>
-        <location filename="field_preferences.ui" line="21"/>
-        <source>Field &amp;Name</source>
-        <translation>Название поля</translation>
-    </message>
-    <message>
-        <location filename="translationdialog.ui" line="14"/>
-        <source>Translation Dialog</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="customsearchitem.ui" line="56"/>
-        <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="error.ui" line="34"/>
-        <source>&amp;Description</source>
-        <translation>Описание</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="260"/>
-        <source>Duplicate Record</source>
-        <translation>Дублировать запись</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="382"/>
-        <source>C</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="176"/>
-        <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
-        <translation>Невозможно соединиться с сервером!</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="197"/>
-        <source>&amp;Load demonstration data</source>
-        <translation>Загрузить демо-данные</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="292"/>
-        <source>Admin password:</source>
-        <translation>Пароль администратора</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="515"/>
-        <source>3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="684"/>
-        <source>Supr</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="tree.ui" line="111"/>
-        <source>Expand/Collapse</source>
-        <translation>Свернуть/развернуть</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="42"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="progress.ui" line="53"/>
-        <source>Please wait, 
-this operation may take a while...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="217"/>
-        <source>Read My Requests</source>
-        <translation>Прочесть мои запросы</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="141"/>
-        <source>Previous Record</source>
-        <translation>Предыдущая запись</translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="20"/>
-        <source>Server</source>
-        <translation>Сервер</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="120"/>
-        <location filename="admin_passwd.ui" line="138"/>
-        <location filename="batchupdate.ui" line="44"/>
-        <location filename="change_server.ui" line="113"/>
-        <location filename="choosedb.ui" line="161"/>
-        <location filename="create_database.ui" line="343"/>
-        <location filename="batchupdate_msgbox.ui" line="104"/>
-        <location filename="error.ui" line="159"/>
         <location filename="win_export.ui" line="271"/>
-        <location filename="field_preferences.ui" line="134"/>
-        <location filename="gotoid.ui" line="72"/>
-        <location filename="license.ui" line="148"/>
-        <location filename="login.ui" line="283"/>
-        <location filename="preferences.ui" line="45"/>
-        <location filename="win_search.ui" line="97"/>
-        <location filename="win_selection.ui" line="44"/>
-        <location filename="translationdialog.ui" line="45"/>
         <source>&amp;Accept</source>
-        <translation>Ок</translation>
+        <translation type="unfinished">Ок</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="239"/>
-        <source>S</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="505"/>
-        <source>&amp;Drop Database</source>
-        <translation>Удалить базу данных</translation>
-    </message>
-    <message>
-        <location filename="searchform.ui" line="127"/>
-        <source>&amp;Clear</source>
-        <translation>Очистить</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="46"/>
-        <location filename="create_database.ui" line="94"/>
-        <location filename="login.ui" line="98"/>
-        <source>C&amp;hange</source>
-        <translation>Изменить</translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="149"/>
-        <location filename="batchupdate.ui" line="55"/>
-        <location filename="change_server.ui" line="133"/>
-        <location filename="choosedb.ui" line="175"/>
-        <location filename="create_database.ui" line="357"/>
-        <location filename="batchupdate_msgbox.ui" line="115"/>
         <location filename="win_export.ui" line="285"/>
-        <location filename="field_preferences.ui" line="144"/>
-        <location filename="gotoid.ui" line="83"/>
-        <location filename="login.ui" line="297"/>
-        <location filename="one2many_dialog.ui" line="129"/>
-        <location filename="preferences.ui" line="56"/>
-        <location filename="win_search.ui" line="108"/>
-        <location filename="win_selection.ui" line="57"/>
-        <location filename="translationdialog.ui" line="56"/>
         <source>&amp;Cancel</source>
-        <translation>Отмена</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="645"/>
-        <source>Remove current record</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="image.ui" line="90"/>
-        <source>Remove Image</source>
-        <translation>Удалить изображение</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="870"/>
-        <source>PDF Manual</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="330"/>
-        <source>&amp;Import</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="134"/>
-        <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="240"/>
-        <source>Send New Request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="670"/>
-        <source>Ctrl+PgDown</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="624"/>
-        <source>&lt;Enter&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="98"/>
-        <source>Connect &amp;now</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="754"/>
-        <source>&amp;Import Data</source>
-        <translation>Импорт данных</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="271"/>
-        <source>&amp;Plugins</source>
-        <translation>Дополнения</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="159"/>
-        <source>Left Justify</source>
-        <translation>Выравнивание по левому краю</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="343"/>
-        <source>.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="tip.ui" line="20"/>
-        <source>Tip of the Day</source>
-        <translation>Совет дня</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="523"/>
-        <source>&amp;Preferences</source>
-        <translation>Параметры</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="772"/>
-        <source>&amp;Contextual Help</source>
-        <translation>Контекстная справка</translation>
-    </message>
-    <message>
-        <location filename="lostconnection.ui" line="32"/>
-        <source>Connection Lost</source>
-        <translation>Соединение потеряно</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="389"/>
-        <source>Shortcuts in text entries</source>
-        <translation>Горячие клавиши при редактировании текста</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="395"/>
-        <source>N</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="122"/>
-        <source>Switch</source>
-        <translation>Сменить</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="463"/>
-        <source>Space</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="admin_passwd.ui" line="14"/>
-        <location filename="win_export.ui" line="14"/>
-        <location filename="field_preferences.ui" line="13"/>
-        <location filename="win_selection.ui" line="13"/>
-        <source>Dialog</source>
-        <translation>Диалог</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="16"/>
-        <location filename="mainwindow.ui" line="821"/>
-        <source>Attachments</source>
-        <translation>Прикрепленные файлы</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="496"/>
-        <source>&amp;Backup Database</source>
-        <translation>Резервная копия базы данных</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="344"/>
-        <source>General</source>
-        <translation>Общие</translation>
+        <translation type="unfinished">Отмена</translation>
     </message>
     <message>
         <location filename="win_export.ui" line="226"/>
@@ -1461,55 +643,104 @@ On the other hand, import incompatible files will show some information in a way
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="paned.ui" line="100"/>
-        <location filename="reference.ui" line="49"/>
-        <location filename="url.ui" line="51"/>
-        <source>Open</source>
-        <translation>Открыть</translation>
+        <location filename="win_export.ui" line="238"/>
+        <source>Import compatible</source>
+        <translation type="unfinished">Импорт данных</translation>
+    </message>
+</context>
+<context>
+    <name>FieldDefaultsDialog</name>
+    <message>
+        <location filename="field_preferences.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished">Диалог</translation>
     </message>
     <message>
-        <location filename="calendarview.ui" line="50"/>
-        <source>Weekly View</source>
-        <translation>Недели</translation>
+        <location filename="field_preferences.ui" line="21"/>
+        <source>Field &amp;Name</source>
+        <translation type="unfinished">Название поля</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="511"/>
-        <source>Numeric fields</source>
+        <location filename="field_preferences.ui" line="38"/>
+        <source>&amp;Domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="763"/>
-        <source>&amp;Execute Plugins</source>
+        <location filename="field_preferences.ui" line="55"/>
+        <source>Default &amp;value</source>
+        <translation type="unfinished">Язык по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="74"/>
+        <source>&lt;b&gt;Value applicable for:&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="631"/>
-        <source>Add new record</source>
+        <location filename="field_preferences.ui" line="83"/>
+        <source>&amp;only for you</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="progress.ui" line="14"/>
-        <source>Progress...</source>
-        <translation>Выполнение...</translation>
+        <location filename="field_preferences.ui" line="93"/>
+        <source>for all &amp;users</source>
+        <translation type="unfinished">для всех пользователей</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="22"/>
-        <source>&amp;Search Id:</source>
+        <location filename="field_preferences.ui" line="102"/>
+        <source>&lt;b&gt;Value applicable if:&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="312"/>
-        <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
+        <location filename="field_preferences.ui" line="134"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="field_preferences.ui" line="144"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>Form</name>
+    <message>
+        <location filename="image.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="25"/>
+        <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="593"/>
-        <source>&lt;-</source>
+        <location filename="image.ui" line="56"/>
+        <source>Load Image</source>
+        <translation type="unfinished">Загрузить изображение</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="73"/>
+        <source>Save Image</source>
+        <translation type="unfinished">Сохранить изображение</translation>
+    </message>
+    <message>
+        <location filename="image.ui" line="90"/>
+        <source>Remove Image</source>
+        <translation type="unfinished">Удалить изображение</translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="619"/>
+        <source>+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="757"/>
-        <source>Mouse Wheel on Tab</source>
+        <location filename="keyboard.ui" line="356"/>
+        <source>-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="554"/>
+        <source>6</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1518,129 +749,33 @@ On the other hand, import incompatible files will show some information in a way
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="formcontainer.ui" line="56"/>
-        <source>State:</source>
-        <translation>Состояние:</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="82"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Koo is a product of NaN:&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Tel : (+34) 669 40 40 18&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Mail: &lt;/span&gt;&lt;a href=&quot;mailto:info@nan-tic.com&quot;&gt;&lt;span style=&quot; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;info@nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt;&quot;&gt;Web: &lt;/span&gt;&lt;a href=&quot;http://www.nan-tic.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.nan-tic.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="keypad.ui" line="96"/>
+        <source>*</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="487"/>
-        <location filename="login.ui" line="143"/>
-        <source>&amp;Restore Database</source>
-        <translation>Восстановить базу данных из резервной копии</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="448"/>
-        <source>Previous editable widget</source>
-        <translation>Предыдущий изменяемый виджет</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="122"/>
-        <source>I</source>
+        <location filename="keyboard.ui" line="502"/>
+        <source>2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="binary.ui" line="81"/>
-        <location filename="reference.ui" line="83"/>
-        <source>Clear</source>
-        <translation>Очистить</translation>
-    </message>
-    <message>
-        <location filename="richtext.ui" line="318"/>
-        <source>Select font</source>
-        <translation>Выбор шрифта</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="96"/>
-        <source>Y</source>
+        <location filename="keyboard.ui" line="541"/>
+        <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="767"/>
-        <source>Change current tab</source>
-        <translation>Сменить текущую вкладку</translation>
-    </message>
-    <message>
-        <location filename="dbcreateok.ui" line="112"/>
-        <source>Connect &amp;later</source>
+        <location filename="keyboard.ui" line="567"/>
+        <source>8</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="83"/>
-        <source>T</source>
-        <translation type="unfinished"></translation>
+        <location filename="keypad.ui" line="148"/>
+        <source>/</source>
+        <translation type="unfinished">/</translation>
     </message>
     <message>
-        <location filename="gotoid.ui" line="14"/>
-        <source>Go To Id</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="change_server.ui" line="71"/>
-        <source>&amp;Port:</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="721"/>
-        <source>Go To Resource ID</source>
-        <translation>Перейти к записи с ID в базе данных</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="49"/>
-        <source>&lt;Ctrl&gt; + N</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="32"/>
-        <source>&lt;Ctrl&gt; + O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="168"/>
-        <source>&lt;Ctrl&gt; + L</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="482"/>
-        <source>&lt;Ctrl&gt; + C</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="669"/>
-        <source>&lt;Ctrl&gt; + A</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="100"/>
-        <source>&lt;Ctrl&gt; + F</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="83"/>
-        <source>&lt;Ctrl&gt; + D</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="tip.ui" line="133"/>
-        <source>&amp;Next Tip</source>
-        <translation>Следующий совет</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="496"/>
-        <source>&lt;Ctrl&gt; + X</source>
+        <location filename="keyboard.ui" line="528"/>
+        <source>1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1649,34 +784,113 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="66"/>
-        <source>&lt;Ctrl&gt; + S</source>
+        <location filename="keyboard.ui" line="476"/>
+        <source>7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="489"/>
-        <source>&lt;Ctrl&gt; + V</source>
+        <location filename="keyboard.ui" line="450"/>
+        <source>Esc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="219"/>
-        <source>&lt;Ctrl&gt; + W</source>
+        <location filename="keyboard.ui" line="645"/>
+        <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="117"/>
-        <source>&lt;Ctrl&gt; + T</source>
+        <location filename="keyboard.ui" line="343"/>
+        <source>.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="96"/>
-        <location filename="one2many.ui" line="165"/>
-        <source>...</source>
+        <location filename="keypad.ui" line="239"/>
+        <source>Intro</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_selection.ui" line="19"/>
-        <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
+        <location filename="keyboard.ui" line="515"/>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="44"/>
+        <source>W</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="57"/>
+        <source>E</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="70"/>
+        <source>R</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="83"/>
+        <source>T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="96"/>
+        <source>Y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="109"/>
+        <source>U</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="122"/>
+        <source>I</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="135"/>
+        <source>O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="148"/>
+        <source>J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="161"/>
+        <source>F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="174"/>
+        <source>K</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="187"/>
+        <source>G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="200"/>
+        <source>A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="213"/>
+        <source>L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="226"/>
+        <source>Ñ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="239"/>
+        <source>S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1685,236 +899,297 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="185"/>
-        <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
+        <location filename="keyboard.ui" line="265"/>
+        <source>H</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="one2many_dialog.ui" line="95"/>
-        <source>(_/0)</source>
+        <location filename="keyboard.ui" line="278"/>
+        <source>M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="818"/>
-        <source>Set focus to nearest widget</source>
-        <translation>Фокус ввода на ближайший элемент управления</translation>
-    </message>
-    <message>
-        <location filename="win_export.ui" line="116"/>
-        <source>A&amp;dd</source>
-        <translation>Добавить</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="295"/>
-        <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
+        <location filename="keyboard.ui" line="291"/>
+        <source>V</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="315"/>
-        <source>&amp;Window</source>
-        <translation>Окно</translation>
-    </message>
-    <message>
-        <location filename="login.ui" line="132"/>
-        <source>Create &amp;Database</source>
-        <translation>Создать базу данных</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="589"/>
-        <source>Search/edit existing records</source>
+        <location filename="keyboard.ui" line="304"/>
+        <source>,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="712"/>
-        <source>Store View Settings</source>
-        <translation>Сохранить настройки</translation>
-    </message>
-    <message>
-        <location filename="datetime.ui" line="41"/>
-        <source>Time:</source>
-        <translation>Время:</translation>
-    </message>
-    <message>
-        <location filename="create_database.ui" line="152"/>
-        <source>&amp;Super admin password:</source>
-        <translation>Пароль главного администратора:</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="550"/>
-        <source>Relation fields</source>
+        <location filename="keyboard.ui" line="317"/>
+        <source>B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="217"/>
-        <source>Right Justify</source>
-        <translation>Выравнивание по правому краю</translation>
-    </message>
-    <message>
-        <location filename="about.ui" line="42"/>
-        <source>&amp;OpenERP</source>
+        <location filename="keyboard.ui" line="330"/>
+        <source>Z</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="46"/>
-        <source>Re&amp;move Export</source>
-        <translation>Удалить сохранённые списки полей для экспорта</translation>
+        <location filename="keyboard.ui" line="369"/>
+        <source>X</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="74"/>
-        <location filename="many2one.ui" line="82"/>
-        <location filename="one2many.ui" line="96"/>
-        <location filename="reference.ui" line="66"/>
-        <location filename="shortcuts.ui" line="56"/>
-        <source>New</source>
-        <translation>Создать</translation>
+        <location filename="keyboard.ui" line="382"/>
+        <source>C</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="win_import.ui" line="86"/>
-        <source>Remo&amp;ve All</source>
-        <translation>Удалить всё</translation>
+        <location filename="keyboard.ui" line="395"/>
+        <source>N</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="175"/>
-        <source>Switch view mode</source>
-        <translation>Переключение список/форма</translation>
+        <location filename="keyboard.ui" line="408"/>
+        <source>Enter</source>
+        <translation type="unfinished">По центру</translation>
     </message>
     <message>
-        <location filename="login.ui" line="247"/>
-        <source>&amp;User:</source>
-        <translation>Пользователь:</translation>
+        <location filename="keyboard.ui" line="421"/>
+        <source>Tab</source>
+        <translation type="unfinished">Вкладка</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="277"/>
-        <source>Full Text Search current selection</source>
-        <translation>Полнотекстовый поиск</translation>
+        <location filename="keyboard.ui" line="434"/>
+        <source>Caps</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tree.ui" line="71"/>
-        <source>Add Shortcut</source>
-        <translation>Добавить ярлык</translation>
+        <location filename="keyboard.ui" line="463"/>
+        <source>Space</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="786"/>
-        <source>&amp;Keyboard Shortcut</source>
-        <translation>Горячие клавиши</translation>
+        <location filename="keyboard.ui" line="580"/>
+        <source>Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="593"/>
+        <source>&lt;-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="606"/>
+        <source>&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="632"/>
+        <source>Ç</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="keyboard.ui" line="658"/>
+        <source>P</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="34"/>
+        <source>Monthly View</source>
+        <translation type="unfinished">Дни</translation>
+    </message>
+    <message>
+        <location filename="calendarview.ui" line="50"/>
+        <source>Weekly View</source>
+        <translation type="unfinished">Недели</translation>
     </message>
     <message>
         <location filename="calendarview.ui" line="63"/>
         <source>Daily View</source>
-        <translation>Дни</translation>
+        <translation type="unfinished">Дни</translation>
     </message>
     <message>
-        <location filename="create_database.ui" line="181"/>
-        <source>&amp;Default language:</source>
-        <translation>Язык по умолчанию</translation>
+        <location filename="calendarview.ui" line="83"/>
+        <source>Color Legend</source>
+        <translation type="unfinished">Цетная подпись</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="135"/>
-        <source>O</source>
+        <location filename="customsearchitem.ui" line="56"/>
+        <source>If operator is &apos;in&apos; or &apos;not in&apos; you may introduce a list of comma separated values.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="batchupdate_msgbox.ui" line="14"/>
-        <source>Batch Update</source>
+        <location filename="customsearchitem.ui" line="63"/>
+        <source>&amp;And</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2many.ui" line="89"/>
-        <location filename="one2many.ui" line="218"/>
-        <source>(0/0)</source>
+        <location filename="webcontainer.ui" line="24"/>
+        <source>about:blank</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="about.ui" line="14"/>
-        <source>About OpenERP</source>
-        <translation>Об OpenERP</translation>
+        <location filename="keyboard.ui" line="684"/>
+        <source>Supr</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FormContainerWidget</name>
+    <message>
+        <location filename="formcontainer.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="302"/>
-        <source>Save and close window</source>
-        <translation>Сохранить и закрыть окно</translation>
+        <location filename="formcontainer.ui" line="56"/>
+        <source>State:</source>
+        <translation type="unfinished">Состояние:</translation>
+    </message>
+</context>
+<context>
+    <name>FullTextSearchDialog</name>
+    <message>
+        <location filename="full_text_search.ui" line="14"/>
+        <source>Full text search</source>
+        <translation type="unfinished">Полнотекстовый поиск</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="177"/>
-        <source>&lt;b&gt;Fields to export&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Поля для экспорта&lt;/b&gt;</translation>
+        <location filename="full_text_search.ui" line="66"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;Поиск</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="838"/>
-        <source>&lt;Alt&gt; + Minus</source>
+        <location filename="full_text_search.ui" line="115"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished">&amp;Предыдущее</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="126"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">Следующее</translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="37"/>
+        <source>Here you can search for any term in the whole database as long as it has been indexed. If the words you&apos;re searching don&apos;t don&apos;t return any results and you know they exist, they&apos;re probably not indexed and you should ask the system administrator.
+
+Text search only searches for complete words but it will return words that contain the same root. For example, searching for &quot;build&quot;, may return documents which contain the words &quot;built&quot;, &quot;build&quot; or &quot;building&quot;.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="401"/>
-        <source>Cut selected text</source>
-        <translation>Вырезать выделенный текст</translation>
-    </message>
-    <message>
-        <location filename="win_attach.ui" line="113"/>
-        <location filename="mainwindow.ui" line="634"/>
-        <source>Alt+PgUp</source>
+        <location filename="full_text_search.ui" line="42"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;help&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calendar.ui" line="51"/>
-        <source>Open Calendar</source>
-        <translation>Открыть календарь</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="733"/>
-        <source>&amp;Reload/Undo</source>
-        <translation>Отменить изменения в форме</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="202"/>
-        <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
+        <location filename="full_text_search.ui" line="86"/>
+        <source>about:blank</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="full_text_search.ui" line="158"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>GoToIdDialog</name>
+    <message>
+        <location filename="gotoid.ui" line="14"/>
+        <source>Go To Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="22"/>
+        <source>&amp;Search Id:</source>
+        <translation type="unfinished">&amp;Поиск</translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="72"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="gotoid.ui" line="83"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>ImportDialog</name>
+    <message>
+        <location filename="win_import.ui" line="17"/>
+        <source>Import</source>
+        <translation type="unfinished">Импорт</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="33"/>
+        <source>All fields</source>
+        <translation type="unfinished">Все поля</translation>
     </message>
     <message>
         <location filename="win_import.ui" line="64"/>
-        <location filename="many2many.ui" line="40"/>
         <source>&amp;Add</source>
-        <translation>Добавить</translation>
+        <translation type="unfinished">Добавить</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="270"/>
-        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
+        <location filename="win_import.ui" line="75"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="86"/>
+        <source>Remo&amp;ve All</source>
+        <translation type="unfinished">Удалить всё</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="110"/>
+        <source>Auto-&amp;detect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="keypad.ui" line="96"/>
-        <source>*</source>
+        <location filename="win_import.ui" line="131"/>
+        <source>Fields to import</source>
+        <translation type="unfinished">Поля для импорта</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="157"/>
+        <source>File to &amp;import:</source>
+        <translation type="unfinished">Поля для импорта</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="201"/>
+        <source>&amp;Field separator</source>
+        <translation type="unfinished">Разделитель полей</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="211"/>
+        <source>,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="progress.ui" line="40"/>
-        <source>Operation in progress</source>
-        <translation>Операция выполняется</translation>
+        <location filename="win_import.ui" line="218"/>
+        <source>&amp;Text delimiter:</source>
+        <translation type="unfinished">Разделитель</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="660"/>
-        <source>Lists</source>
-        <translation>Списки</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="848"/>
-        <source>&lt;Alt&gt; + Plus</source>
+        <location filename="win_import.ui" line="228"/>
+        <source>&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="442"/>
-        <source>&amp;Connect</source>
-        <translation>Подключиться</translation>
+        <location filename="win_import.ui" line="235"/>
+        <source>&amp;Encoding</source>
+        <translation type="unfinished">Кодировка</translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="246"/>
-        <source>Justify</source>
+        <location filename="win_import.ui" line="299"/>
+        <source>&amp;Lines to skip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="tip.ui" line="122"/>
-        <source>&amp;Previous Tip</source>
-        <translation>Предыдущий совет</translation>
+        <location filename="win_import.ui" line="259"/>
+        <source>UTF-8</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="win_import.ui" line="264"/>
@@ -1922,10 +1197,456 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="lostconnection.ui" line="84"/>
+        <location filename="win_import.ui" line="181"/>
+        <source>File &amp;type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="286"/>
+        <source>Sheet:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="330"/>
+        <source>&amp;Import</source>
+        <translation type="unfinished">Импорт</translation>
+    </message>
+    <message>
+        <location filename="win_import.ui" line="341"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>KooMainWindow</name>
+    <message>
+        <location filename="mainwindow.ui" line="26"/>
+        <source>Koo: OpenObject KDE Client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="168"/>
+        <source>Requests:</source>
+        <translation type="unfinished">Запросы:</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="217"/>
+        <source>Read My Requests</source>
+        <translation type="unfinished">Прочесть мои запросы</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="240"/>
+        <source>Send New Request</source>
+        <translation type="unfinished">Отправить запрос</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="271"/>
+        <source>&amp;Plugins</source>
+        <translation type="unfinished">Дополнения</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="328"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished">Справка</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="356"/>
+        <source>F&amp;orm</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="280"/>
+        <source>&amp;Databases</source>
+        <translation type="unfinished">Базы данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="298"/>
+        <source>&amp;User</source>
+        <translation type="unfinished">Пользователь</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="310"/>
+        <source>&amp;Actions</source>
+        <translation type="unfinished">&amp;Действия</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="386"/>
+        <source>&amp;Reports</source>
+        <translation type="unfinished">&amp;Отчёты</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="351"/>
+        <source>&amp;Browse</source>
+        <translation type="unfinished">Имеющие к этому отношение</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="315"/>
+        <source>&amp;Window</source>
+        <translation type="unfinished">Окно</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="442"/>
+        <source>&amp;Connect</source>
+        <translation type="unfinished">Подключиться</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="445"/>
+        <source>Ctrl+O</source>
+        <comment>Ctrl+O to Login</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="460"/>
+        <source>&amp;Disconnect</source>
+        <translation type="unfinished">Разорвать соединение</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="469"/>
         <source>&amp;Quit</source>
-        <translation>Выход</translation>
+        <translation type="unfinished">Выход</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="478"/>
+        <source>&amp;New Database</source>
+        <translation type="unfinished">Новая база данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="487"/>
+        <source>&amp;Restore Database</source>
+        <translation type="unfinished">Восстановить базу данных из резервной копии</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="496"/>
+        <source>&amp;Backup Database</source>
+        <translation type="unfinished">Резервная копия базы данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="505"/>
+        <source>&amp;Drop Database</source>
+        <translation type="unfinished">Удалить базу данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="514"/>
+        <source>&amp;Administrator Password</source>
+        <translation type="unfinished">Пароль администратора</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="523"/>
+        <source>&amp;Preferences</source>
+        <translation type="unfinished">Параметры</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="532"/>
+        <source>&amp;Send Request</source>
+        <translation type="unfinished">Отправить запрос</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="541"/>
+        <source>&amp;Read My Requests</source>
+        <translation type="unfinished">Прочесть мои запросы</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="550"/>
+        <source>&amp;Waiting Requests</source>
+        <translation type="unfinished">Запросы</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="559"/>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;Создать</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="562"/>
+        <source>Ctrl+N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="571"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="574"/>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="583"/>
+        <source>D&amp;uplicate</source>
+        <translation type="unfinished">Продублировать</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="586"/>
+        <source>Ctrl+Shift+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="595"/>
+        <source>&amp;Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="598"/>
+        <source>Ctrl+D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="607"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;Поиск</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="610"/>
+        <source>Ctrl+F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="619"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">Следующее</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="622"/>
+        <source>Alt+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="631"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished">&amp;Предыдущее</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="634"/>
+        <source>Alt+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="643"/>
+        <source>Switch &amp;View</source>
+        <translation type="unfinished">Переключение форма/список</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="655"/>
+        <source>Open &amp;Menu Tab</source>
+        <translation type="unfinished">Открыть меню</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="667"/>
+        <source>Next Tab</source>
+        <translation type="unfinished">Следующая вкладка</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="670"/>
+        <source>Ctrl+PgDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="679"/>
+        <source>Previous Tab</source>
+        <translation type="unfinished">Предыдущая вкладка</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="682"/>
+        <source>Ctrl+PgUp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="691"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="694"/>
+        <source>Ctrl+W</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="703"/>
+        <source>View Access Log</source>
+        <translation type="unfinished">Подробно об этой  записи в базе данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="721"/>
+        <source>Go To Resource ID</source>
+        <translation type="unfinished">Перейти к записи с ID в базе данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="733"/>
+        <source>&amp;Reload/Undo</source>
+        <translation type="unfinished">Отменить изменения в форме</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="736"/>
+        <source>F5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="745"/>
+        <source>E&amp;xport Data</source>
+        <translation type="unfinished">Экспорт данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="754"/>
+        <source>&amp;Import Data</source>
+        <translation type="unfinished">Импорт данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="763"/>
+        <source>&amp;Execute Plugins</source>
+        <translation type="unfinished">Дополнения</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="772"/>
+        <source>&amp;Contextual Help</source>
+        <translation type="unfinished">Контекстная справка</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="777"/>
+        <source>&amp;Tips</source>
+        <translation type="unfinished">&amp;Советы</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="786"/>
+        <source>&amp;Keyboard Shortcut</source>
+        <translation type="unfinished">Горячие клавиши</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="791"/>
+        <source>&amp;License</source>
+        <translation type="unfinished">Лицензия</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="800"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;О программе</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="809"/>
+        <source>Full &amp;Text Search</source>
+        <translation type="unfinished">Полнотекстовый поиск</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="812"/>
+        <source>Ctrl+T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="821"/>
+        <source>Attachments</source>
+        <translation type="unfinished">Прикрепленные файлы</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="824"/>
+        <source>Ctrl+J</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="833"/>
+        <source>&amp;Form designer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="838"/>
+        <source>&amp;Menu</source>
+        <translation type="unfinished">&amp;Меню</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="332"/>
+        <source>Documentation</source>
+        <translation type="unfinished">Руководство</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="847"/>
+        <source>Open Home Tab</source>
+        <translation type="unfinished">Открыть меню</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="856"/>
+        <source>&amp;Clear Cache</source>
+        <translation type="unfinished">&amp;Очистить кеш</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="865"/>
+        <source>Modify All Selected Records</source>
+        <translation type="unfinished">Изменить сразу все выделенные записи</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="646"/>
+        <source>F6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="276"/>
+        <source>&amp;Database</source>
+        <translation type="unfinished">База данных</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="712"/>
+        <source>Store View Settings</source>
+        <translation type="unfinished">Сохранить настройки</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="724"/>
+        <source>Ctrl+G</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="151"/>
+        <source>Help</source>
+        <translation type="unfinished">Справка</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="870"/>
+        <source>PDF Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="875"/>
+        <source>HTML Manual</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="880"/>
+        <source>doc.openerp.com</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="889"/>
+        <source>Push Button of All Selected Records</source>
+        <translation type="unfinished">Изменить сразу все выделенные записи</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="898"/>
+        <source>Insert Several Records at Once</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="658"/>
+        <source>Ctrl+M</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="910"/>
+        <source>Modify Field in Selected Records</source>
+        <translation type="unfinished">Изменить сразу все выделенные записи</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="922"/>
+        <source>Ne&amp;w Attachment</source>
+        <translation type="unfinished">Прикрепленные файлы</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="931"/>
+        <source>Sca&amp;n Attachment</source>
+        <translation type="unfinished">Прикрепленные файлы</translation>
+    </message>
+</context>
+<context>
+    <name>LicenseDialog</name>
+    <message>
+        <location filename="license.ui" line="19"/>
+        <source>OpenERP license</source>
+        <translation type="unfinished">Лицензия OpenERP</translation>
     </message>
     <message>
         <location filename="license.ui" line="29"/>
@@ -2030,92 +1751,305 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="865"/>
-        <source>Modify All Selected Records</source>
-        <translation>Изменить сразу все выделенные записи</translation>
+        <location filename="license.ui" line="148"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+</context>
+<context>
+    <name>LinkWidget</name>
+    <message>
+        <location filename="link.ui" line="36"/>
+        <source>Select file...</source>
+        <translation type="unfinished">Выберите файл...</translation>
+    </message>
+</context>
+<context>
+    <name>LoginDialog</name>
+    <message>
+        <location filename="login.ui" line="23"/>
+        <source>Login</source>
+        <translation type="unfinished">Вход</translation>
     </message>
     <message>
-        <location filename="error.ui" line="14"/>
-        <source>Error</source>
-        <translation>Ошибка</translation>
+        <location filename="login.ui" line="111"/>
+        <source>&amp;Database:</source>
+        <translation type="unfinished">&amp;База данных:</translation>
     </message>
     <message>
-        <location filename="keyboard.ui" line="330"/>
-        <source>Z</source>
+        <location filename="login.ui" line="98"/>
+        <source>C&amp;hange</source>
+        <translation type="unfinished">Изменить</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="70"/>
+        <source>&amp;Server:</source>
+        <translation type="unfinished">Сервер:</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="176"/>
+        <source>&lt;b&gt;Could not connect to server !&lt;/b&gt;</source>
+        <translation type="unfinished">Невозможно соединиться с сервером!</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="221"/>
+        <source>&amp;Password:</source>
+        <translation type="unfinished">Пароль:</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="247"/>
+        <source>&amp;User:</source>
+        <translation type="unfinished">Пользователь:</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="283"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="297"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="132"/>
+        <source>Create &amp;Database</source>
+        <translation type="unfinished">Создать базу данных</translation>
+    </message>
+    <message>
+        <location filename="login.ui" line="143"/>
+        <source>&amp;Restore Database</source>
+        <translation type="unfinished">Восстановить базу данных из резервной копии</translation>
+    </message>
+</context>
+<context>
+    <name>ManyToManyWidget</name>
+    <message>
+        <location filename="many2many.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="40"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished">Добавить</translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="60"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="many2many.ui" line="96"/>
+        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="192"/>
-        <source>Previous tab</source>
-        <translation>Предыдущая вкладка</translation>
+        <location filename="many2many.ui" line="89"/>
+        <source>(0/0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ManyToOneWidget</name>
+    <message>
+        <location filename="one2many_dialog.ui" line="14"/>
+        <source>OpenERP - Link</source>
+        <translation type="unfinished">Лицензия OpenERP</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="643"/>
-        <source>Switch &amp;View</source>
-        <translation>Переключение форма/список</translation>
+        <location filename="one2many_dialog.ui" line="118"/>
+        <source>&amp;OK</source>
+        <translation type="unfinished">Ок</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="360"/>
-        <source>Show field&apos;s help information</source>
-        <translation>Справочная информация о поле</translation>
+        <location filename="one2many_dialog.ui" line="129"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="134"/>
-        <source>Close</source>
-        <translation>Закрыть</translation>
+        <location filename="many2one.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="777"/>
-        <source>&lt;Shift&gt; + Open View</source>
+        <location filename="many2one.ui" line="59"/>
+        <source>Search</source>
+        <translation type="unfinished">Поиск</translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="82"/>
+        <source>New</source>
+        <translation type="unfinished">Создать</translation>
+    </message>
+    <message>
+        <location filename="many2one.ui" line="105"/>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="57"/>
+        <source>&amp;Previous</source>
+        <translation type="unfinished">&amp;Предыдущее</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="68"/>
+        <source>&amp;Next</source>
+        <translation type="unfinished">Следующее</translation>
+    </message>
+    <message>
+        <location filename="one2many_dialog.ui" line="95"/>
+        <source>(_/0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OneToManyWidget</name>
+    <message>
+        <location filename="one2many.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="80"/>
+        <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="745"/>
-        <source>E&amp;xport Data</source>
-        <translation>Экспорт данных</translation>
+        <location filename="one2many.ui" line="96"/>
+        <source>New</source>
+        <translation type="unfinished">Создать</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="351"/>
-        <source>&amp;Browse</source>
-        <translation>Имеющие к этому отношение</translation>
+        <location filename="one2many.ui" line="116"/>
+        <source>Edit</source>
+        <translation type="unfinished">Правка</translation>
     </message>
     <message>
-        <location filename="win_export.ui" line="138"/>
-        <source>Remo&amp;ve all</source>
-        <translation>Удалить всё</translation>
+        <location filename="one2many.ui" line="136"/>
+        <source>Remove</source>
+        <translation type="unfinished">Удалить</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="137"/>
-        <location filename="batchupdate_msgbox.ui" line="122"/>
-        <location filename="keyboard.ui" line="450"/>
-        <location filename="win_search.ui" line="115"/>
-        <source>Esc</source>
+        <location filename="one2many.ui" line="192"/>
+        <source>Previous</source>
+        <translation type="unfinished">Предыдущее</translation>
+    </message>
+    <message>
+        <location filename="one2many.ui" line="218"/>
+        <source>(0/0)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="319"/>
-        <source>Close window without saving</source>
-        <translation>Закрыть окно без сохранения</translation>
+        <location filename="one2many.ui" line="234"/>
+        <source>Next</source>
+        <translation type="unfinished">Следующее</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="550"/>
-        <source>&amp;Waiting Requests</source>
-        <translation>Запросы</translation>
+        <location filename="one2many.ui" line="263"/>
+        <source>Switch View</source>
+        <translation type="unfinished">Переключение форма/список</translation>
     </message>
     <message>
-        <location filename="license.ui" line="19"/>
-        <source>OpenERP license</source>
-        <translation>Лицензия OpenERP</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="541"/>
-        <source>5</source>
+        <location filename="one2many.ui" line="165"/>
+        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>PanedWidget</name>
     <message>
-        <location filename="mainwindow.ui" line="880"/>
-        <source>doc.openerp.com</source>
+        <location filename="paned.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="83"/>
+        <source>Search</source>
+        <translation type="unfinished">Поиск</translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="100"/>
+        <source>Open</source>
+        <translation type="unfinished">Открыть</translation>
+    </message>
+    <message>
+        <location filename="paned.ui" line="117"/>
+        <source>Switch View</source>
+        <translation type="unfinished">Переключение форма/список</translation>
+    </message>
+</context>
+<context>
+    <name>PreferencesDialog</name>
+    <message>
+        <location filename="preferences.ui" line="14"/>
+        <source>Preferences</source>
+        <translation type="unfinished">Настройки</translation>
+    </message>
+    <message>
+        <location filename="preferences.ui" line="45"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="preferences.ui" line="56"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>ProgressDialog</name>
+    <message>
+        <location filename="progress.ui" line="14"/>
+        <source>Progress...</source>
+        <translation type="unfinished">Выполнение...</translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="40"/>
+        <source>Operation in progress</source>
+        <translation type="unfinished">Операция выполняется</translation>
+    </message>
+    <message>
+        <location filename="progress.ui" line="53"/>
+        <source>Please wait, 
+this operation may take a while...</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ReferenceWidget</name>
+    <message>
+        <location filename="reference.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="83"/>
+        <source>Clear</source>
+        <translation type="unfinished">Очистить</translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="66"/>
+        <source>New</source>
+        <translation type="unfinished">Создать</translation>
+    </message>
+    <message>
+        <location filename="reference.ui" line="49"/>
+        <source>Open</source>
+        <translation type="unfinished">Открыть</translation>
+    </message>
+</context>
+<context>
+    <name>RichTextWidget</name>
+    <message>
+        <location filename="richtext.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="36"/>
+        <source>Bold</source>
+        <translation type="unfinished">Полужирный</translation>
     </message>
     <message>
         <location filename="richtext.ui" line="65"/>
@@ -2123,14 +2057,380 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="error.ui" line="40"/>
-        <source>Application Error</source>
-        <translation>Ошибка приложения</translation>
+        <location filename="richtext.ui" line="94"/>
+        <source>Underline</source>
+        <translation type="unfinished">Подчёркнутый</translation>
     </message>
     <message>
-        <location filename="one2many.ui" line="116"/>
-        <source>Edit</source>
-        <translation>Правка</translation>
+        <location filename="richtext.ui" line="123"/>
+        <source>Strikethrough</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="159"/>
+        <source>Left Justify</source>
+        <translation type="unfinished">Выравнивание по левому краю</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="188"/>
+        <source>Center</source>
+        <translation type="unfinished">По центру</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="217"/>
+        <source>Right Justify</source>
+        <translation type="unfinished">Выравнивание по правому краю</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="246"/>
+        <source>Justify</source>
+        <translation type="unfinished">Выравнивание по левому краю</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="282"/>
+        <source>Foreground Color</source>
+        <translation type="unfinished">Цвет фона</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="301"/>
+        <source>Background color</source>
+        <translation type="unfinished">Цвет фона</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="318"/>
+        <source>Select font</source>
+        <translation type="unfinished">Выбор шрифта</translation>
+    </message>
+    <message>
+        <location filename="richtext.ui" line="331"/>
+        <source>Select font size</source>
+        <translation type="unfinished">Выберите размер шрифта</translation>
+    </message>
+</context>
+<context>
+    <name>SearchDateWidget</name>
+    <message>
+        <location filename="search_date.ui" line="26"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="56"/>
+        <source>Choose a date from a calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="81"/>
+        <source>-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="search_date.ui" line="112"/>
+        <source>Choose the date from a calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchFormWidget</name>
+    <message>
+        <location filename="searchform.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="searchform.ui" line="127"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished">Очистить</translation>
+    </message>
+    <message>
+        <location filename="searchform.ui" line="138"/>
+        <source>&amp;Search</source>
+        <translation type="unfinished">&amp;Поиск</translation>
+    </message>
+</context>
+<context>
+    <name>SearchReferenceWidget</name>
+    <message>
+        <location filename="searchreference.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+</context>
+<context>
+    <name>SearchViewItemWidget</name>
+    <message>
+        <location filename="searchviewitem.ui" line="19"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="searchviewitem.ui" line="164"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchWidget</name>
+    <message>
+        <location filename="win_search.ui" line="14"/>
+        <source>Search</source>
+        <translation type="unfinished">Поиск</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="67"/>
+        <source>&amp;New</source>
+        <translation type="unfinished">&amp;Создать</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="86"/>
+        <source>&amp;Find</source>
+        <translation type="unfinished">&amp;Поиск</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="97"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="108"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <location filename="win_search.ui" line="115"/>
+        <source>Esc</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SelectionDialog</name>
+    <message>
+        <location filename="win_selection.ui" line="13"/>
+        <source>Dialog</source>
+        <translation type="unfinished">Диалог</translation>
+    </message>
+    <message>
+        <location filename="win_selection.ui" line="19"/>
+        <source>&lt;center&gt;&lt;b&gt;Choose a plug-in&lt;/b&gt;&lt;/center&gt;</source>
+        <translation type="unfinished">&lt;center&gt;&lt;i&gt;Редактирование записи во всплывающем окне&lt;/i&gt;&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <location filename="win_selection.ui" line="44"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="win_selection.ui" line="57"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsDialog</name>
+    <message>
+        <location filename="shortcuts.ui" line="14"/>
+        <source>Shortcuts</source>
+        <translation type="unfinished">Ярлыки</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="24"/>
+        <source>&amp;Main Shortcuts</source>
+        <translation type="unfinished">Горячие клавиши</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="32"/>
+        <source>&lt;Ctrl&gt; + O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="39"/>
+        <source>Connect</source>
+        <translation type="unfinished">Подключиться</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="49"/>
+        <source>&lt;Ctrl&gt; + N</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="56"/>
+        <source>New</source>
+        <translation type="unfinished">Создать</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="66"/>
+        <source>&lt;Ctrl&gt; + S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="73"/>
+        <source>Save</source>
+        <translation type="unfinished">Сохранить</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="83"/>
+        <source>&lt;Ctrl&gt; + D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="90"/>
+        <source>Delete</source>
+        <translation type="unfinished">Удалить</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="100"/>
+        <source>&lt;Ctrl&gt; + F</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="107"/>
+        <source>Find / Search</source>
+        <translation type="unfinished">Поиск</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="117"/>
+        <source>&lt;Ctrl&gt; + T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="124"/>
+        <source>Full Text Search</source>
+        <translation type="unfinished">Полнотекстовый поиск</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="134"/>
+        <source>&lt;Alt&gt; + &lt;PgUp&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="141"/>
+        <source>Previous Record</source>
+        <translation type="unfinished">Предыдущая запись</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="151"/>
+        <source>&lt;Alt&gt; + &lt;PgDn&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="158"/>
+        <source>Next record</source>
+        <translation type="unfinished">Следующая запись</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="168"/>
+        <source>&lt;Ctrl&gt; + L</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="175"/>
+        <source>Switch view mode</source>
+        <translation type="unfinished">Переключение список/форма</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="185"/>
+        <source>&lt;Ctrl&gt; + &lt;PgUp&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="192"/>
+        <source>Previous tab</source>
+        <translation type="unfinished">Предыдущая вкладка</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="202"/>
+        <source>&lt;Ctrl&gt; + &lt;PgDn&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="209"/>
+        <source>Next tab</source>
+        <translation type="unfinished">Следующая вкладка</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="219"/>
+        <source>&lt;Ctrl&gt; + W</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="727"/>
+        <source>Close tab</source>
+        <translation type="unfinished">Закрыть вкладку</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="236"/>
+        <source>F5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="243"/>
+        <source>Reload</source>
+        <translation type="unfinished">Открыть заново</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="253"/>
+        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + D</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="260"/>
+        <source>Duplicate Record</source>
+        <translation type="unfinished">Дублировать запись</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="286"/>
+        <source>&lt;center&gt;&lt;i&gt;When editing a resource in a popup window&lt;/i&gt;&lt;/center&gt;</source>
+        <translation type="unfinished">&lt;center&gt;&lt;i&gt;Редактирование записи во всплывающем окне&lt;/i&gt;&lt;/center&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="295"/>
+        <source>&lt;Ctrl&gt; + &lt;Enter&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="302"/>
+        <source>Save and close window</source>
+        <translation type="unfinished">Сохранить и закрыть окно</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="312"/>
+        <source>&lt;Ctrl&gt; + &lt;Esc&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="319"/>
+        <source>Close window without saving</source>
+        <translation type="unfinished">Закрыть окно без сохранения</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="332"/>
+        <source>&amp;Edition Shortcuts</source>
+        <translation type="unfinished">Горячие клавиши правки</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="389"/>
+        <source>Shortcuts in text entries</source>
+        <translation type="unfinished">Горячие клавиши при редактировании текста</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="401"/>
+        <source>Cut selected text</source>
+        <translation type="unfinished">Вырезать выделенный текст</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="411"/>
+        <source>Copy selected text</source>
+        <translation type="unfinished">Скопировать выделенный текст</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="421"/>
+        <source>Paste selected text</source>
+        <translation type="unfinished">Вставить выделенный текст</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="431"/>
+        <source>Next editable widget</source>
+        <translation type="unfinished">Следующий изменяемый виджет</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="441"/>
@@ -2138,46 +2438,237 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="batchupdate_msgbox.ui" line="49"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the fields you want to update in the %d selected records:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location filename="shortcuts.ui" line="448"/>
+        <source>Previous editable widget</source>
+        <translation type="unfinished">Предыдущий изменяемый виджет</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="624"/>
+        <source>&lt;Enter&gt;</source>
+        <translation type="unfinished">По центру</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="465"/>
+        <source>Auto-complete text field</source>
+        <translation type="unfinished">Автодополнение</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="475"/>
+        <source>&lt;Tab&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="many2one.ui" line="105"/>
-        <location filename="one2many.ui" line="136"/>
-        <source>Remove</source>
-        <translation>Удалить</translation>
-    </message>
-    <message>
-        <location filename="full_text_search.ui" line="126"/>
-        <location filename="mainwindow.ui" line="619"/>
-        <location filename="one2many_dialog.ui" line="68"/>
-        <source>&amp;Next</source>
-        <translation>Следующее</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="243"/>
-        <source>Reload</source>
-        <translation>Открыть заново</translation>
-    </message>
-    <message>
-        <location filename="keyboard.ui" line="109"/>
-        <source>U</source>
+        <location filename="shortcuts.ui" line="482"/>
+        <source>&lt;Ctrl&gt; + C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="richtext.ui" line="188"/>
-        <source>Center</source>
-        <translation>По центру</translation>
+        <location filename="shortcuts.ui" line="489"/>
+        <source>&lt;Ctrl&gt; + V</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="496"/>
+        <source>&lt;Ctrl&gt; + X</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="511"/>
+        <source>Numeric fields</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="523"/>
+        <source>Formula + &lt;Enter&gt;
+(Example: 3+2*2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="531"/>
+        <source>Calculates value
+(Example result: 7)</source>
+        <translation type="unfinished">Рассчитать значение
+(В этом примере: 7)</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="550"/>
+        <source>Relation fields</source>
+        <translation type="unfinished">Все поля</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="596"/>
+        <source>&lt;Ctrl&gt; + Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="562"/>
+        <source>Opens the record in a new tab</source>
+        <translation type="unfinished">Открыть запись в новой вкладке</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="610"/>
+        <source>&lt;Ctrl&gt; + &lt;Shift&gt; + Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="572"/>
+        <source>Opens the record in a new background tab</source>
+        <translation type="unfinished">Открыть в новой вкладке, но не переключаться туда</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="660"/>
+        <source>Lists</source>
+        <translation type="unfinished">Списки</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="669"/>
+        <source>&lt;Ctrl&gt; + A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="676"/>
+        <source>Selects all records</source>
+        <translation type="unfinished">Выбрать все записи</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="702"/>
+        <source>&amp;Advanced</source>
+        <translation type="unfinished">Дополнительно</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="799"/>
+        <source>&lt;b&gt;Shortcuts in text entries&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;Горячие клавиши в текстовых полях&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="717"/>
+        <source>Middle mouse click on Tab</source>
+        <translation type="unfinished">Средняя кнопка мыши на вкладке</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="737"/>
         <source>&lt;Shift&gt; + Switch View</source>
+        <translation type="unfinished">Переключение форма/список</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="747"/>
+        <source>Open form view in new tab</source>
+        <translation type="unfinished">Открыть форму в новой вкладке</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="757"/>
+        <source>Mouse Wheel on Tab</source>
+        <translation type="unfinished">Средняя кнопка мыши на вкладке</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="767"/>
+        <source>Change current tab</source>
+        <translation type="unfinished">Сменить текущую вкладку</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="777"/>
+        <source>&lt;Shift&gt; + Open View</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="787"/>
+        <source>Open view in a background tab</source>
+        <translation type="unfinished">Открыть в новой вкладке, но не переключаться туда</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="902"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="344"/>
+        <source>General</source>
+        <translation type="unfinished">Общие</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="353"/>
+        <source>F10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="360"/>
+        <source>Show field&apos;s help information</source>
+        <translation type="unfinished">Справочная информация о поле</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="582"/>
+        <source>Create a new record</source>
+        <translation type="unfinished">Создать новую запись</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="589"/>
+        <source>Search/edit existing records</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="603"/>
+        <source>F1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="617"/>
+        <source>F2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="808"/>
+        <source>&lt;Alt&gt; + Arrow (Left, Right, Up, Down)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="818"/>
+        <source>Set focus to nearest widget</source>
+        <translation type="unfinished">Фокус ввода на ближайший элемент управления</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="828"/>
+        <source>Set focus to current widget&apos;s container</source>
+        <translation type="unfinished">Фокус ввода на контейнер ближайшего элемента управления</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="838"/>
+        <source>&lt;Alt&gt; + Minus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="848"/>
+        <source>&lt;Alt&gt; + Plus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="858"/>
+        <source>Set focus to one of the widgets in the container</source>
+        <translation type="unfinished">Фокус ввода на один из элементов управления в контейнере</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="270"/>
+        <source>&lt;Ctrl&gt; + &lt;Alt&gt; + T</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="277"/>
+        <source>Full Text Search current selection</source>
+        <translation type="unfinished">Полнотекстовый поиск</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="367"/>
+        <source>F3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="374"/>
+        <source>Clear field</source>
+        <translation type="unfinished">Все поля</translation>
+    </message>
+    <message>
+        <location filename="shortcuts.ui" line="631"/>
+        <source>Add new record</source>
+        <translation type="unfinished">Создать новую запись</translation>
     </message>
     <message>
         <location filename="shortcuts.ui" line="638"/>
@@ -2185,41 +2676,109 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="shortcuts.ui" line="332"/>
-        <source>&amp;Edition Shortcuts</source>
-        <translation>Горячие клавиши правки</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="571"/>
-        <source>&amp;Save</source>
-        <translation>Сохранить</translation>
-    </message>
-    <message>
-        <location filename="shortcuts.ui" line="531"/>
-        <source>Calculates value
-(Example result: 7)</source>
-        <translation>Рассчитать значение
-(В этом примере: 7)</translation>
-    </message>
-    <message>
-        <location filename="win_import.ui" line="235"/>
-        <source>&amp;Encoding</source>
-        <translation>Кодировка</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="910"/>
-        <source>Modify Field in Selected Records</source>
+        <location filename="shortcuts.ui" line="645"/>
+        <source>Remove current record</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>TipsDialog</name>
     <message>
-        <location filename="richtext.ui" line="94"/>
-        <source>Underline</source>
-        <translation>Подчёркнутый</translation>
+        <location filename="tip.ui" line="20"/>
+        <source>Tip of the Day</source>
+        <translation type="unfinished">Совет дня</translation>
     </message>
     <message>
-        <location filename="win_attach.ui" line="49"/>
-        <source>toolBar</source>
-        <translation>Панель инструментов</translation>
+        <location filename="tip.ui" line="96"/>
+        <source>&amp;Display a new tip next time ?</source>
+        <translation type="unfinished">Показывать советы при запуске?</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="122"/>
+        <source>&amp;Previous Tip</source>
+        <translation type="unfinished">Предыдущий совет</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="133"/>
+        <source>&amp;Next Tip</source>
+        <translation type="unfinished">Следующий совет</translation>
+    </message>
+    <message>
+        <location filename="tip.ui" line="159"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>TranslationDialog</name>
+    <message>
+        <location filename="translationdialog.ui" line="45"/>
+        <source>&amp;Accept</source>
+        <translation type="unfinished">Ок</translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="56"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена</translation>
+    </message>
+    <message>
+        <location filename="translationdialog.ui" line="14"/>
+        <source>Translation Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TreeWidget</name>
+    <message>
+        <location filename="tree.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="58"/>
+        <source>Shortcuts</source>
+        <translation type="unfinished">Ярлыки</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="71"/>
+        <source>Add Shortcut</source>
+        <translation type="unfinished">Добавить ярлык</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="91"/>
+        <source>Remove Shortcut</source>
+        <translation type="unfinished">Удалить ярлык</translation>
+    </message>
+    <message>
+        <location filename="tree.ui" line="111"/>
+        <source>Expand/Collapse</source>
+        <translation type="unfinished">Свернуть/развернуть</translation>
+    </message>
+</context>
+<context>
+    <name>UrlWidget</name>
+    <message>
+        <location filename="url.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="url.ui" line="51"/>
+        <source>Open</source>
+        <translation type="unfinished">Открыть</translation>
+    </message>
+</context>
+<context>
+    <name>WebWidget</name>
+    <message>
+        <location filename="web.ui" line="13"/>
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="web.ui" line="23"/>
+        <source>about:blank</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

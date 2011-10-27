@@ -18,7 +18,6 @@ pylupdate4 $UI_FILES -ts $DIR/koo.ts
 
 lconvert $DIR/koo.ts --output-format po -o $DIR/qt-koo.pot
 
-
 # Merge template with existing translations
 
 echo "Converting qt-koo*.po files to .ts and then compiling to .qm"
@@ -29,11 +28,16 @@ for x in $QT_LANGS; do
 	#utf="no"
 	#po2ts qt-koo-$x.po qt_$x.ts $utf
 	if [ -f $DIR/qt-koo-$x.po ]; then
-		msgmerge $DIR/qt-koo-$x.po $DIR/qt-koo.pot -o $DIR/qt_koo-$x.po
+		msgmerge $DIR/qt-koo-$x.po $DIR/qt-koo.pot -o $DIR/qt-koo-$x.po
 	else
 		cp $DIR/qt-koo.pot $DIR/qt-koo-$x.po
 	fi
-    lconvert $DIR/qt-koo-$x.po --output-format ts -o $DIR/qt_$x.ts
+    # Add X-Qt-Contexts flag so lconvert works correctly.
+    new_file=$(tempfile --suffix=.po)
+    cat $DIR/qt-koo-$x.po | sed -e "s/\"X-Generator:/\"X-Qt-Contexts: true\\\n\"\n\"X-Generator:/" > $new_file
+    echo "Converting $new_file"
+    lconvert $new_file --output-format ts -o $DIR/qt_$x.ts
+    #lconvert $DIR/qt-koo-$x.po --output-format ts -o $DIR/qt_$x.ts
 	lrelease $DIR/qt_$x.ts -qm $DIR/qt_$x.qm
 done
 
