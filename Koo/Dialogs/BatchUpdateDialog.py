@@ -143,7 +143,7 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 					return
 				self.newValues = {}
 				for field in messageBox.selectedFields():
-					if self.group.fieldType(field) == 'many2many':
+					if not self.updateOnServer and self.group.fieldType(field) == 'many2many':
 						if len(values[field]):
 							self.newValues[field] = values[field][0][2]
 						else:
@@ -163,3 +163,4 @@ class BatchUpdateDialog( QDialog, BatchUpdateDialogUi ):
 		if not self.isGroupNew:
 			self.group.removeRecord( self.screen.currentRecord() )
 
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
