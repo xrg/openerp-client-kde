@@ -43,7 +43,7 @@ from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 
 (ManyToOneFieldWidgetUi, ManyToOneFieldWidgetBase ) = loadUiType( Common.uiPath('many2one.ui') ) 

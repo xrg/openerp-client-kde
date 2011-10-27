@@ -42,7 +42,7 @@ from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 class SearchFormContainer( QWidget ):
 	def __init__(self, parent):

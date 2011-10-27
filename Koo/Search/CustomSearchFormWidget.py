@@ -37,11 +37,11 @@ from Koo.Common import Common
 from Koo.Common import Shortcuts
 from Koo.Common import Calendar
 from Koo.Common import Numeric
+from Koo.Common.Ui import *
 from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common.Ui import *
 
 class SearchFormContainer( QWidget ):
 	def __init__(self, parent):

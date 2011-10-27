@@ -18,7 +18,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 from Koo.Common import Common
 from AbstractKeyboardWidget import *
 

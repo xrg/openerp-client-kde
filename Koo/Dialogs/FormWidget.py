@@ -48,7 +48,7 @@ from Koo.Screen.Screen import *
 from Koo.Model.Group import RecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 (FormWidgetUi, FormWidgetBase) = loadUiType( Common.uiPath('formcontainer.ui') )
 

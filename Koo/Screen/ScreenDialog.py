@@ -25,7 +25,7 @@
 #
 ##############################################################################
 
-from Common.Ui import *
+from Koo.Common.Ui import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
 

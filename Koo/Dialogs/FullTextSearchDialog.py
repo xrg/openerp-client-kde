@@ -39,7 +39,7 @@ from Koo.Model.Group import RecordGroup
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 try:
 	from PyQt4.QtWebKit import *
