@@ -1,0 +1,232 @@
+# Arabic translation for openobject-client-kde
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-06-27 14:38+0000\n"
+"PO-Revision-Date: 2011-08-13 23:18+0000\n"
+"Last-Translator: kifcaliph <kifcaliph@hotmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-10-27 06:52+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
+
+#. module: full_text_search
+#: model:ir.module.module,description:full_text_search.module_meta_information
+msgid ""
+"This module adds full text search capabilities to OpenERP if used in "
+"conjunction with the Koo client.\n"
+"\n"
+"Note that this module requires the server to connect to an administrator "
+"user in PostgreSQL because it uses PL/PythonU. Be advised that this might be "
+"a security risk.\n"
+"\n"
+"The module will try to load PL/PythonU language if it doesn't already exist "
+"in the database."
+msgstr ""
+"هذا البرنامج سوف يضيف خاصية البحث الكامل للنصوص لنظام OpenERP و ذلك إذا تم "
+"إستخدامه مع البرنامج الطرفي koo\n"
+"\n"
+"يتطلب هذا البرنامج أن يتم الإتصال بالخادم من حساب المشرف العام لقاعدة "
+"البيانات PostgreSQL لأنه يستخدم PL/PythonU، فقد يكون هذا خطراً علي حماية "
+"النظام.\n"
+"\n"
+"هذا البرنامج سيقوم بتثبيت لغة PL/PythonU إذا لم تكن مثبتة من قبل."
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_full_text_index
+msgid "fts.full_text_index"
+msgstr "fts.full_text_index"
+
+#. module: full_text_search
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr "اسم الكائن يجب أن يبدأ بـ \"_x\" ولا يحتوي على رموز خاصة !"
+
+#. module: full_text_search
+#: help:ir.model.fields,fts_priority:0
+msgid ""
+"Fields that should be indexed in the Full Text Search engine should be given "
+"a priority here."
+msgstr ""
+"الحقول الواجب فهرستها في محرك  البحث للنصوص يجب أن تأخذ درجة أهمية هنا."
+
+#. module: full_text_search
+#: help:fts.wizard,configuration:0
+msgid "Choose a PostgreSQL TS configuration"
+msgstr "اختر إعدادت قاعدة بيانات PostgreSQL TS"
+
+#. module: full_text_search
+#: model:ir.actions.act_window,name:full_text_search.fts_priorities_action
+msgid "Full Text Index Priorities"
+msgstr "درجات الأهمية للفهرس النصي بالكامل"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_wizard
+msgid "fts.wizard"
+msgstr "fts.wizard"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.fts_full_text_index_menu
+msgid "Indexes"
+msgstr "فهارس"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,priority:0
+#: field:fts.full_text_index,priority:0
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,field_id:0
+#: field:fts.full_text_index,field_id:0
+msgid "Field"
+msgstr "حقل"
+
+#. module: full_text_search
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "اسم نموذج خاطئ في تعريف الإجراء."
+
+#. module: full_text_search
+#: model:ir.module.module,shortdesc:full_text_search.module_meta_information
+#: model:ir.ui.menu,name:full_text_search.fts_menu
+msgid "Full Text Search"
+msgstr "بحث نصي بالكامل"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Full Text Index Creation Wizard"
+msgstr "دليل إنشاء فهرس للنصوص بالكامل"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.menu_fts_wizard
+msgid "Update Full Text Index"
+msgstr "تحديث فهرس النصوص الكاملة"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_current_full_text_index
+msgid "fts.current_full_text_index"
+msgstr "fts.current_full_text_index"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Non indexable field type."
+msgstr "نوع الحقل غير قابل للفهرسة"
+
+#. module: full_text_search
+#: field:fts.priority,value:0
+msgid "Value (0-1.0)"
+msgstr "القيمة المقبولة بين (0-1.0)"
+
+#. module: full_text_search
+#: model:ir.model,name:full_text_search.model_fts_priority
+msgid "fts.priority"
+msgstr "fts.priority"
+
+#. module: full_text_search
+#: model:ir.actions.act_window,name:full_text_search.action_fts_wizard
+msgid "Full Text Search Configuration Wizard"
+msgstr "قائمة إعدادت البحث الكامل للنصوص"
+
+#. module: full_text_search
+#: field:fts.wizard,configuration:0
+msgid "Configuration"
+msgstr "إعدادات"
+
+#. module: full_text_search
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "هناك خطأ في بيانات الـ XML للعرض!"
+
+#. module: full_text_search
+#: field:fts.priority,name:0
+msgid "Name"
+msgstr "الاسم"
+
+#. module: full_text_search
+#: model:ir.ui.menu,name:full_text_search.fts_priorities_menu
+msgid "Priorities"
+msgstr "الأولويات"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Creation error"
+msgstr "خطأ بالإنشاء"
+
+#. module: full_text_search
+#: view:fts.full_text_index:0
+#: view:fts.priority:0
+#: model:ir.actions.act_window,name:full_text_search.fts_full_text_index_action
+msgid "Full Text Indexes"
+msgstr "فهارس الكاملة للنصوص"
+
+#. module: full_text_search
+#: field:fts.current_full_text_index,model_id:0
+#: field:fts.full_text_index,model_id:0
+msgid "Model"
+msgstr "نموذج"
+
+#. module: full_text_search
+#: help:ir.model.fields,fts_current_priority:0
+msgid ""
+"Shows with which priority this field is being indexed at the moment. It may "
+"change after Update Full Text Index process."
+msgstr ""
+"يعرض أهمية هذا الحقل للفهرسة في الوقت الحالي، قد يتغير بعد التحديث لعملية "
+"فهرسة النصوص الكاملة."
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid ""
+"Note that this operation may take a long time depending on the number of "
+"indexes and database size."
+msgstr ""
+"ﻻحظ أن هذه العملية قد تستغرق وقت طويل حسب الأعداد التي تتم فهرستها و حجم "
+"قاعدة البيانات."
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Create Index"
+msgstr "إنشاء فهرست"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Fields of type function can't be indexed: '%s'"
+msgstr "ﻻ يمكن فهرسة هذا النوع من الحقول: '%s'"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "This wizard will recreate full text indexes."
+msgstr "هذه القائمة ستقوم بإنشاء فهارس جديدة للبحث النصي الكامل."
+
+#. module: full_text_search
+#: field:ir.model.fields,fts_priority:0
+msgid "FTS Priority"
+msgstr "FTS Priority"
+
+#. module: full_text_search
+#: field:ir.model.fields,fts_current_priority:0
+msgid "FTS Current Priority"
+msgstr "FTS Current Priority"
+
+#. module: full_text_search
+#: view:fts.wizard:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: full_text_search
+#: code:addons/full_text_search/full_text_index.py:0
+#, python-format
+msgid "Non indexable field type: '%s'"
+msgstr "نوع حقل غير قابل للفهرسة: '%s'"

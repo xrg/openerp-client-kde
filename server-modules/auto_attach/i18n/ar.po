@@ -1,0 +1,581 @@
+# Arabic translation for openobject-client-kde
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the openobject-client-kde package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openobject-client-kde\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-05-11 19:23+0000\n"
+"PO-Revision-Date: 2011-08-14 00:11+0000\n"
+"Last-Translator: kifcaliph <kifcaliph@hotmail.com>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-10-27 06:52+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
+
+#. module: auto_attach
+#: wizard_view:nan_document_execute,init:0
+msgid "All documents in the queue will be analyzed, verified and processed."
+msgstr "كل المستندات بالصف سيتم تحليلها، و التحقق منها، و معالجتها."
+
+#. module: auto_attach
+#: field:nan.document,filename:0
+msgid "Filename"
+msgstr "اسم ملف"
+
+#. module: auto_attach
+#: field:nan.template.box,width:0
+msgid "Width"
+msgstr "عرض"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Back to pending"
+msgstr "رجوع للسماح"
+
+#. module: auto_attach
+#: field:nan.document,document_id:0
+#: field:nan.document.property,document_id:0
+msgid "Document"
+msgstr "مستند"
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_template_box
+msgid "nan.template.box"
+msgstr "nan.template.box"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.processed_document_tree
+msgid "Processed Documents"
+msgstr "مستندات تمت معالجتها"
+
+#. module: auto_attach
+#: wizard_button:nan_document_execute,init,start:0
+#: wizard_button:nan_document_process,init,start:0
+msgid "Start Process"
+msgstr "ابدأ العملية"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.analyzing_document_tree
+msgid "Documents Being Analyzed"
+msgstr "مستندات يتم تحليلها"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.nan_document_execute
+msgid "Execute documents queue"
+msgstr "تنفيذ العملية للمستندات بالصف"
+
+#. module: auto_attach
+#: wizard_view:nan_document_execute,init:0
+#: wizard_view:nan_document_process,init:0
+msgid "The following documents will be processed:"
+msgstr "المستندات التالية ستتم معالجتها:"
+
+#. module: auto_attach
+#: model:ir.module.module,description:auto_attach.module_meta_information
+msgid ""
+"This module makes it possible to automatically attach scanned documents to "
+"any object using NanScan [1].\n"
+"\n"
+"[1] http://www.NaN-tic.com/nanscan\n"
+"\t"
+msgstr ""
+"هذا البرنامج يسمح بإمكانية إرفاق المستندات الممسوحة ضوئياً لأي كائن بإستخدام "
+"تقنية NanScan [1].\n"
+"\n"
+"[1] http://www.NaN-tic.com/nanscan\n"
+"\t"
+
+#. module: auto_attach
+#: view:nan.document:0
+#: field:nan.document,task:0
+msgid "Task"
+msgstr "مهمة"
+
+#. module: auto_attach
+#: field:nan.document.property,value:0
+msgid "Value"
+msgstr "قيمة"
+
+#. module: auto_attach
+#: wizard_view:nan_document_execute,start:0
+msgid "The document queue has been executed."
+msgstr "تم الإنتهاء بصف المستندات."
+
+#. module: auto_attach
+#: field:nan.template.box,x:0
+msgid "X"
+msgstr "X"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.auto_attach_config_menu
+msgid "Configuration"
+msgstr "إعدادات"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_analyze_menu
+msgid "Analyze Documents Queue"
+msgstr "صف المستندات الجاهزة للتحليل"
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Numeric"
+msgstr "رقمي"
+
+#. module: auto_attach
+#: selection:nan.template.box,recognizer:0
+msgid "Data Matrix"
+msgstr "مصفوفة البيانات"
+
+#. module: auto_attach
+#: wizard_view:nan_document_analyze,start:0
+msgid ""
+"The document queue has been analyzed. Now you can verify the documents!"
+msgstr "تم تحليل المستندات، يمكنك الأن التحقق منها!"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_analyzing_menu
+msgid "Being Analyzed"
+msgstr "جاري التحليل"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_process_menu
+msgid "Process Documents Queue"
+msgstr "صف المستندات للمعالجة"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.all_document_tree
+#: field:nan.template,document_ids:0
+#: wizard_field:nan_document_analyze,init,documents:0
+#: wizard_field:nan_document_execute,init,documents:0
+#: wizard_field:nan_document_process,init,documents:0
+msgid "Documents"
+msgstr "مستندات"
+
+#. module: auto_attach
+#: constraint:ir.actions.act_window:0
+msgid "Invalid model name in the action definition."
+msgstr "اسم نموذج خاطئ في تعريف الإجراء."
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_processing_menu
+msgid "Being Processed"
+msgstr "جاري المعالجة"
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "None"
+msgstr "لاشيء"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Analyze document in the background"
+msgstr "تحليل البيانات في الخلفية"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Documents in queue"
+msgstr "المستندات بالصف"
+
+#. module: auto_attach
+#: field:nan.document,state:0
+msgid "State"
+msgstr "الحالة"
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Alphabetic"
+msgstr "أبجدي"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "General"
+msgstr "عام"
+
+#. module: auto_attach
+#: field:nan.template.box,type:0
+msgid "Type"
+msgstr "نوع"
+
+#. module: auto_attach
+#: wizard_view:nan_document_analyze,start:0
+msgid "Document queue analyzed"
+msgstr "تم تحليل صف المستندات"
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_document_property
+msgid "nan.document.property"
+msgstr "nan.document.property"
+
+#. module: auto_attach
+#: field:nan.document,template_id:0
+#: field:nan.template.box,template_id:0
+msgid "Template"
+msgstr "قالب"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.nan_document_process
+msgid "Process documents queue"
+msgstr "صف معالجة المستندات"
+
+#. module: auto_attach
+#: code:addons/auto_attach/auto_attach.py:0
+#, python-format
+msgid ""
+"A new partner with name '%s' will be created (if it doesn't exist already)."
+msgstr "شريك جديد سيتم إنشاءه باسم '%s' (إذا لم يكن موجوداً بالفعل)."
+
+#. module: auto_attach
+#: constraint:ir.ui.view:0
+msgid "Invalid XML for View Architecture!"
+msgstr "هناك خطأ في بيانات الـ XML للعرض!"
+
+#. module: auto_attach
+#: wizard_view:nan_document_analyze,init:0
+#: wizard_view:nan_document_execute,init:0
+#: wizard_view:nan_document_process,init:0
+msgid "Document queue update"
+msgstr "تحديث صف المستندات"
+
+#. module: auto_attach
+#: wizard_view:nan_document_analyze,init:0
+msgid "All pending documents in the queue will be analyzed."
+msgstr "كل المستندات المسموح بها في الصف سيتم تحليلها."
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_document
+msgid "nan.document"
+msgstr "nan.document"
+
+#. module: auto_attach
+#: view:nan.template:0
+msgid "Feature Dimensions"
+msgstr "أبعاد الميزة"
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,init:0
+msgid "All verified documents in the queue will be processed."
+msgstr "سيتم معالجة المستندات التي تم الإنتهاء من التحقق منها بالصف."
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Exists"
+msgstr "خروج"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Image"
+msgstr "صورة"
+
+#. module: auto_attach
+#: selection:nan.document,state:0
+msgid "Analyzing"
+msgstr "تحليل"
+
+#. module: auto_attach
+#: field:nan.document.property,template_box_id:0
+msgid "Template Box"
+msgstr "مربع القالب"
+
+#. module: auto_attach
+#: field:nan.template,action_function:0
+msgid "Action Function"
+msgstr "وظيفة الإجراء"
+
+#. module: auto_attach
+#: wizard_view:nan_document_execute,start:0
+#: wizard_view:nan_document_process,start:0
+msgid "Document queue processed"
+msgstr "تم الإنتهاء من معالجة النصوص بالصف"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_verified_menu
+#: selection:nan.document,state:0
+msgid "Verified"
+msgstr "محقق"
+
+#. module: auto_attach
+#: view:nan.template:0
+msgid "Dimensions"
+msgstr "أبعاد"
+
+#. module: auto_attach
+#: wizard_view:nan_document_analyze,init:0
+msgid "The following documents will be analyzed:"
+msgstr "سيتم تحليل المستندات التالية:"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Verify document"
+msgstr "تحليل المستند"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.processing_document_tree
+msgid "Documents Being Processed"
+msgstr "جاري معالجة المستندات"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Analyze document"
+msgstr "تحليل المستند"
+
+#. module: auto_attach
+#: selection:nan.template.box,type:0
+msgid "Input"
+msgstr "المُدخََلات"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Unset verified"
+msgstr "تم الحقق"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Process document in the background"
+msgstr "قم بمعالجة المستند في الخلفية"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_pending_menu
+#: selection:nan.document,state:0
+msgid "Pending"
+msgstr "معلّق"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.analyzed_document_tree
+msgid "Analyzed Documents"
+msgstr "المستندات التي تم تحليلها"
+
+#. module: auto_attach
+#: selection:nan.template.box,type:0
+msgid "Matcher"
+msgstr "الناظر"
+
+#. module: auto_attach
+#: selection:nan.document,state:0
+msgid "Processing"
+msgstr "معالجة"
+
+#. module: auto_attach
+#: model:res.request.link,name:auto_attach.wkf
+msgid "Document in Queue"
+msgstr "مستند بالصف"
+
+#. module: auto_attach
+#: view:nan.template:0
+#: field:nan.template,box_ids:0
+msgid "Boxes"
+msgstr "الصناديق"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_analyzed_menu
+#: selection:nan.document,state:0
+msgid "Analyzed"
+msgstr "تم تحليله"
+
+#. module: auto_attach
+#: wizard_view:nan_document_process,start:0
+msgid "The document queue has been processed."
+msgstr "تم الإنتهاء من معالجة صف المستندات"
+
+#. module: auto_attach
+#: field:nan.document,datas:0
+msgid "Data"
+msgstr "بيانات"
+
+#. module: auto_attach
+#: view:nan.document:0
+#: field:nan.document,property_ids:0
+msgid "Properties"
+msgstr "الخصائص"
+
+#. module: auto_attach
+#: view:nan.template:0
+msgid "Document Templates"
+msgstr "قالب المستند"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.verified_document_tree
+msgid "Verified Documents"
+msgstr "المستندات التي تم الإنهاء من تحقيقها"
+
+#. module: auto_attach
+#: field:nan.template.box,filter:0
+msgid "Filter"
+msgstr "مُرشِّح"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_processed_menu
+#: selection:nan.document,state:0
+msgid "Processed"
+msgstr "تم معالجته"
+
+#. module: auto_attach
+#: field:nan.template.box,recognizer:0
+msgid "Recognizer"
+msgstr "أداة التعرف"
+
+#. module: auto_attach
+#: field:nan.template.box,feature_height:0
+msgid "Feature Height"
+msgstr "إرتفاع الميزة"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.wizard_analyze_documents
+msgid "Analyze Documents"
+msgstr "قم بتحليل المستندات"
+
+#. module: auto_attach
+#: wizard_view:nan_document_analyze,init:0
+#: wizard_view:nan_document_execute,init:0
+#: wizard_view:nan_document_process,init:0
+msgid ""
+"Note that this operation may take a lot of time, depending on the number of "
+"documents."
+msgstr "لاحظ أن هذه العملية قد تستغر وقت طويل، بناءً علي عدد المستندات."
+
+#. module: auto_attach
+#: model:ir.module.module,shortdesc:auto_attach.module_meta_information
+#: model:ir.ui.menu,name:auto_attach.auto_attach_menu
+msgid "Auto Attach"
+msgstr "إرفاء تلقائي"
+
+#. module: auto_attach
+#: field:nan.document.property,name:0
+#: selection:nan.template.box,recognizer:0
+#: field:nan.template.box,text:0
+msgid "Text"
+msgstr "نصّ"
+
+#. module: auto_attach
+#: field:nan.template.box,feature_y:0
+msgid "Feature Y"
+msgstr "الميزة ص"
+
+#. module: auto_attach
+#: field:nan.template.box,feature_x:0
+msgid "Feature X"
+msgstr "الميزة س"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_execute_menu
+msgid "Execute Documents Queue"
+msgstr "تنفيذ صف المستندات"
+
+#. module: auto_attach
+#: field:nan.template.box,height:0
+msgid "Height"
+msgstr "إرتفاع"
+
+#. module: auto_attach
+#: model:ir.ui.menu,name:auto_attach.document_queue_menu
+msgid "Document Queue"
+msgstr "صف المستندات"
+
+#. module: auto_attach
+#: view:nan.document:0
+msgid "Process document"
+msgstr "قم بمعالجة المستند"
+
+#. module: auto_attach
+#: wizard_button:nan_document_analyze,init,end:0
+#: wizard_button:nan_document_execute,init,end:0
+#: wizard_button:nan_document_process,init,end:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: auto_attach
+#: wizard_button:nan_document_analyze,start,end:0
+#: wizard_button:nan_document_execute,start,end:0
+#: wizard_button:nan_document_process,start,end:0
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: auto_attach
+#: constraint:ir.model:0
+msgid ""
+"The Object name must start with x_ and not contain any special character !"
+msgstr "اسم الكائن يجب أن يبدأ بـ \"_x\" ولا يحتوي على رموز خاصة !"
+
+#. module: auto_attach
+#: field:nan.template.box,feature_width:0
+msgid "Feature Width"
+msgstr "عرض الميزة"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.view_template_action
+#: model:ir.ui.menu,name:auto_attach.template_menu
+msgid "Templates"
+msgstr "قوالب"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.nan_document_analyze
+msgid "Analyze documents queue"
+msgstr "قم بتحليل صف المستندات"
+
+#. module: auto_attach
+#: code:addons/auto_attach/auto_attach.py:0
+#, python-format
+msgid "Document attached automatically"
+msgstr "سيرفق المستند تلقائياً"
+
+#. module: auto_attach
+#: selection:nan.template.box,recognizer:0
+msgid "Barcode"
+msgstr "باركود"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.wizard_process_documents
+msgid "Process Documents"
+msgstr "قم بمعالجة المستندات"
+
+#. module: auto_attach
+#: model:ir.model,name:auto_attach.model_nan_template
+msgid "nan.template"
+msgstr "nan.template"
+
+#. module: auto_attach
+#: field:nan.document,name:0
+#: field:nan.template,name:0
+#: field:nan.template.box,name:0
+msgid "Name"
+msgstr "الاسم"
+
+#. module: auto_attach
+#: field:nan.template.box,y:0
+msgid "Y"
+msgstr "ص"
+
+#. module: auto_attach
+#: field:nan.template,attach_function:0
+msgid "Attachment Function"
+msgstr "الوظيفة المرفقة"
+
+#. module: auto_attach
+#: wizard_field:nan_document_analyze,init,background:0
+#: wizard_field:nan_document_process,init,background:0
+msgid "Execute in the background"
+msgstr "تنفيذ في الخلفية"
+
+#. module: auto_attach
+#: model:ir.actions.act_window,name:auto_attach.pending_document_tree
+msgid "Pending Documents"
+msgstr "مستندات معلقة"
+
+#. module: auto_attach
+#: selection:nan.template.box,filter:0
+msgid "Alphanumeric"
+msgstr "أبجدي/رقمي"
+
+#. module: auto_attach
+#: wizard_button:nan_document_analyze,init,start:0
+msgid "Start Analysis"
+msgstr "إبدأ التحليل"
+
+#. module: auto_attach
+#: model:ir.actions.wizard,name:auto_attach.wizard_execute_documents
+msgid "Execute Documents"
+msgstr "تنفيذ المستندات"
