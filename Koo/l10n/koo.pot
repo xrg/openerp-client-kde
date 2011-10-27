@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-05 02:35+0200\n"
+"POT-Creation-Date: 2011-10-27 08:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: Koo/Dialogs/ImportDialog.py:62
 #: Koo/Dialogs/AdministratorPasswordDialog.py:66
 #: Koo/Dialogs/ExportDialog.py:77 Koo/Dialogs/TreeWidget.py:293
-#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:355
+#: Koo/Dialogs/TreeWidget.py:305 Koo/Fields/OneToMany/OneToMany.py:353
 msgid "Information"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgid "Nothing to print!"
 msgstr ""
 
 #: Koo/Actions/Actions.py:116 Koo/Dialogs/DatabaseDialog.py:148
-#: Koo/Dialogs/FormWidget.py:398 Koo/Dialogs/ImportDialog.py:81
+#: Koo/Dialogs/FormWidget.py:400 Koo/Dialogs/ImportDialog.py:81
 #: Koo/Dialogs/ImportDialog.py:91 Koo/Dialogs/ImportDialog.py:288
 #: Koo/Dialogs/ImportDialog.py:313 Koo/Dialogs/ImportDialog.py:326
 #: Koo/Dialogs/ImportDialog.py:344
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Edit View Settings"
 msgstr ""
 
-#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:400
+#: Koo/koopda.py:123 Koo/Dialogs/FormWidget.py:402
 msgid "Ok"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Proceed"
 msgstr ""
 
-#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:541
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/FormWidget.py:543
 msgid "Cancel"
 msgstr ""
 
@@ -437,15 +437,15 @@ msgid ""
 "<p><i>No sections in the documentation refer to this menu entry.</i></p>"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:309
-#: Koo/Dialogs/FormWidget.py:682 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Search/Boolean/BooleanSearchWidget.py:42 Koo/Dialogs/FormWidget.py:311
+#: Koo/Dialogs/FormWidget.py:684 Koo/Dialogs/BatchInsertDialog.py:131
 #: Koo/Dialogs/KooMainWindow.py:712 Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "Yes"
 msgstr ""
 
-#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:309
-#: Koo/Dialogs/FormWidget.py:682 Koo/Dialogs/BatchInsertDialog.py:131
+#: Koo/Search/Boolean/BooleanSearchWidget.py:43 Koo/Dialogs/FormWidget.py:311
+#: Koo/Dialogs/FormWidget.py:684 Koo/Dialogs/BatchInsertDialog.py:131
 #: Koo/Dialogs/KooMainWindow.py:712 Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "No"
@@ -471,11 +471,11 @@ msgstr ""
 msgid "What is the name of this filter?"
 msgstr ""
 
-#: Koo/Search/SearchFormWidget.py:324
+#: Koo/Search/SearchFormWidget.py:332
 msgid "Search Error"
 msgstr ""
 
-#: Koo/Search/SearchFormWidget.py:324
+#: Koo/Search/SearchFormWidget.py:332
 msgid ""
 "Some items of custom search cannot be used. Please, change those in red and "
 "try again."
@@ -737,137 +737,137 @@ msgstr ""
 msgid "No resource selected !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:290
+#: Koo/Dialogs/FormWidget.py:292
 msgid "You have to select one resource!"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:296 Koo/Dialogs/ImportExportCommon.py:56
+#: Koo/Dialogs/FormWidget.py:298 Koo/Dialogs/ImportExportCommon.py:56
 msgid "ID"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:297
+#: Koo/Dialogs/FormWidget.py:299
 msgid "Creation User"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:298
+#: Koo/Dialogs/FormWidget.py:300
 msgid "Creation Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:299
+#: Koo/Dialogs/FormWidget.py:301
 msgid "Latest Modification by"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:300
+#: Koo/Dialogs/FormWidget.py:302
 msgid "Latest Modification Date"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:306
+#: Koo/Dialogs/FormWidget.py:308
 msgid "Record log"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:309 Koo/Dialogs/FormWidget.py:539
+#: Koo/Dialogs/FormWidget.py:311 Koo/Dialogs/FormWidget.py:541
 #: Koo/Fields/Button/ButtonFieldWidget.py:143
 #: Koo/Fields/Button/ButtonFieldWidget.py:208
 msgid "Question"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:309
+#: Koo/Dialogs/FormWidget.py:311
 msgid "Are you sure you want to remove these records?"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:314
+#: Koo/Dialogs/FormWidget.py:316
 msgid "Resource not removed !"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:316
+#: Koo/Dialogs/FormWidget.py:318
 msgid "Resource removed."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:368
+#: Koo/Dialogs/FormWidget.py:370
 msgid "<font color=\"orange\">Working now on the duplicated document</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:379
+#: Koo/Dialogs/FormWidget.py:381
 msgid "<font color=\"green\">Document saved</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:384
+#: Koo/Dialogs/FormWidget.py:386
 msgid "<font color=\"red\">Invalid form</font>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:399
+#: Koo/Dialogs/FormWidget.py:401
 #, python-format
 msgid ""
 "<p>The following fields have an invalid value and have been highlighted in "
 "red:</p>%s<p>Please fix them before saving.</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:497
+#: Koo/Dialogs/FormWidget.py:499
 #, python-format
 msgid "(%s attachments) "
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:508
+#: Koo/Dialogs/FormWidget.py:510
 msgid "No records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:515
+#: Koo/Dialogs/FormWidget.py:517
 msgid "No document selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:519
+#: Koo/Dialogs/FormWidget.py:521
 msgid "New document"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:521
+#: Koo/Dialogs/FormWidget.py:523
 #, python-format
 msgid "Editing document (id: %s)"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:522
+#: Koo/Dialogs/FormWidget.py:524
 #, python-format
 msgid "Record: %(name)s / %(count)s - %(name2)s"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:540
+#: Koo/Dialogs/FormWidget.py:542
 #, python-format
 msgid ""
 "<p>You have modified the following fields in current record:</p>%s<p>Do you "
 "want to save the changes?</p>"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:541
+#: Koo/Dialogs/FormWidget.py:543
 msgid "Save"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:541
+#: Koo/Dialogs/FormWidget.py:543
 msgid "Discard"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:570
+#: Koo/Dialogs/FormWidget.py:572
 msgid "No records selected"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+#: Koo/Dialogs/FormWidget.py:595 Koo/Fields/OneToMany/OneToMany.py:286
 msgid "Batch Field Update"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+#: Koo/Dialogs/FormWidget.py:595 Koo/Fields/OneToMany/OneToMany.py:286
 #, python-format
 msgid ""
 "The number of selected records (%d) does not match the number of records to "
 "be inserted in fields (%d)."
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:675
+#: Koo/Dialogs/FormWidget.py:677
 msgid "Choose action to apply to selected records"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:682
+#: Koo/Dialogs/FormWidget.py:684
 msgid "Batch Update"
 msgstr ""
 
-#: Koo/Dialogs/FormWidget.py:682
+#: Koo/Dialogs/FormWidget.py:684
 #, python-format
 msgid "Do you really want to push button '%s' of all selected records?"
 msgstr ""
@@ -1395,21 +1395,21 @@ msgstr ""
 msgid "You can not set to the default value here !"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:88 Koo/Fields/ManyToOne/ManyToOne.py:267
-#: Koo/Fields/ManyToOne/ManyToOne.py:330
+#: Koo/Fields/ManyToOne/ManyToOne.py:88 Koo/Fields/ManyToOne/ManyToOne.py:268
+#: Koo/Fields/ManyToOne/ManyToOne.py:331
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:207
 msgid "Open"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:90 Koo/Fields/ManyToOne/ManyToOne.py:332
+#: Koo/Fields/ManyToOne/ManyToOne.py:90 Koo/Fields/ManyToOne/ManyToOne.py:333
 msgid "Action"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:91 Koo/Fields/ManyToOne/ManyToOne.py:333
+#: Koo/Fields/ManyToOne/ManyToOne.py:91 Koo/Fields/ManyToOne/ManyToOne.py:334
 msgid "Report"
 msgstr ""
 
-#: Koo/Fields/ManyToOne/ManyToOne.py:138 Koo/Fields/ManyToOne/ManyToOne.py:275
+#: Koo/Fields/ManyToOne/ManyToOne.py:138 Koo/Fields/ManyToOne/ManyToOne.py:276
 #: Koo/Fields/Reference/ReferenceFieldWidget.py:213
 msgid "Search"
 msgstr ""
@@ -1536,7 +1536,7 @@ msgstr ""
 msgid "&Modify Field of Selected Records"
 msgstr ""
 
-#: Koo/Fields/OneToMany/OneToMany.py:355
+#: Koo/Fields/OneToMany/OneToMany.py:353
 msgid "No record selected"
 msgstr ""
 
