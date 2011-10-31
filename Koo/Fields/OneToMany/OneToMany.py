@@ -28,7 +28,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 from Koo.Dialogs.BatchUpdateDialog import *
 from Koo.Dialogs.BatchInsertDialog import *
@@ -283,7 +283,10 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		if dialog.exec_() == QDialog.Rejected:
 			return
 		if len(dialog.newValues) != len(self.screen.selectedRecords()):
-			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%d) does not match the number of records to be inserted in fields (%d).') % (len(dialog.newValues), len(self.screen.selectedRecords())) )
+			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%(records)d) does not match the number of records to be inserted in fields (%(fields)d).') % {
+				'records': len(dialog.newValues), 
+				'fields': len(self.screen.selectedRecords())
+			})
 			return
 
 		i = 0
@@ -299,17 +302,15 @@ class OneToManyFieldWidget(AbstractFieldWidget, OneToManyFieldWidgetUi):
 		if QApplication.keyboardModifiers() & Qt.ControlModifier:
 			if not self.screen.currentRecord():
 				return
-			id = self.screen.currentRecord().id 
-			if not id:
-				return
 
 			if QApplication.keyboardModifiers() & Qt.ShiftModifier:
 				target = 'background'
 			else:
 				target = 'current'
 
-			Api.instance.createWindow( False, self.attrs['relation'], id, [('id','=',id)], 'form', 
-				mode='form,tree', target=target )	
+			for id in self.screen.selectedIds():
+				Api.instance.createWindow( False, self.attrs['relation'], id, [('id','=',id)], 'form', 
+					mode='form,tree', target=target )	
 		else:
 			self.screen.switchView()
 

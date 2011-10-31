@@ -224,3 +224,5 @@ def setup_logging():
                 uic_log.setLevel(logging.DEBUG)
         else:
                 uic_log.setLevel(logging.WARN)
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

@@ -1,4 +1,4 @@
-# Russian translation for openobject-client-kde
+# Chinese (Simplified) translation for openobject-client-kde
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the openobject-client-kde package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-24 08:02+0000\n"
-"PO-Revision-Date: 2010-09-08 08:03+0000\n"
-"Last-Translator: vrsb <Unknown>\n"
-"Language-Team: Russian <ru@li.org>\n"
-"Language: ru\n"
+"PO-Revision-Date: 2011-01-06 09:41+0000\n"
+"Last-Translator: Wei \"oldrev\" Li <oldrev@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,10 +19,9 @@ msgstr ""
 "X-Generator: Launchpad (build 14197)\n"
 
 #: about.ui:14
-#, fuzzy
 msgctxt "AboutDialog|"
 msgid "About OpenERP"
-msgstr "Об OpenERP"
+msgstr ""
 
 #: about.ui:20
 msgctxt "AboutDialog|"
@@ -44,19 +43,18 @@ msgstr ""
 #, fuzzy
 msgctxt "AboutDialog|"
 msgid "&OpenERP"
-msgstr "Сервер OpenERP"
+msgstr "OpenERP - 链接"
 
 #: about.ui:76
 #, fuzzy
 msgctxt "AboutDialog|"
 msgid "&Contact"
-msgstr "Подключиться"
+msgstr "联系人(&C)"
 
 #: about.ui:120
-#, fuzzy
 msgctxt "AboutDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: about.ui:48
 msgctxt "AboutDialog|"
@@ -146,131 +144,131 @@ msgid ""
 msgstr ""
 
 #: admin_passwd.ui:14
-#, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "Dialog"
-msgstr "Диалог"
+msgstr ""
 
 #: admin_passwd.ui:20
 #, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "<b>Change your database administration password</b>"
-msgstr "<b>Смените пароль администратора базы данных</b>"
+msgstr "<b>更改您的数据库管理密码</b>"
 
 #: admin_passwd.ui:29
 #, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "&Server:"
-msgstr "Сервер:"
+msgstr "服务器(&S)："
 
 #: admin_passwd.ui:46
-#, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "C&hange"
-msgstr "Изменить"
+msgstr ""
 
 #: admin_passwd.ui:57
 #, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "&Old password:"
-msgstr "Старый пароль:"
+msgstr "旧密码(&O):"
 
 #: admin_passwd.ui:74
 #, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "&New password:"
-msgstr "Новый пароль:"
+msgstr "旧密码(&O):"
 
 #: admin_passwd.ui:91
 #, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "New password &confirmation:"
-msgstr "Новый пароль"
+msgstr "新密码确认："
 
 #: admin_passwd.ui:138
-#, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: admin_passwd.ui:149
 #, fuzzy
 msgctxt "AdminPasswordDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: win_attach.ui:16
-#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Attachments"
-msgstr "Прикрепленные файлы"
+msgstr ""
 
 #: win_attach.ui:49
-#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "toolBar"
-msgstr "Панель инструментов"
+msgstr ""
 
 #: win_attach.ui:74
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "New"
-msgstr "Создать"
+msgstr "新建(&N)"
 
 #: win_attach.ui:77
+#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Ctrl+N"
-msgstr ""
+msgstr "Ctrl+N"
 
 #: win_attach.ui:86
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Delete"
-msgstr "Удалить"
+msgstr "删除"
 
 #: win_attach.ui:89
+#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Ctrl+D"
-msgstr ""
+msgstr "Ctrl+D"
 
 #: win_attach.ui:98
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Next"
-msgstr "Следующее"
+msgstr "下一个标签"
 
 #: win_attach.ui:101
+#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Alt+PgDown"
-msgstr ""
+msgstr "Alt+PgDown"
 
 #: win_attach.ui:110
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Previous"
-msgstr "Предыдущее"
+msgstr "前一个标签"
 
 #: win_attach.ui:113
+#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Alt+PgUp"
-msgstr ""
+msgstr "Alt+PgDown"
 
 #: win_attach.ui:122
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Switch"
-msgstr "Сменить"
+msgstr "切换视图"
 
 #: win_attach.ui:125
+#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Ctrl+L"
-msgstr ""
+msgstr "Ctrl+L"
 
 #: win_attach.ui:134
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Close"
-msgstr "Закрыть"
+msgstr "关闭标签页"
 
 #: win_attach.ui:137
 msgctxt "AttachmentWindow|"
@@ -281,12 +279,13 @@ msgstr ""
 #, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Save"
-msgstr "Сохранить"
+msgstr "保存"
 
 #: win_attach.ui:149
+#, fuzzy
 msgctxt "AttachmentWindow|"
 msgid "Ctrl+S"
-msgstr ""
+msgstr "Ctrl+S"
 
 #: batchupdate.ui:13
 msgctxt "BatchUpdateDialog|"
@@ -294,88 +293,82 @@ msgid "Batch Update Process"
 msgstr ""
 
 #: batchupdate.ui:44
-#, fuzzy
 msgctxt "BatchUpdateDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: batchupdate.ui:55
 #, fuzzy
 msgctxt "BatchUpdateDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: binary.ui:47
 #, fuzzy
 msgctxt "BinaryWidget|"
 msgid "Select file..."
-msgstr "Выберите файл..."
+msgstr "选择文件..."
 
 #: binary.ui:64
 #, fuzzy
 msgctxt "BinaryWidget|"
 msgid "Save file..."
-msgstr "Выберите файл..."
+msgstr "保存文件..."
 
 #: binary.ui:81
 #, fuzzy
 msgctxt "BinaryWidget|"
 msgid "Clear"
-msgstr "Очистить"
+msgstr "清空字段"
 
 #: calendar.ui:20
-#, fuzzy
 msgctxt "CalendarWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: calendar.ui:51
-#, fuzzy
 msgctxt "CalendarWidget|"
 msgid "Open Calendar"
-msgstr "Открыть календарь"
+msgstr ""
 
 #: change_server.ui:20
 #, fuzzy
 msgctxt "ChangeServerDialog|"
 msgid "Server"
-msgstr "Сервер"
+msgstr "服务器(&S)："
 
 #: change_server.ui:32
 #, fuzzy
 msgctxt "ChangeServerDialog|"
 msgid "Connect to a OpenERP Server"
-msgstr "Подключиться к серверу OpenERP"
+msgstr "连接到 OpenERP 服务器"
 
 #: change_server.ui:52
 #, fuzzy
 msgctxt "ChangeServerDialog|"
 msgid "&Server:"
-msgstr "Сервер:"
+msgstr "服务器(&S)："
 
 #: change_server.ui:71
-#, fuzzy
 msgctxt "ChangeServerDialog|"
 msgid "&Port:"
-msgstr "Порт"
+msgstr ""
 
 #: change_server.ui:113
-#, fuzzy
 msgctxt "ChangeServerDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: change_server.ui:133
 #, fuzzy
 msgctxt "ChangeServerDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: choosedb.ui:13
-#, fuzzy
 msgctxt "ChooseDatabaseDialog|"
 msgid "Choose database..."
-msgstr "Выбрать базу данных"
+msgstr ""
 
 #: choosedb.ui:25
 msgctxt "ChooseDatabaseDialog|"
@@ -386,71 +379,70 @@ msgstr ""
 #, fuzzy
 msgctxt "ChooseDatabaseDialog|"
 msgid "&Server:"
-msgstr "Сервер:"
+msgstr "服务器(&S)："
 
 #: choosedb.ui:64
-#, fuzzy
 msgctxt "ChooseDatabaseDialog|"
 msgid "&Change"
-msgstr "Изменить"
+msgstr ""
 
 #: choosedb.ui:78
 #, fuzzy
 msgctxt "ChooseDatabaseDialog|"
 msgid "&Password:"
-msgstr "Пароль:"
+msgstr "密码(&P)："
 
 #: choosedb.ui:95
 #, fuzzy
 msgctxt "ChooseDatabaseDialog|"
 msgid "&Database:"
-msgstr "&База данных:"
+msgstr "数据库(&D)："
 
 #: choosedb.ui:123
-msgctxt "ChooseDatabaseDialog|"
-msgid "TextLabel"
-msgstr ""
-
-#: choosedb.ui:161
 #, fuzzy
 msgctxt "ChooseDatabaseDialog|"
+msgid "TextLabel"
+msgstr "文本标签"
+
+#: choosedb.ui:161
+msgctxt "ChooseDatabaseDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: choosedb.ui:175
 #, fuzzy
 msgctxt "ChooseDatabaseDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: create_database.ui:14
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "Create a new database"
-msgstr "Создать новую базу данных"
+msgstr "创建新数据库"
 
 #: create_database.ui:26
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "<b>Could not connect to database</b>"
-msgstr "Невозможно соединиться с сервером!"
+msgstr "<b>不能连接到数据库</b>"
 
 #: create_database.ui:50
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&New database name:"
-msgstr "Название новой базы данных"
+msgstr "新建数据库(&N)"
 
 #: create_database.ui:94
-#, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "C&hange"
-msgstr "Изменить"
+msgstr ""
 
 #: create_database.ui:113
+#, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "(must not contain any special character)"
-msgstr ""
+msgstr "(不能包含任何特殊字符)"
 
 #: create_database.ui:123
 msgctxt "CreateDatabaseDialog|"
@@ -461,61 +453,59 @@ msgstr ""
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&Super admin password:"
-msgstr "Пароль главного администратора:"
+msgstr "再次输入管理员密码"
 
 #: create_database.ui:181
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&Default language:"
-msgstr "Язык по умолчанию"
+msgstr "默认值"
 
 #: create_database.ui:197
-#, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&Load demonstration data"
-msgstr "Загрузить демо-данные"
+msgstr ""
 
 #: create_database.ui:233
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&OpenERP server:"
-msgstr "Сервер OpenERP"
+msgstr "连接到 OpenERP 服务器"
 
 #: create_database.ui:292
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "Admin password:"
-msgstr "Пароль администратора"
+msgstr "旧密码(&O):"
 
 #: create_database.ui:299
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "Repeat admin password"
-msgstr "Подтверждение пароля администратора"
+msgstr "再次输入管理员密码"
 
 #: create_database.ui:343
-#, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: create_database.ui:357
 #, fuzzy
 msgctxt "CreateDatabaseDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: dbcreateok.ui:13
 #, fuzzy
 msgctxt "DatabaseCreatedDialog|"
 msgid "Database created"
-msgstr "База данных создана"
+msgstr "数据库已经创建"
 
 #: dbcreateok.ui:56
 #, fuzzy
 msgctxt "DatabaseCreatedDialog|"
 msgid "Database created successfully!"
-msgstr "База данных создана"
+msgstr "数据库已经创建"
 
 #: dbcreateok.ui:66
 msgctxt "DatabaseCreatedDialog|"
@@ -540,22 +530,19 @@ msgid ""
 msgstr ""
 
 #: dbcreateok.ui:98
-#, fuzzy
 msgctxt "DatabaseCreatedDialog|"
 msgid "Connect &now"
-msgstr "Подключиться"
+msgstr ""
 
 #: dbcreateok.ui:112
-#, fuzzy
 msgctxt "DatabaseCreatedDialog|"
 msgid "Connect &later"
-msgstr "Подключиться"
+msgstr ""
 
 #: datetime.ui:41
-#, fuzzy
 msgctxt "DateTimeWidget|"
 msgid "Time:"
-msgstr "Время:"
+msgstr ""
 
 #: batchupdate_msgbox.ui:14
 msgctxt "Dialog|"
@@ -578,16 +565,15 @@ msgid ""
 msgstr ""
 
 #: batchupdate_msgbox.ui:104
-#, fuzzy
 msgctxt "Dialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: batchupdate_msgbox.ui:115
 #, fuzzy
 msgctxt "Dialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: batchupdate_msgbox.ui:122
 msgctxt "Dialog|"
@@ -595,54 +581,47 @@ msgid "Esc"
 msgstr ""
 
 #: lostconnection.ui:32
-#, fuzzy
 msgctxt "Dialog|"
 msgid "Connection Lost"
-msgstr "Соединение потеряно"
+msgstr ""
 
 #: lostconnection.ui:45
-#, fuzzy
 msgctxt "Dialog|"
 msgid ""
 "Connection with the server has been lost. Will retry connection in 10 "
 "seconds."
-msgstr "Связь с сервером утеряна. Повторное подключение через 10 секунд."
+msgstr ""
 
 #: lostconnection.ui:73
 #, fuzzy
 msgctxt "Dialog|"
 msgid "&Retry"
-msgstr "&Повтор"
+msgstr "重试(&R)"
 
 #: lostconnection.ui:84
-#, fuzzy
 msgctxt "Dialog|"
 msgid "&Quit"
-msgstr "Выход"
+msgstr ""
 
 #: error.ui:14
-#, fuzzy
 msgctxt "ErrorDialog|"
 msgid "Error"
-msgstr "Ошибка"
+msgstr ""
 
 #: error.ui:20
-#, fuzzy
 msgctxt "ErrorDialog|"
 msgid "Application Error !"
-msgstr "Ошибка приложения!"
+msgstr ""
 
 #: error.ui:34
-#, fuzzy
 msgctxt "ErrorDialog|"
 msgid "&Description"
-msgstr "Описание"
+msgstr ""
 
 #: error.ui:40
-#, fuzzy
 msgctxt "ErrorDialog|"
 msgid "Application Error"
-msgstr "Ошибка приложения"
+msgstr ""
 
 #: error.ui:64
 msgctxt "ErrorDialog|"
@@ -653,109 +632,103 @@ msgstr ""
 #, fuzzy
 msgctxt "ErrorDialog|"
 msgid "View details"
-msgstr "Просмотреть подробности"
+msgstr "详情(&T)"
 
 #: error.ui:109
 #, fuzzy
 msgctxt "ErrorDialog|"
 msgid "De&tails"
-msgstr "Подробности"
+msgstr "详情(&T)"
 
 #: error.ui:159
-#, fuzzy
 msgctxt "ErrorDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: error.ui:124
-#, fuzzy
 msgctxt "ErrorDialog|"
 msgid "&Send Error"
-msgstr "Ошибка"
+msgstr ""
 
 #: error.ui:135
 #, fuzzy
 msgctxt "ErrorDialog|"
 msgid "&Remote Help"
-msgstr "Контекстная справка"
+msgstr "远程帮助(&R)"
 
 #: win_export.ui:14
-#, fuzzy
 msgctxt "ExportDialog|"
 msgid "Dialog"
-msgstr "Диалог"
+msgstr ""
 
 #: win_export.ui:22
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "<b>Predefined exports</b>"
-msgstr "Сохранённые списки полей для экспорта"
+msgstr "<b>预定义的导出</b>"
 
 #: win_export.ui:46
-#, fuzzy
 msgctxt "ExportDialog|"
 msgid "Re&move Export"
-msgstr "Удалить сохранённые списки полей для экспорта"
+msgstr ""
 
 #: win_export.ui:76
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "<b>All fields</b>"
-msgstr "<b>Все поля</b>"
+msgstr "<b>所有字段</b>"
 
 #: win_export.ui:116
-#, fuzzy
 msgctxt "ExportDialog|"
 msgid "A&dd"
-msgstr "Добавить"
+msgstr ""
 
 #: win_export.ui:127
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "&Remove"
-msgstr "Удалить"
+msgstr "远程帮助(&R)"
 
 #: win_export.ui:138
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "Remo&ve all"
-msgstr "Удалить всё"
+msgstr "远程帮助(&R)"
 
 #: win_export.ui:162
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "&Save list"
-msgstr "Сохранить список полей"
+msgstr "保存列表(&S)"
 
 #: win_export.ui:177
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "<b>Fields to export</b>"
-msgstr "<b>Поля для экспорта</b>"
+msgstr "要导入的字段"
 
 #: win_export.ui:203
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "<b>Options</b>"
-msgstr "<b>Настройки</b>"
+msgstr "<b>选项</b>"
 
 #: win_export.ui:216
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "Add &field names"
-msgstr "Все поля"
+msgstr "添加字段名"
 
 #: win_export.ui:271
-#, fuzzy
 msgctxt "ExportDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: win_export.ui:285
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: win_export.ui:226
 msgctxt "ExportDialog|"
@@ -780,19 +753,17 @@ msgstr ""
 #, fuzzy
 msgctxt "ExportDialog|"
 msgid "Import compatible"
-msgstr "Импорт данных"
+msgstr "导入兼容性"
 
 #: field_preferences.ui:13
-#, fuzzy
 msgctxt "FieldDefaultsDialog|"
 msgid "Dialog"
-msgstr "Диалог"
+msgstr ""
 
 #: field_preferences.ui:21
-#, fuzzy
 msgctxt "FieldDefaultsDialog|"
 msgid "Field &Name"
-msgstr "Название поля"
+msgstr ""
 
 #: field_preferences.ui:38
 msgctxt "FieldDefaultsDialog|"
@@ -803,7 +774,7 @@ msgstr ""
 #, fuzzy
 msgctxt "FieldDefaultsDialog|"
 msgid "Default &value"
-msgstr "Язык по умолчанию"
+msgstr "默认值"
 
 #: field_preferences.ui:74
 msgctxt "FieldDefaultsDialog|"
@@ -819,7 +790,7 @@ msgstr ""
 #, fuzzy
 msgctxt "FieldDefaultsDialog|"
 msgid "for all &users"
-msgstr "для всех пользователей"
+msgstr "全部用户(&U)"
 
 #: field_preferences.ui:102
 msgctxt "FieldDefaultsDialog|"
@@ -827,45 +798,44 @@ msgid "<b>Value applicable if:</b>"
 msgstr ""
 
 #: field_preferences.ui:134
-#, fuzzy
 msgctxt "FieldDefaultsDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: field_preferences.ui:144
 #, fuzzy
 msgctxt "FieldDefaultsDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: image.ui:13
-#, fuzzy
 msgctxt "Form|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: image.ui:25
+#, fuzzy
 msgctxt "Form|"
 msgid "TextLabel"
-msgstr ""
+msgstr "文本标签"
 
 #: image.ui:56
 #, fuzzy
 msgctxt "Form|"
 msgid "Load Image"
-msgstr "Загрузить изображение"
+msgstr "载入图像"
 
 #: image.ui:73
 #, fuzzy
 msgctxt "Form|"
 msgid "Save Image"
-msgstr "Сохранить изображение"
+msgstr "载入图像"
 
 #: image.ui:90
 #, fuzzy
 msgctxt "Form|"
 msgid "Remove Image"
-msgstr "Удалить изображение"
+msgstr "载入图像"
 
 #: keyboard.ui:619
 msgctxt "Form|"
@@ -878,9 +848,10 @@ msgid "-"
 msgstr ""
 
 #: keyboard.ui:554
+#, fuzzy
 msgctxt "Form|"
 msgid "6"
-msgstr ""
+msgstr "F6"
 
 #: keyboard.ui:489
 msgctxt "Form|"
@@ -893,14 +864,16 @@ msgid "*"
 msgstr ""
 
 #: keyboard.ui:502
+#, fuzzy
 msgctxt "Form|"
 msgid "2"
-msgstr ""
+msgstr "F2"
 
 #: keyboard.ui:541
+#, fuzzy
 msgctxt "Form|"
 msgid "5"
-msgstr ""
+msgstr "F5"
 
 #: keyboard.ui:567
 msgctxt "Form|"
@@ -914,9 +887,10 @@ msgid "/"
 msgstr "/"
 
 #: keyboard.ui:528
+#, fuzzy
 msgctxt "Form|"
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: keyboard.ui:671
 msgctxt "Form|"
@@ -934,9 +908,10 @@ msgid "Esc"
 msgstr ""
 
 #: keyboard.ui:645
+#, fuzzy
 msgctxt "Form|"
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: keyboard.ui:343
 msgctxt "Form|"
@@ -949,9 +924,10 @@ msgid "Intro"
 msgstr ""
 
 #: keyboard.ui:515
+#, fuzzy
 msgctxt "Form|"
 msgid "3"
-msgstr ""
+msgstr "F3"
 
 #: keyboard.ui:44
 msgctxt "Form|"
@@ -959,9 +935,10 @@ msgid "W"
 msgstr ""
 
 #: keyboard.ui:57
+#, fuzzy
 msgctxt "Form|"
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #: keyboard.ui:70
 msgctxt "Form|"
@@ -999,14 +976,16 @@ msgid "J"
 msgstr ""
 
 #: keyboard.ui:161
+#, fuzzy
 msgctxt "Form|"
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #: keyboard.ui:174
+#, fuzzy
 msgctxt "Form|"
 msgid "K"
-msgstr ""
+msgstr "K"
 
 #: keyboard.ui:187
 msgctxt "Form|"
@@ -1014,14 +993,16 @@ msgid "G"
 msgstr ""
 
 #: keyboard.ui:200
+#, fuzzy
 msgctxt "Form|"
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #: keyboard.ui:213
+#, fuzzy
 msgctxt "Form|"
 msgid "L"
-msgstr ""
+msgstr "L"
 
 #: keyboard.ui:226
 msgctxt "Form|"
@@ -1049,9 +1030,10 @@ msgid "M"
 msgstr ""
 
 #: keyboard.ui:291
+#, fuzzy
 msgctxt "Form|"
 msgid "V"
-msgstr ""
+msgstr "V"
 
 #: keyboard.ui:304
 msgctxt "Form|"
@@ -1084,16 +1066,14 @@ msgid "N"
 msgstr ""
 
 #: keyboard.ui:408
-#, fuzzy
 msgctxt "Form|"
 msgid "Enter"
-msgstr "По центру"
+msgstr ""
 
 #: keyboard.ui:421
-#, fuzzy
 msgctxt "Form|"
 msgid "Tab"
-msgstr "Вкладка"
+msgstr ""
 
 #: keyboard.ui:434
 msgctxt "Form|"
@@ -1106,9 +1086,10 @@ msgid "Space"
 msgstr ""
 
 #: keyboard.ui:580
+#, fuzzy
 msgctxt "Form|"
 msgid "Q"
-msgstr ""
+msgstr "Q"
 
 #: keyboard.ui:593
 msgctxt "Form|"
@@ -1126,33 +1107,31 @@ msgid "Ç"
 msgstr ""
 
 #: keyboard.ui:658
+#, fuzzy
 msgctxt "Form|"
 msgid "P"
-msgstr ""
+msgstr "P"
 
 #: calendarview.ui:34
 #, fuzzy
 msgctxt "Form|"
 msgid "Monthly View"
-msgstr "Дни"
+msgstr "切换视图"
 
 #: calendarview.ui:50
-#, fuzzy
 msgctxt "Form|"
 msgid "Weekly View"
-msgstr "Недели"
+msgstr ""
 
 #: calendarview.ui:63
-#, fuzzy
 msgctxt "Form|"
 msgid "Daily View"
-msgstr "Дни"
+msgstr ""
 
 #: calendarview.ui:83
-#, fuzzy
 msgctxt "Form|"
 msgid "Color Legend"
-msgstr "Цетная подпись"
+msgstr ""
 
 #: customsearchitem.ui:56
 msgctxt "Form|"
@@ -1167,9 +1146,10 @@ msgid "&And"
 msgstr ""
 
 #: webcontainer.ui:24
+#, fuzzy
 msgctxt "Form|"
 msgid "about:blank"
-msgstr ""
+msgstr "about:blank"
 
 #: keyboard.ui:684
 msgctxt "Form|"
@@ -1177,40 +1157,38 @@ msgid "Supr"
 msgstr ""
 
 #: formcontainer.ui:13
-#, fuzzy
 msgctxt "FormContainerWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: formcontainer.ui:56
-#, fuzzy
 msgctxt "FormContainerWidget|"
 msgid "State:"
-msgstr "Состояние:"
+msgstr ""
 
 #: full_text_search.ui:14
 #, fuzzy
 msgctxt "FullTextSearchDialog|"
 msgid "Full text search"
-msgstr "Полнотекстовый поиск"
+msgstr "全文搜索(&S)"
 
 #: full_text_search.ui:66
 #, fuzzy
 msgctxt "FullTextSearchDialog|"
 msgid "&Find"
-msgstr "&Поиск"
+msgstr "查找(&F)"
 
 #: full_text_search.ui:115
 #, fuzzy
 msgctxt "FullTextSearchDialog|"
 msgid "&Previous"
-msgstr "&Предыдущее"
+msgstr "前一个标签"
 
 #: full_text_search.ui:126
 #, fuzzy
 msgctxt "FullTextSearchDialog|"
 msgid "&Next"
-msgstr "Следующее"
+msgstr "下一个标签"
 
 #: full_text_search.ui:37
 msgctxt "FullTextSearchDialog|"
@@ -1242,15 +1220,16 @@ msgid ""
 msgstr ""
 
 #: full_text_search.ui:86
+#, fuzzy
 msgctxt "FullTextSearchDialog|"
 msgid "about:blank"
-msgstr ""
+msgstr "about:blank"
 
 #: full_text_search.ui:158
 #, fuzzy
 msgctxt "FullTextSearchDialog|"
 msgid "&Close"
-msgstr "Закрыть"
+msgstr "关闭标签页"
 
 #: gotoid.ui:14
 msgctxt "GoToIdDialog|"
@@ -1261,72 +1240,70 @@ msgstr ""
 #, fuzzy
 msgctxt "GoToIdDialog|"
 msgid "&Search Id:"
-msgstr "&Поиск"
+msgstr "搜索(&S)"
 
 #: gotoid.ui:72
-#, fuzzy
 msgctxt "GoToIdDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: gotoid.ui:83
 #, fuzzy
 msgctxt "GoToIdDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: win_import.ui:17
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "Import"
-msgstr "Импорт"
+msgstr "导入"
 
 #: win_import.ui:33
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "All fields"
-msgstr "Все поля"
+msgstr "全部字段"
 
 #: win_import.ui:64
-#, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Add"
-msgstr "Добавить"
+msgstr ""
 
 #: win_import.ui:75
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Remove"
-msgstr "Удалить"
+msgstr "远程帮助(&R)"
 
 #: win_import.ui:86
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "Remo&ve All"
-msgstr "Удалить всё"
+msgstr "远程帮助(&R)"
 
 #: win_import.ui:110
+#, fuzzy
 msgctxt "ImportDialog|"
 msgid "Auto-&detect"
-msgstr ""
+msgstr "自动检测"
 
 #: win_import.ui:131
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "Fields to import"
-msgstr "Поля для импорта"
+msgstr "要导入的字段"
 
 #: win_import.ui:157
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "File to &import:"
-msgstr "Поля для импорта"
+msgstr "要导入的文件："
 
 #: win_import.ui:201
-#, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Field separator"
-msgstr "Разделитель полей"
+msgstr ""
 
 #: win_import.ui:211
 msgctxt "ImportDialog|"
@@ -1334,10 +1311,9 @@ msgid ","
 msgstr ""
 
 #: win_import.ui:218
-#, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Text delimiter:"
-msgstr "Разделитель"
+msgstr ""
 
 #: win_import.ui:228
 msgctxt "ImportDialog|"
@@ -1345,20 +1321,21 @@ msgid "\""
 msgstr ""
 
 #: win_import.ui:235
-#, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Encoding"
-msgstr "Кодировка"
+msgstr ""
 
 #: win_import.ui:299
+#, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Lines to skip:"
-msgstr ""
+msgstr "要跳过的行"
 
 #: win_import.ui:259
+#, fuzzy
 msgctxt "ImportDialog|"
 msgid "UTF-8"
-msgstr ""
+msgstr "UTF-8"
 
 #: win_import.ui:264
 msgctxt "ImportDialog|"
@@ -1366,458 +1343,454 @@ msgid "Latin1"
 msgstr ""
 
 #: win_import.ui:181
+#, fuzzy
 msgctxt "ImportDialog|"
 msgid "File &type:"
-msgstr ""
+msgstr "文件类型(&T)："
 
 #: win_import.ui:286
+#, fuzzy
 msgctxt "ImportDialog|"
 msgid "Sheet:"
-msgstr ""
+msgstr "工作表："
 
 #: win_import.ui:330
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Import"
-msgstr "Импорт"
+msgstr "导入"
 
 #: win_import.ui:341
 #, fuzzy
 msgctxt "ImportDialog|"
 msgid "&Close"
-msgstr "Закрыть"
+msgstr "关闭标签页"
 
 #: mainwindow.ui:26
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Koo: OpenObject KDE Client"
-msgstr ""
+msgstr "Koo：OpenObject KDE 客户端"
 
 #: mainwindow.ui:168
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Requests:"
-msgstr "Запросы:"
+msgstr "我的请求(&R)"
 
 #: mainwindow.ui:217
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Read My Requests"
-msgstr "Прочесть мои запросы"
+msgstr "我的请求(&R)"
 
 #: mainwindow.ui:240
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Send New Request"
-msgstr "Отправить запрос"
+msgstr "我的请求(&R)"
 
 #: mainwindow.ui:271
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Plugins"
-msgstr "Дополнения"
+msgstr ""
 
 #: mainwindow.ui:328
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Help"
-msgstr "Справка"
+msgstr ""
 
 #: mainwindow.ui:356
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "F&orm"
-msgstr "Форма"
+msgstr ""
 
 #: mainwindow.ui:280
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Databases"
-msgstr "Базы данных"
+msgstr "数据库(&D)："
 
 #: mainwindow.ui:298
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&User"
-msgstr "Пользователь"
+msgstr ""
 
 #: mainwindow.ui:310
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Actions"
-msgstr "&Действия"
+msgstr ""
 
 #: mainwindow.ui:386
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Reports"
-msgstr "&Отчёты"
+msgstr "报表(&R)"
 
 #: mainwindow.ui:351
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Browse"
-msgstr "Имеющие к этому отношение"
+msgstr ""
 
 #: mainwindow.ui:315
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Window"
-msgstr "Окно"
+msgstr ""
 
 #: mainwindow.ui:442
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Connect"
-msgstr "Подключиться"
+msgstr "联系人(&C)"
 
 #: mainwindow.ui:445
+#, fuzzy
 msgctxt "KooMainWindow|Ctrl+O to Login"
 msgid "Ctrl+O"
-msgstr ""
+msgstr "Ctrl+O"
 
 #: mainwindow.ui:460
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Disconnect"
-msgstr "Разорвать соединение"
+msgstr "断开连接(&D)"
 
 #: mainwindow.ui:469
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Quit"
-msgstr "Выход"
+msgstr ""
 
 #: mainwindow.ui:478
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&New Database"
-msgstr "Новая база данных"
+msgstr "新建数据库(&N)"
 
 #: mainwindow.ui:487
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Restore Database"
-msgstr "Восстановить базу данных из резервной копии"
+msgstr "新建数据库(&N)"
 
 #: mainwindow.ui:496
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Backup Database"
-msgstr "Резервная копия базы данных"
+msgstr "数据库(&D)："
 
 #: mainwindow.ui:505
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Drop Database"
-msgstr "Удалить базу данных"
+msgstr "数据库(&D)："
 
 #: mainwindow.ui:514
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Administrator Password"
-msgstr "Пароль администратора"
+msgstr ""
 
 #: mainwindow.ui:523
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Preferences"
-msgstr "Параметры"
+msgstr "首选项"
 
 #: mainwindow.ui:532
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Send Request"
-msgstr "Отправить запрос"
+msgstr "我的请求(&R)"
 
 #: mainwindow.ui:541
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Read My Requests"
-msgstr "Прочесть мои запросы"
+msgstr "我的请求(&R)"
 
 #: mainwindow.ui:550
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Waiting Requests"
-msgstr "Запросы"
+msgstr "我的请求(&R)"
 
 #: mainwindow.ui:559
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&New"
-msgstr "&Создать"
+msgstr "新建(&N)"
 
 #: mainwindow.ui:562
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+N"
-msgstr ""
+msgstr "Ctrl+N"
 
 #: mainwindow.ui:571
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Save"
-msgstr "Сохранить"
+msgstr "保存"
 
 #: mainwindow.ui:574
-msgctxt "KooMainWindow|"
-msgid "Ctrl+S"
-msgstr ""
-
-#: mainwindow.ui:583
 #, fuzzy
 msgctxt "KooMainWindow|"
+msgid "Ctrl+S"
+msgstr "Ctrl+S"
+
+#: mainwindow.ui:583
+msgctxt "KooMainWindow|"
 msgid "D&uplicate"
-msgstr "Продублировать"
+msgstr ""
 
 #: mainwindow.ui:586
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+Shift+D"
-msgstr ""
+msgstr "Ctrl+Shift+D"
 
 #: mainwindow.ui:595
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Delete"
-msgstr "Удалить"
+msgstr "删除(&D)"
 
 #: mainwindow.ui:598
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+D"
-msgstr ""
+msgstr "Ctrl+D"
 
 #: mainwindow.ui:607
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Find"
-msgstr "&Поиск"
+msgstr "查找(&F)"
 
 #: mainwindow.ui:610
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+F"
-msgstr ""
+msgstr "Ctrl+F"
 
 #: mainwindow.ui:619
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Next"
-msgstr "Следующее"
+msgstr "下一个标签"
 
 #: mainwindow.ui:622
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Alt+PgDown"
-msgstr ""
+msgstr "Alt+PgDown"
 
 #: mainwindow.ui:631
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Previous"
-msgstr "&Предыдущее"
+msgstr "前一个标签"
 
 #: mainwindow.ui:634
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Alt+PgUp"
-msgstr ""
+msgstr "Alt+PgDown"
 
 #: mainwindow.ui:643
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Switch &View"
-msgstr "Переключение форма/список"
+msgstr "切换视图"
 
 #: mainwindow.ui:655
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Open &Menu Tab"
-msgstr "Открыть меню"
+msgstr ""
 
 #: mainwindow.ui:667
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Next Tab"
-msgstr "Следующая вкладка"
+msgstr "下一个标签"
 
 #: mainwindow.ui:670
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+PgDown"
-msgstr ""
+msgstr "Alt+PgDown"
 
 #: mainwindow.ui:679
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Previous Tab"
-msgstr "Предыдущая вкладка"
+msgstr "前一个标签"
 
 #: mainwindow.ui:682
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+PgUp"
-msgstr ""
+msgstr "Ctrl+D"
 
 #: mainwindow.ui:691
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Close"
-msgstr "Закрыть"
+msgstr "关闭标签页"
 
 #: mainwindow.ui:694
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+W"
-msgstr ""
+msgstr "Ctrl+W"
 
 #: mainwindow.ui:703
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "View Access Log"
-msgstr "Подробно об этой  записи в базе данных"
-
-#: mainwindow.ui:721
-#, fuzzy
-msgctxt "KooMainWindow|"
-msgid "Go To Resource ID"
-msgstr "Перейти к записи с ID в базе данных"
-
-#: mainwindow.ui:733
-#, fuzzy
-msgctxt "KooMainWindow|"
-msgid "&Reload/Undo"
-msgstr "Отменить изменения в форме"
-
-#: mainwindow.ui:736
-msgctxt "KooMainWindow|"
-msgid "F5"
 msgstr ""
 
-#: mainwindow.ui:745
+#: mainwindow.ui:721
+msgctxt "KooMainWindow|"
+msgid "Go To Resource ID"
+msgstr ""
+
+#: mainwindow.ui:733
+msgctxt "KooMainWindow|"
+msgid "&Reload/Undo"
+msgstr ""
+
+#: mainwindow.ui:736
 #, fuzzy
 msgctxt "KooMainWindow|"
+msgid "F5"
+msgstr "F5"
+
+#: mainwindow.ui:745
+msgctxt "KooMainWindow|"
 msgid "E&xport Data"
-msgstr "Экспорт данных"
+msgstr ""
 
 #: mainwindow.ui:754
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Import Data"
-msgstr "Импорт данных"
+msgstr "导入"
 
 #: mainwindow.ui:763
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Execute Plugins"
-msgstr "Дополнения"
+msgstr ""
 
 #: mainwindow.ui:772
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Contextual Help"
-msgstr "Контекстная справка"
+msgstr "远程帮助(&R)"
 
 #: mainwindow.ui:777
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Tips"
-msgstr "&Советы"
+msgstr "提示(&T)"
 
 #: mainwindow.ui:786
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Keyboard Shortcut"
-msgstr "Горячие клавиши"
+msgstr "主快捷方式(&M)"
 
 #: mainwindow.ui:791
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&License"
-msgstr "Лицензия"
+msgstr "许可证(&L)"
 
 #: mainwindow.ui:800
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&About"
-msgstr "&О программе"
+msgstr ""
 
 #: mainwindow.ui:809
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Full &Text Search"
-msgstr "Полнотекстовый поиск"
+msgstr "全文搜索(&S)"
 
 #: mainwindow.ui:812
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+T"
-msgstr ""
+msgstr "Ctrl+T"
 
 #: mainwindow.ui:821
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Attachments"
-msgstr "Прикрепленные файлы"
+msgstr ""
 
 #: mainwindow.ui:824
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+J"
-msgstr ""
+msgstr "Ctrl+J"
 
 #: mainwindow.ui:833
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Form designer"
-msgstr ""
+msgstr "表单设计器"
 
 #: mainwindow.ui:838
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Menu"
-msgstr "&Меню"
+msgstr ""
 
 #: mainwindow.ui:332
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Documentation"
-msgstr "Руководство"
+msgstr ""
 
 #: mainwindow.ui:847
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Open Home Tab"
-msgstr "Открыть меню"
+msgstr ""
 
 #: mainwindow.ui:856
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Clear Cache"
-msgstr "&Очистить кеш"
+msgstr "清空缓存(&C)"
 
 #: mainwindow.ui:865
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Modify All Selected Records"
-msgstr "Изменить сразу все выделенные записи"
+msgstr ""
 
 #: mainwindow.ui:646
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "F6"
-msgstr ""
+msgstr "F6"
 
 #: mainwindow.ui:276
 #, fuzzy
 msgctxt "KooMainWindow|"
 msgid "&Database"
-msgstr "База данных"
+msgstr "数据库(&D)："
 
 #: mainwindow.ui:712
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Store View Settings"
-msgstr "Сохранить настройки"
-
-#: mainwindow.ui:724
-msgctxt "KooMainWindow|"
-msgid "Ctrl+G"
 msgstr ""
 
-#: mainwindow.ui:151
+#: mainwindow.ui:724
 #, fuzzy
 msgctxt "KooMainWindow|"
+msgid "Ctrl+G"
+msgstr "Ctrl+G"
+
+#: mainwindow.ui:151
+msgctxt "KooMainWindow|"
 msgid "Help"
-msgstr "Справка"
+msgstr ""
 
 #: mainwindow.ui:870
 msgctxt "KooMainWindow|"
@@ -1835,10 +1808,9 @@ msgid "doc.openerp.com"
 msgstr ""
 
 #: mainwindow.ui:889
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Push Button of All Selected Records"
-msgstr "Изменить сразу все выделенные записи"
+msgstr ""
 
 #: mainwindow.ui:898
 msgctxt "KooMainWindow|"
@@ -1846,33 +1818,31 @@ msgid "Insert Several Records at Once"
 msgstr ""
 
 #: mainwindow.ui:658
+#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ctrl+M"
-msgstr ""
+msgstr "Ctrl+D"
 
 #: mainwindow.ui:910
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Modify Field in Selected Records"
-msgstr "Изменить сразу все выделенные записи"
+msgstr ""
 
 #: mainwindow.ui:922
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Ne&w Attachment"
-msgstr "Прикрепленные файлы"
+msgstr ""
 
 #: mainwindow.ui:931
-#, fuzzy
 msgctxt "KooMainWindow|"
 msgid "Sca&n Attachment"
-msgstr "Прикрепленные файлы"
+msgstr ""
 
 #: license.ui:19
 #, fuzzy
 msgctxt "LicenseDialog|"
 msgid "OpenERP license"
-msgstr "Лицензия OpenERP"
+msgstr "OpenERP - 链接"
 
 #: license.ui:29
 msgctxt "LicenseDialog|"
@@ -2334,100 +2304,93 @@ msgid ""
 msgstr ""
 
 #: license.ui:148
-#, fuzzy
 msgctxt "LicenseDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: link.ui:36
 #, fuzzy
 msgctxt "LinkWidget|"
 msgid "Select file..."
-msgstr "Выберите файл..."
+msgstr "选择文件..."
 
 #: login.ui:23
-#, fuzzy
 msgctxt "LoginDialog|"
 msgid "Login"
-msgstr "Вход"
+msgstr ""
 
 #: login.ui:111
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "&Database:"
-msgstr "&База данных:"
+msgstr "数据库(&D)："
 
 #: login.ui:98
-#, fuzzy
 msgctxt "LoginDialog|"
 msgid "C&hange"
-msgstr "Изменить"
+msgstr ""
 
 #: login.ui:70
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "&Server:"
-msgstr "Сервер:"
+msgstr "服务器(&S)："
 
 #: login.ui:176
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "<b>Could not connect to server !</b>"
-msgstr "Невозможно соединиться с сервером!"
+msgstr "<b>不能连接到数据库</b>"
 
 #: login.ui:221
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "&Password:"
-msgstr "Пароль:"
+msgstr "密码(&P)："
 
 #: login.ui:247
-#, fuzzy
 msgctxt "LoginDialog|"
 msgid "&User:"
-msgstr "Пользователь:"
+msgstr ""
 
 #: login.ui:283
-#, fuzzy
 msgctxt "LoginDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: login.ui:297
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: login.ui:132
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "Create &Database"
-msgstr "Создать базу данных"
+msgstr "创建新数据库"
 
 #: login.ui:143
 #, fuzzy
 msgctxt "LoginDialog|"
 msgid "&Restore Database"
-msgstr "Восстановить базу данных из резервной копии"
+msgstr "新建数据库(&N)"
 
 #: many2many.ui:14
-#, fuzzy
 msgctxt "ManyToManyWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: many2many.ui:40
-#, fuzzy
 msgctxt "ManyToManyWidget|"
 msgid "&Add"
-msgstr "Добавить"
+msgstr ""
 
 #: many2many.ui:60
 #, fuzzy
 msgctxt "ManyToManyWidget|"
 msgid "&Remove"
-msgstr "Удалить"
+msgstr "远程帮助(&R)"
 
 #: many2many.ui:96
 msgctxt "ManyToManyWidget|"
@@ -2443,55 +2406,52 @@ msgstr ""
 #, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "OpenERP - Link"
-msgstr "Лицензия OpenERP"
+msgstr "OpenERP - 链接"
 
 #: one2many_dialog.ui:118
-#, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "&OK"
-msgstr "Ок"
+msgstr ""
 
 #: one2many_dialog.ui:129
 #, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: many2one.ui:20
-#, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: many2one.ui:59
 #, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "Search"
-msgstr "Поиск"
+msgstr "搜索(&S)"
 
 #: many2one.ui:82
 #, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "New"
-msgstr "Создать"
+msgstr "新建(&N)"
 
 #: many2one.ui:105
-#, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "Remove"
-msgstr "Удалить"
+msgstr ""
 
 #: one2many_dialog.ui:57
 #, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "&Previous"
-msgstr "&Предыдущее"
+msgstr "前一个标签"
 
 #: one2many_dialog.ui:68
 #, fuzzy
 msgctxt "ManyToOneWidget|"
 msgid "&Next"
-msgstr "Следующее"
+msgstr "下一个标签"
 
 #: one2many_dialog.ui:95
 msgctxt "ManyToOneWidget|"
@@ -2499,39 +2459,37 @@ msgid "(_/0)"
 msgstr ""
 
 #: one2many.ui:14
-#, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: one2many.ui:80
+#, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "TextLabel"
-msgstr ""
+msgstr "文本标签"
 
 #: one2many.ui:96
 #, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "New"
-msgstr "Создать"
+msgstr "新建(&N)"
 
 #: one2many.ui:116
-#, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "Edit"
-msgstr "Правка"
+msgstr ""
 
 #: one2many.ui:136
-#, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "Remove"
-msgstr "Удалить"
+msgstr ""
 
 #: one2many.ui:192
 #, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "Previous"
-msgstr "Предыдущее"
+msgstr "前一个标签"
 
 #: one2many.ui:218
 msgctxt "OneToManyWidget|"
@@ -2542,13 +2500,13 @@ msgstr ""
 #, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "Next"
-msgstr "Следующее"
+msgstr "下一个标签"
 
 #: one2many.ui:263
 #, fuzzy
 msgctxt "OneToManyWidget|"
 msgid "Switch View"
-msgstr "Переключение форма/список"
+msgstr "切换视图"
 
 #: one2many.ui:165
 msgctxt "OneToManyWidget|"
@@ -2556,58 +2514,53 @@ msgid "..."
 msgstr ""
 
 #: paned.ui:19
-#, fuzzy
 msgctxt "PanedWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: paned.ui:83
 #, fuzzy
 msgctxt "PanedWidget|"
 msgid "Search"
-msgstr "Поиск"
+msgstr "搜索(&S)"
 
 #: paned.ui:100
-#, fuzzy
 msgctxt "PanedWidget|"
 msgid "Open"
-msgstr "Открыть"
+msgstr ""
 
 #: paned.ui:117
 #, fuzzy
 msgctxt "PanedWidget|"
 msgid "Switch View"
-msgstr "Переключение форма/список"
+msgstr "切换视图"
 
 #: preferences.ui:14
 #, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "Preferences"
-msgstr "Настройки"
+msgstr "首选项"
 
 #: preferences.ui:45
-#, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: preferences.ui:56
 #, fuzzy
 msgctxt "PreferencesDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: progress.ui:14
-#, fuzzy
 msgctxt "ProgressDialog|"
 msgid "Progress..."
-msgstr "Выполнение..."
+msgstr ""
 
 #: progress.ui:40
-#, fuzzy
 msgctxt "ProgressDialog|"
 msgid "Operation in progress"
-msgstr "Операция выполняется"
+msgstr ""
 
 #: progress.ui:53
 msgctxt "ProgressDialog|"
@@ -2617,40 +2570,37 @@ msgid ""
 msgstr ""
 
 #: reference.ui:20
-#, fuzzy
 msgctxt "ReferenceWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: reference.ui:83
 #, fuzzy
 msgctxt "ReferenceWidget|"
 msgid "Clear"
-msgstr "Очистить"
+msgstr "清空字段"
 
 #: reference.ui:66
 #, fuzzy
 msgctxt "ReferenceWidget|"
 msgid "New"
-msgstr "Создать"
+msgstr "新建(&N)"
 
 #: reference.ui:49
-#, fuzzy
 msgctxt "ReferenceWidget|"
 msgid "Open"
-msgstr "Открыть"
+msgstr ""
 
 #: richtext.ui:14
-#, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: richtext.ui:36
 #, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Bold"
-msgstr "Полужирный"
+msgstr "粗体"
 
 #: richtext.ui:65
 msgctxt "RichTextWidget|"
@@ -2658,10 +2608,9 @@ msgid "Italics"
 msgstr ""
 
 #: richtext.ui:94
-#, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Underline"
-msgstr "Подчёркнутый"
+msgstr ""
 
 #: richtext.ui:123
 msgctxt "RichTextWidget|"
@@ -2669,63 +2618,59 @@ msgid "Strikethrough"
 msgstr ""
 
 #: richtext.ui:159
-#, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Left Justify"
-msgstr "Выравнивание по левому краю"
+msgstr ""
 
 #: richtext.ui:188
-#, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Center"
-msgstr "По центру"
+msgstr ""
 
 #: richtext.ui:217
-#, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Right Justify"
-msgstr "Выравнивание по правому краю"
+msgstr ""
 
 #: richtext.ui:246
-#, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Justify"
-msgstr "Выравнивание по левому краю"
+msgstr ""
 
 #: richtext.ui:282
 #, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Foreground Color"
-msgstr "Цвет фона"
+msgstr "前景色"
 
 #: richtext.ui:301
 #, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Background color"
-msgstr "Цвет фона"
+msgstr "前景色"
 
 #: richtext.ui:318
 #, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Select font"
-msgstr "Выбор шрифта"
+msgstr "选择字体大小"
 
 #: richtext.ui:331
 #, fuzzy
 msgctxt "RichTextWidget|"
 msgid "Select font size"
-msgstr "Выберите размер шрифта"
+msgstr "选择字体大小"
 
 #: search_date.ui:26
-#, fuzzy
 msgctxt "SearchDateWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: search_date.ui:56
+#, fuzzy
 msgctxt "SearchDateWidget|"
 msgid "Choose a date from a calendar"
-msgstr ""
+msgstr "请在日历里选择一个日期"
 
 #: search_date.ui:81
 msgctxt "SearchDateWidget|"
@@ -2733,74 +2678,72 @@ msgid "-"
 msgstr ""
 
 #: search_date.ui:112
+#, fuzzy
 msgctxt "SearchDateWidget|"
 msgid "Choose the date from a calendar"
-msgstr ""
+msgstr "请在日历里选择一个日期"
 
 #: searchform.ui:14
-#, fuzzy
 msgctxt "SearchFormWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: searchform.ui:127
 #, fuzzy
 msgctxt "SearchFormWidget|"
 msgid "&Clear"
-msgstr "Очистить"
+msgstr "清空缓存(&C)"
 
 #: searchform.ui:138
 #, fuzzy
 msgctxt "SearchFormWidget|"
 msgid "&Search"
-msgstr "&Поиск"
+msgstr "搜索(&S)"
 
 #: searchreference.ui:13
-#, fuzzy
 msgctxt "SearchReferenceWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: searchviewitem.ui:19
-#, fuzzy
 msgctxt "SearchViewItemWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: searchviewitem.ui:164
+#, fuzzy
 msgctxt "SearchViewItemWidget|"
 msgid "TextLabel"
-msgstr ""
+msgstr "文本标签"
 
 #: win_search.ui:14
 #, fuzzy
 msgctxt "SearchWidget|"
 msgid "Search"
-msgstr "Поиск"
+msgstr "搜索(&S)"
 
 #: win_search.ui:67
 #, fuzzy
 msgctxt "SearchWidget|"
 msgid "&New"
-msgstr "&Создать"
+msgstr "新建(&N)"
 
 #: win_search.ui:86
 #, fuzzy
 msgctxt "SearchWidget|"
 msgid "&Find"
-msgstr "&Поиск"
+msgstr "查找(&F)"
 
 #: win_search.ui:97
-#, fuzzy
 msgctxt "SearchWidget|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: win_search.ui:108
 #, fuzzy
 msgctxt "SearchWidget|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: win_search.ui:115
 msgctxt "SearchWidget|"
@@ -2808,106 +2751,109 @@ msgid "Esc"
 msgstr ""
 
 #: win_selection.ui:13
-#, fuzzy
 msgctxt "SelectionDialog|"
 msgid "Dialog"
-msgstr "Диалог"
+msgstr ""
 
 #: win_selection.ui:19
-#, fuzzy
 msgctxt "SelectionDialog|"
 msgid "<center><b>Choose a plug-in</b></center>"
-msgstr "<center><i>Редактирование записи во всплывающем окне</i></center>"
+msgstr ""
 
 #: win_selection.ui:44
-#, fuzzy
 msgctxt "SelectionDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: win_selection.ui:57
 #, fuzzy
 msgctxt "SelectionDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: shortcuts.ui:14
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Shortcuts"
-msgstr "Ярлыки"
+msgstr "主快捷方式(&M)"
 
 #: shortcuts.ui:24
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "&Main Shortcuts"
-msgstr "Горячие клавиши"
+msgstr "主快捷方式(&M)"
 
 #: shortcuts.ui:32
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + O"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:39
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Connect"
-msgstr "Подключиться"
+msgstr "断开连接(&D)"
 
 #: shortcuts.ui:49
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + N"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:56
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "New"
-msgstr "Создать"
+msgstr "新建(&N)"
 
 #: shortcuts.ui:66
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + S"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:73
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Save"
-msgstr "Сохранить"
+msgstr "保存"
 
 #: shortcuts.ui:83
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + D"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:90
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Delete"
-msgstr "Удалить"
+msgstr "删除"
 
 #: shortcuts.ui:100
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + F"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:107
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Find / Search"
-msgstr "Поиск"
+msgstr "搜索"
 
 #: shortcuts.ui:117
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + T"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:124
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Full Text Search"
-msgstr "Полнотекстовый поиск"
+msgstr "全文搜索(&S)"
 
 #: shortcuts.ui:134
 msgctxt "ShortcutsDialog|"
@@ -2918,7 +2864,7 @@ msgstr ""
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Previous Record"
-msgstr "Предыдущая запись"
+msgstr "前一个标签"
 
 #: shortcuts.ui:151
 msgctxt "ShortcutsDialog|"
@@ -2929,137 +2875,138 @@ msgstr ""
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Next record"
-msgstr "Следующая запись"
+msgstr "选择所有字段"
 
 #: shortcuts.ui:168
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + L"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:175
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Switch view mode"
-msgstr "Переключение список/форма"
+msgstr "切换视图"
 
 #: shortcuts.ui:185
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + <PgUp>"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:192
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Previous tab"
-msgstr "Предыдущая вкладка"
+msgstr "前一个标签"
 
 #: shortcuts.ui:202
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + <PgDn>"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:209
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Next tab"
-msgstr "Следующая вкладка"
+msgstr "下一个标签"
 
 #: shortcuts.ui:219
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + W"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:727
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Close tab"
-msgstr "Закрыть вкладку"
+msgstr "关闭标签页"
 
 #: shortcuts.ui:236
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "F5"
-msgstr ""
+msgstr "F5"
 
 #: shortcuts.ui:243
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Reload"
-msgstr "Открыть заново"
+msgstr ""
 
 #: shortcuts.ui:253
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + <Shift> + D"
-msgstr ""
+msgstr "<Ctrl> + <Shift> + 打开"
 
 #: shortcuts.ui:260
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Duplicate Record"
-msgstr "Дублировать запись"
+msgstr ""
 
 #: shortcuts.ui:286
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<center><i>When editing a resource in a popup window</i></center>"
-msgstr "<center><i>Редактирование записи во всплывающем окне</i></center>"
+msgstr ""
 
 #: shortcuts.ui:295
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + <Enter>"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:302
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Save and close window"
-msgstr "Сохранить и закрыть окно"
-
-#: shortcuts.ui:312
-msgctxt "ShortcutsDialog|"
-msgid "<Ctrl> + <Esc>"
 msgstr ""
 
-#: shortcuts.ui:319
+#: shortcuts.ui:312
 #, fuzzy
 msgctxt "ShortcutsDialog|"
+msgid "<Ctrl> + <Esc>"
+msgstr "<Ctrl> + 打开"
+
+#: shortcuts.ui:319
+msgctxt "ShortcutsDialog|"
 msgid "Close window without saving"
-msgstr "Закрыть окно без сохранения"
+msgstr ""
 
 #: shortcuts.ui:332
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "&Edition Shortcuts"
-msgstr "Горячие клавиши правки"
+msgstr "主快捷方式(&M)"
 
 #: shortcuts.ui:389
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Shortcuts in text entries"
-msgstr "Горячие клавиши при редактировании текста"
+msgstr ""
 
 #: shortcuts.ui:401
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Cut selected text"
-msgstr "Вырезать выделенный текст"
+msgstr "复制所选文字"
 
 #: shortcuts.ui:411
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Copy selected text"
-msgstr "Скопировать выделенный текст"
+msgstr "复制所选文字"
 
 #: shortcuts.ui:421
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Paste selected text"
-msgstr "Вставить выделенный текст"
+msgstr "粘贴所选文字"
 
 #: shortcuts.ui:431
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Next editable widget"
-msgstr "Следующий изменяемый виджет"
+msgstr ""
 
 #: shortcuts.ui:441
 msgctxt "ShortcutsDialog|"
@@ -3070,19 +3017,18 @@ msgstr ""
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Previous editable widget"
-msgstr "Предыдущий изменяемый виджет"
+msgstr "前一个标签"
 
 #: shortcuts.ui:624
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Enter>"
-msgstr "По центру"
+msgstr ""
 
 #: shortcuts.ui:465
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Auto-complete text field"
-msgstr "Автодополнение"
+msgstr "自动完成文本字段"
 
 #: shortcuts.ui:475
 msgctxt "ShortcutsDialog|"
@@ -3090,168 +3036,172 @@ msgid "<Tab>"
 msgstr ""
 
 #: shortcuts.ui:482
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + C"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:489
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + V"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:496
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + X"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:511
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Numeric fields"
-msgstr ""
+msgstr "清空字段"
 
 #: shortcuts.ui:523
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid ""
 "Formula + <Enter>\n"
 "(Example: 3+2*2)"
 msgstr ""
+"公式 + <回车键>\n"
+"(例如: 3+2*2)"
 
 #: shortcuts.ui:531
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid ""
 "Calculates value\n"
 "(Example result: 7)"
 msgstr ""
-"Рассчитать значение\n"
-"(В этом примере: 7)"
 
 #: shortcuts.ui:550
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Relation fields"
-msgstr "Все поля"
+msgstr "全部字段"
 
 #: shortcuts.ui:596
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + Open"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:562
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Opens the record in a new tab"
-msgstr "Открыть запись в новой вкладке"
+msgstr "在新标签页打开表单视图"
 
 #: shortcuts.ui:610
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + <Shift> + Open"
-msgstr ""
+msgstr "<Ctrl> + <Shift> + 打开"
 
 #: shortcuts.ui:572
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Opens the record in a new background tab"
-msgstr "Открыть в новой вкладке, но не переключаться туда"
+msgstr "在未激活的标签页里打开视图"
 
 #: shortcuts.ui:660
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Lists"
-msgstr "Списки"
+msgstr ""
 
 #: shortcuts.ui:669
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + A"
-msgstr ""
+msgstr "<Ctrl> + 打开"
 
 #: shortcuts.ui:676
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Selects all records"
-msgstr "Выбрать все записи"
+msgstr "选择所有字段"
 
 #: shortcuts.ui:702
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "&Advanced"
-msgstr "Дополнительно"
+msgstr "高级(&A)"
 
 #: shortcuts.ui:799
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<b>Shortcuts in text entries</b>"
-msgstr "<b>Горячие клавиши в текстовых полях</b>"
+msgstr ""
 
 #: shortcuts.ui:717
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Middle mouse click on Tab"
-msgstr "Средняя кнопка мыши на вкладке"
+msgstr "当鼠标中键点击标签页"
 
 #: shortcuts.ui:737
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Shift> + Switch View"
-msgstr "Переключение форма/список"
+msgstr "切换视图"
 
 #: shortcuts.ui:747
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Open form view in new tab"
-msgstr "Открыть форму в новой вкладке"
+msgstr "在新标签页打开表单视图"
 
 #: shortcuts.ui:757
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Mouse Wheel on Tab"
-msgstr "Средняя кнопка мыши на вкладке"
+msgstr "当鼠标中键点击标签页"
 
 #: shortcuts.ui:767
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Change current tab"
-msgstr "Сменить текущую вкладку"
+msgstr ""
 
 #: shortcuts.ui:777
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Shift> + Open View"
-msgstr ""
+msgstr "<Ctrl> + <Shift> + 打开"
 
 #: shortcuts.ui:787
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Open view in a background tab"
-msgstr "Открыть в новой вкладке, но не переключаться туда"
+msgstr "在未激活的标签页里打开视图"
 
 #: shortcuts.ui:902
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "&Close"
-msgstr "Закрыть"
+msgstr "关闭标签页"
 
 #: shortcuts.ui:344
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "General"
-msgstr "Общие"
-
-#: shortcuts.ui:353
-msgctxt "ShortcutsDialog|"
-msgid "F10"
 msgstr ""
 
-#: shortcuts.ui:360
+#: shortcuts.ui:353
 #, fuzzy
 msgctxt "ShortcutsDialog|"
+msgid "F10"
+msgstr "F10"
+
+#: shortcuts.ui:360
+msgctxt "ShortcutsDialog|"
 msgid "Show field's help information"
-msgstr "Справочная информация о поле"
+msgstr ""
 
 #: shortcuts.ui:582
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Create a new record"
-msgstr "Создать новую запись"
+msgstr "创建新数据库"
 
 #: shortcuts.ui:589
 msgctxt "ShortcutsDialog|"
@@ -3259,14 +3209,16 @@ msgid "Search/edit existing records"
 msgstr ""
 
 #: shortcuts.ui:603
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "F1"
-msgstr ""
+msgstr "F1"
 
 #: shortcuts.ui:617
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "F2"
-msgstr ""
+msgstr "F2"
 
 #: shortcuts.ui:808
 msgctxt "ShortcutsDialog|"
@@ -3274,16 +3226,14 @@ msgid "<Alt> + Arrow (Left, Right, Up, Down)"
 msgstr ""
 
 #: shortcuts.ui:818
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Set focus to nearest widget"
-msgstr "Фокус ввода на ближайший элемент управления"
+msgstr ""
 
 #: shortcuts.ui:828
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Set focus to current widget's container"
-msgstr "Фокус ввода на контейнер ближайшего элемента управления"
+msgstr ""
 
 #: shortcuts.ui:838
 msgctxt "ShortcutsDialog|"
@@ -3296,38 +3246,38 @@ msgid "<Alt> + Plus"
 msgstr ""
 
 #: shortcuts.ui:858
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Set focus to one of the widgets in the container"
-msgstr "Фокус ввода на один из элементов управления в контейнере"
+msgstr ""
 
 #: shortcuts.ui:270
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "<Ctrl> + <Alt> + T"
-msgstr ""
+msgstr "<Ctrl> + <Shift> + 打开"
 
 #: shortcuts.ui:277
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Full Text Search current selection"
-msgstr "Полнотекстовый поиск"
+msgstr "全文搜索(&S)"
 
 #: shortcuts.ui:367
+#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "F3"
-msgstr ""
+msgstr "F3"
 
 #: shortcuts.ui:374
 #, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Clear field"
-msgstr "Все поля"
+msgstr "清空字段"
 
 #: shortcuts.ui:631
-#, fuzzy
 msgctxt "ShortcutsDialog|"
 msgid "Add new record"
-msgstr "Создать новую запись"
+msgstr ""
 
 #: shortcuts.ui:638
 msgctxt "ShortcutsDialog|"
@@ -3340,46 +3290,44 @@ msgid "Remove current record"
 msgstr ""
 
 #: tip.ui:20
-#, fuzzy
 msgctxt "TipsDialog|"
 msgid "Tip of the Day"
-msgstr "Совет дня"
+msgstr ""
 
 #: tip.ui:96
 #, fuzzy
 msgctxt "TipsDialog|"
 msgid "&Display a new tip next time ?"
-msgstr "Показывать советы при запуске?"
+msgstr "下次显示一条新提示？"
 
 #: tip.ui:122
 #, fuzzy
 msgctxt "TipsDialog|"
 msgid "&Previous Tip"
-msgstr "Предыдущий совет"
+msgstr "前一个标签"
 
 #: tip.ui:133
 #, fuzzy
 msgctxt "TipsDialog|"
 msgid "&Next Tip"
-msgstr "Следующий совет"
+msgstr "下一个标签"
 
 #: tip.ui:159
 #, fuzzy
 msgctxt "TipsDialog|"
 msgid "&Close"
-msgstr "Закрыть"
+msgstr "关闭标签页"
 
 #: translationdialog.ui:45
-#, fuzzy
 msgctxt "TranslationDialog|"
 msgid "&Accept"
-msgstr "Ок"
+msgstr ""
 
 #: translationdialog.ui:56
 #, fuzzy
 msgctxt "TranslationDialog|"
 msgid "&Cancel"
-msgstr "Отмена"
+msgstr "高级(&A)"
 
 #: translationdialog.ui:14
 msgctxt "TranslationDialog|"
@@ -3387,54 +3335,50 @@ msgid "Translation Dialog"
 msgstr ""
 
 #: tree.ui:14
-#, fuzzy
 msgctxt "TreeWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: tree.ui:58
 #, fuzzy
 msgctxt "TreeWidget|"
 msgid "Shortcuts"
-msgstr "Ярлыки"
+msgstr "主快捷方式(&M)"
 
 #: tree.ui:71
 #, fuzzy
 msgctxt "TreeWidget|"
 msgid "Add Shortcut"
-msgstr "Добавить ярлык"
+msgstr "主快捷方式(&M)"
 
 #: tree.ui:91
 #, fuzzy
 msgctxt "TreeWidget|"
 msgid "Remove Shortcut"
-msgstr "Удалить ярлык"
+msgstr "主快捷方式(&M)"
 
 #: tree.ui:111
-#, fuzzy
 msgctxt "TreeWidget|"
 msgid "Expand/Collapse"
-msgstr "Свернуть/развернуть"
+msgstr ""
 
 #: url.ui:20
-#, fuzzy
 msgctxt "UrlWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: url.ui:51
-#, fuzzy
 msgctxt "UrlWidget|"
 msgid "Open"
-msgstr "Открыть"
+msgstr ""
 
 #: web.ui:13
-#, fuzzy
 msgctxt "WebWidget|"
 msgid "Form"
-msgstr "Форма"
+msgstr ""
 
 #: web.ui:23
+#, fuzzy
 msgctxt "WebWidget|"
 msgid "about:blank"
-msgstr ""
+msgstr "about:blank"

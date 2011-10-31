@@ -43,7 +43,7 @@ from Koo.Fields.AbstractFieldWidget import *
 from Koo.Fields.AbstractFieldDelegate import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 
 (ManyToOneFieldWidgetUi, ManyToOneFieldWidgetBase ) = loadUiType( Common.uiPath('many2one.ui') ) 
@@ -152,6 +152,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 
 	def completerActivated(self, index):
 		id = self.completerList[index.row()][0]
+		assert isinstance(id, (int, long)), id
 		text = unicode( index.data().toString() )
 		assert isinstance(id, (int, long)), id
 		self.record.setValue(self.name, (id, text))
@@ -466,3 +467,5 @@ class ManyToOneFieldDelegate( AbstractFieldDelegate ):
 				#value = [ QVariant( name[0] ), QVariant( name[1] ) ]
 				#kooModel.setData( index, QVariant( value ), Qt.EditRole )
 				model.setValue( self.name, name )
+
+# vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:

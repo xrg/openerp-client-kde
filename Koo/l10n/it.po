@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openobject-client-kde\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2010-11-22 02:25+0100\n"
-"PO-Revision-Date: 2010-10-16 12:24+0000\n"
-"Last-Translator: simone.sandri <Unknown>\n"
+"POT-Creation-Date: 2011-09-05 02:35+0200\n"
+"PO-Revision-Date: 2011-04-22 21:58+0000\n"
+"Last-Translator: simone.sandri <lexluxsox@hotmail.it>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-11-22 10:08+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-10-27 06:52+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
 
 #: Koo/Screen/Action.py:81 Koo/Screen/Action.py:87
 #: Koo/Dialogs/KooMainWindow.py:740 Koo/Dialogs/KooMainWindow.py:764
@@ -285,7 +285,7 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:399
 msgid "Model Name"
-msgstr "Nome del modello"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:401
 #, fuzzy
@@ -297,11 +297,11 @@ msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:402
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:403
 msgid "Text"
-msgstr "Testo"
+msgstr ""
 
 #: Koo/Dialogs/FullTextSearchDialog.py:404
 #, fuzzy
@@ -1093,12 +1093,20 @@ msgid "Could not contact server!"
 msgstr ""
 
 #: Koo/Search/CustomSearchFormWidget.py:159
+#, fuzzy
 msgid "&And"
 msgstr ""
+"#-#-#-#-#  .merge_file_d3dHtZ (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_kOA57K (openobject-client-kde)  #-#-#-#-#\n"
+"&E"
 
 #: Koo/Search/CustomSearchFormWidget.py:163
+#, fuzzy
 msgid "&Or"
 msgstr ""
+"#-#-#-#-#  .merge_file_d3dHtZ (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_kOA57K (openobject-client-kde)  #-#-#-#-#\n"
+"&O"
 
 #: Koo/Dialogs/MassiveInsertDialog.py:82
 msgid "Choose field to insert massively"
@@ -1147,8 +1155,12 @@ msgid "specify id to be opened"
 msgstr ""
 
 #: Koo/Dialogs/WebWidget.py:81
+#, fuzzy
 msgid "Find:"
 msgstr ""
+"#-#-#-#-#  .merge_file_d3dHtZ (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_kOA57K (openobject-client-kde)  #-#-#-#-#\n"
+"Trova:"
 
 #: Koo/Dialogs/FormWidget.py:628
 msgid "Choose action to apply to selected records"
@@ -1159,8 +1171,12 @@ msgid "Choose field to insert in batch action"
 msgstr ""
 
 #: Koo/Dialogs/ImportDialog.py:98
+#, fuzzy
 msgid "CSV"
 msgstr ""
+"#-#-#-#-#  .merge_file_d3dHtZ (openobject-client-kde)  #-#-#-#-#\n"
+"#-#-#-#-#  .merge_file_kOA57K (openobject-client-kde)  #-#-#-#-#\n"
+"CSV"
 
 #: Koo/Dialogs/ImportDialog.py:100
 msgid "Excel"
@@ -1192,6 +1208,123 @@ msgstr ""
 
 #: Koo/Fields/OneToMany/OneToMany.py:158
 msgid "&Duplicate Selected Records"
+msgstr ""
+
+#: Koo/Plugins/ModelEditor/__init__.py:38
+msgid "Edit Model"
+msgstr ""
+
+#: Koo/Plugins/ViewSettings/__init__.py:40
+msgid "Edit View Settings"
+msgstr ""
+
+#: Koo/View/Form/FormView.py:114
+#, python-format
+msgid "<p><i>Field name: %s</i></p>"
+msgstr ""
+
+#: Koo/View/Form/FormView.py:119
+#, python-format
+msgid "<p><i>Attributes:<br/>%s</i></p>"
+msgstr ""
+
+#: Koo/Common/SpellChecker.py:40
+msgid ""
+"Enchant spell checker library not found. Consider installing it if you want "
+"Koo to spell check your text boxes."
+msgstr ""
+
+#: Koo/Common/SpellChecker.py:57
+#, python-format
+msgid "SpellChecking: No dictionary available for language \"%s\""
+msgstr ""
+
+#: Koo/Common/RemoteHelp.py:57 Koo/Dialogs/KooMainWindow.py:240
+msgid "Remote Help"
+msgstr "Aiuto Remoto"
+
+#: Koo/Search/SearchFormWidget.py:167
+msgid "&Save Current Filter"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:171
+msgid "&Manage Filters"
+msgstr "&Gestisci Filtri"
+
+#: Koo/Search/SearchFormWidget.py:216
+msgid "Manage Filters"
+msgstr "Gestisci Filtri"
+
+#: Koo/Search/SearchFormWidget.py:226
+msgid "Save Filter"
+msgstr "Salva Filtro"
+
+#: Koo/Search/SearchFormWidget.py:226
+msgid "What is the name of this filter?"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:324
+msgid "Search Error"
+msgstr "Errore nella ricerca"
+
+#: Koo/Search/CustomSearchFormWidget.py:100
+msgid "starts with"
+msgstr "inizia con"
+
+#: Koo/Search/CustomSearchFormWidget.py:101
+msgid "ends with"
+msgstr "finisce con"
+
+#: Koo/Search/CustomSearchFormWidget.py:102
+msgid "similar to"
+msgstr "simile a"
+
+#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+msgid "Batch Field Update"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+#, python-format
+msgid ""
+"The number of selected records (%d) does not match the number of records to "
+"be inserted in fields (%d)."
+msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:73
+msgid "Pyro SSL (faster)"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:109
+msgid "Excel (XLS)"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:111
+msgid "Open Document (ODS)"
+msgstr ""
+
+#: Koo/Model/Record.py:449
+#, python-format
+msgid "Error evaluating expression: %s"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:192
+msgid "SSL Error"
+msgstr "Errore SSL"
+
+#: Koo/Rpc/Rpc.py:194
+msgid "Please check your SSL certificate: "
+msgstr ""
+
+#: Koo/Fields/AbstractFieldWidget.py:295
+msgid "Inherit View"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:174
+msgid "&Modify Field of Selected Records"
+msgstr ""
+
+#: Koo/Fields/Web/__init__.py:40
+msgid "QtWebKit or QtNetwork not found. Web field will not be available."
 msgstr ""
 
 #, fuzzy
@@ -1434,9 +1567,8 @@ msgstr ""
 #~ msgid "_Delete"
 #~ msgstr "Cancella"
 
-#, fuzzy
 #~ msgid "Find"
-#~ msgstr "Campi"
+#~ msgstr "Trova"
 
 #, fuzzy
 #~ msgid "Ne_xt"

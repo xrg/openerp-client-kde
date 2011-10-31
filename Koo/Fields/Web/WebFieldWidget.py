@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 from PyQt4.QtWebKit import *
 from PyQt4.QtNetwork import *
 

@@ -48,7 +48,7 @@ from Koo.Screen.Screen import *
 from Koo.Model.Group import RecordGroup
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 (FormWidgetUi, FormWidgetBase) = loadUiType( Common.uiPath('formcontainer.ui') )
 
@@ -260,6 +260,7 @@ class FormWidget( QWidget, FormWidgetUi ):
 			self.switchView()
 
 	def switchView(self, viewType=None):
+		selectedIds = self.screen.selectedIds()
 		if not self.modifiedSave():
 			return
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -272,8 +273,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 					target = 'background'
 				else:
 					target = 'current'
-				Api.instance.createWindow( None, self.model, [self.screen.currentId()], 
-					view_type='form', mode='form,tree', target=target)
+				for id in selectedIds:
+					Api.instance.createWindow( None, self.model, [id], 
+						view_type='form', mode='form,tree', target=target)
 			else:
 				sender = self.sender()
 				name = unicode( sender.objectName()  )
@@ -627,7 +629,10 @@ class FormWidget( QWidget, FormWidgetUi ):
 			return
 
 		if len(dialog.newValues) != len(self.screen.selectedRecords()):
-			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%d) does not match the number of records to be inserted in fields (%d).') % (len(dialog.newValues), len(self.screen.selectedRecords())) )
+			QMessageBox.warning(self, _('Batch Field Update'), _('The number of selected records (%(records)d) does not match the number of records to be inserted in fields (%(fields)d).') % {
+				'records': len(dialog.newValues), 
+				'fields': len(self.screen.selectedRecords())
+			})
 			return
 
 		i = 0

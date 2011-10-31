@@ -1279,6 +1279,115 @@ msgstr "Hozzon létre képernyőmentést"
 msgid "Select Files"
 msgstr "Válasszon fájlokat"
 
+#: Koo/Plugins/ModelEditor/__init__.py:38
+msgid "Edit Model"
+msgstr ""
+
+#: Koo/Plugins/ViewSettings/__init__.py:40
+msgid "Edit View Settings"
+msgstr ""
+
+#: Koo/View/Form/FormView.py:114
+#, python-format
+msgid "<p><i>Field name: %s</i></p>"
+msgstr ""
+
+#: Koo/View/Form/FormView.py:119
+#, python-format
+msgid "<p><i>Attributes:<br/>%s</i></p>"
+msgstr ""
+
+#: Koo/Common/SpellChecker.py:40
+msgid ""
+"Enchant spell checker library not found. Consider installing it if you want "
+"Koo to spell check your text boxes."
+msgstr ""
+
+#: Koo/Common/SpellChecker.py:57
+#, python-format
+msgid "SpellChecking: No dictionary available for language \"%s\""
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:167
+msgid "&Save Current Filter"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:171
+msgid "&Manage Filters"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:216
+msgid "Manage Filters"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:226
+msgid "Save Filter"
+msgstr ""
+
+#: Koo/Search/SearchFormWidget.py:226
+msgid "What is the name of this filter?"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:100
+msgid "starts with"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:101
+msgid "ends with"
+msgstr ""
+
+#: Koo/Search/CustomSearchFormWidget.py:102
+msgid "similar to"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+msgid "Batch Field Update"
+msgstr ""
+
+#: Koo/Dialogs/FormWidget.py:593 Koo/Fields/OneToMany/OneToMany.py:286
+#, python-format
+msgid ""
+"The number of selected records (%d) does not match the number of records to "
+"be inserted in fields (%d)."
+msgstr ""
+
+#: Koo/Dialogs/ServerConfigurationDialog.py:73
+msgid "Pyro SSL (faster)"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:109
+msgid "Excel (XLS)"
+msgstr ""
+
+#: Koo/Dialogs/ImportDialog.py:111
+msgid "Open Document (ODS)"
+msgstr ""
+
+#: Koo/Model/Record.py:449
+#, python-format
+msgid "Error evaluating expression: %s"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:192
+msgid "SSL Error"
+msgstr ""
+
+#: Koo/Rpc/Rpc.py:194
+msgid "Please check your SSL certificate: "
+msgstr ""
+
+#: Koo/Fields/AbstractFieldWidget.py:295
+msgid "Inherit View"
+msgstr ""
+
+#: Koo/Fields/OneToMany/OneToMany.py:174
+msgid "&Modify Field of Selected Records"
+msgstr ""
+
+#: Koo/Fields/Web/__init__.py:40
+msgid "QtWebKit or QtNetwork not found. Web field will not be available."
+msgstr ""
+
 #, fuzzy
 #~ msgid "Document saved !"
 #~ msgstr "Beállítások elmentve!"
@@ -2824,9 +2933,3 @@ msgstr "Válasszon fájlokat"
 
 #~ msgid "Next: left click - Previous : right click on the image"
 #~ msgstr "Következő: bal kattintás - Előző : jobb kattintás a képen"
-
-#~ msgid "Massive Update"
-#~ msgstr "Tömeges módosítás"
-
-#~ msgid "Choose action to apply massively"
-#~ msgstr "Válassza ki a tömegesen végrehajtandó műveletet"

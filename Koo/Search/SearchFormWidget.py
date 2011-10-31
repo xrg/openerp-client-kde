@@ -42,7 +42,7 @@ from Koo import Rpc
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 class SearchFormContainer( QWidget ):
 	def __init__(self, parent):
@@ -186,9 +186,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSave.setMenu( self.filtersMenu )
 		self.pushSave.setDefaultAction( self.actionSave )
 
-		if Common.serverMajorVersion == '5':
-			self.pushSave.hide()
-			self.uiStoredFilters.hide()
+		# Hide Save button and filters which will be shown if needed in load() method
+		self.pushSave.hide()
+		self.uiStoredFilters.hide()
 
 		self.connect( self.pushExpander, SIGNAL('clicked()'), self.toggleExpansion )
 		self.connect( self.pushClear, SIGNAL('clicked()'), self.clear )
@@ -235,7 +235,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		name, ok = QInputDialog.getText(self, _('Save Filter'), _('What is the name of this filter?'))
 		if not ok or not name:
 			return
-		Rpc.session.execute('/object', 'execute', 'ir.filters', 'create_or_replace', {
+		Rpc.RpcProxy('ir.filters').create_or_replace({
 			'name': unicode(name), 
 			'user_id': Rpc.session.get_uid(),
 			'model_id': self.model,
@@ -245,13 +245,21 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.load()
 
 	def load(self):
-		if Common.serverMajorVersion == '5':
+		try:
+			ids = Rpc.RpcProxy('ir.filters').search([
+				('user_id','=',Rpc.session.get_uid()),
+				('model_id','=',self.model)
+			], 0, False, False, Rpc.session.context)
+		except Rpc.RpcException, e:
+			# If server version is 5.0 and koo module is not installed ir.filters will not be
+			# available
 			return
-		ids = Rpc.session.execute('/object', 'execute', 'ir.filters', 'search', [
-			('user_id','=',Rpc.session.get_uid()),
-			('model_id','=',self.model)
-		])
-		records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [])
+			
+		# Show filter-related widgets
+		self.pushSave.show()
+		self.uiStoredFilters.show()
+
+		records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [], Rpc.session.context)
 		self.uiStoredFilters.clear()
 		self.uiStoredFilters.addItem( '' )
 		for record in records:
@@ -316,7 +324,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 
 	def search(self):
 		if self.isCustomSearch():
-			# Do not emit the signal if there the server raises an exception with the search
+			# Do not emit the signal if the server raises an exception with the search
 			# which unfortunately can happen in some cases such as some searches with properties.
 			# (ie. [('property_product_pricelist.name','ilike','a')])
 			value = self.value()
@@ -408,12 +416,11 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	# Note you can optionally give a 'domain' parameter which will be added to
 	# the filters the widget will return.
 	def value(self, domain=[]):
-		if Common.serverMajorVersion != '5':
-			index = self.uiStoredFilters.currentIndex()
-			if index:
-				id = self.uiStoredFilters.itemData( index ).toInt()[0]
-				storedDomain = eval( self._storedFilters[id]['domain'] )
-				domain = domain + storedDomain
+		index = self.uiStoredFilters.currentIndex()
+		if index > 0:
+			id = self.uiStoredFilters.itemData( index ).toInt()[0]
+			storedDomain = eval( self._storedFilters[id]['domain'] )
+			domain = domain + storedDomain
 
 		if self.pushSwitchView.isChecked():
 			return self.uiCustomContainer.value( domain )

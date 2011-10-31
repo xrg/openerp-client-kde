@@ -27,7 +27,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 from ServerConfigurationDialog import *
 from Koo.Common.Settings import *
 from Koo import Rpc

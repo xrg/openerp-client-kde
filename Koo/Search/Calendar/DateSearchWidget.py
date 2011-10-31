@@ -33,7 +33,7 @@ from Koo.Common.Calendar import *
 from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 (DateSearchWidgetUi, DateSearchWidgetBase) = loadUiType( Common.uiPath('search_date.ui') )
 

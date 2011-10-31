@@ -29,7 +29,7 @@
 
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
-from Common.Ui import *
+from Koo.Common.Ui import *
 
 import gettext
 from Koo.Common import Common
