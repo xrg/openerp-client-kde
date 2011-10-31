@@ -4,7 +4,8 @@
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2007-2011 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2011 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -33,6 +34,7 @@
 from xml.etree.ElementTree import parse, SubElement
 
 import sys, os
+import logging
 
 if os.name == 'nt':
 	sys.path.append('.')
@@ -41,7 +43,7 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'Koo'])
 sys.path.append(terp_path)
 
-from Koo.Common.Settings import Settings
+from Koo.Common.Settings import Settings, setup_logging
 from Koo.Common import CommandLine
 from Koo.Common import Localization
 
@@ -63,6 +65,7 @@ Localization.initializeTranslations(Settings.value('client.language'))
 
 arguments = CommandLine.parseArguments(sys.argv)
 
+setup_logging()
 Localization.initializeTranslations(Settings.value('client.language'))
 
 
@@ -79,7 +82,7 @@ Notifier.warningHandler = Common.warning
 Notifier.concurrencyErrorHandler = Common.concurrencyError
 
 
-
+logger = logging.getLogger('koopos')
 
 ### Main application loop
 if Common.isKdeAvailable:
@@ -106,17 +109,20 @@ if Common.isKdeAvailable:
 else:
 	app = QApplication( arguments )
 
+logger.debug('init application')
 app.setApplicationName( 'Koo POS' )
 app.setOrganizationDomain( 'www.NaN-tic.com' )
 app.setOrganizationName( 'NaN' )
 
 try:
-	f = open( Settings.value('koo.stylesheet'), 'r' )
+	f = open( Settings.value('koo.stylesheet') or  'Koo/Pos/pos.qss', 'r' )
 	try:
 		app.setStyleSheet( f.read() )
 	finally:
 		f.close()
-except:
+except Exception:
+        # TODO narrow down
+        logger.warning("could not apply stylesheet", exc_info=True)
 	pass
 
 Localization.initializeQtTranslations(Settings.value('client.language'))
@@ -128,7 +134,7 @@ import Koo.Actions
 
 mainWindow = QMainWindow(None, Qt.CustomizeWindowHint)
 
-if Settings.value('koo.show_pos_toolbar'):
+if Settings.value('koo.show_pos_toolbar', True):
 
 	toolBar = QToolBar(mainWindow)
 
@@ -151,6 +157,14 @@ if Settings.value('koo.show_pos_toolbar'):
 		actionSwitchView.setIcon( QIcon( ':/images/switch_view.png' ) )
 		QObject.connect(actionSwitchView, SIGNAL('triggered()'), executeSwitchView)
 		toolBar.addAction( actionSwitchView )
+
+        def executeClose():
+            mainWindow.centralWidget().new()
+
+        actionClose = QAction( mainWindow )
+        actionClose.setIcon( QIcon( ':/images/close.png' ) )
+        QObject.connect(actionClose, SIGNAL('triggered()'), mainWindow.close)
+        toolBar.addAction( actionClose )
 
 	mainWindow.addToolBar( Qt.LeftToolBarArea, toolBar )
 
@@ -182,10 +196,9 @@ class KooApi(Api.KooApi):
 
 Api.instance = KooApi()
 
-mainWindow.showFullScreen()
-
 if Settings.value('koo.pos_mode'):
         import Koo.Pos
+        logger.debug("POS mode on")
 	app.installEventFilter( Koo.Pos.PosEventFilter(mainWindow) )
 
 if Settings.value('koo.enter_as_tab'):
@@ -199,6 +212,7 @@ from Koo.Common import WhatsThisEventFilter
 app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(mainWindow) )
 
 # Load default wizard
+logger.debug("Before login")
 if not Settings.value( 'login.url'):
 	sys.exit( "Error: No connection parameters given." )
 if not Settings.value( 'login.db'):
@@ -207,13 +221,30 @@ if not Settings.value( 'login.db'):
 if not Rpc.login_session( Settings.value('login.url'), Settings.value('login.db') ):
 	sys.exit( "Error: Invalid credentials." )
 
+logger.debug("after login")
 id = Rpc.RpcProxy('res.users').read([Rpc.session.get_uid()], ['action_id','name'], Rpc.session.context)
 
 # Store the menuId so we ensure we don't open the menu twice when
 # calling openHomeTab()
+logger.debug("action id: %r", id)
+
+if not (id[0]['action_id']):
+    logger.error("User \"%s\" %d does not have a default action, please set it up!",
+            id[0]['name'], id[0]['id'])
+    sys.exit(1)
+
 menuId = id[0]['action_id'][0]
+
+# After this "event", we must call the application loop, so only fire it
+# if we have no other failures.
+
+# TODO: configurable
+mainWindow.showFullScreen()
+
 
 Api.instance.execute(menuId)
 
 app.exec_()
 
+logger.info("Application exiting normally")
+#eof

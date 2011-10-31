@@ -41,7 +41,7 @@ from distutils.sysconfig import get_python_lib
 terp_path = "/".join([get_python_lib(), 'Koo'])
 sys.path.append(terp_path)
 
-from Koo.Common.Settings import Settings
+from Koo.Common.Settings import Settings, setup_logging
 from Koo.Common import CommandLine
 from Koo.Common import Localization
 
@@ -63,27 +63,6 @@ Localization.initializeTranslations(Settings.value('client.language'))
 
 arguments = CommandLine.parseArguments(sys.argv)
 Localization.initializeTranslations(Settings.value('client.language'))
-
-import logging
-
-def setup_logging():
-	"""Sets up the logging.
-	It is put in a function, so that any vars are of local scope
-	"""
-	global Settings
-	log_level = Settings.value('logging.level') or logging.WARN
-	if Settings.value('client.debug'):
-		log_level = logging.DEBUG
-	
-	logging.basicConfig(level=log_level)
-	logging.getLogger().info("Logging started, level: %d", log_level)
-	
-	# This logger is very noisy, silence it.
-	uic_log = logging.getLogger('PyQt4.uic')
-	if Settings.value('logging.uic_debug'):
-		uic_log.setLevel(logging.DEBUG)
-	else:
-		uic_log.setLevel(logging.WARN)
 
 setup_logging()
 imports={}
