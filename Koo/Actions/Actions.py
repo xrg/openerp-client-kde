@@ -152,7 +152,8 @@ def executeAction(action, datas, context=None):
 		return
 	
 	ctx = context.copy()
-	ctx.update({'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[])})
+	ctx.update({'active_id': datas.get('id',False), 'active_ids': datas.get('ids',[]),
+                'active_model': datas.get('model',False)})
 	log.debug('context for execAction (server): %r' % ctx)
 	
 	if action['type']=='ir.actions.act_window':
