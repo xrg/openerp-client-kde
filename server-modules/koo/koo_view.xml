@@ -269,5 +269,19 @@
             </field>
         </record>
 
+		<record model="ir.actions.act_window" id="koo_filters_action">
+			<field name="name">Koo Filters</field>
+			<field name="res_model">ir.filters</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem 
+			id="koo_filters_menu"
+			parent="koo_menu_config"
+			name="Filters" 
+			action="koo_filters_action" 
+			/>
+
 	</data>
 </openerp>

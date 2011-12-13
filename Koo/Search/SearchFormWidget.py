@@ -238,7 +238,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	def load(self):
 		try:
 			ids = Rpc.session.call('/object', 'execute', 'ir.filters', 'search', [
-				('user_id','=',Rpc.session.uid),
+				('user_id','in',[Rpc.session.uid, False]),
 				('model_id','=',self.model)
 			], 0, False, False, Rpc.session.context)
 		except Rpc.RpcException, e:

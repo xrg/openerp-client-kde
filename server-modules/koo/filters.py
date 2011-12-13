@@ -52,7 +52,7 @@ if release.major_version == '5.0':
                 return False
             return self.create(cr, uid, vals, context)
 
-        def _auto_init(self, cr, context={}):
+        def _auto_init(self, cr, context=None):
             super(ir_filters, self)._auto_init(cr, context)
             # Use unique index to implement unique constraint on the lowercase name (not possible using a constraint)
             cr.execute("SELECT indexname FROM pg_indexes WHERE indexname = 'ir_filters_name_model_uid_unique_index'")
@@ -67,5 +67,12 @@ if release.major_version == '5.0':
             'model_id': fields.selection(_list_all_models, 'Object', size=64, required=True),
         }
 
-    ir_filters()
+        def copy( self, cr, uid, id, default=None, context=None ):
+            filter = self.browse( cr, uid, id, context )
+            if not default:
+                default = {}
+            default = default.copy()
+            default[ 'name' ] = ( filter.name or '' ) + ' (copy)'
+            return super( ir_filters, self ).copy( cr, uid, id, default, context=context )
 
+    ir_filters()
