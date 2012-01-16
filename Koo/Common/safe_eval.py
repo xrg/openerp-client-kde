@@ -64,11 +64,23 @@ def safe_eval(expr,sglobals,slocals = None):
 	
 	global __export_bis
 
-	if not sglobals.has_key('__builtins__'):
+        sg2 = sglobals
+	if sglobals.has_key('__builtins__'):
+                sg2 = sglobals
+        else:
+                # copy the globals, because it wouldn't be thread-safe to modify
+                sg2 = sglobals.copy()
 		# we copy, because we wouldn't want successive calls to safe_eval
 		# to be able to alter the builtins.
-		sglobals['__builtins__'] = __export_bis.copy()
-		sglobals['__builtins__']['globals'] = lambda : __safe_globals(sglobals)
-	return eval(expr,sglobals,slocals)
+		
+		sg2['__builtins__'] = __export_bis.copy()
+		sg2['__builtins__']['globals'] = lambda : __safe_globals(sg2)
+
+	res = eval(expr,sg2,slocals)
+	if sg2 is not sglobals:
+            del sg2['__builtins__']
+            sglobals.update(sg2)
+        return res
+
 	
 #eof
