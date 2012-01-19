@@ -3,6 +3,7 @@
 # Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2011-2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -27,39 +28,58 @@
 #
 ##############################################################################
 
-from xml.parsers import expat
-
 import sys
 import gettext
+from lxml import etree
+import logging
 
-from CustomSearchFormWidget import *
-from SearchViewWidget import *
-from SearchWidgetFactory import *
-from AbstractSearchWidget import *
+#from CustomSearchFormWidget import *
+#from SearchViewWidget import *
+from SearchWidgetFactory import SearchWidgetFactory
+from AbstractSearchWidget import AbstractSearchWidget
 from Koo.Common import Common
 from Koo.Common import Api
 from Koo import Rpc
 
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-from Koo.Common.Ui import *
+from PyQt4.QtGui import QWidget, QIcon, QLabel, QGridLayout, QMessageBox, \
+        QMenu, QVBoxLayout, QInputDialog, QAction, QKeySequence, QShortcut, \
+        QGroupBox, QFrame, QSizePolicy, QHBoxLayout, QPushButton
+from PyQt4.QtCore import SIGNAL, Qt, QSize
+from Koo.Common.Ui import loadUiType
 
-class SearchFormContainer( QWidget ):
-	def __init__(self, parent):
-		QWidget.__init__( self, parent )
-		layout = QGridLayout( self )
-		layout.setSpacing( 0 )
+log = logging.getLogger('koo.screen.search')
+
+class SearchFormContainer(QWidget):
+        """Search form widget, arranging layout
+        
+            Items are placed in columns, and then wrap to rows. But columns are
+            NOT aligned along rows! This is because in 6.0 forms, items tend to
+            have assymetric width.
+        """
+        MAX_COLUMNS = 8
+        def __init__(self, parent):
+                QWidget.__init__( self, parent )
+                self.setSizePolicy(QSizePolicy.MinimumExpanding,QSizePolicy.Minimum)
+    
+		layout = QVBoxLayout( self )
+		#self.layout().setSpacing( 0 )
 		layout.setContentsMargins( 0, 0, 0, 0 )
 		# Maximum number of columns
-		self.col = 4
+		self.col = self.MAX_COLUMNS
+		self.curRow = None
 		self.x = 0
 		self.y = 0
 
 	def addWidget(self, widget, name=None):
+                
 		if self.x + 1 > self.col:
-			self.x = 0
-			self.y = self.y + 1
+                    self.newRow()
 
+                if not self.curRow:
+                    self.curRow = QHBoxLayout()
+                    #self.curRow.setSpacing( 0 )
+                    self.layout().addLayout(self.curRow)
+                    
 		# Add gridLine attribute to all widgets so we can easily discover
 		# in which line they are.
 		widget.gridLine = self.y
@@ -71,78 +91,260 @@ class SearchFormContainer( QWidget ):
 			vbox.setContentsMargins( 0, 0, 0, 0 )
 			vbox.addWidget( label, 0 )
 			vbox.addWidget( widget )
-			self.layout().addLayout( vbox, self.y, self.x )
+			
+			self.curRow.addLayout( vbox )
 		else:
-                	self.layout().addWidget( widget, self.y, self.x )
+                	self.curRow.addWidget( widget )
 		self.x = self.x + 1
 
+        def newRow(self):
+            self.y = self.y + 1
+            self.x = 0
+            if self.curRow:
+                self.curRow.addStretch(1)
+            self.curRow = None
+
+
+class SearchFormExpander(SearchFormContainer):
+    """ A group box, that acts as an expander for its content
+    """
+    def __init__(self, title, parent):
+        SearchFormContainer.__init__(self, parent)
+        self.expandButton = QPushButton(self)
+        self.expandButton.setIcon(SearchFormWidget.Images['up'])
+        # self.expandButton.setSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        self.expandButton.setCheckable(True)
+        self.expandButton.setChecked(True)
+        if title:
+            self.expandButton.setText(title)
+        self.expandButton.setFlat(True)
+        self.expandButton.setIconSize(QSize(16,16))
+        self.expandButton.setContentsMargins(0,0,0,0)
+        self.addWidget(self.expandButton)
+        if False and title:
+            label = QLabel(title)
+            self.addWidget(label)
+        self.expandButton.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.newRow()
+        self.connect(self.expandButton, SIGNAL('toggled(bool)'), self._toggled)
+
+    def _toggled(self, on):
+        self.expandButton.setIcon(SearchFormWidget.Images[ on and 'up' or 'down'])
+        log.debug("Toggled: %r", on)
+        for x in self.children():
+            if x.isWidgetType() and x.gridLine > 0:
+                if on:
+                    x.show()
+                else:
+                    x.hide()
+        self.update()
+    
 class SearchFormParser(object):
-	def __init__(self, container, fields, model=''):
+	def __init__(self, parent, container, fields, model='', context=None):
 		self.fields = fields
 		self.container = container
 		self.model = model
 		self.focusable = None
-		self.widgets = {}
+		self.parent = parent
 		self.shortcuts = []
+		assert isinstance(parent, SearchFormWidget), parent
+		self.title = _('Form')
+		self.context = context or {}
+		self.epoch = '5.0'
 
-	def _psr_start(self, name, attrs):
-		if name in ('form','tree','svg'):
-			self.title = attrs.get('string','Form')
-		elif name=='field':
-			select = attrs.get('select', False) or self.fields[attrs['name']].get('select', False)
-			if select:
-				name = attrs['name']
-				self.fields[name].update( attrs )
-				self.fields[name]['model'] = self.model
+	def parse_form(self, xml_data):
+		dom = etree.fromstring(xml_data)
+		log.debug("Parsing search view of \"%s\"", dom.tag)
+		if dom.tag in ('form', 'tree'):
+                    # 5.0-style form, we scan the fields and generate a crude
+                    # search view
+                    self._parse_50(dom)
+                elif dom.tag == 'search':
+                    # 6.0 style search view, we fill the container with the elements
+                    # as described by the view
+                    self.epoch = '6.0'
+                    self._parse_60(dom)
+                else:
+                    log.warning("Cannot generate search view from \"%s\" view", dom.tag)
 
-				select = str(select)
-				if select in self.widgets:
-					self.widgets[ select ].append( name )
-				else:
-					self.widgets[ select ] = [ name ]
-		elif name == 'shortcut':
-			if not 'key' in attrs:
-				return
-			if not 'goto' in attrs:
-				return
-			#just insert the pairs into some list.
-			self.shortcuts.append( (attrs['key'],attrs['goto']) )
+        def _parse_50(self, dom):
+            """ Parse a form view into a search view container
+            """
+            if dom.get('string'):
+                self.title = dom.get('string')
 
-	def _psr_end(self, name):
-		pass
-	def _psr_char(self, char):
-		pass
-	def parse(self, xml_data):
-		psr = expat.ParserCreate()
-		psr.StartElementHandler = self._psr_start
-		psr.EndElementHandler = self._psr_end
-		psr.CharacterDataHandler = self._psr_char
-		self.widgetDict={}
-		psr.Parse(xml_data.encode('utf-8'))
+            fieldNames = set()
+            for elem in dom:
+                attrs = elem.attrib
+                if elem.tag == 'field' and (elem.get('select', False) \
+                        or self.fields[elem.attrib['name']].get('select', False)):
+                    attrs = dict(elem.attrib)
+                    name = attrs.pop('name')
+                    if name in fieldNames:
+                        continue
+                    fieldNames.add( name )
+                    field = self.fields[name]
+                    field.update( attrs )
+                    field['model'] = self.model
 
-		fieldNames = set()
-		for line in sorted( self.widgets.keys() ):
-			for name in self.widgets[ line ]:
-				# Because field may have the select attribute twice (one for form and 
-				# another one for tree) we only use the one with higher priority.
-				if name in fieldNames:
-					continue
-				fieldNames.add( name )
+                    wtype = field.get('widget',field['type'])
+                    widget = SearchWidgetFactory.create( wtype, name, self.container, field)
+                    if not widget:
+                        continue
+                    self.parent.widgets[str(name)] = widget
+                    if 'string' in attrs:
+                        label = attrs['string']+':'
+                    else:
+                        label = None
+                    self.container.addWidget(widget, label )
+                    if not self.focusable:
+                        self.focusable = widget
 
-				attributes = self.fields[name]
-				type = attributes.get('widget', attributes['type'])
-				widget = SearchWidgetFactory.create( type, name, self.container, attributes )
-				if not widget:
-					continue
-				self.widgetDict[str(name)] = widget
-				if 'string' in attributes:
-					label = attributes['string']+' :'
-				else:
-					label = None
-				self.container.addWidget( widget, label )
-				if not self.focusable:
-					self.focusable = widget
-		return self.widgetDict
+                elif elem.tag == 'shortcut':
+                    if not 'key' in attrs:
+                        return
+                    if not 'goto' in attrs:
+                        return
+                    #just insert the pairs into some list.
+                    self.shortcuts.append( (attrs['key'],attrs['goto']) )
+
+        def _parse_60(self, dom):
+            if dom.get('string'):
+                self.title = dom.get('string')
+            
+            for node in dom:
+                if node.get('invisible', False):
+                    if eval(node.get('invisible'), {'context': self.context}): # FIXME
+                        continue
+                self._parse_60node(node, self.container)
+            
+        def _parse_60node(self, node, container):
+            attrs = node.attrib
+            if node.tag =='field':
+                field_name = str(attrs['name'])
+                field = self.fields[field_name]
+                wtype = attrs.get('widget', field['type'])
+                field.update(attrs)
+                field['model'] = self.model
+                
+                widget = SearchWidgetFactory.create( wtype, field_name, container, field)
+                if widget:
+                    self.parent.widgets[field_name] = widget
+                    if not self.focusable:
+                        self.focusable = widget
+
+                if 'string' in field:
+                    label = field['string']+':'
+                else:
+                    label = None
+                if len(node):
+                    # Supplement the widget with more tricks
+                    gwidget = SearchFormContainer(container)
+                    if widget:
+                        gwidget.addWidget(widget)
+                    widget = gwidget # and then replace this one
+                    
+                    for subnode in node:
+                        if subnode.get('invisible', False):
+                            if eval(subnode.get('invisible'), {'context': self.context}): # FIXME
+                                continue
+                        self._parse_60node(subnode, widget)
+
+                wid = container.addWidget(widget,label)
+
+            elif node.tag == 'shortcut':
+                if not 'key' in attrs:
+                    return
+                if not 'goto' in attrs:
+                    return
+                #just insert the pairs into some list.
+                self.shortcuts.append( (attrs['key'],attrs['goto']) )
+
+            elif node.tag=='newline':
+                container.newRow()
+
+            elif node.tag == 'separator':
+                caption = attrs.get( 'string', )
+                layout = False
+                if caption:
+                    separator = QWidget( container )
+                    # separator.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+                    label = QLabel( separator )
+                    label.setText( caption )
+                    font = label.font()
+                    font.setBold( True )
+                    label.setFont( font )
+                    line = QFrame( separator )
+                    line.setFrameShadow( QFrame.Plain )
+                    if attrs.get('orientation') == 'vertical':
+                            line.setFrameShape( QFrame.VLine )
+                            line.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Expanding )
+                            layout = QHBoxLayout( separator )
+                    else:
+                            line.setFrameShape( QFrame.HLine )
+                            line.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+                            layout = QVBoxLayout( separator )
+                    #layout.setAlignment( Qt.AlignTop )
+                    #layout.setContentsMargins( 0, 0, 0, 0 )
+                    layout.setSpacing( 0 )
+                    layout.addWidget( label )
+                    layout.addWidget( line )
+                else:
+                    separator = QFrame(container)
+                    separator.setFrameShadow( QFrame.Raised )
+                    if attrs.get('orientation') == 'vertical':
+                        separator.setFrameShape( QFrame.VLine )
+                        separator.setSizePolicy( QSizePolicy.Fixed, QSizePolicy.Expanding )
+                    else:
+                        separator.setFrameShape( QFrame.HLine )
+                        separator.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Fixed )
+                
+                #self.view.addStateWidget( separator, attrs.get('attrs'), attrs.get('states') )
+                container.addWidget(separator)
+
+            elif node.tag == 'group':
+                
+                
+                if attrs.get('expand', False):
+                    widget = SearchFormExpander(attrs.get('string', None), container)
+                    if 'col' in attrs:
+                        widget.col = attrs['col']
+                    expand = attrs['expand']
+                    if isinstance(expand, basestring):
+                        # It could be an expression, evaluate it
+                        expand = eval(attrs['expand'],
+                                        {'context': self.context})
+                    widget._toggled(bool(expand))
+                else:
+                    widget = SearchFormContainer( container)
+                    if attrs.get('string', False):
+                        widget.addWidget(QLabel(attrs['string']))
+                        widget.newRow()
+                    if 'col' in attrs:
+                        widget.col = attrs['col']
+                
+                for subnode in node:
+                    if subnode.get('invisible', False):
+                        if eval(subnode.get('invisible'), {'context': self.context}):
+                            continue
+                    self._parse_60node(subnode, widget)
+                widget.newRow() # this will add a final spacer, thus left-align
+                if attrs.get('expand', False):
+                    widget.expandButton.setChecked(False)
+                #self.view.addStateWidget( widget, attrs.get('attrs'), attrs.get('states') )
+                container.addWidget( widget )
+
+            elif node.tag == 'filter':
+                name = attrs.get('string', 'filter-%s' % hex(id(node)))
+                widget = SearchWidgetFactory.create('filter', name, container, attrs)
+                self.parent.widgets[name] = widget
+                container.addWidget(widget)
+
+            else:
+                log.info("Ignoring a \"%s\" element in search form", node.tag)
+                return
+            # stop here
+
 
 (SearchFormWidgetUi, SearchFormWidgetBase) = loadUiType( Common.uiPath('searchform.ui') )
 
@@ -152,6 +354,7 @@ class SearchFormParser(object):
 # Then you can use the 'value()' function to obtain a domain-like list.
 class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	## @brief Constructs a new SearchFormWidget.
+	Images = {}
 	def __init__(self, parent=None):
 		AbstractSearchWidget.__init__(self, '', parent)
 		SearchFormWidgetUi.__init__(self)
@@ -171,14 +374,20 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSearch.setEnabled( False )
 		self.toggleView()
 
+                # Load the images, once
+                if not self.Images:
+                    self.Images.update(up=QIcon(':/images/up.png'),
+                            down=QIcon(':/images/down.png'),
+                            save=QIcon( ':/images/save.png' ),
+                            manage=QIcon( ':/images/administration.png'))
 		# Fill in filters menu
 		self.actionSave = QAction(self)
 		self.actionSave.setText( _('&Save Current Filter') )
-		self.actionSave.setIcon( QIcon( ':/images/save.png' ) )
+		self.actionSave.setIcon( self.Images['save'] )
 
 		self.actionManage = QAction(self)
 		self.actionManage.setText( _('&Manage Filters') )
-		self.actionManage.setIcon( QIcon( ':/images/administration.png' ) )
+		self.actionManage.setIcon( self.Images['manage'] )
 
 		self.filtersMenu = QMenu( self )
 		self.filtersMenu.addAction( self.actionSave )
@@ -246,6 +455,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 
 	def load(self):
 		try:
+                        # FIXME search_read
 			ids = Rpc.RpcProxy('ir.filters').search([
 				('user_id','=',Rpc.session.get_uid()),
 				('model_id','=',self.model)
@@ -270,20 +480,22 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	#
 	# Needed fields include XML view (usually 'form'), fields dictionary with information
 	# such as names and types, and the model parameter.
-	def setup(self, xml, fields, model, domain):
+	def setup(self, xml, fields, model, domain, ):
 		# We allow one setup call only
 		if self._loaded:
-			return 
+			return
 
 		self._loaded = True
 		self.pushExpander.setEnabled( True )
 		self.pushClear.setEnabled( True )
 		self.pushSearch.setEnabled( True )
 
-		parser = SearchFormParser(self.uiSimpleContainer, fields, model)
+                parser = SearchFormParser(self, self.uiSimpleContainer, fields, model)
+                #  context from screen or model ? FIXME
 		self.model = model
 
-		self.widgets = parser.parse(xml)
+		parser.parse_form(xml)
+		log.debug("Len of widgets: %d %r", len(self.widgets), self.widgets.keys())
 		for widget in self.widgets.values():
 			self.connect( widget, SIGNAL('keyDownPressed()'), self, SIGNAL('keyDownPressed()') )
 
@@ -294,24 +506,28 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		for skey, sgoto in parser.shortcuts:
 			# print "Trying to associate %s to widget %s at search form." % (skey, sgoto)
 			if not sgoto in self.widgets:
-				print "Cannot locate widget %s for shortcut." % sgoto
+				log.warning("Cannot locate widget %s for shortcut.", sgoto)
 				continue
 			scut = QShortcut(QKeySequence(skey),self)
 			self.widgets[sgoto].connect(scut,SIGNAL('activated()'),self.widgets[sgoto].setFocus)
 			self.shortcuts.append(scut)
 		
+                self.name = parser.title
+                self.focusable = parser.focusable
+
 		# Don't show expander button unless there are widgets in the
 		# second row
 		self.pushExpander.hide()
-		for x in self.widgets.values():
+		if parser.epoch < '6.0':
+                    for x in self.widgets.values():
 			if x.gridLine > 0:
 				self.pushExpander.show()
 				break
 
-		self.name = parser.title
-		self.focusable = parser.focusable
-		self.expanded = True
-		self.toggleExpansion()
+                    self.expanded = True
+                    self.toggleExpansion()
+                else:
+                    self.pushExpander = None
 
 		self.uiCustomContainer.setup( fields, domain )
 
@@ -319,6 +535,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.load()
 
 	def keyPressEvent(self, event):
+                # FIXME no better way?
 		if event.key() in ( Qt.Key_Return, Qt.Key_Enter ):
 			self.search()
 
@@ -334,13 +551,14 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 			except Rpc.RpcException, e:
                                 # FIXME: remove all that:
 				number = 0
+				print "exception", e
 				for item in value:
 					if not isinstance(item, tuple):
 						continue
 
 					valid = True
 					try:
-						self.uiCustomContainer.setItemValid
+						self.uiCustomContainer.setItemValid # FIXME
 						proxy.search( [item], 0, False, False, Rpc.session.context )
 					except Rpc.RpcException, e:
 						valid = False
@@ -355,8 +573,6 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 
 		self.emit( SIGNAL('search()') )
 
-
-
 	## @brief Shows Search and Clear buttons.
 	def showButtons(self):
 		self.pushClear.setVisible( True )
@@ -368,7 +584,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSearch.setVisible( False )
 
 	def toggleExpansion(self):
-		layout = self.uiSimpleContainer.layout()
+                if not self.pushExpander:
+                    return
+		self.uiSimpleContainer.layout()
 		
 		childs = self.uiSimpleContainer.children()
 		for x in childs:
@@ -379,20 +597,22 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 					x.show()
 		self.expanded = not self.expanded
 		if self.expanded:
-			self.pushExpander.setIcon( QIcon(':/images/up.png') )
+			self.pushExpander.setIcon( self.Images['up'] )
 		else:
-			self.pushExpander.setIcon( QIcon(':/images/down.png') )
+			self.pushExpander.setIcon( self.Images['down'] )
 
 	def toggleView(self):
 		if self.pushSwitchView.isChecked():
 			self.uiSearchView.hide()
 			self.uiSimpleContainer.hide()
-			self.pushExpander.hide()
+			if self.pushExpander:
+                            self.pushExpander.hide()
 			self.uiCustomContainer.show()
 		else:
 			self.uiSearchView.hide()
 			self.uiSimpleContainer.show()
-			self.pushExpander.show()
+			if self.pushExpander:
+                            self.pushExpander.show()
 			self.uiCustomContainer.hide()
 
 	def setFocus(self):
@@ -415,7 +635,9 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	#
 	# Note you can optionally give a 'domain' parameter which will be added to
 	# the filters the widget will return.
-	def value(self, domain=[]):
+	def value(self, domain=None):
+                if domain is None:
+                    domain = []
 		index = self.uiStoredFilters.currentIndex()
 		if index > 0:
 			id = self.uiStoredFilters.itemData( index ).toInt()[0]
@@ -432,6 +654,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		for f in domain:
 			if f[0] not in v_keys:
 				res.append(f)
+                log.debug("value(): %r", res)
 		return res
 
 	def isCustomSearch(self):

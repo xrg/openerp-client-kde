@@ -27,12 +27,12 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt4.QtCore import Qt, QEvent, SIGNAL
+from PyQt4.QtGui import QWidget
 
 ## @brief AbstractFieldWidget is the base class for all search widgets in Koo.
 # In order to create a new search widget, that is: a widget that appears in a 
-# auto-generated search form you need to inherit from this class and implement some
+# search form you need to inherit from this class and implement some
 # of it's functions.
 class AbstractSearchWidget(QWidget):
 	## @brief Creates a new AbstractSearchWidget and receives the following parameters

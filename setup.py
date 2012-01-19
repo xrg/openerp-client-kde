@@ -231,6 +231,7 @@ setup (
 				'atk',
 				'gobject',
 				'cairo',
+				'lxml',
 				],
 			# Required by enchant
 			'excludes': [

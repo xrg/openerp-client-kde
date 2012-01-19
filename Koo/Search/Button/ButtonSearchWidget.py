@@ -29,9 +29,12 @@
 
 from Koo.Common import Common
 
-from Koo.Search.AbstractSearchWidget import *
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from Koo import Rpc
+
+from Koo.Search.AbstractSearchWidget import AbstractSearchWidget
+from PyQt4.QtGui import QPushButton, QVBoxLayout, QIcon
+from Koo.Common import Icons
+#from PyQt4.QtCore import *
 
 class ButtonSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attributes=None):
@@ -42,6 +45,9 @@ class ButtonSearchWidget(AbstractSearchWidget):
 		self.pushButton.setText( attributes.get('string', '') )
 		self.pushButton.setCheckable( True )
 		layout = QVBoxLayout( self )
+		if 'icon' in attributes:
+                    self.pushButton.setIcon( Icons.kdeIcon( attributes['icon'] ))
+
 		layout.addWidget( self.pushButton )
 		layout.setSpacing( 0 )
 		layout.setContentsMargins( 0, 0, 0, 0 )
@@ -54,6 +60,7 @@ class ButtonSearchWidget(AbstractSearchWidget):
 		return Rpc.session.evaluateExpression( self.domain, Rpc.session.context )
 
 	def clear(self):
+                self.pushButton.setChecked(False)
 		self.pushButton.setDown( False )
 
 	def setValue(self, value):

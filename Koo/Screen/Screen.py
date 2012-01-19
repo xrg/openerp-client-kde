@@ -220,7 +220,14 @@ class Screen(QScrollArea):
 			self.searchForm.hide()
 			return
 		if self.currentView().showsMultipleRecords() and not self._embedded: 
-			if not self.searchForm.isLoaded():
+			if self.searchForm.isLoaded():
+                                pass
+                        elif Rpc.session.server_version >= (6, 0):
+                                self._log.debug("Loading 6.0 search form for %s", self.resource)
+                                sform = self.rpc.fields_view_get(False, 'search', self.context)
+                                self.searchForm.setup(sform['arch'], sform['fields'], self.resource, self.group.domain())
+                        else:
+                                # 5.0 server
 				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)
 				tree = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'tree', self.context)
 				fields = form['fields']
@@ -247,8 +254,8 @@ class Screen(QScrollArea):
 				self.searchForm.setup( arch, fields, self.resource, self.group.domain() )
 
 			self.searchForm.show()
-		else:
-			self.searchForm.hide()
+                else:
+                        self.searchForm.hide()
 
 	def setReadOnly(self, value):
 		self._readOnly = value

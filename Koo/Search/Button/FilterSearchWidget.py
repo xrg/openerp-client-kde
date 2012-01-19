@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -26,8 +26,14 @@
 ##############################################################################
 
 from ButtonSearchWidget import ButtonSearchWidget
-from FilterSearchWidget import FilterSearchWidget
-from Koo.Search.SearchWidgetFactory import SearchWidgetFactory
 
-SearchWidgetFactory.register( 'button', ButtonSearchWidget )
-SearchWidgetFactory.register( 'filter', FilterSearchWidget )
+class FilterSearchWidget(ButtonSearchWidget):
+    """ A filter button should only affect the data set when pressed
+    """
+    def value(self):
+        if self.pushButton.isChecked():
+            return ButtonSearchWidget.value(self)
+        else:
+            return []
+
+#eof

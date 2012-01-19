@@ -29,7 +29,7 @@
 
 from Koo.Search.AbstractSearchWidget import *
 from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from PyQt4.QtCore import QVariant
 
 class SelectionSearchWidget(AbstractSearchWidget):
 	def __init__(self, name, parent, attrs={}):
@@ -54,7 +54,12 @@ class SelectionSearchWidget(AbstractSearchWidget):
 	def value( self ):
 		value = self.uiCombo.itemData( self.uiCombo.currentIndex() )
 		if value.isValid():
-			return [(self.name,'=',unicode( value.toString() ) )]
+                    if value.type() == QVariant.Int:
+                        return [(self.name,'=',value.toInt()[0] )]
+                    elif value.type() == QVariant.LongLong:
+                        return [(self.name,'=',value.toLongLong()[0] )]
+                    else:
+                        return [(self.name,'=',unicode(value.toString()) )]
 		else:
 			return []
 
