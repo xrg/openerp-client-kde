@@ -28,6 +28,7 @@
 from PyQt4.QtCore import QThread, SIGNAL
 from time import sleep
 import logging
+from Rpc import RpcServerException
 
 ## @brief The Subscriber class provides a mechanisme for subscribing to server events.
 #
@@ -81,6 +82,14 @@ class Subscriber(QThread):
 				else:
 					logger.warning("cannot subscribe to %s, waiting 5min", self.expression)
 					sleep(300)
+                        except RpcServerException, e:
+                            print e.code, e.type, e.args
+                            if e.code == 'subscription':
+                                logger.warning("Server does not support subscriptions")
+                                break
+                            else:
+                                logger.error("Server exception: %s", e)
+                                sleep(120)
 			except Exception, err:
                                 logger.exception("Exception:")
 				sleep( 60 )
