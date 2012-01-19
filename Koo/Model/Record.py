@@ -34,6 +34,7 @@ from Koo.Common import Notifier
 from Koo.Rpc import RpcProxy
 from Field import ToManyField
 import gettext
+import logging
 from Koo.Common.safe_eval import safe_eval
 
 from PyQt4.QtCore import *
@@ -41,6 +42,7 @@ from PyQt4.QtCore import *
 #ConcurrencyCheckField = '__last_update'
 ConcurrencyCheckField = 'read_delta'
 
+log = logging.getLogger('koo.model.record')
 class EvalEnvironment(object):
 	def __init__(self, parent):
 		self.parent = parent
@@ -465,7 +467,7 @@ class Record(QObject):
 				self.group.ensureRecordLoaded( self )
 				val = self.evaluateExpression( dom, checkLoad, firstTry=False )
 			else:
-				Debug.error(_('Error evaluating expression: %s') % exception.args)
+				log.error(_('Error evaluating expression: %s') % exception.args)
 				raise
 				# val = False
 		return val

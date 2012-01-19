@@ -27,6 +27,7 @@
 
 from Koo.Common import Plugins
 import os
+import logging
 
 ## @brief The SearchWidgetFactory class specializes in creating the appropiate 
 # search widget for a given type.
@@ -48,7 +49,8 @@ class SearchWidgetFactory:
 	def create(widgetType, name, parent, attributes):
 		SearchWidgetFactory.scan()
 		if not widgetType in SearchWidgetFactory.widgets:
-			print "Search widget '%s' not available" % widgetType
+			logging.getLogger('koo.screen.search').\
+                                warning("Search widget '%s' not available", widgetType)
 			return None
 
 		widgetClass = SearchWidgetFactory.widgets[ widgetType ]

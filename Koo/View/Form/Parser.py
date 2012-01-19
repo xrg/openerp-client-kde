@@ -37,6 +37,7 @@ from Koo.Fields.FieldWidgetFactory import *
 from Koo.Fields.AbstractFieldWidget import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
+import logging
 
 
 class FormParser(AbstractParser):
@@ -53,6 +54,8 @@ class FormParser(AbstractParser):
 		# Counter to ensure 'unnamed' buttons have different names.
 		self.unnamed = 0
 		# Parse and fill in the view
+                self.logger = logging.getLogger('koo.view.formparser')
+                self.logger.debug("Parsing view #%d \"%s\"", self.view.id, self.view.title)
 		container, onWriteFunction = self.parse( node, fields )
 		self.view.setWidget( container )
 		self.view.setOnWriteFunction( onWriteFunction )
@@ -62,6 +65,7 @@ class FormParser(AbstractParser):
 		attrs = Common.nodeAttributes(root_node)
 		onWriteFunction = attrs.get('on_write', '')
 
+                
 		if container == None :
 			parent = self.view
 			if notebook:
@@ -271,7 +275,7 @@ class FormParser(AbstractParser):
 				scut = QShortcut(QKeySequence(skey),self.view)
 				# print "trying to associate the shortcut"
 				if not sgoto in self.view.widgets:
-					print "Cannot locate widget ", sgoto
+                                        self.logger.warning("Cannot locate widget ", sgoto)
 					continue
 				self.view.widgets[sgoto].connect(scut,SIGNAL('activated()'),self.view.widgets[sgoto].setFocus)
 				self.shortcuts.append(scut)

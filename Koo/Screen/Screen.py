@@ -210,6 +210,7 @@ class Screen(QScrollArea):
 	def setSearchFormVisible(self, value):
 		self._searchFormVisible = value
 		self.searchForm.setVisible( value )
+		self._log.debug("Set search vorm visible: %r", value)
 		if value:
 			if self.currentView() and self.currentView().showsMultipleRecords():
 				self.loadSearchForm()
@@ -560,9 +561,8 @@ class Screen(QScrollArea):
 						attrs['type'] = attrs['widget']
 					try:
 						fields[attrs['name']].update(attrs)
-					except:
-						print "-"*30,"\n malformed tag for :", attrs
-						print "-"*30
+					except Exception:
+                                                self._log.exception("malformed tag for :", attrs)
 						raise
 			for node2 in node.childNodes:
 				_parse_fields(node2, fields)
@@ -586,6 +586,7 @@ class Screen(QScrollArea):
 			view.setViewSettings( ViewSettings.load( view.id ) )
 
 		self.views[ view.viewType() ] = view
+		self._log.debug("Toolbar: %r", toolbar)
 		self.loadActions( toolbar )
 
 		if display:
@@ -599,6 +600,7 @@ class Screen(QScrollArea):
 	## @brief Loads all actions associated with the current model including plugins.
 	def loadActions( self, actions ):
 		self.actions = ActionFactory.create( self, actions, self.resource )
+		self._log.debug("Actions: %r", self.actions)
 		if self.actions:
 			for action in self.actions:
 				self.connect( action, SIGNAL('triggered()'), self.triggerAction )
@@ -609,11 +611,12 @@ class Screen(QScrollArea):
 			# This way dashboards won't show the toolbar, though the option will
 			# remain available in the menu for those screens that don't have any
 			# actions configured in the server, but Print Screen can be useful.
-			if len(self.actions) > 1 + len(Plugins.list(self.resource)) and Settings.value('koo.show_toolbar') and self._toolbarVisible:
+			if len(self.actions) > 1 + len(Plugins.list(self.resource)) \
+                                    and Settings.value('koo.show_toolbar') and self._toolbarVisible:
 				self.toolBar.setup( self.actions )
 				self.toolBar.show()
-			else:
-				self.toolBar.hide()
+                        else:
+                                self.toolBar.hide()
 
 	## @brief Creates a new record in the current model. If the current view is not editable
 	# it will automatically switch to a view that allows editing.
