@@ -95,7 +95,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 		QTimer.singleShot( 0, self.delayedInitGui )
 
 	def delayedInitGui( self ):
-		# Name completion can be delayied without side effects.
+		# Name completion can be delayed without side effects.
 		if self.attrs.get('completion'):
 			ids = Rpc.session.execute('/object', 'execute', self.attrs['relation'], 'name_search', '', [], 'ilike', Rpc.session.context, False)
 			if ids:

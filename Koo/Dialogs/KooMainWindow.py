@@ -810,7 +810,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 					self.menuBrowse.addAction( x )
 					browse = True
 				elif x.type() == 'action':
-					self.menuActions.addAction( x )	
+					self.menuActions.addAction( x )
 					actions = True
 				else: # Should be 'plugin'
 					self.menuPlugins.addAction( x )

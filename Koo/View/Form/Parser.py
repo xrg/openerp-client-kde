@@ -216,8 +216,7 @@ class FormParser(AbstractParser):
 			elif node.localName=='field':
 				if not self.isWidgetVisible( attrs ):
 					continue
-				name = attrs['name']
-				del attrs['name']
+				name = attrs.pop('name')
 				type = attrs.get('widget', fields[name]['type'])
 				fields[name].update(attrs)
 				fields[name]['model'] = self.viewModel

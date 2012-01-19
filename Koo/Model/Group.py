@@ -89,6 +89,7 @@ class RecordGroup(QObject):
 			context = {}
 		self.parent = parent
 		self._context = context
+		assert not '__builtins__' in context
 		self._context.update(Rpc.session.context)
 		self.resource = resource
 		self.limit = Settings.value( 'koo.limit', 80, int )
@@ -330,6 +331,7 @@ class RecordGroup(QObject):
 	## @brief Sets the context that will be used for RPC calls.
 	def setContext(self, context):
 		self._context = context.copy()
+		assert not '__builtins__' in self._context
 
 	## @brief Adds a record to the list
 	def add(self, record, position=-1):
@@ -732,6 +734,7 @@ class RecordGroup(QObject):
 		# Update context from Rpc.session.context as language
 		# (or other settings) might have changed.
 		self._context.update(Rpc.session.context)
+		assert not '__builtins__' in self._context
 		self.rpc = RpcProxy(self.resource)
 		## Make it reload again
 		self.updated = False
@@ -752,8 +755,9 @@ class RecordGroup(QObject):
 		else:
 			self.sortVisible( field, order )
 
-	# Sorts the records in the group using ALL records in the database
 	def sortAll(self, field, order):
+                """ Sorts the records in the group using ALL records in the database
+                """
 		if self.updated and field == self.sortedField and order == self.sortedOrder:
 			return
 
