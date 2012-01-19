@@ -232,10 +232,9 @@ class FormParser(AbstractParser):
 					widget.node = node
 					self.widgetList.append(widget)
 
-
 				label = None
 				if not int(attrs.get('nolabel', 0)):
-					label = fields[name]['string']+' :'
+					label = fields[name]['string']+':'
 					
 				self.view.widgets[name] = widget
 				#attrs['colspan'] = int(attrs.get('colspan', widgets_type[ type ][1]))

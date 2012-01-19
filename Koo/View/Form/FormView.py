@@ -149,7 +149,7 @@ class FormContainer( QWidget ):
 			else:
 				color = 'black'
 
-			label.setText( unicode( '<small><a style="color: %s" href="help">?</a></small> %s' % (color, labelText ) ) )
+			label.setText( labelText )
 			self.connect( label, SIGNAL('linkActivated(QString)'), widget.showHelp )
 
 			self.layout.addWidget( label, self.row, self.column )
