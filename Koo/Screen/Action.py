@@ -34,15 +34,35 @@ from Koo.Plugins import *
 from Koo import Rpc
 import logging
 
-## @brief The Action class is a QAction that can execute a model action. Such
-# as relate, print or wizard (on the server) and plugins (on the client).
 class Action(QAction):
-	## @brief Creates a new Action instance given a parent.
-	def __init__(self, parent):
+        """The Action class is a QAction that can execute a model action.
+        
+            Such as relate, print or wizard (on the server) and plugins (on the client).
+        """
+        
+	def __init__(self, parent, data=None, itype=None, plug=None):
+                """Creates a new Action instance given a parent.
+                
+                    @param data the action name
+                    @param itype icon type
+                    @param plug if given, dictionary of definition
+                """
 		QAction.__init__(self, parent)
-		self._data = None
-		self._type = None 
+		self._data = data
+		self._type = None
+		self._exec_type = itype
 		self._model = None
+		self._is_tool = True
+		if plug:
+                    if 'icon' in plug:
+                        self.setIcon( QIcon( ":/images/%s.png" % plug['icon'] ) )
+                    elif itype and itype != 'plugin':
+                        self.setIcon( QIcon( ":/images/%s.png" % itype ) )
+                    if 'string' in plug:
+                        self.setText(Common.normalizeLabel(plug['string']))
+                    self.setText( unicode( plug['string'] ) )
+                    self._type = plug.get('plugin_type', itype or 'plugin')
+                    self._is_tool = plug.get('is_tool', itype != 'plugin')
 
 	## @brief Sets the data associated with the action.
 	def setData(self, data):
@@ -53,8 +73,8 @@ class Action(QAction):
 		return self._data
 
 	## @brief Sets the type of action (such as 'print' or 'plugin')
-	def setType(self, type):
-		self._type = type
+	#def setType(self, type):
+	#	self._type = type
 
 	## @brief Returns the type of action (such as 'print' or 'plugin')
 	def type(self):
@@ -68,14 +88,23 @@ class Action(QAction):
 	def model(self):
 		return self._model
 
+
+        def setTool(self, ttool):
+            self._is_tool = ttool
+
+        def isTool(self):
+            """Returns if this action shall appear in toolbar
+            """
+            return self._is_tool
+
 	## @brief Executes the action (depending on its type), given the current id
 	# and the selected ids.
 	def execute(self, currentId, selectedIds, context):
 		log = logging.getLogger('koo.action')
 		log.debug('execute<%s>(%s,..)', self._type, str(currentId))
-		if self._type == 'relate':
+		if self._exec_type == 'relate':
 			self.executeRelate( currentId, context )
-		elif self._type in ( 'action', 'print' ):
+		elif self._exec_type in ( 'action', 'print' ):
 			self.executeAction( currentId, selectedIds, context )
 		else:
 			self.executePlugin( currentId, selectedIds, context )
@@ -98,7 +127,7 @@ class Action(QAction):
 			currentId = selectedIds[0]
 		elif not selectedIds:
 			selectedIds = [currentId]
-		if self._type == 'print':
+		if self._exec_type == 'print':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
 			Api.instance.executeAction(self._data, { 
@@ -109,7 +138,7 @@ class Action(QAction):
 		except Rpc.RpcException:
 		        logging.getLogger('koo.action').exception("executeAction")
 			pass
-		if self._type == 'print':
+		if self._exec_type == 'print':
 			QApplication.restoreOverrideCursor()
 
 	# Executes the action as a plugin type
@@ -139,19 +168,16 @@ class ActionFactory:
 		definition['print'].append({
 			'name': 'Print Screen', 
 			'string': _('Print Screen'), 
-			'report_name': 'printscreen.list', 
-			'type': 'ir.actions.report.xml' 
+			'report_name': 'printscreen.list',
+			'type': 'ir.actions.report.xml',
+			'is_tool': False,
 		})
 
 		actions = []
 		auto_shortcuts = Settings.value('koo.auto_shortcuts', False, bool)
 		for icontype in ( 'print','action','relate' ):
 			for tool in definition[icontype]:
-				action = Action( parent )
-				action.setIcon( QIcon( ":/images/%s.png" % icontype) )
-				action.setText( Common.normalizeLabel( tool['string'] ) )
-				action.setType( icontype )
-				action.setData( tool )
+				action = Action( parent, data=tool, itype=icontype, plug=tool)
 				action.setModel( model )
 
 				number = len(actions)
@@ -167,12 +193,8 @@ class ActionFactory:
 				actions.append( action )
 
 		plugs = Plugins.list(model)
-		for p in sorted( plugs.keys(), key=lambda x:plugs[x].get('string','') ) :
-			action = Action( parent )
-			action.setIcon( QIcon( ":/images/exec.png" ) )
-			action.setText( unicode( plugs[p]['string'] ) )
-			action.setData( p )
-			action.setType( 'plugin' )
+		for p in sorted( plugs.keys(), key=lambda x:(plugs[x].get('sequence',10), plugs[x].get('string',''))) :
+			action = Action( parent, data=p, itype='plugin', plug=plugs[p])
 			action.setModel( model )
 			actions.append( action )
 		return actions

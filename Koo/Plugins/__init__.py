@@ -65,10 +65,10 @@ class Plugins:
 		action( model, id, ids, context )
 
 	@staticmethod
-	def register(name, model, title, action):
-		Plugins.plugins[ name ] = {
-			'model': model,
-			'string': title,
-			'action': action,
-			'model_regexp': re.compile( model )
-		}
+	def register(name, model, title, action, **rest):
+		Plugins.plugins[ name ] = dict(
+			model=model,
+			string=title,
+			model_regexp=re.compile( model ),
+			action=action,
+			**rest)

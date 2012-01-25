@@ -52,7 +52,7 @@ class ToolBar(QToolBar):
 		self.loaded = True
 		last = None
 		for action in actions:
-			if action.type() == 'plugin':
+			if not action.isTool() :
 				continue
 			if last and last != action.type():
 				self.addSeparator()
@@ -68,6 +68,10 @@ class ToolBar(QToolBar):
 			button.setText( self.wordWrap( unicode(button.text()), 25) )
 
 			self.addWidget( button )
+                if not last:
+                    self.show()
+                else:
+                    self.hide()
 
 	def wordWrap(self, text, size):
 		lines = []
