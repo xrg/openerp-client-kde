@@ -467,7 +467,7 @@ class Record(QObject):
 				self.group.ensureRecordLoaded( self )
 				val = self.evaluateExpression( dom, checkLoad, firstTry=False )
 			else:
-				log.error(_('Error evaluating expression: %s') % exception.args)
+				log.error(_('Error evaluating expression: %s') % exc.args)
 				raise
 				# val = False
 		return val
