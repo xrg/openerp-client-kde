@@ -46,6 +46,7 @@ class JasperReport:
 		self._fieldNames = []
 		self._subreports = []
 		self._datasets = []
+		self._copies = 1
 		self._copiesField = False
 		self._isHeader = False
 		if fileName:
@@ -71,6 +72,9 @@ class JasperReport:
 
 	def copiesField(self):
 		return self._copiesField
+
+	def copies(self):
+		return self._copies
 
 	def isHeader(self):
 		return self._isHeader
@@ -151,6 +155,11 @@ class JasperReport:
 		copiesFieldTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_COPIES_FIELD"]', namespaces=nss )
 		if copiesFieldTags and 'value' in copiesFieldTags[0].keys():
 			self._copiesField = self._pathPrefix + copiesFieldTags[0].get('value')
+
+		# Repeat
+		copiesTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_COPIES"]', namespaces=nss )
+		if copiesTags and 'value' in copiesTags[0].keys():
+			self._copies = int(copiesTags[0].get('value'))
 
 		self._isHeader = False
 		headerTags = doc.xpath( '/jr:jasperReport/jr:property[@name="OPENERP_HEADER"]', namespaces=nss )
@@ -273,6 +282,12 @@ class JasperReport:
 			if copiesFieldTags and 'value' in copiesFieldTags[0].keys():
 				copiesField = self._pathPrefix + copiesFieldTags[0].get('value')
 
+			# Repeat
+			copies = None
+			copiesTags = tag.xpath( '../../jr:reportElement/jr:property[@name="OPENERP_COPIES"]', namespaces=nss )
+			if copiesTags and 'value' in copiesTags[0].keys():
+				copies = int(copiesTags[0].get('value'))
+
 			# Model
 			model = ''
 			modelTags = tag.xpath( '../../jr:reportElement/jr:property[@name="OPENERP_MODEL"]', namespaces=nss )
@@ -294,6 +309,7 @@ class JasperReport:
 			dataset._fieldNames = fieldNames
 			dataset._relations = relations
 			dataset._copiesField = copiesField
+			dataset._copies = copies
 			self._subreports.append({
 				'parameter': dataSourceExpression,
 				'model': model,

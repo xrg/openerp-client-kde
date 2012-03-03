@@ -263,14 +263,23 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 		# The following loop generates one entry to allRecords list for each record
 		# that will be created. If there are any relations it acts like a
 		# LEFT JOIN against the main model/table.
+		reportCopies = self.report.copies() or 1
+		sequence = 0
+		copiesField = self.report.copiesField()
 		for record in self.pool.get(self.model).browse(self.cr, self.uid, self.ids, self.context):
 			newRecords = self.generateIds( record, relations, '', [ { 'root': record } ] )
-			copies = 1
-			if self.report.copiesField() and record.__hasattr__(self.report.copiesField()):
-				copies = int( record.__getattr__(self.report.copiesField()) )
+			copies = reportCopies
+			if copiesField and record.__hasattr__(copiesField):
+				copies = copies * int( record.__getattr__(copiesField) )
+			sequence += 1
+			subsequence = 0
 			for new in newRecords:
+				new['sequence'] = sequence
+				new['subsequence'] = subsequence
+				subsequence += 1
 				for x in xrange(copies):
-					self.allRecords.append( new )
+					new['copy'] = x
+					self.allRecords.append( new.copy() )
 
 		f = open( fileName, 'wb+' )
 		try:
@@ -288,12 +297,12 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 			# Once all records have been calculated, create the CSV structure itself
 			for records in self.allRecords:
 				row = {}
-				self.generateCsvRecord( records['root'], records, row, '', self.report.fields() )
+				self.generateCsvRecord( records['root'], records, row, '', self.report.fields(), records['sequence'], records['subsequence'], records['copy'] )
 				writer.writerow( row )
 		finally:
 			f.close()
 
-	def generateCsvRecord(self, record, records, row, path, fields):
+	def generateCsvRecord(self, record, records, row, path, fields, sequence, subsequence, copy):
 		# One field (many2one, many2many or one2many) can appear several times.
 		# Process each "root" field only once by using a set.
 		unrepeated = set( [field.partition('/')[0] for field in fields] )
@@ -308,6 +317,17 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 				value = self.pool.get('ir.attachment').browse(self.cr, self.uid, ids)
 			elif root == 'User':
 				value = self.pool.get('res.users').browse(self.cr, self.uid, self.uid, self.context)
+			elif root == 'Special':
+				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
+				for f in fields2:
+					p = '%s/%s' % (currentPath, f)
+					if f == 'sequence':
+						row[self.report.fields()[p]['name']] = sequence
+					elif f == 'subsequence':
+						row[self.report.fields()[p]['name']] = subsequence
+					elif f == 'copy':
+						row[self.report.fields()[p]['name']] = copy
+				continue
 			else:
 				if root == 'id':
 					value = record._id
@@ -321,7 +341,7 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 			# Check if it's a many2one
 			if isinstance(value, orm.browse_record):
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
-				self.generateCsvRecord(value, records, row, currentPath, fields2)
+				self.generateCsvRecord(value, records, row, currentPath, fields2, sequence, subsequence, copy)
 				continue
 
 			# Check if it's a one2many or many2many
@@ -330,10 +350,10 @@ class CsvBrowseDataGenerator(BrowseDataGenerator):
 					continue
 				fields2 = [ f.partition('/')[2] for f in fields if f.partition('/')[0] == root ]
 				if currentPath in records:
-					self.generateCsvRecord(records[currentPath], records, row, currentPath, fields2)
+					self.generateCsvRecord(records[currentPath], records, row, currentPath, fields2, sequence, subsequence, copy)
 				else:
 					# If the field is not marked to be iterated use the first record only
-					self.generateCsvRecord(value[0], records, row, currentPath, fields2)
+					self.generateCsvRecord(value[0], records, row, currentPath, fields2, sequence, subsequence, copy)
 				continue
 
 			# The field might not appear in the self.report.fields()

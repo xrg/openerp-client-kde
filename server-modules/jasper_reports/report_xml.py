@@ -255,6 +255,25 @@ class report_xml(osv.osv):
 			parentNode.appendChild( fieldNode )
 			self.generate_xml(cr, uid, context, pool, 'res.users', fieldNode, document, depth-1, False)
 
+			# Create special entries
+			fieldNode = document.createElement( '%s-Special' % _('Special') )
+			parentNode.appendChild( fieldNode )
+
+			newNode = document.createElement('copy')
+			fieldNode.appendChild( newNode )
+			valueNode = document.createTextNode( '1' )
+			newNode.appendChild( valueNode )
+
+			newNode = document.createElement('sequence')
+			fieldNode.appendChild( newNode )
+			valueNode = document.createTextNode( '1' )
+			newNode.appendChild( valueNode )
+
+			newNode = document.createElement('subsequence')
+			fieldNode.appendChild( newNode )
+			valueNode = document.createTextNode( '1' )
+			newNode.appendChild( valueNode )
+
 	def create_xml(self, cr, uid, model, depth, context):
 		document = getDOMImplementation().createDocument(None, 'data', None)
 		topNode = document.documentElement
