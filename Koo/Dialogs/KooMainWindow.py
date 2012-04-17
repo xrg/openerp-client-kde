@@ -177,10 +177,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.actions = [ 
 			'New', 'Save', 'Delete', 'Find', 'Previous', 'Next', 'Reload', 'Switch', 
 			'Attach', 'Export', 'Import', 'GoToResourceId', 'Duplicate', 'AccessLog', 
-			'BatchInsert', 'BatchUpdate', 'BatchUpdateField', 'BatchButton', 'StoreViewSettings' 
+			'BatchInsert', 'BatchUpdate', 'BatchUpdateField', 'BatchButton', 'StoreViewSettings',
 		]
 		for x in self.actions:
-			action = eval('self.action'+ x)
+			action = getattr(self,'action'+ x)
 			self.connect( action, SIGNAL( 'triggered()' ), self.callChildView )
 
 
@@ -764,7 +764,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def updateEnabledActions(self):
 		view = self.tabWidget.currentWidget()
 		for x in self.actions:
-			action = eval( 'self.action' + x )
+			action = getattr(self, 'action' + x )
 			if view and x in view.handlers:
 				action.setEnabled( True )
 			else:
