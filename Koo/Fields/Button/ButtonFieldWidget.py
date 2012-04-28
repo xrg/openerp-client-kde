@@ -91,7 +91,8 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 				return
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try:
-				result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], self.record.context())
+                                fn = getattr(screen.rpc, self.name)
+				result = fn([id], self.record.context())
 			except Rpc.RpcException, e:
 				QApplication.restoreOverrideCursor()
 				return
@@ -131,10 +132,8 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		if self.attrs.get('special', '') == 'cancel':
 			screen.close()
 			if 'name' in self.attrs.keys():
-				result = Rpc.session.execute(
-					'/object', 'execute', screen.name,
-					self.attrs['name'], [], self.record.context()
-				)
+                                fn = getattr(screen.rpc, self.attrs['name'])
+				result = fn([], self.record.context())
 				datas = {}
 				Api.instance.executeAction( result, datas, screen.context )
 			return
@@ -196,10 +195,8 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 		if self.attributes.get('special', '') == 'cancel':
 			screen.close()
 			if 'name' in self.attributes.keys():
-				result = Rpc.session.execute(
-					'/object', 'execute', screen.name,
-					self.attributes['name'], [], record.context()
-				)
+                                fn = getattr(screen.rpc, self.attributes['name'])
+				result = fn( [], record.context())
 				datas = {}
 				Api.instance.executeAction( result, datas, screen.context )
 			return
@@ -256,7 +253,8 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 				return
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try:
-				result = Rpc.session.execute('/object', 'execute', screen.name, self.name, [id], record.context())
+                                fn = getattr(screen.rpc, self.name)
+				result = fn([id], record.context())
 			except Rpc.RpcException, e:
 				QApplication.restoreOverrideCursor()
 				return
