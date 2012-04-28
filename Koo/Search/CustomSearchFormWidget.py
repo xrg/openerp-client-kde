@@ -85,8 +85,8 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 	#   3) Field types in which the operator should be shown
 	#   4) Whether the user should be able to input a text to search for or not.
 	operators = (
-		('is empty', _('is empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
-		('is not empty', _('is not empty'), ('char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
+		('is empty', _('is empty'), ('selection', 'char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
+		('is not empty', _('is not empty'), ('selection', 'char', 'text', 'many2one', 'date', 'time', 'datetime', 'float_time'), False),
 		('ilike', _('contains'), ('char','text','many2one','many2many','one2many'), True), 
 		('not ilike', _('does not contain'), ('char','text','many2one'), True), 
 		('=', _('is equal to'), ('boolean','char','text','integer','float','date','time','datetime','float_time','user'), True),
