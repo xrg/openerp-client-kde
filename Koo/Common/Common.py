@@ -3,6 +3,7 @@
 # Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #					Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2011-2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -42,6 +43,8 @@ from PyQt4.QtGui import *
 from Ui import *
 
 from Paths import *
+import threading
+import subprocess
 
 try:
 	if Settings.value('kde.enabled'):
@@ -336,6 +339,7 @@ class ProgressDialog(QDialog, ProgressDialogUi):
 		self.timer.stop()
 		self.accept()
 
+
 ## @brief Opens the given file with system's default application.
 def openFile( fileName ):
 	if os.name == 'nt':
@@ -343,7 +347,10 @@ def openFile( fileName ):
 	elif os.uname()[0] == 'Darwin':
 		os.system('/usr/bin/open -a Preview %s' % fileName)
 	else:
-		os.spawnlp(os.P_NOWAIT, 'xdg-open', 'xdg-open', fileName)
+		pid = subprocess.Popen(['xdg-open', fileName]).pid
+		t = threading.Thread(target=os.waitpid, args=(pid,))
+		t.daemon = True
+		t.start()
 
 ## @brief Converts GTK accelerators to Qt ones.
 # GTK uses underscore as accelerator in labels and buttons whereas Qt uses
