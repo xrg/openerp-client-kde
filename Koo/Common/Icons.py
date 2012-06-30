@@ -26,7 +26,8 @@
 ##############################################################################
 
 
-from PyQt4.QtGui import *
+from PyQt4.QtGui import QIcon, QPixmap
+import logging
 
 #
 # GTK -> KDE Icons mapping
@@ -103,24 +104,37 @@ mapIcons = {
 	'reload': 'reload.png'
 }
 
+not_found = []
+log = logging.getLogger('Koo.Common.Icons')
+
 ## @brief Returns a QIcon given an icon name. The name of the icon is usually a 
 # GTK or OpenERP name.
 def kdeIcon(icon):
-	if icon in mapIcons:
-		return QIcon( ':/images/' + mapIcons[icon] )
-	else:
-		if icon:
-			print "KDE ICON '%s' NOT FOUND" % icon
-		return QIcon()
+        if not icon:
+            pass
+        elif icon in not_found:
+            pass
+	elif icon in mapIcons:
+            return QIcon( ':/images/' + mapIcons[icon] )
+        else:
+            log.warning("KDE icon '%s' not found", icon)
+            not_found.append(icon)
+
+        return QIcon()
 
 ## @brief Returns a QPixmap given an icon name. The name of the icon is usually 
 # a GTK or OpenERP name.
 def kdePixmap(icon):
-	if icon in mapIcons:
+        if not icon:
+            pass
+        elif icon in not_found:
+            pass
+	elif icon in mapIcons:
 		return QPixmap( ':/images/' + mapIcons[icon] )
 	else:
-		if icon:
-			print "KDE ICON '%s' NOT FOUND" % icon
-		return QPixmap()
+            log.warning("KDE icon '%s' not found", icon)
+            not_found.append(icon)
+
+        return QPixmap()
 
 # vim:noexpandtab:smartindent:tabstop=8:softtabstop=8:shiftwidth=8:
