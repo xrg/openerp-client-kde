@@ -2,6 +2,7 @@
 #
 # Copyright (c) 2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2011-2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -225,7 +226,9 @@ class Screen(QScrollArea):
                         elif Rpc.session.server_version >= (6, 0):
                                 self._log.debug("Loading 6.0 search form for %s", self.resource)
                                 sform = self.rpc.fields_view_get(False, 'search', self.context)
-                                self.searchForm.setup(sform['arch'], sform['fields'], self.resource, self.group.domain())
+                                sfields = self.rpc.fields_get(False, self.context)
+                                sfields.update(sform['fields'])
+                                self.searchForm.setup(sform['arch'], sfields, self.resource, self.group.domain(), self.context)
                         else:
                                 # 5.0 server
 				form = Rpc.session.execute('/object', 'execute', self.resource, 'fields_view_get', False, 'form', self.context)

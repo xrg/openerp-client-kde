@@ -214,7 +214,7 @@ class SearchFormParser(object):
             
             for node in dom:
                 if node.get('invisible', False):
-                    if eval(node.get('invisible'), {'context': self.context}): # FIXME
+                    if eval(node.get('invisible'), {'context': self.context}):
                         continue
                 self._parse_60node(node, self.container)
             
@@ -232,6 +232,9 @@ class SearchFormParser(object):
                     self.parent.widgets[field_name] = widget
                     if not self.focusable:
                         self.focusable = widget
+                    if self.context.get('search_default_%s' %field_name, False):
+                        value = self.context['search_default_%s' % field_name]
+                        widget.setValue(value)
 
                 if 'string' in field:
                     label = field['string']+':'
@@ -339,6 +342,9 @@ class SearchFormParser(object):
                 widget = SearchWidgetFactory.create('filter', name, container, attrs)
                 self.parent.widgets[name] = widget
                 container.addWidget(widget)
+                if self.context.get('search_default_%s' %(attrs.get('name', name)), False):
+                    value = self.context['search_default_%s' %(attrs.get('name',name))]
+                    widget.setValue(value)
 
             else:
                 log.info("Ignoring a \"%s\" element in search form", node.tag)
@@ -480,7 +486,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 	#
 	# Needed fields include XML view (usually 'form'), fields dictionary with information
 	# such as names and types, and the model parameter.
-	def setup(self, xml, fields, model, domain, ):
+	def setup(self, xml, fields, model, domain, context=None):
 		# We allow one setup call only
 		if self._loaded:
 			return
@@ -490,12 +496,12 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushClear.setEnabled( True )
 		self.pushSearch.setEnabled( True )
 
-                parser = SearchFormParser(self, self.uiSimpleContainer, fields, model)
+                parser = SearchFormParser(self, self.uiSimpleContainer, fields, model, context)
                 #  context from screen or model ? FIXME
 		self.model = model
 
 		parser.parse_form(xml)
-		log.debug("Len of widgets: %d %r", len(self.widgets), self.widgets.keys())
+		log.debug("Len of widgets: %d", len(self.widgets))
 		for widget in self.widgets.values():
 			self.connect( widget, SIGNAL('keyDownPressed()'), self, SIGNAL('keyDownPressed()') )
 
