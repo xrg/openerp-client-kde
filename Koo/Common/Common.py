@@ -45,6 +45,7 @@ from Ui import *
 from Paths import *
 import threading
 import subprocess
+import re
 
 try:
 	if Settings.value('kde.enabled'):
@@ -352,36 +353,31 @@ def openFile( fileName ):
 		t.daemon = True
 		t.start()
 
-## @brief Converts GTK accelerators to Qt ones.
-# GTK uses underscore as accelerator in labels and buttons whereas Qt uses
-# ampersand. This function will convert a text prepared for a GTK label into
-# a valid Qt one.
+__nl_re = re.compile(r'((?:__?)|&)')
+def __nl_sub(mobj):
+    g = mobj.group(0)
+
+    if g == '&':
+        return '&&'
+    elif g == '_':
+        return '&'
+    elif g == '__':
+        return '_'
+
+    raise ValueError('Strange match: "%s"' % g)
+
 def normalizeLabel( text ):
-	# If text is False, we ensure a string is returned.
+        """ Converts GTK accelerators to Qt ones.
+        
+            GTK uses underscore as accelerator in labels and buttons whereas Qt uses
+            ampersand. This function will convert a text prepared for a GTK label into
+            a valid Qt one.
+            If text is False, we ensure a string is returned.
+        """
 	if not text:
 		return ''
 
-	res = ''
-	underscore = False
-	if not text:
-	    return ''
-	for x in text:
-		if x == '_':
-			if underscore:
-				res += '_'
-				underscore = False
-			else:
-				underscore = True
-		else:
-			if underscore:
-				res += '&'
-				underscore = False
-			if x == '&':
-				res += '&&'
-			else:
-				res += x
-	return res
-
+        return __nl_re.sub(__nl_sub, text)
 
 ## @brief This function converts a string into a boolean.
 # 
