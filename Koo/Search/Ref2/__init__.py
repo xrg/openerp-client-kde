@@ -25,11 +25,12 @@
 #
 ##############################################################################
 
-from CharSearchWidget import *
-from Koo.Search.SearchWidgetFactory import *
+from Ref2SearchWidget import Ref2SearchWidget
+from Koo.Search.SearchWidgetFactory import SearchWidgetFactory
 
-SearchWidgetFactory.register( 'char', CharSearchWidget )
-SearchWidgetFactory.register( 'text', CharSearchWidget )
-SearchWidgetFactory.register( 'text_wiki', CharSearchWidget )
-SearchWidgetFactory.register( 'email', CharSearchWidget )
-SearchWidgetFactory.register( 'url', CharSearchWidget )
+SearchWidgetFactory.register( 'many2one', Ref2SearchWidget )
+SearchWidgetFactory.register( 'one2many', Ref2SearchWidget )
+SearchWidgetFactory.register( 'one2many_form', Ref2SearchWidget )
+SearchWidgetFactory.register( 'one2many_list', Ref2SearchWidget )
+SearchWidgetFactory.register( 'many2many_edit', Ref2SearchWidget )
+SearchWidgetFactory.register( 'many2many', Ref2SearchWidget )

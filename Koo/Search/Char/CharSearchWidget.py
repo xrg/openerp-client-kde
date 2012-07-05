@@ -53,4 +53,6 @@ class CharSearchWidget(AbstractSearchWidget):
 		self.uiText.clear()
 
 	def setValue(self, value):
+                if isinstance(value, (int, long)):
+                    value = ''
 		self.uiText.setText( value )
