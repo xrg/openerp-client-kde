@@ -36,4 +36,8 @@ class FilterSearchWidget(ButtonSearchWidget):
         else:
             return []
 
+    def setValue(self, value):
+        self.pushButton.setChecked(bool(value))
+        self.pushButton.setDown(bool(value))
+
 #eof
