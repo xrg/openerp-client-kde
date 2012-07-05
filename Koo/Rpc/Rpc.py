@@ -40,8 +40,6 @@ from Koo.Common import Url
 from Koo.Common import Api 
 from Koo.Common import Debug # TODO
 
-# from Cache import *
-
 import logging
 import base64 # FIXME
 import traceback
@@ -209,7 +207,9 @@ class _proxy_session(object):
                 expression = expression.replace("'active_id'","active_id")
                 return safe_eval(expression, context)
             except Exception, e:
-                self._log.exception( "Exception: %s for \"%s\" " %( e, expression))
+                self._log.error( "Exception: %s for \"%s\" " %( e, expression))
+                import traceback
+                self._log.warning('Caller Trace:\n' + ''.join(traceback.format_stack(limit=5)[:-1]))
                 raise
         else:
             return expression
