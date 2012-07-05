@@ -1,6 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -25,17 +26,19 @@
 #
 ##############################################################################
 
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from Koo.Fields.AbstractFieldWidget import *
-from Koo.Fields.AbstractFieldDelegate import *
+from PyQt4.QtCore import  Qt, QEvent, SIGNAL
+from PyQt4.QtGui import QApplication,QHBoxLayout, QMessageBox, QPushButton, QShortcut, QKeySequence
+from Koo.Fields.AbstractFieldWidget import AbstractFieldWidget
+from Koo.Fields.AbstractFieldDelegate import AbstractFieldDelegate
 from Koo.Common import Api
 from Koo.Common import Notifier
 from Koo.Common import Icons
 from Koo.Common import Common
-from Koo.Common import Api
 from Koo.Rpc import Rpc
 import sys
+import logging
+
+_log = logging.getLogger('Koo.Fields.Button')
 
 class ButtonFieldWidget( AbstractFieldWidget ):
 	def __init__(self, parent, view, attributes) :
@@ -63,10 +66,12 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		if type == 'workflow':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try:
-				# TODO: Uncomment when our patch will be applied in the server
-				#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, self.record.context())
-				result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
-				if isinstance( result, dict ):
+                                args = ()
+                                if 'engine-f3' in Rpc.session.server_options:
+                                    # would break API of earlier servers
+                                    args = (self.record.context(),)
+                                result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, *args)
+                                if isinstance( result, dict ):
 					if result['type'] == 'ir.actions.act_window_close':
 						screen.close()
 					else:
@@ -83,8 +88,12 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 						Api.instance.executeAction( r, { 'ids': [id] } )
 						if result['type'] == 'ir.actions.act_window':
 							QApplication.restoreOverrideCursor()
-			except Rpc.RpcException, e:
+			except Rpc.RpcException:
+                                _log.warning('Cannot execute workflow: %s.%s #%d',
+                                                screen.name, self.name, id, exc_info=True)
 				pass
+                        except Exception:
+                                _log.warning('Exception:', exc_info=True)
 			QApplication.restoreOverrideCursor()
 		elif type == 'object':
 			if not id:
@@ -93,7 +102,9 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 			try:
                                 fn = getattr(screen.rpc, self.name)
 				result = fn([id], self.record.context())
-			except Rpc.RpcException, e:
+			except Rpc.RpcException:
+                                _log.warning('Cannot execute action: %s.%s #%d',
+                                                screen.name, self.name, id, exc_info=True)
 				QApplication.restoreOverrideCursor()
 				return
 			QApplication.restoreOverrideCursor()
@@ -116,11 +127,11 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
 			screen.reload()
-		except Rpc.RpcException, e:
-			pass
+		except Rpc.RpcException:
+                        _log.warning('Error at screen.reload():', exc_info=True)
 		QApplication.restoreOverrideCursor()
 
-	def click( self ): 
+	def click( self ):
 		if not self.record:
 			return
 
@@ -225,10 +236,12 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 		if type == 'workflow':
 			QApplication.setOverrideCursor( Qt.WaitCursor )
 			try:
-				# TODO: Uncomment when our patch will be applied in the server
-				#result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, record.context())
-				result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id)
-				if isinstance( result, dict ):
+                                args = ()
+                                if 'engine-f3' in Rpc.session.server_options:
+                                    # would break API of earlier servers
+                                    args = (self.record.context(),)
+                                result = Rpc.session.execute('/object', 'exec_workflow', screen.name, self.name, id, *args)
+                                if isinstance( result, dict ):
 					if result['type'] == 'ir.actions.act_window_close':
 						screen.close()
 					else:
@@ -245,8 +258,9 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 						Api.instance.executeAction( r, { 'ids': [id] } )
 						if result['type'] == 'ir.actions.act_window':
 							QApplication.restoreOverrideCursor()
-			except Rpc.RpcException, e:
-				pass
+			except Rpc.RpcException:
+				_log.warning('Cannot execute workflow: %s.%s #%d',
+                                                screen.name, self.name, id, exc_info=True)
 			QApplication.restoreOverrideCursor()
 		elif type == 'object':
 			if not id:
@@ -255,7 +269,9 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 			try:
                                 fn = getattr(screen.rpc, self.name)
 				result = fn([id], record.context())
-			except Rpc.RpcException, e:
+			except Rpc.RpcException:
+                                _log.warning('Cannot execute action: %s.%s #%d',
+                                                screen.name, self.name, id, exc_info=True)
 				QApplication.restoreOverrideCursor()
 				return
 			QApplication.restoreOverrideCursor()
@@ -276,6 +292,8 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 		QApplication.setOverrideCursor( Qt.WaitCursor )
 		try:
 			screen.reload()
-		except Rpc.RpcException, e:
-			pass
+		except Rpc.RpcException:
+                        _log.warning('Error at screen.reload()', exc_info=True)
 		QApplication.restoreOverrideCursor()
+
+#eof
