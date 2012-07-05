@@ -149,14 +149,19 @@ class AbstractFieldWidget(QWidget):
 	def setToDefault(self):
 		try:
 			model = self.record.group.resource
-			res = Rpc.session.call('/object', 'execute', model, 'default_get', [self.attrs['name']])
+			res = Rpc.RpcProxy(model).default_get([self.attrs['name']], Rpc.session.context)
 			self.record.setValue(self.name, res.get(self.name, False))
 			self.display()
-		except:
+		except Exception:
 			QMessageBox.warning(None, _('Operation not permited'), _('You can not set to the default value here !') )
 			return False
 
 	def inheritView(self):
+                """Produce an example XML of inherited view, for developers
+                
+                    Will only be triggered in developer mode. Creates an XML
+                    file with an example of inherited view, based on this one.
+                """
 		view_id = self.attrs.get('x-view')
 		if not view_id:
 			return
@@ -181,6 +186,7 @@ class AbstractFieldWidget(QWidget):
         <field name="arch" type="xml">
             <field name="%(field)s" position="after">
 		<field name=""/>
+		<!-- your code goes here, mostly -->
             </field>
         </field>
     </record>
@@ -301,7 +307,7 @@ class AbstractFieldWidget(QWidget):
 			menu = parent.createStandardContextMenu()
 			menu.setParent( parent )
 			menu.addSeparator()
-		except:
+		except Exception:
 			menu = QMenu( parent )
 		for title, slot, enabled in entries:
 			if title:

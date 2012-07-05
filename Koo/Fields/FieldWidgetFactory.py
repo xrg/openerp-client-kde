@@ -27,6 +27,7 @@
 
 from Koo.Common import Plugins
 import os
+import logging
 
 ## @brief The FieldWidgetFactory class specializes in creating the appropiate 
 # widget for a given type.
@@ -53,7 +54,8 @@ class FieldWidgetFactory:
 			widgetType = 'many2one'
 
 		if not widgetType in FieldWidgetFactory.widgets:
-			print "Widget '%s' not available" % widgetType
+                        logging.getLogger('Koo.Fields.WidgetFactory').\
+                                warning("Widget '%s' not available", widgetType)
 			return None
 
 		widgetClass = FieldWidgetFactory.widgets[ widgetType ]
@@ -65,3 +67,4 @@ class FieldWidgetFactory:
 	def register(name, widget):
 		FieldWidgetFactory.widgets[ name ] = widget
 
+#eof
