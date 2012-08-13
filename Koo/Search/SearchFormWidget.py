@@ -250,12 +250,13 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSave.show()
 		self.uiStoredFilters.show()
 
-		records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [], Rpc.session.context)
 		self.uiStoredFilters.clear()
 		self.uiStoredFilters.addItem( '' )
-		for record in records:
-			self.uiStoredFilters.addItem( record['name'], record['id'] )
-			self._storedFilters[ record['id'] ] = record
+		if ids:
+			records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [], Rpc.session.context)
+			for record in records:
+				self.uiStoredFilters.addItem( record['name'], record['id'] )
+				self._storedFilters[ record['id'] ] = record
 
 	## @brief Initializes the widget with the appropiate widgets to search.
 	#
