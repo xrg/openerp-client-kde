@@ -196,6 +196,9 @@ class Settings(object):
 			settings = {}
 		new_settings = {}
 		for key, value in settings.iteritems():
+			if key == 'stylesheet':
+				new_settings[ 'koo.stylesheet_code' ] = value
+				continue
 			if key != 'id':
 				new_settings[ 'koo.%s' % key ] = value
 		Settings.options.update( new_settings )

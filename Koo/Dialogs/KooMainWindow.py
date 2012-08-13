@@ -100,6 +100,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def __init__(self):	
 		QMainWindow.__init__(self)
 		KooMainWindowUi.__init__(self)
+		
+		self.menuBar = False
+		
 		self.setupUi( self )
 		
 		# Initialize singleton
@@ -186,6 +189,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 
 		self.pushSwitchView = self.uiToolBar.widgetForAction( self.actionSwitch )
 		self.pushSwitchView.setPopupMode( QToolButton.MenuButtonPopup )
+
 
 		self.updateEnabledActions()
 
@@ -317,11 +321,13 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			# Ask the current tab if it can be closed
 			if not widget.canClose():
 				return False
+		QApplication.setOverrideCursor( Qt.WaitCursor )
 		self.tabWidget.removeTab( tab ) 
 		if widget:
 			widget.setParent( None )
 			del widget
 		self.updateEnabledActions()
+		QApplication.restoreOverrideCursor()
 		return True
 
 	## @brief Closes the current tab smartly. 
@@ -498,8 +504,8 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			url = QUrl( url )
 			if loginResponse == Rpc.session.LoggedIn:
 				Settings.loadFromServer()
-				if Settings.value('koo.stylesheet'):
-					QApplication.instance().setStyleSheet( Settings.value('koo.stylesheet') )
+				if Settings.value('koo.stylesheet_code'):
+					QApplication.instance().setStyleSheet( Settings.value('koo.stylesheet_code') )
 				if Settings.value('koo.use_cache'):
 					Rpc.session.cache = Rpc.Cache.ActionViewCache()
 				else:
@@ -615,6 +621,9 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.updateUserShortcuts()
 
 	def updateUserShortcuts(self):
+		if not self.menuBar:
+			return
+			
 		# Remove previous actions
 		for action in self.shortcutActions:
 			self.menuWindow.removeAction( action )
@@ -671,12 +680,12 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 		self.uiServerInformation.setText( "%s [%s]" % (Rpc.session.url, Rpc.session.databaseName) )
 		self.setWindowTitle( "[%s] - %s" % (Rpc.session.databaseName, self.fixedWindowTitle) )
 
-
- 		if not record['menu_id']:
+		
+		if not record['menu_id']:
 			QMessageBox.warning(self, _('Access denied'), _('You can not log into the system !\nAsk the administrator to verify\nyou have an action defined for your user.') )
- 			Rpc.session.logout()
+			Rpc.session.logout()
 			self.menuId = False
-			return 
+			return
 
 		# Store the menuId so we ensure we don't open the menu twice when
 		# calling openHomeTab()
@@ -692,7 +701,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 	def openHomeTab(self):
 		id = Rpc.session.execute('/object', 'execute', 'res.users', 'read', [Rpc.session.uid], [ 'action_id','name'], Rpc.session.context)
 
- 		if not id[0]['action_id']:
+		if not id[0]['action_id']:
 			return 
 		id = id[0]['action_id'][0]
 		if not id:
@@ -754,6 +763,10 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			dialog.exec_()
 
 	def updateEnabledActions(self):
+		
+		if not self.menuBar:
+			return
+		
 		view = self.tabWidget.currentWidget()
 		for x in self.actions:
 			action = eval( 'self.action' + x )
@@ -783,11 +796,13 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 			self.actionImport.setVisible( False )
 			self.actionExport.setVisible( False )
 
-		# Update the 'Reports', 'Actions' and 'Browse' Menu entries
+		# Update the 'Reports', 'Actions' and 'Browse' Menu entries	  
+
 		self.menuReports.clear()
 		self.menuBrowse.clear()
 		self.menuActions.clear()
 		self.menuPlugins.clear()
+			
 		reports = False
 		browse = False
 		actions = False
@@ -807,7 +822,7 @@ class KooMainWindow(QMainWindow, KooMainWindowUi):
 				else: # Should be 'plugin'
 					self.menuPlugins.addAction( x )
 					plugins = True
-			
+
 		self.menuReports.setEnabled( reports )
 		self.menuBrowse.setEnabled( browse )
 		self.menuActions.setEnabled( actions )
