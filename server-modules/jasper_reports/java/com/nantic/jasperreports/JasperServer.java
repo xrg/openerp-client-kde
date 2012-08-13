@@ -29,13 +29,16 @@ import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRRtfExporter;
 import net.sf.jasperreports.engine.export.JRCsvExporter;
+
 import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
 import net.sf.jasperreports.engine.export.JRTextExporter;
 import net.sf.jasperreports.engine.export.JRTextExporterParameter;
 import net.sf.jasperreports.engine.export.JRHtmlExporter;
 import net.sf.jasperreports.engine.export.JRHtmlExporterParameter;
 import net.sf.jasperreports.engine.export.oasis.JROdtExporter;
 import net.sf.jasperreports.engine.export.oasis.JROdsExporter;
+
 
 import java.text.NumberFormat;
 import java.lang.Object;
@@ -168,6 +171,15 @@ public class JasperServer {
 				parameters.put( m.get("parameter"), dataSource );
 			}
 		}
+		String output;
+		if ( connectionParameters.containsKey( "output" ) )
+			output = (String)connectionParameters.get("output");
+		else
+			output = "pdf";
+
+		if ( output.equalsIgnoreCase( "xls" ) ) 
+			parameters.put( JRParameter.IS_IGNORE_PAGINATION, Boolean.TRUE );
+
 
 		System.out.println( "JasperServer: Filling report..." );
 
@@ -203,11 +215,7 @@ public class JasperServer {
 		File outputFile = new File( outputPath );
 		JRAbstractExporter exporter;
 
-		String output;
-		if ( connectionParameters.containsKey( "output" ) )
-			output = (String)connectionParameters.get("output");
-		else
-			output = "pdf";
+		
 
 		System.out.println( "JasperServer: Exporting..." );
 		if ( output.equalsIgnoreCase( "html" ) ) {
@@ -221,6 +229,13 @@ public class JasperServer {
 			exporter = new JRCsvExporter();
 		} else if ( output.equalsIgnoreCase( "xls" ) ) {
 			exporter = new JRXlsExporter();
+			exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_COLUMNS, Boolean.TRUE);
+			exporter.setParameter(JRXlsExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+			exporter.setParameter(JRXlsExporterParameter.IS_DETECT_CELL_TYPE, Boolean.TRUE);
+			exporter.setParameter(JRXlsExporterParameter.IS_WHITE_PAGE_BACKGROUND, Boolean.FALSE);
+			    
+			
+			
 		} else if ( output.equalsIgnoreCase( "rtf" ) ) {
 			exporter = new JRRtfExporter();
 		} else if ( output.equalsIgnoreCase( "odt" ) ) {

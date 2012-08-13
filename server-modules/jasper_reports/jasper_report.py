@@ -81,8 +81,11 @@ class Report:
 		# between the two by searching '.jrxml' in report_rml.
 		ids = self.pool.get('ir.actions.report.xml').search(self.cr, self.uid, [('report_name', '=', self.name[7:]),('report_rml','ilike','.jrxml')], context=self.context)
 		data = self.pool.get('ir.actions.report.xml').read(self.cr, self.uid, ids[0], ['report_rml','jasper_output'])
-		if data['jasper_output']:
-			self.outputFormat = data['jasper_output']
+		if self.data.get('output_format'):
+			self.outputFormat = self.data['output_format']
+		else:
+			if data['jasper_output']:
+				self.outputFormat = data['jasper_output']
 		self.reportPath = data['report_rml']
 		self.reportPath = os.path.join( self.addonsPath(), self.reportPath )
 
@@ -248,6 +251,7 @@ class report_jasper(report.interface.report_int):
 			# an empty 'records' parameter while still executing using 'records'
 			data['data_source'] = d.get( 'data_source', 'model' )
 			data['parameters'] = d.get( 'parameters', {} )
+			data['output_format'] = d.get('output_format')
 		r = Report( name, cr, uid, ids, data, context )
 		#return ( r.execute(), 'pdf' )
 		return r.execute()
