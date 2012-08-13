@@ -61,7 +61,7 @@ $F{zip} + " " + $F{city} + " (" + $F{state} + ") " + $F{country}.get($P{LANG}) +
 "tel." + $F{phone} + " - e-mail: " + $F{email}]]></textFieldExpression>
 			</textField>
 			<image onErrorType="Icon">
-				<reportElement x="10" y="2" width="136" height="46"/>
+				<reportElement x="10" y="2" width="137" height="46"/>
 				<imageExpression class="java.lang.String"><![CDATA[$F{logo}]]></imageExpression>
 			</image>
 			<line>
