@@ -72,6 +72,8 @@ class Settings(object):
 		'koo.smtp_server' : 'mail.nan-tic.com',
 		'koo.smtp_from' : 'koo@nan-tic.com',
 		'koo.smtp_backtraces_to' : 'backtraces@nan-tic.com',
+		'koo.custom_ui_dir': False,
+		'koo.enable_event_filters': False, # Not recommended for performance reasons
 	}
 
 	## @brief Stores current settings in the appropiate config file.

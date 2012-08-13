@@ -32,19 +32,28 @@ def printObjects():
 	printList( gc.get_objects() )
 
 def printReferrers( obj ):
-	printList( [x for x in gc.get_referrers( obj ) if not '<bound method ' in str(x)] )
+	printList( [str(x) for x in gc.get_referrers( obj ) if not '<bound method ' in str(x)] )
 
 def printList( l ):
 	print '\n'.join( [str(x) for x in l] )
 
 def info( text ):
-	print text
+	try:
+		print str(text)
+	except:
+		print "Error trying to print info message."
 
 def warning( text ):
-	print text
+	try:
+		print str(text)
+	except:
+		print "Error trying to print warning message."
 
 def error( text ):
-	print text
+	try:
+		print str(text)
+	except:
+		print "Error trying to print error message."
 
 # The DebugEventFilter class has been used to find a problem with an invisible
 # widget that was created, not inserted in any layout and that didn't allow to 
