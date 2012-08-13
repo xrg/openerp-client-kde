@@ -174,11 +174,15 @@ if Settings.value('koo.enter_as_tab'):
 	from Koo.Common import EnterEventFilter
 	app.installEventFilter( EnterEventFilter.EnterEventFilter(win) )
 
-from Koo.Common import ArrowsEventFilter
-app.installEventFilter( ArrowsEventFilter.ArrowsEventFilter(win) )
+if Settings.value('koo.fullscreen'):
+    win.showFullScreen()
 
-from Koo.Common import WhatsThisEventFilter
-app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(win) )
+if Settings.value('koo.enable_event_filters'):
+	from Koo.Common import ArrowsEventFilter
+	app.installEventFilter( ArrowsEventFilter.ArrowsEventFilter(win) )
+
+	from Koo.Common import WhatsThisEventFilter
+	app.installEventFilter( WhatsThisEventFilter.WhatsThisEventFilter(win) )
 
 if Settings.value('tip.autostart'):
 	from Koo.Dialogs.TipOfTheDayDialog import *
