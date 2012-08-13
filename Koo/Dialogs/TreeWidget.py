@@ -69,6 +69,7 @@ class TreeParser:
 			if 'icon' in attrs:
 				self.fieldsOrder.append(str(attrs['icon']))
 			self.fieldsOrder.append(str(attrs['name']))
+			self.fieldAttributes[attrs['name']] = attrs
 		else:
 			Debug.error( 'unknown tag: ' + str(name) )
 
@@ -77,6 +78,7 @@ class TreeParser:
 	# fieldsOrder
 	def parse(self, xmlData):
 		self.fieldsOrder = []
+		self.fieldAttributes = {}
 
 		psr = expat.ParserCreate()
 		psr.StartElementHandler = self.tagStart
@@ -167,7 +169,10 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 
 		for column in xrange(len(parser.fieldsOrder)):
 			fieldName = parser.fieldsOrder[column]
-			delegate = FieldDelegateFactory.create( self.fields[fieldName]['type'], self.uiTree, self.fields[fieldName] )
+			fieldType = self.fields[fieldName]['type']
+			if 'widget' in parser.fieldAttributes[fieldName]:
+				fieldType = parser.fieldAttributes[fieldName]['widget']
+			delegate = FieldDelegateFactory.create( fieldType, self.uiTree, self.fields[fieldName] )
 			self.uiTree.setItemDelegateForColumn( column, delegate )
 
 
