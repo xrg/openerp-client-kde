@@ -34,8 +34,9 @@ import release
 logger = netsvc.Logger()
 
 class PyroDaemon(Thread):
-	def __init__(self, port, ssl=False, settings=False):
+	def __init__(self, host, port, ssl=False, settings=False):
 		Thread.__init__(self)
+		self.__host = host
 		self.__port = port
 		self.__ssl = ssl
 		self.__settings = settings
@@ -53,12 +54,12 @@ class PyroDaemon(Thread):
 			if self.__settings is not False:
 				for k,v in self.__settings.items():
 					setattr(Pyro.config,k,v)
+			logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro %s services, host %s, port %s" % (Pyro.core.Pyro.constants.VERSION, self.__host, self.__port))
 			if self.__ssl is True:
-				daemon=Pyro.core.Daemon(port=self.__port,prtcol='PYROSSL')
+				daemon=Pyro.core.Daemon(host=self.__host, port=self.__port, prtcol='PYROSSL')
 			else:
-				daemon=Pyro.core.Daemon(port=self.__port)
+				daemon=Pyro.core.Daemon(host=self.__host, port=self.__port)
 			uri=daemon.connectPersistent( RpcDispatcher(), "rpc" )
-			logger.notifyChannel("web-services", netsvc.LOG_INFO, "starting Pyro %s services, port %s" % (Pyro.core.Pyro.constants.VERSION,self.__port))
 			daemon.requestLoop()
 		except Exception, e:
 			import traceback
@@ -66,6 +67,7 @@ class PyroDaemon(Thread):
 			raise
 
 
+tools.config['pyrohost'] = tools.config.get('pyrohost', None)
 tools.config['pyrossl'] = tools.config.get('pyrossl', True)
 tools.config['pyrossl_port'] = tools.config.get('pyrossl_port', 8072)
 try:
@@ -96,7 +98,7 @@ try:
 					settings['PYRO_TRACELEVEL'] = tools.config.get('pyro_tracelevel',0)
 					if tools.config.get('pyro_logfile'):
 						settings['PYRO_LOGFILE'] = tools.config.get('pyro_logfile')
-					pyrod_ssl = PyroDaemon(pyrossl_port, True, settings)
+					pyrod_ssl = PyroDaemon(tools.config['pyrohost'], pyrossl_port, True, settings)
 					pyrod_ssl.start()
 	
 except Exception, e:
@@ -111,7 +113,7 @@ if tools.config['pyro']:
 		pyroport = int(tools.config["pyroport"])
 	except Exception:
 		logger.notifyChannel("init", netsvc.LOG_ERROR, "invalid port '%s'!" % (tools.config["pyroport"]) )
-	pyrod = PyroDaemon(pyroport)
+	pyrod = PyroDaemon(tools.config['pyrohost'], pyroport)
 	pyrod.start()
 
 
