@@ -144,8 +144,8 @@ try:
 except:
 	isPyroAvailable = False
 
+isPyroSslAvailable = False
 if isPyroAvailable:
-	isPyroSslAvailable = False
 	version = Pyro.core.Pyro.constants.VERSION.split('.')
 	if int(version[0]) <= 3 and int(version[1]) <= 10:
 		Debug.info('To use SSL, Pyro must be version 3.10 or higher; Pyro version %s was found.' % Pyro.core.Pyro.constants.VERSION)
