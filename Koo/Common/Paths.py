@@ -1,7 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
-#                    Fabien Pinckaers <fp@tiny.Be>
+#					Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -30,6 +30,7 @@
 import os
 import sys
 import inspect
+from Koo.Common.Settings import Settings
 
 ## @brief This functions searches the given file (optionally adding a subdirectory)
 # in the possible directories it could be found.
@@ -38,6 +39,8 @@ import inspect
 # it easier to find resource files.
 def searchFile(file, subdir=None, extraDir=None):
 	tests = []
+	if Settings.value('koo.custom_ui_dir'):
+		tests += [Settings.value('koo.custom_ui_dir')]
 	if extraDir:
 		tests += [extraDir]
 	if subdir:
@@ -65,8 +68,8 @@ def searchFile(file, subdir=None, extraDir=None):
 
 def uiPath(uiFile, pyFile=None):
 	if not pyFile:
-    		frame = inspect.stack()[1][0]
-		pyFile = frame.f_code.co_filename
+		frame = inspect.stack()[1][0]
+	pyFile = frame.f_code.co_filename
 	extraDir=pyFile and os.path.abspath(os.path.dirname(pyFile) or None)
 	return searchFile(uiFile, 'ui', extraDir)
 

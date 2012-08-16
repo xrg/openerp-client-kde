@@ -485,6 +485,8 @@ class RecordGroup(QObject):
 	## @brief Ensures all records in the group are loaded.
 	def ensureAllLoaded(self):
 		ids = self.unloadedIds()
+		if not ids:
+			return
 		c = Rpc.session.context.copy()
 		c.update( self.context() )
 		c['bin_size'] = True

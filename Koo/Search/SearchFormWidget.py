@@ -463,7 +463,7 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		try:
                         # FIXME search_read
 			ids = Rpc.RpcProxy('ir.filters').search([
-				('user_id','=',Rpc.session.get_uid()),
+				('user_id','in', [Rpc.session.get_uid(), False]),
 				('model_id','=',self.model)
 			], 0, False, False, Rpc.session.context)
 		except Rpc.RpcException, e:
@@ -475,12 +475,13 @@ class SearchFormWidget(AbstractSearchWidget, SearchFormWidgetUi):
 		self.pushSave.show()
 		self.uiStoredFilters.show()
 
-		records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [], Rpc.session.context)
 		self.uiStoredFilters.clear()
 		self.uiStoredFilters.addItem( '' )
-		for record in records:
-			self.uiStoredFilters.addItem( record['name'], record['id'] )
-			self._storedFilters[ record['id'] ] = record
+		if ids:
+			records = Rpc.session.execute('/object', 'execute', 'ir.filters', 'read', ids, [], Rpc.session.context)
+			for record in records:
+				self.uiStoredFilters.addItem( record['name'], record['id'] )
+				self._storedFilters[ record['id'] ] = record
 
 	## @brief Initializes the widget with the appropiate widgets to search.
 	#

@@ -600,32 +600,18 @@ class KooModel(QAbstractItemModel):
 		if group.sortedField and group.sortedField != 'sequence':
 			return False
 		record = self.recordFromIndex( parent )
-		seq = record.value( 'sequence' )
-		seq = seq or 0
-		if group.sortedOrder == Qt.AscendingOrder:
-			increment = -1
-		else:
-			increment = 1
-		seq = seq + increment
 		id = int( str( data.text() ) )
 		movedRecord = self.recordFromIndex( self.indexFromId( id ) )
-		movedRecord.setValue( 'sequence', seq )
 		group.records.remove( movedRecord )
 		group.records.insert( group.records.index(record), movedRecord )
 
 		if group.count():
-			idx = group.indexOfId( id )
-			idx -= 1
-			while idx >= 0: 
-				if increment < 0 and group.records[idx].value('sequence') <= seq:
-					idx -= 1
-					continue
-				if increment > 0 and group.records[idx].value('sequence') >= seq:
-					idx -= 1
-					continue
-				seq = seq + increment
-				group.records[idx].setValue('sequence', seq )
-				idx -= 1
+			for idx in xrange(len(group.records)):
+				if group.sortedOrder is None or group.sortedOrder == Qt.AscendingOrder:
+					seq = idx + 1
+				else:
+					seq = len(group.records) - idx
+				group.records[idx].setValue('sequence', seq)
 		self.reset()
 		return True
 
