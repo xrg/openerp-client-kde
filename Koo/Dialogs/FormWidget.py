@@ -345,7 +345,8 @@ class FormWidget( QWidget, FormWidgetUi ):
 		QMessageBox.information(self, _('Record log'), message)
 
 	def remove(self):
-		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these records?'), 
+                num = len(self.screen.selectedIds())
+		value = QMessageBox.question(self,_('Question'),_('Are you sure you want to remove these %d records?') % num,
                         _("Remove"), _("Keep"))
 		if value == 0:
 			QApplication.setOverrideCursor( Qt.WaitCursor )
