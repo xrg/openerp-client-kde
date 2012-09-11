@@ -43,6 +43,7 @@ from Koo.Common import Debug # TODO
 import logging
 import base64 # FIXME
 import traceback
+import time
 from Koo.Common.safe_eval import safe_eval
 
 from openerp_libclient.rpc import RpcFunction, RpcProxy, RpcCustomProxy
@@ -201,11 +202,11 @@ class _proxy_session(object):
                 context = {}
         #else:
         #       ctx = context.copy()
-        context['uid'] = self.get_uid()
+        cglobals = dict(uid=self.get_uid(), time=time)
         if isinstance(expression, basestring):
             try:
                 expression = expression.replace("'active_id'","active_id")
-                return safe_eval(expression, context)
+                return safe_eval(expression, cglobals, context)
             except Exception, e:
                 self._log.error( "Exception: %s for \"%s\" " %( e, expression))
                 import traceback
