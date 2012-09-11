@@ -64,7 +64,7 @@ class IntegerFieldWidget(AbstractFieldWidget):
 		self.record.setValue(self.name, self.value() )
 
 	def clear(self):
-		self.setText('0')
+		self.setText('')
 
 	def showValue(self):
 		value = self.record.value( self.name )
