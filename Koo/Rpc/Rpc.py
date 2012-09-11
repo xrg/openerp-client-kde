@@ -361,6 +361,7 @@ def login_session(url, dbname):
     if dbname:
         udict['dbname'] = dbname
     udict['notifier'] = KooNotifier()
+    udict['conn_expire'] = True
     client_rpc.openSession(**udict)
     l = client_rpc.login()
     if not l:
