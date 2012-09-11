@@ -36,6 +36,8 @@ from Koo.Common.Settings import Settings
 from Koo.Screen.Screen import Screen
 from Koo.Model.Group import RecordGroup
 
+import logging
+
 (ScreenDialogUi, ScreenDialogBase) = loadUiType( Common.uiPath('screen_dialog.ui') ) 
 
 class ScreenDialog( QDialog, ScreenDialogUi ):
@@ -134,7 +136,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			try:
 				# Using call() because we don't want exception handling
 				res2 = Rpc.session.call('/object', 'execute',
-					'ir.model.data', 'get_rev_ref', self.model, line['id'])
+					('ir.model.data', 'get_rev_ref', self.model, line['id']), notify=False)
 				
 				if res2 and res2[1]:
 					line['str_id'] = ', '.join(res2[1])
@@ -143,7 +145,8 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			except Exception, e:
 				# This can happen, just because old servers don't have
 				# this method.
-				print "Cannot rev ref id:" % e
+				log = logging.getLogger('koo.screen')
+				log.exception("Cannot rev ref id:")
 		
 			for (key,val) in todo:
 				if not key in line:
