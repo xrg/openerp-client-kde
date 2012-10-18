@@ -320,6 +320,7 @@ class ToManyField(QObject, StringField):
 		# a field of the parent appears in the context, and the parent is just being loaded.
 		# This has crashed when switching view of the 'account.invoice.line' one2many field
 		# in 'account.invoice' view.
+		assert isinstance(value, (list, tuple)), "%s: %r" %(type(value), value)
 		group = RecordGroup(resource=self.attrs['relation'], fields={}, parent=record, context=self.context(record, eval=False))
 		group.tomanyfield = self
 		self.connect( group, SIGNAL('modified'), self.groupModified )
