@@ -115,7 +115,7 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 			res = Rpc.session.execute('/object', 'execute', self.model, 'perm_read', [id])
 		else:
 			res = []
-		message = ''
+		message = u''
 		if self.devel_mode:
 			message = "Object: %s\n" %(self.model)
 			message += "Domain: %s\nContext: %s\n" %(self._domain, self._context)
@@ -154,6 +154,6 @@ class ScreenDialog( QDialog, ScreenDialogUi ):
 				if line[key] and key in ('create_uid','write_uid') \
 				    and isinstance(line[key], (tuple, list)):
 					line[key] = line[key][1]
-				message += val + ': ' + str(line[key] or '-') + '\n'
+				message += val + ': ' + unicode(line[key] or '-') + '\n'
 		QMessageBox.information(self, _('Record log'), message)
 
