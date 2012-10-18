@@ -109,7 +109,8 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 				return
 			QApplication.restoreOverrideCursor()
 			if isinstance( result, dict ):
-				screen.close()
+                                if not result.get('nodestroy', False):
+                                        screen.close()
 				datas = {
 					'ids' : [id],
 					'model' : screen.name,
