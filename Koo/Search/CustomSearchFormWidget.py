@@ -30,6 +30,7 @@ from xml.parsers import expat
 
 import sys
 import gettext
+import logging
 
 from SearchWidgetFactory import *
 from AbstractSearchWidget import *
@@ -39,6 +40,7 @@ from Koo.Common import Calendar
 from Koo.Common import Numeric
 from Koo.Common.Ui import *
 from Koo import Rpc
+from Koo.Common.safe_eval import safe_eval
 
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -191,12 +193,19 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 
 		fieldType = self.fields[fieldName].get('type')
 
+                if fieldType == 'free':
+                        self.uiRelatedField.clear()
+                        self.uiRelatedField.setVisible( False )
+                        self.uiOperator.setVisible(False)
+                        return
+
+                self.uiOperator.setVisible(True)
 		if fieldType in self.typeRelated:
 			self.uiRelatedField.setVisible( True )
 			self.uiRelatedField.setCurrentIndex( 0 )
 			model = self.fields[fieldName].get('relation')
 			if model:
-				view = Rpc.session.execute('/object', 'execute', model, 'fields_view_get', False, 'form', Rpc.session.context)
+				view = Rpc.RpcProxy(model).fields_view_get(False, 'form', Rpc.session.context)
 				self.relatedFields = view['fields']
 			else:
 				self.relatedFields = {}
@@ -315,72 +324,88 @@ class CustomSearchItemWidget(AbstractSearchWidget, CustomSearchItemWidgetUi):
 	def value(self):
 		if not self.uiField.currentIndex():
 			return []
-		if not self.uiOperator.currentIndex():
+                fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
+                fieldType = self.fields[fieldName].get('type')
+
+                if self.isOrSelected():
+                        condition = '|'
+                else:
+                        condition = '&'
+
+		if (fieldName != '*' ) and not self.uiOperator.currentIndex():
 			self.setValid( False )
 			return []
-		self.setValid( True )
-		fieldName = unicode( self.uiField.itemData( self.uiField.currentIndex() ).toString() )
-		relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
-		operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
-		value = unicode( self.uiValue.text() )
-		fieldType = self.fields[fieldName].get('type')
 		
-		if operator in ('in', 'not in'):
-			text = []
-			newValue = []
-			for item in value.split(','):
-				data = self.correctValue( item.strip(), fieldName, relatedFieldName )
-				newValue.append( data[0] )
-				text.append( data[1] )
-			value = newValue
-			text = ', '.join( text )
+		value = unicode( self.uiValue.text() )
+    
+                if fieldType == 'free':
+                    try:
+                        expr = safe_eval(value,{})
+                        if not isinstance(expr, list):
+                            raise ValueError
+                        self.setValid(True)
+                        return [condition] + expr
+                    except Exception:
+                        logging.getLogger('koo.search.custom').exception("Cannot parse expression:")
+                        self.setValid(False)
+                        return []
+                else:
+                    self.setValid( True )
+                    operator = unicode( self.uiOperator.itemData( self.uiOperator.currentIndex() ).toString() )
+                    relatedFieldName = unicode( self.uiRelatedField.itemData( self.uiRelatedField.currentIndex() ).toString() )
 
-			newValue = []
-			for item in value:
-				if isinstance(item, list):
-					newValue += [x for x in item]
-				else:
-					newValue.append( item )
-			value = newValue
-		elif operator == 'is empty':
-			operator = '='
-			value = False
-			text = ''
-		elif operator == 'is not empty':
-			operator = '!='
-			value = False
-			text = ''
-		else:
-			(value, text) = self.correctValue( value, fieldName, relatedFieldName )
+                    if operator in ('in', 'not in'):
+                            text = []
+                            newValue = []
+                            for item in value.split(','):
+                                    data = self.correctValue( item.strip(), fieldName, relatedFieldName )
+                                    newValue.append( data[0] )
+                                    text.append( data[1] )
+                            value = newValue
+                            text = ', '.join( text )
 
-		if operator == 'starts_with':
-			operator = '=ilike'
-			value = value + '%'
-		elif operator == 'ends_with':
-			operator = '=ilike'
-			value = '%' + value
+                            newValue = []
+                            for item in value:
+                                    if isinstance(item, list):
+                                            newValue += [x for x in item]
+                                    else:
+                                            newValue.append( item )
+                            value = newValue
+                    elif operator == 'is empty':
+                            operator = '='
+                            value = False
+                            text = ''
+                    elif operator == 'is not empty':
+                            operator = '!='
+                            value = False
+                            text = ''
+                    else:
+                            (value, text) = self.correctValue( value, fieldName, relatedFieldName )
 
-		if fieldType == 'user':
-			data = Rpc.session.execute('/object','execute','res.users','name_search',value)
-			if data:
-				value = data[0][0]
-				text = data[0][1]
-			else:
-				value = False
-				text = ''
+                    if operator == 'starts_with':
+                            operator = '=ilike'
+                            value = value + '%'
+                    elif operator == 'ends_with':
+                            operator = '=ilike'
+                            value = '%' + value
 
-		self.uiValue.setText( text )
+                    if fieldType == 'user':
+                            data = Rpc.RpcProxy('res.users').name_search(value)
+                            if data:
+                                    value = data[0][0]
+                                    text = data[0][1]
+                            else:
+                                    value = False
+                                    text = ''
 
-		if self.isOrSelected():
-			condition = '|'
-		else:
-			condition = '&'
+                    self.uiValue.setText( text )
 
-		if relatedFieldName:
-			queryFieldName = '%s.%s' % (fieldName, relatedFieldName)
-		else:
-			queryFieldName = fieldName
-		return [condition,(queryFieldName, operator, value)]
+
+                    if relatedFieldName:
+                            queryFieldName = '%s.%s' % (fieldName, relatedFieldName)
+                    else:
+                            queryFieldName = fieldName
+                    return [condition,(queryFieldName, operator, value)]
 
 	def setValue(self, domainItem):
 		field = domainItem[0]
@@ -515,6 +540,10 @@ class CustomSearchFormWidget(AbstractSearchWidget):
 			'type': 'datetime',
 			'string': _('( Last Modification Date )'),
 		}
+		self.fields['*'] = {
+                        'type': 'free',
+                        'string': _("( Domain Expression )"),
+                }
 		self.insertItem()
 
 		#for x in domain:
