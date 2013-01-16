@@ -3,6 +3,7 @@
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2011-2013 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -27,8 +28,7 @@
 #
 ##############################################################################
 
-import os, time, base64, datetime
-import copy
+import time
 
 from Koo import Rpc
 
@@ -175,17 +175,17 @@ def executeAction(action, datas, context=None):
 			action['domain']='[]'
 
 		try:
+                    ctx_string = action.get('context','{}')
+                    if ctx_string and ctx_string != '{}':
 			# only at this type of action ?
-			ctx.update(Rpc.session.evaluateExpression(action.get('context','{}'), ctx.copy()) )
-			log.debug('context for execAction 2: %r' % ctx)
+			ctx.update(Rpc.session.evaluateExpression(ctx_string, ctx.copy()))
 		except NameError,e:
 			log.warn("Cannot evaluate context: %s" % e)
+			log.debug('context for execAction 2: %r' % ctx)
 			pass # ?
-
-		a = ctx.copy()
-		a['time'] = time
-		a['datetime'] = datetime
-		domain = Rpc.session.evaluateExpression(action['domain'], a)
+                
+                # we don't expect ctx to be modified inside that eval!
+		domain = Rpc.session.evaluateExpression(action['domain'], ctx)
 
 		if datas.get('domain', False):
 			domain.append(datas['domain'])
