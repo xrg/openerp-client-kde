@@ -2,7 +2,7 @@
 #
 # Copyright (c) 2004-2006 TINY SPRL. (http://tiny.be) All Rights Reserved.
 # Copyright (c) 2007-2010 Albert Cervera i Areny <albert@nan-tic.com>
-# Copyright (c) 2010-2011 P. Christeas <xrg@linux.gr>
+# Copyright (c) 2010-2013 P. Christeas <xrg@linux.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -44,17 +44,27 @@ import logging
 import base64 # FIXME
 import traceback
 import time
+import datetime
+from dateutil.relativedelta import relativedelta
 from Koo.Common.safe_eval import safe_eval
 
 from openerp_libclient.rpc import RpcFunction, RpcProxy, RpcCustomProxy
 from openerp_libclient.session import Session
 from openerp_libclient import rpc as client_rpc
+from openerp_libclient.date_eval import date_eval as libcli_date_eval
 from openerp_libclient.interface import RPCNotifier
 from openerp_libclient.errors import RpcException, RpcNetworkException, RpcProtocolException, RpcServerException
 
 ConcurrencyCheckField = '__last_update'
 
+def _date_eval(rstr):
+    return libcli_date_eval(rstr).strftime('%Y-%m-%d')
 
+def _datetime_eval(rstr):
+    return libcli_date_eval(rstr).strftime('%Y-%m-%d %H:%M:%S')
+
+def _time_eval(rstr):
+    return libcli_date_eval(rstr).strftime('%H:%M:%S')
 
 class AsynchronousSessionCall(QThread):
 	def __init__(self, session, parent=None):
@@ -202,7 +212,9 @@ class _proxy_session(object):
                 context = {}
         #else:
         #       ctx = context.copy()
-        cglobals = dict(uid=self.get_uid(), time=time)
+        cglobals = dict(uid=self.get_uid(), time=time, datetime=datetime, \
+                relativedelta=relativedelta, \
+                date_eval=_date_eval, time_eval=_time_eval, datetime_eval=_datetime_eval)
         if isinstance(expression, basestring):
             try:
                 expression = expression.replace("'active_id'","active_id")
