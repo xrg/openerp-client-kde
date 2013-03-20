@@ -52,7 +52,7 @@ class ActionFieldWidget(AbstractFieldWidget, ActionFieldWidgetUi):
 		self.act_id=attrs['name']
 		res = Rpc.session.execute('/object', 'execute', 'ir.actions.actions', 'read', [self.act_id], ['type'], Rpc.session.context)
 		if not res:
-			raise Exception, 'ActionNotFound'
+			raise IndexError('ActionNotFound: ir.actions.actions #%s' % self.act_id)
 		type=res[0]['type']
 
 		
