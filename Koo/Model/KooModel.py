@@ -1,6 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (C) 2011-2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -351,6 +352,7 @@ class KooModel(QAbstractItemModel):
 		return True
 
 	def data(self, index, role=Qt.DisplayRole ):
+                # Note: keep this function optimal! It is called all the time.
 		if not self.group:
 			return QVariant()
 		if role in (Qt.DisplayRole, Qt.EditRole) or (self._showToolTips and role == Qt.ToolTipRole):
@@ -435,7 +437,7 @@ class KooModel(QAbstractItemModel):
 			elif 'readonly' in field and field['readonly']:
 				color = 'lightgrey'
 			elif 'required' in field and field['required']:
-				color = '#ddddff'	
+				color = '#ddddff'
 			else:
 				color = 'white'
 			return QVariant( QBrush( QColor( color ) ) )
