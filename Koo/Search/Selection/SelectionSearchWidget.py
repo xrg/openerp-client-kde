@@ -49,7 +49,7 @@ class SelectionSearchWidget(AbstractSearchWidget):
 		# The first is a blank element
 		self.uiCombo.addItem( '' )
 		for (id,name) in selection:
-			self.uiCombo.addItem( name, QVariant(id) )
+                    self.uiCombo.addItem( name or '', QVariant(id) )
 
 	def value( self ):
 		value = self.uiCombo.itemData( self.uiCombo.currentIndex() )
