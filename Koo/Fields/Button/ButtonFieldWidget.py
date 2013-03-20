@@ -121,7 +121,10 @@ class ButtonFieldWidget( AbstractFieldWidget ):
 
 		elif type == 'action':
 			action_id = int(self.attrs['name'])
-			Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
+			ctx = screen.context
+			if 'context' in self.attrs:
+                            ctx = self.record.evaluateExpression(self.attrs['context'])
+			Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=ctx)
 		else:
 			Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
 
@@ -286,7 +289,10 @@ class ButtonFieldDelegate( AbstractFieldDelegate ):
 
 		elif type == 'action':
 			action_id = int(self.attributes['name'])
-			Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=screen.context )
+                        ctx = screen.context
+                        if 'context' in self.attributes:
+                            ctx = record.evaluateExpression(self.attributes['context'])
+			Api.instance.execute( action_id, {'model':screen.name, 'id': id, 'ids': [id]}, context=ctx )
 		else:
 			Notifier.notifyError( _('Error in Button'), _('Button type not allowed'), _('Button type not allowed') )
 
