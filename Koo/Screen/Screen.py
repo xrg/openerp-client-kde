@@ -570,7 +570,11 @@ class Screen(QScrollArea):
 							attrs['widget']='one2many'
 						attrs['type'] = attrs['widget']
 					try:
-						fields[attrs['name']].update(attrs)
+                                                flds = fields[attrs['name']]
+                                                wt = flds.get('type', None)
+						flds.update(attrs)
+						if wt is not None:
+                                                    flds['type'] = wt # restore the original
 					except Exception:
                                                 self._log.exception("malformed tag for :", attrs)
 						raise

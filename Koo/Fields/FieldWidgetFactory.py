@@ -1,6 +1,7 @@
 ##############################################################################
 #
 # Copyright (c) 2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2009-2013 P.Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -53,12 +54,16 @@ class FieldWidgetFactory:
 		if widgetType == 'selection' and 'relation' in attributes:
 			widgetType = 'many2one'
 
-		if not widgetType in FieldWidgetFactory.widgets:
+                widgetClass = None
+                if attributes.get('widget', False):
+                    widgetClass = FieldWidgetFactory.widgets.get(attributes.get('widget'), None)
+                if not widgetClass:
+                    widgetClass = FieldWidgetFactory.widgets.get(widgetType, None)
+		if not widgetClass:
                         logging.getLogger('Koo.Fields.WidgetFactory').\
                                 warning("Widget '%s' not available", widgetType)
 			return None
 
-		widgetClass = FieldWidgetFactory.widgets[ widgetType ]
 		return widgetClass(parent, view, attributes)
 
 	## @brief Registers a new widget, given it's name (or type) and reference

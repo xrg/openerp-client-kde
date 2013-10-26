@@ -221,12 +221,11 @@ class FormParser(AbstractParser):
 				if not self.isWidgetVisible( attrs ):
 					continue
 				name = attrs.pop('name')
-				type = attrs.get('widget', fields[name]['type'])
 				fields[name].update(attrs)
 				fields[name]['model'] = self.viewModel
 
 				# Create the appropiate widget for the given field type
-				widget = FieldWidgetFactory.create( type, container, self.view, fields[name] )
+				widget = FieldWidgetFactory.create(fields[name]['type'], container, self.view, fields[name] )
 				if not widget:
 					continue
 
