@@ -210,7 +210,7 @@ class ManyToOneFieldWidget(AbstractFieldWidget, ManyToOneFieldWidgetUi):
 					if not self.isReadOnly():
 						if dialog.record and dialog.record[0] == self.record.get()[self.name]:
 							self.record.setValue(self.name, False)
-						self.record.setValue(self.name, dialog.record)
+                                                self.record.setValue(self.name, dialog.record)
 						self.display()
 		else:
 			text = unicode( self.uiText.text() )

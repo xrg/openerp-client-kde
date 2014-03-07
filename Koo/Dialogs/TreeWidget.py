@@ -3,6 +3,7 @@
 # Copyright (c) 2004 TINY SPRL. (http://tiny.be) All Rights Reserved.
 #                    Fabien Pinckaers <fp@tiny.Be>
 # Copyright (c) 2007-2008 Albert Cervera i Areny <albert@nan-tic.com>
+# Copyright (c) 2011-2012 P. Christeas <xrg@hellug.gr>
 #
 # WARNING: This program as such is intended to be used by professional
 # programmers who take the whole responsability of assessing all potential
@@ -86,8 +87,9 @@ class TreeParser:
 
 (TreeWidgetUi, TreeWidgetBase) = loadUiType( Common.uiPath('tree.ui') )
 
-## @brief The TreeWidget class shows main menu tree as well as other tree views.
-class TreeWidget( QWidget, TreeWidgetUi ): 
+class TreeWidget( QWidget, TreeWidgetUi ):
+        """The TreeWidget class shows main menu tree as well as other tree views.
+        """
 	def __init__( self, view, model, domain=None, context=None, name=False, parent=None ):
 		QWidget.__init__(self,parent)
 		TreeWidgetUi.__init__(self)
@@ -149,7 +151,7 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 		self.listModel.setIconForField( 'icon', 'name' )
 		self.listModel.setShowBackgroundColor( False )
 
-		self.group = RecordGroup( self.model, self.fields, context = self.context )
+                self.group = RecordGroup( self.model, self.fields, context = self.context )
 		self.group.setDomain( domain )
 		if self.toolbar:
 			self.listModel.setRecordGroup( self.group )

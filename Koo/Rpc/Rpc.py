@@ -245,7 +245,6 @@ def _url2conndict(url):
             user=Url.decodeFromUrl(unicode(qurl.userName())),
             passwd=Url.decodeFromUrl(unicode(qurl.password())))
     if qurl.path():
-        print "path", qurl.path()
         ret['dbname']=str(qurl.path().split('/',1)[0])
     return ret
     
