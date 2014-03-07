@@ -55,6 +55,9 @@ class SpellCheckHighlighter(QSyntaxHighlighter):
 		except enchant.DictNotFoundError: 
 			self._checker = None
 			Debug.info(_('SpellChecking: No dictionary available for language "%s"') % self._language)
+                except enchant.TokenizerNotFoundError:
+                        self._checker = None
+                        Debug.info(_('SpellChecking: No tokenizer available for language "%s"') % self._language)
 
 		self._format = QTextCharFormat()
 		self._format.setUnderlineColor(QColor(Qt.red));
