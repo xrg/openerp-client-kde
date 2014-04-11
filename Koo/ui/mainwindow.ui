@@ -361,6 +361,8 @@
     <addaction name="separator"/>
     <addaction name="actionDelete"/>
     <addaction name="separator"/>
+    <addaction name="actionOtherAction"/>
+    <addaction name="separator"/>
     <addaction name="actionBatchInsert"/>
     <addaction name="actionBatchUpdate"/>
     <addaction name="actionBatchUpdateField"/>
@@ -764,6 +766,18 @@
    </property>
    <property name="text">
     <string>&amp;Execute Plugins</string>
+   </property>
+  </action>
+  <action name="actionOtherAction">
+   <property name="icon">
+    <iconset resource="common.qrc">
+     <normaloff>:/images/exec.png</normaloff>:/images/exec.png</iconset>
+   </property>
+   <property name="text">
+    <string>Other Actions</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Enter</string>
    </property>
   </action>
   <action name="actionContextualHelp">

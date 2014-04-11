@@ -293,11 +293,21 @@ class TreeWidget( QWidget, TreeWidgetUi ):
 	def printHtmlCurrent(self):
 		self.executeAction(keyword='client_print_multi')
 
+        def otherAction(self):
+                self.executeAction()
+
 	def executeAction(self, keyword='tree_but_action', id=None, fourth_arg=False, report_type='pdf'):
 		assert not fourth_arg  # Any remaining calls that pass context there should be eliminated
+		ids = []
+		if id is None:
+                    id = self.treeModel.id( self.uiTree.currentIndex() )
+                    ids = self.treeModel.recordGroup().ids()
+                elif id:
+                    ids = [id,]
+
 		if id:
 			assert isinstance(report_type, str), "%s: %s"  %(type(report_type), report_type)
-			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': [id,]}, self.context)
+			Api.instance.executeKeyword(keyword, {'model':self.model, 'id':id, 'report_type':report_type, 'ids': ids}, self.context)
 		else:
 			QMessageBox.information( self, _('Information'), _('No resource selected!'))
 
