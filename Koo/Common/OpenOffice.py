@@ -21,6 +21,7 @@
 
 import sys
 try:
+        raise Exception
 	import uno, unohelper
 	from com.sun.star.connection import NoConnectException
 	from com.sun.star.beans import PropertyValue
