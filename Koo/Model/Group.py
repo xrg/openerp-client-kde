@@ -81,7 +81,7 @@ class RecordGroup(QObject):
 	# @param ids Record identifiers to load in the group.
 	# @param parent Only used if this RecordGroup serves as a relation to another model. Otherwise it's None.
 	# @param context Context for RPC calls.
-	def __init__(self, resource, fields = None, ids=None, parent=None, context=None):
+	def __init__(self, resource, fields = None, ids=None, parent=None, context=None, do_load=True):
 		QObject.__init__(self)
 		if ids is None:
 			ids = []
@@ -120,15 +120,15 @@ class RecordGroup(QObject):
 		self._domain = []
 		self._filter = []
 
-		if Settings.value('koo.sort_mode') == 'visible_items':
-			self._sortMode = self.SortVisibleItems
-		else:
-			self._sortMode = self.SortAllItems
 		self._sortMode = self.SortAllItems
 
 		self._allFieldsLoaded = False
 
-		self.load(ids)
+                assert not ids, ids
+                if do_load:
+                    self.load(ids)
+                else:
+                    self.updated = True
 		self.removedRecords = []
 		self._onWriteFunction = ''
 

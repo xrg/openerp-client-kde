@@ -87,11 +87,7 @@ class Record(QObject):
 		self.modified_fields = None
 		self.parent = None
 		self.setParent( None )
-		for key, value in self.values.iteritems():
-			from Group import RecordGroup
-			if isinstance(value, RecordGroup):
-				#value.parent.fieldObjects[key].disconnect( SIGNAL('modified'), value )
-				value.__del__()
+		del self.values
 		self.values = {}
 		self.invalidFields = []
 		self.group = None
@@ -239,8 +235,6 @@ class Record(QObject):
 			# The record may not have all the fields the group has. 
 			# This is because there may have been a switch view to a form
 			# but not for this record.
-			if not name in self.values:
-				continue
 			if not name in self.values:
 				continue
 			if (get_readonly or not self.isFieldReadOnly(name)) \
@@ -426,12 +420,12 @@ class Record(QObject):
 		if checkLoad:
 			self.ensureIsLoaded()
 		d = {}
-		for name in self.values:
+		for name in self.group.fields:
 		    try:
 			d[name] = self.group.fieldObjects[name].get(self, checkLoad=checkLoad)
 			continue
 		        # means we will skip the name
-		    except Exception:
+		    except Exception, e:
 			if not checkLoad:
 			    continue
 			if not firstTry:
@@ -439,7 +433,7 @@ class Record(QObject):
 		    self.group.ensureModelLoaded( self )
 		    try: #second
 			d[name] = self.group.fieldObjects[name].get(self, checkLoad=False)
-		    except Exception:
+		    except Exception, e:
 			pass
 
 		d['current_date'] = time.strftime('%Y-%m-%d')
