@@ -26,6 +26,7 @@
 ##############################################################################
 
 import locale
+import re
 
 ## @brief This function converts a string into an integer allowing
 #  operations (+, -, /, *).
@@ -39,7 +40,7 @@ def textToInteger(text):
 	text = text.replace(',', '.')
 	try:
 		return int(eval(text))
-	except:
+	except Exception,e:
 		return False
 
 ## @brief This function converts a string into a float allowing
@@ -47,24 +48,33 @@ def textToInteger(text):
 #  
 #  The formula is calculated and the output is returned by 
 #  the function. 
+_us_number_re = re.compile(r'^(\-?[\d]+(?:,[\d]{3})*)(\.[\d]+)?([eE]\-?(?:\d+))?$')
+_fr_number_re = re.compile(r'^(\-?[\d]+(?:\.[\d]{3})*)(\,[\d]+)?([eE]\-?(?:\d+))?$')
+
+# note that there is still ambiguity between us (digit == '.') and french (digit == ',')
+# representation: '123.123' could be interpreted as 123 + 123/1000 (us) 
+# or 123k + 123 (fr)
+
 def textToFloat(text):
+        if _us_number_re.match(text):
+            if ',' in text:
+                text = text.replace(',', '')
+                return float(text)
+        elif _fr_number_re.match(text):
+            if '.' in text:
+                text = text.replace('.', '')
+            text = text.replace(',', '.')
+            return float(text)
+        
+        # else, it might be a formula expression
 	chars = ['+', '-', '/', '*', '.', '(', ')', ',']
 	chars = chars + [str(x) for x in range(10)]
 	newtext = text.replace(',', '.')
 	value = False
 	try:
 		value = float(eval(newtext))
-	except:
-		if '.' in text and ',' in text:
-			if text.rindex('.') > text.rindex(','):
-				newtext = text.replace(',','')
-			else:
-				newtext = text.replace('.','')
-			newtext = newtext.replace(',','.')
-			try:
-				value = float(newtext)
-			except:
-				pass
+	except Exception, e:
+                pass
 	return value
 
 ## @brief This function converts a float into text. By default the number
