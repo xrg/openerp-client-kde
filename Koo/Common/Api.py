@@ -46,7 +46,8 @@ class KooApi:
 
 	## @brief Opens a new window (a new tab with Koo application) with the given model.
 	def createWindow(self, view_ids, model, res_id=False, domain=None, 
-			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False, 
+			view_type='form', window=None, context=None, mode=None, name=False, autoReload=False,
+			autoSearch=True,
 			target='current'):
 		pass
 

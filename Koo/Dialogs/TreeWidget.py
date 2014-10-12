@@ -90,7 +90,8 @@ class TreeParser:
 class TreeWidget( QWidget, TreeWidgetUi ):
         """The TreeWidget class shows main menu tree as well as other tree views.
         """
-	def __init__( self, view, model, domain=None, context=None, name=False, parent=None ):
+	def __init__( self, view, model, domain=None, context=None, name=False,
+                    parent=None, autoSearch=True):
 		QWidget.__init__(self,parent)
 		TreeWidgetUi.__init__(self)
 		self.setupUi( self )

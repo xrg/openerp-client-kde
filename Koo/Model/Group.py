@@ -781,7 +781,8 @@ class RecordGroup(QObject):
 		sorted = False
 		sortingResult = self.SortingPossible
 
-		if self._domain + self._filter == [('id','in',[])]:
+                active_domain = self._domain + self._filter
+		if active_domain and active_domain[-1] == ('id','in',[]):
 			# If setDomainForEmptyGroup() was called, or simply the domain
 			# included no tuples, we don't even need to query the server.
 			# Note that this may be quite important in some wizards because
@@ -791,7 +792,7 @@ class RecordGroup(QObject):
 		elif not field in self.fields.keys():
 			# If the field doesn't exist use default sorting. Usually this will
 			# happen when we update and haven't selected a field to sort by.
-			ids = self.rpc.search( self._domain + self._filter, 0, False, False, self._context )
+			ids = self.rpc.search( active_domain, 0, False, False, self._context )
 		else:
 			type = self.fields[field]['type']
 			if type == 'one2many' or type == 'many2many':
@@ -835,7 +836,7 @@ class RecordGroup(QObject):
 				try:
 					# Use call to catch exceptions
 					ids = Rpc.RpcProxy(self.resource, notify=False).\
-                                                search(self._domain + self._filter, 0, 0, orderby, self._context )
+                                                search(active_domain, 0, 0, orderby, self._context )
 				except Exception:
 					# In functional fields not stored in the database this will
 					# cause an exception :(
@@ -850,7 +851,7 @@ class RecordGroup(QObject):
 			# so we might need to reload in this case. 
 			# If sorting is not possible, but no data was loaded yet, we load by model default field and order.
 			# Otherwise, a view might not load any data.
-			ids = self.rpc.search(self._domain + self._filter, 0, 0, False, self._context )
+			ids = self.rpc.search(active_domain, 0, 0, False, self._context )
 			self.clear()
 			# The load function will be in charge of loading and sorting elements
 			self.load( ids )

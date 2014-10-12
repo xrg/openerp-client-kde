@@ -38,14 +38,15 @@ from Koo import Rpc
 
 
 def createWindow(view_ids, model, res_id=False, domain=None,
-		view_type='form', window=None, context=None, mode=None, name=False, autoReload=False, target='current'):
+		view_type='form', window=None, context=None, mode=None, name=False,
+		autoReload=False, autoSearch=True, target='current'):
 
 	import logging
 	log = logging.getLogger('view')
 	if context is None:
 		context = {}
 	context.update(Rpc.session.context)
-	log.debug("Creating a %s window"%view_type)
+	log.debug("Creating a %s window", view_type)
 
 	if view_type=='form':
 		QApplication.setOverrideCursor( Qt.WaitCursor )
@@ -53,7 +54,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 		try:
 			widget = FormWidget(model, res_id, domain, view_type=mode,
 					view_ids = (view_ids or []), 
-					context=context, name=name )
+					context=context, name=name, autoSearch=autoSearch)
 		except Rpc.RpcException, e:
 			QApplication.restoreOverrideCursor()
 			return
@@ -76,7 +77,7 @@ def createWindow(view_ids, model, res_id=False, domain=None,
 			else:
 				view = Rpc.session.execute('/object', 'execute', model,
 						'fields_view_get', False, view_type, context)
-			win = TreeWidget(view, model, domain, context, name=name)
+			win = TreeWidget(view, model, domain, context, name=name, autoSearch=autoSearch)
 		except Rpc.RpcException, e:
 			QApplication.restoreOverrideCursor()
 			return

@@ -62,7 +62,9 @@ class FormWidget( QWidget, FormWidgetUi ):
 	# context -> Context for the current data set
 	# parent -> Parent widget of the form
 	# name -> User visible title of the form
-	def __init__(self, model, res_id=False, domain=None, view_type=None, view_ids=None, context=None, parent=None, name=False):
+	def __init__(self, model, res_id=False, domain=None,
+                    view_type=None, view_ids=None, context=None,
+                    parent=None, name=False, autoSearch=True):
 		QWidget.__init__(self,parent)
 		FormWidgetUi.__init__(self)
 		self.setupUi( self )
@@ -138,6 +140,11 @@ class FormWidget( QWidget, FormWidgetUi ):
 
 		# Remove ids with False value
 		self.screen.setupViews( view_type, view_ids )
+
+                if not autoSearch:
+                    # append "blocker" filter so that records are
+                    # not automatically fetched
+                    self.group.setFilter([('id','in',[])])
 
 		if name:
 			self.name = name

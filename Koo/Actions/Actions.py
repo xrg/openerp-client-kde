@@ -157,8 +157,8 @@ def executeAction(action, datas, context=None):
 	log.debug('context for execAction (server): %r' % ctx)
 	
 	if action['type']=='ir.actions.act_window':
-		for key in ('res_id', 'res_model', 'view_type', 'view_mode',
-				'limit', 'auto_refresh'):
+                for key in ('res_id', 'res_model', 'view_type', 'view_mode',
+				'limit', 'auto_refresh', 'auto_search'):
 			datas[key] = action.get(key, datas.get(key, None))
 
 		if datas['limit'] is None or datas['limit'] == 0:
@@ -195,7 +195,8 @@ def executeAction(action, datas, context=None):
 			target = 'current'
 		Api.instance.createWindow( view_ids, datas['res_model'], datas['res_id'], domain,
 			action['view_type'], datas.get('window',None), ctx,
-			datas['view_mode'], name=action.get('name', False), autoReload=datas['auto_refresh'], 
+			datas['view_mode'], name=action.get('name', False),
+			autoSearch=datas.get('auto_search', True), autoReload=datas['auto_refresh'],
 			target=target )
 
 		#for key in tools.expr_eval(action.get('context', '{}')).keys():
